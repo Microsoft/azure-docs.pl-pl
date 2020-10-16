@@ -3,15 +3,15 @@ title: Rozwiązywanie problemów z połączeniem usługi Windows Virtual Desktop
 description: Jak rozwiązywać problemy podczas konfigurowania połączeń usług w środowisku dzierżawy usług pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089908"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108953"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Połączenia usługi pulpitu wirtualnego systemu Windows
 
@@ -45,6 +45,13 @@ Użytkownik może uruchomić Pulpit zdalny klientów i może się uwierzytelnić
 Ten błąd jest zwykle wyświetlany po przeniesieniu przez użytkownika subskrypcji z jednej dzierżawy usługi Azure AD do innej. W związku z tym usługa utraci śledzenie swoich przypisań użytkowników, ponieważ są one nadal powiązane z poprzednią dzierżawą usługi Azure AD.
 
 Aby rozwiązać ten problem, wystarczy zmienić przypisanie użytkowników do grup aplikacji.
+
+Przyczyną może być również, że dostawca CSP utworzył subskrypcję, a następnie przeniósł ją do klienta. Aby rozwiązać ten problem, należy ponownie zarejestrować dostawcę zasobów.
+
+1. Zaloguj się do Portalu Azure.
+2. Przejdź do **subskrypcji**, a następnie wybierz swoją subskrypcję.
+3. W menu po lewej stronie strony wybierz pozycję **dostawca zasobów**.
+4. Znajdź i wybierz pozycję **Microsoft. DesktopVirtualization**, a następnie wybierz pozycję **zarejestruj ponownie**.
 
 ## <a name="next-steps"></a>Następne kroki
 

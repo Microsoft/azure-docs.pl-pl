@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6e34e0ef9035882a32ff46222686db4a948d7997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85957464"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107474"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Możliwości renderowania Azure Batch
 
@@ -30,8 +30,8 @@ Aby zapoznać się z przykładową konfiguracją puli, zobacz [samouczek rendero
 
 | Publisher | Oferta | SKU | Wersja |
 |---------|---------|---------|--------|
-| partia | Renderowanie — centos73 | dawania | najnowsza |
-| partia | Renderowanie — windows2016 | dawania | najnowsza |
+| partia | Renderowanie — centos73 | dawania | latest |
+| partia | Renderowanie — windows2016 | dawania | latest |
 
 Inne opcje są dostępne, jeśli na maszynach wirtualnych puli są wymagane dodatkowe aplikacje:
 
@@ -75,7 +75,7 @@ Wiersz polecenia Arnold 2017|kick.exe|ARNOLD_2017_EXEC|
 
 Podobnie jak w przypadku innych obciążeń, renderowanie wymagań systemowych aplikacji jest różne i wymagania dotyczące wydajności różnią się w zależności od zadań i projektów.  Na platformie Azure dostępne są duże różne rodziny maszyn wirtualnych, w zależności od wymagań — najniższy koszt, Najlepsza cena/wydajność, Najlepsza wydajność i tak dalej.
 Niektóre aplikacje do renderowania, takie jak Arnold, są oparte na procesorach CPU; inne, takie jak cykle V-Ray i Blender, mogą korzystać z procesorów CPU i/lub GPU.
-Aby uzyskać opis dostępnych rodzin maszyn wirtualnych i rozmiarów maszyn wirtualnych, [Zobacz typy i rozmiary maszyn wirtualnych](../virtual-machines/windows/sizes.md).
+Aby uzyskać opis dostępnych rodzin maszyn wirtualnych i rozmiarów maszyn wirtualnych, [Zobacz typy i rozmiary maszyn wirtualnych](../virtual-machines/sizes.md).
 
 ### <a name="low-priority-vms"></a>Maszyny wirtualne o niskim priorytecie
 

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: d10b1811257e14238cb04a79ff184cee57aab471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b1bbe7f632d8101dbff02a31092f06c7b644ece
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88189949"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108324"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dla programu Hive w usłudze HDInsight i Azure Data Lake Storage Gen1
 
@@ -22,8 +22,8 @@ Ustawienia domyślne zostały skonfigurowane w taki sposób, aby zapewnić dobr�
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto Data Lake Storage Gen1**. Aby uzyskać instrukcje dotyczące sposobu tworzenia takiego elementu, zobacz Wprowadzenie [do Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Klaster usługi Azure HDInsight** z dostępem do konta Data Lake Storage Gen1. Zobacz [Tworzenie klastra usługi HDInsight przy użyciu Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Upewnij się, że Pulpit zdalny dla klastra są włączone.
-* **Uruchamianie programu Hive w usłudze HDInsight**.  Aby dowiedzieć się więcej na temat uruchamiania zadań Hive w usłudze HDInsight, zobacz [Korzystanie z usługi Hive w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Wskazówki dotyczące dostrajania wydajności na Data Lake Storage Gen1**.  Ogólne pojęcia dotyczące wydajności znajdują się w temacie [Data Lake Storage Gen1 wskazówki dotyczące dostrajania wydajności](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Uruchamianie programu Hive w usłudze HDInsight**.  Aby dowiedzieć się więcej na temat uruchamiania zadań Hive w usłudze HDInsight, zobacz [Korzystanie z usługi Hive w usłudze HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md)
+* **Wskazówki dotyczące dostrajania wydajności na Data Lake Storage Gen1**.  Ogólne pojęcia dotyczące wydajności znajdują się w temacie [Data Lake Storage Gen1 wskazówki dotyczące dostrajania wydajności](./data-lake-store-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parametry
 
@@ -49,7 +49,7 @@ Poniżej przedstawiono najważniejsze ustawienia, które należy dostosować w c
 
 **Ustaw hive.exec. redukować. Bytes. per. zredukować** — wartość domyślna działa prawidłowo, gdy dane są nieskompresowane.  W przypadku skompresowanych danych należy zmniejszyć rozmiar tego ograniczenia.  
 
-**Ustaw gałąź. tez. Container. size** — w każdym węźle pamięć jest określana przez przędzę. nodemanager. Resource. Memory-MB i powinna być prawidłowo ustawiona w klastrze HDI domyślnie.  Aby uzyskać dodatkowe informacje na temat ustawiania odpowiedniej pamięci w ramach PRZĘDZy, zobacz ten [wpis](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Ustaw gałąź. tez. Container. size** — w każdym węźle pamięć jest określana przez przędzę. nodemanager. Resource. Memory-MB i powinna być prawidłowo ustawiona w klastrze HDI domyślnie.  Aby uzyskać dodatkowe informacje na temat ustawiania odpowiedniej pamięci w ramach PRZĘDZy, zobacz ten [wpis](../hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom.md).
 
 Obciążenia intensywnie korzystające z operacji we/wy mogą korzystać z większej liczby równoległości, zmniejszając rozmiar kontenera tez. Dzięki temu użytkownik ma więcej kontenerów, co zwiększa współbieżność.  Jednak niektóre zapytania programu Hive wymagają znacznej ilości pamięci (np. MapJoin).  Jeśli zadanie nie ma wystarczającej ilości pamięci, wystąpi wyjątek braku pamięci w czasie wykonywania.  Jeśli wystąpią wyjątki dotyczące braku pamięci, należy zwiększyć ilość pamięci.   
 
@@ -80,6 +80,6 @@ Aby sprawdzić, czy masz ograniczone ograniczenia, należy włączyć rejestrowa
 ## <a name="further-information-on-hive-tuning"></a>Więcej informacji na temat dostrajania programu Hive
 
 Oto kilka blogów, które pomogą dostosować zapytania programu Hive:
-* [Optymalizowanie zapytań programu Hive dla platformy Hadoop w usłudze HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Kodowanie pliku zapytania programu Hive w usłudze Azure HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/encoding-the-hive-query-file-in-azure-hdinsight)
+* [Optymalizowanie zapytań programu Hive dla platformy Hadoop w usłudze HDInsight](../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
+* [Kodowanie pliku zapytania programu Hive w usłudze Azure HDInsight](/archive/blogs/bigdatasupport/encoding-the-hive-query-file-in-azure-hdinsight)
 * [Zapłon z technologią optymalizacji Hive w usłudze HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

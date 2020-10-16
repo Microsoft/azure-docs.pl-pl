@@ -1,6 +1,6 @@
 ---
-title: Współpraca z istniejącymi lokalnymi serwerami proxy i usługą Azure AD | Microsoft Docs
-description: Obejmuje sposób pracy z istniejącymi lokalnymi serwerami proxy.
+title: Pracuj z istniejącymi lokalnymi serwerami proxy i Azure Active Directory
+description: Obejmuje sposób pracy z istniejącymi lokalnymi serwerami proxy z Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2311b905aeeaacb6c445f441d5268d06a150de64
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88077513"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107644"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
 
@@ -117,12 +116,12 @@ Zezwól na dostęp do następujących adresów URL:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Łącznik używa tych adresów URL do weryfikowania certyfikatów |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com <br> *. microsoftonline-p.com<br>*. msauth.NET <br> *. msauthimages.net<br>*. msecnd.NET <br> *. msftauth.net<br>*. msftauthimages.NET <br> *. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Łącznik używa tych adresów URL podczas procesu rejestracji. |
 
-Jeśli zapora lub serwer proxy umożliwia skonfigurowanie list dozwolonych DNS, można zezwolić na połączenia z \* . msappproxy.NET i \* . ServiceBus.Windows.NET. W przeciwnym razie musisz zezwolić na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653). Zakresy adresów IP są aktualizowane co tydzień.
+Jeśli zapora lub serwer proxy umożliwia skonfigurowanie list dozwolonych DNS, można zezwolić na połączenia z \* . msappproxy.NET i \* . ServiceBus.Windows.NET.
 
 Jeśli nie możesz zezwolić na połączenie przy użyciu nazwy FQDN i należy określić zakresy adresów IP, użyj następujących opcji:
 
 * Zezwalaj na dostęp wychodzący łącznika do wszystkich miejsc docelowych.
-* Zezwalaj na dostęp wychodzący łącznika do wszystkich [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com//download/details.aspx?id=41653). Wezwanie do korzystania z listy zakresów adresów IP centrum danych platformy Azure jest aktualizowane co tydzień. Należy umieścić proces, aby upewnić się, że reguły dostępu są odpowiednio zaktualizowane. Tylko podzbiór adresów IP może spowodować przerwanie konfiguracji.
+* Zezwalaj na dostęp wychodzący łącznika do wszystkich zakresów adresów IP centrum danych platformy Azure. Wezwanie do korzystania z listy zakresów adresów IP centrum danych platformy Azure jest aktualizowane co tydzień. Należy umieścić proces, aby upewnić się, że reguły dostępu są odpowiednio zaktualizowane. Tylko podzbiór adresów IP może spowodować przerwanie konfiguracji. Aby pobrać najnowsze zakresy adresów IP centrum danych platformy Azure, przejdź do obszaru [https://download.microsoft.com](https://download.microsoft.com) i wyszukaj ciąg "zakresy adresów IP platformy Azure i Tagi usług". Upewnij się, że wybrano odpowiednią chmurę. Na przykład zakresy adresów IP chmury publicznej można znaleźć w obszarze "zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna". Chmurę rządu w Stanach Zjednoczonych można znaleźć, wyszukując frazę "zakresy adresów IP platformy Azure i Tagi usług — US rządu Cloud".
 
 #### <a name="proxy-authentication"></a>Uwierzytelnianie serwera proxy
 

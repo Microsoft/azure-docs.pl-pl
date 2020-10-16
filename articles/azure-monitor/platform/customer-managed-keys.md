@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 09/09/2020
-ms.openlocfilehash: 667ca4701ed8e781a2270b42802bab31e6e9c8ee
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 532d96163e2ec66730dc3fdf87f10904fd584224
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096236"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108001"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -304,7 +304,7 @@ Język zapytań używany w Log Analytics jest wyraźny i może zawierać poufne 
 > [!NOTE]
 > Zapytania Log Analytics można zapisywać w różnych magazynach w zależności od użytego scenariusza. Zapytania pozostają zaszyfrowane za pomocą usługi Microsoft Key (MMK) w następujących scenariuszach, niezależnie od konfiguracji CMK: skoroszytów w Azure Monitor, pulpitów nawigacyjnych platformy Azure, aplikacji logiki platformy Azure, Azure Notebooks i elementów Runbook usługi Automation.
 
-Gdy przeniesiesz własny magazyn (BYOS) i połączysz go z obszarem roboczym, usługa przekaże *zapisane zapytania wyszukiwania* i *alerty dziennika* do konta magazynu. Oznacza to, że można kontrolować konto magazynu i [zasady szyfrowania w trybie REST](../../storage/common/encryption-customer-managed-keys.md) przy użyciu tego samego klucza, który jest używany do szyfrowania danych w klastrze log Analytics lub innego klucza. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu. 
+Gdy przeniesiesz własny magazyn (BYOS) i połączysz go z obszarem roboczym, usługa przekaże *zapisane zapytania wyszukiwania* i *alerty dziennika* do konta magazynu. Oznacza to, że można kontrolować konto magazynu i [zasady szyfrowania w trybie REST](../../storage/common/customer-managed-keys-overview.md) przy użyciu tego samego klucza, który jest używany do szyfrowania danych w klastrze log Analytics lub innego klucza. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu. 
 
 **Uwagi przed ustawieniem CMK dla zapytań**
 * Musisz mieć uprawnienia do zapisu zarówno w obszarze roboczym, jak i koncie magazynu
@@ -374,7 +374,7 @@ Skrytka daje kontrolę, aby zatwierdzić lub odrzucić żądanie inżyniera firm
 
 W Azure Monitor jest to formant dotyczący danych w obszarach roboczych połączonych z Log Analytics dedykowanym klastrem. Kontrolka skrytki ma zastosowanie do danych przechowywanych w Log Analytics dedykowanym klastrze, w którym są one izolowane na kontach magazynu klastra w ramach chronionej subskrypcji skrytki.  
 
-Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md)
 
 ## <a name="cmk-management"></a>CMK Management
 

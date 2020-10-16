@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: fe5c13b8c34d29be9a62717215271c10a48e9ac6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076899"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107593"
 ---
 # <a name="api-management-policies"></a>API Management policies
 Ta sekcja zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](api-management-howto-policies.md).
@@ -79,7 +79,7 @@ Ta sekcja zawiera informacje dotyczące następujących zasad API Management. Ab
     -   [Przekształcanie kodu XML przy użyciu XSLT](api-management-transformation-policies.md#XSLTransform) — stosuje transformację XSL do pliku XML w treści żądania lub odpowiedzi.
 - [Zasady integracji Dapr](api-management-dapr-policies.md)
     - [Wyślij żądanie do usługi](api-management-dapr-policies.md#invoke) — program używa środowiska uruchomieniowego Dapr do lokalizowania i niezawodnego komunikowania się z mikrousługą Dapr.
-    -  [Wyślij wiadomość do publikowania/podtematu](api-management-dapr-policies.md#pubsub) — używa środowiska uruchomieniowego Dapr, aby opublikować komunikat w temacie publikowanie/subskrybowanie. publikowanie/subskrybowanie wiadomości/Readme. MD), aby dowiedzieć się więcej na temat publikowania/subskrybowania wiadomości w Dapr.
+    -  [Wyślij wiadomość do publikowania/podtematu](api-management-dapr-policies.md#pubsub) — używa środowiska uruchomieniowego Dapr, aby opublikować komunikat w temacie publikowanie/subskrybowanie.
     -  [Wyzwalanie powiązania danych wyjściowych](api-management-dapr-policies.md#bind) — używa środowiska uruchomieniowego Dapr do wywoływania systemu zewnętrznego za pośrednictwem powiązania danych wyjściowych.
 
 ## <a name="next-steps"></a>Następne kroki

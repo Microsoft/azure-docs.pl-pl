@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 6bdbb68e8d8748bc8851720588f8748d788e0cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8539f3f2a5882f12f131c95b0c17efd3acba3cf
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542585"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105179"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Samouczek: integracja RingCentral z usługą Azure Active Directory
 
@@ -117,7 +117,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -151,19 +151,19 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
 1. W górnej części kliknij pozycję **Narzędzia**.
 
-    ![image (obraz)](./media/ringcentral-tutorial/ringcentral1.png)
+    ![Zrzut ekranu przedstawia narzędzia wybrane z witryny firmy RingCentral.](./media/ringcentral-tutorial/ringcentral1.png)
 
 1. Przejdź do **logowania jednokrotnego**.
 
-    ![image (obraz)](./media/ringcentral-tutorial/ringcentral2.png)
+    ![Zrzut ekranu przedstawia pojedyncze Sign-On wybrane z menu Narzędzia.](./media/ringcentral-tutorial/ringcentral2.png)
 
 1. Na stronie **Logowanie** jednokrotne w obszarze **Konfiguracja logowania jednokrotnego** z **kroku 1** kliknij przycisk **Edytuj** i wykonaj następujące czynności:
 
-    ![image (obraz)](./media/ringcentral-tutorial/ringcentral3.png)
+    ![Zrzut ekranu przedstawia stronę konfiguracji S-O, na której można wybrać opcję Edytuj.](./media/ringcentral-tutorial/ringcentral3.png)
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego** wykonaj następujące czynności:
 
-    ![image (obraz)](./media/ringcentral-tutorial/ringcentral4.png)
+    ![Zrzut ekranu przedstawia stronę Konfigurowanie pojedynczego Sign-On, na której można przekazać I D P metadanych.](./media/ringcentral-tutorial/ringcentral4.png)
 
     a. Kliknij przycisk **Przeglądaj** , aby przekazać plik metadanych pobrany z Azure Portal.
 
@@ -171,21 +171,21 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
     c. W sekcji **Mapowanie atrybutów** wybierz pozycję **Mapuj atrybut poczty e-mail na** jako `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
     e. W **kroku 2** kliknij **pozycję Pobierz** , aby pobrać **plik metadanych dostawcy usług** i przekazać go w sekcji **Podstawowa konfiguracja języka SAML** , aby automatycznie wypełnić wartości **identyfikatorów** i **adresów URL odpowiedzi** w Azure Portal.
 
-    ![image (obraz)](./media/ringcentral-tutorial/ringcentral6.png) 
+    ![Zrzut ekranu przedstawia stronę konfiguracji S-O, na której można wybrać pozycję Pobierz.](./media/ringcentral-tutorial/ringcentral6.png) 
 
     f. Na tej samej stronie przejdź do sekcji **Włączanie logowania jednokrotnego** i wykonaj następujące czynności:
 
-    ![image (obraz)](./media/ringcentral-tutorial/ringcentral5.png)
+    ![Zrzut ekranu przedstawia sekcję Enable S O, w której można zakończyć konfigurację.](./media/ringcentral-tutorial/ringcentral5.png)
 
     * Wybierz pozycję **Włącz usługę SSO**.
 
     * Wybierz opcję **zezwól użytkownikom na logowanie się przy użyciu poświadczeń logowania jednokrotnego lub RingCentral**.
 
-    * Kliknij przycisk **Zapisz**.
+    * Kliknij pozycję **Zapisz**.
 
 ### <a name="create-ringcentral-test-user"></a>Utwórz użytkownika testowego RingCentral
 

@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: bd30a840327eaf338aec89c12ff8eb5d87c60c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26943971eeee96ed831c5d524868a2342891d594
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322401"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108409"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Alert Management rozwiązanie na platformie Azure Log Analytics
 
 ![Ikona Alert Management](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Azure Monitor teraz obsługuje udoskonalone funkcje [zarządzania alertami na dużą skalę](https://aka.ms/azure-alerts-overview), w tym te wygenerowane przez [narzędzia monitorowania, takie jak System Center Operations Manager, Zabbix lub Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  Azure Monitor teraz obsługuje udoskonalone funkcje [zarządzania alertami na dużą skalę](./alerts-overview.md), w tym te wygenerowane przez [narzędzia monitorowania, takie jak System Center Operations Manager, Zabbix lub Nagios](./alerts-managing-nagios-zabbix-scom.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
 >  
 
 
@@ -31,7 +31,7 @@ Rozwiązanie działa z dowolnymi rekordami w repozytorium Log Analytics z typem 
 - W przypadku alertów Nagios i Zabbix [Skonfiguruj te serwery](../learn/quick-collect-linux-computer.md) do wysyłania alertów do log Analytics.
 - W przypadku alertów System Center Operations Manager [Połącz grupę zarządzania Operations Manager z obszarem roboczym log Analytics](./om-agents.md).  Wszystkie alerty utworzone w System Center Operations Manager są importowane do Log Analytics.  
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Dodaj Alert Management rozwiązanie do obszaru roboczego Log Analytics przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań](../insights/solutions.md). Nie są wymagane żadne dalsze czynności konfiguracyjne.
 
 ## <a name="management-packs"></a>Pakiety administracyjne
@@ -120,4 +120,3 @@ Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów ale
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej na temat [alertów w usłudze Log Analytics](./alerts-overview.md), aby poznać szczegóły generowania alertów z usługi Log Analytics.
-

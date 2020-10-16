@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: df904e183d3f77751d86d0cefab5423d753f146b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b6f4e50cac2f809172c2525ea9136a63e6bd9066
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979795"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107015"
 ---
 # <a name="access-built-in-metrics"></a>Uzyskiwanie dostępu do wbudowanych metryk
 
 Składniki środowiska uruchomieniowego IoT Edge, centrum IoT Edge i Agent IoT Edge tworzą wbudowane metryki w [formacie specyfikacji Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Uzyskuj dostęp do tych metryk zdalnie, aby monitorować i zrozumieć kondycję urządzenia IoT Edge.
 
-W programie Release 1.0.10 metryki są automatycznie uwidaczniane domyślnie na **porcie 9600** modułów **edgeHub** i **edgeAgent** ( `http://edgeHub:9600/metrics` i `http://edgeAgent:9600/metics` ). Nie są one domyślnie mapowane na hosta.
+W programie Release 1.0.10 metryki są automatycznie uwidaczniane domyślnie na **porcie 9600** modułów **edgeHub** i **edgeAgent** ( `http://edgeHub:9600/metrics` i `http://edgeAgent:9600/metrics` ). Nie są one domyślnie mapowane na hosta.
 
 Uzyskaj dostęp do metryk z hosta, ujawniając i mapując port metryk z modułu `createOptions` . Poniższy przykład mapuje domyślny port metryk na port 9601 na hoście:
 

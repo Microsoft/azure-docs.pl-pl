@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 9066c53fce750b1c8402c5a0ccbd10debd5ec431
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 716e3766fdd7c1999efa12456346862a9902d7a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85855703"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108715"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integracja z siecią wirtualną w usłudze Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Integracja z siecią wirtualną w usłudze Data Lake Storage Gen1 wykorzystuje z
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Scenariusze dotyczące integracji z siecią wirtualną w usłudze Data Lake Storage Gen1
 
-Integracja z siecią wirtualną w usłudze Data Lake Storage Gen1 umożliwia ograniczenie dostępu do konta usługi Data Lake Storage Gen1 z określnych sieci wirtualnych i podsieci. Po ograniczeniu Twojego konta do określonej podsieci sieci wirtualnej inne sieci wirtualne/maszyny wirtualne nie mają do niego dostępu. Pod względem funkcjonalności integracja z siecią wirtualną w usłudze Data Lake Storage Gen1 umożliwia realizację takiego samego scenariusza, jak w przypadku [punktów końcowych usługi dla sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). W poniższych sekcjach opisano szczegółowo kilka kluczowych różnic. 
+Integracja z siecią wirtualną w usłudze Data Lake Storage Gen1 umożliwia ograniczenie dostępu do konta usługi Data Lake Storage Gen1 z określnych sieci wirtualnych i podsieci. Po ograniczeniu Twojego konta do określonej podsieci sieci wirtualnej inne sieci wirtualne/maszyny wirtualne nie mają do niego dostępu. Pod względem funkcjonalności integracja z siecią wirtualną w usłudze Data Lake Storage Gen1 umożliwia realizację takiego samego scenariusza, jak w przypadku [punktów końcowych usługi dla sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md). W poniższych sekcjach opisano szczegółowo kilka kluczowych różnic. 
 
 ![Diagram scenariusza integracji z siecią wirtualną w usłudze Data Lake Storage Gen1](media/data-lake-store-network-security/scenario-diagram.png)
 
@@ -42,9 +42,9 @@ Integracja z siecią wirtualną w usłudze Data Lake Storage Gen1 umożliwia ogr
 
 ## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Optymalny routing przy użyciu integracji z siecią wirtualną w usłudze Data Lake Storage Gen1
 
-Kluczową korzyścią ze stosowania punktów końcowych usługi dla sieci wirtualnej jest [optymalny routing](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) z sieci wirtualnej. Możesz zastosować taką samą optymalizację tras w przypadku kont usługi Data Lake Storage Gen1. Użyj następujących [tras zdefiniowanych przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) z sieci wirtualnej do konta usługi Data Lake Storage Gen1.
+Kluczową korzyścią ze stosowania punktów końcowych usługi dla sieci wirtualnej jest [optymalny routing](../virtual-network/virtual-network-service-endpoints-overview.md#key-benefits) z sieci wirtualnej. Możesz zastosować taką samą optymalizację tras w przypadku kont usługi Data Lake Storage Gen1. Użyj następujących [tras zdefiniowanych przez użytkownika](../virtual-network/virtual-networks-udr-overview.md#user-defined) z sieci wirtualnej do konta usługi Data Lake Storage Gen1.
 
-**Publiczny adres IP usługi Data Lake Storage** — użyj publicznego adresu IP docelowych kont usługi Data Lake Storage Gen1. Adresy IP kont usługi Data Lake Storage Gen1 można zidentyfikować przez [rozpoznawanie nazw DNS](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) tych kont. Utwórz oddzielny wpis dla każdego adresu.
+**Publiczny adres IP usługi Data Lake Storage** — użyj publicznego adresu IP docelowych kont usługi Data Lake Storage Gen1. Adresy IP kont usługi Data Lake Storage Gen1 można zidentyfikować przez [rozpoznawanie nazw DNS](./data-lake-store-connectivity-from-vnets.md#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) tych kont. Utwórz oddzielny wpis dla każdego adresu.
 
 ```azurecli
 # Create a route table for your resource group.
@@ -65,7 +65,7 @@ Oprócz zabezpieczania dostępu do kont usługi Data Lake Storage z poziomu siec
 Użyj rozwiązania zapory w sieci wirtualnej do filtrowania ruchu wychodzącego na podstawie adresu URL konta docelowego. Zezwalaj na dostęp tylko przez zatwierdzone konta usługi Data Lake Storage Gen1.
 
 Dostępne opcje to między innymi:
-- Usługa [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): [wdróż i skonfiguruj usługę Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) dla sieci wirtualnej. Zabezpiecz ruch wychodzący usługi Data Lake Storage i ogranicz go do adresów URL znanych i zatwierdzonych kont.
+- Usługa [Azure Firewall](../firewall/overview.md): [wdróż i skonfiguruj usługę Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md) dla sieci wirtualnej. Zabezpiecz ruch wychodzący usługi Data Lake Storage i ogranicz go do adresów URL znanych i zatwierdzonych kont.
 - Zapora [wirtualnego urządzenia sieciowego](https://azure.microsoft.com/solutions/network-appliances/): administrator może zezwolić na użycie tylko określonych dostawców komercyjnych zapór. Skorzystaj z rozwiązania zapory urządzenia sieci wirtualnej, które jest dostępne w witrynie Azure Marketplace, do realizacji tych samych funkcji.
 
 > [!NOTE]
@@ -77,17 +77,17 @@ Dostępne opcje to między innymi:
  
 - Gdy utworzysz nowy klaster usługi HDInsight i wybierzesz konto usługi Data Lake Storage Gen1 z włączoną funkcją integracji z siecią wirtualną, proces zakończy się niepowodzeniem. Należy najpierw wyłączyć regułę sieci wirtualnej. Możesz też wybrać opcję **Zezwalaj na dostęp ze wszystkich sieci i usług** w bloku **Zapory i sieci wirtualne** na koncie usługi Data Lake Storage. Następnie utwórz klaster usługi HDInsight i na koniec ponownie włącz regułę sieci wirtualnej lub wyczyść zaznaczenie opcji **Zezwalaj na dostęp ze wszystkich sieci i usług**. Zobacz sekcję [Wyjątki](#exceptions), aby uzyskać więcej informacji.
 
-- Integracja z siecią wirtualną w usłudze Data Lake Storage Gen1 nie działa z [tożsamościami zarządzanymi zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- Integracja z siecią wirtualną w usłudze Data Lake Storage Gen1 nie działa z [tożsamościami zarządzanymi zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
   
 - Dane plików i folderów na koncie usługi Data Lake Storage Gen1 z włączoną integracją z siecią wirtualną nie są dostępne z poziomu portalu. To ograniczenie dotyczy również dostępu z poziomu maszyny wirtualnej znajdującej się w tej sieci wirtualnej oraz czynności takich jak korzystanie z Eksploratora danych. Czynności związane z zarządzaniem kontem będą nadal działać. Dane plików i folderów na koncie usługi Data Lake Storage z włączoną integracją z siecią wirtualną są dostępne z poziomu wszystkich zasobów poza portalem. Te zasoby obejmują dostęp za pomocą zestawów SDK, skryptów programu PowerShell i innych usług platformy Azure, gdy nie pochodzą z portalu. 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Krok 1. Konfigurowanie sieci wirtualnej pod kątem korzystania z punktu końcowego usługi Azure AD
 
 1.  Przejdź do witryny Azure Portal i zaloguj się na swoim koncie.
  
-2.  [Utwórz nową sieć wirtualną ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)w ramach swojej subskrypcji. Możesz też przejść do istniejącej sieci wirtualnej. Sieć wirtualna musi znajdować się w tym samym regionie co konto usługi Data Lake Storage Gen1.
+2.  [Utwórz nową sieć wirtualną ](../virtual-network/quick-create-portal.md)w ramach swojej subskrypcji. Możesz też przejść do istniejącej sieci wirtualnej. Sieć wirtualna musi znajdować się w tym samym regionie co konto usługi Data Lake Storage Gen1.
  
 3.  W bloku **Sieć wirtualna** wybierz pozycję **Punkty końcowe usługi**.
  

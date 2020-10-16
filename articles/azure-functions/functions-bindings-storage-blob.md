@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: eead2d6ae2860bf06f1b878c1bb1692d74c06df6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e56d1add36d4296526348d12d7c0b6eb03108f27
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87055968"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104363"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Powiązania magazynu obiektów blob platformy Azure dla Azure Functions — Omówienie
 
 Azure Functions integruje się z usługą [Azure Storage](../storage/index.yml) za pośrednictwem [wyzwalaczy i powiązań](./functions-triggers-bindings.md). Integracja z usługą BLOB Storage umożliwia tworzenie funkcji, które reagują na zmiany w danych obiektów blob, a także wartości odczytu i zapisu.
 
-| Akcja | Type |
+| Akcja | Typ |
 |---------|---------|
 | Uruchom funkcję jako zmiany danych magazynu obiektów BLOB | [Wyzwalacz](./functions-bindings-storage-blob-trigger.md) |
 | Odczytywanie danych z magazynu obiektów BLOB w funkcji | [Powiązanie danych wejściowych](./functions-bindings-storage-blob-input.md) |
@@ -37,7 +37,7 @@ Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. 
 [core tools]: ./functions-run-local.md
 [pakiet rozszerzeń]: ./functions-bindings-register.md#extension-bundles
 [Pakiet NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[Aktualizowanie rozszerzeń]: ./install-update-binding-extensions-manual.md
+[Aktualizowanie rozszerzeń]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions w wersji 1.x

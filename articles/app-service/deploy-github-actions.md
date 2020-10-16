@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 4bb40cc1f5d1ae2563ddd802cd8b7de11427503b
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: bdc236c3ba4c70ba44e61457e2bade7df65f3153
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893224"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108052"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie do App Service przy użyciu akcji usługi GitHub
 
@@ -30,8 +30,6 @@ Rozpocznij pracę z [akcjami usługi GitHub](https://help.github.com/en/articles
     - Python: [Tworzenie aplikacji w języku Python w Azure App Service](quickstart-python.md)
 
 ## <a name="workflow-file-overview"></a>Omówienie pliku przepływu pracy
-
-Pliki przepływu pracy Azure App Service zawierają trzy sekcje:
 
 Przepływ pracy jest definiowany przez plik YAML (. yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry wchodzące w skład przepływu pracy.
 

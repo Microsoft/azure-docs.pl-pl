@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: a2c2e7358c32453daf53c40a9322df4fe30642d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 991201429bdc09a03ddc46c5beb9d0f4d6744ed5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548898"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Rackspace
 
@@ -101,11 +101,11 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
     a. Kliknij pozycję **Przekaż plik metadanych**.
 
-    ![image (obraz)](common/upload-metadata.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML przy użyciu linku Przekaż plik metadanych.](common/upload-metadata.png)
 
     b. Kliknij **logo folderu**, aby wybrać plik metadanych, a następnie kliknij pozycję **Przekaż**.
 
-    ![image (obraz)](common/browse-upload-metadata.png)
+    ![Zrzut ekranu przedstawia okno dialogowe, w którym można wybrać i przekazać plik.](common/browse-upload-metadata.png)
 
     c. Po pomyślnym przekazaniu pliku metadanych niezbędne adresy URL są automatycznie wypełniane.
 
@@ -153,7 +153,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

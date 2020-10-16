@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ab76b4aafd73173077d5b2b9f29e6e2da24c1710
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093756"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104397"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. W ramach subskrypcji można skonfigurować maksymalnie 2 000 grup akcji.
@@ -67,7 +67,7 @@ W obszarze **szczegóły wystąpienia**:
 
     c. **Szczegóły**: na podstawie wybranego typu powiadomienia wprowadź adres e-mail, numer telefonu itp.
     
-    d. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](https://aka.ms/commonAlertSchemaDocs), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
+    d. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
 
     ![Karta powiadomienia](./media/action-groups/action-group-2-notifications.png)
     
@@ -83,7 +83,7 @@ W obszarze **szczegóły wystąpienia**:
 
     c. **Szczegóły**: na podstawie typu akcji wprowadź identyfikator URI elementu webhook, aplikację platformy Azure, połączenie narzędzia ITSM lub element Runbook usługi Automation. Dla akcji narzędzia ITSM należy dodatkowo określić **element roboczy** i inne pola wymagane przez narzędzie narzędzia ITSM.
     
-    d. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](https://aka.ms/commonAlertSchemaDocs), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
+    d. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
     
     ![Karta akcje](./media/action-groups/action-group-3-actions.png)
 
@@ -321,4 +321,3 @@ Użycie **tagu usługi** dla obiektu Actions ułatwia zminimalizowanie złożono
 * Dowiedz się więcej o [ograniczaniu](./alerts-rate-limiting.md) liczby alertów.
 * Zapoznaj się z [omówieniem alertów dziennika aktywności](./alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.  
 * Informacje o sposobie [konfigurowania alertów za każdym razem, gdy jest ogłaszane powiadomienie o kondycji usługi](../../service-health/alerts-activity-log-service-notifications-portal.md).
-

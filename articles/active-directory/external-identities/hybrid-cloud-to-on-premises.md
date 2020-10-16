@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eeafe41888163c27f583529bed1998f067e107f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819381"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107627"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
 
@@ -43,7 +43,7 @@ Aby zapewnić użytkownikom B2B dostęp do aplikacji lokalnych zabezpieczonych p
 - **Autoryzacja za pośrednictwem obiektu użytkownika B2B w katalogu lokalnym**. Aplikacja musi być w stanie wykonywać sprawdzenia dostępu użytkowników i udzielić dostępu do odpowiednich zasobów. IWA i KCD wymagają obiektu użytkownika w lokalnym systemie Windows Server Active Directory, aby ukończyć tę autoryzację. Zgodnie z opisem w temacie [jak działa Logowanie jednokrotne za pomocą KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), serwer proxy aplikacji potrzebuje tego obiektu użytkownika, aby personifikować użytkownika i uzyskać token Kerberos do aplikacji. 
 
    > [!NOTE]
-   > Podczas konfigurowania usługi Azure serwer proxy aplikacji usługi Azure AD upewnij się, że w polu **tożsamość logowania delegowanego** jest ustawiona wartość **główna nazwa użytkownika** (domyślnie) dla logowania jednokrotnego IWA.
+   > Podczas konfigurowania usługi Azure serwer proxy aplikacji usługi Azure AD upewnij się, że w konfiguracji **logowania** jednokrotnego dla zintegrowanego uwierzytelniania systemu Windows jest ustawiona wartość **Nazwa główna użytkownika** (domyślnie).
 
    W przypadku scenariusza użytkownika B2B dostępne są dwie metody, których można użyć do utworzenia obiektów użytkownika-gościa, które są wymagane do autoryzacji w katalogu lokalnym:
 

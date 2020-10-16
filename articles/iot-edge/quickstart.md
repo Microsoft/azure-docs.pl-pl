@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: acd2f12150155efbccc668b99dcc4683d81b87e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7b732537d5b0ba517c5d638381c07f229c500081
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047033"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107797"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu wirtualnym z systemem Windows
 
@@ -78,9 +78,9 @@ Urządzenie usługi IoT Edge:
 >
 > W tym przewodniku szybki start do uproszczenia jest stosowana maszyna wirtualna z systemem Windows. Informacje o tym, które systemy operacyjne Windows są ogólnie dostępne w scenariuszach produkcyjnych, można znaleźć w temacie [Azure IoT Edge obsługiwane systemy](support.md).
 >
-> Aby skonfigurować własne urządzenie z systemem Windows na potrzeby IoT Edge, wykonaj kroki opisane w temacie [Install the Azure IoT Edge Runtime](how-to-install-iot-edge.md).
+> Aby skonfigurować własne urządzenie z systemem Windows w celu IoT Edge, w tym urządzeń z systemem IoT Core, wykonaj kroki opisane w temacie [Instalowanie środowiska uruchomieniowego Azure IoT Edge](how-to-install-iot-edge.md).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 Rozpocznij pracę z przewodnikiem Szybki start od utworzenia centrum IoT za pomocą interfejsu wiersza polecenia platformy Azure.
 

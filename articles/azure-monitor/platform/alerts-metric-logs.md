@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446169"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108851"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Tworzenie alertów metryk dla dzienników w Azure Monitor
 
@@ -62,7 +62,7 @@ Przed użyciem metryki dzienników zebranych na Log Analytics danych, należy sk
 
  Alerty metryk można tworzyć i zarządzać nimi za pomocą Azure Portal, Menedżer zasobów szablonów, interfejsu API REST, programu PowerShell i interfejsu wiersza polecenia platformy Azure. Ponieważ alerty metryk dla dzienników są wariantem alertów metryk — po zakończeniu wymagań wstępnych można utworzyć alert metryki dla dzienników dla określonego obszaru roboczego Log Analytics. Wszystkie cechy i funkcje [alertów dotyczących metryk](./alerts-metric-near-real-time.md) dotyczą również alertów metryk dzienników. obejmuje to schemat ładunku, odpowiednie limity przydziału i cenę rozliczaną.
 
-Aby uzyskać szczegółowe informacje i przykłady — zobacz [tworzenie alertów metryk i zarządzanie nimi](https://aka.ms/createmetricalert). W przypadku alertów metryk dotyczących dzienników — postępuj zgodnie z instrukcjami dotyczącymi zarządzania alertami metryk i upewnij się, że:
+Aby uzyskać szczegółowe informacje i przykłady — zobacz [tworzenie alertów metryk i zarządzanie nimi](./alerts-metric.md). W przypadku alertów metryk dotyczących dzienników — postępuj zgodnie z instrukcjami dotyczącymi zarządzania alertami metryk i upewnij się, że:
 
 - Element docelowy dla alertu metryki jest prawidłowym *obszarem roboczym log Analytics*
 - Wybrany sygnał dla alertu metryki dla wybranego *obszaru roboczego log Analytics* jest typu **Metric**
@@ -690,4 +690,3 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 - Dowiedz się więcej na temat [alertów dotyczących metryk](alerts-metric.md).
 - Dowiedz się więcej [na temat alertów dziennika na platformie Azure](./alerts-unified-log.md).
 - Dowiedz się więcej o [alertach na platformie Azure](alerts-overview.md).
-

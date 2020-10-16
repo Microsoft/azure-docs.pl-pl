@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 03c35d0af97cf24d1683d0ff21f10a0371391616
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2653e0b557f7c5c04184628b3266e8f2909130f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190208"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108290"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dla MapReduce w usłudze HDInsight i Azure Data Lake Storage Gen1
 
@@ -20,8 +20,8 @@ ms.locfileid: "88190208"
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto Azure Data Lake Storage Gen1**. Aby uzyskać instrukcje dotyczące sposobu tworzenia takiego elementu, zobacz Wprowadzenie [do Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Klaster usługi Azure HDInsight** z dostępem do konta Data Lake Storage Gen1. Zobacz [Tworzenie klastra usługi HDInsight przy użyciu Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Upewnij się, że Pulpit zdalny dla klastra są włączone.
-* **Korzystanie z usługi MapReduce w usłudze HDInsight**. Aby uzyskać więcej informacji, zobacz [Korzystanie z MapReduce w usłudze Hadoop w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Przejrzyj wskazówki dotyczące dostrajania wydajności Data Lake Storage Gen1**. Ogólne pojęcia dotyczące wydajności znajdują się w temacie [Data Lake Storage Gen1 wskazówki dotyczące dostrajania wydajności](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Korzystanie z usługi MapReduce w usłudze HDInsight**. Aby uzyskać więcej informacji, zobacz [Korzystanie z MapReduce w usłudze Hadoop w usłudze HDInsight](../hdinsight/hadoop/hdinsight-use-mapreduce.md)
+* **Przejrzyj wskazówki dotyczące dostrajania wydajności Data Lake Storage Gen1**. Ogólne pojęcia dotyczące wydajności znajdują się w temacie [Data Lake Storage Gen1 wskazówki dotyczące dostrajania wydajności](./data-lake-store-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parametry
 

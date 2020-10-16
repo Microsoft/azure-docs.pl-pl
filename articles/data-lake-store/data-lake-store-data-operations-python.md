@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-python
-ms.openlocfilehash: 5cbf75ef2d9f0c1a65179e6a423b59f9763ce72b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca455a802b180163579f67104a61f455dd54f94
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872246"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109225"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operacje systemu plików na Azure Data Lake Storage Gen1 przy użyciu języka Python
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Aby można było korzystać z Data Lake Storage Gen1 przy użyciu języka Python
 
 * Moduł `azure-mgmt-resource`, który obejmuje moduły platformy Azure dla usługi Active Directory itp.
 * `azure-mgmt-datalake-store`Moduł, który obejmuje operacje zarządzania kontem Azure Data Lake Storage Gen1. Aby uzyskać więcej informacji na temat tego modułu, zobacz artykuł dotyczący [zarządzania modułem Azure-zarządzanie-datalake-Store](/python/api/azure-mgmt-datalake-store/).
-* `azure-datalake-store`Moduł, który obejmuje operacje systemu plików Azure Data Lake Storage Gen1. Aby uzyskać więcej informacji na temat tego modułu, zobacz artykuł [Azure-datalake-Store — dokumentacja modułu systemowego](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
+* `azure-datalake-store`Moduł, który obejmuje operacje systemu plików Azure Data Lake Storage Gen1. Aby uzyskać więcej informacji na temat tego modułu, zobacz artykuł [Azure-datalake-Store — dokumentacja modułu systemowego](/python/api/azure-datalake-store/azure.datalake.store.core/).
 
 Użyj następujących poleceń, aby zainstalować moduły.
 
@@ -83,7 +83,7 @@ pip install azure-datalake-store
 
 3. Zapisz zmiany w aplikacji mysample.py.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 W tej sekcji omówione zostaną różne sposoby uwierzytelniania w usłudze Azure AD. Dostępne opcje:
 
@@ -135,7 +135,7 @@ adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 ## <a name="next-steps"></a>Następne kroki
 * [Operacje zarządzania kontem na Data Lake Storage Gen1 przy użyciu języka Python](data-lake-store-get-started-python.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Informacje dotyczące Azure Data Lake Storage Gen1 języka Python (FileSystem)](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
+* [Informacje dotyczące Azure Data Lake Storage Gen1 języka Python (FileSystem)](/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Aplikacje do obsługi dużych ilości danych open source zgodne z Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

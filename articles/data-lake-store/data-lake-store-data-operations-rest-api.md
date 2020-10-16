@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: ce1c7df70bf10280ba642e8ce2cec4864dfbbaec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e0fb2ffa7b573ecfeda163d9ad99597ff735a2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985040"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109208"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operacje systemu plików na Azure Data Lake Storage Gen1 przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
@@ -185,7 +185,6 @@ HTTP/1.1 200 OK
 ## <a name="next-steps"></a>Następne kroki
 * [Operacje zarządzania kontem na Data Lake Storage Gen1 przy użyciu interfejsu API REST](data-lake-store-get-started-rest-api.md).
 
-## <a name="see-also"></a>Zobacz też
-* [Dokumentacja interfejsu API REST Azure Data Lake Storage Gen1](https://docs.microsoft.com/rest/api/datalakestore/)
+## <a name="see-also"></a>Zobacz także
+* [Dokumentacja interfejsu API REST Azure Data Lake Storage Gen1](/rest/api/datalakestore/)
 * [Aplikacje do obsługi dużych ilości danych open source zgodne z Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
-

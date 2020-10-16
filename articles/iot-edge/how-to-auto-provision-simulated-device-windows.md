@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a1c679ca5a7ff08a4d2490f94548b34e4db49f4d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 56696f138fbf58993e990e263d2fa8e490672bb6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966189"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106301"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Tworzenie i Inicjowanie obsługi symulowanego urządzenia IoT Edge przy użyciu wirtualnego modułu TPM w systemie Windows
 
@@ -73,7 +73,7 @@ Symulowane urządzenia i indywidualne przewodniki rejestracji:
 
 Po utworzeniu rejestracji indywidualnej Zapisz wartość **identyfikatora rejestracji**. Ta wartość jest używana podczas konfigurowania środowiska uruchomieniowego IoT Edge.
 
-## <a name="install-the-iot-edge-runtime"></a>Zainstaluj środowisko uruchomieniowe IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalowanie środowiska uruchomieniowego usługi IoT Edge
 
 Środowisko uruchomieniowe usługi IoT Edge jest wdrażane na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi. Zainstaluj środowisko uruchomieniowe IoT Edge na urządzeniu, na którym działa symulowany moduł TPM.
 
@@ -97,7 +97,7 @@ Po zainstalowaniu na urządzeniu środowiska uruchomieniowego skonfiguruj je za 
    Deploy-IoTEdge
    ```
 
-1. W tym momencie dane wyjściowe mogą monitować o ponowne uruchomienie. Jeśli tak, ponownie uruchom urządzenie teraz. Gdy urządzenie jest gotowe, uruchom ponownie program PowerShell jako administrator.
+1. W tym momencie urządzenia IoT Core mogą zostać automatycznie uruchomione ponownie. Urządzenia z systemem Windows 10 lub Windows Server mogą monitować o ponowne uruchomienie. Jeśli tak, ponownie uruchom urządzenie teraz. Gdy urządzenie jest gotowe, uruchom ponownie program PowerShell jako administrator.
 
 1. Polecenie **Initialize-IoTEdge** konfiguruje środowisko uruchomieniowe IoT Edge na komputerze. Polecenie domyślnie umożliwia ręczne Inicjowanie obsługi przy użyciu kontenerów systemu Windows. Użyj `-Dps` flagi, aby użyć usługi Device Provisioning zamiast ręcznego inicjowania obsługi.
 

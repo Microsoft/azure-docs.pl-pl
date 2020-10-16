@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7d8f51b12c16afbb8a0cf71e99b9b357719db4be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74ff6983b08b6f19a94384be7c4361d4266d6a20
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319048"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108766"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Szybki Start: Tworzenie aplikacji do zrobienia za pomocą platformy Xamarin przy użyciu Azure Cosmos DB konta interfejsu API SQL
 
@@ -68,7 +68,7 @@ Teraz sklonujemy aplikację interfejsu Xamarin SQL API z repozytorium GitHub, pr
 1. Otwórz wiersz polecenia, utwórz nowy folder o nazwie git-samples, a następnie zamknij wiersz polecenia.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Otwórz okno terminala usługi Git, np. git bash, i użyj polecenia `cd`, aby przejść do nowego folderu instalacji aplikacji przykładowej.
@@ -83,7 +83,7 @@ Teraz sklonujemy aplikację interfejsu Xamarin SQL API z repozytorium GitHub, pr
     git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
-4. Następnie otwórz plik ToDoItems.sln z folderu samples/xamarin/ToDoItems w programie Visual Studio.
+4. W programie Visual Studio Otwórz **C:\git-samples\azure-Cosmos-DB-SQL-Xamarin-getting-started\src\ToDoItems.sln** 
 
 ## <a name="obtain-your-api-keys"></a>Uzyskiwanie kluczy interfejsu API
 
@@ -93,15 +93,21 @@ Wróć do witryny Azure Portal, aby uzyskać informacje o kluczach interfejsu AP
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Aplikacji Xamarin z listą zadań do wykonania działająca w systemie iOS":::
 
-2. W programie Visual Studio 2019 lub Visual Studio dla komputerów Mac otwórz plik APIKeys.cs w folderze Azure-Cosmos-DB-SQL-Xamarin-Getting-Started/src/ToDoItems. Core/Pomocnicys.
+2. W programie Visual Studio Otwórz **ToDoItems. Core/pomocnicys/APIKeys. cs**.
 
-3. Skopiuj wartość identyfikatora URI z portalu (przy użyciu przycisku kopiowania) i przypisz ją do zmiennej `CosmosEndpointUrl` w pliku APIKeys.cs.
+3. W witrynie Azure Portal za pomocą przycisku Kopiuj skopiuj wartość **identyfikatora URI** i ustaw ją na wartość `CosmosEndpointUrl` zmiennej w APIKeys.cs.
 
-    `public static readonly string CosmosEndpointUrl = "";`
+    ```csharp
+    //#error Enter the URL of your Azure Cosmos DB endpoint here
+            public static readonly string CosmosEndpointUrl = "[URI Copied from Azure Portal]";
+    ```
 
-4. Następnie skopiuj wartość klucza podstawowego z portalu i przypisz ją do zmiennej `Cosmos Auth Key` w pliku APIKeys.cs.
+4. W witrynie Azure Portal za pomocą przycisku Kopiuj skopiuj wartość **klucza podstawowego** i ustaw ją na wartość `Cosmos Auth Key` w APIKeys.cs.
 
-    `public static readonly string CosmosAuthKey = "";`
+    ```csharp
+    //#error Enter the read/write authentication key of your Azure Cosmos DB endpoint here
+            public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure Portal";
+    ```
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
@@ -113,15 +119,18 @@ To rozwiązanie przedstawia sposób tworzenia aplikacji z listą zadań do wykon
 
 Kod w rozwiązaniu ToDoItems zawiera następujące elementy:
 
-* ToDoItems.Core: jest to projekt .NET Standard zawierający projekt platformy Xamarin.Forms i współużytkowany kod logiki aplikacji obsługujący zadania do wykonania w usłudze Azure Cosmos DB.
-* ToDoItems.Android: ten projekt zawiera aplikację systemu Android.
-* ToDoItems.iOS: ten projekt zawiera aplikację systemu iOS.
+* **ToDoItems. Core**
+   * jest to projekt .NET Standard zawierający projekt platformy Xamarin.Forms i współużytkowany kod logiki aplikacji obsługujący zadania do wykonania w usłudze Azure Cosmos DB.
+* **ToDoItems. Android**
+  * ten projekt zawiera aplikację dla systemu Android.
+* **ToDoItems. iOS**
+  * ten projekt zawiera aplikację dla systemu iOS.
 
 Teraz dokonamy szybkiego przeglądu sposobu komunikowania się aplikacji z usługą Azure Cosmos DB.
 
 * Wymagane jest dodanie pakietu NuGet [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) do wszystkich projektów.
-* `ToDoItem`Klasa w folderze folderze Azure-DocumentDB-dotnet/Samples/Xamarin/ToDoItems/ToDoItems. Core/models modeluje dokumenty w kontenerze **Items** utworzonym powyżej. Należy pamiętać, że w nazwach właściwości jest rozróżniana wielkość liter.
-* Klasa `CosmosDBService` znajdująca się w folderze azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services hermetyzuje komunikację z usługą Azure Cosmos DB.
+* `ToDoItem`Klasa w folderze **ToDoItems. Core/models** modeluje dokumenty w kontenerze **Items** utworzonym powyżej. Należy pamiętać, że w nazwach właściwości jest rozróżniana wielkość liter.
+* `CosmosDBService`Klasa w folderze **ToDoItems. Core/Services** hermetyzuje komunikację z Azure Cosmos DB.
 * Klasa `CosmosDBService` zawiera zmienną typu `DocumentClient`. Służy `DocumentClient` do konfigurowania i wykonywania żądań dotyczących konta Azure Cosmos DB i jest tworzone wystąpienie:
 
     ```csharp

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 75c0542764e94ae57379fa225b4e064a58da3af1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f071a66fef632afe9e54fecfa253e4604679baa2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553380"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Samouczek: integracja Azure Active Directory z usługą rightscale
 
@@ -99,11 +99,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rightscale,
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** użytkownik nie musi wykonywać żadnych kroków, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
 
-    ![Rightscale domenę i adresy URL Logowanie jednokrotne](common/preintegrated.png)
+    ![Zrzut ekranu przedstawia stronę Podstawowa konfiguracja protokołu SAML.](common/preintegrated.png)
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Rightscale domenę i adresy URL Logowanie jednokrotne](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://login.rightscale.com/`
 
@@ -127,34 +127,33 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rightscale,
 
 2. W menu u góry kliknij kartę **Ustawienia** , a następnie wybierz pozycję **Logowanie jednokrotne**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rightscale-tutorial/tutorial_rightscale_001.png)
+    ![Zrzut ekranu przedstawia pojedyncze Sign-On wybrane z ustawień.](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
 3. Kliknij przycisk **Nowy** , aby dodać **dostawców tożsamości SAML**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rightscale-tutorial/tutorial_rightscale_002.png)
+    ![Zrzut ekranu przedstawia nowe przyciski wybrane do dodania dostawcy tożsamości SAML.](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
 4. W polu tekstowym **Nazwa wyświetlana**wprowadź nazwę swojej firmy.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rightscale-tutorial/tutorial_rightscale_003.png)
+    ![Zrzut ekranu pokazuje, gdzie wprowadzić nazwę wyświetlaną.](./media/rightscale-tutorial/tutorial_rightscale_003.png)
 
 5. Wybierz opcję **Zezwalaj na rightscale zainicjowane Logowanie jednokrotne przy użyciu wskazówki odnajdywania** i wprowadź **nazwę domeny** w poniższym polu tekstowym.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rightscale-tutorial/tutorial_rightscale_004.png)
+    ![Zrzut ekranu pokazuje, gdzie można określić metodę logowania.](./media/rightscale-tutorial/tutorial_rightscale_004.png)
 
 6. Wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal do **punktu końcowego SSO protokołu SAML** w rightscale.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rightscale-tutorial/tutorial_rightscale_006.png)
+    ![Zrzut ekranu pokazujący, gdzie można wprowadzić punkt końcowy SAML S S.](./media/rightscale-tutorial/tutorial_rightscale_006.png)
 
 7. Wklej wartość identyfikatora usługi **Azure AD** skopiowaną z Azure Portal do protokołu **SAML EntityId** w rightscale.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rightscale-tutorial/tutorial_rightscale_008.png)
+    ![Zrzut ekranu pokazuje, gdzie można wprowadzić obiekt SAML I D.](./media/rightscale-tutorial/tutorial_rightscale_008.png)
 
 8. Kliknij przycisk **przeglądarki** , aby przekazać certyfikat pobrany z Azure Portal.
 
+    ![Zrzut ekranu pokazuje, gdzie można określić certyfikat podpisywania SAML.](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rightscale-tutorial/tutorial_rightscale_009.png)
-
-9. Kliknij przycisk **Zapisz**.
+9. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -179,7 +178,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

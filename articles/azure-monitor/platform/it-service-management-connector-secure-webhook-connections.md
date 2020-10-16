@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf68963515e1208868efb40c2d3fc56c9ab4e0df
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328857"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107763"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Łączenie platformy Azure z narzędziami narzędzia ITSM przy użyciu funkcji bezpiecznego eksportowania
 
@@ -51,7 +51,7 @@ Bezpieczny eksport obsługuje BMC Helix. Oto niektóre zalety integracji:
 
 * **Lepsze uwierzytelnianie**: usługa Azure AD zapewnia bezpieczniejsze uwierzytelnianie bez przekroczeń limitu czasu, które często występują w ITSMC.
 * **Alerty zostały rozwiązane w narzędziu narzędzia ITSM**: alerty metryk implementują Stany "uruchomiłne" i "rozwiązany". Gdy warunek jest spełniony, stan alertu to "wyzwolone". Gdy warunek nie zostanie już spełniony, stan alertu to "rozwiązany". W ITSMC nie można automatycznie rozwiązywać alertów. W przypadku bezpiecznego eksportu stan rozwiązanych przepływów do narzędzia Narzędzia ITSM, więc jest automatycznie aktualizowany.
-* **[Wspólny schemat alertów](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)**: w ITSMC schemat ładunku alertu różni się w zależności od typu alertu. W przypadku bezpiecznego eksportu istnieje wspólny schemat dla wszystkich typów alertów. Ten wspólny schemat zawiera element CI dla wszystkich typów alertów. Wszystkie typy alertów będą mogły powiązać ich CI z elementem CMDB.
+* **[Wspólny schemat alertów](./alerts-common-schema.md)**: w ITSMC schemat ładunku alertu różni się w zależności od typu alertu. W przypadku bezpiecznego eksportu istnieje wspólny schemat dla wszystkich typów alertów. Ten wspólny schemat zawiera element CI dla wszystkich typów alertów. Wszystkie typy alertów będą mogły powiązać ich CI z elementem CMDB.
 
 Rozpocznij korzystanie z narzędzia łącznik ITSM, wykonując następujące czynności:
 
@@ -63,7 +63,7 @@ Rozpocznij korzystanie z narzędzia łącznik ITSM, wykonując następujące czy
 
 Wykonaj następujące kroki, aby zarejestrować aplikację w usłudze Azure AD:
 
-1. Wykonaj kroki opisane w temacie [Rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+1. Wykonaj kroki opisane w temacie [Rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](../../active-directory/develop/quickstart-register-app.md).
 1. W usłudze Azure AD wybierz opcję **Uwidocznij aplikację**.
 1. Wybierz pozycję **Ustaw** dla **identyfikatora aplikacji identyfikator URI**.
 
@@ -75,7 +75,7 @@ Wykonaj następujące kroki, aby zarejestrować aplikację w usłudze Azure AD:
 Po zarejestrowaniu aplikacji w usłudze Azure AD można utworzyć elementy robocze w narzędziu narzędzia ITSM na podstawie alertów platformy Azure za pomocą akcji bezpiecznego elementu webhook w grupach akcji.
 
 Grupy akcji umożliwiają modularne i wielokrotne użycie metody wyzwalania akcji dla alertów platformy Azure. Za pomocą grup akcji można korzystać z alertów metryk, alertów dziennika aktywności i alertów usługi Azure Log Analytics w Azure Portal.
-Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](./action-groups.md).
 
 W środowisku BMC Helix należy użyć następującej procedury:
 
@@ -89,7 +89,7 @@ Aby dodać element webhook do akcji, wykonaj następujące instrukcje dotyczące
 
 1. W [Azure Portal](https://portal.azure.com/)Wyszukaj i wybierz pozycję **monitor**. Okienko **monitorowanie** konsoliduje wszystkie ustawienia monitorowania i dane w jednym widoku.
 1. Wybierz kolejno pozycje **alerty**  >  **Zarządzanie akcje**.
-1. Wybierz pozycję [Dodaj grupę akcji](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal)i wypełnij pola.
+1. Wybierz pozycję [Dodaj grupę akcji](./action-groups.md#create-an-action-group-by-using-the-azure-portal)i wypełnij pola.
 1. Wprowadź nazwę w polu **Nazwa grupy akcji** , a następnie wprowadź nazwę w polu **krótka nazwa** . Nazwa krótka jest używana zamiast pełnej nazwy grupy akcji podczas przesyłania powiadomień przy użyciu danej grupy.
 1. Wybierz pozycję **bezpieczny element webhook**.
 1. Wybierz następujące szczegóły:
@@ -140,4 +140,4 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview)
+* [Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure](./itsmc-overview.md)

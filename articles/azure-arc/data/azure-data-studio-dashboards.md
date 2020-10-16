@@ -9,16 +9,16 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: aa13baf7c6fc6d3bb66b97e533da29e4a1a6e73c
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a96be6d4da3d292b2e9881652aad28f318ccee8a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876247"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107576"
 ---
 # <a name="azure-data-studio-dashboards"></a>Pulpity nawigacyjne Azure Data Studio
 
-[Azure Data Studio](https://aka.ms/azuredatastudio) zapewnia środowisko podobne do Azure Portal do wyświetlania informacji o zasobach usługi Azure Arc.  Te widoki są nazywane **pulpitami nawigacyjnymi** i mają układ i opcje podobne do tego, co można zobaczyć w odniesieniu do danego zasobu w Azure Portal, ale zapewniają elastyczność wyświetlania tych informacji lokalnie w danym środowisku, w przypadkach, gdy nie masz połączenia dostępnego na platformie Azure.
+[Azure Data Studio](/sql/azure-data-studio/what-is) zapewnia środowisko podobne do Azure Portal do wyświetlania informacji o zasobach usługi Azure Arc.  Te widoki są nazywane **pulpitami nawigacyjnymi** i mają układ i opcje podobne do tego, co można zobaczyć w odniesieniu do danego zasobu w Azure Portal, ale zapewniają elastyczność wyświetlania tych informacji lokalnie w danym środowisku, w przypadkach, gdy nie masz połączenia dostępnego na platformie Azure.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -26,7 +26,7 @@ ms.locfileid: "91876247"
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- Pobierz [Azure Data Studio](https://aka.ms/getazuredatastudio)
+- Pobierz [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 - Rozszerzenie Azure Arc jest zainstalowane
 
 ### <a name="determine-the-data-controller-server-api-endpoint-url"></a>Określ adres URL punktu końcowego interfejsu API serwera kontrolera danych
@@ -62,7 +62,7 @@ https://52.154.152.24:30080
 
 Zwróć uwagę na adres IP, ponieważ będzie on używany w następnym kroku.
 
-### <a name="connect"></a>Connect
+### <a name="connect"></a>Połącz
 
 1. Otwórz Azure Data Studio
 

@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d8f3985bc9a726735ebc0af0a3d3422f4fca54a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87055806"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108868"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Wyzwalacz usługi Azure queue storage i powiązania dla Azure Functions — Omówienie
 
 Azure Functions mogą działać jako nowe wiadomości usługi Azure queue storage są tworzone i mogą zapisywać komunikaty w kolejce w ramach funkcji.
 
-| Akcja | Type |
+| Akcja | Typ |
 |---------|---------|
 | Uruchamianie funkcji jako kolejki zmian danych | [Wyzwalacz](./functions-bindings-storage-queue-trigger.md) |
 | Komunikaty magazynu kolejki zapisu |[Powiązanie danych wyjściowych](./functions-bindings-storage-queue-output.md) |
@@ -37,7 +37,7 @@ Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. 
 [core tools]: ./functions-run-local.md
 [pakiet rozszerzeń]: ./functions-bindings-register.md#extension-bundles
 [Pakiet NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[Aktualizowanie rozszerzeń]: ./install-update-binding-extensions-manual.md
+[Aktualizowanie rozszerzeń]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions w wersji 1.x

@@ -4,18 +4,18 @@ description: Dowiedz się, jak używać serwerów z obsługą usługi Azure Arc 
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
 ms.date: 10/07/2020
 ms.topic: overview
-ms.openlocfilehash: 881445b19baef4e025cf3bd32dc3b55b2d170ec3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: c8d74bcaa7eb0b4adbb5aaf66626b9bfc349d639
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818745"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108902"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Co to są serwery z obsługą usługi Azure Arc?
 
 Serwery z obsługą usługi Azure ARC umożliwiają zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure, w sieci firmowej lub w innym dostawcy chmury, podobnie jak w przypadku zarządzania natywnymi maszynami wirtualnymi platformy Azure. Gdy maszyna hybrydowa jest połączona z platformą Azure, zostanie ona podłączona i jest traktowana jako zasób na platformie Azure. Każdy połączony komputer ma identyfikator zasobu, który jest zarządzany jako część grupy zasobów w ramach subskrypcji, i korzyści ze standardowych konstrukcji platformy Azure, takich jak Azure Policy i stosowanie tagów. Dostawcy usług zarządzający infrastrukturą lokalną klienta mogą zarządzać swoimi maszynami hybrydowymi, podobnie jak w przypadku natywnych zasobów platformy Azure, w wielu środowiskach klientów przy użyciu [usługi Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) z usługą Azure Arc.
 
-Aby zapewnić to środowisko dla maszyn hybrydowych hostowanych poza platformą Azure, należy zainstalować agenta maszyny połączonej z platformą Azure na każdym komputerze, na którym ma zostać nawiązane połączenie z platformą Azure. Ten agent nie dostarcza żadnych innych funkcji i nie zastępuje [agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md)platformy Azure. Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy użytkownik chce aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim za pomocą elementów Runbook usługi Automation lub rozwiązań, takich jak Update Management, lub używać innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).
+Aby zapewnić to środowisko dla maszyn hybrydowych hostowanych poza platformą Azure, należy zainstalować agenta maszyny połączonej z platformą Azure na każdym komputerze, na którym ma zostać nawiązane połączenie z platformą Azure. Ten agent nie dostarcza żadnych innych funkcji i nie zastępuje [agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md)platformy Azure. Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy użytkownik chce aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim za pomocą elementów Runbook usługi Automation lub rozwiązań, takich jak Update Management, lub używać innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-introduction.md).
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
@@ -31,7 +31,7 @@ Po połączeniu maszyny z serwerami z obsługą usługi Azure Arc umożliwia ona
 
 - [Update Management](../../automation/update-management/update-mgmt-overview.md) w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego dla serwerów z systemami Windows i Linux. Najpierw Wdróż rolę [hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md) , a następnie postępuj zgodnie z instrukcjami, aby [włączyć Update Management](../../automation/update-management/update-mgmt-enable-portal.md) na komputerze z systemem Windows lub Linux.
 
-- Uwzględnij serwery spoza platformy Azure, aby wykrywać zagrożenia i aktywnie monitorować potencjalne zagrożenia bezpieczeństwa przy użyciu [Azure Security Center](../../security-center/security-center-intro.md).
+- Uwzględnij serwery spoza platformy Azure, aby wykrywać zagrożenia i aktywnie monitorować potencjalne zagrożenia bezpieczeństwa przy użyciu [Azure Security Center](../../security-center/security-center-introduction.md).
 
 Dane dziennika zbierane i przechowywane w obszarze roboczym Log Analytics z maszyny hybrydowej zawierają teraz właściwości specyficzne dla maszyny, takie jak identyfikator zasobu. Może służyć do obsługi dostępu do dziennika [kontekstu zasobów](../../azure-monitor/platform/design-logs-deployment.md#access-mode) .
 

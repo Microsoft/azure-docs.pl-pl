@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 04fcfa4712ec0b558140e942997060234b33f53e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627769"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108137"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Samouczek: przekształcanie i ochrona interfejsu API
 
@@ -20,7 +20,7 @@ W tym samouczku pokazano, jak przekształcić interfejs API, aby nie ujawniał i
 
 W tym samouczku pokazano również, jak łatwo dodać ochronę dla interfejsu API zaplecza, konfigurując Limit szybkości za pomocą usługi Azure API Management. Na przykład możesz chcieć ograniczyć szybkość wywołań interfejsu API, aby interfejs API nie był używany przez deweloperów. Aby uzyskać więcej informacji, zobacz [zasady API Management](api-management-policies.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -60,7 +60,7 @@ Oryginalna odpowiedź powinna wyglądać podobnie do następującej:
 
 :::image type="content" source="media/transform-api/original-response.png" alt-text="Zasady w portalu":::
 
-Jak widać, odpowiedź obejmuje nagłówki **x-ASPNET-Version**i **X-d-by** .
+Jak widać, odpowiedź obejmuje nagłówki **x-ASPNET-Version** i **X-d-by** .
 
 ### <a name="set-the-transformation-policy"></a>Ustawianie zasad przekształcania
 
@@ -70,7 +70,7 @@ Jak widać, odpowiedź obejmuje nagłówki **x-ASPNET-Version**i **X-d-by** .
    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Zasady w portalu" border="false":::
 
 1. Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** i wybierz pozycję **Pokaż fragmenty kodu** w prawym górnym rogu.
-1. W oknie po prawej stronie w obszarze **zasady przekształcania**wybierz pozycję * * Ustaw nagłówek HTTP * * dwa razy (aby wstawić dwa fragmenty kodu zasad).
+1. W oknie po prawej stronie w obszarze **zasady przekształcania**wybierz dwa razy pozycję **Ustaw nagłówek HTTP** (aby wstawić dwa fragmenty kodu zasad).
 
    :::image type="content" source="media/transform-api/transform-api.png" alt-text="Zasady w portalu":::
 
@@ -115,7 +115,7 @@ W tej sekcji przedstawiono sposób dodawania zabezpieczeń do interfejsu API zap
 
 1.  Wybierz pozycję **Demonstracja interfejs API konferencji**  >  **wszystkie operacje**  >  **projektowe**.
 1.  W sekcji **Przetwarzanie przychodzące** wybierz ikonę Edytor kodu ( **</>** ).
-1.  Umieść kursor wewnątrz elementu ** &lt; przychodzącego &gt; ** .
+1.  Umieść kursor wewnątrz elementu ** &lt; przychodzącego &gt; ** i wybierz pozycję **Pokaż fragmenty kodu** w prawym górnym rogu.
 
     :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Zasady w portalu" border="false":::
 

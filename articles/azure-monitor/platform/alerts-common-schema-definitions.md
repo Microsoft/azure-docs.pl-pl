@@ -5,16 +5,16 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 2d3da9273651b23a80b0f5e2874581a744caf533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a1851b71ac017349ff131811d946ec2c077440b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330880"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105995"
 ---
 # <a name="common-alert-schema-definitions"></a>Definicje typowych schematów alertów
 
-W tym artykule opisano [typowe definicje schematów alertów](https://aka.ms/commonAlertSchemaDocs) dla Azure monitor, w tym te dla elementów webhook, Azure Logic Apps, Azure Functions i Azure Automation Runbook. 
+W tym artykule opisano [typowe definicje schematów alertów](./alerts-common-schema.md) dla Azure monitor, w tym te dla elementów webhook, Azure Logic Apps, Azure Functions i Azure Automation Runbook. 
 
 Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wystąpienia są opisane we wspólnym schemacie w następujących sekcjach:
 * **Podstawowe**: zestaw standardowych pól, wspólnych dla wszystkich typów alertów, opisujących zasób, na którym znajduje się alert, wraz z dodatkowymi typowymi metadanymi alertów (na przykład ważności lub opisu). 
@@ -541,5 +541,5 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [typowym schemacie alertów](https://aka.ms/commonAlertSchemaDocs).
-- Dowiedz się [, jak utworzyć aplikację logiki, która korzysta ze wspólnego schematu alertu do obsługi wszystkich alertów](./alerts-common-schema-integrations.md). 
+- Dowiedz się więcej o [typowym schemacie alertów](./alerts-common-schema.md).
+- Dowiedz się [, jak utworzyć aplikację logiki, która korzysta ze wspólnego schematu alertu do obsługi wszystkich alertów](./alerts-common-schema-integrations.md).

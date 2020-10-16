@@ -3,12 +3,12 @@ title: Konfigurowanie punktów końcowych węzła w puli Azure Batch
 description: Jak skonfigurować lub wyłączyć dostęp do portów SSH lub RDP w węzłach obliczeniowych w puli Azure Batch.
 ms.topic: how-to
 ms.date: 02/13/2018
-ms.openlocfilehash: 1713637a9aba937525e64e1c4146589fca443461
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7df7da539be75ef1befdff4b4e1fe5244c1702
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83780293"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109310"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Konfigurowanie lub wyłączanie dostępu zdalnego do węzłów obliczeniowych w puli Azure Batch
 
@@ -19,7 +19,7 @@ W danym środowisku może być konieczne ograniczenie lub wyłączenie tych domy
 ## <a name="about-the-pool-endpoint-configuration"></a>Informacje o konfiguracji punktu końcowego puli
 Konfiguracja punktu końcowego składa się z co najmniej jednej [puli translacji adresów sieciowych (NAT)](/rest/api/batchservice/pool/add#inboundnatpool) portów frontonu. (Nie należy mylić puli NAT z pulą wsadową węzłów obliczeniowych). Należy skonfigurować każdą pulę NAT, aby zastąpić domyślne ustawienia połączenia w węzłach obliczeniowych puli. 
 
-Każda konfiguracja puli NAT zawiera co najmniej jedną [regułę sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Każda reguła sieciowej grupy zabezpieczeń umożliwia lub odrzuca określony ruch sieciowy do punktu końcowego. Można wybrać Zezwalanie na ruch, ruch identyfikowany przez [tag usługi](../virtual-network/security-overview.md#service-tags) (na przykład "Internet") lub blokowanie ruchu z określonych adresów IP lub podsieci.
+Każda konfiguracja puli NAT zawiera co najmniej jedną [regułę sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Każda reguła sieciowej grupy zabezpieczeń umożliwia lub odrzuca określony ruch sieciowy do punktu końcowego. Można wybrać Zezwalanie na ruch, ruch identyfikowany przez [tag usługi](../virtual-network/network-security-groups-overview.md#service-tags) (na przykład "Internet") lub blokowanie ruchu z określonych adresów IP lub podsieci.
 
 ### <a name="considerations"></a>Zagadnienia do rozważenia
 * Konfiguracja punktu końcowego puli jest częścią [konfiguracji sieci](/rest/api/batchservice/pool/add#networkconfiguration)puli. Konfiguracja sieci może opcjonalnie obejmować ustawienia umożliwiające dołączenie puli do [sieci wirtualnej platformy Azure](batch-virtual-network.md). W przypadku skonfigurowania puli w sieci wirtualnej można utworzyć reguły sieciowej grupy zabezpieczeń, które używają ustawień adresu w sieci wirtualnej.
@@ -121,4 +121,4 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
-- Aby uzyskać więcej informacji na temat reguł sieciowej grupy zabezpieczeń na platformie Azure, zobacz [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/security-overview.md).
+- Aby uzyskać więcej informacji na temat reguł sieciowej grupy zabezpieczeń na platformie Azure, zobacz [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md).

@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć aplikację logiki, która wykorzystuje 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: a7893f41e3e4cce737853fc168c1931f3bf7b532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1eb96248f68923da5ff5223f57fac1bffaf4ed04
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322095"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108885"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Jak zintegrować wspólny schemat alertów z Logic Apps
 
@@ -17,7 +17,7 @@ W tym artykule pokazano, jak utworzyć aplikację logiki, która wykorzystuje ws
 
 ## <a name="overview"></a>Omówienie
 
-[Typowy schemat alertów](https://aka.ms/commonAlertSchemaDocs) zawiera znormalizowany i rozszerzalny schemat JSON dla wszystkich różnych typów alertów. Typowy schemat alertów jest najbardziej przydatny, gdy jest używany programowo — za pomocą elementów webhook, Runbook i Logic Apps. W tym artykule pokazano, jak można utworzyć pojedynczą aplikację logiki do obsługi wszystkich alertów. Te same zasady można stosować do innych metod programistycznych. Aplikacja logiki opisana w tym artykule tworzy dobrze zdefiniowane zmienne dla [pól "Essential"](alerts-common-schema-definitions.md#essentials), a także opisuje, jak można obsłużyć logikę specyficzną dla [typu alertu](alerts-common-schema-definitions.md#alert-context) .
+[Typowy schemat alertów](./alerts-common-schema.md) zawiera znormalizowany i rozszerzalny schemat JSON dla wszystkich różnych typów alertów. Typowy schemat alertów jest najbardziej przydatny, gdy jest używany programowo — za pomocą elementów webhook, Runbook i Logic Apps. W tym artykule pokazano, jak można utworzyć pojedynczą aplikację logiki do obsługi wszystkich alertów. Te same zasady można stosować do innych metod programistycznych. Aplikacja logiki opisana w tym artykule tworzy dobrze zdefiniowane zmienne dla [pól "Essential"](alerts-common-schema-definitions.md#essentials), a także opisuje, jak można obsłużyć logikę specyficzną dla [typu alertu](alerts-common-schema-definitions.md#alert-context) .
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
@@ -138,5 +138,4 @@ W tym artykule przyjęto założenie, że czytelnik zna
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się więcej na temat grup akcji](./action-groups.md).
-* [Dowiedz się więcej o typowym schemacie alertów](https://aka.ms/commonAlertSchemaDocs).
-
+* [Dowiedz się więcej o typowym schemacie alertów](./alerts-common-schema.md).

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 08996d7343ccab4c5d6e688b580a8e6e1ca5bceb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376420"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116723"
 ---
 [Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności dla nowych czytelników, nauk językowych i osób, które mają różnice szkoleniowe, takie jak Dyslexia. Możesz użyć czytnika immersyjny w aplikacjach, aby odizolować tekst, aby zwiększyć fokus, wyświetlić obrazy dla często używanych wyrazów, wyróżnić części mowy, odczytywać zaznaczone fragmenty tekstu na głos, tłumaczyć słowa i frazy w czasie rzeczywistym i nie tylko.
 
@@ -53,7 +53,7 @@ Kliknij prawym przyciskiem myszy projekt w _Eksplorator rozwiązań_ i wybierz p
 }
 ```
 
-### <a name="install-active-directory"></a>Zainstaluj Active Directory
+### <a name="install-active-directory-nuget-package"></a>Zainstaluj Active Directory pakiet NuGet
 
 Poniższy kod używa obiektów z pakietu NuGet **Microsoft. IdentityModel. clients. ActiveDirectory** , dlatego należy dodać odwołanie do tego pakietu w projekcie.
 

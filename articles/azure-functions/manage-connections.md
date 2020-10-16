@@ -4,12 +4,12 @@ description: Dowiedz się, jak uniknąć problemów z wydajnością w Azure Func
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 7ce933511532fdb1bfb5189e5a900e87f3d83fa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a305c692c63f278c4edc4240f7adf9de22b22c56
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213971"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106097"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Zarządzanie połączeniami w Azure Functions
 
@@ -103,7 +103,25 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
+Jeśli pracujesz z usługą Functions v3. x, potrzebujesz refernce do Microsoft.Azure.DocumentDB. Core. Dodaj odwołanie w kodzie:
 
+```cs
+#r "Microsoft.Azure.DocumentDB.Core"
+```
+Ponadto Utwórz plik o nazwie "Function. proj" dla wyzwalacza i Dodaj poniższą zawartość:
+
+```cs
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.12.0" />
+    </ItemGroup>
+</Project>
+
+```
 ### <a name="cosmosclient-code-example-javascript"></a>Przykład kodu CosmosClient (JavaScript)
 [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) nawiązuje połączenie z wystąpieniem Azure Cosmos DB. W dokumentacji Azure Cosmos DB zaleca się [użycie pojedynczego klienta Azure Cosmos DB na potrzeby okresu istnienia aplikacji](../cosmos-db/performance-tips.md#sdk-usage). W poniższym przykładzie pokazano jeden wzorzec dla tego, że w funkcji:
 

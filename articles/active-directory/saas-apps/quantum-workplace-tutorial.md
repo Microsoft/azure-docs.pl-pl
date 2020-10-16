@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d99d11f6cffa42aa706a863c3061583eab3f98f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4e23a9d5334af5ebdaab2ef15a5c39f232095
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552258"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108596"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>Samouczek: integracja Azure Active Directory z miejscem pracy Quantum
 
@@ -99,11 +99,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w obszarze roboczym Qu
 
 4. W sekcji **Podstawowa konfiguracja języka SAML** aplikacja została wstępnie skonfigurowana i wymagane adresy URL są już wstępnie wypełnione na platformie Azure. Użytkownik musi zapisać konfigurację, klikając przycisk **Zapisz** .
 
-    ![Informacje dotyczące logowania jednokrotnego i adresów URL w miejscu pracy Quantum](common/preintegrated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację protokołu SAML.](common/preintegrated.png)
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje dotyczące logowania jednokrotnego i adresów URL w miejscu pracy Quantum](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://auth.quantumworkplace.com/Account/Login`
 
@@ -137,7 +137,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

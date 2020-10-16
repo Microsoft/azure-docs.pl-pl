@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 56a68fca42bcab7642a5ebad953b59269a4d88a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2403e3a4bfe7824659a9c34c407e55e6c56e6046
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180647"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107729"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzowanie wdrażania zasobów dla aplikacji funkcji w Azure Functions
 
@@ -516,7 +516,7 @@ Aplikacje systemu Linux powinny również zawierać `linuxFxVersion` Właściwo�
 }
 ```
 
-W przypadku [wdrażania niestandardowego obrazu kontenera](./functions-create-function-linux-custom-image.md)należy określić go wraz z `linuxFxVersion` konfiguracją umożliwiającą ściąganie obrazu, jak w [Web App for Containers](../app-service/containers/index.yml). Ponadto ustaw wartość `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` , ponieważ zawartość aplikacji znajduje się w kontenerze:
+W przypadku [wdrażania niestandardowego obrazu kontenera](./functions-create-function-linux-custom-image.md)należy określić go wraz z `linuxFxVersion` konfiguracją umożliwiającą ściąganie obrazu, jak w [Web App for Containers](../app-service/index.yml). Ponadto ustaw wartość `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` , ponieważ zawartość aplikacji znajduje się w kontenerze:
 
 ```json
 {
@@ -649,7 +649,7 @@ Aby wdrożyć szablon, można użyć dowolnego z poniższych sposobów:
 
 * [Program PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Interfejs wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+* [Witryna Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
 * [Interfejs API REST](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Przycisk Wdróż na platformie Azure

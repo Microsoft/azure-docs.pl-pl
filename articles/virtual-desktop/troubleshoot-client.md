@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88134483"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108970"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Rozwiązywanie problemów z klientem Pulpit zdalny
 
@@ -83,6 +83,20 @@ Jeśli klient sieci Web wyświetla monit o podanie poświadczeń, wykonaj nastę
 3. Wyczyść pliki cookie przeglądarki. Aby uzyskać więcej informacji, zobacz [Jak usunąć pliki cookie w programie Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 4. Wyczyść pamięć podręczną przeglądarki. Aby uzyskać więcej informacji, zobacz [Wyczyść pamięć podręczną przeglądarki dla przeglądarki](https://binged.it/2RKyfdU).
 5. Otwórz przeglądarkę w trybie prywatnym.
+
+## <a name="windows-client-blocks-windows-virtual-desktop-classic-feed"></a>Klient systemu Windows blokuje kanał informacyjny pulpitu wirtualnego systemu Windows (klasyczny)
+
+Jeśli w kanale informacyjnym klienta systemu Windows nie będą wyświetlane aplikacje pulpitu wirtualnego systemu Windows (klasyczne), wykonaj następujące instrukcje:
+
+1. Sprawdź, czy zasady dostępu warunkowego zawierają identyfikatory aplikacji skojarzone z pulpitem wirtualnym systemu Windows (klasyczny).
+2. Sprawdź, czy zasady dostępu warunkowego blokują cały dostęp z wyjątkiem identyfikatorów aplikacji pulpitu wirtualnego systemu Windows (klasycznego). W takim przypadku należy dodać identyfikator aplikacji **9cdead84-a844-4324-93f2-b2e6bb768d07** do zasad, aby umożliwić klientowi odnajdywanie źródeł danych.
+
+Jeśli na liście nie można znaleźć identyfikatora aplikacji 9cdead84-a844-4324-93f2-b2e6bb768d07, należy zarejestrować dostawcę zasobów pulpitu wirtualnego systemu Windows. Aby zarejestrować dostawcę zasobów:
+
+1. Zaloguj się do Portalu Azure.
+2. Przejdź do **subskrypcji**, a następnie wybierz swoją subskrypcję.
+3. W menu po lewej stronie strony wybierz pozycję **dostawca zasobów**.
+4. Znajdź i wybierz pozycję **Microsoft. DesktopVirtualization**, a następnie wybierz pozycję **zarejestruj ponownie**.
 
 ## <a name="next-steps"></a>Następne kroki
 

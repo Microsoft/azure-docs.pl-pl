@@ -3,15 +3,15 @@ title: Pulpity wirtualne systemu Windows — często zadawane pytania — Azure
 description: Często zadawane pytania i najlepsze rozwiązania dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121123"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108511"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Często zadawane pytania na temat usługi Windows Virtual Desktop
 
@@ -30,11 +30,9 @@ Aby ograniczyć administrator do zarządzania sesjami użytkowników, takich jak
 "Microsoft.Resources/deployments/operations/read",
 "Microsoft.Resources/tags/read",
 "Microsoft.Authorization/roleAssignments/read",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/*",
 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/write",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
 ],
 "notActions": [],
 "dataActions": [],

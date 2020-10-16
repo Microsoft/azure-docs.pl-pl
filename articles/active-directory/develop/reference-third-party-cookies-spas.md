@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: cc93f4062851f01dd127c108ca60bc240a1940e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87311759"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104584"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Obsługa ITP w przeglądarce Safari i innych przeglądarkach, w których są blokowane pliki cookie innych firm
 
@@ -49,7 +49,7 @@ Aplikacji jednostronicowych mają dwa dodatkowe ograniczenia:
 * [Identyfikator URI przekierowania musi być oznaczony jako `spa` Typ](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) Aby włączyć funkcję CORS dla punktów końcowych logowania.
 * Odświeżanie tokenów wystawionych za pomocą przepływu kodu autoryzacji w celu `spa` przekierowania identyfikatorów URI ma 24-godzinny okres istnienia, a nie okres istnienia 90 dni.
 
-![Przepływ kodu dla aplikacji SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram przedstawiający przepływ kodu autoryzacji OAuth 2 między aplikacją jednostronicową a punktem końcowym usługi tokenu zabezpieczającego." border="false":::
 
 ## <a name="performance-and-ux-implications"></a>Wpływ na wydajność i środowisko użytkownika
 

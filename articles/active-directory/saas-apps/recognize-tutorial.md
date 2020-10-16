@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 86c2c7383f3850b0c51831f94e673c3941894a08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e415cbec3b2e8c834ee02630d7f849ccf3e1e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548894"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Samouczek: integracja Azure Active Directory z rozpoznawaniem
 
@@ -139,15 +139,15 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu rozpoznaw
 
 2. W prawym górnym rogu kliknij **menu**. Przejdź do pozycji **administrator firmy**.
    
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/recognize-tutorial/tutorial_recognize_000.png)
+    ![Zrzut ekranu przedstawia administrator firmy wybrany z menu Ustawienia.](./media/recognize-tutorial/tutorial_recognize_000.png)
 
 3. W okienku nawigacji po lewej stronie kliknij pozycję **Settings** (Ustawienia).
    
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/recognize-tutorial/tutorial_recognize_001.png)
+    ![Zrzut ekranu przedstawia ustawienia wybrane na stronie nawigacji.](./media/recognize-tutorial/tutorial_recognize_001.png)
 
 4. Wykonaj następujące kroki w sekcji **Ustawienia logowania jednokrotnego** .
    
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/recognize-tutorial/tutorial_recognize_002.png)
+    ![Zrzut ekranu przedstawia ustawienia S O, w których można wprowadzić podane wartości.](./media/recognize-tutorial/tutorial_recognize_002.png)
     
     a. Jako **włączenie logowania jednokrotnego**wybierz pozycję **włączone**.
 
@@ -163,11 +163,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu rozpoznaw
 
 5. W sekcji **Ustawienia rejestracji jednokrotnej** Skopiuj adres URL w polu **adres URL metadanych dostawcy usług**.
    
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/recognize-tutorial/tutorial_recognize_003.png)
+    ![Zrzut ekranu przedstawia notatki umożliwiające skopiowanie metadanych dostawcy usług.](./media/recognize-tutorial/tutorial_recognize_003.png)
 
 6. Otwórz **link adresu URL metadanych** w pustej przeglądarce, aby pobrać dokument metadanych. Następnie skopiuj wartość elementem EntityDescriptor (entityID) z pliku i wklej ją w polu tekstowym **Identyfikator** w **podstawowej konfiguracji SAML** na Azure Portal.
     
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/recognize-tutorial/tutorial_recognize_004.png)
+    ![Zrzut ekranu przedstawia pole tekstowe z zwykłym tekstem X M L, gdzie można uzyskać jednostkę I D.](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -191,7 +191,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

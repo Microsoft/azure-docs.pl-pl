@@ -3,12 +3,12 @@ title: Tworzenie i używanie plików zasobów
 description: Dowiedz się, jak tworzyć pliki zasobów usługi Batch z różnych źródeł danych wejściowych. W tym artykule opisano kilka typowych metod tworzenia i umieszczania ich na maszynie wirtualnej.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a5e9780b4fa0abfec5b736e04d385f14716873
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230946"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109293"
 ---
 # <a name="creating-and-using-resource-files"></a>Tworzenie i używanie plików zasobów
 
@@ -61,7 +61,7 @@ string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-Alternatywą dla generowania adresu URL sygnatury dostępu współdzielonego jest włączenie anonimowego, publicznego odczytu do kontenera i jego obiektów BLOB w usłudze Azure Blob Storage. Dzięki temu można przyznać dostęp tylko do odczytu do tych zasobów bez udostępniania klucza konta i bez konieczności używania sygnatury dostępu współdzielonego. Publiczny dostęp do odczytu jest zazwyczaj używany w scenariuszach, w których niektóre obiekty blob mają być zawsze dostępne do anonimowego dostępu do odczytu. Jeśli ten scenariusz odpowiada Twojemu rozwiązaniu, zobacz artykuł [anonimowy dostęp do obiektów BLOB](../storage/blobs/storage-manage-access-to-resources.md) , aby dowiedzieć się więcej na temat zarządzania dostępem do danych obiektów BLOB.
+Alternatywą dla generowania adresu URL sygnatury dostępu współdzielonego jest włączenie anonimowego, publicznego odczytu do kontenera i jego obiektów BLOB w usłudze Azure Blob Storage. Dzięki temu można przyznać dostęp tylko do odczytu do tych zasobów bez udostępniania klucza konta i bez konieczności używania sygnatury dostępu współdzielonego. Publiczny dostęp do odczytu jest zazwyczaj używany w scenariuszach, w których niektóre obiekty blob mają być zawsze dostępne do anonimowego dostępu do odczytu. Jeśli ten scenariusz odpowiada Twojemu rozwiązaniu, zobacz artykuł [anonimowy dostęp do obiektów BLOB](../storage/blobs/anonymous-read-access-configure.md) , aby dowiedzieć się więcej na temat zarządzania dostępem do danych obiektów BLOB.
 
 ### <a name="storage-container-name"></a>Nazwa kontenera magazynu
 

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 7be0b5f2688198da8926f2039f60bf9ba592e2f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b76af2c6c949f2591cee880a1991c6f240806a2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330792"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107899"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Pule elastyczne ułatwiają zarządzanie wieloma bazami danych w Azure SQL Database i skalowanie ich.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,7 @@ Na poniższej ilustracji pokazano przykład bazy danych, która przez większoś
 
    ![pojedyncza baza danych odpowiednia dla puli](./media/elastic-pool-overview/one-database.png)
 
-W przedstawionym okresie pięciu minut baza danych DB1 odnotowuje wzrost użycia do 90 DTU, ale jej całkowite średnie użycie jest mniejsze niż pięć DTU. Do uruchomienia tego obciążenia w pojedynczej bazie danych jest wymagany rozmiar obliczeń S3, ale nie są one używane w okresach niskiego działania.
+Wykres ilustruje użycie jednostek DTU w ciągu 1 godziny od 12:00 do 1:00, gdzie każdy punkt danych ma 1 minutę szczegółowości. Na 12:10 DB1 pik do 90 DTU, ale ogólne średnie użycie jest mniejsze niż pięć DTU. Do uruchomienia tego obciążenia w pojedynczej bazie danych jest wymagany rozmiar obliczeń S3, ale nie są one używane w okresach niskiego działania.
 
 Pula umożliwia udostępnienie tych nieużywanych jednostek DTU wielu bazom danych, a tym samym zmniejsza liczbę potrzebnych jednostek DTU i obniża koszty ogólne.
 

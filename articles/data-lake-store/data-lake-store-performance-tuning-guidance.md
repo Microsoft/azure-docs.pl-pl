@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: d18440b27d9429a2638a58be40e1ec583b9a85ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c9cb1d0496fe05c208cfd446a51cbf4ef8e8d4e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190242"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108613"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Dostrajanie Azure Data Lake Storage Gen1 na potrzeby wydajności
 
@@ -39,15 +39,15 @@ Połączenie sieciowe między danymi źródłowymi a Data Lake Storage Gen1 moż
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Konfigurowanie narzędzi pozyskiwania danych w celu uzyskania maksymalnej przetwarzanie równoległe
 
-Po rozwiązaniu problemów ze źródłem zasobów sprzętowych i połączeń sieciowych można skonfigurować narzędzia pozyskiwania. Poniższa tabela zawiera podsumowanie najważniejszych ustawień dla kilku popularnych narzędzi do pozyskiwania i zawiera szczegółowe artykuły dotyczące dostrajania wydajności. Aby dowiedzieć się więcej na temat tego, którego narzędzia użyć w danym scenariuszu, odwiedź ten [artykuł](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
+Po rozwiązaniu problemów ze źródłem zasobów sprzętowych i połączeń sieciowych można skonfigurować narzędzia pozyskiwania. Poniższa tabela zawiera podsumowanie najważniejszych ustawień dla kilku popularnych narzędzi do pozyskiwania i zawiera szczegółowe artykuły dotyczące dostrajania wydajności. Aby dowiedzieć się więcej na temat tego, którego narzędzia użyć w danym scenariuszu, odwiedź ten [artykuł](./data-lake-store-data-scenarios.md).
 
 | Narzędzie          | Ustawienia | Więcej szczegółów                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Powiązań](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
-| AdlCopy    | Jednostki Azure Data Lake Analytics | [Powiązań](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| Pomocą distcp            | -m (mapowanie) | [Powiązań](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Powiązań](./data-lake-store-get-started-powershell.md) |
+| AdlCopy    | Jednostki Azure Data Lake Analytics | [Powiązań](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| Pomocą distcp            | -m (mapowanie) | [Powiązań](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies | [Powiązań](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS. Azure. Block. size,-m (Maper) | [Powiązań](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | FS. Azure. Block. size,-m (Maper) | [Powiązań](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Struktura zestawu danych
 
@@ -131,7 +131,7 @@ Oprócz ogólnych wytycznych, każda aplikacja ma inne parametry dostępne do do
 | [MapReduce w usłudze HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>MapReduce. map. Memory</li><li>MapReduce. job. Maps</li><li>MapReduce. Zmniejsz ilość pamięci</li><li>MapReduce. job. Zmniejsz</li></ul> |
 | [Usługa Storm w usłudze HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Liczba procesów roboczych</li><li>Liczba wystąpień programu wykonującego elementu Spout</li><li>Liczba wystąpień programu wykonującego Piorun </li><li>Liczba zadań elementu Spout</li><li>Liczba zadań obiektu Piorun</li></ul>|
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Rozpoczynanie pracy z usługą Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

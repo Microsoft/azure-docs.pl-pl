@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497186"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109157"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Szyfrowanie danych w Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Dane przesyłane (nazywane również danymi w ruchu) również są zawsze szyfro
 
 Szyfrowanie dla Data Lake Storage Gen1 jest konfigurowane podczas tworzenia konta i zawsze jest domyślnie włączone. Możesz samodzielnie zarządzać kluczami lub zezwalać Data Lake Storage Gen1 na zarządzanie nimi (jest to ustawienie domyślne).
 
-Aby uzyskać więcej informacji, zobacz [Wprowadzenie](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Aby uzyskać więcej informacji, zobacz [Wprowadzenie](./data-lake-store-get-started-portal.md).
 
 ## <a name="how-encryption-works-in-data-lake-storage-gen1"></a>Jak działa szyfrowanie w Data Lake Storage Gen1
 
@@ -74,7 +74,7 @@ Podczas wybierania trybu głównych kluczy szyfrowania należy pamiętać o nast
 
 W projekcie szyfrowania danych używane są trzy typy kluczy. Poniższa tabela zawiera podsumowanie:
 
-| Klucz                   | Skrót | Skojarzony z | Lokalizacja magazynu                             | Type       | Uwagi                                                                                                   |
+| Klucz                   | Skrót | Skojarzony z | Lokalizacja magazynu                             | Typ       | Uwagi                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Główny klucz szyfrowania | GKS          | Konto Data Lake Storage Gen1 | Usługa Key Vault                              | Asymetryczny | Może być zarządzany przez Data Lake Storage Gen1 lub użytkownika.                                                              |
 | Klucz szyfrowania danych   | KSD          | Konto Data Lake Storage Gen1 | Magazyn trwały zarządzany przez usługę Data Lake Storage Gen1 | Symetryczny  | Klucz szyfrowania danych jest szyfrowany przy użyciu głównego klucza szyfrowania. Na nośniku trwałym jest zapisywany zaszyfrowany klucz szyfrowania danych. |
@@ -105,7 +105,7 @@ Poniższy diagram przedstawia te koncepcje:
 
 ## <a name="key-rotation"></a>Wymiana kluczy
 
-W przypadku korzystania z kluczy zarządzanych przez klienta można wymienić główny klucz szyfrowania. Aby dowiedzieć się, jak skonfigurować konto Data Lake Storage Gen1 przy użyciu kluczy zarządzanych przez klienta, zobacz [wprowadzenie](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+W przypadku korzystania z kluczy zarządzanych przez klienta można wymienić główny klucz szyfrowania. Aby dowiedzieć się, jak skonfigurować konto Data Lake Storage Gen1 przy użyciu kluczy zarządzanych przez klienta, zobacz [wprowadzenie](./data-lake-store-get-started-portal.md).
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -135,4 +135,4 @@ Należy pamiętać, że w przypadku używania opcji domyślnych dla szyfrowania 
 Ta operacja powinna zająć mniej niż dwie minuty i nie powinna powodować żadnego przestoju. Po zakończeniu operacji jest używana nowa wersja klucza.
 
 > [!IMPORTANT]
-> Po zakończeniu operacji rotacji kluczy stara wersja klucza nie jest już aktywnie używana do szyfrowania danych.  Jednak w rzadkich przypadkach wystąpienia nieoczekiwanych awarii, które mają wpływ nawet na nadmiarowe kopie danych, dane można przywrócić z kopii zapasowej nadal używającej starego klucza. Aby zapewnić dostępność danych w tych rzadkich przypadkach, należy zachować kopię poprzedniej wersji klucza szyfrowania. Zobacz [wskazówki dotyczące odzyskiwania po awarii dla danych w Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) , aby poznać najlepsze rozwiązania związane z planowaniem odzyskiwania po awarii. 
+> Po zakończeniu operacji rotacji kluczy stara wersja klucza nie jest już aktywnie używana do szyfrowania danych.  Jednak w rzadkich przypadkach wystąpienia nieoczekiwanych awarii, które mają wpływ nawet na nadmiarowe kopie danych, dane można przywrócić z kopii zapasowej nadal używającej starego klucza. Aby zapewnić dostępność danych w tych rzadkich przypadkach, należy zachować kopię poprzedniej wersji klucza szyfrowania. Zobacz [wskazówki dotyczące odzyskiwania po awarii dla danych w Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) , aby poznać najlepsze rozwiązania związane z planowaniem odzyskiwania po awarii.

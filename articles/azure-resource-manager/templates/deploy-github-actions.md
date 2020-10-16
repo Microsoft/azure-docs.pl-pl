@@ -2,90 +2,94 @@
 title: Wdrażanie szablonów Menedżer zasobów przy użyciu akcji GitHub
 description: Opisuje sposób wdrażania szablonów Azure Resource Manager przy użyciu akcji usługi GitHub.
 ms.topic: conceptual
-ms.date: 07/02/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: cea099088005fa91e1b3e9a793105df4796a66ee
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.date: 10/13/2020
+ms.custom: github-actions-azure,subject-armqs
+ms.openlocfilehash: b5852a65b4ed3c7cc73352fed37eeff035f8563c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018580"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106794"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Wdrażanie szablonów Azure Resource Manager przy użyciu akcji GitHub
 
-[Akcje GitHub](https://help.github.com/en/actions) umożliwiają tworzenie niestandardowych przepływów pracy tworzenia oprogramowania w repozytorium GitHub, w których są przechowywane szablony Azure Resource Manager (ARM). [Przepływ pracy](https://help.github.com/actions/reference/workflow-syntax-for-github-actions) jest definiowany przez plik YAML. Przepływy pracy zawierają jedno lub więcej zadań z zadaniami zawierającymi zestaw kroków wykonujących poszczególne zadania. Kroki mogą uruchamiać polecenia lub korzystać z akcji. Możesz tworzyć własne działania lub wykonywać akcje udostępnione przez [społeczność usługi GitHub](https://github.com/marketplace?type=actions) i dostosowywać je zgodnie z potrzebami. W tym artykule przedstawiono sposób wdrażania szablonów Menedżer zasobów przy użyciu [akcji interfejsu wiersza polecenia platformy Azure](https://github.com/marketplace/actions/azure-cli-action) .
+[Akcje GitHub](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) to zestaw funkcji w usłudze GitHub umożliwiających automatyzację przepływów pracy tworzenia oprogramowania w tym samym miejscu, w którym można przechowywać kod i współpracować nad żądaniami ściągnięcia i problemami.
 
-Akcja interfejsu wiersza polecenia platformy Azure ma dwie akcje zależne:
-
-- **[Wyewidencjonowywanie](https://github.com/marketplace/actions/checkout)**: Wyewidencjonuj repozytorium, aby przepływ pracy mógł uzyskać dostęp do określonego szablonu Menedżer zasobów.
-- **[Logowanie do platformy Azure](https://github.com/marketplace/actions/azure-login)**: Logowanie przy użyciu poświadczeń platformy Azure
-
-Podstawowy przepływ pracy wdrażania szablonu Menedżer zasobów może obejmować trzy kroki:
-
-1. Wyewidencjonuj plik szablonu.
-2. Zaloguj się do platformy Azure.
-3. Wdrażanie szablonu Menedżer zasobów
+[Akcja Wdróż szablon Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) służy do automatyzowania wdrażania szablonu Menedżer zasobów na platformie Azure. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Potrzebujesz repozytorium GitHub do przechowywania szablonów Menedżer zasobów i plików przepływu pracy. Aby go utworzyć, zobacz [Tworzenie nowego repozytorium](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Konto usługi GitHub. Jeśli nie masz takiego konta, zarejestruj się [bezpłatnie](https://github.com/join).  
+    - Repozytorium GitHub do przechowywania szablonów Menedżer zasobów i plików przepływu pracy. Aby go utworzyć, zobacz [Tworzenie nowego repozytorium](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
 
-## <a name="configure-deployment-credentials"></a>Konfigurowanie poświadczeń wdrożenia
 
-Akcja logowania platformy Azure używa jednostki usługi do uwierzytelniania na platformie Azure. Główna przepływ pracy ciągłej integracji/ciągłego wdrażania wymaga od razu wbudowanego współautora w celu wdrożenia zasobów platformy Azure.
+## <a name="workflow-file-overview"></a>Omówienie pliku przepływu pracy
 
-Poniższy skrypt interfejsu wiersza polecenia platformy Azure pokazuje, jak wygenerować jednostkę usługi platformy Azure z uprawnieniami współautora w grupie zasobów platformy Azure. Ta grupa zasobów to miejsce, w którym przepływ pracy wdraża zasoby zdefiniowane w szablonie Menedżer zasobów.
+Przepływ pracy jest definiowany przez plik YAML (. yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry wchodzące w skład przepływu pracy.
 
-```azurecli
-$projectName="[EnterAProjectName]"
-$location="centralus"
-$resourceGroupName="${projectName}rg"
-$appName="http://${projectName}"
-$scope=$(az group create --name $resourceGroupName --location $location --query 'id')
-az ad sp create-for-rbac --name $appName --role Contributor --scopes $scope --sdk-auth
+Plik ma dwie sekcje:
+
+|Sekcja  |Zadania  |
+|---------|---------|
+|**Authentication** | 1. Zdefiniuj nazwę główną usługi. <br /> 2. Utwórz wpis tajny usługi GitHub. |
+|**Wdrażanie** | 1. Wdróż szablon Menedżer zasobów. |
+
+## <a name="generate-deployment-credentials"></a>Generuj poświadczenia wdrożenia
+
+
+Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) można utworzyć jednostkę [usługi](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
+
+Zastąp symbol zastępczy `myApp` nazwą aplikacji. 
+
+```azurecli-interactive
+   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
-Dostosuj wartość **$projectName** i **$Location** w skrypcie. Nazwa grupy zasobów jest nazwą projektu z dołączoną **RG** . Należy określić nazwę grupy zasobów w przepływie pracy.
+W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji i grupą zasobów. Dane wyjściowe są obiektem JSON z poświadczeniami przypisywania roli, które zapewniają dostęp do aplikacji App Service podobnej do poniższego. Skopiuj ten obiekt JSON do nowszej wersji.
 
-Skrypt wyprowadza obiekt JSON podobny do tego:
-
-```json
-{
-   "clientId": "<GUID>",
-   "clientSecret": "<GUID>",
-   "subscriptionId": "<GUID>",
-   "tenantId": "<GUID>",
-   (...)
-}
+```output 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
 ```
 
-Skopiuj dane wyjściowe JSON i Zapisz je jako wpis tajny usługi GitHub w repozytorium GitHub. Jeśli nie masz jeszcze repozytorium, zapoznaj się z [wymaganiami wstępnymi](#prerequisites) .
+> [!IMPORTANT]
+> Zawsze dobrym sposobem jest przyznanie minimalnego dostępu. Zakres w poprzednim przykładzie jest ograniczony do grupy zasobów.
 
-1. W repozytorium GitHub wybierz kartę **Ustawienia** .
-1. W menu po lewej stronie wybierz pozycję wpisy **tajne** .
-1. Podaj następujące wartości:
 
-    - **Nazwa**: AZURE_CREDENTIALS
-    - **Wartość**: (Wklej dane wyjściowe JSON)
-1. Wybierz pozycję **Dodaj klucz tajny**.
 
-Należy określić nazwę wpisu tajnego w przepływie pracy.
+## <a name="configure-the-github-secrets"></a>Konfigurowanie wpisów tajnych usługi GitHub
+
+Musisz utworzyć wpisy tajne dla poświadczeń platformy Azure, grupy zasobów i subskrypcji. 
+
+1. W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium.
+
+1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło**.
+
+1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
+
+1. Utwórz inny klucz tajny o nazwie `AZURE_RG` . Dodaj nazwę grupy zasobów do pola wartości klucza tajnego. 
+
+1. Utwórz dodatkowy klucz tajny o nazwie `AZURE_SUBSCRIPTION` . Dodaj swój identyfikator subskrypcji do pola wartości klucza tajnego. 
 
 ## <a name="add-resource-manager-template"></a>Dodaj szablon Menedżer zasobów
 
-Dodaj szablon Menedżer zasobów do repozytorium GitHub. Jeśli go nie masz, możesz użyć poniższego szablonu. Szablon tworzy konto magazynu.
+Dodaj szablon Menedżer zasobów do repozytorium GitHub. Ten szablon służy do tworzenia konta magazynu.
 
 ```url
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Plik można umieścić w dowolnym miejscu w repozytorium. Przykład przepływu pracy w następnej sekcji zakłada, że plik szablonu ma nazwę **azuredeploy.json**i jest przechowywany w folderze o nazwie **templates** w katalogu głównym repozytorium.
+Plik można umieścić w dowolnym miejscu w repozytorium. Przykład przepływu pracy w następnej sekcji zakłada, że plik szablonu ma nazwę **azuredeploy.jsna**i jest przechowywany w katalogu głównym repozytorium.
 
 ## <a name="create-workflow"></a>Tworzenie przepływu pracy
 
 Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows w katalogu głównym repozytorium. Rozszerzenie pliku przepływu pracy może mieć wartość **. yml** lub **. YAML**.
-
-Można utworzyć plik przepływu pracy, a następnie wypchnąć/przekazać plik do repozytorium lub użyć następującej procedury:
 
 1. W repozytorium GitHub wybierz pozycję **Akcje** z górnego menu.
 1. Wybierz pozycję **Nowy przepływ pracy**.
@@ -94,51 +98,38 @@ Można utworzyć plik przepływu pracy, a następnie wypchnąć/przekazać plik 
 1. Zastąp zawartość pliku YML następującym:
 
     ```yml
-    name: Deploy ARM Template
-
-    on:
-      push:
-        branches:
-          - master
-        paths:
-          - ".github/workflows/deployStorageAccount.yml"
-          - "templates/azuredeploy.json"
-
+    on: [push]
+    name: Azure ARM
     jobs:
-      deploy-storage-account-template:
+      build-and-deploy:
         runs-on: ubuntu-latest
         steps:
-          - name: Checkout source code
-            uses: actions/checkout@master
 
-          - name: Login to Azure
-            uses: azure/login@v1
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
+          # Checkout code
+        - uses: actions/checkout@master
 
-
-          - name: Deploy ARM Template
-            uses: azure/CLI@v1
-            with:
-              inlineScript: |
-                az deployment group create --resource-group myResourceGroup --template-file ./templates/azuredeploy.json
+          # Log into Azure
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+     
+          # Deploy ARM template
+        - uses: azure/arm-deploy@v1
+        - name: Run ARM deploy
+          with:
+            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+            resourceGroupName: ${{ secrets.AZURE_RG }}
+            template: ./azuredeploy.json
+            parameters: storageAccountType=Standard_LRS
+        
+          # output containerName variable from template
+        - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
 
-    Plik przepływu pracy ma trzy sekcje:
+    Pierwsza sekcja pliku przepływu pracy zawiera:
 
     - **name**: Nazwa przepływu pracy.
     - **włączone**: Nazwa zdarzeń usługi GitHub, które wyzwalają przepływ pracy. Przepływ pracy jest wyzwalany w przypadku wystąpienia zdarzenia push w gałęzi głównej, który modyfikuje co najmniej jeden z dwóch określonych plików. Te dwa pliki to plik przepływu pracy i plik szablonu.
-
-        > [!IMPORTANT]
-        > Sprawdź, czy te dwa pliki i ich ścieżki pasują do siebie.
-    - **zadania**: przebieg przepływu pracy składa się z co najmniej jednego zadania. Istnieje tylko jedno zadanie o nazwie **Deploy-Storage-account-Template**.  To zadanie ma trzy kroki:
-
-        - **Wyewidencjonowywanie kodu źródłowego**.
-        - **Zaloguj się do platformy Azure**.
-
-            > [!IMPORTANT]
-            > Sprawdź, czy nazwa wpisu tajnego pasuje do zawartości zapisanej w repozytorium. Zobacz [Konfigurowanie poświadczeń wdrożenia](#configure-deployment-credentials).
-        - **Wdróż szablon ARM**. Zastąp wartość **resourceGroupName**.  Jeśli użyto skryptu interfejsu wiersza polecenia platformy Azure w obszarze [Konfigurowanie poświadczeń wdrażania](#configure-deployment-credentials), wygenerowana nazwa grupy zasobów jest nazwą projektu z dołączoną **RG** . Sprawdź wartość **templateLocation**.
 
 1. Wybierz pozycję **Rozpocznij zatwierdzenie**.
 1. Wybierz pozycję **Zatwierdź bezpośrednio w gałęzi głównej**.
@@ -148,11 +139,15 @@ Ponieważ przepływ pracy jest skonfigurowany do wyzwalania przez plik przepływ
 
 ## <a name="check-workflow-status"></a>Sprawdź stan przepływu pracy
 
-1. Wybierz kartę **Akcje** . Zobaczysz przepływ pracy **Create deployStorageAccount. yml** na liście. Wykonanie przepływu pracy trwa 1-2 minut.
+1. Wybierz kartę **Akcje** . Zostanie wyświetlony przepływ pracy **Utwórz deployStorageAccount. yml** . Uruchomienie przepływu pracy trwa 1-2 minut.
 1. Wybierz przepływ pracy, aby go otworzyć.
-1. Wybierz pozycję **Wdróż-Storage-account-Template** (nazwa zadania) w menu po lewej stronie. Nazwa zadania jest definiowana w przepływie pracy.
-1. Wybierz pozycję **Wdróż szablon ARM** (Nazwa kroku), aby ją rozwinąć. Możesz zobaczyć odpowiedź interfejsu API REST.
+1. Wybierz pozycję **Uruchom wdrożenie usługi ARM** z menu, aby zweryfikować wdrożenie.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Jeśli grupa zasobów i repozytorium nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz [Samouczek: Tworzenie i wdrażanie pierwszego szablonu usługi ARM](template-tutorial-create-first-template.md).
+> [!div class="nextstepaction"]
+> [Tworzenie pierwszego szablonu ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 6c422b9a70f679279d1310444aafb1f9131ff944
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949854"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107831"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limity usługi Azure Cognitive Search
 
@@ -101,10 +101,9 @@ Maksymalne czasy działania są dostępne w celu zapewnienia równowagi i stabil
 > [!NOTE]
 > Jak określono w [limitach indeksu](#index-limits), indeksatory będą również wymuszać górny limit 3000 elementów we wszystkich złożonych kolekcjach dla każdego dokumentu, rozpoczynając od najnowszej wersji interfejsu API GA, która obsługuje typy złożone ( `2019-05-06` ). Oznacza to, że jeśli utworzono indeksator z poprzednią wersją interfejsu API, nie będzie to możliwe. Aby zachować maksymalną zgodność, indeksator, który został utworzony przy użyciu wcześniejszej wersji interfejsu API, a następnie zaktualizowany przy użyciu wersji interfejsu API `2019-05-06` lub nowszej, będzie nadal **wykluczony** z limitów. Klienci powinni mieć świadomość niekorzystnego wpływu na bardzo duże złożone kolekcje (jak wspomniano wcześniej) i zdecydowanie zaleca się utworzenie nowych indeksatorów z najnowszą wersją interfejsu API w wersji GA.
 
-### <a name="shared-private-link-resource-limits"></a>Limity zasobów udostępnionego linku prywatnego
+## <a name="shared-private-link-resource-limits"></a>Limity zasobów udostępnionego linku prywatnego
 
-> [!NOTE]
-> Indeksatory mogą bezpiecznie uzyskiwać dostęp do zasobów za pośrednictwem prywatnych punktów końcowych zarządzanych za pośrednictwem [udostępnionego interfejsu API zasobów linku prywatnego](/rest/api/searchmanagement/sharedprivatelinkresources) zgodnie z opisem w [tym przewodniku](search-indexer-howto-access-private.md)
+Indeksatory mogą uzyskiwać dostęp do innych zasobów platformy Azure [za pośrednictwem prywatnych punktów końcowych](search-indexer-howto-access-private.md) zarządzanych za pośrednictwem [interfejsu API zasobów udostępnionego linku prywatnego](/rest/api/searchmanagement/sharedprivatelinkresources). W tej sekcji opisano limity związane z tą funkcją.
 
 | Zasób | Bezpłatna | Podstawowy | S1 | S2 | S3 | S3 (wysoka gęstość) | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -113,7 +112,7 @@ Maksymalne czasy działania są dostępne w celu zapewnienia równowagi i stabil
 | Maksymalna liczba prywatnych punktów końcowych | Nie dotyczy | 10 lub 30 | 100 | 400 | 400 | Nie dotyczy | 20 | 20 |
 | Maksymalna liczba różnych typów zasobów<sup>2</sup> | Nie dotyczy | 4 | 7 | 15 | 15 | Nie dotyczy | 4 | 4 |
 
-<sup>1</sup> wzbogacanie programu AI i analiza obrazów są intensywnie czasochłonne i zużywają nieproporcjonalne ilości dostępnej mocy obliczeniowej, dlatego w przypadku mniejszych warstw usług wyszukiwania, które umożliwiają uruchamianie ich w środowisku prywatnym, mogą mieć negatywny wpływ na wydajność i stabilność usługi wyszukiwania.
+<sup>1</sup> wzbogacanie programu AI i analiza obrazów są intensywnie czasochłonne i zużywają nieproporcjonalne ilości dostępnej mocy obliczeniowej. Z tego powodu połączenia prywatne są wyłączone w niższych warstwach, aby uniknąć niekorzystnego wpływu na wydajność i stabilność usługi wyszukiwania.
 
 <sup>2</sup> liczba różnych typów zasobów jest obliczana jako liczba unikatowych `groupId` wartości używanych w ramach wszystkich udostępnionych zasobów linków prywatnych dla danej usługi wyszukiwania, niezależnie od stanu zasobu.
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
-ms.openlocfilehash: 2c6efd14bd974de1b01b1725b9810f153df74bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde3b95c7997a7f742a9d48a964f4275169f6e9c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482177"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106930"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Azure Cosmos DB wyzwalacz i powiązania dla Azure Functions 2. x i wyższych przeglądów
 
@@ -20,7 +20,7 @@ ms.locfileid: "85482177"
 
 Ten zestaw artykułów wyjaśnia, jak używać powiązań [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) w Azure Functions 2. x i wyższych. Azure Functions obsługuje powiązania wyzwalacza, danych wejściowych i wyjściowych dla Azure Cosmos DB.
 
-| Akcja | Type |
+| Akcja | Typ |
 |---------|---------|
 | Uruchom funkcję w przypadku utworzenia lub zmodyfikowania dokumentu Azure Cosmos DB | [Wyzwalacz](./functions-bindings-cosmosdb-v2-trigger.md) |
 | Odczytaj dokument Azure Cosmos DB | [Powiązanie danych wejściowych](./functions-bindings-cosmosdb-v2-input.md) |
@@ -50,7 +50,7 @@ Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. 
 [Pakiet NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB
 [core tools]: ./functions-run-local.md
 [pakiet rozszerzeń]: ./functions-bindings-register.md#extension-bundles
-[Aktualizowanie rozszerzeń]: ./install-update-binding-extensions-manual.md
+[Aktualizowanie rozszerzeń]: ./functions-bindings-register.md
 [Rozszerzenie narzędzi platformy Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions w wersji 1.x

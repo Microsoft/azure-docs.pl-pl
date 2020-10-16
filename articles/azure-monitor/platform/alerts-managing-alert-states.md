@@ -5,16 +5,16 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: a53390dee8eb504f92e66bb3573814bd411be0b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b91c3d59a5a37457d67fdfbc646334fccb331df5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358968"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104805"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Zarządzanie stanami alertów i grup inteligentnych
 
-Alerty w Azure Monitor mają teraz [stan alertu i stan monitora](https://aka.ms/azure-alerts-overview) , a podobnie grupy inteligentne mają [stan grupy inteligentnej](https://aka.ms/smart-groups). Zmiany stanu są teraz przechwytywane w historii skojarzonej z odpowiednim alertem lub grupą inteligentną. Ten artykuł przeprowadzi Cię przez proces zmiany stanu dla alertu i grupy inteligentnej.
+Alerty w Azure Monitor mają teraz [stan alertu i stan monitora](./alerts-overview.md) , a podobnie grupy inteligentne mają [stan grupy inteligentnej](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json). Zmiany stanu są teraz przechwytywane w historii skojarzonej z odpowiednim alertem lub grupą inteligentną. Ten artykuł przeprowadzi Cię przez proces zmiany stanu dla alertu i grupy inteligentnej.
 
 ## <a name="change-the-state-of-an-alert"></a>Zmiana stanu alertu
 
@@ -46,4 +46,3 @@ Alerty w Azure Monitor mają teraz [stan alertu i stan monitora](https://aka.ms/
 
 1. Po wykonaniu tej czynności zmiana stanu zostanie zarejestrowana w historii odpowiedniej grupy inteligentnej. Można to wyświetlić, otwierając odpowiednią stronę szczegółów i sprawdzając sekcję Historia.     
 ![Zrzut ekranu przedstawia historię zmian dla grupy inteligentnej.](./media/alerts-managing-alert-states/state-sg-history.jpg)
-

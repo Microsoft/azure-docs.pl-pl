@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: baf80e3d543bee455dd8dfa5bc09bc5bf43c3453
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3ad0da1f910556c172c519faf953d4075647955
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947366"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109055"
 ---
 # <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Tworzenie i usuwanie prywatnych punktów końcowych w klastrze Azure Stream Analytics
 
 Zadania usługi Azure Stream Analytics uruchomione w klastrze można połączyć z zasobami wejściowymi i wyjściowymi, które znajdują się za zaporą lub siecią wirtualną platformy Azure. Najpierw należy utworzyć prywatny punkt końcowy dla zasobu, takiego jak usługa Azure Event Hub lub Azure SQL Database, w klastrze usługi Stream Analytics. Następnie należy zatwierdzić połączenie prywatnego punktu końcowego z zasobu wejściowego lub wyjściowego.
 
-Po zatwierdzeniu połączenia każde zadanie uruchomione w klastrze usługi Stream Analytics ma dostęp do zasobu za pośrednictwem prywatnego punktu końcowego. W tym artykule opisano sposób tworzenia i usuwania prywatnych punktów końcowych w klastrze usługi Stream Analytics.
+Po zatwierdzeniu połączenia każde zadanie uruchomione w klastrze Stream Analytics będzie miało dostęp do zasobu za pomocą prywatnego punktu końcowego. W tym artykule opisano sposób tworzenia i usuwania prywatnych punktów końcowych w klastrze usługi Stream Analytics.
 
 ## <a name="create-private-endpoint-in-stream-analytics-cluster"></a>Tworzenie prywatnego punktu końcowego w klastrze Stream Analytics
 

@@ -4,12 +4,12 @@ description: Informacje o domyślnych przydziałach Azure Batch, limitach i ogra
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c13df8b537d701400a22cd2871e7f8362f02455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84417280"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107542"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 
@@ -89,7 +89,7 @@ Możesz poprosić o zwiększenie limitu przydziału dla konta usługi Batch lub 
    
     1. **Typ**  >  limitu przydziału **Partia zadań**
       
-       Wybierz opcję **Dalej**.
+       Wybierz pozycję **Dalej**.
     
 1. W obszarze **Szczegóły**:
       
@@ -109,7 +109,7 @@ Możesz poprosić o zwiększenie limitu przydziału dla konta usługi Batch lub 
 
     1. Wybierz **wagę** zgodną z Twoim [wpływem na firmę](https://aka.ms/supportseverity).
 
-       Wybierz opcję **Dalej**.
+       Wybierz pozycję **Dalej**.
 
 1. W **informacjach kontaktowych**:
    
@@ -125,7 +125,7 @@ Po przesłaniu żądania pomocy technicznej systemu Azure skontaktuje się z Tob
 
 Pule usługi Batch w konfiguracji maszyny wirtualnej wdrożonej w sieci wirtualnej platformy Azure automatycznie przydzielą dodatkowe zasoby sieci platformy Azure. W przypadku każdego węzła puli 50 w sieci wirtualnej są niezbędne następujące zasoby:
 
-- Jedna [sieciowa Grupa zabezpieczeń](../virtual-network/security-overview.md#network-security-groups)
+- Jedna [sieciowa Grupa zabezpieczeń](../virtual-network/network-security-groups-overview.md#network-security-groups)
 - Jeden [publiczny adres IP](../virtual-network/public-ip-addresses.md)
 - Jeden [moduł równoważenia obciążenia](../load-balancer/load-balancer-overview.md)
 

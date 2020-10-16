@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803504"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107491"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
 
@@ -49,7 +49,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy da
 | blob  | Tak |
 | boolean  | Tak |
 | counter  | Tak |
-| date  | Tak |
+| data  | Tak |
 | decimal  | Tak |
 | double  | Tak |
 | float  | Tak |
@@ -141,7 +141,7 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 | UTWÓRZ AGREGACJĘ | Nie | 
 | UTWÓRZ INDEKS NIESTANDARDOWY (SASI) | Nie |
 | CREATE INDEX | Tak (bez [określania nazwy indeksu](cassandra-secondary-index.md)i indeksy w kluczach klastrowania lub pełna zamrożona kolekcja nie jest obsługiwana) |
-| UTWÓRZ FUNKCJĘ | Nie |
+| CREATE FUNCTION | Nie |
 | Utwórz miejsce na dysku (zignorowano ustawienia replikacji) | Tak |
 | UTWÓRZ WIDOK Z MATERIAŁAMI | Nie |
 | CREATE TABLE | Tak |
@@ -151,23 +151,24 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 | Utwórz użytkownika (przestarzałe w natywnym programie Apache Cassandra) | Nie |
 | DELETE | Tak |
 | Usuń (lekkie transakcje z WARUNKIem IF)| Tak |
+| DISTINCT | Nie |
 | UPUŚĆ WARTOŚĆ ZAGREGOWANĄ | Nie |
-| DROP — FUNKCJA | Nie |
+| DROP FUNCTION | Nie |
 | DROP INDEX | Tak |
 | PORZUĆ MIEJSCE NA DYSKU | Tak |
 | UPUŚĆ WIDOK Z MATERIAŁAMI | Nie |
 | USUŃ ROLĘ | Nie |
-| USUŃ TABELĘ | Tak |
+| DROP TABLE | Tak |
 | PORZUĆ WYZWALACZ | Nie | 
 | TYP USUWANIA | Tak |
 | UPUŚĆ użytkownika (przestarzałe w natywnym programie Apache Cassandra) | Nie |
-| DAWAĆ | Nie |
+| GRANT | Nie |
 | INSERT | Tak |
 | Wstaw (lekkie transakcje z WARUNKIem IF)| Tak |
 | WYŚWIETL UPRAWNIENIA | Nie |
 | ROLE LIST | Nie |
 | Lista użytkowników (przestarzałe w natywnym programie Apache Cassandra) | Nie |
-| ODWOŁANIA | Nie |
+| REVOKE | Nie |
 | SELECT | Tak |
 | SELECT (lekkie transakcje z WARUNKIem IF)| Nie |
 | UPDATE | Tak |

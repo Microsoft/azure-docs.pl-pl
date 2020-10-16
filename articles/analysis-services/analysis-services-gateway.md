@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0d8960ddd8f617c59d6ac025fafe413256bc5b94
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016097"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107610"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Łączenie z lokalnymi źródłami danych za pomocą lokalnej bramy danych
 
@@ -29,22 +29,6 @@ Aby uzyskać Azure Analysis Services, należy pobrać Instalatora z bramą po ra
 - **Tworzenie zasobu bramy na platformie Azure** — w tym kroku utworzysz zasób bramy na platformie Azure.
 
 - **Połącz zasób bramy z serwerami** — gdy masz zasób bramy, możesz rozpocząć połączenie z serwerem. Można połączyć wiele serwerów i innych zasobów, pod warunkiem, że znajdują się one w tym samym regionie.
-
-
-
-## <a name="how-it-works"></a>Jak to działa
-Brama zainstalowana na komputerze w organizacji działa jako usługa systemu Windows, **lokalna Brama danych**. Ta usługa lokalna jest rejestrowana w usłudze w chmurze dla bramy za pośrednictwem usługi Azure Service Bus. Następnie utworzysz zasób lokalnej bramy danych dla subskrypcji platformy Azure. Serwery Azure Analysis Services są następnie połączone z zasobem bramy platformy Azure. Gdy modele na serwerze muszą łączyć się z lokalnymi źródłami danych w celu wykonywania zapytań lub przetwarzania, przepływy zapytań i danych przechodzą przez zasób bramy, Azure Service Bus, lokalna usługa lokalnej bramy danych i źródła danych. 
-
-![Jak to działa](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
-
-Zapytania i przepływ danych:
-
-1. Zapytanie jest tworzone przez usługę w chmurze przy użyciu zaszyfrowanych poświadczeń dla lokalnego źródła danych. Następnie jest wysyłane do kolejki dla bramy do przetworzenia.
-2. Usługa bramy w chmurze analizuje zapytanie i wypycha żądanie do [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
-3. Brama danych lokalnych sonduje usługę Azure Service Bus pod kątem żądań oczekujących.
-4. Brama pobiera zapytanie, odszyfrowuje poświadczenia i nawiązuje połączenie ze źródłami danych, używając tych poświadczeń.
-5. Brama wysyła zapytanie do źródła danych w celu wykonania.
-6. Wyniki są odsyłane ze źródła danych do bramy, z powrotem do bramy, a następnie do usługi w chmurze i na serwer.
 
 ## <a name="installing"></a>Instalowanie
 
@@ -76,16 +60,6 @@ Poniżej znajdują się w pełni kwalifikowane nazwy domen używane przez bramę
 | *.msftncsi.com |443 |Służy do testowania łączności z Internetem, gdy brama jest nieosiągalna przez usługę Power BI. |
 | *.microsoftonline-p.com |443 |Używany do uwierzytelniania w zależności od konfiguracji. |
 | dc.services.visualstudio.com    |443 |Używane przez AppInsights do zbierania danych telemetrycznych. |
-
-### <a name="forcing-https-communication-with-azure-service-bus"></a>Wymuszanie komunikacji HTTPS z usługą Azure Service Bus
-
-Można wymusić, aby brama mogła komunikować się z Azure Service Bus przy użyciu protokołu HTTPS zamiast bezpośredniego protokołu TCP. Jednak może to znacznie zmniejszyć wydajność. Plik *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* można zmodyfikować, zmieniając wartość z `AutoDetect` na `Https` . Ten plik zazwyczaj znajduje się w *katalogu C:\Program Files\On-premises Data Gateway*.
-
-```
-<setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-    <value>Https</value>
-</setting>
-```
 
 ## <a name="next-steps"></a>Następne kroki 
 

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: fe5940083d04c1b5cc60b21834adf609e523e059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48136f8d9172c3674e849e24efca4ae5070f83ab
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666249"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109123"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Wskazówki dotyczące wysokiej dostępności i odzyskiwania po awarii dla Data Lake Storage Gen1
 
@@ -21,8 +21,8 @@ Data Lake Storage Gen1 zapewnia Magazyn lokalnie nadmiarowy (LRS). W związku z 
 
 Należy przygotować plan odzyskiwania po awarii. Zapoznaj się z informacjami w tym artykule i tymi dodatkowymi zasobami, które pomogą Ci utworzyć własny plan.
 
-* [Odzyskiwanie aplikacji platformy Azure po awarii i ich wysoka dostępność](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
-* [Odporność platformy Azure — wskazówki techniczne](../resiliency/resiliency-technical-guidance.md)
+* [Odzyskiwanie aplikacji platformy Azure po awarii i ich wysoka dostępność](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Odporność platformy Azure — wskazówki techniczne](/azure/architecture/framework/resiliency/overview)
 
 ### <a name="best-practice-recommendations"></a>Zalecenia dotyczące najlepszych rozwiązań
 

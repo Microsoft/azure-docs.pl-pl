@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcbce9e7a5b24cbbe695b2ad664137875464b705
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449335"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107933"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Tworzenie ustawień diagnostycznych w celu wysyłania metryk i dzienników platformy do różnych miejsc docelowych
 [Dzienniki platformy](platform-logs-overview.md) na platformie Azure, w tym dziennik aktywności platformy Azure i dzienniki zasobów, zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą. [Metryki platformy](data-platform-metrics.md) są zbierane domyślnie i zazwyczaj przechowywane w bazie danych metryk Azure monitor. Ten artykuł zawiera szczegółowe informacje na temat tworzenia i konfigurowania ustawień diagnostycznych w celu wysyłania metryk platformy i dzienników platformy do różnych miejsc docelowych.
@@ -46,8 +46,8 @@ Dzienniki platformy i metryki mogą być wysyłane do miejsc docelowych w poniż
 | Element docelowy | Opis |
 |:---|:---|
 | [Log Analytics obszar roboczy](design-logs-deployment.md) | Wysyłanie dzienników i metryk do obszaru roboczego Log Analytics umożliwia analizowanie ich przy użyciu innych danych monitorowania zbieranych przez Azure Monitor przy użyciu zaawansowanych zapytań dzienników oraz korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje. |
-| [Centra zdarzeń](/azure/event-hubs/) | Wysyłanie dzienników i metryk do Event Hubs umożliwia przesyłanie strumieniowe danych do systemów zewnętrznych, takich jak rozwiązań Siem innych firm, oraz innych rozwiązań usługi log Analytics.  |
-| [Konto usługi Azure Storage](/azure/storage/blobs/) | Archiwizowanie dzienników i metryk na koncie usługi Azure Storage jest przydatne w przypadku inspekcji, statycznej analizy lub tworzenia kopii zapasowych. W porównaniu do Azure Monitor dzienników i Log Analytics obszaru roboczego usługa Azure Storage jest tańsza, a dzienniki mogą być przechowywane w nieskończoność.  |
+| [Centra zdarzeń](../../event-hubs/index.yml) | Wysyłanie dzienników i metryk do Event Hubs umożliwia przesyłanie strumieniowe danych do systemów zewnętrznych, takich jak rozwiązań Siem innych firm, oraz innych rozwiązań usługi log Analytics.  |
+| [Konto usługi Azure Storage](../../storage/blobs/index.yml) | Archiwizowanie dzienników i metryk na koncie usługi Azure Storage jest przydatne w przypadku inspekcji, statycznej analizy lub tworzenia kopii zapasowych. W porównaniu do Azure Monitor dzienników i Log Analytics obszaru roboczego usługa Azure Storage jest tańsza, a dzienniki mogą być przechowywane w nieskończoność.  |
 
 
 ### <a name="destination-requirements"></a>Wymagania dotyczące miejsca docelowego
@@ -128,7 +128,7 @@ Ustawienia diagnostyczne można skonfigurować w Azure Portal z menu Azure Monit
         >
         > Jeśli na przykład ustawisz zasady przechowywania dla elementu *WorkflowRuntime* na 180 dni, a następnie 24 godziny później ustawisz go na 365 dni, dzienniki przechowywane w ciągu pierwszych 24 godzin zostaną automatycznie usunięte po 180 dni, a wszystkie kolejne dzienniki tego typu zostaną automatycznie usunięte po upływie 365 dni. Zmiana zasad przechowywania w późniejszym czasie nie powoduje, że pierwsze 24 godziny dzienników pozostanie na około 365 dni.
 
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz**.
 
 Po kilku chwilach nowe ustawienie zostanie wyświetlone na liście ustawień dla tego zasobu, a dzienniki są przesyłane strumieniowo do określonych lokalizacji docelowych w miarę generowania nowych danych zdarzeń. Gdy zdarzenie jest emitowane i [pojawia się w obszarze roboczym log Analytics](data-ingestion-time.md), może upłynąć do 15 minut.
 
@@ -137,7 +137,7 @@ Po kilku chwilach nowe ustawienie zostanie wyświetlone na liście ustawień dla
 Użyj polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) , aby utworzyć ustawienie diagnostyczne z [Azure PowerShell](../samples/powershell-samples.md). Zapoznaj się z dokumentacją tego polecenia cmdlet, aby zapoznać się z opisami jego parametrów.
 
 > [!IMPORTANT]
-> Nie można użyć tej metody dla dziennika aktywności platformy Azure. Zamiast tego użyj opcji [Utwórz ustawienia diagnostyczne w Azure monitor przy użyciu szablonu Menedżer zasobów](diagnostic-settings-template.md) , aby utworzyć szablon Menedżer zasobów i wdrożyć go przy użyciu programu PowerShell.
+> Nie można użyć tej metody dla dziennika aktywności platformy Azure. Zamiast tego użyj opcji [Utwórz ustawienia diagnostyczne w Azure monitor przy użyciu szablonu Menedżer zasobów](../samples/resource-manager-diagnostic-settings.md) , aby utworzyć szablon Menedżer zasobów i wdrożyć go przy użyciu programu PowerShell.
 
 Poniżej znajduje się przykładowe polecenie cmdlet programu PowerShell służące do tworzenia ustawień diagnostycznych przy użyciu wszystkich trzech miejsc docelowych.
 
@@ -150,7 +150,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 Użyj polecenia [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) , aby utworzyć ustawienie diagnostyczne przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/monitor?view=azure-cli-latest). Zapoznaj się z dokumentacją tego polecenia, aby zapoznać się z opisami jego parametrów.
 
 > [!IMPORTANT]
-> Nie można użyć tej metody dla dziennika aktywności platformy Azure. Zamiast tego użyj opcji [Utwórz ustawienia diagnostyczne w Azure monitor przy użyciu szablonu Menedżer zasobów](diagnostic-settings-template.md) , aby utworzyć szablon Menedżer zasobów i wdrożyć go przy użyciu interfejsu wiersza polecenia.
+> Nie można użyć tej metody dla dziennika aktywności platformy Azure. Zamiast tego użyj opcji [Utwórz ustawienia diagnostyczne w Azure monitor przy użyciu szablonu Menedżer zasobów](../samples/resource-manager-diagnostic-settings.md) , aby utworzyć szablon Menedżer zasobów i wdrożyć go przy użyciu interfejsu wiersza polecenia.
 
 Poniżej znajduje się przykładowe polecenie interfejsu wiersza polecenia służące do tworzenia ustawień diagnostycznych przy użyciu wszystkich trzech miejsc docelowych.
 

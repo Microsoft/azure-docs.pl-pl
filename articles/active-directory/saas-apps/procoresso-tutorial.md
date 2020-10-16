@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e0a8e6786dbce1015d587cf8015e3624c97a5817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea69f1e634c66bff98462d41f3eeef19f8e15eb0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553618"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105247"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Samouczek: integracja z usługą Azure Active Directory przy użyciu podstawowego logowania jednokrotnego
 
@@ -121,11 +121,11 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu podsta
 
 2. Z listy rozwijanej przybornika kliknij pozycję **administrator** , aby otworzyć stronę Ustawienia logowania jednokrotnego.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/procoresso-tutorial/procore_tool_admin.png)
+    ![Zrzut ekranu przedstawia podstawową witrynę firmy z wybranym katalogiem.](./media/procoresso-tutorial/procore_tool_admin.png)
 
 3. Wklej wartości w polach zgodnie z opisem poniżej.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/procoresso-tutorial/procore_setting_admin.png)  
+    ![Zrzut ekranu przedstawia okno dialogowe Dodawanie osoby.](./media/procoresso-tutorial/procore_setting_admin.png) 
 
     a. W polu tekstowym **adres URL wystawcy logowania** jednokrotnego wklej wartość **identyfikatora usługi Azure AD** , który został skopiowany z Azure Portal.
 
@@ -159,7 +159,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -195,11 +195,11 @@ Wykonaj poniższe czynności, aby utworzyć użytkownika testowego na potrzeby p
 
 2. Z listy rozwijanej przybornika kliknij pozycję **katalog** , aby otworzyć stronę katalog firmy.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/procoresso-tutorial/Procore_sso_directory.png)
+    ![Zrzut ekranu przedstawia podstawową lokację firmy z katalogiem wybranym z przybornika.](./media/procoresso-tutorial/Procore_sso_directory.png)
 
 3. Kliknij opcję **Dodaj osobę** , aby otworzyć formularz, i wprowadź następujące opcje:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/procoresso-tutorial/Procore_user_add.png)
+    ![Zrzut ekranu przedstawia Boylaną, gdzie można wprowadzać informacje o użytkowniku.](./media/procoresso-tutorial/Procore_user_add.png)
 
     a. W polu tekstowym **imię i nazwisko** wpisz imię użytkownika, np. **Britta**.
 
@@ -209,15 +209,15 @@ Wykonaj poniższe czynności, aby utworzyć użytkownika testowego na potrzeby p
 
     d. Wybierz **szablon uprawnień** jako **Zastosuj szablon uprawnień później**.
 
-    e. Kliknij przycisk **Utwórz**.
+    e. Kliknij pozycję **Utwórz**.
 
 4. Sprawdź i Zaktualizuj szczegóły nowo dodanego kontaktu.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/procoresso-tutorial/Procore_user_check.png)
+    ![Zrzut ekranu przedstawia stronę edycji, na której można sprawdzić ustawienia użytkownika.](./media/procoresso-tutorial/Procore_user_check.png)
 
 5. Kliknij pozycję **Zapisz i Wyślij zaproszenie** (jeśli jest wymagana zapraszanie za pomocą poczty e-mail) lub **Zapisz** (Zapisz bezpośrednio), aby ukończyć rejestrację użytkownika.
     
-    ![Konfigurowanie logowania jednokrotnego](./media/procoresso-tutorial/Procore_user_save.png)
+    ![Zrzut ekranu przedstawia bieżące ustawienia projektu, w których można zapisywać i wysyłać zaproszenia.](./media/procoresso-tutorial/Procore_user_save.png)
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 

@@ -6,16 +6,16 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a99196cfad7abad38408c847a8a0b64ffe95fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f251e6ba2d94c0fcede3387ac12461951de40f1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85508796"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108749"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Zarządzanie zasobami Azure Data Lake Storage Gen1 przy użyciu Eksplorator usługi Storage
 
-[Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) to usługa do przechowywania dużych ilości danych bez struktury, takich jak dane tekstowe lub binarne. Możesz uzyskać dostęp do danych z dowolnego miejsca za pośrednictwem protokołu HTTP lub HTTPS. Data Lake Storage Gen1 w Eksplorator usługi Azure Storage umożliwia dostęp do danych i zasobów Data Lake Storage Gen1 oraz zarządzanie nimi, a także z innymi jednostkami platformy Azure, takimi jak obiekty blob i kolejki. Za pomocą jednego narzędzia można teraz centralnie zarządzać różnymi jednostkami platformy Azure.
+[Azure Data Lake Storage Gen1](./data-lake-store-overview.md) to usługa do przechowywania dużych ilości danych bez struktury, takich jak dane tekstowe lub binarne. Możesz uzyskać dostęp do danych z dowolnego miejsca za pośrednictwem protokołu HTTP lub HTTPS. Data Lake Storage Gen1 w Eksplorator usługi Azure Storage umożliwia dostęp do danych i zasobów Data Lake Storage Gen1 oraz zarządzanie nimi, a także z innymi jednostkami platformy Azure, takimi jak obiekty blob i kolejki. Za pomocą jednego narzędzia można teraz centralnie zarządzać różnymi jednostkami platformy Azure.
 
 Inna korzyść polega na tym, że nie trzeba mieć uprawnień subskrypcji do zarządzania danymi Data Lake Storage Gen1. W Eksplorator usługi Storage można dołączyć ścieżkę Data Lake Storage Gen1 do węzła **lokalnego i dołączonego** , o ile ktoś przyznaje uprawnienia.
 
@@ -24,7 +24,7 @@ Inna korzyść polega na tym, że nie trzeba mieć uprawnień subskrypcji do zar
 Do wykonania kroków opisanych w tym artykule potrzebne jest spełnienie następujących wymagań wstępnych:
 
 * Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial).
-* Konto Data Lake Storage Gen1. Aby uzyskać instrukcje dotyczące sposobu tworzenia takiego elementu, zobacz Wprowadzenie [do Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+* Konto Data Lake Storage Gen1. Aby uzyskać instrukcje dotyczące sposobu tworzenia takiego elementu, zobacz Wprowadzenie [do Azure Data Lake Storage Gen1](./data-lake-store-get-started-portal.md).
 
 ## <a name="install-storage-explorer"></a>Instalowanie Eksploratora usługi Storage
 
@@ -195,7 +195,7 @@ Jeśli masz adres URL, możesz wprowadzić go do ścieżki adresu w Eksploratorz
 ## <a name="next-steps"></a>Następne kroki
 
 * Zobacz [najnowsze informacje o wersji i wideo dotyczące Eksploratora usługi Storage](https://www.storageexplorer.com).
-* Dowiedz się, jak [zarządzać Azure Cosmos DB w Eksplorator usługi Azure Storage](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
-* [Rozpocznij pracę z Eksplorator usługi Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Rozpocznij pracę z Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+* Dowiedz się, jak [zarządzać Azure Cosmos DB w Eksplorator usługi Azure Storage](../cosmos-db/storage-explorer.md).
+* [Rozpocznij pracę z Eksplorator usługi Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+* [Rozpocznij pracę z Azure Data Lake Storage Gen1](./data-lake-store-overview.md).
 * Obejrzyj [wideo w serwisie YouTube dotyczące korzystania z usługi Azure Cosmos DB w Eksploratorze usługi Storage Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
