@@ -1,5 +1,5 @@
 ---
-title: Usługa Azure serwer proxy aplikacji usługi Azure AD często zadawane pytania | Microsoft Docs
+title: serwer proxy aplikacji usługi Azure Active Directory często zadawane pytania
 description: Poznaj odpowiedzi na często zadawane pytania dotyczące korzystania z usługi Azure serwer proxy aplikacji usługi Azure AD w celu publikowania wewnętrznych aplikacji lokalnych dla użytkowników zdalnych.
 services: active-directory
 author: kenwith
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589167"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104567"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -84,7 +84,6 @@ Serwer proxy aplikacji wymaga systemu Windows Server 2012 R2 lub nowszego. Obecn
     HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
     ```
 
-
 ## <a name="application-configuration"></a>Konfiguracja aplikacji
 
 ### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>Otrzymuję błąd dotyczący nieprawidłowego certyfikatu lub możliwe złe hasło
@@ -124,6 +123,12 @@ Aby uzyskać więcej informacji, zobacz oficjalny dokument dotyczący [ograniczo
 ### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>Czy uwierzytelnianie NTLM działa z usługą Azure serwer proxy aplikacji usługi Azure AD?
 
 Nie można użyć uwierzytelniania NTLM jako metody wstępnego uwierzytelniania lub logowania jednokrotnego. Uwierzytelniania NTLM można używać tylko wtedy, gdy może być negocjowane bezpośrednio między klientem a opublikowaną aplikacją sieci Web. Użycie uwierzytelniania NTLM zwykle powoduje wyświetlenie monitu logowania w przeglądarce.
+
+### <a name="can-i-use-the-logon-identity-on-premises-user-principal-name-or-on-premises-sam-account-name-in-a-b2b-iwa-single-sign-on-scenario"></a>Czy można użyć tożsamości logowania "lokalna nazwa użytkownika" lub "lokalna nazwa konta SAM" w scenariuszu rejestracji jednokrotnej IWA B2B?
+
+Nie, to nie zadziała, ponieważ użytkownik-Gość w usłudze Azure AD nie ma atrybutu wymaganego przez żadną z tożsamości logowania wymienionych powyżej.
+
+W takim przypadku nastąpi powrót do "głównej nazwy użytkownika". Aby uzyskać więcej informacji na temat scenariusza B2B, przeczytaj artykuł [udzielenie użytkownikom B2B w usłudze Azure AD dostępu do aplikacji lokalnych](../external-identities/hybrid-cloud-to-on-premises.md).
 
 ## <a name="pass-through-authentication"></a>Uwierzytelnianie przekazywane
 
@@ -198,5 +203,5 @@ Ten scenariusz nie jest obsługiwany bezpośrednio. W tym scenariuszu są dostę
 1. Opublikuj adresy URL protokołu HTTP i HTTPS jako oddzielne aplikacje za pomocą symbolu wieloznacznego, ale nadaj każdej z nich inną domenę niestandardową. Ta konfiguracja będzie działała, ponieważ mają różne zewnętrzne adresy URL.
 
 2. Opublikuj adres URL HTTPS za pomocą aplikacji wieloznacznej. Publikuj osobno aplikacje HTTP przy użyciu tych poleceń cmdlet programu PowerShell dla serwera proxy aplikacji:
-   - [Zarządzanie aplikacjami serwera proxy aplikacji](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Zarządzanie łącznikiem serwera proxy aplikacji](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [Zarządzanie aplikacjami serwera proxy aplikacji](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Zarządzanie łącznikiem serwera proxy aplikacji](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

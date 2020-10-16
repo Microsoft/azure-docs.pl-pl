@@ -3,12 +3,12 @@ title: Instalowanie agenta połączonej maszyny przy użyciu programu Windows Po
 description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu serwerów z obsługą usługi Azure ARC przy użyciu programu Windows PowerShell DSC.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c36a79790f3e31e897dfe750f430f05eaa34d04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b351aa8e989bd36c135271d3adafca6eb64ccf39
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329061"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107559"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Jak zainstalować agenta połączonej maszyny przy użyciu programu Windows PowerShell DSC
 
@@ -90,4 +90,4 @@ Moduł [CompositeResource](https://www.powershellgallery.com/packages/compositer
 
 * Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, włącz monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/insights/vminsights-enable-policy.md)i wiele więcej.
 
-* Dowiedz się więcej o [agencie log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy użytkownik chce aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim za pomocą elementów Runbook usługi Automation lub rozwiązań, takich jak Update Management, lub używać innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).
+* Dowiedz się więcej o [agencie log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy użytkownik chce aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim za pomocą elementów Runbook usługi Automation lub rozwiązań, takich jak Update Management, lub używać innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-introduction.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 10803a16a2ceb84e084070d899b50360446710fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55ab6b339d6cb71bf46340e458bcc93cd73e2ba9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548936"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Samouczek: integracja Azure Active Directory z usługą QuickHelp
 
@@ -130,17 +130,17 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą QuickHelp, 
 
 2. W menu u góry kliknij pozycję **Admin** (Administrator).
    
-    ![Konfigurowanie logowania jednokrotnego][21]
+    ![Zrzut ekranu przedstawia element menu Administracja dla burzy mózgów.][21]
 
 3. W menu **administratora QuickHelp** kliknij pozycję **Ustawienia**.
    
-    ![Konfigurowanie logowania jednokrotnego][22]
+    ![Zrzut ekranu przedstawia ustawienia wybrane z menu administratora QuickHelp.][22]
 
 4. Kliknij pozycję **Ustawienia uwierzytelniania**.
 
 5. Na stronie **Ustawienia uwierzytelniania** wykonaj następujące czynności:
    
-    ![Konfigurowanie logowania jednokrotnego][23]
+    ![Zrzut ekranu przedstawia stronę Ustawienia uwierzytelniania, na której można wprowadzić podane wartości.][23]
    
     a. Jako **Typ logowania jednokrotnego**wybierz pozycję **WsFederation**.
    
@@ -176,7 +176,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

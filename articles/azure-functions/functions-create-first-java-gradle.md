@@ -6,12 +6,12 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: ce2169838faaee8da459f80979fa31318e9d50c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9592d848398c71bc573c073f0b712898f666640
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322180"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104873"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Tworzenie i publikowanie funkcji na platformie Azure przy użyciu języka Java i Gradle
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób kompilowania i publikowania projektu funkcji jęz
 
 Aby opracowywać funkcje przy użyciu języka Java, musisz mieć zainstalowane następujące składniki:
 
-- Zestaw [Java Developer Kit](https://aka.ms/azure-jdks), wersja 8
+- Zestaw [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), wersja 8
 - [Interfejs wiersza polecenia platformy Azure]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) w wersji 2.6.666 lub nowszej
 - [Gradle](https://gradle.org/), wersja 4,10 lub nowsza
@@ -176,4 +176,4 @@ Utworzono projekt funkcji języka Java z funkcją wyzwalaną przez protokół HT
 
 
 [Interfejs wiersza polecenia platformy Azure]: /cli/azure
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

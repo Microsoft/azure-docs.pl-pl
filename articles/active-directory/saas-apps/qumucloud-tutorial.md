@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 37005176452ba75f6b79af7ab1bf9faab5402f51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c75e2f635c14556cfd08ab73a66d8ebc30aeb8e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548939"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Samouczek: integracja Azure Active Directory z chmurą Qumu
 
@@ -101,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w chmurze Qumu, wykona
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Qumu domeny w chmurze i adresów URL Logowanie jednokrotne](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.qumucloud.com/saml/SSO`
 
@@ -109,7 +109,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w chmurze Qumu, wykona
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Qumu domeny w chmurze i adresów URL Logowanie jednokrotne](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<subdomain>.qumucloud.com`
 
@@ -118,7 +118,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w chmurze Qumu, wykona
 
 6. Aplikacja w chmurze Qumu oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij przycisk **Edytuj** ikonę, aby otworzyć okno dialogowe **atrybuty użytkownika** .
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika z wybraną ikoną Edytuj.](common/edit-attribute.png)
 
 7. Oprócz powyższych, aplikacja w chmurze Qumu oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
 
@@ -131,9 +131,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w chmurze Qumu, wykona
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image (obraz)](common/new-save-attribute.png)
+    ![Zrzut ekranu przedstawia oświadczenia użytkownika z opcją dodania nowego oświadczenia.](common/new-save-attribute.png)
 
-    ![image (obraz)](common/new-attribute-details.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Zarządzanie oświadczeniami użytkowników, w którym można wprowadzić podane wartości.](common/new-attribute-details.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
@@ -143,7 +143,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w chmurze Qumu, wykona
 
     e. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
 
-    f. Kliknij przycisk **Zapisz**.
+    f. Kliknij pozycję **Zapisz**.
 
 8. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -185,7 +185,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

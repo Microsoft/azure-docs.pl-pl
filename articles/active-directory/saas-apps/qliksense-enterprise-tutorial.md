@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 5344354c05547d6d2a5e2762c70a97cc4222c464
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4995f813bbfe7ef368f83085cdd61ab97fa330e8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552360"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108528"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Samouczek: Integrowanie Qlik wykrywania przedsiębiorstwa z Azure Active Directory
 
@@ -109,7 +109,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -136,7 +136,7 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
     > [!NOTE]
     > Przed przekazaniem metadanych dostawcy tożsamości na serwer Qlik Sense należy zmodyfikować plik, aby usunąć informacje w celu zapewnienia odpowiedniego współdziałania usługi Azure AD i serwera Qlik Sense.
 
-    ![QlikSense][qs24]
+    ![Zrzut ekranu przedstawia okno Visual Studio Code z plikiem metadanych Federacji X M L.][qs24]
 
     a. Otwórz plik FederationMetaData.xml pobrany z witryny Azure Portal w edytorze tekstów.
 
@@ -150,19 +150,19 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
 3. W konsoli QMC kliknij pozycję menu **Virtual Proxies** (Wirtualne serwery proxy).
 
-    ![QlikSense][qs6]
+    ![Zrzut ekranu przedstawia wirtualne serwery proxy wybrane z KONFIGUROWANIA systemu.][qs6]
 
 4. W dolnej części ekranu kliknij przycisk **Create new** (Utwórz nowy).
 
-    ![QlikSense][qs7]
+    ![Zrzut ekranu przedstawia opcję Utwórz nowy.][qs7]
 
 5. Zostanie wyświetlony ekran edycji wirtualnych serwerów proxy.  Po prawej stronie ekranu jest dostępne menu umożliwiające włączenie widoczności opcji konfiguracji.
 
-    ![QlikSense][qs9]
+    ![Zrzut ekranu pokazuje, że identyfikacja została wybrana na podstawie właściwości.][qs9]
 
 6. Przy zaznaczonej opcji menu Identification (Identyfikacja) podaj informacje identyfikujące konfigurację wirtualnego serwera proxy platformy Azure.
 
-    ![QlikSense][qs8]  
+    ![Zrzut ekranu przedstawia sekcję Edytuj identyfikację wirtualnego serwera proxy, w której można wprowadzić podane wartości.][qs8]  
 
     a. Pole **Description** (Opis) to przyjazna nazwa dla konfiguracji wirtualnego serwera proxy.  Podaj wartość zawierającą opis.
 
@@ -174,7 +174,7 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
 7. Kliknij opcję menu Authentication (Uwierzytelnianie), aby stała się widoczna.  Zostanie wyświetlony ekran Authentication (Uwierzytelnianie).
 
-    ![QlikSense][qs10]
+    ![Zrzut ekranu przedstawia sekcję Edycja uwierzytelniania wirtualnego serwera proxy, w której można wprowadzić podane wartości.][qs10]
 
     a. Lista rozwijana **Anonymous access mode** (Tryb dostępu anonimowego) określa, czy użytkownicy anonimowi mają dostęp do usługi Qlik Sense za pośrednictwem wirtualnego serwera proxy.  Opcja domyślna to No anonymous user (Bez użytkowników anonimowych).
 
@@ -196,55 +196,55 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
 8. Kliknij opcję menu **LOAD BALANCING** (RÓWNOWAŻENIE OBCIĄŻENIA), aby stała się widoczna.  Zostanie wyświetlony ekran Load Balancing (Równoważenie obciążenia).
 
-    ![QlikSense][qs11]
+    ![Zrzut ekranu przedstawia ekran edytowania wirtualnego serwera proxy na potrzeby równoważenia obciążenia, w którym można wybrać opcję Dodaj nowy węzeł serwera.][qs11]
 
 9. Kliknij przycisk **Add new server node** (Dodaj nowy węzeł serwera), wybierz węzeł lub węzły aparatu, do których usługa Qlik Sense będzie wysyłać sesje na potrzeby równoważenia obciążenia, a następnie kliknij przycisk **Add** (Dodaj).
 
-    ![QlikSense][qs12]
+    ![Zrzut ekranu przedstawia przycisk okna dialogowego Dodawanie węzłów serwera do równoważenia obciążenia, który umożliwia dodawanie serwerów.][qs12]
 
 10. Kliknij opcję menu Advanced (Zaawansowane), aby stała się widoczna. Zostanie wyświetlony ekran Advanced (Zaawansowane).
 
-    ![QlikSense][qs13]
+    ![Zrzut ekranu przedstawia ekran Zaawansowane edytowanie wirtualnego serwera proxy.][qs13]
 
     Lista dozwolonych hostów identyfikuje nazwy hostów, które są akceptowane podczas nawiązywania połączenia z serwerem wykrywania Qlik.  **Podaj nazwę hosta, którą użytkownicy będą określać podczas nawiązywania połączenia z serwerem Qlik Sense.** Nazwa hosta jest taka sama jak identyfikator URI hosta SAML, jednak bez prefiksu https://.
 
 11. Następnie kliknij przycisk **Apply** (Zastosuj).
 
-    ![QlikSense][qs14]
+    ![Zrzut ekranu przedstawia przycisk Zastosuj.][qs14]
 
 12. Kliknij przycisk OK, aby zaakceptować komunikat ostrzegawczy informujący o tym, że serwery proxy połączone z wirtualnym serwerem proxy zostaną uruchomione ponownie.
 
-    ![QlikSense][qs15]
+    ![Zrzut ekranu przedstawia komunikat potwierdzający zastosowanie zmian do wirtualnego serwera proxy.][qs15]
 
 13. Po prawej stronie ekranu zostanie wyświetlone menu Associated items (Elementy skojarzone).  Kliknij opcję menu **Proxies** (Serwery proxy).
 
-    ![QlikSense][qs16]
+    ![Zrzut ekranu przedstawia proxy wybrane z elementów skojarzonych.][qs16]
 
 14. Zostanie wyświetlony ekran serwera proxy.  Kliknij przycisk **Link** (Połącz) w dolnej części ekranu, aby połączyć serwer proxy z wirtualnym serwerem proxy.
 
-    ![QlikSense][qs17]
+    ![Zrzut ekranu przedstawia przycisk link.][qs17]
 
 15. Wybierz węzeł serwera proxy, który będzie obsługiwać połączenie tego wirtualnego serwera proxy, a następnie kliknij przycisk **Link** (Połącz).  Po połączeniu serwer proxy zostanie wyświetlony w obszarze skojarzonych serwerów proxy.
 
-    ![QlikSense][qs18]
+    ![Zrzut ekranu przedstawia opcję Wybierz usługi proxy.][qs18]
   
-    ![QlikSense][qs19]
+    ![Zrzut ekranu przedstawia skojarzone serwery proxy w oknie dialogowym skojarzone elementy wirtualnego serwera proxy.][qs19]
 
 16. Po około 5–10 sekundach zostanie wyświetlony komunikat odświeżenia konsoli QMC.  Kliknij przycisk **Refresh QMC** (Odśwież konsolę QMC).
 
-    ![QlikSense][qs20]
+    ![Zrzut ekranu przedstawia komunikat, że sesja została zakończona.][qs20]
 
 17. Po odświeżeniu konsoli QMC kliknij pozycję menu **Virtual proxies** (Wirtualne serwery proxy). Pozycja nowego wirtualnego serwera proxy SAML zostanie wyświetlona w tabeli na ekranie.  Kliknij jednokrotnie pozycję wirtualnego serwera proxy.
 
-    ![QlikSense][qs51]
+    ![Zrzut ekranu przedstawia wirtualne serwery proxy z pojedynczym wpisem.][qs51]
 
 18. W dolnej części ekranu zostanie aktywowany przycisk Download SP metadata (Pobierz metadane dostawcy usług).  Kliknij przycisk **Download SP metadata** (Pobierz metadane dostawcy usług), aby zapisać metadane do pliku.
 
-    ![QlikSense][qs52]
+    ![Zrzut ekranu przedstawia przycisk Pobierz metadane b.][qs52]
 
 19. Otwórz plik metadanych dostawcy usług.  Zwróć uwagę na pozycje **entityID** i **AssertionConsumerService**.  Te wartości są równoważne polom **Identyfikator**, **Adres URL logowania** i **Adres URL odpowiedzi** w konfiguracji aplikacji usługi Azure AD. Wklej te wartości w sekcji **Domena i adresy URL usługi Qlik Sense Enterprise** w konfiguracji aplikacji usługi Azure AD, jeśli nie są zgodne, a następnie zastąp je w kreatorze konfiguracji aplikacji usługi Azure AD.
 
-    ![QlikSense][qs53]
+    ![Zrzut ekranu przedstawia Edytor zwykłego tekstu z elementem EntityDescriptor z entityID i AssertionConsumerService wywołana.][qs53]
 
 ### <a name="create-qlik-sense-enterprise-test-user"></a>Tworzenie użytkownika testowego usługi Qlik Sense Enterprise
 
@@ -254,7 +254,7 @@ Qlik Sense "Enterprise" obsługuje **Inicjowanie obsługi just-in-Time**, użytk
 
 Po wybraniu kafelka Qlik na poziomie przedsiębiorstwa w panelu dostępu należy automatycznie zalogować się do przedsiębiorstwa Qlik wykrywania, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

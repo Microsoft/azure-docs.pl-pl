@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 253621fe257a0b1a1b3bdaa2578fd7df10b03f73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f3eae2a21c902b49b8e76fcb45e45577231e8b9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528595"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108562"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Samouczek: integracja Azure Active Directory z usługą Rollbar
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Rollbar, wy
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Rollbar domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL: `https://saml.rollbar.com`
 
@@ -107,7 +107,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Rollbar, wy
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Rollbar domenę i adresy URL Logowanie jednokrotne](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://rollbar.com/<accountname>/saml/login/azure/`
 
@@ -134,25 +134,25 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Rollbar, wy
 
 1. Kliknij pozycję **Ustawienia profilu** w prawym górnym rogu, a następnie kliknij pozycję **Ustawienia nazwy konta**.
 
-    ![Konfiguracja](./media/rollbar-tutorial/general.png)
+    ![Zrzut ekranu przedstawia ustawienia nazwy konta wybrane z ustawień profilu.](./media/rollbar-tutorial/general.png)
 
 1. Kliknij pozycję **dostawca tożsamości** w obszarze zabezpieczenia.
 
-    ![Konfiguracja](./media/rollbar-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia dostawcę tożsamości wybranego w obszarze zabezpieczenia.](./media/rollbar-tutorial/configure1.png)
 
 1. W sekcji **dostawca tożsamości SAML** wykonaj następujące czynności:
 
-    ![Konfiguracja](./media/rollbar-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia dostawcę tożsamości języka SAML, w którym można wprowadzić podane wartości.](./media/rollbar-tutorial/configure2.png)
 
     a. Wybierz pozycję **Azure** z listy rozwijanej **dostawca tożsamości SAML** .
 
     b. Otwórz plik metadanych w Notatniku, skopiuj jego zawartość do schowka, a następnie wklej go do pola tekstowego **metadanych SAML** .
 
-    c. Kliknij przycisk **Zapisz**.
+    c. Kliknij pozycję **Zapisz**.
 
 1. Po kliknięciu przycisku Zapisz ekran będzie wyglądać następująco:
 
-    ![Konfiguracja](./media/rollbar-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia wyniki na stronie dostawca tożsamości SAML.](./media/rollbar-tutorial/configure3.png)
 
     > [!NOTE]
     > Aby wykonać poniższe czynności, musisz najpierw dodać siebie jako użytkownika do aplikacji Rollbar na platformie Azure.
@@ -162,7 +162,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Rollbar, wy
 
     b.  Po powrocie do ekranu, zaznacz pole wyboru **Wymagaj logowania za pomocą dostawcy tożsamości SAML** .
 
-    b. Kliknij przycisk **Zapisz**.
+    b. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -187,7 +187,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -233,11 +233,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Rollbar
 
 1. Kliknij pozycję **Zaproś członków zespołu**.
 
-    ![Zapraszanie osób](./media/rollbar-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia wybraną opcję Zaproś członków zespołu.](./media/rollbar-tutorial/user2.png)
 
 1. W polu tekstowym wprowadź nazwę użytkownika, np. **brittasimon \@ contoso.com** , a następnie kliknij przycisk **Dodaj/Zaproś**.
 
-    ![Zapraszanie osób](./media/rollbar-tutorial/user3.png)
+    ![Zrzut ekranu przedstawia Dodawanie/zapraszanie członków z podanym adresem.](./media/rollbar-tutorial/user3.png)
 
 1. Użytkownik otrzymuje zaproszenie i po jego zaakceptowaniu zostanie utworzone w systemie.
 

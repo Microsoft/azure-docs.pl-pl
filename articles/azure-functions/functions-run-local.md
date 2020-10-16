@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 094449ddcbfc2baf41657d00de030ef3c1cddbb5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88929497"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108494"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Środowisko Java używa Maven Archetype do tworzenia projektu funkcji lokalnych wraz z pierwszą funkcją wyzwalaną przez protokół HTTP. Aby utworzyć projekt Java, użyj następującego polecenia: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Aby zapoznać się z przykładem za pomocą Maven Archetype, zobacz [wiersz polecenia szybki start](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
+> Środowisko Java używa Maven Archetype do tworzenia projektu funkcji lokalnych wraz z pierwszą funkcją wyzwalaną przez protokół HTTP. Aby utworzyć projekt Java, użyj następującego polecenia: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Aby zapoznać się z przykładem za pomocą Maven Archetype, zobacz [wiersz polecenia szybki start](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
 
 Po podaniu nazwy projektu zostanie utworzony i zainicjowany nowy folder o tej nazwie. W przeciwnym razie bieżący folder zostanie zainicjowany.  
 W wersji 3. x/2. x po uruchomieniu polecenia należy wybrać środowisko uruchomieniowe dla projektu. 
@@ -597,7 +597,7 @@ Aby zgłosić błąd lub żądanie funkcji, [Otwórz problem z usługą GitHub](
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Witryna Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

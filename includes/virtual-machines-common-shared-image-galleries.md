@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: a5c06d0beeb76193c2b8ddba9413878dbf428819
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071782"
+ms.locfileid: "92116812"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 
@@ -56,10 +56,11 @@ Istnieją trzy parametry dla każdej definicji obrazu, które są używane w po�
 
 Wszystkie trzy z nich mają unikatowe zestawy wartości. Ten format jest podobny do tego, jak obecnie można określić wydawcy, oferty i jednostki SKU dla [obrazów portalu Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) w Azure PowerShell, aby uzyskać najnowszą wersję obrazu portalu Marketplace. Każda definicja obrazu musi mieć unikatowy zestaw tych wartości.
 
-Definicje obrazu muszą definiować następujące parametry, które określają, które typy wersji obrazu mogą zawierać:
--   Stan systemu operacyjnego — można ustawić [uogólniony lub wyspecjalizowany](#generalized-and-specialized-images)stan systemu operacyjnego.
-- System operacyjny — może to być system Windows lub Linux.
+Następujące parametry określają, które typy wersji obrazu mogą zawierać:
 
+- Stan systemu operacyjnego — można ustawić [uogólniony lub wyspecjalizowany](#generalized-and-specialized-images)stan systemu operacyjnego. To pole jest wymagane.
+- System operacyjny — może to być system Windows lub Linux. To pole jest wymagane.
+-   Generacja funkcji Hyper-V — Określ, czy obraz został utworzony z dysku VHD funkcji Hyper-V generacji 1 lub [2](../articles/virtual-machines/generation-2.md) . Wartość domyślna to generacja 1.
 
 
 Poniżej znajdują się inne parametry, które można ustawić w definicji obrazu, dzięki czemu można łatwiej śledzić zasoby:
@@ -71,7 +72,6 @@ Poniżej znajdują się inne parametry, które można ustawić w definicji obraz
 - Tag — możesz dodać tagi podczas tworzenia definicji obrazu. Aby uzyskać więcej informacji na temat tagów, zobacz [Używanie tagów do organizowania zasobów](../articles/azure-resource-manager/management/tag-resources.md)
 - Minimalne i maksymalne zalecenia dotyczące vCPU i pamięci — Jeśli obraz ma zalecenia vCPU i pamięci, możesz dołączyć te informacje do definicji obrazu.
 - Niedozwolone typy dysków — można podać informacje o wymaganiach dotyczących magazynu dla maszyny wirtualnej. Na przykład jeśli obraz nie jest odpowiedni dla standardowych dysków DYSKowych, należy dodać je do listy nie Zezwalaj.
--   Generacja funkcji Hyper-V — Określ, czy obraz został utworzony z dysku VHD funkcji Hyper-V generacji 1 lub [2](../articles/virtual-machines/generation-2.md) . Wartość domyślna to generacja 1.
 - Informacje o planach zakupu dla obrazów z witryny Marketplace — `-PurchasePlanPublisher` , `-PurchasePlanName` i `-PurchasePlanProduct` . Aby uzyskać więcej informacji na temat informacji o planie zakupu, zobacz [Znajdowanie obrazów w portalu Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) i [dostarczanie informacji o planie zakupów w portalu Azure Marketplace podczas tworzenia obrazów](../articles/virtual-machines/marketplace-images.md).
 
 

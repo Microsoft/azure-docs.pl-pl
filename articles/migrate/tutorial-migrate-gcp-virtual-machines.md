@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób migrowania maszyn wirtualnych GCP na
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: cd3bf225c6de0401aaa625cf3bb037b3beb58a35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bee73c6bbad9eef91e867b55ffde453a4012914
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716581"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108579"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Odkrywanie, ocenianie i migrowanie maszyn wirtualnych Google Cloud Platform (GCP) na platformę Azure
 
@@ -174,7 +174,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
 9. Uruchom plik instalacyjny urządzenia replikacji, zgodnie z opisem w następnej procedurze.  
     9.1. W obszarze **Przed rozpoczęciem** wybierz pozycję **Zainstaluj serwer konfiguracji i serwer przetwarzania**, a następnie wybierz opcję **Dalej**.   
     9,2 w **licencji na oprogramowanie innych**firm wybierz opcję **Akceptuję Umowę licencyjną innej firmy**, a następnie wybierz przycisk **dalej**.   
-    9,3 w obszarze **rejestracja**wybierz pozycję **Przeglądaj**, a następnie przejdź do lokalizacji, w której zostanie umieszczony plik klucza rejestracji magazynu. Wybierz opcję **Dalej**.  
+    9,3 w obszarze **rejestracja**wybierz pozycję **Przeglądaj**, a następnie przejdź do lokalizacji, w której zostanie umieszczony plik klucza rejestracji magazynu. Wybierz pozycję **Dalej**.  
     9,4 w obszarze **Ustawienia internetowe**wybierz opcję **Połącz z Azure Site Recovery bez serwera proxy**, a następnie wybierz przycisk **dalej**.  
     9,5 na stronie **Sprawdzanie wymagań wstępnych** są uruchamiane sprawdzenia kilku elementów. Po zakończeniu wybierz opcję **Dalej**.  
     9,6 w obszarze **Konfiguracja programu MySQL**Podaj hasło dla bazy danych MySQL, a następnie wybierz przycisk **dalej**.  
@@ -182,7 +182,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
     9,8 w **lokalizacji instalacji**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,9 w **obszarze Wybór sieci**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,10 w obszarze **Podsumowanie**wybierz pozycję **Zainstaluj**.   
-    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Kliknij przycisk **OK**.   
+    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Wybierz przycisk **OK**.   
     9,12 następnie w oknie zostanie wyświetlony komunikat dotyczący hasła połączenia z serwerem konfiguracji. Skopiuj hasło do schowka i Zapisz hasło w tymczasowym pliku tekstowym na źródłowych maszynach wirtualnych. To hasło będzie potrzebne później, podczas procesu instalacji usługi mobilności.
 10. Po zakończeniu instalacji Kreator konfiguracji urządzenia zostanie uruchomiony automatycznie (można również uruchomić Kreatora ręcznie przy użyciu skrótu cspsconfigtool utworzonego na pulpicie urządzenia). Za pomocą karty Zarządzanie kontami kreatora można dodać szczegóły konta do użycia podczas instalacji wypychanej usługi mobilności. W tym samouczku będziemy ręcznie instalować usługę mobilności na źródłowych maszynach wirtualnych do replikacji, więc Utwórz fikcyjne konto w tym kroku i przejdź dalej. Poniżej przedstawiono szczegółowe informacje na temat tworzenia fikcyjnego konta "Gość" jako przyjaznej nazwy, "username" jako nazwy użytkownika i hasła do konta. Będziesz używać tego fikcyjnego konta na etapie włączania replikacji. 
 11. Po ponownym uruchomieniu urządzenia po zakończeniu instalacji w obszarze **odnajdywanie maszyn**wybierz nowe urządzenie na liście **Wybierz serwer konfiguracji**, a następnie kliknij pozycję **finalizowanie rejestracji**. Finalizowanie rejestracji wykonuje kilka zadań końcowych w celu przygotowania urządzenia do replikacji.
@@ -399,7 +399,7 @@ Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można 
 **Odpowiedź:** Przed migracją maszyn wirtualnych EC2 na platformę Azure może być konieczne wprowadzenie tych zmian:
 
 - Jeśli używasz funkcji Cloud-init do inicjowania obsługi maszyn wirtualnych, przed replikacją na platformę Azure można wyłączyć funkcję Cloud-init na maszynie wirtualnej. Kroki inicjowania obsługi wykonywane przez funkcję Cloud-init na maszynie wirtualnej mogą być GCP określone i nie będą prawidłowe po migracji do platformy Azure.  
-- Zapoznaj się z sekcją [wymagania wstępne](#prerequisites) , aby ustalić, czy istnieją jakieś zmiany niezbędne dla systemu operacyjnego, którego jesteś
+- Zapoznaj się z sekcją [wymagania wstępne](#prerequisites) , aby ustalić, czy przed przeprowadzeniem migracji na platformę Azure wprowadzono zmiany niezbędne dla systemu operacyjnego.
 - Zawsze zalecamy przeprowadzenie migracji testowej przed ostateczną migracją.  
 
 ## <a name="next-steps"></a>Następne kroki

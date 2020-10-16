@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071163"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108477"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Przewodnik dewelopera programu Azure Functions PowerShell
 
@@ -74,7 +74,7 @@ Ten `TriggerMetadata` parametr służy do dostarczania dodatkowych informacji na
 $TriggerMetadata.sys
 ```
 
-| Właściwość   | Opis                                     | Type     |
+| Właściwość   | Opis                                     | Typ     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Kiedy, w UTC, funkcja została wyzwolona        | DateTime |
 | MethodName | Nazwa funkcji, która została wyzwolona     | ciąg   |
@@ -143,7 +143,7 @@ Obsługiwane są również następujące typowe parametry:
 * `PipelineVariable`
 * `OutVariable` 
 
-Aby uzyskać więcej informacji, zobacz [Informacje o parametry](https://go.microsoft.com/fwlink/?LinkID=113216).
+Aby uzyskać więcej informacji, zobacz [Informacje o parametry](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
 #### <a name="push-outputbinding-example-http-responses"></a>Przykład Push-OutputBinding: odpowiedzi HTTP
 
@@ -295,7 +295,7 @@ Wyzwalacze HTTP i webhook oraz powiązania wyjściowe HTTP używają obiektów R
 
 Obiekt żądania, który jest przesyłany do skryptu, jest typu `HttpRequestContext` , który ma następujące właściwości:
 
-| Właściwość  | Opis                                                    | Type                      |
+| Właściwość  | Opis                                                    | Typ                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Obiekt, który zawiera treść żądania. `Body` jest serializowany do najlepszego typu na podstawie danych. Na przykład, jeśli dane są w formacie JSON, są one przenoszone jako tablica skrótów. Jeśli dane są ciągami, są one przenoszone jako ciąg. | object |
 | **`Headers`** | Słownik zawierający nagłówki żądania.                | Ciąg<słownika, ciąg><sup>*</sup> |
@@ -310,7 +310,7 @@ Obiekt żądania, który jest przesyłany do skryptu, jest typu `HttpRequestCont
 
 Obiekt odpowiedzi, który ma zostać wysłany z tyłu, ma typ `HttpResponseContext` , który ma następujące właściwości:
 
-| Właściwość      | Opis                                                 | Type                      |
+| Właściwość      | Opis                                                 | Typ                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Obiekt, który zawiera treść odpowiedzi.           | object                    |
 | **`ContentType`** | Krótkie ustawienie typu zawartości odpowiedzi. | ciąg                    |
@@ -560,7 +560,7 @@ Istnieje kilka modeli współbieżności, które można poznać w zależności o
 
 Te zmienne środowiskowe są ustawiane w [ustawieniach aplikacji](functions-app-settings.md) aplikacji funkcji.
 
-W zależności od przypadków użycia Durable Functions może znacząco poprawić skalowalność. Aby dowiedzieć się więcej, zobacz [Durable Functions wzorców aplikacji](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+W zależności od przypadków użycia Durable Functions może znacząco poprawić skalowalność. Aby dowiedzieć się więcej, zobacz [Durable Functions wzorców aplikacji](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > Może zostać wyświetlony komunikat "żądania są umieszczane w kolejce ze względu na brak dostępnych obszarami działania", pamiętaj, że to nie jest błąd. Komunikat informuje o tym, że żądania są umieszczane w kolejce i będą obsługiwane po zakończeniu poprzednich żądań.

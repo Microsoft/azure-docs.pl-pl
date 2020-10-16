@@ -4,12 +4,12 @@ description: Jak wybierać dostępne rozmiary maszyn wirtualnych dla węzłów o
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271311"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107508"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Wybieranie rozmiaru maszyny wirtualnej dla węzłów obliczeniowych w puli Azure Batch
 
@@ -24,7 +24,7 @@ Istnieje kilka wyjątków i ograniczeń umożliwiających wybranie rozmiaru masz
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pule w konfiguracji maszyny wirtualnej
 
-Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie rozmiary maszyn wirtualnych ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Zapoznaj się z poniższą tabelą, aby dowiedzieć się więcej o obsługiwanych rozmiarach i ograniczeniach.
+Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie rozmiary maszyn wirtualnych ([Linux](../virtual-machines/sizes.md), [Windows](../virtual-machines/sizes.md)). Zapoznaj się z poniższą tabelą, aby dowiedzieć się więcej o obsługiwanych rozmiarach i ograniczeniach.
 
 | Serie maszyn wirtualnych  | Obsługiwane rozmiary |
 |------------|---------|

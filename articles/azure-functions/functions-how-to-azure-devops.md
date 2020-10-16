@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d503d71cf44446f93fab3d292d4c26d9b7b0941d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9312094d1d86ea25ebd573e5d14b6d5bd0619cfc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210210"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108239"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Ciągłe dostarczanie za pomocą usługi Azure DevOps
 
@@ -256,7 +256,7 @@ Aby utworzyć potok kompilacji na platformie Azure, użyj `az functionapp devops
 
     - Musisz być administratorem projektu w usłudze Azure DevOps.
 
-    - Musisz mieć uprawnienia do tworzenia osobistego tokenu dostępu usługi GitHub, który ma wystarczające uprawnienia. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące uprawnień w witrynie GitHub.](https://aka.ms/azure-devops-source-repos)
+    - Musisz mieć uprawnienia do tworzenia osobistego tokenu dostępu usługi GitHub, który ma wystarczające uprawnienia. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące uprawnień w witrynie GitHub.](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication)
 
     - Musisz mieć uprawnienia do zatwierdzania gałęzi głównej w repozytorium GitHub, aby można było zatwierdzić wygenerowany automatycznie plik YAML.
 

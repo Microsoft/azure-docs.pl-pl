@@ -3,15 +3,15 @@ title: Konfigurowanie usługi Azure Multi-Factor Authentication dla pulpitu wirt
 description: Jak skonfigurować usługę Azure Multi-Factor Authentication w celu zwiększenia bezpieczeństwa na pulpicie wirtualnym systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e67e3d391ba69bacb82a9154f577942a017e5795
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089925"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108987"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Włączanie usługi Azure Multi-Factor Authentication na potrzeby usługi Windows Virtual Desktop
 
@@ -64,6 +64,8 @@ Poniżej przedstawiono sposób tworzenia zasad dostępu warunkowego, które wyma
 
    >[!IMPORTANT]
    > Nie wybieraj aplikacji o nazwie Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Ta aplikacja jest używana tylko do pobierania źródła danych użytkownika i nie powinna mieć usługi MFA.
+   > 
+   > Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego), jeśli zasady dostępu warunkowego blokują dostęp i tylko nie wykluczają identyfikatorów aplikacji pulpitu wirtualnego systemu Windows, możesz rozwiązać ten problem, dodając identyfikator aplikacji 9cdead84-a844-4324-93f2-b2e6bb768d07 do zasad. Nie dodawaj tego identyfikatora aplikacji spowoduje odnalezienie źródła zasobów pulpitu wirtualnego systemu Windows (klasycznego).
 
 10. Przejdź do pozycji **warunki**  >  **aplikacje klienckie**, a następnie wybierz miejsce, do którego chcesz zastosować zasady:
     

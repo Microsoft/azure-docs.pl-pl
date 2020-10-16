@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 31031462d9904e3554c19f47bc82f87746443693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371757"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116674"
 ---
 W poniższych tabelach przedstawiono limity przydziału i limity dotyczące [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Aby uzyskać informacje na temat cennika Event Hubs, zobacz [Cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -50,7 +50,7 @@ W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena 
 | Cecha | Limity |
 | --- | ---|
 | Przepustowość |  20 jednostek |
-| Namespaces | 50 na CU |
+| Przestrzenie nazw | 50 na CU |
 | Usługa Event Hubs |  1000 na przestrzeń nazw |
 | Rozmiar komunikatu | 1 MB |
 | Partycje | 2000 na CU |
@@ -71,7 +71,7 @@ W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena 
 | Rozmiar w bajtach na schemat | 1 MB |   
 | Liczba właściwości na grupę schematów | 1024 |
 | Rozmiar klucza właściwości w bajtach na grupę | 256 | 
-| Rozmiar klucza właściwości w bajtach na grupę | 1024 | 
+| Rozmiar w bajtach na wartość właściwości grupy | 1024 | 
 
 
 #### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Limity różne dla warstw **standardowa** i **dedykowana** 

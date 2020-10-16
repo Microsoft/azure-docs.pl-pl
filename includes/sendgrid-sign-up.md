@@ -4,12 +4,12 @@ ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 4eb1a6f351cdf129611949049f762fe51cac4b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376481"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116668"
 ---
 W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail. Te 25 000 bezpłatne miesięczne wiadomości e-mail zapewniają dostęp do zaawansowanych raportów i analiz oraz [wszystkich interfejsów API][all APIs] (sieci Web, SMTP, Event, Parse itd.). Informacje o dodatkowych usługach SendGrid można znaleźć na stronie z [rozwiązaniami usługi SendGrid][SendGrid Solutions].
 
@@ -69,7 +69,7 @@ W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatny
 ### <a name="to-find-your-sendgrid-credentials"></a>Aby znaleźć poświadczenia usługi SendGrid
 1. Kliknij ikonę klucza, aby wyświetlić swoją **nazwę użytkownika**.
 
-    ! Zrzut ekranu przedstawiający stronę konta ContosoSendGrid z wyróżnioną ikoną klucza.] [klucz]
+    ![Zrzut ekranu przedstawiający stronę konta ContosoSendGrid z wyróżnioną ikoną klucza.][key]
 2. Hasło zostało wcześniej ustawione podczas konfiguracji. Aby wprowadzić zmiany, możesz wybrać opcję **Zmień hasło** lub **Resetuj hasło**.
 
 Aby zarządzać ustawieniami dostarczania poczty e-mail, kliknij przycisk **Zarządzaj**. Spowoduje to przekierowanie do pulpitu nawigacyjnego SendGrid.
@@ -90,7 +90,7 @@ Aby uzyskać więcej informacji na temat wysyłania wiadomości e-mail za pośre
 [api-keys]: ./media/sendgrid-sign-up/api-keys.png
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
-[głównych]: ./media/sendgrid-sign-up/key.png
+[key]: ./media/sendgrid-sign-up/key.png
 
 <!--Links-->
 

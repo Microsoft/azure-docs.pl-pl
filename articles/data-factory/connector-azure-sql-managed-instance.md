@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie danych do i z wystąpienia zarządzanego usługi Azure SQL
-description: Dowiedz się, jak przenosić dane do i z wystąpienia zarządzanego usługi Azure SQL przy użyciu Azure Data Factory.
+title: Kopiowanie i Przekształcanie danych w wystąpieniu zarządzanym Azure SQL
+description: Informacje o kopiowaniu i przekształcaniu danych w wystąpieniu zarządzanym usługi Azure SQL przy użyciu Azure Data Factory.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,31 +10,30 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/21/2020
-ms.openlocfilehash: 3a9216c665cfdcdaf07980ace0399fd927885262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: a8b79cea8d502222d08dd3f1f0fb40d1982f565d
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332121"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107746"
 ---
-# <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Kopiowanie danych do i z wystąpienia zarządzanego usługi Azure SQL przy użyciu Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w wystąpieniu zarządzanym usługi Azure SQL przy użyciu Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych do i z wystąpienia zarządzanego usługi Azure SQL. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
+W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z oraz do wystąpienia zarządzanego usługi Azure SQL i używania przepływu danych w celu przekształcania danych w wystąpieniu zarządzanym usługi Azure SQL. Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
 Ten łącznik wystąpienia zarządzanego SQL jest obsługiwany dla następujących działań:
 
 - [Działanie kopiowania](copy-activity-overview.md) z [obsługiwaną macierzą źródłową/ujścia](copy-activity-overview.md)
+- [Mapowanie przepływu danych](concepts-data-flow-overview.md)
 - [Działanie Lookup](control-flow-lookup-activity.md)
 - [Działanie GetMetadata](control-flow-get-metadata-activity.md)
 
-Dane z wystąpienia zarządzanego SQL można skopiować do dowolnego obsługiwanego magazynu danych ujścia. Możesz również skopiować dane z dowolnego obsługiwanego magazynu danych źródłowych do wystąpienia zarządzanego SQL. Listę magazynów danych obsługiwanych jako źródła i ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
-
-W ramach tego łącznika wystąpienia zarządzanego SQL obsługuje:
+W przypadku działania kopiowania ten łącznik Azure SQL Database obsługuje następujące funkcje:
 
 - Kopiowanie danych przy użyciu uwierzytelniania SQL i usługi Azure Active Directory (Azure AD) uwierzytelnianie tokenu aplikacji z jednostką usług lub tożsamościami zarządzanymi dla zasobów platformy Azure.
 - Jako źródło, pobieranie danych przy użyciu zapytania SQL lub procedury składowanej. Możesz również wybrać opcję kopiowania równoległego ze źródła SQL MI źródło, aby uzyskać szczegółowe informacje, zobacz sekcję [copy Parallel from SQL mi](#parallel-copy-from-sql-mi) .
@@ -49,7 +48,7 @@ Aby uzyskać dostęp do [publicznego punktu końcowego](../azure-sql/managed-ins
 
 Aby uzyskać dostęp do prywatnego punktu końcowego wystąpienia zarządzanego SQL, skonfiguruj [własne środowisko Integration Runtime](create-self-hosted-integration-runtime.md) , które może uzyskać dostęp do bazy danych. Jeśli udostępniasz własne środowisko Integration Runtime w tej samej sieci wirtualnej co wystąpienie zarządzane, upewnij się, że maszyna Integration Runtime znajduje się w innej podsieci niż wystąpienie zarządzane. Jeśli udostępniasz własne środowisko Integration Runtime w innej sieci wirtualnej niż wystąpienie zarządzane, możesz użyć komunikacji równorzędnej sieci wirtualnej lub sieci wirtualnej do połączenia sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [łączenie aplikacji z wystąpieniem zarządzanym bazy danych SQL](../azure-sql/managed-instance/connect-application-instance.md).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -638,17 +637,85 @@ Poniższy przykład przedstawia sposób użycia procedury składowanej do wykona
     }
     ```
 
+## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
+
+Podczas przekształcania danych w mapowaniu przepływu danych można odczytywać i zapisywać tabele z wystąpienia zarządzanego Azure SQL. Aby uzyskać więcej informacji, zobacz [przekształcenie źródłowe](data-flow-source.md) i [przekształcanie ujścia](data-flow-sink.md) w mapowaniu przepływów danych.
+
+> [!NOTE]
+> Łącznik wystąpienia zarządzanego usługi Azure SQL w przepływie danych mapowania jest obecnie dostępny jako publiczna wersja zapoznawcza. Możesz nawiązać połączenie z publicznym punktem końcowym wystąpienia zarządzanego SQL, ale nie z jeszcze prywatnym punktem końcowym.
+
+### <a name="source-transformation"></a>Transformacja źródła
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło wystąpienia zarządzanego Azure SQL. Można edytować te właściwości na karcie **Opcje źródła** .
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabela | Jeśli wybierzesz opcję tabela jako dane wejściowe, przepływ danych pobierze wszystkie dane z tabeli określonej w zestawie danych. | Nie | - |- |
+| Zapytanie | Jeśli wybierzesz pozycję zapytanie jako dane wejściowe, określ zapytanie SQL, aby pobrać dane ze źródła, które zastępuje każdą tabelę określoną w zestawie danych. Korzystanie z zapytań jest świetnym sposobem zredukowania wierszy do testowania i wyszukiwania.<br><br>Klauzula **order by** nie jest obsługiwana, ale można ustawić pełną instrukcję SELECT FROM. Można również użyć funkcji tabeli zdefiniowanej przez użytkownika. **SELECT * FROM udfGetData ()** to format UDF w języku SQL, który zwraca tabelę, której można użyć w przepływie danych.<br>Przykład zapytania: `Select * from MyTable where customerId > 1000 and customerId < 2000`| Nie | Ciąg | query |
+| Rozmiar partii | Określ rozmiar partii, aby podzielić duże ilości danych na odczyt. | Nie | Liczba całkowita | batchSize |
+| Poziom izolacji | Wybierz jeden z następujących poziomów izolacji:<br>-Odczytaj zatwierdzone<br>-Odczytaj niezatwierdzone (wartość domyślna)<br>— Odczyt powtarzalny<br>— Możliwy do serializacji<br>-Brak (Ignoruj poziom izolacji) | Nie | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>DAWAJ</small> |isolationLevel |
+
+#### <a name="azure-sql-managed-instance-source-script-example"></a>Przykład skryptu źródłowego wystąpienia zarządzanego usługi Azure SQL
+
+W przypadku używania wystąpienia zarządzanego usługi Azure SQL jako typu źródła skojarzony skrypt przepływu danych to:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    isolationLevel: 'READ_UNCOMMITTED',
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SQLMISource
+```
+
+### <a name="sink-transformation"></a>Przekształcanie ujścia
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia wystąpienia zarządzanego Azure SQL. Można edytować te właściwości na karcie **Opcje ujścia** .
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update — Metoda | Określ, jakie operacje są dozwolone w miejscu docelowym bazy danych. Domyślnie zezwala na operacje wstawiania.<br>Aby zaktualizować, upsert lub usunąć wiersze, [przekształcenie ALTER Row](data-flow-alter-row.md) jest wymagane, aby można było oznaczyć wiersze dla tych działań. | Tak | `true` lub `false` | usuwaln <br/>wstawialny <br/>aktualizowalne <br/>upsertable |
+| Kolumny klucza | W przypadku aktualizacji, upserts i usunięć należy ustawić kolumny kluczy, aby określić, który wiersz ma być zmieniany.<br>Nazwa kolumny, która jest wybierana jako klucz, będzie używana jako część kolejnej aktualizacji, Upsert, Usuń. W związku z tym należy wybrać kolumnę, która istnieje w mapowaniu ujścia. | Nie | Tablica | keys |
+| Pomiń zapisywanie kolumn klucza | Jeśli chcesz, aby nie zapisywać wartości w kolumnie klucz, wybierz pozycję "Pomiń zapisywanie kolumn klucza". | Nie | `true` lub `false` | skipKeyWrites |
+| Akcja tabeli |Określa, czy należy ponownie utworzyć lub usunąć wszystkie wiersze z tabeli docelowej przed zapisem.<br>- **Brak**: w tabeli nie zostanie wykonana żadna akcja.<br>- **Utwórz ponownie**: tabela zostanie porzucona i utworzona ponownie. Wymagane w przypadku dynamicznego tworzenia nowej tabeli.<br>- **Obcinanie**: wszystkie wiersze z tabeli docelowej zostaną usunięte. | Nie | `true` lub `false` | Utwórz ponownie<br/>obciąć |
+| Rozmiar partii | Określ liczbę wierszy, które są zapisywane w każdej partii. Większe rozmiary partii zwiększają optymalizację kompresji i pamięci, ale grozi wyjątkami dotyczącymi pamięci podczas buforowania danych. | Nie | Liczba całkowita | batchSize |
+| Pre i post skrypty SQL | Określ wielowierszowe skrypty SQL, które będą wykonywane przed (przed przetwarzaniem) i po wykonaniu (po przetworzeniu) dane są zapisywane w bazie danych ujścia. | Nie | Ciąg | preSQLs<br>postSQLs |
+
+#### <a name="azure-sql-managed-instance-sink-script-example"></a>Przykład skryptu ujścia wystąpienia zarządzanego usługi Azure SQL
+
+Jeśli używasz wystąpienia zarządzanego Azure SQL jako typu ujścia, skojarzony skrypt przepływu danych to:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    keys:['keyColumn'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SQLMISink
+```
+
+## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
+
+Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (wyszukiwanie](control-flow-lookup-activity.md)).
+
+## <a name="getmetadata-activity-properties"></a>Właściwości działania GetMetadata
+
+Aby uzyskać szczegółowe informacje na temat właściwości, sprawdź [działanie GetMetadata](control-flow-get-metadata-activity.md) 
+
 ## <a name="data-type-mapping-for-sql-managed-instance"></a>Mapowanie typu danych dla wystąpienia zarządzanego SQL
 
-Gdy dane są kopiowane do i z wystąpienia zarządzanego SQL, następujące mapowania są używane z typów danych wystąpienia zarządzanego SQL do Azure Data Factory pośrednich typów danych. Aby dowiedzieć się, jak działanie Copy mapuje ze schematu źródłowego i typu danych do ujścia, zobacz [Mapowanie schematu i typu danych](copy-activity-schema-and-type-mapping.md).
+Gdy dane są kopiowane do i z wystąpienia zarządzanego SQL za pomocą działania kopiowania, następujące mapowania są używane z typów danych wystąpienia zarządzanego SQL do Azure Data Factory pośrednich typów danych. Aby dowiedzieć się, jak działanie Copy mapuje ze schematu źródłowego i typu danych do ujścia, zobacz [Mapowanie schematu i typu danych](copy-activity-schema-and-type-mapping.md).
 
 | Typ danych wystąpienia zarządzanego SQL | Azure Data Factory typ danych pośrednich |
 |:--- |:--- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Boolean (wartość logiczna) |
+| bit |Wartość logiczna |
 | char |String, Char [] |
-| date |DateTime |
+| data |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
@@ -679,14 +746,6 @@ Gdy dane są kopiowane do i z wystąpienia zarządzanego SQL, następujące mapo
 
 >[!NOTE]
 > W przypadku typów danych, które są mapowane na typ pośredni dziesiętnego, obecnie działanie kopiowania obsługuje dokładność do 28. Jeśli masz dane wymagające dokładności większej niż 28, Rozważ przekonwertowanie na ciąg w zapytaniu SQL.
-
-## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
-
-Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (wyszukiwanie](control-flow-lookup-activity.md)).
-
-## <a name="getmetadata-activity-properties"></a>Właściwości działania GetMetadata
-
-Aby uzyskać szczegółowe informacje na temat właściwości, sprawdź [działanie GetMetadata](control-flow-get-metadata-activity.md) 
 
 ## <a name="using-always-encrypted"></a>Używanie Always Encrypted
 

@@ -4,12 +4,12 @@ description: Informacje o typowym schemacie alertów, dlaczego należy z nich ko
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539486"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108834"
 ---
 # <a name="common-alert-schema"></a>Typowe schematy alertów
 
@@ -34,12 +34,12 @@ Typowy schemat alertów będzie przede wszystkim używany w powiadomieniach o al
 | Akcja | Ulepszenia |
 |:---|:---|
 | SMS | Spójny szablon programu SMS dla wszystkich typów alertów. |
-| Poczta e-mail | Spójny i szczegółowy szablon wiadomości e-mail, który umożliwia błyskawiczne diagnozowanie problemów. Wbudowane głębokie łącza do wystąpienia alertów w portalu i zaatakowany zasób zapewniają możliwość szybkiego przejścia do procesu korygowania. |
+| E-mail | Spójny i szczegółowy szablon wiadomości e-mail, który umożliwia błyskawiczne diagnozowanie problemów. Wbudowane głębokie łącza do wystąpienia alertów w portalu i zaatakowany zasób zapewniają możliwość szybkiego przejścia do procesu korygowania. |
 | Element webhook/aplikacja logiki/funkcja Azure Function/Automation | Spójna struktura JSON dla wszystkich typów alertów, która umożliwia łatwe tworzenie integracji dla różnych typów alertów. |
 
 Nowy schemat umożliwi również bardziej zaawansowane środowisko korzystania z alertów w ramach zarówno Azure Portal, jak i aplikacja mobilna platformy Azure w przyszłości. 
 
-[Dowiedz się więcej na temat definicji schematu dla elementów webhook/Logic Apps/Azure Functions/elementy Runbook usługi Automation.](https://aka.ms/commonAlertSchemaDefinitions)
+[Dowiedz się więcej na temat definicji schematu dla elementów webhook/Logic Apps/Azure Functions/elementy Runbook usługi Automation.](./alerts-common-schema-definitions.md)
 
 > [!NOTE]
 > Następujące akcje nie obsługują wspólnego schematu alertu: łącznik ITSM.
@@ -120,5 +120,5 @@ Na przykład następująca treść żądania utworzona w interfejsie API REST us
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Definicje schematów typowych alertów dla elementów webhook/Logic Apps/Azure Functions/elementy Runbook usługi Automation.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Dowiedz się, jak utworzyć aplikację logiki, która wykorzystuje wspólny schemat alertów do obsługi wszystkich alertów.](./alerts-common-schema-integrations.md) 
+- [Definicje schematów typowych alertów dla elementów webhook/Logic Apps/Azure Functions/elementy Runbook usługi Automation.](./alerts-common-schema-definitions.md)
+- [Dowiedz się, jak utworzyć aplikację logiki, która wykorzystuje wspólny schemat alertów do obsługi wszystkich alertów.](./alerts-common-schema-integrations.md)

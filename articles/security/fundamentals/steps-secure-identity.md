@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0a11cf3bfac7d1e8fd2d117e13532e2ce49caa0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399809"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107814"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości
 
-W przypadku odczytywania tego dokumentu masz świadomość istotności zabezpieczeń. Użytkownik jest już odpowiedzialny za zabezpieczenie organizacji. Jeśli chcesz przekonać inne o znaczeniu zabezpieczeń, wyślij je, aby przeczytać najnowszy [Raport analizy zabezpieczeń firmy Microsoft](https://go.microsoft.com/fwlink/p/?linkid=2073747).
+W przypadku odczytywania tego dokumentu masz świadomość istotności zabezpieczeń. Użytkownik jest już odpowiedzialny za zabezpieczenie organizacji. Jeśli chcesz przekonać inne o znaczeniu zabezpieczeń, wyślij je, aby przeczytać najnowszy [Raport analizy zabezpieczeń firmy Microsoft](https://www.microsoft.com/security/business/security-intelligence-report).
 
 Ten dokument pomoże Ci lepiej zabezpieczyć stan przy użyciu możliwości Azure Active Directory przy użyciu listy kontrolnej z pięcioma krokami, aby zaszczepować organizację przed atakami cybernetycznymi.
 

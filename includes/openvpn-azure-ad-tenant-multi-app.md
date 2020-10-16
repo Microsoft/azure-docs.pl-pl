@@ -1,19 +1,19 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/21/2020
+ms.date: 10/15/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8172e0e208d9a780c7676d7cb0e77dbc1c16f493
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df3d1c34fe0fc045e829c2ea9166664f06fd3127
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606227"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116714"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Tworzenie dzierżawy usługi Azure AD
 
@@ -70,6 +70,10 @@ Zarejestruj klienta sieci VPN w dzierżawie usługi Azure AD.
     ```
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
+
+> [!NOTE]
+> Jeśli używasz konta administratora globalnego, które nie jest natywne dla dzierżawy usługi Azure AD w celu zapewnienia zgody, Zastąp ciąg "Common" identyfikatorem katalogu usługi Azure AD adresem URL. W niektórych innych przypadkach może być również konieczne zastąpienie "wspólnych" identyfikatorem katalogu.
+>
 
 5. Jeśli zostanie wyświetlony monit, wybierz konto **administratora globalnego** .
 
@@ -128,7 +132,7 @@ W tym kroku zarejestrowano dodatkowe aplikacje dla różnych użytkowników i gr
 
 Przypisz użytkowników do aplikacji.
 
-1. W obszarze **Azure AD-> aplikacje dla przedsiębiorstw**wybierz nowo zarejestrowanej aplikacji i kliknij pozycję **Właściwości**. Upewnij się, że **przypisanie użytkownika jest wymagane?** ma ustawioną **wartość tak**. Kliknij przycisk **Zapisz**.
+1. W obszarze **Azure AD-> aplikacje dla przedsiębiorstw**wybierz nowo zarejestrowanej aplikacji i kliknij pozycję **Właściwości**. Upewnij się, że **przypisanie użytkownika jest wymagane?** ma ustawioną **wartość tak**. Kliknij pozycję **Zapisz**.
 
     ![Sieć VPN platformy Azure](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
 

@@ -4,12 +4,12 @@ description: Przegląd alertów na platformie Azure. Alerty, alerty klasyczne i 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: f58175d105e1dd36d58fbe4d8b68109810797b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317144"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108800"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Przegląd alertów na platformie Microsoft Azure 
 
@@ -84,7 +84,7 @@ Obsługiwane są następujące stany alertów.
 
 *Stan alertu* jest różny i niezależny od *warunku monitora*. Stan alertu jest ustawiany przez użytkownika. Warunek monitora jest ustawiany przez system. Po uruchomieniu alertu warunek monitora alertu jest ustawiony na *"wyzwolone"*, a gdy podstawowy warunek, który spowodował wyczyszczenie alertu, ma stan " *rozwiązany"*. 
 
-Stan alertu nie jest zmieniany, dopóki użytkownik nie zmieni go. Dowiedz się [, jak zmienić stan alertów i grup inteligentnych](https://aka.ms/managing-alert-smart-group-states).
+Stan alertu nie jest zmieniany, dopóki użytkownik nie zmieni go. Dowiedz się [, jak zmienić stan alertów i grup inteligentnych](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
 
 ## <a name="alerts-experience"></a>Środowisko alertów 
 Domyślna strona alerty zawiera podsumowanie alertów, które są tworzone w określonym zakresie czasu. Wyświetla łączną liczbę alertów dla każdej ważności, z kolumnami, które identyfikują sumę alertów w każdym stanie dla każdej ważności. Wybierz dowolną z serwerów, aby otworzyć stronę [wszystkie alerty](#all-alerts-page) odfiltrowaną o tej ważności.
@@ -181,7 +181,7 @@ Użycie i Zarządzanie wystąpieniami alertów wymaga, aby użytkownik miał wbu
 
 Możesz chcieć programowo wykonywać zapytania dotyczące alertów generowanych w ramach subskrypcji. Zapytania mogą polegać na tworzeniu niestandardowych widoków poza Azure Portal lub do analizowania alertów w celu identyfikowania wzorców i trendów.
 
-Możesz wykonywać zapytania dotyczące alertów generowanych w ramach subskrypcji za pomocą [interfejsu API REST usługi alert Management](https://aka.ms/alert-management-api) lub przy użyciu [grafu zasobów platformy Azure](../../governance/resource-graph/overview.md) i [interfejsu API REST dla zasobów](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
+Możesz wykonywać zapytania dotyczące alertów generowanych w ramach subskrypcji za pomocą [interfejsu API REST usługi alert Management](/rest/api/monitor/alertsmanagement/alerts) lub przy użyciu [grafu zasobów platformy Azure](../../governance/resource-graph/overview.md) i [interfejsu API REST dla zasobów](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
 Interfejs API REST grafu zasobów dla zasobów umożliwia wykonywanie zapytań o wystąpienia alertów w odpowiedniej skali. Wykres zasobów jest zalecany, gdy konieczne jest zarządzanie alertami wygenerowanymi w wielu subskrypcjach. 
 
@@ -200,16 +200,16 @@ Wyniki tego zapytania dotyczącego wykresu zasobów można także zobaczyć w po
 
 W celu uzyskania [odpowiednich pól można](alerts-common-schema-definitions.md#essentials) wysyłać zapytania do alertów.
 
-Użyj [interfejsu API REST alert Management](https://aka.ms/alert-management-api) , aby uzyskać więcej informacji na temat określonych alertów, w tym ich pól [kontekstu alertu](alerts-common-schema-definitions.md#alert-context) .
+Użyj [interfejsu API REST alert Management](/rest/api/monitor/alertsmanagement/alerts) , aby uzyskać więcej informacji na temat określonych alertów, w tym ich pól [kontekstu alertu](alerts-common-schema-definitions.md#alert-context) .
 
 ## <a name="smart-groups"></a>Grupy inteligentne
 
-Grupy inteligentne to agregacja alertów w oparciu o algorytmy uczenia maszynowego, co może pomóc w zmniejszeniu szumu i pomocy w rozwiązywaniu problemów. [Dowiedz się więcej o grupach inteligentnych](https://aka.ms/smart-groups) i [sposobach zarządzania grupami inteligentnymi](https://aka.ms/managing-smart-groups).
+Grupy inteligentne to agregacja alertów w oparciu o algorytmy uczenia maszynowego, co może pomóc w zmniejszeniu szumu i pomocy w rozwiązywaniu problemów. [Dowiedz się więcej o grupach inteligentnych](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) i [sposobach zarządzania grupami inteligentnymi](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się więcej o grupach inteligentnych](https://aka.ms/smart-groups)
+- [Dowiedz się więcej o grupach inteligentnych](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 - [Więcej informacji na temat grup akcji](./action-groups.md)
-- [Zarządzanie wystąpieniami alertów na platformie Azure](https://aka.ms/managing-alert-instances)
-- [Zarządzanie grupami inteligentnymi](https://aka.ms/managing-smart-groups)
+- [Zarządzanie wystąpieniami alertów na platformie Azure](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Zarządzanie grupami inteligentnymi](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 - [Dowiedz się więcej o cenniku usługi Azure Alerts](https://azure.microsoft.com/pricing/details/monitor/)

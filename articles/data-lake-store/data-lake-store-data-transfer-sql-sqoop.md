@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: c61862ccc7bac839627e9e7a9fbff9859155c6a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323081"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109191"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Kopiuj dane między Data Lake Storage Gen1 i Azure SQL Database przy użyciu Sqoop
 
@@ -31,7 +31,7 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto Azure Data Lake Storage Gen1**. Aby uzyskać instrukcje dotyczące sposobu tworzenia konta, zobacz Wprowadzenie [do Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Klaster usługi Azure HDInsight** z dostępem do konta Data Lake Storage Gen1. Zobacz [Tworzenie klastra usługi HDInsight przy użyciu Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). W tym artykule przyjęto założenie, że masz klaster usługi HDInsight w systemie Linux z dostępem Data Lake Storage Gen1.
-* **Azure SQL Database**. Aby uzyskać instrukcje dotyczące sposobu tworzenia bazy danych w Azure SQL Database, zobacz [Tworzenie bazy danych w programie Azure SQL Database](../sql-database/sql-database-get-started.md)
+* **Azure SQL Database**. Aby uzyskać instrukcje dotyczące sposobu tworzenia bazy danych w Azure SQL Database, zobacz [Tworzenie bazy danych w programie Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)
 
 ## <a name="create-sample-tables-in-the-database"></a>Tworzenie przykładowych tabel w bazie danych
 
@@ -156,7 +156,7 @@ Dla klastra HDInsight An dostępne są już pakiety Sqoop. Jeśli klaster usług
 
 ## <a name="performance-considerations-while-using-sqoop"></a>Zagadnienia dotyczące wydajności podczas korzystania z Sqoop
 
-Aby uzyskać informacje o wydajności dostrajania Sqoop zadania do kopiowania danych do Data Lake Storage Gen1, zobacz wpis w blogu dotyczącym [wydajności Sqoop](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
+Aby uzyskać informacje o wydajności dostrajania Sqoop zadania do kopiowania danych do Data Lake Storage Gen1, zobacz wpis w blogu dotyczącym [wydajności Sqoop](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534203"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107882"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projektowanie wdrożenia dzienników usługi Azure Monitor
 
@@ -91,7 +91,7 @@ Użytkownicy mają dwie opcje uzyskiwania dostępu do danych:
     > - Service Fabric
     > - Application Insights
     >
-    > Możesz sprawdzić, czy dzienniki są prawidłowo skojarzone ze swoimi zasobami, uruchamiając zapytanie i sprawdzając odpowiednie rekordy. Jeśli w [_ResourceId](log-standard-properties.md#_resourceid) właściwość jest prawidłowy identyfikator zasobu, dane są dostępne dla zapytań skoncentrowanych na zasobach.
+    > Możesz sprawdzić, czy dzienniki są prawidłowo skojarzone ze swoimi zasobami, uruchamiając zapytanie i sprawdzając odpowiednie rekordy. Jeśli w [_ResourceId](./log-standard-columns.md#_resourceid) właściwość jest prawidłowy identyfikator zasobu, dane są dostępne dla zapytań skoncentrowanych na zasobach.
 
 Azure Monitor automatycznie określa tryb prawy w zależności od kontekstu, w którym jest wykonywane przeszukiwanie dzienników. Zakres jest zawsze wyświetlany w lewej górnej części Log Analytics.
 
@@ -164,4 +164,3 @@ Podczas planowania migracji do tego modelu należy wziąć pod uwagę następuj�
 ## <a name="next-steps"></a>Następne kroki
 
 Aby zaimplementować uprawnienia zabezpieczeń i kontrolki zalecane w tym przewodniku, przejrzyj temat [Zarządzanie dostępem do dzienników](manage-access.md).
-

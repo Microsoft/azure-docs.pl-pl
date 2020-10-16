@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 354aeca01cb2d5244c68e1691642e4d2b41869dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 559053bba48d559032993d8047931d1fab0d8e33
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88534527"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Samouczek: integracja Azure Active Directory z usługą ReviewSnap
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ReviewSnap,
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![ReviewSnap domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL: `https://app.reviewsnap.com`
 
@@ -107,7 +107,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ReviewSnap,
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![ReviewSnap domenę i adresy URL Logowanie jednokrotne](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://app.reviewsnap.com/login`
 
@@ -155,7 +155,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

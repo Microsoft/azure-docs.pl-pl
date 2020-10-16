@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 423fdcdf48d90b4c428497f22cb6924900de8931
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394095"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107525"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Podstawa zabezpieczeń platformy Azure dla Azure Functions
 
@@ -90,7 +90,7 @@ Ponadto skonfiguruj bramę frontonu, taką jak Zapora aplikacji sieci Web platfo
 
 - [Jak wdrożyć zaporę platformy Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Opis Azure Security Center zintegrowanej analizy zagrożeń](../security-center/threat-protection.md)
+- [Opis Azure Security Center zintegrowanej analizy zagrożeń](../security-center/azure-defender.md)
 
 - [Informacje o Azure Security Center adaptacyjnej ograniczania przepustowości sieci](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -545,7 +545,7 @@ Do przeprowadzenia izolacji sieci można także użyć prywatnych punktów końc
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create.md)
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
@@ -649,7 +649,7 @@ Ponadto postępuj zgodnie z zaleceniami Azure Security Center, aby pomóc w zabe
 
 - [Jak dodać ciągłą weryfikację zabezpieczeń do potoku CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
-- [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -727,7 +727,7 @@ Ponadto Użyj zasad platformy Azure, aby wprowadzić ograniczenia dotyczące typ
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create.md)
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
@@ -1087,7 +1087,7 @@ Jeśli używasz kluczy zarządzanych przez klienta, upewnij się, Soft-Delete w 
 
 - [Szyfrowanie danych magazynowanych w usłudze Azure Storage](../storage/common/storage-service-encryption.md)
 
-- [Jak włączyć Soft-Delete w Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Jak włączyć Soft-Delete w Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: tak
 

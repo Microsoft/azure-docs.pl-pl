@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 863620ce6f0af33b05ef290ae95ccdc99a53a54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1446808b77e5eea78a9912db4c7a8e2dd783f33a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77523040"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104380"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Powiązania usługi SignalR Service dla usługi Azure Functions
 
@@ -36,7 +36,7 @@ Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. 
 [Pakiet NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
 [core tools]: ./functions-run-local.md
 [pakiet rozszerzeń]: ./functions-bindings-register.md#extension-bundles
-[Aktualizowanie rozszerzeń]: ./install-update-binding-extensions-manual.md
+[Aktualizowanie rozszerzeń]: ./functions-bindings-register.md
 [Rozszerzenie narzędzi platformy Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 Aby uzyskać szczegółowe informacje na temat konfigurowania i używania usługi sygnalizującego oraz Azure Functions ze sobą, zobacz [Azure Functions programowanie i Konfigurowanie za pomocą usługi Azure Signal Service](../azure-signalr/signalr-concept-serverless-development-config.md).
@@ -56,4 +56,4 @@ Aby użyć adnotacji usługi sygnalizującej w funkcjach języka Java, należy d
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zwróć adres URL punktu końcowego usługi i token dostępu (powiązanie wejściowe)](./functions-bindings-signalr-service-input.md)
-- [Komunikaty usługi wysyłania sygnałów (powiązanie danych wyjściowych)](./functions-bindings-signalr-service-output.md) 
+- [Komunikaty usługi wysyłania sygnałów (powiązanie danych wyjściowych)](./functions-bindings-signalr-service-output.md)

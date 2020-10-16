@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: aa3225378f921792d1e8ba0442f2c555d095fb9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd29bfafe2d37b6a34031e6962cc27bfff0006c1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968409"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108018"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurowanie zbierania danych dla agenta Azure Monitor (wersja zapoznawcza)
 Zasady zbierania danych (DCR) definiują dane wprowadzane do Azure Monitor i określają miejsce, w którym powinny być wysyłane. W tym artykule opisano sposób tworzenia reguły zbierania danych w celu zbierania danych z maszyn wirtualnych przy użyciu agenta Azure Monitor.
@@ -64,8 +64,8 @@ Kliknij pozycję **Dodaj źródło danych** , a następnie **Przejrzyj i Utwórz
 ## <a name="createusingrestapi"></a>Tworzenie za pomocą interfejsu API REST
 Wykonaj poniższe kroki, aby utworzyć DCR i skojarzenia przy użyciu interfejsu API REST. 
 1.Ręcznie Utwórz plik DCR przy użyciu formatu JSON pokazanego w [przykładzie DCR](data-collection-rule-overview.md#sample-data-collection-rule).
-2.Utwórz regułę przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules/create#examples).
-3.Utwórz skojarzenie dla każdej maszyny wirtualnej z regułą zbierania danych przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionruleassociations/create#examples).
+2.Utwórz regułę przy użyciu [interfejsu API REST](/rest/api/monitor/datacollectionrules/create#examples).
+3.Utwórz skojarzenie dla każdej maszyny wirtualnej z regułą zbierania danych przy użyciu [interfejsu API REST](/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 ## <a name="next-steps"></a>Następne kroki
 

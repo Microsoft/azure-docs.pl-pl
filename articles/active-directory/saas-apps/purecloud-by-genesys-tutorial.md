@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d2953710c559deb094761410e6d46401e103d8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab63e54589f68516b0106a1c96edced38539d252
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553295"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108545"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą PureCloud przez Genesys
 
@@ -120,7 +120,7 @@ Aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal, wykonaj na
 
     | Nazwa | Atrybut źródłowy|
     | ---------------| --------------- |
-    | Poczta e-mail | user.userprincipalname |
+    | E-mail | user.userprincipalname |
     | OrganizationName | `Your organization name` |
 
 1. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
@@ -141,7 +141,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika w następującym formacie: username@companydomain.extension . Przykład: `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie zanotuj wartość wyświetlaną w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -167,11 +167,11 @@ W tej sekcji skonfigurujesz usługę B. Simon, aby korzystać z logowania jednok
 
 1. Wybierz pozycję **administrator** u góry, a następnie przejdź do opcji **Logowanie** jednokrotne w obszarze **integracji**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/purecloud-by-genesys-tutorial/configure01.png)
+    ![Zrzut ekranu przedstawia okno administratora PureCloud, w którym można wybrać opcję Logowanie jednokrotne.](./media/purecloud-by-genesys-tutorial/configure01.png)
 
 1. Przejdź do karty **ADFS/Azure AD (Premium)** , a następnie wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/purecloud-by-genesys-tutorial/configure02.png)
+    ![Zrzut ekranu przedstawia stronę integracji, na której można wprowadzić podane wartości.](./media/purecloud-by-genesys-tutorial/configure02.png)
 
     a. Wybierz pozycję **Przeglądaj** , aby przesłać certyfikat zakodowany base-64 pobrany z Azure Portal do **certyfikatu usług AD FS**.
 
@@ -181,7 +181,7 @@ W tej sekcji skonfigurujesz usługę B. Simon, aby korzystać z logowania jednok
 
     d. W polu wartość **identyfikatora jednostki uzależnionej** przejdź do Azure Portal, a następnie na stronie **PureCloud przez Genesys** integrację aplikacji wybierz kartę **Właściwości** i skopiuj wartość **Identyfikator aplikacji** . Wklej ją do pola **Identyfikator jednostki uzależnionej** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/purecloud-by-genesys-tutorial/configure06.png)
+    ![Zrzut ekranu przedstawia okienko właściwości, w którym można znaleźć wartość aplikacji I D.](./media/purecloud-by-genesys-tutorial/configure06.png)
 
     e. Wybierz pozycję **Zapisz**.
 
@@ -195,21 +195,21 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do PureCloud przez
 
 1. Wybierz pozycję **administrator** u góry i przejdź do obszaru **osoby** w obszarze **osoby & uprawnienia**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/purecloud-by-genesys-tutorial/configure03.png)
+    ![Zrzut ekranu przedstawia okno administratora PureCloud, w którym można wybrać osoby.](./media/purecloud-by-genesys-tutorial/configure03.png)
 
 1. Na stronie **osoby** wybierz pozycję **Dodaj osobę**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/purecloud-by-genesys-tutorial/configure04.png)
+    ![Zrzut ekranu przedstawia stronę osoby, na której można dodać osobę.](./media/purecloud-by-genesys-tutorial/configure04.png)
 
 1. W oknie dialogowym **Dodawanie osób do organizacji** wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/purecloud-by-genesys-tutorial/configure05.png)
+    ![Zrzut ekranu przedstawia stronę, na której można wprowadzić podane wartości.](./media/purecloud-by-genesys-tutorial/configure05.png)
 
     a. W polu **pełna nazwa** wprowadź nazwę użytkownika. Na przykład: **B. Simon**.
 
     b. W polu **adres e-mail** wprowadź adres e-mail użytkownika. Na przykład: **b. simon \@ contoso.com**.
 
-    c. Wybierz przycisk **Utwórz**.
+    c. Wybierz pozycję **Utwórz**.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -217,7 +217,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka **PureCloud by Genesys** w panelu dostępu należy automatycznie zalogować się do konta PureCloud przez Genesys, które zostało skonfigurowane jako logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure AD ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

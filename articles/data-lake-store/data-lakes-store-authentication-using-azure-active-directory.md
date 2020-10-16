@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 49e6df417190071e06582be400575e1880f2543a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fc09f9145b7a1652b621ed38a8bf9af7c4c82a8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82692284"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106573"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Uwierzytelnianie za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory
 
@@ -40,11 +40,9 @@ W poniższej tabeli przedstawiono sposób obsługi mechanizmów uwierzytelniania
 <i>* Kliknij symbol <b>✔ \* </b> . Jest to link.</i><br>
 <i>* * Uwierzytelnianie wieloskładnikowe oznacza usługi uwierzytelniania wieloskładnikowego</i>
 
-Aby uzyskać więcej informacji na temat używania Azure Active Directory do uwierzytelniania, zobacz  [scenariusze uwierzytelniania dla Azure Active Directory](../active-directory/develop/authentication-scenarios.md) .
+Aby uzyskać więcej informacji na temat używania Azure Active Directory do uwierzytelniania, zobacz  [scenariusze uwierzytelniania dla Azure Active Directory](../active-directory/develop/authentication-vs-authorization.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Uwierzytelnianie użytkowników końcowych](data-lake-store-end-user-authenticate-using-active-directory.md)
 * [Uwierzytelnianie między usługami](data-lake-store-service-to-service-authenticate-using-active-directory.md)
-
-

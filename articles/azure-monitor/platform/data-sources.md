@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802071"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107950"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Źródła danych monitorowania dla Azure Monitor
 Azure Monitor jest oparta na [wspólnej platformie danych monitorowania](data-platform.md) , która obejmuje [dzienniki](data-platform-logs.md) i [metryki](data-platform-metrics.md). Zbieranie danych do tej platformy pozwala analizować dane z wielu zasobów wspólnie przy użyciu wspólnego zestawu narzędzi w Azure Monitor. Dane monitorowania mogą być również wysyłane do innych lokalizacji w celu obsługi niektórych scenariuszy, a niektóre zasoby mogą zapisywać w innych lokalizacjach, zanim będą mogły być zbierane w dziennikach lub metrykach.
@@ -20,7 +20,7 @@ W tym artykule opisano różne źródła danych monitorowania zbieranych przez A
 
 ## <a name="application-tiers"></a>Warstwy aplikacji
 
-Źródła danych monitorowania z aplikacji platformy Azure można organizować w warstwy, a najwyższe warstwy są używane przez samą aplikację, a niższe warstwy są składnikiem platformy platformy Azure. Metoda uzyskiwania dostępu do danych z poszczególnych warstw jest różna. W poniższej tabeli zestawiono warstwy aplikacji, a źródła danych monitorowania w poszczególnych warstwach zostały przedstawione w poniższych sekcjach. Zobacz sekcję [monitorowanie lokalizacji danych na platformie Azure](data-locations.md) , aby uzyskać opis każdej lokalizacji danych i uzyskać dostęp do jej danych.
+Źródła danych monitorowania z aplikacji platformy Azure można organizować w warstwy, a najwyższe warstwy są używane przez samą aplikację, a niższe warstwy są składnikiem platformy platformy Azure. Metoda uzyskiwania dostępu do danych z poszczególnych warstw jest różna. W poniższej tabeli zestawiono warstwy aplikacji, a źródła danych monitorowania w poszczególnych warstwach zostały przedstawione w poniższych sekcjach. Zobacz sekcję [monitorowanie lokalizacji danych na platformie Azure](../monitor-reference.md) , aby uzyskać opis każdej lokalizacji danych i uzyskać dostęp do jej danych.
 
 
 ![Warstwy monitorowania](../media/overview/overview.png)
@@ -208,4 +208,4 @@ Inne usługi na platformie Azure zapisują dane na platformie danych Azure Monit
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat [typów danych monitorowania zbieranych przez Azure monitor](data-platform.md) oraz sposobu wyświetlania i analizowania tych danych.
-- Wykorzystaj [różne lokalizacje, w których zasoby platformy Azure przechowują dane](data-locations.md) i jak możesz uzyskać do nich dostęp. 
+- Wykorzystaj [różne lokalizacje, w których zasoby platformy Azure przechowują dane](../monitor-reference.md) i jak możesz uzyskać do nich dostęp.

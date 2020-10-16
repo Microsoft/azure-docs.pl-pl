@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b32f16d170df9963960862bc82aef1a4baf13896
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530373"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104448"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus powiązania Azure Functions
 
 Azure Functions integruje się z [Azure Service Bus](https://azure.microsoft.com/services/service-bus) za pośrednictwem [wyzwalaczy i powiązań](./functions-triggers-bindings.md). Integracja z programem Service Bus umożliwia tworzenie funkcji, które reagują na i wysyłają komunikaty dotyczące kolejki lub tematu.
 
-| Akcja | Type |
+| Akcja | Typ |
 |---------|---------|
 | Uruchom funkcję po utworzeniu kolejki Service Bus lub komunikatu tematu | [Wyzwalacz](./functions-bindings-service-bus-trigger.md) |
 | Wysyłanie komunikatów Azure Service Bus |[Powiązanie danych wyjściowych](./functions-bindings-service-bus-output.md) |
@@ -41,7 +41,7 @@ Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. 
 [Pakiet NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [core tools]: ./functions-run-local.md
 [pakiet rozszerzeń]: ./functions-bindings-register.md#extension-bundles
-[Aktualizowanie rozszerzeń]: ./install-update-binding-extensions-manual.md
+[Aktualizowanie rozszerzeń]: ./functions-bindings-register.md
 [Rozszerzenie narzędzi platformy Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions w wersji 1.x

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 11a6df348ae623ccf75e61bc1abbb5e28c832237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 943aba9c25df6cd279dc651cfad343a6509c069b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548973"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108681"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Samouczek: integracja Azure Active Directory z pakietem Questetra BPM Suite
 
@@ -128,11 +128,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Que
 
 2. W menu u góry kliknij pozycję **Ustawienia systemowe**. 
    
-    ![Pojedynczy Sign-On usługi Azure AD][10]
+    ![Zrzut ekranu przedstawia ustawienia systemu wybrane z firmowej witryny Questetra BPM Suite.][10]
 
 3. Aby otworzyć stronę **SingleSignOnSAML** , kliknij pozycję **Logowanie jednokrotne (SAML)**. 
    
-    ![Pojedynczy Sign-On usługi Azure AD][11]
+    ![Zrzut ekranu przedstawia wybrany element S (SAML).][11]
 
 4. W witrynie firmy z **pakietem QUESTETRA BPM Suite** w sekcji **Informacje o programie Sp** wykonaj następujące czynności:
 
@@ -156,7 +156,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Que
 
     f. Otwórz certyfikat zakodowany w formacie **Base-64** w Notatniku pobranym z Azure Portal Skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola tekstowego **certyfikat walidacji** . 
 
-    przykład Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -180,7 +180,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

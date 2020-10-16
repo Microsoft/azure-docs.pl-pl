@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305214"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107780"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Łączenie komputerów bez dostępu do Internetu przy użyciu bramy Log Analytics w programie Azure Monitor
 
@@ -141,7 +141,7 @@ Aby zainstalować bramę przy użyciu Kreatora instalacji, wykonaj następujące
    ![Zrzut ekranu przedstawiający konfigurację serwera proxy bramy](./media/gateway/gateway-wizard02.png)
 
 1. Jeśli nie masz włączonej Microsoft Update, zostanie wyświetlona strona Microsoft Update i będzie można ją włączyć. Wybierz pozycję, a następnie kliknij przycisk **dalej**. W przeciwnym razie przejdź do następnego kroku.
-1. Na stronie **folder docelowy** pozostaw folder domyślny C:\Program Files\OMS Gateway lub wprowadź lokalizację, w której chcesz zainstalować bramę. Następnie wybierz pozycję **Dalej**.
+1. Na stronie **folder docelowy** pozostaw folder domyślny C:\Program Files\OMS Gateway lub wprowadź lokalizację, w której chcesz zainstalować bramę. Następnie wybierz przycisk **Dalej**.
 1. Na stronie **gotowy do instalacji** wybierz pozycję **Zainstaluj**. Jeśli Kontrola konta użytkownika żąda uprawnień do instalacji, wybierz pozycję **tak**.
 1. Po zakończeniu instalacji wybierz pozycję **Zakończ**. Aby sprawdzić, czy usługa jest uruchomiona, Otwórz przystawkę Services. msc i sprawdź, czy **brama pakietu OMS** jest wyświetlana na liście usług i czy jej stan jest **uruchomiony**.
 
@@ -206,7 +206,7 @@ Aby dowiedzieć się, jak projektować i wdrażać klaster równoważenia obcią
 Aby dowiedzieć się, jak projektować i wdrażać Azure Load Balancer, zobacz [co to jest Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Aby wdrożyć podstawowy moduł równoważenia obciążenia, wykonaj czynności opisane w tym [przewodniku szybki start](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , z wyjątkiem kroków opisanych w sekcji **Tworzenie serwerów zaplecza**.   
 
 > [!NOTE]
-> Skonfigurowanie Azure Load Balancer przy użyciu **podstawowej jednostki SKU**wymaga, aby maszyny wirtualne platformy Azure należały do zestawu dostępności. Aby dowiedzieć się więcej na temat zestawów dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../virtual-machines/windows/manage-availability.md). Aby dodać istniejące maszyny wirtualne do zestawu dostępności, zapoznaj się z poleceniem [set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Skonfigurowanie Azure Load Balancer przy użyciu **podstawowej jednostki SKU**wymaga, aby maszyny wirtualne platformy Azure należały do zestawu dostępności. Aby dowiedzieć się więcej na temat zestawów dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../virtual-machines/manage-availability.md). Aby dodać istniejące maszyny wirtualne do zestawu dostępności, zapoznaj się z poleceniem [set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
 Po utworzeniu modułu równoważenia obciążenia należy utworzyć pulę zaplecza, która dystrybuuje ruch do jednego lub większej liczby serwerów bramy. Wykonaj kroki opisane w sekcji artykuł szybkiego startu [Tworzenie zasobów dla modułu równoważenia obciążenia](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
@@ -285,7 +285,7 @@ Aby skonfigurować określone serwery lub grupy do korzystania z serwera bramy L
 1. Otwórz konsolę Operations Manager i wybierz obszar roboczy **Tworzenie** .  
 1. W obszarze roboczym Tworzenie wybierz pozycję **reguły**. 
 1. Na pasku narzędzi Operations Manager wybierz przycisk **zakres** . Jeśli ten przycisk jest niedostępny, upewnij się, że w okienku **monitorowanie** został wybrany obiekt, a nie folder. W oknie dialogowym **zakres obiektów pakietu administracyjnego** zostanie wyświetlona lista wspólnych klas, grup lub obiektów przeznaczonych do użycia. 
-1. W polu **Wyszukaj** wpisz **Usługa kondycji** i wybierz go z listy. Kliknij przycisk **OK**.  
+1. W polu **Wyszukaj** wpisz **Usługa kondycji** i wybierz go z listy. Wybierz przycisk **OK**.  
 1. Wyszukaj **regułę ustawień serwera proxy usługi Advisor**. 
 1. Na pasku narzędzi Operations Manager wybierz pozycję **zastąpienia** , a następnie wskaż polecenie **Przesłoń Rule\For określony obiekt klasy: usługa kondycji** i wybierz obiekt z listy.  Lub Utwórz grupę niestandardową zawierającą obiekt usługi kondycji serwerów, do których chcesz zastosować to zastąpienie. Następnie Zastosuj zastąpienie do grupy niestandardowej.
 1. W oknie dialogowym **Właściwości przesłonięcia** Dodaj znacznik wyboru w kolumnie **Przesłoń** obok parametru **WebProxyAddress** .  W polu **wartość zastąpienia** wprowadź adres URL serwera bramy log Analytics. Ostrożnie Rozpocznij od prefiksu `http://` .  
@@ -389,4 +389,3 @@ Aby uzyskać pomoc, wybierz ikonę znaku zapytania w prawym górnym rogu portalu
 ## <a name="next-steps"></a>Następne kroki
 
 [Dodawanie źródeł danych](./agent-data-sources.md) w celu zbierania danych z połączonych źródeł i przechowywania danych w obszarze roboczym log Analytics.
-

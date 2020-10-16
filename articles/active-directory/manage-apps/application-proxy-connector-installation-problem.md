@@ -1,37 +1,32 @@
 ---
-title: Problem z instalowaniem łącznika agenta serwera proxy aplikacji | Microsoft Docs
-description: Jak rozwiązywać problemy, które można napotkać podczas instalowania łącznika agenta serwera proxy aplikacji
+title: Problem z instalacją łącznika agenta serwera proxy aplikacji
+description: Jak rozwiązywać problemy, które można napotkać podczas instalowania łącznika agenta serwera proxy aplikacji dla Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764693"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108205"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem z instalacją łącznika agenta serwera proxy aplikacji
 
-Łącznik serwera proxy aplikacji usługi Microsoft AAD to wewnętrzny składnik domeny, który używa połączeń wychodzących do nawiązywania łączności z punktu końcowego dostępnego w chmurze do domeny wewnętrznej.
+Łącznik serwera proxy aplikacji Microsoft Azure Active Directory jest wewnętrznym składnikiem domeny, który używa połączeń wychodzących do nawiązywania połączenia z punktem końcowym dostępnym w chmurze do domeny wewnętrznej.
 
 ## <a name="general-problem-areas-with-connector-installation"></a>Ogólne obszary problemów z instalacją łącznika
 
 Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zazwyczaj jeden z następujących obszarów:
 
-1.  **Łączność** — aby ukończyć pomyślną instalację, nowy łącznik musi zarejestrować i ustanowić przyszłe właściwości zaufania. W tym celu należy nawiązać połączenie z usługą serwera proxy aplikacji usługi AAD.
+1.  **Łączność** — aby ukończyć pomyślną instalację, nowy łącznik musi zarejestrować i ustanowić przyszłe właściwości zaufania. W tym celu należy nawiązać połączenie z usługą serwer proxy aplikacji usługi Azure Active Directory w chmurze.
 
 2.  **Ustanowienie zaufania** — nowy łącznik tworzy certyfikat z podpisem własnym i rejestruje usługę w chmurze.
 
@@ -42,7 +37,7 @@ Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zazwycza
 
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Weryfikowanie łączności z usługą serwera proxy aplikacji w chmurze i stroną logowania firmy Microsoft
 
-**Cel:** Sprawdź, czy komputer łącznika może nawiązać połączenie z punktem końcowym rejestracji serwera proxy aplikacji usługi AAD, a także stroną logowania firmy Microsoft.
+**Cel:** Sprawdź, czy komputer łącznika może nawiązać połączenie z punktem końcowym rejestracji serwera proxy aplikacji, a także stroną logowania firmy Microsoft.
 
 1.  Na serwerze łącznika Uruchom test portu przy użyciu programu [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) lub innego narzędzia do testowania portów, aby sprawdzić, czy porty 443 i 80 są otwarte.
 
@@ -67,7 +62,7 @@ Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zazwycza
 
 **Aby zweryfikować certyfikat klienta:**
 
-Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów można znaleźć w usłudze%ProgramData%\microsoft\Microsoft Application proxy aplikacji usługi AAD Connector\Config\TrustSettings.xml
+Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów można znaleźć w temacie `%ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml` .
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -79,23 +74,17 @@ Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów mo�
 </ConnectorTrustSettingsFile>
 ```
 
-Oto możliwe wartości **IsInUserStore** i znaczenia:
+Możliwe wartości **IsInUserStore** to **true** i **false**. Wartość **true** oznacza, że automatycznie odnowiony certyfikat jest przechowywany w kontenerze osobistym w magazynie certyfikatów użytkownika usługi sieciowej. Wartość **false** oznacza, że certyfikat klienta został utworzony podczas instalacji lub rejestracji zainicjowanej przez polecenie Register-AppProxyConnector i jest przechowywany w kontenerze osobistym w magazynie certyfikatów komputera lokalnego.
 
-- **Fałsz** — certyfikat klienta został utworzony podczas instalacji lub rejestracji zainicjowanej przez Register-AppProxyConnector polecenie. Jest on przechowywany w kontenerze osobistym w magazynie certyfikatów komputera lokalnego. 
-
-Postępuj zgodnie z instrukcjami, aby zweryfikować certyfikat:
-
-1. Uruchom **certlm. msc**
-2. W konsoli zarządzania rozwiń kontener osobisty i kliknij pozycję Certyfikaty.
-3. Lokalizowanie certyfikatu wystawionego przez **connectorregistrationca.msappproxy.NET**
-
-- **true** — automatycznie odnowiony certyfikat jest przechowywany w kontenerze osobistym w magazynie certyfikatów użytkownika usługi sieciowej. 
-
-Postępuj zgodnie z instrukcjami, aby zweryfikować certyfikat:
-
+Jeśli wartość jest **równa true**, wykonaj następujące kroki, aby zweryfikować certyfikat:
 1. Pobierz [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
 2. Wyodrębnij [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) z pakietu i uruchom **PsExec-i-u "NT authority\network Service" cmd.exe** z wiersza polecenia z podwyższonym poziomem uprawnień.
 3. Uruchom **certmgr. msc** w nowo wyświetlonym wierszu polecenia
+4. W konsoli zarządzania rozwiń kontener osobisty i kliknij pozycję Certyfikaty.
+5. Lokalizowanie certyfikatu wystawionego przez **connectorregistrationca.msappproxy.NET**
+
+Jeśli wartość jest równa **false**, wykonaj następujące kroki, aby zweryfikować certyfikat:
+1. Uruchom **certlm. msc**
 2. W konsoli zarządzania rozwiń kontener osobisty i kliknij pozycję Certyfikaty.
 3. Lokalizowanie certyfikatu wystawionego przez **connectorregistrationca.msappproxy.NET**
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6732857e278285071c9d36c629920ad9e67368f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef8a93ebdc5eb389608ef3340b9707bfd040a295
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528549"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Samouczek: integracja Azure Active Directory z usługą RFPIO
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą RFPIO, wyko
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![RFPIO domenę i adresy URL Logowanie jednokrotne](common/idp-identifier.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator.](common/idp-identifier.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://www.rfpio.com`
 
@@ -107,7 +107,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą RFPIO, wyko
 
     c. W polu tekstowym **Stan przekazywania** wprowadź wartość ciągu. Skontaktuj się z [zespołem pomocy technicznej RFPIO](https://www.rfpio.com/contact/) , aby uzyskać tę wartość.
 
-    ![RFPIO domenę i adresy URL Logowanie jednokrotne](common/idp-preintegrated-relay.png)
+    ![Zrzut ekranu pokazuje ustawiony dodatkowy U R ls.](common/idp-preintegrated-relay.png)
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
@@ -138,23 +138,23 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą RFPIO, wyko
 
 1. Kliknij lewy dolny róg menu rozwijanego.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rfpio-tutorial/app1.png)
+    ![Zrzut ekranu przedstawia strzałkę w dół w dolnej części okienka.](./media/rfpio-tutorial/app1.png)
 
 1. Kliknij pozycję **Ustawienia organizacji**. 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rfpio-tutorial/app2.png)
+    ![Zrzut ekranu przedstawia wybrane ustawienia organizacji.](./media/rfpio-tutorial/app2.png)
 
 1. Kliknij pozycję **funkcje & integrację**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rfpio-tutorial/app4.png)
+    ![Zrzut ekranu przedstawia funkcje i integrację wybraną z ustawień.](./media/rfpio-tutorial/app4.png)
 
 1. W **konfiguracji protokołu SAML SSO** kliknij pozycję **Edytuj**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rfpio-tutorial/app3.png)
+    ![Zrzut ekranu przedstawia konfigurację protokołu SAML S S za pomocą przycisku Edytuj o nazwie out.](./media/rfpio-tutorial/app3.png)
 
 1. W tej sekcji wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rfpio-tutorial/app5.png)
+    ![CScreenshot pokazuje konfigurację protokołu SAML S S z włączonym SAML.](./media/rfpio-tutorial/app5.png)
     
     a. Skopiuj zawartość **pobranego pliku XML metadanych** i wklej go w polu **Konfiguracja tożsamości** .
 
@@ -189,7 +189,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -223,23 +223,23 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 1. Kliknij lewy dolny róg menu rozwijanego.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rfpio-tutorial/app1.png)
+    ![Zrzut ekranu przedstawia strzałkę w dół w dolnej części okienka.](./media/rfpio-tutorial/app1.png)
 
 1. Kliknij pozycję **Ustawienia organizacji**. 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rfpio-tutorial/app2.png)
+    ![Zrzut ekranu przedstawia wybrane ustawienia organizacji.](./media/rfpio-tutorial/app2.png)
 
 1. Kliknij pozycję **członkowie zespołu**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rfpio-tutorial/app6.png)
+    ![Zrzut ekranu przedstawia członków zespołu wybranych z ustawień.](./media/rfpio-tutorial/app6.png)
 
 1. Kliknij pozycję **Dodaj członków**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rfpio-tutorial/app7.png)
+    ![Zrzut ekranu przedstawia przycisk Dodaj członków.](./media/rfpio-tutorial/app7.png)
 
 1. W sekcji **Dodawanie nowych członków** . Wykonaj następujące akcje:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/rfpio-tutorial/app8.png)
+    ![Zrzut ekranu przedstawia Dodawanie nowych członków, w których można wprowadzić podane wartości.](./media/rfpio-tutorial/app8.png)
 
     a. Wprowadź **adres e-mail** w polu **Wprowadź jedną wiadomość e-mail na wiersz** .
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ddc15e9da3eaa3609b039f2f92e424b9d9449c1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569615"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106318"
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej:
@@ -185,7 +185,7 @@ Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolit
 | Azja Wschodnia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 | 12076:55010 |
 | Southeast Asia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
 | **Japonia** | |
-| Japan East | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
+| Japonia Wschodnia | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
 | Japonia Zachodnia | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
 | **Australia** | |
 | Australia Wschodnia | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 | 12076:55015 |
@@ -225,7 +225,7 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 | Skype dla firm Online\*\*/\*\*\* | 12076:5030 |
 | CRM Online\*\*\*\* |12076:5040 |
 | Usługi globalne platformy Azure\* | 12076:5050 |
-| Usługa Azure Active Directory |12076:5060 |
+| Azure Active Directory |12076:5060 |
 | Azure Resource Manager |12076:5070 |
 | Inne usługi online pakietu Office 365 * * | 12076:5100 |
 
@@ -258,6 +258,7 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype dla firm Online |12076:5130 |
+| Azure Active Directory |12076:5160 |
 | Inne usługi online Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Następne kroki
