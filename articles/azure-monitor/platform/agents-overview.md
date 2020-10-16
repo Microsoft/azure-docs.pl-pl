@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: de9623eb0eb14957c1554b7b0f74baa256a15d47
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 8ca6794024d3a6327b918eb1c369a627837e0bd0
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108392"
+ms.locfileid: "92131024"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Omówienie agentów Azure Monitor
 
@@ -148,9 +148,9 @@ W poniższej tabeli wymieniono systemy operacyjne, które są obsługiwane przez
 | Windows Server 2012 z dodatkiem R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 z dodatkiem R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(w tym wiele sesji) i Pro  | X | X | X | X |
-| Windows 8 Enterprise i Pro                             |   | X | X |   |
-| Windows 7 z dodatkiem SP1                                            |   | X | X |   |
+| Windows 10 Enterprise<br>(w tym wiele sesji) i Pro<br>(Tylko scenariusze serwera)  | X | X | X | X |
+| Windows 8 Enterprise i Pro<br>(Tylko scenariusze serwera)  |   | X | X |   |
+| Windows 7 z dodatkiem SP1<br>(Tylko scenariusze serwera)                 |   | X | X |   |
 
 
 ### <a name="linux"></a>Linux

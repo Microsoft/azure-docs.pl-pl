@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 9742f97832c1fc931a1679132e262f92c9f11225
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a54c77844498beb4fd052153cbcf8cbe498cdb75
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037188"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132214"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
 
@@ -45,11 +45,11 @@ Jeśli uruchamiasz program AzCopy w systemie Windows i chcesz powiedzieć, że w
 | System operacyjny | Środowisko | Polecenia  |
 |--------|-----------|----------|
 | **Windows** | Wiersz polecenia (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
-| **Windows** | Program PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
+| **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
 
 W innych systemach operacyjnych, należy po prostu pozostawić zmienną HTTPS_PROXY tak, aby nie był używany żaden serwer proxy.
 
-## <a name="optimize-performance"></a>Optymalizacja wydajności
+## <a name="optimize-performance"></a>Optymalizowanie wydajności
 
 Możesz przeprowadzić test wydajności, a następnie użyć poleceń i zmiennych środowiskowych, aby znaleźć optymalną kompromis między wydajnością i użyciem zasobów.
 
@@ -87,7 +87,7 @@ Możesz użyć `cap-mbps` flagi w poleceniach, aby umieścić górny limit szybk
 azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
-Przepływność może ulec zmniejszeniu podczas przesyłania małych plików. Można zwiększyć przepływność przez ustawienie `AZCOPY_CONCURRENCY_VALUE` zmiennej środowiskowej. Ta zmienna określa liczbę równoczesnych żądań, które mogą wystąpić.  
+Przepływność może ulec zmniejszeniu podczas przesyłania małych plików. Przepustowość można zwiększyć przez ustawienie `AZCOPY_CONCURRENCY_VALUE` zmiennej środowiskowej. Ta zmienna określa liczbę równoczesnych żądań, które mogą wystąpić.  
 
 Jeśli komputer ma mniej niż 5 procesorów CPU, wartość tej zmiennej jest ustawiana na `32` . W przeciwnym razie wartość domyślna jest równa 16-krotności liczby procesorów CPU. Maksymalna wartość domyślna tej zmiennej to `3000` , ale można ręcznie ustawić tę wartość na wyższą lub niższą. 
 

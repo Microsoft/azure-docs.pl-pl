@@ -7,18 +7,18 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba344c3b1570c041e1602bdfcde1b3a4055dc396
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602221"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132758"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Samouczek: Tworzenie zasad zapory aplikacji sieci Web na platformie Azure front-drzwi przy użyciu Azure Portal
 
 W tym samouczku pokazano, jak utworzyć podstawowe zasady zapory aplikacji sieci Web (WAF) platformy Azure i zastosować je do hosta frontonu na platformie Azure.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zasad WAF
@@ -42,7 +42,7 @@ Najpierw Utwórz podstawowe zasady WAF z zarządzanym domyślnym zestawem reguł
     | Grupa zasobów          |Wybierz nazwę grupy zasobów drzwi.|
     | Nazwa zasady             |Wprowadź unikatową nazwę zasad WAF.|
 
-   ![Tworzenie zasad WAF](../media/waf-front-door-create-portal/basic.png)
+   :::image type="content" source="../media/waf-front-door-create-portal/basic.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad języka F z przyciskami Przejrzyj i Utwórz oraz polami listy dla subskrypcji, grupy zasobów i nazwy zasad." border="false":::
 
 3. Na karcie **skojarzenie** na stronie **Tworzenie zasad WAF** wybierz pozycję **Dodaj hosta frontonu**, wprowadź następujące ustawienia, a następnie wybierz pozycję **Dodaj**:
 
@@ -62,19 +62,19 @@ Najpierw Utwórz podstawowe zasady WAF z zarządzanym domyślnym zestawem reguł
 Podczas tworzenia zasad WAFymi domyślne zasady WAF są w trybie **wykrywania** . W trybie **wykrywania** WAF nie blokuje żadnych żądań, a zamiast tego żądania zgodne z regułami WAF są rejestrowane w dziennikach WAF.
 Aby wyświetlić WAF w działaniu, można zmienić ustawienia trybu z **wykrywania** na **zapobieganie**. W trybie **zapobiegania** żądania zgodne z regułami zdefiniowanymi w domyślnym zestawie reguł (DRS) są blokowane i rejestrowane w dziennikach WAF.
 
- ![Zmień tryb zasad WAF](../media/waf-front-door-create-portal/policy.png)
+ :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad języka F z przyciskami Przejrzyj i Utwórz oraz polami listy dla subskrypcji, grupy zasobów i nazwy zasad." border="false":::
 
 ### <a name="custom-rules"></a>Reguły niestandardowe
 
 Regułę niestandardową można utworzyć, wybierając pozycję **Dodaj regułę niestandardową** w sekcji **reguły niestandardowe** . Spowoduje to uruchomienie strony Konfiguracja reguły niestandardowej. Poniżej znajduje się przykład konfigurowania reguły niestandardowej do blokowania żądania, jeśli ciąg zapytania zawiera **blockme**.
 
-![Reguły niestandardowe](../media/waf-front-door-create-portal/customquerystring2.png)
+:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad języka F z przyciskami Przejrzyj i Utwórz oraz polami listy dla subskrypcji, grupy zasobów i nazwy zasad." border="false":::
 
 ### <a name="default-rule-set-drs"></a>Domyślny zestaw reguł (DRS)
 
 Domyślny zestaw reguł zarządzany przez platformę Azure jest domyślnie włączony. Aby wyłączyć pojedynczą regułę w grupie reguł, rozwiń reguły w tej grupie reguł, zaznacz **pole wyboru** przed numerem reguły, a następnie na karcie powyżej wybierz pozycję **Wyłącz** . Aby zmienić typy akcji dla poszczególnych reguł w zestawie reguł, zaznacz pole wyboru przed numerem reguły, a następnie wybierz powyższą kartę **Zmień akcję** .
 
- ![Zmień zestaw reguł WAF](../media/waf-front-door-create-portal/managed2.png)
+ :::image type="content" source="../media/waf-front-door-create-portal/managed2.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad języka F z przyciskami Przejrzyj i Utwórz oraz polami listy dla subskrypcji, grupy zasobów i nazwy zasad." border="false":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

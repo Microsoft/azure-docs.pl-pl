@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2018
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116364"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131755"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie zmiany hasła przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Active
         <ClaimType Id="oldPassword">
           <DisplayName>Old Password</DisplayName>
           <DataType>string</DataType>
-          <UserHelpText>Enter password</UserHelpText>
+          <UserHelpText>Enter your old password</UserHelpText>
           <UserInputType>Password</UserInputType>
         </ClaimType>
       </ClaimsSchema>
@@ -179,7 +179,7 @@ Podczas testowania aplikacji w Azure AD B2C może być przydatne, aby token Azur
 
 1. Otwórz zasady, które zostały zmienione. Na przykład *B2C_1A_profile_edit_password_change*.
 2. W przypadku **aplikacji**wybierz wcześniej zarejestrowaną aplikację. Aby wyświetlić token, należy wyświetlić **adres URL odpowiedzi** `https://jwt.ms` .
-3. Kliknij pozycję **Uruchom teraz**. Zaloguj się przy użyciu acouunt, który został wcześniej utworzony. Teraz należy mieć możliwość zmiany hasła.
+3. Kliknij pozycję **Uruchom teraz**. Zaloguj się przy użyciu wcześniej utworzonego konta. Teraz należy mieć możliwość zmiany hasła.
 
 ## <a name="next-steps"></a>Następne kroki
 

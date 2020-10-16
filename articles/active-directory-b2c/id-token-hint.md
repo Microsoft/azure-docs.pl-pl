@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564903"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132078"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny wskazówki tokenu identyfikatora w zasadach niestandardowych Azure Active Directory B2C
 
@@ -87,13 +87,13 @@ Następujące metadane są istotne w przypadku korzystania z klucza symetryczneg
 | issuer | Tak | Identyfikuje usługę tokenu zabezpieczającego (Wystawca tokenu). Ta wartość musi być taka sama jak w przypadku żądania `iss` tokenu JWT. | 
 | IdTokenAudience | Tak | Identyfikuje zamierzony odbiorcę tokenu. Musi być taka sama jak w przypadku roszczeń `aud` z zastrzeżeniem tokenu JWT. | 
 
-Poniższe metadane są istotne w przypadku korzystania z klucza symetrycznego. 
+Poniższe metadane są istotne w przypadku korzystania z klucza asymetrycznego. 
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | METADANE| Tak | Adres URL wskazujący na dokument konfiguracji wystawcy tokenów, który jest również znany jako OpenID Connect dobrze znany punkt końcowy konfiguracji.   |
 | issuer | Nie | Identyfikuje usługę tokenu zabezpieczającego (Wystawca tokenu). Ta wartość może służyć do zastępowania wartości skonfigurowanej w metadanych i musi być taka sama jak w przypadku żądania `iss` tokenu JWT. |  
-| IdTokenAudience | Nie | Identyfikuje zamierzony odbiorcę tokenu. Ta wartość może służyć do zastępowania wartości skonfigurowanej w metadanych i musi być taka sama jak w przypadku żądania `aud` tokenu JWT. |  
+| IdTokenAudience | Nie | Identyfikuje zamierzony odbiorcę tokenu. Musi być taka sama jak w przypadku roszczeń `aud` z zastrzeżeniem tokenu JWT. |  
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
 
@@ -137,7 +137,7 @@ Ten sam klucz, który jest używany przez wystawcę tokenu, musi zostać utworzo
    Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W polu **wpis tajny** wprowadź wcześniej wygenerowany klucz logowania.
 1. W celu **użycia klucza**Użyj **szyfrowania**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Upewnij się, że utworzono klucz `B2C_1A_IdTokenHintKey` .
 
 
@@ -219,7 +219,7 @@ Poniższy profil techniczny sprawdza poprawność tokenu i wyodrębnia oświadcz
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <!-- <Item Key="IdTokenAudience">your_optional_audience_override</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

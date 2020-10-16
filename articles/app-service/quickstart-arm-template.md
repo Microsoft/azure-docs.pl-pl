@@ -5,15 +5,15 @@ author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 10/15/2020
+ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0ca8301e9be51279cd9b80791126b41b99d89d6b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: aad41ed1fb270acb38ec599484e137fbe5a6dceb
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127390"
+ms.locfileid: "92131347"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Szybki Start: Tworzenie aplikacji App Service przy użyciu szablonu ARM
 
@@ -26,6 +26,10 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 Aby wdrożyć system w systemie **Linux**, użyj następującego przycisku:
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
+
+Użyj następującego przycisku, aby wdrożyć w **systemie Windows**:
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

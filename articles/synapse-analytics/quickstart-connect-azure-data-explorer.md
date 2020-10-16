@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: łączenie Eksplorator danych platformy Azure z obszarem roboczym Synapse'
-description: Jak połączyć klaster Eksplorator danych platformy Azure z obszarem roboczym Synapse przy użyciu usługi Azure Synapse Apache Spark
+title: 'Szybki Start: łączenie Eksplorator danych platformy Azure z obszarem roboczym usługi Azure Synapse Analytics'
+description: Połącz klaster Eksplorator danych platformy Azure z obszarem roboczym usługi Azure Synapse Analytics, używając Apache Spark do analizy usługi Azure Synapse.
 services: synapse-analytics
 author: manojraheja
 ms.service: synapse-analytics
@@ -9,73 +9,74 @@ ms.subservice: overview
 ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
-ms.openlocfilehash: 99ccc2f4d7e3adbba704f784025abfdfa8b96f52
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7412e595d3ae0604f57467701852743b737a591a
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090662"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132197"
 ---
-# <a name="connect-to-azure-data-explorer-using-synapse-apache-spark"></a>Nawiązywanie połączenia z usługą Azure Eksplorator danych przy użyciu usługi Synapse Apache Spark
+# <a name="connect-to-azure-data-explorer-using-apache-spark-for-azure-synapse-analytics"></a>Nawiązywanie połączenia z usługą Azure Eksplorator danych przy użyciu Apache Spark usługi Azure Synapse Analytics
 
-W tym artykule opisano sposób uzyskiwania dostępu do baz danych usługi Azure Eksplorator danych z programu Synapse Studio z Synapse Apache Spark. 
+W tym artykule opisano sposób uzyskiwania dostępu do usługi Azure Eksplorator danych Database z programu Synapse Studio przy użyciu Apache Spark usługi Azure Synapse Analytics.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Utwórz klaster Eksplorator danych i bazę danych platformy Azure](/azure/data-explorer/create-cluster-database-portal).
-* Istniejący obszar roboczy Synapse lub Utwórz nowy obszar roboczy po tym [przewodniku szybki start](./quickstart-create-workspace.md) 
-* Istniejąca Synapse puli Apache Spark lub Utwórz nową pulę po tym [przewodniku szybki start](./quickstart-create-apache-spark-pool-portal.md)
-* [Utwórz aplikację usługi Azure AD, udostępniając aplikację usługi Azure AD.](/azure/data-explorer/kusto/management/access-control/how-to-provision-aad-app)
-* Przyznaj aplikacji usługi Azure AD dostęp do bazy danych w następujący sposób: [Zarządzanie uprawnieniami usługi azure Eksplorator danych Database](/azure/data-explorer/manage-database-permissions)
+* Masz istniejący obszar roboczy usługi Azure Synapse Analytics lub Utwórz nowy obszar roboczy, wykonując kroki opisane w [przewodniku szybki start: Tworzenie obszaru roboczego usługi Azure Synapse](./quickstart-create-workspace.md).
+* Mieć istniejącą pulę Apache Spark lub Utwórz nową pulę, wykonując czynności opisane w [przewodniku szybki start: Tworzenie puli Apache Spark przy użyciu Azure Portal](./quickstart-create-apache-spark-pool-portal.md).
+* [Utwórz aplikację Azure Active Directory (Azure AD), udostępniając aplikację usługi Azure AD](/azure/data-explorer/kusto/management/access-control/how-to-provision-aad-app).
+* Aby umożliwić aplikacji usługi Azure AD dostęp do bazy danych, wykonaj kroki opisane w temacie [Zarządzanie uprawnieniami usługi azure Eksplorator danych Database](/azure/data-explorer/manage-database-permissions).
 
-## <a name="navigate-to-synapse-studio"></a>Przejdź do Synapse Studio
+## <a name="go-to-synapse-studio"></a>Przejdź do Synapse Studio
 
-W obszarze roboczym usługi Synapse wybierz pozycję **Uruchom Synapse Studio**. Na stronie głównej programu Synapse Studio wybierz pozycję **dane**, co spowoduje przejście do **Eksplorator obiektów danych**.
+W obszarze roboczym usługi Azure Synapse wybierz pozycję **Uruchom Synapse Studio**. Na stronie głównej programu Synapse Studio wybierz pozycję **dane** , aby przejść do **danych Eksplorator obiektów**.
 
-## <a name="connect-an-azure-data-explorer-database-to-a-synapse-workspace"></a>Łączenie bazy danych Eksplorator danych Azure z obszarem roboczym usługi Synapse
+## <a name="connect-an-azure-data-explorer-database-to-an-azure-synapse-workspace"></a>Łączenie bazy danych Eksplorator danych Azure z obszarem roboczym usługi Azure Synapse
 
-Łączenie bazy danych Eksplorator danych Azure z obszarem roboczym odbywa się za pomocą połączonej usługi. Połączona usługa Eksploruj dane platformy Azure umożliwia użytkownikom przeglądanie i Eksplorowanie danych, Odczyt i zapis z Apache Spark usługi Azure Synapse Analytics oraz uruchamianie zadań integracji w potoku.
+Łączenie bazy danych Eksplorator danych Azure z obszarem roboczym odbywa się za pomocą połączonej usługi. Za pomocą połączonej usługi Eksplorator danych platformy Azure możesz przeglądać i eksplorować dane, czytać i pisać z Apache Spark na potrzeby usługi Azure Synapse. Zadania integracji można również uruchamiać w potoku.
 
 W Eksplorator obiektów danych wykonaj następujące kroki, aby bezpośrednio połączyć klaster usługi Azure Eksplorator danych:
 
-1. Wybierz **+** ikonę obok danych
-2. Wybierz pozycję **Połącz** z danymi zewnętrznymi
-3. Wybierz pozycję **Azure Eksplorator danych (Kusto)**
-5. Wybierz przycisk **Kontynuuj**
-6. Nazwij połączoną usługę. Nazwa zostanie wyświetlona w Eksplorator obiektów i użyta przez Synapse Run-Times do nawiązania połączenia z bazą danych. Zalecamy używanie przyjaznej nazwy
-7. Wybierz klaster eksplorowania danych platformy Azure z subskrypcji lub wprowadź identyfikator URI.
-8. Wprowadź "identyfikator jednostki usługi" i "klucz główny usługi" (Upewnij się, że ta jednostka usługi ma dostęp do widoku w bazie danych na potrzeby operacji odczytu i dostępu do pozyskiwania danych).
-9. Wprowadź nazwę bazy danych usługi Azure Eksplorator danych
-10. Kliknij przycisk **Test connection** , aby upewnić się, że masz odpowiednie uprawnienia
-11. Wybierz pozycję **Utwórz**
+1. Wybierz **+** ikonę obok **danych**.
+1. Wybierz pozycję **Połącz** , aby nawiązać połączenie z danymi zewnętrznymi.
+1. Wybierz pozycję **Azure Eksplorator danych (Kusto)**.
+1. Wybierz opcję **Kontynuuj**.
+1. Użyj przyjaznej nazwy, aby nazwać połączoną usługę. Nazwa zostanie wyświetlona w Eksplorator obiektów danych i będzie używana przez środowisko uruchomieniowe usługi Azure Synapse do łączenia się z bazą danych.
+1. Wybierz klaster usługi Azure Eksplorator danych z subskrypcji lub wprowadź identyfikator URI.
+1. Wprowadź **Identyfikator jednostki usługi** i **klucz jednostki usługi**. Upewnij się, że ta jednostka usługi ma dostęp do widoku bazy danych na potrzeby operacji odczytu i uzyskiwania dostępu do pozyskiwania danych.
+1. Wprowadź nazwę bazy danych usługi Azure Eksplorator danych.
+1. Wybierz **Test connection** , aby upewnić się, że masz odpowiednie uprawnienia.
+1. Wybierz pozycję **Utwórz**.
 
-    ![Nowa połączona usługa](./media/quickstart-connect-azure-data-explorer/003-new-linked-service.png)
+    ![Zrzut ekranu pokazujący nową połączoną usługę.](./media/quickstart-connect-azure-data-explorer/003-new-linked-service.png)
 
     > [!NOTE]
-    > Obowiązkowe Test connection nie sprawdza poprawności dostępu do zapisu, upewnij się, że identyfikator jednostki usługi ma dostęp do zapisu w bazie danych Azure Eksplorator danych.
+    > Obowiązkowe **Test connection** nie sprawdza poprawności dostępu do zapisu. Upewnij się, że identyfikator jednostki usługi ma dostęp do zapisu w bazie danych Azure Eksplorator danych.
 
-12. Klastry usługi Azure Eksplorator danych i bazy danych są widoczne na karcie  **połączonej** w sekcji Eksplorator danych platformy Azure. 
+1. Klastry usługi Azure Eksplorator danych i bazy danych są wyświetlane na karcie **połączonej** w sekcji **Eksplorator danych platformy Azure** .
 
-    ![Przeglądaj klastry](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
+    ![Zrzut ekranu przedstawiający przeglądanie w poszukiwaniu klastrów.](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
 
-    > [!NOTE] 
-    > W bieżącej wersji obiekty bazy danych są wypełniane na podstawie uprawnień konta usługi AAD w bazach danych Eksplorator danych Azure. Po uruchomieniu notesów Apache Spark lub zadań integracji zostanie użyta poświadczenie w usłudze link (tj. Nazwa główna usługi).
-
+    > [!NOTE]
+    > W bieżącej wersji obiekty bazy danych są wypełniane na podstawie uprawnień konta usługi Azure AD w bazach danych usługi Azure Eksplorator danych. Po uruchomieniu notesów Apache Spark lub zadań integracji zostanie użyta poświadczenie w usłudze link (na przykład nazwa główna usługi).
 
 ## <a name="quickly-interact-with-code-generated-actions"></a>Szybkie współdziałanie z akcjami generowanymi przez kod
 
-* Po kliknięciu prawym przyciskiem myszy bazy danych lub tabeli masz listę gestów, która spowoduje wyzwolenie przykładowego notesu platformy Spark na potrzeby odczytywania danych, zapisywanie danych i przesyłanie strumieniowe danych do usługi Azure Eksplorator danych. 
-    [![Nowe przykładowe notesy](./media/quickstart-connect-azure-data-explorer/005-new-notebook.png)](./media/quickstart-connect-azure-data-explorer/005-new-notebook.png#lightbox)
+Po kliknięciu prawym przyciskiem myszy bazy danych lub tabeli zostanie wyświetlona lista przykładowych notesów platformy Spark. Wybierz opcję odczytu, zapisu lub przesyłania strumieniowego danych do usługi Azure Eksplorator danych.
 
-* Oto przykład odczytywania danych. Dołączono Notes do puli platformy Spark i uruchamiasz [ ![ Nowy Notes do odczytu](./media/quickstart-connect-azure-data-explorer/006-read-data.png)](./media/quickstart-connect-azure-data-explorer/006-read-data.png#lightbox)
+[![Zrzut ekranu pokazujący nowe przykładowe notesy.](./media/quickstart-connect-azure-data-explorer/005-new-notebook.png)](./media/quickstart-connect-azure-data-explorer/005-new-notebook.png#lightbox)
 
-   > [!NOTE] 
-   > Pierwsze wykonanie może potrwać więcej niż trzy minuty na zainicjowanie sesji platformy Spark. Kolejne wykonania będą znacznie szybsze.  
+Oto przykład odczytywania danych. Dołącz Notes do puli platformy Spark i uruchom komórkę.
 
+[![Zrzut ekranu przedstawiający nowy Notes do odczytu.](./media/quickstart-connect-azure-data-explorer/006-read-data.png)](./media/quickstart-connect-azure-data-explorer/006-read-data.png#lightbox)
+
+   > [!NOTE]
+   > Wykonanie sesji Spark może zająć więcej niż trzy minuty. Kolejne wykonania będą znacznie szybsze.
 
 ## <a name="limitations"></a>Ograniczenia
-Usługa Azure Eksplorator danych Connector nie jest obecnie obsługiwana w przypadku zarządzanej sieci wirtualnej platformy Azure Synapse.
 
+Łącznik usługi Azure Eksplorator danych nie jest obecnie obsługiwany w przypadku sieci wirtualnych zarządzanych przez usługę Azure Synapse.
 
 ## <a name="next-steps"></a>Następne kroki
 

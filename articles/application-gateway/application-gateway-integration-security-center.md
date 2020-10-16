@@ -9,12 +9,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c6797a0f0f2d4d655bcdabe732f6b14c8f0f562
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277188"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131211"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Omówienie integracji między Application Gateway i Azure Security Center
 
@@ -44,7 +44,7 @@ Jeśli nie masz istniejącego Application Gateway lub chcesz utworzyć nowy, kli
 
 Jeśli masz istniejącą bramę aplikacji, możesz wybrać ją w obszarze **Użyj istniejącego rozwiązania**
 
-![Strona umożliwiająca dodanie zapory aplikacji sieci Web][4]
+![Zrzut ekranu przedstawiający stronę Dodawanie zapory aplikacji sieci Web. W obszarze Użyj istniejącego rozwiązania Brama aplikacji jest widoczna.][4]
 
 Dodawanie aplikacji sieci Web do bramy aplikacji za pomocą Security Center nie powoduje dodania zasobu jako członka puli zaplecza. Należy to zrobić bezpośrednio w zasobie bramy aplikacji.
 
@@ -62,7 +62,7 @@ Kliknij pozycję **Połącz aplikację** , aby otworzyć **łącza aplikacje**. 
 
 Security Center śledzi aplikacje dodane do bramy aplikacji jako zasób chroniony.  Monitoruje kondycję tego zasobu i gwarantuje, że jest on chroniony przez bramę aplikacji. Następnym krokiem jest dodanie prywatnego adresu IP, publicznego adresu IP lub karty sieciowej maszyny wirtualnej do puli zaplecza bramy aplikacji. Dopóki nie zostanie to zrobione, do momentu dodania zasobu zostanie wyświetlone dodatkowe zalecenie **finalizowania ochrony aplikacji** .
 
-![Strona umożliwiająca dodanie zapory aplikacji sieci Web][5]
+![Zrzut ekranu strony finalizowanie ochrony aplikacji z widoczną jedną aplikacją. Tekst objaśnia, które kroki należy wykonać w celu ochrony aplikacji.][5]
 
 ## <a name="security-alerts"></a>Alerty zabezpieczeń
 

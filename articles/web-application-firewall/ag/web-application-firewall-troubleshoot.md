@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82983078"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131840"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Rozwiązywanie problemów z zaporą aplikacji sieci Web (WAF) dla platformy Azure Application Gateway
 
@@ -174,7 +174,7 @@ Za pomocą [programu Fiddler](https://www.telerik.com/fiddler)można sprawdzić 
 
 W tym przykładzie widać, że pole, w którym wprowadzono ciąg *1 = 1* , nosi nazwę **Tekst1**.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-1.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Zrzut ekranu przedstawiający debuger sieci Web w programie Progress Telerik programu Fiddler. Na karcie RAW 1 = 1 jest widoczny po nazwie Tekst1." border="false":::
 
 Jest to pole, które można wykluczyć. Aby dowiedzieć się więcej na temat list wykluczeń, zobacz [limity rozmiaru żądań zapory aplikacji sieci Web i listy wykluczeń](application-gateway-waf-configuration.md#waf-exclusion-lists). Ocenę można wyłączyć w tym przypadku, konfigurując następujące wykluczenie:
 
@@ -299,7 +299,7 @@ Druga z nich (reguła 942130) jest interesująca. Można zobaczyć szczegóły, 
 
 Programu Fiddler to przydatne narzędzie ponownie, aby znaleźć nazwy nagłówka żądania. Na poniższym zrzucie ekranu widoczne są nagłówki tego żądania GET, w tym *Typ zawartości*, *agent użytkownika*i tak dalej.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Zrzut ekranu przedstawiający debuger sieci Web w programie Progress Telerik programu Fiddler. Karta RAW zawiera listę szczegółów nagłówka żądania, takich jak połączenie, typ zawartości i agent użytkownika." border="false":::
 
 Innym sposobem wyświetlania nagłówków żądań i odpowiedzi jest zaszukiwanie w narzędziach deweloperskich programu Chrome. Możesz nacisnąć klawisz F12 lub kliknąć prawym przyciskiem myszy > **sprawdzić**  ->  **Narzędzia deweloperskie**i wybrać kartę **Sieć** . Załaduj stronę sieci Web, a następnie kliknij żądanie, które chcesz sprawdzić.
 

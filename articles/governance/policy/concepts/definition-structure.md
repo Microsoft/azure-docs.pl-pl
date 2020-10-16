@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8e7cea1d03b0a236b9a485c2e640d7bf3f4e8e7e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074264"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132486"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -438,7 +438,7 @@ Zamiast tego należy użyć funkcji [if ()](../../../azure-resource-manager/temp
 
 Po zmodyfikowaniu reguły zasad `if()` Sprawdź długość **nazwy** przed próbą uzyskania `substring()` wartości przy użyciu mniej niż trzech znaków. Jeśli **Nazwa** jest za krótka, zamiast tego jest zwracana wartość "nie zaczyna się od ABC" i porównana z opcją **ABC**. Zasób z krótką nazwą, która nie zaczyna się od **ABC** , nadal kończy się niepowodzeniem reguły zasad, ale nie powoduje już błędu podczas obliczania.
 
-### <a name="count"></a>Licznik
+### <a name="count"></a>Liczba
 
 Warunki określające, ile elementów członkowskich tablicy w ładunku zasobów spełnia wyrażenie warunku, można utworzyć za pomocą wyrażenia **Count** . Typowe scenariusze sprawdzają, czy "co najmniej jeden z", "dokładnie jeden z", "All" lub "none" elementów członkowskich tablicy spełnia warunek. **licznik** oblicza każdy element członkowski tablicy [ \[ \* \] aliasów](#understanding-the--alias) dla wyrażenia warunku i sumuje _prawdziwe_ wyniki, które są następnie porównywane z operatorem wyrażenia. Wyrażenia **Count** mogą być dodawane maksymalnie trzy razy do pojedynczej definicji **Klasa policyrule** .
 
@@ -589,8 +589,8 @@ Następująca funkcja jest dostępna do użycia w regule zasad, ale różni się
 Następujące funkcje są dostępne tylko w regułach zasad:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **DateTime**: [Required] ciąg String w formacie daty/godziny uniwersalnego ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
-  - **numberOfDaysToAdd**: [Required] liczba dni do dodania.
+  - **DateTime**: [Required] ciąg ciągu w formacie daty/godziny uniwersalnego ISO 8601 "RRRR-MM-DDTgg: mm: SS. FFFFFFFZ'
+  - **numberOfDaysToAdd**: [Required] liczba dni do dodania
 - `field(fieldName)`
   - **FieldName**: [Required] — nazwa [pola](#fields) do pobrania
   - Zwraca wartość tego pola z zasobu, który jest obliczany przez warunek IF.

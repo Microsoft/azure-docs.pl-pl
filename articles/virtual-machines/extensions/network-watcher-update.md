@@ -1,6 +1,6 @@
 ---
 title: Aktualizowanie rozszerzenia Network Watcher do najnowszej wersji
-description: Dowiedz się, jak aktualizować rozszerzenie Network Watcher do najnowszej wersji
+description: Dowiedz się, jak zaktualizować rozszerzenie Network Watcher platformy Azure do najnowszej wersji.
 services: virtual-machines-windows
 documentationcenter: ''
 author: damendo
@@ -12,58 +12,68 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: fd3fff2d438bbf804e35f04db0cfae15eea5e782
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e367c348364d03cec6914c99e7ff112803fc58f6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973343"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132435"
 ---
-# <a name="how-to-update-the-network-watcher-extension-to-the-latest-the-version"></a>Jak zaktualizować rozszerzenie Network Watcher do najnowszej wersji 
+# <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Aktualizowanie rozszerzenia Network Watcher do najnowszej wersji
 
 ## <a name="overview"></a>Omówienie
 
-[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) to usługa monitorowania wydajności sieci, diagnostyki i analizy, która umożliwia monitorowanie sieci platformy Azure. Rozszerzenie maszyny wirtualnej agenta Network Watcher jest wymaganiem do przechwytywania ruchu sieciowego na żądanie oraz innych zaawansowanych funkcji na maszynach wirtualnych platformy Azure. Rozszerzenie Network Watcher jest używane przez funkcje, takie jak monitor połączeń, monitor połączeń (wersja zapoznawcza), rozwiązywanie problemów z połączeniami i przechwytywanie pakietów.   
+[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) to usługa monitorowania wydajności sieci, diagnostyki i analizy, która monitoruje sieci platformy Azure. Rozszerzenie maszyny wirtualnej agenta Network Watcher jest wymaganiem do przechwytywania ruchu sieciowego na żądanie i korzystania z innych zaawansowanych funkcji na maszynach wirtualnych platformy Azure. Rozszerzenie Network Watcher jest używane przez funkcje, takie jak monitor połączeń, monitor połączeń (wersja zapoznawcza), rozwiązywanie problemów z połączeniami i przechwytywanie pakietów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym dokumencie przyjęto założenie, że na maszynie wirtualnej zainstalowano rozszerzenie Network Watcher i zawarto instrukcje dotyczące aktualizowania go do najnowszej wersji. 
+
+W tym artykule przyjęto założenie, że na maszynie wirtualnej jest zainstalowane rozszerzenie Network Watcher.
 
 ## <a name="latest-version"></a>Najnowsza wersja
+
 Najnowsza wersja rozszerzenia Network Watcher jest obecnie `1.4.1654.1` .
 
-## <a name="updating-your-extension"></a>Aktualizowanie rozszerzenia 
+## <a name="update-your-extension"></a>Aktualizowanie rozszerzenia
 
-### <a name="check-your-extension-version"></a>Sprawdź wersję rozszerzenia  
+Aby zaktualizować rozszerzenie, musisz znać swoją wersję rozszerzenia.
 
-**Korzystanie z Azure Portal**
+### <a name="check-your-extension-version"></a>Sprawdź wersję rozszerzenia
 
-1. Przejdź do bloku "rozszerzenia" maszyny wirtualnej w Azure Portal.   
-2. Kliknij rozszerzenie "AzureNetworkWatcher", aby wyświetlić okienko szczegółów.  
-3. Zlokalizuj numer wersji w polu "wersja".  
+Możesz sprawdzić wersję rozszerzenia przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
 
-**Korzystanie z interfejsu wiersza polecenia platformy Azure** Uruchom poniższe polecenie w wierszu polecenia interfejsu wiersza polecenia platformy Azure.   
+#### <a name="usetheazureportal"></a>Użyj Azure Portal
+
+1. Przejdź do okienka **rozszerzenia** maszyny wirtualnej w Azure Portal.
+1. Wybierz rozszerzenie **AzureNetworkWatcher** , aby wyświetlić okienko Szczegóły.
+1. W polu **wersja** Znajdź numer wersji.  
+
+#### <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+
+Uruchom następujące polecenie w wierszu polecenia interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli
 az vm extension list --resource-group  <ResourceGroupName> --vm-name <VMName>
 ```
 
-Znajdź rozszerzenie AzureNetworkWatcher w danych wyjściowych i zidentyfikuj numer wersji z pola "TypeHandlerVersion" w danych wyjściowych.  
+Znajdź rozszerzenie AzureNetworkWatcher w danych wyjściowych. Zidentyfikuj numer wersji w polu "TypeHandlerVersion" w danych wyjściowych.  
 
+#### <a name="usepowershell"></a>Korzystanie z programu PowerShell
 
-**Przy użyciu programu PowerShell** Uruchom następujące polecenia w wierszu polecenia programu PowerShell:   
+Uruchom następujące polecenia w wierszu polecenia programu PowerShell:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName>  
 ```
 
-Znajdź rozszerzenie AzureNetworkWatcher w danych wyjściowych i zidentyfikuj numer wersji z pola "TypeHandlerVersion" w danych wyjściowych.   
-
+Znajdź rozszerzenie AzureNetworkWatcher w danych wyjściowych. Zidentyfikuj numer wersji w polu "TypeHandlerVersion" w danych wyjściowych.
 
 ### <a name="update-your-extension"></a>Aktualizowanie rozszerzenia
 
-W przypadku, gdy wersja jest starsza niż `1.4.1654.1` (bieżąca Najnowsza wersja), zaktualizuj rozszerzenie przy użyciu dowolnej z poniższych opcji. 
+Jeśli wersja jest wcześniejsza niż `1.4.1654.1` , która jest bieżącą najnowszą wersją, zaktualizuj rozszerzenie przy użyciu dowolnej z poniższych opcji.
 
-**Opcja 1. Korzystanie z programu PowerShell**
+#### <a name="option-1-use-powershell"></a>Opcja 1. Korzystanie z programu PowerShell
+
+Uruchom następujące polecenia:
 
 ```powershell
 #Linux command
@@ -73,10 +83,9 @@ Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS"
 Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"   
 ```
 
+#### <a name="option-2-use-the-azure-cli"></a>Opcja 2: korzystanie z interfejsu wiersza polecenia platformy Azure
 
-**Opcja 2: korzystanie z interfejsu wiersza polecenia platformy Azure**  
-
-Wymuś uaktualnienie 
+Wymuś uaktualnienie.
 
 ```azurecli
 #Linux command
@@ -86,9 +95,9 @@ az vm extension set --resource-group "myResourceGroup1" --vm-name "myVM1" --name
 az vm extension set --resource-group "myResourceGroup1" --vm-name "myVM1" --name "NetworkWatcherAgentWindows" --publisher "Microsoft.Azure.NetworkWatcher" --force-update
 ```
 
-Jeśli to nie zadziała. Usuń rozszerzenie i zainstaluj je ponownie, wykonując poniższe kroki. Spowoduje to automatyczne dodanie najnowszej wersji. 
+Jeśli to nie zadziała, Usuń i zainstaluj ponownie rozszerzenie i wykonaj następujące kroki, aby automatycznie dodać najnowszą wersję.
 
-Usuwanie rozszerzenia 
+Usuń rozszerzenie.
 
 ```azurecli
 #Same for Linux and Windows
@@ -96,7 +105,7 @@ az vm extension delete --resource-group "myResourceGroup1" --vm-name "myVM1" -n 
 
 ```
 
-Ponowne instalowanie rozszerzenia
+Zainstaluj rozszerzenie ponownie.
 
 ```azurecli
 #Linux command
@@ -107,11 +116,10 @@ az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "Ne
 
 ```
 
-**Opcja 3: ponowne uruchamianie maszyn wirtualnych**
+#### <a name="option-3-reboot-your-vms"></a>Opcja 3: ponowne uruchamianie maszyn wirtualnych
 
-Jeśli na potrzeby rozszerzenia NetworkWatcher jest ustawiona funkcja autoupgrade o wartości true. Ponowne uruchamianie maszyny wirtualnej Zainstaluj najnowsze rozszerzenie.
-
+Jeśli dla rozszerzenia Network Watcher jest ustawiona funkcja autouaktualnia, należy ponownie uruchomić instalację maszyny wirtualnej, aby uzyskać najnowsze rozszerzenie.
 
 ## <a name="support"></a>Pomoc techniczna
 
-Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, możesz zapoznać się z dokumentacją rozszerzenia Network Watcher ([Linux](./network-watcher-linux.md)lub [Windows](./network-watcher-windows.md)) lub skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc techniczną. Aby uzyskać informacje o korzystaniu z pomocy technicznej platformy Azure, przeczytaj temat [Microsoft Azure support — często zadawane pytania](https://azure.microsoft.com/support/faq/).
+Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, zapoznaj się z dokumentacją rozszerzenia Network Watcher dla systemu [Linux](./network-watcher-linux.md) lub [Windows](./network-watcher-windows.md). Możesz również skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję **Uzyskaj pomoc techniczną**. Aby uzyskać informacje o korzystaniu z pomocy technicznej platformy Azure, przeczytaj temat [Microsoft Azure support — często zadawane pytania](https://azure.microsoft.com/support/faq/).

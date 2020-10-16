@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88922569"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131772"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -92,7 +92,7 @@ Aplikację Team Desktop można wdrożyć przy użyciu instalacji na komputerze l
         msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1
         ```
 
-        Spowoduje to zainstalowanie zespołów do folderu Program Files (x86) w 64-bitowym systemie operacyjnym i folderze Program Files w 32-bitowym systemie operacyjnym. W tym momencie zostanie ukończona konfiguracja złota obrazu. Instalacja zespołów dla poszczególnych maszyn jest wymagana w przypadku konfiguracji nietrwałych.
+        Spowoduje to zainstalowanie zespołów do folderu Program Files (x86) w 32-bitowym systemie operacyjnym i folderze Program Files w 64-bitowym systemie operacyjnym. W tym momencie zostanie ukończona konfiguracja złota obrazu. Instalacja zespołów dla poszczególnych maszyn jest wymagana w przypadku konfiguracji nietrwałych.
 
         Istnieją dwie flagi, które mogą być ustawiane podczas instalowania zespołów, **ALLUSER = 1** i **ALLUSERS = 1**. Ważne jest, aby zrozumieć różnicę między tymi parametrami. Parametr **ALLUSER = 1** jest używany tylko w środowiskach infrastruktury VDI do określania instalacji dla komputera. Parametr **ALLUSERS = 1** może być używany w środowiskach innych niż infrastruktura VDI i VDI. Po ustawieniu tego parametru zespoły Machine-Wide Instalator pojawiają się w oknie Programy i funkcje w panelu sterowania, a także aplikacje & funkcje w ustawieniach systemu Windows. Wszyscy użytkownicy z poświadczeniami administratora na komputerze mogą odinstalowywać zespoły.
 

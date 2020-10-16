@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 081d19cc845750f1392e2c1a14229a51d0df4cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bb523c1b5aa595a714930962bbbe4e7e04de517
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276467"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131398"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Sparametryzuj połączone usługi w Azure Data Factory
 
@@ -38,6 +38,7 @@ Możesz Sparametryzuj dowolny typ połączonej usługi.
 Podczas tworzenia połączonej usługi w interfejsie użytkownika Data Factory zapewnia wbudowane środowisko parametryzacja dla następujących typów łączników. W bloku Tworzenie/edytowanie połączonej usługi można znaleźć opcje nowych parametrów i dodać zawartość dynamiczną.
 
 - Amazon Redshift
+- Amazon S3
 - Azure Cosmos DB (interfejs API SQL)
 - Azure Database for MySQL
 - Azure SQL Database

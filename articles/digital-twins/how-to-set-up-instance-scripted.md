@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8157517c0df942c40d93853c8d18ae31e9909d21
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047424"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132520"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
 
@@ -28,11 +28,11 @@ Ta wersja tego artykułu wykonuje te kroki, uruchamiając przykładowy [ **skryp
 
 ## <a name="prerequisites-download-the-script"></a>Wymagania wstępne: pobieranie skryptu
 
-Przykładowy skrypt jest zapisywana w programie PowerShell. Jest częścią [**bliźniaczych reprezentacji cyfrowych platformy Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), którą można pobrać na maszynę, przechodząc do tego linku, a następnie wybierając przycisk *Pobierz zip* poniżej tytułu.
+Przykładowy skrypt jest zapisywana w programie PowerShell. Jest ona częścią [**kompleksowych przykładowych bliźniaczych reprezentacji na platformie Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), które można pobrać na maszynę, przechodząc do tego linku, a następnie wybierając przycisk *Pobierz zip* poniżej tytułu.
 
-Spowoduje to pobranie przykładowego projektu do maszyny jako _**Azure_Digital_Twins_samples.zip**_. Przejdź do folderu na swoim komputerze i rozpakuj go, aby wyodrębnić pliki.
+Spowoduje to pobranie przykładowego projektu do maszyny jako _**Azure_Digital_Twins_end_to_end_samples.zip**_. Przejdź do folderu na swoim komputerze i rozpakuj go, aby wyodrębnić pliki.
 
-W folderze rozpakowanym skrypt wdrożenia znajduje się w _Azure_Digital_Twins_samples > skrypty > **deploy.ps1** _.
+W folderze rozpakowanym skrypt wdrożenia znajduje się w _Azure_Digital_Twins_end_to_end_samples > skrypty > **deploy.ps1** _.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -57,7 +57,7 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
 
 1. Wybierz ikonę &quot;przekazywanie/pobieranie plików":::
 
-    Przejdź do pliku _**deploy.ps1**_ na komputerze (w _Azure_Digital_Twins_samples > skrypty > **deploy.ps1** _) i naciśnij klawisz "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
+    Przejdź do pliku _**deploy.ps1**_ na komputerze (w _Azure_Digital_Twins_end_to_end_samples > skrypty > **deploy.ps1** _) i naciśnij klawisz "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
 
 4. Uruchom skrypt, wysyłając `./deploy.ps1` polecenie w oknie Cloud Shell. (Odwołaj się do wklejenia do Cloud Shell, możesz użyć **klawiszy Ctrl + Shift + v** w systemach Windows i Linux lub **cmd + Shift + v** w systemie macOS. Możesz również użyć menu po kliknięciu prawym przyciskiem myszy.
 

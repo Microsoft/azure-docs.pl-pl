@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 466851ce04a047f3edabcf33b45dba9cab0db20e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263780"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132707"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Omówienie agenta Azure Monitor (wersja zapoznawcza)
 Agent Azure Monitor (AMA) zbiera dane monitorowania z systemu operacyjnego gościa maszyn wirtualnych i dostarcza go do Azure Monitor. Ten artykuł zawiera omówienie agenta Azure Monitor, w tym sposobu instalowania go i konfigurowania zbierania danych.
@@ -84,14 +84,14 @@ Agent Azure Monitor wysyła dane do metryk Azure Monitor lub obszaru roboczego L
 
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
-Zobacz [obsługiwane systemy operacyjne](agents-overview.md#supported-operating-systems) , aby uzyskać listę wersji systemu operacyjnego Windows i Linux, które są obecnie obsługiwane przez agenta log Analytics.
+Zobacz [obsługiwane systemy operacyjne](agents-overview.md#supported-operating-systems) , aby uzyskać listę wersji systemu operacyjnego Windows i Linux, które są obecnie obsługiwane przez agenta Azure monitor.
 
 
 
 ## <a name="security"></a>Zabezpieczenia
 Agent Azure Monitor nie wymaga żadnych kluczy, ale wymaga [tożsamości zarządzanej przypisanej do systemu](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Przed wdrożeniem agenta na każdej maszynie wirtualnej musi być włączona tożsamość zarządzana przypisana przez system.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 Agent Azure Monitor obsługuje Tagi usług platformy Azure (wymagane są Tagi AzureMonitor i AzureResourceManager), ale nie działa ona jeszcze z Azure Monitor prywatnymi zakresami linków lub bezpośrednimi serwerami proxy.
 
 ## <a name="install-the-azure-monitor-agent"></a>Zainstaluj agenta Azure Monitor
@@ -100,7 +100,7 @@ Agent Azure Monitor jest zaimplementowany jako [rozszerzenie maszyny wirtualnej 
 | Właściwość | Windows | Linux |
 |:---|:---|:---|
 | Publisher | Microsoft. Azure. Monitor  | Microsoft. Azure. Monitor |
-| Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
+| Typ      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
 
 Zainstaluj agenta Azure Monitor przy użyciu dowolnej z metod instalacji agentów maszyny wirtualnej, w tym następujących elementów przy użyciu programu PowerShell lub interfejsu wiersza polecenia. Alternatywnie można zainstalować agenta i skonfigurować zbieranie danych na maszynach wirtualnych w ramach subskrypcji platformy Azure za pomocą portalu z procedurą opisaną w temacie [Konfigurowanie zbierania danych dla agenta Azure monitor (wersja zapoznawcza)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).

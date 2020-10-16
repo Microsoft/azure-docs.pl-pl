@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 6fa70eba5875c32d41fa1cfc8daf9b1cdf8f19df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 915f8675ffda0d70347905d11c7d93975b9d4526
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83599991"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132741"
 ---
 # <a name="quotas-in-azure-static-web-apps-preview"></a>Przydziały w usłudze Azure static Web Apps Preview
 
@@ -26,7 +26,7 @@ Dla usługi Azure static Web Apps w wersji zapoznawczej istnieją następujące 
 | Uwzględniona przepustowość          | 100 GB miesięcznie |
 | Przepustowość nadwyżkowa           | Niedostępny      |
 | Aplikacje na subskrypcję platformy Azure | 10               |
-| Rozmiar aplikacji                    | 100 MB           |
+| Rozmiar aplikacji                    | 250 MB           |
 | Środowiska przedprodukcyjne | 1                |
 | Niestandardowe domeny              | 1                |
 | Autoryzacja<br><br>Przy użyciu ról niestandardowych i reguł routingu | Maksymalnie 25 zaproszonych i przypisanych ról użytkowników końcowych |

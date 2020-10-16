@@ -1,5 +1,5 @@
 ---
-title: Omówienie izolacji i prywatności sieci wirtualnej
+title: Omówienie izolacji i zabezpieczeń sieci wirtualnej
 titleSuffix: Azure Machine Learning
 description: Użyj izolowanego Virtual Network platformy Azure z Azure Machine Learning, aby zabezpieczyć zasoby obszaru roboczego i środowiska obliczeniowe.
 services: machine-learning
@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ec62e4a6a864ca37011014341a2d059615873d5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825502"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131942"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
