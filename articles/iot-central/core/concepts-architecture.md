@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337147"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126177"
 ---
 # <a name="azure-iot-central-architecture"></a>Architektura usługi Azure IoT Central
 
@@ -23,7 +23,7 @@ Ten artykuł zawiera omówienie architektury IoT Central Microsoft Azure.
 
 ![Architektura najwyższego poziomu](media/concepts-architecture/architecture.png)
 
-## <a name="devices"></a>Devices
+## <a name="devices"></a>Urządzenia
 
 Urządzenia wymieniają dane z aplikacją IoT Central platformy Azure. Urządzenie może:
 
@@ -104,7 +104,7 @@ Usługa Azure IoT Central korzysta z usługi Azure IoT Hub jako bramy w chmurze,
 - Zarządzanie urządzeniami.
 - Zabezpieczanie łączności urządzeń.
 
-Aby dowiedzieć się więcej na temat IoT Hub, zobacz [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+Aby dowiedzieć się więcej na temat IoT Hub, zobacz [Azure IoT Hub](../../iot-hub/index.yml).
 
 Aby dowiedzieć się więcej o łączności urządzeń w usłudze Azure IoT Central, zobacz [łączność urządzeń](concepts-get-connected.md).
 

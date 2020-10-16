@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 49dd333454f0eb92f5fb0dddc40390ec1baa91c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a40d4c82391f8f8cb55374c8c2d02bee5bf24ae4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88525590"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126913"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Samouczek: integracja Azure Active Directory z pakietem Life SilkRoad
 
@@ -104,15 +104,15 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
 
     a. Kliknij pozycję **Przekaż plik metadanych**.
 
-    ![image (obraz)](common/upload-metadata.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML przy użyciu linku Przekaż plik metadanych.](common/upload-metadata.png)
 
     b. Kliknij **logo folderu**, aby wybrać plik metadanych, a następnie kliknij pozycję **Przekaż**.
 
-    ![image (obraz)](common/browse-upload-metadata.png)
+    ![Zrzut ekranu przedstawia okno dialogowe, w którym można wybrać i przekazać plik.](common/browse-upload-metadata.png)
 
     c. Po pomyślnym przekazaniu pliku metadanych wartości **identyfikatorów** i **adresów URL odpowiedzi** są automatycznie wypełniane w sekcji Podstawowa konfiguracja SAML:
 
-    ![image (obraz)](common/sp-identifier-reply.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/sp-identifier-reply.png)
 
     > [!Note]
     > Jeśli wartości **Identyfikator** i **Adres URL odpowiedzi** nie zostaną automatycznie wypełnione, wpisz te wartości ręcznie zgodnie z wymaganiami.
@@ -161,23 +161,23 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
 
 1. Przejdź do pozycji **dostawca usług**, a następnie kliknij pozycję **szczegóły Federacji**.
 
-    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
+    ![Zrzut ekranu przedstawia szczegóły Federacji wybrane z dostawcy usług.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
 
 1. Kliknij pozycję **Pobierz metadane federacji**, a następnie Zapisz plik metadanych na komputerze. Użyj pobranych metadanych Federacji jako **pliku metadanych dostawcy usług** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
+    ![Zrzut ekranu przedstawia łącze pobierania metadanych Federacji.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
 
 1. W aplikacji **Silkroad** kliknij pozycję **źródła uwierzytelniania**.
 
-    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
+    ![Zrzut ekranu przedstawia wybrane źródła uwierzytelniania.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
 
 1. Kliknij pozycję **Dodaj źródło uwierzytelniania**.
 
-    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
+    ![Zrzut ekranu przedstawia link Dodaj źródło uwierzytelniania.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
 
 1. W sekcji **Dodaj źródło uwierzytelniania** wykonaj następujące czynności:
 
-    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
+    ![Zrzut ekranu przedstawia przycisk Dodaj źródło uwierzytelniania z opcją Utwórz dostawcę tożsamości przy użyciu danych plików.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
   
     a. W obszarze **Opcja 2 — plik metadanych**kliknij przycisk **Przeglądaj** , aby przekazać pobrany plik metadanych z Azure Portal.
   
@@ -185,11 +185,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
 
 1. W sekcji **źródła uwierzytelniania** kliknij pozycję **Edytuj**.
 
-    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
+    ![Zrzut ekranu przedstawia źródła uwierzytelniania z wybraną opcją edycji.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
 
 1. W oknie dialogowym **Edytowanie źródła uwierzytelniania** wykonaj następujące czynności:
 
-    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Edytowanie źródła uwierzytelniania, w którym można wprowadzić podane wartości.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
 
     a. Jako **włączone**wybierz pozycję **tak**.
 
@@ -205,11 +205,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
 
     przykład W polu tekstowym **adres URL usługi logowania** wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
-    h. Kliknij przycisk **Zapisz**.
+    h. Kliknij pozycję **Zapisz**.
 
 1. Wyłącz wszystkie inne źródła uwierzytelniania.
 
-    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
+    ![Zrzut ekranu przedstawia źródła uwierzytelniania, w których można wyłączyć inne źródła. ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -234,7 +234,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

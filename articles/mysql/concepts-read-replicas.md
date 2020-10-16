@@ -1,17 +1,17 @@
 ---
-title: Odczytaj repliki — Azure Database for MySQL.
+title: Odczytaj repliki — Azure Database for MySQL
 description: 'Informacje na temat odczytu replik w Azure Database for MySQL: wybór regionów, tworzenie replik, łączenie z replikami, monitorowanie replikacji i zatrzymywanie replikacji.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
-ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 10/15/2020
+ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876553"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126667"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliki do odczytu w usłudze Azure Database for MySQL
 
@@ -38,7 +38,7 @@ Ponieważ repliki są tylko do odczytu, nie zmniejszają bezpośrednio obciąże
 Funkcja odczytu repliki korzysta z replikacji asynchronicznej MySQL. Ta funkcja nie jest przeznaczona do scenariuszy replikacji synchronicznej. Nastąpi wymierne opóźnienie między źródłem a repliką. Dane z repliki ostatecznie staną się spójne z danymi na serwerze głównym. Użyj tej funkcji dla obciążeń, które mogą obsłużyć to opóźnienie.
 
 > [!IMPORTANT]
-> Azure Database for MySQL używa rejestrowania binarnego opartego na **wierszach** . Jeśli tabela nie zawiera klucza podstawowego, wszystkie wiersze w tabeli są skanowane pod kątem operacji DML. Powoduje to zwiększenie opóźnienia replikacji. Aby upewnić się, że replika jest w stanie zachować zmiany w źródle, zaleca się dodanie klucza podstawowego do tabel na serwerze źródłowym przed utworzeniem serwera repliki lub ponowne utworzenie serwera repliki, jeśli już istnieje.
+> W usłudze Azure Database for MySQL stosowane jest rejestrowanie binarne oparte na **WIERSZACH**. Jeśli tabela nie zawiera klucza podstawowego, wszystkie wiersze w tej tabeli są skanowane pod kątem operacji DML. Zwiększa to opóźnienie replikacji. Aby zapewnić, że replika na bieżąco odzwierciedla zmiany w źródle, zalecane na ogół jest dodanie klucza podstawowego do tabel na serwerze źródłowym przed utworzeniem serwera repliki lub ponowne utworzenie serwera repliki, jeśli już istnieje.
 
 ## <a name="cross-region-replication"></a>Replikacja między regionami
 Replikę odczytu można utworzyć w innym regionie niż na serwerze źródłowym. Replikacja między regionami może być przydatna w scenariuszach takich jak planowanie odzyskiwania po awarii lub umieszczenie danych bliżej użytkowników.
@@ -50,7 +50,7 @@ Serwer źródłowy może być w dowolnym [regionie Azure Database for MySQL](htt
 ### <a name="universal-replica-regions"></a>Regiony uniwersalnej repliki
 Replikę odczytu można utworzyć w dowolnym z następujących regionów, niezależnie od lokalizacji serwera źródłowego. Obsługiwane regiony uniwersalnej repliki obejmują:
 
-Australia Wschodnia, Australia Południowo-Wschodnia, środkowe stany USA, Azja Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Japonia Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowo-Wschodnia, Północno-środkowe stany USA, Europa Północna, Południowo-środkowe stany USA, Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Azja Południowo-Wschodnia i Europa Zachodnia.
+Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada środkowa, Kanada Wschodnia, środkowe stany USA, Azja Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Japonia Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa, Północno-środkowe stany USA, Europa Północna, Południowo-środkowe stany USA, Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Azja Południowo-Wschodnia.
 
 ### <a name="paired-regions"></a>Sparowane regiony
 Oprócz regionów uniwersalnej repliki można utworzyć replikę odczytu w sparowanym regionie platformy Azure na serwerze źródłowym. Jeśli nie znasz pary regionów, możesz dowiedzieć się więcej z [artykułu z sparowanymi regionami platformy Azure](../best-practices-availability-paired-regions.md).

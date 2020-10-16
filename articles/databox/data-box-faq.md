@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fbc69100a2cc5c23150fcc0c19e6c38ba6d438d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b65d1be9fa3ddb28a216d51e91ce2a8b20f15e6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051172"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127186"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: często zadawane pytania
 
@@ -236,8 +236,8 @@ A.  Po skopiowaniu danych na urządzenie Data Box, w zależności od tego, czy d
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>PYTANIE: Nazwy moich kontenerów nie są zgodne z wymaganiami dotyczącymi nazewnictwa platformy Azure. Czy przekazywanie moich danych na platformę Azure nie powiedzie się?
 A.  Jeśli nazwy kontenerów zawierają wielkie litery, zostaną one automatycznie przekonwertowane na małe litery. Jeśli nazwy nie są zgodne w inny sposób (znaki specjalne, inne języki itd.), przekazywanie zakończy się niepowodzeniem. Aby uzyskać więcej informacji na temat najlepszych rozwiązań dotyczących nazewnictwa udziałów, kontenerów i plików, przejdź do tematów:
-- [Nazywanie i przywoływanie udziałów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Konwencje stronicowych i blokowych obiektów blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+- [Nazywanie i przywoływanie udziałów](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Konwencje stronicowych i blokowych obiektów blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>PYTANIE: Jak mogę zweryfikować dane skopiowane na urządzenie Data Box?
 A.  Dane są weryfikowane po zakończeniu kopiowania danych i uruchomieniu opcji **Przygotuj do wysłania**. Urządzenie Data Box generuje listę plików i sum kontrolnych dla danych w trakcie procesu weryfikacji. Listę plików można pobrać i porównać ją z plikami w danych źródłowych. Aby uzyskać więcej informacji, przejdź do tematu [Przygotowywanie do wysłania](data-box-deploy-picked-up.md#prepare-to-ship).

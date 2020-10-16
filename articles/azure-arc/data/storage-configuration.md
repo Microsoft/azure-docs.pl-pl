@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420652a6385be2cade9723c20cff7c32a4a60b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317331"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127237"
 ---
 # <a name="storage-configuration"></a>Konfiguracja usługi Storage
 
@@ -238,6 +238,6 @@ W przypadku publicznych usług Kubernetes zarządzanych w chmurze firma Microsof
 
 |Usługa w chmurze publicznej|Zalecenie|
 |---|---|
-|**Azure Kubernetes Service (AKS)**|Usługa Azure Kubernetes Service (AKS) ma dwa typy magazynów Azure Files i dysków Azure. Każdy typ magazynu ma dwie ceny/warstwy wydajności — standardowe (dysk twardy) i Premium (SSD). W ten sposób cztery klasy magazynu udostępniane w AKS są `azurefile` (Azure Files warstwy Standardowa), `azurefile-premium` (Azure Files warstwy Premium), `default` (warstwa Standardowa usługi Azure disks) i `managed-premium` (Azure disks w warstwie Premium). Domyślną klasą magazynu jest `default` (usługa Azure disks w warstwie Standardowa). Istnieją istotne **[różnice cenowe](https://azure.microsoft.com/en-us/pricing/details/storage/)** między typami i warstwami, które powinny zostać uwzględnione w decyzji. W przypadku obciążeń produkcyjnych z wymaganiami o wysokiej wydajności zalecamy użycie `managed-premium` dla wszystkich klas magazynu. W przypadku obciążeń związanych z tworzeniem i testowaniem, weryfikacjami koncepcji itp., gdzie koszt jest brany pod uwagę, `azurefile` jest to najtańsza opcja. Wszystkie cztery opcje mogą być używane w przypadku sytuacji, w których wszystkie urządzenia magazynujące są dołączone do sieci na platformie Azure. Przeczytaj więcej na temat [magazynu AKS](../../aks/concepts-storage.md).|
+|**Azure Kubernetes Service (AKS)**|Usługa Azure Kubernetes Service (AKS) ma dwa typy magazynów — Azure Files i Managed Disks platformy Azure. Każdy typ magazynu ma dwie ceny/warstwy wydajności — standardowe (dysk twardy) i Premium (SSD). W ten sposób cztery klasy magazynu udostępniane w AKS są `azurefile` (Azure Files warstwy Standardowa), `azurefile-premium` (Azure Files warstwy Premium), `default` (warstwa Standardowa usługi Azure disks) i `managed-premium` (Azure disks w warstwie Premium). Domyślną klasą magazynu jest `default` (usługa Azure disks w warstwie Standardowa). Istnieją istotne **[różnice cenowe](https://azure.microsoft.com/en-us/pricing/details/storage/)** między typami i warstwami, które powinny zostać uwzględnione w decyzji. W przypadku obciążeń produkcyjnych z wymaganiami o wysokiej wydajności zalecamy użycie `managed-premium` dla wszystkich klas magazynu. W przypadku obciążeń związanych z tworzeniem i testowaniem, weryfikacjami koncepcji itp., gdzie koszt jest brany pod uwagę, `azurefile` jest to najtańsza opcja. Wszystkie cztery opcje mogą być używane w przypadku sytuacji, w których wszystkie urządzenia magazynujące są dołączone do sieci na platformie Azure. Przeczytaj więcej na temat [magazynu AKS](../../aks/concepts-storage.md).|
 |**AWS Elastic Kubernetes Service (EKS)**| Elastyczna usługa Kubernetes firmy Amazon ma jedną podstawową klasę magazynu opartą na [sterowniku magazynu EBS CSI](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html). Jest to zalecane w przypadku obciążeń produkcyjnych. Istnieje nowy sterownik magazynu — [sterownik magazynu CSI programu EFS](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) , który można dodać do klastra eks, ale jest obecnie w fazie beta i może ulec zmianie. Chociaż AWS oznacza, że ten sterownik magazynu jest obsługiwany dla środowiska produkcyjnego, nie zalecamy jej używania, ponieważ nadal jest w wersji beta i może ulec zmianie. Klasa magazynu EBS jest wartością domyślną i jest wywoływana `gp2` . Przeczytaj więcej na temat [magazynu eks](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html).|
 |**Google Kubernetes Engine (GKE)**|Aparat Google Kubernetes Engine (GKE) ma tylko jedną klasę magazynu o nazwie `standard` , która jest używana na potrzeby [GCE dysków trwałych](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk). Jest to jedyna wartość domyślna. Mimo że istnieje [lokalna, statyczna prowizja woluminu](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) dla GKE, która może być używana z bezpośrednio dołączonymi dysków SSD, nie zalecamy jej używania, ponieważ nie jest ona obsługiwana przez firmę Google ani nie obsługuje jej. Przeczytaj więcej na temat [magazynu GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes).

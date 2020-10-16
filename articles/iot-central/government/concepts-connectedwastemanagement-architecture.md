@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 763fb82e0725e5a98112af3a79856c3703a5c2c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b061a6d3d7d2a6598d8ed7c48428d756db6e97d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77016089"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126279"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Architektura referencyjna połączonego zarządzania odpadami 
 
@@ -33,7 +33,7 @@ Pojęcia:
 Przyjrzyjmy się kluczowym składnikom, które zwykle odgrywają część w rozwiązaniu do monitorowania zużycia wody.
 
 ## <a name="devices-and-connectivity"></a>Urządzenia i łączność 
-Urządzenia używane w otwartych środowiskach, takich jak pojemniki, mogą być połączone za pomocą sieci rozległej (LPWAN) z niskim zużyciem przez operatora sieci innej firmy. W przypadku tych typów urządzeń możesz użyć [mostka urządzenia usługi Azure IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) , aby wysłać dane urządzenia do aplikacji IoT na platformie Azure IoT Central. Alternatywnie mogą istnieć bramy urządzeń z możliwością IP i mogą łączyć się bezpośrednio z IoT Central.
+Urządzenia używane w otwartych środowiskach, takich jak pojemniki, mogą być połączone za pomocą sieci rozległej (LPWAN) z niskim zużyciem przez operatora sieci innej firmy. W przypadku tych typów urządzeń możesz użyć [mostka urządzenia usługi Azure IoT Central](../core/howto-build-iotc-device-bridge.md) , aby wysłać dane urządzenia do aplikacji IoT na platformie Azure IoT Central. Alternatywnie mogą istnieć bramy urządzeń z możliwością IP i mogą łączyć się bezpośrednio z IoT Central.
 
 ## <a name="iot-central"></a>IoT Central 
 Azure IoT Central to platforma aplikacji IoT, która umożliwia szybkie rozpoczęcie pracy z rozwiązaniem IoT. Możesz Marka, dostosowywać i zintegrować rozwiązanie z usługami innych firm.
@@ -51,5 +51,4 @@ Dane IoT mogą służyć do zarządzania różnymi aplikacjami biznesowymi w ram
 ## <a name="next-steps"></a>Następne kroki
 * Informacje na temat [tworzenia połączonej aplikacji IoT Central zarządzania odpadami](./tutorial-connected-waste-management.md)
 * Dowiedz się więcej na temat [IoT Central szablonów dla instytucji rządowych](./overview-iot-central-government.md)
-* Aby dowiedzieć się więcej na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
-
+* Aby dowiedzieć się więcej na temat IoT Central, zobacz [omówienie IoT Central](../core/overview-iot-central.md)

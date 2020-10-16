@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 276513e41b1595180acb0a596b236428032d87a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b266def0dbe81542714fc6d47986f3cde8235dd0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015980"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122964"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorowanie łączności urządzeń przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -22,11 +22,11 @@ ms.locfileid: "90015980"
 
 Użyj rozszerzenia usługi IoT dla interfejsu wiersza polecenia platformy Azure, aby wyświetlić komunikaty wysyłane przez urządzenia do IoT Central i obserwować zmiany w bliźniaczych urządzeniach. Za pomocą tego narzędzia można debugować i obserwować łączność urządzeń oraz diagnozować problemy dotyczące komunikatów urządzeń, które nie docierają do chmury lub urządzeń, które nie odpowiadają na zmiany bliźniaczy.
 
-[Aby uzyskać więcej informacji, przejdź do dokumentacji rozszerzeń interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
+[Aby uzyskać więcej informacji, przejdź do dokumentacji rozszerzeń interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ Zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.7.0 lub nowszej. Sprawdź wersję interfejsu wiersza polecenia platformy Azure, uruchamiając `az --version` . Dowiedz się, jak zainstalować i zaktualizować z dokumentacji [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
++ Zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.7.0 lub nowszej. Sprawdź wersję interfejsu wiersza polecenia platformy Azure, uruchamiając `az --version` . Dowiedz się, jak zainstalować i zaktualizować z dokumentacji [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 + Konto służbowe na platformie Azure, które zostało dodane jako użytkownik w aplikacji IoT Central.
 
 ## <a name="install-the-iot-central-extension"></a>Zainstaluj rozszerzenie IoT Central

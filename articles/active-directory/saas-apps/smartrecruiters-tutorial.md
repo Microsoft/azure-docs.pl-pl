@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c960a7b509f365ad7fd6b04267cfec6bf41c4e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fddf5cb77cbcb1fb061ffd958fba4bf4ab2c9e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542568"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Samouczek: integracja Azure Active Directory z usługą SmartRecruiters
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą SmartRecrui
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![SmartRecruiters domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
 
@@ -107,7 +107,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą SmartRecrui
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![SmartRecruiters domenę i adresy URL Logowanie jednokrotne](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/login`
 
@@ -134,19 +134,19 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą SmartRecrui
 
 1. Przejdź do pozycji **Ustawienia/administrator**.
 
-    ![Konfiguracja SmartRecruiters](./media/smartrecruiters-tutorial/configure.png)
+    ![Zrzut ekranu przedstawia ustawienia/administratora wybrane z menu.](./media/smartrecruiters-tutorial/configure.png)
 
 1. W sekcji **Konfiguracja** kliknij pozycję **Logowanie jednokrotne w sieci Web**.
 
-    ![Konfiguracja SmartRecruiters](./media/smartrecruiters-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia sieci Web, które zostały wybrane z konfiguracji.](./media/smartrecruiters-tutorial/configure1.png)
 
 1. Przełącz **opcję Włącz logowanie jednokrotne w sieci Web**.
 
-    ![Konfiguracja SmartRecruiters](./media/smartrecruiters-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia kontrolkę Włącz sieć Web s O.](./media/smartrecruiters-tutorial/configure2.png)
 
 1. W obszarze **Konfiguracja dostawcy tożsamości**wykonaj następujące czynności:
 
-    ![Konfiguracja SmartRecruiters](./media/smartrecruiters-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawia konfigurację dostawcy tożsamości, w której można wprowadzić podane wartości.](./media/smartrecruiters-tutorial/configure4.png)
 
     a. W polu tekstowym **adres URL dostawcy tożsamości** wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
@@ -177,7 +177,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

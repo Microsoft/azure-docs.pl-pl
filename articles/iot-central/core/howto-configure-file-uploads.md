@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 6b717fd15b25ae4abd2af3520dba2e72f8f9f3a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6fbf84ec3822195f62970dbf08115059ffb7e4a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556378"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122606"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>Przekazywanie plików z urządzeń do chmury
 
@@ -54,7 +54,7 @@ Jeśli chcesz wyłączyć przekazywanie plików z urządzenia do aplikacji IoT C
 
 ## <a name="upload-a-file-from-a-device"></a>Przekazywanie pliku z urządzenia
 
-IoT Central używa funkcji przekazywania plików IoT Hub, aby umożliwić urządzeniom przekazywanie plików. Przykładowy kod, który pokazuje, jak przekazywać pliki z urządzenia, zapoznaj się z [przykładem IoT Central przekazywania plików](https://docs.microsoft.com/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
+IoT Central używa funkcji przekazywania plików IoT Hub, aby umożliwić urządzeniom przekazywanie plików. Przykładowy kod, który pokazuje, jak przekazywać pliki z urządzenia, zapoznaj się z [przykładem IoT Central przekazywania plików](/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
 
 ## <a name="next-steps"></a>Następne kroki
 

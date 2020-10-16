@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 71150ea5ba7d6f25b07a9afaa1f1dc60adcb3e24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72aaa1a19ef5a375ec1ee6c2938f64cb37aac139
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88518736"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126981"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Samouczek: integracja Azure Active Directory z adresem E-mail SkyDesk
 
@@ -126,32 +126,32 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą poczty E-ma
 
 1. W menu u góry kliknij pozycję **Konfiguracja**, a następnie wybierz pozycję **organizacja**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
+    ![Zrzut ekranu przedstawia organizacja wybraną z menu Instalatora.](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
   
 1. Kliknij pozycję **domeny** w lewym panelu.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
+    ![Zrzut ekranu przedstawia domeny wybrane z panelu sterowania.](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
 
 1. Kliknij pozycję **Dodaj domenę**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
+    ![Zrzut ekranu przedstawia wybraną domenę Dodaj.](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
 
 1. Wprowadź nazwę domeny, a następnie sprawdź domenę.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
+    ![Zrzut ekranu przedstawia kartę Dodaj domenę, w której można wprowadzić domenę.](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
 
 1. Kliknij pozycję **uwierzytelnianie SAML** w lewym panelu.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
+    ![Zrzut ekranu przedstawia uwierzytelnianie SAML wybrane z panelu sterowania.](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
 
 1. Na stronie dialogowym **uwierzytelnianie SAML** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Szczegóły uwierzytelniania SAML, w którym można wprowadzić podane wartości.](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
 
     > [!NOTE]
     > Aby można było korzystać z uwierzytelniania opartego na protokole SAML, należy mieć **zweryfikowaną** konfigurację **adresu URL** domeny lub portalu. Możesz ustawić adres URL portalu z unikatową nazwą.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
+    ![Zrzut ekranu przedstawia Portal U R L, gdzie wprowadzasz nazwę.](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
     a. W polu tekstowym **adres URL logowania** wklej wartość **adresu URL logowania**, który został skopiowany z Azure Portal.
 
@@ -188,7 +188,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -222,7 +222,7 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w wiadomości E-mail S
 
 Kliknij pozycję **dostęp użytkownika** w lewym panelu w wiadomości e-mail SkyDesk, a następnie wprowadź nazwę użytkownika.
 
-![Konfigurowanie logowania jednokrotnego](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
+![Zrzut ekranu przedstawia dostęp użytkownika wybrany z panelu sterowania.](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 > [!NOTE]
 > Jeśli musisz utworzyć użytkowników zbiorczych, musisz skontaktować się z [zespołem obsługi klienta poczty E-mail SkyDesk](https://www.skydesk.jp/apps/support/).

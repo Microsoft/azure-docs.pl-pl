@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 9748c772466db73fc49b1291ffe2ce7d13da1d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3c5fc8e7ac4e61d44bb6cd54e1690d7c053526
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88540222"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127169"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi ServiceNow
 
@@ -130,7 +130,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
    1. W obszarze **Nazwa**wprowadź `B.Simon` .  
    1. W polu **Nazwa użytkownika**wprowadź username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -290,11 +290,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
              > [!NOTE]
              > Jeśli połączenie testowe kończy się niepowodzeniem i nie można aktywować tego połączenia, usługi ServiceNow oferuje przełącznik przesłonięcia. Musisz wprowadzić **Sys_properties. Lista** w obszarze **nawigacji wyszukiwania** i zostanie otwarta nowa strona właściwości systemu. W tym miejscu trzeba utworzyć nową właściwość o nazwie **Glide. Authenticate. multisso. test. Connection. obowiązkowy** z **typem danych** jako **true/false** , a następnie ustawić **wartość** **false**.
 
-             > ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/testconnection-fail.png "Konfigurowanie logowania jednokrotnego")
+             > ![Zrzut ekranu przedstawia kartę właściwości systemu z połączeniem testowym o nazwie out.](./media/servicenow-tutorial/testconnection-fail.png "Konfigurowanie logowania jednokrotnego")
         
           1. Po wyświetleniu monitu o podanie poświadczeń wprowadź je. Zostanie wyświetlona następująca strona. Jest oczekiwany błąd **wyniki testów wylogowywania z logowaniem jednokrotnym** . Zignoruj błąd i wybierz pozycję  **Aktywuj**.
 
-             ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/servicenowactivate.png "Konfigurowanie logowania jednokrotnego")
+             ![Zrzut ekranu przedstawia Wyniki testów logowania s i Wyniki testów S s po, a także przycisk Aktywuj.](./media/servicenow-tutorial/servicenowactivate.png "Konfigurowanie logowania jednokrotnego")
   
 1. Aby ręcznie skonfigurować **usługi ServiceNow** , wykonaj następujące kroki:
 
@@ -347,11 +347,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
           > [!NOTE]
           > Jeśli połączenie testowe kończy się niepowodzeniem i nie można aktywować tego połączenia, usługi ServiceNow oferuje przełącznik przesłonięcia. Musisz wprowadzić **Sys_properties. Lista** w obszarze **nawigacji wyszukiwania** i zostanie otwarta nowa strona właściwości systemu. W tym miejscu trzeba utworzyć nową właściwość o nazwie **Glide. Authenticate. multisso. test. Connection. obowiązkowy** z **typem danych** jako **true/false** , a następnie ustawić **wartość** **false**.
 
-          > ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/testconnection-fail.png "Konfigurowanie logowania jednokrotnego")
+          > ![Zrzut ekranu przedstawia kartę właściwości systemu z połączeniem testowym o nazwie out.](./media/servicenow-tutorial/testconnection-fail.png "Konfigurowanie logowania jednokrotnego")
 
         * Po wyświetleniu monitu o podanie poświadczeń wprowadź je. Zostanie wyświetlona następująca strona. Jest oczekiwany błąd **wyniki testów wylogowywania z logowaniem jednokrotnym** . Zignoruj błąd i wybierz pozycję  **Aktywuj**.
 
-          ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/servicenowactivate.png "Konfigurowanie logowania jednokrotnego")
+          ![Zrzut ekranu przedstawia Wyniki testów logowania s i Wyniki testów S s po, a także przycisk Aktywuj.](./media/servicenow-tutorial/servicenowactivate.png "Konfigurowanie logowania jednokrotnego")
 
 ### <a name="create-servicenow-test-user"></a>Tworzenie użytkownika testowego usługi ServiceNow
 
@@ -478,7 +478,7 @@ Po wybraniu kafelka usługi ServiceNow w panelu dostępu należy automatycznie z
 
         ![Zrzut ekranu przedstawiający stronę główną aplikacji](./media/servicenow-tutorial/test02.png)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

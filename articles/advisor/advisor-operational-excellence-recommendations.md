@@ -3,12 +3,12 @@ title: Ulepszanie Excellency operacyjnego za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zoptymalizować i uzyskać doskonałą komfort działania w ramach subskrypcji platformy Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077392"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122623"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Uzyskiwanie doskonałości operacyjnej przy użyciu Azure Advisor
 
@@ -53,6 +53,12 @@ Azure Policy to usługa platformy Azure, za pomocą której można tworzyć i pr
 **Wymuś *inspekcję maszyn wirtualnych, które nie korzystają z dysków zarządzanych*.**
 
 **Włącz *dziedziczenie znacznika z grup zasobów*.** Te zasady dodają lub zastępują określony tag oraz wartość z nadrzędnej grupy zasobów podczas tworzenia lub aktualizowania dowolnego zasobu. Możesz skorygować istniejące zasoby, wyzwalając zadanie korygowania.
+
+Usługa Advisor zaleca kilka indywidualnych zasad platformy Azure, które ułatwiają klientom osiąganie najważniejszych rozwiązań. Jeśli klient zdecyduje się na przypisanie zalecanych zasad, zostanie pominięte zalecenie. Jeśli klient zdecyduje się na późniejsze usunięcie zasad, usługa Advisor nadal pomija zalecenie, ponieważ interpretuje jego usuwanie jako silnego sygnału:
+
+1.  Klient usunął zasady, ponieważ pomimo zalecenia klasyfikatora nie ma zastosowania do ich określonego przypadku użycia. 
+2.  Klient ma świadomość i znajomość zasad po jego przypisaniu i usunięciu. można go również przypisać lub usunąć, jeśli okaże się to konieczne, bez wskazówki, jeśli później odnosi się do ich przypadku użycia. Jeśli klient znajdzie go w najlepszym interesie, aby ponownie przypisać te same zasady, może to zrobić w Azure Policy bez wymagania zalecenia w usłudze Advisor. Należy pamiętać, że ta logika jest stosowana w odnosieniu do zalecenia dotyczącego zasad w kategorii doskonałości operacyjnej. Te reguły nie mają zastosowania do zaleceń dotyczących zabezpieczeń.  
+
 
 ## <a name="no-validation-environment-enabled"></a>Nie włączono środowiska weryfikacji
 Azure Advisor określa, że nie masz włączonego środowiska sprawdzania poprawności w bieżącej subskrypcji. Podczas tworzenia pul hostów, na karcie właściwości, wybrano opcję \" nie \" \" sprawdzaj poprawności środowiska \" . Posiadanie co najmniej jednej puli hostów z włączonym środowiskiem walidacji zapewnia ciągłość działania usług pulpitu wirtualnego systemu Windows przy wczesnym wykrywaniu potencjalnych problemów. [Dowiedz się więcej](../virtual-desktop/create-validation-host-pool.md)

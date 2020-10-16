@@ -230,12 +230,8 @@
               href: application-sign-in-problem-application-error.md
             - name: Problem podczas logowania się do aplikacji firmy Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
-            - name: Problem z federacyjnym logowaniem jednokrotnym — aplikacja spoza galerii
-              href: application-sign-in-problem-federated-sso-non-gallery.md
-            - name: Problem z federacyjnym logowaniem jednokrotnym — aplikacja z galerii
+            - name: Problem z logowaniem jednokrotnym
               href: application-sign-in-problem-federated-sso-gallery.md
-            - name: Problem z aplikacją niestandardową
-              href: application-sign-in-problem-custom-dev.md
         - name: Rozwiązywanie problemów z aplikacjami lokalnymi
           items:
             - name: Rozwiązywanie problemów z serwerem proxy aplikacji

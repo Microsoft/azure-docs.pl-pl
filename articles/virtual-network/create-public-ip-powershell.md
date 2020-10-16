@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 6174d108fd80df9725ca5ef0fb9296dfffaf4a64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10de2a4a00b716656626082a24ecbd56d0fcc3a4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89302705"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127305"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>Szybki Start: Tworzenie publicznego adresu IP przy użyciu Azure PowerShell
 
@@ -106,7 +106,7 @@ Ten wybór jest prawidłowy we wszystkich regionach i jest domyślnym wyborem dl
 
 # <a name="basic-sku"></a>[**Podstawowy SKU**](#tab/option-create-public-ip-basic)
 
-Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) , aby utworzyć podstawowy statyczny publiczny adres IP o nazwie **MyStandardPublicIP** w liście **zasobów**.  Podstawowe publiczne adresy IP nie mają koncepcji dotyczących stref dostępności.
+Użyj [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) , aby utworzyć podstawowy statyczny publiczny adres IP o nazwie **MyBasicPublicIP** w liście **zasobów**.  Podstawowe publiczne adresy IP nie mają koncepcji dotyczących stref dostępności.
 
 ```azurepowershell-interactive
 ## Variables for the command ##

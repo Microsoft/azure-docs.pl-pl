@@ -6,16 +6,19 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 437fe4636fd5b93656758c9fa55f2b18d64a4b6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d36fe791e34544a4d6132a49fc5ec3f2aa334654
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540697"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127288"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dotyczące Azure Database for MySQL
 
-Azure Database for MySQL zmieni certyfikat główny dla aplikacji klienckiej/sterownika z włączonym protokołem SSL, który zostanie użyty do [nawiązania połączenia z serwerem bazy danych](concepts-connectivity-architecture.md). Obecnie dostępny certyfikat główny jest ustawiany na wygasa 26 października 2020 (10/26/2020) w ramach standardowej konserwacji i najlepszych rozwiązań w zakresie zabezpieczeń. Ten artykuł zawiera bardziej szczegółowe informacje o nadchodzących zmianach, zasobach, których to dotyczy, oraz o czynnościach, które należy wykonać, aby zapewnić łączność z serwerem bazy danych przez aplikację.
+Azure Database for MySQL zmieni certyfikat główny dla aplikacji klienckiej/sterownika z włączonym protokołem SSL, który zostanie użyty do [nawiązania połączenia z serwerem bazy danych](concepts-connectivity-architecture.md). Obecnie dostępny certyfikat główny jest ustawiany na wygasa 15 lutego 2021 (02/15/2021) w ramach standardowej konserwacji i najlepszych rozwiązań w zakresie zabezpieczeń. Ten artykuł zawiera bardziej szczegółowe informacje o nadchodzących zmianach, zasobach, których to dotyczy, oraz o czynnościach, które należy wykonać, aby zapewnić łączność z serwerem bazy danych przez aplikację.
+
+>[!NOTE]
+> Na podstawie opinii klientów przedłużono przestarzałą certyfikat główny dla istniejącego głównego urzędu certyfikacji Baltimore z 26 października 2020 do 15 lutego 2021. Mamy nadzieję, że to rozszerzenie zapewni wystarczającą ilość czasu realizacji przez naszych użytkowników, aby mogli wdrożyć zmiany klienta.
 
 ## <a name="what-update-is-going-to-happen"></a>Jaką aktualizację ma mieć miejsce?
 
@@ -23,12 +26,12 @@ W niektórych przypadkach aplikacje używają pliku certyfikatu lokalnego wygene
 
 Zgodnie z wymaganiami dotyczącymi zgodności w branży dostawcy urzędu certyfikacji rozpoczęły Odwoływanie certyfikatów urzędu certyfikacji dla niezgodnych urzędów certyfikacji, co wymaga od serwerów używania certyfikatów wystawionych przez zgodne urzędy certyfikacji i podpisanych przez certyfikaty urzędu certyfikacji z tych zgodnych urzędów certyfikacji. Ponieważ Azure Database for MySQL obecnie używa jednego z tych niezgodnych certyfikatów, których aplikacje klienckie używają do sprawdzania poprawności połączeń SSL, musimy upewnić się, że podejmowane są odpowiednie działania (opisane poniżej) w celu zminimalizowania potencjalnego wpływu na serwery MySQL.
 
-Nowy certyfikat zostanie użyty od 26 października 2020 (10/26/2020). Jeśli podczas nawiązywania połączenia z klientem programu MySQL używasz weryfikacji urzędu certyfikacji lub pełnej weryfikacji certyfikatu serwera (sslmode = verify-ca lub sslmode = verify-Full), musisz zaktualizować konfigurację aplikacji przed 26 października 2020 (10/26/2020).
+Nowy certyfikat zostanie użyty od 15 lutego 2021 (02/15/2021). Jeśli podczas nawiązywania połączenia z klientem programu MySQL używasz weryfikacji urzędu certyfikacji lub pełnej weryfikacji certyfikatu serwera (sslmode = verify-ca lub sslmode = verify-Full), musisz zaktualizować konfigurację aplikacji przed 15 lutego 2021 (03/15/2021).
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Jak mogę dowiedzieć się, czy na mojej bazie danych ma być to naruszone?
 
 Wszystkie aplikacje korzystające z protokołu SSL/TLS i sprawdź, czy certyfikat główny musi zaktualizować certyfikat główny. Możesz określić, czy Twoje połączenia weryfikują certyfikat główny, przeglądając parametry połączenia.
--   Jeśli parametry połączenia obejmują `sslmode=verify-ca` lub `sslmode=verify-full` , należy zaktualizować certyfikat.
+-   Jeśli parametry połączenia obejmują `sslmode=verify-ca` lub `sslmode=verify-identity` , należy zaktualizować certyfikat.
 -   Jeśli parametry połączenia obejmują `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` , lub `sslmode=require` , nie trzeba aktualizować certyfikatów. 
 -  Jeśli używanie łączników języka Java i parametrów połączenia zawiera useSSL = false lub requireSSL = false, nie trzeba aktualizować certyfikatów.
 -   Jeśli parametry połączenia nie określają sslmode, nie trzeba aktualizować certyfikatów.
@@ -84,6 +87,9 @@ Jeśli używasz Azure Database for MySQL wystawionego certyfikatu zgodnie z opis
 *   Nieprawidłowy certyfikat/odwołany certyfikat
 *   Przekroczono limit czasu połączenia
 
+> [!NOTE]
+> Nie usuwaj ani nie zmieniaj **certyfikatu Baltimore** , dopóki nie zostanie wprowadzona zmiana certyfikatu. Po zakończeniu zmiany wyślemy powiadomienie, po czym będzie ona bezpieczna do usuwania certyfikatu Baltimore. 
+
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. Jeśli nie korzystam z protokołu SSL/TLS, czy nadal muszę zaktualizować główny urząd certyfikacji?
@@ -92,8 +98,8 @@ Jeśli nie używasz protokołu SSL/TLS, akcje nie są wymagane.
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. Jeśli używam protokołu SSL/TLS, należy ponownie uruchomić serwer bazy danych w celu zaktualizowania głównego urzędu certyfikacji?
 Nie, nie trzeba ponownie uruchamiać serwera bazy danych, aby rozpocząć korzystanie z nowego certyfikatu. Ten certyfikat główny jest zmianą po stronie klienta, a połączenia klienta przychodzącego muszą używać nowego certyfikatu, aby upewnić się, że mogą łączyć się z serwerem bazy danych.
 
-### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. co się stanie, jeśli nie zaktualizuję certyfikatu głównego przed 26 października 2020 (10/26/2020)?
-Jeśli certyfikat główny nie zostanie zaktualizowany do 26 października 2020, aplikacje, które łączą się za pośrednictwem protokołu SSL/TLS i sprawdzają, czy certyfikat główny nie będą mogły komunikować się z serwerem bazy danych MySQL, a aplikacja będzie powodować problemy z łącznością z serwerem bazy danych MySQL.
+### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3. co się stanie, jeśli nie zaktualizuję certyfikatu głównego przed 15 lutego 2021 (02/15/2021)?
+Jeśli certyfikat główny nie zostanie zaktualizowany do 15 lutego 2021 (02/15/2021), aplikacje łączące się za pośrednictwem protokołu SSL/TLS i sprawdzają, czy certyfikat główny nie będzie mógł komunikować się z serwerem bazy danych MySQL, a aplikacja będzie powodować problemy z łącznością z serwerem bazy danych MySQL.
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4. jaki jest wpływ w przypadku używania App Service z Azure Database for MySQL?
 W przypadku usług Azure App Services łączących się z Azure Database for MySQL mogą istnieć dwa możliwe scenariusze, które są zależne od tego, jak korzystasz z protokołu SSL z aplikacją.
@@ -111,11 +117,11 @@ W przypadku łącznika korzystającego z samoobsługowego Integration Runtime, w
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. Czy muszę zaplanować przestoje związane z konserwacją serwera bazy danych dla tej zmiany?
 Nie. Ze względu na to, że zmiana ta jest dostępna tylko po stronie klienta, aby nawiązać połączenie z serwerem bazy danych, dla tej zmiany nie jest wymagane przestoje związane z konserwacją.
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. co zrobić, jeśli nie mogę uzyskać zaplanowanego przestoju dla tej zmiany przed 26 października 2020 (10/26/2020)?
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. co zrobić, jeśli nie mogę uzyskać zaplanowanego przestoju dla tej zmiany przed 15 lutego 2021 (02/15/2021)?
 Ponieważ klienci używani do łączenia się z serwerem muszą zaktualizować informacje o certyfikacie zgodnie z opisem w sekcji poprawka [tutaj](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), w tym przypadku nie ma potrzeby przestoju serwera.
 
-### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. Jeśli Tworzę nowy serwer po 26 października 2020, wpłynie to na to, co będzie miało wpływ?
-W przypadku serwerów utworzonych po 26 października 2020 (10/26/2020) można użyć nowo wystawionego certyfikatu dla aplikacji w celu nawiązania połączenia przy użyciu protokołu SSL.
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Jeśli Tworzę nowy serwer po 15 lutego 2021 (02/15/2021), wpłynie to na problem?
+W przypadku serwerów utworzonych po 15 lutego 2021 (02/15/2021) można użyć nowo wystawionego certyfikatu dla aplikacji do łączenia się przy użyciu protokołu SSL.
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. jak często firma Microsoft aktualizuje swoje certyfikaty lub jakie są zasady wygasania?
 Te certyfikaty używane przez Azure Database for MySQL są udostępniane przez zaufane urzędy certyfikacji. W związku z tym obsługa tych certyfikatów w Azure Database for MySQL jest związana z obsługą tych certyfikatów przez urząd certyfikacji. Jednak podobnie jak w tym przypadku, w tych wstępnie zdefiniowanych certyfikatach mogą znajdować się nieprzewidziane usterki, które muszą zostać ustalone najwcześniej.

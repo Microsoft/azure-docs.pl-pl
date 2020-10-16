@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d0ce5031dc5972cac81b92477d3de049bc1f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6efb96448cc99df95b8f898c9fb7dd3ef166c5ea
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543114"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Samouczek: integracja Azure Active Directory z usługą Sequr
 
@@ -131,15 +131,15 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Sequr, wyko
 
 1. Kliknij pozycję **integracje** w lewym panelu nawigacyjnym.
 
-    ![Konfiguracja Sequr](./media/sequr-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia integrację wybraną z panelu nawigacji.](./media/sequr-tutorial/configure1.png)
 
 1. Przewiń w dół do sekcji **Logowanie** jednokrotne i kliknij pozycję **Zarządzaj**.
 
-    ![Konfiguracja Sequr](./media/sequr-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia sekcję Logowanie jednokrotne z wybranym przyciskiem Zarządzaj.](./media/sequr-tutorial/configure2.png)
 
 1. W sekcji **Zarządzanie logowaniem jednokrotnym** wykonaj następujące czynności:
 
-    ![Konfiguracja Sequr](./media/sequr-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia sekcję Zarządzaj pojedynczym Sign-On, w której można wprowadzić podane wartości.](./media/sequr-tutorial/configure3.png)
 
     a. W polu tekstowym **adres URL pojedynczego Sign-On dostawcy tożsamości** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
@@ -147,7 +147,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Sequr, wyko
 
     c. Po zapisaniu konfiguracji zostanie wygenerowana wartość stanu przekaźnika. Skopiuj wartość **stan przekaźnika** i wklej ją w polu tekstowym **Stan przekazywania** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -171,7 +171,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

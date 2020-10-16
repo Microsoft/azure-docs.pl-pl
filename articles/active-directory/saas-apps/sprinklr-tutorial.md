@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 02b9adcb72b4d26a19b6514d19ce94a70a2415ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6a7784d052a03971fad84c90cdd70cd16b4a872
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88534221"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Samouczek: integracja Azure Active Directory z zraszaczem
 
@@ -136,11 +136,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu zr
 
 1. Kliknij pozycję **+ Dodaj Logowanie jednokrotne**.
 
-    ![Logowanie jednokrotne](./media/sprinklr-tutorial/ic782909.png "Pojedyncze Sign-Ons")
+    ![Zrzut ekranu przedstawia przycisk Dodaj Logowanie jednokrotne.](./media/sprinklr-tutorial/ic782909.png "Pojedyncze Sign-Ons")
 
 1. Na stronie **Logowanie** jednokrotne wykonaj następujące czynności:
 
-    ![Logowanie jednokrotne](./media/sprinklr-tutorial/ic782910.png "Pojedyncze Sign-Ons")
+    ![Zrzut ekranu przedstawia stronę logowania jednokrotnego, na której można wprowadzić podane wartości.](./media/sprinklr-tutorial/ic782910.png "Pojedyncze Sign-Ons")
 
     a. W polu tekstowym **Nazwa** wpisz nazwę konfiguracji (na przykład: *WAADSSOTest*).
 
@@ -160,7 +160,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu zr
 
     i. Jako **lokalizację identyfikatora użytkownika SAML**wybierz pozycję **Identyfikator użytkownika w elemencie identyfikator nazwy w instrukcji subject**.
 
-    j. Kliknij przycisk **Zapisz**.
+    j. Kliknij pozycję **Zapisz**.
 
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
@@ -187,7 +187,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -225,11 +225,11 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 1. Przejdź do pozycji **Zarządzaj \> użytkownikami klienta** w okienku po lewej stronie.
 
-    ![Ustawienia](./media/sprinklr-tutorial/ic782914.png "Ustawienia")
+    ![Zrzut ekranu przedstawia przycisk Dodaj użytkownika w obszarze Ustawienia/Użytkownicy.](./media/sprinklr-tutorial/ic782914.png "Ustawienia")
 
 1. Kliknij pozycję **Dodaj użytkownika**.
 
-    ![Ustawienia](./media/sprinklr-tutorial/ic782915.png "Ustawienia")
+    ![Zrzut ekranu przedstawia okno dialogowe Edytowanie użytkownika, w którym można wprowadzić podane wartości.](./media/sprinklr-tutorial/ic782915.png "Ustawienia")
 
 1. W oknie dialogowym **Edytowanie użytkownika** wykonaj następujące czynności:
 

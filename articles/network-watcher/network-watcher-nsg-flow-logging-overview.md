@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7d477e50ef4fc47042d57aa973d483a784465d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070585"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127339"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -309,7 +309,7 @@ W przypadku Stanów kontynuacja _C_ i End _E_ , liczba bajtów i pakietów to li
 
 Użyj poniższego linku poniżej, aby zapoznać się z przewodnikami dotyczącymi włączania dzienników przepływów.
 
-- [Azure Portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Witryna Azure Portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 - [Program PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
 - [Interfejs wiersza polecenia](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
 - [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
@@ -317,7 +317,7 @@ Użyj poniższego linku poniżej, aby zapoznać się z przewodnikami dotyczącym
 
 ## <a name="updating-parameters"></a>Aktualizowanie parametrów
 
-**Azure Portal**
+**Witryna Azure Portal**
 
 Na Azure Portal przejdź do sekcji Dzienniki przepływu sieciowej grupy zabezpieczeń w programie Network Watcher. Następnie kliknij nazwę sieciowej grupy zabezpieczeń. Spowoduje to wyświetlenie okienka ustawień dziennika przepływu. Zmień żądane parametry i naciśnij przycisk **Zapisz** , aby wdrożyć zmiany.
 
@@ -361,6 +361,10 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Przepływy przychodzące zarejestrowane z Internetu adresów IP na maszynach wirtualnych bez publicznych**adresach IP: maszyny wirtualne, które nie mają publicznego adresu do sieci, są przypisane za pośrednictwem publicznego adresu IP SKOJARZONEGO z kartą sieciową jako publiczny adres IPv4 na poziomie wystąpienia lub które są częścią puli zaplecza usługi równoważenia obciążenia, użyj [domyślnego](../load-balancer/load-balancer-outbound-connections.md) , a także adresu IP przypisanego przez platformę Azure. W związku z tym mogą pojawić się wpisy dziennika przepływu dla przepływów z internetowych adresów IP, jeśli przepływ jest przeznaczony do portu w zakresie portów przypisanych do tego elementu. Mimo że platforma Azure nie zezwala na te przepływy na maszynę wirtualną, próba zostanie zarejestrowana i zostanie wyświetlona Network Watcher w dzienniku przepływu sieciowej grupy zabezpieczeń przez zaprojektowanie. Zalecamy, aby niepożądane przychodzące ruch internetowy został jawnie zablokowany przy użyciu sieciowej grupy zabezpieczeń.
 
+**Niezgodne usługi**: ze względu na bieżące ograniczenia platformy, mały zestaw usług platformy Azure nie jest obsługiwany przez dzienniki przepływów sieciowej grupy zabezpieczeń. Bieżąca lista niezgodnych usług jest
+- [Usługi Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
 **Włącz w przypadku krytycznych sieci wirtualnych/podsieci**: dzienniki przepływów powinny być włączone na wszystkich krytycznych sieci wirtualnych/podsieciach w ramach subskrypcji jako najlepsze rozwiązanie w zakresie inspekcji i zabezpieczeń. 
@@ -391,7 +395,7 @@ Czasami dzienniki nie są wyświetlane, ponieważ maszyny wirtualne nie są akty
 
 Obsługa automatyzacji za pomocą szablonów ARM nie jest obecnie dostępna dla dzienników przepływów sieciowych grup zabezpieczeń. Przeczytaj [anons funkcji](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) , aby uzyskać więcej informacji.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Co robią dzienniki przepływu sieciowej grupy zabezpieczeń?**
 

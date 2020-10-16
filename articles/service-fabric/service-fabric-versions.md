@@ -3,12 +3,12 @@ title: Obsługiwane wersje klastra w usłudze Azure Service Fabric
 description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fabric, łącznie z linkiem do najnowszych wydań z blogu zespołu Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: e3194a59607563656f6624dabf51e9369e9258ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0d53c704645fdeb1e68898c4cadf8429bcb5645
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843247"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122436"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane Service Fabric wersje
 
@@ -39,11 +39,11 @@ W poniższej tabeli wymieniono wersje Service Fabric i ich daty końcowe pomocy 
 | 6,3. * | 6.1.480.* |Mniejsze niż lub równe wersji 3,2 |31 marca 2019  |
 | 6,4. * | 6.2.301.* |Mniejsze niż lub równe wersji 3,3 |15 września 2019 |
 | 6,5. * | 6.4.617.* |Mniejsze niż lub równe wersji 3,4 |1 sierpnia 2020 |
-| 7.0.466.* | 6.4.664.* |Mniejsze niż lub równe wersji 4,0|1 listopada 2020  |
-| 7.0.466.* | 6,5. * |Mniejsze niż lub równe wersji 4,0|1 listopada 2020 |
-| 7.0.470.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,0 |1 listopada 2020  |
-| 7.0.472.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,0 |1 listopada 2020  |
-| 7.0.478.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,0 |1 listopada 2020  |
+| 7.0.466.* | 6.4.664.* |Mniejsze niż lub równe wersji 4,0|31 stycznia 2021  |
+| 7.0.466.* | 6,5. * |Mniejsze niż lub równe wersji 4,0|31 stycznia 2021 |
+| 7.0.470.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,0 |31 stycznia 2021  |
+| 7.0.472.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,0 |31 stycznia 2021  |
+| 7.0.478.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,0 |31 stycznia 2021  |
 | 7.1.409.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,1 |Bieżąca wersja, dlatego bez daty zakończenia |
 | 7.1.417.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,1 |Bieżąca wersja, dlatego bez daty zakończenia |
 | 7.1.428.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,1 |Bieżąca wersja, dlatego bez daty zakończenia |
@@ -59,11 +59,11 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane przez obsługiwan
 | --- | --- |
 | Windows Server 2012 z dodatkiem R2 | Wszystkie wersje |
 | Windows Server 2016 | Wszystkie wersje |
-| System Windows Server 1709 | 6.0 |
+| System Windows Server 1709 | 6,0 |
 | System Windows Server 1803 | 6.4 |
 | System Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16,04 | 6.0 |
+| Linux Ubuntu 16,04 | 6,0 |
 | Linux Ubuntu 18,04 | 7.1 |
 
 ## <a name="supported-version-names"></a>Obsługiwane nazwy wersji

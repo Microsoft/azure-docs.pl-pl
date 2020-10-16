@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: jingwang
-ms.openlocfilehash: ac6540dfd86430aab518b145ed391d1d6283219e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c491a0b5e4c4fc517368c5947fa6181201a5b5fd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276581"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127271"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format tekstu rozdzielanego w Azure Data Factory
 
@@ -34,8 +34,8 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 | location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` .  | Tak      |
 | columnDelimiter  | Znaki używane do oddzielania kolumn w pliku. <br>Wartość domyślna to **przecinek `,` **. Gdy ogranicznik kolumny jest zdefiniowany jako pusty ciąg, co oznacza brak ogranicznika, cały wiersz jest traktowany jako jedna kolumna.<br>Obecnie ogranicznik kolumny jako pusty ciąg lub wiele znaków jest obsługiwany tylko na potrzeby mapowania przepływu danych, ale nie jest to działanie kopiowania.  | Nie       |
 | rowDelimiter     | Pojedynczy znak lub "\r\n" używany do oddzielania wierszy w pliku. <br>Wartość domyślna to dowolna z następujących wartości **podczas odczytu: ["\r\n", "\r", "\n"]**, **"\n" lub "\r\n" przy zapisie** odpowiednio mapując przepływ danych i działanie kopiowania. <br>Gdy ogranicznik wiersza jest ustawiony na brak ogranicznika (pusty ciąg), ogranicznik kolumny musi być ustawiony jako brak ogranicznika (pusty ciąg), co oznacza, że cała zawartość jest traktowana jako pojedyncza wartość.<br>Obecnie ogranicznik wiersza jako pusty ciąg jest obsługiwany tylko w przypadku mapowania przepływu danych, ale bez działania kopiowania. | Nie       |
-| quoteChar        | Pojedynczy znak do wartości kolumny QUOTE, jeśli zawiera ogranicznik kolumny. <br>Wartość domyślna to **podwójne cudzysłowy** `"` . <br>W przypadku mapowania przepływu danych `quoteChar` nie może być pustym ciągiem. <br>W przypadku działania kopiowania, gdy `quoteChar` jest zdefiniowany jako pusty ciąg, oznacza to, że nie istnieje znak cudzysłowu i wartość kolumny nie jest ujęta w cudzysłów i `escapeChar` jest używana do ucieczki ogranicznika kolumny i samego siebie. | Nie       |
-| escapeChar       | Pojedynczy znak do cudzysłowu ucieczki wewnątrz wartości w cudzysłowie.<br>Wartość domyślna to **ukośnik odwrotny `\` **. <br>W przypadku mapowania przepływu danych `escapeChar` nie może być pustym ciągiem. <br/>W przypadku działania kopiowania, gdy `escapeChar` jest zdefiniowany jako pusty ciąg, `quoteChar` należy ustawić jako pusty ciąg, a w takim przypadku upewnij się, że wszystkie wartości kolumn nie zawierają ograniczników. | Nie       |
+| quoteChar        | Pojedynczy znak do wartości kolumny QUOTE, jeśli zawiera ogranicznik kolumny. <br>Wartość domyślna to **podwójne cudzysłowy** `"` . <br>Gdy `quoteChar` jest zdefiniowany jako pusty ciąg, oznacza to, że nie istnieje znak cudzysłowu, a wartość kolumny nie jest ujęta w cudzysłów i `escapeChar` jest używana do ucieczki ogranicznika kolumny i samego siebie. | Nie       |
+| escapeChar       | Pojedynczy znak do cudzysłowu ucieczki wewnątrz wartości w cudzysłowie.<br>Wartość domyślna to **ukośnik odwrotny `\` **. <br>Gdy `escapeChar` jest zdefiniowany jako pusty ciąg, `quoteChar` należy ustawić jako pusty ciąg, a w takim przypadku upewnij się, że wszystkie wartości kolumn nie zawierają ograniczników. | Nie       |
 | firstRowAsHeader | Określa, czy pierwszy wiersz ma być traktowany jak wiersz nagłówka z nazwami kolumn.<br>Dozwolone wartości to **true** i **false** (wartość domyślna).<br>Gdy pierwszy wiersz jako nagłówek ma wartość false, Uwaga: Podgląd danych interfejsu użytkownika i wyszukiwanie działania wyszukiwania automatyczne generowanie nazw kolumn jako Prop_ {n} (począwszy od 0), działanie kopiowania wymaga [jawnego mapowania](copy-activity-schema-and-type-mapping.md#explicit-mapping) ze źródła do ujścia i lokalizuje kolumny według liczby porządkowej (rozpoczynając od 1), a następnie mapuje kolumny o nazwie jako Column_ {n} (rozpoczynając od 1).  | Nie       |
 | nullValue        | Określa reprezentację ciągu wartości null. <br>Wartość domyślna to **pusty ciąg**. | Nie       |
 | encodingName     | Typ kodowania używany do odczytu/zapisu plików testowych. <br>Dozwolone wartości są następujące: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Przepływ danych mapowania notatek nie obsługuje kodowania UTF-7. | Nie       |

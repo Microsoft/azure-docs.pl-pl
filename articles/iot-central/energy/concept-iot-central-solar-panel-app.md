@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c94109746545a1f7ff33534ca3ec54f55357281
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 00ef6cf6d4149f139876cb0c2d845133ba00157c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316038"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127510"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central — architektura aplikacji w panelu słonecznym
 
@@ -29,7 +29,7 @@ Niniejsza architektura zawiera następujące składniki. Niektóre aplikacje mog
 
 ## <a name="solar-panels-and-connectivity"></a>Panele i łączność słoneczna 
 
-Panele słoneczne są jednym z znaczących źródeł odnawialnego zużycia energii. W zależności od typu i konfiguracji panelu, można połączyć go przy użyciu bram lub innych urządzeń pośrednich i systemów własnościowych. Może być konieczne utworzenie IoT Central mostku urządzeń w celu połączenia urządzeń, które nie mogą być połączone bezpośrednio. IoT Central mostka urządzenia to rozwiązanie Open Source, w [tym miejscu](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge)można znaleźć pełne szczegóły. 
+Panele słoneczne są jednym z znaczących źródeł odnawialnego zużycia energii. W zależności od typu i konfiguracji panelu, można połączyć go przy użyciu bram lub innych urządzeń pośrednich i systemów własnościowych. Może być konieczne utworzenie IoT Central mostku urządzeń w celu połączenia urządzeń, które nie mogą być połączone bezpośrednio. IoT Central mostka urządzenia to rozwiązanie Open Source, w [tym miejscu](../core/howto-build-iotc-device-bridge.md)można znaleźć pełne szczegóły. 
 
 
 
@@ -43,4 +43,4 @@ Platforma IoT Central udostępnia dwie opcje rozszerzalności: ciągły eksport 
 ## <a name="next-steps"></a>Następne kroki
 
 * Teraz, gdy już wiesz o architekturze, [Utwórz bezpłatnie aplikację panelu słonecznego](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Aby dowiedzieć się więcej na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Aby dowiedzieć się więcej na temat IoT Central, zobacz [omówienie IoT Central](../index.yml)

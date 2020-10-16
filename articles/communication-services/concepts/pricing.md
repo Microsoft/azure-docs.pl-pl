@@ -9,24 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761230"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126194"
 ---
 # <a name="pricing-scenarios"></a>Scenariusze cen
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/pricing/details/functions/ Should we? FOLLOWING UP WITH KRISTIN TO FIND THE RIGHT ACS PAGE
--->
 
-Ceny usług Azure Communications Services są oparte na modelu z płatność zgodnie z rzeczywistym użyciem bez opłat z góry. Opłaty są naliczane tylko za użycie i korzystanie z usług.
+Ceny usług Azure Communication Services są ogólnie oparte na modelu z płatność zgodnie z rzeczywistym użyciem.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Połączenie głosowe/wideo i udostępnianie ekranu
 
@@ -84,6 +79,16 @@ Róża widzi komunikaty i zaczyna czatować. W tym czasie Casey pobiera wywołan
 ## <a name="price"></a>Cena 
 
 Opłaty za usługi telefonii są naliczane co minutę, a opłata za wiadomości SMS jest naliczana na podstawie poszczególnych komunikatów. Cennik jest określany przez typ i lokalizację używanego numeru oraz miejsce docelowe wywołań i wiadomości SMS.
+
+### <a name="telephone-number-leasing"></a>Dzierżawa numerów telefonów
+
+Opłaty za dzierżawę numerów telefonów są naliczane z góry, a następnie powtarzają się w oparciu o miesiąc do miesiąca:
+
+|Typ liczby   |Opłata miesięczna   |
+|--------------|-----------|
+|Lokalna (Stany Zjednoczone)     |$1/miesiąc        |
+|Bezpłatny (Stany Zjednoczone) |$2/miesiąc |
+
 
 ### <a name="telephone-calling"></a>Połączenie telefoniczne
 

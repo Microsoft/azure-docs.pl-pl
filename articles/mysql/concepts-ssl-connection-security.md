@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 6807f3d4ef0596b4dbb51f6bc8c0348901e78d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2969c963b491e4b08a0959d548e43ba11276d28a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439952"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126553"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Łączność SSL/TLS w Azure Database for MySQL
 
@@ -20,8 +20,11 @@ Azure Database for MySQL obsługuje łączenie serwera bazy danych z aplikacjami
 > [!NOTE]
 > Aktualizowanie `require_secure_transport` wartości parametru serwera nie ma wpływu na zachowanie usługi MySQL. Użyj funkcji wymuszania protokołów SSL i TLS opisanych w tym artykule, aby zabezpieczyć połączenia z bazą danych.
 
+>[!NOTE]
+> Na podstawie opinii klientów przedłużono przestarzałą certyfikat główny dla istniejącego głównego urzędu certyfikacji Baltimore do 15 lutego 2021 (02/15/2021).
+
 > [!IMPORTANT] 
-> Certyfikat główny SSL jest ustawiany na wygasa od 26 października 2020 (10/26/2020). Zaktualizuj swoją aplikację, aby używała [nowego certyfikatu](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Aby dowiedzieć się więcej, zobacz [aktualizacje dotyczące planowanych certyfikatów](concepts-certificate-rotation.md)
+> Certyfikat główny SSL jest ustawiany na wygasa od 15 lutego 2021 (02/15/2021). Zaktualizuj swoją aplikację, aby używała [nowego certyfikatu](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Aby dowiedzieć się więcej, zobacz [aktualizacje dotyczące planowanych certyfikatów](concepts-certificate-rotation.md)
 
 ## <a name="ssl-default-settings"></a>Ustawienia domyślne protokołu SSL
 

@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812fd0c10b63cfe469a10a99069f201fcc2cc658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974428"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126741"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych (starsza wersja)
 
@@ -63,7 +63,7 @@ W przypadku wybrania Service Bus jako miejsca docelowego eksportu kolejki i tema
 
 Jeśli nie masz istniejącego konta usługi Azure Storage do eksportowania, wykonaj następujące czynności:
 
-1. Utwórz [nowe konto magazynu w Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Możesz dowiedzieć się więcej na temat tworzenia nowych [kont usługi Azure Blob Storage](https://aka.ms/blobdocscreatestorageaccount) lub [kont magazynu Azure Data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md). Eksport danych umożliwia zapisanie danych tylko na kontach magazynu, które obsługują blokowe obiekty blob. Na poniższej liście przedstawiono znane zgodne typy kont magazynu:
+1. Utwórz [nowe konto magazynu w Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Możesz dowiedzieć się więcej na temat tworzenia nowych [kont usługi Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md) lub [kont magazynu Azure Data Lake Storage v2](../../storage/common/storage-account-create.md). Eksport danych umożliwia zapisanie danych tylko na kontach magazynu, które obsługują blokowe obiekty blob. Na poniższej liście przedstawiono znane zgodne typy kont magazynu:
 
     |Warstwa wydajności|Typ konta|
     |-|-|
@@ -156,7 +156,7 @@ Poniższy przykład pokazuje komunikat otrzymany z centrum zdarzeń lub kolejki 
 
 Ten komunikat nie zawiera identyfikatora urządzenia dla wysyłającego urządzenia.
 
-Aby pobrać identyfikator urządzenia z danych komunikatu w kwerendzie Azure Stream Analytics, użyj funkcji [GetMetadataPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) . Aby zapoznać się z przykładem, zobacz zapytanie w temacie [rozszerzając platformę Azure IoT Central z regułami niestandardowymi przy użyciu Stream Analytics, Azure Functions i SendGrid](./howto-create-custom-rules.md).
+Aby pobrać identyfikator urządzenia z danych komunikatu w kwerendzie Azure Stream Analytics, użyj funkcji [GetMetadataPropertyValue](/stream-analytics-query/getmetadatapropertyvalue) . Aby zapoznać się z przykładem, zobacz zapytanie w temacie [rozszerzając platformę Azure IoT Central z regułami niestandardowymi przy użyciu Stream Analytics, Azure Functions i SendGrid](./howto-create-custom-rules.md).
 
 Aby pobrać identyfikator urządzenia w obszarze roboczym Azure Databricks lub Apache Spark, użyj [systemProperties](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/structured-streaming-eventhubs-integration.md). Aby zapoznać się z przykładem, zapoznaj się z obszarem roboczym datakosteks w sekcji [rozszerzając platformę Azure IoT Central przy użyciu funkcji Azure Databricks](./howto-create-custom-analytics.md)
 
@@ -184,7 +184,7 @@ Poniższy przykład przedstawia rekord wyeksportowany do magazynu obiektów blob
 }
 ```
 
-## <a name="devices"></a>Devices
+## <a name="devices"></a>Urządzenia
 
 Każdy komunikat lub rekord w migawce reprezentuje jedną lub więcej zmian na urządzeniu oraz jego właściwości i urządzenia oraz w chmurze od ostatniego wyeksportowanego komunikatu. Komunikat zawiera:
 
@@ -557,7 +557,7 @@ Ta przykładowa migawka przedstawia komunikat zawierający dane dotyczące urzą
 
 Jeśli masz istniejący eksport danych w aplikacji w wersji zapoznawczej przy włączonym strumieniu *urządzeń* i *szablonów urządzeń* , zaktualizuj eksport do **30 czerwca 2020**. To wymaganie dotyczy eksportów do usługi Azure Blob Storage, Azure Event Hubs i Azure Service Bus.
 
-Od 3 lutego 2020 wszystkie nowe Eksporty w aplikacjach z włączonymi urządzeniami i szablonami urządzeń będą miały format danych opisany powyżej. Wszystkie eksporty utworzone przed tą datą pozostają w starym formacie danych do 30 czerwca 2020, podczas gdy te eksporty zostaną automatycznie zmigrowane do nowego formatu danych. Nowy format danych jest zgodny z [urządzeniem](https://docs.microsoft.com/rest/api/iotcentral/devices/get), [właściwością](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties)urządzenia, [właściwością chmury urządzenia](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties)i obiektami [szablonu urządzenia](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) w IoT Central publicznym interfejsie API.
+Od 3 lutego 2020 wszystkie nowe Eksporty w aplikacjach z włączonymi urządzeniami i szablonami urządzeń będą miały format danych opisany powyżej. Wszystkie eksporty utworzone przed tą datą pozostają w starym formacie danych do 30 czerwca 2020, podczas gdy te eksporty zostaną automatycznie zmigrowane do nowego formatu danych. Nowy format danych jest zgodny z [urządzeniem](/rest/api/iotcentral/devices/get), [właściwością](/rest/api/iotcentral/devices/getproperties)urządzenia, [właściwością chmury urządzenia](/rest/api/iotcentral/devices/getcloudproperties)i obiektami [szablonu urządzenia](/rest/api/iotcentral/devicetemplates/get) w IoT Central publicznym interfejsie API.
 
 W przypadku **urządzeń**istotne różnice między starym formatem danych a nowym formatem danych obejmują:
 - `@id` w przypadku urządzenia zostanie usunięta `deviceId` Nazwa `id` 

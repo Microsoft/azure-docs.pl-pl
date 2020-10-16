@@ -118,6 +118,10 @@
       items:
         - name: Odnawianie rezerwacji
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Brak kwalifikujących się subskrypcji
+          href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Dokumentacja
   items:
     - name: Interfejs API REST usługi Reservations

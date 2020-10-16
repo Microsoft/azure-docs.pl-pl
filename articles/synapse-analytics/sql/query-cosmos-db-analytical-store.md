@@ -1,5 +1,5 @@
 ---
-title: Wykonywanie zapytań dotyczących danych Azure Cosmos DB przy użyciu programu SQL Server w usłudze Azure Synapse link (wersja zapoznawcza)
+title: Wykonywanie zapytań dotyczących danych Azure Cosmos DB przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse link (wersja zapoznawcza)
 description: W tym artykule dowiesz się, jak wysyłać zapytania do Azure Cosmos DB przy użyciu usługi SQL na żądanie w usłudze Azure Synapse link (wersja zapoznawcza).
 services: synapse analytics
 author: jovanpop-msft
@@ -9,24 +9,24 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: d0f8fa313687b3bd45bd95f1c9ea864567821775
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102361"
+ms.locfileid: "92122725"
 ---
-# <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB przy użyciu programu SQL Server w usłudze Azure Synapse link (wersja zapoznawcza)
+# <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB za pomocą puli SQL bezserwerowej w usłudze Azure Synapse link (wersja zapoznawcza)
 
-Synapse SQL Server (wcześniej SQL na żądanie) umożliwia analizowanie danych w kontenerach Azure Cosmos DB, które są włączane za pomocą [usługi Azure Synapse link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) niemal w czasie rzeczywistym bez wpływu na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z [magazynu analitycznego](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL.
+Synapse bezserwerowa Pula SQL (wcześniej SQL na żądanie) umożliwia analizowanie danych w kontenerach Azure Cosmos DB, które są włączone za pomocą [usługi Azure Synapse link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) niemal w czasie rzeczywistym bez wpływu na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z [magazynu analitycznego](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL.
 
-Do wykonywania zapytań w Azure Cosmos DB [, pełny obszar](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) powierzchni jest obsługiwany przez funkcję [OPENROWSET](develop-openrowset.md) , łącznie z większością [funkcji i operatorów SQL](overview-features.md). Możesz również przechowywać wyniki zapytania, które odczytuje dane z Azure Cosmos DB wraz z danymi na platformie Azure Blob Storage lub Azure Data Lake Storage za pomocą polecenia [Utwórz tabelę zewnętrzną jako wybraną](develop-tables-cetas.md#cetas-in-sql-on-demand). Obecnie nie można przechowywać wyników zapytania bezserwerowego SQL do Azure Cosmos DB przy użyciu [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+Do wykonywania zapytań w Azure Cosmos DB [, pełny obszar](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) powierzchni jest obsługiwany przez funkcję [OPENROWSET](develop-openrowset.md) , łącznie z większością [funkcji i operatorów SQL](overview-features.md). Możesz również przechowywać wyniki zapytania, które odczytuje dane z Azure Cosmos DB wraz z danymi na platformie Azure Blob Storage lub Azure Data Lake Storage za pomocą polecenia [Utwórz tabelę zewnętrzną jako wybraną](develop-tables-cetas.md#cetas-in-sql-on-demand). Obecnie nie można przechowywać wyników zapytania puli SQL bezserwerowej w celu Azure Cosmos DB przy użyciu [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
-W tym artykule dowiesz się, jak napisać zapytanie przy użyciu programu SQL Server, które będzie wysyłać zapytania do danych z Azure Cosmos DB kontenerów z włączonym łączem Synapse. Następnie można dowiedzieć się więcej o tworzeniu widoków bezserwerowych programu SQL Server za pośrednictwem kontenerów Azure Cosmos DB i łączeniu ich z modelami Power BI w [tym](./tutorial-data-analyst.md) samouczku. 
+W tym artykule dowiesz się, jak napisać zapytanie z pulą SQL bezserwerową, która będzie wysyłać zapytania do danych z Azure Cosmos DB kontenerów z włączonym łączem Synapse. Następnie można dowiedzieć się więcej o tworzeniu widoków puli SQL bezserwerowych za pośrednictwem kontenerów Azure Cosmos DB i łączeniu ich z modelami Power BI w [tym](./tutorial-data-analyst.md) samouczku. 
 
 ## <a name="overview"></a>Omówienie
 
-W celu obsługi zapytań i analizowania danych w Azure Cosmos DB analitycznym, program SQL Server używa następującej `OPENROWSET` składni:
+Aby umożliwić obsługę zapytań i analizowanie danych w Azure Cosmos DB magazynie analitycznym, Pula SQL bezserwerowa używa następującej `OPENROWSET` składni:
 
 ```sql
 OPENROWSET( 
@@ -49,7 +49,7 @@ Parametry połączenia mają następujący format:
 Nazwa kontenera Azure Cosmos DB jest określona bez cudzysłowów w `OPENROWSET` składni. Jeśli nazwa kontenera zawiera wszystkie znaki specjalne (na przykład kreskę "-"), nazwa powinna być opakowana w `[]` nawiasy kwadratowe w `OPENROWSET` składni.
 
 > [!NOTE]
-> Program SQL Server nie obsługuje zapytań o magazyn transakcyjny Azure Cosmos DB.
+> Bezserwerowa Pula SQL nie obsługuje zapytań do magazynu transakcyjnego Azure Cosmos DB.
 
 ## <a name="sample-data-set"></a>Przykładowy zestaw danych
 
@@ -57,14 +57,14 @@ Przykłady w tym artykule są oparte na danych z [centrum Europejskiego centrów
 
 Możesz zobaczyć licencję i strukturę danych na tych stronach i pobrać przykładowe dane dla zestawów danych [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) i [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) .
 
-Aby wykonać kroki opisane w tym artykule, jak utworzyć zapytanie Cosmos DB danych z programem SQL Server, należy się upewnić, że zostały utworzone następujące zasoby:
+Aby wykonać czynności opisane w tym artykule, jak utworzyć zapytanie Cosmos DB danych z pulą SQL bez użycia serwera, należy się upewnić, że zostały utworzone następujące zasoby:
 * Konto bazy danych Azure Cosmos DB z [włączonym linkiem Synapse](../../cosmos-db/configure-synapse-link.md)
 * Baza danych Azure Cosmos DB o nazwie `covid`
 * Załadowano dwa kontenery Azure Cosmos DB o nazwach `EcdcCases` i `Cord19` z powyższymi przykładowymi zestawami danych.
 
 ## <a name="explore-azure-cosmos-db-data-with-automatic-schema-inference"></a>Eksplorowanie danych Azure Cosmos DB z automatycznym wnioskami o schemacie
 
-Najprostszym sposobem eksplorowania danych w Azure Cosmos DB jest wykorzystanie funkcji automatycznego wnioskowania schematu. Pomijając `WITH` klauzulę z `OPENROWSET` instrukcji, można NAkazać programowi SQL Server bezobsługowe wykrywanie (wnioskowanie) schematu magazynu analitycznego kontenera Azure Cosmos DB.
+Najprostszym sposobem eksplorowania danych w Azure Cosmos DB jest wykorzystanie funkcji automatycznego wnioskowania schematu. Pomijając `WITH` klauzulę z `OPENROWSET` instrukcji, można poinstruować bezserwerowe pule SQL, aby automatycznie wykrywać (wnioskować) schemat magazynu analitycznego kontenera Azure Cosmos DB.
 
 ```sql
 SELECT TOP 10 *
@@ -73,7 +73,7 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-W powyższym przykładzie Instruujemy bezserwerowy SQL, aby połączyć się z `covid` bazą danych w ramach konta usługi Azure Cosmos DB `MyCosmosDbAccount` uwierzytelnionego przy użyciu klucza Azure Cosmos dB (fikcyjny w powyższym przykładzie). Następnie uzyskujemy dostęp do `EcdcCases` magazynu analitycznego kontenera w `West US 2` regionie. Ponieważ nie ma projekcji określonych właściwości, `OPENROWSET` funkcja zwróci wszystkie właściwości z Azure Cosmos DB elementów.
+W powyższym przykładzie poinstruujemy bezserwerową pulę SQL, aby połączyć się z `covid` bazą danych w ramach konta usługi Azure Cosmos DB `MyCosmosDbAccount` uwierzytelnionego przy użyciu klucza Azure Cosmos dB (fikcyjny w powyższym przykładzie). Następnie uzyskujemy dostęp do `EcdcCases` magazynu analitycznego kontenera w `West US 2` regionie. Ponieważ nie ma projekcji określonych właściwości, `OPENROWSET` funkcja zwróci wszystkie właściwości z Azure Cosmos DB elementów.
 
 Jeśli zachodzi potrzeba eksplorowania danych z innego kontenera w tej samej bazie danych Azure Cosmos DB, można użyć tych samych parametrów połączenia i odwołania do kontenera jako trzeci parametr:
 
@@ -120,7 +120,7 @@ Przejrzyj [reguły mapowania typu SQL](#azure-cosmos-db-to-sql-type-mappings) na
 
 ## <a name="querying-nested-objects-and-arrays"></a>Wykonywanie zapytań względem zagnieżdżonych obiektów i tablic
 
-Azure Cosmos DB pozwala reprezentować bardziej złożone modele danych przez złożenie ich jako obiektów zagnieżdżonych lub tablic. AutoSync funkcja linku Synapse dla Azure Cosmos DB zarządza reprezentacją schematu w magazynie analitycznym, który obejmuje obsługę zagnieżdżonych typów danych, co pozwala na wykonywanie bogatych zapytań z programu SQL Server.
+Azure Cosmos DB pozwala reprezentować bardziej złożone modele danych przez złożenie ich jako obiektów zagnieżdżonych lub tablic. AutoSync funkcja linku Synapse dla Azure Cosmos DB zarządza reprezentacją schematu w magazynie analitycznym, który obejmuje obsługę zagnieżdżonych typów danych umożliwiających wykonywanie bogatych zapytań z puli SQL bezserwerowej.
 
 Na przykład zestaw danych z [przewodu-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) zawiera dokumenty JSON następujące po następującej strukturze:
 
@@ -172,7 +172,7 @@ FROM
     ) AS docs;
 ```
 
-Dowiedz się więcej o analizowaniu [złożonych typów danych w linków Synapse](../how-to-analyze-complex-schema.md) i [zagnieżdżonych strukturach w programie SQL Server](query-parquet-nested-types.md).
+Dowiedz się więcej o analizowaniu [złożonych typów danych w linków Synapse](../how-to-analyze-complex-schema.md) i [zagnieżdżonych strukturach w puli SQL bezserwerowej](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
 > Jeśli zobaczysz nieoczekiwane znaki w tekście `MÃƒÂ©lade` , na przykład zamiast `Mélade` sortowania bazy danych nie jest ustawiony na sortowanie [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) . 
@@ -181,7 +181,7 @@ Dowiedz się więcej o analizowaniu [złożonych typów danych w linków Synapse
 
 ## <a name="flattening-nested-arrays"></a>Spłaszczanie tablic zagnieżdżonych
 
-Azure Cosmos DB dane mogą mieć zagnieżdżone tablice podrzędne, takie jak tablica autora, z zestawu danych [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
+Azure Cosmos DB dane mogą mieć zagnieżdżone podtablice, takie jak tablica autora, z zestawu danych [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
 
 ```json
 {
@@ -203,7 +203,7 @@ Azure Cosmos DB dane mogą mieć zagnieżdżone tablice podrzędne, takie jak ta
 }
 ```
 
-W niektórych przypadkach może być konieczne "dołączenie" właściwości z górnego elementu (metadane) do wszystkich elementów tablicy (autorów). Program SQL Server bezserwerowy umożliwia spłaszczonie zagnieżdżonych struktur przez zastosowanie `OPENJSON` funkcji w tablicy zagnieżdżonej:
+W niektórych przypadkach może być konieczne "dołączenie" właściwości z górnego elementu (metadane) do wszystkich elementów tablicy (autorów). Pula SQL bezserwerowa umożliwia spłaszczonie zagnieżdżonych struktur, stosując `OPENJSON` funkcję w tablicy zagnieżdżonej:
 
 ```sql
 SELECT
@@ -238,7 +238,7 @@ Dodatkowe informacje o epidemiach ekonomicznych... | `[{"first":"Nicolas","last"
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Azure Cosmos DB z mapowaniami typów SQL
 
-Należy najpierw pamiętać, że podczas Azure Cosmos DB magazynem transakcyjnym jest schemat niezależny od, magazyn analityczny jest schematized do optymalizacji pod kątem wydajności zapytań analitycznych. Dzięki funkcji AutoSync linku Synapse Program Azure Cosmos DB zarządza reprezentacją schematu w magazynie analitycznym, który obejmuje obsługę zagnieżdżonych typów danych. Ponieważ zapytania bezserwerowe SQL są przechowywane w magazynie analitycznym, ważne jest, aby zrozumieć, jak mapować Azure Cosmos DB dane wejściowe do typów danych SQL.
+Należy najpierw pamiętać, że podczas Azure Cosmos DB magazynem transakcyjnym jest schemat niezależny od, magazyn analityczny jest schematized do optymalizacji pod kątem wydajności zapytań analitycznych. Dzięki funkcji AutoSync linku Synapse Program Azure Cosmos DB zarządza reprezentacją schematu w magazynie analitycznym, który obejmuje obsługę zagnieżdżonych typów danych. Ponieważ pula SQL bezserwerowa wysyła zapytanie do magazynu analitycznego, ważne jest, aby zrozumieć, jak mapować Azure Cosmos DB dane wejściowe do typów danych SQL.
 
 Konta Azure Cosmos DB interfejsu API języka SQL (rdzeń) obsługują typy właściwości JSON number, String, Boolean, null, zagnieżdżony obiekt lub Array. Jeśli używasz klauzuli w programie, musisz wybrać typy SQL zgodne z tymi typami JSON `WITH` `OPENROWSET` . Poniżej znajdują się typy kolumn SQL, które powinny być używane dla różnych typów właściwości w Azure Cosmos DB.
 
@@ -258,9 +258,9 @@ Aby uzyskać informacje na temat wykonywania zapytań dotyczących kont Azure Co
 ## <a name="known-issues"></a>Znane problemy
 
 - Alias **należy** określić po `OPENROWSET` funkcji (na przykład `OPENROWSET (...) AS function_alias` ). Pominięcie aliasu może spowodować problem z połączeniem i Synapse punkt końcowy SQL bez serwera może być tymczasowo niedostępny. Ten problem zostanie rozwiązany w lis 2020.
-- Synapse bezserwerowy SQL obecnie nie obsługuje [Azure Cosmos DB schematu pełnej wierności](../../cosmos-db/analytical-store-introduction.md#schema-representation). Używaj bezserwerowego SQL Synapse wyłącznie do dostępu do zdefiniowanego schematu Cosmos DB.
+- Bezserwerowa Pula SQL nie obsługuje obecnie [Azure Cosmos DB schematu pełnej wierności](../../cosmos-db/analytical-store-introduction.md#schema-representation). Użyj bezserwerowej puli SQL tylko w celu uzyskania dostępu do dobrze zdefiniowanego schematu Cosmos DB.
 
-Lista możliwych błędów i akcji rozwiązywania problemów znajduje się w poniższej tabeli:
+Możliwe błędy i akcje rozwiązywania problemów są wymienione w poniższej tabeli:
 
 | Błąd | Główna przyczyna |
 | --- | --- |

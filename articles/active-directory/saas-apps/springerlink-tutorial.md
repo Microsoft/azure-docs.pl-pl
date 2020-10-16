@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a203bbd65c07d21c7d96b59c57b441748ed5b9a9
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372514"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127562"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Samouczek: integracja Azure Active Directory z linkiem Springer
 
@@ -97,7 +97,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu linku Spr
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje dotyczące logowania jednokrotnego w domenie i adresach URL Springer](common/idp-relay.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-relay.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL: `https://fsso.springer.com`
 
@@ -109,7 +109,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu linku Spr
 
 5. Jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** , wykonaj następujące czynności:
 
-    ![Informacje dotyczące logowania jednokrotnego w domenie i adresach URL Springer](common/both-signonurl.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/both-signonurl.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 
@@ -147,7 +147,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

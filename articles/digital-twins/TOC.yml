@@ -37,6 +37,8 @@
       href: concepts-route-events.md
     - name: Zabezpieczenia rozwiązań usługi Azure Digital Twins
       href: concepts-security.md
+    - name: Wysoka dostępność i odzyskiwanie po awarii
+      href: concepts-high-availability-disaster-recovery.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wdrażanie
@@ -199,7 +201,7 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Przykład integracji usług DPS i IoT Hub
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
-        - name: Niestandardowe struktury Swagger usługi Azure Digital Twins
+        - name: Niestandardowe struktury Swagger usługi Azure Digital Twins dla łącznika usługi Logic Apps
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: Przykład integracji z usługą SignalR
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/

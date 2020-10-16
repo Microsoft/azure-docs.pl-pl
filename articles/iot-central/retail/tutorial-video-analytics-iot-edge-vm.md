@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873282"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127032"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (maszyna wirtualna z systemem Linux)
 
@@ -64,7 +64,7 @@ Skorzystaj z informacji podanych w poniższej tabeli, aby ukończyć formularz *
 | Ubuntu wersja systemu operacyjnego | *18,04 – LTS* |
 | Lokalizacja | *[resourceing (). Location]* |
 
-Wybierz pozycję **Przeglądanie + tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Ukończenie wdrożenia zazwyczaj trwa około trzy minuty. Po zakończeniu wdrażania przejdź do grupy zasobów **LVA-RG** w Azure Portal.
+Wybierz pozycję **Przejrzyj i utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Ukończenie wdrożenia zazwyczaj trwa około trzy minuty. Po zakończeniu wdrażania przejdź do grupy zasobów **LVA-RG** w Azure Portal.
 
 ## <a name="ensure-the-iot-edge-runtime-loads-the-modules"></a>Upewnij się, że środowisko uruchomieniowe IoT Edge ładuje moduły
 
@@ -94,7 +94,7 @@ Wdrożenie skonfigurował następujące pięć modułów IoT Edge do uruchomieni
 
 Wdrożenie spowodowało utworzenie niestandardowego środowiska IoT Edge z modułami wymaganymi do analizy wideo na żywo. Wdrożenie zaktualizował domyślną **konfigurację. YAML** , aby upewnić się, że środowisko uruchomieniowe IoT Edge używało usługi IoT Device Provisioning do nawiązywania połączenia z IoT Central. Wdrożenie spowodowało również utworzenie pliku o nazwie **state.js** w folderze **/Data/Storage** w celu zapewnienia dodatkowych danych konfiguracyjnych dla modułów. Aby uzyskać więcej informacji, zobacz samouczek [Tworzenie wystąpienia IoT Edge dla usługi Video Analytics (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md) .
 
-Aby rozwiązać problem z urządzeniem IoT Edge, zobacz [Rozwiązywanie problemów z urządzeniem IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+Aby rozwiązać problem z urządzeniem IoT Edge, zobacz [Rozwiązywanie problemów z urządzeniem IoT Edge](../../iot-edge/troubleshoot.md)
 
 ## <a name="use-the-rtsp-simulator"></a>Korzystanie z symulatora RTSP
 

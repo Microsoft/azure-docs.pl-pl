@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ee2eb7586489527272d92dd1eaef6976bc41f94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532983f2df6689f840b71673ede3fd86842c1d22
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524834"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Samouczek: integracja Azure Active Directory z usługą StatusPage
 
@@ -138,17 +138,17 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą StatusPage,
 
 1. Na głównym pasku narzędzi kliknij pozycję **Zarządzaj kontem**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Zrzut ekranu przedstawia konto zarządzania wybrane z witryny firmy StatusPage.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Kliknij kartę **Logowanie** jednokrotne.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/statuspage-tutorial/tutorial_statuspage_07.png)
+    ![Zrzut ekranu przedstawia kartę Logowanie jednokrotne.](./media/statuspage-tutorial/tutorial_statuspage_07.png)
 
 1. Na stronie Konfiguracja logowania jednokrotnego wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/statuspage-tutorial/tutorial_statuspage_08.png)
+    ![Zrzut ekranu przedstawia stronę instalatora S-O, na której można wprowadzić podane wartości.](./media/statuspage-tutorial/tutorial_statuspage_08.png)
 
-    ![Konfigurowanie logowania jednokrotnego](./media/statuspage-tutorial/tutorial_statuspage_09.png)
+    ![Zrzut ekranu przedstawia przycisk Zapisz konfigurację.](./media/statuspage-tutorial/tutorial_statuspage_09.png)
 
     a. W polu tekstowym **adres URL elementu docelowego logowania jednokrotnego** wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
 
@@ -179,7 +179,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -219,19 +219,19 @@ StatusPage obsługuje Inicjowanie obsługi just-in-Time. Włączono już ją w o
 
 1. W menu u góry kliknij pozycję **Zarządzaj kontem**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Zrzut ekranu przedstawia konto zarządzania wybrane z witryny firmy StatusPage.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Kliknij kartę **członkowie zespołu** .
   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
+    ![Zrzut ekranu przedstawia kartę Członkowie zespołu.](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
 
 1. Kliknij pozycję **Dodaj członka zespołu**.
   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
+    ![Zrzut ekranu przedstawia przycisk Dodaj członka zespołu.](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
 1. Wpisz **adres e-mail**, **imię**i **nazwisko** poprawnego użytkownika, który chcesz udostępnić do powiązanych pól tekstowych. 
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
+    ![Zrzut ekranu przedstawia okno dialogowe Dodawanie użytkownika, w którym można wprowadzić podane wartości.](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 
 1. Jako **rolę**wybierz pozycję **administrator klienta**.
 

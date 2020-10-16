@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ffecd09d1084188195da83568ab3fe32ef2cdaac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3ef4790f9f7a3b3488dade9312203de41be1ff75
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90972232"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122155"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architektura ciągłego monitorowania pacjenta
 
@@ -33,11 +33,11 @@ Wiele noszenia medycznych używanych w ramach rozwiązań do ochrony zdrowia IoT
 
 ### <a name="mobile-phone-gateway"></a>Brama telefonu komórkowego
 
-Podstawowa funkcja aplikacji telefonu komórkowego polega na zbieraniu danych z urządzeń medycznych i przekazywaniu ich do IoT Central. Aplikacja poprowadzi także przez proces konfiguracji urządzeń i pozwala na wyświetlanie ich osobistych danych o kondycji. Inne rozwiązania mogą korzystać z bramy typu tablet lub bramy statycznej w pokoju szpitala. Przykładowa aplikacja mobilna typu "open source" jest dostępna dla systemów Android i iOS do użycia jako punkt wyjścia do tworzenia aplikacji. Aby dowiedzieć się więcej, zobacz [IoT Central ciągłe monitorowanie aplikacji mobilnej](https://docs.microsoft.com/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
+Podstawowa funkcja aplikacji telefonu komórkowego polega na zbieraniu danych z urządzeń medycznych i przekazywaniu ich do IoT Central. Aplikacja poprowadzi także przez proces konfiguracji urządzeń i pozwala na wyświetlanie ich osobistych danych o kondycji. Inne rozwiązania mogą korzystać z bramy typu tablet lub bramy statycznej w pokoju szpitala. Przykładowa aplikacja mobilna typu "open source" jest dostępna dla systemów Android i iOS do użycia jako punkt wyjścia do tworzenia aplikacji. Aby dowiedzieć się więcej, zobacz [IoT Central ciągłe monitorowanie aplikacji mobilnej](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Eksportuj do interfejsu API platformy Azure dla usługi FHIR&reg;
 
-Usługa Azure IoT Central jest zgodna z certyfikatami HIPAA i HITRUST &reg; . Dane kondycji pacjenta można także wysyłać do innych usług przy użyciu [interfejsu API platformy Azure dla usługi FHIR](../../healthcare-apis/overview.md). Azure API for FHIR to oparty na standardach interfejs API służący do danych klinicznych kondycji. [Łącznik usługi Azure IoT dla programu FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-fhir-portal-quickstart) umożliwia korzystanie z interfejsu API platformy Azure dla FHIR jako stałego miejsca docelowego eksportu danych z IoT Central.
+Usługa Azure IoT Central jest zgodna z certyfikatami HIPAA i HITRUST &reg; . Dane kondycji pacjenta można także wysyłać do innych usług przy użyciu [interfejsu API platformy Azure dla usługi FHIR](../../healthcare-apis/overview.md). Azure API for FHIR to oparty na standardach interfejs API służący do danych klinicznych kondycji. [Łącznik usługi Azure IoT dla programu FHIR](../../healthcare-apis/iot-fhir-portal-quickstart.md) umożliwia korzystanie z interfejsu API platformy Azure dla FHIR jako stałego miejsca docelowego eksportu danych z IoT Central.
 
 ### <a name="machine-learning"></a>Uczenie maszynowe
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 485e55d7a17027fa8b8ec1f313a326ddbc5f40eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0051deeef467fda93ca5e13221d391a15133403
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545201"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Samouczek: integracja Azure Active Directory z Płatą śniegu
 
@@ -100,7 +100,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Snowflake
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie **dostawcy tożsamości** zainicjowany:
 
-    ![Domena i adresy URL aplikacji Snowflake — informacje dotyczące logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
@@ -108,7 +108,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Snowflake
 
     c. Kliknij przycisk **Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowania przez dostawcę usług:
 
-    ![Domena i adresy URL aplikacji Snowflake — informacje dotyczące logowania jednokrotnego](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
     
@@ -180,7 +180,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

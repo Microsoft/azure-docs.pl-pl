@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80365513"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122981"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Zarządzanie użytkownikami i rolami w aplikacji IoT Central
 
@@ -25,7 +25,7 @@ Aby uzyskać dostęp do sekcji **Administracja** i korzystać z niej, musisz mie
 
 Każdy użytkownik musi mieć konto użytkownika, aby można było zalogować się i uzyskać dostęp do aplikacji IoT Central platformy Azure. Konta Microsoft i konta Azure Active Directory są obsługiwane w usłudze Azure IoT Central. Grupy Azure Active Directory nie są obecnie obsługiwane w usłudze Azure IoT Central.
 
-Aby uzyskać więcej informacji, zobacz [konto Microsoft pomocy](https://support.microsoft.com/products/microsoft-account?category=manage-account) i  [szybkiego startu: Dodawanie nowych użytkowników do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Aby uzyskać więcej informacji, zobacz [konto Microsoft pomocy](https://support.microsoft.com/products/microsoft-account?category=manage-account) i  [szybkiego startu: Dodawanie nowych użytkowników do Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. Aby dodać użytkownika do aplikacji IoT Central, przejdź do strony **Użytkownicy** w sekcji **Administracja** .
     
@@ -106,7 +106,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | Widok | Brak <br/> Inne zależności: wyświetlanie szablonów urządzeń i grup urządzeń |
 | Aktualizacja | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń i grup urządzeń  |
 | Utwórz | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń i grup urządzeń  |
-| Usuwanie | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń i grup urządzeń  |
+| Usuń | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń i grup urządzeń  |
 | Wykonaj polecenia | Aktualizuj, Wyświetl <br/> Inne zależności: wyświetlanie szablonów urządzeń i grup urządzeń  |
 | Pełna kontrola | Wyświetlanie, aktualizowanie, tworzenie, usuwanie, wykonywanie poleceń <br/> Inne zależności: wyświetlanie szablonów urządzeń i grup urządzeń  |
 
@@ -117,7 +117,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | Widok | Brak <br/> Inne zależności: wyświetlanie szablonów urządzeń i wystąpień urządzeń |
 | Aktualizacja | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń i wystąpień urządzeń   |
 | Utwórz | Wyświetl, Aktualizuj <br/> Inne zależności: wyświetlanie szablonów urządzeń i wystąpień urządzeń   |
-| Usuwanie | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń i wystąpień urządzeń   |
+| Usuń | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń i wystąpień urządzeń   |
 | Pełna kontrola | Wyświetlanie, aktualizowanie, tworzenie i usuwanie <br/> Inne zależności: wyświetlanie szablonów urządzeń i wystąpień urządzeń |
 
 **Uprawnienia do zarządzania łącznością urządzeń**
@@ -137,7 +137,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | Widok | Brak <br/> Inne zależności: wyświetlanie szablonów urządzeń, wystąpień urządzeń i grup urządzeń |
 | Aktualizacja | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń, wystąpień urządzeń i grup urządzeń |
 | Utwórz | Wyświetl, Aktualizuj <br/> Inne zależności: wyświetlanie szablonów urządzeń, wystąpień urządzeń i grup urządzeń |
-| Usuwanie | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń, wystąpień urządzeń i grup urządzeń |
+| Usuń | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń, wystąpień urządzeń i grup urządzeń |
 | Wykonaj polecenie | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń, wystąpień urządzeń i grup urządzeń; Aktualizowanie wystąpień urządzenia; Wykonywanie poleceń w wystąpieniach urządzeń |
 | Pełna kontrola | Wyświetlanie, aktualizowanie, tworzenie, usuwanie, wykonywanie <br/> Inne zależności: wyświetlanie szablonów urządzeń, wystąpień urządzeń i grup urządzeń; Aktualizowanie wystąpień urządzenia; Wykonywanie poleceń w wystąpieniach urządzeń |
 
@@ -148,7 +148,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | Widok | Brak <br/> Inne zależności: wyświetlanie szablonów urządzeń |
 | Aktualizacja | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń |
 | Utwórz | Wyświetl, Aktualizuj <br/> Inne zależności: wyświetlanie szablonów urządzeń |
-| Usuwanie | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń |
+| Usuń | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń |
 | Pełna kontrola | Wyświetlanie, aktualizowanie, tworzenie i usuwanie <br/> Inne zależności: wyświetlanie szablonów urządzeń |
 
 #### <a name="managing-the-app"></a>Zarządzanie aplikacją
@@ -160,7 +160,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | Widok | Brak     |
 | Aktualizacja | Widok   |
 | Kopiuj | Widok <br/> Inne zależności: wyświetlanie szablonów urządzeń, wystąpień urządzeń, grup urządzeń, pulpitów nawigacyjnych, eksportowanie danych, znakowanie, linki pomocy, role niestandardowe i reguły |
-| Usuwanie | Widok   |
+| Usuń | Widok   |
 | Pełna kontrola | Wyświetlanie, aktualizowanie, kopiowanie, usuwanie <br/> Inne zależności: wyświetlanie szablonów urządzeń, grup urządzeń, pulpitów nawigacyjnych aplikacji, eksportowanie danych, znakowanie, linki pomocy, role niestandardowe i reguły |
 
 **Uprawnienia eksportowania szablonu aplikacji**
@@ -187,7 +187,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | Widok | Brak |
 | Aktualizacja | Widok |
 | Utwórz | Wyświetl, Aktualizuj |
-| Usuwanie | Widok |
+| Usuń | Widok |
 | Pełna kontrola | Wyświetlanie, aktualizowanie, tworzenie i usuwanie |
 
 **Uprawnienia do zarządzania użytkownikami**
@@ -196,7 +196,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | ---- | -------- |
 | Widok | Brak <br/> Inne zależności: Wyświetlanie ról niestandardowych |
 | Dodaj | Widok <br/> Inne zależności: Wyświetlanie ról niestandardowych |
-| Usuwanie | Widok <br/> Inne zależności: Wyświetlanie ról niestandardowych |
+| Usuń | Widok <br/> Inne zależności: Wyświetlanie ról niestandardowych |
 | Pełna kontrola | Wyświetlanie, Dodawanie, usuwanie <br/> Inne zależności: Wyświetlanie ról niestandardowych |
 
 > [!NOTE]
@@ -211,7 +211,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | Widok | Brak     |
 | Aktualizacja | Widok   |
 | Utwórz | Wyświetl, Aktualizuj |
-| Usuwanie | Widok   |
+| Usuń | Widok   |
 | Pełna kontrola | Wyświetlanie, aktualizowanie, tworzenie i usuwanie |
 
 **Osobiste uprawnienia pulpitów nawigacyjnych**
@@ -221,7 +221,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | Widok | Brak     |
 | Aktualizacja | Widok   |
 | Utwórz | Wyświetl, Aktualizuj   |
-| Usuwanie | Widok   |
+| Usuń | Widok   |
 | Pełna kontrola | Wyświetlanie, aktualizowanie, tworzenie i usuwanie |
 
 **Uprawnienia do znakowania, favicon i kolorów**
@@ -249,7 +249,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | Widok | Brak     |
 | Aktualizacja | Widok   |
 | Utwórz | Wyświetl, Aktualizuj  |
-| Usuwanie | Widok   |
+| Usuń | Widok   |
 | Pełna kontrola | Wyświetlanie, aktualizowanie, tworzenie i usuwanie |
 
 **Uprawnienia tokenu interfejsu API**
@@ -258,7 +258,7 @@ Podczas definiowania roli niestandardowej należy wybrać zestaw uprawnień, kt�
 | ---- | -------- |
 | Widok | Brak     |
 | Utwórz | Widok   |
-| Usuwanie | Widok   |
+| Usuń | Widok   |
 | Pełna kontrola | Wyświetlanie, tworzenie, usuwanie |
 
 ## <a name="next-steps"></a>Następne kroki

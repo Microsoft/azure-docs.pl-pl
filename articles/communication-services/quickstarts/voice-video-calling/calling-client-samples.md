@@ -10,18 +10,18 @@ ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 9a70cfe3c9ced2d22fcb50224d991e34c516a04c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e5b0e88c4a84e27d662b2f2c4b39b14538af92a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940070"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126806"
 ---
 # <a name="quickstart-use-the-communication-services-calling-client-library"></a>Szybki Start: korzystanie z biblioteki klienta wywołującego usługi komunikacyjne
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta wywołującego usługi komunikacyjne w celu dodania głosu i wideo do aplikacji. 
+Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta wywołującego usługi komunikacyjne w celu dodania głosu i wideo do aplikacji.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/calling-sdk-js.md)]

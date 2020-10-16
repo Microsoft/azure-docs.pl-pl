@@ -3,18 +3,18 @@ title: Wdrażanie aplikacji .NET w kontenerze na platformie Azure Service Fabric
 description: Dowiedz się, jak konteneryzować istniejącą aplikację platformy .NET przy użyciu programu Visual Studio i jak debugować kontenery lokalnie w usłudze Service Fabric. Konteneryzowana aplikacja jest wypychana do usługi Azure Container Registry i wdrażana w klastrze usługi Service Fabric. Po wdrożeniu na platformie Azure aplikacja utrwala dane za pomocą usługi Azure SQL DB.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: b841591bb200bca7edbde24744c5b47302816ea0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2e44db9bc813b346493b4d23b9f48b279e245b3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91817639"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122067"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Samouczek: wdrażanie aplikacji .NET w kontenerze systemu Windows w usłudze Azure Service Fabric
 
 W tym samouczku przedstawiono sposób konteneryzacji istniejącej aplikacji ASP.NET i tworzenia z niej pakietu będącego aplikacją usługi Service Fabric.  Uruchom kontenery lokalnie w klastrze programistycznym usługi Service Fabric, a następnie wdróż aplikację na platformie Azure.  Aplikacja będzie utrwalać dane w usłudze [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -157,7 +157,7 @@ Podczas tworzenia klastra:
 
 1. Kliknij prawym przyciskiem myszy projekt aplikacji **FabrikamFiber.CallCenterApplication** w Eksploratorze rozwiązań i wybierz polecenie **Publikuj**.
 2. Zaloguj się przy użyciu konta platformy Azure, aby uzyskać dostęp do subskrypcji.
-3. Wybierz listę rozwijaną **Punkt końcowy połączenia**, a następnie wybierz polecenie **Utwórz nowy klaster...**.
+3. Pod listą rozwijaną **punktu końcowego połączenia**wybierz opcję **Utwórz nowy klaster...** .
 4. W oknie dialogowym **Tworzenie klastra** zmodyfikuj następujące ustawienia:
 
     a. Określ nazwę klastra w polu **Nazwa klastra**, a także subskrypcję i lokalizację, których chcesz użyć. Zanotuj nazwę grupy zasobów klastra.

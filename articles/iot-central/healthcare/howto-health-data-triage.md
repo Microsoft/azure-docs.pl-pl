@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497050"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127084"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Samouczek: tworzenie pulpitu nawigacyjnego dostawcy Power BI
 
@@ -29,7 +29,7 @@ Podstawowa architektura będzie zgodna z tą strukturą:
 >[!div class="mx-imgBorder"] 
 >![Pulpit nawigacyjny Klasyfikacja dostawcy](media/dashboard-architecture.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Eksportowanie danych z usługi Azure IoT Central do platformy Azure Event Hubs
@@ -44,14 +44,14 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 * Szablon aplikacji do monitorowania ciągłego pacjenta platformy Azure IoT Central. Jeśli jeszcze tego nie zrobiono, możesz wykonać kroki, aby [wdrożyć szablon aplikacji](overview-iot-central-healthcare.md).
 
-* [Przestrzeń nazw i centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)usługi Azure Event Hubs.
+* [Przestrzeń nazw i centrum zdarzeń](../../event-hubs/event-hubs-create.md)usługi Azure Event Hubs.
 
-* Aplikacja logiki, do której chcesz uzyskać dostęp do centrum zdarzeń. Aby uruchomić aplikację logiki przy użyciu wyzwalacza usługi Azure Event Hubs, musisz mieć [pustą aplikację logiki](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow).
+* Aplikacja logiki, do której chcesz uzyskać dostęp do centrum zdarzeń. Aby uruchomić aplikację logiki przy użyciu wyzwalacza usługi Azure Event Hubs, musisz mieć [pustą aplikację logiki](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Konto usługa Power BI. Jeśli jeszcze tego nie zrobiono, możesz [utworzyć bezpłatne konto wersji próbnej dla usługa Power BI](https://app.powerbi.com/). Jeśli Power BI nie były używane wcześniej, może być pomocne przechodzenie do [Power BI](https://docs.microsoft.com/power-bi/service-get-started).
+* Konto usługa Power BI. Jeśli jeszcze tego nie zrobiono, możesz [utworzyć bezpłatne konto wersji próbnej dla usługa Power BI](https://app.powerbi.com/). Jeśli Power BI nie były używane wcześniej, może być pomocne przechodzenie do [Power BI](/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Konfigurowanie ciągłego eksportowania danych do usługi Azure Event Hubs
-Najpierw musisz skonfigurować ciągły eksport danych z szablonu aplikacji platformy Azure IoT Central do centrum zdarzeń platformy Azure w ramach subskrypcji. Możesz to zrobić, wykonując kroki opisane w tym samouczku IoT Central platformy Azure, aby [wyeksportować do Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data). Na potrzeby tego samouczka należy tylko wyeksportować dane telemetryczne.
+Najpierw musisz skonfigurować ciągły eksport danych z szablonu aplikacji platformy Azure IoT Central do centrum zdarzeń platformy Azure w ramach subskrypcji. Możesz to zrobić, wykonując kroki opisane w tym samouczku IoT Central platformy Azure, aby [wyeksportować do Event Hubs](../core/howto-export-data.md). Na potrzeby tego samouczka należy tylko wyeksportować dane telemetryczne.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Tworzenie zestawu danych przesyłania strumieniowego Power BI
 
@@ -72,10 +72,10 @@ Najpierw musisz skonfigurować ciągły eksport danych z szablonu aplikacji plat
     >[!div class="mx-imgBorder"] 
     >![Wprowadzanie wartości zestawu danych](media/enter-dataset-values.png)
 
-Aby dowiedzieć się więcej o zestawach danych przesyłania strumieniowego w Power BI, można odczytać ten dokument w usłudze [przesyłania strumieniowego w czasie rzeczywistym w Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
+Aby dowiedzieć się więcej o zestawach danych przesyłania strumieniowego w Power BI, można odczytać ten dokument w usłudze [przesyłania strumieniowego w czasie rzeczywistym w Power BI](/power-bi/service-real-time-streaming).
 
 ## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Łączenie aplikacji logiki z usługą Azure Event Hubs
-Aby połączyć aplikację logiki z usługą Azure Event Hubs, możesz postępować zgodnie z instrukcjami przedstawionymi w tym dokumencie na temat [wysyłania zdarzeń za pomocą usługi azure Event Hubs i Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Oto kilka sugerowanych parametrów:
+Aby połączyć aplikację logiki z usługą Azure Event Hubs, możesz postępować zgodnie z instrukcjami przedstawionymi w tym dokumencie na temat [wysyłania zdarzeń za pomocą usługi azure Event Hubs i Azure Logic Apps](../../connectors/connectors-create-api-azure-event-hubs.md#add-event-hubs-action). Oto kilka sugerowanych parametrów:
 
 |Parametr|Wartość|
 |---|---|
@@ -91,7 +91,7 @@ Po zakończeniu tego kroku projektant aplikacji logiki powinien wyglądać nast�
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Przesyłanie strumieniowe danych do Power BI z aplikacji logiki
 Następnym krokiem będzie przeanalizować dane pochodzące z centrum zdarzeń w celu przesyłania strumieniowego do utworzonych wcześniej zestawów danych Power BI.
 
-1. Zanim będzie to możliwe, należy zrozumieć ładunek JSON, który jest wysyłany z urządzenia do centrum zdarzeń. Można to zrobić przez przejrzenie tego [przykładowego schematu](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) i zmodyfikowanie go w celu dopasowania go do schematu lub przy użyciu [Eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) do inspekcji komunikatów. Jeśli używasz aplikacji do monitorowania ciągłego pacjenta, komunikaty będą wyglądać następująco:
+1. Zanim będzie to możliwe, należy zrozumieć ładunek JSON, który jest wysyłany z urządzenia do centrum zdarzeń. Można to zrobić przez przejrzenie tego [przykładowego schematu](../core/howto-export-data.md#telemetry-format) i zmodyfikowanie go w celu dopasowania go do schematu lub przy użyciu [Eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) do inspekcji komunikatów. Jeśli używasz aplikacji do monitorowania ciągłego pacjenta, komunikaty będą wyglądać następująco:
 
 **Dane telemetryczne poprawek inteligentnych**
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 1454be235c98e5348d1b57028d988252191ad270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c522ae70314a5f9bf691e935f1f171cd66c938b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528050"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122385"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SKYSITE
 
@@ -88,21 +88,21 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja SKYSITE oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika z wybraną ikoną Edytuj.](common/edit-attribute.png)
 
 1. Oprócz powyższych, aplikacja SKYSITE oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML. W sekcji **atrybuty użytkownika & oświadczenia** w oknie dialogowym **oświadczenia grupy (wersja zapoznawcza)** wykonaj następujące czynności:
 
     a. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
 
-    ![image (obraz)](./media/skysite-tutorial/config01.png)
+    ![Zrzut ekranu przedstawia oświadczenia użytkownika z opcją dodania nowego oświadczenia.](./media/skysite-tutorial/config01.png)
 
-    ![image (obraz)](./media/skysite-tutorial/config02.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Zarządzanie oświadczeniami użytkowników, w którym można wprowadzić podane wartości.](./media/skysite-tutorial/config02.png)
 
     b. Wybierz pozycję **wszystkie grupy** z listy radiowej.
 
     c. Wybierz **atrybut Source** **identyfikatora grupy**.
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -122,7 +122,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -148,17 +148,17 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Kliknij pozycję **Ustawienia** w prawym górnym rogu strony, a następnie przejdź do **Ustawienia konta**.
 
-    ![Konfiguracja](./media/skysite-tutorial/config03.png)
+    ![Zrzut ekranu przedstawia ustawienie konta wybrane z ustawień.](./media/skysite-tutorial/config03.png)
 
 5. Przejdź do karty Logowanie jednokrotne **(SSO)** , wykonaj następujące czynności:
 
-    ![Konfiguracja](./media/skysite-tutorial/config04.png)
+    ![Zrzut ekranu przedstawia kartę Logowanie jednokrotne, w której można wprowadzić podane wartości.](./media/skysite-tutorial/config04.png)
 
     a. W polu tekstowym **adres URL logowania dostawcy tożsamości** wklej wartość **adresu URL dostępu użytkownika**, która została skopiowana z karty **Właściwości** w Azure Portal.
 
     b. Kliknij przycisk **Przekaż certyfikat**, aby przekazać certyfikat szyfrowany algorytmem Base64, który został pobrany z Azure Portal.
 
-    c. Kliknij przycisk **Zapisz**.
+    c. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-skysite-test-user"></a>Utwórz użytkownika testowego SKYSITE
 
@@ -170,7 +170,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka SKYSITE w panelu dostępu należy automatycznie zalogować się do SKYSITE, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

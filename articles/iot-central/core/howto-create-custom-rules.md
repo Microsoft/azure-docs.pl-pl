@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 288fb5b552eab2029ea72f73a835fc73d97244b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c8272f736e2f83b4d33f3d61ce83356aa40e5d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018200"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126760"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Rozszerzanie usługi Azure IoT Central o niestandardowe reguły przy użyciu usług Stream Analytics, Azure Functions i SendGrid
 
-Ten przewodnik zawiera informacje o sposobie rozbudowywania aplikacji IoT Central przy użyciu niestandardowych reguł i powiadomień. W przykładzie pokazano Wysyłanie powiadomienia do operatora, gdy urządzenie przestanie wysyłać dane telemetryczne. Rozwiązanie używa zapytania [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) w celu wykrycia, kiedy urządzenie zatrzymało wysyłanie danych telemetrycznych. Zadanie Stream Analytics używa [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) do wysyłania powiadomień e-mail przy użyciu [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+Ten przewodnik zawiera informacje o sposobie rozbudowywania aplikacji IoT Central przy użyciu niestandardowych reguł i powiadomień. W przykładzie pokazano Wysyłanie powiadomienia do operatora, gdy urządzenie przestanie wysyłać dane telemetryczne. Rozwiązanie używa zapytania [Azure Stream Analytics](../../stream-analytics/index.yml) w celu wykrycia, kiedy urządzenie zatrzymało wysyłanie danych telemetrycznych. Zadanie Stream Analytics używa [Azure Functions](../../azure-functions/index.yml) do wysyłania powiadomień e-mail przy użyciu [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
 W tym przewodniku opisano sposób, w jaki można rozbudować IoT Central poza tym, co można już zrobić przy użyciu wbudowanych reguł i akcji.
 
@@ -319,14 +319,14 @@ W witrynie sieci Web programu [Azure IoT Central Application Manager](https://ak
     | Przestrzeń nazw usługi Event Hubs | Nazwa przestrzeni nazw Event Hubs |
     | Centrum zdarzeń | centralexport |
     | Miary | Włączone |
-    | Devices | Wyłączone |
+    | Urządzenia | Wyłączone |
     | Szablony urządzeń | Wyłączone |
 
 ![Ciągła konfiguracja eksportu danych](media/howto-create-custom-rules/cde-configuration.png)
 
 Przed kontynuowaniem Zaczekaj, aż stan eksportu zostanie **uruchomiony** .
 
-## <a name="test"></a>Testowanie
+## <a name="test"></a>Test
 
 W celu przetestowania rozwiązania można wyłączyć funkcję ciągłego eksportowania danych z IoT Central, aby symulować zatrzymane urządzenia:
 

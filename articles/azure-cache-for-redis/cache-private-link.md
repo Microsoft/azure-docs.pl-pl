@@ -5,13 +5,13 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 93a21b627acfb127c98ead465ebeadc8a472bdfd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838657"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122708"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (publiczna wersja zapoznawcza)
 W tym artykule dowiesz się, jak utworzyć sieć wirtualną i usługę Azure cache for Redis z prywatnym punktem końcowym przy użyciu Azure Portal. Dowiesz się również, jak dodać prywatny punkt końcowy do istniejącej usługi Azure cache for Redis.
@@ -21,8 +21,9 @@ Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy pr
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Aby używać prywatnych punktów końcowych, należy utworzyć wystąpienie usługi Azure cache for Redis po 28 lipca 2020.
+> Obecnie replikacja geograficzna, reguły zapory, obsługa konsoli portalu, wiele punktów końcowych dla klastrowanej pamięci podręcznej, trwałość do zapory oraz pamięć podręczna z wstrzykiwanymi sieciami nie są obsługiwane. 
 >
 >
 
@@ -109,6 +110,23 @@ Aby utworzyć wystąpienie pamięci podręcznej, wykonaj następujące kroki.
 
 Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd**usługi Azure cache for Redis   . Gdy **stan**   jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia. 
     
+> [!IMPORTANT]
+> 
+> Istnieje `publicNetworkAccess` Flaga, która jest `Enabled` domyślnie. 
+> Ta flaga służy do zezwalania na opcjonalne Zezwalanie na dostęp do pamięci podręcznej przez publiczny i prywatny punkt końcowy, jeśli jest ustawiony na `Enabled` . Jeśli jest ustawiona na `Disabled` , zezwala na dostęp tylko do prywatnego punktu końcowego. Możesz ustawić wartość na `Disabled` za pomocą następującego żądania patch.
+> ```http
+> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+> {    "properties": {
+>        "publicNetworkAccess":"Disabled"
+>    }
+> }
+> ```
+>
+
+> [!IMPORTANT]
+> 
+> Aby nawiązać połączenie z klastrowaną pamięcią podręczną, należy `publicNetworkAccess` ustawić wartość `Disabled` i mieć tylko jedno połączenie prywatnego punktu końcowego. 
+>
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Utwórz prywatny punkt końcowy z istniejącą usługą Azure cache for Redis 
 

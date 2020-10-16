@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 368c594352b59f7ec6d04b12ca44e0cd492dc907
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 99a038b23eb0978b6e1d8a65b061c2f744852def
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082140"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126805"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -143,8 +143,8 @@ Mobilne powiadomienia wypychane są wyskakującymi powiadomieniami wyświetlanym
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć tę sekcję, Utwórz konto Firebase i Włącz obsługę komunikatów w chmurze (FCM). Upewnij się, że obsługa komunikatów w chmurze Firebase jest połączona z wystąpieniem usługi Azure Notification Hub (ANH). Aby uzyskać instrukcje [, zobacz Łączenie Firebase z platformą Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) .
-W tej sekcji przyjęto również założenie, że używasz Android Studio w wersji 3,6 lub nowszej do kompilowania aplikacji.
+Konto Firebase jest skonfigurowane z włączoną obsługą usługi Cloud Messaging (FCM) oraz z usługą obsługi wiadomości w chmurze Firebase połączoną z wystąpieniem centrum powiadomień platformy Azure. Aby uzyskać więcej informacji, zobacz [powiadomienia usług komunikacyjnych](https://docs.microsoft.com/azure/communication-services/concepts/notifications) .
+Ponadto w samouczku założono, że używasz Android Studio w wersji 3,6 lub nowszej do kompilowania aplikacji.
 
 Zestaw uprawnień jest wymagany dla aplikacji systemu Android, aby można było odbierać komunikaty powiadomień z usługi Firebase Cloud Messaging. W `AndroidManifest.xml` pliku Dodaj następujący zestaw uprawnień bezpośrednio po * manifeście<... >* lub poniżej *</application>* tagu
 
@@ -195,21 +195,21 @@ Dodaj ten fragment kodu, aby pobrać token:
                     @Override
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
                         if (!task.isSuccessful()) {
-                            Log.w(TAG, "getInstanceId failed", task.getException());
+                            Log.w("PushNotification", "getInstanceId failed", task.getException());
                             return;
                         }
 
                         // Get new Instance ID token
                         String deviceToken = task.getResult().getToken();
                         // Log
-                        Log.d(TAG, "Device Registration token retrieved successfully");
+                        Log.d("PushNotification", "Device Registration token retrieved successfully");
                     }
                 });
 ```
 Zarejestruj token rejestracji urządzenia z biblioteką klienta usługi wywołującej dla przychodzących powiadomień wypychanych:
 
 ```java
-String deviceRegistrationToken = "some_token";
+String deviceRegistrationToken = "<Device Token from previous section>";
 try {
     callAgent.registerPushNotification(deviceRegistrationToken).get();
 }
@@ -226,16 +226,16 @@ Aby uzyskać ładunek z usługi Firebase Cloud Messaging, Zacznij od utworzenia 
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
-    private java.util.Map<String, String> pushNotificationMessageData;
+    private java.util.Map<String, String> pushNotificationMessageDataFromFCM;
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            Log.d("PushNotification", "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
         else {
-            pushNotificationMessageData = serializeDictionaryAsJson(remoteMessage.getData());
+            pushNotificationMessageDataFromFCM = remoteMessage.getData();
         }
     }
 }
@@ -252,10 +252,9 @@ Dodaj następującą definicję usługi do `AndroidManifest.xml` pliku, wewnątr
         </service>
 ```
 
-Po pobraniu ładunku można go przesłać do biblioteki klienta usług komunikacyjnych w celu obsługi przez wywołanie `handlePushNotification` metody w `CallAgent` wystąpieniu.
+- Po pobraniu ładunku można go przesłać do biblioteki klienta *usług komunikacyjnych* , aby można było je obsługiwać, wywołując metodę *HandlePushNotification* w wystąpieniu *CallAgent* . `CallAgent`Wystąpienie jest tworzone przez wywołanie `createCallAgent(...)` metody `CallClient` klasy.
 
 ```java
-java.util.Map<String, String> pushNotificationMessageDataFromFCM = remoteMessage.getData();
 try {
     callAgent.handlePushNotification(pushNotificationMessageDataFromFCM).get();
 }

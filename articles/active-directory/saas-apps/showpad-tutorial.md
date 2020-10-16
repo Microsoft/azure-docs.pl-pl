@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 613f42905c88da7669881dfcae7ae038341b2434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eeeb421104a09fe164c8bc93e47d7cf254a802e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548649"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Samouczek: integracja Azure Active Directory z usługą Showpad
 
@@ -129,15 +129,15 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Showpad, wy
 
 1. W menu u góry kliknij pozycję **Settings** (Ustawienia).
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/showpad-tutorial/tutorial_showpad_001.png)
+    ![Zrzut ekranu przedstawia ustawienia wybrane w menu Ustawienia.](./media/showpad-tutorial/tutorial_showpad_001.png)
 
 1. Przejdź do **logowania jednokrotnego** , a następnie kliknij pozycję **Włącz**.
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/showpad-tutorial/tutorial_showpad_002.png)
+    ![Zrzut ekranu przedstawia pojedynczy Sign-On wybrany z opcją enable.](./media/showpad-tutorial/tutorial_showpad_002.png)
 
 1. W oknie dialogowym **Dodawanie usługi SAML 2,0** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/showpad-tutorial/tutorial_showpad_003.png) 
+    ![Zrzut ekranu przedstawia okno dialogowe Dodawanie usługi SAML 2,0, w którym można wprowadzić podane wartości.](./media/showpad-tutorial/tutorial_showpad_003.png) 
 
     a. W polu tekstowym **Nazwa** wpisz nazwę dostawcy identyfikatora (na przykład: Nazwa firmy).
 
@@ -172,7 +172,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

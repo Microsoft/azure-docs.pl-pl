@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0c4b13c56a68205195bd5ad4b696d9e01786a8dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2afe53ade9106fa5e1ebb9ec43492a86bd9fc213
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77016548"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127322"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>Architektura referencyjna monitorowania jakości wody 
 
@@ -35,7 +35,7 @@ Przyjrzyjmy się kluczowym składnikom, które zwykle odgrywają część w rozw
 ## <a name="devices-and-connectivity"></a>Urządzenia i łączność 
 W tej sekcji odnosimy się do urządzeń używanych do monitorowania jakości wody lub monitorowania zużycia wody, zazwyczaj jako urządzeń inteligentnych. Urządzenia inteligentnej wody mogą być licznikami przepływów, monitorów jakości wody, inteligentne zawory, Detektory wycieków itd.
 
-Urządzenia używane w rozwiązaniach Smart wodna zwykle są połączone za pomocą sieci rozległych (LPWAN) z niską przepustowością przez operatora sieci innej firmy. W przypadku tych typów urządzeń można korzystać z [mostka urządzenia usługi azure IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) , aby wysyłać dane urządzenia do aplikacji IoT na platformie Azure IoT Central. Alternatywnie mogą istnieć bramy urządzeń z możliwością IP i mogą łączyć się bezpośrednio z IoT Central.
+Urządzenia używane w rozwiązaniach Smart wodna zwykle są połączone za pomocą sieci rozległych (LPWAN) z niską przepustowością przez operatora sieci innej firmy. W przypadku tych typów urządzeń można korzystać z [mostka urządzenia usługi azure IoT Central](../core/howto-build-iotc-device-bridge.md) , aby wysyłać dane urządzenia do aplikacji IoT na platformie Azure IoT Central. Alternatywnie mogą istnieć bramy urządzeń z możliwością IP i mogą łączyć się bezpośrednio z IoT Central.
 
 ## <a name="iot-central"></a>IoT Central 
 Azure IoT Central to platforma aplikacji IoT, która umożliwia szybkie rozpoczęcie pracy z rozwiązaniem IoT. Możesz Marka, dostosowywać i zintegrować rozwiązanie z usługami innych firm.
@@ -54,5 +54,4 @@ Dane IoT mogą służyć do zarządzania różnymi aplikacjami biznesowymi w ram
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak utworzyć IoT Central aplikacji do [monitorowania jakości wody](./tutorial-water-quality-monitoring.md)
 * Dowiedz się więcej na temat [IoT Central szablonów dla instytucji rządowych](./overview-iot-central-government.md)
-* Aby dowiedzieć się więcej na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
-
+* Aby dowiedzieć się więcej na temat IoT Central, zobacz [omówienie IoT Central](../core/overview-iot-central.md)

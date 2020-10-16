@@ -180,7 +180,7 @@
           href: basic-age-gating.md
         - name: Definiowanie atrybutów niestandardowych
           href: user-flow-custom-attributes.md
-        - name: Łączniki interfejsu API
+        - name: Łączniki interfejsu API (wersja zapoznawcza)
           items:
             - name: Omówienie
               href: api-connectors-overview.md

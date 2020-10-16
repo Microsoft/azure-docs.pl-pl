@@ -245,6 +245,12 @@
       href: ../../../site-recovery/site-recovery-workload.md#protect-sap
     - name: Grupy umieszczania w pobliżu na platformie Azure w celu zapewnienia optymalnego opóźnienia sieci dla aplikacji SAP
       href: sap-proximity-placement-scenarios.md
+- name: Platforma SAP BusinessObjects Business Intelligence na platformie Azure
+  items:
+    - name: Przewodnik planowania i implementacji platformy SAP BusinessObjects BI na platformie Azure
+      href: businessobjects-deployment-guide.md
+    - name: Przewodnik wdrażania platformy SAP BusinessObjects BI dla systemu Linux na platformie Azure
+      href: businessobjects-deployment-guide-linux.md
 - name: Integrowanie usługi Azure AD z aplikacjami SAP
   items:
     - name: Aprowizacja użytkowników z produktu SAP SuccessFactors w usłudze Active Directory

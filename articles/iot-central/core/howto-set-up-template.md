@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803793"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122657"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia IoT w aplikacji usługi Azure IoT Central
 
@@ -45,7 +45,7 @@ W aplikacji IoT Central szablon urządzenia używa modelu możliwości urządzen
 - Utwórz model możliwości urządzenia przy użyciu Visual Studio Code. Zaimplementuj swój kod urządzenia z modelu. Ręcznie zaimportuj model możliwości urządzenia do aplikacji IoT Central, a następnie Dodaj wszystkie właściwości, dostosowania i pulpity nawigacyjne, których potrzebuje aplikacja IoT Central.
 - Utwórz model możliwości urządzenia przy użyciu Visual Studio Code. Zaimplementuj swój kod urządzenia z modelu, a następnie połącz rzeczywiste urządzenie z aplikacją IoT Central przy użyciu połączenia urządzenia po raz pierwszy. IoT Central odnajduje i importuje model możliwości urządzenia z repozytorium publicznego. Następnie można dodać wszystkie właściwości, dostosowania i pulpity nawigacyjne, których aplikacja IoT Central musi być szablonem urządzenia.
 
-Możesz również dodać szablony urządzeń do aplikacji IoT Central przy użyciu [interfejsu API REST lub interfejs](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) [wiersza polecenia](howto-manage-iot-central-from-cli.md).
+Możesz również dodać szablony urządzeń do aplikacji IoT Central przy użyciu [interfejsu API REST lub interfejs](/learn/modules/manage-iot-central-apps-with-rest-api/) [wiersza polecenia](howto-manage-iot-central-from-cli.md).
 
 Niektóre [Szablony aplikacji](concepts-app-templates.md) zawierają już szablony urządzeń, które są przydatne w scenariuszu obsługiwanym przez szablon aplikacji. Na przykład zobacz temat [Architektura analizy w sklepie](../retail/store-analytics-architecture.md).
 

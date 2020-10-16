@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e0a11ef72698d749349cce8dd7eff73e5284a86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575575"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122470"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box (wersja zapoznawcza)
 
@@ -60,7 +60,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
    ![Tworzenie zasobu](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
    ![Utwórz Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
 
@@ -164,11 +164,11 @@ W przypadku wybrania opcji **Użyj pliku XML**można określić określone konte
 2. Wybierz pozycję **+ kontener** , aby utworzyć kontener.
     ![Zrzut ekranu przedstawiający sekcję Containers.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
-3. Na karcie **nowy kontener** , która znajduje się po prawej stronie Azure Portal, Dodaj nazwę kontenera. Nazwa musi zawierać małe litery i może zawierać cyfry i myślniki "-". Następnie w polu listy rozwijanej wybierz **poziom dostępu publicznego** . Zalecamy wybranie opcji **prywatny (dostęp nieanonimowy)** , aby uniemożliwić innym osobom dostęp do danych. Aby uzyskać więcej informacji na temat poziomów dostępu do kontenera, zobacz [uprawnienia dostępu do kontenera](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+3. Na karcie **nowy kontener** , która znajduje się po prawej stronie Azure Portal, Dodaj nazwę kontenera. Nazwa musi zawierać małe litery i może zawierać cyfry i myślniki "-". Następnie w polu listy rozwijanej wybierz **poziom dostępu publicznego** . Zalecamy wybranie opcji **prywatny (dostęp nieanonimowy)** , aby uniemożliwić innym osobom dostęp do danych. Aby uzyskać więcej informacji na temat poziomów dostępu do kontenera, zobacz [uprawnienia dostępu do kontenera](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
    ![Zrzut ekranu przedstawiający kartę nowy kontener z wybraną opcją prywatny (brak dostępu anonimowego).](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
    ![Zrzut ekranu przedstawiający kartę nowy kontener z opcją tworzenia wywołana.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 

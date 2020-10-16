@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1ed5a64a76d27f87b590573894e34f2560a5c2aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90972296"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126570"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Tworzenie rozwiązań dla instytucji rządowych za pomocą usługi Azure IoT Central
 
@@ -78,4 +78,4 @@ Rozpocznij pracę z [samouczkiem dotyczącym aplikacji do zarządzania odpadami]
 * Informacje o [pojęciach dotyczących monitorowania jakości wody](./concepts-waterqualitymonitoring-architecture.md)
 * Informacje o [pojęciach dotyczących monitorowania zużycia wody](./concepts-waterconsumptionmonitoring-architecture.md)
 * Informacje o [pojęciach związanych z zarządzaniem odpadami](./concepts-connectedwastemanagement-architecture.md)  
-* Więcej informacji na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central) 
+* Więcej informacji na temat IoT Central, zobacz [omówienie IoT Central](../core/overview-iot-central.md)

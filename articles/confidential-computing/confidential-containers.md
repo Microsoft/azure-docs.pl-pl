@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 9/22/2020
 ms.author: amgowda
 ms.service: container-service
-ms.openlocfilehash: 528b843e24e1d63e4822c253b3636ef490e8fe8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35518a90ff3db2b951e0310970afd6d78dd25807
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997806"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122207"
 ---
 # <a name="confidential-containers"></a>Kontenery poufne
 
@@ -67,7 +67,7 @@ Wdrożenia Scone na poufnych węzłach obliczeniowych z AKS są w pełni obsług
 
 ### <a name="anjuna"></a>Anjuna
 
-[Anjuna](https://www.anjuna.io/) udostępnia oprogramowanie platformy SGX, które umożliwia uruchamianie niezmodyfikowanych kontenerów na AKS. Więcej informacji znajdziesz w **nadchodzących** funkcjach i [przepływie](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)użytkownika.
+[Anjuna](https://www.anjuna.io/) udostępnia oprogramowanie platformy SGX, które umożliwia uruchamianie niezmodyfikowanych kontenerów na AKS. Dowiedz się więcej na temat funkcji i zapoznaj się z przykładowymi aplikacjami [tutaj](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
 
 Rozpocznij pracę z przykładową Redis Cache i aplikacją niestandardową języka Python [tutaj](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)
 

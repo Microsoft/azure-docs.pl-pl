@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714249"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126845"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Nawiązywanie połączenia z usługą Azure IoT Central
 
@@ -185,7 +185,7 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Indywidualne połączenie z urządzeniem opartym na rejestracji
 
-W przypadku klientów łączących urządzenia z własnymi poświadczeniami uwierzytelniania należy użyć indywidualnych rejestracji. Rejestracja indywidualna to wpis dla pojedynczego urządzenia, które może nawiązać połączenie. Rejestracje indywidualne mogą używać certyfikatów liścia X. 509 lub tokenów SAS (z fizycznego lub wirtualnego modułu TPM) jako mechanizmów zaświadczania. Identyfikator urządzenia (znany również jako identyfikator rejestracji) w rejestracji indywidualnej jest alfanumeryczny, pisany małymi literami i może zawierać łączniki. Aby uzyskać więcej informacji, zobacz temat Usługa [DPS — Rejestracja indywidualna](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment).
+W przypadku klientów łączących urządzenia z własnymi poświadczeniami uwierzytelniania należy użyć indywidualnych rejestracji. Rejestracja indywidualna to wpis dla pojedynczego urządzenia, które może nawiązać połączenie. Rejestracje indywidualne mogą używać certyfikatów liścia X. 509 lub tokenów SAS (z fizycznego lub wirtualnego modułu TPM) jako mechanizmów zaświadczania. Identyfikator urządzenia (znany również jako identyfikator rejestracji) w rejestracji indywidualnej jest alfanumeryczny, pisany małymi literami i może zawierać łączniki. Aby uzyskać więcej informacji, zobacz temat Usługa [DPS — Rejestracja indywidualna](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > Podczas tworzenia rejestracji indywidualnej dla urządzenia mają pierwszeństwo przed domyślnymi opcjami rejestracji grupy w aplikacji IoT Central.
@@ -204,7 +204,7 @@ IoT Central obsługuje następujące mechanizmy zaświadczania dotyczące poszcz
     > [!TIP]
     > Do testowania można użyć [narzędzi dla zestawu SDK urządzenia usługi Azure IoT Device Provisioning dla Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) w celu wygenerowania certyfikatu z podpisem własnym: `node create_test_cert.js device "mytestdevice"`
 
-- **Zaświadczanie moduł TPM (TPM):** [Moduł TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) jest typem sprzętowego modułu zabezpieczeń. Korzystanie z modułu TPM jest jednym z najbardziej bezpiecznych sposobów łączenia urządzeń. W tym artykule przyjęto założenie, że używasz dyskretnego, oprogramowania układowego lub zintegrowanego modułu TPM. Emulowane moduły TPM oprogramowania są dobrze dopasowane do prototypowania lub testowania, ale nie zapewniają tego samego poziomu zabezpieczeń, takiego jak dyskretny, oprogramowanie układowe lub zintegrowane moduły TPM. Nie używaj moduły TPM oprogramowania w środowisku produkcyjnym. Aby utworzyć rejestrację indywidualną korzystającą z modułu TPM, Otwórz stronę **połączenie urządzenia** , wybierz pozycję **Rejestracja indywidualna** jako metoda połączenia i **moduł TPM** jako mechanizm. Wprowadź klucz poręczenia modułu TPM i Zapisz informacje o połączeniu z urządzeniem.
+- **Zaświadczanie moduł TPM (TPM):** [Moduł TPM](../../iot-dps/concepts-tpm-attestation.md) jest typem sprzętowego modułu zabezpieczeń. Korzystanie z modułu TPM jest jednym z najbardziej bezpiecznych sposobów łączenia urządzeń. W tym artykule przyjęto założenie, że używasz dyskretnego, oprogramowania układowego lub zintegrowanego modułu TPM. Emulowane moduły TPM oprogramowania są dobrze dopasowane do prototypowania lub testowania, ale nie zapewniają tego samego poziomu zabezpieczeń, takiego jak dyskretny, oprogramowanie układowe lub zintegrowane moduły TPM. Nie używaj moduły TPM oprogramowania w środowisku produkcyjnym. Aby utworzyć rejestrację indywidualną korzystającą z modułu TPM, Otwórz stronę **połączenie urządzenia** , wybierz pozycję **Rejestracja indywidualna** jako metoda połączenia i **moduł TPM** jako mechanizm. Wprowadź klucz poręczenia modułu TPM i Zapisz informacje o połączeniu z urządzeniem.
 
 ## <a name="automatically-associate-with-a-device-template"></a>Automatycznie Skojarz z szablonem urządzenia
 

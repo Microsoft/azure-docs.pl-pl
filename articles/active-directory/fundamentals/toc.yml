@@ -49,6 +49,34 @@
           href: active-directory-architecture.md
         - name: Integrowanie wszystkich aplikacji z usługą Azure AD
           href: five-steps-to-full-application-integration-with-azure-ad.md
+        - name: Protokoły uwierzytelniania i aprowizacji
+          items:
+            - name: Omówienie
+              href: auth-sync-overview.md
+            - name: Uwierzytelnianie na podstawie nagłówków
+              href: auth-header-based.md
+            - name: Uwierzytelnianie LDAP
+              href: auth-ldap.md
+            - name: Uwierzytelnianie OAuth 2.0
+              href: auth-oauth2.md
+            - name: Uwierzytelnianie Open ID Connect
+              href: auth-oidc.md
+            - name: Uwierzytelnianie oparte na hasłach
+              href: auth-password-based-sso.md
+            - name: Uwierzytelnianie za pomocą protokołu RADIUS
+              href: auth-radius.md
+            - name: Uwierzytelnianie za pomocą Bramy usług pulpitu zdalnego
+              href: auth-remote-desktop-gateway.md
+            - name: Uwierzytelnianie SAML
+              href: auth-saml.md
+            - name: Uwierzytelnianie systemu Windows — KCD
+              href: auth-kcd.md
+            - name: Synchronizacja katalogów
+              href: sync-directory.md
+            - name: Synchronizacja LDAP
+              href: sync-ldap.md
+            - name: Synchronizacja SCIM
+              href: sync-scim.md
     - name: Podręcznik wdrażania
       items:
         - name: 'Wdrożenie 30, 90 i dalej'

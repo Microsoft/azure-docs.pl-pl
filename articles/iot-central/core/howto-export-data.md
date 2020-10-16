@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974411"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126707"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych
 
@@ -93,7 +93,7 @@ Jeśli nie masz istniejącej przestrzeni nazw Service Bus do eksportowania do pr
 
 Jeśli nie masz istniejącego konta usługi Azure Storage do eksportowania, wykonaj następujące czynności:
 
-1. Utwórz [nowe konto magazynu w Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Możesz dowiedzieć się więcej na temat tworzenia nowych [kont usługi Azure Blob Storage](https://aka.ms/blobdocscreatestorageaccount) lub [kont magazynu Azure Data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md). Eksport danych umożliwia zapisanie danych tylko na kontach magazynu, które obsługują blokowe obiekty blob. Na poniższej liście przedstawiono znane zgodne typy kont magazynu:
+1. Utwórz [nowe konto magazynu w Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Możesz dowiedzieć się więcej na temat tworzenia nowych [kont usługi Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md) lub [kont magazynu Azure Data Lake Storage v2](../../storage/common/storage-account-create.md). Eksport danych umożliwia zapisanie danych tylko na kontach magazynu, które obsługują blokowe obiekty blob. Na poniższej liście przedstawiono znane zgodne typy kont magazynu:
 
     |Warstwa wydajności|Typ konta|
     |-|-|
@@ -157,7 +157,7 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, skonfiguruj ekspor
     - W przypadku usługi Azure Event Hubs, kolejki lub tematu Azure Service Bus, wklej parametry połączenia dla zasobu i w razie potrzeby wprowadź nazwę centrum zdarzeń z uwzględnieniem wielkości liter, kolejki lub tematu.
     - W przypadku usługi Azure Blob Storage wklej parametry połączenia dla zasobu i w razie potrzeby wprowadź nazwę kontenera z uwzględnieniem wielkości liter.
     - W przypadku elementu webhook Wklej adres URL wywołania zwrotnego dla punktu końcowego elementu webhook.
-    - Wybierz przycisk **Utwórz**.
+    - Wybierz pozycję **Utwórz**.
 
 1. Wybierz pozycję **+ miejsce docelowe** i wybierz lokalizację docelową z listy rozwijanej. Do jednego eksportu można dodać maksymalnie pięć miejsc docelowych.
 

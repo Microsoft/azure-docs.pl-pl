@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: bdcfeeede8b16bf9a92a885364e4c8fef7ea5cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986565"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127135"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Samouczek: Tworzenie i przechodzenie przez szablon aplikacji do monitorowania mierników inteligentnych 
 
@@ -77,7 +77,7 @@ Adatum to fikcyjna firma energetyczna, która monitoruje i zarządza inteligentn
 > [!div class="mx-imgBorder"]
 > ![Pulpit nawigacyjny monitorowania mierników inteligentnych](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
 
-### <a name="devices"></a>Devices
+### <a name="devices"></a>Urządzenia
 Aplikacja jest dostarczana z przykładowym urządzeniem miernika inteligentnego. Aby wyświetlić szczegóły urządzenia, kliknij kartę **urządzenia** .
 
 > [!div class="mx-imgBorder"]
@@ -108,6 +108,6 @@ Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując
 
 Dowiedz się więcej o architekturze aplikacji mierników inteligentnych odwołują się do 
 > [!div class="nextstepaction"]
-> [Artykuł koncepcji](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+> [Artykuł koncepcji](./concept-iot-central-smart-meter-app.md)
 * Twórz bezpłatnie szablony aplikacji mierników inteligentnych: [inteligentnego pomiaru aplikacji](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Dowiedz się więcej na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Dowiedz się więcej na temat IoT Central, zobacz [omówienie IoT Central](../index.yml)

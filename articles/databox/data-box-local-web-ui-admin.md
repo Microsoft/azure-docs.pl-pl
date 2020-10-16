@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449663"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127528"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
@@ -206,7 +206,7 @@ Aby włączyć podpisywanie protokołu SMB na urządzeniu platformy Azure:
 
 Użytkownicy interfejsu użytkownika sieci Web domyślnie mają uprawnienia operatora kopii zapasowych w udziałach SMB. Jeśli nie chcesz tego zrobić, użyj **uprawnień operatora Włącz** , aby wyłączyć lub włączyć uprawnienia.
 
-Aby uzyskać więcej informacji, zobacz Operatory kopii zapasowych w [Active Directory grupy zabezpieczeń](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+Aby uzyskać więcej informacji, zobacz Operatory kopii zapasowych w [Active Directory grupy zabezpieczeń](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
 
 Aby włączyć uprawnienia operatorów kopii zapasowych na urządzeniu platformy Azure:
 

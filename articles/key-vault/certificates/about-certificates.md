@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88923691"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126777"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach usługi Azure Key Vault
 
@@ -103,14 +103,14 @@ Poniższa tabela przedstawia mapowanie zasad użycia klucza x509 do efektywnych 
 
 |**Flagi użycia klucza x509**|**Key Vault kluczowe operacje**|**Zachowanie domyślne**|
 |----------|--------|--------|
-|DataEncipherment|szyfrowanie, odszyfrowywanie| Brak |
-|DecipherOnly|zawartości| Brak  |
+|DataEncipherment|szyfrowanie, odszyfrowywanie| Nie dotyczy |
+|DecipherOnly|zawartości| Nie dotyczy  |
 |Bity digitalSignature|Podpisz, zweryfikuj| Key Vault domyślne bez określenia użycia podczas tworzenia certyfikatu | 
-|EncipherOnly|encrypt| Brak |
-|KeyCertSign|Podpisz, zweryfikuj|Brak|
+|EncipherOnly|encrypt| Nie dotyczy |
+|KeyCertSign|Podpisz, zweryfikuj|Nie dotyczy|
 |KeyEncipherment|wrapKey, unwrapKey| Key Vault domyślne bez określenia użycia podczas tworzenia certyfikatu | 
-|Niemożność wyparcia|Podpisz, zweryfikuj| Brak |
-|crlsign bit|Podpisz, zweryfikuj| Brak |
+|Niemożność wyparcia|Podpisz, zweryfikuj| Nie dotyczy |
+|crlsign bit|Podpisz, zweryfikuj| Nie dotyczy |
 
 ## <a name="certificate-issuer"></a>Wystawca certyfikatu
 
@@ -141,42 +141,11 @@ Obiekty wystawcy są tworzone w magazynie i mogą być używane tylko z certyfik
 
 ## <a name="certificate-contacts"></a>Kontakty certyfikatów
 
-Kontakty certyfikatów zawierają informacje kontaktowe do wysyłania powiadomień wyzwalanych przez zdarzenia okresu istnienia certyfikatu. Informacje o kontaktach są współużytkowane przez wszystkie certyfikaty w magazynie kluczy. Powiadomienie zostanie wysłane do wszystkich określonych kontaktów dla zdarzenia dowolnego certyfikatu w magazynie kluczy.  
-
-Jeśli zasada certyfikatu jest ustawiona na automatyczne odnawianie, zostanie wysłane powiadomienie dotyczące następujących zdarzeń.  
-
-- Przed odnowieniem certyfikatu
-- Po odnowieniu certyfikatu, informując o tym, czy certyfikat został pomyślnie odnowiony, czy wystąpił błąd, wymagając ręcznego odnowienia certyfikatu.  
-
-  Gdy zasady certyfikatu ustawione do ręcznego odnawiania (tylko wiadomości e-mail), po chwili odnowienia certyfikatu zostanie wysłane powiadomienie.  
+Kontakty certyfikatów zawierają informacje kontaktowe do wysyłania powiadomień wyzwalanych przez zdarzenia okresu istnienia certyfikatu. Informacje o kontaktach są współużytkowane przez wszystkie certyfikaty w magazynie kluczy. Powiadomienie zostanie wysłane do wszystkich określonych kontaktów dla zdarzenia dowolnego certyfikatu w magazynie kluczy. Aby uzyskać informacje na temat sposobu ustawiania kontaktu z certyfikatami, zobacz [tutaj](overview-renew-certificate.md#steps-to-set-certificate-notifications)  
 
 ## <a name="certificate-access-control"></a>Access Control certyfikatów
 
- Kontrola dostępu do certyfikatów jest zarządzana przez usługę Key Vault i jest dostarczana przez magazyn kluczy, który zawiera te certyfikaty. Zasady kontroli dostępu dla certyfikatów różnią się od zasad kontroli dostępu dla kluczy i wpisów tajnych w tym samym Key Vault. Użytkownicy mogą utworzyć jeden lub więcej magazynów w celu przechowywania certyfikatów, aby zachować scenariusz odpowiedniej segmentacji i zarządzania certyfikatami.  
-
- Następujące uprawnienia mogą być używane dla każdego podmiotu zabezpieczeń w pozycji kontrola dostępu do kluczy tajnych w magazynie kluczy i ściśle odzwierciedlają operacje dozwolone na obiekcie tajnym:  
-
-- Uprawnienia do operacji zarządzania certyfikatami
-  - *Pobierz*: Pobierz bieżącą wersję certyfikatu lub dowolną wersję certyfikatu 
-  - *Lista*: lista bieżących certyfikatów lub wersji certyfikatu  
-  - *Aktualizacja*: aktualizowanie certyfikatu
-  - *Tworzenie*: tworzenie certyfikatu Key Vault
-  - *Import*: Importowanie materiału certyfikatu do certyfikatu Key Vault
-  - *usuwanie*: Usuwanie certyfikatu, jego zasad i wszystkich wersji  
-  - *odzyskiwanie*: Odzyskiwanie usuniętego certyfikatu
-  - *kopia zapasowa*: wykonywanie kopii zapasowej certyfikatu w magazynie kluczy
-  - *przywracanie*: Przywracanie certyfikatu z kopią zapasową do magazynu kluczy
-  - *managecontacts*: Zarządzaj kontaktami z certyfikatem Key Vault  
-  - *manageissuers*: Zarządzanie Key Vault urzędów certyfikacji/wystawców
-  - *getemitencis*: pobieranie urzędów certyfikacji/wystawców certyfikatów
-  - *listissuers*: Wyświetl listę urzędów certyfikacji/wystawców certyfikatów  
-  - *setemitencis*: Tworzenie lub aktualizowanie urzędów/wystawców certyfikatu Key Vault  
-  - *deleteissuers*: Usuwanie urzędów certyfikacji i wystawców certyfikatów Key Vault  
- 
-- Uprawnienia dla operacji uprzywilejowanych
-  - *przeczyszczanie*: przeczyszczanie (trwałe usuwanie) usuniętego certyfikatu
-
-Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacji interfejsu API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy).
+ Kontrola dostępu do certyfikatów jest zarządzana przez usługę Key Vault i jest dostarczana przez magazyn kluczy, który zawiera te certyfikaty. Zasady kontroli dostępu dla certyfikatów różnią się od zasad kontroli dostępu dla kluczy i wpisów tajnych w tym samym Key Vault. Użytkownicy mogą utworzyć jeden lub więcej magazynów w celu przechowywania certyfikatów, aby zachować scenariusz odpowiedniej segmentacji i zarządzania certyfikatami.  Aby uzyskać więcej informacji na temat kontroli dostępu do certyfikatów, zobacz [tutaj](certificate-access-control.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

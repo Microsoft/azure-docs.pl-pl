@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d99355a88a52e318b231d9032ede770ee0ba5208
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe3520597ef8c02bc225e6f8a7625e6a961a7e37
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548688"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Samouczek: integracja Azure Active Directory z ludzkości
 
@@ -131,11 +131,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Humanity,
     ![Administracja](./media/shiftplanning-tutorial/iC786619.png "Administracja")
 3. W obszarze **Integration** (Integracja), kliknij pozycję **Single Sign-On** (Logowanie jednokrotne).
 
-    ![Logowanie jednokrotne](./media/shiftplanning-tutorial/iC786620.png "Logowanie jednokrotne")
+    ![Zrzut ekranu przedstawia pojedyncze Sign-On wybrane z menu integracja.](./media/shiftplanning-tutorial/iC786620.png "Logowanie jednokrotne")
 
 4. W sekcji **Logowanie** jednokrotne wykonaj następujące czynności:
 
-    ![Logowanie jednokrotne](./media/shiftplanning-tutorial/iC786905.png "Logowanie jednokrotne")
+    ![Zrzut ekranu zawiera sekcję z pojedynczym Sign-On, w której można wprowadzić podane wartości.](./media/shiftplanning-tutorial/iC786905.png "Logowanie jednokrotne")
 
     a. Wybierz pozycję **SAML Enabled** (SAML włączone).
 
@@ -172,7 +172,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

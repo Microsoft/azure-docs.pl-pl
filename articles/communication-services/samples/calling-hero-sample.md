@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d4c3c8e2f8470d187156f0dd98fab2bd74eb33bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963112"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126330"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Wprowadzenie do grupy wywołującej przykład Hero
 
@@ -30,7 +30,7 @@ ms.locfileid: "91963112"
 W tym przykładowym samouczku szybki start dowiesz się, jak działa przykład przed uruchomieniem przykładu na komputerze lokalnym. Następnie zainstalujemy przykład na platformie Azure przy użyciu własnych zasobów usług Azure Communications Services.
 
 > [!IMPORTANT]
-> [Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+> [Pobierz przykład z witryny GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 ## <a name="overview"></a>Omówienie
 
@@ -101,7 +101,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 ## <a name="next-steps"></a>Następne kroki
 
 >[!div class="nextstepaction"] 
->[Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+>[Pobierz przykład z witryny GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 

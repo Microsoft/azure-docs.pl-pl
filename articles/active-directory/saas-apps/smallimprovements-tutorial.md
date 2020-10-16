@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c659af83034a2406449e586723341e1ae535934f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee5927e19dfb6864d7edcde9dceadfd744d7ddbf
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88525399"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Samouczek: integracja Azure Active Directory z małymi ulepszeniami
 
@@ -128,15 +128,15 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu małych u
 
 1. Na głównym pulpicie nawigacyjnym kliknij przycisk **Administracja** po lewej stronie.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
+    ![Zrzut ekranu przedstawia wybrany przycisk Administracja.](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
 1. Kliknij przycisk protokołu **SAML SSO** z sekcji **Integrations (integracje** ).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
+    ![Zrzut ekranu przedstawia ikonę SAML S S O wybraną w obszarze integracji.](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
 1. Na stronie Konfiguracja logowania jednokrotnego wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
+    ![Zrzut ekranu przedstawia stronę instalatora S-O, na której można wprowadzić podane wartości.](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
     a. W polu tekstowym **punkt końcowy HTTP** wklej wartość **adresu URL logowania**, który został skopiowany z Azure Portal.
 
@@ -146,7 +146,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu małych u
 
     d. Wprowadź odpowiednią wartość, aby nazwać przycisk logowania jednokrotnego w polu tekstowym **monitu SAML** .  
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -171,7 +171,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -211,15 +211,15 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do małych ulepsze
 
 1. Kliknij przycisk **Katalog użytkownika** w sekcji Zarządzanie użytkownikami.
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
+    ![Zrzut ekranu przedstawia katalog użytkownika wybrany z omówienia administrowania.](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
 1. Kliknij pozycję **Dodaj użytkowników**.
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
+    ![Zrzut ekranu przedstawia przycisk Dodaj użytkowników.](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
 1. W oknie dialogowym **Dodawanie użytkowników** wykonaj następujące czynności: 
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Dodawanie użytkowników, w którym można wprowadzić podane wartości.](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
     a. Wprowadź **imię i nazwisko** użytkownika, np. **Britta**.
 

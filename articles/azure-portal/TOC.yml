@@ -21,7 +21,7 @@
           href: quick-create-template.md
 - name: Pojęcia
   items:
-    - name: Udostępnianie pulpitów nawigacyjnych przy użyciu kontroli dostępu opartej na rolach
+    - name: Udostępnianie pulpitów nawigacyjnych za pomocą kontroli dostępu opartej na rolach na platformie Azure
       href: azure-portal-dashboard-share-access.md
     - name: Programowe tworzenie pulpitów nawigacyjnych platformy Azure
       href: azure-portal-dashboards-create-programmatically.md

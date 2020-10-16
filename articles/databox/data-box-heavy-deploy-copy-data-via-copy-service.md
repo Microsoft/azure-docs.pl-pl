@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77560224"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127152"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Samouczek: używanie usługi kopiowania danych do kopiowania danych do Azure Data Box Heavy (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ Z usługi kopiowania danych można korzystać w następujących scenariuszach:
 - W środowiskach NAS, gdzie hosty pośrednie mogą być niedostępne.
 - W przypadku korzystania z małych plików, dla których pozyskanie i przekazanie danych trwałoby tygodniami. Usługa kopiowania danych znacznie skraca czas pozyskiwania i przekazywania danych w przypadku małych plików.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Kopiowanie danych na urządzenie Data Box Heavy
@@ -60,11 +60,11 @@ Aby skopiować dane za pomocą usługi kopiowania danych, należy utworzyć zada
     |**Nazwa zadania**                       |Unikatową nazwę zadania składającą się z mniej niż 230 znaków. Te znaki nie są dozwolone w nazwie zadania:,,,,,, \<, \> \| \? \* \\ \: \/ , i \\\.         |
     |**Lokalizacja źródła**                |Podaj ścieżkę SMB do źródła danych w formacie: `\\<ServerIPAddress>\<ShareName>` lub `\\<ServerName>\<ShareName>`.        |
     |**Nazwa użytkownika**                       |Nazwa użytkownika w formacie `\\<DomainName><UserName>` używana do uzyskiwania dostępu do źródła danych. Jeśli administrator lokalny nawiązuje połączenie, będą musieli mieć jawne uprawnienia zabezpieczeń. Kliknij prawym przyciskiem myszy folder, wybierz pozycję **Właściwości** , a następnie wybierz pozycję **zabezpieczenia**. Powinno to spowodować dodanie administratora lokalnego na karcie **zabezpieczenia** .       |
-    |**Hasło**                       |Hasło używane do uzyskiwania dostępu do źródła danych.           |
+    |**Password** (Hasło)                       |Hasło używane do uzyskiwania dostępu do źródła danych.           |
     |**Docelowe konto magazynu**    |Z listy wybierz docelowe konto magazynu, do którego będą przekazywane dane.         |
     |**Typ docelowy**       |Wybierz docelowy typ magazynu z listy: **blokowy obiekt BLOB**, **stronicowy obiekt BLOB**lub **Azure Files**.        |
     |**Docelowy kontener/udział**    |Wprowadź nazwę kontenera lub udziału, do którego chcesz przekazać dane w ramach docelowego konta magazynu. Może to być nazwa udziału lub kontenera. Użyj na przykład nazwy `myshare` lub `mycontainer`. Nazwę możesz również wprowadzić w formacie `sharename\directory_name` lub `containername\virtual_directory_name`.        |
-    |**Kopiowanie plików pasujących do wzorca**    | Nazwę pliku pasującą do wzorca możesz wprowadzić na następujące dwa sposoby:<ul><li>**Używaj wyrażeń wieloznacznych:** Tylko `*` i `?` są obsługiwane w wyrażeniach wieloznacznych. Na przykład do wyrażenia `*.vhd` będą pasowały wszystkie pliki z rozszerzeniem `.vhd`. Podobnie do wyrażenia `*.dl?` będą pasowały wszystkie pliki z rozszerzeniem `.dl` i zaczynające się od `.dl`, na przykład `.dll`. Wyrażenie `*foo` będzie pasowało do wszystkich plików, których nazwy kończą się na `foo`.<br>Wyrażenie wieloznaczne można wprowadzić bezpośrednio w polu. Domyślnie wartość wprowadzona w polu jest traktowana jako wyrażenie wieloznaczne.</li><li>**Używaj wyrażeń regularnych:** Obsługiwane są wyrażenia regularne oparte na standardzie POSIX. Na przykład wyrażenie regularne `.*\.vhd` będzie zgodne ze wszystkimi plikami z rozszerzeniem `.vhd`. Dla wyrażeń regularnych podaj `<pattern>` bezpośrednio jako `regex(<pattern>)`. Aby uzyskać więcej informacji na temat wyrażeń regularnych, przejdź do tematu [Język wyrażeń regularnych — krótki przewodnik](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Kopiowanie plików pasujących do wzorca**    | Nazwę pliku pasującą do wzorca możesz wprowadzić na następujące dwa sposoby:<ul><li>**Używaj wyrażeń wieloznacznych:** Tylko `*` i `?` są obsługiwane w wyrażeniach wieloznacznych. Na przykład do wyrażenia `*.vhd` będą pasowały wszystkie pliki z rozszerzeniem `.vhd`. Podobnie do wyrażenia `*.dl?` będą pasowały wszystkie pliki z rozszerzeniem `.dl` i zaczynające się od `.dl`, na przykład `.dll`. Wyrażenie `*foo` będzie pasowało do wszystkich plików, których nazwy kończą się na `foo`.<br>Wyrażenie wieloznaczne można wprowadzić bezpośrednio w polu. Domyślnie wartość wprowadzona w polu jest traktowana jako wyrażenie wieloznaczne.</li><li>**Używaj wyrażeń regularnych:** Obsługiwane są wyrażenia regularne oparte na standardzie POSIX. Na przykład wyrażenie regularne `.*\.vhd` będzie zgodne ze wszystkimi plikami z rozszerzeniem `.vhd`. Dla wyrażeń regularnych podaj `<pattern>` bezpośrednio jako `regex(<pattern>)`. Aby uzyskać więcej informacji na temat wyrażeń regularnych, przejdź do tematu [Język wyrażeń regularnych — krótki przewodnik](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Optymalizacja pliku**              |Kiedy ta funkcja jest włączona, pliki mniejsze niż 1 MB są pakowane podczas pozyskiwania. Przyspiesza to kopiowanie danych w przypadku małych plików. Pozwala to także zaoszczędzić czas, gdy liczba plików znacznie przekracza liczbę katalogów.        |
  
 4. Wybierz pozycję **Uruchom**. Dane wejściowe są weryfikowane i jeśli ten proces zakończy się pomyślnie, zadanie jest uruchamiane. Uruchomienie zadania może potrwać kilka minut.
@@ -147,4 +147,3 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak dostarczyć urządz
 
 > [!div class="nextstepaction"]
 > [Wyślij urządzenie Azure Data Box Heavy do firmy Microsoft](./data-box-heavy-deploy-picked-up.md)
-

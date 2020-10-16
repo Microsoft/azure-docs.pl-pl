@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50dbca7e32548380c6dbf338260b98ce59cda715
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527816"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122419"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Zapobiegaj przypadkowemu usunięciu udziałów plików platformy Azure
 
@@ -37,7 +37,7 @@ Usuwanie nietrwałe dla udziałów plików platformy Azure (wersja zapoznawcza) 
 
 ### <a name="enabling-or-disabling-soft-delete"></a>Włączanie lub wyłączanie usuwania nietrwałego
 
-Usuwanie nietrwałe dla udziałów plików jest włączone na poziomie konta magazynu. z tego powodu ustawienia usuwania nietrwałego mają zastosowanie do wszystkich udziałów plików na koncie magazynu. Można włączać lub wyłączać usuwanie nietrwałe w dowolnym momencie. Podczas tworzenia nowego konta magazynu, usuwanie nietrwałe dla udziałów plików jest domyślnie wyłączone. Usuwanie nietrwałe jest również domyślnie wyłączone dla istniejących kont magazynu. Jeśli skonfigurowano [kopię zapasową udziału plików platformy](../../backup/azure-file-share-backup-overview.md) Azure dla udziału plików platformy Azure, usuwanie nietrwałe dla udziałów plików platformy Azure zostanie automatycznie włączone na koncie magazynu tego udziału.
+Usuwanie nietrwałe dla udziałów plików jest włączone na poziomie konta magazynu. z tego powodu ustawienia usuwania nietrwałego mają zastosowanie do wszystkich udziałów plików na koncie magazynu. Można włączać lub wyłączać usuwanie nietrwałe w dowolnym momencie. Podczas tworzenia nowego konta magazynu nietrwałe usuwanie udziałów plików jest domyślnie wyłączone, gdy ta funkcja jest w publicznej wersji zapoznawczej. Gdy usuwanie nietrwałe staną się ogólnie dostępne, zostanie włączone domyślnie. Usuwanie nietrwałe pozostanie domyślnie wyłączone dla istniejących kont magazynu. Jeśli skonfigurowano [kopię zapasową udziału plików platformy](../../backup/azure-file-share-backup-overview.md) Azure dla udziału plików platformy Azure, usuwanie nietrwałe dla udziałów plików platformy Azure zostanie automatycznie włączone na koncie magazynu tego udziału.
 
 Jeśli włączysz usuwanie nietrwałe dla udziałów plików, usuń niektóre udziały plików, a następnie Wyłącz usuwanie nietrwałe, jeśli udziały zostały zapisane w tym okresie, możesz nadal uzyskiwać dostęp do tych udziałów plików i odzyskiwać je. Po włączeniu usuwania nietrwałego należy również skonfigurować okres przechowywania.
 

@@ -6,16 +6,19 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 976b423822fa667df713382b34d7208cb0e3b002
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b57a1f3dc1f2d86b992ce2480acd9c44df8d1e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540663"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122504"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dla Azure Database for PostgreSQL pojedynczego serwera
 
-Azure Database for PostgreSQL zmieni certyfikat główny dla aplikacji klienckiej/sterownika z włączonym protokołem SSL, który zostanie użyty do [nawiązania połączenia z serwerem bazy danych](concepts-connectivity-architecture.md). Obecnie dostępny certyfikat główny jest ustawiany na wygasa 26 października 2020 (10/26/2020) w ramach standardowej konserwacji i najlepszych rozwiązań w zakresie zabezpieczeń. Ten artykuł zawiera bardziej szczegółowe informacje o nadchodzących zmianach, zasobach, których to dotyczy, oraz o czynnościach, które należy wykonać, aby zapewnić łączność z serwerem bazy danych przez aplikację.
+Azure Database for PostgreSQL zmieni certyfikat główny dla aplikacji klienckiej/sterownika z włączonym protokołem SSL, który zostanie użyty do [nawiązania połączenia z serwerem bazy danych](concepts-connectivity-architecture.md). Obecnie dostępny certyfikat główny jest ustawiany na wygasa 15 lutego 2021 (02/15/2021) w ramach standardowej konserwacji i najlepszych rozwiązań w zakresie zabezpieczeń. Ten artykuł zawiera bardziej szczegółowe informacje o nadchodzących zmianach, zasobach, których to dotyczy, oraz o czynnościach, które należy wykonać, aby zapewnić łączność z serwerem bazy danych przez aplikację.
+
+>[!NOTE]
+> Na podstawie opinii klientów przedłużono przestarzałą certyfikat główny dla istniejącego głównego urzędu certyfikacji Baltimore z 26 października 2020 do 15 lutego 2021. Mamy nadzieję, że to rozszerzenie zapewni wystarczającą ilość czasu realizacji przez naszych użytkowników, aby mogli wdrożyć zmiany klienta.
 
 ## <a name="what-update-is-going-to-happen"></a>Jaką aktualizację ma mieć miejsce?
 
@@ -23,7 +26,7 @@ W niektórych przypadkach aplikacje używają pliku certyfikatu lokalnego wygene
 
 Zgodnie z wymaganiami dotyczącymi zgodności w branży dostawcy urzędu certyfikacji rozpoczęły Odwoływanie certyfikatów urzędu certyfikacji dla niezgodnych urzędów certyfikacji, co wymaga od serwerów używania certyfikatów wystawionych przez zgodne urzędy certyfikacji i podpisanych przez certyfikaty urzędu certyfikacji z tych zgodnych urzędów certyfikacji. Ponieważ Azure Database for PostgreSQL obecnie używa jednego z tych niezgodnych certyfikatów, których aplikacje klienckie używają do sprawdzania poprawności połączeń SSL, musimy upewnić się, że podejmowane są odpowiednie działania (opisane poniżej) w celu zminimalizowania potencjalnego wpływu na serwery PostgreSQL.
 
-Nowy certyfikat zostanie użyty od 26 października 2020 (10/26/2020). W przypadku korzystania z weryfikacji urzędu certyfikacji lub pełnej weryfikacji certyfikatu serwera podczas nawiązywania połączenia z klienta programu PostgreSQL (sslmode = verify-ca lub sslmode = verify-Full) należy zaktualizować konfigurację aplikacji przed 26 października 2020 (10/26/2020).
+Nowy certyfikat zostanie użyty od 15 lutego 2021 (02/15/2021). W przypadku korzystania z weryfikacji urzędu certyfikacji lub pełnej weryfikacji certyfikatu serwera podczas nawiązywania połączenia z klienta programu PostgreSQL (sslmode = verify-ca lub sslmode = verify-Full) należy zaktualizować konfigurację aplikacji przed 15 lutego 2021 (02/15/2021).
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Jak mogę dowiedzieć się, czy na mojej bazie danych ma być to naruszone?
 
@@ -84,6 +87,9 @@ Jeśli używasz certyfikatu głównego Baltimore CyberTrust, aby zweryfikować p
 *   Nieprawidłowy certyfikat/odwołany certyfikat
 *   Przekroczono limit czasu połączenia
 
+> [!NOTE]
+> Nie usuwaj ani nie zmieniaj **certyfikatu Baltimore** , dopóki nie zostanie wprowadzona zmiana certyfikatu. Po zakończeniu zmiany wyślemy powiadomienie, po czym będzie ona bezpieczna do usuwania certyfikatu Baltimore. 
+
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. Jeśli nie korzystam z protokołu SSL/TLS, czy nadal muszę zaktualizować główny urząd certyfikacji?
@@ -92,8 +98,8 @@ Jeśli nie używasz protokołu SSL/TLS, akcje nie są wymagane.
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. Jeśli używam protokołu SSL/TLS, należy ponownie uruchomić serwer bazy danych w celu zaktualizowania głównego urzędu certyfikacji?
 Nie, nie trzeba ponownie uruchamiać serwera bazy danych, aby rozpocząć korzystanie z nowego certyfikatu. Jest to zmiana po stronie klienta, a połączenia klientów przychodzących muszą używać nowego certyfikatu, aby upewnić się, że mogą łączyć się z serwerem bazy danych.
 
-### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. co się stanie, jeśli nie zaktualizuję certyfikatu głównego przed 26 października 2020 (10/26/2020)?
-Jeśli certyfikat główny nie zostanie zaktualizowany do 26 października 2020, aplikacje łączące się za pośrednictwem protokołu SSL/TLS i weryfikacja certyfikatu głównego nie będą mogły komunikować się z serwerem bazy danych PostgreSQL, a aplikacja będzie mieć problemy z łącznością z serwerem bazy danych PostgreSQL.
+### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3. co się stanie, jeśli nie zaktualizuję certyfikatu głównego przed 15 lutego 2021 (02/15/2021)?
+Jeśli certyfikat główny nie zostanie zaktualizowany do 15 lutego 2021 (02/15/2021), aplikacje łączące się za pośrednictwem protokołu SSL/TLS i sprawdzają, czy certyfikat główny nie będzie mógł komunikować się z serwerem bazy danych PostgreSQL, a aplikacja będzie mieć problemy z łącznością z serwerem bazy danych PostgreSQL.
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-postgresql"></a>4. jaki jest wpływ w przypadku używania App Service z Azure Database for PostgreSQL?
 W przypadku usług Azure App Services łączących się z Azure Database for PostgreSQL mogą istnieć dwa możliwe scenariusze, które są zależne od tego, jak korzystasz z protokołu SSL z aplikacją.
@@ -111,11 +117,11 @@ W przypadku łącznika korzystającego z samoobsługowego Integration Runtime, w
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. Czy muszę zaplanować przestoje związane z konserwacją serwera bazy danych dla tej zmiany?
 Nie. Ze względu na to, że zmiana ta jest dostępna tylko po stronie klienta, aby nawiązać połączenie z serwerem bazy danych, dla tej zmiany nie jest wymagane przestoje związane z konserwacją.
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. co zrobić, jeśli nie mogę uzyskać zaplanowanego przestoju dla tej zmiany przed 26 października 2020 (10/26/2020)?
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. co zrobić, jeśli nie mogę uzyskać zaplanowanego przestoju dla tej zmiany przed 15 lutego 2021 (02/15/2021)?
 Ponieważ klienci używani do łączenia się z serwerem muszą zaktualizować informacje o certyfikacie zgodnie z opisem w sekcji poprawka [tutaj](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), w tym przypadku nie ma potrzeby przestoju serwera.
 
-### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. Jeśli Tworzę nowy serwer po 26 października 2020, wpłynie to na to, co będzie miało wpływ?
-W przypadku serwerów utworzonych po 26 października 2020 (10/26/2020) można użyć nowo wystawionego certyfikatu dla aplikacji w celu nawiązania połączenia przy użyciu protokołu SSL.
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Jeśli Tworzę nowy serwer po 15 lutego 2021 (02/15/2021), wpłynie to na problem?
+W przypadku serwerów utworzonych po 15 lutego 2021 (02/15/2021) można użyć nowo wystawionego certyfikatu dla aplikacji do łączenia się przy użyciu protokołu SSL.
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. jak często firma Microsoft aktualizuje swoje certyfikaty lub jakie są zasady wygasania?
 Te certyfikaty używane przez Azure Database for PostgreSQL są udostępniane przez zaufane urzędy certyfikacji. W związku z tym obsługa tych certyfikatów w Azure Database for PostgreSQL jest związana z obsługą tych certyfikatów przez urząd certyfikacji. Jednak podobnie jak w tym przypadku, w tych wstępnie zdefiniowanych certyfikatach mogą znajdować się nieprzewidziane usterki, które muszą zostać ustalone najwcześniej.
@@ -129,5 +135,8 @@ Aby sprawdzić, czy jest używane połączenie SSL do łączenia się z serwerem
 ### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. czy jest wymagana akcja, jeśli mam już DigiCertGlobalRootG2 w moim pliku certyfikatu?
 Nie. Jeśli plik certyfikatu ma już **DigiCertGlobalRootG2**, nie jest wymagana żadna akcja.
 
-### <a name="14-what-if-i-have-further-questions"></a>14. co zrobić, jeśli mam więcej pytań?
+### <a name="14-what-is-you-are-using-docker-image-of-pgbouncer-sidecar-provided-by-microsoft"></a>14. co to jest obraz platformy Docker PgBouncer przyczepki udostępnionej przez firmę Microsoft?
+Nowy obraz platformy Docker obsługujący zarówno [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) , jak i [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) jest publikowany [poniżej (](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) najnowszy tag). Możesz ściągnąć ten nowy obraz, aby uniknąć przerw w łączności od 15 lutego 2021. 
+
+### <a name="15-what-if-i-have-further-questions"></a>15. co zrobić, jeśli mam więcej pytań?
 Jeśli masz pytania, uzyskaj odpowiedzi od ekspertów społeczności w [firmie Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). Jeśli masz plan pomocy technicznej i potrzebujesz pomocy technicznej,  [skontaktuj się z nami](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)

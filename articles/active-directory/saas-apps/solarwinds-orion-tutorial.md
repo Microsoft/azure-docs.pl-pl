@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 723546d6a997d895c1a1df39b558aabb797d0a11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9f93457edc4276422eb97b56c90b83ad6a19a65
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545101"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126896"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-solarwinds-orion"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą SolarWinds Orion
 
@@ -100,7 +100,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | ----------- | --------- |
     | FirstName (Imię) | user.givenname |
     | LastName (Nazwisko) | user.surname |
-    | Poczta e-mail |user.mail |
+    | E-mail |user.mail |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -120,7 +120,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -144,19 +144,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Zaloguj się do SolarWinds Orion i przejdź do **ustawień**  ->  **wszystkie ustawienia**.
 
-    ![ Konfiguracja SolarWinds Orion ](./media/solarwinds-orion-tutorial/settings.png)
+    ![Zrzut ekranu przedstawia wszystkie ustawienia wybrane z ustawień.](./media/solarwinds-orion-tutorial/settings.png)
 
 1. W sekcji **konta użytkowników** wybierz pozycję **Konfiguracja SAML**.
 
-    ![ Konfiguracja SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
+    ![Zrzut ekranu przedstawia konfigurację SAML wybraną z kont użytkowników.](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
 
 1. Kliknij pozycję **Dodaj dostawcę tożsamości**.
 
-    ![ Konfiguracja SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
+    ![Zrzut ekranu przedstawia konfigurację protokołu SAML, w której można wybrać opcję Dodaj dostawcę tożsamości.](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
 
 1. Na stronie **Dodawanie dostawcy tożsamości** wykonaj następujące czynności:
 
-    ![ Konfiguracja SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
+    ![Zrzut ekranu przedstawia stronę Dodawanie dostawcy tożsamości, na której można wprowadzić podane wartości.](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
 
     a. Przejdź do karty **Konfiguracja** .
 
@@ -174,25 +174,25 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Zaloguj się do witryny sieci Web SolarWinds Orion i przejdź do obszaru **Ustawienia**  ->  **wszystkie ustawienia**.
 
-    ![ SolarWinds Orion Utwórz użytkownika testowego ](./media/solarwinds-orion-tutorial/settings.png)
+    ![Zrzut ekranu przedstawia wszystkie ustawienia wybrane z ustawień.](./media/solarwinds-orion-tutorial/settings.png)
 
 1. W sekcji **konta użytkowników** wybierz pozycję **Zarządzaj kontami**.
 
-    ![ SolarWinds Orion Utwórz użytkownika testowego ](./media/solarwinds-orion-tutorial/user-accounts.png)
+    ![Zrzut ekranu przedstawia wybraną konfigurację protokołu SAML.](./media/solarwinds-orion-tutorial/user-accounts.png)
 
 1. Na karcie **pojedyncze konta** kliknij pozycję **Dodaj nowe konto**.
 
-    ![ SolarWinds Orion Utwórz użytkownika testowego ](./media/solarwinds-orion-tutorial/create-user.png)
+    ![Zrzut ekranu przedstawia Dodaj nowe konto wybrane w obszarze Zarządzaj kontami.](./media/solarwinds-orion-tutorial/create-user.png)
 
 1. Wybierz typ konta, które ma być konieczne do utworzenia pojedynczych użytkowników lub grup SAML.
 
-    ![ SolarWinds Orion Utwórz użytkownika testowego ](./media/solarwinds-orion-tutorial/create-user-new-account.png)
+    ![Zrzut ekranu przedstawia Dodawanie nowego konta, w którym można wybrać typ konta.](./media/solarwinds-orion-tutorial/create-user-new-account.png)
 
 1.  W polu tekstowym **Identyfikator nazwy** wprowadź nazwę, która musi być zgodna z nazwą użytkownika lub grupy, tak jak w usłudze Azure AD.
 
 1.  Kliknij przycisk **dalej** , a następnie Prześlij stronę.
 
-    ![ SolarWinds Orion Utwórz użytkownika testowego ](./media/solarwinds-orion-tutorial/create-user-name-id.png)
+    ![Zrzut ekranu przedstawia Dodawanie nowego konta, w którym można wprowadzić nazwę I D z platformy Azure A D.](./media/solarwinds-orion-tutorial/create-user-name-id.png)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -200,7 +200,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka SolarWinds Orion w panelu dostępu należy automatycznie zalogować się do Orion SolarWinds, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
