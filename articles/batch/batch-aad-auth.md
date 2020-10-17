@@ -4,12 +4,12 @@ description: Usługa Batch obsługuje uwierzytelnianie z usługi Batch w usłudz
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d84086e3fa59c1e04df5b2717738da44f5c14b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533516"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144814"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory
 
@@ -103,7 +103,7 @@ Sekcja **uprawnienia interfejsu API** pokazuje teraz, że aplikacja usługi Azur
 Aby uwierzytelnić aplikację, w której działa nienadzorowana, należy użyć nazwy głównej usługi. Po zarejestrowaniu aplikacji wykonaj następujące kroki w Azure Portal, aby skonfigurować jednostkę usługi:
 
 1. Zażądaj wpisu tajnego dla aplikacji.
-1. Przypisywanie kontroli dostępu opartej na rolach (RBAC) do aplikacji.
+1. Przypisz funkcję kontroli dostępu opartej na rolach (Azure RBAC) do aplikacji.
 
 ### <a name="request-a-secret-for-your-application"></a>Żądaj wpisu tajnego dla aplikacji
 
@@ -119,15 +119,15 @@ Wykonaj następujące kroki w witrynie Azure Portal:
 
     ![Tworzenie klucza tajnego](./media/batch-aad-auth/secret-key.png)
 
-### <a name="assign-rbac-to-your-application"></a>Przypisywanie kontroli RBAC do aplikacji
+### <a name="assign-azure-rbac-to-your-application"></a>Przypisywanie RBAC platformy Azure do aplikacji
 
-Aby uwierzytelnić się za pomocą jednostki usługi, należy przypisać kontrolę RBAC do aplikacji. Wykonaj następujące kroki:
+Aby uwierzytelnić się za pomocą nazwy głównej usługi, musisz przypisać do swojej aplikacji wartość RBAC platformy Azure. Wykonaj następujące kroki:
 
 1. W Azure Portal przejdź do konta wsadowego używanego przez aplikację.
 1. W sekcji **Ustawienia** konta Partia zadań wybierz pozycję **Access Control (IAM)**.
 1. Wybierz kartę **przypisania ról** .
 1. Wybierz pozycję **Dodaj przypisanie roli**.
-1. Z listy rozwijanej **rola** wybierz rolę *współautor* lub *czytelnika* dla aplikacji. Aby uzyskać więcej informacji na temat tych ról, zobacz [Rozpoczynanie pracy z Role-Based Access Control w Azure Portal](../role-based-access-control/overview.md).
+1. Z listy rozwijanej **rola** wybierz rolę *współautor* lub *czytelnika* dla aplikacji. Aby uzyskać więcej informacji na temat tych ról, zobacz [Rozpoczynanie pracy z kontrolą dostępu opartą na rolach na platformie Azure w Azure Portal](../role-based-access-control/overview.md).
 1. W polu **Wybierz** wprowadź nazwę aplikacji. Wybierz aplikację z listy, a następnie wybierz pozycję **Zapisz**.
 
 Aplikacja powinna teraz pojawić się w ustawieniach kontroli dostępu z przypisaną rolą platformy Azure.
@@ -138,7 +138,7 @@ Aplikacja powinna teraz pojawić się w ustawieniach kontroli dostępu z przypis
 
 Rola niestandardowa przyznaje użytkownikowi szczegółowe uprawnienia do przesyłania zadań, zadań i nie tylko. Dzięki temu użytkownicy mogą uniemożliwić wykonywanie operacji, które mają wpływ na koszt, na przykład tworząc pule lub modyfikując węzły.
 
-Możesz użyć roli niestandardowej, aby przyznać uprawnienia użytkownikowi, grupie lub jednostce usługi usługi Azure AD dla następujących operacji RBAC:
+Możesz użyć roli niestandardowej, aby udzielić uprawnień użytkownikowi, grupie lub jednostce usługi usługi Azure AD dla następujących operacji RBAC usługi Azure:
 
 - Microsoft.Batch/batchAccounts/pule/zapis
 - Microsoft.Batch/batchAccounts/pule/usuwanie

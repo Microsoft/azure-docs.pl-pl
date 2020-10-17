@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777160"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145778"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Prognoza pogody przy użyciu danych czujników z Centrum IoT Hub w Azure Machine Learning Studio (klasyczny)
 
@@ -46,7 +46,7 @@ Dowiesz się, jak używać Azure Machine Learning Studio (klasyczny) do prognozo
   - Usługa Azure IoT Hub w ramach Twojej subskrypcji.
   - Aplikacja kliencka, która wysyła komunikaty do usługi Azure IoT Hub.
 - Konto [Azure Machine Learning Studio (klasyczne)](https://studio.azureml.net/) .
-- Konto [usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts), preferowane jest konto **ogólnego przeznaczenia w wersji 2** , ale będzie również można korzystać z dowolnego konta usługi Azure Storage, które obsługuje usługę Azure Blob Storage.
+- Konto [usługi Azure Storage](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts), preferowane jest konto **ogólnego przeznaczenia w wersji 2** , ale będzie również można korzystać z dowolnego konta usługi Azure Storage, które obsługuje usługę Azure Blob Storage.
 
 > [!Note]
 > W tym artykule są wykorzystywane Azure Stream Analytics i kilka innych płatnych usług. Dodatkowe opłaty są naliczane w Azure Stream Analytics, gdy dane muszą być transferowane w regionach platformy Azure. Z tego powodu warto upewnić się, że grupa zasobów, IoT Hub i konto usługi Azure Storage — a także obszar roboczy Machine Learning Studio (klasyczny) i zadanie Azure Stream Analytics dodane w dalszej części tego samouczka — znajdują się w tym samym regionie świadczenia usługi Azure. Obsługę regionalną Azure Machine Learning Studio (klasycznej) i innych usług platformy Azure można sprawdzić na [stronie Dostępność produktów na platformie Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
@@ -148,7 +148,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
    ![Tworzenie zadania Stream Analytics na platformie Azure](media/iot-hub-weather-forecast-machine-learning/create-stream-analytics-job.png)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Dodawanie danych wejściowych do zadania usługi Stream Analytics
 

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1836e6fc1c29e74bceba62bbeb40ce9cc5831895
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616911"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147445"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -656,7 +656,7 @@ Jeśli korzystasz z integracji narzędzia Git z fabryką danych i masz potok ci�
     - Jednostki usługi Data Factory są od siebie zależne. Na przykład wyzwalacze są zależne od potoków, a potoki zależą od zestawów danych i innych potoków. Selektywne publikowanie podzestawu zasobów może prowadzić do nieoczekiwanych zachowań i błędów.
     - W rzadkich przypadkach, gdy potrzebna jest publikacja selektywna, rozważ użycie poprawki. Aby uzyskać więcej informacji, zobacz [środowisko produkcyjne poprawki](#hotfix-production-environment).
 
-- Zespół Azure Data Factory nie zaleca przypisywania kontroli RBAC do poszczególnych jednostek (potoków, zestawów danych itp.) w fabryce danych. Na przykład, jeśli deweloper ma dostęp do potoku lub zestawu danych, powinien mieć możliwość dostępu do wszystkich potoków lub zestawów danych w usłudze Data Factory. Jeśli uważasz, że musisz zaimplementować wiele ról RBAC w ramach fabryki danych, zapoznaj się z tematem Wdrażanie drugiej fabryki danych.
+- Zespół Azure Data Factory nie zaleca przypisywania formantów RBAC platformy Azure do poszczególnych jednostek (potoków, zestawów danych itp.) w fabryce danych. Na przykład, jeśli deweloper ma dostęp do potoku lub zestawu danych, powinien mieć możliwość dostępu do wszystkich potoków lub zestawów danych w usłudze Data Factory. Jeśli uważasz, że musisz zaimplementować wiele ról platformy Azure w ramach fabryki danych, zapoznaj się z tematem Wdrażanie drugiej fabryki danych.
 
 -   Nie można publikować z gałęzi prywatnych.
 
@@ -675,7 +675,7 @@ Podczas uruchamiania skryptu powdrożeniowego należy określić odmianę nastę
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-![Azure PowerShell, zadanie](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Zadanie programu Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Oto skrypt, którego można użyć do wykonania wstępnego i po wdrożeniu. Konta IT dla usuniętych zasobów i odwołań do zasobów.
 

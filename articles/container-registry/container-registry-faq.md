@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 499ef509fc9f8d9365d8db3f7058d12352db9bb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570515"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148527"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
@@ -37,7 +37,7 @@ Tak. Oto [szablon](https://github.com/Azure/azure-quickstart-templates/tree/mast
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Czy istnieją luki w zabezpieczeniach dotyczące skanowania obrazów w ACR?
 
-Tak. Zapoznaj się z dokumentacją z [Azure Security Center](../security-center/azure-container-registry-integration.md), [TwistLock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) i [akwamaryna](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Tak. Zapoznaj się z dokumentacją z [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [TwistLock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) i [akwamaryna](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Jak mogę skonfigurować Kubernetes z Azure Container Registry?
 
@@ -56,7 +56,7 @@ Aby uzyskać poświadczenia przy użyciu interfejsu wiersza polecenia platformy 
 az acr credential show -n myRegistry
 ```
 
-Używanie Azure PowerShell:
+Korzystanie z programu Azure PowerShell:
 
 ```powershell
 Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
@@ -259,7 +259,7 @@ Kwarantanna obrazu jest obecnie funkcją w wersji zapoznawczej ACR. Można włą
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Jak mogę włączyć anonimowy dostęp do ściągania?
 
-Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) dostępu do ściągania jest obecnie funkcją w wersji zapoznawczej. Jeśli masz jakieś [zasoby mapy zakresu (użytkownika) lub tokenów](https://aka.ms/acr/repo-permissions) w rejestrze, usuń je przed podniesieniem poziomu biletu pomocy technicznej (mapowania zakresu systemowego można zignorować). Aby włączyć dostęp publiczny, należy otworzyć bilet pomocy technicznej pod adresem https://aka.ms/acr/support/create-ticket . Aby uzyskać szczegółowe informacje, zobacz [forum opinii na platformie Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) dostępu do ściągania jest obecnie funkcją w wersji zapoznawczej. Jeśli masz jakieś [zasoby mapy zakresu (użytkownika) lub tokenów](./container-registry-repository-scoped-permissions.md) w rejestrze, usuń je przed podniesieniem poziomu biletu pomocy technicznej (mapowania zakresu systemowego można zignorować). Aby włączyć dostęp publiczny, należy otworzyć bilet pomocy technicznej pod adresem https://aka.ms/acr/support/create-ticket . Aby uzyskać szczegółowe informacje, zobacz [forum opinii na platformie Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
 > Dostęp do tylko interfejsów API wymaganych do ściągnięcia znanego obrazu można uzyskać anonimowo. Żadne inne interfejsy API dla operacji, takich jak lista tagów lub lista repozytoriów, są dostępne anonimowo.
@@ -434,7 +434,7 @@ Jeśli używasz przeglądarki Microsoft Edge/IE, możesz zobaczyć maksymalnie 1
 Przeglądarka może nie być w stanie wysłać żądania pobrania repozytoriów lub tagów na serwer. Mogą istnieć różne przyczyny, takie jak:
 
 * Brak łączności sieciowej
-* Zapora
+* Firewall
 * Bloki usługi AD
 * Błędy DNS
 
@@ -443,7 +443,7 @@ Skontaktuj się z administratorem sieci lub Sprawdź konfigurację sieci i łąc
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Dlaczego moje żądanie ściągnięcia lub wypychania zakończy się niepowodzeniem z niedozwoloną operacją?
 
 Poniżej przedstawiono kilka scenariuszy, w których operacje mogą być niedozwolone:
-* Klasyczne rejestry nie są już obsługiwane. Przeprowadź uaktualnienie do obsługiwanej [warstwy usług](https://aka.ms/acr/skus) za pomocą polecenia [AZ acr Update](/cli/azure/acr#az-acr-update) lub Azure Portal.
+* Klasyczne rejestry nie są już obsługiwane. Przeprowadź uaktualnienie do obsługiwanej [warstwy usług](./container-registry-skus.md) za pomocą polecenia [AZ acr Update](/cli/azure/acr#az-acr-update) lub Azure Portal.
 * Obraz lub repozytorium może być zablokowane, aby nie można go było usunąć ani zaktualizować. Aby wyświetlić bieżące atrybuty, można użyć polecenia [AZ ACR show Repository](./container-registry-image-lock.md) .
 * Niektóre operacje są niedozwolone, jeśli obraz jest objęty kwarantanną. Dowiedz się więcej o [kwarantannie](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Rejestr mógł osiągnąć [Limit magazynu](container-registry-skus.md#service-tier-features-and-limits).

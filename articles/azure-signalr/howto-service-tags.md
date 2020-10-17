@@ -8,16 +8,16 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 8810309fef5dbbb35465a2af15d42fa8a59d5401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa97c2cb062f30b1260ec7f80f85a3caccf932f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84300176"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152313"
 ---
 # <a name="use-service-tags-for-azure-signalr-service"></a>Używanie tagów usługi dla usługi Azure Signal Service
 
-Podczas konfigurowania [sieciowej grupy zabezpieczeń](../virtual-network/security-overview.md#network-security-groups)można używać [tagów usługi](../virtual-network/security-overview.md#service-tags) dla usługi Azure Signal Service. Umożliwia zdefiniowanie reguły zabezpieczeń sieci wychodzącej dla punktów końcowych usługi Azure sygnalizujących bez konieczności umieszczaj adresów IP.
+Podczas konfigurowania [sieciowej grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md#network-security-groups)można używać [tagów usługi](../virtual-network/network-security-groups-overview.md#service-tags) dla usługi Azure Signal Service. Umożliwia zdefiniowanie reguły zabezpieczeń sieci wychodzącej dla punktów końcowych usługi Azure sygnalizujących bez konieczności umieszczaj adresów IP.
 
 Usługa Azure sygnalizująca zarządza tymi tagami usług. Nie można utworzyć własnego tagu usługi ani zmodyfikować istniejącego. Firma Microsoft zarządza tymi prefiksami adresów, które pasują do znacznika usługi i automatycznie aktualizuje tag usługi jako adresy.
 
@@ -46,4 +46,4 @@ Możesz zezwolić na ruch wychodzący do usługi Azure Signal Service, dodając 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Sieciowe grupy zabezpieczeń: Tagi usług](../virtual-network/security-overview.md#security-rules)
+- [Sieciowe grupy zabezpieczeń: Tagi usług](../virtual-network/network-security-groups-overview.md#security-rules)

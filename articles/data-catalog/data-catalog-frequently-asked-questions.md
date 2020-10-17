@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f893f8e2ec03681697f15cd85685d4c99b13de6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397304"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151966"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure Data Catalog często zadawane pytania
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Data Catalog.
@@ -87,7 +87,7 @@ Określone właściwości różnią się od źródła danych do źródła danych
 >
 
 > [!NOTE]
-> Dla źródeł danych, takich jak SQL Server Analysis Services, które mają właściwość **opisu** pierwszej klasy, narzędzie rejestracji Data Catalog źródła danych wyodrębnia tę wartość właściwości. W przypadku *lokalnych* baz danych SQL Server relacyjnych, które nie posiadają właściwości **opisu** pierwszej klasy, Narzędzie rejestracji Data Catalog źródła danych wyodrębni wartość z właściwości rozszerzonej **MS_Description** dla obiektów i kolumn. Ta właściwość nie jest obsługiwana w przypadku usługi SQL Azure. Aby uzyskać więcej informacji, zobacz [Używanie rozszerzonych właściwości obiektów bazy danych](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Dla źródeł danych, takich jak SQL Server Analysis Services, które mają właściwość **opisu** pierwszej klasy, narzędzie rejestracji Data Catalog źródła danych wyodrębnia tę wartość właściwości. W przypadku *lokalnych* baz danych SQL Server relacyjnych, które nie posiadają właściwości **opisu** pierwszej klasy, Narzędzie rejestracji Data Catalog źródła danych wyodrębni wartość z właściwości rozszerzonej **MS_Description** dla obiektów i kolumn. Ta właściwość nie jest obsługiwana w przypadku usługi SQL Azure. Aby uzyskać więcej informacji, zobacz [Używanie rozszerzonych właściwości obiektów bazy danych](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
 >
 >
 
@@ -122,7 +122,7 @@ Data Catalog to usługa w chmurze, która może współdziałać z lokalnymi źr
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Czy można wyodrębnić więcej lub bogatsze metadane ze źródeł danych, które są rejestrowane?
 Aktywnie pracujemy nad rozwinięciem możliwości Data Catalog. Jeśli chcesz mieć dodatkowe metadane wyodrębnione ze źródła danych podczas rejestracji, Sugeruj je (lub zagłosuj na nie, jeśli została już zasugerowana) w [Data Catalog na forach opinii na platformie Azure](https://feedback.azure.com/forums/906052-data-catalog). 
 
-Jeśli chcesz uwzględnić metadane kolumny/schematu, podglądy lub profile danych, w przypadku źródeł danych, w których te metadane nie są wyodrębniane przez Narzędzie rejestracji źródła danych, możesz dodać te metadane za pomocą interfejsu API Data Catalog. Aby uzyskać dodatkowe informacje, zobacz [Azure Data Catalog interfejsu API REST](https://docs.microsoft.com/rest/api/datacatalog/).
+Jeśli chcesz uwzględnić metadane kolumny/schematu, podglądy lub profile danych, w przypadku źródeł danych, w których te metadane nie są wyodrębniane przez Narzędzie rejestracji źródła danych, możesz dodać te metadane za pomocą interfejsu API Data Catalog. Aby uzyskać dodatkowe informacje, zobacz [Azure Data Catalog interfejsu API REST](/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Jak mogę ograniczyć widoczność zarejestrowanych zasobów danych, tak aby tylko niektóre osoby mogły je wykryć?
 Wybierz zasoby danych w Data Catalog, a następnie kliknij przycisk **Przejmij na własność** . Właściciele zasobów danych w Data Catalog mogą zmienić ustawienia widoczności, aby zezwolić wszystkim użytkownikom na odnajdywanie posiadanych zasobów lub ograniczyć widoczność do określonych użytkowników. Aby uzyskać dodatkowe informacje, zobacz [Zarządzanie zasobami danych w Azure Data Catalog](data-catalog-how-to-manage.md).

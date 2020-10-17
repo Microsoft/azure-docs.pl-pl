@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 77becbf4777d0668991adcd74b722cd28ac36f03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbdc1c079f7ef2a06ece553e9fec542cbc05ea54
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031181"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147658"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Język zapytań usługi IoT Hub dla urządzeń i bliźniaczych reprezentacji modułów, zadań i routingu komunikatów
 
@@ -234,7 +234,7 @@ Obiekt zapytania uwidacznia wiele **kolejnych** wartości, w zależności od opc
 ### <a name="limitations"></a>Ograniczenia
 
 > [!IMPORTANT]
-> Wyniki zapytania mogą zawierać kilka minut opóźnienia w odniesieniu do najnowszych wartości w urządzeniu bliźniaczych reprezentacji. W przypadku wykonywania zapytań dotyczących poszczególnych urządzeń bliźniaczych reprezentacji według identyfikatora należy użyć [interfejsu API REST Get-bliźniaczy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Ten interfejs API zawsze zwraca najnowsze wartości i ma wyższe limity ograniczania. Interfejs API REST można wydać bezpośrednio lub użyć funkcji równoważnych w jednym z [zestawów SDK usługi Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Wyniki zapytania mogą zawierać kilka minut opóźnienia w odniesieniu do najnowszych wartości w urządzeniu bliźniaczych reprezentacji. W przypadku wykonywania zapytań dotyczących poszczególnych urządzeń bliźniaczych reprezentacji według identyfikatora należy użyć [interfejsu API REST Get-bliźniaczy](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Ten interfejs API zawsze zwraca najnowsze wartości i ma wyższe limity ograniczania. Interfejs API REST można wydać bezpośrednio lub użyć funkcji równoważnych w jednym z [zestawów SDK usługi Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Obecnie porównania są obsługiwane tylko w typach pierwotnych (bez obiektów), na przykład `... WHERE properties.desired.config = properties.reported.config` jest obsługiwane tylko wtedy, gdy te właściwości mają wartości pierwotne.
 
@@ -366,7 +366,7 @@ SELECT [TOP <max number>] <projection list>
 
 Obecnie klauzule wyboru inne niż **SELECT*** są obsługiwane tylko w zapytaniach agregacji na urządzeniu bliźniaczych reprezentacji.
 
-## <a name="group-by-clause"></a>Klauzula GROUP BY
+## <a name="group-by-clause"></a>GROUP BY, klauzula
 
 Klauzula **GROUP BY <group_specification>** jest opcjonalnym krokiem, który jest wykonywany po filtrze określonym w klauzuli WHERE oraz przed określoną projekcją w zaznaczeniu. Grupuje dokumenty na podstawie wartości atrybutu. Te grupy są używane do generowania zagregowanych wartości, jak określono w klauzuli SELECT.
 

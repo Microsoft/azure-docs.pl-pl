@@ -7,6 +7,7 @@
 - name: Przewodniki Szybki start
   items:
     - name: Szablon ARM
+      displayName: Resource Manager
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md

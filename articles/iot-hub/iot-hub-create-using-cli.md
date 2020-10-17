@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: 69372e4c212e2ce81bcd4c91d460aa191a1d3476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6daed4f5f1871d76da707edec00010cd27dfa8db
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087851"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142330"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Tworzenie Centrum IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -30,7 +30,7 @@ Aby wykonać te czynności, musisz mieć subskrypcję platformy Azure. Jeśli ni
 
 Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, a nie przy użyciu Cloud Shell, musisz zalogować się do konta platformy Azure.
 
-W wierszu polecenia uruchom [polecenie logowania](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
+W wierszu polecenia uruchom [polecenie logowania](/cli/azure/get-started-with-azure-cli):
 
    ```azurecli
    az login
@@ -42,7 +42,7 @@ Postępuj zgodnie z instrukcjami w celu uwierzytelnienia przy użyciu kodu i zal
 
 Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć grupę zasobów, a następnie dodać Centrum IoT Hub.
 
-1. Podczas tworzenia Centrum IoT należy je utworzyć w grupie zasobów. Użyj istniejącej grupy zasobów lub uruchom następujące [polecenie, aby utworzyć grupę zasobów](https://docs.microsoft.com/cli/azure/resource):
+1. Podczas tworzenia Centrum IoT należy je utworzyć w grupie zasobów. Użyj istniejącej grupy zasobów lub uruchom następujące [polecenie, aby utworzyć grupę zasobów](/cli/azure/resource):
     
    ```azurecli-interactive
    az group create --name {your resource group name} --location westus
@@ -56,7 +56,7 @@ Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć grupę zasobó
    > ```
    >
 
-2. Uruchom następujące [polecenie, aby utworzyć Centrum IoT](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) w grupie zasobów przy użyciu unikatowej nazwy globalnej dla Centrum IoT Hub:
+2. Uruchom następujące [polecenie, aby utworzyć Centrum IoT](/cli/azure/iot/hub#az-iot-hub-create) w grupie zasobów przy użyciu unikatowej nazwy globalnej dla Centrum IoT Hub:
     
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
@@ -70,16 +70,16 @@ Poprzednie polecenie tworzy Centrum IoT w warstwie cenowej S1, dla którego opł
 
 ## <a name="remove-an-iot-hub"></a>Usuwanie IoT Hub
 
-Możesz użyć interfejsu wiersza polecenia platformy Azure, aby [usunąć pojedynczy zasób](https://docs.microsoft.com/cli/azure/resource), taki jak centrum IoT, lub usunąć grupę zasobów i wszystkie jej zasoby, w tym wszystkie centra IoT.
+Możesz użyć interfejsu wiersza polecenia platformy Azure, aby [usunąć pojedynczy zasób](/cli/azure/resource), taki jak centrum IoT, lub usunąć grupę zasobów i wszystkie jej zasoby, w tym wszystkie centra IoT.
 
-Aby [usunąć Centrum IoT](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete), uruchom następujące polecenie:
+Aby [usunąć Centrum IoT](/cli/azure/iot/hub#az-iot-hub-delete), uruchom następujące polecenie:
 
 ```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
-Aby [usunąć grupę zasobów](https://docs.microsoft.com/cli/azure/group#az-group-delete) i wszystkie jej zasoby, uruchom następujące polecenie:
+Aby [usunąć grupę zasobów](/cli/azure/group#az-group-delete) i wszystkie jej zasoby, uruchom następujące polecenie:
 
 ```azurecli-interactive
 az group delete --name {your resource group name}

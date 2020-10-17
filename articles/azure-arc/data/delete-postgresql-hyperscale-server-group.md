@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dcabe4b1520c66b8d5bfa398dc1248972587cd32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cacef205b614170df210e03ddf3978a64a90ea22
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940802"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151926"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Usuwanie grupy serwerów PostgreSQL z funkcją Azure Arc
 
@@ -57,7 +57,7 @@ Aby wyświetlić listę obwodów PVC, uruchom następujące polecenie:
 kubectl get pvc [-n <namespace name>]
 ```
 
-Zwraca listę PVSs, w szczególności obwodów PVC dla usuniętej grupy serwerów. Na przykład:
+Zwraca listę obwodów PVC, w szczególności obwodów PVC dla usuniętej grupy serwerów. Na przykład:
 ```console
 kubectl get pvc
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
