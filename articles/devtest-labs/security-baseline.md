@@ -3,12 +3,12 @@ title: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 description: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 49b07242068df5d7c46c602140c8b3e1f778e90c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 838501bf4195c99c4d4ef7805fb8f4cba79e05d2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398326"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151877"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 
@@ -52,7 +52,7 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w c
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2,4: Zbierz dzienniki zabezpieczeń z systemów operacyjnych
 **Wskazówki:** Azure DevTest Labs maszyny wirtualne są tworzone i własnością klienta. W związku z tym organizacja jest odpowiedzialna za monitorowanie. Aby monitorować system operacyjny obliczeń, można użyć Azure Security Center. Dane zbierane przez Security Center z systemu operacyjnego obejmują typ i wersję systemu operacyjnego, system operacyjny (dzienniki zdarzeń systemu Windows), uruchomione procesy, nazwę komputera, adresy IP i zalogowanego użytkownika. Agent Log Analytics również zbiera pliki zrzutu awaryjnego.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły: 
+Aby uzyskać więcej informacji, zobacz następujące artykuły: 
 
 - [Jak zbierać dzienniki wewnętrznego hosta maszyny wirtualnej platformy Azure z Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
 - [Omówienie zbierania danych Azure Security Center](../security-center/security-center-enable-data-collection.md)
@@ -73,7 +73,7 @@ Aby uzyskać więcej informacji, zobacz następujący artykuł: [jak ustawić pa
 ### <a name="26-monitor-and-review-logs"></a>2,6: dzienniki monitorowania i przeglądania
 **Wskazówki:** Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego Log Analytics. Uruchom zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie danych dziennika aktywności, które mogły zostać zebrane dla Azure DevTest Labs.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/diagnostic-settings.md)
 - [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../azure-monitor/platform/activity-log.md)
@@ -264,7 +264,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla Azure Active
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
 **Wskazówki:** Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, które przechowują lub przetwarzają informacje poufne.
 
-- [Tworzenie i używanie tagów](../azure-resource-manager/resource-group-using-tags.md)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center:** Nie dotyczy
 
@@ -273,10 +273,10 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla Azure Active
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 **Wskazówki:** Zaimplementuj osobne subskrypcje lub grupy zarządzania na potrzeby tworzenia, testowania i produkcji. Wystąpienia Azure DevTest Labs powinny być oddzielone przez sieć wirtualną/podsieć i odpowiednio oznakowane. 
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../billing/billing-create-subscription.md)
-- [Tworzenie grup zarządzania](../governance/management-groups/create.md)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
+- [Tworzenie grup zarządzania](../governance/management-groups/create-management-group-portal.md)
 - [Jak skonfigurować sieć wirtualną dla DevTest Labs](devtest-lab-configure-vnet.md)
-- [Tworzenie i używanie tagów](../azure-resource-manager/resource-group-using-tags.md)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 - [Tworzenie i używanie tagów dla DevTest Labs](devtest-lab-add-tag.md)
 
 **Monitorowanie Azure Security Center:** Obecnie niedostępne
@@ -380,7 +380,7 @@ Firma Microsoft przeprowadza zarządzanie lukami w zabezpieczeniach zasobów, kt
 **Wskazówki:** Użyj usługi Azure Update Management, aby upewnić się, że najnowsze aktualizacje zabezpieczeń są zainstalowane na maszynach wirtualnych z systemami Windows i Linux hostowanych w ramach usługi DevTest Labs. W przypadku maszyn wirtualnych z systemem Windows upewnij się, że Windows Update została włączona i ustawiona na automatyczne aktualizowanie. To ustawienie nie jest obecnie dostępne do konfigurowania za pośrednictwem DevTest Labs, ale administrator laboratorium/administrator subskrypcji może skonfigurować to ustawienie na podstawowych maszynach wirtualnych obliczeniowych w ich subskrypcji. 
 
 - [Jak skonfigurować Update Management dla maszyn wirtualnych na platformie Azure](../automation/update-management/update-mgmt-overview.md)
-- [Informacje o zasadach zabezpieczeń platformy Azure monitorowanych przez Security Center](../security-center/security-center-policy-definitions.md)
+- [Informacje o zasadach zabezpieczeń platformy Azure monitorowanych przez Security Center](../security-center/policy-reference.md)
 
 **Monitorowanie Azure Security Center:** Nie dotyczy
 
@@ -444,7 +444,7 @@ Jako administrator subskrypcji możesz także użyć rozwiązania Update Managem
 **Wskazówki:** Korzystaj z tagowania, grup zarządzania i oddzielania subskrypcji, a w razie potrzeby Organizuj i śledź laboratoria oraz zasoby związane z laboratorium. Regularnie Uzgadniaj spis i zapewnij szybkie usuwanie nieautoryzowanych zasobów z subskrypcji.
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
-- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create.md)
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 - [Jak utworzyć laboratorium przy użyciu DevTest Labs](devtest-lab-create-lab.md)
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 - [Jak skonfigurować Tagi dla laboratorium](devtest-lab-add-tag.md)
@@ -517,7 +517,7 @@ Oprócz używania Change Tracking do monitorowania aplikacji programowych, adapt
 
 Zobacz następujące artykuły: 
 - [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/not-allowed-resource-types.md)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
 
 **Monitorowanie Azure Security Center:** Opcję
 
@@ -559,7 +559,7 @@ Zobacz następujące artykuły:
 - [Konfigurowanie sieci wirtualnej dla usługi DevTest Labs](devtest-lab-configure-vnet.md)
 - [Omówienie Zapory platformy Azure](../firewall/overview.md)
 - [Omówienie zapory aplikacji sieci Web](../web-application-firewall/overview.md)
-- [Omówienie zabezpieczeń sieci](../virtual-network/security-overview.md)
+- [Omówienie zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md)
 - [Omówienie usługi Azure Virtual Network]()
 - [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../governance/management-groups/overview.md)
 - [Przewodnik po decyzjach związanych z subskrypcjami](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
@@ -617,7 +617,7 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 Ponadto w firmie Microsoft są zarządzane i utrzymywane w portalu Azure Marketplace obrazy maszyn wirtualnych opublikowane przez firmę Microsoft.
 
-- [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Przegląd konfiguracji stanu Azure Automation](../automation/automation-dsc-overview.md)
 - [Przykładowy skrypt do przekazania wirtualnego dysku twardego na platformę Azure i utworzenia nowej maszyny wirtualnej](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 - [Jak utworzyć fabrykę obrazów w DevTest Labs](image-factory-create.md)
@@ -629,8 +629,8 @@ Ponadto w firmie Microsoft są zarządzane i utrzymywane w portalu Azure Marketp
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: bezpiecznie przechowuj konfigurację zasobów platformy Azure
 **Wskazówki:** Za pomocą usługi Azure DevOps bezpiecznie przechowuj swój kod, taki jak niestandardowe zasady platformy Azure, szablony Azure Resource Manager i skrypty konfiguracji żądanego stanu, i zarządzaj nimi. Aby uzyskać dostęp do zasobów zarządzanych w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps.
 
-- [Samouczek usługi git Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
-- [Informacje o uprawnieniach i grupach](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Samouczek usługi git Azure Repos](/azure/devops/repos/git/gitworkflow)
+- [Informacje o uprawnieniach i grupach](/azure/devops/organizations/security/about-permissions?tabs=preview-page&view=azure-devops)
 - [Integracja między Azure DevTest Labs i przepływem pracy usługi Azure DevOps](devtest-lab-dev-ops.md)
 
 **Monitorowanie Azure Security Center:** Nie dotyczy
@@ -681,7 +681,7 @@ Ponadto w firmie Microsoft są zarządzane i utrzymywane w portalu Azure Marketp
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: Zaimplementuj automatyczne monitorowanie konfiguracji dla systemów operacyjnych
 **Wskazówki:** Użyj Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla ustawień systemu operacyjnego i platformy Docker dla kontenerów.
 
-- [Omówienie rekomendacji dotyczących kontenera usługi Azure Security Center](../security-center/security-center-container-recommendations.md)
+- [Omówienie rekomendacji dotyczących kontenera usługi Azure Security Center](../security-center/container-security.md)
 
 **Monitorowanie Azure Security Center:** Nie dotyczy
 
@@ -692,7 +692,7 @@ Ponadto w firmie Microsoft są zarządzane i utrzymywane w portalu Azure Marketp
 
 - [Konfigurowanie tożsamości zarządzanej do wdrażania środowisk Azure Resource Manager w usłudze DevTest Labs](use-managed-identities-environments.md)
 - [Konfigurowanie tożsamości zarządzanej do wdrażania maszyn wirtualnych w usłudze DevTest Labs](enable-managed-identities-lab-vms.md)
-- [Jak utworzyć magazyn kluczy](../key-vault/quick-create-portal.md)
+- [Jak utworzyć magazyn kluczy](../key-vault/secrets/quick-create-portal.md)
 - [Jak przeprowadzić uwierzytelnianie w Key Vault](../key-vault/general/authentication.md)
 - [Jak przypisać zasady dostępu Key Vault](../key-vault/general/assign-access-policy-portal.md)
 

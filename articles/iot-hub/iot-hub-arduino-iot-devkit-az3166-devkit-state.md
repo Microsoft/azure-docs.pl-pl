@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 0d8e10a18436b0b52820dd0bf15ad0b2de969b79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c43c8a0b9fdf30b5ce5ae6ecbf123b563099ff6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337946"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148776"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -28,7 +28,7 @@ Tego przykładu można użyć do monitorowania informacji zestawu deweloperskieg
 
 ## <a name="what-you-need"></a>Potrzebne elementy
 
-- Skonfiguruj środowisko programistyczne, postępując zgodnie z [przewodnikiem wprowadzenie](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+- Skonfiguruj środowisko programistyczne, postępując zgodnie z [przewodnikiem wprowadzenie](./iot-hub-arduino-iot-devkit-az3166-get-started.md).
 
 - W oknie terminalu GitBash (lub innym interfejsie wiersza polecenia usługi Git) wpisz następujące polecenia:
 
@@ -114,4 +114,4 @@ Wiesz już, jak:
 - Połącz urządzenie zestawu deweloperskiego IoT DevKit z akceleratorem rozwiązania do monitorowania zdalnego usługi Azure IoT.
 - Użyj funkcji bliźniaczych reprezentacji urządzenia Azure IoT, aby wykrywać i kontrolować kolor diody LED RGB DevKit.
 
-Oto sugerowany następny krok: [Omówienie akceleratora rozwiązań zdalnego monitorowania usługi Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+Oto sugerowany następny krok: [Omówienie akceleratora rozwiązań zdalnego monitorowania usługi Azure IoT](/azure/iot-suite/)

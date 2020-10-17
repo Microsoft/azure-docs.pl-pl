@@ -4,12 +4,12 @@ description: Dowiedz się, jak usługa Azure Container Instances współdziała 
 ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7faeecfcc3a1d006cc923b48339a1242a0b9e9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74533659"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148592"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances i koordynatorów kontenerów
 
@@ -54,7 +54,7 @@ Zamiast skalować liczbę maszyn wirtualnych w klastrze, a następnie wdrożyć 
 
 Aby szybko skalować obciążenia aplikacji w klastrze [usługi Azure Kubernetes Service](../aks/intro-kubernetes.md) (AKS), można użyć *węzłów wirtualnych* tworzonych dynamicznie w Azure Container Instances. Węzły wirtualne umożliwiają komunikację sieciową między jednostkami, które działają w ACI i klastrze AKS. 
 
-Węzły wirtualne obecnie obsługują wystąpienia kontenera systemu Linux. Rozpocznij pracę z węzłami wirtualnymi za pomocą [interfejsu wiersza polecenia platformy Azure](https://go.microsoft.com/fwlink/?linkid=2047538) lub [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545).
+Węzły wirtualne obecnie obsługują wystąpienia kontenera systemu Linux. Rozpocznij pracę z węzłami wirtualnymi za pomocą [interfejsu wiersza polecenia platformy Azure](../aks/virtual-nodes-cli.md) lub [Azure Portal](../aks/virtual-nodes-portal.md).
 
 Węzły wirtualne używają [Kubelet wirtualnej][aci-connector-k8s] typu open source do naśladowania Kubernetes [Kubelet][kubelet-doc] przez zarejestrowanie jako węzeł z nieograniczoną pojemnością. Wirtualna Kubelet wysyła do grupy kontenerów [Tworzenie w Azure Container Instances][pod-doc] .
 

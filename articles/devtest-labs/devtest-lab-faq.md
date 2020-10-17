@@ -3,12 +3,12 @@ title: Azure DevTest Labs często zadawane pytania | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289367"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144581"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs — często zadawane pytania
 Uzyskaj odpowiedzi na niektóre często zadawane pytania dotyczące Azure DevTest Labs.
@@ -145,7 +145,7 @@ Scenariusz oddzielnej grupy zasobów:
 -   DevTest Labs tworzy grupę zasobów dla udostępnionych komputerów IP, które należą do tego samego rozmiaru.
 
 Scenariusz typowej grupy zasobów:
--   Wszystkie maszyny wirtualne są w tej samej grupie zasobów, którą określisz. Dowiedz się więcej o [alokacji grupy zasobów dla laboratorium](https://aka.ms/RGControl).
+-   Wszystkie maszyny wirtualne są w tej samej grupie zasobów, którą określisz. Dowiedz się więcej o [alokacji grupy zasobów dla laboratorium](./resource-group-control.md).
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>Jak mogę zachować konwencję nazewnictwa w środowisku DevTest Labs?
 Możesz chcieć przyciągnąć bieżące konwencje nazewnictwa przedsiębiorstwa do operacji platformy Azure i zapewnić ich spójność w środowisku DevTest Labs. Zalecamy, aby podczas wdrażania DevTest Labs były określone zasady uruchamiania. Te zasady są wdrażane za pomocą centralnego skryptu i szablonów JSON w celu wymuszenia spójności. Zasady nazewnictwa można zaimplementować za pomocą zasad platformy Azure, które są stosowane na poziomie subskrypcji. Aby uzyskać przykłady JSON dla Azure Policy, zobacz [Azure Policy Samples](../governance/policy/samples/index.md).
@@ -200,7 +200,7 @@ Aby skopiować istniejące maszyny wirtualne do DevTest Labs:
 Tak, możesz dołączyć wiele dysków do maszyn wirtualnych.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Czy są to obrazy generacji 2 obsługiwane przez DevTest Labs?
-Tak. Usługa DevTest Labs obsługuje [obrazy generacji 2](../virtual-machines/windows/generation-2.md). Jeśli jednak dla obrazu są dostępne wersje Gen 1 i Gen 2, DevTest Labs wyświetla tylko wersję Gen 1 obrazu podczas tworzenia maszyny wirtualnej. Obraz zostanie wyświetlony, jeśli dostępna jest tylko wersja 2 generacji. 
+Tak. Usługa DevTest Labs obsługuje [obrazy generacji 2](../virtual-machines/generation-2.md). Jeśli jednak dla obrazu są dostępne wersje Gen 1 i Gen 2, DevTest Labs wyświetla tylko wersję Gen 1 obrazu podczas tworzenia maszyny wirtualnej. Obraz zostanie wyświetlony, jeśli dostępna jest tylko wersja 2 generacji. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Jeśli chcę używać obrazu systemu operacyjnego Windows do testowania, czy muszę kupić subskrypcję MSDN?
 Aby użyć obrazów systemu operacyjnego klienta systemu Windows (systemu Windows 7 lub nowszej wersji) do programowania lub testowania na platformie Azure, wykonaj jedną z następujących czynności:
@@ -337,7 +337,7 @@ Poniższe wpisy w blogu oferują wskazówki i informacje dotyczące korzystania 
 
 W przypadku innych/Continuous dostarczanych (ciągłej integracji) łańcuchy narzędzi można osiągnąć te same scenariusze, wdrażając [szablony Azure Resource Manager](https://azure.microsoft.com/resources/templates/) przy użyciu [poleceń cmdlet Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) i [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Możesz również używać [interfejsów API REST do DevTest Labs](https://aka.ms/dtlrestapis) , aby zintegrować je z łańcucha narzędzi.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Kiedy należy utworzyć nową sieć wirtualną dla środowiska DevTest Labs a przy użyciu istniejącej sieci wirtualnej?
 Jeśli maszyny wirtualne muszą współdziałać z istniejącą infrastrukturą, rozważ użycie istniejącej sieci wirtualnej w środowisku usługi DevTest Labs. Jeśli używasz ExpressRoute, możesz zminimalizować liczbę sieci wirtualnych/podsieci, aby nie było fragmentacji przestrzeni adresów IP, która jest przypisana do użycia w subskrypcjach.

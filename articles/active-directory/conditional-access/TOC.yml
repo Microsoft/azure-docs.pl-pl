@@ -92,8 +92,6 @@
       href: terms-of-use.md
     - name: Kontrolki częstotliwości logowania i trwałości przeglądarki
       href: howto-conditional-access-session-lifetime.md
-    - name: Najlepsze rozwiązania
-      href: best-practices.md
     - name: Rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z logowaniem

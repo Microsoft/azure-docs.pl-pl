@@ -13,12 +13,12 @@ ms.custom:
 - devx-track-java
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 2a12c916b6f81f21574c4b9dc748a279c22f199f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bd23483997b94f16e926c2849e0879b41316fba3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87315618"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148899"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Szybki start: kontrolowanie urządzenia podłączonego do centrum IoT Hub (Android)
 
@@ -52,7 +52,7 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 Jeśli ukończono poprzedni przewodnik [Szybki start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub](quickstart-send-telemetry-android.md), możesz pominąć ten krok i użyć utworzonego już centrum IoT Hub.
 
@@ -140,7 +140,7 @@ Ta aplikacja musi pozostać uruchomiona na urządzeniu fizycznym lub w emulatorz
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Odczytywanie danych telemetrycznych z centrum
 
-W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) do monitorowania komunikatów wysyłanych przez urządzenie z systemem Android.
+W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) do monitorowania komunikatów wysyłanych przez urządzenie z systemem Android.
 
 1. Używając usługi Azure Cloud Shell, uruchom następujące polecenie, aby nawiązać połączenie i odczytać komunikaty z centrum IoT:
 

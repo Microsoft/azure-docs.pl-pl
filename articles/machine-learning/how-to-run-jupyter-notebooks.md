@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d17fb9bee77aae9945c12d45a5ffff316f9d639
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460037"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144241"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
 
@@ -50,7 +50,7 @@ Aby utworzyć nowy Notes:
 1. Nazwij plik. 
 1. Dla plików Jupyter Notebook wybierz opcję **Notes** jako typ pliku.
 1. Wybierz katalog plików.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Można również tworzyć pliki tekstowe.  Zaznacz **tekst** jako typ pliku i Dodaj rozszerzenie do nazwy (na przykład myfile.py lub myfile.txt)  
 
@@ -171,7 +171,7 @@ Aby uruchomić eksperyment z notesu, należy najpierw połączyć się z uruchom
 
 1. Wybierz **+** na pasku narzędzi Notes. 
 2. Nazwij obliczenia i wybierz **rozmiar maszyny wirtualnej**. 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Wystąpienie obliczeniowe jest połączone z notesem automatycznie i można teraz uruchamiać komórki.
 
 Można wyświetlać i używać tylko utworzonych wystąpień obliczeniowych.  **Pliki użytkownika** są przechowywane niezależnie od maszyny wirtualnej i są współdzielone między wszystkimi wystąpieniami obliczeniowymi w obszarze roboczym.
@@ -222,6 +222,9 @@ W notesie zostaną automatycznie znalezione wszystkie jądra Jupyter zainstalowa
     conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+
+> [!NOTE]
+> Aby zarządzać pakietami w ramach notesu, użyj funkcji **% PIP** lub **% Conda** Magic automatycznie Zainstaluj pakiety w **aktualnie uruchomionym jądrze** zamiast **! PIP** lub **! Conda** , które odwołują się do wszystkich pakietów (w tym pakietów poza aktualnie uruchomionym jądrem).
 
 Można zainstalować dowolne z [dostępnych jądra Jupyter](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) .
 

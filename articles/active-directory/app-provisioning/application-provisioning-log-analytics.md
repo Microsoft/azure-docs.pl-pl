@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: d3fd553e6903951de64c301df94ea9f2fc3eb471
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132095"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145591"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Informacje o sposobie integracji aprowizacji z dziennikami Azure Monitor
 
@@ -26,7 +26,7 @@ Inicjowanie obsługi integruje się z dziennikami Azure Monitor i Log Analytics.
 
 Powinieneś już znać monitorowanie i Log Analytics platformy Azure. Jeśli nie, przejdź do informacji o nich, a następnie wróć do informacji o dziennikach aprowizacji aplikacji. Aby dowiedzieć się więcej na temat monitorowania platformy Azure, zobacz [Azure monitor Omówienie](../../azure-monitor/overview.md). Aby dowiedzieć się więcej na temat Azure Monitor dzienników i Log Analytics, zobacz [Omówienie zapytań dzienników w Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Po skonfigurowaniu usługi Azure Monitoring można włączyć obsługę administracyjną w dziennikach. Ta opcja znajduje się na stronie **Ustawienia diagnostyki** .
+Po skonfigurowaniu monitorowania platformy Azure można włączyć obsługę administracyjną w dziennikach. Ta opcja znajduje się na stronie **Ustawienia diagnostyki** .
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Dostęp do ustawień diagnostycznych" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 

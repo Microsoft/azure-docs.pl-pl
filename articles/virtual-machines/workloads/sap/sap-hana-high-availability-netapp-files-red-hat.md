@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: ce24bf541c5a71c50bb34f5e42aa3452f01b871c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978173"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144192"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowanie Azure NetApp Files na Red Hat Enterprise Linux
 
@@ -227,6 +227,13 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
 5.  Utwórz maszynę wirtualną 1 (**hanadb1**). 
 6.  Utwórz maszynę wirtualną 2 (**hanadb2**).  
 7.  Podczas tworzenia maszyny wirtualnej nie będziemy dodawać żadnego dysku, ponieważ wszystkie Twoje punkty instalacji będą mieć udziały NFS z Azure NetApp Files. 
+
+> [!IMPORTANT]
+> Zmienny adres IP nie jest obsługiwany w konfiguracji pomocniczego adresu IP karty sieciowej w scenariuszach równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [ograniczenia modułu równoważenia obciążenia platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Jeśli potrzebujesz dodatkowego adresu IP dla maszyny wirtualnej, wdróż drugą kartę sieciową.    
+
+> [!NOTE] 
+> Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+
 8.  W przypadku korzystania z usługi równoważenia obciążenia w warstwie Standardowa wykonaj następujące czynności konfiguracyjne:
     1.  Najpierw Utwórz pulę adresów IP frontonu:
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pula adresów IP frontonu**, a następnie wybierz pozycję **Dodaj**.
@@ -255,8 +262,6 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
         1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
         1.  Wybierz przycisk **OK**.
 
-> [!NOTE] 
-> Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 9. Alternatywnie, jeśli scenariusz podyktuje przy użyciu podstawowego modułu równoważenia obciążenia, wykonaj następujące czynności konfiguracyjne:
     1.  Skonfiguruj moduł równoważenia obciążenia. Najpierw Utwórz pulę adresów IP frontonu:

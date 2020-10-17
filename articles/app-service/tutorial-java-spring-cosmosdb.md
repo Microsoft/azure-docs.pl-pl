@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0531ff7765fbcfb304d58e5b444eafdb3ad4fb1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9320abb46c45b4bd151839eda40b03b445a2675f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404803"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152008"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji sieci Web do rozruchu ze sprężyną Java za pomocą Azure App Service w systemie Linux i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia, konfigurowania, wdrażan
 
 ![Aplikacja ze sprężyną rozruchową przechowująca dane w Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych Cosmos DB
@@ -35,7 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/overview) zainstalowany na własnym komputerze. 
 * [Git](https://git-scm.com/)
-* [Java JDK](https://aka.ms/azure-jdks)
+* [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
 ## <a name="clone-the-sample-todo-app-and-prepare-the-repo"></a>Klonowanie przykładowej aplikacji TODO i przygotowanie repozytorium

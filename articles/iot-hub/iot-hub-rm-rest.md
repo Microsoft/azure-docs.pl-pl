@@ -9,28 +9,28 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe143b1c172c5d89a7dba33731a378df988b4a47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f393701b97be76acab49a627a195b337018fa29
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89014612"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144424"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Tworzenie Centrum IoT Hub przy użyciu interfejsu API REST dostawcy zasobów (.NET)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Za pomocą [interfejsu API REST dostawcy zasobów IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) można programowo tworzyć centra Azure IoT Hub i zarządzać nimi. W tym samouczku pokazano, jak za pomocą interfejsu API REST dostawcy zasobów IoT Hub utworzyć Centrum IoT za pomocą programu w języku C#.
+Za pomocą [interfejsu API REST dostawcy zasobów IoT Hub](/rest/api/iothub/iothubresource) można programowo tworzyć centra Azure IoT Hub i zarządzać nimi. W tym samouczku pokazano, jak za pomocą interfejsu API REST dostawcy zasobów IoT Hub utworzyć Centrum IoT za pomocą programu w języku C#.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+Do ukończenia tego samouczka są potrzebne są następujące elementy:
 
 * Programu Visual Studio.
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut.
 
-* [Azure PowerShell 1,0](https://docs.microsoft.com/powershell/azure/install-Az-ps) lub nowszy.
+* [Azure PowerShell 1,0](/powershell/azure/install-Az-ps) lub nowszy.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -78,7 +78,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 ## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>Tworzenie Centrum IoT Hub przy użyciu interfejsu API REST dostawcy zasobów
 
-Użyj [interfejsu API REST dostawcy zasobów IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) , aby utworzyć Centrum IoT w grupie zasobów. Możesz również użyć interfejsu API REST dostawcy zasobów, aby wprowadzić zmiany w istniejącym Centrum IoT.
+Użyj [interfejsu API REST dostawcy zasobów IoT Hub](/rest/api/iothub/iothubresource) , aby utworzyć Centrum IoT w grupie zasobów. Możesz również użyć interfejsu API REST dostawcy zasobów, aby wprowadzić zmiany w istniejącym Centrum IoT.
 
 1. Dodaj następującą metodę do Program.cs:
 
@@ -175,7 +175,7 @@ Teraz możesz ukończyć aplikację, wywołując metodę **CreateIoTHub** przed 
 
 Po wdrożeniu usługi IoT Hub przy użyciu interfejsu API REST dostawcy zasobów warto dowiedzieć się więcej:
 
-* Przeczytaj o możliwościach [interfejsu API REST dostawcy zasobów IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource).
+* Przeczytaj o możliwościach [interfejsu API REST dostawcy zasobów IoT Hub](/rest/api/iothub/iothubresource).
 
 * Przeczytaj [Azure Resource Manager przegląd](../azure-resource-manager/management/overview.md) , aby dowiedzieć się więcej o możliwościach Azure Resource Manager.
 
@@ -187,4 +187,4 @@ Aby dowiedzieć się więcej na temat opracowywania IoT Hub, zobacz następując
 
 Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
 
-* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/quickstart-linux.md)

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 38f3aaeddbdedb073d83a64a508eb9f4578f1c97
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7aef08f4ba1948c32fe83a2d0064a21459c003b4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948430"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148945"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory
 
@@ -51,7 +51,7 @@ Dla działania kopiowania ten łącznik magazynu obiektów BLOB obsługuje:
 >[!IMPORTANT]
 >Jeśli włączysz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w ustawieniach zapory usługi Azure Storage i chcesz używać środowiska Azure Integration Runtime do nawiązywania połączenia z usługą BLOB Storage, musisz użyć [uwierzytelniania tożsamości zarządzanej](#managed-identity).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -223,7 +223,7 @@ Aby użyć uwierzytelniania jednostki usługi, wykonaj następujące kroki:
     - Klucz aplikacji
     - Identyfikator dzierżawy
 
-2. Przyznaj jednostce usługi odpowiednie uprawnienia w usłudze Azure Blob Storage. Aby uzyskać więcej informacji na temat ról, zobacz [Zarządzanie prawami dostępu do danych usługi Azure Storage za pomocą RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Przyznaj jednostce usługi odpowiednie uprawnienia w usłudze Azure Blob Storage. Aby uzyskać więcej informacji na temat ról, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **Jako źródło**w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **czytnika danych obiektów blob magazynu** .
     - **Jako ujścia**w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **współautor danych obiektu blob magazynu** .
@@ -280,7 +280,7 @@ Aby uzyskać ogólne informacje o uwierzytelnianiu usługi Azure Storage, zobacz
 
 1. [Pobierz Data Factory Informacje o tożsamości zarządzane](data-factory-service-identity.md#retrieve-managed-identity) przez skopiowanie wartości identyfikatora obiektu tożsamości zarządzanej, który został wygenerowany wraz z fabryką.
 
-2. Udziel uprawnienia zarządzanej tożsamości w usłudze Azure Blob Storage. Aby uzyskać więcej informacji na temat ról, zobacz [Zarządzanie prawami dostępu do danych usługi Azure Storage za pomocą RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Udziel uprawnienia zarządzanej tożsamości w usłudze Azure Blob Storage. Aby uzyskać więcej informacji na temat ról, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **Jako źródło**w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **czytnika danych obiektów blob magazynu** .
     - **Jako ujścia**w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **współautor danych obiektu blob magazynu** .

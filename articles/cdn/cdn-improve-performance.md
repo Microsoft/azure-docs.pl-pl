@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358291"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148751"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Poprawianie wydajności poprzez kompresowanie plików w usłudze Azure CDN
 Kompresja plików to prosta i skuteczna metoda zwiększania szybkości transferu plików i zwiększania wydajności ładowania strony poprzez zmniejszenie rozmiaru pliku przed jego wysłaniem z serwera. Kompresja plików pozwala zmniejszyć koszty przepustowości i zapewnić użytkownikom większą wydajność.
@@ -112,6 +112,8 @@ Te profile obsługują następujące kodowania kompresji:
 Jeśli żądanie obsługuje więcej niż jeden typ kompresji, ma pierwszeństwo kompresja brotli.
 
 Gdy żądanie dla elementu zawartości określa kompresję gzip, a żądanie spowoduje odrzucenie pamięci podręcznej, Azure CDN wykonuje kompresję strumienia gzip bezpośrednio na serwerze POP. Następnie skompresowany plik jest obsługiwany z pamięci podręcznej.
+
+Jeśli w pochodzeniu są używane kodowanie transferu fragmentarycznego (CTE) do wysyłania skompresowanych danych do punktu POP usługi CDN, rozmiary odpowiedzi większe niż 8 MB nie są obsługiwane. 
 
 ### <a name="azure-cdn-from-verizon-profiles"></a>Azure CDN z profilów Verizon
 

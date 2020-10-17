@@ -3,12 +3,12 @@ title: Konfigurowanie laboratorium do korzystania z bramy Pulpit zdalny w progra
 description: Dowiedz się, jak skonfigurować laboratorium w Azure DevTest Labs przy użyciu bramy usług pulpitu zdalnego w celu zapewnienia bezpiecznego dostępu do maszyn wirtualnych laboratorium bez konieczności ujawniania portu RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288070"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144703"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurowanie laboratorium w Azure DevTest Labs, aby można było korzystać z bramy usług pulpitu zdalnego
 W Azure DevTest Labs można skonfigurować bramę usług pulpitu zdalnego dla laboratorium, aby zapewnić bezpieczny dostęp do maszyn wirtualnych laboratorium (VM) bez konieczności ujawniania portu RDP. Laboratorium to centralne miejsce, w którym użytkownicy laboratorium mogą wyświetlać i łączyć się ze wszystkimi maszynami wirtualnymi, do których mają dostęp. Przycisk **Połącz** na stronie **maszyny wirtualnej** tworzy plik RDP specyficzny dla komputera, który można otworzyć w celu nawiązania połączenia z maszyną. Możesz bardziej dostosować i zabezpieczyć połączenie RDP, łącząc laboratorium z bramą usług pulpitu zdalnego. 
@@ -79,7 +79,7 @@ Skonfiguruj laboratorium do używania uwierzytelniania przy użyciu następując
 1. **Zapisz** Wprowadzane.
 
     > [!NOTE] 
-    > Klikając przycisk **Zapisz**, wyrażasz zgodę na [postanowienia licencyjne bramy pulpit zdalny](https://www.microsoft.com/licensing/product-licensing/products). Aby uzyskać więcej informacji na temat bramy zdalnej, zobacz [Zapraszamy do usługi pulpitu zdalnego](https://aka.ms/rds) i [wdrażania środowiska pulpitu zdalnego](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+    > Klikając przycisk **Zapisz**, wyrażasz zgodę na [postanowienia licencyjne bramy pulpit zdalny](https://www.microsoft.com/licensing/product-licensing/products). Aby uzyskać więcej informacji na temat bramy zdalnej, zobacz [Zapraszamy do usługi pulpitu zdalnego](/windows-server/remote/remote-desktop-services/Welcome-to-rds) i [wdrażania środowiska pulpitu zdalnego](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 
 Jeśli preferowane jest skonfigurowanie laboratorium za pośrednictwem automatyzacji, zobacz [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) przykładowego skryptu programu PowerShell, aby ustawić **nazwę hosta bramy** i ustawienia **klucza tajnego tokenu bramy** . [Azure DevTest Labs repozytorium GitHub](https://github.com/Azure/azure-devtestlab) udostępnia również szablon Azure Resource Manager, który tworzy lub aktualizuje laboratorium przy użyciu ustawień **nazwy hosta bramy** i **wpisu tajnego tokenu bramy** .
@@ -94,7 +94,7 @@ Oto przykład sieciowej grupy zabezpieczeń, który zezwala tylko na ruch, któr
 ## <a name="sample-to-create-a-remote-desktop-gateway"></a>Przykład tworzenia bramy usług pulpitu zdalnego
 
 > [!NOTE] 
-> Za pomocą przykładowych szablonów wyrażasz zgodę na [pulpit zdalny postanowień licencyjnych dotyczących bramy](https://www.microsoft.com/licensing/product-licensing/products). Aby uzyskać więcej informacji na temat bramy zdalnej, zobacz [Zapraszamy do usługi pulpitu zdalnego](https://aka.ms/rds) i [wdrażania środowiska pulpitu zdalnego](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+> Za pomocą przykładowych szablonów wyrażasz zgodę na [pulpit zdalny postanowień licencyjnych dotyczących bramy](https://www.microsoft.com/licensing/product-licensing/products). Aby uzyskać więcej informacji na temat bramy zdalnej, zobacz [Zapraszamy do usługi pulpitu zdalnego](/windows-server/remote/remote-desktop-services/Welcome-to-rds) i [wdrażania środowiska pulpitu zdalnego](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 [Azure DevTest Labs repozytorium GitHub](https://github.com/Azure/azure-devtestlab) zawiera kilka przykładów, które ułatwiają konfigurowanie zasobów wymaganych do korzystania z uwierzytelniania tokenów i bramy usług pulpitu zdalnego z DevTest Labs. Te przykłady obejmują szablony Azure Resource Manager dla maszyn bramy, ustawień laboratorium i aplikacji funkcji.
 

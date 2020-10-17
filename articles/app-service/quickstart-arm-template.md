@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: aad41ed1fb270acb38ec599484e137fbe5a6dceb
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 173c6ff8bb4bcee7ecc40f9f277fae0e4cb8dd13
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131347"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152349"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Szybki Start: Tworzenie aplikacji App Service przy użyciu szablonu ARM
 
-Rozpocznij pracę z [Azure App Service](overview.md) , wdrażając aplikację w chmurze przy użyciu szablonu Azure Resource Manager (szablon ARM) i [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) w Cloud Shell. Ponieważ korzystasz z bezpłatnej warstwy App Service, nie poniesiesz żadnych kosztów, aby ukończyć ten przewodnik Szybki Start.
+Rozpocznij pracę z [Azure App Service](overview.md) , wdrażając aplikację w chmurze przy użyciu szablonu Azure Resource Manager (szablon ARM) i [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) w Cloud Shell. Ponieważ korzystasz z bezpłatnej warstwy App Service, nie poniesiesz żadnych kosztów, aby ukończyć ten przewodnik Szybki Start.
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -38,7 +38,7 @@ Użyj następującego przycisku, aby wdrożyć w **systemie Windows**:
 ## <a name="review-the-template"></a>Przegląd szablonu
 
 ::: zone pivot="platform-windows"
-Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Wdraża Plan App Service i aplikację App Service w systemie Windows. Jest on zgodny z platformą .NET Core, .NET Framework, PHP, Node.js i statycznymi aplikacjami HTML. W przypadku języka Java zobacz [Tworzenie aplikacji Java](app-service-web-get-started-java.md).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Wdraża Plan App Service i aplikację App Service w systemie Windows. Jest on zgodny z platformą .NET Core, .NET Framework, PHP, Node.js i statycznymi aplikacjami HTML. W przypadku języka Java zobacz [Tworzenie aplikacji Java](./quickstart-java.md).
 
 :::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 
@@ -51,8 +51,8 @@ Ten szablon zawiera kilka parametrów, które są wstępnie zdefiniowane dla wyg
 
 | Parametry | Typ    | Wartość domyślna                | Opis |
 |------------|---------|------------------------------|-------------|
-| webAppName | ciąg  | "webApp- **[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)** " | Nazwa aplikacji |
-| location   | ciąg  | "[[resourceName (). Location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Region aplikacji |
+| webAppName | ciąg  | "webApp- **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** " | Nazwa aplikacji |
+| location   | ciąg  | "[[resourceName (). Location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | Region aplikacji |
 | sku        | ciąg  | Nacionięcie                         | Rozmiar wystąpienia (F1 = warstwa Bezpłatna) |
 | language   | ciąg  | architektury                       | Stos języka programowania (.NET, php, Node, html) |
 | helloWorld | boolean | Fałsz                        | True = Wdróż aplikację "Hello world" |
@@ -72,8 +72,8 @@ Ten szablon zawiera kilka parametrów, które są wstępnie zdefiniowane dla wyg
 
 | Parametry | Typ    | Wartość domyślna                | Opis |
 |------------|---------|------------------------------|-------------|
-| webAppName | ciąg  | "webApp- **[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)** " | Nazwa aplikacji |
-| location   | ciąg  | "[[resourceName (). Location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Region aplikacji |
+| webAppName | ciąg  | "webApp- **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** " | Nazwa aplikacji |
+| location   | ciąg  | "[[resourceName (). Location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | Region aplikacji |
 | sku        | ciąg  | Nacionięcie                         | Rozmiar wystąpienia (F1 = warstwa Bezpłatna) |
 | linuxFxVersion   | ciąg  | "DOTNETCORE&#124;3,0        | "Stos języka programowania &#124; wersja" |
 | repoUrl    | ciąg  | " "                          | Zewnętrzne repozytorium git (opcjonalnie) |
@@ -145,7 +145,7 @@ Jeśli grupa zasobów nie będzie już konieczna, [Usuń ją](../azure-resource-
 > [PHP z bazą danych MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Nawiązywanie połączenia z usługą Azure SQL Database przy użyciu języka Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Nawiązywanie połączenia z usługą Azure SQL Database przy użyciu języka Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Mapowanie domeny niestandardowej](app-service-web-tutorial-custom-domain.md)

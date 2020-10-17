@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z wydajnością rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów z wydajnością rejestru
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 414e3a92b8ebd4ff58528fc5e9ec4794471bd775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15129ebe1da2e52fac106a34863f609c440549ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88227476"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148406"
 ---
 # <a name="troubleshoot-registry-performance"></a>Rozwiązywanie problemów z wydajnością rejestru
 
@@ -115,7 +115,5 @@ Jeśli w tym miejscu nie rozwiążesz problemu, zapoznaj się z następującymi 
   * [Rozwiązywanie problemów z logowaniem do rejestru](container-registry-troubleshoot-login.md)
   * [Rozwiązywanie problemów z siecią przy użyciu rejestru](container-registry-troubleshoot-access.md)
 * Opcje [pomocy technicznej społeczności](https://azure.microsoft.com/support/community/)
-* [Pytania i odpowiedzi Microsoft](https://docs.microsoft.com/answers/products/)
+* [Pytania i odpowiedzi Microsoft](/answers/products/)
 * [Otwieranie biletu pomocy technicznej](https://azure.microsoft.com/support/create-ticket/)
-
-

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 9ae21b2a6d470b959f5e869e8a9edda9c56bec73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a58e141c6232db08b125b265e3d4ad74c784ba24
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019567"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152181"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Punkty końcowe IoT Hub odwołania
 
@@ -95,7 +95,7 @@ Aby uzyskać limity liczby punktów końcowych, które można dodać, zobacz [pr
 
 W rozwiązaniu IoT *brama pola* znajduje się między urządzeniami i IoT Hub punktami końcowymi. Zwykle znajduje się ona blisko Twoich urządzeń. Urządzenia komunikują się bezpośrednio z bramą usługi Field przy użyciu protokołu obsługiwanego przez urządzenia. Brama pola nawiązuje połączenie z punktem końcowym IoT Hub przy użyciu protokołu obsługiwanego przez IoT Hub. Brama pola może być dedykowanym urządzeniem sprzętowym lub komputerem z niską możliwością uruchamiania oprogramowania bramy niestandardowej.
 
-Aby zaimplementować bramę pola, można użyć [Azure IoT Edge](/azure/iot-edge/) . IoT Edge oferuje funkcje, takie jak możliwość multipleksowania komunikacji z wielu urządzeń na ten sam IoT Hub połączenie.
+Aby zaimplementować bramę pola, można użyć [Azure IoT Edge](../iot-edge/index.yml) . IoT Edge oferuje funkcje, takie jak możliwość multipleksowania komunikacji z wielu urządzeń na ten sam IoT Hub połączenie.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z logowaniem do rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas logowania do usługi Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253358"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148443"
 ---
 # <a name="troubleshoot-registry-login"></a>Rozwiązywanie problemów z logowaniem do rejestru
 
@@ -95,7 +95,7 @@ Powiązane linki:
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>Potwierdź, że poświadczenia są autoryzowane, aby uzyskać dostęp do rejestru
 
-Potwierdź uprawnienia rejestru, które są skojarzone z poświadczeniami, takimi jak `AcrPull` rola RBAC, do ściągania obrazów z rejestru lub `AcrPush` roli do wypychania obrazów. 
+Potwierdź uprawnienia rejestru, które są skojarzone z poświadczeniami, `AcrPull` na przykład rolę platformy Azure w celu ściągania obrazów z rejestru lub `AcrPush` roli do wypychania obrazów. 
 
 Dostęp do rejestru w portalu lub w zarządzaniu rejestrem za pomocą interfejsu wiersza polecenia platformy Azure wymaga co najmniej `Reader` roli do wykonywania Azure Resource Manager operacji.
 
@@ -103,7 +103,7 @@ Aby dodać lub usunąć przypisania ról, właściciel rejestru musi mieć wysta
 
 Powiązane linki:
 
-* [Role i uprawnienia RBAC — Azure Container Registry](container-registry-roles.md)
+* [Role i uprawnienia platformy Azure — Azure Container Registry](container-registry-roles.md)
 * [Logowanie przy użyciu tokenu z zakresem repozytorium](container-registry-repository-scoped-permissions.md)
 * [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../role-based-access-control/role-assignments-portal.md)
 * [używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów](../active-directory/develop/howto-create-service-principal-portal.md)
@@ -142,7 +142,5 @@ Jeśli w tym miejscu nie rozwiążesz problemu, zapoznaj się z następującymi 
   * [Rozwiązywanie problemów z siecią przy użyciu rejestru](container-registry-troubleshoot-access.md)
   * [Rozwiązywanie problemów z wydajnością rejestru](container-registry-troubleshoot-performance.md)
 * Opcje [pomocy technicznej społeczności](https://azure.microsoft.com/support/community/)
-* [Pytania i odpowiedzi Microsoft](https://docs.microsoft.com/answers/products/)
+* [Pytania i odpowiedzi Microsoft](/answers/products/)
 * [Otwórz bilet pomocy technicznej](https://azure.microsoft.com/support/create-ticket/) na podstawie podanych przez Ciebie informacji, możesz uruchomić szybką diagnostykę w celu uwierzytelnienia w rejestrze.
-
-

@@ -5,26 +5,45 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a79b046170a5a3f3574895490aa649fd02da082
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016131"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145370"
 ---
 # <a name="building-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
 Zgodnie z opisem w artykule [co to jest dostęp warunkowy](overview.md), zasady dostępu warunkowego to instrukcja if-then, **przypisań** i **kontroli dostępu**. Zasady dostępu warunkowego oferują sygnały ze sobą, aby podejmować decyzje i wymuszać zasady organizacyjne.
 
-Jak organizacja tworzy te zasady? Co jest wymagane?
+Jak organizacja tworzy te zasady? Co jest wymagane? Jak są one stosowane?
 
 ![Dostęp warunkowy (sygnały + decyzje + wymuszanie = zasady)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+
+Zasady dostępu warunkowego mogą być stosowane do poszczególnych użytkowników w dowolnym momencie. W takim przypadku wszystkie zasady, które mają zastosowanie, muszą być spełnione. Na przykład jeśli jedna zasada wymaga uwierzytelniania wieloskładnikowego (MFA), a inna wymaga zgodnego urządzenia, należy przeprowadzić uwierzytelnianie wieloskładnikowe i korzystać z zgodnego urządzenia. Wszystkie przydziały są logicznie **ANDed**. W przypadku skonfigurowania więcej niż jednego przypisania należy spełnić wszystkie przypisania, aby wyzwolić zasady.
+
+Wszystkie zasady są wymuszane w dwóch fazach:
+
+- Faza 1. zbieranie szczegółów sesji 
+   - Zbierz szczegóły sesji, takie jak lokalizacja sieciowa i tożsamość urządzenia, które będą niezbędne do oceny zasad. 
+   - Faza 1 oceny zasad dotyczy włączonych zasad i zasad w [trybie tylko do raportowania](concept-conditional-access-report-only.md).
+- Faza 2: wymuszanie 
+   - Użyj szczegółów sesji zebranych w fazie 1, aby zidentyfikować wszelkie wymagania, które nie zostały spełnione. 
+   - Jeśli istnieje zasada, która jest skonfigurowana do blokowania dostępu przy użyciu bloku Udziel kontroli, wymuszenie zostanie zatrzymane w tym miejscu i użytkownik zostanie zablokowany. 
+   - Użytkownik zostanie poproszony o wykonanie dodatkowych wymagań dotyczących kontroli dotacji, które nie były spełnione podczas fazy 1 w następującej kolejności, dopóki zasady nie zostaną spełnione:  
+      - Uwierzytelnianie wieloskładnikowe 
+      - Zatwierdzone zasady ochrony aplikacji/aplikacji klienta 
+      - Zarządzane urządzenie (zgodne lub hybrydowe sprzężenie usługi Azure AD) 
+      - Warunki użytkowania 
+      - Kontrolki niestandardowe  
+   - Po spełnieniu wszystkich kontrolek grantu Zastosuj kontrolki sesji (wymuszone aplikacje, Microsoft Cloud App Security i okres istnienia tokenu). 
+   - Faza 2 oceny zasad występuje dla wszystkich włączonych zasad. 
 
 ## <a name="assignments"></a>Przypisania
 

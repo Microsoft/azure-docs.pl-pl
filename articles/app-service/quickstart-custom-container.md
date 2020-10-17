@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 4c95e345255b28ba43e474087cdb80fcab493394
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3191552421091bc0a2c4e6855c0271c142af1882
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91356421"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152363"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Uruchamianie niestandardowego kontenera na platformie Azure
 
@@ -31,7 +31,7 @@ W celu ukończenia tego samouczka:
 
 - <a href="https://hub.docker.com/" target="_blank">Załóż konto usługi Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Zainstaluj program Docker for Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Przełącz platformę Docker na potrzeby uruchamiania kontenerów systemu Windows</a>.
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Przełącz platformę Docker na potrzeby uruchamiania kontenerów systemu Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Zainstaluj program Visual Studio 2019</a> przy użyciu obciążeń **ASP.NET oraz tworzenia aplikacji sieci Web** i **platformy Azure** . Jeśli zainstalowano już program Visual Studio 2019:
 
     - Zainstaluj najnowsze aktualizacje programu Visual Studio, wybierając pozycję **Pomoc**  >  **Sprawdź dostępność aktualizacji**.
@@ -51,7 +51,7 @@ Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
 
 1. Na platformie Azure można wdrożyć dowolny typ aplikacji internetowej platformy ASP.NET. Na potrzeby tego przewodnika Szybki Start wybierz szablon **MVC** .
 
-1. Wybierz opcję **Obsługa platformy Docker**i upewnij się, że uwierzytelnianie jest ustawione na wartość **bez uwierzytelniania**. Wybierz przycisk **Utwórz**.
+1. Wybierz opcję **Obsługa platformy Docker**i upewnij się, że uwierzytelnianie jest ustawione na wartość **bez uwierzytelniania**. Wybierz pozycję **Utwórz**.
 
    ![Tworzenie aplikacji sieci Web ASP.NET](./media/quickstart-custom-container/select-mvc-template-for-container.png)
 
@@ -199,7 +199,7 @@ Aby ukończyć ten przewodnik Szybki Start, potrzebny będzie odpowiedni obraz a
 > [!IMPORTANT]
 > Należy pamiętać o ustawieniu opcji **użytkownik administrator** , aby **włączyć** ją podczas tworzenia rejestru kontenerów. Można również ustawić ją z sekcji **klucze dostępu** na stronie rejestru w Azure Portal. To ustawienie jest wymagane do App Service dostępu.
 
-## <a name="sign-in"></a>Zaloguj się
+## <a name="sign-in"></a>Logowanie
 
 Następnie uruchom VS Code i zaloguj się do konta platformy Azure przy użyciu rozszerzenia App Service. W tym celu wybierz logo platformy Azure na pasku działania, przejdź do Eksploratora **usługi App Service** , a następnie wybierz pozycję **Zaloguj się do platformy Azure** i postępuj zgodnie z instrukcjami.
 

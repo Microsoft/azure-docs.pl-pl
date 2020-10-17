@@ -3,16 +3,16 @@ title: Azure DevTest Labs użycie w wielu laboratoriach i subskrypcjach
 description: Dowiedz się, jak raportować użycie Azure DevTest Labs w wielu laboratoriach i subskrypcjach.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287271"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152205"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Raportowanie użycia Azure DevTest Labs w wielu laboratoriach i subskrypcjach
 
-Większość dużych organizacji chce śledzić użycie zasobów, aby była bardziej skuteczna dzięki tym zasobom, wizualizowając trendy i wartości odstających w użyciu. Na podstawie użycia zasobów właściciele laboratorium lub menedżerowie mogą dostosować laboratoria, aby [zwiększyć użycie i koszty zasobów](../cost-management-billing/manage/getting-started.md). W Azure DevTest Labs można pobrać użycie zasobów na laboratorium, co pozwoli uzyskać dokładniejszy historyczny wygląd wzorców użytkowania. Te wzorce użycia mogą pomóc w identyfikowaniu zmian w celu zwiększenia wydajności. Większość przedsiębiorstw chce użyć indywidualnych zastosowań laboratoryjnych i ogólnego użycia w [wielu laboratoriach i subskrypcjach](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+Większość dużych organizacji chce śledzić użycie zasobów, aby była bardziej skuteczna dzięki tym zasobom, wizualizowając trendy i wartości odstających w użyciu. Na podstawie użycia zasobów właściciele laboratorium lub menedżerowie mogą dostosować laboratoria, aby [zwiększyć użycie i koszty zasobów](../cost-management-billing/cost-management-billing-overview.md). W Azure DevTest Labs można pobrać użycie zasobów na laboratorium, co pozwoli uzyskać dokładniejszy historyczny wygląd wzorców użytkowania. Te wzorce użycia mogą pomóc w identyfikowaniu zmian w celu zwiększenia wydajności. Większość przedsiębiorstw chce użyć indywidualnych zastosowań laboratoryjnych i ogólnego użycia w [wielu laboratoriach i subskrypcjach](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 W tym artykule omówiono sposób obsługi informacji o użyciu zasobów w wielu laboratoriach i subskrypcjach.
 

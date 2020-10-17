@@ -12,18 +12,18 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: af1e47c61977d0bc5d03f8cdb87393ed2014e736
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072309"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152135"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagowanie na zdarzenia IoT Hub przy użyciu Event Grid do wyzwalania akcji
 
 Usługa Azure IoT Hub jest zintegrowana z usługą Azure Event Grid, co umożliwia wysyłanie powiadomień o zdarzeniach do innych usług i wyzwalanie dalszych procesów. Skonfiguruj aplikacje biznesowe do nasłuchiwania zdarzeń usługi IoT Hub, aby móc reagować na zdarzenia o krytycznym znaczeniu w niezawodny, skalowalny i bezpieczny sposób.Możesz na przykład opracować aplikację, która zaktualizuje bazę danych, utworzy bilet pracy i dostarczy wiadomość e-mail z powiadomieniem zawsze, gdy w centrum IoT zostanie zarejestrowane nowe urządzenie IoT.
 
-[Azure Event Grid](../event-grid/overview.md) to w pełni zarządzana usługa routingu zdarzeń, która używa modelu publikowania/subskrybowania. Event Grid ma wbudowaną obsługę usług platformy Azure, takich jak [Azure Functions](../azure-functions/functions-overview.md) i [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), i mogą dostarczać alerty zdarzeń do usług innych niż Azure przy użyciu elementów webhook. Aby zapoznać się z pełną listą programów obsługi zdarzeń obsługiwanych przez Event Grid, zobacz [wprowadzenie do Azure Event Grid](../event-grid/overview.md).
+[Azure Event Grid](../event-grid/overview.md) to w pełni zarządzana usługa routingu zdarzeń, która używa modelu publikowania/subskrybowania. Event Grid ma wbudowaną obsługę usług platformy Azure, takich jak [Azure Functions](../azure-functions/functions-overview.md) i [Azure Logic Apps](../logic-apps/logic-apps-overview.md), i mogą dostarczać alerty zdarzeń do usług innych niż Azure przy użyciu elementów webhook. Aby zapoznać się z pełną listą programów obsługi zdarzeń obsługiwanych przez Event Grid, zobacz [wprowadzenie do Azure Event Grid](../event-grid/overview.md).
 
 ![Architektura Azure Event Grid](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
@@ -184,13 +184,13 @@ Temat zdarzeń IoT używa formatu:
 devices/{deviceId}
 ```
 
-Event Grid umożliwia także filtrowanie atrybutów poszczególnych zdarzeń, w tym zawartości danych. Dzięki temu można wybrać, jakie zdarzenia są dostarczane na podstawie zawartości komunikatu telemetrii. Zobacz [Zaawansowane filtrowanie](../event-grid/event-filtering.md#advanced-filtering) , aby wyświetlić przykłady. W celu filtrowania treści wiadomości telemetrycznych należy ustawić Właściwość ContentType na wartość **Application/JSON** i ContentEncoding na **UTF-8** we [właściwościach systemu](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)komunikatów. W obu tych właściwościach jest rozróżniana wielkość liter.
+Event Grid umożliwia także filtrowanie atrybutów poszczególnych zdarzeń, w tym zawartości danych. Dzięki temu można wybrać, jakie zdarzenia są dostarczane na podstawie zawartości komunikatu telemetrii. Zobacz [Zaawansowane filtrowanie](../event-grid/event-filtering.md#advanced-filtering) , aby wyświetlić przykłady. W celu filtrowania treści wiadomości telemetrycznych należy ustawić Właściwość ContentType na wartość **Application/JSON** i ContentEncoding na **UTF-8** we [właściwościach systemu](./iot-hub-devguide-routing-query-syntax.md#system-properties)komunikatów. W obu tych właściwościach jest rozróżniana wielkość liter.
 
 W przypadku zdarzeń telemetrii, takich jak DeviceConnected, DeviceDisconnected, DeviceCreated i DeviceDeleted, można użyć filtrowania Event Grid podczas tworzenia subskrypcji. W przypadku zdarzeń telemetrii oprócz filtrowania w Event Grid użytkownicy mogą również odfiltrować bliźniaczych reprezentacji urządzeń, właściwości komunikatów i treści za pomocą zapytania routingu wiadomości. 
 
 Gdy subskrybujesz zdarzenia telemetryczne za pośrednictwem Event Grid, IoT Hub tworzy domyślną trasę komunikatów do wysyłania komunikatów urządzeń typu źródło danych do Event Grid. Aby uzyskać więcej informacji na temat routingu wiadomości, zobacz [IoT Hub Routing komunikatów](iot-hub-devguide-messages-d2c.md). Ta trasa będzie widoczna w portalu w obszarze IoT Hub > Routing komunikatów. Tylko jedna trasa do Event Grid jest tworzona bez względu na liczbę PRZYKŁADowych subskrypcji utworzonych dla zdarzeń telemetrii. Dlatego jeśli potrzebujesz kilku subskrypcji z różnymi filtrami, możesz użyć operatora OR w tych zapytaniach w tej samej trasie. Tworzenie i usuwanie trasy jest kontrolowane przez subskrypcję zdarzeń telemetrii za pośrednictwem Event Grid. Nie można utworzyć lub usunąć trasy do Event Grid przy użyciu IoT Hub Routing komunikatów.
 
-Aby filtrować komunikaty przed wysłaniem danych telemetrycznych, można zaktualizować [zapytanie routingu](iot-hub-devguide-routing-query-syntax.md). Należy pamiętać, że zapytanie routingu można zastosować do treści wiadomości tylko wtedy, gdy treść jest JSON. Należy również ustawić Właściwość ContentType na wartość **Application/JSON** i ContentEncoding na **UTF-8** we [właściwościach systemu](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)komunikatów.
+Aby filtrować komunikaty przed wysłaniem danych telemetrycznych, można zaktualizować [zapytanie routingu](iot-hub-devguide-routing-query-syntax.md). Należy pamiętać, że zapytanie routingu można zastosować do treści wiadomości tylko wtedy, gdy treść jest JSON. Należy również ustawić Właściwość ContentType na wartość **Application/JSON** i ContentEncoding na **UTF-8** we [właściwościach systemu](./iot-hub-devguide-routing-query-syntax.md#system-properties)komunikatów.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Ograniczenia dotyczące zdarzeń podłączania i odłączania urządzeń
 

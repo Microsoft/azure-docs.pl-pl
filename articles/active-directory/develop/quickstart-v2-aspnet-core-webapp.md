@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bf80a15131a8808359d21d5a9655ef04db236178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 80b0c357bbad79a31d8b7153248b73c1231629c8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613496"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145043"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core
 
@@ -154,17 +154,22 @@ Wiersz zawierający `.AddMicrosoftIdentityWebApp` Dodawanie uwierzytelniania pla
 | `Instance`             | Punkt końcowy usługi tokenu zabezpieczającego (STS) dla użytkownika do uwierzytelnienia. Ta wartość jest zazwyczaj `https://login.microsoftonline.com/` wskazywana na chmurę publiczną platformy Azure. |
 | `TenantId`             | Nazwa dzierżawy lub jej identyfikatora dzierżawy (GUID) lub *wspólne* Logowanie użytkowników przy użyciu kont służbowych lub kont osobistych firmy Microsoft.                             |
 
-`Configure()`Metoda zawiera dwie istotne metody, `app.UseCookiePolicy()` `app.UseAuthentication()` które pozwalają na ich nazwanych funkcji.
+`Configure()`Metoda zawiera dwie istotne metody, `app.UseAuthentication()` `app.UseAuthorization()` które pozwalają na ich nazwanych funkcji. Ponadto w `Configure()` metodzie należy zarejestrować trasy sieci Web tożsamości firmy Microsoft z co najmniej jednym wywołaniem `endpoints.MapControllerRoute()` lub wywołaniem do `endpoints.MapControllers()` .
 
 ```csharp
-// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
 {
-    // more code
-    app.UseAuthentication();
-    app.UseAuthorization();
-    // more code
-}
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapRazorPages();
+});
+
+// endpoints.MapControllers(); // REQUIRED if MapControllerRoute() isn't called.
 ```
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Ochrona kontrolera lub metody kontrolera

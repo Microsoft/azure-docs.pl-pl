@@ -3,12 +3,12 @@ title: Konfigurowanie linku prywatnego
 description: Skonfiguruj prywatny punkt końcowy w rejestrze kontenerów i Włącz dostęp za pośrednictwem prywatnego linku w lokalnej sieci wirtualnej. Prywatny dostęp do linków jest funkcją warstwy usługi Premium.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743645"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148477"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Połącz się prywatnie z usługą Azure Container Registry przy użyciu prywatnego linku platformy Azure
 
@@ -298,7 +298,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Wyłącz dostęp publiczny — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
-1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wyłączone**. Następnie wybierz przycisk **Zapisz**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wyłączone**. Następnie wybierz pozycję **Zapisz**.
 
 ## <a name="validate-private-link-connection"></a>Weryfikowanie połączenia prywatnego linku
 
@@ -375,7 +375,7 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-W przypadku skonfigurowania połączenia prywatnego punktu końcowego za pomocą kroków opisanych w tym artykule rejestr automatycznie akceptuje połączenia od klientów i usług z uprawnieniami RBAC w rejestrze. Można skonfigurować punkt końcowy, aby wymagał ręcznego zatwierdzania połączeń. Aby uzyskać informacje na temat zatwierdzania i odrzucania połączeń prywatnych punktów końcowych, zobacz [Zarządzanie połączeniem prywatnego punktu końcowego](../private-link/manage-private-endpoint.md).
+Po skonfigurowaniu połączenia prywatnego punktu końcowego za pomocą kroków opisanych w tym artykule rejestr automatycznie akceptuje połączenia od klientów i usług, które mają uprawnienia usługi Azure RBAC w rejestrze. Można skonfigurować punkt końcowy, aby wymagał ręcznego zatwierdzania połączeń. Aby uzyskać informacje na temat zatwierdzania i odrzucania połączeń prywatnych punktów końcowych, zobacz [Zarządzanie połączeniem prywatnego punktu końcowego](../private-link/manage-private-endpoint.md).
 
 ## <a name="add-zone-records-for-replicas"></a>Dodawanie rekordów strefy dla replik
 

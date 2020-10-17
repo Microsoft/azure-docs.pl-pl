@@ -3,12 +3,12 @@ title: Zarządzaj podpisanymi obrazami
 description: Informacje o sposobie włączania zaufania zawartości dla usługi Azure Container Registry oraz wypychania i ściągania obrazów ze znakiem. Zaufanie zawartości implementuje zaufanie zawartości platformy Docker i jest funkcją warstwy usługi Premium.
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: cfe337a0f46e37ed616664e8e0645e319bcfb519
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44cea09521dc235ad0d555264b165c9a3842a14
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409168"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148579"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Zaufanie do zawartości w usłudze Azure Container Registry
 
@@ -115,7 +115,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 Identyfikator `<service principal ID>` może być identyfikatorem **appId** lub **objectId** bądź jedną z nazw **servicePrincipalName**. Aby uzyskać więcej informacji na temat pracy z jednostkami usługi i usługą Azure Container Registry, zobacz [Uwierzytelnianie w usłudze Azure Container Registry przy użyciu jednostek usługi](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> Po zmianie ról Uruchom polecenie, `az acr login` Aby odświeżyć lokalny token tożsamości dla interfejsu wiersza polecenia platformy Azure, aby nowe role zaczęły obowiązywać. Aby uzyskać informacje na temat weryfikowania ról dla tożsamości, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC i interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md) i [Rozwiązywanie problemów z usługą Azure RBAC](../role-based-access-control/troubleshooting.md).
+> Po zmianie ról Uruchom polecenie, `az acr login` Aby odświeżyć lokalny token tożsamości dla interfejsu wiersza polecenia platformy Azure, aby nowe role zaczęły obowiązywać. Aby uzyskać informacje na temat weryfikowania ról tożsamości, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md) i [Rozwiązywanie problemów z usługą Azure RBAC](../role-based-access-control/troubleshooting.md)
 
 ## <a name="push-a-trusted-image"></a>Wypychanie zaufanego obrazu
 

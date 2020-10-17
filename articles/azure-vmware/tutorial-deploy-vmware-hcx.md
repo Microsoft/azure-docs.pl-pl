@@ -2,19 +2,22 @@
 title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrażać i konfigurować rozwiązanie VMware HCX w chmurze prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: 58fd8b4518f60f1f736d8c19ddcf62729353f251
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/16/2020
+ms.openlocfilehash: 69df9b6337674233e1f257cc509115d5f58d2e7f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057999"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152071"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
-W tym artykule omówiono procedury wdrażania i konfigurowania łącznika lokalnego usługi VMware HCX dla chmury prywatnej rozwiązania VMware. Program VMware HCX umożliwia migrację obciążeń oprogramowania VMware do rozwiązania VMware platformy Azure i innych połączonych lokacji przy użyciu różnych typów migracji. Rozwiązanie VMware platformy Azure zostało już wdrożone i skonfigurowane jako "Cloud Manager", więc pobranie, aktywowanie i skonfigurowanie "łącznika" jest wymagane przez klienta w lokalnych centrach danych VMware.
+W tym artykule omówiono procedury wdrażania i konfigurowania łącznika lokalnego usługi VMware HCX dla chmury prywatnej rozwiązania VMware. Dzięki oprogramowaniu VMware HCX można migrować obciążenia oprogramowania VMware do rozwiązania VMware platformy Azure i innych połączonych lokacji za pomocą różnych typów migracji.  Ponieważ rozwiązanie Azure VMware wdraża i konfiguruje "Cloud Manager", należy pobrać, aktywować i skonfigurować "łącznik" w lokalnym centrum danych VMware.  
 
-Łącznik programu VMware HCX Advanced (wstępnie wdrożony w usłudze Azure VMware Solution) obsługuje maksymalnie trzy połączenia z lokacją (lokalnie lub w chmurze). Jeśli wymagane są więcej niż trzy połączenia z lokacją, klienci mają możliwość włączenia dodatku [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) (który jest obecnie w *wersji zapoznawczej*) przez przesłanie [żądania pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support). Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w *wersji zapoznawczej*, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Dostępna jest również opcja przełączania/rezygnacji z usługi.
+Łącznik programu VMware HCX Advanced, który jest wstępnie wdrożony w ramach rozwiązania Azure VMware, obsługuje maksymalnie trzy połączenia z witryną (lokalnie do chmury lub chmurę w chmurze). Jeśli potrzebujesz więcej niż trzech połączeń z lokacją, Prześlij [żądanie pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support) , aby włączyć dodatek [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) (obecnie w *wersji zapoznawczej*).  
+
+>[!NOTE]
+>Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w *wersji zapoznawczej*, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Możesz również wyłączyć lub zrezygnować z usługi.
 
 Przed rozpoczęciem należy dokładnie zapoznać się [przed rozpoczęciem](#before-you-begin), [wymagania dotyczące wersji oprogramowania](#software-version-requirements)i [wymagania wstępne](#prerequisites). 
 
@@ -31,14 +34,14 @@ Po zakończeniu możesz wykonać czynności opisane w sekcji zalecane na końcu 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
    
-* Zapoznaj się z podstawową [serią samouczków](tutorial-network-checklist.md)dotyczących oprogramowania VMware (SDDC).
+* Zapoznaj się z podstawową [serią samouczka](tutorial-network-checklist.md)usługi Azure VMware Software-Defined Datacenter (SDDC).
 * Zapoznaj się z [dokumentacją programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html), w tym podręczniku użytkownika HCX.
 * Przejrzyj dokumentację oprogramowania VMware [migrowanie Virtual Machines przy użyciu oprogramowania VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
 * Zapoznaj się z [zaleceniami dotyczącymi wdrażania programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Zapoznaj VMware vSphere się z tematem "HCX", na przykład z [serii blogów](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) w witrynie HCX. 
 * Opcjonalnie możesz zażądać aktywacji rozwiązania Azure VMware HCX Enterprise za pomocą kanałów obsługi rozwiązań VMware platformy Azure.
 * Opcjonalne [Sprawdzanie portów sieciowych wymaganych przez HCX](https://ports.vmware.com/home/VMware-HCX).
-* Chociaż rozwiązanie Azure VMware HCX CLoud Manager jest wstępnie skonfigurowane z/22, które jest dostępne dla chmury prywatnej rozwiązania Azure VMware, łącznik On-Premises Connector wymaga przydzielenia zakresów sieci przez klienta z sieci lokalnej. Te sieci i zakresy są szczegółowo opisane w dokumencie.
+* Chociaż rozwiązanie Azure VMware HCX Cloud Manager jest wstępnie skonfigurowane z/22 dostarczone dla chmury prywatnej rozwiązania Azure VMware, łącznik On-Premises Connector wymaga przydzielenia zakresów sieci przez klienta z sieci lokalnej. Te sieci i zakresy są szczegółowo opisane w dokumencie.
 
 Ustalanie rozmiarów obciążeń związanych z zasobami obliczeniowymi i magazynem jest ważnym etapem planowania. Zaadresuj krok zmiany wielkości w ramach wstępnego planowania środowiska chmury prywatnej. 
 
@@ -52,7 +55,7 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 | --- | --- | --- |
 | Program vCenter Server   | 5,1<br/><br/>W przypadku używania 5,5 U1 lub wcześniejszych należy użyć autonomicznego interfejsu użytkownika HCX dla operacji HCX.  | 6,0 U2 i więcej   |
 | ESXi   | 5,0    | ESXi 6,0 i nowsze   |
-| NSX    | W przypadku rozszerzenia sieci HCX przełączników logicznych w źródle: NSXv 6.2 + lub NSX-T 2.4 +   | NSXv 6.2 + lub NSX-T 2.4 +<br/><br/>W przypadku routingu HCX zbliżeniowe: NSXv 6.4 + (Routing bliskości nie jest obsługiwany w przypadku NSX-T) |
+| NSX    | W przypadku rozszerzenia sieci HCX przełączników logicznych w źródle: NSXv 6.2 + lub NSX-T 2.4 +   | NSXv 6.2 + lub NSX-T 2.4 +<br/><br/>W przypadku routingu bliskości HCX: NSXv 6.4 + (Routing bliskości nie jest obsługiwany w przypadku NSX-T) |
 | Dyrektor vCloud   | Niewymagana — brak współdziałania z vCloud Director w lokacji źródłowej | W przypadku integracji środowiska docelowego z vCloud dyrektorem minimalnym jest 9.1.0.2.  |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -82,12 +85,12 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
 1. Wybierz link **pobierania** , aby pobrać plik komórek jajowych łącznika programu VMware HCX.
 
-1. Przejdź do lokalnego programu vCenter i wybierz szablon OVF, który jest pobranym plikiem komórki jajowe, aby wdrożyć łącznik HCX w lokalnym programie vCenter.  
+1. W lokalnym programie vCenter wybierz szablon OVF, który jest pobranym plikiem komórki jajowe, aby wdrożyć łącznik HCX w lokalnym programie vCenter.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 
-1. Wybierz nazwę i lokalizację, zasób/klaster, do którego zostanie wdrożony łącznik HCX, a następnie przejrzyj szczegóły i wymagane zasoby.  
+1. Wybierz nazwę i lokalizację, zasób/klaster, w którym jest wdrażany łącznik HCX, a następnie przejrzyj szczegóły i wymagane zasoby.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
@@ -111,7 +114,7 @@ Aby zapoznać się z kompleksowym omówieniem tego kroku, zapoznaj się z temate
 
 ## <a name="activate-vmware-hcx"></a>Aktywuj oprogramowanie VMware HCX
 
-Po wdrożeniu komórek jajowych łącznika programu VMware HCX lokalnie i uruchomieniu urządzenia można rozpocząć aktywację, a najpierw pobrać klucz licencji z portalu rozwiązań VMware platformy Azure na platformie Azure.
+Po wdrożeniu komórek jajowych łącznika VMware HCX w środowisku lokalnym i uruchamianiu urządzenia można je aktywować. Najpierw należy pobrać klucz licencji z portalu rozwiązań VMware platformy Azure na platformie Azure.
 
 1. W portalu rozwiązań VMware platformy Azure przejdź do pozycji **Zarządzanie**  >  **łącznością**, wybierz kartę **HCX** , a następnie wybierz pozycję **Dodaj**.
 
@@ -123,9 +126,9 @@ Po wdrożeniu komórek jajowych łącznika programu VMware HCX lokalnie i urucho
 1. W obszarze **Licencjonowanie**wprowadź **klucz zaawansowany HCX**.  
    
     > [!NOTE]
-    > Program VMware HCX Manager musi mieć skonfigurowany otwarty dostęp do Internetu lub serwer proxy.
+    > Program VMware HCX Manager musi mieć otwarty dostęp do Internetu lub skonfigurowany serwer proxy.
 
-1. W obszarze **Lokalizacja centrum**danych podaj najbliższą lokalizację, w której jest instalowany lokalny program VMware HCX Manager.
+1. W polu **Lokalizacja centrum**danych podaj najbliższą lokalizację instalacji programu VMware HCX Manager lokalnie.
 
 1. Zmodyfikuj **nazwę systemu** lub Zaakceptuj wartość domyślną.
    
@@ -173,7 +176,7 @@ Korzystając z łącznika VMware HCX w centrum danych, możesz połączyć się 
    >
    > **Hasło** będzie używane do logowania się do programu vCenter. To hasło zostało zdefiniowane na ekranie wdrożenia początkowego.
 
-   Zobaczysz ekran z HCX CLoud Manager w rozwiązaniu Azure VMware i łącznikiem HCX podłączonym lokalnie (sparowany).
+   Zobaczysz ekran z HCX Cloud Manager w rozwiązaniu Azure VMware i łącznikiem HCX podłączonym lokalnie (sparowany).
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter.":::
 
@@ -203,7 +206,7 @@ Utworzysz cztery Profile sieciowe:
 Aby zapoznać się z kompleksowym omówieniem tego kroku, zobacz [rozwiązanie Azure VMware — HCX Utwórz profil sieciowy](https://www.youtube.com/embed/NhyEcLco4JY) wideo.
 
 
-### <a name="create-compute-profile"></a>Utwórz profil obliczeń
+### <a name="create-a-compute-profile"></a>Utwórz profil obliczeń
 
 1. Wybierz kolejno pozycje **obliczenia profile**  >  **Utwórz profil obliczeniowy**.
 
@@ -216,9 +219,9 @@ Aby zapoznać się z kompleksowym omówieniem tego kroku, zobacz [rozwiązanie A
 1. Wybierz usługi do włączenia, takie jak migracja, rozszerzenie sieci lub odzyskiwanie po awarii, a następnie wybierz pozycję **Kontynuuj**.
   
    > [!NOTE]
-   > Na ogół nic nie zostanie zmienione w tym miejscu.
+   > Ogólnie rzecz biorąc nie wprowadzono żadnych zmian.
 
-1. W obszarze **Wybierz zasoby usługi**wybierz co najmniej jeden zasób usługi (klastra) do włączenia dla wybranych usług VMware HCX.  
+1. W obszarze **Wybierz zasoby usługi**wybierz co najmniej jeden zasób usługi (klastrów), aby włączyć wybrane usługi VMware HCX.  
 
 1. Gdy widzisz klastry w lokalnym centrum danych, wybierz pozycję **Kontynuuj**.
 
@@ -344,4 +347,7 @@ Aby zapoznać się z kompleksowym omówieniem tego kroku, zapoznaj się z temate
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli ten punkt został osiągnięty, a stan tunelu łączenia urządzeń jest **ustawiony** na zielony, można migrować i chronić maszyny wirtualne rozwiązań VMware platformy Azure przy użyciu programu VMware HCX.  Rozwiązanie VMware platformy Azure obsługuje migracje obciążeń (z lub z rozszerzeniem sieci).  W środowisku vSphere można nadal wykonywać migracje obciążeń, a także tworzyć sieci i wdrażać maszyny wirtualne w tych sieciach.  Aby uzyskać więcej informacji, zobacz [dokumentację oprogramowania VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html) i [Migrowanie Virtual Machines przy użyciu oprogramowania VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) w dokumentacji technicznej programu VMware, aby uzyskać szczegółowe informacje na temat korzystania z usługi HCX.
+Jeśli ten punkt został osiągnięty, a stan tunelu łączenia urządzeń jest **ustawiony** na zielony, można migrować i chronić maszyny wirtualne rozwiązań VMware platformy Azure przy użyciu programu VMware HCX.  Rozwiązanie VMware platformy Azure obsługuje migracje obciążeń (z lub z rozszerzeniem sieci).  Nadal można migrować obciążenia w środowisku vSphere, aby utworzyć sieci i wdrożyć maszyny wirtualne w tych sieciach.  Aby uzyskać więcej informacji na temat korzystania z HCX, przejdź do dokumentacji technicznej programu VMware:
+
+* [Dokumentacja programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html)
+* [Migrowanie Virtual Machines przy użyciu oprogramowania VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) 

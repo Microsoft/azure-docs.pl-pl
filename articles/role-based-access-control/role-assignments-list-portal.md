@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361864"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151701"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal
 
@@ -140,14 +140,9 @@ Jeśli zbliżasz się do maksymalnej liczby i podjęto próbę dodania kolejnych
 
 ![Kontrola dostępu — ostrzeżenie o przypisaniu roli](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## <a name="download-role-assignments-preview"></a>Pobieranie przypisań ról (wersja zapoznawcza)
+## <a name="download-role-assignments"></a>Pobieranie przypisań ról
 
 Przypisania ról można pobrać w zakresie w formacie CSV lub JSON. Może to być przydatne, jeśli musisz sprawdzić listę w arkuszu kalkulacyjnym lub pobrać spis podczas migrowania subskrypcji.
-
-> [!IMPORTANT]
-> Pobieranie przypisań ról jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Podczas pobierania przypisań ról należy pamiętać o następujących kryteriach:
 
@@ -163,7 +158,7 @@ Wykonaj następujące kroki, aby pobrać przypisania ról w zakresie.
 
 1. Kliknij pozycję **Kontrola dostępu (IAM)** .
 
-1. Kliknij pozycję **Pobierz przypisania ról (wersja zapoznawcza)** , aby otworzyć okienko pobieranie przypisań ról.
+1. Kliknij pozycję **Pobierz przypisania ról** , aby otworzyć okienko pobieranie przypisań ról.
 
     ![Kontrola dostępu — pobieranie przypisań ról](./media/role-assignments-list-portal/download-role-assignments.png)
 

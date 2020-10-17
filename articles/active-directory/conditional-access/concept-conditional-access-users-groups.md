@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552904"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145412"
 ---
 # <a name="conditional-access-users-and-groups"></a>Dostęp warunkowy: Użytkownicy i grupy
 
-Zasady dostępu warunkowego muszą zawierać przypisanie użytkownika jako jeden z sygnałów w procesie decyzyjnym. Użytkownicy mogą być dołączeni lub wykluczeni z zasad dostępu warunkowego. 
+Zasady dostępu warunkowego muszą zawierać przypisanie użytkownika jako jeden z sygnałów w procesie decyzyjnym. Użytkownicy mogą być dołączeni lub wykluczeni z zasad dostępu warunkowego. Azure Active Directory oblicza wszystkie zasady i gwarantuje, że wszystkie wymagania są spełnione przed udzieleniem dostępu użytkownikowi.
 
 ![Użytkownik jako sygnał w decyzji podejmowanych przez dostęp warunkowy](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -73,6 +73,8 @@ Aby zapobiec blokowaniu przez administratora swoich katalogów podczas tworzenia
 Domyślnie zasady zapewniają opcję wykluczenia bieżącego użytkownika z zasad, ale ta wartość domyślna może zostać przesłonięta przez administratora, jak pokazano na poniższej ilustracji. 
 
 ![Ostrzeżenie, nie blokuj siebie!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+
+[Co należy zrobić, jeśli masz zablokowany Azure Portal?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>Następne kroki
 

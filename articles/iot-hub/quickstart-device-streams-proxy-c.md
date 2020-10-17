@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: b8cba8f7a21b04dc722124eb2873c64f67fd6def
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9e2182ee67683c4dfb963aeb320984a82d78b26c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83727136"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148847"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Szybki Start: Włączanie protokołu SSH i RDP przez strumień urządzenia IoT Hub przy użyciu aplikacji serwera proxy języka C (wersja zapoznawcza)
 
@@ -54,7 +54,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 * Podgląd strumieni urządzeń jest obecnie obsługiwany tylko w przypadku centrów IoT, które zostały utworzone w następujących regionach:
 
-  * Środkowe stany USA
+  * Central US
   * Środkowe stany USA — EUAP
   * Europa Północna
   * Azja Południowo-Wschodnia
@@ -120,13 +120,13 @@ W tym przewodniku szybki start użyjesz [zestawu SDK urządzeń Azure IoT dla j�
       cmake --build . -- /m /p:Configuration=Release
       ```
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Rejestrowanie urządzenia
 
-Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw zarejestrować w centrum IoT. W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) , aby zarejestrować symulowane urządzenie.
+Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw zarejestrować w centrum IoT. W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) , aby zarejestrować symulowane urządzenie.
 
 1. Aby utworzyć tożsamość urządzenia, uruchom następujące polecenie w Cloud Shell:
 

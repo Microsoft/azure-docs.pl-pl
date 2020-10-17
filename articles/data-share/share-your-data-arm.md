@@ -7,12 +7,12 @@ ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88654110"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146153"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Szybki Start: udostępnianie danych przy użyciu usługi Azure Data Share i szablonów Menedżer zasobów
 
@@ -60,9 +60,9 @@ Ten szablon jest tworzony na potrzeby celów edukacyjnych. W ramach tej działal
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-Wynika to z faktu, że wdrożenie próbuje utworzyć zestaw danych, zanim przypisanie RBAC zostanie ukończone. Mimo komunikatu o błędzie wdrożenie może się powieść.  Nadal będzie można zapoznać się z [przeglądem wdrożonych zasobów](#review-deployed-resources).
+Wynika to z faktu, że wdrożenie próbuje utworzyć zestaw danych przed ukończeniem przypisywania roli platformy Azure. Mimo komunikatu o błędzie wdrożenie może się powieść.  Nadal będzie można zapoznać się z [przeglądem wdrożonych zasobów](#review-deployed-resources).
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 1. Wybierz Poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon.
 

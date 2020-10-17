@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: c7ad38dc43280164fc9dbca5d5f2381e613dc1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbe277c7451b02887ec5657b1a183fcd001d134e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281338"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148292"
 ---
 # <a name="control-access-to-iot-hub"></a>Kontrola dostępu do centrum IoT Hub
 
@@ -65,7 +65,7 @@ Na przykład w typowym rozwiązaniu IoT:
 > [!NOTE]
 > Aby uzyskać szczegółowe informacje, zobacz [uprawnienia](#iot-hub-permissions) .
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Usługa Azure IoT Hub udziela dostępu do punktów końcowych, weryfikując token względem zasad dostępu współużytkowanego i poświadczeń zabezpieczeń rejestru tożsamości.
 
@@ -273,7 +273,7 @@ Należy pamiętać, że wszystkie funkcje dostępne na urządzeniach są udostę
 
 Punkty końcowe dostępne na urządzeniu są (niezależnie od protokołu):
 
-| Punkt końcowy | Funkcja |
+| Punkt końcowy | Funkcjonalność |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Wysyłanie komunikatów z urządzenia do chmury. |
 | `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Odbieraj komunikaty z chmury do urządzenia. |
@@ -345,7 +345,7 @@ Składniki usługi mogą generować tylko tokeny zabezpieczające przy użyciu z
 
 Poniżej przedstawiono funkcje usługi uwidocznione w punktach końcowych:
 
-| Punkt końcowy | Funkcja |
+| Punkt końcowy | Funkcjonalność |
 | --- | --- |
 | `{iot hub host name}/devices` |Tworzenie, aktualizowanie, pobieranie i usuwanie tożsamości urządzeń. |
 | `{iot hub host name}/messages/events` |Odbieraj komunikaty z urządzenia do chmury. |
@@ -454,7 +454,7 @@ Oto główne kroki wzorca usługi tokenu:
 4. Urządzenie/moduł używa tokenu bezpośrednio w usłudze IoT Hub.
 
 > [!NOTE]
-> Do utworzenia tokenu w usłudze tokenu można użyć klasy .NET [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) lub klasy [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) języka Java.
+> Do utworzenia tokenu w usłudze tokenu można użyć klasy .NET [SharedAccessSignatureBuilder](/dotnet/api/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder) lub klasy [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) języka Java.
 
 Usługa tokenów może ustawić wygaśnięcie tokenu zgodnie z potrzebami. Po wygaśnięciu tokenu Centrum IoT łączy połączenie z urządzeniem/modułem. Następnie urządzenie/moduł musi zażądać nowego tokenu z usługi tokenu. Krótki czas wygaśnięcia zwiększa obciążenie zarówno urządzenia/modułu, jak i usługi tokenu.
 

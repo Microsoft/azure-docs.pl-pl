@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: Azure App Service, Web App, Linux, Windows, Docker, kontener
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cb1aa2d922db96eff21a128eaa60363b37db9d7
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312060"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152103"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrowanie oprogramowania niestandardowego do Azure App Service przy użyciu niestandardowego kontenera
 
@@ -28,7 +28,7 @@ W celu ukończenia tego samouczka:
 
 - <a href="https://hub.docker.com/" target="_blank">Załóż konto usługi Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Zainstaluj program Docker for Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Przełącz platformę Docker na potrzeby uruchamiania kontenerów systemu Windows</a>.
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Przełącz platformę Docker na potrzeby uruchamiania kontenerów systemu Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Zainstaluj program Visual Studio 2019</a> przy użyciu obciążeń **ASP.NET oraz tworzenia aplikacji sieci Web** i **platformy Azure** . Jeśli zainstalowano już program Visual Studio 2019:
     - Zainstaluj najnowsze aktualizacje w programie Visual Studio, klikając pozycję **Pomoc**  >  **Sprawdź dostępność aktualizacji**.
     - Dodaj obciążenia w programie Visual Studio, klikając kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**.
@@ -162,7 +162,7 @@ Na karcie **Docker** Skonfiguruj niestandardowy kontener systemu Windows, jak po
 |**Źródło obrazu**| Rejestr kontenerów platformy Azure |
 |**Rejestr**| Wybierz [utworzony wcześniej rejestr](#publish-to-azure-container-registry). |
 |**Obraz**| customfontsample |
-|**Tag**| najnowsza |
+|**Tag**| latest |
 
 ### <a name="complete-app-creation"></a>Kończenie tworzenia aplikacji
 
@@ -213,7 +213,7 @@ Przesyłane strumieniowo dzienniki wyglądają następująco:
 
 Azure App Service używa technologii kontenera Docker do hostowania zarówno wbudowanych obrazów, jak i obrazów niestandardowych. Aby wyświetlić listę wbudowanych obrazów, uruchom polecenie interfejsu wiersza polecenia platformy Azure, ["AZ webapp list-Runtimes--Linux"](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-list-runtimes). Jeśli te obrazy nie spełniają Twoich potrzeb, można skompilować i wdrożyć niestandardowy obraz.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie obrazu niestandardowego, jeśli żaden wbudowany obraz nie spełnia Twoich potrzeb

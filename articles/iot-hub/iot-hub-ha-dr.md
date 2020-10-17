@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021434"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151680"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Wysoka dostępność i odzyskiwanie po awarii usługi IoT Hub
 
-Pierwszy krok w kierunku implementacji odpornego rozwiązania IoT, architektów, deweloperów i właścicieli firmy musi definiować cele w zakresie czasu, w którym są tworzone. Cele te można definiować przede wszystkim w zależności od konkretnych celów firmy dla każdego scenariusza. W tym kontekście [Wskazówki techniczne dotyczące ciągłości biznesowej platformy Azure](https://docs.microsoft.com/azure/architecture/resiliency/) opisują ogólną strukturę ułatwiającą rozważanie ciągłości działania i odzyskiwania po awarii. Dokument dotyczący [odzyskiwania po awarii i wysokiej dostępności dla aplikacji platformy Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) zawiera wskazówki dotyczące architektury dla aplikacji platformy Azure w celu zapewnienia wysokiej dostępności i odzyskiwania po awarii (Dr).
+Pierwszy krok w kierunku implementacji odpornego rozwiązania IoT, architektów, deweloperów i właścicieli firmy musi definiować cele w zakresie czasu, w którym są tworzone. Cele te można definiować przede wszystkim w zależności od konkretnych celów firmy dla każdego scenariusza. W tym kontekście [Wskazówki techniczne dotyczące ciągłości biznesowej platformy Azure](/azure/architecture/resiliency/) opisują ogólną strukturę ułatwiającą rozważanie ciągłości działania i odzyskiwania po awarii. Dokument dotyczący [odzyskiwania po awarii i wysokiej dostępności dla aplikacji platformy Azure](/azure/architecture/reliability/disaster-recovery) zawiera wskazówki dotyczące architektury dla aplikacji platformy Azure w celu zapewnienia wysokiej dostępności i odzyskiwania po awarii (Dr).
 
 W tym artykule omówiono funkcje HA i DR oferowane w ramach usługi IoT Hub. Rozległe obszary omówione w tym artykule są następujące:
 
@@ -64,7 +64,7 @@ Po zakończeniu operacji przejścia w tryb failover dla usługi IoT Hub należy 
 >
 > - W przypadku używania Azure Functions lub Azure Stream Analytics do łączenia wbudowanego punktu końcowego zdarzeń może być konieczne **ponowne uruchomienie komputera**. Wynika to z faktu, że podczas poprzedniego przesunięcia w tryb failover nie są już prawidłowe.
 >
-> - W przypadku kierowania do magazynu zalecamy wyświetlenie listy obiektów blob lub plików, a następnie przeprowadzenie iteracji dla nich, aby upewnić się, że wszystkie obiekty blob lub pliki są odczytywane bez tworzenia założeń partycji. Zakres partycji może ulec zmianie podczas pracy w trybie failover zainicjowanej przez firmę Microsoft lub ręcznego przejścia w tryb failover. Korzystając z [interfejsu API listy obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) , można wyliczyć listę obiektów blob lub [listę interfejsów API ADLS Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) dla listy plików. Aby dowiedzieć się więcej, zobacz [Azure Storage jako punkt końcowy routingu](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - W przypadku kierowania do magazynu zalecamy wyświetlenie listy obiektów blob lub plików, a następnie przeprowadzenie iteracji dla nich, aby upewnić się, że wszystkie obiekty blob lub pliki są odczytywane bez tworzenia założeń partycji. Zakres partycji może ulec zmianie podczas pracy w trybie failover zainicjowanej przez firmę Microsoft lub ręcznego przejścia w tryb failover. Korzystając z [interfejsu API listy obiektów BLOB](/rest/api/storageservices/list-blobs) , można wyliczyć listę obiektów blob lub [listę interfejsów API ADLS Gen2](/rest/api/storageservices/datalakestoragegen2/path/list) dla listy plików. Aby dowiedzieć się więcej, zobacz [Azure Storage jako punkt końcowy routingu](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Tryb failover zainicjowany przez firmę Microsoft
 

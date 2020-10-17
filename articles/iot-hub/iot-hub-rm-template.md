@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dcec1e40e9095c27abb1470e3739f65035a96834
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db4b676e65d36a9476fd72b66cc8ccfa38af4d85
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89007183"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144488"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Tworzenie Centrum IoT Hub przy użyciu szablonu Azure Resource Manager (.NET)
 
@@ -28,7 +28,7 @@ Za pomocą Azure Resource Manager można programowo tworzyć centra Azure IoT Hu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+Do ukończenia tego samouczka są potrzebne są następujące elementy:
 
 * Programu Visual Studio.
 * Aktywne konto platformy Azure. <br/>Jeśli go nie masz, możesz utworzyć [bezpłatne konto][lnk-free-trial] w zaledwie kilka minut.
@@ -222,11 +222,11 @@ Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: /powershell/azure/install-Az-ps
-[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
+[lnk-rest-api]: /rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-iotedge]: ../iot-edge/quickstart-linux.md

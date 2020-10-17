@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948168"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144987"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Instrukcje: wymaganie uwierzytelniania MFA w celu uzyskania dostępu z niezaufanych sieci z dostępem warunkowym   
 
@@ -26,10 +26,7 @@ Ten artykuł zawiera informacje potrzebne do skonfigurowania zasad dostępu waru
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule założono, że znasz: 
-
-- [Podstawowe koncepcje](overview.md) dostępu warunkowego usługi Azure AD 
-- [Najlepsze rozwiązania](best-practices.md) dotyczące konfigurowania zasad dostępu warunkowego w Azure Portal
+W tym artykule założono, że znasz [podstawowe pojęcia związane](overview.md) z dostępem warunkowym. 
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -65,7 +62,7 @@ Zamiast próbować definiować, które lokalizacje nie są zaufane, możesz:
 
 ## <a name="policy-deployment"></a>Wdrażanie zasad
 
-Z podejściem opisanym w tym artykule można teraz skonfigurować zasady dostępu warunkowego dla niezaufanych lokalizacji. Aby upewnić się, że zasady działają zgodnie z oczekiwaniami, zalecanym najlepszym rozwiązaniem jest przetestowanie go przed wycofaniem do produkcji. Najlepiej użyć dzierżawy testowej, aby sprawdzić, czy nowe zasady działają zgodnie z oczekiwaniami. Aby uzyskać więcej informacji, zobacz [jak wdrożyć nowe zasady](best-practices.md#how-should-you-deploy-a-new-policy). 
+Z podejściem opisanym w tym artykule można teraz skonfigurować zasady dostępu warunkowego dla niezaufanych lokalizacji. Aby upewnić się, że zasady działają zgodnie z oczekiwaniami, zalecanym najlepszym rozwiązaniem jest przetestowanie go przed wycofaniem do produkcji. Najlepiej użyć dzierżawy testowej, aby sprawdzić, czy nowe zasady działają zgodnie z oczekiwaniami.
 
 ## <a name="next-steps"></a>Następne kroki
 

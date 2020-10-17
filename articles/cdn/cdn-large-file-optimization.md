@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192648"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148709"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optymalizacja pobierania dużych plików przy użyciu Azure CDN
 
@@ -44,10 +44,10 @@ Po nadejściu fragmentu do krawędzi sieci CDN jest on buforowany i natychmiast 
 
 Aby uzyskać więcej informacji na temat żądania zakresu bajtów, zobacz [RFC 7233](https://tools.ietf.org/html/rfc7233).
 
-Usługa CDN buforuje wszystkie fragmenty, gdy są odbierane. Cały plik nie musi być buforowany w pamięci podręcznej usługi CDN. Kolejne żądania dla plików lub zakresów bajtów są obsługiwane z pamięci podręcznej usługi CDN. Jeśli nie wszystkie fragmenty są buforowane w sieci CDN, pobieranie z wyprzedzeniem jest używane do żądania fragmentów z pochodzenia. Ta optymalizacja polega na umożliwieniu serwerowi pochodzenia obsługi żądań o zakresie bajtów; Jeśli serwer pochodzenia nie obsługuje żądań zakresu bajtów, Ta optymalizacja nie jest skuteczna. 
+Usługa CDN buforuje wszystkie fragmenty, gdy są odbierane. Cały plik nie musi być buforowany w pamięci podręcznej usługi CDN. Kolejne żądania dla plików lub zakresów bajtów są obsługiwane z pamięci podręcznej usługi CDN. Jeśli nie wszystkie fragmenty są buforowane w sieci CDN, pobieranie z wyprzedzeniem jest używane do żądania fragmentów z pochodzenia. Ta optymalizacja polega na umożliwieniu serwerowi pochodzenia obsługi żądań o zakresie bajtów; Jeśli serwer pochodzenia nie obsługuje żądań o zakresie bajtów, żądania pobrania danych o rozmiarze większym niż 8 MB zakończą się niepowodzeniem. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Warunki optymalizacji dużych plików
-Funkcje optymalizacji dużych plików dla **standardu Azure CDN firmy Microsoft** są domyślnie włączone w przypadku korzystania z ogólnego typu optymalizacji dostarczania w sieci Web. Nie ma ograniczeń dotyczących maksymalnego rozmiaru pliku.
+Nie ma ograniczeń dotyczących maksymalnego rozmiaru pliku.
 
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Optymalizuj pod kątem dostarczania dużych plików Azure CDN z Verizon

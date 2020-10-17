@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99a58cdbed10703c64b980af8571bce2d2638e72
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462041"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152150"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Śledzenie komunikatów z urządzenia do chmury w usłudze Azure IoT z rozproszonym śledzeniem (wersja zapoznawcza)
 
@@ -93,7 +93,7 @@ Te instrukcje dotyczą tworzenia przykładu w systemie Windows. W przypadku inny
 
 ### <a name="clone-the-source-code-and-initialize"></a>Klonuj kod źródłowy i zainicjuj
 
-1. Zainstaluj [obciążenie "Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) dla programu Visual Studio 2019. Obsługiwane są również programy Visual Studio 2017 i 2015.
+1. Zainstaluj [obciążenie "Programowanie aplikacji klasycznych w języku C++"](/cpp/build/vscpp-step-0-installation?view=vs-2019) dla programu Visual Studio 2019. Obsługiwane są również programy Visual Studio 2017 i 2015.
 
 1. Zainstaluj [CMAKE](https://cmake.org/). Upewnij się, że znajduje się w obszarze `PATH` , wpisując `cmake -version` polecenie w wierszu polecenia.
 
@@ -115,7 +115,7 @@ Te instrukcje dotyczą tworzenia przykładu w systemie Windows. W przypadku inny
     cmake ..
     ```
 
-    Jeśli `cmake` nie można znaleźć kompilatora języka C++, może wystąpić błąd kompilacji przy uruchamianiu powyższego polecenia. Jeśli tak się stanie, spróbuj uruchomić to polecenie w [wierszu polecenia programu Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    Jeśli `cmake` nie można znaleźć kompilatora języka C++, może wystąpić błąd kompilacji przy uruchamianiu powyższego polecenia. Jeśli tak się stanie, spróbuj uruchomić to polecenie w [wierszu polecenia programu Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Gdy kompilacja zakończy się powodzeniem, kilka ostatnich wierszy danych wyjściowych będzie wyglądać podobnie do następujących danych wyjściowych:
 
@@ -206,7 +206,7 @@ Aby zmienić procent komunikatów, które mają być śledzone z chmury, należy
 
 1. Wybierz **częstotliwość próbkowania** w zakresie od 0% do 100%.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 1. Odczekaj kilka sekund, a następnie kliknij przycisk **Odśwież**, a następnie, jeśli został pomyślnie potwierdzony przez urządzenie, zostanie wyświetlona ikona synchronizacji z znacznikiem wyboru.
 
@@ -234,7 +234,7 @@ Aby zmienić procent komunikatów, które mają być śledzone z chmury, należy
 
 ### <a name="bulk-update-for-multiple-devices"></a>Aktualizacja zbiorcza dla wielu urządzeń
 
-Aby zaktualizować konfigurację próbkowania śledzenia rozproszonego dla wielu urządzeń, użyj [automatycznej konfiguracji urządzenia](iot-hub-auto-device-config.md). Upewnij się, że obserwujesz ten schemat bliźniaczy:
+Aby zaktualizować konfigurację próbkowania śledzenia rozproszonego dla wielu urządzeń, użyj [automatycznej konfiguracji urządzenia](./iot-hub-automatic-device-management.md). Upewnij się, że obserwujesz ten schemat bliźniaczy:
 
 ```json
 {
@@ -260,7 +260,7 @@ Aby wyświetlić wszystkie ślady zarejestrowane przez IoT Hub, wykonaj zapytani
 
 ### <a name="query-using-log-analytics"></a>Zapytanie przy użyciu Log Analytics
 
-Jeśli skonfigurowano [log Analytics z dziennikami diagnostycznymi](../azure-monitor/platform/resource-logs-collect-storage.md), wyszukaj dzienniki w `DistributedTracing` kategorii. Na przykład to zapytanie wyświetla wszystkie zarejestrowane ślady:
+Jeśli skonfigurowano [log Analytics z dziennikami diagnostycznymi](../azure-monitor/platform/resource-logs.md#send-to-azure-storage), wyszukaj dzienniki w `DistributedTracing` kategorii. Na przykład to zapytanie wyświetla wszystkie zarejestrowane ślady:
 
 ```Kusto
 // All distributed traces 
@@ -282,7 +282,7 @@ Aby poznać różne typy dzienników, zapoznaj się z [dziennikami diagnostyczny
 
 ### <a name="application-map"></a>Mapa aplikacji
 
-Aby wizualizować przepływ komunikatów IoT, skonfiguruj przykładową aplikację mapy aplikacji. Przykładowa aplikacja wysyła dzienniki śledzenia rozproszonego do [mapy aplikacji](../application-insights/app-insights-app-map.md) przy użyciu funkcji platformy Azure i centrum zdarzeń.
+Aby wizualizować przepływ komunikatów IoT, skonfiguruj przykładową aplikację mapy aplikacji. Przykładowa aplikacja wysyła dzienniki śledzenia rozproszonego do [mapy aplikacji](../azure-monitor/app/app-map.md) przy użyciu funkcji platformy Azure i centrum zdarzeń.
 
 > [!div class="button"]
 > <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Pobierz przykład w witrynie GitHub</a>
@@ -295,11 +295,11 @@ Na poniższym obrazie przedstawiono śledzenie rozproszone w mapie aplikacji z t
 
 ### <a name="context"></a>Kontekst
 
-Wiele rozwiązań IoT, w tym nasza [Architektura referencyjna](https://aka.ms/iotrefarchitecture) (tylko w języku angielskim), zazwyczaj jest zgodna z wariantem [architektury mikrousług](https://docs.microsoft.com/azure/architecture/microservices/). Ponieważ rozwiązanie IoT zwiększa złożoność, można korzystać z wielu mikrousług. Te mikrousługi mogą lub nie mogą pochodzić z platformy Azure. Lokalizowanie miejsca, w którym komunikaty IoT są upuszczane lub spowalniają działanie, mogą stać się trudne. Na przykład masz rozwiązanie IoT korzystające z 5 różnych usług platformy Azure i 1500 aktywnych urządzeń. Każde urządzenie wysyła 10 komunikatów z urządzenia do chmury na sekundę (łącznie 15 000 komunikatów/sekundę), ale zauważ, że Twoja aplikacja internetowa widzi tylko 10 000 komunikatów/sekundę. Gdzie jest problem? Jak znaleźć Przyczyna?
+Wiele rozwiązań IoT, w tym nasza [Architektura referencyjna](https://aka.ms/iotrefarchitecture) (tylko w języku angielskim), zazwyczaj jest zgodna z wariantem [architektury mikrousług](/azure/architecture/microservices/). Ponieważ rozwiązanie IoT zwiększa złożoność, można korzystać z wielu mikrousług. Te mikrousługi mogą lub nie mogą pochodzić z platformy Azure. Lokalizowanie miejsca, w którym komunikaty IoT są upuszczane lub spowalniają działanie, mogą stać się trudne. Na przykład masz rozwiązanie IoT korzystające z 5 różnych usług platformy Azure i 1500 aktywnych urządzeń. Każde urządzenie wysyła 10 komunikatów z urządzenia do chmury na sekundę (łącznie 15 000 komunikatów/sekundę), ale zauważ, że Twoja aplikacja internetowa widzi tylko 10 000 komunikatów/sekundę. Gdzie jest problem? Jak znaleźć Przyczyna?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Rozproszony wzorzec śledzenia w architekturze mikrousług
 
-W celu odtworzenia przepływu wiadomości IoT w różnych usługach każda usługa powinna propagować *Identyfikator korelacji* , który jednoznacznie identyfikuje komunikat. Po zebraniu w scentralizowanym systemie identyfikatory korelacji umożliwiają wyświetlanie przepływu komunikatów. Ta metoda jest nazywana [wzorcem śledzenia rozproszonego](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing).
+W celu odtworzenia przepływu wiadomości IoT w różnych usługach każda usługa powinna propagować *Identyfikator korelacji* , który jednoznacznie identyfikuje komunikat. Po zebraniu w scentralizowanym systemie identyfikatory korelacji umożliwiają wyświetlanie przepływu komunikatów. Ta metoda jest nazywana [wzorcem śledzenia rozproszonego](/azure/architecture/microservices/logging-monitoring#distributed-tracing).
 
 Aby zapewnić obsługę szerszego wdrożenia rozproszonego śledzenia, firma Microsoft przyczynimy do [standardowej oferty na potrzeby rozproszonego śledzenia](https://w3c.github.io/trace-context/).
 
@@ -328,5 +328,5 @@ Po włączeniu obsługa śledzenia rozproszonego dla IoT Hub będzie zgodna z ty
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się więcej na temat ogólnego wzorca śledzenia rozproszonego w mikrousługach, zobacz [wzorzec architektury mikrousług: śledzenie rozproszone](https://microservices.io/patterns/observability/distributed-tracing.html).
-- Aby skonfigurować konfigurację w celu zastosowania ustawień śledzenia rozproszonego na dużej liczbie urządzeń, zobacz [Konfigurowanie i monitorowanie urządzeń IoT w odpowiedniej skali](iot-hub-auto-device-config.md).
+- Aby skonfigurować konfigurację w celu zastosowania ustawień śledzenia rozproszonego na dużej liczbie urządzeń, zobacz [Konfigurowanie i monitorowanie urządzeń IoT w odpowiedniej skali](./iot-hub-automatic-device-management.md).
 - Aby dowiedzieć się więcej na temat Azure Monitor, zobacz [co to jest Azure monitor?](../azure-monitor/overview.md).

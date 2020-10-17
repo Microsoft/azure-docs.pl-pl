@@ -3,12 +3,12 @@ title: Reguły dostępu zapory
 description: Skonfiguruj reguły dostępu do usługi Azure Container Registry za zaporą, zezwalając na dostęp do ("listy dozwolonych") interfejsów API REST i nazw domen punktów końcowych danych lub zakresów adresów IP specyficznych dla usługi.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246983"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148518"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurowanie reguł dostępu do usługi Azure Container Registry za zaporą
 
@@ -113,7 +113,7 @@ Wyszukaj konkretny region, taki jak **Storage. AustraliaCentral**.
 
 ## <a name="allow-access-by-service-tag"></a>Zezwalaj na dostęp według tagu usługi
 
-W sieci wirtualnej platformy Azure Użyj reguł zabezpieczeń sieci do filtrowania ruchu z zasobów, takich jak maszyna wirtualna, do rejestru kontenerów. Aby uprościć tworzenie reguł sieci platformy Azure, użyj [znacznika usługi](../virtual-network/security-overview.md#service-tags) **AzureContainerRegistry** . Tag usługi reprezentuje grupę prefiksów adresów IP, aby uzyskać dostęp do usługi platformy Azure globalnie lub dla regionu platformy Azure. Tag jest automatycznie aktualizowany, gdy adresy zmienią się. 
+W sieci wirtualnej platformy Azure Użyj reguł zabezpieczeń sieci do filtrowania ruchu z zasobów, takich jak maszyna wirtualna, do rejestru kontenerów. Aby uprościć tworzenie reguł sieci platformy Azure, użyj [znacznika usługi](../virtual-network/network-security-groups-overview.md#service-tags) **AzureContainerRegistry** . Tag usługi reprezentuje grupę prefiksów adresów IP, aby uzyskać dostęp do usługi platformy Azure globalnie lub dla regionu platformy Azure. Tag jest automatycznie aktualizowany, gdy adresy zmienią się. 
 
 Można na przykład utworzyć regułę sieciowej grupy zabezpieczeń dla ruchu wychodzącego z **AzureContainerRegistryą** docelową, aby zezwolić na ruch do usługi Azure Container Registry. Aby zezwolić na dostęp do tagu usługi tylko w określonym regionie, Określ region w następującym formacie: **AzureContainerRegistry**. [*Nazwa regionu*].
 
@@ -183,7 +183,7 @@ Jeśli musisz uzyskać dostęp do programu Microsoft Container Registry (MCR) z 
 
 * Poznaj [najlepsze rozwiązania dotyczące platformy Azure dotyczące zabezpieczeń sieci](../security/fundamentals/network-best-practices.md)
 
-* Dowiedz się więcej o [grupach zabezpieczeń](../virtual-network/security-overview.md) w sieci wirtualnej platformy Azure
+* Dowiedz się więcej o [grupach zabezpieczeń](../virtual-network/network-security-groups-overview.md) w sieci wirtualnej platformy Azure
 
 * Dowiedz się więcej o konfigurowaniu [prywatnego linku](container-registry-private-link.md) do rejestru kontenerów
 

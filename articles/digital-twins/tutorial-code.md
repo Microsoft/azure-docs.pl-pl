@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 830052237580101d9141bbf812c050430c6269f2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057488"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144563"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -320,13 +320,20 @@ Należy zauważyć, że żaden błąd nie jest zgłaszany, gdy bliźniaczych rep
 
 Następnie można utworzyć **relacje** między utworzonym bliźniaczych reprezentacji, aby połączyć je z **wykresem bliźniaczym**. [Wykresy bliźniaczy](concepts-twins-graph.md) są używane do reprezentowania całego środowiska.
 
-Aby można było tworzyć relacje, będzie potrzebna `Azure.DigitalTwins.Core.Serialization` przestrzeń nazw. Został dodany do projektu wcześniej z tą `using` instrukcją:
+Aby ułatwić tworzenie relacji, Ten przykładowy kod używa `Azure.DigitalTwins.Core.Serialization` przestrzeni nazw. Został dodany do projektu wcześniej z tą `using` instrukcją:
 
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` nie jest wymagana do pracy z bliźniaczych reprezentacjiami cyfrowymi i relacjami. jest to opcjonalna przestrzeń nazw, która może pomóc w uzyskaniu danych w odpowiednim formacie. Niektóre alternatywy do użycia obejmują:
+>* Łączenie ciągów w celu utworzenia obiektu JSON
+>* Korzystanie z analizatora JSON, takiego jak `System.Text.Json` do dynamicznego kompilowania obiektu JSON
+>* Modelowanie niestandardowych typów w języku C#, tworzenie wystąpienia ich i Serializowanie do ciągów
+
 Dodaj nową metodę statyczną do `Program` klasy poniżej `Main` metody:
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -348,7 +355,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Następnie Dodaj następujący kod na końcu `Main` metody, aby wywołać `CreateRelationship` kod:
+Następnie Dodaj następujący kod na końcu `Main` metody, aby wywołać `CreateRelationship` metodę i użyć właśnie napisanego kodu:
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");

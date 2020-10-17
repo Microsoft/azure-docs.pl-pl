@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 98cec9fc30b4840a763358c0b3cd76659ff865d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6b9ebd8401151d57f103e639e70dd213bde6e33
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070364"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152079"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -37,7 +37,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzy�
 
 3. Wybierz pozycję **tożsamość**.
 
-4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone**. Kliknij przycisk **Zapisz**.
+4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone**. Kliknij pozycję **Zapisz**.
 
     ![Tożsamość zarządzana w App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -525,4 +525,4 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!div class="nextstepaction"]
 > [Bezpieczny dostęp SQL Database przy użyciu tożsamości zarządzanej](app-service-web-tutorial-connect-msi.md)
 
-[Dokumentacja Microsoft. Azure. Services. AppAuthentication]: https://go.microsoft.com/fwlink/p/?linkid=862452
+[Dokumentacja Microsoft. Azure. Services. AppAuthentication]: ../key-vault/general/service-to-service-authentication.md

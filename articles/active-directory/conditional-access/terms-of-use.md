@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 233645519a6a918e451c425971d2e2e16f788f3a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085913"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145401"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
@@ -129,7 +129,7 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
     Niestandardowe zasady dostępu warunkowego umożliwiają szczegółowe warunki użytkowania, w dół do określonej aplikacji w chmurze lub grupy użytkowników. Aby uzyskać więcej informacji, zobacz [Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze](require-tou.md).
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
    W przypadku wybrania niestandardowego szablonu dostępu warunkowego zostanie wyświetlony nowy ekran, który umożliwia utworzenie niestandardowych zasad dostępu warunkowego.
 
@@ -392,4 +392,3 @@ Odp.: Warunki użytkowania wykorzystuje następujące punkty końcowe do uwierzy
 ## <a name="next-steps"></a>Następne kroki
 
 - [Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze](require-tou.md)
-- [Najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory](best-practices.md)

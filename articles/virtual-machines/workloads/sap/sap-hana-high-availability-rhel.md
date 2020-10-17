@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 2184a6e67b17f9fcaefc0a8e556ba81e839a2399
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81cbbe06db2426cda8fde4a8fa0bca2cd8f097bb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598069"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144143"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na Red Hat Enterprise Linux
 
@@ -123,6 +123,13 @@ Aby wdrożyć szablon, wykonaj następujące kroki:
 1. Utwórz maszynę wirtualną 2.  
    Użyj co najmniej Red Hat Enterprise Linux 7,4 dla SAP HANA. W tym przykładzie zastosowano Red Hat Enterprise Linux 7,4 dla SAP HANA obrazu <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Wybierz zestaw dostępności utworzony w kroku 3.
 1. Dodaj dyski danych.
+
+> [!IMPORTANT]
+> Zmienny adres IP nie jest obsługiwany w konfiguracji pomocniczego adresu IP karty sieciowej w scenariuszach równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [ograniczenia modułu równoważenia obciążenia platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Jeśli potrzebujesz dodatkowego adresu IP dla maszyny wirtualnej, wdróż drugą kartę sieciową.    
+
+> [!Note]
+> Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+
 1. W przypadku korzystania z usługi równoważenia obciążenia w warstwie Standardowa wykonaj następujące czynności konfiguracyjne:
    1. Najpierw Utwórz pulę adresów IP frontonu:
 
@@ -158,8 +165,6 @@ Aby wdrożyć szablon, wykonaj następujące kroki:
       1. Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
       1. Wybierz przycisk **OK**.
 
-   > [!Note]
-   > Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 1. Alternatywnie, jeśli scenariusz podyktuje przy użyciu podstawowego modułu równoważenia obciążenia, wykonaj następujące czynności konfiguracyjne:
    1. Skonfiguruj moduł równoważenia obciążenia. Najpierw Utwórz pulę adresów IP frontonu:

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 10/12/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4, azuread-video-2020
-ms.openlocfilehash: b0dec57a67053c3791e68fb40e28d83d5b97777b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d46dfba9d9dedea57b6be872a6853bc522a0bc8c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962160"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145249"
 ---
 # <a name="what-is-conditional-access"></a>Co to jest dostęp warunkowy?
 
@@ -84,13 +84,6 @@ Wiele organizacji ma [typowy dostęp do zasad dostępu warunkowego,](concept-con
 - Blokowanie lub udzielanie dostępu z określonych lokalizacji
 - Blokowanie ryzykownych zachowań logowania
 - Wymaganie urządzeń zarządzanych przez organizację dla określonych aplikacji
-
-## <a name="customer-case-studies"></a>Analizy przypadków klientów
-
-Dowiedz się, w jaki sposób inne organizacje używają dostępu warunkowego usługi Azure AD, aby definiować i implementować zautomatyzowane decyzje dotyczące kontroli dostępu. Poniższe proponowane historie pokazują, jak są spełnione te wymagania klientów.
-
-* [Wipro dyski przenośne z narzędziami zabezpieczeń w chmurze firmy Microsoft, aby usprawnić zaangażowanie klientów.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) Zasady dostępu warunkowego w usłudze Azure AD umożliwiły firmie udostępnianie dokumentów, zasobów i aplikacji zaufanym podmiotom zewnętrznym---, którzy mogą korzystać z własnych poświadczeń---przy zachowaniu kontroli nad własnymi danymi firmowymi.
-* Usługa [Aramex Delivery Limited — globalna i transportowa firmy tworzy biuro połączone z chmurą z rozwiązaniem do zarządzania tożsamościami i dostępem](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Zapewnienie bezpiecznego dostępu było szczególnie trudne dzięki zdalnym pracownikom Aramex. Firma stosuje teraz dostęp warunkowy, aby umożliwić tym pracownikom zdalnym dostęp do swoich aplikacji SaaS spoza sieci. Reguła dostępu warunkowego decyduje, czy wymusić Multi-Factor Authentication, dając tylko właściwym osobom prawo dostępu.
 
 ## <a name="license-requirements"></a>Wymagania licencyjne
 

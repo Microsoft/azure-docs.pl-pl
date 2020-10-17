@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6951dfe3eecc8764dda9788393a7348e9267cef8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d54c939f0ecc78d7734345b23fd2b75f150243c1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86248870"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148488"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Wprowadzenie do prywatnych rejestrów kontenerów platformy Docker na platformie Azure
 
@@ -32,7 +32,7 @@ Deweloperzy mogą również przeprowadzać wypychanie do rejestru kontenerów w 
 
 Skonfiguruj zadania ACR do automatycznego odbudowywania obrazów aplikacji, gdy ich obrazy podstawowe są aktualizowane lub Automatyzuj kompilacje obrazu, gdy zespół zatwierdzi kod w repozytorium git. Twórz wieloetapowe zadania w celu zautomatyzowania kompilowania, testowania i poprawiania wielu obrazów kontenerów równolegle w chmurze.
 
-Platforma Azure udostępnia narzędzia, w tym interfejs wiersza polecenia platformy Azure, Azure Portal i obsługę interfejsów API do zarządzania rejestrami kontenerów platformy Azure. Opcjonalnie zainstaluj [rozszerzenie Docker dla Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) i rozszerzenie [konta platformy Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) , aby współpracowało z rejestrami kontenerów platformy Azure. Ściągaj i wypychanie obrazów do usługi Azure Container Registry lub uruchamiaj zadania ACR, w Visual Studio Code.
+Platforma Azure udostępnia narzędzia, w tym interfejsy Command-Line platformy Azure, Azure Portal i obsługa interfejsów API do zarządzania rejestrami kontenerów platformy Azure. Opcjonalnie zainstaluj [rozszerzenie Docker dla Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) i rozszerzenie [konta platformy Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) , aby współpracowało z rejestrami kontenerów platformy Azure. Ściągaj i wypychanie obrazów do usługi Azure Container Registry lub uruchamiaj zadania ACR, w Visual Studio Code.
 
 ## <a name="key-features"></a>Najważniejsze funkcje
 
@@ -43,9 +43,9 @@ Platforma Azure udostępnia narzędzia, w tym interfejs wiersza polecenia platfo
   > [!IMPORTANT]
   > Od 13 stycznia 2020, Azure Container Registry będą wymagały wszystkich bezpiecznych połączeń z serwerów i aplikacji do korzystania z protokołu TLS 1,2. Włącz protokół TLS 1,2 przy użyciu dowolnego ostatniego klienta platformy Docker (wersja 18.03.0 lub nowsza). Obsługa protokołu TLS 1,0 i 1,1 zostanie wycofana. 
 
-  Możesz [kontrolować dostęp](container-registry-authentication.md) do rejestru kontenerów za pomocą tożsamości platformy Azure, [jednostki usługi](../active-directory/develop/app-objects-and-service-principals.md) wspieranej przez usługę Azure Active Directory lub podanego konta administratora. Za pomocą kontroli dostępu opartej na rolach (RBAC) można przypisywać użytkownikom lub systemom szczegółowe uprawnienia do rejestru.
+  Możesz [kontrolować dostęp](container-registry-authentication.md) do rejestru kontenerów za pomocą tożsamości platformy Azure, [jednostki usługi](../active-directory/develop/app-objects-and-service-principals.md) wspieranej przez usługę Azure Active Directory lub podanego konta administratora. Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można przypisywać użytkownikom lub systemom szczegółowe uprawnienia do rejestru.
 
-  Funkcje zabezpieczeń warstwy usługi Premium obejmują [zaufanie zawartości](container-registry-content-trust.md) dla podpisywania znacznika obrazu oraz [zapory i sieci wirtualne (wersja zapoznawcza)](container-registry-vnet.md) w celu ograniczenia dostępu do rejestru. Azure Security Center opcjonalnie integrują się z Azure Container Registry, aby [skanować obrazy](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) przy każdym wypchnięciu obrazu do rejestru.
+  Funkcje zabezpieczeń warstwy usługi Premium obejmują [zaufanie zawartości](container-registry-content-trust.md) dla podpisywania znacznika obrazu oraz [zapory i sieci wirtualne (wersja zapoznawcza)](container-registry-vnet.md) w celu ograniczenia dostępu do rejestru. Azure Security Center opcjonalnie integrują się z Azure Container Registry, aby [skanować obrazy](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) przy każdym wypchnięciu obrazu do rejestru.
 
 * **Obsługiwane obrazy i artefakty** — pogrupowane w repozytorium, każdy obraz jest migawką tylko do odczytu kontenera zgodnego z platformą Docker. Rejestry kontenerów platformy Azure mogą obejmować zarówno obrazy systemu Windows, jak i Linux. Możesz kontrolować nazwy obrazów wszystkich wdrożeń kontenera. Użyj standardowych [poleceń platformy Docker](https://docs.docker.com/engine/reference/commandline/), aby wypchnąć obrazy do repozytorium lub aby ściągnąć je z repozytorium. Oprócz obrazów kontenerów platformy Docker Azure Container Registry przechowuje [powiązane formaty zawartości](container-registry-image-formats.md) , takie jak [wykresy Helm](container-registry-helm-repos.md) i obrazy skompilowane zgodnie ze [specyfikacją formatu obrazu typu Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 

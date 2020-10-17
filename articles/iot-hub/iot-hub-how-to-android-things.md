@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d824c94a2c5751013b78c69ed5abd048c50856b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78673397"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151730"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Opracowywanie platformy dla systemu Android przy użyciu zestawów SDK usługi Azure IoT
 
-[Usługa Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) zapewnia obsługę pierwszej warstwy dla popularnych platform, takich jak systemy Windows, Linux, OSX, MBED i platformy mobilne, takie jak Android i iOS.  W ramach naszych zobowiązań, aby zapewnić większy wybór i elastyczność w ramach wdrożeń IoT, zestaw SDK Java obsługuje również platformę [Android](https://developer.android.com/things/) .  Deweloperzy mogą korzystać z zalet systemu operacyjnego Android na stronie urządzenia, jednocześnie korzystając z [usługi Azure IoT Hub](about-iot-hub.md) jako centralnego centrum komunikatów, które skaluje się do milionów jednocześnie połączonych urządzeń.
+[Usługa Azure IoT Hub SDK](./iot-hub-devguide-sdks.md) zapewnia obsługę pierwszej warstwy dla popularnych platform, takich jak systemy Windows, Linux, OSX, MBED i platformy mobilne, takie jak Android i iOS.  W ramach naszych zobowiązań, aby zapewnić większy wybór i elastyczność w ramach wdrożeń IoT, zestaw SDK Java obsługuje również platformę [Android](https://developer.android.com/things/) .  Deweloperzy mogą korzystać z zalet systemu operacyjnego Android na stronie urządzenia, jednocześnie korzystając z [usługi Azure IoT Hub](about-iot-hub.md) jako centralnego centrum komunikatów, które skaluje się do milionów jednocześnie połączonych urządzeń.
 
 Ten samouczek zawiera opis kroków tworzenia aplikacji po stronie urządzenia w systemie Android przy użyciu zestawu SDK Java usługi Azure IoT.
 
@@ -30,7 +30,7 @@ Ten samouczek zawiera opis kroków tworzenia aplikacji po stronie urządzenia w 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

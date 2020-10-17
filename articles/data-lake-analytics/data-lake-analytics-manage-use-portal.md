@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f47e201f0fe6f44eb33916b2b3ed71ef963d5a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531216"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148145"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Manage Azure Data Lake Analytics using the Azure portal (Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal)
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -35,7 +35,7 @@ W tym artykule opisano sposób zarządzania kontami Azure Data Lake Analytics, �
    3. **Grupa zasobów**: Grupa zasobów platformy Azure, w której ma zostać utworzone konto. 
    4. **Lokalizacja**: centrum danych platformy Azure dla konta Data Lake Analytics. 
    5. **Data Lake Store**: magazyn domyślny, który ma być używany dla konta Data Lake Analytics. Konto Azure Data Lake Store i konto Data Lake Analytics muszą znajdować się w tej samej lokalizacji.
-4. Kliknij przycisk **Utwórz**. 
+4. Kliknij pozycję **Utwórz**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Usuwanie konta Data Lake Analytics
 
@@ -91,9 +91,9 @@ Za pomocą **Kreatora dodawania użytkownika** można łatwo inicjować obsług�
 7. Przejrzyj wszystkie wybrane zmiany, a następnie kliknij przycisk **Uruchom**.
 8. Po zakończeniu pracy kreatora kliknij przycisk **gotowe**.
 
-## <a name="manage-role-based-access-control"></a>Zarządzanie Access Control Role-Based
+## <a name="manage-azure-role-based-access-control"></a>Zarządzanie kontrolą dostępu opartą na rolach na platformie Azure
 
-Podobnie jak w przypadku innych usług platformy Azure, można użyć Access Control Role-Based (RBAC) do kontrolowania sposobu, w jaki użytkownicy pracują z usługą.
+Podobnie jak w przypadku innych usług platformy Azure, możesz użyć kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować sposób, w jaki użytkownicy korzystają z usługi.
 
 Standardowe role platformy Azure mają następujące możliwości:
 * **Właściciel**: może przesyłać zadania, monitorować zadania, anulować zadania z dowolnego użytkownika i konfigurować je.

@@ -5,22 +5,39 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12f722977329bd5d79d4d0e410a29c730faf00c5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032972"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145087"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Rozwiązywanie problemów z logowaniem przy użyciu dostępu warunkowego
 
 Informacje przedstawione w tym artykule mogą służyć do rozwiązywania nieoczekiwanych wyników logowania związanych z dostępem warunkowym przy użyciu komunikatów o błędach i dziennika logowania usługi Azure AD.
+
+## <a name="select-all-consequences"></a>Wybierz konsekwencje "wszystkie"
+
+Struktura dostępu warunkowego zapewnia dużą elastyczność konfiguracji. Jednak doskonałe elastyczność oznacza, że należy uważnie przejrzeć każdą zasadę konfiguracji przed jej zwolnieniem, aby uniknąć niepożądanych wyników. W tym kontekście należy zwrócić szczególną uwagę na przydziały mające wpływ na kompletne zestawy, takie jak **Wszyscy użytkownicy/grupy/aplikacje w chmurze**.
+
+Organizacje powinny unikać następujących konfiguracji:
+
+**Dla wszystkich użytkowników wszystkie aplikacje w chmurze:**
+
+- **Blokuj dostęp** — ta konfiguracja blokuje całą organizację.
+- **Wymagaj, aby urządzenie było oznaczone jako zgodne** — dla użytkowników, którzy nie zarejestrowali jeszcze urządzeń, te zasady blokują dostęp do portalu usługi Intune. Jeśli jesteś administratorem programu bez zarejestrowanego urządzenia, ta zasada uniemożliwia powrót do Azure Portal, aby zmienić zasady.
+- **Wymagaj hybrydowego urządzenia dołączonego do domeny usługi Azure AD** — ta zasada blokuje również możliwość blokowania dostępu dla wszystkich użytkowników w organizacji, jeśli nie posiadają hybrydowego urządzenia dołączonego do usługi Azure AD.
+- **Wymagaj zasad ochrony aplikacji** — ten blok dostępu blokuje również możliwość blokowania dostępu dla wszystkich użytkowników w organizacji, jeśli nie masz zasad usługi Intune. Jeśli jesteś administratorem bez aplikacji klienckiej z zasadami ochrony aplikacji usługi Intune, te zasady uniemożliwiają powrót do portali, takich jak usługa Intune i platforma Azure.
+
+**Dla wszystkich użytkowników, wszystkie aplikacje w chmurze, wszystkie platformy urządzeń:**
+
+- **Blokuj dostęp** — ta konfiguracja blokuje całą organizację.
 
 ## <a name="conditional-access-sign-in-interrupt"></a>Przerwanie logowania dostępu warunkowego
 
@@ -82,8 +99,14 @@ Podczas przesyłania zdarzenia podaj identyfikator i datę i godzinę żądania 
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
+## <a name="what-to-do-if-you-are-locked-out-of-the-azure-portal"></a>Co należy zrobić, jeśli masz zablokowany Azure Portal?
+
+Jeśli masz zablokowany dostęp do Azure Portal z powodu niepoprawnego ustawienia zasad dostępu warunkowego:
+
+- Sprawdź, czy w organizacji znajdują się inni administratorzy, którzy nie zostali jeszcze Zablokowani. Administrator z dostępem do Azure Portal może wyłączyć zasady wpływające na logowanie. 
+- Jeśli żadna z administratorów w organizacji nie może zaktualizować zasad, Prześlij żądanie pomocy technicznej. Pomoc techniczna firmy Microsoft może przejrzeć i po potwierdzeniu zaktualizować zasady dostępu warunkowego, które uniemożliwiają dostęp.
+
 ## <a name="next-steps"></a>Następne kroki
 
 - [Raporty dotyczące logowań w portalu Azure Active Directory](../reports-monitoring/concept-sign-ins.md)
 - [Rozwiązywanie problemów z dostępem warunkowym przy użyciu narzędzia What If](troubleshoot-conditional-access-what-if.md)
-- Najlepsze rozwiązania dotyczące [dostępu warunkowego w Azure Active Directory](best-practices.md)

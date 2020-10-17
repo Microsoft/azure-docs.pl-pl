@@ -4,16 +4,16 @@ description: Tworzenie rejestru kontenerów platformy Azure, konfigurowanie repl
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 854b4eb35694f7498d0dc70567b19ccfdf7c8c82
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259532"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148384"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Samouczek: przygotowywanie rejestru kontenerów platformy Azure z replikacją geograficzną
 
-Rejestr kontenerów platformy Azure to prywatny rejestr platformy Docker wdrożony na platformie Azure, który można zlokalizować w sieci w pobliżu własnych wdrożeń. Ten zestaw trzech samouczków przedstawia metodę użycia replikacji geograficznej do wdrożenia aplikacji internetowej platformy ASP.NET Core uruchomionej w kontenerze systemu Linux do dwóch wystąpień funkcji [Web Apps for Containers](../app-service/containers/index.yml). Dowiesz się, jak platforma Azure automatycznie wdraża obraz do każdego wystąpienia aplikacji internetowej z najbliższego repozytorium z replikacją geograficzną.
+Rejestr kontenerów platformy Azure to prywatny rejestr platformy Docker wdrożony na platformie Azure, który można zlokalizować w sieci w pobliżu własnych wdrożeń. Ten zestaw trzech samouczków przedstawia metodę użycia replikacji geograficznej do wdrożenia aplikacji internetowej platformy ASP.NET Core uruchomionej w kontenerze systemu Linux do dwóch wystąpień funkcji [Web Apps for Containers](../app-service/index.yml). Dowiesz się, jak platforma Azure automatycznie wdraża obraz do każdego wystąpienia aplikacji internetowej z najbliższego repozytorium z replikacją geograficzną.
 
 Ten samouczek jest pierwszą częścią trzyczęściowej serii:
 

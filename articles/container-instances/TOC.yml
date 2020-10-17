@@ -43,7 +43,7 @@
 - name: Samples
   items:
     - name: Przykłady kodu
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance'
+      href: /samples/browse/?products=azure&terms=container%2binstance
     - name: Szablony usługi Resource Manager
       href: container-instances-samples-rm.md
 - name: Pojęcia

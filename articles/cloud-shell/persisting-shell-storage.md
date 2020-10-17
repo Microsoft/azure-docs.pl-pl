@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470140"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152261"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Utrwalanie plików w Azure Cloud Shell
 Cloud Shell korzysta z usługi Azure File Storage, aby utrwalać pliki między sesjami. Na początku, Cloud Shell prosi o skojarzenie nowego lub istniejącego udziału plików w celu utrwalenia plików między sesjami.
@@ -55,7 +55,7 @@ Po wyświetleniu monitu instalacji magazynu wybierz pozycję **Pokaż ustawienia
 ![Ustawienie grupy zasobów](media/persisting-shell-storage/advanced-storage.png)
 
 ## <a name="securing-storage-access"></a>Zabezpieczanie dostępu do magazynu
-Aby zapewnić bezpieczeństwo, każdy użytkownik powinien obsługiwać własne konto magazynu.  W przypadku kontroli dostępu opartej na rolach (RBAC) użytkownicy muszą mieć dostęp współautora lub wyższy na poziomie konta magazynu.
+Aby zapewnić bezpieczeństwo, każdy użytkownik powinien obsługiwać własne konto magazynu.  W przypadku kontroli dostępu opartej na rolach (Azure RBAC) użytkownicy muszą mieć dostęp współautora lub wyższy na poziomie konta magazynu.
 
 Cloud Shell używa udziału plików platformy Azure na koncie magazynu w ramach określonej subskrypcji. Ze względu na uprawnienia dziedziczone użytkownicy mający wystarczające prawa dostępu do subskrypcji będą mogli uzyskiwać dostęp do wszystkich kont magazynu oraz udziałów plików zawartych w subskrypcji.
 

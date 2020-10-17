@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f65a43cf5730f56b43d79388a0e73ea93e3225b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 658d18ed3c9eefeedffd82bbccedbde0621fe748
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801991"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145519"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Dostęp warunkowy: aplikacje lub akcje w chmurze
 
@@ -56,7 +56,7 @@ Administratorzy mogą przypisywać zasady dostępu warunkowego do następującyc
 - Usługa Microsoft Stream
 - Microsoft Teams
 - Exchange Online
-- Sharepoint
+- SharePoint
 - Yammer
 - Office Delve
 - Pakiet Office Sway
@@ -122,7 +122,6 @@ Oprócz aplikacji firmy Microsoft Administratorzy mogą dodać do zasad dostępu
 
 > [!NOTE]
 > Ponieważ zasady dostępu warunkowego określają wymagania dotyczące uzyskiwania dostępu do usługi, nie można jej zastosować do aplikacji klienta (publicznej/natywnej). Inne wyrazy zasady nie są ustawiane bezpośrednio w aplikacji klienta (publicznej/natywnej), ale są stosowane, gdy klient wywołuje usługę. Na przykład zestaw zasad w usłudze SharePoint ma zastosowanie do klientów wywołujących program SharePoint. Zestaw zasad dla programu Exchange ma zastosowanie przy próbie uzyskania dostępu do poczty e-mail przy użyciu klienta programu Outlook. Dlatego aplikacje klienckie (publiczne/natywne) nie są dostępne do wyboru w selektorze aplikacji w chmurze i opcja dostępu warunkowego jest niedostępna w ustawieniach aplikacji dla aplikacji klienta (publicznej/natywnej) zarejestrowanej w dzierżawie. 
-
 
 ## <a name="user-actions"></a>Akcje użytkownika
 

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fc0ad45f575f9190f15b61acdf476c716b7f1638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a073df78adbf0104d81a96eb92ea427f60e53b01
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940783"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151844"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Użyj Azure Data Studio, aby zarządzać grupą serwerów PostgreSQL z funkcją Azure Arc
 
@@ -61,9 +61,8 @@ Widok pulpitu nawigacyjnego PostgreSQL:
 
 Ta funkcja zawiera kilka pulpitów nawigacyjnych, które znajdują się po lewej stronie tego okienka:
 
-- **Przegląd:** Wyświetla informacje podsumowujące dotyczące wystąpienia, takie jak nazwa, Identyfikator subskrypcji platformy Azure, konfiguracja, wersja aparatu bazy danych, punkty końcowe dla Grafana i Kibana...
+- **Przegląd:** Wyświetla informacje podsumowujące dotyczące wystąpienia, takie jak nazwa, nazwa użytkownika administratora PostgreSQL, Identyfikator subskrypcji platformy Azure, konfiguracja, wersja aparatu bazy danych, punkty końcowe dla Grafana i Kibana...
 - **Parametry połączenia:** Wyświetla różne parametry połączeń, które mogą być potrzebne do nawiązania połączenia z wystąpieniem usługi PostgreSQL, na przykład PSQL, Node.js, PHP, Ruby...
-- **Właściwości:** Wyświetla różne właściwości, takie jak nazwa użytkownika administratora PostgreSQL, skojarzona Grupa zasobów dla zasobu w tle...
 - **Diagnozowanie i rozwiązywanie problemów:** To strona docelowa, w której znajdziesz różne zasoby, które ułatwią Rozwiązywanie problemów z wystąpieniem w miarę rozszerzania notesów rozwiązywania problemów
 - **Nowe żądanie obsługi:** To strona docelowa, z której będzie można zażądać pomocy z naszych usług pomocy technicznej, aby uzyskać ogłoszenie o zadaniu w publicznej wersji zapoznawczej.
 

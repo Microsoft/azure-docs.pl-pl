@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f52d1d1c5f264550076688d5e25e110de230eff4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81767013"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152240"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Zestaw SDK urządzeń Azure IoT dla języka C — więcej informacji na temat serializatora
 
@@ -28,7 +28,7 @@ Na koniec artykuł odwiedza kilka tematów wymienionych w poprzednich artykułac
 
 Wszystko, co opisano w tym artykule, jest oparte na przykładach zestawu SDK programu **szeregującego** . Jeśli chcesz się dowiedzieć, zobacz aplikacje http **simplesample \_ AMQP** i **simplesample \_ ** zawarte w zestawie SDK urządzeń Azure IoT dla języka C.
 
-[**Zestaw SDK urządzeń Azure IoT dla**](https://github.com/Azure/azure-iot-sdk-c) repozytorium w serwisie GitHub i widok szczegółów interfejsu API można znaleźć w [dokumentacji interfejsu API języka c](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+[**Zestaw SDK urządzeń Azure IoT dla**](https://github.com/Azure/azure-iot-sdk-c) repozytorium w serwisie GitHub i widok szczegółów interfejsu API można znaleźć w [dokumentacji interfejsu API języka c](/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-modeling-language"></a>Język modelowania
 
@@ -65,7 +65,7 @@ Nie przedstawiono tego przykładu w tym przykładzie są to dodatkowe typy danyc
 
 Następujące typy danych są obsługiwane w modelach utworzonych przy użyciu biblioteki **serializatorów** :
 
-| Type | Opis |
+| Typ | Opis |
 | --- | --- |
 | double |liczba zmiennoprzecinkowa o podwójnej precyzji |
 | int |32-bitowa liczba całkowita |
@@ -670,4 +670,4 @@ Zawiera również serie z serii trzech części na temat sposobu tworzenia aplik
 
 Aby dowiedzieć się więcej na temat opracowywania IoT Hub, zobacz [zestawy SDK usługi Azure IoT](iot-hub-devguide-sdks.md).
 
-Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz [wdrażanie AI na urządzeniach brzegowych z Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz [wdrażanie AI na urządzeniach brzegowych z Azure IoT Edge](../iot-edge/quickstart-linux.md).

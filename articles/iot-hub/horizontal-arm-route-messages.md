@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 4112e8aae485e229beb16d21e90280750e1465e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7c53d720aef029d79d95cacd558c3bf9d35b4af6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89462670"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148915"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Szybki Start: wdrażanie IoT Hub platformy Azure i konta magazynu przy użyciu szablonu ARM
 
@@ -46,7 +46,7 @@ Ta sekcja zawiera instrukcje wdrażania szablonu, tworzenia urządzenia wirtualn
 
     [![Wdrażanie na platformie Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Pobierz i rozpakuj [przykłady dla środowiska IoT C#](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
+1. Pobierz i rozpakuj [przykłady dla środowiska IoT C#](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
 1. Otwórz okno polecenia i przejdź do folderu, w którym zostały rozpakowane przykłady dotyczące środowiska IoT w języku C#. Znajdź folder z plikiem ARM-Read-Write. csproj. Zmienne środowiskowe są tworzone w tym oknie poleceń. Zaloguj się do [Azure Portal] ( https://portal.azure.com ], aby pobrać klucze. Wybierz pozycję **grupy zasobów** , a następnie wybierz grupę zasobów używaną w tym przewodniku Szybki Start.
 
@@ -134,4 +134,4 @@ Aby usunąć zasoby dodane w ramach tego przewodnika Szybki Start, zaloguj się 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

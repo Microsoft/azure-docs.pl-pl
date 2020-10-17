@@ -4,12 +4,12 @@ description: Zalecenia dotyczące zabezpieczania obrazów i wpisów tajnych Azur
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: f49f115e10326887cf4d23406437467256b7df2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898bdf77bf4b6636e78f5d735fc8650da4fde2b8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922238"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148657"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Zagadnienia dotyczące zabezpieczeń Azure Container Instances
 
@@ -34,7 +34,7 @@ Publicznie dostępny obraz kontenera nie gwarantuje zabezpieczeń. Obrazy konten
 
 Skorzystaj z rozwiązań, aby skanować obrazy kontenerów w rejestrze prywatnym i identyfikować potencjalne luki w zabezpieczeniach. Ważne jest, aby zrozumieć głębokość wykrywania zagrożeń, które są dostępne w różnych rozwiązaniach.
 
-Na przykład, Azure Container Registry opcjonalnie [integruje się z Azure Security Center](../security-center/azure-container-registry-integration.md) , aby automatycznie skanować wszystkie obrazy systemu Linux wypchnięte do rejestru. Azure Security Center zintegrowany skaner Qualys wykrywa luki w zabezpieczeniach obrazu, klasyfikuje je i udostępnia wskazówki dotyczące korygowania.
+Na przykład, Azure Container Registry opcjonalnie [integruje się z Azure Security Center](../security-center/defender-for-container-registries-introduction.md) , aby automatycznie skanować wszystkie obrazy systemu Linux wypchnięte do rejestru. Azure Security Center zintegrowany skaner Qualys wykrywa luki w zabezpieczeniach obrazu, klasyfikuje je i udostępnia wskazówki dotyczące korygowania.
 
 Rozwiązania do monitorowania zabezpieczeń i skanowania obrazów, takie jak [zabezpieczenia](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) [TwistLock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) i akwamaryna, są również dostępne w witrynie Azure Marketplace.  
 
@@ -138,7 +138,7 @@ Monitoruj aktywność zasobów, na przykład pliki, sieci i inne zasoby, do któ
 
 Należy zachować dokładną historię inspekcji dostępu administracyjnego do ekosystemu kontenera, w tym klaster Kubernetes, rejestr kontenerów i obrazy kontenerów. Te dzienniki mogą być niezbędne do celów inspekcji i będą przydatne jako dowód śledczej po każdym zdarzeniu zabezpieczeń. Rozwiązania platformy Azure obejmują:
 
-* [Integracja usługi Azure Kubernetes z usługą Azure Security Center](../security-center/azure-kubernetes-service-integration.md) , aby monitorować konfigurację zabezpieczeń środowiska klastra i generować zalecenia dotyczące zabezpieczeń
+* [Integracja usługi Azure Kubernetes z usługą Azure Security Center](../security-center/defender-for-kubernetes-introduction.md) , aby monitorować konfigurację zabezpieczeń środowiska klastra i generować zalecenia dotyczące zabezpieczeń
 * [Rozwiązanie do monitorowania kontenerów platformy Azure](../azure-monitor/insights/containers.md)
 * Dzienniki zasobów dla [Azure Container Instances](container-instances-log-analytics.md) i [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
 

@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 63497553f7cec2edf3c77ba8690dda2b15d104be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ff8ebeaf7c4a219bc403c81dfea62f4657a1fd8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324730"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148339"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Omówienie zarządzania urządzeniami za pomocą usługi IoT Hub
 
@@ -78,7 +78,7 @@ W każdym z tych pięciu etapów istnieje kilka wymagań dotyczących operatora 
   
     *Dalsze odczytywanie*:
     * [Jak korzystać z właściwości sznurka urządzenia](tutorial-device-twins.md)
-    * [Konfigurowanie i monitorowanie urządzeń IoT na dużą skalę](iot-hub-auto-device-config.md)
+    * [Konfigurowanie i monitorowanie urządzeń IoT na dużą skalę](./iot-hub-automatic-device-management.md)
     * [Najlepsze rozwiązania dotyczące konfiguracji urządzeń w ramach rozwiązania IoT](iot-hub-configuration-best-practices.md)
 
 * **Monitorowanie**: monitorowanie ogólnej kondycji kolekcji urządzeń i stanu trwających operacji w celu ostrzegania operatorów o problemach, które mogą wymagać ich uwagi.  Zastosuj bliźniaczą reprezentacją urządzenia, aby umożliwić urządzeniom raportowanie w czasie rzeczywistym warunków pracy i stanu operacji aktualizacji. Twórz zaawansowane raporty pulpitu nawigacyjnego, które służą do udostępniania najważniejszych w danym momencie problemów przy użyciu zapytań bliźniaczych reprezentacji urządzeń.
@@ -86,7 +86,7 @@ W każdym z tych pięciu etapów istnieje kilka wymagań dotyczących operatora 
     *Dalsze odczytywanie*: 
     * [Jak korzystać z właściwości sznurka urządzenia](tutorial-device-twins.md)
     * [IoT Hub język zapytań dla bliźniaczych reprezentacji urządzeń, zadań i routingu komunikatów](iot-hub-devguide-query-language.md)
-    * [Konfigurowanie i monitorowanie urządzeń IoT na dużą skalę](iot-hub-auto-device-config.md)
+    * [Konfigurowanie i monitorowanie urządzeń IoT na dużą skalę](./iot-hub-automatic-device-management.md)
     * [Najlepsze rozwiązania dotyczące konfiguracji urządzeń w ramach rozwiązania IoT](iot-hub-configuration-best-practices.md)
 
 * **Wycofywanie**: zastępowanie lub likwidowanie urządzeń po awarii, cyklu uaktualniania lub po zakończeniu okresu istnienia usługi.  Użyj bliźniaczej reprezentacji urządzenia, aby zarządzać informacjami o urządzeniu, jeśli trwa zastępowanie urządzenia fizycznego lub jeśli jest ono archiwizowane w przypadku wycofywania. Za pomocą rejestru tożsamości usługi IoT Hub można bezpiecznie odwołać tożsamości i poświadczenia urządzeń.

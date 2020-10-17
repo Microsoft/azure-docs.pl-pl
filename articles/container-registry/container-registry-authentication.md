@@ -3,12 +3,12 @@ title: Opcje uwierzytelniania rejestru
 description: Opcje uwierzytelniania dla prywatnego rejestru kontenerów platformy Azure, w tym logowanie za pomocą tożsamości Azure Active Directory, korzystanie z jednostek usługi i używanie opcjonalnych poświadczeń administratora.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 1747dfa0664778283d0cea06940ea95982c269a2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5315c11e0f1e2c859384e3783ae4be5d709adb42
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048019"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148556"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Uwierzytelnianie przy użyciu usługi Azure Container Registry
 
@@ -20,7 +20,7 @@ Zalecane sposoby: uwierzytelnianie do rejestru bezpośrednio za pośrednictwem [
 
 W poniższej tabeli wymieniono dostępne metody uwierzytelniania i typowe scenariusze. Aby uzyskać szczegółowe informacje, zobacz połączoną zawartość.
 
-| Metoda                               | Jak uwierzytelniać                                           | Scenariusze                                                            | Kontrola dostępu oparta na rolach (RBAC)                             | Ograniczenia                                |
+| Metoda                               | Jak uwierzytelniać                                           | Scenariusze                                                            | Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)                             | Ograniczenia                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Indywidualna tożsamość usługi AD](#individual-login-with-azure-ad)                | `az acr login` w interfejsie wiersza polecenia platformy Azure                             | Interaktywny Wypychanie/Ściąganie przez deweloperów, testerów                                    | Tak                              | Token usługi AD musi być odnawiany co 3 godziny     |
 | [Nazwa główna usługi AD](#service-principal)                  | `docker login`<br/><br/>`az acr login` w interfejsie wiersza polecenia platformy Azure<br/><br/> Ustawienia logowania do rejestru w interfejsach API lub narzędziach<br/><br/> [Kubernetes klucza tajnego](container-registry-auth-kubernetes.md)                                           | Nienadzorowane wypychanie z potoku ciągłej integracji/ciągłego wdrażania<br/><br/> Nienadzorowane ściąganie do platformy Azure lub usług zewnętrznych  | Tak                              | Domyślne wygaśnięcie hasła SP to 1 rok       |                                                           

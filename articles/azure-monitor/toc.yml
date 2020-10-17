@@ -293,7 +293,7 @@
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
                 - name: Szablon usługi Resource Manager
-                  href: platform/template-workspace-configuration.md
+                  href: ./samples/resource-manager-workspace.md
             - name: Usuwanie i odzyskiwanie obszaru roboczego
               href: platform/delete-workspace.md
             - name: Zarządzanie dostępem

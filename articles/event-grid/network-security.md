@@ -5,12 +5,12 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326460"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148940"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Zabezpieczenia sieciowe Azure Event Grid zasobów
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Event Grid: 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób korzystania z następujących funkcji zabezpiecze
 ## <a name="service-tags"></a>Tagi usługi
 Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [Omówienie tagów usług](../virtual-network/service-tags-overview.md).
 
-Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/security-overview.md#security-rules)   lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **AzureEventGrid**) w odpowiednim polu *źródłowym*   lub *docelowym*   reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
+Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md#security-rules)   lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **AzureEventGrid**) w odpowiednim polu *źródłowym*   lub *docelowym*   reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
 | --- | -------- |:---:|:---:|:---:|

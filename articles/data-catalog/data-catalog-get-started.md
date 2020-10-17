@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e08527ae530b7b5ed5e5293a3af9e2d8dd3f795a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a7d575b92bff69c13ded70187005ce1db018ea4c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88118794"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151995"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Szybki Start: Tworzenie Azure Data Catalog
 
@@ -24,7 +24,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!Note]
-> Ze względu na wymagania dotyczące zabezpieczeń platformy Azure Azure Data Catalog ma enfored Transport Layer Security (TLS) 1,2. Protokoły TLS 1,0 i TLS 1,1 zostały wyłączone. Jeśli maszyna nie została zaktualizowana w przypadku protokołu TLS 1,2, mogą wystąpić błędy uruchamiania narzędzia rejestracji. Aby zaktualizować maszynę pod kątem protokołu TLS 1,2, zobacz [Enable Transport Layer Security (1,2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) .
+> Ze względu na wymagania dotyczące zabezpieczeń platformy Azure Azure Data Catalog ma enfored Transport Layer Security (TLS) 1,2. Protokoły TLS 1,0 i TLS 1,1 zostały wyłączone. Jeśli maszyna nie została zaktualizowana w przypadku protokołu TLS 1,2, mogą wystąpić błędy uruchamiania narzędzia rejestracji. Aby zaktualizować maszynę pod kątem protokołu TLS 1,2, zobacz [Enable Transport Layer Security (1,2)](/mem/configmgr/core/plan-design/security/enable-tls-1-2) .
 
 Aby rozpocząć, musisz dysponować:
 
@@ -77,7 +77,7 @@ W ramach organizacji — domeny usługi Azure Active Directory — można aprowi
 
 10. Rozwiń węzeł **tytuł portalu** i Dodaj dodatkowy tekst, który będzie wyświetlany w tytule portalu.
 
-    ![Azure Data Catalog — tytuł portalu](media/data-catalog-get-started/data-catalog-portal-title.png)
+    ![Tytuł Catalog-Portal danych platformy Azure](media/data-catalog-get-started/data-catalog-portal-title.png)
 
 11. Po zakończeniu pracy ze stroną **Ustawienia** przejdź do strony **Publikowanie** .
 

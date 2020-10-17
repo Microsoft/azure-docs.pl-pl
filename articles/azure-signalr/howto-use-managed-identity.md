@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9b6141e6009cb868d63429836f8c8f050c792ee5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094079"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152304"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Zarządzane tożsamości dla usługi Azure Signal Service
 
@@ -62,20 +62,20 @@ Usługa Azure Signal Service to w pełni zarządzana usługa, dlatego nie można
     - Pusty
     - Identyfikator aplikacji (klienta) jednostki usługi
     - Identyfikator URI identyfikatora aplikacji nazwy głównej usługi
-    - [Identyfikator zasobu usługi platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
+    - [Identyfikator zasobu usługi platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
     > W przypadku sprawdzenia poprawności tokenu dostępu przez użytkownika w usłudze możesz wybrać dowolny z formatów zasobów. Upewnij się, że wartość **zasobu** w ustawieniach **uwierzytelniania** i weryfikacja jest spójna. Jeśli używasz kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby płaszczyzny danych, musisz użyć zasobu, którego żąda dostawca usług.
 
 ### <a name="validate-access-tokens"></a>Weryfikowanie tokenów dostępu
 
-Token w `Authorization` nagłówku jest [tokenem dostępu platformy tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens).
+Token w `Authorization` nagłówku jest [tokenem dostępu platformy tożsamości firmy Microsoft](../active-directory/develop/access-tokens.md#validating-tokens).
 
 Aby sprawdzić poprawność tokenów dostępu, aplikacja powinna również sprawdzić poprawność odbiorców i tokenów podpisywania. Należy sprawdzić poprawność tych wartości w dokumencie odnajdywania OpenID Connect. Na przykład zapoznaj się z [wersją dokumentu niezależną od dzierżawy](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-Oprogramowanie pośredniczące Azure Active Directory (Azure AD) ma wbudowane funkcje do sprawdzania poprawności tokenów dostępu. Możesz przejrzeć nasze [przykłady](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) , aby znaleźć je w wybranym języku.
+Oprogramowanie pośredniczące Azure Active Directory (Azure AD) ma wbudowane funkcje do sprawdzania poprawności tokenów dostępu. Możesz przejrzeć nasze [przykłady](../active-directory/develop/sample-v2-code.md) , aby znaleźć je w wybranym języku.
 
-Udostępniamy biblioteki i przykłady kodu, które pokazują, jak obsługiwać sprawdzanie poprawności tokenu. Istnieje również kilka bibliotek partnerskich Open Source dostępnych dla weryfikacji tokenu sieci Web JSON (JWT). Istnieje co najmniej jedna opcja dla niemal każdej platformy i języka w tym miejscu. Aby uzyskać więcej informacji na temat bibliotek uwierzytelniania i przykładów kodu usługi Azure AD, zobacz [biblioteki uwierzytelniania platformy tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
+Udostępniamy biblioteki i przykłady kodu, które pokazują, jak obsługiwać sprawdzanie poprawności tokenu. Istnieje również kilka bibliotek partnerskich Open Source dostępnych dla weryfikacji tokenu sieci Web JSON (JWT). Istnieje co najmniej jedna opcja dla niemal każdej platformy i języka w tym miejscu. Aby uzyskać więcej informacji na temat bibliotek uwierzytelniania i przykładów kodu usługi Azure AD, zobacz [biblioteki uwierzytelniania platformy tożsamości firmy Microsoft](../active-directory/develop/reference-v2-libraries.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

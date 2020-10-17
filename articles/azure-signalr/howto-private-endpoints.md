@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80369883b84ca30cae475235d41addcfba7e52e1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84300204"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152343"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Używanie prywatnych punktów końcowych dla usługi Azure Signal Service
 
@@ -82,8 +82,8 @@ Zalecaną nazwą strefy DNS dla prywatnych punktów końcowych usługi Azure Sig
 
 Aby uzyskać więcej informacji na temat konfigurowania własnego serwera DNS do obsługi prywatnych punktów końcowych, zapoznaj się z następującymi artykułami:
 
-- [Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Konfiguracja DNS dla prywatnych punktów końcowych](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Konfiguracja DNS dla prywatnych punktów końcowych](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
@@ -198,7 +198,7 @@ To ograniczenie jest wynikiem zmian wprowadzonych w systemie DNS, gdy usługa Az
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Reguły sieciowej grupy zabezpieczeń dla podsieci z prywatnymi punktami końcowymi
 
-Obecnie nie można skonfigurować zasad [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md) (sieciowej grupy zabezpieczeń) i tras zdefiniowanych przez użytkownika dla prywatnych punktów końcowych. Reguły sieciowej grupy zabezpieczeń stosowane do podsieci obsługującej prywatny punkt końcowy są stosowane do prywatnego punktu końcowego. Ograniczone obejście tego problemu polega na implementacji reguł dostępu dla prywatnych punktów końcowych w podsieciach źródłowych, chociaż takie podejście może wymagać wyższego obciążenia zarządzania.
+Obecnie nie można skonfigurować zasad [sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md) (sieciowej grupy zabezpieczeń) i tras zdefiniowanych przez użytkownika dla prywatnych punktów końcowych. Reguły sieciowej grupy zabezpieczeń stosowane do podsieci obsługującej prywatny punkt końcowy są stosowane do prywatnego punktu końcowego. Ograniczone obejście tego problemu polega na implementacji reguł dostępu dla prywatnych punktów końcowych w podsieciach źródłowych, chociaż takie podejście może wymagać wyższego obciążenia zarządzania.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 88c3d1f4213b161d5e322349a7f0e1bc1dd952e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aded49b5b9509a75e61612e44ffa19ff377d1712
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239657"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148329"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Korzystanie z rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure dla usługi Azure IoT Hub zarządzanie urządzeniami
 
@@ -23,7 +23,7 @@ ms.locfileid: "80239657"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Rozszerzenie IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension) to rozszerzenie IoT typu open source, które dodaje możliwości [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Interfejs wiersza polecenia platformy Azure zawiera poleceń służących do współpracy z punktami końcowymi Azure Resource Manager i zarządzania. Na przykład możesz użyć interfejsu wiersza polecenia platformy Azure, aby utworzyć maszynę wirtualną platformy Azure lub Centrum IoT. Rozszerzenie interfejsu wiersza polecenia umożliwia usłudze platformy Azure rozszerzanie interfejsu wiersza polecenia platformy Azure zapewniającego dostęp do dodatkowych funkcji specyficznych dla usługi. Rozszerzenie IoT oferuje deweloperom programu IoT dostęp do wszystkich IoT Hub, IoT Edge i IoT Hub Device Provisioning Service funkcji.
+[Rozszerzenie IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension) to rozszerzenie IoT typu open source, które dodaje możliwości [interfejsu wiersza polecenia platformy Azure](/cli/azure/overview?view=azure-cli-latest). Interfejs wiersza polecenia platformy Azure zawiera poleceń służących do współpracy z punktami końcowymi Azure Resource Manager i zarządzania. Na przykład możesz użyć interfejsu wiersza polecenia platformy Azure, aby utworzyć maszynę wirtualną platformy Azure lub Centrum IoT. Rozszerzenie interfejsu wiersza polecenia umożliwia usłudze platformy Azure rozszerzanie interfejsu wiersza polecenia platformy Azure zapewniającego dostęp do dodatkowych funkcji specyficznych dla usługi. Rozszerzenie IoT oferuje deweloperom programu IoT dostęp do wszystkich IoT Hub, IoT Edge i IoT Hub Device Provisioning Service funkcji.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -61,7 +61,7 @@ Uruchom interfejs wiersza polecenia platformy Azure i rozszerzenie IoT dla inter
 
 * [Python 2.7 x lub Python 3. x](https://www.python.org/downloads/)
 
-* Interfejs wiersza polecenia platformy Azure. Jeśli musisz ją zainstalować, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Minimalna wersja interfejsu wiersza polecenia platformy Azure musi być 2.0.70 lub nowsza. Użyj polecenia `az –version` w celu przeprowadzenia weryfikacji.
+* Interfejs wiersza polecenia platformy Azure. Jeśli musisz ją zainstalować, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Minimalna wersja interfejsu wiersza polecenia platformy Azure musi być 2.0.70 lub nowsza. Użyj polecenia `az –version` w celu przeprowadzenia weryfikacji.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 

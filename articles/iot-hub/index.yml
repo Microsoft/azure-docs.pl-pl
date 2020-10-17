@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 949a007a51fce4a76dcc840f187ca353c88e8ede
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 91e3ff9dc19fdc33699fc6237cb5b6e51dbb9b52
+  ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87291598"
+  ms.lasthandoff: 10/17/2020
+  ms.locfileid: "92148887"
 landingContent:
 - title: Getting Started
   linkLists:
@@ -91,7 +91,7 @@ landingContent:
     - text: Korzystanie z narzędzi IoT Tools dla programu VS Code
       url: iot-hub-create-use-iot-toolkit.md
     - text: Eksplorator IoT
-      url: ../iot-pnp/howto-install-iot-explorer.md
+      url: ../iot-pnp/howto-use-iot-explorer.md
 - title: Używanie certyfikatów zabezpieczeń IoT
   linkLists:
   - linkListType: concept
