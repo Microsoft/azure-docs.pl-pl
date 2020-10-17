@@ -39,7 +39,7 @@
       href: use-prediction-api.md
     - name: Korzystanie z inteligentnego narzędzia etykietującego
       href: suggested-tags.md
-    - name: Kontrola dostępu oparta na rolach
+    - name: Kontrola dostępu na podstawie ról na platformie Azure
       href: role-based-access-control.md
     - name: Eksportowanie modeli
       items:

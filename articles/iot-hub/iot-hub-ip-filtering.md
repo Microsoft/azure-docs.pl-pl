@@ -1,18 +1,18 @@
 ---
 title: Filtry połączeń IP IoT Hub platformy Azure | Microsoft Docs
-description: Jak używać filtrowania IP do blokowania połączeń z określonych adresów IP dla usługi Azure IoT Hub. Można blokować połączenia z poszczególnych adresów IP lub z nich.
+description: Jak używać filtrowania IP do blokowania połączeń z określonych adresów IP dla usługi Azure IoT Hub. Możesz blokować połączenia z poszczególnych adresów IP lub ich zakresów.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: 1ba3c89ea4f964f9e6fd5f902aab29a83a058f25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9a95c0151ed6dd3a2ad4a9d548723cdff0bcfb8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074724"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147075"
 ---
 # <a name="use-ip-filters"></a>Korzystanie z filtrów adresów IP
 
@@ -22,7 +22,7 @@ Bezpieczeństwo jest ważnym aspektem każdego rozwiązania IoT w oparciu o IoT 
 
 Istnieją dwa konkretne przypadki użycia, gdy warto zablokować IoT Hub punkty końcowe dla określonych adresów IP:
 
-* Centrum IoT Hub powinna odbierać ruch tylko z określonego zakresu adresów IP i odrzucać wszystkie inne. Na przykład do tworzenia prywatnych połączeń między usługą IoT Hub a infrastrukturą lokalną można używać usługi IoT Hub w usłudze [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) .
+* Centrum IoT Hub powinna odbierać ruch tylko z określonego zakresu adresów IP i odrzucać wszystkie inne. Na przykład do tworzenia prywatnych połączeń między usługą IoT Hub a infrastrukturą lokalną można używać usługi IoT Hub w usłudze [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) .
 
 * Należy odrzucić ruch z adresów IP, które zostały zidentyfikowane jako podejrzane przez administratora usługi IoT Hub.
 
@@ -30,7 +30,7 @@ Istnieją dwa konkretne przypadki użycia, gdy warto zablokować IoT Hub punkty 
 
 Reguły filtrów IP są stosowane na poziomie usługi IoT Hub. W związku z tym reguły filtru IP są stosowane do wszystkich połączeń z urządzeń i aplikacji zaplecza przy użyciu dowolnego obsługiwanego protokołu. Jednak klienci odczytujący się bezpośrednio z [wbudowanego punktu końcowego zgodnego z centrum zdarzeń](iot-hub-devguide-messages-read-builtin.md) (nie za pośrednictwem parametrów połączenia IoT Hub) nie są powiązane z regułami filtrowania adresów IP. 
 
-Wszystkie próby połączenia z adresu IP, które pasują do reguły odrzucenia adresu IP w centrum IoT, odbierają nieautoryzowany kod stanu 401 i opis. Komunikat odpowiedzi nie zawiera wzmianki o regule adresu IP. Odrzucenie adresów IP może uniemożliwić korzystanie z innych usług platformy Azure, takich jak Azure Stream Analytics, Azure Virtual Machines lub Device Explorer w Azure Portal ze współdziałania z usługą IoT Hub.
+Wszystkie próby połączenia z adresu IP, które pasują do reguły odrzucenia adresu IP w centrum IoT, odbierają nieautoryzowany kod stanu 401 i opis. Komunikat odpowiedzi nie zawiera reguły adresu IP. Odrzucenie adresów IP może uniemożliwić korzystanie z innych usług platformy Azure, takich jak Azure Stream Analytics, Azure Virtual Machines lub Device Explorer w Azure Portal ze współdziałania z usługą IoT Hub.
 
 > [!NOTE]
 > Jeśli musisz użyć Azure Stream Analytics (ASA) do odczytywania komunikatów z Centrum IoT z włączonym filtrem IP, użyj nazwy zgodnej z centrum zdarzeń i punktu końcowego Centrum IoT, aby ręcznie dodać [dane wejściowe strumienia Event Hubs](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) do asa.
@@ -43,39 +43,39 @@ Aby przejść do strony Ustawienia filtru IP, wybierz pozycję **Sieć**, **dost
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="IoT Hub domyślnych ustawień filtru IP":::
 
-## <a name="add-or-edit-an-ip-filter-rule"></a>Dodawanie lub Edytowanie reguły filtru IP
+## <a name="add-or-edit-an-ip-filter-rule"></a>Dodawanie lub edytowanie reguły filtru adresów IP
 
-Aby dodać regułę filtrowania adresów IP, wybierz pozycję **+ Dodaj regułę filtrowania adresów IP**.
+Aby dodać regułę filtru adresów IP, wybierz pozycję **+ Dodaj regułę filtrowania adresów IP**.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="IoT Hub domyślnych ustawień filtru IP":::
 
-Po wybraniu pozycji **Dodaj regułę filtrowania adresów IP**Wypełnij pola.
+Po wybraniu pozycji **Dodaj regułę filtrowania adresów IP** wypełnij pola.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="IoT Hub domyślnych ustawień filtru IP":::
 
-* Podaj **nazwę** dla reguły filtru IP. Musi to być unikatowy ciąg alfanumeryczny bez uwzględniania wielkości liter, do 128 znaków. Akceptowane są tylko znaki alfanumeryczne ASCII 7-bitowe Plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` .
+* Podaj **nazwę** reguły filtrowania adresów IP. Nazwa musi być unikatowym, alfanumerycznym ciągiem z rozróżnianą wielkością liter o długości do 128 znaków. Akceptowane są tylko 7-bitowe znaki alfanumeryczne ASCII i `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
-* Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR 192.168.100.0/22 reprezentuje adresy IPv4 1024 z 192.168.100.0 do 192.168.103.255.
+* Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR zapis 192.168.100.0/22 reprezentuje 1024 adresy IPv4 z zakresu od 192.168.100.0 do 192.168.103.255.
 
-* Wybierz pozycję **Zezwalaj** lub **Blokuj** jako **akcję** dla reguły filtru IP.
+* Wybierz pozycję **Zezwalaj** lub **Blokuj** jako **akcję** reguły filtrowania adresów IP.
 
-Po wypełnieniu pól wybierz pozycję **Zapisz** , aby zapisać regułę. Zostanie wyświetlony alert informujący o tym, że aktualizacja jest w toku.
+Po wypełnieniu pól wybierz pozycję **Zapisz**, aby zapisać regułę. Zostanie wyświetlony alert informujący o tym, że aktualizacja jest w toku.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="IoT Hub domyślnych ustawień filtru IP":::
 
-Opcja **Dodaj** jest wyłączona, gdy zostanie osiągnięta maksymalna liczba reguł filtru IP.
+Opcja **Dodaj** jest wyłączona, gdy osiągniesz maksymalną liczbę 10 reguł filtrowania adresów IP.
 
-Aby edytować istniejącą regułę, wybierz dane, które chcesz zmienić, wprowadź zmianę, a następnie wybierz pozycję **Zapisz** , aby zapisać edycję.
+Aby edytować istniejącą regułę, wybierz dane, które chcesz zmienić, wprowadź zmianę, a następnie wybierz pozycję **Zapisz**, aby zapisać zmiany.
 
 ## <a name="delete-an-ip-filter-rule"></a>Usuwanie reguły filtrowania adresów IP
 
-Aby usunąć regułę filtrowania adresów IP, wybierz ikonę kosza dla tego wiersza, a następnie wybierz pozycję **Zapisz**. Reguła zostanie usunięta, a zmiana została zapisana.
+Aby usunąć regułę filtrowania adresów IP, wybierz ikonę kosza dla tego wiersza, a następnie wybierz pozycję **Zapisz**. Reguła zostanie usunięta, a zmiana zostanie zapisana.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="IoT Hub domyślnych ustawień filtru IP":::
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Pobieranie i aktualizowanie filtrów IP przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Filtry IP IoT Hub można pobrać i zaktualizować za pomocą [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Filtry IP IoT Hub można pobrać i zaktualizować za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest).
 
 Aby pobrać bieżące filtry IP IoT Hub, uruchom polecenie:
 
@@ -149,15 +149,15 @@ $iothubResource | Set-AzResource -Force
 
 ## <a name="update-ip-filter-rules-using-rest"></a>Aktualizowanie reguł filtrów IP przy użyciu REST
 
-Możesz również pobrać i zmodyfikować filtr IP IoT Hub przy użyciu punktu końcowego REST dostawcy zasobów platformy Azure. Zobacz `properties.ipFilterRules` w [metodzie metodę createorupdate](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
+Możesz również pobrać i zmodyfikować filtr IP IoT Hub przy użyciu punktu końcowego REST dostawcy zasobów platformy Azure. Zobacz `properties.ipFilterRules` w opisie [metody createorupdate](/rest/api/iothub/iothubresource/createorupdate).
 
-## <a name="ip-filter-rule-evaluation"></a>Obliczanie reguły filtru IP
+## <a name="ip-filter-rule-evaluation"></a>Ocena reguły filtrowania adresów IP
 
-Reguły filtrowania adresów IP są stosowane w kolejności, a pierwsza reguła zgodna z adresem IP określa akcję Akceptuj lub Odrzuć.
+Reguły filtrowania adresów IP są stosowane w odpowiedniej kolejności, a pierwsza reguła zgodna z adresem IP określa akcję Akceptuj lub Odrzuć.
 
-Na przykład, jeśli chcesz akceptować adresy w zakresie 192.168.100.0/22 i odrzucić wszystkie inne, pierwsza reguła w siatce powinna akceptować zakres adresów 192.168.100.0/22. Kolejna reguła powinna odrzucać wszystkie adresy przy użyciu zakresu 0.0.0.0/0.
+Jeśli na przykład chcesz akceptować adresy w zakresie 192.168.100.0/22 i odrzucać wszystkie inne, pierwsza reguła w siatce powinna akceptować zakres adresów 192.168.100.0/22. Kolejna reguła powinna odrzucać wszystkie adresy przy użyciu zakresu 0.0.0.0/0.
 
-Aby zmienić kolejność reguł filtrów IP w siatce, klikaj trzy pionowe kropki na początku wiersza i przy użyciu przeciągania i upuszczania.
+Aby zmienić kolejność reguł filtrowania adresów IP w siatce, kliknij trzy pionowe kropki na początku wiersza oraz użyj metody przeciągania i upuszczania.
 
 Aby zapisać nową kolejność reguł filtrowania adresów IP, kliknij przycisk **Zapisz**.
 

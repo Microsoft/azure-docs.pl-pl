@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: e0466aa3497edf5f271c01944438c033bba152f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e25b9d6cbe8446fb2f10150f17f7e2b0ccf85d3c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327671"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147619"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>Wysyłanie komunikatów z urządzenia do chmury i z chmury do urządzeń za pomocą IoT Hub
 
@@ -23,7 +23,7 @@ IoT Hub umożliwia komunikację dwukierunkową z urządzeniami. Użyj usługi Io
 
 ## <a name="sending-device-to-cloud-messages-to-iot-hub"></a>Wysyłanie komunikatów z urządzenia do chmury do IoT Hub
 
-IoT Hub ma wbudowany punkt końcowy usługi, który może być używany przez usługi zaplecza do odczytywania komunikatów telemetrycznych z urządzeń. Ten punkt końcowy jest zgodny z [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) i można użyć standardowych zestawów SDK IoT Hub do [odczytania z tego wbudowanego punktu końcowego](iot-hub-devguide-messages-read-builtin.md).
+IoT Hub ma wbudowany punkt końcowy usługi, który może być używany przez usługi zaplecza do odczytywania komunikatów telemetrycznych z urządzeń. Ten punkt końcowy jest zgodny z [Event Hubs](../event-hubs/index.yml) i można użyć standardowych zestawów SDK IoT Hub do [odczytania z tego wbudowanego punktu końcowego](iot-hub-devguide-messages-read-builtin.md).
 
 IoT Hub obsługuje również [niestandardowe punkty końcowe](iot-hub-devguide-endpoints.md#custom-endpoints) , które mogą być definiowane przez użytkowników w celu wysyłania danych telemetrycznych urządzenia i zdarzeń do usług platformy Azure przy użyciu [routingu komunikatów](iot-hub-devguide-messages-d2c.md).
 
@@ -39,9 +39,9 @@ Podstawowe właściwości funkcji obsługi komunikatów IoT Hub to niezawodnoś�
 
 Użyj komunikatów z urządzenia do chmury, aby wysyłać dane telemetryczne i alerty szeregów czasowych z aplikacji urządzenia oraz komunikaty z chmury do urządzeń w celu powiadomienia jednokierunkowego do aplikacji urządzenia.
 
-* Zapoznaj się z tematem [wskazówki dotyczące komunikacji między urządzeniami i chmurą](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-d2c-guidance) , aby wybrać komunikaty z urządzenia do chmury, raportowane właściwości lub przekazywanie plików.
+* Zapoznaj się z tematem [wskazówki dotyczące komunikacji między urządzeniami i chmurą](./iot-hub-devguide-d2c-guidance.md) , aby wybrać komunikaty z urządzenia do chmury, raportowane właściwości lub przekazywanie plików.
 
-* Zapoznaj się ze [wskazówkami dotyczącymi komunikacji między chmurą i urządzeniami](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) , aby wybrać komunikaty z chmury do urządzenia, odpowiednie właściwości lub metody bezpośrednie.
+* Zapoznaj się ze [wskazówkami dotyczącymi komunikacji między chmurą i urządzeniami](./iot-hub-devguide-c2d-guidance.md) , aby wybrać komunikaty z chmury do urządzenia, odpowiednie właściwości lub metody bezpośrednie.
 
 ## <a name="next-steps"></a>Następne kroki
 

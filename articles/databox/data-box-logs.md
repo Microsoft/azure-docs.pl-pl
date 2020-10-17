@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9304936f746b82b59550d62e8b60a9e0035d188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498807"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147940"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Śledzenie i rejestrowanie zdarzeń dla Azure Data Box i Azure Data Box Heavy zamówienie importu
 
@@ -23,7 +23,7 @@ W poniższej tabeli przedstawiono podsumowanie urządzenie Data Box lub Data Box
 
 | urządzenie Data Box etap importowania kolejności       | Narzędzie do śledzenia i inspekcji                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Tworzenie zamówienia               | [Konfigurowanie kontroli dostępu w kolejności za pośrednictwem RBAC](#set-up-access-control-on-the-order)                                                    |
+| Tworzenie zamówienia               | [Konfigurowanie kontroli dostępu w kolejności za pośrednictwem usługi Azure RBAC](#set-up-access-control-on-the-order)                                                    |
 | Przetworzone zamówienie            | [Śledź kolejność](#track-the-order) <ul><li> Azure Portal </li><li> Witryna sieci Web firmy kurierskiej </li><li>Powiadomienia e-mail</ul> |
 | Konfigurowanie urządzenia              | Poświadczenia urządzenia dostęp do zalogowanych [dzienników aktywności](#query-activity-logs-during-setup)                                              |
 | Kopiowanie danych na urządzenie        | [Wyświetl *error.xml* pliki](#view-error-log-during-data-copy) do skopiowania danych                                                             |
@@ -47,7 +47,7 @@ Aby ograniczyć dostęp do zamówienia, możesz:
 - Przypisywanie roli na poziomie zamówienia. Użytkownik ma tylko te uprawnienia zdefiniowane przez role do współdziałania z tym konkretną urządzenie Data Box kolejnością i nic innego.
 - Przypisz rolę na poziomie grupy zasobów, użytkownik ma dostęp do wszystkich zamówień urządzenie Data Box w grupie zasobów.
 
-Aby uzyskać więcej informacji na temat sugerowanych użycia RBAC, zobacz [najlepsze rozwiązania dotyczące kontroli RBAC platformy Azure](../role-based-access-control/best-practices.md).
+Aby uzyskać więcej informacji na temat sugerowanego użycia RBAC platformy Azure, zobacz [najlepsze rozwiązania dotyczące kontroli RBAC platformy Azure](../role-based-access-control/best-practices.md).
 
 ## <a name="track-the-order"></a>Śledzenie zamówienia
 

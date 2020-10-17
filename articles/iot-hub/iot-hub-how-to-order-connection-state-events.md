@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356200"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147277"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Porządkowanie zdarzeń połączenia urządzenia pochodzących z usługi Azure IoT Hub przy użyciu usługi Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Numer sekwencyjny to ciąg reprezentujący liczbę szesnastkową. Możesz użyć
 
 * Kolekcja w bazie danych. Zobacz [Dodawanie kolekcji](../cosmos-db/create-sql-api-java.md#add-a-container) dla przewodnika. Podczas tworzenia kolekcji Użyj `/id` klucza partycji.
 
-* Centrum IoT Hub na platformie Azure. Jeśli jeszcze go nie masz, zobacz przewodnik [Wprowadzenie do usługi IoT Hub](iot-hub-csharp-csharp-getstarted.md).
+* Centrum IoT Hub na platformie Azure. Jeśli jeszcze go nie masz, zobacz przewodnik [Wprowadzenie do usługi IoT Hub](./quickstart-send-telemetry-dotnet.md).
 
 ## <a name="create-a-stored-procedure"></a>Tworzenie procedury składowanej
 
@@ -335,7 +335,7 @@ Wyniki wykonanej procedury składowanej można zobaczyć w dokumencie Cosmos DB.
 
 ## <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
-Zamiast korzystać z [Azure Portal](https://portal.azure.com), można wykonać kroki IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
+Zamiast korzystać z [Azure Portal](https://portal.azure.com), można wykonać kroki IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -361,7 +361,7 @@ Jeśli nie chcesz utracić efektów pracy z aplikacją logiki, nie usuwaj jej, t
 
 7. Wybierz pozycję **Usuń**.
 
-Aby usunąć konto Azure Cosmos DB z Azure Portal, kliknij prawym przyciskiem myszy nazwę konta, a następnie kliknij pozycję **Usuń konto**. Zapoznaj się z szczegółowymi instrukcjami dotyczącymi [usuwania konta Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+Aby usunąć konto Azure Cosmos DB z Azure Portal, kliknij prawym przyciskiem myszy nazwę konta, a następnie kliknij pozycję **Usuń konto**. Zapoznaj się z szczegółowymi instrukcjami dotyczącymi [usuwania konta Azure Cosmos DB](../cosmos-db/how-to-manage-database-account.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

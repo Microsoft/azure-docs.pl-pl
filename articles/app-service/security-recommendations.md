@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 9f8fba617eb0274a8db7adc5d36c6ff50be10924
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09dbe0fbefb8b90b4c4e1ddef57abf3b13856183
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761383"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148088"
 ---
 # <a name="security-recommendations-for-app-service"></a>Zalecenia dotyczące zabezpieczeń App Service
 
@@ -43,7 +43,7 @@ Ten artykuł zawiera zalecenia dotyczące zabezpieczeń Azure App Service. Wdro�
 | Użyj FTPS | App Service obsługuje zarówno protokół FTP, jak i FTPS do wdrażania plików. Jeśli to możliwe, użyj FTPS zamiast FTP. Jeśli jeden lub oba te protokoły nie są używane, należy [je wyłączyć](deploy-ftp.md#enforce-ftps). |
 | Zabezpieczanie danych aplikacji | Nie przechowuj wpisów tajnych aplikacji, takich jak poświadczenia bazy danych, tokeny interfejsu API lub klucze prywatne w plikach kodu lub konfiguracji. Powszechnie akceptowanym podejściem jest uzyskanie dostępu do nich jako [zmiennych środowiskowych](https://wikipedia.org/wiki/Environment_variable) przy użyciu standardowego wzorca w wybranym języku. W Azure App Service można definiować zmienne środowiskowe za poorednictwem [ustawień aplikacji](./configure-common.md) i [parametrów połączenia](./configure-common.md). Ustawienia aplikacji i parametry połączenia są przechowywane na platformie Azure. Ustawienia aplikacji są odszyfrowywane dopiero przed wprowadzeniem ich do pamięci procesu aplikacji podczas uruchamiania aplikacji. Klucze szyfrowania są regularnie obracane. Alternatywnie możesz zintegrować swoją aplikację Azure App Service z [Azure Key Vault](../key-vault/index.yml) do zarządzania zaawansowanymi kluczami tajnymi. Dzięki [dostępowi do Key Vault za pomocą tożsamości zarządzanej](../key-vault/general/tutorial-net-create-vault-azure-web-app.md)aplikacja App Service może bezpiecznie uzyskać dostęp do potrzebnych wpisów tajnych. |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 | Zalecenie | Komentarze |
 |-|-|
@@ -56,7 +56,7 @@ Ten artykuł zawiera zalecenia dotyczące zabezpieczeń Azure App Service. Wdro�
 
 | Zalecenie | Komentarze |
 |-|-|
-|Użyj Azure Security Center warstwy Standardowa | [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction) jest natywnie zintegrowany z Azure App Service. Można uruchamiać oceny i zapewniać zalecenia dotyczące zabezpieczeń. |
+|Użyj Azure Security Center warstwy Standardowa | [Azure Security Center](../security-center/defender-for-app-service-introduction.md) jest natywnie zintegrowany z Azure App Service. Można uruchamiać oceny i zapewniać zalecenia dotyczące zabezpieczeń. |
 
 ## <a name="next-steps"></a>Następne kroki
 

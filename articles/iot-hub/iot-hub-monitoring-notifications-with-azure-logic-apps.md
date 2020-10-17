@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81680719"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146637"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Zdalne monitorowanie i powiadomienia w usłudze IoT przy użyciu Azure Logic Apps łączenia Centrum IoT i skrzynki pocztowej
 
@@ -22,7 +22,7 @@ ms.locfileid: "81680719"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) może pomóc organizować przepływy pracy w ramach usług lokalnych i w chmurze, co najmniej jednego przedsiębiorstwa i wielu różnych protokołów. Aplikacja logiki rozpoczyna się od wyzwalacza, po którym następuje jedna lub więcej akcji, które mogą być sekwencjonowane przy użyciu wbudowanych kontrolek, takich jak warunki i Iteratory. Ta elastyczność sprawia, że Logic Apps idealne rozwiązanie IoT na potrzeby scenariuszy monitorowania IoT. Na przykład po nadejściu danych telemetrycznych z urządzenia w IoT Hub punkcie końcowym można inicjować przepływy pracy aplikacji logiki w celu przechowywania danych w obiekcie blob usługi Azure Storage, wysyłać alerty e-mail w celu ostrzegania o anomaliach dotyczących danych, planować wizytę w technice, jeśli urządzenie zgłasza awarię i tak dalej.
+[Azure Logic Apps](../logic-apps/index.yml) może pomóc organizować przepływy pracy w ramach usług lokalnych i w chmurze, co najmniej jednego przedsiębiorstwa i wielu różnych protokołów. Aplikacja logiki rozpoczyna się od wyzwalacza, po którym następuje jedna lub więcej akcji, które mogą być sekwencjonowane przy użyciu wbudowanych kontrolek, takich jak warunki i Iteratory. Ta elastyczność sprawia, że Logic Apps idealne rozwiązanie IoT na potrzeby scenariuszy monitorowania IoT. Na przykład po nadejściu danych telemetrycznych z urządzenia w IoT Hub punkcie końcowym można inicjować przepływy pracy aplikacji logiki w celu przechowywania danych w obiekcie blob usługi Azure Storage, wysyłać alerty e-mail w celu ostrzegania o anomaliach dotyczących danych, planować wizytę w technice, jeśli urządzenie zgłasza awarię i tak dalej.
 
 ## <a name="what-you-learn"></a>Omawiane zagadnienia
 
@@ -84,7 +84,7 @@ Utwórz przestrzeń nazw i kolejkę usługi Service Bus. W dalszej części tego
 
    ![Utwórz przestrzeń nazw usługi Service Bus w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-1. Wybierz przycisk **Utwórz**. Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
+1. Wybierz pozycję **Utwórz**. Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
 
 ### <a name="add-a-service-bus-queue-to-the-namespace"></a>Dodawanie kolejki Service Bus do przestrzeni nazw
 
@@ -104,7 +104,7 @@ Utwórz przestrzeń nazw i kolejkę usługi Service Bus. W dalszej części tego
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Dodawanie niestandardowego punktu końcowego i reguły routingu do centrum IoT Hub
 
-Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i Utwórz regułę routingu wiadomości, aby skierować komunikaty zawierające alert dotyczący temperatury do tego punktu końcowego, gdzie zostaną one pobrane przez aplikację logiki. Reguła routingu używa zapytania routingu, `temperatureAlert = "true"` do przesyłania dalej komunikatów na podstawie wartości `temperatureAlert` właściwości aplikacji ustawionej przez kod klienta uruchomiony na urządzeniu. Aby dowiedzieć się więcej, zobacz [zapytanie routingu komunikatów na podstawie właściwości wiadomości](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i Utwórz regułę routingu wiadomości, aby skierować komunikaty zawierające alert dotyczący temperatury do tego punktu końcowego, gdzie zostaną one pobrane przez aplikację logiki. Reguła routingu używa zapytania routingu, `temperatureAlert = "true"` do przesyłania dalej komunikatów na podstawie wartości `temperatureAlert` właściwości aplikacji ustawionej przez kod klienta uruchomiony na urządzeniu. Aby dowiedzieć się więcej, zobacz [zapytanie routingu komunikatów na podstawie właściwości wiadomości](./iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Dodawanie niestandardowego punktu końcowego
 
@@ -124,7 +124,7 @@ Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i
 
    ![Dodaj punkt końcowy do centrum IoT Hub w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. Wybierz przycisk **Utwórz**. Po pomyślnym utworzeniu punktu końcowego przejdź do następnego kroku.
+1. Wybierz pozycję **Utwórz**. Po pomyślnym utworzeniu punktu końcowego przejdź do następnego kroku.
 
 ### <a name="add-a-routing-rule"></a>Dodawanie reguły rozsyłania
 
@@ -162,7 +162,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
    ![Tworzenie aplikacji logiki w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-the-logic-app-trigger"></a>Konfigurowanie wyzwalacza aplikacji logiki
 

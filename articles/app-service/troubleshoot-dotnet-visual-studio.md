@@ -6,16 +6,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 346b1f83a9c18e35b009e88ae82d6984274fd4e4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982998"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147741"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Rozwiązywanie problemów z aplikacją w Azure App Service przy użyciu programu Visual Studio
 ## <a name="overview"></a>Omówienie
-W tym samouczku przedstawiono sposób korzystania z narzędzi Visual Studio Tools w celu ułatwienia debugowania aplikacji w [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), przez uruchamianie w [trybie debugowania](/visualstudio/debugger/) zdalnie lub przez Przeglądanie dzienników aplikacji i dzienników serwera sieci Web.
+W tym samouczku przedstawiono sposób korzystania z narzędzi Visual Studio Tools w celu ułatwienia debugowania aplikacji w [App Service](./overview.md), przez uruchamianie w [trybie debugowania](/visualstudio/debugger/) zdalnie lub przez Przeglądanie dzienników aplikacji i dzienników serwera sieci Web.
 
 Dowiesz się:
 
@@ -49,7 +49,7 @@ Program Visual Studio zapewnia dostęp do podzbioru funkcji zarządzania aplikac
    >
    >
 
-    Aby uzyskać więcej informacji na temat nawiązywania połączenia z zasobami platformy Azure z poziomu programu Visual Studio, zobacz [Zarządzanie kontami, subskrypcjami i rolami administracyjnymi](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
+    Aby uzyskać więcej informacji na temat nawiązywania połączenia z zasobami platformy Azure z poziomu programu Visual Studio, zobacz [Zarządzanie kontami, subskrypcjami i rolami administracyjnymi](../role-based-access-control/role-assignments-portal.md).
 2. W **Eksplorator serwera**rozwiń węzeł **Azure** i rozwiń pozycję **App Service**.
 3. Rozwiń grupę zasobów zawierającą aplikację utworzoną w temacie [Tworzenie aplikacji ASP.NET w Azure App Service](quickstart-dotnet-framework.md), a następnie kliknij prawym przyciskiem myszy węzeł aplikacji, a następnie kliknij pozycję **Wyświetl ustawienia**.
 
@@ -125,7 +125,7 @@ W tej sekcji przedstawiono sposób debugowania zdalnego przy użyciu projektu ut
     }
     ```
 
-1. [Ustaw punkt przerwania](https://docs.microsoft.com/visualstudio/debugger/) w `ViewBag.Message` wierszu.
+1. [Ustaw punkt przerwania](/visualstudio/debugger/) w `ViewBag.Message` wierszu.
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie kliknij pozycję **Publikuj**.
 
@@ -176,7 +176,7 @@ Zdalne debugowanie działa tylko z ciągłymi zadaniami WebJob. Zaplanowane i na
 
 2. W projekcie ContosoAdsWebJob Otwórz *Functions.cs*.
 
-3. [Ustaw punkt przerwania](https://docs.microsoft.com/visualstudio/debugger/) na pierwszej instrukcji w `GnerateThumbnail` metodzie.
+3. [Ustaw punkt przerwania](/visualstudio/debugger/) na pierwszej instrukcji w `GnerateThumbnail` metodzie.
 
     ![Ustaw punkt przerwania](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -241,7 +241,7 @@ Jeśli funkcja [zapisała dzienniki](https://github.com/Azure/azure-webjobs-sdk/
       <httpRuntime targetFramework="4.5" />
     </system.web>
     ```
-* Jeśli okaże się, że debuger nie przekroczy kodu, który ma być debugowany, może zajść potrzeba zmiany ustawienia Tylko mój kod.  Aby uzyskać więcej informacji, zobacz [Określanie, czy debugować tylko kod użytkownika przy użyciu tylko mój kod w programie Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
+* Jeśli okaże się, że debuger nie przekroczy kodu, który ma być debugowany, może zajść potrzeba zmiany ustawienia Tylko mój kod.  Aby uzyskać więcej informacji, zobacz [Określanie, czy debugować tylko kod użytkownika przy użyciu tylko mój kod w programie Visual Studio](/visualstudio/debugger/just-my-code).
 * Czasomierz jest uruchamiany na serwerze po włączeniu funkcji zdalnego debugowania, a po 48 godzinach funkcja jest automatycznie wyłączona. Ten limit 48 godzin jest realizowany ze względu na bezpieczeństwo i wydajność. Możesz łatwo włączyć tę funkcję na tyle razy, ile chcesz. Zalecamy pozostawienie jej wyłączonej, jeśli nie będziesz aktywnie debugować.
 * Debuger można dołączyć ręcznie do dowolnego procesu, a nie tylko procesu aplikacji (w3wp.exe). Aby uzyskać więcej informacji na temat używania trybu debugowania w programie Visual Studio, zobacz [debugowanie w programie Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
@@ -330,7 +330,7 @@ Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach 
     ```
 
 `WebPageTraceListener`Umożliwia wyświetlanie danych wyjściowych śledzenia przez przechodzenie do `/trace.axd` .
-1. Dodaj <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">element Trace</a> w obszarze `<system.web>` w pliku Web.config, na przykład następujący przykład:
+1. Dodaj <a href="/previous-versions/dotnet/netframework-4.0/6915t83k(v=vs.100)">element Trace</a> w obszarze `<system.web>` w pliku Web.config, na przykład następujący przykład:
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -481,7 +481,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.
 3. Set the **Replication** drop-down list to **Locally redundant**.
    
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-account-create.md).
 4. Click **Create**.
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
@@ -600,7 +600,7 @@ Aby uzyskać więcej informacji na temat rozwiązywania problemów z aplikacjami
 Aby uzyskać pomoc dotyczącą określonego pytania dotyczącego rozwiązywania problemów, uruchom wątek na jednym z następujących forów:
 
 * [Forum platformy Azure w witrynie ASP.NET](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [Forum platformy Azure na platformie Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+* [Forum platformy Azure na platformie Microsoft Q&A](/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Debugowanie w Visual Studio

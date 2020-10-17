@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ceab9af7e6556b2d957fafce8cd89d4a0daf9508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 716759fd6542cd473c236992ac88b69bfe5d0a66
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940771"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148010"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Pokaż konfigurację PostgreSQL grupy serwerów z włączonym łukiem
 
@@ -111,18 +111,18 @@ Domyślnie prefiks nazwy obwodu PVC wskazuje jego użycie:
 Na przykład:
 
 ```output
-NAME                   STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
-backups-postgres01-0   Bound    local-pv-485e37db   1938Gi     RWO            local-storage   6d6h
-backups-postgres01-1   Bound    local-pv-9d3d4a15   1938Gi     RWO            local-storage   6d6h
-backups-postgres01-2   Bound    local-pv-7b8dd819   1938Gi     RWO            local-storage   6d6h
+NAME                                            STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
+backups-few7hh0k4npx9phsiobdc3hq-postgres01-0   Bound    local-pv-485e37db   1938Gi     RWO            local-storage   6d6h
+backups-few7hh0k4npx9phsiobdc3hq-postgres01-1   Bound    local-pv-9d3d4a15   1938Gi     RWO            local-storage   6d6h
+backups-few7hh0k4npx9phsiobdc3hq-postgres01-2   Bound    local-pv-7b8dd819   1938Gi     RWO            local-storage   6d6h
 ...
-data-postgres01-0      Bound    local-pv-3c1a8cc5   1938Gi     RWO            local-storage   6d6h
-data-postgres01-1      Bound    local-pv-8303ab19   1938Gi     RWO            local-storage   6d6h
-data-postgres01-2      Bound    local-pv-55572fe6   1938Gi     RWO            local-storage   6d6h
+data-few7hh0k4npx9phsiobdc3hq-postgres01-0      Bound    local-pv-3c1a8cc5   1938Gi     RWO            local-storage   6d6h
+data-few7hh0k4npx9phsiobdc3hq-postgres01-1      Bound    local-pv-8303ab19   1938Gi     RWO            local-storage   6d6h
+data-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-55572fe6   1938Gi     RWO            local-storage   6d6h
 ...
-logs-postgres01-0      Bound    local-pv-5e852b76   1938Gi     RWO            local-storage   6d6h
-logs-postgres01-1      Bound    local-pv-55d309a7   1938Gi     RWO            local-storage   6d6h
-logs-postgres01-2      Bound    local-pv-5ccd02e6   1938Gi     RWO            local-storage   6d6h
+logs-few7hh0k4npx9phsiobdc3hq-postgres01-0      Bound    local-pv-5e852b76   1938Gi     RWO            local-storage   6d6h
+logs-few7hh0k4npx9phsiobdc3hq-postgres01-1      Bound    local-pv-55d309a7   1938Gi     RWO            local-storage   6d6h
+logs-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-5ccd02e6   1938Gi     RWO            local-storage   6d6h
 ...
 ```
 
@@ -205,18 +205,6 @@ Metadata:
   Self Link:           /apis/arcdata.microsoft.com/v1alpha1/namespaces/arc/postgresql-12s/postgres02
   UID:                 8a9cd118-361b-4a2e-8a9d-5f9257bf6abb
 Spec:
-  Backups:
-    Delta Minutes:  3
-    Full Minutes:   10
-    Tiers:
-      Retention:
-        Maximums:
-          6
-          512MB
-        Minimums:
-          3
-      Storage:
-        Volume Size:  1Gi
   Engine:
     Extensions:
       Name:  citus
@@ -279,7 +267,7 @@ azdata arc postgres server show -n postgres02
 
 Zwraca poniższe dane wyjściowe w formacie i treści bardzo podobne do zwróconego przez polecenia kubectl.
 
-```output
+```console
 {
   "apiVersion": "arcdata.microsoft.com/v1alpha1",
   "kind": "postgresql-12",
@@ -293,26 +281,6 @@ Zwraca poniższe dane wyjściowe w formacie i treści bardzo podobne do zwrócon
     "uid": "8a9cd118-361b-4a2e-8a9d-5f9257bf6abb"
   },
   "spec": {
-    "backups": {
-      "deltaMinutes": 3,
-      "fullMinutes": 10,
-      "tiers": [
-        {
-          "retention": {
-            "maximums": [
-              "6",
-              "512MB"
-            ],
-            "minimums": [
-              "3"
-            ]
-          },
-          "storage": {
-            "volumeSize": "1Gi"
-          }
-        }
-      ]
-    },
     "engine": {
       "extensions": [
         {

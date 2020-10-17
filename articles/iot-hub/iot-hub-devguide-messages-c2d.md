@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
-ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: daf4fb2ab9650c3a68b8862fd391817d5ff626b0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81730010"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147770"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Wysyłanie komunikatów z chmury do urządzeń z Centrum IoT Hub
 
@@ -97,7 +97,7 @@ Treść jest serializowaną w formacie JSON tablicą rekordów, z których każd
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Sygnatura czasowa wskazująca, kiedy wystąpił wynik komunikatu (na przykład centrum odebrało wiadomość z opinia lub wygasła oryginalna wiadomość) |
 | OriginalMessageId  | Identyfikator *MessageID* komunikatu z chmury do urządzenia, do którego odnoszą się informacje o opinii |
-| Stanu         | Wymagany ciąg używany w wiadomościach zwrotnych, które są generowane przez Centrum IoT: <br/> *Prawnego* <br/> *Wygasła* <br/> *DeliveryCountExceeded* <br/> *Odrzucone* <br/> *Przeczyszczane* |
+| Stanu         | Wymagany ciąg używany w wiadomościach zwrotnych, które są generowane przez Centrum IoT: <br/> *Powodzenie* <br/> *Wygasła* <br/> *DeliveryCountExceeded* <br/> *Odrzucone* <br/> *Przeczyszczane* |
 | Opis        | Wartości ciągu dla elementu *StatusCode* |
 | DeviceId           | Identyfikator urządzenia docelowego komunikatu z chmury do *urządzenia, do* którego odnosi się ten element opinii |
 | DeviceGenerationId | *DeviceGenerationId* urządzenia docelowego komunikatu z chmury do urządzenia, do którego odnosi się ten element opinii |
@@ -147,7 +147,7 @@ Opcje konfiguracji można ustawić w jeden z następujących sposobów:
 
     ![Ustawianie opcji konfiguracji dla komunikatów z chmury do urządzeń w portalu](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **Interfejs wiersza polecenia platformy Azure**: Użyj narzędzia [AZ IoT Hub Update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+* **Interfejs wiersza polecenia platformy Azure**: Użyj narzędzia [AZ IoT Hub Update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

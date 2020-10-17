@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7765e077638c85c0cefe394a10cc22fe2b0b757
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87023470"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147775"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Słownik warunków IoT Hub
 
@@ -28,19 +28,19 @@ W tym artykule wymieniono niektóre typowe terminy używane w artykułach IoT Hu
 
 ## <a name="automatic-device-management"></a>Automatyczne zarządzanie urządzeniami
 
-Automatyczne zarządzanie urządzeniami w systemie Azure IoT Hub automatyzuje wiele powtarzających się i złożonych zadań związanych z zarządzaniem dużymi flotami urządzeń w całym cyklu ich życia. Dzięki automatycznemu zarządzaniu urządzeniami można kierować zestawem urządzeń na podstawie ich właściwości, definiować żądaną konfigurację i zezwalać IoT Hub na aktualizowanie urządzeń, gdy zostaną one objęte zakresem.  Składa się z [automatycznych konfiguracji urządzeń](iot-hub-auto-device-config.md) i [IoT Edge wdrożeń automatycznych](../iot-edge/how-to-deploy-at-scale.md).
+Automatyczne zarządzanie urządzeniami w systemie Azure IoT Hub automatyzuje wiele powtarzających się i złożonych zadań związanych z zarządzaniem dużymi flotami urządzeń w całym cyklu ich życia. Dzięki automatycznemu zarządzaniu urządzeniami można kierować zestawem urządzeń na podstawie ich właściwości, definiować żądaną konfigurację i zezwalać IoT Hub na aktualizowanie urządzeń, gdy zostaną one objęte zakresem.  Składa się z [automatycznych konfiguracji urządzeń](./iot-hub-automatic-device-management.md) i [IoT Edge wdrożeń automatycznych](../iot-edge/how-to-deploy-at-scale.md).
 
 ## <a name="automatic-device-configuration"></a>Automatyczna konfiguracja urządzeń
 
-Zaplecze rozwiązania może używać [automatycznych konfiguracji urządzeń](iot-hub-auto-device-config.md) do przypisywania odpowiednich właściwości do zestawu [bliźniaczych reprezentacji urządzeń](#device-twin) i stanu raportu przy użyciu metryk systemu i metryk niestandardowych. 
+Zaplecze rozwiązania może używać [automatycznych konfiguracji urządzeń](./iot-hub-automatic-device-management.md) do przypisywania odpowiednich właściwości do zestawu [bliźniaczych reprezentacji urządzeń](#device-twin) i stanu raportu przy użyciu metryk systemu i metryk niestandardowych. 
 
 ## <a name="azure-classic-cli"></a>Klasyczny interfejs wiersza polecenia platformy Azure
 
-[Klasyczny interfejs wiersza polecenia platformy Azure](../cli-install-nodejs.md) to międzyplatformowe narzędzie do tworzenia i zarządzania zasobami w Microsoft Azure. Ta wersja interfejsu wiersza polecenia powinna być używana tylko w przypadku wdrożeń klasycznych.
+[Klasyczny interfejs wiersza polecenia platformy Azure](/cli/azure/install-classic-cli) to międzyplatformowe narzędzie do tworzenia i zarządzania zasobami w Microsoft Azure. Ta wersja interfejsu wiersza polecenia powinna być używana tylko w przypadku wdrożeń klasycznych.
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) to międzyplatformowe narzędzie do tworzenia i zarządzania zasobami w Microsoft Azure.
+[Interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) to międzyplatformowe narzędzie do tworzenia i zarządzania zasobami w Microsoft Azure.
 
 ## <a name="azure-iot-device-sdks"></a>Zestawy SDK urządzeń usługi Azure IoT
 
@@ -72,7 +72,7 @@ Istnieją _zestawy SDK usługi_ dostępne dla wielu języków, które umożliwia
 
 ## <a name="azure-service-bus"></a>Azure Service Bus
 
-[Service Bus](../service-bus/index.md) zapewnia komunikację w chmurze z obsługą komunikatów w przedsiębiorstwie i przekazywaniem komunikacji, która ułatwia łączenie rozwiązań lokalnych z chmurą. Niektóre samouczki IoT Hub korzystają z [kolejek](../service-bus-messaging/service-bus-messaging-overview.md)Service Busych.
+[Service Bus](../service-bus-messaging/index.yml) zapewnia komunikację w chmurze z obsługą komunikatów w przedsiębiorstwie i przekazywaniem komunikacji, która ułatwia łączenie rozwiązań lokalnych z chmurą. Niektóre samouczki IoT Hub korzystają z [kolejek](../service-bus-messaging/service-bus-messaging-overview.md)Service Busych.
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -96,7 +96,7 @@ Odnosi się do komunikatów wysyłanych z usługi IoT Hub do podłączonego urz�
 
 ## <a name="configuration"></a>Konfiguracja
 
-W kontekście [automatycznej konfiguracji urządzeń](iot-hub-auto-device-config.md)konfiguracja w ramach IoT Hub definiuje żądaną konfigurację zestawu urządzeń bliźniaczych reprezentacji i zawiera zestaw metryk do raportowania stanu i postępu.
+W kontekście [automatycznej konfiguracji urządzeń](./iot-hub-automatic-device-management.md)konfiguracja w ramach IoT Hub definiuje żądaną konfigurację zestawu urządzeń bliźniaczych reprezentacji i zawiera zestaw metryk do raportowania stanu i postępu.
 
 ## <a name="connection-string"></a>Parametry połączenia
 
@@ -164,7 +164,7 @@ Zarządzanie urządzeniami obejmuje pełny cykl życia związany z zarządzaniem
 
 ## <a name="device-rest-api"></a>Interfejs API REST urządzenia
 
-Za pomocą [interfejsu API REST urządzenia](https://docs.microsoft.com/rest/api/iothub/device) można wysyłać komunikaty z urządzenia do chmury do usługi IoT Hub i odbierać komunikaty z [chmury do urządzenia](#cloud-to-device) z Centrum IoT. Zazwyczaj należy użyć jednego z [zestawów SDK urządzeń](#azure-iot-device-sdks) wyższego poziomu, jak pokazano w samouczkach IoT Hub.
+Za pomocą [interfejsu API REST urządzenia](/rest/api/iothub/device) można wysyłać komunikaty z urządzenia do chmury do usługi IoT Hub i odbierać komunikaty z [chmury do urządzenia](#cloud-to-device) z Centrum IoT. Zazwyczaj należy użyć jednego z [zestawów SDK urządzeń](#azure-iot-device-sdks) wyższego poziomu, jak pokazano w samouczkach IoT Hub.
 
 ## <a name="device-provisioning"></a>Inicjowanie obsługi urządzeń
 
@@ -184,7 +184,7 @@ Centrum IoT udostępnia wiele [punktów końcowych](iot-hub-devguide-endpoints.m
 
 ## <a name="event-hubs-service"></a>Usługa Event Hubs
 
-[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) to wysoce skalowalna usługa transferu danych przychodzących, która pozwala na pozyskiwanie milionów zdarzeń na sekundę. Usługa umożliwia przetwarzanie i analizowanie ogromnych ilości danych generowanych przez połączone urządzenia i aplikacje. Porównanie z usługą IoT Hub można znaleźć w temacie [porównanie IoT Hub platformy Azure i usługi azure Event Hubs](iot-hub-compare-event-hubs.md).
+[Event Hubs](../event-hubs/event-hubs-about.md) to wysoce skalowalna usługa transferu danych przychodzących, która pozwala na pozyskiwanie milionów zdarzeń na sekundę. Usługa umożliwia przetwarzanie i analizowanie ogromnych ilości danych generowanych przez połączone urządzenia i aplikacje. Porównanie z usługą IoT Hub można znaleźć w temacie [porównanie IoT Hub platformy Azure i usługi azure Event Hubs](iot-hub-compare-event-hubs.md).
 
 ## <a name="event-hub-compatible-endpoint"></a>Punkt końcowy zgodny z centrum zdarzeń
 
@@ -226,7 +226,7 @@ IoT Hub to w pełni zarządzana usługa platformy Azure, która umożliwia nieza
 
 ## <a name="iot-hub-resource-rest-api"></a>Interfejs API REST zasobów IoT Hub
 
-Za pomocą [interfejsu API REST zasobów IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) można zarządzać centrami IoT w [ramach subskrypcji platformy Azure](#subscription) wykonujących operacje, takie jak tworzenie, aktualizowanie i usuwanie centrów.
+Za pomocą [interfejsu API REST zasobów IoT Hub](/rest/api/iothub/iothubresource) można zarządzać centrami IoT w [ramach subskrypcji platformy Azure](#subscription) wykonujących operacje, takie jak tworzenie, aktualizowanie i usuwanie centrów.
 
 ## <a name="iot-solution-accelerators"></a>Akceleratory rozwiązań IoT
 
@@ -304,7 +304,7 @@ SASL PLAIN to protokół, który jest wykorzystywany przez protokół AMQP do tr
 
 ## <a name="service-rest-api"></a>Interfejs API REST usługi
 
-Możesz użyć [interfejsu API REST usługi](https://docs.microsoft.com/rest/api/iothub/service/configuration) z zaplecza rozwiązania do zarządzania urządzeniami. Interfejs API umożliwia pobieranie i aktualizowanie właściwości [bliźniaczych urządzeń](#device-twin) , wywoływanie [metod bezpośrednich](#direct-method)i planowanie [zadań](#job). Zazwyczaj należy użyć jednego z [zestawów SDK usług](#azure-iot-service-sdks) wyższego poziomu, jak pokazano w samouczkach IoT Hub.
+Możesz użyć [interfejsu API REST usługi](/rest/api/iothub/service/configuration) z zaplecza rozwiązania do zarządzania urządzeniami. Interfejs API umożliwia pobieranie i aktualizowanie właściwości [bliźniaczych urządzeń](#device-twin) , wywoływanie [metod bezpośrednich](#direct-method)i planowanie [zadań](#job). Zazwyczaj należy użyć jednego z [zestawów SDK usług](#azure-iot-service-sdks) wyższego poziomu, jak pokazano w samouczkach IoT Hub.
 
 ## <a name="shared-access-signature"></a>Sygnatura dostępu współdzielonego
 

@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f8987a8daccc012f9d6da53e46fe7c4e8b43ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658511"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146357"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie obsługiwane w programie Azure AD Connect
 W tym artykule opisano różne topologie lokalne i Azure Active Directory (Azure AD), które używają Azure AD Connect synchronizacji jako rozwiązania integracji z kluczami. Ten artykuł zawiera obsługiwane i nieobsługiwane konfiguracje.
@@ -31,14 +31,14 @@ Oto legenda obrazów w artykule:
 
 | Opis | Symbol |
 | --- | --- |
-| Las Active Directory lokalnego |![Las Active Directory lokalnego](./media/plan-connect-topologies/LegendAD1.png) |
-| Active Directory lokalnego z filtrowanym zaimportowaniem |![Active Directory z filtrowanym importem](./media/plan-connect-topologies/LegendAD2.png) |
-| Serwer synchronizacji Azure AD Connect |![Serwer synchronizacji Azure AD Connect](./media/plan-connect-topologies/LegendSync1.png) |
-| Serwer synchronizacji Azure AD Connect "tryb przejściowy" |![Serwer synchronizacji Azure AD Connect "tryb przejściowy"](./media/plan-connect-topologies/LegendSync2.png) |
-| GALSync z programem Forefront Identity Manager (FIM) 2010 lub Microsoft Identity Manager (MIM) 2016 |![GALSync z programem FIM 2010 lub MIM 2016](./media/plan-connect-topologies/LegendSync3.png) |
-| Serwer synchronizacji Azure AD Connect, szczegółowy |![Serwer synchronizacji Azure AD Connect, szczegółowy](./media/plan-connect-topologies/LegendSync4.png) |
-| Azure AD |![Usługa Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
-| Nieobsługiwany scenariusz |![Nieobsługiwany scenariusz](./media/plan-connect-topologies/LegendUnsupported.png) |
+| Las Active Directory lokalnego |![Las Active Directory lokalnego](./media/plan-connect-topologies/legendad1.png) |
+| Active Directory lokalnego z filtrowanym zaimportowaniem |![Active Directory z filtrowanym importem](./media/plan-connect-topologies/legendad2.png) |
+| Serwer synchronizacji Azure AD Connect |![Serwer synchronizacji Azure AD Connect](./media/plan-connect-topologies/legendsync1.png) |
+| Serwer synchronizacji Azure AD Connect "tryb przejściowy" |![Serwer synchronizacji Azure AD Connect "tryb przejściowy"](./media/plan-connect-topologies/legendsync2.png) |
+| GALSync z programem Forefront Identity Manager (FIM) 2010 lub Microsoft Identity Manager (MIM) 2016 |![GALSync z programem FIM 2010 lub MIM 2016](./media/plan-connect-topologies/legendsync3.png) |
+| Serwer synchronizacji Azure AD Connect, szczegółowy |![Serwer synchronizacji Azure AD Connect, szczegółowy](./media/plan-connect-topologies/legendsync4.png) |
+| Azure AD |![Usługa Azure Active Directory](./media/plan-connect-topologies/legendaad.png) |
+| Nieobsługiwany scenariusz |![Nieobsługiwany scenariusz](./media/plan-connect-topologies/legendunsupported.png) |
 
 
 > [!IMPORTANT]
@@ -46,17 +46,17 @@ Oto legenda obrazów w artykule:
 
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Pojedynczy las, pojedyncza dzierżawa usługi Azure AD
-![Topologia jednego lasu i pojedynczej dzierżawy](./media/plan-connect-topologies/SingleForestSingleDirectory.png)
+![Topologia jednego lasu i pojedynczej dzierżawy](./media/plan-connect-topologies/singleforestsingledirectory.png)
 
 Najbardziej typową topologią jest pojedynczy las lokalny, z co najmniej jedną domeną i jedną dzierżawą usługi Azure AD. W przypadku uwierzytelniania za pomocą usługi Azure AD jest używana synchronizacja skrótów haseł. Instalacja ekspresowa Azure AD Connect obsługuje tylko tę topologię.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Pojedynczy las, wiele serwerów synchronizacji z jedną dzierżawą usługi Azure AD
-![Nieobsługiwana, odfiltrowana topologia dla pojedynczego lasu](./media/plan-connect-topologies/SingleForestFilteredUnsupported.png)
+![Nieobsługiwana, odfiltrowana topologia dla pojedynczego lasu](./media/plan-connect-topologies/singleforestfilteredunsupported.png)
 
 Posiadanie wielu Azure AD Connect serwerów synchronizacji połączonych z tą samą dzierżawą usługi Azure AD nie jest obsługiwane, z wyjątkiem [serwera przejściowego](#staging-server). Jest ona nieobsługiwana, nawet jeśli te serwery są skonfigurowane do synchronizacji z wzajemnie wykluczające się zestaw obiektów. Ta topologia może zostać uznana za niedostępną dla wszystkich domen w lesie z jednego serwera lub jeśli chcesz rozpowszechnić obciążenie na kilku serwerach.
 
 ## <a name="multiple-forests-single-azure-ad-tenant"></a>Wiele lasów, pojedyncza dzierżawa usługi Azure AD
-![Topologia dla wielu lasów i pojedynczej dzierżawy](./media/plan-connect-topologies/MultiForestSingleDirectory.png)
+![Topologia dla wielu lasów i pojedynczej dzierżawy](./media/plan-connect-topologies/multiforestsingledirectory.png)
 
 Wiele organizacji ma środowiska z wieloma lokalnymi Active Directory lasów. Istnieją różne przyczyny istnienia więcej niż jednego lasu lokalnego Active Directory. Typowymi przykładami są projekty z lasami zasobów konta oraz wynik fuzji lub pozyskiwania.
 
@@ -81,16 +81,16 @@ Jeśli środowisko nie jest zgodne z tymi założeniami, wykonywane są następu
 Więcej szczegółów można znaleźć w temacie [Omówienie konfiguracji domyślnej](concept-azure-ad-connect-sync-default-configuration.md).
 
 ### <a name="multiple-forests-multiple-sync-servers-to-one-azure-ad-tenant"></a>Wiele lasów, wiele serwerów synchronizacji z jedną dzierżawą usługi Azure AD
-![Nieobsługiwana topologia dla wielu lasów i wielu serwerów synchronizacji](./media/plan-connect-topologies/MultiForestMultiSyncUnsupported.png)
+![Nieobsługiwana topologia dla wielu lasów i wielu serwerów synchronizacji](./media/plan-connect-topologies/multiforestmultisyncunsupported.png)
 
 Posiadanie więcej niż jednego serwera synchronizacji Azure AD Connect połączonego z jedną dzierżawą usługi Azure AD nie jest obsługiwane. Wyjątkiem jest użycie [serwera przejściowego](#staging-server).
 
 Ta topologia różni się od przedstawionej poniżej w przypadku, gdy **wiele serwerów synchronizacji** podłączonych do pojedynczej dzierżawy usługi Azure AD nie jest obsługiwana.
 
 ### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>Wiele lasów, serwer pojedynczego synchronizacji, użytkownicy są reprezentowani tylko w jednym katalogu
-![Opcja reprezentowania użytkowników tylko raz dla wszystkich katalogów](./media/plan-connect-topologies/MultiForestUsersOnce.png)
+![Opcja reprezentowania użytkowników tylko raz dla wszystkich katalogów](./media/plan-connect-topologies/multiforestusersonce.png)
 
-![Przedstawianie wielu lasów i oddzielnych topologii](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
+![Przedstawianie wielu lasów i oddzielnych topologii](./media/plan-connect-topologies/multiforestseparatetopologies.png)
 
 W tym środowisku wszystkie lasy lokalne są traktowane jako osobne jednostki. Żaden użytkownik nie jest obecny w żadnym innym lesie. Każdy Las ma własną organizację programu Exchange i nie ma żadnych GALSync między lasami. Ta topologia może być sytuacje po operacji łączenia/pozyskiwania lub w organizacji, w której każda jednostka biznesowa działa niezależnie. Te lasy znajdują się w tej samej organizacji w usłudze Azure AD i są wyświetlane z ujednoliconą opcją. Na powyższym rysunku każdy obiekt w każdym lesie jest reprezentowany raz w magazynie Metaverse i agregowany w docelowej dzierżawie usługi Azure AD.
 
@@ -98,9 +98,9 @@ W tym środowisku wszystkie lasy lokalne są traktowane jako osobne jednostki. �
 W przypadku wszystkich tych scenariuszy grupy dystrybucji i zabezpieczeń mogą zawierać kombinację użytkowników, kontaktów i obcych podmiotów zabezpieczeń (FSPs). FSPs są używane w Active Directory Domain Services (AD DS) do reprezentowania członków z innych lasów w grupie zabezpieczeń. Wszystkie FSPs są rozwiązywane do rzeczywistego obiektu w usłudze Azure AD.
 
 ### <a name="multiple-forests-full-mesh-with-optional-galsync"></a>Wiele lasów: pełna siatka z opcjonalną GALSync
-![Opcja użycia atrybutu mail do dopasowania, gdy tożsamości użytkowników istnieją w wielu katalogach](./media/plan-connect-topologies/MultiForestUsersMail.png)
+![Opcja użycia atrybutu mail do dopasowania, gdy tożsamości użytkowników istnieją w wielu katalogach](./media/plan-connect-topologies/multiforestusersmail.png)
 
-![Topologia pełnej sieci dla wielu lasów](./media/plan-connect-topologies/MultiForestFullMesh.png)
+![Topologia pełnej sieci dla wielu lasów](./media/plan-connect-topologies/multiforestfullmesh.png)
 
 Topologia pełnej sieci umożliwia użytkownikom i zasobom zlokalizowanie się w dowolnym lesie. Często istnieją dwukierunkowe relacje zaufania między lasami.
 
@@ -109,9 +109,9 @@ Jeśli program Exchange jest obecny w więcej niż jednym lesie, może to być (
 W tym scenariuszu obiekty tożsamości są sprzężone za pośrednictwem atrybutu mail. Użytkownik, który ma skrzynkę pocztową w jednym lesie, jest przyłączony do kontaktów w innych lasach.
 
 ### <a name="multiple-forests-account-resource-forest"></a>Wiele lasów: Las zasobów konta
-![Opcja używania atrybutów ObjectSID i msExchMasterAccountSID do dopasowania, gdy tożsamości istnieją w wielu katalogach](./media/plan-connect-topologies/MultiForestUsersObjectSID.png)
+![Opcja używania atrybutów ObjectSID i msExchMasterAccountSID do dopasowania, gdy tożsamości istnieją w wielu katalogach](./media/plan-connect-topologies/multiforestusersobjectsid.png)
 
-![Topologia lasu zasobów konta dla wielu lasów](./media/plan-connect-topologies/MultiForestAccountResource.png)
+![Topologia lasu zasobów konta dla wielu lasów](./media/plan-connect-topologies/multiforestaccountresource.png)
 
 W topologii lasu zasobów kont istnieje co najmniej jeden las *konta* z aktywnymi kontami użytkowników. Istnieje również jeden lub więcej lasów *zasobów* z wyłączonymi kontami.
 
@@ -128,7 +128,7 @@ Niektóre Microsoft 365 obciążenia mają pewne ograniczenia dotyczące obsług
 Jeśli jesteś większą organizacją, należy rozważyć użycie funkcji [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) . Umożliwia zdefiniowanie w tym regionie centrum danych, w którym znajdują się zasoby użytkownika.
 
 ## <a name="staging-server"></a>Serwer przemieszczania
-![Serwer przejściowy w topologii](./media/plan-connect-topologies/MultiForestStaging.png)
+![Serwer przejściowy w topologii](./media/plan-connect-topologies/multiforeststaging.png)
 
 Azure AD Connect obsługuje instalowanie drugiego serwera w *trybie przejściowym*. Serwer w tym trybie odczytuje dane ze wszystkich podłączonych katalogów, ale nie zapisuje niczego do podłączonych katalogów. Używa normalnego cyklu synchronizacji i w związku z tym ma zaktualizowaną kopię danych tożsamości.
 
@@ -144,12 +144,12 @@ Możliwe jest posiadanie więcej niż jednego serwera przejściowego, jeśli chc
 Zalecamy korzystanie z jednej dzierżawy w usłudze Azure AD dla organizacji.
 Przed zaplanowaniem korzystania z wielu dzierżaw usługi Azure AD zapoznaj się z artykułem [Zarządzanie jednostkami administracyjnymi w usłudze Azure AD](../users-groups-roles/directory-administrative-units.md). Obejmuje to typowe scenariusze, w których można korzystać z jednej dzierżawy.
 
-![Topologia dla wielu lasów i wielu dzierżawców](./media/plan-connect-topologies/MultiForestMultiDirectory.png)
+![Topologia dla wielu lasów i wielu dzierżawców](./media/plan-connect-topologies/multiforestmultidirectory.png)
 
 Istnieje relacja 1:1 między serwerem synchronizacji Azure AD Connect i dzierżawą usługi Azure AD. Dla każdej dzierżawy usługi Azure AD potrzebna jest jedna Azure AD Connect instalacja serwera synchronizacji. Wystąpienia dzierżawy usługi Azure AD są izolowane według konstrukcji. Oznacza to, że użytkownicy w jednej dzierżawie nie widzą użytkowników w innej dzierżawie. W przypadku wybrania tej separacji jest to obsługiwana konfiguracja. W przeciwnym razie należy użyć jednego modelu dzierżawy usługi Azure AD.
 
 ### <a name="each-object-only-once-in-an-azure-ad-tenant"></a>Każdy obiekt tylko raz w dzierżawie usługi Azure AD
-![Topologia filtrowana dla pojedynczego lasu](./media/plan-connect-topologies/SingleForestFiltered.png)
+![Topologia filtrowana dla pojedynczego lasu](./media/plan-connect-topologies/singleforestfiltered.png)
 
 W tej topologii jeden serwer synchronizacji Azure AD Connect jest połączony z każdą dzierżawą usługi Azure AD. Serwery synchronizacji Azure AD Connect muszą być skonfigurowane do filtrowania, tak aby każdy z nich miał wzajemnie wykluczające się zestaw obiektów do działania. Można na przykład ograniczyć zakres każdego serwera do konkretnej domeny lub jednostki organizacyjnej.
 
@@ -161,17 +161,20 @@ Domenę DNS można zarejestrować tylko w jednej dzierżawie usługi Azure AD. N
 
 Ta topologia ma następujące ograniczenia dotyczące scenariuszy obsługiwanych w inny sposób:
 
-* Tylko jedna z dzierżaw usługi Azure AD może włączyć hybrydę programu Exchange z wystąpieniem Active Directory lokalnego.
+* Maksymalnie 5 dzierżawców Azure Active Directory może mieć program Exchange hybrydowy z wystąpieniem Active Directory lokalnym. Ten scenariusz jest opisany we [wrześniu 2020 Kreatora konfiguracji hybrydowej](https://techcommunity.microsoft.com/t5/exchange-team-blog/september-2020-hybrid-configuration-wizard-update/ba-p/1687698).
+* Kreator konfiguracji hybrydowej programu Exchange Server może mieć wartość 2016 CU18 lub 2019 CU7 lub nowszą.
+* Każde wystąpienie Azure AD Connect powinno być uruchomione na komputerze przyłączonym do domeny.
+* Azure AD Connect należy skonfigurować przy użyciu opcji filtrowania domeny/jednostki organizacyjnej, aby filtrować użytkowników z katalogu lokalnego. Użycie tej opcji zapewnia, że użytkownicy będą pojawiały się tylko w jednej dzierżawie usługi Exchange Online.
 * Urządzenia z systemem Windows 10 mogą być skojarzone tylko z jedną dzierżawą usługi Azure AD.
 * Opcja logowania jednokrotnego (SSO) dla synchronizacji skrótów haseł i uwierzytelniania przekazywanego może być używana tylko z jedną dzierżawą usługi Azure AD.
 
-Wymóg dla wzajemnie wykluczających się zestawów obiektów ma zastosowanie również do zapisywania zwrotnego. Niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną. Do tych funkcji należą:
+Wymóg dla wzajemnie wykluczających się zestawów obiektów ma zastosowanie również do zapisywania zwrotnego. Niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną. Są one następujące:
 
 * Grupowanie zapisywania zwrotnego z domyślną konfiguracją.
 * Zapisywanie zwrotne urządzeń.
 
 ### <a name="each-object-multiple-times-in-an-azure-ad-tenant"></a>Każdy obiekt wielokrotnie w dzierżawie usługi Azure AD
-![Nieobsługiwana topologia dla jednego lasu i wielu dzierżawców](./media/plan-connect-topologies/SingleForestMultiDirectoryUnsupported.png) ![Nieobsługiwana topologia dla jednego lasu i wielu łączników](./media/plan-connect-topologies/SingleForestMultiConnectorsUnsupported.png)
+![Nieobsługiwana topologia dla jednego lasu i wielu dzierżawców](./media/plan-connect-topologies/singleforestmultidirectoryunsupported.png) ![Nieobsługiwana topologia dla jednego lasu i wielu łączników](./media/plan-connect-topologies/singleforestmulticonnectorsunsupported.png)
 
 Te zadania nie są obsługiwane:
 
@@ -180,7 +183,7 @@ Te zadania nie są obsługiwane:
 * Zmodyfikuj synchronizację Azure AD Connect, aby nawiązać połączenie z wieloma dzierżawami usługi Azure AD.
 
 ### <a name="galsync-by-using-writeback"></a>GALSync przy użyciu funkcji zapisywania zwrotnego
-![Nieobsługiwana topologia dla wielu lasów i wielu katalogów z GALSync koncentruje się na usłudze Azure AD](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![Nieobsługiwana topologia dla wielu lasów i wielu katalogów z GALSync skoncentrowanym na Active Directory lokalnym](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
+![Nieobsługiwana topologia dla wielu lasów i wielu katalogów z GALSync koncentruje się na usłudze Azure AD](./media/plan-connect-topologies/multiforestmultidirectorygalsync1unsupported.png) ![Nieobsługiwana topologia dla wielu lasów i wielu katalogów z GALSync skoncentrowanym na Active Directory lokalnym](./media/plan-connect-topologies/multiforestmultidirectorygalsync2unsupported.png)
 
 Dzierżawy usługi Azure AD są izolowane według konstrukcji. Te zadania nie są obsługiwane:
 
@@ -188,7 +191,7 @@ Dzierżawy usługi Azure AD są izolowane według konstrukcji. Te zadania nie s�
 * Eksportuj użytkowników jako kontakty do innego lokalnego wystąpienia Active Directory za pomocą funkcji Azure AD Connect Sync.
 
 ### <a name="galsync-with-on-premises-sync-server"></a>GALSync z lokalnym serwerem synchronizacji
-![GALSync w topologii dla wielu lasów i wielu katalogów](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync.png)
+![GALSync w topologii dla wielu lasów i wielu katalogów](./media/plan-connect-topologies/multiforestmultidirectorygalsync.png)
 
 Aby synchronizować użytkowników (za pośrednictwem GALSync) między dwiema organizacjami programu Exchange, można użyć programu FIM 2010 lub MIM 2016. Użytkownicy w jednej organizacji są wyświetlani jako Użytkownicy zagraniczni/kontakty w innej organizacji. Te różne wystąpienia Active Directory lokalnego można następnie synchronizować z własnymi dzierżawami usługi Azure AD.
 

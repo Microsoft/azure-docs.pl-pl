@@ -1,24 +1,24 @@
 ---
 title: 'Samouczek: Nawiązywanie połączenia z kontem usługi Azure Cosmos przy użyciu prywatnego punktu końcowego platformy Azure'
 titleSuffix: Azure Private Link
-description: Zacznij korzystać z prywatnego punktu końcowego platformy Azure, aby łączyć się z kontem usługi Azure Cosmos prywatnie.
+description: Rozpocznij pracę z tym samouczkiem przy użyciu prywatnego punktu końcowego platformy Azure, aby połączyć się z kontem usługi Azure Cosmos prywatnie.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 8b38c72efff5b76392d23837696c340e3cfb58de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd534fff5bfc56dbc4040db016563b06bef6d047
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844281"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145688"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Samouczek: Nawiązywanie połączenia z kontem usługi Azure Cosmos przy użyciu prywatnego punktu końcowego platformy Azure
 
 Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Dzięki temu zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się z prywatnymi prywatnymi zasobami.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz sieć wirtualną i hosta bastionu.
@@ -27,6 +27,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Testuj połączenie z prywatnym punktem końcowym konta Cosmos DB.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Subskrypcja platformy Azure
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -46,7 +50,7 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |------------------|-----------------------------------------------------------------|
     | **Szczegóły projektu**  |                                                                 |
     | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
-    | Grupa zasobów   | Wybierz pozycję Moja **resourceName** |
+    | Resource Group   | Wybierz pozycję Moja **resourceName** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
     | Region           | Wybierz **Wschodnie stany USA** |
@@ -78,12 +82,12 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Kliknij przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -97,12 +101,12 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Grupa zasobów | Wybierz pozycję Moja **resourceName** |
+    | Resource Group | Wybierz pozycję Moja **resourceName** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
     | Region | Wybierz **Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -123,7 +127,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
     | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
    
-5. Wybierz pozycję **Przeglądanie + tworzenie**. 
+5. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -168,7 +172,7 @@ W tej sekcji utworzysz konto Cosmos DB i skonfigurujesz prywatny punkt końcowy.
     | Ustawienie | Wartość                                          |
     |-----------------------|----------------------------------|
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Grupa zasobów | Wybierz pozycję Moja **resourceName** |
+    | Resource Group | Wybierz pozycję Moja **resourceName** |
     | Lokalizacja | Wybierz **Wschodnie stany USA** |
     | Nazwa | Wprowadź **myPrivateEndpoint** |
     | Podzasób docelowy | Pozostaw wartość domyślną **(SQL)** |
@@ -179,9 +183,9 @@ W tej sekcji utworzysz konto Cosmos DB i skonfigurujesz prywatny punkt końcowy.
     | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak** |
     | Prywatna strefa DNS | Pozostaw domyślne (nowe) privatelink.documents.azure.com |
 
-7. Kliknij przycisk **OK**.
+7. Wybierz przycisk **OK**.
 
-8. Wybierz pozycję **Przeglądanie + tworzenie**.
+8. Wybierz pozycję **Przejrzyj i utwórz**.
 
 9. Wybierz pozycję **Utwórz**.
 
@@ -202,7 +206,7 @@ W tej sekcji utworzysz konto Cosmos DB i skonfigurujesz prywatny punkt końcowy.
     | Identyfikator kontenera | Wprowadź **mycontainerid** |
     | Klucz partycji | Wprowadź **/MyKey** |
 
-5. Kliknij przycisk **OK**.
+5. Wybierz przycisk **OK**.
 
 10. W sekcji **Ustawienia** konta CosmosDB wybierz pozycję **klucze**.
 
@@ -250,13 +254,13 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 11. Na ekranie **łączenie z usługą Azure Storage** wybierz pozycję **Anuluj**.
 
-12. W Eksplorator usługi Storage kliknij prawym przyciskiem myszy pozycję **Cosmos DB konta** i wybierz pozycję **Połącz z Cosmos DB**.
+12. W Eksplorator usługi Storage wybierz prawy przycisk myszy na **kontach Cosmos DB** i wybierz pozycję **Połącz z Cosmos DB**.
 
 13. Pozostaw wartość domyślną **SQL** w obszarze **Wybierz interfejs API**.
 
 14. W polu **Parametry połączenia**wklej parametry połączenia z konta Cosmos DB skopiowane w poprzednich krokach.
 
-15. Wybierz opcję **Dalej**.
+15. Wybierz pozycję **Dalej**.
 
 16. Sprawdź, czy ustawienia są poprawne w **podsumowaniu połączenia**.  
 

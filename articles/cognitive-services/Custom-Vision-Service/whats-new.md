@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 019a9264beddafbd4585810967551e064592e94d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4fbfbd1d578eb77d50d91413efb9f9fbf28e115f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90602527"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146291"
 ---
 # <a name="whats-new-in-custom-vision"></a>Co nowego w Custom Vision
 
@@ -23,9 +23,9 @@ Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
-### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+### <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
-* Custom Vision obsługuje kontrolę dostępu opartą na rolach (Azure RBAC) na platformie Azure, system autoryzacji służący do zarządzania indywidualnym dostępem do zasobów platformy Azure. Aby dowiedzieć się, jak zarządzać dostępem do projektów Custom Vision, zobacz [Kontrola dostępu oparta na rolach](./role-based-access-control.md).
+* Custom Vision obsługuje kontrolę dostępu opartą na rolach (Azure RBAC) na platformie Azure, system autoryzacji służący do zarządzania indywidualnym dostępem do zasobów platformy Azure. Aby dowiedzieć się, jak zarządzać dostępem do projektów Custom Vision, zobacz [Kontrola dostępu oparta na rolach na platformie Azure](./role-based-access-control.md).
 
 ### <a name="subset-training"></a>Szkolenie dotyczące podzbioru
 

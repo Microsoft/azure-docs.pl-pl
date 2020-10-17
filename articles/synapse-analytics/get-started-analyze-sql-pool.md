@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: a42157223c0c9a0b326c400388ea2b564e42f7f2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c46adf9e9f5c1b2e74c1098ebf137c4556bfc58d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088945"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147564"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizowanie danych za pomocą dedykowanych pul SQL
 
@@ -24,6 +24,7 @@ Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą dedyko
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Załaduj dane z NYC taksówki do SQLDB1
 
 1. W programie Synapse Studio przejdź do centrum **opracowywania** , a następnie utwórz nowy skrypt SQL.
+1. Wybierz pulę "SQLDB1" (Pula utworzona w [kroku 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) tego samouczka) w sekcji "łączenie z" skryptu.
 1. Wprowadź następujący kod:
     ```
     CREATE TABLE [dbo].[Trip]

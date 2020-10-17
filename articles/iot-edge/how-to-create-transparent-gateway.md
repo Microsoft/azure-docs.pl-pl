@@ -4,19 +4,19 @@ description: Używanie urządzenia Azure IoT Edge jako przezroczystej bramy, kt�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/12/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ae01fc2ef8761305c2096904471ce75b69d1150d
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 506f6a2025a61b4d9d16918b2a95de620171c46b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048410"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147843"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurowanie urządzenia usługi IoT Edge, aby działało jako przezroczysta brama
 
@@ -31,8 +31,8 @@ Ten artykuł zawiera szczegółowe instrukcje dotyczące konfigurowania urządze
 Należy wykonać trzy ogólne kroki, aby skonfigurować pomyślne, przezroczyste połączenie bramy. W tym artykule omówiono pierwszy krok:
 
 1. **Skonfiguruj urządzenie bramy jako serwer, aby urządzenia podrzędne mogły bezpiecznie się z nim połączyć. Skonfiguruj bramę do odbierania komunikatów z urządzeń podrzędnych i Roześlij je do odpowiednich miejsc docelowych.**
-2. Utwórz tożsamość urządzenia dla urządzenia podrzędnego, aby można było uwierzytelnić się za pomocą IoT Hub. Skonfiguruj urządzenie podrzędne do wysyłania komunikatów za pomocą urządzenia bramy. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie urządzenia podrzędnego w usłudze Azure IoT Hub](how-to-authenticate-downstream-device.md).
-3. Podłącz urządzenie podrzędne do urządzenia bramy i Rozpocznij wysyłanie komunikatów. Aby uzyskać więcej informacji, zobacz [łączenie urządzenia podrzędnego z bramą Azure IoT Edge](how-to-connect-downstream-device.md).
+2. Utwórz tożsamość urządzenia dla urządzenia podrzędnego, aby można było uwierzytelnić się za pomocą IoT Hub. Skonfiguruj urządzenie podrzędne do wysyłania komunikatów za pomocą urządzenia bramy. Aby zapoznać się z tymi krokami, zobacz temat [uwierzytelnianie urządzenia podrzędnego w usłudze Azure IoT Hub](how-to-authenticate-downstream-device.md).
+3. Podłącz urządzenie podrzędne do urządzenia bramy i Rozpocznij wysyłanie komunikatów. Aby zapoznać się z tymi krokami, zobacz [łączenie urządzenia podrzędnego z bramą Azure IoT Edge](how-to-connect-downstream-device.md).
 
 Aby urządzenie działało jako brama, musi bezpiecznie połączyć się z jego urządzeniami podrzędnymi. Azure IoT Edge umożliwia konfigurowanie bezpiecznych połączeń między urządzeniami przy użyciu infrastruktury kluczy publicznych (PKI). W takim przypadku zezwalamy urządzeniu podrzędnemu na łączenie się z urządzeniem IoT Edge działającym jako niejawna brama. Aby zachować uzasadnione zabezpieczenia, urządzenie podrzędne powinno potwierdzić tożsamość urządzenia bramy. To sprawdzenie tożsamości uniemożliwia urządzeniom łączenie się z potencjalnie złośliwymi bramami.
 
@@ -48,6 +48,8 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia certyfikatów i instal
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Urządzenie z systemem Linux lub Windows z zainstalowanym IoT Edge.
+
+Jeśli urządzenie nie jest gotowe, możesz je utworzyć na maszynie wirtualnej platformy Azure. Wykonaj kroki opisane w [sekcji Wdróż pierwszy moduł IoT Edge na wirtualnym urządzeniu z systemem Linux](quickstart-linux.md) , aby utworzyć IoT Hub, utworzyć maszynę wirtualną i skonfigurować środowisko uruchomieniowe IoT Edge. 
 
 ## <a name="set-up-the-device-ca-certificate"></a>Konfigurowanie certyfikatu urzędu certyfikacji urządzenia
 
@@ -68,24 +70,27 @@ Przygotuj następujące pliki:
 
 W przypadku scenariuszy produkcyjnych należy generować te pliki przy użyciu własnego urzędu certyfikacji. W przypadku scenariuszy deweloperskich i testowych można użyć certyfikatów demonstracyjnych.
 
-1. Jeśli używasz certyfikatów demonstracyjnych, użyj następującego zestawu kroków, aby utworzyć pliki:
-   1. [Utwórz certyfikat głównego urzędu certyfikacji](how-to-create-test-certificates.md#create-root-ca-certificate). Na końcu tych instrukcji będziesz mieć plik certyfikatu głównego urzędu certyfikacji:
-      * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+1. W przypadku korzystania z certyfikatów demonstracyjnych należy skorzystać z instrukcji przedstawionych w temacie [Tworzenie certyfikatów demonstracyjnych do testowania IoT Edge funkcji urządzenia](how-to-create-test-certificates.md) , aby utworzyć pliki. Na tej stronie należy wykonać następujące czynności:
 
-   2. [Utwórz certyfikat urzędu certyfikacji urządzenia IoT Edge](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). Na końcu tych instrukcji będziesz mieć dwa pliki, certyfikat urzędu certyfikacji urządzenia i jego klucz prywatny:
+   1. Aby rozpocząć, skonfiguruj skrypty do generowania certyfikatów na urządzeniu.
+   2. Utwórz certyfikat głównego urzędu certyfikacji. Na końcu tych instrukcji będziesz mieć plik certyfikatu głównego urzędu certyfikacji:
+      * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+   3. Utwórz IoT Edge certyfikaty urzędu certyfikacji. Na końcu tych instrukcji będziesz mieć certyfikat urzędu certyfikacji urządzenia i jego klucz prywatny:
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` lub
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
-2. Jeśli te pliki zostały utworzone na innym komputerze, skopiuj je na urządzenie IoT Edge.
+2. Jeśli certyfikaty zostały utworzone na innym komputerze, skopiuj je na urządzenie IoT Edge.
 
 3. Na urządzeniu IoT Edge Otwórz plik konfiguracji demona zabezpieczeń.
    * Systemy `C:\ProgramData\iotedge\config.yaml`
    * System `/etc/iotedge/config.yaml`
 
-4. Znajdź sekcję **Certyfikaty** pliku i podaj identyfikatory URI plików dla trzech plików jako wartości dla następujących właściwości:
+4. Znajdź sekcję **Ustawienia certyfikatu** w pliku. Usuń znaczniki komentarza z czterech wierszy zaczynających się od **certyfikatów:** i podaj identyfikatory URI plików dla trzech plików jako wartości dla następujących właściwości:
    * **device_ca_cert**: certyfikat urzędu certyfikacji urządzenia
    * **device_ca_pk**: klucz prywatny urzędu certyfikacji urządzenia
    * **trusted_ca_certs**: certyfikat głównego urzędu certyfikacji
+
+   Upewnij się, że nie ma żadnych spacji poprzedzających w wierszu **Certificates (certyfikaty** ) i że pozostałe wiersze są wcięte o dwie spacje.
 
 5. Zapisz i zamknij plik.
 
@@ -146,14 +151,6 @@ Aby scenariusz bramy działał prawidłowo, należy otworzyć co najmniej jeden 
 | 8883 | MQTT |
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT + WS <br> AMQP + WS |
-
-## <a name="enable-extended-offline-operation"></a>Włącz rozszerzoną operację offline
-
-Począwszy od [wersji 1.0.4](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) środowiska uruchomieniowego IoT Edge, urządzenie bramy i urządzenia podrzędne łączące się z nim można skonfigurować do przedłużonej operacji w trybie offline.
-
-Dzięki tej możliwości lokalne moduły lub urządzenia podrzędne mogą ponownie uwierzytelniać się przy użyciu urządzenia z IoT Edge w razie konieczności i komunikować się ze sobą za pomocą komunikatów i metod nawet w przypadku odłączenia od centrum IoT Hub. Aby uzyskać więcej informacji, zobacz informacje o [rozszerzonych możliwościach trybu offline dla urządzeń IoT Edge, modułów i urządzeń podrzędnych](offline-capabilities.md).
-
-Aby włączyć rozszerzone możliwości trybu offline, należy ustanowić relację nadrzędny-podrzędny między urządzeniem bramy IoT Edge a urządzeniami podrzędnymi, które będą się z nim połączyć. Te kroki zostały omówione bardziej szczegółowo w następnym artykule tej serii, [uwierzytelniaj urządzenie podrzędne w usłudze Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

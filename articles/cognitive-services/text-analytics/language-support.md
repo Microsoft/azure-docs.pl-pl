@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: ed2a5b4688965f790567018bc11051b77c494e7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4a4058cc6317e863fa20406449e64aa877810a54
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977735"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147466"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
 
@@ -34,12 +34,12 @@ ms.locfileid: "91977735"
 | Angielski               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Fiński               |     `fi`      |     ✓      |            |                            |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Grecki                 |     `el`      |     ✓      |            |                            |                    |
 | Hindi                 |     `hi`      |           |      ✓      |          2020-04-01                  |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | japoński              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
+| koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |     ✓       |        2020-07-01         |                    |
 | Polski                |     `pl`      |     ✓      |            |                            |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` również zaakceptowane |
@@ -72,12 +72,12 @@ ms.locfileid: "91977735"
 | Angielski                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
 | Fiński               |     `fi`      |     ✓      |            |                                 |                    |
 | Francuski                 |     `fr`      |     ✓      |            |                                 |                    |
-| Niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
+| niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
 | Hebrajski                |     `he`      |     ✓      |            |                                 |                    |
 | Węgierski             |     `hu`      |     ✓      |            |                                 |                    |
 | Włoski               |     `it`      |     ✓      |            |                                 |                    |
 | japoński              |     `ja`      |     ✓      |            |                                 |                    |
-| Koreański                |     `ko`      |     ✓      |            |                                 |                    |
+| koreański                |     `ko`      |     ✓      |            |                                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |            |                                 | `nb` również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |            |                                 |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |            |                                 | `pt` również zaakceptowane |
@@ -98,10 +98,10 @@ ms.locfileid: "91977735"
 | Angielski               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Fiński               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | japoński              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` również zaakceptowane |
@@ -119,13 +119,108 @@ ms.locfileid: "91977735"
 
 #### <a name="language-detection"></a>[Wykrywanie języka](#tab/language-detection)
 
-Interfejs API analizy tekstu może wykryć szeroką gamę języków, wariantów, dialektów i niektórych języków regionalnych/kulturowych.  Wykrywanie języka zwraca "skrypt" języka. Na przykład dla frazy "mam Dog", będzie ona zwracała się  `en` zamiast  `en-US` . Jedynym szczególnym przypadkiem jest chiński, w którym funkcja wykrywania języka zwróci wartość `zh_CHS` lub `zh_CHT` Jeśli może ustalić skrypt, w którym znajduje się tekst. W sytuacjach, gdy nie można zidentyfikować określonego skryptu dla dokumentu w języku chińskim, zostanie on zwrócony po prostu `zh` .
-
-Nie publikujemy dokładnej listy języków dla tej funkcji, ale może wykryć szeroką gamę języków, wariantów, dialektów i niektórych języków regionalnych/kulturowych. 
+Interfejs API analizy tekstu może wykryć szeroką gamę języków, wariantów, dialektów i niektórych języków regionalnych/kulturowych oraz zwracać wykryte Języki o ich nazwie i kodzie. Parametry kodu języka analiza tekstu wykrywanie języka są zgodne ze standardem [BCP-47](https://tools.ietf.org/html/bcp47) z większością z nich zgodnymi z identyfikatorami [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) . 
 
 Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbować wykrywanie języka, aby sprawdzić, czy zwróci kod. Odpowiedź dla języków, których nie można wykryć, to `unknown` .
 
+| Język | Kod języka |  Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|
+|Afrikaans|`af`|✓|    |
+|Albański|`sq`|✓|    |
+|Arabski|`ar`|✓|    |
+|Armeński|`hy`|✓|    |
+|Baskijski|`eu`|✓|    |
+|Białoruski|`be`|✓|    |
+|Bengalski|`bn`|✓|    |
+|Bośniacki|`bs`|✓|2020-09-01|
+|Bułgarski|`bg`|✓|    |
+|Birmański|`my`|✓|    |
+|Kataloński, walencki|`ca`|✓|    |
+|Khmerski centralny|`km`|✓|    |
+|Chiński|`zh`|✓|    |
+|Chiński (uproszczony)|`zh_chs`|✓|    |
+|Chiński (tradycyjny)|`zh_cht`|✓|    |
+|Chorwacki|`hr`|✓|    |
+|Czeski|`cs`|✓|    |
+|Duński|`da`|✓|    |
+|Dari|`prs`|✓|2020-09-01|
+|Malediwski, dhivehi, malediwski|`dv`|✓|    |
+|Holenderski, Flemish|`nl`|✓|    |
+|Angielski|`en`|✓|    |
+|Esperanto|`eo`|✓|    |
+|Estoński|`et`|✓|    |
+|Fijian|`fj`|✓|2020-09-01|
+|Fiński|`fi`|✓|    |
+|Francuski|`fr`|✓|    |
+|Galicyjski|`gl`|✓|    |
+|Gruziński|`ka`|✓|    |
+|niemiecki|`de`|✓|    |
+|Grecki|`el`|✓|    |
+|Gudżarati|`gu`|✓|    |
+|Kreolski, Kreolski haitański|`ht`|✓|    |
+|Hebrajski|`he`|✓|    |
+|Hindi|`hi`|✓|    |
+|Hmong Kowalski|`mww`|✓|2020-09-01|
+|Węgierski|`hu`|✓|    |
+|Islandzki|`is`|✓|    |
+|Indonezyjski|`id`|✓|    |
+|Inuktitut|`iu`|✓|    |
+|Irlandzki|`ga`|✓|    |
+|Włoski|`it`|✓|    |
+|japoński|`ja`|✓|    |
+|Kannada|`kn`|✓|    |
+|Kazachski|`kk`|✓|2020-09-01|
+|koreański|`ko`|✓|    |
+|Kurdyjski|`ku`|✓|    |
+|-|`lo`|✓|    |
+|Wielka|`la`|✓|    |
+|Łotewski|`lv`|✓|    |
+|Litewski|`lt`|✓|    |
+|Macedonii|`mk`|✓|    |
+|Madagaskaru|`mg`|✓|2020-09-01|
+|Malajski|`ms`|✓|    |
+|Malayalam|`ml`|✓|    |
+|Maltański|`mt`|✓|    |
+|Maoryjski|`mi`|✓|2020-09-01|
+|Marathi|`mr`|✓|2020-09-01|
+|Norweski|`no`|✓|    |
+|Norweski Nynorsk|`nn`|✓|    |
+|Orija|`or`|✓|    |
+|Paszto, paszto|`ps`|✓|    |
+|Perski|`fa`|✓|    |
+|Polski|`pl`|✓|    |
+|Portugalski|`pt`|✓|    |
+|Pendżabski, Panjabi|`pa`|✓|    |
+|Queretaro Otomi|`otq`|✓|2020-09-01|
+|Rumuński, Moldavian, mołdawski|`ro`|✓|    |
+|Rosyjski|`ru`|✓|    |
+|Samoan|`sm`|✓|2020-09-01|
+|Serbski|`sr`|✓|    |
+|Syngaleski, Sinhalese|`si`|✓|    |
+|Słowacki|`sk`|✓|    |
+|Słoweński|`sl`|✓|    |
+|Somalijski|`so`|✓|    |
+|Hiszpański, Kastylia|`es`|✓|    |
+|Suahili|`sw`|✓|    |
+|Szwedzki|`sv`|✓|    |
+|Tagalski|`tl`|✓|    |
+|Tahitian|`ty`|✓|2020-09-01|
+|Tamilski|`ta`|✓|    |
+|Telugu|`te`|✓|    |
+|Tajlandzki|`th`|✓|    |
+|Tonga|`to`|✓|2020-09-01|
+|Turecki|`tr`|✓|    |
+|Ukraiński|`uk`|✓|    |
+|Urdu|`ur`|✓|    |
+|Uzbecki|`uz`|✓|    |
+|Wietnamski|`vi`|✓|    |
+|Walijski|`cy`|✓|    |
+|Jidysz|`yi`|✓|    |
+|Yucatec Maya|`yua`|✓|    |
+
+
 ---
+
 
 ## <a name="see-also"></a>Zobacz też
 

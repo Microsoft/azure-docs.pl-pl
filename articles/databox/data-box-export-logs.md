@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494489"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147956"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Śledzenie i rejestrowanie zdarzeń dla Azure Data Box i Azure Data Box Heavy zamówień eksportu
 
@@ -25,7 +25,7 @@ W poniższej tabeli przedstawiono podsumowanie kroków kolejności eksportu urz�
 
 | urządzenie Data Box etap eksportu kolejności       | Narzędzie do śledzenia i inspekcji                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Tworzenie zamówienia               | [Konfigurowanie kontroli dostępu w kolejności za pośrednictwem RBAC](#set-up-access-control-on-the-order) <br> [Włącz pełny dziennik w kolejności](#enable-verbose-log-in-the-order)                                                    |
+| Tworzenie zamówienia               | [Konfigurowanie kontroli dostępu w kolejności za pośrednictwem usługi Azure RBAC](#set-up-access-control-on-the-order) <br> [Włącz pełny dziennik w kolejności](#enable-verbose-log-in-the-order)                                                    |
 | Przetworzone zamówienie            | [Śledź kolejność](#track-the-order) <ul><li> Azure Portal </li><li> Witryna sieci Web firmy kurierskiej </li><li>Powiadomienia e-mail</ul> |
 | Konfigurowanie urządzenia              | Poświadczenia urządzenia dostęp do zalogowanych [dzienników aktywności](#query-activity-logs-during-setup)              |
 | Kopiowanie danych z urządzenia        | [Przejrzyj dzienniki kopiowania](#copy-log) <br> Zapoznaj się z [pełnymi dziennikami](#verbose-log) przed skopiowaniem danych            |
@@ -46,7 +46,7 @@ Aby ograniczyć dostęp do zamówienia, możesz:
 - Przypisywanie roli na poziomie zamówienia. Użytkownik ma tylko te uprawnienia zdefiniowane przez role do współdziałania z tym konkretną urządzenie Data Box kolejnością i nic innego.
 - Przypisz rolę na poziomie grupy zasobów, użytkownik ma dostęp do wszystkich zamówień urządzenie Data Box w grupie zasobów.
 
-Aby uzyskać więcej informacji na temat sugerowanych użycia RBAC, zobacz [najlepsze rozwiązania dotyczące kontroli RBAC platformy Azure](../role-based-access-control/best-practices.md).
+Aby uzyskać więcej informacji na temat sugerowanego użycia RBAC platformy Azure, zobacz [najlepsze rozwiązania dotyczące kontroli RBAC platformy Azure](../role-based-access-control/best-practices.md).
 
 ## <a name="enable-verbose-log-in-the-order"></a>Włącz pełny dziennik w kolejności
 
@@ -122,14 +122,14 @@ Oto przykładowe dane wyjściowe, gdy *Dziennik kopiowania* zawiera błędy, a n
 </CopyLog>    
 ```
 
-Do eksportowania tych plików są dostępne następujące opcje: 
+Wyeksportować te pliki można na następujące sposoby: 
 
 - Pliki, których nie można skopiować za pośrednictwem sieci, można przenieść. 
-- Jeśli rozmiar danych był większy niż możliwe do użycia pojemność urządzenia, zostanie wyświetlona częściowa kopia i wszystkie pliki, które nie zostały skopiowane, zostaną wyświetlone w tym dzienniku. Możesz użyć tego dziennika jako danych wejściowych XML, aby utworzyć nową kolejność urządzenie Data Box, a następnie skopiować te pliki.
+- Jeśli rozmiar danych był większy niż możliwa do użycia pojemność urządzenia, miało miejsce kopiowanie częściowe i wszystkie pliki, które nie zostały skopiowane, są wskazane w tym dzienniku. Możesz użyć tego dziennika jako danych wejściowych XML do utworzenia nowego zamówienia na usługę Data Box, a następnie skopiować te pliki.
 
 ### <a name="verbose-log"></a>Pełny dziennik
 
-*Pełny dziennik* zawiera listę wszystkich plików, które zostały pomyślnie wyeksportowane z konta usługi Azure Storage. Dziennik zawiera również rozmiar pliku i obliczenia sumy kontrolnej.
+*Pełny dziennik* zawiera listę wszystkich plików pomyślnie wyeksportowanych z konta usługi Azure Storage. Dziennik zawiera również rozmiar pliku i obliczenia sumy kontrolnej.
 
 Pełny dziennik zawiera informacje w następującym formacie:
 

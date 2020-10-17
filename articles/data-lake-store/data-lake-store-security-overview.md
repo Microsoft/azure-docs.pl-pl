@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 0e10afa9293bbebbb68a6fc3eae4bc3f75813ad0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106828"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146299"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Zabezpieczenia w Azure Data Lake Storage Gen1
 
@@ -42,7 +42,7 @@ Po Azure Active Directory uwierzytelnia użytkownika, tak aby użytkownik mógł
 * [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) na potrzeby zarządzania kontami
 * Lista ACL POSIX do uzyskiwania dostępu do danych w sklepie
 
-### <a name="rbac-for-account-management"></a>RBAC do zarządzania kontami
+### <a name="azure-rbac-for-account-management"></a>Azure RBAC do zarządzania kontami
 
 Cztery role podstawowe są domyślnie zdefiniowane dla Data Lake Storage Gen1. Role umożliwiają wykonywanie różnych operacji na koncie Data Lake Storage Gen1 za pośrednictwem Azure Portal, poleceń cmdlet programu PowerShell i interfejsów API REST. Role właściciela i współautora mogą wykonywać na koncie różne funkcje administracyjne. Rolę czytelnika można przypisać do użytkowników, którzy wyświetlają tylko dane zarządzania kontami.
 
@@ -117,7 +117,7 @@ Klienci korporacyjni wymagają platformy w chmurze do analizy danych, która jes
 
 Jeśli chcesz zobaczyć nowe funkcje w Data Lake Storage Gen1, Wyślij nam swoją opinię na [forum Data Lake Storage Gen1 UserVoice](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Wprowadzenie do Data Lake Storage Gen1](data-lake-store-get-started-portal.md)

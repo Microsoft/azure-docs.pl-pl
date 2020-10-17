@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6452d1c5c9792e8d021838635686e8621629ff2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327569"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146668"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu usługi Azure IoT Hub w aplikacji sieci Web
 
@@ -60,7 +60,7 @@ az extension add --name azure-iot
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Dodawanie grupy odbiorców do centrum IoT Hub
 
-[Grupy konsumentów](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) zapewniają niezależne widoki w strumieniu zdarzeń, które umożliwiają aplikacjom i usługom platformy Azure niezależne korzystanie z danych z tego samego punktu końcowego centrum zdarzeń. W tej sekcji dodasz grupę odbiorców do wbudowanego punktu końcowego usługi IoT Hub, który będzie używany przez aplikację sieci Web do odczytywania danych z programu.
+[Grupy konsumentów](../event-hubs/event-hubs-features.md#event-consumers) zapewniają niezależne widoki w strumieniu zdarzeń, które umożliwiają aplikacjom i usługom platformy Azure niezależne korzystanie z danych z tego samego punktu końcowego centrum zdarzeń. W tej sekcji dodasz grupę odbiorców do wbudowanego punktu końcowego usługi IoT Hub, który będzie używany przez aplikację sieci Web do odczytywania danych z programu.
 
 Uruchom następujące polecenie, aby dodać grupę konsumentów do wbudowanego punktu końcowego Centrum IoT Hub:
 
@@ -156,11 +156,11 @@ W konsoli programu znajdują się również dane wyjściowe, które pokazują ko
 
 ## <a name="host-the-web-app-in-app-service"></a>Hostowanie aplikacji sieci Web w App Service
 
-[Web Apps funkcja Azure App Service](https://docs.microsoft.com/azure/app-service/overview) udostępnia platformę jako usługę (PaaS) do hostowania aplikacji sieci Web. Aplikacje sieci Web hostowane w Azure App Service mogą korzystać z zaawansowanych funkcji platformy Azure, takich jak dodatkowe zabezpieczenia, równoważenie obciążenia i skalowalność, a także rozwiązań DevOps platformy Azure i partnerów, takich jak ciągłe wdrażanie, zarządzanie pakietami i tak dalej. Azure App Service obsługuje aplikacje sieci Web opracowane w wielu popularnych językach i wdrożone w infrastrukturze systemu Windows lub Linux.
+[Web Apps funkcja Azure App Service](../app-service/overview.md) udostępnia platformę jako usługę (PaaS) do hostowania aplikacji sieci Web. Aplikacje sieci Web hostowane w Azure App Service mogą korzystać z zaawansowanych funkcji platformy Azure, takich jak dodatkowe zabezpieczenia, równoważenie obciążenia i skalowalność, a także rozwiązań DevOps platformy Azure i partnerów, takich jak ciągłe wdrażanie, zarządzanie pakietami i tak dalej. Azure App Service obsługuje aplikacje sieci Web opracowane w wielu popularnych językach i wdrożone w infrastrukturze systemu Windows lub Linux.
 
-W tej sekcji można zainicjować obsługę aplikacji sieci Web w App Service i wdrożyć kod przy użyciu poleceń interfejsu wiersza polecenia platformy Azure. Można znaleźć szczegółowe informacje o poleceniach użytych w dokumentacji [AZ webapp](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest) . Przed rozpoczęciem upewnij się, że wykonano kroki umożliwiające [dodanie grupy zasobów do usługi IoT Hub](#add-a-consumer-group-to-your-iot-hub), [pobranie parametrów połączenia z usługą dla Centrum IoT](#get-a-service-connection-string-for-your-iot-hub)oraz [pobranie aplikacji internetowej z witryny GitHub](#download-the-web-app-from-github).
+W tej sekcji można zainicjować obsługę aplikacji sieci Web w App Service i wdrożyć kod przy użyciu poleceń interfejsu wiersza polecenia platformy Azure. Można znaleźć szczegółowe informacje o poleceniach użytych w dokumentacji [AZ webapp](/cli/azure/webapp?view=azure-cli-latest) . Przed rozpoczęciem upewnij się, że wykonano kroki umożliwiające [dodanie grupy zasobów do usługi IoT Hub](#add-a-consumer-group-to-your-iot-hub), [pobranie parametrów połączenia z usługą dla Centrum IoT](#get-a-service-connection-string-for-your-iot-hub)oraz [pobranie aplikacji internetowej z witryny GitHub](#download-the-web-app-from-github).
 
-1. [Plan App Service](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) definiuje zestaw zasobów obliczeniowych dla aplikacji hostowanej w App Service do uruchomienia. W tym samouczku użyjemy warstwy Developer/bezpłatna do hostowania aplikacji sieci Web. W przypadku warstwy Bezpłatna aplikacja sieci Web jest uruchamiana na udostępnionych zasobach systemu Windows przy użyciu innych aplikacji App Service, w tym aplikacji innych klientów. Platforma Azure oferuje również App Service plany wdrażania aplikacji sieci Web w ramach zasobów obliczeniowych systemu Linux. Możesz pominąć ten krok, jeśli masz już plan App Service, którego chcesz użyć.
+1. [Plan App Service](../app-service/overview-hosting-plans.md) definiuje zestaw zasobów obliczeniowych dla aplikacji hostowanej w App Service do uruchomienia. W tym samouczku użyjemy warstwy Developer/bezpłatna do hostowania aplikacji sieci Web. W przypadku warstwy Bezpłatna aplikacja sieci Web jest uruchamiana na udostępnionych zasobach systemu Windows przy użyciu innych aplikacji App Service, w tym aplikacji innych klientów. Platforma Azure oferuje również App Service plany wdrażania aplikacji sieci Web w ramach zasobów obliczeniowych systemu Linux. Możesz pominąć ten krok, jeśli masz już plan App Service, którego chcesz użyć.
 
    Aby utworzyć plan App Service przy użyciu warstwy Bezpłatna systemu Windows, uruchom następujące polecenie. Użyj tej samej grupy zasobów, w której znajduje się centrum IoT Hub. Nazwa planu usługi może zawierać wielkie i małe litery, cyfry i łączniki.
 
@@ -187,7 +187,7 @@ W tej sekcji można zainicjować obsługę aplikacji sieci Web w App Service i w
    az webapp update -n <your web app name> -g <your resource group name> --https-only true
    ```
 
-5. Aby wdrożyć kod do App Service, będziesz używać [poświadczeń wdrożenia na poziomie użytkownika](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). Poświadczenia wdrażania na poziomie użytkownika różnią się od poświadczeń platformy Azure i są używane na potrzeby wdrożeń lokalnych i FTP usługi Git w aplikacji sieci Web. Po ustawieniu są one prawidłowe dla wszystkich aplikacji App Service we wszystkich subskrypcjach na koncie platformy Azure. Jeśli wcześniej ustawiono poświadczenia wdrażania na poziomie użytkownika, możesz je użyć.
+5. Aby wdrożyć kod do App Service, będziesz używać [poświadczeń wdrożenia na poziomie użytkownika](../app-service/deploy-configure-credentials.md). Poświadczenia wdrażania na poziomie użytkownika różnią się od poświadczeń platformy Azure i są używane na potrzeby wdrożeń lokalnych i FTP usługi Git w aplikacji sieci Web. Po ustawieniu są one prawidłowe dla wszystkich aplikacji App Service we wszystkich subskrypcjach na koncie platformy Azure. Jeśli wcześniej ustawiono poświadczenia wdrażania na poziomie użytkownika, możesz je użyć.
 
    Jeśli nie ustawiono wcześniej poświadczeń wdrażania na poziomie użytkownika lub nie pamiętasz hasła, uruchom następujące polecenie. Nazwa użytkownika wdrożenia musi być unikatowa w ramach platformy Azure i nie może zawierać symbolu "@" dla lokalnych powiadomień wypychanych git. Po wyświetleniu monitu wprowadź i Potwierdź nowe hasło. Hasło musi składać się z co najmniej ośmiu znaków, a dwa z następujących trzech elementów: litery, cyfry i symbole.
 

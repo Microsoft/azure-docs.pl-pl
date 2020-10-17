@@ -2,22 +2,23 @@
 title: Planowanie wdrożenia rozwiązań VMware na platformie Azure
 description: W tym artykule opisano przepływ pracy wdrażania rozwiązań VMware platformy Azure.  Wynik końcowy to środowisko gotowe do tworzenia i migracji maszyn wirtualnych.
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/16/2020
+ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055090"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147983"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planowanie wdrożenia rozwiązań VMware na platformie Azure
 
-W tym artykule udostępniamy proces planowania służący do identyfikowania i zbierania danych używanych podczas wdrażania. [Lista kontrolna przed wdrożeniem służy](pre-deployment-checklist.md) do dokumentowania informacji oraz do łatwego odwoływania się podczas wdrażania.  
+W tym artykule udostępniamy proces planowania służący do identyfikowania i zbierania danych używanych podczas wdrażania. Podczas planowania wdrożenia, pamiętaj o udokumentowaniu zbieranych informacji w celu łatwego odwoływania się podczas wdrażania.
 
 Procesy tego przewodnika Szybki Start umożliwiają tworzenie maszyn wirtualnych i migracji w środowisku gotowym do produkcji. 
 
 >[!IMPORTANT]
->Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić węzły. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu. Aby uzyskać więcej informacji, zobacz [How to enable Azure VMware Solution Resource](enable-azure-vmware-solution.md). 
+>Przed utworzeniem zasobu rozwiązania VMware platformy Azure należy wykonać artykuł [jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md) , aby przesłać bilet pomocy technicznej mający przydzieloną liczbę węzłów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić węzły. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu. 
+
 
 ## <a name="subscription"></a>Subskrypcja
 

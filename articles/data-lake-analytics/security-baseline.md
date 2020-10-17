@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4a02fc8a04da658b3b6cbbb41e57114d6c4a0527
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d01808eac854e0a694608fc963bd97b035d29ac8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231490"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146183"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Podstawa zabezpieczeń platformy Azure dla Data Lake Analytics
 
@@ -412,7 +412,7 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 * [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-* [Zarządzanie Access Control Role-Based](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Zarządzanie kontrolą dostępu opartą na rolach na platformie Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
 
 * [Reguły zapory](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
 
@@ -460,7 +460,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować sposób, w jaki użytkownicy pracują z usługą.
 
-* [Zarządzanie RBAC na platformie Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Zarządzanie RBAC na platformie Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 

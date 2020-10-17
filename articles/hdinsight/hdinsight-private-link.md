@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: c51b99ed04357cdebaabbde2b2bd0400adcfef30
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92134184"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147918"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Zabezpiecz i Izoluj klastry usługi Azure HDInsight za pomocą prywatnego linku (wersja zapoznawcza)
 
@@ -56,7 +56,7 @@ Link prywatny, który jest domyślnie wyłączony, wymaga rozległej wiedzy o si
 
 Gdy `privateLink` jest ustawiona na wartość *enable*, są tworzone wewnętrzne [standardowe moduły równoważenia obciążenia](../load-balancer/load-balancer-overview.md) , a usługa Azure Private link jest obsługiwana dla każdego modułu wystawcy. Usługa link prywatny umożliwia dostęp do klastra usługi HDInsight z prywatnych punktów końcowych.
 
-Usługi równoważenia obciążenia w warstwie Standardowa nie zapewniają automatycznie wychodzącego NAT, takiego jak podstawowe usługi równoważenia obciążenia. Należy podać własne rozwiązanie NAT, takie jak [Virtual Network NAT](../virtual-network/nat-overview.md) lub [Zapora](./hdinsight-restrict-outbound-traffic.md), dla zależności wychodzących. Klaster usługi HDInsight nadal potrzebuje dostępu do jego zależności wychodzących. Jeśli te zależności wychodzące nie są dozwolone, tworzenie klastra może się nie powieść.
+Usługi równoważenia obciążenia w warstwie Standardowa nie zapewniają automatycznie [wychodzącego NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) , takiego jak podstawowe usługi równoważenia obciążenia. Należy podać własne rozwiązanie NAT, takie jak [Virtual Network NAT](../virtual-network/nat-overview.md) lub [Zapora](./hdinsight-restrict-outbound-traffic.md), dla zależności wychodzących. Klaster usługi HDInsight nadal potrzebuje dostępu do jego zależności wychodzących. Jeśli te zależności wychodzące nie są dozwolone, tworzenie klastra może się nie powieść.
 
 ### <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 

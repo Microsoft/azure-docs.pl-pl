@@ -4,12 +4,12 @@ description: W tym artykule opisano, jak używać usług Azure Communications Se
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mikben
-ms.openlocfilehash: fb37dfe9927c02711f4ab1b01cd89247059b27f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84146a0513d02484f8f84560e04a977fb3ef373
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347574"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145821"
 ---
 # <a name="azure-communication-services-as-an-event-grid-source"></a>Usługi komunikacyjne platformy Azure jako źródło Event Grid
 
@@ -23,7 +23,7 @@ Ten artykuł zawiera właściwości i schemat zdarzeń usług Azure Communicatio
 
 ### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
-Funkcja Event Grid używa [subskrypcji zdarzeń](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) do kierowania komunikatów o zdarzeniach do subskrybentów. 
+Funkcja Event Grid używa [subskrypcji zdarzeń](./concepts.md#event-subscriptions) do kierowania komunikatów o zdarzeniach do subskrybentów. 
 
 Usługi komunikacyjne platformy Azure emitują następujące typy zdarzeń:
 
@@ -45,7 +45,7 @@ Usługi komunikacyjne platformy Azure emitują następujące typy zdarzeń:
 
 ## <a name="event-subjects"></a>Tematy zdarzeń
 
-`subject`Pole wszystkich zdarzeń usług komunikacyjnych identyfikuje użytkownika, numer telefonu lub jednostkę, która jest przeznaczona dla zdarzenia. Typowe prefiksy służą do zezwalania na proste [filtrowanie Event Grid](https://docs.microsoft.com/azure/event-grid/event-filtering).
+`subject`Pole wszystkich zdarzeń usług komunikacyjnych identyfikuje użytkownika, numer telefonu lub jednostkę, która jest przeznaczona dla zdarzenia. Typowe prefiksy służą do zezwalania na proste [filtrowanie Event Grid](./event-filtering.md).
 
 | Prefiks podmiotu                              | Jednostka usługi komunikacyjnej |
 | ------------------------------------------- | ---------------------------- |
@@ -345,6 +345,6 @@ Ta sekcja zawiera przykład sposobu, w jaki będą wyglądały dane dla każdego
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](https://docs.microsoft.com/azure/event-grid/overview)
-* Aby zapoznać się z wprowadzeniem do Azure Event Grid pojęć, zobacz [pojęcia w Event Grid?](https://docs.microsoft.com/azure/event-grid/concepts)
-* Aby zapoznać się z wprowadzeniem do Azure Event Grid SystemTopics, zobacz [Tematy systemowe w Azure Event Grid?](https://docs.microsoft.com/azure/event-grid/system-topics)
+* Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](./overview.md)
+* Aby zapoznać się z wprowadzeniem do Azure Event Grid pojęć, zobacz [pojęcia w Event Grid?](./concepts.md)
+* Aby zapoznać się z wprowadzeniem do Azure Event Grid SystemTopics, zobacz [Tematy systemowe w Azure Event Grid?](./system-topics.md)

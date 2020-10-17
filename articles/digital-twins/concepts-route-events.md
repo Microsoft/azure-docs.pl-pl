@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Dowiedz się, jak kierować zdarzenia w ramach usługi Azure Digital bliźniaczych reprezentacji i innych usług platformy Azure.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044296"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145977"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -91,6 +91,20 @@ await client.CreateEventRoute("routeName", er);
 > Wszystkie funkcje zestawu SDK są w wersji synchronicznej i asynchronicznej.
 
 Trasy można także tworzyć za pomocą [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+
+## <a name="dead-letter-events"></a>Zdarzenia utraconych wiadomości
+Gdy punkt końcowy nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony**. Po spełnieniu **jednego z następujących** warunków usługa Azure Digital bliźniaczych reprezentacji będzie martwa zdarzenie. 
+
+- Zdarzenie nie jest dostarczane w okresie czasu wygaśnięcia
+- Liczba prób dostarczenia zdarzenia przekroczyła limit.
+
+Jeśli spełniony jest dowolny z warunków, zdarzenie zostanie porzucone lub utracone.  Domyślnie **każdy punkt końcowy nie włącza** utraconych wiadomości. Aby je włączyć, należy określić konto magazynu do przechowywania niedostarczonych zdarzeń podczas tworzenia punktu końcowego. Zdarzenia z tego konta magazynu są ściągane, aby można było rozpoznać dostawy.
+
+Przed ustawieniem lokalizacji utraconych wiadomości musisz mieć konto magazynu z kontenerem. Podajesz adres URL dla tego kontenera podczas tworzenia punktu końcowego. Utracona wartość jest podawana jako adres URL kontenera z tokenem SAS. Ten token wymaga tylko `write` uprawnienia do kontenera docelowego na koncie magazynu. W pełni sformułowany adres URL będzie miał postać: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+Aby dowiedzieć się więcej o tokenach SAS, zobacz: [ *udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+Aby dowiedzieć się, jak skonfigurować martwą literę [*, zobacz How to: Manage Endpoints and Routes in Azure Digital bliźniaczych reprezentacji (interfejsy API i CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Typy komunikatów o zdarzeniach
 
