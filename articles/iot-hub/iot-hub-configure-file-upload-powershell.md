@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eadc976270888499be1ed01040cc4ff00632e8e4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60318464"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142265"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Konfigurowanie przekazywania plików IoT Hub przy użyciu programu PowerShell
 
@@ -23,15 +23,15 @@ Aby skorzystać z [funkcji przekazywania plików w IoT Hub](iot-hub-devguide-fil
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+Do ukończenia tego samouczka są potrzebne są następujące elementy:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut.
 
-* [Polecenia cmdlet Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* [Polecenia cmdlet Azure PowerShell](/powershell/azure/install-Az-ps).
 
-* Usługa Azure IoT Hub. Jeśli nie masz Centrum IoT Hub, możesz użyć [polecenia cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) , aby utworzyć jeden lub użyć portalu do [utworzenia Centrum IoT](iot-hub-create-through-portal.md).
+* Usługa Azure IoT Hub. Jeśli nie masz Centrum IoT Hub, możesz użyć [polecenia cmdlet New-AzIoTHub](/powershell/module/az.iothub/new-aziothub) , aby utworzyć jeden lub użyć portalu do [utworzenia Centrum IoT](iot-hub-create-through-portal.md).
 
-* Konto usługi Azure Storage. Jeśli nie masz konta usługi Azure Storage, możesz użyć [poleceń cmdlet programu PowerShell usługi Azure Storage](https://docs.microsoft.com/powershell/module/az.storage/) , aby utworzyć [konto magazynu](../storage/common/storage-create-storage-account.md) lub użyć tego portalu
+* Konto usługi Azure Storage. Jeśli nie masz konta usługi Azure Storage, możesz użyć [poleceń cmdlet programu PowerShell usługi Azure Storage](/powershell/module/az.storage/) , aby utworzyć [konto magazynu](../storage/common/storage-account-create.md) lub użyć tego portalu
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Zaloguj się i Skonfiguruj swoje konto platformy Azure
 
@@ -136,5 +136,5 @@ Skorzystaj z poniższych linków, aby dowiedzieć się więcej o zarządzaniu us
 Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
 
 * [Przewodnik dla deweloperów IoT Hub](iot-hub-devguide.md)
-* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/quickstart-linux.md)
 * [Zabezpiecz swoje rozwiązanie IoT od podstaw](../iot-fundamentals/iot-security-ground-up.md)

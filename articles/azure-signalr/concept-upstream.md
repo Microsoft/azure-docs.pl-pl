@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514241"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143239"
 ---
 # <a name="upstream-settings"></a>Ustawienia nadrzędne
 
@@ -88,7 +88,7 @@ Po wybraniu `ManagedIdentity` tej opcji należy najpierw włączyć zarządzaną
 
 ## <a name="create-upstream-settings-via-resource-manager-template"></a>Tworzenie ustawień nadrzędnych za pomocą szablonu Menedżer zasobów
 
-Aby utworzyć ustawienia nadrzędne przy użyciu [szablonu Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), należy ustawić `upstream` Właściwość we `properties` właściwości. Poniższy fragment kodu przedstawia sposób ustawiania `upstream` właściwości na potrzeby tworzenia i aktualizowania ustawień nadrzędnych.
+Aby utworzyć ustawienia nadrzędne przy użyciu [szablonu Azure Resource Manager](../azure-resource-manager/templates/overview.md), należy ustawić `upstream` Właściwość we `properties` właściwości. Poniższy fragment kodu przedstawia sposób ustawiania `upstream` właściwości na potrzeby tworzenia i aktualizowania ustawień nadrzędnych.
 
 ```JSON
 {
@@ -133,7 +133,7 @@ POST
 |X-ASRS-User-Claims |Grupa oświadczeń połączenia z klientem.|
 |X-ASRS-User-ID |Tożsamość użytkownika klienta wysyłającego wiadomość.|
 |X-ASRS-Client-Query |Zapytanie o żądanie, gdy klienci łączą się z usługą.|
-|Uwierzytelnianie |Opcjonalny token podczas korzystania z programu `ManagedIdentity` . |
+|Authentication |Opcjonalny token podczas korzystania z programu `ManagedIdentity` . |
 
 ### <a name="request-body"></a>Treść żądania
 

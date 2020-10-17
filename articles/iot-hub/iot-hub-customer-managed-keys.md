@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: asrastog
-ms.openlocfilehash: 83d2fa59654e038586a7f23eedbe7c656873f35c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 352da24b36124ff0446a81c1ecbc584da545bb16
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84976578"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142203"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-iot-hub"></a>Szyfrowanie danych przechowywanych przy użyciu kluczy zarządzanych przez klienta dla IoT Hub
 
@@ -24,6 +24,6 @@ Ta funkcja wymaga utworzenia nowej IoT Hub (warstwa podstawowa lub standardowa).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej o IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)
+* [Dowiedz się więcej o IoT Hub](./about-iot-hub.md)
 
-* [Dowiedz się więcej o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Dowiedz się więcej o Azure Key Vault](../key-vault/general/overview.md)

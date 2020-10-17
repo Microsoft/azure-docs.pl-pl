@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: d7d41a875d8e0c30085bafd346e316672359de26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039bea98090edcc5966be3cea54b31c61c18dc10
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374836"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92157825"
 ---
 :::row:::
     :::column span="3":::
@@ -25,7 +25,7 @@ ms.locfileid: "87374836"
 
 Aby użyć pakietu z projektu Android Studio, wprowadź następujące zmiany:
 
-1. W pliku *Build. Gradle* na poziomie projektu Dodaj następujące polecenie do `repository` sekcji:
+1. W pliku *Build. Gradle* na poziomie projektu Dodaj następujące polecenie do `repositories` sekcji:
   ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
@@ -37,7 +37,7 @@ Aby użyć pakietu z projektu Android Studio, wprowadź następujące zmiany:
 
 Zestaw Java SDK jest również częścią [zestawu Speech Devices SDK](../speech-devices-sdk.md).
 
-#### <a name="additional-resources"></a>Zasoby dodatkowe
+#### <a name="additional-resources"></a>Dodatkowe zasoby
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android" target="_blank">Kod źródłowy przewodnika Szybki Start dla systemu Android <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre" target="_blank">Środowisko uruchomieniowe Java (JRE) — kod źródłowy szybkiego startu <span class="docon docon-navigate-external x-hidden-focus"></span></a>

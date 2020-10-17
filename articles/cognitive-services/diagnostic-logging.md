@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9660aa3923964392f1789570d26dd825e0fef350
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71827894"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143192"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Włączanie rejestrowania diagnostycznego dla usługi Azure Cognitive Services
 
@@ -24,7 +24,7 @@ Ten przewodnik zawiera instrukcje krok po kroku dotyczące włączania rejestrow
 
 Aby włączyć rejestrowanie diagnostyczne, musisz przechowywać dane dziennika. Ten samouczek używa usługi Azure Storage i Log Analytics.
 
-* [Azure Storage](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) — przechowuje dzienniki diagnostyczne na potrzeby inspekcji zasad, statycznej analizy lub kopii zapasowej. Konto magazynu nie musi znajdować się w tej samej subskrypcji co zasób emitujący dzienniki, dopóki użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji.
+* [Azure Storage](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) — przechowuje dzienniki diagnostyczne na potrzeby inspekcji zasad, statycznej analizy lub kopii zapasowej. Konto magazynu nie musi znajdować się w tej samej subskrypcji co zasób emitujący dzienniki, dopóki użytkownik, który konfiguruje ustawienie, ma odpowiedni dostęp do obu subskrypcji na platformie Azure.
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) — elastyczne narzędzie do przeszukiwania dzienników i analizy umożliwiające analizę nieprzetworzonych dzienników generowanych przez zasób platformy Azure.
 
 > [!NOTE]
@@ -43,7 +43,7 @@ Zacznijmy od włączenia rejestrowania diagnostycznego przy użyciu Azure Portal
 4. Wprowadź nazwę tego ustawienia. Następnie wybierz pozycję **Archiwizuj na koncie magazynu** i **Wyślij do usługi log Analytics**.
 5. Po wyświetleniu monitu o skonfigurowanie wybierz konto magazynu i obszar roboczy pakietu OMS, który ma być używany do przechowywania dzienników diagnostycznych. **Uwaga**: Jeśli nie masz konta magazynu lub obszaru roboczego OMS, postępuj zgodnie z monitami, aby go utworzyć.
 6. Wybierz kolejno pozycje **Inspekcja**, **RequestResponse**i **AllMetrics**. Następnie ustaw okres przechowywania danych dzienników diagnostycznych. Jeśli zasady przechowywania mają wartość zero, zdarzenia dla tej kategorii dzienników są przechowywane przez czas nieokreślony.
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 Zarejestrowanie i przeanalizowanie danych może potrwać do dwóch godzin. Nie martw się, jeśli nie widzisz niczego od razu.
 

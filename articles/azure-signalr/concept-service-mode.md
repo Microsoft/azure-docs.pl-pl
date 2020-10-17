@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
-ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514844"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143260"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Tryb usługi w usłudze Azure Signal Service
 
@@ -51,11 +51,11 @@ Ponadto w tym trybie nie ma połączenia z serwerem (Jeśli spróbujesz użyć z
 > [!NOTE]
 > Interfejs API REST i Metoda WebSocket są obsługiwane w [zestawie SDK zarządzania](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md)usługą. Jeśli używasz języka innego niż .NET, możesz również ręcznie wywołać interfejsy API REST, postępując zgodnie z tą [specyfikacją](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md).
 >
-> Jeśli używasz Azure Functions, możesz użyć [powiązań usługi sygnałów dla Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service) (zwanych dalej wiązaniem funkcji) do wysyłania komunikatów jako powiązania danych wyjściowych.
+> Jeśli używasz Azure Functions, możesz użyć [powiązań usługi sygnałów dla Azure Functions](../azure-functions/functions-bindings-signalr-service.md) (zwanych dalej wiązaniem funkcji) do wysyłania komunikatów jako powiązania danych wyjściowych.
 
 Istnieje również możliwość, aby aplikacja serwera odbierał komunikaty i zdarzenia połączenia od klientów. Usługa będzie dostarczać komunikaty i zdarzenia połączeń do wstępnie skonfigurowanych punktów końcowych (nazywanych jako nadrzędnych) za pomocą elementów webhook. Porównanie z trybem domyślnym nie gwarantuje, że żądania lepkość i HTTP mogą być mniej wydajne niż połączenia protokołu WebSocket.
 
-Aby uzyskać więcej informacji na temat konfigurowania nadrzędnego, zobacz ten [dokument](https://docs.microsoft.com/azure/azure-signalr/concept-upstream).
+Aby uzyskać więcej informacji na temat konfigurowania nadrzędnego, zobacz ten [dokument](./concept-upstream.md).
 
 Poniżej znajduje się diagram, który ilustruje sposób działania trybu bezserwerowego:
 

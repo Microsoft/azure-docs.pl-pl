@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b9170e0fcf4bba8b928522cdc881f34968d771f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d53e0cb92ead0d60ae335e95903cd69ae2700140
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003868"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142816"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Zbiorcze importowanie i eksportowanie tożsamości urządzeń usługi IoT Hub
 
@@ -27,7 +27,7 @@ Operacje importowania i eksportowania odbywają się w kontekście *zadań* , kt
 
 Klasa **registrymanager** zawiera metody **ExportDevicesAsync** i **ImportDevicesAsync** , które korzystają z platformy **zadań** . Te metody umożliwiają eksportowanie, importowanie i synchronizację całości rejestru tożsamości Centrum IoT Hub.
 
-W tym temacie omówiono użycie klasy **registrymanager** i systemu **zadań** do wykonywania importu zbiorczego i eksportu urządzeń do i z rejestru tożsamości Centrum IoT Hub. Możesz również użyć IoT Hub Device Provisioning Service platformy Azure, aby włączyć funkcję bezobsługowego udostępniania w czasie just-in-Time do jednego lub kilku centrów IoT, bez konieczności interwencji człowieka. Aby dowiedzieć się więcej, zobacz [dokumentację usługi aprowizacji](/azure/iot-dps).
+W tym temacie omówiono użycie klasy **registrymanager** i systemu **zadań** do wykonywania importu zbiorczego i eksportu urządzeń do i z rejestru tożsamości Centrum IoT Hub. Możesz również użyć IoT Hub Device Provisioning Service platformy Azure, aby włączyć funkcję bezobsługowego udostępniania w czasie just-in-Time do jednego lub kilku centrów IoT, bez konieczności interwencji człowieka. Aby dowiedzieć się więcej, zobacz [dokumentację usługi aprowizacji](../iot-dps/index.yml).
 
 ## <a name="what-are-jobs"></a>Co to są zadania?
 
@@ -399,7 +399,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Pobierz identyfikator URI sygnatury dostępu współdzielonego kontenera
 
-Poniższy przykład kodu pokazuje, jak wygenerować [Identyfikator URI sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md) z uprawnieniami do odczytu, zapisu i usuwania dla kontenera obiektów blob:
+Poniższy przykład kodu pokazuje, jak wygenerować [Identyfikator URI sygnatury dostępu współdzielonego](../storage/common/storage-sas-overview.md) z uprawnieniami do odczytu, zapisu i usuwania dla kontenera obiektów blob:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -438,8 +438,8 @@ Aby dowiedzieć się więcej na temat zarządzania usługą Azure IoT Hub, zapoz
 Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
 
 * [Przewodnik dla deweloperów IoT Hub](iot-hub-devguide.md)
-* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Aby poznać korzystanie z IoT Hub Device Provisioning Service w celu włączenia funkcji bezobsługowego, zainicjowania obsługi just-in-Time, zobacz: 
 
-* [Usługa Azure IoT Hub Device Provisioning](/azure/iot-dps)
+* [Usługa Azure IoT Hub Device Provisioning](../iot-dps/index.yml)

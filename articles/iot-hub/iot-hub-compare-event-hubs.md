@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 1b51e2338dabd34ec69d311a9eb1a5c4a644f628
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56bb179c50862f09f1b789c359db97976017bbb5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322758"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142767"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Łączenie urządzeń IoT z platformą Azure: IoT Hub i Event Hubs
 
@@ -26,7 +26,7 @@ Platforma Azure udostępnia usługi przeznaczone dla różnych typów łącznoś
 
 Azure IoT Hub to brama w chmurze, która łączy urządzenia IoT w celu zbierania danych i uzyskiwania informacji o firmie i automatyzacji. Ponadto IoT Hub obejmuje funkcje, które wzbogacają relacje między urządzeniami i systemami zaplecza. Możliwości komunikacji dwukierunkowej oznaczają, że podczas odbierania danych z urządzeń można także wysyłać polecenia i zasady z powrotem do urządzeń. Na przykład użyj komunikatów z chmury do urządzenia, aby zaktualizować właściwości lub wywołać akcje zarządzania urządzeniami. Komunikacja między chmurą i urządzeniem umożliwia również wysyłanie danych z chmury do urządzeń brzegowych przy użyciu Azure IoT Edge. Unikatowa tożsamość na poziomie urządzenia udostępniana przez IoT Hub pomaga lepiej zabezpieczyć swoje rozwiązanie IoT przed potencjalnymi atakami. 
 
-[Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) to usługa przesyłania strumieniowego danych Big Data w systemie Azure. Jest ona przeznaczona dla scenariuszy przesyłania strumieniowego danych o dużej przepływności, w których klienci mogą wysyłać miliardy żądań dziennie. Usługa Event Hubs używa partycjonowanego modelu odbiorców do skalowania strumienia w poziomie i jest zintegrowana z usługami danych big data i analiz platformy Azure, w tym z usługami Databricks, Stream Analytics, ADLS i HDInsight. Dzięki funkcjom, takim jak Event Hubs przechwytywania i autodostrajania, usługa ta została zaprojektowana do obsługi aplikacji i rozwiązań dotyczących danych Big Data. Ponadto IoT Hub używa Event Hubs dla ścieżki przepływu telemetrii, dzięki czemu Twoje rozwiązanie IoT ma również zalety niekorzystnej mocy Event Hubs.
+[Azure Event Hubs](../event-hubs/event-hubs-about.md) to usługa przesyłania strumieniowego danych Big Data w systemie Azure. Jest ona przeznaczona dla scenariuszy przesyłania strumieniowego danych o dużej przepływności, w których klienci mogą wysyłać miliardy żądań dziennie. Usługa Event Hubs używa partycjonowanego modelu odbiorców do skalowania strumienia w poziomie i jest zintegrowana z usługami danych big data i analiz platformy Azure, w tym z usługami Databricks, Stream Analytics, ADLS i HDInsight. Dzięki funkcjom, takim jak Event Hubs przechwytywania i autodostrajania, usługa ta została zaprojektowana do obsługi aplikacji i rozwiązań dotyczących danych Big Data. Ponadto IoT Hub używa Event Hubs dla ścieżki przepływu telemetrii, dzięki czemu Twoje rozwiązanie IoT ma również zalety niekorzystnej mocy Event Hubs.
 
 Podsumowując, oba rozwiązania są przeznaczone do pozyskiwania danych na dużą skalę. Tylko IoT Hub zawiera bogate możliwości specyficzne dla usługi IoT, które umożliwiają zmaksymalizowanie wartości biznesowej łączącej urządzenia IoT z chmurą platformy Azure.  Jeśli podróż IoT rozpocznie się dopiero po rozpoczęciu pracy z usługą IoT Hub do obsługi scenariuszy pozyskiwania danych, zapewnisz natychmiastowy dostęp do w pełni funkcjonalnych funkcji IoT, gdy wymagają ich biznes i wymagania techniczne.
 

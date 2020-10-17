@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2411d9257b1083cb2bcbfcad289813a6c062dff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081393"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143580"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Jak używać wykryto do przekształcania danych JSON w skoroszytach
 
@@ -22,7 +22,7 @@ Skoroszyty mogą wykonywać zapytania dotyczące danych z wielu źródeł. Niekt
 
 Wykryto to język zapytania dla formatu JSON, który jest podobny do XPath dla XML. Podobnie jak XPath, wykryto umożliwia ekstrakcję i filtrowanie danych poza strukturą JSON.
 
-Za pomocą transformacji wykryto, autorzy skoroszytu mogą konwertować kod JSON w strukturę tabeli. Tabeli można następnie użyć do wykreślania [wizualizacji skoroszytów](workbooks-visualizations.md).
+Za pomocą transformacji wykryto, autorzy skoroszytu mogą konwertować kod JSON w strukturę tabeli. Tabeli można następnie użyć do wykreślania [wizualizacji skoroszytów](./workbooks-overview.md#visualizations).
 
 ## <a name="using-jsonpath"></a>Korzystanie z wykryto
 

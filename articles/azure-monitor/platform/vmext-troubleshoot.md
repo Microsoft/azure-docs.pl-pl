@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 2e96ac5052221475d9aec11d4ed96e8f9c308d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 024fa2f86890c6e8e791b5cf66a4e67328f62f63
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710111"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143886"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Rozwiązywanie problemów z rozszerzeniem maszyny wirtualnej usługi Log Analytics w usłudze Azure Monitor
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów, które mogą wystąpić w przypadku Log Analytics rozszerzenia maszyny wirtualnej dla maszyn wirtualnych z systemem Windows i Linux działających w systemie Microsoft Azure, a także sugeruje rozwiązania, które pozwolą rozwiązać te problemy.
@@ -52,7 +52,7 @@ Jeśli rozszerzenie maszyny wirtualnej *log Analytics Agent dla systemu Linux* n
 
 1. Jeśli stan rozszerzenia jest *nieznany* , sprawdź, czy Agent maszyny wirtualnej platformy Azure jest zainstalowany i działa poprawnie, przeglądając plik dziennika agenta maszyny wirtualnej `/var/log/waagent.log`
    * Jeśli dziennik nie istnieje, Agent maszyny wirtualnej nie jest zainstalowany.
-   * [Instalowanie agenta maszyny wirtualnej platformy Azure na maszynach wirtualnych z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#installation)
+   * [Instalowanie agenta maszyny wirtualnej platformy Azure na maszynach wirtualnych z systemem Linux](../../virtual-machines/extensions/agent-linux.md#installation)
 2. W przypadku innych stanów złej kondycji Przejrzyj pliki dzienników rozszerzenia maszyny wirtualnej Log Analytics Agent for Linux. `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log``/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Jeśli stan rozszerzenia jest w dobrej kondycji, ale dane nie są przekazywane Przejrzyj pliki dziennika Log Analytics Agent dla systemu Linux w `/var/opt/microsoft/omsagent/log/omsagent.log`
 
@@ -60,5 +60,4 @@ Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z rozszerzeni
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dodatkowe wskazówki dotyczące rozwiązywania problemów dotyczące agenta Log Analytics dla systemu Linux hostowanego na komputerach poza platformą Azure można znaleźć w temacie [Rozwiązywanie problemów z agentem usługi azure log Analytics Linux](agent-linux-troubleshoot.md).  
-
+Dodatkowe wskazówki dotyczące rozwiązywania problemów dotyczące agenta Log Analytics dla systemu Linux hostowanego na komputerach poza platformą Azure można znaleźć w temacie [Rozwiązywanie problemów z agentem usługi azure log Analytics Linux](agent-linux-troubleshoot.md).

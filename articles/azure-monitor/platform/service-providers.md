@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92dd191c8bfe590f6dab392ff679e5d7712ae6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921096"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143850"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Dzienniki Azure Monitor dla dostawców usług
 
@@ -35,7 +35,7 @@ W tej architekturze obszar roboczy jest wdrażany w dzierżawie klienta, który 
 
 Istnieją dwa sposoby, które Administratorzy dostawcy usług mogą uzyskać dostęp do obszaru roboczego Log Analytics w dzierżawie klienta:
 
-- Klient może dodawać poszczególnych użytkowników od usługodawcy jako [Azure Active Directory użytkowników-Gości (B2B)](../../active-directory/b2b/what-is-b2b.md). Administratorzy dostawcy usług będą musieli zalogować się do katalogu każdego klienta w Azure Portal, aby mogli uzyskać dostęp do tych obszarów roboczych. Wymaga to również od klientów zarządzania indywidualnym dostępem każdego administratora dostawcy usług.
+- Klient może dodawać poszczególnych użytkowników od usługodawcy jako [Azure Active Directory użytkowników-Gości (B2B)](../../active-directory/external-identities/what-is-b2b.md). Administratorzy dostawcy usług będą musieli zalogować się do katalogu każdego klienta w Azure Portal, aby mogli uzyskać dostęp do tych obszarów roboczych. Wymaga to również od klientów zarządzania indywidualnym dostępem każdego administratora dostawcy usług.
 - Aby zapewnić lepszą skalowalność i elastyczność, dostawcy usług mogą korzystać z funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) [Lighthouse na platformie Azure](../../lighthouse/overview.md) w celu uzyskania dostępu do dzierżawy klienta. Ta metoda polega na tym, że Administratorzy dostawcy usług są włączeni do grupy użytkowników usługi Azure AD w dzierżawie dostawcy usług, a podczas procesu dołączania dla każdego klienta zostaje udzielony dostęp do tej grupy. Ci Administratorzy mogą następnie uzyskiwać dostęp do obszarów roboczych każdego klienta z własnej dzierżawy usługodawcy, zamiast logować się do każdej dzierżawy każdego klienta osobno. W ten sposób uzyskuje się dostęp do zasobów obszarów roboczych Log Analytics w ten sposób, co zmniejsza pracę wymaganą przez klienta i może ułatwić zbieranie i analizowanie danych przez wielu klientów zarządzanych przez tego samego dostawcę usług za pośrednictwem takich narzędzi, jak [Azure monitor skoroszytów](./workbooks-overview.md). Aby uzyskać więcej informacji, zobacz [monitorowanie zasobów klienta w odpowiedniej skali](../../lighthouse/how-to/monitor-at-scale.md).
 
 Zalety architektury rozproszonej są następujące:
@@ -81,7 +81,7 @@ Istnieją dwie opcje implementowania dzienników w centralnej lokalizacji:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Automatyzowanie tworzenia i konfigurowania obszarów roboczych przy użyciu [szablonów Menedżer zasobów](template-workspace-configuration.md)
+* Automatyzowanie tworzenia i konfigurowania obszarów roboczych przy użyciu [szablonów Menedżer zasobów](../samples/resource-manager-workspace.md)
 
 * Automatyzowanie tworzenia obszarów roboczych przy użyciu [programu PowerShell](./powershell-workspace-configuration.md)
 

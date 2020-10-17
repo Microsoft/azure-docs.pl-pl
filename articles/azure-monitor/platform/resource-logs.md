@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87800504"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143919"
 ---
 # <a name="azure-resource-logs"></a>Dzienniki zasobów platformy Azure
 Dzienniki zasobów platformy Azure to [dzienniki platformy](platform-logs-overview.md) , które zapewniają wgląd w operacje wykonywane w ramach zasobu platformy Azure. Zawartość dzienników zasobów zależy od usługi platformy Azure i typu zasobu. Dzienniki zasobów nie są domyślnie zbierane. Musisz utworzyć ustawienia diagnostyczne dla każdego zasobu platformy Azure, aby wysłać dzienniki zasobów do obszaru roboczego Log Analytics, który ma być używany z [dziennikami Azure monitor](data-platform-logs.md), usługa Azure Event Hubs do przesyłania dalej poza platformą Azure lub do usługi Azure Storage w celu archiwizacji.
@@ -27,7 +27,7 @@ Zobacz [Tworzenie ustawień diagnostycznych, aby wysyłać dzienniki platformy i
 - Za pomocą zapytań dzienników można wykonywać złożone analizy i uzyskiwać szczegółowe informacje o danych dziennika.
 - Użyj alertów dziennika z złożoną logiką alertów.
 
-[Utwórz ustawienie diagnostyczne](diagnostic-settings.md) , aby wysłać dzienniki zasobów do obszaru roboczego log Analytics. Te dane są przechowywane w tabelach zgodnie z opisem w temacie [struktura dzienników Azure monitor](../log-query/logs-structure.md). Tabele używane przez dzienniki zasobów zależą od typu kolekcji używanej przez zasób:
+[Utwórz ustawienie diagnostyczne](diagnostic-settings.md) , aby wysłać dzienniki zasobów do obszaru roboczego log Analytics. Te dane są przechowywane w tabelach zgodnie z opisem w temacie [struktura dzienników Azure monitor](./data-platform-logs.md). Tabele używane przez dzienniki zasobów zależą od typu kolekcji używanej przez zasób:
 
 - Diagnostyka Azure — wszystkie dane są zapisywane w tabeli _AzureDiagnostics_ .
 - Specyficzne dla zasobów — dane są zapisywane w pojedynczej tabeli dla każdej kategorii zasobu.

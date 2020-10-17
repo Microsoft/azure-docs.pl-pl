@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: d99cc571394ad7a9c85fb7367c672f96a7302362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018505"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142467"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Planowanie i emitowanie zadań (.NET)
 
@@ -58,7 +58,7 @@ Na końcu tego samouczka masz dwie aplikacje konsolowe platformy .NET (C#):
 
 * Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -261,7 +261,7 @@ W tej sekcji utworzysz aplikację konsolową .NET (przy użyciu języka C#), kt�
     ```
 
     > [!NOTE]
-    > Aby uzyskać więcej informacji na temat składni zapytań, zobacz [IoT Hub języka zapytań](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
+    > Aby uzyskać więcej informacji na temat składni zapytań, zobacz [IoT Hub języka zapytań](./iot-hub-devguide-query-language.md).
     >
 
 1. Na koniec dodaj następujące wiersze do metody **Główne**:
@@ -311,4 +311,4 @@ W tym samouczku użyto zadania do zaplanowania metody bezpośredniej dla urządz
 
 * Aby nadal zacząć korzystać z wzorców IoT Hub i zarządzania urządzeniami, takimi jak zdalne przez aktualizację oprogramowania układowego, Przeczytaj [Samouczek: jak wykonać aktualizację oprogramowania układowego](tutorial-firmware-update.md).
 
-* Aby dowiedzieć się więcej o wdrażaniu AI na urządzeniach brzegowych za pomocą Azure IoT Edge, zobacz [wprowadzenie do IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+* Aby dowiedzieć się więcej o wdrażaniu AI na urządzeniach brzegowych za pomocą Azure IoT Edge, zobacz [wprowadzenie do IoT Edge](../iot-edge/quickstart-linux.md).

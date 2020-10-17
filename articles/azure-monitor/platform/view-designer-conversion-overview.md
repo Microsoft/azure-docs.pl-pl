@@ -6,19 +6,19 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3179daec361aa287b79c5e9a468908d0ccdd2982
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87759431"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143961"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Przewodnik przejścia projektanta widoku Azure Monitor do skoroszytów
 [Projektant widoków](view-designer.md) jest funkcją Azure monitor, która umożliwia tworzenie niestandardowych widoków, które ułatwiają wizualizację danych w obszarze roboczym log Analytics, z wykresami, listami i osiami czasu. Zostały one przenoszone do skoroszytów, aby zapewnić elastyczną kanwę do analizy danych i tworzenia bogatych raportów wizualnych w Azure Portal. Ten artykuł pomaga w wprowadzeniu przejścia z projektanta widoku do skoroszytów. 
 
 
 ## <a name="workbooks-overview"></a>Przegląd skoroszytów
-[Skoroszyty](../insights/vminsights-workbooks.md) łączą tekst, [kwerendy dzienników](../log-query/query-language.md), metryki i parametry w rozbudowanych raportach interaktywnych. Członkowie zespołu mający ten sam dostęp do zasobów platformy Azure mogą również edytować skoroszyty.
+[Skoroszyty](../insights/vminsights-workbooks.md) łączą tekst, [kwerendy dzienników](/azure/data-explorer/kusto/query/), metryki i parametry w rozbudowanych raportach interaktywnych. Członkowie zespołu mający ten sam dostęp do zasobów platformy Azure mogą również edytować skoroszyty.
 
 Skoroszyty są przydatne w scenariuszach takich jak:
 
