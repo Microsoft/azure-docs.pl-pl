@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962166"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150332"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurowanie środowisk przejściowych w usłudze Azure App Service
 <a name="Overview"></a>
 
-Podczas wdrażania aplikacji sieci Web, aplikacji sieci Web w systemie Linux, zaplecza mobilnego lub aplikacji interfejsu API do [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)można użyć oddzielnego miejsca wdrożenia zamiast domyślnego miejsca produkcyjnego, gdy jest uruchomiony w warstwie planu warstwy **standardowa**, **Premium**lub App Service **izolowana** . Miejsca wdrożenia to aplikacje na żywo z własnymi nazwami hostów. Elementy zawartości i konfiguracji aplikacji można wymieniać między dwoma miejscami wdrożenia, w tym z miejscem produkcyjnym. 
+Podczas wdrażania aplikacji sieci Web, aplikacji sieci Web w systemie Linux, zaplecza mobilnego lub aplikacji interfejsu API do [Azure App Service](./overview.md)można użyć oddzielnego miejsca wdrożenia zamiast domyślnego miejsca produkcyjnego, gdy jest uruchomiony w warstwie planu warstwy **standardowa**, **Premium**lub App Service **izolowana** . Miejsca wdrożenia to aplikacje na żywo z własnymi nazwami hostów. Elementy zawartości i konfiguracji aplikacji można wymieniać między dwoma miejscami wdrożenia, w tym z miejscem produkcyjnym. 
 
 Wdrażanie aplikacji w gnieździe nieprodukcyjnym ma następujące zalety:
 

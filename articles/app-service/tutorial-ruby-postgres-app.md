@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c3fd06e2ac399fa18b588b1db5e154eaf013753b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2baccec75c7b525c0837cebd9d828dff3a79543
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979493"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150179"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji w języku Ruby i korzystającej z bazy danych Postgres w usłudze Azure App Service w systemie Linux
 
@@ -18,7 +18,7 @@ ms.locfileid: "90979493"
 
 :::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="Zrzut ekranu przedstawiający przykład zadań aplikacji języka Ruby on-Szyns.":::
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych PostgreSQL na platformie Azure
@@ -108,7 +108,7 @@ Aby zatrzymać serwer platformy Rails, naciśnij w terminalu klawisze `Ctrl + C`
 
 ## <a name="create-postgres-in-azure"></a>Tworzenie bazy danych Postgres na platformie Azure
 
-W tym kroku utworzysz bazę danych Postgres w usłudze [Azure Database for PostgreSQL](/azure/postgresql/). Następnie skonfigurujesz aplikację platformy Ruby on Rails i połączysz ją z tą bazą danych.
+W tym kroku utworzysz bazę danych Postgres w usłudze [Azure Database for PostgreSQL](../postgresql/index.yml). Następnie skonfigurujesz aplikację platformy Ruby on Rails i połączysz ją z tą bazą danych.
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -117,7 +117,7 @@ W tym kroku utworzysz bazę danych Postgres w usłudze [Azure Database for Postg
 ## <a name="create-postgres-database-in-azure"></a>Tworzenie bazy danych Postgres na platformie Azure
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
 
 W tej sekcji utworzysz serwer Azure Database for PostgreSQL i bazę danych. Aby rozpocząć, zainstaluj `db-up` rozszerzenie za pomocą następującego polecenia:
 
@@ -237,7 +237,7 @@ git commit -m "database.yml updates"
 
 Aplikacja jest gotowa do wdrożenia.
 
-## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
 
 W tym kroku wdrożysz aplikację platformy Rails połączoną z bazą danych Postgres w usłudze Azure App Service.
 

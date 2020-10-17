@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02bfb7da51f243de8320d0230259577e337231fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574147"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149270"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Securing data stored in Azure Data Lake Storage Gen1 (Zabezpieczanie danych przechowywanych w usłudze Azure Data Lake Storage Gen1)
-Zabezpieczanie danych w Azure Data Lake Storage Gen1 jest podejściem trójwymiarowym.  Zarówno kontrola dostępu oparta na rolach (RBAC), jak i listy kontroli dostępu (ACL), muszą być ustawione, aby w pełni włączyć dostęp do danych dla użytkowników i grup zabezpieczeń.
+Zabezpieczanie danych w Azure Data Lake Storage Gen1 jest podejściem trójwymiarowym.  Zarówno kontrola dostępu oparta na rolach (Azure RBAC), jak i listy kontroli dostępu (ACL), muszą być ustawione, aby w pełni włączyć dostęp do danych dla użytkowników i grup zabezpieczeń.
 
 1. Zacznij od utworzenia grup zabezpieczeń w Azure Active Directory (Azure AD). Te grupy zabezpieczeń służą do implementowania kontroli dostępu opartej na rolach (Azure RBAC) w Azure Portal. Aby uzyskać więcej informacji, zobacz [Azure RBAC](../role-based-access-control/role-assignments-portal.md).
 2. Przypisz grupy zabezpieczeń usługi Azure AD do konta Data Lake Storage Gen1. Umożliwia to kontrolowanie dostępu do konta Data Lake Storage Gen1 z portalu i operacji zarządzania z poziomu portalu lub interfejsów API.
@@ -68,13 +68,13 @@ Podczas przypisywania użytkowników lub grup zabezpieczeń do kont Data Lake St
     W przypadku operacji na danych poszczególne uprawnienia systemu plików definiują elementy, które mogą wykonywać użytkownicy. W związku z tym użytkownik mający rolę czytnika może wyświetlać tylko ustawienia administracyjne skojarzone z tym kontem, ale mogą być w stanie odczytywać i zapisywać dane na podstawie przypisanych im uprawnień systemu plików. Uprawnienia systemu plików Data Lake Storage Gen1 są opisane w [przypisywaniu grupy zabezpieczeń jako listy ACL do systemu plików Azure Data Lake Storage Gen1](#filepermissions).
 
     > [!IMPORTANT]
-    > Tylko rola **właściciela** automatycznie włącza dostęp do systemu plików. **Współautor**, **czytelnik**i wszystkie inne role wymagają list ACL, aby umożliwić dostęp do folderów i plików na dowolnym poziomie.  Rola **właściciela** zapewnia uprawnienia do plików i folderów administratora, których nie można zastąpić za pomocą list kontroli dostępu. Aby uzyskać więcej informacji o tym, jak zasady RBAC są mapowane na dostęp do danych, zobacz [RBAC dla zarządzania kontami](data-lake-store-security-overview.md#rbac-for-account-management).
+    > Tylko rola **właściciela** automatycznie włącza dostęp do systemu plików. **Współautor**, **czytelnik**i wszystkie inne role wymagają list ACL, aby umożliwić dostęp do folderów i plików na dowolnym poziomie.  Rola **właściciela** zapewnia uprawnienia do plików i folderów administratora, których nie można zastąpić za pomocą list kontroli dostępu. Aby uzyskać więcej informacji na temat mapowania zasad RBAC platformy Azure na dostęp do danych, zobacz [Azure RBAC na potrzeby zarządzania kontami](data-lake-store-security-overview.md#azure-rbac-for-account-management).
 
 4. Jeśli chcesz dodać grupę/użytkownika, którego nie ma na liście w bloku **Dodawanie uprawnień** , możesz zaprosić je, wpisując ich adresy e-mail w polu tekstowym **Wybierz** , a następnie wybierając je z listy.
    
     ![Dodawanie grupy zabezpieczeń](./media/data-lake-store-secure-data/adl.add.user.2.png "Dodawanie grupy zabezpieczeń")
    
-5. Kliknij przycisk **Zapisz**. Powinna zostać wyświetlona dodana grupa zabezpieczeń, jak pokazano poniżej.
+5. Kliknij pozycję **Zapisz**. Powinna zostać wyświetlona dodana grupa zabezpieczeń, jak pokazano poniżej.
    
     ![Dodano grupę zabezpieczeń](./media/data-lake-store-secure-data/adl.add.user.3.png "Dodano grupę zabezpieczeń")
 

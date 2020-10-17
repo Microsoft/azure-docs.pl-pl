@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: ddba41acfcfe497059a661b701906cda0d4d77c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14f6fc685e99060474a17503cb13ba09a61a5a9a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398378"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149200"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Samouczek: część 2 — Wyświetlanie rozesłanych komunikatów
 
@@ -52,7 +52,7 @@ Kolejka usługi Service Bus jest używana do odbierania komunikatów oznaczonych
 
    ![Ekran Tworzenie aplikacji logiki](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Wybierz przycisk **Utwórz**. Wdrożenie aplikacji może potrwać kilka minut.
+   Wybierz pozycję **Utwórz**. Wdrożenie aplikacji może potrwać kilka minut.
 
 2. Teraz przejdź do aplikacji logiki. Najprostszym sposobem, aby uzyskać dostęp do aplikacji logiki, jest wybranie **grup zasobów**, wybranie grupy zasobów (w tym samouczku jest używany program **ContosoResources**), a następnie wybierz aplikację logiki z listy zasobów. 
 
@@ -280,7 +280,7 @@ Zaloguj się do swojego konta usługi [Power BI](https://powerbi.microsoft.com/)
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Czyszczenie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby usunąć grupę zasobów, użyj polecenia [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` została ustawiona na **ContosoResources** z powrotem na początku tego samouczka.
+Aby usunąć grupę zasobów, użyj polecenia [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` została ustawiona na **ContosoResources** z powrotem na początku tego samouczka.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -288,7 +288,7 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Czyszczenie zasobów przy użyciu programu PowerShell
 
-Aby usunąć grupę zasobów, użyj polecenia [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` została ustawiona na **ContosoResources** z powrotem na początku tego samouczka.
+Aby usunąć grupę zasobów, użyj polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` została ustawiona na **ContosoResources** z powrotem na początku tego samouczka.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup

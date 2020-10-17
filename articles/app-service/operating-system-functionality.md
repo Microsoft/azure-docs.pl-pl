@@ -5,15 +5,15 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080202"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150154"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funkcjonalność systemu operacyjnego na Azure App Service
-W tym artykule opisano typowe podstawowe funkcje systemu operacyjnego, które są dostępne dla wszystkich aplikacji systemu Windows działających na [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ta funkcja obejmuje dostęp do plików, sieci i rejestru oraz dzienniki i zdarzenia diagnostyczne. 
+W tym artykule opisano typowe podstawowe funkcje systemu operacyjnego, które są dostępne dla wszystkich aplikacji systemu Windows działających na [Azure App Service](./overview.md). Ta funkcja obejmuje dostęp do plików, sieci i rejestru oraz dzienniki i zdarzenia diagnostyczne. 
 
 > [!NOTE] 
 > [Aplikacje systemu Linux](overview.md#app-service-on-linux) w App Service uruchamiane we własnych kontenerach. Żaden dostęp do systemu operacyjnego hosta nie jest dozwolony, masz dostęp do kontenera. Podobnie w przypadku [aplikacji działających w kontenerach systemu Windows](quickstart-custom-container.md?pivots=container-windows)użytkownik ma dostęp administracyjny do kontenera, ale nie ma dostępu do systemu operacyjnego hosta. 
@@ -126,4 +126,3 @@ App Service nie zapewnia dostępu pulpitu zdalnego do wystąpień maszyn wirtual
 ## <a name="more-information"></a>Więcej informacji
 
 [Azure App Service piaskownicy](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) — najbardziej aktualne informacje o środowisku wykonawczym App Service. Ta strona jest utrzymywana bezpośrednio przez zespół deweloperów App Service.
-

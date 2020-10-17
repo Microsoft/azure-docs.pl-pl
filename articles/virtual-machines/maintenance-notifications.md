@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: d1705456c316a29aede537e67dee74b6231ff22b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c7c3deb60c50fe71cf52959e342a3dcf2afc94
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460581"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151560"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Obsługa powiadomień dotyczących planowanej konserwacji
 
@@ -25,7 +25,7 @@ Platforma Azure jest co pewien czas aktualizowana w celu poprawy niezawodności,
 
 Planowana konserwacja wymagająca ponownego uruchomienia jest zaplanowana na fale. Każda fala ma inny zakres (regiony).
 
-- Fala rozpoczyna się od powiadomienia do klientów. Domyślnie powiadomienia są wysyłane do administratora usługi i współadministratorów. Za pomocą [alertów dziennika aktywności](../service-health/alerts-activity-log-service-notifications-portal.md)można dodać więcej opcji adresatów i komunikatów, takich jak wiadomości e-mail, wiadomości SMS i elementy webhook.  
+- Fala rozpoczyna się od powiadomienia do klientów. Powiadomienie jest domyślnie wysyłane do administratora subskrypcji i współadministratorów. Za pomocą [alertów dziennika aktywności](../service-health/alerts-activity-log-service-notifications-portal.md)można dodać więcej opcji adresatów i komunikatów, takich jak wiadomości e-mail, wiadomości SMS i elementy webhook.  
 - Po przeprowadzeniu powiadomienia zostanie udostępnione *okno* samoobsługowe. W tym oknie możesz wykonywać zapytania dotyczące maszyn wirtualnych, których dotyczy ta operacja, i rozpocząć konserwację na podstawie własnych potrzeb związanych z planowaniem. Okno samoobsługowe jest zwykle około 35 dni.
 - Po włączeniu okna samoobsługowego zostanie rozpoczęte *zaplanowane okno obsługi* . W pewnym momencie w tym oknie usługa Azure planuje i stosuje wymaganą konserwację na maszynie wirtualnej. 
 
@@ -65,7 +65,7 @@ Najlepszym rozwiązaniem jest użycie samoobsługowej konserwacji w następując
 - Między dwiema domenami aktualizacji jest wymagana więcej niż 30 minut czasu odzyskiwania maszyny wirtualnej. Aby kontrolować czas między domenami aktualizacji, należy wyzwolić konserwację na maszynach wirtualnych w jednej domenie aktualizacji (UD) naraz.
 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 
 **P: Dlaczego musisz teraz ponownie uruchomić moje maszyny wirtualne?**
@@ -80,7 +80,7 @@ Aby uzyskać więcej informacji na temat wysokiej dostępności, zobacz [dostęp
 
 **P: Jak mogę Otrzymuj powiadomienia o planowanej konserwacji?**
 
-Odp **.:** Planowana fala konserwacji jest uruchamiana przez ustawienie harmonogramu do co najmniej jednego regionu świadczenia usługi Azure. Wkrótce po otrzymaniu powiadomienia e-mail do administratorów usługi (jednej wiadomości e-mail na subskrypcję). Dodatkowe kanały i adresatów dla tego powiadomienia można skonfigurować przy użyciu alertów dziennika aktywności. W przypadku wdrożenia maszyny wirtualnej w regionie, w którym zaplanowano zaplanowaną konserwację, nie otrzymasz powiadomienia, ale konieczne jest sprawdzenie stanu konserwacji maszyny wirtualnej.
+Odp **.:** Planowana fala konserwacji jest uruchamiana przez ustawienie harmonogramu do co najmniej jednego regionu świadczenia usługi Azure. Wkrótce po otrzymaniu powiadomienia e-mail do administratora subskrypcji i współadministratorów (jedna wiadomość e-mail na subskrypcję). Dodatkowe kanały i adresatów dla tego powiadomienia można skonfigurować przy użyciu alertów dziennika aktywności. W przypadku wdrożenia maszyny wirtualnej w regionie, w którym zaplanowano zaplanowaną konserwację, nie otrzymasz powiadomienia, ale konieczne jest sprawdzenie stanu konserwacji maszyny wirtualnej.
 
 **P: nie widzę żadnego wskazania planowanej konserwacji w portalu, programie PowerShell lub interfejsie wiersza polecenia. Co jest nie tak?**
 

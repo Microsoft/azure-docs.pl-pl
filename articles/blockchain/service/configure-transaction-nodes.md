@@ -4,12 +4,12 @@ description: Jak skonfigurować węzły transakcji usługi Azure łańcucha blok
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530390"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150882"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurowanie węzłów transakcji usługi Azure łańcucha bloków Service
 
@@ -40,7 +40,7 @@ Aby dodać węzeł transakcji:
     | Nazwa | Nazwa węzła transakcji. Nazwa służy do tworzenia adresu DNS dla punktu końcowego węzła transakcji. Na przykład `newnode-myblockchainmember.blockchain.azure.com`. Nazwy węzła nie można zmienić po jego utworzeniu. |
     | Hasło | Ustaw silne hasło. Użyj hasła, aby uzyskać dostęp do punktu końcowego węzła transakcji z uwierzytelnianiem podstawowym.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     Inicjowanie obsługi nowego węzła transakcji trwa około 10 minut. Dodatkowe węzły transakcji wiążą się z kosztami. Aby uzyskać więcej informacji o kosztach, zobacz [Cennik platformy Azure](https://aka.ms/ABSPricing).
 
@@ -71,11 +71,11 @@ Aby udzielić kontroli dostępu usługi Azure AD do punktu końcowego:
     |---------|-------------|
     | Rola | Wybierz **właściciela**, **współautora**lub **czytelnika**.
     | Przypisz dostęp do | Wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi Azure AD**.
-    | Wybierz | Wyszukaj użytkownika, grupę lub jednostkę usługi, którą chcesz dodać.
+    | Wybierz pozycję | Wyszukaj użytkownika, grupę lub jednostkę usługi, którą chcesz dodać.
 
 1. Wybierz pozycję **Zapisz** , aby dodać przypisanie roli.
 
-Aby uzyskać więcej informacji na temat kontroli dostępu w usłudze Azure AD, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC i Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+Aby uzyskać więcej informacji na temat kontroli dostępu w usłudze Azure AD, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md)
 
 Aby uzyskać szczegółowe informacje na temat nawiązywania połączenia przy użyciu uwierzytelniania usługi Azure AD, zobacz [nawiązywanie połączenia z węzłem przy użyciu uwierzytelniania w usłudze AAD](configure-aad.md).
 

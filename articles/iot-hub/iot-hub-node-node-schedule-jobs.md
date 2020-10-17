@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js
-ms.openlocfilehash: 2c5ce219e40117a2b656b7acab6dd68a1d20dffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1992c806619154fa7b3c33500b2e54fbc919f20
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251936"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151431"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Planowanie i emitowanie zadań (Node.js)
 
@@ -57,7 +57,7 @@ Na końcu tego samouczka będziesz mieć dwie Node.js aplikacje:
 
 * Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -300,4 +300,4 @@ W tym samouczku użyto zadania do zaplanowania metody bezpośredniej dla urządz
 
 Aby nadal zacząć korzystać z wzorców IoT Hub i zarządzania urządzeniami, takimi jak zdalne przez aktualizację oprogramowania układowego, zobacz [Samouczek: jak wykonać aktualizację oprogramowania układowego](tutorial-firmware-update.md).
 
-Aby kontynuować wprowadzenie do IoT Hub, zobacz [wprowadzenie do Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+Aby kontynuować wprowadzenie do IoT Hub, zobacz [wprowadzenie do Azure IoT Edge](../iot-edge/quickstart-linux.md).

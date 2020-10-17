@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327225"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151583"
 ---
 # <a name="create-luis-resources"></a>Tworzenie zasobów LUIS
 
@@ -31,7 +31,7 @@ LUIS umożliwia korzystanie z trzech typów zasobów platformy Azure i jednego z
 |--|--|--|--|
 |Tworzenie zasobu|Umożliwia tworzenie, uczenie i publikowanie aplikacji oraz zarządzanie nimi. [Utwórz zasób tworzenia Luis](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) , jeśli zamierzasz tworzyć aplikacje Luis programtically lub z portalu Luis. Najpierw należy [przeprowadzić migrację konta usługi Luis](luis-migration-authoring.md#what-is-migration) , aby można było połączyć zasoby Authroring platformy Azure z Twoją aplikacją. Możesz kontrolować uprawnienia do zasobu tworzenia, przypisując osoby do [roli współautor](#contributions-from-other-authors). <br><br> Istnieje jedna warstwa avialable dla zasobu tworzenia LUIS:<br> * **Bezpłatny zasób tworzenia F0** , który daje półroczne transakcje tworzenia i 1000 bezpłatnych żądań punktów końcowych przewidywania testowania. |`LUIS.Authoring`|`Cognitive Services`|
 |Zasób predykcyjny| Po opublikowaniu aplikacji LUIS Użyj zasobu predykcyjny/Key do wysyłania zapytań do żądań punktów końcowych przewidywania. Utwórz zasób przewidywania LUIS, zanim aplikacja kliencka zażąda prognoz wykraczających poza żądania 1 000 dostarczone przez tworzenie lub zasób początkowy. <br><br> Istnieją dwie warstwy avialble dla zasobu przewidywania:<br> * **Bezpłatny zasób predykcyjny F0** , który daje miesięcznie 10 000 bezpłatnych żądań punktu końcowego przewidywania<br> * **Standardowy zasób predykcyjny S0** , który jest warstwą płatną. [Dowiedz się więcej na temat szczegółów cennika](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
-|Zasób Starter/Wersja próbna|Umożliwia tworzenie, uczenie i publikowanie aplikacji oraz zarządzanie nimi. Jest to tworzone przez domyślną w przypadku wybrania opcji zasobów początkowych podczas pierwszej rejestracji w usłudze TP LUIS. Klucz początkowy będzie jednak ostatecznie przestarzały, a wszyscy użytkownicy LUIS będą musieli [migrować swoje konta](luis-migration-authoring.md#what-is-migration) i połączyć ich aplikacje Luis z zasobem tworzenia. Ten zasób nie daje uprawnień do kontroli dostępu opartej na rolach, takiej jak zasób tworzenia. <br><br> Tak samo jak zasób do tworzenia, zasób początkowy umożliwia korzystanie z bezpłatnych transakcji tworzenia i 1000 bezpłatnych żądań dla punktów końcowych przewidywania testów.|-|To nie jest zasób platformy Azure|
+|Zasób Starter/Wersja próbna|Umożliwia tworzenie, uczenie i publikowanie aplikacji oraz zarządzanie nimi. Jest to tworzone przez domyślną w przypadku wybrania opcji zasobów początkowych podczas pierwszej rejestracji w usłudze TP LUIS. Klucz początkowy będzie jednak ostatecznie przestarzały, a wszyscy użytkownicy LUIS będą musieli [migrować swoje konta](luis-migration-authoring.md#what-is-migration) i połączyć ich aplikacje Luis z zasobem tworzenia. Ten zasób nie daje uprawnień do kontroli dostępu opartej na rolach na platformie Azure, takiej jak zasób tworzenia. <br><br> Tak samo jak zasób do tworzenia, zasób początkowy umożliwia korzystanie z bezpłatnych transakcji tworzenia i 1000 bezpłatnych żądań dla punktów końcowych przewidywania testów.|-|To nie jest zasób platformy Azure|
 |[Klucz zasobu usługi poznawczej — wiele usług](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Żądania punktu końcowego przewidywania zapytań udostępniane z LUIS i innymi obsługiwanymi Cognitive Services.|`CognitiveServices`|`Cognitive Services`|
 
 
@@ -254,7 +254,7 @@ W celach automatyzacji, takich jak potok ciągłej integracji/ciągłego wdraża
 
     Ten POST API wymaga następujących ustawień:
 
-    |Type|Ustawienie|Wartość|
+    |Typ|Ustawienie|Wartość|
     |--|--|--|
     |Header|`Authorization`|Wartość `Authorization` to `Bearer {token}` . Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
     |Header|`Ocp-Apim-Subscription-Key`|Twój klucz tworzenia.|

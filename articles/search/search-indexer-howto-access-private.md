@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ef8b3865b0914c0d06ff69d20396f1ff368642bc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102731"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150421"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>Połączenia indeksatora za pomocą prywatnego punktu końcowego (Wyszukiwanie poznawcze platformy Azure)
 
@@ -33,7 +33,7 @@ Za pośrednictwem interfejsu API REST zarządzania usługa Azure Wyszukiwanie po
 
 Połączenia z prywatnymi punktami końcowymi do niektórych zasobów można tworzyć tylko za pomocą wersji zapoznawczej interfejsu API zarządzania wyszukiwaniem ( `2020-08-01-Preview` lub nowszego), wskazanego za pomocą tagu "wersja zapoznawcza" w poniższej tabeli. Zasoby bez tagu "Preview" można utworzyć przy użyciu wersji zapoznawczej lub ogólnie dostępnej interfejsu API ( `2020-08-01` lub nowszej).
 
-Poniżej znajduje się lista zasobów platformy Azure, do których można utworzyć wychodzące punkty końcowe punktów końcowych z usługi Azure Wyszukiwanie poznawcze. `groupId` w poniższej tabeli należy używać dokładnie (z uwzględnieniem wielkości liter) w interfejsie API, aby utworzyć zasób udostępnionego linku prywatnego.
+Poniżej znajduje się lista zasobów platformy Azure, do których można utworzyć wychodzące punkty końcowe punktów końcowych z usługi Azure Wyszukiwanie poznawcze. `groupId`Wartości wymienione w poniższej tabeli należy używać dokładnie tak, jak w przypadku zapisu (z uwzględnieniem wielkości liter) w interfejsie API, aby utworzyć zasób udostępnionego linku prywatnego.
 
 | Zasób platformy Azure | Identyfikator grupy |
 | --- | --- |
@@ -47,7 +47,7 @@ Poniżej znajduje się lista zasobów platformy Azure, do których można utworz
 
 Na liście zasobów platformy Azure, dla których obsługiwane są wychodzące połączenia z prywatnymi punktami końcowymi, można także wykonywać zapytania przy użyciu [listy obsługiwanych interfejsów API](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-W tym artykule mieszanka [ARMClient](https://github.com/projectkudu/ARMClient) i [Poster](https://www.postman.com/) są używane do zademonstrowania wywołań interfejsu API REST.
+W pozostałej części tego artykułu mieszanka [ARMClient](https://github.com/projectkudu/ARMClient) i [Poster](https://www.postman.com/) są używane do zademonstrowania wywołań interfejsu API REST.
 
 > [!NOTE]
 > W tym artykule przyjęto założenie, że nazwa usługi wyszukiwania to __contoso-Search__ , która istnieje w grupie zasobów __contoso__ subskrypcji z identyfikatorem subskrypcji __00000000-0000-0000-0000-000000000000__. Identyfikator zasobu tej usługi wyszukiwania będzie `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`

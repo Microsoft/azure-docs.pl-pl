@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/02/2020
-ms.openlocfilehash: 620fe1e693a177123e166220ab94bbd74c4826ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761536"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151366"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Rozwiązywanie typowych problemów w usłudze Azure Data Share 
 
@@ -61,12 +61,20 @@ Jeśli tworzysz lub otrzymujesz dane z magazynu danych platformy Azure po raz pi
 Udostępnianie oparte na języku SQL wymaga dodatkowych uprawnień. Aby uzyskać szczegółową listę wymagań wstępnych, zobacz [udostępnianie ze źródeł SQL](how-to-share-from-sql.md) .
 
 ## <a name="snapshot-failed"></a>Migawka nie powiodła się
-Migawka może zakończyć się niepowodzeniem z różnych powodów. Szczegółowy komunikat o błędzie można znaleźć, klikając pozycję czas rozpoczęcia migawki, a następnie stan każdego zestawu danych. Poniżej przedstawiono przyczyny niepowodzenia migawek:
+Migawka może zakończyć się niepowodzeniem z różnych powodów. Szczegółowy komunikat o błędzie można znaleźć, klikając pozycję czas rozpoczęcia migawki, a następnie stan każdego zestawu danych. Poniżej przedstawiono typowe przyczyny niepowodzenia migawek:
 
 * Udział danych nie ma uprawnień do odczytu ze źródłowego magazynu danych lub zapisu do docelowego magazynu danych. Zobacz [role i wymagania,](concepts-roles-permissions.md) Aby uzyskać szczegółowe wymagania dotyczące uprawnień. Jeśli tworzysz migawkę po raz pierwszy, może upłynąć kilka minut, zanim zasób udostępniania danych uzyska dostęp do magazynu danych platformy Azure. Poczekaj kilka minut i spróbuj ponownie.
 * Połączenie udostępniania danych ze źródłem lub docelowym magazynem danych jest blokowane przez zaporę.
 * Udostępniony zestaw danych lub źródłowy lub docelowy magazyn z danymi jest usuwany.
-* W przypadku udostępniania SQL typy danych nie są obsługiwane przez proces migawki ani docelowy magazyn danych. Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [udostępnianie ze źródeł SQL](how-to-share-from-sql.md#supported-data-types) .
+
+W przypadku źródeł SQL poniżej przedstawiono dodatkowe przyczyny błędów migawek. 
+
+* Źródłowy lub docelowy skrypt SQL do udzielenia uprawnienia do udostępniania danych nie jest uruchamiany lub jest uruchamiany przy użyciu uwierzytelniania SQL, a nie do Azure Active Directory uwierzytelniania.  
+* Źródłowy lub docelowy magazyn danych SQL został wstrzymany.
+* Typy danych SQL nie są obsługiwane przez proces migawki ani docelowy magazyn danych. Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [udostępnianie ze źródeł SQL](how-to-share-from-sql.md#supported-data-types) .
+* Źródłowy lub docelowy magazyn danych SQL jest zablokowany przez inne procesy. Udział danych platformy Azure nie stosuje blokad do źródłowego i docelowego magazynu danych SQL. Jednak istniejące blokady w źródłowym i docelowym magazynie danych SQL spowodują błąd migawki.
+* Docelowa tabela SQL jest przywoływana przez ograniczenie klucza obcego. Jeśli w migawce istnieje tabela docelowa o tej samej nazwie, udział danych platformy Azure porzuca tabelę i tworzy nową tabelę. Jeśli docelowa tabela SQL jest przywoływana przez ograniczenie klucza obcego, nie można usunąć tabeli.
+* Docelowy plik CSV jest generowany, ale nie można odczytać danych w programie Excel. Może się tak zdarzyć, gdy źródłowa tabela SQL zawiera dane zawierające znaki inne niż angielskie. W programie Excel wybierz kartę "Pobierz dane" i wybierz plik CSV, wybierz pozycję pochodzenie pliku jako 65001: Unicode (UTF-8) i Załaduj dane.
 
 ## <a name="next-steps"></a>Następne kroki
 

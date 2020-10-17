@@ -28,6 +28,7 @@
     - name: Statyczna witryna HTML
       href: quickstart-html.md
     - name: Szablon ARM
+      displayName: Resource Manager
       href: quickstart-arm-template.md
     - name: Kontener niestandardowy
       href: quickstart-custom-container.md

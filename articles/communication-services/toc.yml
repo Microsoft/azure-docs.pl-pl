@@ -80,6 +80,10 @@
       href: concepts/event-handling.md
     - name: Powiadomienia
       href: concepts/notifications.md
+    - name: Rejestrowanie i diagnostyka
+      href: concepts/logging-and-diagnostics.md
+    - name: Metryki
+      href: concepts/metrics.md
 - name: Samples
   items:
     - name: Połączenia grupowe — przykład dużego obrazu

@@ -7,16 +7,16 @@ author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bcb7a8e040a8e32a8513e5e0e73d6c124e04563a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66b74fd8fe326666d3c34b59acba383fd4205e17
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816275"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151332"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Azure Policy wbudowane definicje dla platformy Azure IoT Hub
 
-Aby uzyskać IoT Hub przykładowy kod, który pokazuje, jak zaimplementować typowe scenariusze IoT, zobacz [IoT Hub przewodników szybki start](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). Dostępne są Przewodniki Szybki Start dla wielu języków programowania, w tym C, Node.js i Python.
+Aby uzyskać IoT Hub przykładowy kod, który pokazuje, jak zaimplementować typowe scenariusze IoT, zobacz [IoT Hub przewodników szybki start](./quickstart-send-telemetry-cli.md). Dostępne są Przewodniki Szybki Start dla wielu języków programowania, w tym C, Node.js i Python.
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla IoT Hub platformy Azure. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 

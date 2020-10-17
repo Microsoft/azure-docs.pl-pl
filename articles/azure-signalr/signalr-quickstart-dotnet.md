@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 8c7d7f84e02cdd2cd4f53bc9eb42c78f936146ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: da91a5a7c077eb14d12a711b8b308d7045c88f4a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408373"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150991"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Szybki Start: Tworzenie pokoju rozmów przy użyciu usługi ASP.NET i sygnalizującego
 
-Usługa Azure Signal based jest oparta na [sygnale dla ASP.NET Core 2,1](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), który **nie** jest zgodny z 100% w przypadku sygnalizowania ASP.NET. Usługa sygnałów platformy Azure zaimplementował ASP.NET protokół danych sygnalizujący na podstawie najnowszych technologii ASP.NET Core. W przypadku korzystania z usługi Azure Signal Service dla sygnalizującego ASP.NET niektóre funkcje sygnałów ASP.NET nie są już obsługiwane, na przykład usługa Azure sygnalizująca nie powtarza komunikatów po ponownym nawiązaniu połączenia przez klienta. Ponadto nie są obsługiwane stałe transport ramek i JSONP. Niektóre zmiany kodu i poprawna wersja bibliotek zależnych są konieczne, aby aplikacja sygnalizująca ASP.NET działała z usługą sygnalizującej.
+Usługa Azure Signal based jest oparta na [sygnale dla ASP.NET Core 2,1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), który **nie** jest zgodny z 100% w przypadku sygnalizowania ASP.NET. Usługa sygnałów platformy Azure zaimplementował ASP.NET protokół danych sygnalizujący na podstawie najnowszych technologii ASP.NET Core. W przypadku korzystania z usługi Azure Signal Service dla sygnalizującego ASP.NET niektóre funkcje sygnałów ASP.NET nie są już obsługiwane, na przykład usługa Azure sygnalizująca nie powtarza komunikatów po ponownym nawiązaniu połączenia przez klienta. Ponadto nie są obsługiwane stałe transport ramek i JSONP. Niektóre zmiany kodu i poprawna wersja bibliotek zależnych są konieczne, aby aplikacja sygnalizująca ASP.NET działała z usługą sygnalizującej.
 
-Zapoznaj się z [dokumentem różnice wersji](https://docs.microsoft.com/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1) , aby zapoznać się z pełną listą porównania funkcji między sygnałem ASP.NET ASP.NET Core i modułem sygnalizującym.
+Zapoznaj się z [dokumentem różnice wersji](/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1) , aby zapoznać się z pełną listą porównania funkcji między sygnałem ASP.NET ASP.NET Core i modułem sygnalizującym.
 
 W tym przewodniku szybki start dowiesz się, jak rozpocząć pracę z usługą ASP.NET i platformą Azure dla podobnej [aplikacji do pokoju rozmów](./signalr-quickstart-dotnet-core.md).
 
@@ -117,7 +117,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozyc
 
 W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. W instrukcjach dla tego przewodnika Szybki start używana była grupa zasobów o nazwie *SignalRTestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
-![Usuwanie](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
+![Usuń](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 

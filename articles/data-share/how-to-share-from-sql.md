@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/02/2020
-ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761927"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150383"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Udostępnianie i odbieranie danych z usługi Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -54,7 +54,7 @@ Poniżej znajduje się lista wymagań wstępnych dotyczących udostępniania dan
     1. W programie SQL Server w Azure Portal przejdź do *zapór i sieci wirtualnych*
     1. Kliknij **Yes** przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
-    1. Kliknij przycisk **Zapisz**. 
+    1. Kliknij pozycję **Zapisz**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -92,13 +92,13 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz pozycję **Rozpocznij udostępnianie danych**.
 
-1. Wybierz przycisk **Utwórz**.   
+1. Wybierz pozycję **Utwórz**.   
 
 1. Wprowadź szczegółowe informacje o udziale. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
 
     ![EnterShareDetails](./media/enter-share-details.png "Wprowadź szczegóły udostępniania") 
 
-1. Wybierz pozycję **Continue** (Kontynuuj).
+1. Wybierz opcję **Kontynuuj**.
 
 1. Aby dodać zestawy danych do udziału, wybierz pozycję **Dodaj zestawy danych**. 
 
@@ -116,7 +116,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
     ![Addrecipients](./media/add-recipient.png "Dodawanie adresatów") 
 
-1. Wybierz pozycję **Continue** (Kontynuuj).
+1. Wybierz opcję **Kontynuuj**.
 
 1. W przypadku wybrania typu udziału migawek można skonfigurować harmonogram migawek w taki sposób, aby dostarczał aktualizacje danych do konsumenta danych. 
 
@@ -124,9 +124,9 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz czas rozpoczęcia i interwał cyklu. 
 
-1. Wybierz pozycję **Continue** (Kontynuuj).
+1. Wybierz opcję **Kontynuuj**.
 
-1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz przycisk **Utwórz**.
+1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**.
 
 Udział danych platformy Azure został utworzony, a odbiorca Twojego udziału danych jest teraz gotowy do zaakceptowania Twojego zaproszenia. 
 
@@ -169,7 +169,7 @@ Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Az
     1. W programie SQL Server w Azure Portal przejdź do *zapór i sieci wirtualnych*
     1. Kliknij **Yes** przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
-    1. Kliknij przycisk **Zapisz**. 
+    1. Kliknij pozycję **Zapisz**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -242,9 +242,9 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 |:--- |:--- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Boolean (wartość logiczna) |
+| bit |Wartość logiczna |
 | char |String, Char [] |
-| date |DateTime |
+| data |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
@@ -277,7 +277,23 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 > 1. W przypadku typów danych, które są mapowane na typ pośredni dziesiętnego, obecnie migawka obsługuje dokładność do 28. Jeśli masz dane wymagające dokładności większej niż 28, Rozważ przekonwertowanie na ciąg. 
 > 1.  Jeśli udostępniasz dane z usługi Azure SQL Database w usłudze Azure Synapse Analytics, nie wszystkie typy danych są obsługiwane. Aby uzyskać szczegółowe informacje, zobacz [typy danych tabeli w puli SQL Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) . 
 
+## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Always Encrypted lub dynamiczne maskowanie danych
+Obecnie udział danych platformy Azure nie obsługuje baz danych usługi Azure SQL, w których skonfigurowano Always Encrypted. 
+
+W przypadku źródłowych tabel SQL z dynamiczną maską danych dane będą wyświetlane na stronie adresatów.
+
+## <a name="sql-snapshot-performance"></a>Wydajność migawek SQL
+Na wydajność migawki SQL ma wpływ wiele czynników. Zawsze zaleca się przeprowadzanie własnych testów wydajnościowych. Poniżej przedstawiono przykładowe czynniki wpływające na wydajność.
+
+* Konfiguracja sprzętu (np. rdzeni wirtualnych, Memory, jednostek dwu) źródłowego i docelowego magazynu danych SQL. 
+* Współbieżny dostęp do źródłowych i docelowych magazynów danych. Jeśli udostępniasz wiele tabel i widoków z tego samego magazynu danych SQL lub otrzymasz wiele tabel i widoków do tego samego magazynu danych SQL, wpłynie to na wydajność.   
+* Lokalizacja źródłowych i docelowych magazynów danych. 
+
+## <a name="troubleshoot-sql-snapshot-failure"></a>Rozwiązywanie problemów z niepowodzeniem migawek SQL
+Najczęstszym powodem błędu migawki jest to, że udział danych nie ma uprawnień do źródłowego lub docelowego magazynu danych. Aby udzielić uprawnienia do udostępniania danych źródłowej lub docelowej usługi SQL Data Store, należy uruchomić podany skrypt SQL podczas łączenia się z bazą danych SQL przy użyciu uwierzytelniania Azure Active Directory. Aby rozwiązać problem z dodatkowym błędem migawki SQL, zobacz [Rozwiązywanie problemów z błędem migawki](data-share-troubleshoot.md#snapshot-failed).
 
 ## <a name="next-steps"></a>Następne kroki
-Wiesz już, jak udostępniać i odbierać dane z konta magazynu przy użyciu usługi Azure Data Share Service. Aby dowiedzieć się więcej o udostępnianiu z innych źródeł danych, przejdź do [obsługiwanych magazynów danych](supported-data-stores.md).
+Wiesz już, jak udostępniać i odbierać dane ze źródeł SQL za pomocą usługi udziału danych platformy Azure. Aby dowiedzieć się więcej o udostępnianiu z innych źródeł danych, przejdź do [obsługiwanych magazynów danych](supported-data-stores.md).
+
+
 

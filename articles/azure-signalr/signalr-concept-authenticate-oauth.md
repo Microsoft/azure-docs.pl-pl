@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d7b94da2f922e7dba8c165dcf9d1e906855f6dfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 731e4306575a8bd5f63dd47ca213a0e52a21487b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294278"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151227"
 ---
 # <a name="azure-signalr-service-authentication"></a>Uwierzytelnianie w usłudze Azure SignalR Service
 
@@ -48,7 +48,7 @@ Do ukończenia tego samouczka niezbędne są:
 * Konto utworzone w usłudze [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
 * [Zestaw .NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Skonfigurowana usługa Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+* [Skonfigurowana usługa Azure Cloud Shell](../cloud-shell/quickstart.md)
 * Pobrane lub sklonowane repozytorium GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples)
 
 ## <a name="create-an-oauth-app"></a>Tworzenie aplikacji OAuth
@@ -388,7 +388,7 @@ W tej sekcji włączysz prawdziwe uwierzytelnianie, dodając atrybut `Authorize`
 
 ## <a name="deploy-the-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
-W tej sekcji użyjesz interfejsu wiersza polecenia platformy Azure (CLI) z Azure Cloud Shell, aby utworzyć nową aplikację sieci Web w usłudze [Azure App Service](https://docs.microsoft.com/azure/app-service/) do hostowania aplikacji ASP.NET na platformie Azure. Aplikacja internetowa zostanie skonfigurowana do używania lokalnego wdrożenia usługi Git. Aplikacja internetowa będzie również skonfigurowana za pomocą parametrów połączenia usługi SignalR, wpisów tajnych aplikacji OAuth usługi GitHub i użytkownika wdrożenia.
+W tej sekcji użyjesz interfejsu wiersza polecenia platformy Azure (CLI) z Azure Cloud Shell, aby utworzyć nową aplikację sieci Web w usłudze [Azure App Service](../app-service/index.yml) do hostowania aplikacji ASP.NET na platformie Azure. Aplikacja internetowa zostanie skonfigurowana do używania lokalnego wdrożenia usługi Git. Aplikacja internetowa będzie również skonfigurowana za pomocą parametrów połączenia usługi SignalR, wpisów tajnych aplikacji OAuth usługi GitHub i użytkownika wdrożenia.
 
 Kroki opisane w tej sekcji używają rozszerzenia *signalr* dla interfejsu wiersza polecenia platformy Azure. Uruchom następujące polecenie, aby zainstalować rozszerzenie *signalr* dla interfejsu wiersza polecenia platformy Azure:
 
@@ -576,7 +576,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozyc
 
 W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *SignalRTestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
-![Usuwanie](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![Usuń](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
 

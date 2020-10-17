@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126667"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151185"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliki do odczytu w usłudze Azure Database for MySQL
 
@@ -128,6 +128,26 @@ Po podjęciu decyzji o przejściu do trybu failover w replice
     
 Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w trybie failover. Czas przestoju, w jakim zależą od aplikacji, będzie zależny od tego, kiedy wykryjesz problem, i wykonaj kroki 1 i 2 powyżej.
 
+## <a name="global-transaction-identifier-gtid"></a>Globalny identyfikator transakcji (GTID)
+
+Globalny identyfikator transakcji (GTID) jest unikatowym identyfikatorem utworzonym dla każdej zatwierdzonej transakcji na serwerze źródłowym i jest domyślnie wyłączony w Azure Database for MySQL. GTID jest obsługiwana w wersjach 5,7 i 8,0 i tylko na serwerach, które obsługują magazyn do 16 TB. Aby dowiedzieć się więcej na temat GTID i sposobu ich używania w replikacji, zapoznaj się z dokumentacją dotyczącą [replikacji](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) programu MySQL.
+
+Program MySQL obsługuje dwa typy transakcji: transakcje GTID (zidentyfikowane z GTID) i transakcje anonimowe (nie mają przydziału GTID)
+
+Do konfigurowania GTID są dostępne następujące parametry serwera: 
+
+|**Parametr serwera**|**Opis**|**Wartość domyślna**|**Wartości**|
+|--|--|--|--|
+|`gtid_mode`|Wskazuje, czy GTIDs są używane do identyfikowania transakcji. Zmiany między trybami można wykonać tylko jeden krok w kolejności rosnącej (np. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: Transakcje New i Replication muszą być anonimowe <br> `OFF_PERMISSIVE`: Nowe transakcje są anonimowe. Zreplikowane transakcje mogą być transakcjami anonimowymi lub GTID. <br> `ON_PERMISSIVE`: Nowe transakcje są transakcjami GTID. Zreplikowane transakcje mogą być transakcjami anonimowymi lub GTID. <br> `ON`: Transakcje nowe i zreplikowane muszą być GTID transakcji.|
+|`enforce_gtid_consistency`|Wymusza spójność GTID przez umożliwienie wykonywania tylko tych instrukcji, które mogą być rejestrowane w sposób bezpieczny dla akcji. Ta wartość musi być ustawiona na `ON` przed włączeniem replikacji GTID. |`OFF`|`OFF`: Wszystkie transakcje mogą naruszać spójność GTID.  <br> `ON`: Żadne transakcje nie mogą naruszać spójności GTID. <br> `WARN`: Wszystkie transakcje mogą naruszać spójność GTID, ale generowane jest ostrzeżenie. | 
+
+> [!NOTE]
+> Po włączeniu GTID nie można jej wyłączyć. Jeśli musisz wyłączyć GTID, skontaktuj się z pomocą techniczną. 
+
+Aby włączyć GTID i skonfigurować zachowanie spójności, zaktualizuj `gtid_mode` `enforce_gtid_consistency` Parametry i serwera za pomocą [Azure Portal](howto-server-parameters.md), [interfejsu wiersza polecenia platformy Azure](howto-configure-server-parameters-using-cli.md)lub [programu PowerShell](howto-configure-server-parameters-using-powershell.md).
+
+Jeśli GTID jest włączona na serwerze źródłowym ( `gtid_mode` = on), nowo utworzone repliki również będą mieć włączone GTID i używać replikacji GTID. Aby zachować spójność replikacji, nie można przeprowadzić aktualizacji `gtid_mode` na serwerach źródłowych ani na serwerze repliki.
+
 ## <a name="considerations-and-limitations"></a>Istotne zagadnienia i ograniczenia
 
 ### <a name="pricing-tiers"></a>Warstwy cenowe
@@ -178,9 +198,18 @@ Następujące parametry serwera są blokowane zarówno na serwerze źródłowym,
 
 Aby zaktualizować jeden z powyższych parametrów na serwerze źródłowym, Usuń serwery repliki, zaktualizuj wartość parametru na wzorcu i ponownie utwórz repliki.
 
+### <a name="gtid"></a>GTID
+
+GTID jest obsługiwana w:
+- MySQL w wersji 5,7 i 8,0 
+- Serwery obsługujące magazyn do 16 TB. Pełną listę regionów, które obsługują magazyn 16 TB, można znaleźć w artykule dotyczącym [warstwy cenowej](concepts-pricing-tiers.md#storage) . 
+
+GTID jest domyślnie wyłączona. Po włączeniu GTID nie można jej wyłączyć. Jeśli musisz wyłączyć GTID, skontaktuj się z pomocą techniczną. 
+
+Jeśli na serwerze źródłowym jest włączona funkcja GTID, nowo utworzone repliki również będą mieć włączone GTID i używać replikacji GTID. Aby zachować spójność replikacji, nie można przeprowadzić aktualizacji `gtid_mode` na serwerach źródłowych ani na serwerze repliki.
+
 ### <a name="other"></a>Inne
 
-- Globalne identyfikatory transakcji (GTID) nie są obsługiwane.
 - Tworzenie repliki repliki nie jest obsługiwane.
 - Tabele w pamięci mogą spowodować, że repliki nie zostaną zsynchronizowane. Jest to ograniczenie technologii replikacji MySQL. Więcej informacji można znaleźć w [dokumentacji programu MySQL Reference](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) .
 - Upewnij się, że tabele serwera źródłowego mają klucze podstawowe. Brak kluczy podstawowych może spowodować opóźnienie replikacji między źródłem i replikami.

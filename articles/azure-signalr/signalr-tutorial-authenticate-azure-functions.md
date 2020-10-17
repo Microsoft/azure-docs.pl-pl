@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: e0bb4df611c6a9cfecf0aadbdfc3a577243856ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327622"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150907"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Samouczek: Uwierzytelnianie usługi Azure SignalR Service za pomocą usługi Azure Functions
 
@@ -52,7 +52,7 @@ Aplikację usługi Azure Functions utworzysz i przetestujesz lokalnie. Uzyska on
 
 1. Kliknij przycisk **Utwórz zasób** ( **+** ), aby utworzyć nowy zasób platformy Azure.
 
-1. Wyszukaj usługę **SignalR Service** i wybierz ją. Kliknij przycisk **Utwórz**.
+1. Wyszukaj usługę **SignalR Service** i wybierz ją. Kliknij pozycję **Utwórz**.
 
     ![Nowa usługa SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
@@ -65,7 +65,7 @@ Aplikację usługi Azure Functions utworzysz i przetestujesz lokalnie. Uzyska on
     | Lokalizacja | Wybierz bliską Ci lokalizację |
     | Warstwa cenowa | Bezpłatna |
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 1. Po wdrożeniu wystąpienia otwórz je w portalu i Znajdź jego stronę ustawień. Zmień ustawienie trybu usługi na *bezserwerowy*.
 
@@ -350,19 +350,19 @@ Konto usługi Azure Storage jest wymagane przez aplikację funkcji działającą
 
 1. W polu **Nazwa dokumentu indeksu**wprowadź *index.html*.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 1. Zostanie wyświetlony **podstawowy punkt końcowy** . Zwróć uwagę na tę wartość. Będzie ona wymagana do skonfigurowania aplikacji funkcji.
 
 ### <a name="configure-function-app-for-authentication"></a>Konfigurowanie aplikacji funkcji na potrzeby uwierzytelniania
 
-Do tej pory aplikacja czatu działa w sposób anonimowy. Na platformie Azure użyjesz [uwierzytelnianie usługi App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) do uwierzytelnienia użytkownika. Identyfikator lub nazwa uwierzytelnionego użytkownika może zostać przekazana do powiązania *SignalRConnectionInfo* w celu wygenerowania informacji o połączeniu uwierzytelnianym jako użytkownik.
+Do tej pory aplikacja czatu działa w sposób anonimowy. Na platformie Azure użyjesz [uwierzytelnianie usługi App Service](../app-service/overview-authentication-authorization.md) do uwierzytelnienia użytkownika. Identyfikator lub nazwa uwierzytelnionego użytkownika może zostać przekazana do powiązania *SignalRConnectionInfo* w celu wygenerowania informacji o połączeniu uwierzytelnianym jako użytkownik.
 
 Podczas wysyłania wiadomości aplikacja może zdecydować, czy wysłać ją do wszystkich połączonych klientów, czy tylko do klientów, które zostały uwierzytelnione danemu użytkownikowi.
 
 1. W VS Code Otwórz pozycję **Negocjuj/function.jsw systemie**.
 
-1. Wstaw [wyrażenie powiązania](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) do właściwości *userId* powiązania *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Spowoduje to ustawienie wartości na nazwę uwierzytelnionego użytkownika. Ten atrybut powinien teraz wyglądać następująco.
+1. Wstaw [wyrażenie powiązania](../azure-functions/functions-triggers-bindings.md) do właściwości *userId* powiązania *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Spowoduje to ustawienie wartości na nazwę uwierzytelnionego użytkownika. Ten atrybut powinien teraz wyglądać następująco.
 
     ```json
     {
@@ -431,11 +431,11 @@ Uwierzytelnianie usługi App Service obsługuje uwierzytelnianie za pomocą kont
 
 1. Postępuj zgodnie z dokumentacją wybranego dostawcy logowania, aby ukończyć konfigurację.
 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
-    - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
-    - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
-    - [Konto Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
-    - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
+    - [Azure Active Directory](../app-service/configure-authentication-provider-aad.md)
+    - [Facebook](../app-service/configure-authentication-provider-facebook.md)
+    - [Twitter](../app-service/configure-authentication-provider-twitter.md)
+    - [konto Microsoft](../app-service/configure-authentication-provider-microsoft.md)
+    - [Google](../app-service/configure-authentication-provider-google.md)
 
 ### <a name="update-the-web-app"></a>Aktualizowanie aplikacji internetowej
 
@@ -517,4 +517,3 @@ W niniejszym samouczku zawarto informacje na temat sposobu używania usługi Azu
 > [Kompilowanie aplikacji w czasie rzeczywistym za pomocą Azure Functions](signalr-concept-azure-functions.md)
 
 [Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
-

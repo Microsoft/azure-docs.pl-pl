@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
-ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63fade17d10189cbe8e775b2a859902f1c2bb004
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68883093"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151638"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Tworzenie aplikacji dla urządzeń przenośnych przy użyciu zestawów SDK usługi Azure IoT
 
-Elementy w Internet rzeczy mogą odnosić się do szerokiego zakresu urządzeń z różnymi możliwościami: czujników, mikrokontrolerów, urządzeń inteligentnych, bram przemysłowych, a nawet urządzeń przenośnych.  Urządzenie przenośne może być urządzeniem IoT, które wysyła dane telemetryczne z urządzenia do chmury i zarządzane przez chmurę.  Może to być również urządzenie z uruchomioną aplikacją usługi zaplecza, która zarządza innymi urządzeniami IoT.  W obu przypadkach [usługi Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) mogą służyć do tworzenia aplikacji, które działają dla urządzeń przenośnych.  
+Elementy w Internet rzeczy mogą odnosić się do szerokiego zakresu urządzeń z różnymi możliwościami: czujników, mikrokontrolerów, urządzeń inteligentnych, bram przemysłowych, a nawet urządzeń przenośnych.  Urządzenie przenośne może być urządzeniem IoT, które wysyła dane telemetryczne z urządzenia do chmury i zarządzane przez chmurę.  Może to być również urządzenie z uruchomioną aplikacją usługi zaplecza, która zarządza innymi urządzeniami IoT.  W obu przypadkach [usługi Azure IoT Hub SDK](./iot-hub-devguide-sdks.md) mogą służyć do tworzenia aplikacji, które działają dla urządzeń przenośnych.  
 
 ## <a name="develop-for-native-ios-platform"></a>Programowanie dla natywnej platformy systemu iOS
 
@@ -52,5 +52,5 @@ Te dokumenty przedstawiają sposób opracowywania aplikacji lub aplikacji na urz
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dokumentacja interfejsu API REST IoT Hub](https://docs.microsoft.com/rest/api/iothub/)
+* [Dokumentacja interfejsu API REST IoT Hub](/rest/api/iothub/)
 * [Kod źródłowy zestawu SDK usługi Azure IoT C](https://github.com/Azure/azure-iot-sdk-c)

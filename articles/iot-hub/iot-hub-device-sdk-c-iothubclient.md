@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f33521dd9110d7ba6ee84650345b38c8c6a4950b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81732597"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149145"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Zestaw SDK urządzeń Azure IoT dla języka C — więcej informacji na temat usługi iothubclient
 
@@ -28,7 +28,7 @@ Artykuł zawiera kilka różnych tematów, w tym więcej informacji o poświadcz
 
 Użyjemy przykładów zestawu **usługi iothubclient** SDK, aby wyjaśnić te tematy. Jeśli chcesz się dowiedzieć, zobacz przykład **iothub \_ klienta \_ \_ http** i iothub Client ** \_ \_ \_ AMQP** Applications, które znajdują się w zestawie SDK urządzeń Azure IoT dla języka C. wszystkie elementy opisane w poniższych sekcjach przedstawiono w tych przykładach.
 
-[**Zestaw SDK urządzeń Azure IoT dla**](https://github.com/Azure/azure-iot-sdk-c) repozytorium w serwisie GitHub i widok szczegółów interfejsu API można znaleźć w [dokumentacji interfejsu API języka c](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+[**Zestaw SDK urządzeń Azure IoT dla**](https://github.com/Azure/azure-iot-sdk-c) repozytorium w serwisie GitHub i widok szczegółów interfejsu API można znaleźć w [dokumentacji interfejsu API języka c](/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-lower-level-apis"></a>Interfejsy API niższego poziomu
 
@@ -157,7 +157,7 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 Zaczynamy od wywołania ** \_ Właściwości IoTHubMessage** i przekazania jej do uchwytu naszej wiadomości. Zawracamy do odwołania do ** \_ uchwytu mapy** , dzięki któremu możemy zacząć dodawać właściwości. Ten ostatni jest realizowany przez wywołanie ** \_ AddOrUpdate mapy**, która przyjmuje odwołanie do \_ uchwytu mapy, nazwy właściwości i wartości właściwości. Za pomocą tego interfejsu API można dodać dowolną liczbę właściwości.
 
-Gdy zdarzenie jest odczytywane z **Event Hubs**, odbiorca może wyliczyć właściwości i pobrać odpowiadające im wartości. Na przykład w programie .NET można to osiągnąć, uzyskując dostęp do [kolekcji właściwości w obiekcie EVENTDATA](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.properties.aspx).
+Gdy zdarzenie jest odczytywane z **Event Hubs**, odbiorca może wyliczyć właściwości i pobrać odpowiadające im wartości. Na przykład w programie .NET można to osiągnąć, uzyskując dostęp do [kolekcji właściwości w obiekcie EVENTDATA](/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
 W poprzednim przykładzie dołączamy właściwości do zdarzenia, które wysyłamy do IoT Hub. Właściwości można również dołączać do komunikatów odebranych z IoT Hub. Jeśli chcemy pobrać właściwości z komunikatu, możemy użyć kodu, takiego jak następujące w funkcji wywołania zwrotnego komunikatu:
 
@@ -277,4 +277,4 @@ W tym artykule szczegółowo opisano zachowanie biblioteki **usługi iothubclien
 
 Aby dowiedzieć się więcej na temat opracowywania IoT Hub, zobacz [zestawy SDK usługi Azure IoT](iot-hub-devguide-sdks.md).
 
-Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz [wdrażanie AI na urządzeniach brzegowych z Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz [wdrażanie AI na urządzeniach brzegowych z Azure IoT Edge](../iot-edge/quickstart-linux.md).

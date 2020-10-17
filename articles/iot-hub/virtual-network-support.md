@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613904"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149096"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -224,7 +224,7 @@ Teraz niestandardowy punkt końcowy usługi Service Bus jest skonfigurowany do k
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Wyjście z łączności z kontami magazynu na potrzeby przekazywania plików
 
-Funkcja przekazywania plików IoT Hub umożliwia urządzeniom przekazywanie plików do konta magazynu należącego do klienta. Aby umożliwić przekazywanie plików do funkcji, oba urządzenia i IoT Hub muszą mieć łączność z kontem magazynu. Jeśli ograniczenia dotyczące zapory są stosowane na koncie magazynu, urządzenia muszą używać dowolnego mechanizmu obsługiwanego konta magazynu (w tym [prywatnych punktów końcowych](../private-link/create-private-endpoint-storage-portal.md), [punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md)lub [bezpośredniej konfiguracji zapory](../storage/common/storage-network-security.md)) w celu uzyskania łączności. Analogicznie, jeśli istnieją ograniczenia dotyczące zapory na koncie magazynu, IoT Hub należy skonfigurować w celu uzyskania dostępu do zasobu magazynu za pomocą zaufanego wyjątku usług firmy Microsoft. W tym celu IoT Hub musi mieć zarządzaną tożsamość. Gdy zarządzana tożsamość zostanie zainicjowana, wykonaj poniższe kroki, aby udzielić kontroli RBAC tożsamości zasobu centrum w celu uzyskania dostępu do konta magazynu.
+Funkcja przekazywania plików IoT Hub umożliwia urządzeniom przekazywanie plików do konta magazynu należącego do klienta. Aby umożliwić przekazywanie plików do funkcji, oba urządzenia i IoT Hub muszą mieć łączność z kontem magazynu. Jeśli ograniczenia dotyczące zapory są stosowane na koncie magazynu, urządzenia muszą używać dowolnego mechanizmu obsługiwanego konta magazynu (w tym [prywatnych punktów końcowych](../private-link/tutorial-private-endpoint-storage-portal.md), [punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md)lub [bezpośredniej konfiguracji zapory](../storage/common/storage-network-security.md)) w celu uzyskania łączności. Analogicznie, jeśli istnieją ograniczenia dotyczące zapory na koncie magazynu, IoT Hub należy skonfigurować w celu uzyskania dostępu do zasobu magazynu za pomocą zaufanego wyjątku usług firmy Microsoft. W tym celu IoT Hub musi mieć zarządzaną tożsamość. Gdy zarządzana tożsamość zostanie zainicjowana, wykonaj poniższe kroki, aby udzielić kontroli RBAC tożsamości zasobu centrum w celu uzyskania dostępu do konta magazynu.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -252,7 +252,7 @@ Ta funkcja wymaga łączności IoT Hub z kontem magazynu. Aby uzyskać dostęp d
 
 3. Przejdź do karty **zapory i sieci wirtualne** na koncie magazynu i Włącz opcję **Zezwalaj na dostęp z wybranych sieci** . Na liście **wyjątków** zaznacz pole wyboru **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu**. Kliknij przycisk **Zapisz**.
 
-Za pomocą interfejsów API REST usługi Azure IoT można teraz [tworzyć zadania importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) , aby uzyskać informacje na temat korzystania z funkcji zbiorczego importowania/eksportowania. Musisz podać `storageAuthenticationType="identityBased"` w treści żądania, a `inputBlobContainerUri="https://..."` `outputBlobContainerUri="https://..."` także jako wejściowe i wyjściowe adresy URL konta magazynu.
+Za pomocą interfejsów API REST usługi Azure IoT można teraz [tworzyć zadania importowania eksportu](/rest/api/iothub/service/jobs/getimportexportjobs) , aby uzyskać informacje na temat korzystania z funkcji zbiorczego importowania/eksportowania. Musisz podać `storageAuthenticationType="identityBased"` w treści żądania, a `inputBlobContainerUri="https://..."` `outputBlobContainerUri="https://..."` także jako wejściowe i wyjściowe adresy URL konta magazynu.
 
 Zestawy SDK platformy Azure IoT Hub obsługują również tę funkcję w Menedżerze rejestru klienta usługi. Poniższy fragment kodu przedstawia sposób inicjowania zadania importowania lub eksportowania zadania w programie przy użyciu zestawu C# SDK.
 
@@ -295,4 +295,4 @@ Skorzystaj z poniższych linków, aby dowiedzieć się więcej o funkcjach IoT H
 
 * [Routing komunikatów](./iot-hub-devguide-messages-d2c.md)
 * [Przekazywanie plików](./iot-hub-devguide-file-upload.md)
-* [Zbiorcze importowanie/eksportowanie urządzeń](./iot-hub-bulk-identity-mgmt.md) 
+* [Zbiorcze importowanie/eksportowanie urządzeń](./iot-hub-bulk-identity-mgmt.md)

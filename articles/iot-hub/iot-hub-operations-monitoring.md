@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 9d9824be536ca657d9213a47898ad19b0c39d8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022024"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139326"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitorowanie operacji IoT Hub (przestarzałe)
 
@@ -191,7 +191,7 @@ Kategoria routingu wiadomości śledzi błędy występujące podczas oceny trasy
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Nawiązywanie połączenia z punktem końcowym monitorowania
 
-Punkt końcowy monitorowania w usłudze IoT Hub jest punktem końcowym zgodnym z centrum zdarzeń. Aby odczytać komunikaty monitorowania z tego punktu końcowego, można użyć dowolnego mechanizmu, który współpracuje z Event Hubs. Poniższy przykład tworzy podstawowy czytnik, który nie jest odpowiedni do wdrożenia o wysokiej przepływności. Więcej informacji na temat przetwarzania komunikatów z usługi Event Hubs znajduje się w samouczku [Rozpoczynanie pracy z usługą Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+Punkt końcowy monitorowania w usłudze IoT Hub jest punktem końcowym zgodnym z centrum zdarzeń. Aby odczytać komunikaty monitorowania z tego punktu końcowego, można użyć dowolnego mechanizmu, który współpracuje z Event Hubs. Poniższy przykład tworzy podstawowy czytnik, który nie jest odpowiedni do wdrożenia o wysokiej przepływności. Więcej informacji na temat przetwarzania komunikatów z usługi Event Hubs znajduje się w samouczku [Rozpoczynanie pracy z usługą Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Aby nawiązać połączenie z punktem końcowym monitorowania, potrzebne są parametry połączenia i nazwa punktu końcowego. Poniższe kroki pokazują, jak znaleźć wymagane wartości w portalu:
 
@@ -271,4 +271,4 @@ Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
 
 * [Przewodnik dla deweloperów IoT Hub](iot-hub-devguide.md)
 
-* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge](../iot-edge/quickstart-linux.md)

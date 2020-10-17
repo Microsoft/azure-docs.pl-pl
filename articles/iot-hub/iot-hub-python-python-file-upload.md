@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 988077a8a14339dea51bc36fdf6405b0f2f549ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1112df382fb10051ac06c4461a9e4328e1663388
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019465"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139308"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Przekazywanie plików z urządzenia do chmury przy użyciu IoT Hub (Python)
 
@@ -109,7 +109,7 @@ W tej sekcji utworzysz aplikację urządzenia w celu przekazania pliku do centru
             return (False, ex)
     ```
 
-    Ta funkcja analizuje przekazaną w niej strukturę *blob_info* , aby utworzyć adres URL, którego używa do zainicjowania [usługi Azure. Storage. blob. BlobClient](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Następnie przekazuje plik do magazynu obiektów blob platformy Azure przy użyciu tego klienta.
+    Ta funkcja analizuje przekazaną w niej strukturę *blob_info* , aby utworzyć adres URL, którego używa do zainicjowania [usługi Azure. Storage. blob. BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Następnie przekazuje plik do magazynu obiektów blob platformy Azure przy użyciu tego klienta.
 
 1. Dodaj następujący kod, aby połączyć klienta i przekazać plik:
 
@@ -209,6 +209,6 @@ W tym samouczku przedstawiono sposób użycia funkcji przekazywania plików IoT 
 
 Dowiedz się więcej o usłudze Azure Blob Storage, korzystając z następujących linków:
 
-* [Dokumentacja usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/)
+* [Dokumentacja usługi Azure Blob Storage](../storage/blobs/index.yml)
 
-* [Dokumentacja interfejsu API platformy Azure Blob Storage dla języka Python](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python)
+* [Dokumentacja interfejsu API platformy Azure Blob Storage dla języka Python](/python/api/overview/azure/storage-blob-readme?view=azure-python)

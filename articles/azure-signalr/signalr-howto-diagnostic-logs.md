@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85132020"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151054"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Dzienniki zasobów usługi Azure Signal Service
 
@@ -20,8 +20,8 @@ W tym samouczku omówiono dzienniki zasobów usługi Azure Signal, sposób ich k
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby włączyć dzienniki zasobów, musisz przechowywać dane dziennika. Ten samouczek używa usługi Azure Storage i Log Analytics.
 
-* [Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md) — przechowywanie dzienników zasobów na potrzeby inspekcji zasad, analizy statycznej lub tworzenia kopii zapasowej.
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) — elastyczne narzędzie do przeszukiwania dzienników i analizy umożliwiające analizę nieprzetworzonych dzienników generowanych przez zasób platformy Azure.
+* [Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) — przechowywanie dzienników zasobów na potrzeby inspekcji zasad, analizy statycznej lub tworzenia kopii zapasowej.
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) — elastyczne narzędzie do przeszukiwania dzienników i analizy umożliwiające analizę nieprzetworzonych dzienników generowanych przez zasób platformy Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Konfigurowanie dzienników zasobów dla usługi Azure Signal Service
 
@@ -136,7 +136,7 @@ OperationName | Nazwa operacji dla zdarzenia
 Lokalizacja | Lokalizacja usługi Azure Signal
 Poziom | Poziom zdarzeń dziennika
 CallerIpAddress | Adres IP serwera/klienta
-Komunikat | Szczegółowy komunikat zdarzenia dziennika
+Wiadomość | Szczegółowy komunikat zdarzenia dziennika
 UserId | Tożsamość użytkownika
 ConnectionId | Tożsamość połączenia
 Element ConnectionType | Typ połączenia. Dozwolone wartości to: `Server` \| `Client` . `Server`: połączenie po stronie serwera; `Client`: połączenie po stronie klienta
@@ -184,7 +184,7 @@ Jeśli otrzymasz 401 nieautoryzowanych żądań klientów, Sprawdź dzienniki za
 
 Jeśli okaże się, że nie można ustanowić połączeń klienta sygnalizującego z usługą Azure Signal Service, Sprawdź dzienniki zasobów. Jeśli wystąpią `Connection count reaches limit` w dzienniku zasobów, nawiążesz zbyt wiele połączeń z usługą sygnalizującego, która osiągnie limit liczby połączeń. Rozważ skalowanie w górę usługi sygnalizującej. Jeśli wystąpią `Message count reaches limit` w dzienniku zasobów, oznacza to, że używasz warstwy Bezpłatna i używasz limitu przydziału komunikatów. Jeśli chcesz wysłać więcej komunikatów, Rozważ zmianę usługi sygnalizującej na warstwę Standardowa w celu wysyłania dodatkowych komunikatów. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Signal](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-### <a name="get-help"></a>Uzyskaj pomoc
+### <a name="get-help"></a>Uzyskiwanie pomocy
 
 Zalecamy najpierw Rozwiązywanie problemów. Większość problemów jest spowodowana przez serwer aplikacji lub problemy z siecią. Skorzystaj [z przewodnika rozwiązywania problemów z dziennikiem zasobów](#troubleshooting-with-resource-logs) i [przewodnikiem z podstawowymi problemami](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) , aby znaleźć główną przyczynę.
 Jeśli problem nadal nie może zostać rozwiązany, rozważ otwarcie problemu w usłudze GitHub lub utworzenie biletu w witrynie Azure Portal.

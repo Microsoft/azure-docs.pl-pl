@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: e9a776aad966bb74e22f6d7fb8d66530e4b4db92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab26ad08947a4a9929ae0d41b669160b3d159224
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255200"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150235"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementowanie warstwowej architektury zabezpieczeń w środowiskach App Service
 Ponieważ środowiska App Service udostępniają izolowane środowisko uruchomieniowe wdrożone w sieci wirtualnej, deweloperzy mogą tworzyć warstwowe architektury zabezpieczeń zapewniające różne poziomy dostępu do sieci dla każdej warstwy fizycznej aplikacji.
@@ -115,7 +115,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 Po zastosowaniu sieciowej grupy zabezpieczeń do podsieci, tylko trzy środowiska App Service nadrzędnego i App Service Environment zawierające zaplecza interfejsu API, mogą wywołać środowisko "apiase".
 
 ## <a name="additional-links-and-information"></a>Dodatkowe linki i informacje
-Informacje o [sieciowych grupach zabezpieczeń](../../virtual-network/security-overview.md).
+Informacje o [sieciowych grupach zabezpieczeń](../../virtual-network/network-security-groups-overview.md).
 
 Informacje o [wychodzących adresach IP][NetworkArchitecture] i środowiskach App Service.
 

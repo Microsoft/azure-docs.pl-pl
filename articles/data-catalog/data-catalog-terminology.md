@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e636a039302d2ea61c7135bff1fceb4763f25df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68736295"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151449"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia Azure Data Catalog
 
@@ -39,7 +39,7 @@ Metadane strukturalne to metadane wyodrębnione ze źródła danych, które opis
 
 ## <a name="descriptive-metadata"></a>Metadane opisowe
 
-Metadane opisowe to metadane opisujące cel lub intencję zasobu danych. Zazwyczaj metadane opisowe są dodawane przez użytkowników wykazu przy użyciu portalu Azure Data Catalog, ale można je również wyodrębnić ze źródła danych podczas rejestracji. Na przykład Narzędzie rejestracji Azure Data Catalog będzie wyodrębniać opisy z właściwości Description w SQL Server Analysis Services i SQL Server Reporting Services oraz z [właściwości rozszerzonej MS_Description](https://technet.microsoft.com/library/ms190243.aspx) w SQL Server bazach danych, jeśli te właściwości zostały wypełnione wartościami.
+Metadane opisowe to metadane opisujące cel lub intencję zasobu danych. Zazwyczaj metadane opisowe są dodawane przez użytkowników wykazu przy użyciu portalu Azure Data Catalog, ale można je również wyodrębnić ze źródła danych podczas rejestracji. Na przykład Narzędzie rejestracji Azure Data Catalog będzie wyodrębniać opisy z właściwości Description w SQL Server Analysis Services i SQL Server Reporting Services oraz z [właściwości rozszerzonej MS_Description](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)) w SQL Server bazach danych, jeśli te właściwości zostały wypełnione wartościami.
 
 ## <a name="request-access"></a>Żądanie dostępu
 
@@ -86,4 +86,4 @@ Rejestracja to czynność wyodrębniania metadanych zasobów danych ze źródła
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Szybki Start: Tworzenie Azure Data Catalog](data-catalog-get-started.md) 
+[Szybki Start: Tworzenie Azure Data Catalog](data-catalog-get-started.md)

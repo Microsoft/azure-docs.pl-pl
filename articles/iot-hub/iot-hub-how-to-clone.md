@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75429155"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151657"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Jak sklonować usługę Azure IoT Hub do innego regionu
 
@@ -353,7 +353,7 @@ Utwórz nowe centrum w nowej lokalizacji przy użyciu szablonu. W przypadku zaso
 
 1. W polu wyszukiwania wprowadź ciąg "wdrożenie szablonu" i wybierz polecenie wprowadź.
 
-1. Wybierz pozycję **wdrożenie szablonu (Wdróż przy użyciu szablonów niestandardowych)**. Spowoduje to przejście do ekranu dla Template deployment. Wybierz przycisk **Utwórz**. Zostanie wyświetlony następujący ekran:
+1. Wybierz pozycję **wdrożenie szablonu (Wdróż przy użyciu szablonów niestandardowych)**. Spowoduje to przejście do ekranu dla Template deployment. Wybierz pozycję **Utwórz**. Zostanie wyświetlony następujący ekran:
 
    ![Zrzut ekranu przedstawiający polecenie tworzenia własnego szablonu](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -385,7 +385,7 @@ Portal teraz sprawdza poprawność szablonu i wdraża sklonowane centrum. Jeśli
 
 Po ukończeniu klonowania i uruchomienia należy skopiować wszystkie urządzenia z oryginalnego centrum do klona. 
 
-Istnieje wiele sposobów osiągnięcia tego celu. Pierwotnie była używana [Usługa Device Provisioning (DPS)](/azure/iot-dps/about-iot-dps)do udostępniania urządzeń lub nie została ona zastosowana. Jeśli tak, to nie jest trudne. Jeśli tego nie zrobiono, może to być bardzo skomplikowane. 
+Istnieje wiele sposobów osiągnięcia tego celu. Pierwotnie była używana [Usługa Device Provisioning (DPS)](../iot-dps/about-iot-dps.md)do udostępniania urządzeń lub nie została ona zastosowana. Jeśli tak, to nie jest trudne. Jeśli tego nie zrobiono, może to być bardzo skomplikowane. 
 
 Jeśli nie korzystasz z usługi DPS do aprowizacji urządzeń, możesz pominąć następną sekcję i rozpocząć korzystanie z usługi [Import/Export w celu przeniesienia urządzeń do nowego centrum](#using-import-export-to-move-the-devices-to-the-new-hub).
 
@@ -601,4 +601,4 @@ Aby uzyskać więcej informacji na temat IoT Hub i programowania dla centrum, zo
 
 * [IoT Hub zarządzanie urządzeniami — Omówienie](iot-hub-device-management-overview.md)
 
-* Jeśli chcesz wdrożyć przykładową aplikację, zobacz [wdrażanie aplikacji .NET Core](https://docs.microsoft.com/dotnet/core/deploying/index).
+* Jeśli chcesz wdrożyć przykładową aplikację, zobacz [wdrażanie aplikacji .NET Core](/dotnet/core/deploying/index).

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420884"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149065"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Dodawanie certyfikatu TSL/SSL w usłudze Azure App Service
 
@@ -145,8 +145,8 @@ Na stronie **stan Key Vault** kliknij pozycję **Key Vault repozytorium** , aby 
 | Grupa zasobów | Zgodnie z zaleceniem wybierz tę samą grupę zasobów co certyfikat App Service. |
 | Lokalizacja | Wybierz tę samą lokalizację, w której znajduje się aplikacja App Service. |
 | Warstwa cenowa | Aby uzyskać więcej informacji, zobacz [Azure Key Vault szczegóły cennika](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Zasady dostępu| Definiuje aplikacje i dozwolony dostęp do zasobów magazynu. Można ją później skonfigurować, wykonując czynności opisane w sekcji [przypisywanie zasad dostępu Key Vault](/azure/key-vault/general/assign-access-policy-portal). |
-| Dostęp Virtual Network | Ogranicz dostęp do magazynu do określonych sieci wirtualnych platformy Azure. Można skonfigurować ją później, wykonując czynności opisane w sekcji [konfigurowanie Azure Key Vault zapór i sieci wirtualnych](/azure/key-vault/general/network-security) |
+| Zasady dostępu| Definiuje aplikacje i dozwolony dostęp do zasobów magazynu. Można ją później skonfigurować, wykonując czynności opisane w sekcji [przypisywanie zasad dostępu Key Vault](../key-vault/general/assign-access-policy-portal.md). |
+| Dostęp Virtual Network | Ogranicz dostęp do magazynu do określonych sieci wirtualnych platformy Azure. Można skonfigurować ją później, wykonując czynności opisane w sekcji [konfigurowanie Azure Key Vault zapór i sieci wirtualnych](../key-vault/general/network-security.md) |
 
 Po wybraniu magazynu zamknij stronę **repozytorium Key Vault** . Opcja " **krok 1: Magazyn** " powinna zawierać zielony znacznik wyboru dla sukcesu. Pozostaw otwartą stronę w następnym kroku.
 
@@ -189,7 +189,7 @@ Po zakończeniu operacji zobaczysz certyfikat na liście **Certyfikaty klucza pr
 Jeśli używasz Azure Key Vault do zarządzania certyfikatami, możesz zaimportować certyfikat PKCS12 z Key Vault do App Service o ile [spełnia wymagania](#private-certificate-requirements).
 
 ### <a name="authorize-app-service-to-read-from-the-vault"></a>Autoryzuj App Service do odczytu z magazynu
-Domyślnie dostawca zasobów App Service nie ma dostępu do Key Vault. Aby można było użyć Key Vault do wdrożenia certyfikatu, należy [autoryzować dostawcę zasobów dostępu do odczytu do magazynu](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault)kluczy. 
+Domyślnie dostawca zasobów App Service nie ma dostępu do Key Vault. Aby można było użyć Key Vault do wdrożenia certyfikatu, należy [autoryzować dostawcę zasobów dostępu do odczytu do magazynu](../key-vault/general/assign-access-policy-cli.md)kluczy. 
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd`  jest główną nazwą usługi dostawcy zasobów dla App Service i jest taka sama dla wszystkich subskrypcji platformy Azure. W przypadku Azure Government środowiska chmury Użyj `6a02c803-dafd-4136-b4c3-5a6f318b4714` zamiast tego jako nazwy głównej usługi dostawcy zasobów.
 
@@ -206,7 +206,7 @@ Skorzystaj z poniższej tabeli, aby wybrać certyfikat.
 | Ustawienie | Opis |
 |-|-|
 | Subskrypcja | Subskrypcja, do której należy Key Vault. |
-| Usługa Key Vault | Magazyn z certyfikatem, który ma zostać zaimportowany. |
+| Key Vault | Magazyn z certyfikatem, który ma zostać zaimportowany. |
 | Certyfikat | Wybierz z listy PKCS12 certyfikatów w magazynie. Wszystkie certyfikaty PKCS12 w magazynie są wyświetlane z odciskiem palca, ale nie wszystkie są obsługiwane w App Service. |
 
 Po zakończeniu operacji zobaczysz certyfikat na liście **Certyfikaty klucza prywatnego** . Jeśli importowanie nie powiedzie się z powodu błędu, certyfikat nie spełnia [wymagań dotyczących App Service](#private-certificate-requirements).

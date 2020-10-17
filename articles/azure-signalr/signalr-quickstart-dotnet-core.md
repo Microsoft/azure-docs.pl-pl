@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: b5fc15815c9843c55bf31efe31e12e2de02d3be3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b5a2064e2fd80b895b0e801090c66d7119cf69dd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874020"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151014"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Szybki Start: Tworzenie pokoju rozmów przy użyciu usługi sygnalizującej
 
-Usługa Azure SignalR Service to usługa platformy Azure, która ułatwia deweloperom tworzenie aplikacji internetowych z funkcjami działającymi w czasie rzeczywistym. Ta usługa była pierwotnie oparta na [sygnale dla ASP.NET Core 2,1](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), ale teraz obsługuje nowsze wersje.
+Usługa Azure SignalR Service to usługa platformy Azure, która ułatwia deweloperom tworzenie aplikacji internetowych z funkcjami działającymi w czasie rzeczywistym. Ta usługa była pierwotnie oparta na [sygnale dla ASP.NET Core 2,1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), ale teraz obsługuje nowsze wersje.
 
 W tym artykule pokazano, jak rozpocząć pracę z usługą Azure SignalR Service. W tym przewodniku szybki start utworzysz aplikację czatu przy użyciu aplikacji sieci Web ASP.NET Core MVC. Ta aplikacja nawiąże połączenie z zasobem usługi Azure SignalR Service, aby umożliwić aktualizacje zawartości w czasie rzeczywistym. Będziesz hostować aplikację sieci Web lokalnie i łączyć się z wieloma klientami przeglądarki. Każdy klient będzie mógł wypychać aktualizacje zawartości do innych klientów. 
 
@@ -42,7 +42,7 @@ Kod dla tego samouczka jest dostępny do pobrania w [repozytorium GitHub o nazwi
 
 ## <a name="create-an-aspnet-core-web-app"></a>Tworzenie aplikacji internetowej ASP.NET Core
 
-W tej sekcji użyjesz [interfejsu wiersza polecenia platformy .NET Core](https://docs.microsoft.com/dotnet/core/tools/) do utworzenia projektu aplikacji sieci Web ASP.NET Core MVC. Zaletą korzystania z interfejs wiersza polecenia platformy .NET Core przez program Visual Studio jest to, że jest on dostępny na platformach Windows, macOS i Linux. 
+W tej sekcji użyjesz [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools/) do utworzenia projektu aplikacji sieci Web ASP.NET Core MVC. Zaletą korzystania z interfejs wiersza polecenia platformy .NET Core przez program Visual Studio jest to, że jest on dostępny na platformach Windows, macOS i Linux. 
 
 1. Utwórz folder dla projektu. Ten przewodnik Szybki Start używa folderu *E:\Testing\chattest* .
 
@@ -56,7 +56,7 @@ W tej sekcji użyjesz [interfejsu wiersza polecenia platformy .NET Core](https:/
 
 ## <a name="add-secret-manager-to-the-project"></a>Dodawanie narzędzia Secret Manager do projektu
 
-W tej sekcji dodasz do projektu [Narzędzie do zarządzania kluczami tajnymi](https://docs.microsoft.com/aspnet/core/security/app-secrets) . Narzędzie Secret Manager przechowuje dane poufne do pracy programistycznej poza drzewem projektu. Takie podejście pomaga uniknąć przypadkowego udostępniania wpisów tajnych aplikacji w kodzie źródłowym.
+W tej sekcji dodasz do projektu [Narzędzie do zarządzania kluczami tajnymi](/aspnet/core/security/app-secrets) . Narzędzie Secret Manager przechowuje dane poufne do pracy programistycznej poza drzewem projektu. Takie podejście pomaga uniknąć przypadkowego udostępniania wpisów tajnych aplikacji w kodzie źródłowym.
 
 1. Otwórz plik *csproj*. Dodaj element `DotNetCliToolReference`, aby uwzględnić narzędzia *Microsoft.Extensions.SecretManager.Tools*. Dodaj również `UserSecretsId` element, jak pokazano w poniższym kodzie dla *csproj*i Zapisz plik.
 
@@ -107,12 +107,13 @@ W tej sekcji dodasz do projektu [Narzędzie do zarządzania kluczami tajnymi](ht
     Ten klucz tajny jest dostępny z interfejsem API konfiguracji. Dwukropek (:) działa w nazwie konfiguracji z interfejsem API konfiguracji na wszystkich obsługiwanych platformach. Zobacz [Konfiguracja według środowiska](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
 
-4. Otwórz plik *Startup.cs* i zaktualizuj metodę `ConfigureServices` tak, aby używała usługi SignalR Service przez wywołanie metody `AddSignalR()`:
+4. Otwórz *Startup.cs* i zaktualizuj `ConfigureServices` metodę, aby użyć usługi Azure Signaling, wywołując `AddSignalR()` metody i `AddAzureSignalR()` :
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddAzureSignalR();
+        services.AddSignalR()
+                .AddAzureSignalR();
     }
     ```
 
@@ -325,7 +326,7 @@ Metoda `HubConnection.start()` uruchamia komunikację z centrum. Następnie prog
 
 ## <a name="add-a-development-runtime-profile"></a>Dodawanie profilu środowiska uruchomieniowego programowania
 
-W tej sekcji dodasz środowisko środowiska uruchomieniowego dla ASP.NET Core. Aby uzyskać więcej informacji, zobacz [Working with Multiple Environments in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+W tej sekcji dodasz środowisko środowiska uruchomieniowego dla ASP.NET Core. Aby uzyskać więcej informacji, zobacz [Working with Multiple Environments in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
 1. Utwórz folder o nazwie *Właściwości* w projekcie.
 

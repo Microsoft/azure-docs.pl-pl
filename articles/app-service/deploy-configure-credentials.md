@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715403"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149027"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Skonfiguruj poświadczenia wdrażania dla Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) obsługuje dwa typy poświadczeń dla [lokalnego wdrożenia git](deploy-local-git.md) i [wdrożenia FTP/S](deploy-ftp.md). Te poświadczenia nie są takie same, jak poświadczenia subskrypcji platformy Azure.
+[Azure App Service](./overview.md) obsługuje dwa typy poświadczeń dla [lokalnego wdrożenia git](deploy-local-git.md) i [wdrożenia FTP/S](deploy-ftp.md). Te poświadczenia nie są takie same, jak poświadczenia subskrypcji platformy Azure.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
@@ -96,11 +96,11 @@ Aby wyłączyć podstawowy dostęp uwierzytelniania do witryny webdeploy port i 
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Aby upewnić się, że poświadczenia profilu publikowania są blokowane w programie webdeploy, spróbuj [opublikować aplikację sieci Web przy użyciu programu Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Aby upewnić się, że poświadczenia profilu publikowania są blokowane w programie webdeploy, spróbuj [opublikować aplikację sieci Web przy użyciu programu Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 ### <a name="disable-access-to-the-api"></a>Wyłącz dostęp do interfejsu API
 
-Interfejs API w poprzedniej sekcji jest kopią zapasową kontroli dostępu opartej na rolach (Azure RBAC), co oznacza, że można [utworzyć rolę niestandardową](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) i przypisać użytkownikom niższych priveldged do roli, aby nie mogli włączyć uwierzytelniania podstawowego w dowolnych lokacjach. Aby skonfigurować rolę niestandardową, [wykonaj te instrukcje](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+Interfejs API w poprzedniej sekcji jest kopią zapasową kontroli dostępu opartej na rolach (Azure RBAC), co oznacza, że można [utworzyć rolę niestandardową](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role) i przypisać użytkownikom niższych priveldged do roli, aby nie mogli włączyć uwierzytelniania podstawowego w dowolnych lokacjach. Aby skonfigurować rolę niestandardową, [wykonaj te instrukcje](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
 
 Możesz również użyć [Azure monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) do inspekcji wszelkich pomyślnych żądań uwierzytelnienia i użyć [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) , aby wymusić tę konfigurację dla wszystkich lokacji w ramach subskrypcji.
 

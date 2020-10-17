@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 871a4c7d99fc44cf9868f19e41560e6e7a2e22f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84be56ae372f8a902b12c06f9ce93c1f7210dc5b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793324"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150591"
 ---
 # <a name="troubleshooting-message-routing"></a>Rozwiązywanie problemów z routingiem komunikatów
 
@@ -42,7 +42,7 @@ Wszystkie [metryki IoT Hub](iot-hub-devguide-endpoints.md) związane z routingie
 Zapoznaj się z [dziennikami diagnostycznymi](iot-hub-monitor-resource-health.md#routes) **trasy** , aby uzyskać więcej informacji na temat [operacji](#operation-names) routingu i punktów końcowych lub zidentyfikować błędy i odpowiedni [Kod błędu](#common-error-codes) , aby dokładniej zrozumieć problem. Na przykład nazwa operacji **RouteEvaluationError** w dzienniku wskazuje, że nie można ocenić trasy z powodu problemu z formatem wiadomości. Aby wyeliminować problem, Skorzystaj z porad dostarczonych dla konkretnych [nazw operacji](#operation-names) . Gdy zdarzenie jest rejestrowane jako błąd, dziennik również zawiera więcej informacji na temat przyczyny niepowodzenia oceny. Na przykład, jeśli nazwa operacji to **EndpointUnhealthy**, [kody błędów](#common-error-codes) 403004 wskazuje, że punkt końcowy kończy się poza miejscem.
 
 #### <a name="the-health-of-the-endpoint"></a>Kondycja punktu końcowego
-Użyj interfejsu API REST [Uzyskaj kondycję punktu końcowego](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) , aby uzyskać [stan kondycji](iot-hub-devguide-endpoints.md#custom-endpoints) punktów końcowych. Interfejs API *kondycji Get Endpoint* zawiera również informacje dotyczące ostatniego wysłania komunikatu do punktu końcowego, [ostatniego znanego błędu](#last-known-errors-for-iot-hub-routing-endpoints), ostatniego znanego błędu i ostatniej próby wysłania dla tego punktu końcowego. Należy zastosować możliwe środki zaradcze dla określonego [ostatniego znanego błędu](#last-known-errors-for-iot-hub-routing-endpoints).
+Użyj interfejsu API REST [Uzyskaj kondycję punktu końcowego](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) , aby uzyskać [stan kondycji](iot-hub-devguide-endpoints.md#custom-endpoints) punktów końcowych. Interfejs API *kondycji Get Endpoint* zawiera również informacje dotyczące ostatniego wysłania komunikatu do punktu końcowego, [ostatniego znanego błędu](#last-known-errors-for-iot-hub-routing-endpoints), ostatniego znanego błędu i ostatniej próby wysłania dla tego punktu końcowego. Należy zastosować możliwe środki zaradcze dla określonego [ostatniego znanego błędu](#last-known-errors-for-iot-hub-routing-endpoints).
 
 ### <a name="i-suddenly-stopped-getting-messages-at-the-built-in-endpoint"></a>Nagle zatrzymałem pobieranie komunikatów w wbudowanym punkcie końcowym
 
@@ -52,9 +52,9 @@ Aby rozwiązać ten problem, Przeanalizuj poniższe elementy.
 Po utworzeniu trasy dane przestają przepływać do wbudowanego punktu końcowego, chyba że trasa zostanie utworzona do tego punktu końcowego. Aby zapewnić, że komunikaty będą nadal przepływać do wbudowanego punktu końcowego w przypadku dodania nowej trasy, skonfiguruj trasę do punktu końcowego *zdarzenia* . 
 
 #### <a name="was-the-fallback-route-disabled"></a>Czy ta trasa rezerwowa jest wyłączona?
-Trasa rezerwowa wysyła wszystkie komunikaty, które nie spełniają warunków zapytania na żadnej z istniejących tras do [wbudowanych Event Hubs](iot-hub-devguide-messages-read-builtin.md) (komunikaty/zdarzenia), które są zgodne z [Event Hubs](https://docs.microsoft.com/azure/event-hubs/). Jeśli jest włączona funkcja routingu wiadomości, można włączyć funkcję trasy rezerwowej. Jeśli nie ma tras do wbudowanego punktu końcowego, a trasa rezerwowa jest włączona, tylko komunikaty, które nie pasują do żadnych warunków zapytania dotyczące tras, będą wysyłane do wbudowanego punktu końcowego. Ponadto jeśli wszystkie istniejące trasy zostaną usunięte, należy włączyć trasy rezerwowe, aby odbierać wszystkie dane w wbudowanym punkcie końcowym.
+Trasa rezerwowa wysyła wszystkie komunikaty, które nie spełniają warunków zapytania na żadnej z istniejących tras do [wbudowanych Event Hubs](iot-hub-devguide-messages-read-builtin.md) (komunikaty/zdarzenia), które są zgodne z [Event Hubs](../event-hubs/index.yml). Jeśli jest włączona funkcja routingu wiadomości, można włączyć funkcję trasy rezerwowej. Jeśli nie ma tras do wbudowanego punktu końcowego, a trasa rezerwowa jest włączona, tylko komunikaty, które nie pasują do żadnych warunków zapytania dotyczące tras, będą wysyłane do wbudowanego punktu końcowego. Ponadto jeśli wszystkie istniejące trasy zostaną usunięte, należy włączyć trasy rezerwowe, aby odbierać wszystkie dane w wbudowanym punkcie końcowym.
 
-Można włączyć/wyłączyć trasę alternatywną w bloku routing wiadomości Azure Portal->. Można również użyć Azure Resource Manager do [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) , aby użyć niestandardowego punktu końcowego dla trasy rezerwowej.
+Można włączyć/wyłączyć trasę alternatywną w bloku routing wiadomości Azure Portal->. Można również użyć Azure Resource Manager do [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) , aby użyć niestandardowego punktu końcowego dla trasy rezerwowej.
 
 ## <a name="last-known-errors-for-iot-hub-routing-endpoints"></a>Ostatnie znane błędy dla punktów końcowych routingu IoT Hub
 

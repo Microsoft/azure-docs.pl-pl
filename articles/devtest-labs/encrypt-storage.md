@@ -3,12 +3,12 @@ title: Szyfruj konto usługi Azure Storage używane przez laboratorium w Azure D
 description: Dowiedz się, jak skonfigurować szyfrowanie usługi Azure Storage używanej przez laboratorium w Azure DevTest Labs
 ms.topic: how-to
 ms.date: 07/29/2020
-ms.openlocfilehash: 3c1d1531084deeabbe9a8d261e93554a2c691eb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcede89fb23c532742e41121688bcb51a5a73833
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87433594"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149317"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Szyfruj magazyn platformy Azure używany przez laboratorium w Azure DevTest Labs
 Każde laboratorium utworzone w Azure DevTest Labs jest tworzone przy użyciu skojarzonego konta usługi Azure Storage. Konto magazynu jest używane w następujących celach: 
@@ -36,13 +36,13 @@ Każde laboratorium utworzone w Azure DevTest Labs jest tworzone przy użyciu sk
 ## <a name="encrypt-the-lab-storage-account"></a>Szyfrowanie konta magazynu laboratorium
 Usługa Azure Storage automatycznie szyfruje dane, gdy są utrwalane w chmurze. Szyfrowanie usługi Azure Storage chroni dane i pomaga sprostać zobowiązaniom dotyczącym zabezpieczeń i zgodności w organizacji. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md).
 
-Dane na koncie magazynu laboratorium są szyfrowane za pomocą **klucza zarządzanego przez firmę Microsoft**. Możesz polegać na kluczach zarządzanych przez firmę Microsoft na potrzeby szyfrowania danych. Możesz też zarządzać szyfrowaniem przy użyciu własnych kluczy. W przypadku wybrania opcji zarządzania szyfrowaniem przy użyciu własnych kluczy konta magazynu laboratorium można określić **klucz zarządzany przez klienta** z Azure Key Vault, który będzie używany do szyfrowania/odszyfrowywania danych w usłudze BLOB Storage i w Azure Files. Więcej informacji o kluczach zarządzanych przez klienta znajduje się w temacie [Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage](../storage/common/encryption-customer-managed-keys.md).
+Dane na koncie magazynu laboratorium są szyfrowane za pomocą **klucza zarządzanego przez firmę Microsoft**. Możesz polegać na kluczach zarządzanych przez firmę Microsoft na potrzeby szyfrowania danych. Możesz też zarządzać szyfrowaniem przy użyciu własnych kluczy. W przypadku wybrania opcji zarządzania szyfrowaniem przy użyciu własnych kluczy konta magazynu laboratorium można określić **klucz zarządzany przez klienta** z Azure Key Vault, który będzie używany do szyfrowania/odszyfrowywania danych w usłudze BLOB Storage i w Azure Files. Więcej informacji o kluczach zarządzanych przez klienta znajduje się w temacie [Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage](../storage/common/customer-managed-keys-overview.md).
 
 Aby dowiedzieć się, jak skonfigurować klucze zarządzane przez klienta do szyfrowania za pomocą usługi Azure Storage, zobacz następujące artykuły: 
 
-- [Azure Portal](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [Interfejs wiersza polecenia platformy Azure](../storage/common/storage-encryption-keys-cli.md)
+- [Azure Portal](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Interfejs wiersza polecenia platformy Azure](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 
 ## <a name="manage-the-azure-blob-storage-life-cycle"></a>Zarządzanie cyklem życia usługi Azure Blob Storage
@@ -101,8 +101,6 @@ Na przykład Poniższa reguła służy do ustawiania 90-dniowej reguły wygaśni
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się, jak skonfigurować klucze zarządzane przez klienta do szyfrowania za pomocą usługi Azure Storage, zobacz następujące artykuły: 
 
-- [Azure Portal](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [Interfejs wiersza polecenia platformy Azure](../storage/common/storage-encryption-keys-cli.md)
-
-
+- [Azure Portal](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Interfejs wiersza polecenia platformy Azure](../storage/common/customer-managed-keys-configure-key-vault.md)

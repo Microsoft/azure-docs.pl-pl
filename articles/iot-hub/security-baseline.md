@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49496dbf1355ceee7619d93bcb0676892b7a212d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906920"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150566"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Podstawa zabezpieczeń Azure dla usługi Azure IoT Hub
 
@@ -33,9 +33,9 @@ Zaleca się ograniczenie łączności z zasobami platformy Azure (w tym Azure Io
 Pozostaw otwarte porty sprzętowe na urządzeniach, aby uniknąć niepożądanego dostępu. Ponadto mechanizmy kompilacji, aby zapobiec lub wykryć fizyczne manipulowanie urządzeniem.
 
 - [Obsługa sieci wirtualnych IoT](virtual-network-support.md)
-- [najlepsze rozwiązanie w zakresie sieci](https://docs.microsoft.com/azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc#networking)
+- [najlepsze rozwiązanie w zakresie sieci](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
 - [Omówienie linku prywatnego platformy Azure](../private-link/private-link-overview.md)
-- [Grupa zabezpieczeń sieci platformy Azure](../virtual-network/security-overview.md)
+- [Grupa zabezpieczeń sieci platformy Azure](../virtual-network/network-security-groups-overview.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -75,7 +75,7 @@ Azure DDoS Protection podstawowa jest już włączona i dostępna bez dodatkowyc
 
 - [Zarządzanie Azure DDoS Protection podstawowa](../virtual-network/ddos-protection-overview.md)
 
-- [Ochrona przed zagrożeniami w usłudze Azure Security Center](../security-center/threat-protection.md)
+- [Ochrona przed zagrożeniami w usłudze Azure Security Center](../security-center/azure-defender.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -138,7 +138,7 @@ W celu wykrycia i/lub zablokowania złośliwego ruchu należy wdrożyć wybrane 
 
 **Wskazówki**: Użyj tagów dla zasobów sieciowych skojarzonych z wdrożeniem IoT Hub platformy Azure, aby logicznie zorganizować je w taksonomię.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -148,7 +148,7 @@ W celu wykrycia i/lub zablokowania złośliwego ruchu należy wdrożyć wybrane 
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z usługą Azure IoT Hub. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -274,9 +274,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia zarządzanie dostępem do usługi Azure IoT Hub za pomocą przypisań ról. Te role można przypisać do użytkowników, grup jednostek usługi i tożsamości zarządzanych. Istnieją wstępnie zdefiniowane wbudowane role dla niektórych zasobów i te role można spisować lub odpytać za pomocą narzędzi takich jak interfejs wiersza polecenia platformy Azure lub Azure PowerShell lub Azure Portal. 
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -296,7 +296,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Możesz również włączyć dostęp just in Time do kont administracyjnych przy użyciu Azure AD Privileged Identity Management i Azure Resource Manager.
 
-- [Dowiedz się więcej o Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Dowiedz się więcej o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -340,7 +340,7 @@ Możesz również włączyć dostęp just in Time do kont administracyjnych przy
 
 **Wskazówki**: Użyj Azure Active Directory raportów i monitorowania zabezpieczeń, aby wykrywać, kiedy w środowisku występuje podejrzane lub niebezpieczne działania. Użyj Azure Security Center, aby monitorować działania związane z tożsamościami i dostępem.
 
-- [Identyfikowanie użytkowników usługi Azure AD oflagowanych w celu działania ryzykownego](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Identyfikowanie użytkowników usługi Azure AD oflagowanych w celu działania ryzykownego](../active-directory/identity-protection/overview-identity-protection.md)
 - [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Monitorowanie Azure Security Center**: tak
@@ -376,9 +376,9 @@ W przypadku dostępu do urządzeń i usług IoT Hub używa tokenów zabezpieczaj
 
 Użyj Azure AD Privileged Identity Management (PIM) do generowania dzienników i alertów w przypadku wystąpienia podejrzanych lub niebezpiecznych działań w środowisku.
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 - [Jak korzystać z przeglądów tożsamości i dostępu w usłudze Azure AD](../active-directory/governance/access-reviews-overview.md)
-- [Wdróż Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Wdróż Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -392,7 +392,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 Użytkownik Azure Monitor dzienników diagnostycznych do monitorowania nieautoryzowanych prób połączenia w kategorii połączenia.
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Konfigurowanie dzienników diagnostycznych dla usługi IoT Hub](iot-hub-monitor-resource-health.md)
 
@@ -404,7 +404,7 @@ Użytkownik Azure Monitor dzienników diagnostycznych do monitorowania nieautory
 
 **Wskazówki**: użyj funkcji Azure AD Identity Protection, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
   
-- [ Jak wyświetlić ryzykowne logowania usługi Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [ Jak wyświetlić ryzykowne logowania usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
   
 - [ Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
   
@@ -430,7 +430,7 @@ Użytkownik Azure Monitor dzienników diagnostycznych do monitorowania nieautory
 
 **Wskazówki**: Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, które przechowują lub przetwarzają informacje poufne.
  
-- [ Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -440,9 +440,9 @@ Użytkownik Azure Monitor dzienników diagnostycznych do monitorowania nieautory
 
 **Wskazówki**: Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem usługi Azure RBAC.
   
-- [ Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
-- [ Tworzenie grup zarządzania](/azure/governance/management-groups/create)
-- [ Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
+- [ Tworzenie grup zarządzania](../governance/management-groups/create-management-group-portal.md)
+- [ Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -593,7 +593,7 @@ Usługa Azure IoT Hub zapewnia szyfrowanie danych przechowywanych i przesyłanyc
 
 **Wskazówki**: Zastosuj znaczniki do zasobów platformy Azure (nie wszystkie zasoby obsługują Tagi, ale większość z nich), aby logicznie zorganizować je w taksonomię.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -603,11 +603,11 @@ Usługa Azure IoT Hub zapewnia szyfrowanie danych przechowywanych i przesyłanyc
 
 **Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji w miarę potrzeb w celu organizowania i śledzenia zasobów. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
   
-- [ Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [ Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
   
-- [ Tworzenie grup zarządzania](/azure/governance/management-groups/create)
+- [ Tworzenie grup zarządzania](../governance/management-groups/create-management-group-portal.md)
   
-- [ Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -725,7 +725,7 @@ Azure Resource Manager ma możliwość eksportowania szablonu w JavaScript Objec
 
 Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia dla zasobów platformy Azure.
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](../governance/policy/tutorials/create-and-manage.md)
 
@@ -769,8 +769,8 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej konfi
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy dla IoT Hub platformy Azure lub powiązanych zasobów, użyj Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
-- [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Dokumentacja Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -830,8 +830,8 @@ Korzystaj z tożsamości zarządzanych w połączeniu z Azure Key Vault, aby upr
 - [IoT Hub tokeny zabezpieczające](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [Jak używać tożsamości zarządzanych do IoT Hub](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-- [Jak utworzyć magazyn kluczy](/azure/key-vault/quick-create-portal)
-- [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](/azure/key-vault/managed-identity)
+- [Jak utworzyć magazyn kluczy](../key-vault/secrets/quick-create-portal.md)
+- [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -940,7 +940,7 @@ Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że mo
  
  
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
-- [Usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -973,7 +973,7 @@ Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że mo
   
 - [ Alerty zabezpieczeń w Azure Security Center](../security-center/security-center-alerts-overview.md)
   
-- [ Organizowanie zasobów platformy Azure przy użyciu tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1039,5 +1039,5 @@ Okresowe wykonywanie przywracania danych w kopii zapasowej. Upewnij się, że mo
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

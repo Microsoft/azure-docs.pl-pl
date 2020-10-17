@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: d9f08840165e7e4cf4d13e9a66cbb59489a2b3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0faf269852418ee8694e5fa51ce8010e57a2c054
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974270"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150205"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Samouczek: Tworzenie aplikacji PHP i MySQL w Azure App Service
 
@@ -30,7 +30,7 @@ ms.locfileid: "90974270"
 
 :::image type="content" source="./media/tutorial-php-mysql-app/complete-checkbox-published.png" alt-text="Zrzut ekranu przykładu aplikacji PHP zatytułowany Lista zadań.":::
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych MySQL na platformie Azure
@@ -153,7 +153,7 @@ Aby zatrzymać środowisko PHP, naciśnij w terminalu klawisze `Ctrl + C`.
 
 ## <a name="create-mysql-in-azure"></a>Tworzenie bazy danych MySQL na platformie Azure
 
-W tym kroku utworzysz bazę danych MySQL w usłudze [Azure Database for MySQL](/azure/mysql). Następnie skonfigurujesz aplikację PHP i połączysz ją z tą bazą danych.
+W tym kroku utworzysz bazę danych MySQL w usłudze [Azure Database for MySQL](../mysql/index.yml). Następnie skonfigurujesz aplikację PHP i połączysz ją z tą bazą danych.
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -163,7 +163,7 @@ W tym kroku utworzysz bazę danych MySQL w usłudze [Azure Database for MySQL](/
 
 W Cloud Shell Utwórz serwer w Azure Database for MySQL za pomocą [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest&preserve-view=true#az-mysql-server-create) polecenia.
 
-W poniższym poleceniu Zastąp unikatową nazwę serwera dla *\<mysql-server-name>* symbolu zastępczego, nazwę użytkownika *\<admin-user>* i hasło dla *\<admin-password>*  symbolu zastępczego. Ta nazwa serwera jest używana jako część punktu końcowego bazy danych MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), więc nazwa musi być unikatowa na wszystkich serwerach platformy Azure. Aby uzyskać więcej informacji na temat wybierania jednostki SKU bazy danych MySQL, zobacz [Tworzenie serwera usługi Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+W poniższym poleceniu Zastąp unikatową nazwę serwera dla *\<mysql-server-name>* symbolu zastępczego, nazwę użytkownika *\<admin-user>* i hasło dla *\<admin-password>*  symbolu zastępczego. Ta nazwa serwera jest używana jako część punktu końcowego bazy danych MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), więc nazwa musi być unikatowa na wszystkich serwerach platformy Azure. Aby uzyskać więcej informacji na temat wybierania jednostki SKU bazy danych MySQL, zobacz [Tworzenie serwera usługi Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -338,7 +338,7 @@ git commit -m "database.php updates"
 
 Aplikacja jest gotowa do wdrożenia.
 
-## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
 
 W tym kroku wdrożysz aplikację PHP połączoną z bazą danych MySQL w usłudze Azure App Service.
 

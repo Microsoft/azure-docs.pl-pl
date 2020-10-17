@@ -313,7 +313,7 @@
             - name: SAP HANA — duże wystąpienia
               href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
             - name: Baza danych SQL
-              href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+              href: ../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252ftoc.json
             - name: Azure Synapse Analytics
               href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
             - name: Maszyny wirtualne
@@ -365,9 +365,9 @@
 - name: Dokumentacja
   items:
     - name: Interfejs API REST usługi Azure Cost Management
-      href: 'https://docs.microsoft.com/rest/api/cost-management'
+      href: /rest/api/cost-management
     - name: Interfejs API REST użycia platformy Azure
-      href: 'https://docs.microsoft.com/rest/api/consumption'
+      href: /rest/api/consumption
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.consumption/budgets
     - name: Przykłady interfejsu API REST usługi Cost Management
@@ -377,19 +377,19 @@
     - name: Omówienie interfejsu API rozliczeń platformy Azure
       href: manage/usage-rate-card-overview.md
     - name: Interfejs API REST rozliczeń platformy Azure
-      href: 'https://docs.microsoft.com/rest/api/billing'
+      href: /rest/api/billing
     - name: Przegląd interfejsu API użycia platformy Azure
       href: manage/consumption-api-overview.md
     - name: Interfejs API REST użycia platformy Azure
-      href: 'https://docs.microsoft.com/rest/api/consumption'
+      href: /rest/api/consumption
     - name: Interfejs API REST usługi RateCard
-      href: 'https://msdn.microsoft.com/library/azure/mt219005.aspx'
+      href: /previous-versions/azure/reference/mt219005(v=azure.100)
     - name: Interfejs API REST użycia
-      href: 'https://msdn.microsoft.com/library/azure/mt219003.aspx'
+      href: /previous-versions/azure/reference/mt219003(v=azure.100)
     - name: Omówienie raportowania korporacyjnego
       href: manage/enterprise-api.md
     - name: Interfejs API REST raportowania korporacyjnego
-      href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
+      href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
     - name: Rezerwacje
       items:
         - name: Interfejs API REST usługi Reservations
@@ -493,4 +493,4 @@
         - name: Cloudyn — często zadawane pytania
           href: cloudyn/cost-mgt-faq.md
         - name: Skontaktuj się z pomocą techniczną platformy Cloudyn
-          href: 'https://docs.microsoft.com/azure/cost-management-billing/costs/open-support-request'
+          href: ./costs/open-support-request.md

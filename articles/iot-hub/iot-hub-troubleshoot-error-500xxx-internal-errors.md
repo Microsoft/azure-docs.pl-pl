@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 7f3f5177e084693c45bed1088a4e1d091be100ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83ec4d09389d91c2dd427c9840885c0b829eafb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84688912"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150320"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx błędy wewnętrzne
 
@@ -37,4 +37,4 @@ Może istnieć wiele przyczyn odpowiedzi na błąd 500xxx. We wszystkich przypad
 
 ## <a name="solution"></a>Rozwiązanie
 
-Aby wyeliminować błędy 500xxx, wydaj ponownie urządzenie. Aby [automatycznie zarządzać ponownymi próbami](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), upewnij się, że korzystasz z najnowszej wersji [zestawów SDK usługi Azure IoT](./iot-hub-devguide-sdks.md). Najlepszym rozwiązaniem w przypadku przejściowej obsługi błędów i ponownych prób zapoznaj się z tematem [Obsługa błędów przejściowych](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults).  Jeśli problem będzie nadal występować, sprawdź [Resource Health](./iot-hub-monitor-resource-health.md#use-azure-resource-health) i [Stan platformy Azure](https://status.azure.com/) , aby sprawdzić, czy IoT Hub ma znany problem. Możesz również użyć [funkcji ręcznego przełączania do trybu failover](./tutorial-manual-failover.md). Jeśli nie występują żadne znane problemy, a problem nie zniknie, [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/options/) w celu uzyskania dalszych badań.
+Aby wyeliminować błędy 500xxx, wydaj ponownie urządzenie. Aby [automatycznie zarządzać ponownymi próbami](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), upewnij się, że korzystasz z najnowszej wersji [zestawów SDK usługi Azure IoT](./iot-hub-devguide-sdks.md). Najlepszym rozwiązaniem w przypadku przejściowej obsługi błędów i ponownych prób zapoznaj się z tematem [Obsługa błędów przejściowych](/azure/architecture/best-practices/transient-faults).  Jeśli problem będzie nadal występować, sprawdź [Resource Health](./iot-hub-monitor-resource-health.md#use-azure-resource-health) i [Stan platformy Azure](https://status.azure.com/) , aby sprawdzić, czy IoT Hub ma znany problem. Możesz również użyć [funkcji ręcznego przełączania do trybu failover](./tutorial-manual-failover.md). Jeśli nie występują żadne znane problemy, a problem nie zniknie, [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/options/) w celu uzyskania dalszych badań.

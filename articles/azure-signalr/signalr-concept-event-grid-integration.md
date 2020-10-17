@@ -8,20 +8,20 @@ ms.reviewer: zhshang
 ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: 105b40da2a612d2a2e9958eff52bfb786c500bc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 77c8887ac19c6ce4c7d83734bdd2b44d9213914d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876077"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151114"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagowanie na zdarzenia usługi Azure SignalR Service
 
 Zdarzenia usługi Azure sygnalizujące umożliwiają aplikacjom reagowanie na połączenia klienckie połączone lub rozłączone przy użyciu nowoczesnych architektur bezserwerowych. Robi to bez konieczności stosowania skomplikowanego kodu lub kosztownych i nieefektywnych usług sondowania.  Zamiast tego zdarzenia są wypychane za pośrednictwem [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) do subskrybentów, takich jak [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)lub nawet do własnego niestandardowego odbiornika http. Za pomocą usługi Azure Signal płacisz tylko za to, czego zużywasz.
 
-Zdarzenia usługi Azure sygnalizujące są niezawodnie wysyłane do usługi Event Grid, która zapewnia niezawodne usługi dostarczania dla aplikacji dzięki rozbudowanym zasadom ponawiania prób i dostarczaniu wiadomości utraconych. Aby dowiedzieć się więcej, zobacz [Event Grid dostarczania komunikatów i ponów próbę](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
+Zdarzenia usługi Azure sygnalizujące są niezawodnie wysyłane do usługi Event Grid, która zapewnia niezawodne usługi dostarczania dla aplikacji dzięki rozbudowanym zasadom ponawiania prób i dostarczaniu wiadomości utraconych. Aby dowiedzieć się więcej, zobacz [Event Grid dostarczania komunikatów i ponów próbę](../event-grid/delivery-and-retry.md).
 
-![Model Event Grid](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png)
+![Model Event Grid](/azure/event-grid/media/overview/functional-model.png)
 
 ## <a name="serverless-state"></a>Stan bezserwerowy
 Zdarzenia usługi sygnalizujące platformy Azure są aktywne tylko wtedy, gdy połączenia klientów są w stanie bezserwerowym. Jeśli klient nie jest kierowany do serwera Hub, przejdzie w stan bezserwerowy. Tryb klasyczny działa tylko wtedy, gdy koncentrator, z którym nawiązywane jest połączenie z klientem, nie ma serwera centralnego. Tryb bezserwerowy jest zalecany jako najlepsze rozwiązanie. Aby uzyskać więcej informacji na temat trybu usługi, zobacz [jak wybrać tryb usługi](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).

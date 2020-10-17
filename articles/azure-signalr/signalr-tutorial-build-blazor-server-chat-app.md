@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: 1a75c083015d1f10a3ed3dba15480430747756eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c13c5d4bea8bfdb0f70e67ce8f264a1929b8a2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90525020"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150887"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Samouczek: Tworzenie aplikacji czatu serwera Blazor
 
@@ -361,7 +361,7 @@ W programie Visual Studio 2019 w wersji 16.2.0 usługa Azure Signal Service to k
 
 ## <a name="publish-to-azure"></a>Publikowanie na platformie Azure
 
-   Do tej pory aplikacja Blazor działa na lokalnym sygnale i po wdrożeniu w usłudze Azure App Service zaleca się korzystanie z [usługi Azure sygnalizującej](https://docs.microsoft.com/aspnet/core/signalr/scale?view=aspnetcore-3.1#azure-signalr-service) , która umożliwia skalowanie aplikacji serwera Blazor na dużą liczbę współbieżnych połączeń sygnałów. Ponadto globalne zasięgi i wysokiej wydajności centrów danych usługi sygnalizujących znacznie ułatwiają zredukowanie opóźnień ze względu na lokalizację geograficzną.
+   Do tej pory aplikacja Blazor działa na lokalnym sygnale i po wdrożeniu w usłudze Azure App Service zaleca się korzystanie z [usługi Azure sygnalizującej](/aspnet/core/signalr/scale?view=aspnetcore-3.1#azure-signalr-service) , która umożliwia skalowanie aplikacji serwera Blazor na dużą liczbę współbieżnych połączeń sygnałów. Ponadto globalne zasięgi i wysokiej wydajności centrów danych usługi sygnalizujących znacznie ułatwiają zredukowanie opóźnień ze względu na lokalizację geograficzną.
 
 > [!IMPORTANT]
 > W aplikacji serwera Blazor Stany UI są utrzymywane po stronie serwera, co oznacza, że w tym przypadku jest wymagany serwer programu. Jeśli istnieje pojedynczy serwer aplikacji, serwer jest zapewniany przez program. Jeśli jednak istnieje wiele serwerów aplikacji, istnieje możliwość, że negocjacje i połączenie z klientem mogą należeć do różnych serwerów i prowadzić do błędów interfejsu użytkownika w aplikacji Blazor. W związku z tym należy włączyć serwer programu w następujący sposób `appsettings.json` :
@@ -385,7 +385,7 @@ W programie Visual Studio 2019 w wersji 16.2.0 usługa Azure Signal Service to k
 
    W zależności od usługi można wykonać następujące czynności, aby umożliwić aplikacji automatyczne przełączenie do usługi Azure sygnalizującej na platformie Azure.
 
-   * Aktualizuj [`HostingStartupAssembly`](https://docs.microsoft.com/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) , aby korzystać z usługi Azure Signal Service.
+   * Aktualizuj [`HostingStartupAssembly`](/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) , aby korzystać z usługi Azure Signal Service.
    * Dodaj odwołanie do pakietu NuGet usługi Azure Signal Service.
    * Zaktualizuj właściwości profilu, aby zapisać ustawienia zależności.
    * Konfigurowanie magazynu kluczy tajnych zależy od wybranej opcji.
@@ -423,10 +423,10 @@ W programie Visual Studio 2019 w wersji 16.2.0 usługa Azure Signal Service to k
    }
    ```
 
-1. Konfigurowanie usługi Azure Signal `ConnectionString` w programie `appsetting.json` lub za pomocą narzędzia do [zarządzania kluczami tajnymi](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=visual-studio#secret-manager)
+1. Konfigurowanie usługi Azure Signal `ConnectionString` w programie `appsetting.json` lub za pomocą narzędzia do [zarządzania kluczami tajnymi](/aspnet/core/security/app-secrets?tabs=visual-studio&view=aspnetcore-3.1#secret-manager)
 
 > [!NOTE]
-> Krok 2 można zastąpić za pomocą programu [`HostingStartupAssembly`](https://docs.microsoft.com/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) do zestawu sygnałów SDK.
+> Krok 2 można zastąpić za pomocą programu [`HostingStartupAssembly`](/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) do zestawu sygnałów SDK.
 > 
 > 1. Dodaj konfigurację, aby włączyć usługę Azure Signal Service w `appsetting.json`
 >    ```js
@@ -468,6 +468,6 @@ Dowiedz się więcej o wysokiej dostępności.
 > [!div class="nextstepaction"]
 > [Odporność i odzyskiwanie po awarii](signalr-concept-disaster-recovery.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [ASP.NET Core Blazor](https://docs.microsoft.com/aspnet/core/blazor)
+* [ASP.NET Core Blazor](/aspnet/core/blazor)

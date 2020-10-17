@@ -68,7 +68,7 @@
     - name: Skróty klawiaturowe usługi Azure Data Catalog
       href: data-catalog-keyboard-shortcuts.md
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-catalog.html'
+      href: /answers/topics/azure-data-catalog.html
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/data-catalog/'
     - name: Kalkulator cen

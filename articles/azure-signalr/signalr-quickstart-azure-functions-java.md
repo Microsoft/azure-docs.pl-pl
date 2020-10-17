@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: ab13c9494ee04d112cec93af9efaab43705297bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fac992ba0d6be945fcb3184d27394ff58d98c44c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319524"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151019"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Szybki Start: używanie języka Java do tworzenia pokoju rozmów z usługą Azure Functions i usługi sygnalizującej
 
@@ -102,6 +102,6 @@ Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> prz
 W tym przewodniku szybki start utworzono i uruchomiono aplikację bezserwerową w czasie rzeczywistym przy użyciu Maven. Następnie Dowiedz się, jak utworzyć Azure Functions języka Java od podstaw.
 
 > [!div class="nextstepaction"]
-> [Tworzenie pierwszej funkcji przy użyciu języka Java i narzędzia Maven](../azure-functions/functions-create-first-java-maven.md)
+> [Tworzenie pierwszej funkcji przy użyciu języka Java i narzędzia Maven](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
 
 [Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsjava)

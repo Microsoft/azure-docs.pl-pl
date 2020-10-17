@@ -89,6 +89,8 @@
       href: ./policy-reference.md
 - name: Zasoby
   items:
+    - name: Opcje pomocy technicznej
+      href: cognitive-services-support-options.md
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Cennik
@@ -97,8 +99,6 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Zgodność
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Opcje pomocy technicznej
-      href: cognitive-services-support-options.md
     - name: Umowa dotycząca poziomu usług (SLA)
       href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
     - name: Filmy wideo

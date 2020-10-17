@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.custom: amqp, devx-track-js
-ms.openlocfilehash: c3862cae096adc2284469750cefd5538493cf653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de3f45a9d62a9d131583c133440ac8a311a468d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302863"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151411"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Rozpoczynanie pracy z modułem IoT Hub Identity and module (Node.js)
 
@@ -39,7 +39,7 @@ Na końcu tego samouczka będziesz mieć dwie Node.js aplikacje:
 
 * Aktywne konto platformy Azure. (Jeśli nie masz konta, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -217,4 +217,4 @@ Aby kontynuować wprowadzenie do usługi IoT Hub i zapoznać się z innymi scena
 
 * [Wprowadzenie do zarządzania urządzeniami](iot-hub-node-node-device-management-get-started.md)
 
-* [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md) (Wprowadzenie do usługi IoT Edge)
+* [Getting started with IoT Edge](../iot-edge/quickstart-linux.md) (Wprowadzenie do usługi IoT Edge)

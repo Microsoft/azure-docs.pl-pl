@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e90086be18e344e3061b9e683780f4427b3c15a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192542"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148992"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Przeczyszczanie punktu końcowego Azure CDN
 ## <a name="overview"></a>Omówienie
@@ -69,7 +69,7 @@ Ten samouczek przeprowadzi Cię przez przeczyszczanie zasobów ze wszystkich wę
     ![Przycisk przeczyszczania](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Żądania przeczyszczania trwają około 10 minut, aby przetwarzać w **Azure CDN od firmy Microsoft**, około 2 minut z **Azure CDN z Verizon** (standardowa i Premium) oraz około 10 sekund z **Azure CDN z Akamai**.  Azure CDN ma limit 50 współbieżnych żądań przeczyszczania w danym momencie na poziomie profilu. 
+> Żądania przeczyszczania trwają około 10 minut, aby przetwarzać w **Azure CDN od firmy Microsoft**, około 2 minut z **Azure CDN z Verizon** (standardowa i Premium) oraz około 10 sekund z **Azure CDN z Akamai**.  Azure CDN ma limit 100 współbieżnych żądań przeczyszczania w danym momencie na poziomie profilu. 
 > 
 > 
 

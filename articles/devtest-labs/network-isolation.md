@@ -3,12 +3,12 @@ title: Izolacja sieci w Azure DevTest Labs
 description: Informacje na temat izolacji sieci w Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: fbd2725cd3677e03cadbe0ae1f060b141f5d212b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88875964"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149153"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Izolacja sieci w DevTest Labs
 
@@ -57,7 +57,7 @@ Zapoznaj się również z następującymi artykułami:
  
    > [!div class="mx-imgBorder"]
    > ![Firma Contoso test](./media/network-isolation/contoso-test.png)
-1. Na koncie magazynu przejdź do obszaru zapory i sieci wirtualne i upewnij się, że jest zaznaczone pole wyboru Zezwalaj na dostęp do tego konta magazynu zaufanych usług firmy Microsoft. Ponieważ [DevTest Labs jest zaufaną usługą firmy Microsoft](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), ta opcja umożliwi normalne działanie laboratorium w trybie izolowanym od sieci. 
+1. Na koncie magazynu przejdź do obszaru zapory i sieci wirtualne i upewnij się, że jest zaznaczone pole wyboru Zezwalaj na dostęp do tego konta magazynu zaufanych usług firmy Microsoft. Ponieważ [DevTest Labs jest zaufaną usługą firmy Microsoft](../storage/common/storage-network-security.md#trusted-microsoft-services), ta opcja umożliwi normalne działanie laboratorium w trybie izolowanym od sieci. 
 
    > [!div class="mx-imgBorder"]
    > ![Zapory firmy Contoso Lab](./media/network-isolation/contoso-lab-firewalls-vnets.png)
@@ -74,7 +74,7 @@ Dzięki temu usługa Azure Storage zezwoli na połączenia przychodzące z dodan
 
 Możesz również zautomatyzować te kroki, aby skonfigurować to ustawienie dla wielu laboratoriów. 
 
-[Więcej informacji na temat zarządzania domyślnymi regułami dostępu do sieci dla usługi Azure Storage przy użyciu programu PowerShell i interfejsu wiersza polecenia](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=/azure/virtual-network/toc.json#powershell)
+[Więcej informacji na temat zarządzania domyślnymi regułami dostępu do sieci dla usługi Azure Storage przy użyciu programu PowerShell i interfejsu wiersza polecenia](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Kwestie, które należy zapamiętać podczas korzystania z laboratorium w trybie izolowanym w sieci
 
@@ -82,7 +82,7 @@ Możesz również zautomatyzować te kroki, aby skonfigurować to ustawienie dla
 
 W ramach laboratorium izolowanego od sieci, w przypadku akcji, takich jak przekazywanie wirtualnego dysku twardego do konta magazynu laboratorium do tworzenia obrazów niestandardowych, właściciel laboratorium będzie musiał jawnie włączyć dostęp do konta magazynu z dozwolonego punktu końcowego. Aby to zrobić, możesz utworzyć maszynę wirtualną i bezpiecznie uzyskać dostęp do konta magazynu laboratorium z tej maszyny wirtualnej. 
 
-[Dowiedz się więcej o uzyskiwaniu dostępu do konta magazynu prywatnie z poziomu maszyny wirtualnej](../private-link/create-private-endpoint-storage-portal.md)
+[Dowiedz się więcej o uzyskiwaniu dostępu do konta magazynu prywatnie z poziomu maszyny wirtualnej](../private-link/tutorial-private-endpoint-storage-portal.md)
 
 ### <a name="exporting-usage-data-from-the-lab"></a>Eksportowanie danych użycia z laboratorium 
 

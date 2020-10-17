@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 13e11bb6064888ac36a2d2801fee3db1e9e9fcba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 85cda8458dca4ce24fed9433af1527f49a2393ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89050509"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150969"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Szybki start: tworzenie przekazów komunikatów w czasie rzeczywistym z poziomu aplikacji konsolowej
 
@@ -23,7 +23,7 @@ W tym przewodniku Szybki start dowiesz się, jak wysyłać komunikaty z aplikacj
 
 Czynności przedstawione w tym przewodniku Szybki start można wykonywać w systemie macOS, Windows lub Linux.
 
-* [Zestaw SDK dla platformy .NET Core](https://www.microsoft.com/net/download/core)
+* [Zestaw .NET Core SDK](https://www.microsoft.com/net/download/core)
 * Wybrany edytor tekstu lub edytor kodu.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -64,7 +64,7 @@ Możesz również dowiedzieć się, w jaki sposób wygenerować tokeny dostępu 
 
 ### <a name="build-the-executable-file"></a>Tworzenie pliku wykonywalnego
 
-Jako przykładu użyjemy systemu macOS osx.10.13-x64. Możesz znaleźć [informacje](https://docs.microsoft.com/dotnet/core/rid-catalog), w jaki sposób utworzyć odpowiednią aplikację na innych platformach.
+Jako przykładu użyjemy systemu macOS osx.10.13-x64. Możesz znaleźć [informacje](/dotnet/core/rid-catalog), w jaki sposób utworzyć odpowiednią aplikację na innych platformach.
 
 ```bash
 cd AzureSignalR-samples/samples/Serverless/
