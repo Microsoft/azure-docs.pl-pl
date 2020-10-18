@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a85c129dd11e587a0714e92c850315101df103f0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015928"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166186"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
@@ -25,6 +25,7 @@ Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktual
 
 * Obsługa języka hindi dla analiza tonacji v3. x, rozpoczynając od wersji modelu `2020-04-01` . 
 * Model wersja `2020-09-01` dla punktu końcowego v3/Languages, który dodaje ulepszone wykrywanie i dokładność języka.
+* Dostępność wersji 3 w centralnej wersji Indie i Zjednoczone Emiraty Arabskie.
 
 ## <a name="september-2020"></a>Wrzesień 2020
 

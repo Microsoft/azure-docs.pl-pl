@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc06f7c75e27d831994b97b97f3d20bb34c3a6c5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847476"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167937"
 ---
 # <a name="manage-farms"></a>Zarządzanie farmami
 
@@ -25,7 +25,7 @@ Wykonaj następujące kroki:
 
     Oto przykład obrazu:
 
-    ![Farmy projektów](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Zrzut ekranu przedstawiający stronę farmy.](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
 2. Wybierz pozycję **Utwórz farmę** i podaj **nazwę**, **uprawy** i **adres**.
@@ -33,14 +33,14 @@ Wykonaj następujące kroki:
 
 Poniżej przedstawiono dwa sposoby definiowania granic farmy:
 
-1. **Oznacz na mapie**: Użyj narzędzia mapowania mapy, aby narysować i oznaczyć granicę farmy. Aby oznaczyć granice,  ![ farmy projektu/ ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) i oznaczyć dokładne granice.
+1. **Oznacz na mapie**: Użyj narzędzia mapowania mapy, aby narysować i oznaczyć granicę farmy. Aby oznaczyć granice,  ![ zrzut ekranu pokazujący ikonę ołówka na potrzeby rysowania granic na mapie ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) i Oznacz dokładne granice.
 
-    ![Farmy projektów](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Zrzut ekranu pokazujący rysowane granice na mapie.](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
 2. **Wklej kod GEOJSON**: GEOJSON to format kodowania geograficznych struktur danych przy użyciu JavaScript Object Notation (JSON). Ta opcja powoduje wyświetlenie pola tekstowego, w którym można wprowadzić ciąg GEOJSON w celu oznaczenia granic farmy. Możesz również utworzyć kod GEOJSON z GeoJSON.io.
 Użyj etykietek narzędzi, aby ułatwić wprowadzanie informacji.
 
-    ![Farmy projektów](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Zrzut ekranu, który podświetla opcję wklejania kodu GEOJSON na ekranie tworzenie farmy.](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
 3.  Wybierz pozycję **Prześlij** , aby utworzyć farmę. Nowa Farma zostanie utworzona i wyświetlona na stronie **farmy** .
 
@@ -71,7 +71,7 @@ Na stronie **farmy** zostanie wyświetlona lista utworzonych Farm. Aby usunąć 
 1.  Wybierz farmę z listy, aby usunąć szczegóły farmy.
 2.  Wybierz pozycję **Usuń farmę** , aby usunąć farmę.
 
-    ![Farmy projektów](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Zrzut ekranu pokazujący ekran usuwanie farmy i wyróżniony przycisk Usuń.](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
     > Po usunięciu farmy urządzenia i mapy skojarzone z farmą nie są usuwane. Wszystkie informacje farmy skojarzone z urządzeniem i mapami nie będą miały znaczenia. Możesz nadal wyświetlać urządzenia, dane telemetryczne i mapy z usługi FarmBeats.

@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 1. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81757519"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167728"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jsw odwołaniu dla Azure Functions 1. x
 
@@ -230,7 +230,7 @@ W przypadku udostępniania konta magazynu w wielu aplikacjach funkcji upewnij si
 
 ## <a name="logger"></a>rejestratora
 
-Kontroluje filtrowanie dla dzienników pisanych przez [obiekt ILogger](functions-monitoring.md#write-logs-in-c-functions) lub według [kontekstu. log](functions-monitoring.md#write-logs-in-javascript-functions).
+Kontroluje filtrowanie dla dzienników pisanych przez obiekt [ILogger](functions-dotnet-class-library.md#ilogger) lub według [kontekstu. log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -340,7 +340,7 @@ Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej
 
 *Wersja 1. x*
 
-Ustawienia konfiguracji dla dzienników utworzonych przy użyciu `TraceWriter` obiektu. Zobacz [Rejestrowanie w języku C#](functions-reference-csharp.md#logging) i [ RejestrowanieNode.js](functions-reference-node.md#writing-trace-output-to-the-console).
+Ustawienia konfiguracji dla dzienników utworzonych przy użyciu `TraceWriter` obiektu. Aby dowiedzieć się więcej, zobacz [rejestrowanie w języku C#].
 
 ```json
 {

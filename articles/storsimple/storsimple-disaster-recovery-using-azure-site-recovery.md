@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a5f92e0092d3e20db25b519fec46e6018dd543
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514913"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168022"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatyczne rozwiązanie do odzyskiwania po awarii wykorzystujące Azure Site Recovery dla udziałów plików hostowanych w usłudze StorSimple
 
@@ -294,7 +294,7 @@ Zapoznaj się z przewodnikiem uzupełniania [rozwiązania Active Directory Dr](.
 1. W Azure Portal wybierz pozycję **usługi Recovery Services** magazynu &gt; **Site Recovery** &gt; **recoveryplan_name** utworzonych dla maszyny wirtualnej serwera plików.
 1. W bloku plan odzyskiwania kliknij pozycję **więcej** &gt; **planowanej pracy w trybie failover**.  
 
-   ![Plan odzyskiwania](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![Zrzut ekranu, który wyróżnia opcje planowanej pracy w trybie failover i trybu failover.](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. W bloku **Potwierdź planowane przejście w tryb failover** wybierz lokalizację źródłową i docelową, a następnie wybierz pozycję Sieć docelowa, a następnie kliknij ikonę Sprawdź ✓, aby rozpocząć proces przełączania do trybu failover.
 1. Po utworzeniu maszyn wirtualnych repliki znajdują się one w stanie oczekiwania na zatwierdzenie. Kliknij przycisk **Zatwierdź** , aby zatwierdzić przejście w tryb failover.
 1. Po zakończeniu replikacji maszyny wirtualne są uruchamiane w lokalizacji pomocniczej.

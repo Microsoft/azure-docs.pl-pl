@@ -14,28 +14,29 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 30c7d525f821b828dcc4c389c32a27123b79a56b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee249a33187c3f8776cfc8fc750590c58f74579e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360926"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168158"
 ---
-# <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Samouczek: ręcznie skonfiguruj grupę dostępności SQL Server na platformie Azure Virtual Machines
-
+# <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>Samouczek: Ręczne konfigurowanie grupy dostępności (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W tym samouczku pokazano SQL Server, jak utworzyć grupę dostępności zawsze włączona na platformie Azure Virtual Machines. Kompletny samouczek tworzy grupę dostępności z repliką bazy danych na dwóch serwerach SQL.
+W tym samouczku pokazano, jak utworzyć grupę dostępności zawsze włączona dla SQL Server w usłudze Azure Virtual Machines. Kompletny samouczek tworzy grupę dostępności z repliką bazy danych na dwóch serwerach SQL.
 
-**Szacowany czas**: trwa około 30 minut, po spełnieniu wymagań wstępnych.
+Chociaż w tym artykule ręcznie konfiguruje się środowisko grupy dostępności, można to również zrobić przy użyciu [Azure Portal](availability-group-azure-portal-configure.md), [programu PowerShell lub interfejsu wiersza polecenia platformy Azure](availability-group-az-commandline-configure.md)lub [szablonów szybkiego startu platformy Azure](availability-group-quickstart-template-configure.md) . 
 
-Na diagramie przedstawiono elementy, które można skompilować w samouczku.
 
-![Grupa dostępności](./media/availability-group-manually-configure-tutorial/00-EndstateSampleNoELB.png)
+**Szacowany czas**: trwa około 30 minut, po spełnieniu [wymagań wstępnych](availability-group-manually-configure-prerequisites-tutorial.md) .
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 W samouczku założono, że masz podstawową wiedzę na temat SQL Server zawsze włączonymi grupami dostępności. Jeśli potrzebujesz więcej informacji, zobacz temat [Omówienie grup dostępności zawsze włączone (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+
+Przed rozpoczęciem tego samouczka należy [spełnić wymagania wstępne dotyczące tworzenia zawsze dostępnych grup dostępności na platformie Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). Jeśli te wymagania wstępne zostały już wykonane, możesz przejść do [tworzenia klastra](#CreateCluster).
 
 W poniższej tabeli wymieniono wymagania wstępne, które należy wykonać przed rozpoczęciem pracy z tym samouczkiem:
 
@@ -49,11 +50,8 @@ W poniższej tabeli wymieniono wymagania wstępne, które należy wykonać przed
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Dodawanie funkcji klaster trybu failover** | Oba wystąpienia SQL Server wymagają tej funkcji |
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Konto domeny instalacji** | -Administrator lokalny na każdym SQL Server <br/> -Składowa SQL Server stałej roli serwera sysadmin dla każdego wystąpienia SQL Server  |
 
-
-Przed rozpoczęciem tego samouczka należy [spełnić wymagania wstępne dotyczące tworzenia zawsze dostępnych grup dostępności na platformie Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). Jeśli te wymagania wstępne zostały już wykonane, możesz przejść do [tworzenia klastra](#CreateCluster).
-
-  >[!NOTE]
-  > Wiele kroków opisanych w tym samouczku można teraz zautomatyzować za pomocą [interfejsu wiersza polecenia maszyny wirtualnej Azure SQL](availability-group-az-cli-configure.md) i [szablonów szybkiego startu platformy Azure](availability-group-quickstart-template-configure.md).
+>[!NOTE]
+> Wiele kroków przedstawionych w tym samouczku można teraz zautomatyzować za pomocą [Azure Portal](availability-group-azure-portal-configure.md), programu PowerShell i [szablonów szybkiego startu](availability-group-quickstart-template-configure.md) [interfejsu wiersza polecenia](availability-group-az-cli-configure.md) platformy Azure.
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -119,7 +117,7 @@ Dodaj inne SQL Server do klastra.
    >Jeśli używasz funkcji miejsca do magazynowania i nie zaznaczaj **żadnych opcji Dodaj wszystkie odpowiednie magazyny do klastra**, system Windows odłącza dyski wirtualne podczas procesu klastrowania. W związku z tym nie są one wyświetlane w Menedżerze dysków ani w Eksploratorze, dopóki nie zostaną usunięte miejsca do magazynowania z klastra i ponownie dołączone przy użyciu programu PowerShell. Funkcja miejsca do magazynowania grupuje wiele dysków w puli magazynów. Aby uzyskać więcej informacji, zobacz [miejsca do magazynowania](https://technet.microsoft.com/library/hh831739).
    >
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 
 1. Wybierz pozycję **Zakończ**.
 
@@ -139,13 +137,13 @@ W tym przykładzie klaster systemu Windows korzysta z udziału plików w celu ut
 
 1. Kliknij prawym przyciskiem myszy pozycję **udziały**, a następnie wybierz pozycję **Nowy udział.**
 
-   ![Nowy udział](./media/availability-group-manually-configure-tutorial/48-newshare.png)
+   ![Kliknij prawym przyciskiem myszy pozycję udziały i wybierz pozycję Nowy udział](./media/availability-group-manually-configure-tutorial/48-newshare.png)
 
    Użyj **Kreatora tworzenia folderu udostępnionego** , aby utworzyć udział.
 
-1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego. Wybierz opcję **Dalej**.
+1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego. Wybierz pozycję **Dalej**.
 
-1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz opcję **Dalej**.
+1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz pozycję **Dalej**.
 
 1. W obszarze **uprawnienia do folderu udostępnionego** Ustaw **uprawnienia do dostosowywania**. Wybierz **niestandardową...**.
 
@@ -153,7 +151,7 @@ W tym przykładzie klaster systemu Windows korzysta z udziału plików w celu ut
 
 1. Upewnij się, że konto użyte do utworzenia klastra ma pełną kontrolę.
 
-   ![Nowy udział](./media/availability-group-manually-configure-tutorial/50-filesharepermissions.png)
+   ![Upewnij się, że konto użyte do utworzenia klastra ma pełną kontrolę](./media/availability-group-manually-configure-tutorial/50-filesharepermissions.png)
 
 1. Wybierz przycisk **OK**.
 
@@ -169,7 +167,7 @@ Następnie skonfiguruj kworum klastra.
 
 1. W **Menedżer klastra trybu failover**kliknij prawym przyciskiem myszy klaster, wskaż polecenie **więcej akcji**, a następnie wybierz pozycję **Konfiguruj ustawienia kworum klastra.**
 
-   ![Nowy udział](./media/availability-group-manually-configure-tutorial/52-configurequorum.png)
+   ![Wybierz pozycję Konfiguruj ustawienia kworum klastra](./media/availability-group-manually-configure-tutorial/52-configurequorum.png)
 
 1. W **Kreatorze konfiguracji kworum klastra**wybierz pozycję **dalej**.
 
@@ -181,9 +179,9 @@ Następnie skonfiguruj kworum klastra.
    >System Windows Server 2016 obsługuje monitor w chmurze. W przypadku wybrania tego typu monitora nie jest potrzebny monitor udostępniania plików. Aby uzyskać więcej informacji, zobacz [wdrażanie monitora chmury dla klastra trybu failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). W tym samouczku jest używany monitor udostępniania plików, który jest obsługiwany przez poprzednie systemy operacyjne.
    >
 
-1. Na **skonfigurować Monitor udostępniania plików**, wpisz ścieżkę dla utworzonego udziału. Wybierz opcję **Dalej**.
+1. Na **skonfigurować Monitor udostępniania plików**, wpisz ścieżkę dla utworzonego udziału. Wybierz pozycję **Dalej**.
 
-1. Sprawdź ustawienia w obszarze **potwierdzenie**. Wybierz opcję **Dalej**.
+1. Sprawdź ustawienia w obszarze **potwierdzenie**. Wybierz pozycję **Dalej**.
 
 1. Wybierz pozycję **Zakończ**.
 
@@ -191,13 +189,13 @@ Zasoby podstawowe klastra są skonfigurowane za pomocą monitora udziału plikó
 
 ## <a name="enable-availability-groups"></a>Włączanie grup dostępności
 
-Następnie Włącz funkcję **zawsze włączone grupy dostępności** . Wykonaj te czynności na obu serwerach SQL.
+Następnie Włącz funkcję **zawsze włączonych grup dostępności** . Wykonaj te czynności na obu serwerach SQL.
 
 1. Na ekranie **startowym** uruchom **SQL Server Configuration Manager**.
 2. W drzewie przeglądarki wybierz pozycję **usługi SQL Server**, a następnie kliknij prawym przyciskiem myszy usługę **SQL Server (MSSQLSERVER)** i wybierz pozycję **Właściwości**.
 3. Wybierz kartę **AlwaysOn o wysokiej dostępności** , a następnie wybierz pozycję **Włącz zawsze włączone grupy dostępności**w następujący sposób:
 
-    ![Włącz Zawsze włączone grupy dostępności](./media/availability-group-manually-configure-tutorial/54-enableAlwaysOn.png)
+    ![Włącz zawsze włączone grupy dostępności](./media/availability-group-manually-configure-tutorial/54-enableAlwaysOn.png)
 
 4. Wybierz przycisk **Zastosuj**. W podręcznym oknie dialogowym wybierz pozycję **OK** .
 
@@ -208,7 +206,7 @@ Powtórz te kroki na drugim SQL Server.
 <!-----------------
 ## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
 
-Each instance of SQL Server that participates in an Availability Group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the Availability Groups on that instance.
+Each instance of SQL Server that participates in an availability group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the availability groups on that instance.
 
 On both SQL Servers, open the firewall for the TCP port for the database mirroring endpoint.
 
@@ -242,13 +240,13 @@ Repeat these steps on the second SQL Server.
 
 1. Kliknij prawym przyciskiem myszy pozycję **udziały**, a następnie wybierz pozycję **Nowy udział.**
 
-   ![Nowy udział](./media/availability-group-manually-configure-tutorial/48-newshare.png)
+   ![Wybierz pozycję Nowy udział](./media/availability-group-manually-configure-tutorial/48-newshare.png)
 
    Użyj **Kreatora tworzenia folderu udostępnionego** , aby utworzyć udział.
 
-1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego kopii zapasowej bazy danych. Wybierz opcję **Dalej**.
+1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego kopii zapasowej bazy danych. Wybierz pozycję **Dalej**.
 
-1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz opcję **Dalej**.
+1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz pozycję **Dalej**.
 
 1. W obszarze **uprawnienia do folderu udostępnionego** Ustaw **uprawnienia do dostosowywania**. Wybierz **niestandardową...**.
 
@@ -256,7 +254,7 @@ Repeat these steps on the second SQL Server.
 
 1. Upewnij się, że konta usług SQL Server i SQL Server Agent dla obu serwerów mają pełną kontrolę.
 
-   ![Nowy udział](./media/availability-group-manually-configure-tutorial/68-backupsharepermission.png)
+   ![Upewnij się, że konta usług SQL Server i SQL Server Agent dla obu serwerów mają pełną kontrolę.](./media/availability-group-manually-configure-tutorial/68-backupsharepermission.png)
 
 1. Wybierz przycisk **OK**.
 
@@ -285,7 +283,7 @@ Teraz można przystąpić do konfigurowania grupy dostępności, wykonując nast
 
     ![Uruchom Kreatora nowej grupy dostępności](./media/availability-group-manually-configure-tutorial/56-newagwiz.png)
 
-2. Na stronie **wprowadzenie** wybierz pozycję **dalej**. Na stronie **Określ nazwę grupy dostępności** wpisz nazwę grupy dostępności w polu **Nazwa grupy dostępności**. Na przykład **AG1**. Wybierz opcję **Dalej**.
+2. Na stronie **wprowadzenie** wybierz pozycję **dalej**. Na stronie **Określ nazwę grupy dostępności** wpisz nazwę grupy dostępności w polu **Nazwa grupy dostępności**. Na przykład **AG1**. Wybierz pozycję **Dalej**.
 
     ![Kreator nowej grupy dostępności, Określanie nazwy grupy dostępności](./media/availability-group-manually-configure-tutorial/58-newagname.png)
 
@@ -311,13 +309,13 @@ Teraz można przystąpić do konfigurowania grupy dostępności, wykonując nast
 
     ![Kreator nowej grupy dostępności, wybieranie początkowej synchronizacji danych](./media/availability-group-manually-configure-tutorial/66-endpoint.png)
 
-8. Na stronie **Wybierz początkową synchronizację danych** wybierz pozycję **pełna** i określ udostępnioną lokalizację sieciową. Dla lokalizacji Użyj [utworzonego udziału kopii zapasowej](#backupshare). W tym przykładzie ** \\ \\<pierwsze SQL Server \> \Backup \\ **. Wybierz opcję **Dalej**.
+8. Na stronie **Wybierz początkową synchronizację danych** wybierz pozycję **pełna** i określ udostępnioną lokalizację sieciową. Dla lokalizacji Użyj [utworzonego udziału kopii zapasowej](#backupshare). W tym przykładzie ** \\ \\<pierwsze SQL Server \> \Backup \\ **. Wybierz pozycję **Dalej**.
 
    >[!NOTE]
    >Pełna synchronizacja pobiera pełną kopię zapasową bazy danych przy pierwszym wystąpieniu SQL Server i przywraca ją do drugiego wystąpienia. W przypadku dużych baz danych nie zaleca się stosowania pełnej synchronizacji, ponieważ może to zająć dużo czasu. Możesz skrócić ten czas, ręcznie pobierając kopię zapasową bazy danych i przywracając ją z `NO RECOVERY` . Jeśli baza danych została już przywrócona przy użyciu `NO RECOVERY` programu na drugim SQL Server przed skonfigurowaniem grupy dostępności, wybierz pozycję **tylko Dołącz**. Jeśli chcesz wykonać kopię zapasową po skonfigurowaniu grupy dostępności, wybierz pozycję **Pomiń początkową synchronizację danych**.
    >
 
-   ![Kreator nowej grupy dostępności, wybieranie początkowej synchronizacji danych](./media/availability-group-manually-configure-tutorial/70-datasynchronization.png)
+   ![Wybierz pomijanie początkowej synchronizacji danych](./media/availability-group-manually-configure-tutorial/70-datasynchronization.png)
 
 9. Na stronie **Walidacja** wybierz pozycję **dalej**. Ta strona powinna wyglądać podobnie do poniższej ilustracji:
 
@@ -358,6 +356,8 @@ W tym momencie masz grupę dostępności z replikami w dwóch wystąpieniach SQL
 
 ## <a name="create-an-azure-load-balancer"></a>Tworzenie modułu równoważenia obciążenia na platformie Azure
 
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 W przypadku usługi Azure Virtual Machines Grupa dostępności SQL Server wymaga modułu równoważenia obciążenia. Moduł równoważenia obciążenia przechowuje adresy IP dla odbiorników grupy dostępności i klastra trybu failover systemu Windows Server. Ta sekcja zawiera podsumowanie sposobu tworzenia modułu równoważenia obciążenia w Azure Portal.
 
 Moduł równoważenia obciążenia na platformie Azure może być usługa Load Balancer w warstwie Standardowa lub Load Balancer podstawowym. Usługa Load Balancer w warstwie Standardowa ma więcej funkcji niż Load Balancer podstawowa. W przypadku grupy dostępności usługa Load Balancer w warstwie Standardowa jest wymagana w przypadku używania strefy dostępności (zamiast zestawu dostępności). Aby uzyskać szczegółowe informacje na temat różnic między jednostkami SKU modułu równoważenia obciążenia, zobacz [Load Balancer porównanie jednostek SKU](../../../load-balancer/skus.md).
@@ -365,9 +365,9 @@ Moduł równoważenia obciążenia na platformie Azure może być usługa Load B
 1. W Azure Portal przejdź do grupy zasobów, w której znajdują się serwery SQL, a następnie wybierz pozycję **+ Dodaj**.
 1. Wyszukaj **Load Balancer**. Wybierz usługę równoważenia obciążenia opublikowaną przez firmę Microsoft.
 
-   ![Grupa dostępności w Menedżer klastra trybu failover](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
+   ![Wybierz usługę równoważenia obciążenia opublikowaną przez firmę Microsoft](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Skonfiguruj następujące parametry dla modułu równoważenia obciążenia.
 
    | Ustawienie | Pole |
@@ -506,7 +506,7 @@ W SQL Server Management Studio Ustaw port odbiornika.
 
 1. Uruchom SQL Server Management Studio i Połącz się z repliką podstawową.
 
-1. Przejdź do funkcji AlwaysOn grup dostępności dla grup dostępności **o wysokiej dostępności**  >  **Availability Groups**  >  **Availability Group Listeners**.
+1. Przejdź do funkcji AlwaysOn grup dostępności dla grup dostępności **o wysokiej dostępności**  >  **availability groups**  >  **availability group Listeners**.
 
 1. Powinna zostać wyświetlona nazwa odbiornika utworzona w Menedżer klastra trybu failover. Kliknij prawym przyciskiem myszy nazwę odbiornika i wybierz pozycję **Właściwości**.
 

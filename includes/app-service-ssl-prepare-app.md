@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd73ac372a21a32eac0c742a7f0f525db2d1a4fe
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78301010"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92169069"
 ---
 ## <a name="prepare-your-web-app"></a>Przygotowywanie aplikacji internetowej
 
@@ -31,7 +31,7 @@ Wyszukaj i wybierz **App Services**.
 
 Na stronie **App Services** wybierz nazwę aplikacji sieci Web.
 
-![Nawigacja w portalu do aplikacji platformy Azure](./media/app-service-ssl-prepare-app/select-app.png)
+![Zrzut ekranu strony App Services w Azure Portal przedstawiający listę wszystkich uruchomionych aplikacji sieci Web, z pierwszą aplikacją na liście wyróżnioną.](./media/app-service-ssl-prepare-app/select-app.png)
 
 Na stronie Zarządzanie aplikacji sieci Web.  
 

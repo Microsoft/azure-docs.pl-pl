@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrażać i konfigurować rozwiązanie VMware HCX w chmurze prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 69df9b6337674233e1f257cc509115d5f58d2e7f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a52b2d06e65de0d056653f12065e36d83d6d8e0c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152071"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167767"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
@@ -90,7 +90,7 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 
-1. Wybierz nazwę i lokalizację, zasób/klaster, w którym jest wdrażany łącznik HCX, a następnie przejrzyj szczegóły i wymagane zasoby.  
+1. Wybierz nazwę i lokalizację, zasób/klaster, w którym został wdrożony łącznik HCX, a następnie przejrzyj szczegóły i wymagane zasoby.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
@@ -268,7 +268,7 @@ Aby zapoznać się z kompleksowym omówieniem tego kroku, zobacz [rozwiązanie A
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter." lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
-Aby zapoznać się z kompleksowym omówieniem tego kroku, zobacz [rozwiązanie Azure VMware — wideo VMware HCX Create COMPUTE profile](https://www.youtube.com/embed/qASXi5xrFzM) .
+Aby zapoznać się z kompleksowym omówieniem tego kroku, zobacz [rozwiązanie Azure VMware — VMware HCX tworzenie wideo z profilem obliczeniowym](https://www.youtube.com/embed/qASXi5xrFzM) .
 
 
 
@@ -296,7 +296,9 @@ Teraz można skonfigurować siatkę usługi między środowiskiem lokalnym i roz
 
 1. Przejrzyj usługi, które zostaną włączone, a następnie wybierz pozycję **Kontynuuj**.  
 
-1. W obszarze **Konfiguracja zaawansowana — Przesłoń profile sieci pasma** wybierz pozycję **Kontynuuj**.  Profile sieci pasma łączą się z siecią, za pomocą której można uzyskać dostęp do urządzeń łączących się z lokacją zdalną.  
+1. W obszarze **Konfiguracja zaawansowana — Przesłoń profile sieci pasma** wybierz pozycję **Kontynuuj**.  
+
+   Profile sieci pasma łączą się z siecią, za pomocą której można uzyskać dostęp do urządzeń łączących się z lokacją zdalną.  
   
 1. W obszarze **Konfiguracja zaawansowana — Przeskaluj w poziomie urządzenie rozszerzenia sieci**, przejrzyj i wybierz pozycję **Kontynuuj**. 
 

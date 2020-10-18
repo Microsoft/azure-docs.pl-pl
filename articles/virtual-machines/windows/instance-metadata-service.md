@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 51310b1569982e0b71f39dede0d4d7dbefd1a3c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 49840c2591bc1a991920b00aec020d4f652c9a50
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975539"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168396"
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa metadanych wystąpienia platformy Azure
 
@@ -732,7 +732,7 @@ Add-Type -AssemblyName System.Security
 $signedCms = New-Object -TypeName System.Security.Cryptography.Pkcs.SignedCms
 $signedCms.Decode($signature);
 $content = [System.Text.Encoding]::UTF8.GetString($signedCms.ContentInfo.Content)
-Write-Host "Attested data: " $conten
+Write-Host "Attested data: " $content
 $json = $content | ConvertFrom-Json
 # Do additional validation here
 ```
@@ -831,7 +831,7 @@ Przejdź            | https://github.com/Microsoft/azureimds/blob/master/imdssam
 Java          | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 NodeJS        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
-Program PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Puppet        | https://github.com/keirans/azuremetadata
 Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb

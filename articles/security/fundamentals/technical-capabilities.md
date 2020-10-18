@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ac044666b8f723e3cc26fd7a30f5dd8a8f77d90
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399537"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168039"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 Ten artykuł zawiera wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze oraz zaspokajanie potrzeb firmy.
@@ -167,7 +167,7 @@ Jednym z kluczy ochrony danych w chmurze jest uwzględnienie możliwych stanów,
 - W spoczynku: obejmuje to wszystkie obiekty magazynu informacji, kontenery i typy, które znajdują się statycznie na nośniku fizycznym, jako dysk magnetyczny lub optyczny.
 - W tranzycie: w przypadku przesyłania danych między składnikami, lokalizacjami lub programami, takimi jak sieć, przez magistralę usług (od lokalnego do chmury i na odwrót, łącznie z połączeniami hybrydowymi, takimi jak ExpressRoute) lub w procesie wejścia/wyjścia, uważa się, że jest on ruchem.
 
-### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
+### <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
 
 Szyfrowanie w spoczynku zostało szczegółowo omówione w temacie [szyfrowanie danych na platformie Azure](encryption-atrest.md).
 
@@ -367,7 +367,8 @@ Centrum zabezpieczeń automatycznie gromadzi, analizuje i integruje dane dzienni
 
 Aplikacje w chmurze są złożone z wieloma ruchomymi częściami. Monitorowanie zapewnia dane, aby upewnić się, że aplikacja będzie działać w dobrej kondycji. Pomaga również w staveniu potencjalnych problemów lub rozwiązywaniu problemów z poprzednimi.
 
-![Azure Monitor ](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) Ponadto możesz użyć monitorowania danych, aby uzyskać szczegółowe informacje o aplikacji. Ta wiedza może pomóc w zwiększeniu wydajności aplikacji lub utrzymaniu lub zautomatyzowaniu działań, które w przeciwnym razie wymagają ręcznej interwencji.
+![Diagram pokazujący, że możesz użyć monitorowania danych, aby uzyskać szczegółowe informacje o aplikacji.](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png)
+Ponadto możesz użyć monitorowania danych, aby uzyskać szczegółowe informacje o aplikacji. Ta wiedza może pomóc w zwiększeniu wydajności aplikacji lub utrzymaniu lub zautomatyzowaniu działań, które w przeciwnym razie wymagają ręcznej interwencji.
 
 Inspekcja zabezpieczeń sieci jest konieczna do wykrywania luk w zabezpieczeniach sieci i zapewnienia zgodności z modelem nadzoru obowiązującym w zakresie bezpieczeństwa i zarządzania. Widok grupy zabezpieczeń umożliwia pobranie skonfigurowanych sieciowych grup zabezpieczeń i reguł zabezpieczeń oraz obowiązujących reguł zabezpieczeń. Korzystając z listy zastosowanych reguł, można określić, które porty są otwarte i które podlegają usterce.
 

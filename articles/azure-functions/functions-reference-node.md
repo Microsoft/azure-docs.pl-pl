@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317180"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164826"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -201,7 +201,7 @@ module.exports = (context) => {
 
 Kontekst przekazaną do funkcji uwidacznia `executionContext` Właściwość, która jest obiektem o następujących właściwościach:
 
-| Nazwa właściwości  | Type  | Opis |
+| Nazwa właściwości  | Typ  | Opis |
 |---------|---------|---------|
 | `invocationId` | Ciąg | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
 | `functionName` | Ciąg | Zawiera nazwę działającej funkcji |
@@ -290,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-Umożliwia zapis do dzienników funkcji przesyłania strumieniowego na domyślnym poziomie śledzenia. W systemie `context.log` dostępne są dodatkowe metody rejestrowania, które umożliwiają pisanie dzienników funkcji na innych poziomach śledzenia:
+Umożliwia zapis do dzienników funkcji przesyłania strumieniowego na domyślnym poziomie śledzenia przy użyciu innych dostępnych poziomów rejestrowania. Rejestrowanie śledzenia zostało szczegółowo opisane w następnej sekcji. 
 
+## <a name="write-trace-output-to-logs"></a>Zapisz dane wyjściowe śledzenia do dzienników
 
-| Metoda                 | Opis                                |
-| ---------------------- | ------------------------------------------ |
-| **błąd (_komunikat_)**   | Zapisuje dane w dzienniku na poziomie błędu lub niższym.   |
-| **warn (_komunikat_)**    | Zapisuje dane w dzienniku na poziomie ostrzeżeń lub niższym. |
-| **informacje (_komunikat_)**    | Zapisuje dane w dzienniku lub niższym poziomie informacji.    |
-| **verbose (_komunikat_)** | Zapisuje dane w celu pełnego rejestrowania na poziomie.           |
+W obszarze Funkcje używasz `context.log` metod do zapisywania danych wyjściowych śledzenia do dzienników i konsoli programu. Po wywołaniu `context.log()` , wiadomość jest zapisywana w dziennikach na domyślnym poziomie śledzenia, który jest poziomem śledzenia _informacji_ . Funkcje integrują się z usługą Azure Application Insights w celu lepszego przechwytywania dzienników aplikacji funkcji. Application Insights, część Azure Monitor, oferuje funkcje do zbierania, renderowania wizualnego i analizowania danych telemetrycznych aplikacji i wyników śledzenia. Aby dowiedzieć się więcej, zobacz [monitorowanie Azure Functions](functions-monitoring.md).
 
-Poniższy przykład zapisuje dziennik na poziomie śledzenia ostrzeżeń:
+Poniższy przykład zapisuje dziennik na poziomie śledzenia informacji, łącznie z IDENTYFIKATORem wywołania:
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-Można [skonfigurować próg poziomu śledzenia na potrzeby rejestrowania](#configure-the-trace-level-for-console-logging) w host.jspliku. Aby uzyskać więcej informacji na temat pisania dzienników, zobacz [Zapisywanie wyników śledzenia](#writing-trace-output-to-the-console) poniżej.
-
-Przeczytaj [Azure Functions monitorowania](functions-monitoring.md) , aby dowiedzieć się więcej o przeglądaniu i wysyłaniu zapytań o dzienniki funkcji.
-
-## <a name="writing-trace-output-to-the-console"></a>Zapisywanie danych wyjściowych śledzenia w konsoli 
-
-W obszarze Funkcje używasz `context.log` metod do zapisywania danych wyjściowych śledzenia w konsoli programu. W funkcjach w wersji 2. x wyniki śledzenia przy użyciu `console.log` są przechwytywane na poziomie aplikacja funkcji. Oznacza to, że dane wyjściowe z `console.log` nie są powiązane z konkretnym wywołaniem funkcji i nie są wyświetlane w dziennikach określonej funkcji. Są one jednak propagowane do Application Insights. W funkcjach v1. x nie można użyć `console.log` do zapisu w konsoli programu.
-
-Po wywołaniu `context.log()` , wiadomość jest zapisywana w konsoli na domyślnym poziomie śledzenia, który jest poziomem śledzenia _informacji_ . Poniższy kod zapisuje w konsoli na poziomie śledzenia informacji:
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-Ten kod jest odpowiednikiem powyższego kodu:
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-Ten kod jest zapisywany w konsoli na poziomie błędu:
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-Ponieważ _błąd_ to najwyższy poziom śledzenia, ten ślad jest zapisywana w danych wyjściowych na wszystkich poziomach śledzenia, o ile rejestrowanie jest włączone.
 
 Wszystkie `context.log` metody obsługują ten sam format parametru, który jest obsługiwany przez [metodę Node.js util. format](https://nodejs.org/api/util.html#util_util_format_format). Rozważmy następujący kod, który zapisuje dzienniki funkcji przy użyciu domyślnego poziomu śledzenia:
 
@@ -348,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Konfigurowanie poziomu śledzenia dla rejestrowania konsoli
+> [!NOTE]  
+> Nie używać `console.log` do zapisywania wyników śledzenia. Ponieważ dane wyjściowe `console.log` są przechwytywane na poziomie aplikacji funkcji, nie są powiązane z konkretnym wywołaniem funkcji i nie są wyświetlane w dziennikach określonej funkcji. Ponadto wersja 1. x środowiska uruchomieniowego funkcji nie obsługuje zapisywania w `console.log` konsoli programu.
 
-Funkcja 1. x umożliwia zdefiniowanie poziomu śledzenia progu do zapisu w konsoli, co ułatwia kontrolowanie sposobu zapisywania śladów w konsoli z funkcji. Aby ustawić wartość progową dla wszystkich śladów, które są zapisywane w konsoli programu, należy użyć `tracing.consoleLevel` właściwości w host.jsna pliku. To ustawienie ma zastosowanie do wszystkich funkcji w aplikacji funkcji. W poniższym przykładzie ustawiono próg śledzenia w celu włączenia pełnego rejestrowania:
+### <a name="trace-levels"></a>Poziomy śledzenia
+
+Oprócz poziomu domyślnego dostępne są następujące metody rejestrowania, które umożliwiają pisanie dzienników funkcji na określonych poziomach śledzenia.
+
+| Metoda                 | Opis                                |
+| ---------------------- | ------------------------------------------ |
+| **błąd (_komunikat_)**   | Zapisuje zdarzenie poziomu błędu w dziennikach.   |
+| **warn (_komunikat_)**    | Zapisuje zdarzenie poziomu ostrzeżeń w dziennikach. |
+| **informacje (_komunikat_)**    | Zapisuje dane w dzienniku lub niższym poziomie informacji.    |
+| **verbose (_komunikat_)** | Zapisuje dane w celu pełnego rejestrowania na poziomie.           |
+
+Poniższy przykład zapisuje ten sam dziennik na poziomie śledzenia ostrzeżeń, a nie na poziomie informacji:
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+Ponieważ _błąd_ to najwyższy poziom śledzenia, ten ślad jest zapisywana w danych wyjściowych na wszystkich poziomach śledzenia, o ile rejestrowanie jest włączone.
+
+### <a name="configure-the-trace-level-for-logging"></a>Konfigurowanie poziomu śledzenia na potrzeby rejestrowania
+
+Funkcje umożliwiają zdefiniowanie poziomu śledzenia progu do zapisu w dziennikach lub konsoli programu. Ustawienia określonego progu zależą od używanej wersji środowiska uruchomieniowego funkcji.
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+Aby ustawić wartość progową dla śladów, które są zapisywane w dziennikach, użyj `logging.logLevel` właściwości w host.jspliku. Ten obiekt JSON pozwala zdefiniować domyślny próg dla wszystkich funkcji w aplikacji funkcji, a także zdefiniować określone progi dla poszczególnych funkcji. Aby dowiedzieć się więcej, zobacz [jak skonfigurować monitorowanie dla Azure Functions](configure-monitoring.md).
+
+# <a name="v1x"></a>[V1. x](#tab/v1)
+
+Aby ustawić wartość progową dla wszystkich śladów, które są zapisywane w dziennikach i konsoli programu, należy użyć `tracing.consoleLevel` właściwości w host.jspliku. To ustawienie ma zastosowanie do wszystkich funkcji w aplikacji funkcji. W poniższym przykładzie ustawiono próg śledzenia w celu włączenia pełnego rejestrowania:
 
 ```json
 {
@@ -360,7 +358,65 @@ Funkcja 1. x umożliwia zdefiniowanie poziomu śledzenia progu do zapisu w konso
 }  
 ```
 
-Wartości **consoleLevel** odpowiadają nazwom `context.log` metod. Aby wyłączyć wszystkie rejestrowanie śledzenia w konsoli programu, należy ustawić **consoleLevel** na _wyłączone_. Aby uzyskać więcej informacji, zobacz [host.json Reference](functions-host-json-v1.md).
+Wartości **consoleLevel** odpowiadają nazwom `context.log` metod. Aby wyłączyć wszystkie rejestrowanie śledzenia w konsoli programu, należy ustawić **consoleLevel** na _wyłączone_. Aby uzyskać więcej informacji, zobacz [host.jsinformacje o wersji 1. x](functions-host-json-v1.md).
+
+---
+
+### <a name="log-custom-telemetry"></a>Rejestruj niestandardową telemetrię
+
+Domyślnie funkcje zapisują dane wyjściowe jako ślady do Application Insights. Aby uzyskać większą kontrolę, zamiast tego możesz użyć [zestawu SDK Application Insights Node.js](https://github.com/microsoft/applicationinsights-node.js) do wysyłania niestandardowych danych telemetrycznych do wystąpienia Application Insights. 
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[V1. x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+`tagOverrides`Parametr ustawia wartość `operation_Id` na identyfikator wywołania funkcji. To ustawienie pozwala skorelować wszystkie automatycznie generowane i niestandardową telemetrię dla danego wywołania funkcji.
 
 ## <a name="http-triggers-and-bindings"></a>Wyzwalacze i powiązania HTTP
 

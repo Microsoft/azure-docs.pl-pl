@@ -4,15 +4,15 @@ description: Zestaw ofert komercyjnych portalu Microsoft Marketplace będzie ucz
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
+author: emuench
 ms.author: mingshen
-ms.date: 07/21/2020
-ms.openlocfilehash: 8a8b64bc0ed2702066a1ba280f1b40aabbcdb11b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: e5f1a70182d4b31a1bcd0a811be32bdfc55129d9
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87098402"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168452"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Korzyść z tytułu zobowiązania do użycia platformy Azure
 
@@ -27,3 +27,33 @@ Aby skorzystać z tej korzyści, wystarczy zakupić ofertę kwalifikującą w wi
 
 > [!IMPORTANT]
 > Wykluczenia mogą dotyczyć umów CtC podpisanych przed tą korzyścią z witryny Marketplace. Jeśli masz pytania dotyczące uprawnień, skontaktuj się z biurem konto Microsoft Executive.
+
+## <a name="determine-if-your-organization-has-an-azure-consumption-commitment-maccctc"></a>Ustal, czy organizacja ma zobowiązanie do użycia na platformie Azure (MACC/CtC)
+
+Jeśli nie masz pewności, czy organizacja ma uprawniającą umowę, zaloguj się do środowiska Marketplace w ramach [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) w ramach dzierżawy skojarzonej z Twoją organizacją. Jeśli zobaczysz opcję **uprawniającą do korzystania z platformy Azure** w ramach filtru cen, masz kwalifikujące się zobowiązanie do użycia platformy Azure. Kwalifikujące się zakupy w portalu Azure Marketplace przyczyniają się do zobowiązania do użycia platformy Azure w organizacji w przypadku zakupu go bezpośrednio w portalu Azure Marketplace.
+
+[![Opcja menu uprawniającego do skorzystania z platformy Azure.](media/azure-benefit/azure-benefit-eligible.png)](media/azure-benefit/azure-benefit-eligible.png#lightbox)
+
+## <a name="determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc"></a>Określ, które oferty kwalifikują się do zobowiązań związanych z korzystaniem z platformy Azure (MACC/CtC)
+
+1. Zaloguj się do środowiska Marketplace w ramach [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) w ramach dzierżawy skojarzonej z Twoją organizacją.
+2. Zastosuj filtr **uprawniający do skorzystania z platformy Azure** (Powyższy obraz), aby odnaleźć oferty kwalifikujące się do zaangażowania się z zobowiązaniem do użycia platformy Azure w organizacji.
+
+   > [!NOTE]
+   > Jeśli nie masz tego filtru, Twoja organizacja nie ma uprawniającego zobowiązania. Skontaktuj się z przedstawicielem konto Microsoft, jeśli uważasz, że jest to nieprawidłowe.
+ 
+3. Oferty będą naliczane z **korzyścią dla platformy Azure kwalifikujące** się do poinformowania o tym, że koszty oprogramowania/IP związane z tą ofertą będą współdziałać z zobowiązaniem do użycia platformy Azure w organizacji na podstawie dowolnych usług systemu Azure rozliczanych w organizacji.
+
+    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Uprawniony do skorzystania z platformy Azure.&quot;:::
+
+   > [!NOTE]
+   > Usługi Microsoft Azure są rozliczane w organizacji za pomocą wdrożenia w portalu Azure Marketplace z przyczyn związanych z zaangażowaniem w organizację. Dodatkową korzyścią dla ofert &quot;kwalifikujących korzyści dla platformy Azure" jest to, że koszty oprogramowania/adresu IP przenoszone przez dostawcę innych firm również współtworzą 100% faktury portalu Azure Marketplace.
+
+4. Kup/Utwórz ofertę bezpośrednio w portalu Azure Marketplace. Firma Microsoft wniesie udział w 100% ofert uprawniających do użycia w organizacji w ramach zobowiązań związanych z korzystaniem z platformy Azure w ramach Twojej firmy, w tym kosztów oprogramowania/IP.
+
+> [!IMPORTANT]
+> Oferty muszą być kupowane bezpośrednio za pośrednictwem witryny Azure Marketplace z rejestracją związaną z zobowiązaniem do użycia platformy Azure w organizacji, aby kupić udział w realizacji zobowiązania. Oferty kupione za pośrednictwem dostawcy rozwiązań w chmurze (CSP), dowolnego innego kanału odsprzedawcy lub poza platformą Marketplace nie przyczyniają się do zaangażowania użytkownika.
+
+## <a name="next-steps"></a>Następne kroki
+
+- Aby dowiedzieć się więcej o tym, jak Twoja organizacja może korzystać z portalu Azure Marketplace, wypełnij nasz moduł Microsoft Learn: [Uprość zakupy i zarządzanie chmurą za pomocą witryny Azure Marketplace](https://aka.ms/cm.marketplaceprocurement).

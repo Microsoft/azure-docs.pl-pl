@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: aee6e6d8ca505bfdcfd4a51e4693779f44b2b0c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8c0aef1817581e2b09297d8807676cf0049e1d3e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226182"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92169085"
 ---
 W tym przewodniku szybki start dowiesz się, jak za pomocą zestawu Speech Devices SDK dla systemu Linux utworzyć produkt z obsługą mowy lub użyć go jako urządzenia [transkrypcji konwersacji](../conversation-transcription-service.md) . Obecnie jest obsługiwana tylko [usługa Azure urządzenia Kinect DK](https://azure.microsoft.com/services/kinect-dk/) .
 
@@ -70,7 +70,7 @@ Jeśli planujesz korzystać z intencji, musisz mieć subskrypcję [usługi Langu
 
 1. W obszarze **roboczym** **zaćmienie**w środowisku IDE wprowadź nazwę nowego katalogu obszaru roboczego. Następnie wybierz pozycję **Launch** (Uruchom).
 
-   ![Zrzut ekranu przedstawiający program Eclipse Launcher](../media/speech-devices-sdk/eclipse-launcher-linux.png)
+   ![Zrzut ekranu pokazujący Uruchamianie programu zazaćmienie.](../media/speech-devices-sdk/eclipse-launcher-linux.png)
 
 1. Za chwilę zostanie wyświetlone główne okno środowiska IDE programu Eclipse. Zamknij ekran powitalny, jeśli się pojawi.
 
@@ -161,22 +161,22 @@ Jeśli planujesz korzystać z intencji, musisz mieć subskrypcję [usługi Langu
 
 1. Aplikacja Przykładowa zestawu SDK urządzeń mowy uruchamia się i wyświetla następujące opcje:
 
-   ![Przykładowa aplikacja i opcje zestawu SDK urządzeń rozpoznawania mowy](../media/speech-devices-sdk/java-sample-app-linux.png)
+   ![Zrzut ekranu przedstawiający przykładową aplikację i opcje zestawu SDK urządzeń typu Speech.](../media/speech-devices-sdk/java-sample-app-linux.png)
 
 1. Wypróbuj nową wersję demonstracyjną **transkrypcji konwersacji** . Rozpocznij jego przepisywania z **Session**  >  **rozpoczęciem**sesji. Domyślnie wszyscy są gośćmi. Jeśli jednak masz podpisy głosowe uczestnika, można je umieścić `participants.properties` w **obiekcie docelowym/Klasa**folderu projektu. Aby wygenerować podpis głosowy, spójrz na [transkrypcja konwersacje (SDK)](../how-to-use-conversation-transcription-service.md).
 
-   ![Aplikacja do transkrypcji konwersacji demonstracyjnej](../media/speech-devices-sdk/cts-sample-app-linux.png)
+   ![Zrzut ekranu przedstawiający aplikację transkrypcji konwersacji.](../media/speech-devices-sdk/cts-sample-app-linux.png)
 
 ## <a name="create-and-run-standalone-the-application"></a>Tworzenie i uruchamianie autonomicznej aplikacji
 
 1. W **Eksploratorze pakietów**kliknij projekt prawym przyciskiem myszy. Wybierz pozycję **Eksportuj**. 
 1. Zostanie wyświetlone okno **eksport** . Rozwiń węzeł **Java** i wybierz pozycję **możliwy do uruchomienia plik JAR** , a następnie wybierz pozycję **Next (dalej**).
 
-   ![Zrzut ekranu okna eksportowania](../media/speech-devices-sdk/eclipse-export-linux.png) 
+   ![Zrzut ekranu przedstawiający okno eksportowania.](../media/speech-devices-sdk/eclipse-export-linux.png) 
 
 1. Zostanie wyświetlone okno **Eksportuj plik możliwy do uruchomienia jar** . Wybierz **lokalizację docelową eksportu** aplikacji, a następnie wybierz pozycję **Zakończ**.
  
-   ![Zrzut ekranu przedstawiający Eksport pliku JAR możliwy do uruchomienia](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
+   ![Zrzut ekranu przedstawiający okno eksportowania pliku JAR możliwy do uruchomienia.](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
 
 1. Umieść `kws.table` i `participants.properties` w folderze docelowym wybranym powyżej, ponieważ te pliki są zbędne przez aplikację.
 

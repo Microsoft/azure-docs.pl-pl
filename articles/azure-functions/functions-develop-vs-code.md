@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać i testować Azure Functions przy uż
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 1614ac0711c6a83d7e303b5a4b6ebbdf23ba2e03
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104074"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167903"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio Code
 
@@ -384,15 +384,13 @@ Aby dowiedzieć się więcej, zobacz [dzienniki przesyłania strumieniowego](fun
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 > [!NOTE]
-> Dzienniki przesyłania strumieniowego obsługują tylko pojedyncze wystąpienie hosta funkcji. Gdy funkcja jest skalowana do wielu wystąpień, dane z innych wystąpień nie są wyświetlane w strumieniu dziennika. [Live Metrics Stream](../azure-monitor/app/live-stream.md) w Application Insights obsługuje wiele wystąpień. A także w czasie niemal rzeczywistym usługa Stream Analytics opiera się na [przykładowych danych](functions-monitoring.md#configure-sampling).
+> Dzienniki przesyłania strumieniowego obsługują tylko pojedyncze wystąpienie hosta funkcji. Gdy funkcja jest skalowana do wielu wystąpień, dane z innych wystąpień nie są wyświetlane w strumieniu dziennika. [Live Metrics Stream](../azure-monitor/app/live-stream.md) w Application Insights obsługuje wiele wystąpień. A także w czasie niemal rzeczywistym usługa Stream Analytics opiera się na [przykładowych danych](configure-monitoring.md#configure-sampling).
 
 ### <a name="application-insights"></a>Application Insights
 
-Zalecamy monitorowanie wykonywania funkcji przez integrację aplikacji funkcji z Application Insights. Podczas tworzenia aplikacji funkcji w Azure Portal Ta integracja odbywa się domyślnie. Gdy tworzysz aplikację funkcji podczas publikacji programu Visual Studio, musisz samodzielnie zintegrować Application Insights.
+Zalecamy monitorowanie wykonywania funkcji przez integrację aplikacji funkcji z Application Insights. Podczas tworzenia aplikacji funkcji w Azure Portal Ta integracja odbywa się domyślnie. Gdy tworzysz aplikację funkcji podczas publikacji programu Visual Studio, musisz samodzielnie zintegrować Application Insights. Aby dowiedzieć się, jak to zrobić, zobacz [Włączanie integracji Application Insights](configure-monitoring.md#enable-application-insights-integration).
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-Aby dowiedzieć się więcej, zobacz [Monitor Azure Functions](functions-monitoring.md).
+Aby dowiedzieć się więcej na temat monitorowania za pomocą Application Insights, zobacz [Azure Functions monitorowania](functions-monitoring.md).
 
 ## <a name="c-script-projects"></a>\#Projekty skryptów języka C
 

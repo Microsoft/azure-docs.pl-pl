@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać i testować Azure Functions przy uż
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 0ee5d270db2149be0cfbf6bf06f87a5d0133c6ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5164d0757de5011c112a9506979da19d9585790
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88612813"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167801"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio  
 
@@ -229,11 +229,9 @@ Można również zarządzać ustawieniami aplikacji w jeden z następujących sp
 
 ## <a name="monitoring-functions"></a>Funkcje monitorowania
 
-Zalecanym sposobem monitorowania wykonywania funkcji jest zintegrowanie aplikacji funkcji z usługą Azure Application Insights. Po utworzeniu aplikacji funkcji w Azure Portal Ta integracja jest domyślnie wykonywana. Jednak podczas tworzenia aplikacji funkcji podczas publikowania programu Visual Studio nie jest przeprowadzana integracja w aplikacji funkcji na platformie Azure.
+Zalecanym sposobem monitorowania wykonywania funkcji jest zintegrowanie aplikacji funkcji z usługą Azure Application Insights. Po utworzeniu aplikacji funkcji w Azure Portal Ta integracja jest domyślnie wykonywana. Jednak podczas tworzenia aplikacji funkcji podczas publikowania programu Visual Studio nie jest przeprowadzana integracja w aplikacji funkcji na platformie Azure. Aby dowiedzieć się, jak połączyć Application Insights z aplikacją funkcji, zobacz [Włączanie integracji Application Insights](configure-monitoring.md#enable-application-insights-integration).
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-Aby dowiedzieć się więcej, zobacz [Monitor Azure Functions](functions-monitoring.md).
+Aby dowiedzieć się więcej na temat monitorowania za pomocą Application Insights, zobacz [Azure Functions monitorowania](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

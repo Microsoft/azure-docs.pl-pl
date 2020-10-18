@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e87e3d59fec354ca3590a79accb45a74172793b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60456854"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167886"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Używanie programu Storage Explorer z usługą Azure File Storage
 
@@ -73,7 +73,7 @@ Poniższe kroki ilustrują wyświetlanie zawartości udziału plików w Eksplora
 
 1. W okienku głównym zostanie wyświetlona zawartość udziału plików.
     
-    ![Zawartość udziału](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![Zrzut ekranu przedstawiający okienko główne udziału plików w Eksplorator usługi Storage pokazujący zawartość udziału.](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>Usuwanie udziału plików
 
@@ -89,7 +89,7 @@ Poniższe kroki ilustrują usuwanie udziału plików w Eksploratorze usługi Sto
 
 1. Kliknij prawym przyciskiem myszy udział plików, który chcesz usunąć, a następnie z menu kontekstowego wybierz pozycję **Usuń**. Możesz również nacisnąć klawisz **Delete**, aby usunąć aktualnie wybrany udział plików.
 
-    ![Usuwanie](media/vs-azure-tools-storage-explorer-files/image6.png)
+    ![Usuń](media/vs-azure-tools-storage-explorer-files/image6.png)
 
 1. Wybierz pozycję **Tak** w oknie dialogowym potwierdzenia.
     
@@ -191,7 +191,7 @@ Poniższe kroki ilustrują zarządzanie plikami (i folderami) w udziale plików.
 
 1.  W okienku głównym zostanie wyświetlona zawartość udziału plików.
 
-    ![Zawartość udziału](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![Zrzut ekranu przedstawiający okienko główne dla udziału plików myazurefileshare w Eksplorator usługi Storage, pokazujący zawartość udziału przy pierwszym wybranym folderze.](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  W okienku głównym zostanie wyświetlona zawartość udziału plików.
 

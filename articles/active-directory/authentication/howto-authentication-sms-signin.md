@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 849057ab1ccde2e0771f0c1cd52ea399ffe4cea7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964693"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166639"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurowanie i Zezwalanie użytkownikom na uwierzytelnianie SMS przy użyciu Azure Active Directory (wersja zapoznawcza)
 
@@ -96,13 +96,17 @@ Po ustawieniu numeru telefonu dla wiadomości SMS jest on również dostępny do
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W menu nawigacji po lewej stronie okna Azure Active Directory wybierz pozycję **Użytkownicy**.
 1. Wybierz użytkownika, który został włączony dla uwierzytelniania opartego na programie SMS w poprzedniej sekcji, na przykład *użytkownik firmy Contoso*, a następnie wybierz pozycję **metody uwierzytelniania**.
-1. Wprowadź numer telefonu użytkownika, w tym kod kraju, taki jak *+ 1 xxxxxxxxx*. Azure Portal sprawdza poprawność numeru telefonu.
+1. Wybierz pozycję **+ Dodaj metodę uwierzytelniania**, a następnie z menu rozwijanego *Wybierz metodę* wybierz **numer telefonu**.
 
-    ![Ustaw numer telefonu dla użytkownika w Azure Portal, który ma być używany z uwierzytelnianiem na podstawie programu SMS](./media/howto-authentication-sms-signin/set-user-phone-number.png)
+    Wprowadź numer telefonu użytkownika, w tym kod kraju, taki jak *+ 1 xxxxxxxxx*. Azure Portal sprawdza poprawność numeru telefonu.
+
+    Następnie z menu rozwijanego *Typ telefonu* wybierz pozycję *Mobile*, *alternatywny Mobile*lub *inne* w zależności od wymagań.
+
+    :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Ustaw numer telefonu dla użytkownika w Azure Portal, który ma być używany z uwierzytelnianiem na podstawie programu SMS":::
 
     Numer telefonu musi być unikatowy w dzierżawie. Jeśli spróbujesz użyć tego samego numeru telefonu dla wielu użytkowników, zostanie wyświetlony komunikat o błędzie.
 
-1. Aby zastosować numer telefonu do konta użytkownika, wybierz pozycję **Zapisz**.
+1. Aby zastosować numer telefonu do konta użytkownika, wybierz pozycję **Dodaj**.
 
 Po pomyślnym zainicjowaniu obsługi zostanie wyświetlony znacznik wyboru dla opcji *Logowanie za pomocą programu SMS*.
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430733"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168209"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Dostosowywanie stylu stron portalu dla deweloperów
 
@@ -31,7 +31,7 @@ Istnieją trzy najczęstsze sposoby dostosowywania portalu dla deweloperów w us
 
 W tym artykule dowiesz się, jak dostosować styl elementów na stronach starszego portalu dla **deweloperów** i wyświetlić zmiany.
 
-![Dostosowywanie stylu](./media/modify-developer-portal-style/developer_portal.png)
+![Zrzut ekranu pokazujący, gdzie można zmienić ustawienia w starszym portalu dla deweloperów.](./media/modify-developer-portal-style/developer_portal.png)
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -49,7 +49,7 @@ W tym artykule dowiesz się, jak dostosować styl elementów na stronach starsze
 2. Kliknij przycisk **Portal dla deweloperów (starsza wersja)** w górnej części okna **Przegląd** .
 3. W lewej górnej części ekranu będzie widoczna ikona składająca się z dwóch pędzli. Zatrzymaj wskaźnik myszy nad tą ikoną, aby otworzyć menu dostosowywania portalu.
 
-    ![Dostosowywanie stylu](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+    ![Zrzut ekranu, który podświetla ikonę z dwoma pędzlami programu Paint.](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
 4. Wybierz pozycję **Style** z menu, aby otworzyć okienko dostosowywania stylu.
 
     Na stronie zostaną wyświetlone wszystkie elementy, które można dostosować za pomocą **stylów**

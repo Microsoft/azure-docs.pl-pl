@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 6a5df4f6a20a9f7061f56dac507a474f7bda6100
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992874"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168277"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w Azure Monitor
 
@@ -187,7 +187,9 @@ Jeśli po raz pierwszy przeglądasz historię zmian po jej zintegrowaniu z anali
 - Trwa **to dłużej niż oczekiwano**. Ten komunikat oznacza, że rejestracja trwa dłużej niż 2 minuty. Jest to nietypowe, ale niekoniecznie oznacza coś, co poszło źle. Możesz przejść do pozycji **subskrypcje | Dostawca zasobów** do sprawdzania stanu rejestracji dostawcy zasobów **Microsoft. ChangeAnalysis** . Możesz spróbować użyć interfejsu użytkownika do wyrejestrowania, ponownego zarejestrowania lub odświeżenia, aby zobaczyć, czy to pomoże. Jeśli problem będzie się powtarzać, skontaktuj się z changeanalysishelp@microsoft.com pomocą techniczną.
     ![Rozwiązywanie problemów z rejestracją RP trwa zbyt długo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
 
+![Zrzut ekranu przedstawiający narzędzie diagnozowania i rozwiązywania problemów dla maszyny wirtualnej z wybranymi narzędziami do rozwiązywania problemów.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
+![Zrzut ekranu przedstawiający kafelek dla narzędzia do rozwiązywania problemów z analizą ostatnich zmian dla maszyny wirtualnej.](./media/change-analysis/analyze-recent-changes.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

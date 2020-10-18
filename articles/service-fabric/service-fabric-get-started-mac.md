@@ -2,22 +2,20 @@
 title: Konfigurowanie środowiska deweloperskiego w systemie macOS
 description: Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji będziesz gotowy do kompilowania aplikacji w witrynie macOS.
 ms.topic: conceptual
-ms.date: 11/17/2017
+ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0d5a31f22fb0472882e3854488fbd1c3249879d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adec05a4d8e34374fe260343c73b1ecd14ba04f1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539864"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168175"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
->
->  
+> * [Mac OS X](service-fabric-get-started-mac.md)
 
 Przy użyciu systemu Mac OS X można kompilować aplikacje usługi Azure Service Fabric, aby działały w klastrach systemu Linux. W tym dokumencie opisano, jak skonfigurować komputer Mac na potrzeby projektowania.
 
@@ -53,31 +51,41 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     >[!TIP]
     >Zalecamy zwiększenie zasobów przydzielonych do platformy Docker podczas testowania dużych aplikacji. W tym celu można wybrać **ikonę platformy Docker**, a następnie wybrać pozycję **Zaawansowane**, aby dostosować liczbę rdzeni i ilość pamięci.
 
-2. W nowym katalogu utwórz plik o nazwie `Dockerfile` w celu skompilowania obrazu usługi Service Fabric:
-
-    ```Dockerfile
-    FROM mcr.microsoft.com/service-fabric/onebox:latest
-    WORKDIR /home/ClusterDeployer
-    RUN ./setup.sh
-    #Generate the local
-    RUN locale-gen en_US.UTF-8
-    #Set environment variables
-    ENV LANG=en_US.UTF-8
-    ENV LANGUAGE=en_US:en
-    ENV LC_ALL=en_US.UTF-8
-    EXPOSE 19080 19000 80 443
-    #Start SSH before running the cluster
-    CMD /etc/init.d/ssh start && ./run.sh
+2. Uruchom klaster.<br/>
+    <b>Ubuntu 18,04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
+    <b>Ubuntu 16,04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
+    ```
+
+    >[!TIP]
+    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku poszczególnych poprawek odwiedź stronę usługi [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) .
+
+
+
+3. Opcjonalne: Tworzenie obrazu rozszerzonego Service Fabric.
+
+    W nowym katalogu Utwórz plik o nazwie `Dockerfile` do skompilowania niestandardowego obrazu:
+
     >[!NOTE]
-    >Możesz dostosować ten plik, aby dodać dodatkowe programy lub zależności do kontenera.
+    >Możesz dostosować obraz powyżej za pomocą pliku dockerfile, aby dodać dodatkowe programy lub zależności do kontenera.
     >Na przykład dodanie elementu `RUN apt-get install nodejs -y` umożliwi obsługę aplikacji `nodejs` jako plików wykonywalnych gościa.
+    ```Dockerfile
+    FROM mcr.microsoft.com/service-fabric/onebox:u18
+    RUN apt-get install nodejs -y
+    EXPOSE 19080 19000 80 443
+    WORKDIR /home/ClusterDeployer
+    CMD ["./ClusterDeployer.sh"]
+    ```
     
     >[!TIP]
-    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. Poszczególne wersje są dostępne na stronie [usługi Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku poszczególnych poprawek odwiedź stronę usługi [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) .
 
-3. Aby skompilować obraz do wielokrotnego użytku na podstawie pliku `Dockerfile`, otwórz terminal i element `cd` w lokalizacji bezpośrednio przechowującej plik `Dockerfile`, a następnie uruchom kod:
+    Aby skompilować obraz do wielokrotnego użytku z programu `Dockerfile` , Otwórz Terminal i `cd` bezpośrednio przytrzymując `Dockerfile` następnie uruchom następujące polecenie:
 
     ```bash 
     docker build -t mysfcluster .
@@ -86,7 +94,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     >[!NOTE]
     >Ta operacja może zająć pewien czas, ale trzeba ją wykonać tylko raz.
 
-4. Teraz możesz szybko w razie potrzeby uruchomić kopię lokalną usługi Service Fabric, uruchamiając kod:
+    Teraz można szybko uruchomić lokalną kopię Service Fabric, gdy będzie potrzebna, uruchamiając:
 
     ```bash 
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
@@ -97,18 +105,17 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     >
     >Jeśli Twoja aplikacja nasłuchuje na określonych portach, należy je określić za pomocą dodatkowych tagów `-p`. Jeśli na przykład aplikacja nasłuchuje na porcie 8080, dodaj następujący tag `-p`:
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
+    >`docker run -itd -p 19000:19000 -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:u18`
     >
 
-5. Uruchomienie klastra zajmie trochę czasu. Gdy jest uruchomiony, można wyświetlić dzienniki przy użyciu poniższego polecenia lub przejść do pulpitu nawigacyjnego, aby wyświetlić kondycję klastrów `http://localhost:19080` :
+4. Uruchomienie klastra zajmie trochę czasu. Gdy jest uruchomiony, można wyświetlić dzienniki przy użyciu poniższego polecenia lub przejść do pulpitu nawigacyjnego, aby wyświetlić kondycję klastrów: `http://localhost:19080`
 
     ```bash 
     docker logs sftestcluster
     ```
 
 
-
-6. Aby zatrzymać i oczyścić kontener, użyj następującego polecenia. Jednak będziemy używać tego kontenera w następnym kroku.
+5. Aby zatrzymać i oczyścić kontener, użyj następującego polecenia. Jednak będziemy używać tego kontenera w następnym kroku.
 
     ```bash 
     docker rm -f sftestcluster
@@ -118,7 +125,8 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
  
  Poniżej przedstawiono znane ograniczenia dotyczące klastrów lokalnych działających w kontenerze na komputerach Mac: 
  
- * Usługa DNS nie działa i nie jest obsługiwana: [problem #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * Usługa DNS nie działa i nie jest obecnie obsługiwana w kontenerze. [#132 problemu](https://github.com/Microsoft/service-fabric/issues/132)
+ * Uruchomione aplikacje oparte na kontenerach wymagają uruchomienia SF na hoście z systemem Linux. Zagnieżdżone aplikacje kontenera nie są obecnie obsługiwane.
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric (sfctl) na komputerze Mac
 
@@ -185,9 +193,9 @@ Po utworzenia i skompilowaniu aplikacji usługi Service Fabric możesz wdrożyć
     bash install.sh
     ```
 
-## <a name="set-up-net-core-20-development"></a>Konfigurowanie tworzenia aplikacji w programie .NET Core 2.0
+## <a name="set-up-net-core-31-development"></a>Skonfiguruj Programowanie na platformie .NET Core 3,1
 
-Zainstaluj [zestaw .NET Core 2.0 SDK dla komputerów Mac](https://www.microsoft.com/net/core#macos), aby uruchomić [tworzenie aplikacji usługi Service Fabric w języku C#](service-fabric-create-your-first-linux-application-with-csharp.md). Pakiety dla aplikacji .NET Core 2.0 usługi Service Fabric są hostowane w witrynie NuGet.org, która jest obecnie dostępna w wersji zapoznawczej.
+Zainstaluj [zestaw SDK platformy .NET Core 3,1 dla komputerów Mac](https://www.microsoft.com/net/core#macos) , aby rozpocząć [Tworzenie aplikacji w języku C# Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md). Pakiety dla aplikacji .NET Core Service Fabric są hostowane w witrynie NuGet.org.
 
 ## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Instalowanie wtyczki usługi Service Fabric dla środowiska Eclipse na komputerze Mac
 

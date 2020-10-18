@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 10cf06a829b991bfe15d7b24c4fc61d0fe22eaaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ae5f01e23a7922f508c4a2674e1a3f29e354b8
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653719"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166067"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Eksplorowanie Azure Machine Learning z notesami Jupyter
 
@@ -58,6 +58,7 @@ Te instrukcje instalują podstawowe pakiety SDK niezbędne do obsługi notesów 
 Zapoznaj się z [przykładowymi notesami](https://github.com/Azure/MachineLearningNotebooks) , aby dowiedzieć się, co może zrobić Azure Machine Learning.
 
 Aby uzyskać więcej przykładowych projektów i przykładów usługi GitHub, zobacz następujące repozytoria:
++ [Azure/uczenie — przykłady](https://github.com/Azure/azureml-examples)
 + [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 + [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 

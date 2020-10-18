@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667697"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166458"
 ---
 # <a name="get-started-with-custom-keyword"></a>Wprowadzenie do Niestandardowego słowa kluczowego
 
@@ -54,7 +54,7 @@ Aby można było użyć niestandardowego słowa kluczowego, należy utworzyć s�
 
 1. Portal tworzy wymowy kandydatów dla słowa kluczowego. Nasłuchiwanie poszczególnych kandydatów przez kliknięcie przycisku Odtwórz i usunięcie kontroli obok wszelkich wymowy, które są nieprawidłowe. Gdy sprawdzane są tylko dobre wymowy, kliknij pozycję **uczenie** , aby rozpocząć generowanie modelu słowa kluczowego. 
 
-    ![Przejrzyj słowo kluczowe](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![Zrzut ekranu pokazujący, gdzie wybierasz poprawną pronounciations.](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. Wygenerowanie modelu może potrwać do 30 minut. Lista słów kluczowych zmieni się z **przetwarzania** na **powodzenie** , gdy model zostanie ukończony. Następnie można pobrać plik.
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc2eb7ecb7f0587c065aac1cfb57cfae10b732ac
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797942"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168294"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Rozwiązywanie problemów z projektem Azure FarmBeats
 
@@ -174,7 +174,7 @@ Podczas usuwania urządzenia może wystąpić jeden z następujących typowych s
 
 Jeśli masz już udzielony dostęp i wystąpił ten błąd, spróbuj ponownie, odświeżając stronę. Jeśli błąd będzie się powtarzać, skontaktuj się z nami przy użyciu komunikatu o błędzie/dzienników.
 
-![FarmBeats projektu](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![Zrzut ekranu pokazujący Błąd autoryzacji.](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### <a name="accelerator-issues"></a>Problemy akceleratora  
 
@@ -293,7 +293,7 @@ Ten problem może wystąpić, jeśli na serwerze wskaźnikowym są wykonywane ja
 6. W lewym okienku wybierz pozycję **kontenery obiektów BLOB**, a następnie wybierz pozycję Dzienniki **zadań** dla dzienników Azure Data Factory lub dzienników **appinsights** dla App Service dzienników.
 7. Wybierz pozycję **Pobierz** i Pobierz dzienniki do folderu lokalnego na komputerze.
 
-    ![FarmBeats projektu](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![Zrzut ekranu pokazujący pobrane pliki dziennika.](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Zbieranie dzienników zadań Azure Data Factory lub dzienników App Service dla akceleratora
 
@@ -327,26 +327,26 @@ Ten problem może wystąpić, jeśli na serwerze wskaźnikowym są wykonywane ja
 > [!NOTE]
 > Aby wyświetlić Tagi usług w grupie zasobów, kliknij pozycję "Edytuj kolumny" i Dodaj "Tagi" do widoku grupy zasobów
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="FarmBeats projektu":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Zrzut ekranu, który podświetla tag SKU: Datahub.":::
 
 3. Na stronie Przegląd fabryki danych kliknij pozycję **Tworzenie i monitorowanie**. Zostanie otwarta nowa karta w przeglądarce. Kliknij pozycję **monitor**
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="FarmBeats projektu":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Zrzut ekranu, który podświetla tag SKU: Datahub.":::
 
 4. Zostanie wyświetlona lista uruchomień potoków, które są częścią wykonywania zadania pogodowego. Kliknij zadanie, dla którego chcesz zebrać dzienniki
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="FarmBeats projektu":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Zrzut ekranu, który podświetla tag SKU: Datahub.":::
 
 5. Na stronie Przegląd potoku zostanie wyświetlona lista uruchomień działania. Zanotuj identyfikatory przebiegu działań, dla których chcesz zebrać dzienniki
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="FarmBeats projektu":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Zrzut ekranu, który podświetla tag SKU: Datahub.":::
 
 6. Wróć do grupy zasobów FarmBeats w Azure Portal i kliknij konto magazynu o nazwie **datahublogs-xxxx**
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="FarmBeats projektu":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Zrzut ekranu, który podświetla tag SKU: Datahub.":::
 
 7. Kliknij pozycję **kontenery**  ->  **adfjobs**. W polu wyszukiwania wprowadź identyfikator uruchomienia zadania zanotowany w kroku 5 powyżej.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="FarmBeats projektu":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Zrzut ekranu, który podświetla tag SKU: Datahub.":::
 
 8. Wynik wyszukiwania będzie zawierać folder, w którym znajdują się dzienniki dotyczące danego zadania. Pobierz dzienniki i wyślij je do farmbeatssupport@microsoft.com pomocy w celu debugowania problemu.

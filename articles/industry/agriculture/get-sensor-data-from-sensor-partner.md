@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57baa00f7f9b64212d0aee8b0a2efeca814abeb3
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649163"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168532"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Pobierz dane czujnika z partnerów czujników
 
@@ -178,7 +178,7 @@ Wykonaj następujące kroki:
 1. Na stronie głównej wybierz z menu pozycję **czujniki** , aby wyświetlić stronę **czujników** .
 2. Wybierz urządzenie, które chcesz usunąć, a następnie w oknie potwierdzenia wybierz pozycję **Usuń** .
 
-    ![Przycisk Usuń](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+    ![Zrzut ekranu, który podświetla stronę usuwania czujników i przycisk Usuń.](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
 Zostanie wyświetlony komunikat z potwierdzeniem, że czujnik został pomyślnie usunięty.
 

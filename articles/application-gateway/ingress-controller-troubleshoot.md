@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207155"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168192"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Rozwiązywanie typowych pytań lub problemów z kontrolerem transferu danych przychodzących
 
@@ -85,15 +85,15 @@ Po pomyślnym wdrożeniu aplikacji powyżej AKS klaster będzie miał nową usł
 Pobierz listę zasobników z [Cloud Shell](https://shell.azure.com/): `kubectl get pods -o wide` .
 Oczekujemy, że element pod nazwą "test-agic-App-pod" został utworzony. Będzie on miał adres IP. Ten adres musi znajdować się w sieci wirtualnej Application Gateway, która jest używana z AKS.
 
-![zasobników](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![Zrzut ekranu okna bash w Azure Cloud Shell przedstawiający listę zasobników zawierających test-agic-App-pod na liście.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 Pobierz listę usług: `kubectl get services -o wide` . Oczekujemy, że zostanie wyświetlona usługa o nazwie "test-agic-App-Service".
 
-![zasobników](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![Zrzut ekranu okna bash w Azure Cloud Shell przedstawiający listę usług, które zawierają test-agic-App-pod listy.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 Pobierz listę ingresses: `kubectl get ingress` . Oczekujemy, że zasób transferu danych przychodzących o nazwie "test-agic-App-Ingres" został utworzony. Zasób będzie miał nazwę hosta "test.agic.contoso.com".
 
-![zasobników](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![Zrzut ekranu okna bash w Azure Cloud Shell przedstawiający listę ingresses zawierających test-agic-App-in in list.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 Jednym z tych zasobników będzie AGIC. `kubectl get pods` zostanie wyświetlona lista wielowymiarowa, z których jedna będzie zaczynać się od "ruchu przychodzącego z platformy Azure". Pobierz wszystkie dzienniki tego programu pod względem programu, `kubectl logs <name-of-ingress-controller-pod>` Aby sprawdzić, czy zakończono pomyślnie wdrożenie. Pomyślne wdrożenie dodaliśmy następujące wiersze do dziennika:
 ```
@@ -120,7 +120,7 @@ Na koniec możemy użyć `cURL` polecenia z poziomu [Cloud Shell](https://shell.
 1. Użyj, `kubectl get ingress` Aby uzyskać publiczny adres IP Application Gateway
 2. Korzystanie z polecenia `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
-![zasobników](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![Zrzut ekranu okna bash w Azure Cloud Shell pokazujący polecenie zwinięcie pomyślnie nawiązać połączenie HTTP z aplikacją testową.](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 Wynik `HTTP/1.1 200 OK` wskazuje, że system Application Gateway i AKS + AGIC działa zgodnie z oczekiwaniami.
 

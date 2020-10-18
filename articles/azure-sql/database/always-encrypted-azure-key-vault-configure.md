@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 98ba8c54b1754d6384dfcedb86e6c4889e52cb4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26bac8115a64d78ce64bc400f98fb26cb929ba4d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444834"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164503"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurowanie Always Encrypted przy użyciu Azure Key Vault 
 
@@ -149,7 +149,7 @@ Program SSMS zawiera kreatora, który ułatwia konfigurowanie Always Encrypted p
 1. Rozwiń **Databases**węzeł  >  **kliniki**baz danych  >  **Tables**.
 2. Kliknij prawym przyciskiem myszy tabelę **pacjentów** i wybierz pozycję **Szyfruj kolumny** , aby otworzyć Kreatora Always Encrypted:
 
-    ![Szyfruj kolumny](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
+    ![Zrzut ekranu, który podświetla kolumny Szyfruj... opcja menu.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 Kreator Always Encrypted zawiera następujące sekcje: **wybór kolumn**, **Konfiguracja klucza głównego**, **Walidacja**i **Podsumowanie**.
 
@@ -574,7 +574,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 Można zobaczyć, że zaszyfrowane kolumny nie zawierają żadnych danych w postaci zwykłego tekstu.
 
-   ![Nowa aplikacja konsolowa](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
+   ![Zrzut ekranu pokazujący, że zaszyfrowane kolumny nie zawierają żadnych danych w postaci zwykłego tekstu.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
 Aby używać narzędzia SSMS do uzyskiwania dostępu do danych w postaci zwykłego tekstu, należy najpierw upewnić się, że użytkownik ma odpowiednie uprawnienia do Azure Key Vault: *Get*, *unwrapKey*i *verify*. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie i przechowywanie kluczy głównych kolumn (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
@@ -584,7 +584,7 @@ Następnie Dodaj *ustawienie szyfrowanie kolumn = włączone* parametr podczas p
 2. Kliknij pozycję **Połącz**  >  **aparat bazy danych** , aby otworzyć okno **łączenie z serwerem** , a następnie kliknij przycisk **Opcje**.
 3. Kliknij pozycję **dodatkowe parametry połączenia** i **ustawienie szyfrowania kolumny Typ = włączone**.
 
-    ![Nowa aplikacja konsolowa](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
+    ![Zrzut ekranu przedstawiający kartę dodatkowe parametry korekcji.](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. Uruchom następujące zapytanie w bazie danych kliniki.
 

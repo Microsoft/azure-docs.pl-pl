@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543337"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168056"
 ---
 # <a name="azure-operational-security"></a>Zabezpieczenia operacyjne platformy Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -81,7 +81,7 @@ Podstawowe funkcje dzienników Azure Monitor są udostępniane przez zestaw usł
 Ta metoda umożliwia konsolidowanie danych z różnych źródeł, dzięki czemu można połączyć dane z usług platformy Azure z istniejącym środowiskiem lokalnym. Ponadto wprowadza wyraźny podział między zbieraniem danych a akcjami wykonanymi na tych danych, tak aby wszystkie akcje były dostępne dla wszystkich typów danych.
 
 
-![Dzienniki usługi Azure Monitor](./media/operational-security/azure-operational-security-fig2.png)
+![Diagram przedstawiający konsolidowanie danych z różnych źródeł, dzięki czemu można połączyć dane z usług platformy Azure z istniejącym środowiskiem lokalnym.](./media/operational-security/azure-operational-security-fig2.png)
 
 Usługa Azure Monitor umożliwia bezpieczne zarządzanie danymi opartymi na chmurze przy użyciu następujących metod:
 -   podział danych

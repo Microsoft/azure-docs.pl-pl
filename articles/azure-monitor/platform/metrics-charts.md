@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079557"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168566"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
 
@@ -77,15 +77,15 @@ Można zastosować filtry do wykresów, które wyświetlają metryki z wymiarami
 
 2. Wybierz wymiar, który ma być filtrowany
 
-   ![obraz metryki](./media/metrics-charts/00006.png)
+   ![Zrzut ekranu pokazujący Wymiary (właściwości), które można filtrować.](./media/metrics-charts/00006.png)
 
 3. Wybierz wartości wymiaru, które mają zostać uwzględnione podczas kreolenia wykresu (w tym przykładzie pokazano, jak odfiltrować pomyślne transakcje magazynu):
 
-   ![obraz metryki](./media/metrics-charts/00007.png)
+   ![Zrzut ekranu pokazujący filtrowanie z pomyślnych transakcji magazynu.](./media/metrics-charts/00007.png)
 
 4. Po wybraniu wartości filtru kliknij poza selektorem filtru, aby go zamknąć. Teraz wykres pokazuje, ile transakcji magazynu nie powiodło się:
 
-   ![obraz metryki](./media/metrics-charts/00008.png)
+   ![Zrzut ekranu pokazujący, ile transakcji magazynu nie powiodło się](./media/metrics-charts/00008.png)
 
 5. Możesz powtórzyć kroki 1-4, aby zastosować wiele filtrów do tych samych wykresów.
 
@@ -104,11 +104,11 @@ Można podzielić metrykę według wymiaru, aby wizualizować, jak różne segme
 
 2. Wybierz wymiar, dla którego chcesz podzielić wykres:
 
-   ![obraz metryki](./media/metrics-charts/00010.png)
+   ![Zrzut ekranu pokazujący wybrany wymiar, w którym znajduje się wykres.](./media/metrics-charts/00010.png)
 
    Teraz wykres zawiera teraz wiele wierszy, po jednym dla każdego segmentu wymiaru:
 
-   ![obraz metryki](./media/metrics-charts/00012.png)
+   ![Zrzut ekranu pokazujący wiele wierszy, jeden dla każdego segmentu wymiaru.](./media/metrics-charts/00012.png)
 
 3. Kliknij poza **selektorem grupowania** , aby go zamknąć.
 
@@ -125,7 +125,7 @@ Innym przykładem jest Wahanie dostępnej pamięci, gdzie wartość będzie tech
 
 Aby kontrolować zakres osi y, użyj "..." menu Wykres i wybierz pozycję **Edytuj wykres** , aby uzyskać dostęp do zaawansowanych ustawień wykresu. Zmodyfikuj wartości w sekcji Zakres osi Y **lub użyj przycisku** Auto, aby przywrócić wartości domyślne.
 
-![obraz metryki](./media/metrics-charts/00014-manually-set-granularity.png)
+![Zrzut ekranu, który podświetla opcję Edytuj wykres.](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > Zablokowanie granic osi y dla wykresów, które śledzą różne liczby lub sumy w danym okresie czasu (w tym przypadku użycie metody Count, sum, minimum lub Maximum) zwykle wymaga określenia stałego stopnia szczegółowości, zamiast polegania na automatycznym wykorzystaniu wartości domyślnych. Jest to konieczne, ponieważ wartości na wykresach zmieniają się, gdy poziom szczegółowości czasu jest automatycznie modyfikowany przez okno przeglądarki zmiany rozmiarów użytkownika lub przejście z jednej rozdzielczości ekranu do innej. Zmiana stopnia szczegółowości w czasie wpływa na wygląd wykresu, co unieważnia bieżący wybór zakresu osi y.
@@ -138,7 +138,7 @@ Aby zmienić kolor linii wykresu, kliknij kolorowy pasek w legendzie, który odn
 
 Po skonfigurowaniu kolorów wykresu pozostaną one w taki sposób, gdy przypinasz wykres do pulpitu nawigacyjnego. W poniższej sekcji pokazano, jak przypiąć wykres.
 
-![obraz metryki](./media/metrics-charts/018.png)
+![Zrzut ekranu pokazujący sposób przypinania wykresu.](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>Przypinanie wykresów do pulpitów nawigacyjnych
 

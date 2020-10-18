@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272504"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164248"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Przygotowywanie maszyn wirtualnych do FCI (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -101,14 +101,14 @@ Po wyrejestrowaniu z dostawcy zasobów można odinstalować SQL Server. Wykonaj 
 
 Na każdej maszynie wirtualnej Otwórz port TCP zapory systemu Windows, którego używa SQL Server. Domyślnie jest to port 1433. Można jednak zmienić port SQL Server w ramach wdrożenia maszyny wirtualnej platformy Azure, aby otworzyć port, którego SQL Server używa w danym środowisku. Ten port jest automatycznie otwierany na SQL Server obrazów wdrożonych z portalu Azure Marketplace. 
 
-W przypadku korzystania z [modułu równoważenia obciążenia](hadr-vnn-azure-load-balancer-configure.md)należy również otworzyć port używany przez sondę kondycji. Domyślnie jest to port 59999. Może to być dowolny port TCP określony podczas tworzenia modułu równoważenia obciążenia. 
+W przypadku korzystania z [modułu równoważenia obciążenia](failover-cluster-instance-vnn-azure-load-balancer-configure.md)należy również otworzyć port używany przez sondę kondycji. Domyślnie jest to port 59999. Może to być dowolny port TCP określony podczas tworzenia modułu równoważenia obciążenia. 
 
 W tej tabeli przedstawiono informacje o portach, które mogą być konieczne do otwarcia, w zależności od konfiguracji FCI: 
 
    | Przeznaczenie | Port | Uwagi
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Normalny port dla domyślnych wystąpień SQL Server. Jeśli obraz został użyty z galerii, ten port zostanie automatycznie otwarty. </br> </br> **Używane przez**: wszystkie konfiguracje FCI. |
-   | Sonda kondycji | TCP 59999 | Dowolny otwarty port TCP. Skonfiguruj [sondę kondycji](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) modułu równoważenia obciążenia i klaster, aby używać tego portu. </br> </br> **Używane przez**: FCI z usługą równoważenia obciążenia. |
+   | Sonda kondycji | TCP 59999 | Dowolny otwarty port TCP. Skonfiguruj [sondę kondycji](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) modułu równoważenia obciążenia i klaster, aby używać tego portu. </br> </br> **Używane przez**: FCI z usługą równoważenia obciążenia. |
    | Udział plików | UDP 445 | Port, którego używa Usługa udziału plików. </br> </br> **Używane przez**: FCI z udziałem plików w warstwie Premium. |
 
 ## <a name="join-the-domain"></a>Przyłączenie się do domeny

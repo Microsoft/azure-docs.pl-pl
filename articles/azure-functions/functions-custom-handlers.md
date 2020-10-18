@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
-ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294598"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164554"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Niestandardowe programy obsługi Azure Functions (wersja zapoznawcza)
 
@@ -566,7 +566,7 @@ Na hoście funkcji są wyprowadzane dodatkowe komunikaty dziennika, w tym inform
 
 Lokalnie dzienniki są drukowane w konsoli programu.
 
-Na platformie Azure [Wykonaj zapytania dotyczące Application Insights śledzenia](functions-monitoring.md#query-telemetry-data) , aby wyświetlić komunikaty dziennika. Jeśli aplikacja generuje dużą ilość dzienników, do Application Insights są wysyłane tylko podzbiór komunikatów dziennika. [Wyłącz próbkowanie](functions-monitoring.md#configure-sampling) , aby upewnić się, że wszystkie komunikaty są rejestrowane.
+Na platformie Azure [Wykonaj zapytania dotyczące Application Insights śledzenia](analyze-telemetry-data.md#query-telemetry-data) , aby wyświetlić komunikaty dziennika. Jeśli aplikacja generuje dużą ilość dzienników, do Application Insights są wysyłane tylko podzbiór komunikatów dziennika. [Wyłącz próbkowanie](configure-monitoring.md#configure-sampling) , aby upewnić się, że wszystkie komunikaty są rejestrowane.
 
 ### <a name="test-custom-handler-in-isolation"></a>Niestandardowa obsługa testu w izolacji
 

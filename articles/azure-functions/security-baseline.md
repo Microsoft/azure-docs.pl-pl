@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 423fdcdf48d90b4c428497f22cb6924900de8931
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f22473d4a865e2925ecbfe74d68811c12f7c26d7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107525"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168090"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Podstawa zabezpieczeń platformy Azure dla Azure Functions
 
@@ -315,7 +315,7 @@ Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej
 
 - [Jak włączyć ustawienia diagnostyczne dla Azure Functions](./functions-monitor-log-analytics.md)
 
-- [Jak włączyć Application Insights dla Azure Functions](./functions-monitoring.md#enable-application-insights-integration)
+- [Jak włączyć Application Insights dla Azure Functions](./configure-monitoring.md#enable-application-insights-integration)
 
 - [Jak tworzyć alerty na platformie Azure](../azure-monitor/learn/tutorial-response.md)
 
@@ -369,7 +369,7 @@ Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej
 
 **Wskazówki**: płaszczyzna kontroli dostęp do Azure Functions jest kontrolowany za poorednictwem Azure Active Directory (AD). Usługa Azure AD nie ma koncepcji domyślnych haseł.
 
-Dostęp do płaszczyzny danych można kontrolować za pomocą kilku środków, takich jak klucze autoryzacji, ograniczenia sieci i sprawdzanie poprawności tożsamości usługi AAD. Klucze autoryzacji są używane przez klientów nawiązujących połączenie z punktami końcowymi HTTP Azure Functions i mogą być ponownie generowane w dowolnym momencie. Te klucze są domyślnie generowane dla nowych punktów końcowych HTTP.
+Dostęp do płaszczyzny danych można kontrolować za pomocą kilku środków, takich jak klucze autoryzacji, ograniczenia sieci i sprawdzanie poprawności tożsamości usługi Azure AD. Klucze autoryzacji są używane przez klientów nawiązujących połączenie z punktami końcowymi HTTP Azure Functions i mogą być ponownie generowane w dowolnym momencie. Te klucze są domyślnie generowane dla nowych punktów końcowych HTTP.
 
 Wiele metod wdrażania jest dostępnych dla aplikacji funkcji, a niektóre z nich mogą korzystać z zestawu wygenerowanych poświadczeń. Zapoznaj się z metodami wdrażania, które będą używane dla danej aplikacji.
 
@@ -463,7 +463,7 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 - [Jak skonfigurować aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD](../app-service/configure-authentication-provider-aad.md)
 
-- [Jak utworzyć i skonfigurować wystąpienie usługi AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitorowanie Azure Security Center**: tak
 

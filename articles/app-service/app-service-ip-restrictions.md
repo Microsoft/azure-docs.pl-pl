@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962965"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168226"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Ograniczenia dostępu Azure App Service
 
@@ -36,7 +36,7 @@ Aby dodać regułę ograniczeń dostępu do aplikacji, użyj menu, aby otworzyć
 
 Z poziomu interfejsu użytkownika ograniczenia dostępu można przejrzeć listę reguł ograniczeń dostępu zdefiniowanych dla aplikacji.
 
-![Wyświetl ograniczenia dostępu](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Zrzut ekranu przedstawiający ekran ograniczenia dostępu w Azure Portal pokazujący listę reguł ograniczeń dostępu zdefiniowanych dla wybranej aplikacji.](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 Na liście zostaną wyświetlone wszystkie bieżące ograniczenia, które znajdują się w aplikacji. Jeśli używasz ograniczenia sieci wirtualnej w aplikacji, w tabeli zostaną wyświetlone, jeśli dla usługi Microsoft. Web włączono punkty końcowe usług. Jeśli aplikacja nie ma zdefiniowanych ograniczeń, aplikacja będzie dostępna z dowolnego miejsca.  
 
@@ -68,11 +68,11 @@ Za pomocą punktów końcowych usługi można skonfigurować aplikację przy uż
 
 Możesz kliknąć dowolny wiersz, aby edytować istniejącą regułę ograniczeń dostępu. Zmiany w kolejności priorytetu będą obowiązywać natychmiast.
 
-![Edytowanie reguły ograniczeń dostępu](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Zrzut ekranu okna dialogowego Edytowanie ograniczenia adresów IP w Azure Portal pokazujący pola dla istniejącej reguły ograniczeń dostępu.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 Podczas edytowania reguły nie można zmienić typu między regułą adresu IP a regułą Virtual Network. 
 
-![Edytowanie reguły ograniczeń dostępu](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Zrzut ekranu okna dialogowego Edytowanie ograniczenia adresów IP w Azure Portal pokazywania ustawień reguły Virtual Network.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 Aby usunąć regułę, kliknij pozycję **...** w regule, a następnie kliknij przycisk **Usuń**.
 
@@ -90,7 +90,7 @@ W przypadku scenariusza, w którym użytkownicy chcą jawnie blokować pojedyncz
 
 Oprócz możliwości kontrolowania dostępu do aplikacji można także ograniczyć dostęp do witryny SCM używanej przez aplikację. Witryna SCM jest punktem końcowym narzędzia Web Deploy, a także konsolą kudu. Można oddzielnie przypisać ograniczenia dostępu do witryny SCM z poziomu aplikacji lub użyć tego samego zestawu zarówno dla aplikacji, jak i dla witryny SCM. Po zaznaczeniu pola wyboru, aby mieć takie same ograniczenia jak aplikacja, wszystko jest puste. W przypadku zaznaczenia tego pola zostaną zastosowane wszystkie ustawienia wcześniej w witrynie SCM. 
 
-![Wyświetl ograniczenia dostępu](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Zrzut ekranu przedstawiający ekran ograniczenia dostępu w Azure Portal pokazujący, że nie ustawiono żadnych ograniczeń dostępu dla witryny SCM lub aplikacji.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Programistyczne manipulowanie regułami ograniczeń dostępu ##
 

@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 207ee67c207f028b5f4bd45d99a7ef431429debb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293576"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167999"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Użyj szablonów szybkiego startu platformy Azure, aby skonfigurować grupę dostępności dla SQL Server na maszynie wirtualnej platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,6 +33,8 @@ W tym artykule opisano sposób korzystania z szablonów szybkiego startu platfor
    | &nbsp; | &nbsp; |
 
 Inne części konfiguracji grupy dostępności muszą zostać wykonane ręcznie, takie jak tworzenie grupy dostępności i tworzenie wewnętrznego modułu równoważenia obciążenia. Ten artykuł zawiera sekwencję zautomatyzowanych i ręcznych kroków.
+
+Chociaż w tym artykule użyto szablonów szybkiego startu platformy Azure do skonfigurowania środowiska grupy dostępności, można to również zrobić przy użyciu [Azure Portal](availability-group-azure-portal-configure.md), [programu PowerShell lub interfejsu wiersza polecenia platformy Azure](availability-group-az-commandline-configure.md)lub [ręcznie](availability-group-manually-configure-tutorial.md) . 
  
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
@@ -102,6 +104,9 @@ Ręcznie Utwórz grupę dostępności jak zwykle za pomocą [SQL Server Manageme
 > *Nie* Twórz teraz odbiornika, ponieważ szablon **101-SQL-VM-aglistener-Setup** Start jest automatycznie w kroku 4. 
 
 ## <a name="create-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 Odbiornik grupy dostępności zawsze włączony wymaga wewnętrznego wystąpienia Azure Load Balancer. Wewnętrzny moduł równoważenia obciążenia udostępnia "przestawny" adres IP dla odbiornika grupy dostępności, który umożliwia szybsze przełączanie w tryb failover i ponowne łączenie. Jeśli SQL Server maszyny wirtualne w grupie dostępności są częścią tego samego zestawu dostępności, można użyć podstawowego modułu równoważenia obciążenia. W przeciwnym razie należy użyć standardowego modułu równoważenia obciążenia. 
 
 > [!IMPORTANT]
@@ -128,7 +133,7 @@ Wystarczy utworzyć wewnętrzny moduł równoważenia obciążenia. W kroku 4 sz
    | **Lokalizacja** |Wybierz lokalizację platformy Azure, w której znajdują się wystąpienia SQL Server. |
    | &nbsp; | &nbsp; |
 
-6. Wybierz przycisk **Utwórz**. 
+6. Wybierz pozycję **Utwórz**. 
 
 
 >[!IMPORTANT]

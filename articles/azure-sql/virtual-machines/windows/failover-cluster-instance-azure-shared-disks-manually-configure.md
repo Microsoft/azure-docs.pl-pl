@@ -1,5 +1,5 @@
 ---
-title: Tworzenie FCI przy użyciu dysków udostępnionych na platformie Azure (wersja zapoznawcza)
+title: Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure
 description: Użyj usługi Azure Shared disks, aby utworzyć wystąpienie klastra trybu failover (FCI) z SQL Server na platformie Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 6e32f183709aca8a78f8448f2d6e6b63a77f2133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272654"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168243"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać nas
 - Subskrypcja platformy Azure. Zacznij korzystać [bezpłatnie](https://azure.microsoft.com/free/). 
 - [Co najmniej dwie maszyny wirtualne z systemem Windows Azure](failover-cluster-instance-prepare-vm.md). [Zestawy dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md) i [grupy położenia zbliżeniowe](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) są obsługiwane. Jeśli używasz PPG, wszystkie węzły muszą istnieć w tej samej grupie.
 - Konto, które ma uprawnienia do tworzenia obiektów zarówno na maszynach wirtualnych platformy Azure, jak i w Active Directory.
-- Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## <a name="add-azure-shared-disk"></a>Dodaj dysk udostępniony platformy Azure
@@ -153,10 +153,10 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 
 1. W obszarze **Menedżer serwera**wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
 1. W obszarze **Menedżer klastra trybu failover**wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **Wybierz serwery lub klaster**wprowadź nazwy obu maszyn wirtualnych.
 1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **wybór testu**zaznacz wszystkie testy *poza* **magazynem**
 
 ## <a name="test-cluster-failover"></a>Testowanie trybu failover klastra
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Konfigurowanie łączności 
 
-Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Można utworzyć [moduł równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 zastosujesz pakietu CU2 + i systemu Windows Server 2016 (lub nowszego), zamiast tego można wyświetlić podgląd funkcji [nazwy sieci rozproszonej](hadr-distributed-network-name-dnn-configure.md) . 
+Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Można utworzyć [moduł równoważenia obciążenia platformy Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 zastosujesz pakietu CU2 (lub nowszego) i systemu Windows Server 2016 (lub nowszego), zamiast tego możesz użyć funkcji [rozproszonej nazwy sieciowej](failover-cluster-instance-distributed-network-name-dnn-configure.md) . 
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -221,7 +221,8 @@ Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy sko
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jeszcze tego nie zrobiono, skonfiguruj łączność z FCI przy użyciu [nazwy sieci wirtualnej i modułu równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub [nazwy sieci rozproszonej (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Jeśli jeszcze tego nie zrobiono, skonfiguruj łączność z FCI przy użyciu [nazwy sieci wirtualnej i modułu równoważenia obciążenia platformy Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) lub [nazwy sieci rozproszonej (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Jeśli udostępnione dyski platformy Azure nie są odpowiednim rozwiązaniem magazynu FCI, rozważ utworzenie FCI przy użyciu [udziałów plików Premium](failover-cluster-instance-premium-file-share-manually-configure.md) lub [bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md) zamiast tego. 
 

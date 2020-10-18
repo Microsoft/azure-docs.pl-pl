@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8942e9180e87552ec64e0e848751f492778c9993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131654"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167818"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Rozwiązywanie problemów: nie można usunąć sieci wirtualnej na platformie Azure
 
@@ -48,7 +48,7 @@ W przypadku klasycznych sieci wirtualnych przejdź do strony **Przegląd** klasy
 
 W przypadku sieci wirtualnych przejdź do strony **Przegląd** sieci wirtualnej. Sprawdź **połączone urządzenia** dla bramy sieci wirtualnej.
 
-![Sprawdź połączone urządzenie](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Zrzut ekranu przedstawiający listę połączonych urządzeń dla sieci wirtualnej w Azure Portal. Brama sieci wirtualnej zostanie wyróżniona na liście.](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
 Przed usunięciem bramy należy najpierw usunąć wszystkie obiekty **połączenia** w bramie. 
 
@@ -56,7 +56,7 @@ Przed usunięciem bramy należy najpierw usunąć wszystkie obiekty **połączen
 
 Przejdź do strony **Przegląd** sieci wirtualnej. Sprawdź **podłączone urządzenia** dla bramy aplikacji.
 
-![Sprawdź połączone urządzenie](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Zrzut ekranu przedstawiający listę połączonych urządzeń dla sieci wirtualnej w Azure Portal. Brama aplikacji zostanie wyróżniona na liście.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Jeśli istnieje Brama aplikacji, należy ją usunąć przed usunięciem sieci wirtualnej.
 
@@ -64,7 +64,7 @@ Jeśli istnieje Brama aplikacji, należy ją usunąć przed usunięciem sieci wi
 
 Jeśli usługa domena usługi Active Directory jest włączona i połączona z siecią wirtualną, nie można usunąć tej sieci wirtualnej. 
 
-![Sprawdź połączone urządzenie](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Zrzut ekranu przedstawiający ekran Azure AD Domain Services w Azure Portal. Pole dostępne w Virtual Network/podsieć jest wyróżnione.](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
 Aby wyłączyć usługę, zobacz temat [wyłączanie Azure Active Directory Domain Services przy użyciu Azure Portal](../active-directory-domain-services/delete-aadds.md).
 
