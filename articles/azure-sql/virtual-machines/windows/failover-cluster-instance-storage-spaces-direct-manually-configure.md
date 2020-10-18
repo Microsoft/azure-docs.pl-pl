@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3cc579615a69b659bc1a4736984f0b3dcd6edb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272533"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165265"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu Bezpośrednie miejsca do magazynowania (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -57,7 +57,7 @@ Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać nas
 - Subskrypcja platformy Azure. Zacznij korzystać [bezpłatnie](https://azure.microsoft.com/free/). 
 - [Co najmniej dwie przygotowane maszyny wirtualne Windows Azure](failover-cluster-instance-prepare-vm.md) w [zestawie dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 - Konto, które ma uprawnienia do tworzenia obiektów zarówno na maszynach wirtualnych platformy Azure, jak i w Active Directory.
-- Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## <a name="add-the-windows-cluster-feature"></a>Dodawanie funkcji klastra systemu Windows
@@ -92,15 +92,15 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 
 1. W obszarze **Menedżer serwera**wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
 1. W obszarze **Menedżer klastra trybu failover**wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **Wybierz serwery lub klaster**wprowadź nazwy obu maszyn wirtualnych.
 1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **wybór testu**zaznacz wszystkie testy z wyjątkiem **magazynu**, jak pokazano poniżej:
 
    ![Wybierz testy weryfikacji klastra](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **potwierdzenie**wybierz pozycję **dalej**.
 
     Kreator **weryfikacji konfiguracji** uruchamia testy weryfikacyjne.
@@ -164,7 +164,7 @@ Dyski dla Bezpośrednie miejsca do magazynowania muszą być puste. Nie mogą za
 
 1. [Utwórz wolumin](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
-   Bezpośrednie miejsca do magazynowania automatycznie tworzy pulę magazynów po jej włączeniu. Teraz można przystąpić do tworzenia woluminu. Polecenie cmdlet programu PowerShell `New-Volume` automatyzuje proces tworzenia woluminu. Ten proces obejmuje formatowanie, dodanie woluminu do klastra i utworzenie pliku CSV. Ten przykład tworzy wolumin CSV 800-gigabajt (GB):
+   Bezpośrednie miejsca do magazynowania automatycznie tworzy pulę magazynów po jej włączeniu. Teraz można przystąpić do tworzenia woluminu. Polecenie cmdlet programu PowerShell `New-Volume` automatyzuje proces tworzenia woluminu. Ten proces obejmuje formatowanie, dodanie woluminu do klastra i utworzenie pliku CSV. W tym przykładzie tworzony jest wolumin CSV 800 gigabajta (GB):
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -233,7 +233,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Konfigurowanie łączności 
 
-Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Można utworzyć [moduł równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 i systemu Windows Server 2016 (lub nowszego), zamiast tego można wyświetlić podgląd funkcji [nazwy sieci rozproszonej](hadr-distributed-network-name-dnn-configure.md) . 
+Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Można utworzyć [moduł równoważenia obciążenia platformy Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 zastosujesz pakietu CU2 (lub nowszego) i systemu Windows Server 2016 (lub nowszego), zamiast tego możesz użyć funkcji [rozproszonej nazwy sieciowej](failover-cluster-instance-distributed-network-name-dnn-configure.md) . 
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -243,12 +243,12 @@ Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy sko
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jeszcze tego nie zrobiono, skonfiguruj łączność z FCI przy użyciu [nazwy sieci wirtualnej i modułu równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub [nazwy sieci rozproszonej (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Jeśli jeszcze tego nie zrobiono, skonfiguruj łączność z FCI przy użyciu [nazwy sieci wirtualnej i modułu równoważenia obciążenia platformy Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) lub [nazwy sieci rozproszonej (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 Jeśli Bezpośrednie miejsca do magazynowania nie jest odpowiednim rozwiązaniem magazynu FCI, rozważ utworzenie FCI przy użyciu [udostępnionych dysków Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) lub [Premium udziałów plików](failover-cluster-instance-premium-file-share-manually-configure.md) . 
 
 Aby dowiedzieć się więcej, zobacz Omówienie [FCI z SQL Server na maszynach wirtualnych platformy Azure](failover-cluster-instance-overview.md) i [najlepszych rozwiązaniach dotyczących konfiguracji klastra](hadr-cluster-best-practices.md). 
 
-Aby uzyskać dodatkowe informacje, zobacz: 
+Aby uzyskać więcej informacji, zobacz: 
 - [Technologie klastrów systemu Windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server wystąpienia klastra trybu failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

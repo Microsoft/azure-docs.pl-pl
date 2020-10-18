@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88003213"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167189"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -63,6 +63,12 @@ Aby dowiedzieć się więcej na temat wersji cyklu życia, zobacz [Obsługiwane 
 Usługa AKS obsługuje tworzenie pul węzłów z obsługą procesorów GPU. Obecnie platforma Azure udostępnia maszyny wirtualne obsługujące jeden lub wielu procesorów GPU. Maszyny wirtualne obsługujące procesory GPU są zaprojektowane do przetwarzania obciążeń z dużą ilością obliczeń, dużą ilością grafiki i wizualizacji.
 
 Aby uzyskać więcej informacji, zobacz [Korzystanie z procesorów GPU w usłudze AKS][aks-gpu].
+
+### <a name="confidential-computing-nodes-public-preview"></a>Węzły do przetwarzania poufnego (publiczna wersja zapoznawcza)
+
+Program AKS obsługuje tworzenie opartych na technologii Intel SGX pul węzłów obliczeniowych (maszyn wirtualnych DCSv2). Węzły przetwarzania poufnego umożliwiają uruchamianie kontenerów w zaufanym i izolowanym środowisku wykonawczym (enclaves). Izolacja między kontenerami połączonymi ze spójnością kodu dzięki zaświadczeniu może pomóc w strategii bezpieczeństwa kontenerów z kompleksową ochroną. Węzły przetwarzania poufnego obsługują zarówno kontenery poufne (istniejące aplikacje platformy Docker), jak i kontenery enklawy.
+
+Aby uzyskać więcej informacji, zobacz [poufne węzły obliczeniowe w witrynie AKS][conf-com-node]
 
 ### <a name="storage-volume-support"></a>Obsługa woluminów magazynu
 
@@ -143,3 +149,4 @@ Dowiedz się więcej na temat wdrażania usługi AKS i zarządzania nią z przew
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

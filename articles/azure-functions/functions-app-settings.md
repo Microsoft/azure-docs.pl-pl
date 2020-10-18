@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589304"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165774"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -23,7 +23,7 @@ Istnieją inne opcje konfiguracji globalnej w [host.js](functions-host-json.md) 
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Klucz Instrumentacji dla Application Insights. Użyj tylko jednego z `APPINSIGHTS_INSTRUMENTATIONKEY` lub `APPLICATIONINSIGHTS_CONNECTION_STRING` . Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). 
+Klucz Instrumentacji dla Application Insights. Użyj tylko jednego z `APPINSIGHTS_INSTRUMENTATIONKEY` lub `APPLICATIONINSIGHTS_CONNECTION_STRING` . Gdy Application Insights działa w chmurze suwerennej, użyj `APPLICATIONINSIGHTS_CONNECTION_STRING` . Aby uzyskać więcej informacji, zobacz [jak skonfigurować monitorowanie dla Azure Functions](configure-monitoring.md). 
 
 |Klucz|Wartość przykładowa|
 |---|------------|
@@ -31,7 +31,12 @@ Klucz Instrumentacji dla Application Insights. Użyj tylko jednego z `APPINSIGHT
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-Parametry połączenia dla Application Insights. Użyj `APPLICATIONINSIGHTS_CONNECTION_STRING` zamiast tego `APPINSIGHTS_INSTRUMENTATIONKEY` , gdy aplikacja funkcji wymaga dodanych dostosowań obsługiwanych przy użyciu parametrów połączenia. Aby uzyskać więcej informacji, zobacz [Parametry połączenia](../azure-monitor/app/sdk-connection-string.md). 
+Parametry połączenia dla Application Insights. Użyj `APPLICATIONINSIGHTS_CONNECTION_STRING` zamiast tego `APPINSIGHTS_INSTRUMENTATIONKEY` w następujących przypadkach:
+
++ Gdy aplikacja funkcji wymaga dodanych dostosowań obsługiwanych przy użyciu parametrów połączenia. 
++ Gdy wystąpienie Application Insights działa w chmurze suwerennej, która wymaga niestandardowego punktu końcowego.
+
+Aby uzyskać więcej informacji, zobacz [Parametry połączenia](../azure-monitor/app/sdk-connection-string.md). 
 
 |Klucz|Wartość przykładowa|
 |---|------------|
@@ -204,7 +209,7 @@ Aby dowiedzieć się więcej, zobacz [zależności niestandardowe](functions-ref
 
 _To ustawienie jest obecnie dostępne w wersji zapoznawczej._  
 
-To ustawienie steruje rejestrowaniem z kontrolera skalowania Azure Functions. Aby uzyskać więcej informacji, zobacz [skalowanie dzienników kontrolera](functions-monitoring.md#scale-controller-logs-preview).
+To ustawienie steruje rejestrowaniem z kontrolera skalowania Azure Functions. Aby uzyskać więcej informacji, zobacz [skalowanie dzienników kontrolera](functions-monitoring.md#scale-controller-logs).
 
 |Klucz|Wartość przykładowa|
 |-|-|

@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2653742b788ab24fc295ebc156090d1db5f85268
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978496"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167342"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Przygotowanie infrastruktury platformy Azure dla oprogramowania SAP HA przy użyciu klastra trybu failover systemu Windows i dysku udostępnionego dla oprogramowania SAP ASCS/SCS
 
@@ -200,6 +200,9 @@ Nazwy hostów i adresy IP dla prezentowanego scenariusza są następujące:
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Tworzenie wewnętrznego modułu równoważenia obciążenia platformy Azure
 
 SAP ASCS, SAP SCS i New SAP ERS2, użyj wirtualnej nazwy hosta i wirtualnych adresów IP. W przypadku korzystania z wirtualnego adresu IP na platformie Azure wymagany jest [moduł równoważenia obciążenia](../../../load-balancer/load-balancer-overview.md) . Zdecydowanie zalecamy użycie usługi [równoważenia obciążenia w warstwie Standardowa](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
+
+> [!IMPORTANT]
+> Zmienny adres IP nie jest obsługiwany w konfiguracji pomocniczego adresu IP karty sieciowej w scenariuszach równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [ograniczenia modułu równoważenia obciążenia platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Jeśli potrzebujesz dodatkowego adresu IP dla maszyny wirtualnej, wdróż drugą kartę sieciową.    
 
 
 Na poniższej liście przedstawiono konfigurację modułu równoważenia obciążenia (A) SCS/wykres WYWOŁUJĄCYCH. Konfiguracja programów SAP ASCS i ERS2 w ramach tego samego modułu równoważenia obciążenia platformy Azure.  

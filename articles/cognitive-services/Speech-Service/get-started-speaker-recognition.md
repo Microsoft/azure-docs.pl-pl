@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-seventeen
+zone_pivot_groups: programming-languages-set-twenty-five
 keywords: Rozpoznawanie osoby mówiącej, biometry głosu
-ms.openlocfilehash: 8ce6d6d5701b7a3e874d2214ea4ef36196e895eb
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b831dfb0ff7989e52fcc2a1ab62ddb6f2e22a5e2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875484"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166339"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Wprowadzenie do rozpoznawania osoby mówiącej
 

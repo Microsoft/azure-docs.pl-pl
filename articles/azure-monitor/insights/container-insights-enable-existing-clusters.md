@@ -4,12 +4,12 @@ description: Dowiedz się, jak włączyć monitorowanie klastra usługi Azure Ku
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994508"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165404"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Włącz monitorowanie już wdrożonego klastra usługi Azure Kubernetes Service (AKS)
 
@@ -132,12 +132,10 @@ Aby włączyć monitorowanie bezpośrednio z jednego z klastrów AKS w Azure Por
 2. Na liście zasobów Rozpocznij wpisywanie **kontenerów**.  Lista filtruje się na podstawie danych wejściowych.
 
 3. Wybierz pozycję **Kubernetes Services**.
+    
+4. Na liście usług Kubernetes wybierz usługę.
 
-    ![Link usług Kubernetes Services](./media/container-insights-onboard/portal-search-containers-01.png)
-
-4. Na liście kontenerów wybierz kontener.
-
-5. Na stronie Przegląd kontenera wybierz pozycję **Monitoruj kontenery**.
+5. Na stronie Przegląd usługi Kubernetes wybierz pozycję **monitorowanie — szczegółowe informacje**.
 
 6. Na stronie Dołączanie **do Azure monitor dla kontenerów** Jeśli masz istniejący obszar roboczy log Analytics w tej samej subskrypcji co klaster, wybierz go na liście rozwijanej.
     Na tej liście jest wybierany domyślny obszar roboczy i lokalizacja, w ramach której jest wdrażany kontener AKS.

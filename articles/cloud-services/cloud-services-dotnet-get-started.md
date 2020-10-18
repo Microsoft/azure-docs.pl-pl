@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073805"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164367"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
 
@@ -64,7 +64,7 @@ Aplikacja przechowuje reklamy w bazie danych SQL oraz tworzy tabele i uzyskuje d
 
 Gdy użytkownik przesyła obraz, fronton uruchomiony w roli Sieć Web zapisuje obraz w [obiekcie blob na platformie Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), a informacje o reklamie — w bazie danych z adresem URL wskazującym na obiekt blob. W tym samym czasie w kolejce platformy Azure jest zapisywany komunikat. Proces zaplecza uruchomiony w roli Proces roboczy okresowo sonduje kolejkę w celu wyszukania nowych komunikatów. Po wyświetleniu nowego komunikatu rola Proces roboczy tworzy miniaturę obrazu i aktualizuje pole adresu URL miniatury dla danej reklamy. Na diagramie poniżej pokazano, jak współpracują ze sobą różne części aplikacji.
 
-![Architektura aplikacji Contoso Ads](./media/cloud-services-dotnet-get-started/apparchitecture.png)
+![Diagram przedstawiający sposób działania części aplikacji.](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
@@ -217,7 +217,7 @@ Dla roli Sieć Web będziesz używać [przekształcenia pliku Web.config](https:
 6. Wybierz i skopiuj parametry połączenia (bez otaczających je znaków cudzysłowu) do użycia w kolejnych krokach konfigurowania projektu roli Proces roboczy.
 7. W **Eksploratorze rozwiązań** w obszarze **Role** w projekcie usługi w chmurze kliknij prawym przyciskiem myszy pozycję **ContosoAdsWorker**, a następnie kliknij polecenie **Właściwości**.
 
-    ![Właściwości roli](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
+    ![Zrzut ekranu, który podświetla opcję menu właściwości.](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 8. Kliknij kartę **Ustawienia**.
 9. Zmień ustawienie **Konfiguracja usługi** na wartość **Chmura**.
 10. Wybierz pole **Wartość** dla ustawienia `ContosoAdsDbConnectionString`, a następnie wklej parametry połączenia skopiowane z poprzedniej sekcji samouczka.
@@ -378,7 +378,7 @@ W tej sekcji będziesz konfigurować parametry połączenia usługi Azure Storag
 2. Zapisz zmiany.
 3. W projekcie ContosoAdsCloudService kliknij prawym przyciskiem myszy pozycję ContosoAdsWeb w obszarze **Role**, a następnie kliknij polecenie **Właściwości**.
 
-    ![Właściwości roli](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Zrzut ekranu, który podświetla opcję menu właściwości w obszarze Role.](./media/cloud-services-dotnet-get-started/roleproperties.png)
 4. W oknie właściwości **ContosoAdsWeb — [Rola]** kliknij kartę **Ustawienia**, a następnie kliknij pozycję **Dodaj ustawienie**.
 
     Pozostaw pozycję **Konfiguracja usługi** ustawioną na wartość **Wszystkie konfiguracje**.

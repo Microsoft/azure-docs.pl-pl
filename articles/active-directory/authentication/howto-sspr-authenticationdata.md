@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cba2517f536c9044ad15c628c793529f93b988ce
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed2366884f53eafe89800e7ae60a6a560dc292b4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966495"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165007"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Wstępnie Wypełnij informacje kontaktowe uwierzytelniania użytkownika dotyczące Azure Active Directory samoobsługowego resetowania hasła (SSPR)
 
@@ -48,16 +48,14 @@ Gdy użytkownik sprawdzi swój numer telefonu komórkowego, w polu *telefon* w o
 
 ## <a name="authentication-contact-info"></a>Informacje kontaktowe uwierzytelniania
 
-Na stronie **metody uwierzytelniania** dla użytkownika usługi Azure AD w Azure Portal Administrator globalny może ręcznie ustawić informacje kontaktowe uwierzytelniania, jak pokazano na poniższym przykładowym zrzucie ekranu:
+Na stronie **metody uwierzytelniania** dla użytkownika usługi Azure AD w Azure Portal Administrator globalny może ręcznie ustawić informacje kontaktowe uwierzytelniania. Możesz przejrzeć istniejące metody w sekcji *metody uwierzytelniania użytecznych* lub **+ Dodaj metody uwierzytelniania**, jak pokazano na poniższym przykładowym zrzucie ekranu:
 
-![Informacje kontaktowe uwierzytelniania użytkownika w usłudze Azure AD][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Zarządzanie metodami uwierzytelniania z poziomu Azure Portal":::
 
 Następujące zagadnienia dotyczą tych informacji kontaktowych uwierzytelniania:
 
 * Jeśli pole *telefon* jest wypełnione i w zasadach SSPR jest włączona obsługa *telefonu komórkowego* , użytkownik zobaczy ten numer na stronie rejestracji resetowania hasła i w trakcie przepływu pracy resetowania hasła.
-* Pole *alternatywny numer telefonu* nie jest używane do resetowania hasła.
 * Jeśli pole *adres e-mail* zostanie wypełnione i w zasadach SSPR zostanie włączona *poczta e-mail* , użytkownik zobaczy tę wiadomość e-mail na stronie rejestracji resetowania hasła i podczas przepływu pracy resetowania hasła.
-* Jeśli pole *alternatywny adres e-mail* zostanie wypełnione i w zasadach SSPR zostanie włączona *poczta e-mail* , użytkownik nie zobaczy tej wiadomości e-mail na stronie rejestracji resetowania hasła, ale zobaczy ją podczas przepływu pracy resetowania hasła.
 
 ## <a name="security-questions-and-answers"></a>Pytania zabezpieczające i odpowiedzi
 
@@ -169,5 +167,3 @@ Gdy informacje kontaktowe dotyczące uwierzytelniania zostaną wstępnie wypełn
 
 > [!div class="nextstepaction"]
 > [Włącz Samoobsługowe resetowanie haseł w usłudze Azure AD](tutorial-enable-sspr.md)
-
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Administratorzy globalni mogą modyfikować informacje kontaktowe uwierzytelniania użytkownika"

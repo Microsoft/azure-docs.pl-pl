@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/16/2020
 tags: connectors
-ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2fb2180acfe8fed5701ae4320ea0d1424ed9e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326783"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166288"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatyzowanie przepływów pracy dla bazy danych SQL przy użyciu Azure Logic Apps
 
@@ -67,11 +67,14 @@ Teraz wykonaj następujące kroki:
 
 ### <a name="connect-to-azure-sql-database-or-managed-instance"></a>Nawiązywanie połączenia z Azure SQL Database lub wystąpieniem zarządzanym
 
+Aby uzyskać dostęp do wystąpienia zarządzanego usługi Azure SQL bez korzystania z lokalnej bramy danych lub środowiska usługi integracji, należy [skonfigurować publiczny punkt końcowy w wystąpieniu zarządzanym usługi Azure SQL](../azure-sql/managed-instance/public-endpoint-configure.md). Publiczny punkt końcowy używa portu 3342, dlatego należy określić ten numer portu podczas tworzenia połączenia z poziomu aplikacji logiki.
+
+
 Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#add-sql-action)i nie utworzono wcześniej połączenia z bazą danych, zostanie wyświetlony monit o wykonanie następujących czynności:
 
 1. W polu **Typ uwierzytelniania**wybierz Uwierzytelnianie, które jest wymagane i włączone dla bazy danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL:
 
-   | Uwierzytelnianie | Opis |
+   | Authentication | Opis |
    |----------------|-------------|
    | [**Integracja z usługą Azure AD**](../azure-sql/database/authentication-aad-overview.md) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej tożsamości w usłudze Azure Active Directory (Azure AD), która ma dostęp do bazy danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL — uwierzytelnianie zintegrowane z usługą Azure AD](../azure-sql/database/authentication-aad-overview.md) |
    | [**Uwierzytelnianie SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w bazie danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
@@ -115,7 +118,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 
 1. W **polu Typ uwierzytelniania**wybierz Uwierzytelnianie, które jest wymagane i włączone na SQL Server:
 
-   | Uwierzytelnianie | Opis |
+   | Authentication | Opis |
    |----------------|-------------|
    | [**Uwierzytelnianie systemu Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Obsługuje tylko ISE łącznik SQL Server, który wymaga zasobu bramy danych, który został wcześniej utworzony na platformie Azure dla połączenia, niezależnie od tego, czy używasz wielodostępnej platformy Azure, czy ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i hasła systemu Windows w celu potwierdzenia tożsamości za pomocą konta systemu Windows. <p>Aby uzyskać więcej informacji, zobacz [uwierzytelnianie systemu Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
    | [**Uwierzytelnianie SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w SQL Server. <p>Aby uzyskać więcej informacji, zobacz [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
@@ -132,7 +135,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
    | **Nazwa serwera SQL** | Tak | Adres serwera SQL, na przykład `Fabrikam-Azure-SQL.database.windows.net` |
    | **SQL database name** (nazwa bazy danych SQL) | Tak | Nazwa bazy danych SQL Server, na przykład `Fabrikam-Azure-SQL-DB` |
    | **Nazwa użytkownika** | Tak | Nazwa użytkownika serwera SQL i bazy danych |
-   | **Hasło** | Tak | Hasło do programu SQL Server i bazy danych |
+   | **Password** (Hasło) | Tak | Hasło do programu SQL Server i bazy danych |
    | **Subskrypcja** |  Tak, na potrzeby uwierzytelniania systemu Windows | Subskrypcja platformy Azure dla zasobu bramy danych, który został wcześniej utworzony na platformie Azure |
    | **Brama połączenia** | Tak, na potrzeby uwierzytelniania systemu Windows | Nazwa zasobu bramy danych, który został wcześniej utworzony na platformie Azure <p><p>**Porada**: Jeśli Brama nie pojawia się na liście, sprawdź poprawność [konfiguracji bramy](../logic-apps/logic-apps-gateway-connection.md). |
    |||
@@ -248,6 +251,18 @@ Po wywołaniu procedury składowanej przy użyciu łącznika SQL Server, zwracan
 
 1. Aby odwołać się do właściwości zawartości JSON, kliknij wewnątrz pól edycji, w których chcesz odwołać się do tych właściwości, aby wyświetlić listę zawartości dynamicznej. Na liście pod nagłówkiem [**JSON analizy**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) wybierz tokeny danych dla właściwości zawartości JSON, które chcesz.
 
+## <a name="troubleshoot-problems"></a>Rozwiązywanie problemów
+
+Często występuje problem z łącznością. Poniżej przedstawiono przykładowy komunikat o błędzie:
+
+> `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+>
+> `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+>
+> `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+
+Aby rozwiązać problem, wykonaj [Rozwiązywanie problemów z SQL Server błędami łączności](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) .
+
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
 Aby uzyskać informacje techniczne na temat wyzwalaczy, akcji i limitów tego łącznika, zobacz [stronę referencyjną łącznika](/connectors/sql/), która jest generowana na podstawie opisu struktury Swagger.
@@ -255,4 +270,3 @@ Aby uzyskać informacje techniczne na temat wyzwalaczy, akcji i limitów tego ł
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników dla Azure Logic Apps](../connectors/apis-list.md)
-

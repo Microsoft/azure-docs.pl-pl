@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298715"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164418"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Tworzenie FCI z udziałem plików w warstwie Premium (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać nas
 - Konto, które ma uprawnienia do tworzenia obiektów zarówno na maszynach wirtualnych platformy Azure, jak i w Active Directory.
 - [Dwie lub więcej przygotowanych maszyn wirtualnych systemu Windows Azure](failover-cluster-instance-prepare-vm.md) w [zestawie dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) lub w różnych [strefach dostępności](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
 - [Udział plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) , który ma być używany jako dysk klastrowany, na podstawie przydziału magazynu bazy danych dla plików danych.
-- Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="mount-premium-file-share"></a>Zainstaluj udział plików w warstwie Premium
 
@@ -90,10 +90,10 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 
 1. W obszarze **Menedżer serwera**wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
 1. W obszarze **Menedżer klastra trybu failover**wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **Wybierz serwery lub klaster**wprowadź nazwy obu maszyn wirtualnych.
 1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **wybór testu**zaznacz wszystkie testy z wyjątkiem **magazynu** i **bezpośrednie miejsca do magazynowania**, jak pokazano poniżej:
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Kopiuj Oba polecenia programu PowerShell z portalu usługi File Share Connect"
@@ -194,7 +194,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Konfigurowanie łączności 
 
-Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Można utworzyć [moduł równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 i systemu Windows Server 2016 (lub nowszego), zamiast tego można wyświetlić podgląd funkcji [nazwy sieci rozproszonej](hadr-distributed-network-name-dnn-configure.md) . 
+Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Można utworzyć [moduł równoważenia obciążenia platformy Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 zastosujesz pakietu CU2 (lub nowszego) i systemu Windows Server 2016 (lub nowszego), zamiast tego możesz użyć funkcji [rozproszonej nazwy sieciowej](failover-cluster-instance-distributed-network-name-dnn-configure.md) . 
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -204,7 +204,8 @@ Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy sko
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jeszcze tego nie zrobiono, skonfiguruj łączność z FCI przy użyciu [nazwy sieci wirtualnej i modułu równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub [nazwy sieci rozproszonej (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Jeśli jeszcze tego nie zrobiono, skonfiguruj łączność z FCI przy użyciu [nazwy sieci wirtualnej i modułu równoważenia obciążenia platformy Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) lub [nazwy sieci rozproszonej (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Jeśli udziały plików w warstwie Premium nie są odpowiednim rozwiązaniem magazynu FCI, rozważ utworzenie FCI przy użyciu [udostępnionych dysków platformy Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) lub [bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md) . 
 

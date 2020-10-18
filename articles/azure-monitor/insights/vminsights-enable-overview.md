@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions
+ms.openlocfilehash: b903fda9a64233b4906941167ca7fd5819a0316b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995687"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164486"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Włącz przegląd Azure Monitor dla maszyn wirtualnych
 
@@ -37,30 +38,42 @@ Przed rozpoczęciem upewnij się, że rozumiesz informacje w poniższych sekcjac
 >[!NOTE]
 >Poniższe informacje opisane w tej sekcji dotyczą również [rozwiązania Service map](service-map.md).  
 
-### <a name="log-analytics"></a>Usługa Log Analytics
+### <a name="log-analytics-workspace"></a>Obszar roboczy usługi Log Analytics
 
 Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w następujących regionach:
 
-- Zachodnio-środkowe stany USA
-- Zachodnie stany USA
-- Zachodnie stany USA 2
-- South Central US
-- East US
-- Wschodnie stany USA 2
-- Central US
-- Północno-środkowe stany USA
-- US Gov AZ
-- US Gov VA
-- Kanada Środkowa
-- Południowe Zjednoczone Królestwo
-- Europa Północna
-- West Europe
-- Azja Wschodnia
-- Southeast Asia
-- Indie Środkowe
-- Japan East
-- Australia Wschodnia
-- Australia Południowo-Wschodnia
+- Afryka
+  - Północna Republika Południowej Afryki
+- Azja i Pacyfik
+  - Azja Wschodnia
+  - Southeast Asia
+- Australia
+  - Australia Wschodnia
+  - Australia Południowo-Wschodnia
+- Azure Government
+  - US Gov AZ
+  - US Gov VA
+- Kanada
+  - Kanada Środkowa
+- Europa
+  - Europa Północna
+  - West Europe
+- Indie
+  - Indie Środkowe
+- Japonia
+  - Japonia Wschodnia
+- Zjednoczone Królestwo
+  - Południowe Zjednoczone Królestwo
+- Stany Zjednoczone
+  - Central US
+  - East US
+  - Wschodnie stany USA 2
+  - Północno-środkowe stany USA
+  - South Central US
+  - Zachodnio-środkowe stany USA
+  - Zachodnie stany USA
+  - Zachodnie stany USA 2
+
 
 >[!NOTE]
 >Maszyny wirtualne platformy Azure można monitorować w dowolnym regionie. Same maszyny wirtualne nie są ograniczone do regionów obsługiwanych przez obszar roboczy Log Analytics.
@@ -96,8 +109,8 @@ Azure Monitor dla maszyn wirtualnych jest dostępna dla serwerów z obsługą us
 
 | Połączone źródło | Obsługiwane | Opis |
 |:--|:--|:--|
-| Agenci dla systemu Windows | Yes | Wraz z [agentem log Analytics dla systemu Windows](../platform/log-analytics-agent.md)agenci systemu Windows potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](../platform/agents-overview.md#supported-operating-systems). |
-| Agenci dla systemu Linux | Yes | Wraz z [agentem log Analytics dla systemu Linux](../platform/log-analytics-agent.md)agenci systemu Linux potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](#supported-operating-systems). |
+| Agenci dla systemu Windows | Tak | Wraz z [agentem log Analytics dla systemu Windows](../platform/log-analytics-agent.md)agenci systemu Windows potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](../platform/agents-overview.md#supported-operating-systems). |
+| Agenci dla systemu Linux | Tak | Wraz z [agentem log Analytics dla systemu Linux](../platform/log-analytics-agent.md)agenci systemu Linux potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](#supported-operating-systems). |
 | Grupa zarządzania programu System Center Operations Manager | Nie | |
 
 ## <a name="agents"></a>Agenci

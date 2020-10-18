@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 2. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym w wersji 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321853"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167659"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host.json dla usługi Azure Functions w wersji 2.x lub nowszej 
 
@@ -138,7 +138,7 @@ W poniższych sekcjach tego artykułu opisano każdą właściwość najwyższeg
 
 To ustawienie jest elementem podrzędnym [rejestrowania](#logging).
 
-Opcje kontrolki dla Application Insights, w tym [Opcje próbkowania](./functions-monitoring.md#configure-sampling).
+Opcje kontrolki dla Application Insights, w tym [Opcje próbkowania](./configure-monitoring.md#configure-sampling).
 
 Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw pliku](#sample-hostjson-file).
 
@@ -186,7 +186,7 @@ Aby uzyskać więcej informacji na temat migawek, zobacz [debugowanie migawek na
 |Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | agentEndpoint | wartość null | Punkt końcowy używany do nawiązywania połączenia z usługą Application Insights Snapshot Debugger. Jeśli wartość jest równa null, używany jest domyślny punkt końcowy. |
-| captureSnapshotMemoryWeight | 0,5 | Waga określona dla bieżącego rozmiaru pamięci procesu podczas sprawdzania, czy jest wystarczająca ilość pamięci, aby wykonać migawkę. Oczekiwana wartość jest większa niż 0 prawidłowy ułamek (0 < CaptureSnapshotMemoryWeight < 1). |
+| captureSnapshotMemoryWeight | 0.5 | Waga określona dla bieżącego rozmiaru pamięci procesu podczas sprawdzania, czy jest wystarczająca ilość pamięci, aby wykonać migawkę. Oczekiwana wartość jest większa niż 0 prawidłowy ułamek (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | Limit liczby żądań zakończonych niepowodzeniem do żądania migawek przed wyłączeniem procesora telemetrii.|
 | handleUntrackedExceptions | true | Włącza lub wyłącza śledzenie wyjątków, które nie są śledzone przez Application Insights dane telemetryczne. |
 | isEnabled | true | Włącza lub wyłącza kolekcje migawek | 
@@ -310,7 +310,7 @@ Steruje zachowaniem rejestrowania aplikacji funkcji, w tym Application Insights.
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Określa, jaki poziom rejestrowania plików jest włączony.  Dostępne opcje to `never` , `always` , `debugOnly` . |
-|logLevel|nie dotyczy|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) w dokumentacji ASP.NET Core. |
+|logLevel|nie dotyczy|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) w dokumentacji ASP.NET Core. |
 |console|nie dotyczy| Ustawienie rejestrowania [konsoli](#console) . |
 |applicationInsights|nie dotyczy| Ustawienie [applicationInsights](#applicationinsights) . |
 

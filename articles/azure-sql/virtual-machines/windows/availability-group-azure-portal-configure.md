@@ -13,22 +13,23 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482803"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164571"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Konfigurowanie grupy dostępności dla SQL Server na maszynie wirtualnej platformy Azure (Azure Portal — wersja zapoznawcza)
+# <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Użyj Azure Portal, aby skonfigurować grupę dostępności (wersja zapoznawcza) dla SQL Server na maszynie wirtualnej platformy Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym artykule opisano, jak za pomocą [Azure Portal](https://portal.azure.com) skonfigurować grupę dostępności dla SQL Server na maszynach wirtualnych platformy Azure. 
 
 Użyj Azure Portal, aby utworzyć nowy klaster lub dołączyć istniejący klaster, a następnie utwórz grupę dostępności, odbiornik i wewnętrzną usługę równoważenia obciążenia. 
 
-   > [!NOTE]
-   > Ta funkcja jest obecnie dostępna w wersji zapoznawczej i jest wdrażana, więc jeśli żądany region jest niedostępny, wróć tu wkrótce. 
+Ta funkcja jest obecnie w wersji zapoznawczej. 
+
+Chociaż w tym artykule Azure Portal skonfigurować środowisko grupy dostępności, można to również zrobić przy użyciu [programu PowerShell lub interfejsu wiersza polecenia platformy Azure](availability-group-az-commandline-configure.md), [szablonów szybkiego startu platformy Azure](availability-group-quickstart-template-configure.md)lub [ręcznie](availability-group-manually-configure-tutorial.md) . 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -80,7 +81,7 @@ Jeśli nie masz jeszcze istniejącego klastra, utwórz go przy użyciu Azure Por
 
 Jeśli masz już klaster skonfigurowany w środowisku SQL Server VM, możesz dołączyć go z Azure Portal.
 
-Aby to zrobić, wykonaj następujące kroki:
+W tym celu wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 1. Przejdź do zasobu [maszyny wirtualnej SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
@@ -97,7 +98,7 @@ Aby to zrobić, wykonaj następujące kroki:
 
 ## <a name="create-availability-group"></a>Utwórz grupę dostępności
 
-Po utworzeniu lub dołączeniu klastra utwórz grupę dostępności przy użyciu Azure Portal. Aby to zrobić, wykonaj następujące kroki:
+Po utworzeniu lub dołączeniu klastra utwórz grupę dostępności przy użyciu Azure Portal. W tym celu wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 1. Przejdź do zasobu [maszyny wirtualnej SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
@@ -177,7 +178,7 @@ Możesz **dodać więcej replik** do grupy dostępności, **skonfigurować odbio
 
 ## <a name="remove-cluster"></a>Usuń klaster
 
-Usuń wszystkie SQL Server maszyny wirtualne z klastra, aby je zniszczyć, a następnie usuń metadane klastra z dostawcy zasobów maszyny wirtualnej SQL. Można to zrobić przy użyciu najnowszej wersji [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) lub programu PowerShell. 
+Usuń wszystkie SQL Server maszyny wirtualne z klastra, aby je zniszczyć, a następnie usuń metadane klastra z dostawcy zasobów maszyny wirtualnej SQL. Można to zrobić przy użyciu najnowszej wersji [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub programu PowerShell. 
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005925"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164809"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Utwórz konto Video Indexer połączone z platformą Azure
 
@@ -47,7 +47,7 @@ W przypadku przechodzenia z *wersji próbnej* do *płatnego* konta Video Indexer
 
     Ten element członkowski będzie używany podczas łączenia konta Video Indexer z platformą Azure.
 
-    Ten użytkownik powinien być członkiem subskrypcji platformy Azure z rolą **właściciela** albo rolami **administratora dostępu** **współautora** i użytkownika. Można dwa razy dodać użytkownika z dwiema rolami. Jeden raz z współautor i raz z administratorem dostępu użytkowników.
+    Ten użytkownik powinien być członkiem subskrypcji platformy Azure z rolą **właściciela** albo rolami **administratora dostępu** **współautora** i użytkownika. Można dwa razy dodać użytkownika z dwiema rolami. Jeden raz z współautor i raz z administratorem dostępu użytkowników. Aby uzyskać więcej informacji, zobacz [Wyświetlanie dostępu użytkownika do zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
     ![Kontrola dostępu](./media/create-account/access-control-iam.png)
 

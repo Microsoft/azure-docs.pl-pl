@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 06a0209c2bbd0982054d33c199685d016f405b0c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076678"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165489"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Jak skonfigurować Skalowanie automatyczne dla usługi w chmurze w portalu
 
@@ -21,7 +21,7 @@ Warunki można ustawić dla roli proces roboczy usługi w chmurze, która wyzwal
 > [!NOTE]
 > Ten artykuł koncentruje się na rolach sieci Web i procesu roboczego usługi w chmurze. Gdy tworzysz maszynę wirtualną (klasyczną) bezpośrednio, jest ona hostowana w usłudze w chmurze. Można skalować standardową maszynę wirtualną, kojarząc ją z [zestawem dostępności](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) i ręcznie ją włączać lub wyłączać.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 Przed skonfigurowaniem skalowania aplikacji należy wziąć pod uwagę następujące informacje:
 
 * Na skalowanie ma wpływ podstawowe użycie.
@@ -53,7 +53,7 @@ Ustawienia skalowania dla roli można skonfigurować przy użyciu obu trybów **
 
 Ustaw opcję **skalowanie przez** , aby **zaplanować i reguły wydajności**.
 
-![Ustawienia skalowania usług Cloud Services z profilem i regułą](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![Zrzut ekranu pokazujący opcję harmonogram i reguły wydajności.](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. Istniejący profil.
 2. Dodaj regułę dla profilu nadrzędnego.

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75482571"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165557"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generuj mapę cieplną wilgoci
 
@@ -54,7 +54,7 @@ Po połączeniu konta czujnika z usługą Azure FarmBeats należy przypisać czu
 2.  Wybierz pozycję Moja **Farma**  >  **Dodaj urządzenia**.
 3.  Zostanie wyświetlone okno **Dodawanie urządzeń** . Wybierz dowolne urządzenie, które jest połączone z czujnikami wilgotności gleby dla farmy.
 
-    ![Farmy projektów](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![Zrzut ekranu przedstawiający ekran Dodawanie urządzeń.](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Wybierz pozycję **Dodaj urządzenia**.     
 
@@ -70,7 +70,7 @@ Ten krok polega na utworzeniu zadania lub długotrwałej operacji, która spowod
 6.  W polu **pomiar czujnika** **wilgotności gleby** wprowadź miarę, która ma być używana dla mapy.
     Aby znaleźć miarę czujnika, w obszarze **czujniki**wybierz czujnik wilgoci gleby. We **właściwościach czujnika**Użyj wartości **nazwa miary** .
 
-    ![Farmy projektów](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![Zrzut ekranu przedstawiający ekran wilgotności gleby.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.  Wybierz pozycję **Generuj mapy**.

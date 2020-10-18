@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 19039f8b87145d6bbb1a6b3636ea0892b06ccfe8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe017476993872a989fc10564caa94983b9071c5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253432"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164282"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra przy użyciu zestawu SDK Node.js i Azure Cosmos DB
 

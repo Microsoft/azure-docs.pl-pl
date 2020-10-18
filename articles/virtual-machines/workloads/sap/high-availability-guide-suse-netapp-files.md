@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/28/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 089976f6e97e303dd8faaf854e453a558b9eba84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 453cec1bbb1f9dd61b840457e93cc2c49b956509
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89067590"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165999"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP
 
@@ -315,6 +315,10 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualn
          * Powtórz powyższe kroki w obszarze "d" dla portów 36**00**, 39**00**, 81**00**, 5**00**, 5**00**14, 5**00**16 i TCP dla ASCS
       1. Dodatkowe porty dla ASCS wykres WYWOŁUJĄCYCH
          * Powtórz powyższe kroki w obszarze "d" dla portów 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 i TCP dla ASCS wykres wywołujących
+
+      
+      > [!IMPORTANT]
+      > Zmienny adres IP nie jest obsługiwany w konfiguracji pomocniczego adresu IP karty sieciowej w scenariuszach równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [ograniczenia modułu równoważenia obciążenia platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Jeśli potrzebujesz dodatkowego adresu IP dla maszyny wirtualnej, wdróż drugą kartę sieciową.  
 
       > [!Note]
       > Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  

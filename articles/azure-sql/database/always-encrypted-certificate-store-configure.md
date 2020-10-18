@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a966579e1acc02f1479c41520dcbbc58d420647c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444777"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164520"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Konfigurowanie Always Encrypted przy użyciu magazynu certyfikatów systemu Windows
 
@@ -97,7 +97,7 @@ Program SSMS zawiera kreatora umożliwiającego łatwe konfigurowanie Always Enc
 1. Rozwiń **Databases**węzeł  >  **kliniki**baz danych  >  **Tables**.
 2. Kliknij prawym przyciskiem myszy tabelę **pacjentów** i wybierz pozycję **Szyfruj kolumny** , aby otworzyć Kreatora Always Encrypted:
 
-    ![Szyfruj kolumny](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
+    ![Zrzut ekranu pokazujący szyfrowanie Colunns... opcja menu w tabeli pacjentów.](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
 Kreator Always Encrypted zawiera następujące sekcje: **wybór kolumn**, **Konfiguracja klucza głównego** (CMK), **Walidacja**i **Podsumowanie**.
 
@@ -149,7 +149,7 @@ Teraz, gdy Always Encrypted jest skonfigurowany, można skompilować aplikację,
 1. Otwórz program Visual Studio i Utwórz nową aplikację konsolową w języku C#. Upewnij się, że projekt jest ustawiony na **.NET Framework 4,6** lub nowszy.
 2. Nadaj projektowi nazwę **AlwaysEncryptedConsoleApp** i kliknij przycisk **OK**.
 
-![Nowa aplikacja konsolowa](./media/always-encrypted-certificate-store-configure/console-app.png)
+![Zrzut ekranu pokazujący nowo nazwany projekt AlwaysEncryptedConsoleApp.](./media/always-encrypted-certificate-store-configure/console-app.png)
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Zmodyfikuj parametry połączenia, aby włączyć Always Encrypted
 
@@ -510,7 +510,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 Można zobaczyć, że zaszyfrowane kolumny nie zawierają żadnych danych w postaci zwykłego tekstu.
 
-   ![Nowa aplikacja konsolowa](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
+   ![Zrzut ekranu pokazujący zaszyfrowane dane w zaszyfrowanych kolumnach.](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
 
 Aby używać narzędzia SSMS do uzyskiwania dostępu do danych w postaci zwykłego tekstu, można dodać **ustawienie szyfrowania kolumn = Enabled** parametru do połączenia.
 
@@ -518,7 +518,7 @@ Aby używać narzędzia SSMS do uzyskiwania dostępu do danych w postaci zwykłe
 2. Kliknij pozycję **Połącz**  >  **aparat bazy danych** , aby otworzyć okno **łączenie z serwerem** , a następnie kliknij przycisk **Opcje**.
 3. Kliknij pozycję **dodatkowe parametry połączenia** i **ustawienie szyfrowania kolumny Typ = włączone**.
 
-    ![Nowa aplikacja konsolowa](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
+    ![Zrzut ekranu przedstawiający kartę dodatkowe parametry połączenia z ustawieniem szyfrowania kolumn = włączone wpisane w polu.](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Uruchom następujące zapytanie w bazie danych **kliniki** .
 
     ```tsql

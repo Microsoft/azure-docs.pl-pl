@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930292"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166934"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Instrukcje: wykrywanie tonacji przy użyciu interfejs API analizy tekstu
 
@@ -23,7 +23,7 @@ Funkcja analiza tonacji interfejs API analizy tekstu ocenia tekst i zwraca wynik
 
 Po wysłaniu żądania analizy tonacji interfejs API zwraca etykiety tonacji (na przykład "negatyw", "neutralny" i "pozytywna") oraz wyniki zaufania na poziomie zdania i dokumentu.
 
-Analiza tonacji obsługuje szeroką gamę języków z więcej w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [obsługiwane języki](../text-analytics-supported-languages.md).
+Analiza tonacji obsługuje szeroką gamę języków z więcej w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz listę [obsługiwanych języków](../text-analytics-supported-languages.md).
 
 ## <a name="sentiment-analysis-versions-and-features"></a>analiza tonacji wersje i funkcje
 
@@ -36,7 +36,7 @@ Analiza tonacji obsługuje szeroką gamę języków z więcej w wersji zapoznawc
 | [Kontener platformy Docker](text-analytics-how-to-install-containers.md) oparty na systemie Linux | X  |  |
 | Wyszukiwanie opinii                            |                       | X                                 |
 
-### <a name="sentiment-scoring-and-labeling"></a>Tonacji ocenianie i etykietowanie
+## <a name="sentiment-scoring-and-labeling"></a>Tonacji ocenianie i etykietowanie
 
 Analiza tonacji w wersji 3 stosuje etykiety tonacji do tekstu, które są zwracane na poziomie zdania i dokumentu, z wynikiem pewności dla każdej z nich. 
 
@@ -51,7 +51,7 @@ Etykiety są *dodatnie*, *ujemne*i *neutralne*. Na poziomie dokumentu może być
 
 Wyniki zaufania mieszczą się w zakresie od 1 do 0. Wyniki zbliżone do 1 oznaczają wyższy poziom ufności w klasyfikacji etykiety, a niższe wyniki wskazują na zmniejszenie zaufania. Dla każdego dokumentu lub każdego zdania przewidywane wyniki skojarzone z etykietami (pozytywna, ujemna i neutralna) są dodawane do 1.
 
-### <a name="opinion-mining"></a>Wyszukiwanie opinii
+## <a name="opinion-mining"></a>Wyszukiwanie opinii
 
 Wyszukiwanie opinii to funkcja analiza tonacji, rozpoczynająca się w wersji 3,1-Preview. 1. Funkcja ta oferuje również bardziej szczegółowe informacje o opiniach związanych z aspektami (np. atrybutami produktów lub usług), nazywanymi analiza tonacji opartymi na aspektach.
 

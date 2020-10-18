@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 7be78a0c05942aebb9e3154a79035d71f87becd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca458bebf75f8e77774236166704794b817b7c3f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334916"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167138"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzuj dostęp do bazy danych do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -42,7 +42,7 @@ Gdy użytkownik próbuje nawiązać połączenie z bazą danych, udostępnia inf
 - [Uwierzytelnianie SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
   Przy użyciu tej metody uwierzytelniania użytkownik przesyła nazwę konta użytkownika i skojarzone hasło w celu nawiązania połączenia. To hasło jest przechowywane w bazie danych Master dla kont użytkowników połączonych z logowaniem lub przechowywanych w bazie danych zawierającej konta użytkowników, które *nie* są połączone z logowaniem.
-- [Uwierzytelnianie Azure Active Directory](authentication-aad-overview.md)
+- [Uwierzytelnianie usługi Azure Active Directory](authentication-aad-overview.md)
 
   Przy użyciu tej metody uwierzytelniania użytkownik przesyła nazwę konta użytkownika i żąda, aby usługa korzystała z informacji poświadczenie przechowywanych w Azure Active Directory (Azure AD).
 
@@ -65,7 +65,7 @@ Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal
 
 ![Administratorzy serwera SQL](./media/logins-create-manage/sql-admins.png)
 
-![Administratorzy serwera SQL](./media/logins-create-manage/sql-admins2.png)
+![Zrzut ekranu, który podświetla opcję menu właściwości.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
 > Nazwy logowania administratora nie można zmienić po jej utworzeniu. Aby zresetować hasło administratora serwera, przejdź do [Azure Portal](https://portal.azure.com), kliknij pozycję **serwery SQL**, wybierz serwer z listy, a następnie kliknij przycisk **Resetuj hasło**. Aby zresetować hasło dla wystąpienia zarządzanego SQL, przejdź do Azure Portal, kliknij wystąpienie, a następnie kliknij przycisk **Resetuj hasło**. Możesz również użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.

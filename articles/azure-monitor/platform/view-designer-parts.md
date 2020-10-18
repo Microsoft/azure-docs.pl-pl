@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539401"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166594"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Przewodnik referencyjny do wyświetlania części wizualizacji projektanta w Azure Monitor
 Za pomocą projektanta widoków w Azure Monitor można utworzyć różne widoki niestandardowe w Azure Portal, które mogą ułatwić wizualizację danych w obszarze roboczym Log Analytics. Ten artykuł zawiera Przewodnik dotyczący ustawień części wizualizacji, które są dostępne w niestandardowych widokach.
@@ -44,7 +44,7 @@ W następnych sekcjach szczegółowo opisano typy kafelków i ich właściwości
 ## <a name="list-of-queries-part"></a>Lista części zapytań
 Lista zapytań zawiera listę kwerend dzienników. Możesz wybrać każde zapytanie, aby wyświetlić jego wyniki. Widok domyślnie zawiera pojedyncze zapytanie i można wybrać opcję **+ zapytanie** , aby dodać dodatkowe zapytania.
 
-![Lista widoku zapytań](media/view-designer-parts/view-list-queries.png)
+![Zrzut ekranu przedstawiający listę wizualizacji zapytań w projektancie widoków Azure Monitor.](media/view-designer-parts/view-list-queries.png)
 
 | Ustawienie | Opis |
 |:--- |:--- |
@@ -60,7 +60,7 @@ Lista zapytań zawiera listę kwerend dzienników. Możesz wybrać każde zapyta
 ## <a name="number-and-list-part"></a>Liczba i część listy
 W nagłówku zostanie wyświetlona jedna liczba, która pokazuje liczbę rekordów z zapytania dziennika. Na liście wyświetlane są dziesięć najważniejszych wyników zapytania, z wykresem wskazującym wartość względną kolumny liczbowej lub zmiany w czasie.
 
-![Lista widoku zapytań](media/view-designer-parts/view-number-list.png)
+![Zrzut ekranu przedstawiający części wizualizacji liczba i lista w projektancie widoków Azure Monitor.](media/view-designer-parts/view-number-list.png)
 
 | Ustawienie | Opis |
 |:--- |:--- |
@@ -202,7 +202,7 @@ W nagłówku jest wyświetlany statyczny tekst i opcjonalny link. Na liście jes
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Kolor |Kolor tła nagłówka. |
 | **Nagłówki** | |
-| Obraz |Plik obrazu, który jest wyświetlany w nagłówku. |
+| Image (Obraz) |Plik obrazu, który jest wyświetlany w nagłówku. |
 | Etykieta |Tekst wyświetlany w nagłówku. |
 | **Nagłówki** |**> łącze** |
 | Etykieta |Tekst łącza. |

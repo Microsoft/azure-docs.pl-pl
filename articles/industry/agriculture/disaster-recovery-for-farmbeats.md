@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdd59d078da1df021b7e23ec858ba7305f72cfa1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81683891"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164214"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Odzyskiwanie po awarii dla FarmBeats
 
@@ -45,18 +45,18 @@ Możesz inicjować tryb failover i odzyskiwać dane przechowywane dla każdego z
 Skopiuj klucz dostępu przywróconej Cosmos DB i zaktualizuj nowe Key Vault FarmBeats Datahub.
 
 
-  ![Odzyskiwanie po awarii](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
+  ![Zrzut ekranu, który wyróżnia miejsce pobrania kopii klucza dostępu.](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > Skopiuj adres URL przywróconej Cosmos DB i zaktualizuj go w nowej konfiguracji App Service FarmBeats Datahub. Teraz możesz usunąć konto Cosmos DB w nowym wdrożeniu FarmBeats.
 
-  ![Odzyskiwanie po awarii](./media/disaster-recovery-for-farmbeats/configuration.png)
+  ![Zrzut ekranu pokazujący, gdzie należy skopiować adres URL przywróconej Cosmos DB.](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### <a name="configure-storage-account"></a>Skonfiguruj konto magazynu
 
 Skopiuj klucz dostępu przywróconego konta magazynu i zaktualizuj go w nowym FarmBeats Datahub Key Vault.
 
-![Odzyskiwanie po awarii](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
+![Zrzut ekranu pokazujący lokalizację, w której ma zostać skopiowany klucz dostępu przywróconego konta magazynu.](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > Upewnij się, że nazwa konta magazynu jest aktualizowana w nowym pliku konfiguracji maszyny wirtualnej FarmBeats Batch.

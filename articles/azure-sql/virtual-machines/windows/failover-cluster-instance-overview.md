@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a8bfa91ac9b70c0ff4f461bd9e10899d1170b24d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272523"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165244"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,8 +48,8 @@ SQL Server na maszynach wirtualnych platformy Azure oferuje różne opcje jako r
 
 ||[Dyski udostępnione platformy Azure](../../../virtual-machines/windows/disks-shared.md)|[Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Bezpośrednie miejsca do magazynowania (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Minimalna wersja systemu operacyjnego**| Wszystkie |Windows Server 2012|Windows Server 2016|
-|**Minimalna wersja SQL Server**|Wszystkie|SQL Server 2012|SQL Server 2016|
+|**Minimalna wersja systemu operacyjnego**| Wszystko |Windows Server 2012|Windows Server 2016|
+|**Minimalna wersja SQL Server**|Wszystko|SQL Server 2012|SQL Server 2016|
 |**Obsługiwana dostępność maszyny wirtualnej** |Zestawy dostępności z grupami umieszczania zbliżeniowego |Zestawy dostępności i strefy dostępności|Zestawy dostępności |
 |**Obsługuje FileStream**|Tak|Nie|Tak |
 |**Pamięć podręczna Azure Blob**|Nie|Nie|Tak|
@@ -140,7 +140,7 @@ W przypadku udostępnionych rozwiązań magazynu i replikacji danych od partner�
 
 ## <a name="connectivity"></a>Łączność
 
-Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines użyć [nazwy sieci rozproszonej (DNN)](hadr-distributed-network-name-dnn-configure.md) lub [nazwy sieci wirtualnej (VNN) z Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) do kierowania ruchu do wystąpienia SQL Server, niezależnie od tego, który węzeł jest aktualnie właścicielem zasobów klastra. Istnieją dodatkowe zagadnienia dotyczące korzystania z określonych funkcji i DNN z SQL Server FCI. Aby dowiedzieć się więcej, zobacz [DNN współdziałanie z usługą SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) . 
+Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines użyć [nazwy sieci rozproszonej (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) lub [nazwy sieci wirtualnej (VNN) z Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) do kierowania ruchu do wystąpienia SQL Server, niezależnie od tego, który węzeł jest aktualnie właścicielem zasobów klastra. Istnieją dodatkowe zagadnienia dotyczące korzystania z określonych funkcji i DNN z SQL Server FCI. Aby dowiedzieć się więcej, zobacz [DNN współdziałanie z usługą SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) . 
 
 Aby uzyskać więcej informacji na temat opcji łączności klastra, zobacz [Route HADR Cluster Connections to SQL Server na maszynach wirtualnych platformy Azure](hadr-cluster-best-practices.md#connectivity). 
 

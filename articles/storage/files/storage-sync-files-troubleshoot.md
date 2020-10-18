@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018598"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164231"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -734,7 +734,7 @@ Ten błąd występuje, ponieważ punkt końcowy w chmurze został utworzony przy
 | **Ciąg błędu** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Wymagana korekta** | Tak |
 
-W przypadkach, gdy występuje wiele na błędy synchronizacji plików, sesja synchronizacji może się nie powieść. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
+Sesje synchronizacji kończą się niepowodzeniem z jednym z tych błędów, gdy istnieje wiele plików, które nie są synchronizowane z błędami poszczególnych elementów. Wykonaj kroki opisane w [Jak mogę Sprawdź, czy istnieją określone pliki lub foldery, które nie są synchronizowane?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) aby rozwiązać błędy poszczególnych elementów. W przypadku błędu synchronizacji ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED Otwórz przypadek pomocy technicznej.
 
 > [!NOTE]
 > Azure File Sync tworzy tymczasową migawkę usługi VSS raz dziennie na serwerze w celu synchronizowania plików, które mają otwarte dojścia.

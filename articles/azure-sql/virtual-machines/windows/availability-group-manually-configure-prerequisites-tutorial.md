@@ -14,18 +14,20 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 812fb35f404092453ad35b2f70c4a5b1697fbfe0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ea9c8b91237f4590d1999c99fbb356d78994390d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075709"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166900"
 ---
-# <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Wymagania wstępne dotyczące tworzenia zawsze dostępnych grup dostępności na SQL Server na platformie Azure Virtual Machines
+# <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Samouczek: wymagania wstępne dotyczące tworzenia grup dostępności na SQL Server na platformie Azure Virtual Machines
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym samouczku pokazano, jak wykonać wymagania wstępne dotyczące tworzenia [grupy dostępności programu SQL Server zawsze włączone na platformie Azure Virtual Machines](availability-group-manually-configure-tutorial.md). Po spełnieniu wymagań wstępnych masz kontroler domeny, dwie SQL Server maszyny wirtualne oraz serwer monitora w jednej grupie zasobów.
+
+Chociaż w tym artykule ręcznie konfiguruje się środowisko grupy dostępności, można to również zrobić przy użyciu [Azure Portal](availability-group-azure-portal-configure.md), [programu PowerShell lub interfejsu wiersza polecenia platformy Azure](availability-group-az-commandline-configure.md)lub [szablonów szybkiego startu platformy Azure](availability-group-quickstart-template-configure.md) . 
 
 **Szacowany czas**: ukończenie wymagań wstępnych może potrwać kilka godzin. Wiele z nich poświęca więcej czasu na tworzenie maszyn wirtualnych.
 
@@ -60,7 +62,7 @@ Musisz mieć konto platformy Azure. Możesz [otworzyć bezpłatne konto platform
 8. Wybierz lokalizację. Lokalizacja jest regionem świadczenia usługi Azure, w którym chcesz utworzyć grupę dostępności. Ten artykuł kompiluje wszystkie zasoby w jednej lokalizacji platformy Azure.
 9. Sprawdź, czy jest zaznaczone pole wyboru **Przypnij do pulpitu nawigacyjnego** . To ustawienie opcjonalne umieszcza skrót dla grupy zasobów na pulpicie nawigacyjnym Azure Portal.
 
-   ![Grupa zasobów](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
+   ![Skrót grupy zasobów dla Azure Portal](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
 
 10. Wybierz pozycję **Utwórz** , aby utworzyć grupę zasobów.
 
@@ -118,13 +120,13 @@ Nowa sieć wirtualna ma jedną podsieć o nazwie **admin**. Kontrolery domeny u�
 
     Zanotuj już utworzoną podsieć.
 
-   ![Konfigurowanie sieci wirtualnej](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
+   ![Zanotuj już utworzoną podsieć](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
 
 5. Aby utworzyć drugą podsieć, wybierz pozycję **+ podsieć**.
 6. W obszarze **Dodaj podsieć**Skonfiguruj podsieć, wpisując w polu **Nazwa**wartość **sqlsubnet** . Platforma Azure automatycznie określa prawidłowy **zakres adresów**. Sprawdź, czy ten zakres adresów zawiera co najmniej 10 adresów. W środowisku produkcyjnym może być wymagane więcej adresów.
 7. Wybierz przycisk **OK**.
 
-    ![Konfigurowanie sieci wirtualnej](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
+    ![Konfigurowanie podsieci](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
 Poniższa tabela zawiera podsumowanie ustawień konfiguracji sieci:
 
@@ -334,8 +336,8 @@ W następnych krokach skonfigurujesz konta Active Directory. W poniższej tabeli
 
 | |Konto instalacji<br/> |SqlServer-0 <br/>Konto usługi SQL Server i programu SQL Agent |SqlServer-1<br/>Konto usługi SQL Server i programu SQL Agent
 | --- | --- | --- | ---
-|**Imię** |Zainstaluj |SQLSvc1 | SQLSvc2
-|**Nazwa SamAccountName użytkownika** |Zainstaluj |SQLSvc1 | SQLSvc2
+|**Imię** |Instalowanie |SQLSvc1 | SQLSvc2
+|**Nazwa SamAccountName użytkownika** |Instalowanie |SQLSvc1 | SQLSvc2
 
 Aby utworzyć każde konto, wykonaj następujące czynności.
 

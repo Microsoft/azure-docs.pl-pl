@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293646"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165149"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Środowiska asystenta projektowego dla systemu Windows 10
 
@@ -69,8 +69,8 @@ Nawet jeśli Stany zmieniają się szybko, warto zastanowić się nad zapewnieni
 
 Gdy aplikacja asystenta ma fokus, cel klienta jest jasno widoczny dla aplikacji, więc wszystkie środowiska aktywacji głosowej powinny być obsługiwane przez główny widok aplikacji. Ten widok może zostać zmieniony przez klienta. Aby pomóc w wyjaśnieniu interakcji asystenta, w pozostałej części tego dokumentu używany jest konkretny przykład asystenta usług finansowych o nazwie contoso. W tym i kolejnych diagramach, co mówi klient, będzie wyświetlany w kreskówki bąbelki mowy po lewej stronie z odpowiedziami asystenta w kreskówkiych dymkach po prawej stronie.
 
-**Widok w aplikacji. Stan początkowy po rozpoczęciu aktywacji głosu:** 
- ![ zrzut ekranu asystenta głosowego w systemie Windows przed aktywacją](media/voice-assistants/windows_voice_assistant/initial_state.png)
+**Widok w aplikacji. Początkowy stan po rozpoczęciu aktywacji głosu:** 
+ ![ zrzut ekranu przedstawiający aplikację asystenta finansów contoso, która jest otwarta na domyślnej kanwie. Dymek mowy kreskówki po prawej stronie mówi "contoso".](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **Widok w aplikacji. Po pomyślnym aktywacji głosu rozpocznie się nasłuchiwanie:** ![ zrzut ekranu przedstawiający asystenta głosowego w systemie Windows, podczas gdy asystent głosowy słucha](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -108,9 +108,9 @@ Asystent musi zaimplementować wskazówki dotyczące odrzucenia w tej sekcji, ab
 - Jeśli aplikacja jest &quot; używana &quot; , może ona być kontynuowana nad blokadą. &quot;w użyciu &quot; stanowi wszelkie dane wejściowe lub wyjściowe. Na przykład podczas przesyłania strumieniowego muzyki lub filmu wideo aplikacja może kontynuować pracę powyżej blokady. &quot;Postępuj zgodnie z &quot; innymi multiturnmi krokami okna dialogowego, aby zachować aplikację powyżej blokady.
 - **Szczegóły implementacji dotyczące odrzucania aplikacji** można znaleźć [w powyższym przewodniku implementacji blokady](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
-![Zrzut ekranu asystenta głosowego w systemie Windows przed aktywacją](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![Zrzut ekranu przedstawiający powyższy widok blokady aplikacji asystenta finansów firmy Contoso.](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![Zrzut ekranu asystenta głosowego w systemie Windows przed aktywacją](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![Zrzut ekranu przedstawiający pulpit z ekranem blokady systemu Windows.](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### <a name="privacy-amp-security-considerations-above-lock"></a>&amp;Zagadnienia dotyczące zabezpieczeń prywatności powyżej blokady
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 05/13/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: b5936d68ba98054eb6d98860c6edfaf12d6736d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7214915e28158fe5dbb7b350e175b068afed1244
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710129"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166203"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Przykład: wykrywanie języka za pomocą analiza tekstu
 

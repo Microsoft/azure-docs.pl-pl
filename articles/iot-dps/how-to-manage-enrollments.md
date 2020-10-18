@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbcacd7f2094f9b0b9dcea3fea4d804fd96923e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74974942"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165319"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Jak zarządzać rejestracjami urządzeń za pomocą witryny Azure Portal
 
@@ -24,7 +24,7 @@ ms.locfileid: "74974942"
 
 Istnieją dwa sposoby rejestrowania urządzeń przy użyciu usługi aprowizacji:
 
-* **Grupa rejestracji** to wpis dla grupy urządzeń, który udostępnia wspólny mechanizm zaświadczania certyfikatów X. 509 podpisany przez ten sam certyfikat podpisywania, który może być [certyfikatem głównym](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) lub [certyfikatem pośrednim](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), używanym do tworzenia certyfikatu urządzenia na urządzeniu fizycznym. Zalecamy używanie grupy rejestracji dla dużej liczby urządzeń, które współużytkują żądaną konfigurację początkową, lub dla urządzeń, które przechodzą do tej samej dzierżawy. Należy pamiętać, że można rejestrować tylko urządzenia korzystające z mechanizmu zaświadczania X. 509 jako *grupy rejestracji*. 
+* **Grupa rejestracji** to wpis dla grupy urządzeń, który udostępnia wspólny mechanizm zaświadczania certyfikatów X. 509 podpisany przez ten sam certyfikat podpisywania, który może być [certyfikatem głównym](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) lub [certyfikatem pośrednim](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), używanym do tworzenia certyfikatu urządzenia na urządzeniu fizycznym. Zalecamy używanie grupy rejestracji dla dużej liczby urządzeń, które współużytkują żądaną konfigurację początkową, lub dla urządzeń, które przechodzą do tej samej dzierżawy. 
 
     W portalu można utworzyć grupę rejestracji dla grupy urządzeń, wykonując następujące czynności:
 
@@ -34,7 +34,7 @@ Istnieją dwa sposoby rejestrowania urządzeń przy użyciu usługi aprowizacji:
      a. Kliknij pozycję **Zarządzanie rejestracjami**, a następnie wybierz kartę **grupy rejestracji** .  
      b. Kliknij przycisk **Dodaj** znajdujący się u góry.  
      c. Po wyświetleniu panelu "Dodaj grupę rejestracji" Wprowadź informacje dotyczące wpisu listy rejestracji.  **Nazwa grupy** jest wymagana. W polu **Typ certyfikatu**wybierz również pozycję "ca lub pośredni" i przekaż główny **certyfikat podstawowy** dla grupy urządzeń.  
-     d. Kliknij przycisk **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji powinna zostać wyświetlona nazwa grupy wyświetlana na karcie **grupy rejestracji** .  
+     d. Kliknij pozycję **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji powinna zostać wyświetlona nazwa grupy wyświetlana na karcie **grupy rejestracji** .  
 
      [![Grupa rejestracji w portalu](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
@@ -49,7 +49,7 @@ Istnieją dwa sposoby rejestrowania urządzeń przy użyciu usługi aprowizacji:
        a. Kliknij pozycję **Zarządzanie rejestracjami**, a następnie wybierz kartę **rejestracje indywidualne** .  
        b. Kliknij przycisk **Dodaj** znajdujący się u góry.   
        c. Po wyświetleniu panelu "Dodaj rejestrację" Wprowadź informacje dotyczące wpisu listy rejestracji. Najpierw wybierz **mechanizm** zaświadczania dla urządzenia (X. 509 lub moduł TPM). Zaświadczanie X. 509 wymaga przekazania **podstawowego certyfikatu** liścia dla urządzenia. Moduł TPM wymaga wprowadzenia **klucza zaświadczania** i **identyfikatora rejestracji** dla urządzenia.  
-       d. Kliknij przycisk **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji urządzenie zostanie wyświetlone na karcie **indywidualne rejestracje** .  
+       d. Kliknij pozycję **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji urządzenie zostanie wyświetlone na karcie **indywidualne rejestracje** .  
 
        [![Rejestracja indywidualna w portalu](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 

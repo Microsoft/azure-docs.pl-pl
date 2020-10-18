@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 50dd6038a8642f13cea7840fff723a5cf12ce2dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a15ccd6d67b4819ba5dd6233a2a001015037c404
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81000252"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165676"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do analizy w sklepie na platformie Azure IoT Central
 
@@ -34,7 +34,7 @@ Rozwiązanie do tworzenia i monitorowania stanu jest opracowywane w trzech czę�
 * Dostosuj pulpit nawigacyjny, aby umożliwić operatorom monitorowanie urządzeń i zarządzanie nimi
 * Konfigurowanie eksportu danych w celu umożliwienia menedżerom sklepu uruchamiania analiz i wizualizacji szczegółowych informacji
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie aplikacji dla sklepu detalicznego za pomocą szablonu usługi Azure IoT Central **in-Store Analytics — wyewidencjonowywanie**
 > * Dostosowywanie ustawień aplikacji
@@ -77,7 +77,7 @@ Aby utworzyć nową aplikację do wyewidencjonowania analizy w sklepie:
 
     Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zapoznaj się z [przewodnikiem Szybki start dotyczącym tworzenia aplikacji](../core/quick-deploy-iot-central.md).
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     ![Strona Tworzenie aplikacji usługi Azure IoT Central](./media/tutorial-in-store-analytics-create-app/preview-application-template.png)
 
@@ -148,9 +148,9 @@ Aby dodać szablon urządzenia RuuviTag do aplikacji:
 
 1. Wybierz pozycję **Dalej: Dostosuj**.
 
-    ![Szablon urządzenia czujnika usługi Azure IoT Central RuuviTag](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
+    ![Zrzut ekranu, który podświetla przycisk Dalej: Dostosuj.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
 
-1. Wybierz przycisk **Utwórz**. Aplikacja dodaje szablon urządzenia RuuviTag.
+1. Wybierz pozycję **Utwórz**. Aplikacja dodaje szablon urządzenia RuuviTag.
 
 1. W okienku po lewej stronie wybierz pozycję **Szablony urządzeń** . Na stronie zostaną wyświetlone wszystkie szablony urządzeń znajdujące się w szablonie aplikacji oraz właśnie dodany szablon urządzenia RuuviTag.
 
@@ -191,7 +191,7 @@ W poniższych krokach dostosowujesz `humidity` Typ telemetrii dla czujników Ruu
 
 1. Wybierz przycisk **Zapisz**, aby zapisać zmiany.
 
-    ![Dostosowywanie szablonu urządzenia usługi Azure IoT Central RuuviTag](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
+    ![Zrzut ekranu pokazujący ekran Dostosowywanie i wyróżniony przycisk Zapisz.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
 
 Aby dodać właściwość chmury do szablonu urządzenia w aplikacji:
 

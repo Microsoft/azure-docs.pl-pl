@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: b6162249592bf470c3b8e52686abd44b813d5606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d2c670bc862dadf289171fbf53318e876eff3d3
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489140"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165812"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Tworzenie klastra usługi Azure Kubernetes Service (AKS) korzystającego ze stref dostępności
 
@@ -20,7 +20,7 @@ Definiując pule węzłów w klastrze w celu rozdzielenia wielu stref, węzły w
 
 W tym artykule pokazano, jak utworzyć klaster AKS i rozesłać składniki węzła w strefach dostępności.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -29,11 +29,12 @@ Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.76 lub no
 Klastry AKS można obecnie tworzyć przy użyciu stref dostępności w następujących regionach:
 
 * Australia Wschodnia
+* Kanada Środkowa
 * Środkowe stany USA
 * Wschodnie stany USA 2
 * East US
 * Francja Środkowa
-* Japan East
+* Japonia Wschodnia
 * Europa Północna
 * Azja Południowo-Wschodnia
 * Południowe Zjednoczone Królestwo

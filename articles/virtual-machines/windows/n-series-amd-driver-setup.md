@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: ebae7359c7bd593cb2b63bbd69919330c6aa24f9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6885c28d993b8ddab5fe158ad7b1480259cb8fb0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150756"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92163789"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalowanie sterowników AMD GPU na maszynach wirtualnych serii N z systemem Windows
 
@@ -48,11 +48,12 @@ Aby zapoznać się z podstawowymi danymi, pojemnościami magazynu i szczegółam
 
 Instalację sterownika można sprawdzić w Menedżer urządzeń. W poniższym przykładzie przedstawiono pomyślną konfigurację karty Instinct MI25 na maszynie wirtualnej Azure NVv4.
 <br />
-![Stan urządzenia GPU](./media/n-series-amd-driver-setup/device-manager.png)
+
+![Zrzut ekranu przedstawiający pomyślną konfigurację karty Instinct Radeon MI25 na maszynie wirtualnej Azure NVv4.](./media/n-series-amd-driver-setup/device-manager.png)
 
 Możesz użyć programu dxdiag do zweryfikowania właściwości wyświetlania procesora GPU, w tym pamięci RAM wideo. Poniższy przykład przedstawia partycję 1/2 karty Instinct Radeon MI25 na maszynie wirtualnej Azure NVv4.
 <br />
-![Właściwości procesora GPU](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
+![Zrzut ekranu przedstawiający 1/2ą partycję karty usługi Radeon Instinct MI25 na maszynie wirtualnej Azure NVv4.](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 Jeśli korzystasz z systemu Windows 10 Build 1903 lub nowszego, program DxDiag nie wyświetli żadnych informacji na karcie "Display" (wyświetlanie). Użyj opcji "Zapisz wszystkie informacje" u dołu, a w pliku wyjściowym zostaną wyświetlone informacje związane z procesorem GPU AMD MI25.
 

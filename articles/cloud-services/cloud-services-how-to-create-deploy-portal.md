@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: b42c693943c41176936ac796f4586463e9af917c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076695"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164168"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Jak utworzyć i wdrożyć usługę w chmurze
 Azure Portal zapewnia dwa sposoby tworzenia i wdrażania usługi w chmurze: *szybkie tworzenie* i *Tworzenie niestandardowe*.
@@ -56,7 +56,7 @@ Aby utworzyć usługę w chmurze z wdrożeniami ról sieci Web lub procesów rob
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 2. Kliknij pozycję **Utwórz zasób > obliczenia**, a następnie przewiń w dół do i kliknij pozycję **Usługa w chmurze**.
 
-    ![Publikowanie usługi w chmurze](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Zrzut ekranu, który wyróżnia opcję usługi w chmurze w obszarze Tworzenie zasobu > obliczenia.](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. W okienku Nowa **Usługa w chmurze** wprowadź wartość w polu **nazwa DNS**.
 4. Utwórz nową **grupę zasobów** lub wybierz istniejącą.
 5. Wybierz **lokalizację**.
@@ -74,7 +74,7 @@ Jeśli pakiet wdrożeniowy został [skonfigurowany do korzystania z certyfikató
 2. Kliknij pozycję **Dołącz certyfikat**, a następnie kliknij przycisk **OK** w okienku **Dodawanie certyfikatów** .
 3. Kliknij przycisk **Utwórz** w okienku **usługi w chmurze** . Gdy wdrożenie osiągnie stan **gotowości** , można przejść do kolejnych kroków.
 
-    ![Publikowanie usługi w chmurze](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Zrzut ekranu, który wyróżnia proces przekazywania certyfikatu.](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Sprawdź, czy wdrożenie zostało ukończone pomyślnie
 1. Kliknij wystąpienie usługi w chmurze.

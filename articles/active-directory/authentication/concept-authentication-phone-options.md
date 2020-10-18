@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca6b39852668e1b545ce576ac0d04a208e2058e8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965424"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165517"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metody uwierzytelniania w opcjach Azure Active Directory-Phone
 
@@ -36,7 +36,7 @@ W przypadku usługi Azure Multi-Factor Authentication lub SSPR użytkownicy mog�
 
 Jeśli użytkownicy nie chcą, aby numer telefonu komórkowego był widoczny w katalogu, ale chcą używać go do resetowania haseł, Administratorzy nie zapełnią numeru telefonu w katalogu. Zamiast tego użytkownicy powinni zapełniać atrybut **telefonu uwierzytelniania** za pośrednictwem rejestracji informacji o zabezpieczeniach w usłudze [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) . Administratorzy mogą zobaczyć te informacje w profilu użytkownika, ale nie zostały opublikowane w innym miejscu.
 
-![Zrzut ekranu przedstawiający Azure Portal pokazujący metody uwierzytelniania z wypełnionym numerem telefonu](media/concept-authentication-methods/user-authentication-methods.png)
+:::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący metody uwierzytelniania z wypełnionym numerem telefonu":::
 
 Firma Microsoft nie gwarantuje spójnego dostarczania wiadomości SMS lub głosowego opartego na usłudze Azure Multi-Factor Authentication na podstawie tej samej liczby. W interesie naszych użytkowników możemy dodawać lub usuwać krótkie kody w dowolnym momencie, gdy wprowadzimy zmiany trasy w celu poprawy możliwości dostarczania wiadomości SMS. Firma Microsoft nie obsługuje krótkich kodów dla krajów/regionów poza Stany Zjednoczone i Kanadę.
 

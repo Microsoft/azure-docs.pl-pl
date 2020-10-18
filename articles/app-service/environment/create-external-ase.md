@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e4922d8855173ab2539c3960aacf54c89aaf1b7b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: aa65508c4f8df2c11bab74cd34f3311b21c63d9c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148263"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164605"
 ---
 # <a name="create-an-external-app-service-environment"></a>Tworzenie zewnętrznego środowiska App Service
 
@@ -61,7 +61,7 @@ Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz pozycję **Utwórz zasób**  >  **Sieć Web + aplikacje mobilne**  >  **aplikacji sieci Web**.
 
-    ![Tworzenie aplikacji sieci Web][1]
+    ![Zrzut ekranu przedstawiający Azure Portal pokazujący Sieć Web + aplikacje mobilne wybrany w witrynie Azure Marketplace oraz ekran służący do tworzenia nowej aplikacji sieci Web otwartej po prawej stronie.][1]
 
 2. Wybierz subskrypcję. Aplikacja i środowisko ASE są tworzone w tych samych subskrypcjach.
 
@@ -71,7 +71,7 @@ Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
 5. Wybierz plan App Service, a następnie wybierz pozycję **Utwórz nowy**. Aplikacje sieci Web w systemie Linux i aplikacje sieci Web systemu Windows nie mogą znajdować się w tym samym planie App Service, ale mogą być w tej samej App Service Environment. 
 
-    ![Nowy plan App Service][2]
+    ![Zrzut ekranu przedstawiający Azure Portal wyświetlenia okienka aplikacji sieci Web, okienka planu usługi App Service i otwartego okienka planu App Service.][2]
 
 6. Z listy rozwijanej **Lokalizacja** wybierz region, w którym chcesz utworzyć środowisko ASE. W przypadku wybrania istniejącego środowiska ASE nowe środowisko ASE nie zostanie utworzone. W wybranym środowisku ASE zostanie utworzony plan App Service. 
 
@@ -99,7 +99,7 @@ Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
 1. W [Azure Portal](https://portal.azure.com/)Utwórz sieć Web + aplikacje mobilne **zasobów**  >  **Web + Mobile**  >  **Web App for Containers.** 
 
-    ![Tworzenie aplikacji sieci Web][7]
+    ![Zrzut ekranu przedstawiający Azure Portal pokazujący Sieć Web + aplikacje mobilne wybrane w witrynie Azure Marketplace i otwarte okienko Web App for Containers po prawej stronie.][7]
 
 1. Wybierz subskrypcję. Aplikacja i środowisko ASE są tworzone w tych samych subskrypcjach.
 
@@ -107,7 +107,7 @@ Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
 1. Wybierz plan App Service, a następnie wybierz pozycję **Utwórz nowy**. Aplikacje sieci Web w systemie Linux i aplikacje sieci Web systemu Windows nie mogą znajdować się w tym samym planie App Service, ale mogą być w tej samej App Service Environment. 
 
-    ![Nowy plan App Service][8]
+    ![Zrzut ekranu przedstawiający Azure Portal wyświetlenia okienka Web App for Containers, okienka planu usługi App Service i otwartego okienka planu App Service.][8]
 
 1. Z listy rozwijanej **Lokalizacja** wybierz region, w którym chcesz utworzyć środowisko ASE. W przypadku wybrania istniejącego środowiska ASE nowe środowisko ASE nie zostanie utworzone. W wybranym środowisku ASE zostanie utworzony plan App Service. 
 
