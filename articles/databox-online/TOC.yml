@@ -34,7 +34,11 @@
     - name: Pojęcia
       items:
         - name: Sprawdzanie wymagań
-          href: azure-stack-edge-gpu-system-requirements.md
+          items:
+            - name: W przypadku usługi Azure Stack Edge
+              href: azure-stack-edge-gpu-system-requirements.md
+            - name: W przypadku magazynu obiektów blob usługi Azure Stack Edge
+              href: azure-stack-edge-gpu-system-requirements-rest.md
         - name: Poznawanie ograniczeń
           href: azure-stack-edge-limits.md
         - name: Omówienie zabezpieczeń

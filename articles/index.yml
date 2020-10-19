@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: c97b00e1075785cae6b4c2a056f75a8c7481bca4
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 15814264f69ee29de8e71602cc7c0fb5754fa386
+  ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91728839"
+  ms.lasthandoff: 10/18/2020
+  ms.locfileid: "92164384"
 highlightedContent:
   items:
   - title: Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -900,13 +900,6 @@ productDirectory:
     azureCategories:
     - iot
     url: https://docs.microsoft.com/windows/iot-core/
-  - title: Security Center dla IoT
-    summary: Ujednolicanie zarządzania zabezpieczeniami i włączanie ochrony przed zagrożeniami w rozwiązaniu IoT na platformie Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
-    azureCategories:
-    - iot
-    - security
-    url: asc-for-iot/index.yml
   - title: Automatyzacja
     summary: Uproszczenie zarządzania chmurą dzięki automatyzacji procesów
     imageSrc: https://static.docs.com/ui/media/product/azure/automation.svg

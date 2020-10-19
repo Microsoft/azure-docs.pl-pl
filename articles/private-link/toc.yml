@@ -1,4 +1,4 @@
-- name: Dokumentacja łącza prywatnego platformy Azure
+- name: Dokumentacja usługi Private Link
   href: index.yml
 - name: Omówienie
   items:
@@ -24,6 +24,7 @@
     - name: Tworzenie usługi Private Link — szablon usługi Resource Manager
       displayName: Resource Manager
       href: create-private-link-service-template.md
+  expanded: true
 - name: Samouczki
   items:
     - name: Łączenie się z kontem magazynu
@@ -42,7 +43,7 @@
       items:
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
-- name: Instrukcje
+- name: Porady
   items:
     - name: Prywatne połączenie z aplikacją internetową
       href: create-private-endpoint-webapp-portal.md

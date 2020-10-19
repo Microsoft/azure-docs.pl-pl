@@ -92,6 +92,8 @@
     - name: Samodzielne diagnozowanie i rozwiązywanie problemów
       href: spring-cloud-howto-self-diagnose-solve.md
     - name: Monitorowanie
+    - name: Tworzenie ról i uprawnień
+      href: spring-cloud-howto-permissions.md
       items:
         - name: Śledzenie rozproszone i szczegółowe informacje o aplikacji
           href: spring-cloud-tutorial-distributed-tracing.md

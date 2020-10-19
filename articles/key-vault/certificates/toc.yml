@@ -37,6 +37,8 @@
       href: create-certificate.md
     - name: Tworzenie żądania podpisania certyfikatu
       href: create-certificate-signing-request.md
+    - name: Kontrola dostępu do certyfikatów
+      href: certificate-access-control.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert

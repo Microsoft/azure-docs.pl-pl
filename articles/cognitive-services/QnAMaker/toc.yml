@@ -24,26 +24,14 @@
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - name: Tworzenie bota obsługującego często zadawane pytania za pomocą usługi Azure Bot Service
       href: Tutorials/create-faq-bot-with-azure-bot-service.md
-    - name: Testowanie przy użyciu pliku wsadowego
-      href: Quickstarts/batch-testing.md
 - name: Pojęcia
   items:
     - name: Planowanie bazy wiedzy
       href: Concepts/plan.md
     - name: Planowanie zasobów usługi QnA Maker
       href: Concepts/azure-resources.md
-    - name: Projektowanie bazy wiedzy
-      items:
-        - name: Dla języków
-          href: Concepts/design-language-culture.md
-        - name: Dla aplikacji klienckich
-          href: Concepts/integration-with-other-applications.md
     - name: Źródła danych i zawartość
-      items:
-        - name: Importowanie ze źródeł danych
-          href: Concepts/knowledge-base.md
-        - name: Zaimportowane typy zawartości
-          href: Concepts/content-types.md
+      href: Concepts/data-sources-and-content.md
     - name: Proces klasyfikatora
       displayName: 'DefaultAnswer, Default answer'
       href: Concepts/query-knowledge-base.md
@@ -58,22 +46,14 @@
 - name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie zasobami platformy Azure
-      items:
-        - name: Zarządzanie zasobami
-          href: How-To/set-up-qnamaker-service-azure.md
-          displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: Współpraca
-          href: How-To/collaborate-knowledge-base.md
-        - name: Włącz uczenie aktywne
-          href: How-To/use-active-learning.md
-        - name: Zmiana domyślnej odpowiedzi
-          href: How-To/change-default-answer.md
+      href: How-To/set-up-qnamaker-service-azure.md
+      displayName: 'azure, resource, key, upgrade, pricing, tier,'
+    - name: Zarządzanie aplikacją QnA Maker
+      href: How-To/manage-qna-maker-app.md
     - name: Zarządzanie bazą wiedzy
       items:
         - name: Tworzenie bazy wiedzy
           href: How-To/manage-knowledge-bases.md
-        - name: Wybór języka
-          href: How-To/language-knowledge-base.md
         - name: Dodawanie konwersacji
           href: How-to/chit-chat-knowledge-base.md
         - name: Migracja do nowej bazy wiedzy
@@ -102,7 +82,7 @@
       href: Overview/language-support.md
     - name: Limity
       href: limits.md
-    - name: Kontrola dostępu oparta na rolach (RBAC)
+    - name: Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)
       href: Concepts/role-based-access-control.md
     - name: Aktywna nauka
       href: Concepts/active-learning-suggestions.md
@@ -115,6 +95,8 @@
     - name: Dodawanie zabezpieczonych plików programu SharePoint
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
+    - name: Zmiana domyślnej odpowiedzi
+      href: How-To/change-default-answer.md
     - name: Konfiguracja usługi
       href: reference-app-service.md
     - name: Formaty zawartości i danych
