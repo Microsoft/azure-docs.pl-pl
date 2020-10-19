@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 757575b31bde1a0e25cc3e70aad0cca0fdd45953
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001959"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170324"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Szybki Start: Dodawanie symulowanego urządzenia do aplikacji IoT Central
 
@@ -71,7 +71,7 @@ Szablon urządzenia może zawierać właściwości chmury. Właściwości chmury
     | Nazwa wyświetlana      | Typ semantyczny | Schemat |
     | ----------------- | ------------- | ------ |
     | Data ostatniego serwisowania | Brak          | Date   |
-    | Nazwa klienta     | Brak          | String (ciąg) |
+    | Nazwa klienta     | Brak          | Ciąg |
 
 1. Wybierz pozycję **Zapisz** , aby zapisać zmiany:
 
@@ -128,7 +128,7 @@ Aby dodać symulowane urządzenie do aplikacji, należy użyć utworzonego szabl
 
 1. Aby dodać nowe urządzenie jako operator, wybierz pozycję **urządzenia** w lewym okienku. Na karcie **urządzenia** są wyświetlane **wszystkie urządzenia** i szablon urządzenia **zestawu deweloperskiego IoT DevKit** . Wybierz pozycję **zestawu deweloperskiego IoT DevKit**.
 
-1. Aby dodać symulowane urządzenie DevKit, wybierz opcję **+** . Użyj sugerowanego **identyfikatora urządzenia** lub wprowadź swój własny **Identyfikator**w postaci małych liter. Możesz również wprowadzić nazwę nowego urządzenia. Upewnij się, że **symulowany** przełącznik jest **włączony** , a następnie wybierz pozycję **Utwórz**.
+1. Aby dodać symulowane urządzenie DevKit, wybierz opcję **+** . Użyj sugerowanego **identyfikatora urządzenia** lub wprowadź własny. Identyfikator urządzenia może zawierać litery, cyfry i `-` znaki. Możesz również wprowadzić nazwę nowego urządzenia. Upewnij się, że **symulowany** przełącznik jest **włączony** , a następnie wybierz pozycję **Utwórz**.
 
     ![Symulowane urządzenie](./media/quick-create-simulated-device/simulated-device.png)
 

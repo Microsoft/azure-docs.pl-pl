@@ -4,16 +4,16 @@ description: W tym przewodniku szybki start wdrożono aplikację w chmurze ze sp
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 09/18/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: fe6f72b60257a1101765dcb539cc3e0eb1d2346e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2ec79c9c1fc3b461037b2005da7198f81cbbab34
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090050"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170351"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny
 
@@ -419,10 +419,10 @@ Poniższa procedura umożliwia kompilację i wdrożenie aplikacji przy użyciu i
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public
     ```
 
-1. Wdróż plik JAR dla aplikacji:
+1. Wdróż plik JAR dla aplikacji ( `target\hellospring-0.0.1-SNAPSHOT.jar` w systemie Windows):
 
     ```azurecli
-    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path <jar file path>
     ```
     
 1. Wdrożenie aplikacji może zająć kilka minut. Aby upewnić się, że został wdrożony, przejdź do bloku **aplikacje** w Azure Portal. Powinien zostać wyświetlony stan aplikacji.

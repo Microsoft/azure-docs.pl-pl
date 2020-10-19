@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperfq2
-ms.openlocfilehash: 1782982c75e502ea8df70818a134b5b009188959
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe3bedb188b563bb29ad1aa6e6e53e3039f1d51
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850102"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170345"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Zarządzanie urządzeniami w aplikacji IoT Central platformy Azure
 
@@ -52,7 +52,7 @@ Aby dodać urządzenie do aplikacji usługi Azure IoT Central:
 
 1. Zmień przełącznik **symulowany** na **włączony** lub **wyłączony**. Rzeczywiste urządzenie dotyczy urządzenia fizycznego połączonego z aplikacją Azure IoT Central. Urządzenie symulowane ma przykładowe dane wygenerowane przez usługę Azure IoT Central.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. To urządzenie jest teraz widoczne na liście urządzeń dla tego szablonu. Wybierz urządzenie, aby wyświetlić stronę szczegóły urządzenia, która zawiera wszystkie widoki dla urządzenia.
 
@@ -60,7 +60,7 @@ Aby dodać urządzenie do aplikacji usługi Azure IoT Central:
 
 Aby połączyć dużą liczbę urządzeń z aplikacją, można zbiorczo importować urządzenia z pliku CSV. Plik CSV powinien zawierać następujące kolumny i nagłówki:
 
-* **IOTC_DeviceID** — identyfikator urządzenia powinien zawierać tylko małe litery.
+* **IOTC_DeviceID** — identyfikator urządzenia może zawierać litery, cyfry i `-` znak.
 * **IOTC_DeviceName** — ta kolumna jest opcjonalna.
 
 Aby przeprowadzić zbiorczą rejestrację urządzeń w aplikacji:

@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 4b12c71390a6b03de2f6f6a4bd79707cbc357dfe
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6d4d9fd901337b9c05c7d7d7f271974273e9fe37
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169038"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170070"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Samouczek: łączenie się z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
 
@@ -111,7 +111,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
     | Region | Wybierz **Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -206,7 +206,7 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 7. Po nawiązaniu połączenia Otwórz program Windows PowerShell na serwerze.
 
-8. Wprowadź `nslookup <webapp-name>.azurewebsites.net`. Zamień **\<webapp-name>** na nazwę konta magazynu utworzonego w poprzednich krokach.  Zostanie wyświetlony komunikat podobny do następującego:
+8. Wprowadź `nslookup <webapp-name>.azurewebsites.net`. Zamień **\<webapp-name>** na nazwę aplikacji sieci Web utworzonej w poprzednich krokach.  Zostanie wyświetlony komunikat podobny do następującego:
 
     ```powershell
     Server:  UnKnown

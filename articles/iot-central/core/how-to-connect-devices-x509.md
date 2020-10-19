@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9a93602327b5c5294d6c17c1804c04c6603dcf37
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 9ebf07a5125995e66297d89643845b54aad246b8
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999886"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170303"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Jak połączyć urządzenia z certyfikatami X. 509 za pomocą zestawu SDK urządzeń Node.js dla IoT Central aplikacji
 
@@ -50,12 +50,15 @@ W tej sekcji użyto certyfikatu X. 509, aby połączyć urządzenie z certyfikat
     npm install
     ```
 
-1. Utwórz certyfikat główny, a następnie wyuzyskuj certyfikat urządzenia, uruchamiając skrypt. Należy pamiętać, aby użyć tylko małych liter alfanumerycznych i łączników dla nazwy certyfikatu:
+1. Utwórz certyfikat główny, a następnie wyuzyskuj certyfikat urządzenia, uruchamiając skrypt:
 
     ```cmd/sh
     node create_test_cert.js root mytestrootcert
     node create_test_cert.js device mytestdevice mytestrootcert
     ```
+
+    > [!TIP]
+    > Identyfikator urządzenia może zawierać litery, cyfry i `-` znaki.
 
 Te polecenia tworzą trzy pliki dla katalogu głównego i certyfikatu urządzenia
 

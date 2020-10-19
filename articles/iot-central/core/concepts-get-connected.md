@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3fc10c9601deb66c8fb6182d5943011f1ef185ce
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126845"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170055"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Nawiązywanie połączenia z usługą Azure IoT Central
 
@@ -113,7 +113,7 @@ W przypadku naruszenia zabezpieczeń lub wymuszenia wygaśnięcia certyfikatu po
 
 ### <a name="register-and-connect-devices"></a>Rejestrowanie i łączenie urządzeń
 
-Aby połączyć zbiorczo urządzenia za pomocą certyfikatów X. 509, należy najpierw zarejestrować urządzenia w aplikacji przy użyciu pliku CSV w celu [zaimportowania identyfikatorów urządzeń i nazw urządzeń](howto-manage-devices.md#import-devices). Wszystkie identyfikatory urządzeń powinny być małymi literami.
+Aby połączyć zbiorczo urządzenia za pomocą certyfikatów X. 509, należy najpierw zarejestrować urządzenia w aplikacji przy użyciu pliku CSV w celu [zaimportowania identyfikatorów urządzeń i nazw urządzeń](howto-manage-devices.md#import-devices). Identyfikator urządzenia może zawierać litery, cyfry i `-` znaki.
 
 Generuj certyfikaty liścia X. 509 dla urządzeń przy użyciu certyfikatu głównego lub pośredniego przekazanego do grupy rejestracji X. 509. Użyj **identyfikatora urządzenia** jako `CNAME` wartości w certyfikatach liścia. Kod urządzenia wymaga wartości **identyfikatora zakresu** dla aplikacji, **identyfikatora urządzenia**i odpowiedniego certyfikatu urządzenia.
 
@@ -149,7 +149,7 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Dodawanie zrzutu ekranu grupy rejestracji X. 509":::
 
-1. Użyj `az iot central device compute-device-key` polecenia, aby wygenerować klucze SAS urządzenia. Użyj klucza podstawowego grupy z poprzedniego kroku. Identyfikatory urządzeń muszą mieć wielkie litery:
+1. Użyj `az iot central device compute-device-key` polecenia, aby wygenerować klucze SAS urządzenia. Użyj klucza podstawowego grupy z poprzedniego kroku. Identyfikator urządzenia może zawierać litery, cyfry i `-` znaki:
 
     ```azurecli
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
@@ -170,7 +170,7 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
 
 1. [Utwórz grupę rejestracji](#create-an-enrollment-group) , a następnie [Dodaj i Zweryfikuj główny lub pośredni certyfikat X. 509](#add-and-verify-a-root-or-intermediate-x509-certificate) do aplikacji IoT Central.
 
-1. Wygeneruj certyfikaty liści dla urządzeń przy użyciu certyfikatu głównego lub pośredniego dodanego do aplikacji IoT Central. W przypadku certyfikatów liścia należy używać identyfikatorów urządzeń z małymi literami `CNAME` .
+1. Wygeneruj certyfikaty liści dla urządzeń przy użyciu certyfikatu głównego lub pośredniego dodanego do aplikacji IoT Central. Użyj identyfikatorów urządzeń jako `CNAME` w certyfikatach liścia. Identyfikator urządzenia może zawierać litery, cyfry i `-` znaki.
 
 1. Producent OEM błyskuje każde urządzenie przy użyciu identyfikatora urządzenia, wygenerowanego certyfikatu X. 509 liścia oraz wartości **zakresu identyfikatora** aplikacji.
 
@@ -185,7 +185,7 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Indywidualne połączenie z urządzeniem opartym na rejestracji
 
-W przypadku klientów łączących urządzenia z własnymi poświadczeniami uwierzytelniania należy użyć indywidualnych rejestracji. Rejestracja indywidualna to wpis dla pojedynczego urządzenia, które może nawiązać połączenie. Rejestracje indywidualne mogą używać certyfikatów liścia X. 509 lub tokenów SAS (z fizycznego lub wirtualnego modułu TPM) jako mechanizmów zaświadczania. Identyfikator urządzenia (znany również jako identyfikator rejestracji) w rejestracji indywidualnej jest alfanumeryczny, pisany małymi literami i może zawierać łączniki. Aby uzyskać więcej informacji, zobacz temat Usługa [DPS — Rejestracja indywidualna](../../iot-dps/concepts-service.md#individual-enrollment).
+W przypadku klientów łączących urządzenia z własnymi poświadczeniami uwierzytelniania należy użyć indywidualnych rejestracji. Rejestracja indywidualna to wpis dla pojedynczego urządzenia, które może nawiązać połączenie. Rejestracje indywidualne mogą używać certyfikatów liścia X. 509 lub tokenów SAS (z fizycznego lub wirtualnego modułu TPM) jako mechanizmów zaświadczania. Identyfikator urządzenia (znany również jako identyfikator rejestracji) w ramach rejestracji indywidualnej identyfikator urządzenia może zawierać litery, cyfry i `-` znaki. Aby uzyskać więcej informacji, zobacz temat Usługa [DPS — Rejestracja indywidualna](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > Podczas tworzenia rejestracji indywidualnej dla urządzenia mają pierwszeństwo przed domyślnymi opcjami rejestracji grupy w aplikacji IoT Central.
