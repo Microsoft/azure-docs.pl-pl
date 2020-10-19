@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5126159f2f9e5761b5f6a073972935101bc03210
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b189eceb6b5a7f2e508387c0b91b238ff5fcb088
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946352"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174057"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Macierz obsługi SQL Server tworzenia kopii zapasowych na maszynach wirtualnych platformy Azure
 
@@ -41,7 +41,7 @@ Za pomocą Azure Backup można tworzyć kopie zapasowe baz danych SQL Server na 
 * Obsługiwane są wszystkie typy kopii zapasowych (pełny/różnicowa/log) i modele odzyskiwania (w przypadku rejestrowania prostego/pełnego/zbiorczego).
 * Pełne i pełne kopie zapasowe są obsługiwane tylko w przypadku baz danych **tylko do odczytu** .
 * Kompresja natywna SQL jest obsługiwana, jeśli jest jawnie włączona przez użytkownika w ramach zasad tworzenia kopii zapasowych. Azure Backup przesłania wartości domyślne na poziomie wystąpienia z klauzulą COMPRESSION/NO_COMPRESSION, w zależności od wartości kontrolki ustawionej przez użytkownika.
-* Obsługiwane są kopie zapasowe bazy danych z włączoną obsługą TDE. Aby przywrócić bazę danych zaszyfrowaną TDE na inny SQL Server, należy najpierw [przywrócić certyfikat na serwerze docelowym](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Kompresja kopii zapasowych dla baz danych z obsługą TDE dla SQL Server 2016 i nowszych wersji jest dostępna, ale przy mniejszym rozmiarze, jak wyjaśniono [tutaj](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
+* Obsługiwane są kopie zapasowe bazy danych z włączoną obsługą TDE. Aby przywrócić bazę danych zaszyfrowaną TDE na inny SQL Server, należy najpierw [przywrócić certyfikat na serwerze docelowym](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Kompresja kopii zapasowych dla baz danych z obsługą TDE dla SQL Server 2016 i nowszych wersji jest dostępna, ale przy mniejszym rozmiarze, jak wyjaśniono [tutaj](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Operacje tworzenia kopii zapasowych i przywracania dla duplikatów baz danych i migawek baz danych nie są obsługiwane.
 * SQL Server **wystąpienie klastra trybu failover (FCI)** nie jest obsługiwane.
 * Użycie więcej niż jednego rozwiązania do tworzenia kopii zapasowych w celu utworzenia kopii zapasowej autonomicznego wystąpienia SQL Server lub zawsze włączona Grupa dostępności programu SQL Server może prowadzić do błędu kopii zapasowej. Nie należy tego robić. Tworzenie kopii zapasowej dwóch węzłów grupy dostępności indywidualnie z tymi samymi lub różnymi rozwiązaniami może również prowadzić do niepowodzenia kopii zapasowych.

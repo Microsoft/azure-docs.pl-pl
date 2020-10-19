@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448530"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174166"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Usuwanie i odzyskiwanie obszaru roboczego usługi Azure Log Analytics
 
@@ -52,7 +52,7 @@ Obszar roboczy można usunąć przy użyciu [programu PowerShell](/powershell/mo
 
    ![Potwierdzenie usunięcia obszaru roboczego](media/delete-workspace/workspace-delete.png)
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
@@ -93,7 +93,7 @@ Obszar roboczy możesz odzyskać w okresie usuwania nietrwałego, w tym jego dan
    ![Zrzut ekranu okna dialogowego Odzyskiwanie usuniętych Log Analytics obszarów roboczych w Azure Portal z wyróżnionym obszarem roboczym i wybranym przyciskiem Odzyskaj.](media/delete-workspace/recover-workspace.png)
 
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 ```PowerShell
 PS C:\>Select-AzSubscription "subscription-name-the-workspace-was-in"
 PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name-the-workspace-was-in" -Name "deleted-workspace-name" -Location "region-name-the-workspace-was-in"
@@ -112,6 +112,9 @@ Aby usunąć obszar roboczy, musisz mieć co najmniej *log Analytics uprawnienia
 * Jeśli zostanie wyświetlony komunikat o błędzie *Ta nazwa obszaru roboczego jest już używana* lub *występuje konflikt* podczas tworzenia obszaru roboczego, może to być od:
   * Nazwa obszaru roboczego jest niedostępna i jest używana przez kogoś w organizacji lub przez innego klienta.
   * Obszar roboczy został usunięty w ciągu ostatnich 14 dni, a jego nazwa jest zarezerwowana dla okresu usuwania nietrwałego. Aby zastąpić nietrwałe usuwanie i trwałe usuwanie obszaru roboczego w celu utworzenia nowego obszaru roboczego o tej samej nazwie, wykonaj następujące kroki, aby najpierw odzyskać obszar roboczy i wykonać trwałe usuwanie:<br>
-     1. [Odzyskaj](#recover-workspace) obszar roboczy.
-     2. [Trwale Usuń](#permanent-workspace-delete) obszar roboczy.
-     3. Utwórz nowy obszar roboczy przy użyciu tej samej nazwy obszaru roboczego.
+    1. [Odzyskaj](#recover-workspace) obszar roboczy.
+    2. [Trwale Usuń](#permanent-workspace-delete) obszar roboczy.
+    3. Utwórz nowy obszar roboczy przy użyciu tej samej nazwy obszaru roboczego.
+* Jeśli zobaczysz kod odpowiedzi 204, który pokazuje, że *nie znaleziono zasobu*, przyczyną może być kolejny próba użycia operacji usuwania obszaru roboczego. 204 to pusta odpowiedź, która zazwyczaj oznacza, że zasób nie istnieje, więc usuwanie zostało ukończone bez wykonywania żadnych czynności.
+  Po pomyślnym zakończeniu wywołania usuwania na zapleczu można przywrócić obszar roboczy i ukończyć trwałą operację usuwania w jednej z sugerowanych wcześniej metod.
+

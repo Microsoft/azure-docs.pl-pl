@@ -3,12 +3,12 @@ title: Zapewnianie ładu w zakresie kopii zapasowych przy użyciu centrum kopii 
 description: Dowiedz się, jak zarządzać środowiskiem platformy Azure, aby upewnić się, że wszystkie zasoby są zgodne z perspektywą tworzenia kopii zapasowych z centrum kopii zapasowych.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 8a16769be827bf34e5be82409d5b8eb014cdcf1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614345"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173811"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Zapewnianie ładu w zakresie kopii zapasowych przy użyciu centrum kopii zapasowych
 
@@ -26,15 +26,15 @@ Centrum kopii zapasowych pomaga zarządzać środowiskiem platformy Azure, aby u
 
 ## <a name="azure-policies-for-backup"></a>Zasady platformy Azure dla kopii zapasowej
 
-Aby wyświetlić wszystkie [Zasady platformy Azure](https://docs.microsoft.com/azure/governance/policy/overview) , które są dostępne dla kopii zapasowej, wybierz element menu **Zasady platformy Azure dla kopii zapasowej** . Spowoduje to wyświetlenie wszystkich wbudowanych i niestandardowych [definicji zasad platformy Azure na potrzeby tworzenia kopii zapasowych](policy-reference.md) dostępnych do przypisania do subskrypcji i grup zasobów.
+Aby wyświetlić wszystkie [Zasady platformy Azure](../governance/policy/overview.md) , które są dostępne dla kopii zapasowej, wybierz element menu **Zasady platformy Azure dla kopii zapasowej** . Spowoduje to wyświetlenie wszystkich wbudowanych i niestandardowych [definicji zasad platformy Azure na potrzeby tworzenia kopii zapasowych](policy-reference.md) dostępnych do przypisania do subskrypcji i grup zasobów.
 
-Wybranie dowolnej definicji umożliwia [przypisanie zasad](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) do zakresu.
+Wybranie dowolnej definicji umożliwia [przypisanie zasad](../governance/policy/tutorials/create-and-manage.md#assign-a-policy) do zakresu.
 
 ![Wybierz definicje Azure Policy](./media/backup-center-govern-environment/azure-policy-definitions.png)
 
 ## <a name="backup-compliance"></a>Zgodność kopii zapasowych
 
-Kliknięcie elementu menu zgodność kopii zapasowej ułatwia wyświetlanie [zgodności](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) zasobów zgodnie z różnymi wbudowanymi zasadami, które zostały przypisane do środowiska platformy Azure. Można wyświetlić procent zasobów, które są zgodne ze wszystkimi zasadami, a także zasady, które mają co najmniej jeden niezgodny zasób.
+Kliknięcie elementu menu zgodność kopii zapasowej ułatwia wyświetlanie [zgodności](../governance/policy/how-to/get-compliance-data.md) zasobów zgodnie z różnymi wbudowanymi zasadami, które zostały przypisane do środowiska platformy Azure. Można wyświetlić procent zasobów, które są zgodne ze wszystkimi zasadami, a także zasady, które mają co najmniej jeden niezgodny zasób.
 
 ![Wyświetl zgodność kopii zapasowych](./media/backup-center-govern-environment/azure-policy-compliance.png)
 

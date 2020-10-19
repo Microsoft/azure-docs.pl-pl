@@ -1,16 +1,16 @@
 ---
-title: Tworzenie kopii zapasowej serwera serwera usługi MAB
+title: Tworzenie kopii zapasowej serwera MABS
 description: Dowiedz się, jak utworzyć kopię zapasową serwera Microsoft Azure Backup (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: de62f0f57273ad7bd77df917d909627819165adb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946830"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172118"
 ---
-# <a name="back-up-the-mabs-server"></a>Tworzenie kopii zapasowej serwera serwera usługi MAB
+# <a name="back-up-the-mabs-server"></a>Tworzenie kopii zapasowej serwera MABS
 
 Aby zapewnić, że dane mogą zostać odzyskane w przypadku awarii serwera Microsoft Azure Backup (serwera usługi MAB), potrzebna będzie strategia tworzenia kopii zapasowej serwera serwera usługi MAB. Jeśli kopia zapasowa nie zostanie utworzona, należy ponownie skompilować ją ręcznie po awarii, a punkty odzyskiwania oparte na dyskach nie będą odzyskiwalne. Można utworzyć kopię zapasową serwerów serwera usługi MAB, wykonując kopie zapasowe bazy danych serwera usługi MAB.
 
@@ -184,9 +184,9 @@ Jeśli serwer serwera usługi MAB nadal działa, a pula magazynów jest nienarus
 
 Można utworzyć kopię zapasową bazy danych serwera usługi MAB na dysku lokalnym z natywną kopią zapasową SQL Server, niezależnie od serwera usługi MAB.
 
-- Zapoznaj się z [opisem](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) kopii zapasowych programu SQL Server.
+- Zapoznaj się z [opisem](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) kopii zapasowych programu SQL Server.
 
-- [Dowiedz się więcej](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) o tworzeniu kopii zapasowych programu SQL Server w chmurze.
+- [Dowiedz się więcej](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) o tworzeniu kopii zapasowych programu SQL Server w chmurze.
 
 ## <a name="back-up-to-a-share-protected-by-mabs"></a>Tworzenie kopii zapasowej w udziale chronionym przez serwera usługi MAB
 
@@ -194,7 +194,7 @@ Ta opcja tworzenia kopii zapasowej używa natywnego języka SQL do tworzenia kop
 
 ### <a name="before-you-start"></a>Przed rozpoczęciem
 
-1. Na SQL Server Utwórz folder na dysku z wystarczającą ilością wolnego miejsca do przechowywania pojedynczej kopii kopii zapasowej. Przykład: `C:\MABSBACKUP`.
+1. Na SQL Server Utwórz folder na dysku z wystarczającą ilością wolnego miejsca do przechowywania pojedynczej kopii kopii zapasowej. Na przykład: `C:\MABSBACKUP`.
 
 1. Udostępnij ten folder. Na przykład Udostępnij `C:\MABSBACKUP` folder jako *DPMBACKUP*.
 
@@ -238,9 +238,9 @@ Ta opcja tworzenia kopii zapasowej używa natywnego języka SQL do tworzenia kop
 
 Można utworzyć kopię zapasową bazy danych serwera usługi MAB, tak jak w przypadku każdej innej bazy danych SQL Server przy użyciu SQL Server natywnej kopii zapasowej.
 
-- Zapoznaj się z [opisem](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) kopii zapasowych programu SQL Server.
+- Zapoznaj się z [opisem](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) kopii zapasowych programu SQL Server.
 
-- [Dowiedz się więcej](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) o tworzeniu kopii zapasowych programu SQL Server w chmurze.
+- [Dowiedz się więcej](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) o tworzeniu kopii zapasowych programu SQL Server w chmurze.
 
 ### <a name="recover-the-mabs-database"></a>Odzyskaj bazę danych serwera usługi MAB
 

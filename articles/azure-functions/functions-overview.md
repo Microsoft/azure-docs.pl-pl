@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0583b68df603b04d47ac6104f0cf127b3c4bedd0
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "77621002"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173717"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Wprowadzenie do usługi Azure Functions
 
@@ -19,7 +19,7 @@ Azure Functions umożliwia uruchamianie małych fragmentów kodu (nazywanych "fu
 
 Funkcja jest wyzwalana przez określony typ zdarzenia. [Obsługiwane wyzwalacze](./functions-triggers-bindings.md) obejmują reagowanie na zmiany danych, reagowanie na komunikaty, uruchamianie zgodnie z harmonogramem lub w wyniku żądania HTTP.
 
-Mimo że zawsze możesz bezpośrednio korzystać z wyposażono usług, integracja z innymi usługami odbywa się przy użyciu powiązań. Powiązania zapewniają [deklaratywny dostęp do różnorodnych usług platformy Azure i innych](./functions-triggers-bindings.md)firm.
+Mimo że zawsze możesz bezpośrednio korzystać z usługi wyposażono, integracja z innymi usługami odbywa się przy użyciu powiązań. Powiązania zapewniają [deklaratywny dostęp do różnorodnych usług platformy Azure i innych](./functions-triggers-bindings.md)firm.
 
 ## <a name="features"></a>Funkcje
 

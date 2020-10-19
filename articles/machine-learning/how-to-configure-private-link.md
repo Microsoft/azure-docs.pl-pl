@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 4ba7ec73ac70723e21b6acad571d62d14edd250a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89bad470d5ead43b79e3691343b53fff796f7abc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828120"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172780"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning
 
@@ -39,20 +39,28 @@ Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie j
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Tworzenie obszaru roboczego korzystającego z prywatnego punktu końcowego
 
-Użyj jednej z następujących metod, aby utworzyć obszar roboczy z prywatnym punktem końcowym:
+Użyj jednej z następujących metod, aby utworzyć obszar roboczy z prywatnym punktem końcowym. Każda z tych metod __Wymaga istniejącej sieci wirtualnej__:
 
 > [!TIP]
-> Szablon Azure Resource Manager może utworzyć nową sieć wirtualną w razie konieczności. Pozostałe metody wymagają istniejącej sieci wirtualnej.
-
-# <a name="resource-manager-template"></a>[Szablon Menedżer zasobów](#tab/azure-resource-manager)
-
-Szablon Azure Resource Manager w programie [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) zapewnia łatwy sposób tworzenia obszaru roboczego za pomocą prywatnego punktu końcowego i sieci wirtualnej.
-
-Aby uzyskać informacje na temat korzystania z tego szablonu, w tym prywatnych punktów końcowych, zobacz [Tworzenie obszaru roboczego dla Azure Machine Learning za pomocą szablonu Azure Resource Manager](how-to-create-workspace-template.md).
+> Jeśli chcesz utworzyć obszar roboczy, prywatny punkt końcowy i sieć wirtualną w tym samym czasie, zobacz [Tworzenie obszaru roboczego dla Azure Machine Learning za pomocą szablonu Azure Resource Manager](how-to-create-workspace-template.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
 Zestaw Azure Machine Learning Python SDK udostępnia klasę [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) , która może być używana z elementem [Workspace. Create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) w celu utworzenia obszaru roboczego z prywatnym punktem końcowym. Ta klasa wymaga istniejącej sieci wirtualnej.
+
+```python
+from azureml.core import Workspace
+from azureml.core import PrivateEndPointConfig
+
+pe = PrivateEndPointConfig(name='myprivateendpoint', vnet_name='myvnet', vnet_subnet_name='default')
+ws = Workspace.create(name='myworkspace',
+    subscription_id='<my-subscription-id>',
+    resource_group='myresourcegroup',
+    location='eastus2',
+    private_endpoint_config=pe,
+    private_endpoint_auto_approval=True,
+    show_output=True)
+```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -67,6 +75,78 @@ Zestaw Azure Machine Learning Python SDK udostępnia klasę [PrivateEndpointConf
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Karta __Sieć__ w programie Azure Machine Learning Studio umożliwia skonfigurowanie prywatnego punktu końcowego. Jednak wymaga istniejącej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Tworzenie obszarów roboczych w portalu](how-to-manage-workspace.md).
+
+---
+
+## <a name="add-a-private-endpoint-to-a-workspace"></a>Dodawanie prywatnego punktu końcowego do obszaru roboczego
+
+Aby dodać prywatny punkt końcowy do istniejącego obszaru roboczego, użyj jednej z następujących metod:
+
+> [!IMPORTANT]
+>
+> Aby utworzyć prywatny punkt końcowy w programie, musisz mieć istniejącą sieć wirtualną. Przed dodaniem prywatnego punktu końcowego należy również [wyłączyć zasady sieciowe dla prywatnych punktów końcowych](../private-link/disable-private-endpoint-network-policy.md) .
+
+> [!WARNING]
+>
+> Jeśli masz jakieś istniejące obiekty docelowe obliczeń skojarzone z tym obszarem roboczym i nie są one za tą samą siecią wirtualną, określona prywatny punkt końcowy jest tworzony w programie, nie będą one działały.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+from azureml.core import Workspace
+from azureml.core import PrivateEndPointConfig
+
+pe = PrivateEndPointConfig(name='myprivateendpoint', vnet_name='myvnet', vnet_subnet_name='default')
+ws = Workspace.from_config()
+ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approval=True, show_output=True)
+```
+
+Aby uzyskać więcej informacji na temat klas i metod używanych w tym przykładzie, zobacz [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) i [Workspace.add_private_endpoint](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+[Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning](reference-azure-machine-learning-cli.md) udostępnia polecenie [AZ ml Workspace Private-Endpoint Add](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) .
+
+```azurecli
+az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+W obszarze roboczym Azure Machine Learning w portalu wybierz pozycję __połączenia prywatnego punktu końcowego__ , a następnie wybierz pozycję __+ prywatny punkt końcowy__. Użyj pól, aby utworzyć nowy prywatny punkt końcowy.
+
+* W przypadku wybrania __regionu__wybierz ten sam region, w którym znajduje się Twoja sieć wirtualna. 
+* Podczas wybierania __typu zasobu__Użyj __Microsoft. MachineLearningServices/Workspaces__. 
+* Ustaw __zasób__ na nazwę obszaru roboczego.
+
+Na koniec wybierz pozycję __Utwórz__ , aby utworzyć prywatny punkt końcowy.
+
+---
+
+## <a name="remove-a-private-endpoint"></a>Usuwanie prywatnego punktu końcowego
+
+Aby usunąć prywatny punkt końcowy z obszaru roboczego, użyj jednej z następujących metod:
+
+# <a name="python"></a>[Python](#tab/python)
+
+Użyj [Workspace.delete_private_endpoint_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) , aby usunąć prywatny punkt końcowy.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+# get the connection name
+_, _, connection_name = ws.get_details()['privateEndpointConnections'][0]['id'].rpartition('/')
+ws.delete_private_endpoint_connection(private_endpoint_connection_name=connection_name)
+```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+[Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning](reference-azure-machine-learning-cli.md) udostępnia polecenie [AZ ml Workspace Private-Endpoint Delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) .
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+W obszarze roboczym Azure Machine Learning w portalu wybierz pozycję __połączenia prywatnego punktu końcowego__, a następnie wybierz punkt końcowy, który chcesz usunąć. Na koniec wybierz pozycję __Usuń__.
 
 ---
 

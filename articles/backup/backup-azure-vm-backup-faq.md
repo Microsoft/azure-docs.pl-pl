@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056722"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172830"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -24,7 +24,7 @@ Podczas tworzenia maszyny wirtualnej można włączyć tworzenie kopii zapasowyc
 ### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Dlaczego tworzenie początkowej kopii zapasowej trwa długo?
 
 Początkowa kopia zapasowa to zawsze pełna kopia zapasowa, która będzie zależała od rozmiaru danych i czasu przetwarzania kopii zapasowej. <br>
-Aby zwiększyć wydajność tworzenia kopii zapasowych, zobacz [najlepsze rozwiązania w zakresie tworzenia kopii zapasowych](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices). [Uwagi dotyczące tworzenia kopii zapasowych](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) i [wydajności kopii zapasowych](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+Aby zwiększyć wydajność tworzenia kopii zapasowych, zobacz [najlepsze rozwiązania w zakresie tworzenia kopii zapasowych](./backup-azure-vms-introduction.md#best-practices). [Uwagi dotyczące tworzenia kopii zapasowych](./backup-azure-vms-introduction.md#backup-and-restore-considerations) i [wydajności kopii zapasowych](./backup-azure-vms-introduction.md#backup-performance)<br>
 Mimo że łączny czas wykonywania przyrostowych kopii zapasowych jest krótszy niż 24 godziny, może to nie dotyczyć pierwszej kopii zapasowej.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Czy koszt kopii zapasowej obejmuje koszt maszyny wirtualnej?
@@ -109,7 +109,7 @@ Azure Backup teraz obsługuje selektywne tworzenie kopii zapasowych i przywracan
 
 ### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>Czy zarządzane tożsamości są zachowywane w przypadku zmiany dzierżawy podczas tworzenia kopii zapasowej?
 
-Jeśli nastąpi [zmiana dzierżawy](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) , musisz wyłączyć i ponownie włączyć [zarządzane tożsamości](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) , aby kopie zapasowe działały ponownie.
+Jeśli nastąpi [zmiana dzierżawy](/azure/devops/organizations/accounts/change-azure-ad-connection) , musisz wyłączyć i ponownie włączyć [zarządzane tożsamości](../active-directory/managed-identities-azure-resources/overview.md) , aby kopie zapasowe działały ponownie.
 
 ## <a name="restore"></a>Przywracanie
 
@@ -207,6 +207,6 @@ Tak, istnieje limit 100 maszyn wirtualnych, które mogą być skojarzone z tymi 
 
 Obecnie można wyświetlać ustawienia przechowywania na poziomie elementu kopii zapasowej (VM) na podstawie zasad tworzenia kopii zapasowych przypisanych do maszyny wirtualnej.
 
-Jednym ze sposobów wyświetlania ustawień przechowywania kopii zapasowych jest przejście do [pulpitu nawigacyjnego](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) elementu kopii zapasowej maszyny wirtualnej w Azure Portal. Wybranie linku do zasad tworzenia kopii zapasowej ułatwia wyświetlanie czasu przechowywania wszystkich codziennych, cotygodniowych, miesięcznych i rocznych punktów przechowywania skojarzonych z maszyną wirtualną.
+Jednym ze sposobów wyświetlania ustawień przechowywania kopii zapasowych jest przejście do [pulpitu nawigacyjnego](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) elementu kopii zapasowej maszyny wirtualnej w Azure Portal. Wybranie linku do zasad tworzenia kopii zapasowej ułatwia wyświetlanie czasu przechowywania wszystkich codziennych, cotygodniowych, miesięcznych i rocznych punktów przechowywania skojarzonych z maszyną wirtualną.
 
-Możesz również użyć [Eksploratora kopii zapasowych](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) , aby wyświetlić ustawienia przechowywania dla wszystkich maszyn wirtualnych w jednym okienku szkła. Przejdź do Eksploratora kopii zapasowych z dowolnego magazynu Recovery Services, przejdź do karty **elementy kopii zapasowej** i wybierz widok zaawansowany, aby wyświetlić szczegółowe informacje o przechowywaniu dla każdej maszyny wirtualnej.
+Możesz również użyć [Eksploratora kopii zapasowych](./monitor-azure-backup-with-backup-explorer.md) , aby wyświetlić ustawienia przechowywania dla wszystkich maszyn wirtualnych w jednym okienku szkła. Przejdź do Eksploratora kopii zapasowych z dowolnego magazynu Recovery Services, przejdź do karty **elementy kopii zapasowej** i wybierz widok zaawansowany, aby wyświetlić szczegółowe informacje o przechowywaniu dla każdej maszyny wirtualnej.

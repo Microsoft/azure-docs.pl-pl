@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak tworzyć i konfigurować magazyny 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981486"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171626"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Tworzenie i Konfigurowanie magazynu Recovery Services
 
@@ -35,7 +35,7 @@ Azure Backup automatycznie obsługuje magazyn dla magazynu. Należy określić s
    - Zalecamy, aby Jeśli używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, Kontynuuj, aby użyć domyślnego ustawienia **geograficznie nadmiarowego** .
    - Jeśli nie używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, wybierz pozycję **Lokalnie nadmiarowy**, co zmniejszy koszty magazynów platformy Azure.
    - Dowiedz się więcej o nadmiarowości [geograficznym](../storage/common/storage-redundancy.md#geo-redundant-storage) i [lokalnym](../storage/common/storage-redundancy.md#locally-redundant-storage) .
-   - Jeśli potrzebujesz dostępności danych bez przestojów w regionie, zagwarantujesz miejsce zamieszkania danych, a następnie wybierz pozycję [Magazyn strefowo nadmiarowy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
+   - Jeśli potrzebujesz dostępności danych bez przestojów w regionie, zagwarantujesz miejsce zamieszkania danych, a następnie wybierz pozycję [Magazyn strefowo nadmiarowy](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 >[!NOTE]
 >Ustawienia replikacji magazynu dla magazynu nie są odpowiednie dla kopii zapasowej udziału plików platformy Azure, ponieważ bieżące rozwiązanie jest oparte na migawce i nie ma żadnych danych przesłanych do magazynu. Migawki są przechowywane na tym samym koncie magazynu co kopia zapasowa udziału plików.

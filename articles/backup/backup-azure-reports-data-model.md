@@ -3,12 +3,12 @@ title: Model danych dla zdarzeń diagnostyki Azure Backup
 description: Ten model danych znajduje się w odniesieniu do trybu specyficznego dla zasobu, który wysyła zdarzenia diagnostyczne do Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569588"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173967"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Model danych dla zdarzeń diagnostyki Azure Backup
 
@@ -239,7 +239,7 @@ Każdy rekord w powyższych tabelach ma skojarzoną **nazwę operacji**. Nazwa o
 | AddonAzureBackupPolicy | Zasady |  Reprezentuje rekord zawierający wszystkie szczegóły zasad tworzenia kopii zapasowej i przechowywania. Na przykład identyfikator, nazwa, ustawienia przechowywania itp. |
 | AddonAzureBackupPolicy | PolicyAssociation | Reprezentuje mapowanie między elementem kopii zapasowej a zastosowanymi do niego zasadami tworzenia kopii zapasowych. |   
 
-Często należy wykonać sprzężenia między różnymi tabelami, a także różne zestawy rekordów, które są częścią tej samej tabeli (różnią się nazwami operacji), aby uzyskać wszystkie pola wymagane do analizy. Zapoznaj się z [przykładowymi zapytaniami](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) , aby rozpocząć pracę. 
+Często należy wykonać sprzężenia między różnymi tabelami, a także różne zestawy rekordów, które są częścią tej samej tabeli (różnią się nazwami operacji), aby uzyskać wszystkie pola wymagane do analizy. Zapoznaj się z [przykładowymi zapytaniami](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) , aby rozpocząć pracę. 
 
 ## <a name="next-steps"></a>Następne kroki
 

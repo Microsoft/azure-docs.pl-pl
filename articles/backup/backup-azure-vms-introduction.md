@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej maszyny wirtualnej platformy Azure
 description: W tym artykule dowiesz się, jak usługa Azure Backup wykonuje kopie zapasowe maszyn wirtualnych platformy Azure oraz jak postępować zgodnie z najlepszymi rozwiązaniami.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 58079cba9a65ab4df3632bb641397ba10496ae81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30d27f3f9c559fd149bd45f303127e0eec40b878
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371511"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173854"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Omówienie kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -51,7 +51,7 @@ Podczas tworzenia kopii zapasowych maszyn wirtualnych platformy Azure z Azure Ba
 
 **Szyfrowanie** | **Szczegóły** | **Pomoc techniczna**
 --- | --- | ---
-**SSE** | W przypadku używania instrukcji SSE usługa Azure Storage zapewnia szyfrowanie w spoczynku przez automatyczne szyfrowanie danych przed ich zapisaniem. Usługa Azure Storage odszyfrowuje również dane przed ich pobraniem. Azure Backup obsługuje kopie zapasowe maszyn wirtualnych z dwoma typami szyfrowanie usługi Storage:<li> **SSE z kluczami zarządzanymi na platformie**: to szyfrowanie jest domyślnie przeznaczone dla wszystkich dysków w maszynach wirtualnych. Zobacz więcej [tutaj](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).<li> **SSE z kluczami zarządzanymi przez klienta**. Program CMK umożliwia zarządzanie kluczami używanymi do szyfrowania dysków. Zobacz więcej [tutaj](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys). | Azure Backup używa instrukcji SSE do szyfrowania w czasie spoczynku maszyn wirtualnych platformy Azure.
+**SSE** | W przypadku używania instrukcji SSE usługa Azure Storage zapewnia szyfrowanie w spoczynku przez automatyczne szyfrowanie danych przed ich zapisaniem. Usługa Azure Storage odszyfrowuje również dane przed ich pobraniem. Azure Backup obsługuje kopie zapasowe maszyn wirtualnych z dwoma typami szyfrowanie usługi Storage:<li> **SSE z kluczami zarządzanymi na platformie**: to szyfrowanie jest domyślnie przeznaczone dla wszystkich dysków w maszynach wirtualnych. Zobacz więcej [tutaj](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).<li> **SSE z kluczami zarządzanymi przez klienta**. Program CMK umożliwia zarządzanie kluczami używanymi do szyfrowania dysków. Zobacz więcej [tutaj](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). | Azure Backup używa instrukcji SSE do szyfrowania w czasie spoczynku maszyn wirtualnych platformy Azure.
 **Usługa Azure Disk Encryption** | Azure Disk Encryption szyfruje zarówno dyski systemu operacyjnego, jak i danych dla maszyn wirtualnych platformy Azure.<br/><br/> Azure Disk Encryption integruje się z kluczami szyfrowania funkcji BitLocker (BEKs), które są chronione w magazynie kluczy jako wpisy tajne. Azure Disk Encryption integruje się również z kluczami szyfrowania klucza Azure Key Vault (KEKs). | Azure Backup obsługuje tworzenie kopii zapasowych zarządzanych i niezarządzanych maszyn wirtualnych platformy Azure szyfrowanych tylko za pomocą BEKs lub z BEKs razem z KEKs.<br/><br/> BEKs i KEKs są archiwizowane i szyfrowane.<br/><br/> Ponieważ kopie zapasowe KEKs i BEKs są tworzone, użytkownicy z niezbędnymi uprawnieniami mogą przywrócić klucze i wpisy tajne z powrotem do magazynu kluczy, jeśli jest to konieczne. Ci użytkownicy mogą również odzyskać zaszyfrowaną maszynę wirtualną.<br/><br/> Zaszyfrowane klucze i wpisy tajne nie mogą być odczytywane przez nieautoryzowanych użytkowników lub platformę Azure.
 
 W przypadku zarządzanych i niezarządzanych maszyn wirtualnych platformy Azure usługa Backup obsługuje zarówno maszyny wirtualne zaszyfrowane za pomocą BEKs, jak i maszyny wirtualne zaszyfrowane za pomocą usługi BEKs oraz KEKs.

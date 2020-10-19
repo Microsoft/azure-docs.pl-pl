@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak konfigurować i inicjować operacj
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506631"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171451"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej maszyny wirtualnej platformy Azure przy użyciu Azure Backup za pośrednictwem interfejsu API REST
 
@@ -437,7 +437,7 @@ Jeśli kopia zapasowa maszyny wirtualnej platformy Azure została już utworzona
 > [!IMPORTANT]
 > Powyższa treść żądania jest zawsze końcową kopią dysków danych do wykluczenia lub dołączenia. To nie powoduje *dodania* do poprzedniej konfiguracji. Przykład: Jeśli najpierw zaktualizujesz ochronę jako "Wyklucz dane dysk 1", a następnie powtarzasz polecenie "Exclude Data Disk 2", *tylko dysk danych 2 zostanie wykluczony* w kolejnych kopiach zapasowych, a dysk danych 1 zostanie uwzględniony. Jest to zawsze Ostatnia lista, która zostanie uwzględniona/wykluczona w kolejnych kopiach zapasowych.
 
-Aby uzyskać bieżącą listę wykluczonych lub uwzględnionych dysków, Pobierz informacje o chronionym elemencie, jak wspomniano [tutaj](https://docs.microsoft.com/rest/api/backup/protecteditems/get). Odpowiedź będzie zawierać listę jednostek LUN dysku danych i wskazuje, czy są one dołączone lub wykluczone.
+Aby uzyskać bieżącą listę wykluczonych lub uwzględnionych dysków, Pobierz informacje o chronionym elemencie, jak wspomniano [tutaj](/rest/api/backup/protecteditems/get). Odpowiedź będzie zawierać listę jednostek LUN dysku danych i wskazuje, czy są one dołączone lub wykluczone.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Zatrzymaj ochronę, ale Zachowaj istniejące dane
 

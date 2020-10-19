@@ -3,12 +3,12 @@ title: Macierz obsługi dla centrum kopii zapasowych
 description: Ten artykuł zawiera podsumowanie scenariuszy obsługiwanych przez centrum kopii zapasowych dla każdego typu obciążenia
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 8effc2514abf1cac55abc28b625b869810536baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40582ddc1187082230e2887edcd24b3716811be2
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997002"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173985"
 ---
 # <a name="support-matrix-for-backup-center"></a>Macierz obsługi dla centrum kopii zapasowych
 
@@ -22,13 +22,13 @@ Centrum kopii zapasowych udostępnia pojedyncze okienko szkła dla przedsiębior
 | Monitorowanie | Wyświetl wszystkie wystąpienia kopii zapasowej | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Jak wyżej |
 | Monitorowanie | Wyświetl wszystkie zasady tworzenia kopii zapasowych | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Jak wyżej |
 | Monitorowanie | Wyświetl wszystkie magazyny | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Jak wyżej |
-| Akcje | Konfigurowanie kopii zapasowych | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocniczymi dla kopii [zapasowych maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) [Azure Database for PostgreSQL i kopii zapasowej serwera](backup-azure-database-postgresql.md#support-matrix) |
-| Akcje | Przywróć wystąpienie kopii zapasowej | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocniczymi dla kopii [zapasowych maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) [Azure Database for PostgreSQL i kopii zapasowej serwera](backup-azure-database-postgresql.md#support-matrix) |
-| Akcje | Utwórz magazyn | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocy technicznej dla [magazynu Recovery Services](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support) |
-| Akcje | Tworzenie zasad kopii zapasowych | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocy technicznej dla [magazynu Recovery Services](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support) |
-| Akcje | Wykonaj kopię zapasową na żądanie dla wystąpienia kopii zapasowej | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocniczymi dla kopii [zapasowych maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) [Azure Database for PostgreSQL i kopii zapasowej serwera](backup-azure-database-postgresql.md#support-matrix) |
-| Akcje | Zatrzymaj kopię zapasową wystąpienia kopii zapasowej | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocniczymi dla kopii [zapasowych maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) [Azure Database for PostgreSQL i kopii zapasowej serwera](backup-azure-database-postgresql.md#support-matrix) |
-| Insights | Wyświetlanie raportów kopii zapasowych | <li> Maszyna wirtualna platformy Azure <br><br> <li> SQL na maszynie wirtualnej platformy Azure <br><br> <li> SAP HANA na maszynie wirtualnej platformy Azure <br><br> <li> Azure Files <br><br> <li> System Center Data Protection Manager <br><br> <li> Agent Azure Backup (MARS) <br><br> <li> Azure Backup Server (MABS) | Zapoznaj się z [obsługiwanymi scenariuszami dotyczącymi raportów kopii zapasowych](https://docs.microsoft.com/azure/backup/configure-reports#supported-scenarios) |
+| Akcje | Konfigurowanie kopii zapasowych | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocniczymi dla kopii [zapasowych maszyny wirtualnej platformy Azure](./backup-support-matrix-iaas.md) [Azure Database for PostgreSQL i kopii zapasowej serwera](backup-azure-database-postgresql.md#support-matrix) |
+| Akcje | Przywróć wystąpienie kopii zapasowej | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocniczymi dla kopii [zapasowych maszyny wirtualnej platformy Azure](./backup-support-matrix-iaas.md) [Azure Database for PostgreSQL i kopii zapasowej serwera](backup-azure-database-postgresql.md#support-matrix) |
+| Akcje | Utwórz magazyn | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocy technicznej dla [magazynu Recovery Services](./backup-support-matrix.md#vault-support) |
+| Akcje | Tworzenie zasad kopii zapasowych | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocy technicznej dla [magazynu Recovery Services](./backup-support-matrix.md#vault-support) |
+| Akcje | Wykonaj kopię zapasową na żądanie dla wystąpienia kopii zapasowej | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocniczymi dla kopii [zapasowych maszyny wirtualnej platformy Azure](./backup-support-matrix-iaas.md) [Azure Database for PostgreSQL i kopii zapasowej serwera](backup-azure-database-postgresql.md#support-matrix) |
+| Akcje | Zatrzymaj kopię zapasową wystąpienia kopii zapasowej | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Zapoznaj się z macierzami pomocniczymi dla kopii [zapasowych maszyny wirtualnej platformy Azure](./backup-support-matrix-iaas.md) [Azure Database for PostgreSQL i kopii zapasowej serwera](backup-azure-database-postgresql.md#support-matrix) |
+| Insights | Wyświetlanie raportów kopii zapasowych | <li> Maszyna wirtualna platformy Azure <br><br> <li> SQL na maszynie wirtualnej platformy Azure <br><br> <li> SAP HANA na maszynie wirtualnej platformy Azure <br><br> <li> Azure Files <br><br> <li> System Center Data Protection Manager <br><br> <li> Agent Azure Backup (MARS) <br><br> <li> Azure Backup Server (MABS) | Zapoznaj się z [obsługiwanymi scenariuszami dotyczącymi raportów kopii zapasowych](./configure-reports.md#supported-scenarios) |
 | Nadzór | Wyświetlanie i przypisywanie wbudowanych i niestandardowych zasad platformy Azure w kategorii "kopia zapasowa" | NIE DOTYCZY | NIE DOTYCZY |
 | Nadzór | Wyświetl źródła danych, które nie są skonfigurowane dla kopii zapasowej | <li> Maszyna wirtualna platformy Azure <br><br> <li> Serwer Azure Database for PostgreSQL | Nie dotyczy |
 
@@ -42,6 +42,6 @@ Centrum kopii zapasowych udostępnia pojedyncze okienko szkła dla przedsiębior
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zapoznaj się z matrycą pomocy technicznej dla Azure Backup](https://docs.microsoft.com/azure/backup/backup-support-matrix)
-* [Przegląd macierzy obsługi kopii zapasowej maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas)
+* [Zapoznaj się z matrycą pomocy technicznej dla Azure Backup](./backup-support-matrix.md)
+* [Przegląd macierzy obsługi kopii zapasowej maszyny wirtualnej platformy Azure](./backup-support-matrix-iaas.md)
 * [Zapoznaj się z macierzą pomocy technicznej dla Azure Database for PostgreSQL kopii zapasowej serwera](backup-azure-database-postgresql.md#support-matrix)

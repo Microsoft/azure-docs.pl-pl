@@ -4,12 +4,12 @@ description: Znajdź odpowiedzi na często zadawane pytania dotyczące tworzenia
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461227"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172379"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -104,7 +104,7 @@ Baza danych, którą można [dodać do wystąpienia z ochroną](backup-sql-serve
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Czy można chronić bazy danych z włączonym TDE (Transparent Data Encryption) i czy baza danych pozostanie szyfrowana przez cały proces tworzenia kopii zapasowej?
 
-Tak, Azure Backup obsługuje tworzenie kopii zapasowych SQL Server baz danych lub serwera z włączonym TDE. Usługa Backup obsługuje [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) z kluczami zarządzanymi przez platformę Azure lub z kluczami zarządzanymi przez klienta (BYOK).  W ramach procesu tworzenia kopii zapasowej nie jest wykonywane żadne szyfrowanie SQL, dlatego po utworzeniu kopii zapasowej baza danych pozostanie zaszyfrowana.
+Tak, Azure Backup obsługuje tworzenie kopii zapasowych SQL Server baz danych lub serwera z włączonym TDE. Usługa Backup obsługuje [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) z kluczami zarządzanymi przez platformę Azure lub z kluczami zarządzanymi przez klienta (BYOK).  W ramach procesu tworzenia kopii zapasowej nie jest wykonywane żadne szyfrowanie SQL, dlatego po utworzeniu kopii zapasowej baza danych pozostanie zaszyfrowana.
 
 ## <a name="next-steps"></a>Następne kroki
 

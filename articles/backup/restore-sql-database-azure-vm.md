@@ -3,12 +3,12 @@ title: Przywracanie SQL Server baz danych na maszynie wirtualnej platformy Azure
 description: W tym artykule opisano sposób przywracania SQL Server baz danych, które są uruchomione na maszynie wirtualnej platformy Azure i których kopia zapasowa została utworzona przy użyciu Azure Backup. Można również użyć przywracania między regionami w celu przywrócenia baz danych do regionu pomocniczego.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985368"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172176"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Przywracanie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
 
@@ -30,7 +30,7 @@ Przed przystąpieniem do przywracania bazy danych należy zwrócić uwagę na na
 - Można przywrócić bazę danych do wystąpienia programu SQL Server w tym samym regionie platformy Azure.
 - Serwer docelowy musi być zarejestrowany w tym samym magazynie co źródło.
 - Aby przywrócić bazę danych zaszyfrowaną TDE na inny SQL Server, należy najpierw [przywrócić certyfikat na serwerze docelowym](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- Bazy danych z włączoną funkcją [przechwytywania](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) zmian należy przywrócić przy użyciu opcji [Przywróć jako pliki](#restore-as-files) .
+- Bazy danych z włączoną funkcją [przechwytywania](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) zmian należy przywrócić przy użyciu opcji [Przywróć jako pliki](#restore-as-files) .
 - Przed przystąpieniem do przywracania bazy danych "Master" uruchom wystąpienie SQL Server w trybie jednego użytkownika przy użyciu opcji Start **-m AzureWorkloadBackup**.
   - Wartość parametru **-m** to nazwa klienta.
   - Połączenie może otworzyć tylko określona nazwa klienta.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d34505b1f36d6de77e2bb1df9aa98b7a14b5f44d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88937000"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171928"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integracja Azure Active Directory zarządzanej przez AKS
 
@@ -32,7 +32,7 @@ Integracja Azure Active Directory zarządzanej przez AKS jest dostępna w region
 ## <a name="limitations"></a>Ograniczenia 
 
 * Nie można wyłączyć integracji usługi Azure AD zarządzanego przez usługę AKS
-* klastry z włączonymi innymi niż RBAC nie są obsługiwane w przypadku integracji z usługą AKS instytucje
+* klastry z włączonymi innymi niż RBAC nie są obsługiwane w przypadku integracji z usługą Azure AD zarządzanego przez usługę AKS
 * Zmiana dzierżawy usługi Azure AD skojarzonej z integracją usługi Azure AD zarządzanego przez usługę AKS nie jest obsługiwana
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -55,7 +55,7 @@ kubelogin --version
 Użyj [tych instrukcji](https://kubernetes.io/docs/tasks/tools/install-kubectl/) dla innych systemów operacyjnych.
 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W przypadku klastra potrzebna jest grupa usługi Azure AD. Ta grupa jest wymagana jako grupa administratorów dla klastra, aby przyznać uprawnienia administratora klastra. Możesz użyć istniejącej grupy usługi Azure AD lub utworzyć nową. Zapisz identyfikator obiektu grupy usługi Azure AD.
 

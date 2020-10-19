@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005653"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173002"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Zarządzanie zużyciem zasobów i obciążeniem Service Fabric przy użyciu metryk
 *Metryki* to zasoby, których dotyczą usługi i które są udostępniane przez węzły w klastrze. Metryka to wszystko, co chcesz zarządzać, aby zwiększyć lub monitorować wydajność usług. Na przykład możesz obserwować użycie pamięci, aby dowiedzieć się, czy usługa jest przeciążona. Innym rozwiązaniem jest określenie, czy usługa może zostać przeniesiona w innym miejscu, w którym ilość pamięci jest mniej ograniczona, aby uzyskać lepszą wydajność.
@@ -19,7 +19,7 @@ ms.locfileid: "89005653"
 Takie jak pamięć, dysk i użycie procesora są przykładowe metryki. Te metryki to metryki fizyczne, zasoby odpowiadające zasobom fizycznym w węźle, który musi być zarządzany. Metryki mogą być również (i często) metryki logiczne. Metryki logiczne są takie jak "MyWorkQueueDepth" lub "MessagesToProcess" lub "TotalRecords". Metryki logiczne są zdefiniowane przez aplikację i pośrednio odpowiadają pewnemu zużyciu zasobów fizycznych. Metryki logiczne są wspólne, ponieważ mogą być trudne do mierzenia i raportowania zużycia zasobów fizycznych na podstawie poszczególnych usług. Ze względu na złożoność mierzenia i raportowania własnych metryk fizycznych jest również Service Fabric udostępniają pewne metryki domyślne.
 
 ## <a name="default-metrics"></a>Metryki domyślne
-Załóżmy, że chcesz zacząć pisać i wdrażać usługę. W tym momencie nie wiesz, jakie zasoby fizyczne lub logiczne zużywają. To dobrze! Klaster Service Fabric Menedżer zasobów używa pewnych metryk domyślnych, gdy nie zostaną określone żadne inne metryki. Są to:
+Załóżmy, że chcesz zacząć pisać i wdrażać usługę. W tym momencie nie wiesz, jakie zasoby fizyczne lub logiczne zużywają. To dobrze! Klaster Service Fabric Menedżer zasobów używa pewnych metryk domyślnych, gdy nie zostaną określone żadne inne metryki. Oto one:
 
   - PrimaryCount — liczba replik podstawowych w węźle 
   - ReplicaCount — liczba całkowitych replik stanowych w węźle
@@ -138,12 +138,13 @@ Teraz przejdźmy do każdego z tych ustawień bardziej szczegółowo i zapoznaj 
 ## <a name="load"></a>Ładowanie
 Cały punkt definiowania metryk ma reprezentować pewne obciążenie. *Obciążenie* polega na tym, ile danej metryki jest zużywane przez niektóre wystąpienie usługi lub replika w danym węźle. Obciążenie można skonfigurować w prawie każdym punkcie. Na przykład:
 
-  - Obciążenie można zdefiniować podczas tworzenia usługi. Jest to nazywane _obciążeniem domyślnym_.
-  - Informacje o metrykach, w tym domyślne obciążenia dla usługi, można zaktualizować po utworzeniu usługi. Jest to nazywane _aktualizacją usługi_. 
-  - Obciążenia dla danej partycji mogą zostać zresetowane do wartości domyślnych dla tej usługi. Jest to tzw. _Resetowanie obciążenia partycji_.
-  - Obciążenie może być zgłaszane osobno dla poszczególnych obiektów usługi podczas środowiska uruchomieniowego. Jest to tzw. _obciążenie raportowaniem_. 
-  
-Wszystkie te strategie mogą być używane w ramach tej samej usługi w ramach swojego okresu istnienia. 
+  - Obciążenie można zdefiniować podczas tworzenia usługi. Ten typ konfiguracji ładowania jest nazywany _obciążeniem domyślnym_.
+  - Informacje o metrykach, w tym domyślne obciążenia dla usługi, można zaktualizować po utworzeniu usługi. Ta aktualizacja metryki jest wykonywana przez _aktualizację usługi_.
+  - Obciążenia dla danej partycji mogą zostać zresetowane do wartości domyślnych dla tej usługi. Ta aktualizacja metryki jest określana jako _Resetowanie obciążenia partycji_.
+  - Obciążenie może być raportowane dla każdego obiektu usługi, dynamicznie podczas środowiska uruchomieniowego. Ta aktualizacja metryki nazywa się _obciążeniem raportowaniem_.
+  - Ładowanie dla replik partycji lub wystąpień można także aktualizować przez raportowanie wartości ładowania za pomocą wywołania interfejsu API sieci szkieletowej. Ta aktualizacja metryki jest nazywana _obciążeniem raportowania dla partycji_.
+
+Wszystkie te strategie mogą być używane w ramach tej samej usługi w ramach swojego okresu istnienia.
 
 ## <a name="default-load"></a>Domyślne obciążenie
 *Domyślne obciążenie* polega na tym, ile metryk każdy obiekt usługi (wystąpienie bezstanowe lub replika stanowa) tej usługi zużywa. Klaster Menedżer zasobów używa tego numeru do ładowania obiektu usługi do momentu odzyskania innych informacji, takich jak dynamiczny raport ładowania. W przypadku łatwiejszych usług domyślne obciążenie jest definicją statyczną. Domyślne obciążenie nigdy nie jest aktualizowane i jest używane w okresie istnienia usługi. Obciążenia domyślne działają doskonale w przypadku scenariuszy planowania pojemności w przypadku, gdy pewne ilości zasobów są przeznaczone dla różnych obciążeń i nie są zmieniane.
@@ -175,6 +176,67 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 ```
 
 Usługa może raportować wszystkie metryki zdefiniowane dla niego podczas tworzenia. Jeśli usługa zgłasza obciążenie dla metryki, która nie jest skonfigurowana do użycia, Service Fabric ignoruje ten raport. Jeśli w tym samym czasie są zgłaszane inne metryki, te raporty są akceptowane. Kod usługi może mierzyć i raportować wszystkie metryki, które zna, i operatory mogą określać konfigurację metryki, która ma być używana bez konieczności zmiany kodu usługi. 
+
+## <a name="reporting-load-for-a-partition"></a>Raportowanie obciążenia dla partycji
+W poprzedniej sekcji opisano sposób, w jaki repliki usług lub wystąpienia raportują siebie. Istnieje dodatkowa opcja umożliwiająca dynamiczne raportowanie obciążenia za pomocą FabricClient. Przy raportowaniu obciążenia dla partycji, możesz zgłosić wiele partycji jednocześnie.
+
+Te raporty będą używane w taki sam sposób jak raporty obciążenia, które pochodzą z replik lub samych wystąpień. Raportowane wartości będą prawidłowe, dopóki nie zostaną zgłoszone nowe wartości załadowane przez replikę lub wystąpienie albo przez zgłoszenie nowej wartości ładowania dla partycji.
+
+Za pomocą tego interfejsu API istnieje wiele sposobów aktualizacji obciążenia w klastrze:
+
+  - Partycja usługi stanowej może zaktualizować swoje podstawowe obciążenie repliki.
+  - Zarówno bezstanowe, jak i stanowe usługi mogą aktualizować obciążenie wszystkich replik pomocniczych lub wystąpień.
+  - Zarówno bezstanowe, jak i stanowe usługi mogą aktualizować obciążenie określonej repliki lub wystąpienia w węźle.
+
+Istnieje również możliwość łączenia dowolnej z tych aktualizacji na partycję w tym samym czasie.
+
+Aktualizowanie obciążeń dla wielu partycji jest możliwe przy użyciu jednego wywołania interfejsu API, w tym przypadku dane wyjściowe będą zawierać odpowiedzi na partycję. Jeśli aktualizacja partycji Case nie została pomyślnie zastosowana z jakiegokolwiek powodu, aktualizacje dla tej partycji zostaną pominięte i zostanie udostępniony odpowiedni kod błędu dla partycji przeznaczonej do użycia:
+
+  - PartitionNotFound — określony identyfikator partycji nie istnieje.
+  - Trwa ponowna konfiguracja partycji ReconfigurationPending.
+  - InvalidForStatelessServices — podjęto próbę zmiany obciążenia repliki podstawowej dla partycji należącej do usługi bezstanowej.
+  - ReplicaDoesNotExist — replika pomocnicza lub wystąpienie nie istnieje w określonym węźle.
+  - InvalidOperation — może wystąpić w dwóch przypadkach: aktualizowanie obciążenia dla partycji należącej do aplikacji systemowej lub aktualizacja przewidywanego obciążenia nie jest włączone.
+
+Jeśli są zwracane niektóre z tych błędów, można zaktualizować dane wejściowe dla określonej partycji i ponowić próbę aktualizacji dla określonej partycji.
+
+Kod:
+
+```csharp
+Guid partitionId = Guid.Parse("53df3d7f-5471-403b-b736-bde6ad584f42");
+string metricName0 = "CustomMetricName0";
+List<MetricLoadDescription> newPrimaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 100)
+};
+
+string nodeName0 = "NodeName0";
+List<MetricLoadDescription> newSpecificSecondaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 200)
+};
+
+OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
+    await this.FabricClient.UpdatePartitionLoadAsync(
+        new UpdatePartitionLoadQueryDescription
+        {
+            PartitionMetricLoadDescriptionList = new List<PartitionMetricLoadDescription>()
+            {
+                new PartitionMetricLoadDescription(
+                    partitionId,
+                    newPrimaryReplicaLoads,
+                    new List<MetricLoadDescription>(),
+                    new List<ReplicaMetricLoadDescription>()
+                    {
+                        new ReplicaMetricLoadDescription(nodeName0, newSpecificSecondaryReplicaLoads)
+                    })
+            }
+        },
+        this.Timeout,
+        cancellationToken);
+```
+
+W tym przykładzie zostanie wykonana aktualizacja ostatniego zgłoszonego obciążenia dla partycji _53df3d7f-5471-403B-b736-bde6ad584f42_. Podstawowe obciążenie repliki dla _CustomMetricName0_ metryki zostanie zaktualizowane o wartości 100. W tym samym czasie obciążenie dla tej samej metryki dla określonej repliki pomocniczej znajdującej się w węźle _NodeName0_zostanie zaktualizowane o wartości 200.
 
 ### <a name="updating-a-services-metric-configuration"></a>Aktualizowanie konfiguracji metryk usługi
 Lista metryk skojarzonych z usługą i właściwości tych metryk można aktualizować dynamicznie, gdy usługa jest aktywna. Pozwala to na eksperymentowanie i elastyczność. Oto kilka przykładów, z których jest to przydatne:

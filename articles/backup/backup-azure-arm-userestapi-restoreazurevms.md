@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak zarządzać operacjami przywracani
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 260c78af39c46e493ebb79c26ff1c55153a41c1d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506682"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174018"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Przywracanie maszyn wirtualnych platformy Azure przy użyciu interfejsu API REST
 
@@ -122,7 +122,7 @@ Po wybraniu [odpowiedniego punktu przywracania](#select-recovery-point)należy w
 ***Wszystkie operacje przywracania na elemencie kopii zapasowej są wykonywane przy użyciu tego samego, *końcowego* interfejsu API. Tylko treść żądania zmienia się z scenariuszami przywracania.***
 
 > [!IMPORTANT]
-> Wszystkie szczegóły dotyczące różnych opcji przywracania i ich zależności są wymienione [tutaj](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options). Przejrzyj przed kontynuowaniem, aby wyzwolić te operacje.
+> Wszystkie szczegóły dotyczące różnych opcji przywracania i ich zależności są wymienione [tutaj](./backup-azure-arm-restore-vms.md#restore-options). Przejrzyj przed kontynuowaniem, aby wyzwolić te operacje.
 
 Wyzwalanie operacji przywracania jest żądaniem *post* . Aby dowiedzieć się więcej o interfejsie API, zapoznaj się z [interfejsem API REST "Wyzwól przywracanie"](/rest/api/backup/restores/trigger).
 
@@ -246,7 +246,7 @@ Następująca treść żądania definiuje właściwości wymagane do wyzwolenia 
 
 ### <a name="restore-disks-selectively"></a>Selektywne przywracanie dysków
 
-W przypadku [selektywnego tworzenia kopii zapasowych dysków](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), aktualna lista dysków kopii zapasowej znajduje się w [podsumowaniu punktu odzyskiwania](#select-recovery-point) i [szczegółowej odpowiedzi](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). Możesz również wybiórczo przywracać dyski i więcej szczegółów można znaleźć [tutaj](selective-disk-backup-restore.md#selective-disk-restore). Aby wybiórczo przywrócić dysk między listą kopii zapasowych dysków, Znajdź numer LUN dysku z odpowiedzi punktu odzyskiwania i Dodaj właściwość **restoreDiskLunList** do [treści żądania powyżej](#example-request) , jak pokazano poniżej.
+W przypadku [selektywnego tworzenia kopii zapasowych dysków](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), aktualna lista dysków kopii zapasowej znajduje się w [podsumowaniu punktu odzyskiwania](#select-recovery-point) i [szczegółowej odpowiedzi](/rest/api/backup/recoverypoints/get). Możesz również wybiórczo przywracać dyski i więcej szczegółów można znaleźć [tutaj](selective-disk-backup-restore.md#selective-disk-restore). Aby wybiórczo przywrócić dysk między listą kopii zapasowych dysków, Znajdź numer LUN dysku z odpowiedzi punktu odzyskiwania i Dodaj właściwość **restoreDiskLunList** do [treści żądania powyżej](#example-request) , jak pokazano poniżej.
 
 ```json
 {

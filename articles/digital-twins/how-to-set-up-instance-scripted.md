@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8157517c0df942c40d93853c8d18ae31e9909d21
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fd48ff8dd0f4fa44206f6636f869d4ea3f959ae5
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132520"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174181"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
 
@@ -59,10 +59,10 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
 
     Przejdź do pliku _**deploy.ps1**_ na komputerze (w _Azure_Digital_Twins_end_to_end_samples > skrypty > **deploy.ps1** _) i naciśnij klawisz "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
 
-4. Uruchom skrypt, wysyłając `./deploy.ps1` polecenie w oknie Cloud Shell. (Odwołaj się do wklejenia do Cloud Shell, możesz użyć **klawiszy Ctrl + Shift + v** w systemach Windows i Linux lub **cmd + Shift + v** w systemie macOS. Możesz również użyć menu po kliknięciu prawym przyciskiem myszy.
+4. Uruchom skrypt, wysyłając `./deploy.ps1` polecenie w oknie Cloud Shell z przełącznikiem zawierającym konfigurację rejestracji aplikacji. Możesz skopiować poniższe polecenie (odwołaj się do Cloud Shell, możesz użyć **klawiszy Ctrl + Shift + v** w systemach Windows i Linux lub **cmd + Shift + v** w macOS. Możesz również użyć menu po kliknięciu prawym przyciskiem myszy.
 
     ```azurecli
-    ./deploy.ps1
+    ./deploy.ps1 -RegisterAadApp
     ```
 
     Gdy skrypt jest uruchamiany w ramach kroków instalacji zautomatyzowanej, zostanie wyświetlony monit o podanie następujących wartości:

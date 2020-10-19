@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 76cc09ab5283e10e8f25af3aba4278ec6cca4838
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 550097272f90a2f7fa06af7f06810fd3fa0ed94f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91333277"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173881"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Szybki Start: Rozpoczynanie monitorowania Node.js aplikacji sieci Web za pomocą platformy Azure Application Insights
 
@@ -46,7 +46,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
    | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów do hostowania danych AppInsights. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
    | **Lokalizacja** | East US | Wybierz lokalizację w pobliżu Ciebie lub w pobliżu miejsca hostowania aplikacji |
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
 ## <a name="configure-appinsights-sdk"></a>Konfigurowanie zestawu SDK AppInsights
 
@@ -60,7 +60,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
    npm install applicationinsights --save
    ```
 
-3. Edytuj pierwszy plik *. js* aplikacji i Dodaj dwa wiersze poniżej do najwyższej części skryptu. Jeśli używasz [ aplikacji szybkiego startuNode.js](../../app-service/quickstart-nodejs.md), zmodyfikuj plik *index.js* . Zamień `<instrumentation_key>` na klucz Instrumentacji aplikacji. 
+3. Edytuj pierwszy plik *. js* aplikacji i Dodaj dwa wiersze poniżej do najwyższej części skryptu. Jeśli używasz [ aplikacji szybkiego startuNode.js](../../app-service/quickstart-nodejs.md), zmodyfikuj plik *index.js* . Zamień `<instrumentation_key>` na klucz Instrumentacji usługi Application Insight. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');

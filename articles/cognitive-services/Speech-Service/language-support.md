@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7d5dd7d2d0aa3d10f439b5cf3604e2d595456f86
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048461"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172256"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -170,7 +170,7 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 | `fr-CH` <sup>Nowe</sup> | Francuski (Szwajcaria) | Kobiety | `fr-CH-ArianeNeural` | Ogólne |
 | `fr-FR` | Francuski (Francja) | Kobiety | `fr-FR-DeniseNeural` | Ogólne |
 | `fr-FR` <sup>Nowe</sup> | Francuski (Francja) | Mężczyźni | `fr-FR-HenriNeural` | Ogólne |
-| `he-IL` <sup>Nowe</sup> | Hebrajski (isareaer) | Kobiety | `he-IL-HilaNeural` | Ogólne |
+| `he-IL` <sup>Nowe</sup> | Hebrajski (Izrael) | Kobiety | `he-IL-HilaNeural` | Ogólne |
 | `hi-IN` | Hindi (Indie) | Kobiety | `hi-IN-SwaraNeural` | Ogólne |
 | `hr-HR` <sup>Nowe</sup> | Chorwacki (Chorwacja) | Kobiety | `hr-HR-GabrijelaNeural` | Ogólne |
 | `hu-HU` <sup>Nowe</sup> | Węgierski (Węgry) | Kobiety | `hu-HU-NoemiNeural` | Ogólne |
@@ -356,7 +356,7 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 | Kiswahili               | `sw`          |
 | Klingon                 | `tlh-Latn`    |
 | Klingon (plqaD)         | `tlh-Piqd`    |
-| Koreański                  | `ko`          |
+| koreański                  | `ko`          |
 | Łotewski                 | `lv`          |
 | Litewski              | `lt`          |
 | Madagaskaru                | `mg`          |

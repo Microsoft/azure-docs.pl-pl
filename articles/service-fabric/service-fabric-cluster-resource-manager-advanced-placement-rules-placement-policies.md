@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e27c6661c34ab6d177feec11f8e9ec891987ab48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfec218c1bf1d018157fc6d78c700991f332a13
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005755"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172801"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Zasady umieszczania dla usług Service Fabric
 Zasady umieszczania są dodatkowymi regułami, które mogą służyć do zarządzania umieszczaniem usługi w określonych, mniej typowych scenariuszach. Oto kilka przykładów tych scenariuszy:
@@ -20,6 +20,7 @@ Zasady umieszczania są dodatkowymi regułami, które mogą służyć do zarząd
 - Środowisko obejmuje wiele obszarów kontroli geopolitycznej lub prawnej, a także inne przypadki, w których należy wymusić granice zasad
 - Występują problemy z wydajnością komunikacji lub opóźnieniami z powodu dużych odległości lub korzystania z wolniejszych lub mniej wiarygodnych linków sieciowych
 - Należy zachować pewne obciążenia rozmieszczone jako najlepsze nakłady pracy, z innymi obciążeniami lub w sąsiedztwie z klientami
+- Wymagana jest wiele wystąpień bezstanowych partycji na jednym węźle
 
 Większość z tych wymagań jest wyrównana do fizycznego układu klastra reprezentowanego jako domeny błędów klastra. 
 
@@ -29,6 +30,7 @@ Zaawansowane zasady umieszczania, które pomagają rozwiązać te scenariusze, s
 2. Wymagane domeny
 3. Preferowane domeny
 4. Niezezwalanie na pakowanie repliki
+5. Zezwalaj na wiele wystąpień bezstanowych w węźle
 
 Większość następujących kontrolek można skonfigurować za pomocą właściwości węzła i ograniczeń umieszczania, ale niektóre są bardziej skomplikowane. Aby uprościć, klaster Service Fabric Menedżer zasobów udostępnia te dodatkowe zasady umieszczania. Zasady umieszczania są konfigurowane na podstawie nazwanego wystąpienia usługi. Można je również aktualizować dynamicznie.
 
@@ -122,6 +124,42 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 Czy można teraz używać tych konfiguracji dla usług w klastrze, który nie jest geograficznie łączony? Możesz, ale nie istnieje zbyt dobry powód. Należy unikać wymaganych, nieprawidłowych i preferowanych konfiguracji domeny, chyba że są one wymagane. Nie ma żadnego sensu, aby wymusić wymuszenie uruchomienia danego obciążenia w jednym stojaku lub preferowanie pewnego segmentu lokalnego klastra. Różne konfiguracje sprzętu powinny być rozłożone między domenami błędów i obsługiwane przez normalne ograniczenia umieszczania i właściwości węzła.
+
+## <a name="placement-of-multiple-stateless-instances-of-a-partition-on-single-node"></a>Umieszczanie wielu bezstanowych wystąpień partycji na pojedynczym węźle
+Zasady umieszczania **AllowMultipleStatelessInstancesOnNode** umożliwiają rozmieszczenie wielu wystąpień bezstanowych partycji w jednym węźle. Domyślnie wiele wystąpień pojedynczej partycji nie może zostać umieszczonych w węźle. Nawet w przypadku usługi-1 nie jest możliwe skalowanie liczby wystąpień poza liczbą węzłów w klastrze dla danej nazwanej usługi. Te zasady umieszczania usuwają to ograniczenie i umożliwiają określenie InstanceCount wyższych niż liczba węzłów.
+
+Jeśli kiedykolwiek zobaczysz komunikat o kondycji, taki jak " `The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion` ", osiągnięto ten warunek lub coś innego. 
+
+Określając `AllowMultipleStatelessInstancesOnNode` zasady w usłudze, InstanceCount można ustawić poza liczbą węzłów w klastrze.
+
+Kod:
+
+```csharp
+ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription allowMultipleInstances = new ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription();
+serviceDescription.PlacementPolicies.Add(allowMultipleInstances);
+```
+
+Program PowerShell:
+
+```posh
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless –PartitionSchemeSingleton –PlacementPolicy @(“AllowMultipleStatelessInstancesOnNode”) -InstanceCount 10 -ServicePackageActivationMode ExclusiveProcess 
+```
+
+> [!NOTE]
+> Zasady umieszczania są obecnie dostępne w wersji zapoznawczej i za `EnableUnsupportedPreviewFeatures` ustawieniem klastra. Ponieważ jest to funkcja w wersji zapoznawczej, ustawienie opcji konfiguracja wersji zapoznawczej uniemożliwia pobranie klastra do/z programu. Innymi słowy, aby wypróbować tę funkcję, należy utworzyć nowy klaster.
+>
+
+> [!NOTE]
+> Obecnie zasady są obsługiwane tylko w przypadku usług bezstanowych z [trybem aktywacji pakietu usługi](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)ExclusiveProcess.
+>
+
+> [!WARNING]
+> Zasady nie są obsługiwane w przypadku używania z statycznymi punktami końcowymi portów. Użycie obydwu w połączeniu może prowadzić do klastra w złej kondycji, ponieważ wiele wystąpień w tym samym węźle próbuje powiązać z tym samym portem i nie może się pojawić. 
+>
+
+> [!NOTE]
+> Użycie wysokiej wartości [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) z tymi zasadami umieszczania może prowadzić do zablokowanych uaktualnień aplikacji. Na przykład jeśli masz klaster z pięcioma węzłami i ustawisz InstanceCount = 10, na każdym węźle będą dostępne dwa wystąpienia. Jeśli ustawisz MinInstanceCount = 9, próba uaktualnienia aplikacji może zostać zablokowana; w przypadku MinInstanceCount = 8 można to uniknąć.
+>
 
 ## <a name="next-steps"></a>Następne kroki
 - Aby uzyskać więcej informacji na temat konfigurowania usług, [Dowiedz się więcej o konfigurowaniu usług](service-fabric-cluster-resource-manager-configure-services.md)

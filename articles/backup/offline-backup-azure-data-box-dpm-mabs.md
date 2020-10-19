@@ -3,12 +3,12 @@ title: Kopia zapasowa offline z Azure Data Boxami dla programu DPM i serwera us�
 description: Za pomocą Azure Data Box można wypełniać początkowe dane kopii zapasowej w trybie offline z programu DPM i serwera usługi MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271498"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172229"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Używanie Azure Data Box dla programu DPM i serwera usługi MAB (wersja zapoznawcza)
 
@@ -18,7 +18,7 @@ ms.locfileid: "91271498"
 
 W tym artykule wyjaśniono, jak używać Azure Data Box do tworzenia początkowych danych kopii zapasowej w trybie offline z programu DPM i serwera usługi MAB do magazynu Recovery Services platformy Azure.
 
-Za pomocą [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) można wypełniać duże początkowe kopie zapasowe programu DPM/serwera usługi MAB w trybie offline (bez użycia sieci) do magazynu Recovery Services. Ten proces oszczędza czas i przepustowość sieci, w przypadku których w przeciwnym razie można przenieść duże ilości danych kopii zapasowej w tryb online w sieci o dużej opóźnieniu. Ta funkcja jest obecnie w wersji zapoznawczej.
+Za pomocą [Azure Data Box](../databox/data-box-overview.md) można wypełniać duże początkowe kopie zapasowe programu DPM/serwera usługi MAB w trybie offline (bez użycia sieci) do magazynu Recovery Services. Ten proces oszczędza czas i przepustowość sieci, w przypadku których w przeciwnym razie można przenieść duże ilości danych kopii zapasowej w tryb online w sieci o dużej opóźnieniu. Ta funkcja jest obecnie w wersji zapoznawczej.
 
 Kopia zapasowa offline oparta na Azure Data Box zapewnia dwie różne zalety [tworzenia kopii zapasowych w trybie offline na podstawie usługi Azure Import/Export](backup-azure-backup-server-import-export.md):
 
@@ -39,8 +39,8 @@ Obsługiwane są następujące jednostki SKU urządzenie Data Box:
 
 | Rozmiar danych kopii zapasowej (po kompresji przez MARS) \* na serwer | Obsługiwana Azure Data Box jednostka SKU |
 | --- | --- |
-| \<= 7,2 TB | [Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| > 7,2 TB i <= 80 TB\*\* | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| \<= 7,2 TB | [Azure Data Box Disk](../databox/data-box-disk-overview.md) |
+| > 7,2 TB i <= 80 TB\*\* | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
 
 \*Typowe stawki kompresji różnią się w zależności od 10-20% <br>
 \*\*Skontaktuj się z, [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) jeśli oczekujesz, że masz więcej niż 80 TB początkowej kopii zapasowej danych dla pojedynczego źródła danych.
@@ -48,7 +48,7 @@ Obsługiwane są następujące jednostki SKU urządzenie Data Box:
 > [!IMPORTANT]
 > Początkowe dane kopii zapasowej z pojedynczego źródła danych muszą być zawarte w obrębie jednego Azure Data Box lub Azure Data Box dysku i nie mogą być współużytkowane przez wiele urządzeń z tymi samymi lub różnymi jednostkami SKU. Jednak Azure Data Box mogą zawierać początkowe kopie zapasowe z wielu źródeł danych.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Agent MARS uruchomiony w programie DPM/serwera usługi MAB powinien zostać uaktualniony do [najnowszej wersji](https://aka.ms/azurebackup_agent) (2.0.9171.0 lub nowszej).
 
@@ -64,7 +64,7 @@ Uwaga:
 
 ### <a name="order-and-receive-the-data-box-device"></a>Zamówienie i odbieranie urządzenia urządzenie Data Box
 
-Przed wyzwoleniem kopii zapasowej offline upewnij się, że wymagane urządzenia urządzenie Data Box są w stanie *dostarczone* . Zobacz [rozmiar danych kopii zapasowej i obsługiwane urządzenie Data Box jednostek SKU](#backup-data-size-and-supported-data-box-skus) , aby zamówić najbardziej odpowiednią jednostkę SKU dla danego wymagania. Wykonaj kroki opisane w [tym artykule](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) , aby zamówić i odbierać urządzenie Data Box urządzenia.
+Przed wyzwoleniem kopii zapasowej offline upewnij się, że wymagane urządzenia urządzenie Data Box są w stanie *dostarczone* . Zobacz [rozmiar danych kopii zapasowej i obsługiwane urządzenie Data Box jednostek SKU](#backup-data-size-and-supported-data-box-skus) , aby zamówić najbardziej odpowiednią jednostkę SKU dla danego wymagania. Wykonaj kroki opisane w [tym artykule](../databox/data-box-disk-deploy-ordered.md) , aby zamówić i odbierać urządzenie Data Box urządzenia.
 
 > [!IMPORTANT]
 > Nie wybieraj *BlobStorage* dla **rodzaju konta**. Serwer DPM/serwera usługi MAB wymaga konta, które obsługuje stronicowe obiekty blob, które nie są obsługiwane, jeśli wybrano *BlobStorage* . Wybierz pozycję  **Storage v2 (ogólnego przeznaczenia w wersji 2)** jako **rodzaj konta** podczas tworzenia docelowego konta magazynu dla zadania Azure Data Box.
@@ -77,14 +77,14 @@ Po otrzymaniu urządzenia Azure Data Box, w zależności od uporządkowanej Azur
 
 ### <a name="setup-azure-data-box-disk"></a>Azure Data Box dysk instalacyjny
 
-Jeśli zostały uporządkowane co najmniej jeden Azure Data Box dysków (do 8 TB), wykonaj kroki opisane [tutaj](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up) , aby rozpakować, połączyć i odblokować dysk urządzenie Data Box.
+Jeśli zostały uporządkowane co najmniej jeden Azure Data Box dysków (do 8 TB), wykonaj kroki opisane [tutaj](../databox/data-box-disk-deploy-set-up.md) , aby rozpakować, połączyć i odblokować dysk urządzenie Data Box.
 
 > [!NOTE]
 > Istnieje możliwość, że serwer DPM/serwera usługi MAB nie ma portu USB. W takim scenariuszu można podłączyć dysk Azure Data Box do innego serwera/klienta i uwidocznić katalog główny urządzenia jako udział sieciowy.
 
 ## <a name="setup-azure-data-box"></a>Azure Data Box Instalatora
 
-Jeśli użytkownik zamówił Azure Data Box (do 100 TB), wykonaj kroki opisane [tutaj](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) , aby skonfigurować urządzenie Data Box.
+Jeśli użytkownik zamówił Azure Data Box (do 100 TB), wykonaj kroki opisane [tutaj](../databox/data-box-deploy-set-up.md) , aby skonfigurować urządzenie Data Box.
 
 ### <a name="mount-your-azure-data-box-as-local-system"></a>Zainstaluj Azure Data Box jako system lokalny
 
@@ -100,7 +100,7 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
    ```
 
 4. Okno polecenia otwierane w wyniku powyższego polecenia znajduje się w kontekście systemu lokalnego. To okno polecenia służy do wykonywania kroków w celu zainstalowania udziału usługi Azure Page BLOB jako dysku sieciowego na serwerze z systemem Windows.
-5. Wykonaj [poniższe kroki,](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) aby połączyć serwer programu DPM/serwera usługi MAB z urządzeniem urządzenie Data Box za pośrednictwem systemu plików NFS, a następnie uruchom następujące polecenie w wierszu polecenia systemu lokalnego, aby zainstalować udział obiektów BLOB na stronie platformy Azure:
+5. Wykonaj [poniższe kroki,](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) aby połączyć serwer programu DPM/serwera usługi MAB z urządzeniem urządzenie Data Box za pośrednictwem systemu plików NFS, a następnie uruchom następujące polecenie w wierszu polecenia systemu lokalnego, aby zainstalować udział obiektów BLOB na stronie platformy Azure:
 
     ```cmd
     mount -o nolock \\<DeviceIPAddres>\<StorageAccountName_PageBlob X:
@@ -110,7 +110,7 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Transferowanie danych początkowej kopii zapasowej do urządzeń Azure Data Box
 
-1. Na serwerze DPM/serwera usługi MAB postępuj zgodnie z instrukcjami, aby [utworzyć nową grupę ochrony](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Jeśli dodajesz ochronę w trybie online do istniejącej grupy ochrony, kliknij prawym przyciskiem myszy istniejącą grupę ochrony, a następnie wybierz pozycję **Dodaj ochronę w trybie online** i zacznij od **kroku 8**.
+1. Na serwerze DPM/serwera usługi MAB postępuj zgodnie z instrukcjami, aby [utworzyć nową grupę ochrony](/system-center/dpm/create-dpm-protection-groups). Jeśli dodajesz ochronę w trybie online do istniejącej grupy ochrony, kliknij prawym przyciskiem myszy istniejącą grupę ochrony, a następnie wybierz pozycję **Dodaj ochronę w trybie online** i zacznij od **kroku 8**.
 2. Na stronie **Wybierz członków grupy** Określ komputery i źródła, dla których chcesz utworzyć kopię zapasową.
 3. Na stronie **Wybierz metodę ochrony danych** Określ sposób obsługi krótkoterminowej i długoterminowej kopii zapasowej. Upewnij się, że wybrano opcję **Chcę chronić w trybie online.**
 
@@ -149,7 +149,7 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
           — Azure. Storage       *4.6.1*<br>
      >  - Aplikacja usługi Azure AD jest zarejestrowana *jako \<object GUID of the user> AzureOfflineBackup_*.
 
-13. Wybierz prawidłową kolejność pól danych, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysk. Wybierz opcję **Dalej**.
+13. Wybierz prawidłową kolejność pól danych, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysk. Wybierz pozycję **Dalej**.
 
     ![Wybierz DATAbox](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 
@@ -163,9 +163,9 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
     > ![Dysk USB](./media/offline-backup-azure-data-box-dpm-mabs/usb-drive.png)
     >
     > Na przykład jeśli ścieżka dysku to `\\mydomain\myserver\disk1\` i *disk1* zawiera katalog o nazwie *PageBlob*, ścieżka do podanego w Kreatorze serwera DPM/serwera usługi MAB jest `\\mydomain\myserver\disk1\` .
-    > W przypadku [skonfigurowania urządzenia z Azure Data Box 100 TB](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box#setup-azure-data-box)należy podać następujące elementy jako ścieżkę sieciową do urządzenia `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` .
+    > W przypadku [skonfigurowania urządzenia z Azure Data Box 100 TB](./offline-backup-azure-data-box.md#set-up-azure-data-box)należy podać następujące elementy jako ścieżkę sieciową do urządzenia `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` .
 
-15. Wybierz opcję **Dalej**. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
+15. Wybierz pozycję **Dalej**. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
 
     ![Wykrywanie DATAbox](./media/offline-backup-azure-data-box-dpm-mabs/detect-databox.png)
 
@@ -193,8 +193,8 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
 
 Wykonaj następujące kroki, gdy kopia zapasowa danych Azure Data Box Disk zostanie zakończona pomyślnie.
 
-- Wykonaj kroki opisane w [tym artykule](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up) , aby dostarczyć Azure Data Box dysk do platformy Azure. Jeśli używasz urządzenia z systemem Azure Data Box 100 TB, wykonaj [następujące kroki](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) , aby dostarczyć Azure Data Box do platformy Azure.
-- [Monitoruj zadanie urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) w Azure Portal. Po *zakończeniu*zadania Azure Data Box serwer programu DPM/serwera usługi MAB automatycznie przenosi dane z konta magazynu do magazynu Recovery Services w czasie następnej zaplanowanej kopii zapasowej. Oznacza to, że zadanie tworzenia kopii zapasowej zostanie oznaczone jako *ukończone* , jeśli punkt odzyskiwania zostanie pomyślnie utworzony.
+- Wykonaj kroki opisane w [tym artykule](../databox/data-box-disk-deploy-picked-up.md) , aby dostarczyć Azure Data Box dysk do platformy Azure. Jeśli używasz urządzenia z systemem Azure Data Box 100 TB, wykonaj [następujące kroki](../databox/data-box-deploy-picked-up.md) , aby dostarczyć Azure Data Box do platformy Azure.
+- [Monitoruj zadanie urządzenie Data Box](../databox/data-box-disk-deploy-upload-verify.md) w Azure Portal. Po *zakończeniu*zadania Azure Data Box serwer programu DPM/serwera usługi MAB automatycznie przenosi dane z konta magazynu do magazynu Recovery Services w czasie następnej zaplanowanej kopii zapasowej. Oznacza to, że zadanie tworzenia kopii zapasowej zostanie oznaczone jako *ukończone* , jeśli punkt odzyskiwania zostanie pomyślnie utworzony.
 
   > [!NOTE]
   > Serwer DPM/serwera usługi MAB wyzwala kopie zapasowe w planowanych godzinach podczas tworzenia grupy ochrony. Jednak te zadania będą flagą *oczekiwanie na ukończenie zadania Azure Data Box* do czasu ukończenia zadania.

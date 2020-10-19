@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6978afc802bddd536c56fcb4e06a40ccc58867fe
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418912"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172667"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Zdefiniuj profil techniczny hasła jednorazowego w zasadach niestandardowych Azure AD B2C
 
@@ -53,7 +53,7 @@ Element **InputClaims** zawiera listę oświadczeń wymaganych do wysłania do d
 
 | ClaimReferenceId | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| identyfikator | Tak | Identyfikator identyfikujący użytkownika, który musi weryfikować kod później. Jest on często używany jako identyfikator miejsca docelowego, do którego został dostarczony kod, na przykład adres e-mail lub numer telefonu. |
+| identyfikator | Yes | Identyfikator identyfikujący użytkownika, który musi weryfikować kod później. Jest on często używany jako identyfikator miejsca docelowego, do którego został dostarczony kod, na przykład adres e-mail lub numer telefonu. |
 
 Element **InputClaimsTransformations** może zawierać kolekcję elementów **InputClaimsTransformation** , które są używane do modyfikowania oświadczeń wejściowych lub generować nowe przed wysłaniem do dostawcy protokołu hasła jednorazowego.
 
@@ -63,7 +63,7 @@ Element **OutputClaims** zawiera listę oświadczeń wygenerowanych przez dostaw
 
 | ClaimReferenceId | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| otpGenerated | Tak | Wygenerowany kod, którego sesja jest zarządzana przez Azure AD B2C. |
+| otpGenerated | Yes | Wygenerowany kod, którego sesja jest zarządzana przez Azure AD B2C. |
 
 Element **OutputClaimsTransformations** może zawierać kolekcję elementów **OutputClaimsTransformation** , które są używane do modyfikowania oświadczeń wyjściowych lub generowania nowych.
 
@@ -73,13 +73,15 @@ Następujące ustawienia mogą służyć do konfigurowania trybu generowania kod
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Nie | Czas (w sekundach) do wygaśnięcia kodu. Minimum: `60` ; Wartość maksymalna: `1200` ; Wartość domyślna: `600` . |
+| CodeExpirationInSeconds | Nie | Czas (w sekundach) do wygaśnięcia kodu. Minimum: `60` ; Wartość maksymalna: `1200` ; Wartość domyślna: `600` . Za każdym razem, gdy podano kod (ten sam kod przy użyciu `ReuseSameCode` , lub nowy kod), wygaśnięcie kodu zostanie rozszerzone.  |
 | CodeLength | Nie | Długość kodu. Wartość domyślna to `6`. |
 | CharacterSet | Nie | Zestaw znaków dla kodu sformatowany do użycia w wyrażeniu regularnym. Na przykład `a-z0-9A-Z`. Wartość domyślna to `0-9`. Zestaw znaków musi zawierać co najmniej 10 różnych znaków w określonym zestawie. |
 | NumRetryAttempts | Nie | Liczba prób weryfikacji przed kodem jest uznawana za nieprawidłową. Wartość domyślna to `5`. |
 | NumCodeGenerationAttempts | Nie | Liczba maksymalnych prób generowania kodu dla identyfikatora. Wartość domyślna to 10, jeśli nie zostanie określona. |
-| Operacja | Tak | Operacja do wykonania. Możliwa wartość: `GenerateCode` . |
-| ReuseSameCode | Nie | Czy należy określić zduplikowany kod zamiast generować nowy kod, gdy dany kod nie wygasł i jest nadal ważny. Wartość domyślna to `false`. |
+| Operacja | Yes | Operacja do wykonania. Możliwa wartość: `GenerateCode` . |
+| ReuseSameCode | Nie | Czy należy określić ten sam kod zamiast generować nowy kod, gdy dany kod nie wygasł i jest nadal ważny. Wartość domyślna to `false`.  |
+
+
 
 ### <a name="example"></a>Przykład
 
@@ -117,8 +119,8 @@ Element **InputClaims** zawiera listę oświadczeń wymaganych do wysłania do d
 
 | ClaimReferenceId | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| identyfikator | Tak | Identyfikator identyfikujący użytkownika, który wcześniej wygenerował kod. Jest on często używany jako identyfikator miejsca docelowego, do którego został dostarczony kod, na przykład adres e-mail lub numer telefonu. |
-| otpToVerify | Tak | Kod weryfikacyjny dostarczony przez użytkownika. |
+| identyfikator | Yes | Identyfikator identyfikujący użytkownika, który wcześniej wygenerował kod. Jest on często używany jako identyfikator miejsca docelowego, do którego został dostarczony kod, na przykład adres e-mail lub numer telefonu. |
+| otpToVerify | Yes | Kod weryfikacyjny dostarczony przez użytkownika. |
 
 Element **InputClaimsTransformations** może zawierać kolekcję elementów **InputClaimsTransformation** , które są używane do modyfikowania oświadczeń wejściowych lub generować nowe przed wysłaniem do dostawcy protokołu hasła jednorazowego.
 
@@ -134,7 +136,7 @@ Do trybu weryfikacji kodu można użyć następujących ustawień:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Operacja | Tak | Operacja do wykonania. Możliwa wartość: `VerifyCode` . |
+| Operacja | Yes | Operacja do wykonania. Możliwa wartość: `VerifyCode` . |
 
 
 ### <a name="ui-elements"></a>Elementy interfejsu użytkownika

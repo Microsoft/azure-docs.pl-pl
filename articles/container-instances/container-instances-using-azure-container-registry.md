@@ -5,12 +5,12 @@ services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5ba56271950c2d14c7fbf0b9154afb371bcbabc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657001"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173642"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Wdrażanie do usługi Azure Container Instances z usługi Azure Container Registry
 
@@ -22,19 +22,18 @@ ms.locfileid: "89657001"
 
 **Interfejs wiersza polecenia platformy Azure**: przykładowe przykłady w tym artykule służą do korzystania z [interfejsu CLI platformy Azure](/cli/azure/) i są sformatowane dla powłoki bash. [Interfejs wiersza polecenia platformy Azure można zainstalować](/cli/azure/install-azure-cli) lokalnie lub użyć [Azure Cloud Shell][cloud-shell-bash].
 
+## <a name="limitations"></a>Ograniczenia
+
+* Nie można uwierzytelnić się w celu Azure Container Registry ściągania obrazów podczas wdrażania grupy kontenerów przy użyciu [tożsamości zarządzanej](container-instances-managed-identity.md) skonfigurowanej w tej samej grupie kontenerów.
+* W tej chwili nie można ściągnąć obrazów z [Azure Container Registry](../container-registry/container-registry-vnet.md) wdrożonych na platformie Azure Virtual Network.
+
 ## <a name="configure-registry-authentication"></a>Konfigurowanie uwierzytelniania rejestru
 
 W scenariuszu produkcyjnym, w którym zapewniasz dostęp do "bezobsługowego" usług i aplikacji, zaleca się skonfigurowanie dostępu do rejestru przy użyciu [nazwy głównej usługi](../container-registry/container-registry-auth-service-principal.md). Jednostka usługi umożliwia udostępnianie obrazów kontenerów za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../container-registry/container-registry-roles.md) . Na przykład można skonfigurować jednostkę usługi z dostępem tylko do ściągania do rejestru.
 
 Azure Container Registry zapewnia dodatkowe [Opcje uwierzytelniania](../container-registry/container-registry-authentication.md).
 
-> [!NOTE]
-> Nie można uwierzytelnić się w celu Azure Container Registry ściągania obrazów podczas wdrażania grupy kontenerów przy użyciu [tożsamości zarządzanej](container-instances-managed-identity.md) skonfigurowanej w tej samej grupie kontenerów.
-
-> [!NOTE]
-> W tej chwili nie można ściągnąć obrazów z [Azure Container Registry](../container-registry/container-registry-vnet.md) wdrożonych na platformie Azure Virtual Network.
-
-W poniższej sekcji utworzysz Magazyn kluczy Azure i nazwę główną usługi, a następnie przechowujesz poświadczenia jednostki usługi w magazynie. 
+W poniższej sekcji utworzysz Magazyn kluczy Azure i nazwę główną usługi, a następnie przechowujesz poświadczenia jednostki usługi w magazynie.
 
 ### <a name="create-key-vault"></a>Tworzenie magazynu kluczy
 

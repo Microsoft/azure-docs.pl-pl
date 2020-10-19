@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: d0a5c1b5800bbc626453ba8896dc706a0cd5bfd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd974181c78586f915dad6cc6ed39d9255a1456b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324947"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172582"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server i DPM — często zadawane pytania
 
@@ -39,7 +39,7 @@ W przypadku serwerów programu DPM ze źródłami danych, które są chronione w
 
 ### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>Czy istnieją zalecenia dotyczące konfigurowania wykluczeń dla oprogramowania antywirusowego?
 
-Tak, zaleca się skonfigurowanie wykluczenia oprogramowania antywirusowego. Wyjątki dla programu DPM można znaleźć [w artykule uruchamianie oprogramowania antywirusowego na serwerze DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server). Wyjątki dla serwera usługi MAB można znaleźć w temacie [Konfigurowanie oprogramowania antywirusowego serwera serwera usługi MAB](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+Tak, zaleca się skonfigurowanie wykluczenia oprogramowania antywirusowego. Wyjątki dla programu DPM można znaleźć [w artykule uruchamianie oprogramowania antywirusowego na serwerze DPM](/system-center/dpm/run-antivirus-server). Wyjątki dla serwera usługi MAB można znaleźć w temacie [Konfigurowanie oprogramowania antywirusowego serwera serwera usługi MAB](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## <a name="vmware-and-hyper-v-backup"></a>Kopia zapasowa oprogramowania VMware i funkcji Hyper-V
 
@@ -57,7 +57,7 @@ Nie potrzebujesz oddzielnej licencji na oprogramowanie VMware/funkcja Hyper-V.
 - Jeśli jesteś klientem programu System Center, użyj programu System Center Data Protection Manager (DPM) do ochrony maszyn wirtualnych VMware.
 - Jeśli nie jesteś klientem programu System Center, możesz użyć Azure Backup Server (płatność zgodnie z rzeczywistym użyciem), aby chronić maszyny wirtualne VMware.
 
-## <a name="sharepoint"></a>Sharepoint
+## <a name="sharepoint"></a>SharePoint
 
 ### <a name="can-i-recover-a-sharepoint-item-to-the-original-location-if-sharepoint-is-configured-by-using-sql-alwayson-with-protection-on-disk"></a>Czy można odzyskać element programu SharePoint do oryginalnej lokalizacji, jeśli program SharePoint jest skonfigurowany przy użyciu funkcji SQL AlwaysOn (z ochroną na dysku)?
 

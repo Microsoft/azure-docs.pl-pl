@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie
 description: Zawiera opis sposobu tworzenia kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services przy użyciu Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986504"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172754"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services
 
@@ -37,6 +37,8 @@ Ponadto istnieje kilka rzeczy, które mogą być konieczne w pewnych okolicznoś
 
 * **Zainstaluj agenta maszyny wirtualnej na maszynie wirtualnej**: Azure Backup tworzenie kopii zapasowych maszyn wirtualnych platformy Azure przez zainstalowanie rozszerzenia agenta maszyny wirtualnej platformy Azure uruchomionego na tym komputerze. Jeśli maszyna wirtualna została utworzona na podstawie obrazu portalu Azure Marketplace, Agent jest zainstalowany i uruchomiony. Jeśli tworzysz niestandardową maszynę wirtualną lub migrujesz maszynę lokalną, może być konieczne [ręczne zainstalowanie agenta](#install-the-vm-agent).
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="modify-storage-replication"></a>Modyfikowanie replikacji magazynu
@@ -45,7 +47,7 @@ Domyślnie magazyny korzystają z [magazynu geograficznie nadmiarowego (GRS)](..
 
 * Jeśli magazyn jest podstawowym mechanizmem tworzenia kopii zapasowych, zalecamy użycie GRS.
 * Dla tańszej opcji można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) .
-* [Magazyn strefowo nadmiarowy (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replikuje dane w [strefach dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), gwarantując miejsce zamieszkania i odporność danych w tym samym regionie.
+* [Magazyn strefowo nadmiarowy (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replikuje dane w [strefach dostępności](../availability-zones/az-overview.md#availability-zones), gwarantując miejsce zamieszkania i odporność danych w tym samym regionie.
 
 Zmodyfikuj typ replikacji magazynu w następujący sposób:
 
@@ -149,10 +151,10 @@ Stan zadania może się różnić w zależności od następujących scenariuszy:
 
 **Snapshot** | **Transferowanie danych do magazynu** | **Stan zadania**
 --- | --- | ---
-Zakończone | W toku | W toku
-Zakończone | Pominięto | Zakończone
-Zakończone | Zakończone | Zakończone
-Zakończone | Niepowodzenie | Ukończono z ostrzeżeniem
+Ukończone | W toku | W toku
+Ukończone | Pominięto | Ukończone
+Ukończone | Ukończone | Ukończone
+Ukończone | Niepowodzenie | Ukończono z ostrzeżeniem
 Niepowodzenie | Niepowodzenie | Niepowodzenie
 
 Teraz dzięki tej możliwości dla tej samej maszyny wirtualnej dwa kopie zapasowe mogą działać równolegle, ale w każdej fazie (migawka, transfer danych do magazynu) można uruchomić tylko jedno zadanie podrzędne. Tak więc w scenariuszach, w których zadanie tworzenia kopii zapasowej w toku spowodowało niepowodzenie tworzenia kopii zapasowej w następnym dniu, zostanie ono wyeliminowane w tej funkcji. Kopie zapasowe kolejnych dni mogą mieć ukończoną migawkę **, podczas gdy** zadanie tworzenia kopii zapasowej w poprzednim dniu jest pomijane.

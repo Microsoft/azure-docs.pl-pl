@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: ed511f25132ea6bb766736804a5257ad7f6eff0a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 65b31bd39c85ea9073bb9415b9829df12b7d9e35
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149050"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171578"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java dla Azure App Service
 
@@ -692,11 +692,15 @@ App Service umożliwia użytkownikom wybranie wersji głównej JVM, takiej jak J
 
 W przypadku wybrania opcji przypięcia wersji pomocniczej konieczne będzie okresowe Aktualizowanie wersji pomocniczej JVM w lokacji. Aby upewnić się, że aplikacja działa w nowszej wersji pomocniczej, Utwórz miejsce przejściowe i zwiększ wersję pomocniczą w lokacji tymczasowej. Po potwierdzeniu, że aplikacja działa prawidłowo w nowej wersji pomocniczej, można zamienić miejsca przejściowe i produkcyjne.
 
+## <a name="jboss-eap-hardware-options"></a>JBoss opcje sprzętowe protokołu EAP
+
+JBoss EAP jest dostępny tylko w opcjach sprzętowych Premium i izolowanych. Klienci, którzy utworzyli witrynę JBoss EAP w warstwie Bezpłatna, współdzielona, podstawowa lub standardowa w ramach publicznej wersji zapoznawczej, powinny skalować w górę do warstwy Premium lub izolowanej, aby uniknąć nieoczekiwanego zachowania.
+
 ## <a name="java-runtime-statement-of-support"></a>Instrukcja obsługi środowiska uruchomieniowego Java
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK wersje i konserwacja
 
-Obsługiwany zestaw Java Development Kit (JDK) platformy Azure jest [Zulu](https://www.azul.com/downloads/azure-only/zulu/) udostępniany przez [systemy Azul](https://www.azul.com/). Azul Zulu Enterprise builds of OpenJDK to bezpłatna, wieloplatformowa, przygotowana do produkcji dystrybucja OpenJDK dla platformy Azure i Azure Stackna przez systemy Microsoft i Azul. Zawierają one wszystkie składniki do kompilowania i uruchamiania aplikacji Java SE. Można zainstalować JDK z [instalacji języka Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Obsługiwany zestaw Java Development Kit (JDK) platformy Azure jest [Zulu](https://www.azul.com/downloads/azure-only/zulu/) udostępniany przez [systemy Azul](https://www.azul.com/). Azul Zulu Enterprise builds of OpenJDK to bezpłatna, wieloplatformowa, przygotowana do produkcji dystrybucja OpenJDK dla platformy Azure i Azure Stackna przez systemy Microsoft i Azul. Zawierają one wszystkie składniki do kompilowania i uruchamiania aplikacji Java SE. Można zainstalować JDK z [instalacji języka Java JDK](https://aka.ms/azure-jdks).
 
 Aktualizacje wersji głównej zostaną udostępnione za poorednictwem nowych opcji środowiska uruchomieniowego w Azure App Service. Klienci mogą aktualizować te nowsze wersje środowiska Java przez skonfigurowanie wdrożenia App Service i są odpowiedzialne za testowanie i upewnienie się, że główna aktualizacja spełnia ich potrzeby.
 

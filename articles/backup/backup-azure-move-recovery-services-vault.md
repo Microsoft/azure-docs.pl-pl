@@ -4,12 +4,12 @@ description: Instrukcje dotyczące przenoszenia magazynu Recovery Services w ram
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056433"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171603"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Przenoszenie magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure
 
@@ -178,7 +178,7 @@ Jeśli potrzebujesz zachować bieżące chronione dane w starym magazynie i kont
   - Będzie można przywrócić dane z kopii zapasowej tylko dla niewygasłych punktów odzyskiwania w starym magazynie.
   - Należy utworzyć nową początkową replikę danych w nowym magazynie.
 
-- W przypadku maszyny wirtualnej platformy Azure można [zatrzymać ochronę z zachowaniem zachowania danych](backup-azure-manage-vms.md#stop-protecting-a-vm) dla maszyny wirtualnej w starym magazynie, przenieść maszynę wirtualną do innej grupy zasobów, a następnie włączyć ochronę maszyny wirtualnej w nowym magazynie. Zapoznaj się ze [wskazówkami i ograniczeniami](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) dotyczącymi przeniesienia maszyny wirtualnej do innej grupy zasobów.
+- W przypadku maszyny wirtualnej platformy Azure można [zatrzymać ochronę z zachowaniem zachowania danych](backup-azure-manage-vms.md#stop-protecting-a-vm) dla maszyny wirtualnej w starym magazynie, przenieść maszynę wirtualną do innej grupy zasobów, a następnie włączyć ochronę maszyny wirtualnej w nowym magazynie. Zapoznaj się ze [wskazówkami i ograniczeniami](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) dotyczącymi przeniesienia maszyny wirtualnej do innej grupy zasobów.
 
   Maszyna wirtualna może być chroniona tylko w jednym magazynie naraz. Jednak maszyna wirtualna w nowej grupie zasobów może być chroniona w nowym magazynie, ponieważ jest traktowana jako inna maszyna wirtualna.
 

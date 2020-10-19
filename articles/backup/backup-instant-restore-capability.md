@@ -4,12 +4,12 @@ description: Funkcja błyskawicznego przywracania platformy Azure i często zada
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000383"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173925"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Uzyskiwanie ulepszonej wydajności tworzenia kopii zapasowych i przywracania dzięki funkcji Azure Backup natychmiastowego przywracania
 
@@ -60,6 +60,8 @@ Migawki przyrostowe są przechowywane na koncie magazynu maszyny wirtualnej, kt�
 ## <a name="configure-snapshot-retention"></a>Konfiguruj przechowywanie migawek
 
 ### <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 W Azure Portal można zobaczyć pole dodane w okienku **zasad kopii zapasowych maszyny wirtualnej** w sekcji **natychmiastowe przywracanie** . Czas przechowywania migawki można zmienić z okienka **zasady tworzenia kopii zapasowych maszyny wirtualnej** dla wszystkich maszyn wirtualnych skojarzonych z określonymi zasadami tworzenia kopii zapasowych.
 

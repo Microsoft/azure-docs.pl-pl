@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: da650453006b77490769d1cef57fc3d4f4447e40
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 6da91248c197eae12fbc59f2da8c5294d95117b6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169374"
+ms.locfileid: "92173833"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -129,9 +129,9 @@ Aby sprawdzić, przejdź do opcji ***system i Podgląd zdarzeń Dzienniki aplika
 
 Rozwiązanie:
 
-* Sprawdź, czy są możliwe rozproszenie obciążenia między dyskami maszyn wirtualnych. Spowoduje to zmniejszenie obciążenia pojedynczych dysków. Ograniczenie liczby operacji we [/wy można sprawdzić przez włączenie metryk diagnostycznych na poziomie magazynu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+* Sprawdź, czy są możliwe rozproszenie obciążenia między dyskami maszyn wirtualnych. Spowoduje to zmniejszenie obciążenia pojedynczych dysków. Ograniczenie liczby operacji we [/wy można sprawdzić przez włączenie metryk diagnostycznych na poziomie magazynu](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
 * Zmień zasady tworzenia kopii zapasowych, aby wykonywać kopie zapasowe w godzinach szczytu, gdy obciążenie maszyny wirtualnej jest najniższe.
-* Uaktualnij dyski platformy Azure, aby obsługiwać wyższe liczby operacji we/wy. [Dowiedz się więcej tutaj](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+* Uaktualnij dyski platformy Azure, aby obsługiwać wyższe liczby operacji we/wy. [Dowiedz się więcej tutaj](../virtual-machines/disks-types.md)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState — operacja migawki nie powiodła się z powodu złego stanu usługi VSS (kopiowania woluminów w tle)
 
@@ -157,15 +157,15 @@ Kod błędu: UserErrorSkuNotAvailable komunikat o błędzie: Tworzenie maszyny w
 
 Ten błąd występuje, ponieważ rozmiar maszyny wirtualnej wybrany podczas operacji przywracania jest nieobsługiwany. <br>
 
-Aby rozwiązać ten problem, użyj opcji [Przywróć dyski](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) podczas operacji przywracania. Użyj tych dysków do utworzenia maszyny wirtualnej z listy [dostępnych rozmiarów maszyn wirtualnych](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+Aby rozwiązać ten problem, użyj opcji [Przywróć dyski](./backup-azure-arm-restore-vms.md#restore-disks) podczas operacji przywracania. Użyj tych dysków do utworzenia maszyny wirtualnej z listy [dostępnych rozmiarów maszyn wirtualnych](./backup-support-matrix-iaas.md#vm-compute-support) przy użyciu [poleceń cmdlet programu PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported — Tworzenie maszyny wirtualnej nie powiodło się z powodu nieobecności żądania zakupu miejsca na rynku
 
 Kod błędu: UserErrorMarketPlaceVMNotSupported komunikat o błędzie: Tworzenie maszyny wirtualnej nie powiodło się z powodu nieobecności żądania zakupu miejsca na rynku.
 
-Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych, które są dostępne w witrynie Azure Marketplace. Ten błąd występuje, gdy próbujesz przywrócić maszynę wirtualną (z określonym ustawieniem planu/wydawcy), które nie jest już dostępne w witrynie Azure Marketplace, [Dowiedz się więcej tutaj](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
+Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych, które są dostępne w witrynie Azure Marketplace. Ten błąd występuje, gdy próbujesz przywrócić maszynę wirtualną (z określonym ustawieniem planu/wydawcy), które nie jest już dostępne w witrynie Azure Marketplace, [Dowiedz się więcej tutaj](/legal/marketplace/participation-policy#offering-suspension-and-removal).
 
-* Aby rozwiązać ten problem, należy użyć opcji [Przywróć dyski](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) podczas operacji przywracania, a następnie użyć poleceń cmdlet [programu PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) , aby utworzyć maszynę wirtualną przy użyciu najnowszych informacji z witryny Marketplace odpowiadających maszynie wirtualnej.
+* Aby rozwiązać ten problem, należy użyć opcji [Przywróć dyski](./backup-azure-arm-restore-vms.md#restore-disks) podczas operacji przywracania, a następnie użyć poleceń cmdlet [programu PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) lub [interfejsu wiersza polecenia platformy Azure](./tutorial-restore-disk.md) , aby utworzyć maszynę wirtualną przy użyciu najnowszych informacji z witryny Marketplace odpowiadających maszynie wirtualnej.
 * Jeśli Wydawca nie zawiera żadnych informacji o witrynie Marketplace, możesz użyć dysków danych do pobrania danych i dołączyć je do istniejącej maszyny wirtualnej.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure — błąd podczas analizowania konfiguracji dla rozszerzenia kopii zapasowej
@@ -321,8 +321,8 @@ Jeśli masz Azure Policy, które [regulują Tagi w środowisku](../governance/po
 
 Jeśli po przywróceniu, Zauważ, że dyski są w trybie offline, a następnie:
 
-* Sprawdź, czy komputer, na którym skrypt jest wykonywany, spełnia wymagania systemu operacyjnego. [Dowiedz się więcej](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
-* Upewnij się, że nie są przywracane do tego samego źródła, [Dowiedz się więcej](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+* Sprawdź, czy komputer, na którym skrypt jest wykonywany, spełnia wymagania systemu operacyjnego. [Dowiedz się więcej](./backup-azure-restore-files-from-vm.md#system-requirements).  
+* Upewnij się, że nie są przywracane do tego samego źródła, [Dowiedz się więcej](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound — przywracanie nie powiodło się, ponieważ nie znaleziono migawki maszyny wirtualnej
 
