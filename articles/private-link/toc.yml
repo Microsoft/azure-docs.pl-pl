@@ -31,6 +31,8 @@
       href: tutorial-private-endpoint-storage-portal.md
     - name: Łączenie się z kontem usługi Cosmos DB
       href: tutorial-private-endpoint-cosmosdb-portal.md
+    - name: Łączenie się z aplikacją internetową
+      href: tutorial-private-endpoint-webapp-portal.md
 - name: Pojęcia
   items:
     - name: Prywatny punkt końcowy

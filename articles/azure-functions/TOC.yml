@@ -141,6 +141,9 @@
           displayName: 'secure, ssl'
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
+    - name: Monitorowanie
+      href: functions-monitoring.md
+      displayName: 'App Insights, Application Insights, logs, logging'
     - name: Diagnostyka
       href: functions-diagnostics.md
     - name: Koszty planu zużycia
@@ -282,11 +285,18 @@
           href: functions-geo-disaster-recovery.md
     - name: Monitorowanie
       items:
-        - name: Monitorowanie funkcji
-          href: functions-monitoring.md
+        - name: Konfigurowanie monitorowania
+          href: configure-monitoring.md
           displayName: 'App Insights, Application Insights, logs, logging'
-        - name: Analizowanie dzienników
+        - name: Analizowanie danych telemetrii
+          href: analyze-telemetry-data.md
+          displayName: 'App Insights, Application Insights, Kusto'
+        - name: Przesyłanie strumieniowe dzienników
+          href: streaming-logs.md
+          displayName: monitoring
+        - name: Dzienniki diagnostyczne
           href: functions-monitor-log-analytics.md
+          displayName: 'Azure Monitor, Kusto, Log Analytics, metrics'
     - name: Bezpieczeństwo
       items:
         - name: Dodawanie certyfikatu SSL

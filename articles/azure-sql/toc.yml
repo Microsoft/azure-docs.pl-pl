@@ -977,7 +977,7 @@
                   href: virtual-machines/windows/backup-restore.md
                 - name: Usługa Azure Storage na potrzeby tworzenia kopii zapasowych
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
-                - name: Zawsze włączona grupa dostępności
+                - name: Grupa dostępności
                   href: virtual-machines/windows/availability-group-overview.md
                 - name: Wystąpienie klastra trybu failover
                   href: virtual-machines/windows/failover-cluster-instance-overview.md
@@ -1054,33 +1054,45 @@
                       href: virtual-machines/windows/automated-backup.md
                     - name: Automatyczne tworzenie kopii zapasowych (SQL 2014)
                       href: virtual-machines/windows/automated-backup-sql-2014.md
-                - name: Zawsze włączona grupa dostępności
+                - name: Grupa dostępności
                   items:
-                    - name: Azure Portal
-                      href: virtual-machines/windows/availability-group-azure-portal-configure.md
-                    - name: Program PowerShell lub interfejs wiersza polecenia AZ
-                      href: virtual-machines/windows/availability-group-az-commandline-configure.md
-                    - name: Szablony przewodników Szybki start platformy Azure
-                      href: virtual-machines/windows/availability-group-quickstart-template-configure.md
-                    - name: Wiele regionów
-                      href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
-                    - name: Niezależne od domeny (grupa robocza)
-                      href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-                    - name: Konfigurowanie ręczne
+                    - name: Tworzenie grupy dostępności
                       items:
-                        - name: Wymagania wstępne
-                          href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-                        - name: Samouczek
-                          href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
-                        - name: Moduł równoważenia obciążenia — witryna Azure Portal
-                          href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
-                        - name: Moduł równoważenia obciążenia — program Azure PowerShell
-                          href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                        - name: Azure Portal
+                          href: virtual-machines/windows/availability-group-azure-portal-configure.md
+                        - name: Program PowerShell lub interfejs wiersza polecenia AZ
+                          href: virtual-machines/windows/availability-group-az-commandline-configure.md
+                        - name: Szablony przewodników Szybki start platformy Azure
+                          href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+                        - name: Wiele regionów
+                          href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+                        - name: Niezależne od domeny (grupa robocza)
+                          href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+                        - name: Konfigurowanie ręczne
+                          items:
+                            - name: Wymagania wstępne
+                              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
+                            - name: Samouczek
+                              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                            - name: Moduł równoważenia obciążenia — witryna Azure Portal
+                              href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+                            - name: Moduł równoważenia obciążenia — program Azure PowerShell
+                              href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                    - name: Konfigurowanie łączności
+                      items:
+                        - name: Odbiornik nazwy sieci wirtualnej
+                          displayName: virtual network name
+                          href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+                        - name: Odbiornik nazwy sieci rozproszonej
+                          displayName: distributed network name
+                          href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+                        - name: Współdziałanie dla nazwy sieci rozproszonej
+                          href: virtual-machines/windows/availability-group-dnn-interoperability.md
                 - name: Wystąpienie klastra trybu failover (FCI)
                   items:
                     - name: Przygotowywanie maszyny wirtualnej dla klastra trybu failover (FCI)
                       href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
-                    - name: Tworzenie klastra trybu failover (FCI) za pomocą
+                    - name: Tworzenie klastra trybu failover
                       items:
                         - name: Dyski udostępnione platformy Azure
                           href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
@@ -1088,16 +1100,14 @@
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
                         - name: Udział plików w warstwie Premium (Win2012+)
                           href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-                    - name: Nazwa sieci rozproszonej (DNN)
+                    - name: Konfigurowanie łączności
                       items:
-                        - name: Tworzenie nazwy sieci rozproszonej (DNN) dla klastra trybu failover (FCI)
-                          href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-                        - name: 'Funkcje klastra trybu failover (FCI), nazwy sieci rozproszonej (DNN) i programu SQL Server'
+                        - name: Nazwa sieci wirtualnej
+                          href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
+                        - name: Nazwa sieci rozproszonej
+                          href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
+                        - name: Współdziałanie dla nazwy sieci rozproszonej
                           href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
-                - name: Konfigurowanie łączności
-                  items:
-                    - name: Nazwa sieci wirtualnej (VNN)
-                      href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
         - name: Dokumentacja
           items:
             - name: Azure PowerShell
