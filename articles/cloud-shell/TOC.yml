@@ -20,6 +20,12 @@
       items:
         - name: Tworzenie planu wykonywania
           href: example-terraform-bash.md
+- name: Pojęcia
+  items:
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Program PowerShell w usłudze Cloud Shell dla użytkowników systemu Windows

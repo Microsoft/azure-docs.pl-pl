@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 69ec30a14d4c04e1f47c909e829f7388132e64d6
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6f502374996f01363ad27ff10dff3b34964a3474
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018216"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220758"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Dołączanie środowiska Azure SSIS Integration Runtime do sieci wirtualnej
 
@@ -103,7 +103,7 @@ Skonfiguruj sieć wirtualną tak, aby spełniała te wymagania:
 
 Ten diagram przedstawia wymagane połączenia dla Azure-SSIS IR:
 
-![Środowisko IR Azure-SSIS](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
+![Diagram przedstawiający wymagane połączenia dla Azure-SSIS IR.](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
 ### <a name="set-up-permissions"></a><a name="perms"></a> Konfigurowanie uprawnień
 
@@ -172,7 +172,7 @@ Jeśli musisz zaimplementować sieciowej grupy zabezpieczeń dla podsieci używa
 | Outbound | TCP | VirtualNetwork | * | Internet | 80 | Obowiązkowe Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do pobierania listy odwołania certyfikatów z Internetu. Jeśli zablokujesz ten ruch, może wystąpić obniżenie wydajności podczas uruchamiania środowiska IR i utrata możliwości sprawdzenia listy odwołania certyfikatów w celu użycia certyfikatu. Jeśli chcesz jeszcze bardziej zawęzić miejsce docelowe do określonych nazw FQDN, zapoznaj się z sekcją **Korzystanie z usługi Azure ExpressRoute lub UDR** .|
 | Outbound | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez serwer. Jeśli zasada połączenia serwera jest ustawiona na **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. <br/><br/> Ta reguła zabezpieczeń dla ruchu wychodzącego nie ma zastosowania do SSISDB hostowanego przez wystąpienie zarządzane SQL w sieci wirtualnej lub SQL Database skonfigurowany za pomocą prywatnego punktu końcowego. |
 | Outbound | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez wystąpienie zarządzane SQL w sieci wirtualnej lub SQL Database skonfigurowany przy użyciu prywatnego punktu końcowego. Jeśli zasada połączenia serwera jest ustawiona na **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. |
-| Outbound | TCP | VirtualNetwork | * | Storage | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
+| Outbound | TCP | VirtualNetwork | * | Magazyn | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
 ||||||||
 
 ### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Korzystanie z usługi Azure ExpressRoute lub UDR

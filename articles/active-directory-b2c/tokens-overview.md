@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7a143f99eca73e0620e24ac5d93141ddb7d99e6
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89258439"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215964"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Omówienie tokenów w Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Następujące tokeny są używane w komunikacji z Azure AD B2C:
 
 - *Token ID* — JWT zawierający oświadczenia, których można użyć do identyfikacji użytkowników w aplikacji. Ten token jest bezpiecznie wysyłany w żądaniach HTTP w celu komunikacji między dwoma składnikami tej samej aplikacji lub usługi. Możesz użyć oświadczeń w tokenie identyfikatora w miarę jak pasujesz. Są one często używane do wyświetlania informacji o kontach lub podejmowania decyzji dotyczących kontroli dostępu w aplikacji. Tokeny identyfikatorów są podpisane, ale nie są szyfrowane. Gdy aplikacja lub interfejs API otrzymuje token identyfikatora, musi sprawdzić poprawność podpisu, aby potwierdzić, że token jest autentyczny. Aplikacja lub interfejs API musi także sprawdzić poprawność kilku oświadczeń w tokenie, aby udowodnić, że jest on prawidłowy. W zależności od wymagań scenariusza oświadczenia zweryfikowane przez aplikację mogą się różnić, ale aplikacja musi wykonywać pewne typowe walidacje oświadczeń w każdym scenariuszu.
 - *Token dostępu* — JWT zawierający oświadczenia, których można użyć do zidentyfikowania przyznanych uprawnień do interfejsów API. Tokeny dostępu są podpisane, ale nie są szyfrowane. Tokeny dostępu są używane w celu zapewnienia dostępu do interfejsów API i serwerów zasobów.  Gdy interfejs API otrzymuje token dostępu, musi sprawdzić poprawność podpisu, aby potwierdzić, że token jest autentyczny. Interfejs API musi również sprawdzać poprawność kilku oświadczeń w tokenie, aby udowodnić, że jest on prawidłowy. W zależności od wymagań scenariusza oświadczenia zweryfikowane przez aplikację mogą się różnić, ale aplikacja musi wykonywać pewne typowe walidacje oświadczeń w każdym scenariuszu.
-- *Token odświeżania —* tokeny odświeżania są używane do uzyskiwania nowych tokenów identyfikatorów i tokenów dostępu w przepływie protokołu OAuth 2,0. Umożliwiają one aplikacji długoterminową dostęp do zasobów w imieniu użytkowników, bez konieczności interakcji z użytkownikami. Tokeny odświeżania są nieprzezroczyste dla aplikacji. Są one wydawane przez Azure AD B2C i mogą być sprawdzane i interpretowane tylko przez Azure AD B2C. Są one długotrwałe, ale aplikacja nie powinna być zapisywana w oczekiwany sposób, że token odświeżania będzie ostatni przez określony czas. Tokeny odświeżania można w dowolnym momencie unieważnić z wielu powodów. Jedynym sposobem, w jaki aplikacja ma wiedzieć, czy token odświeżania jest prawidłowy, jest próba jego zrealizowania przez utworzenie żądania tokenu do Azure AD B2C. W przypadku zrealizowania tokenu odświeżania dla nowego tokenu otrzymujesz nowy token odświeżania w odpowiedzi tokenu. Zapisz nowy token odświeżania. Zastępuje token odświeżania, który był wcześniej używany w żądaniu. Ta akcja umożliwia zagwarantowanie, że tokeny odświeżania pozostaną prawidłowe przez cały czas.
+- *Token odświeżania —* tokeny odświeżania są używane do uzyskiwania nowych tokenów identyfikatorów i tokenów dostępu w przepływie protokołu OAuth 2,0. Umożliwiają one aplikacji długoterminową dostęp do zasobów w imieniu użytkowników, bez konieczności interakcji z użytkownikami. Tokeny odświeżania są nieprzezroczyste dla aplikacji. Są one wydawane przez Azure AD B2C i mogą być sprawdzane i interpretowane tylko przez Azure AD B2C. Są one długotrwałe, ale aplikacja nie powinna być zapisywana w oczekiwany sposób, że token odświeżania będzie ostatni przez określony czas. Tokeny odświeżania można w dowolnym momencie unieważnić z wielu powodów. Jedynym sposobem, w jaki aplikacja ma wiedzieć, czy token odświeżania jest prawidłowy, jest próba jego zrealizowania przez utworzenie żądania tokenu do Azure AD B2C. W przypadku zrealizowania tokenu odświeżania dla nowego tokenu otrzymujesz nowy token odświeżania w odpowiedzi tokenu. Zapisz nowy token odświeżania. Zastępuje token odświeżania, który był wcześniej używany w żądaniu. Ta akcja umożliwia zagwarantowanie, że tokeny odświeżania pozostaną prawidłowe przez cały czas. Należy zauważyć, że aplikacje jednostronicowe korzystające z przepływu kodu autoryzacji z PKCE zawsze mają okres istnienia tokenu odświeżania równy 24 godziny. [Dowiedz się więcej o implikacjach dotyczących zabezpieczeń tokenów odświeżania w przeglądarce](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
 
 ## <a name="endpoints"></a>Punkty końcowe
 

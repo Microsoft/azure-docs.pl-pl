@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 9/29/2020
+ms.date: 10/19/2020
 ms.author: b-juche
-ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461482"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217052"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Skonfiguruj szyfrowanie Kerberos NFSv 4.1 dla Azure NetApp Files
 
@@ -75,7 +75,7 @@ Konfiguracja programu NFSv 4.1 Kerberos tworzy dwa konta komputerów w Active Di
 * Konto komputera dla udziałów SMB
 * Konto komputera dla NFSv 4.1 — można zidentyfikować to konto w postaci prefiksu `NFS-` . 
 
-Po utworzeniu pierwszego woluminu NFSv 4.1 Kerberos Ustaw typ szyfrowania lub konto komputera za pomocą następującego polecenia programu PowerShell:
+Po utworzeniu pierwszego woluminu Kerberos z NFSv 4.1 Ustaw typ szyfrowania dla konta komputera za pomocą następującego polecenia programu PowerShell:
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -96,11 +96,11 @@ Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie klienta NFS dla Azure
 3. Utwórz katalog (punkt instalacji) dla nowego woluminu.  
 
 4. Dla konta komputera Ustaw domyślny typ szyfrowania AES 256:  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * To polecenie należy uruchomić tylko raz dla każdego konta komputera.
     * To polecenie można uruchomić z kontrolera domeny lub z komputera z zainstalowanym programem [RSAT](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) . 
-    * `$COMPUTERACCOUNT`Zmienna to konto komputera utworzone w Active Directory podczas wdrażania woluminu Kerberos. Jest to konto, które jest poprzedzone prefiksem `NFS-` . 
+    * `$NFSCOMPUTERACCOUNT`Zmienna to konto komputera utworzone w Active Directory podczas wdrażania woluminu Kerberos. Jest to konto, które jest poprzedzone prefiksem `NFS-` . 
     * `$ANFSERVICEACCOUNT`Zmienna to nieuprzywilejowane konto użytkownika Active Directory z delegowanymi kontrolkami w jednostce organizacyjnej, w której utworzono konto komputera. 
 
 5. Zainstaluj wolumin na hoście: 

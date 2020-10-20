@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019866"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220639"
 ---
 # <a name="azure-media-services-v3-overview"></a>Omówienie usługi Azure Media Services w wersji 3
 
@@ -64,7 +64,7 @@ Media Services pozwala tworzyć różne przepływy pracy multimedialnej w chmurz
 Dowiedz się, jak kodować i spakować zawartość, przesyłać strumieniowo filmy wideo na żądanie, emitować na żywo i analizować filmy wideo za pomocą Media Services v3. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób zapewnienia bezpiecznej transmisji strumieniowej materiałów wideo lub audio na żywo lub na żądanie, którą można skalować na potrzeby milionów użytkowników.
 
 > [!TIP]
-> Przed rozpoczęciem opracowywania, przejrzyj:<br/>* [Podstawowe pojęcia](concepts-overview.md) (incudes ważne pojęcia, takie jak pakowanie, kodowanie i ochrona)<br/>* [Programowanie przy użyciu interfejsów api Media Services v3](media-services-apis-overview.md) (zawiera informacje na temat uzyskiwania dostępu do interfejsów API, konwencji nazewnictwa itd.)
+> Przed rozpoczęciem opracowywania, przejrzyj:<br/>* [Podstawowe pojęcia](concepts-overview.md) (w tym ważne pojęcia, takie jak pakowanie, kodowanie i ochrona)<br/>* [Programowanie przy użyciu interfejsów api Media Services v3](media-services-apis-overview.md) (zawiera informacje na temat uzyskiwania dostępu do interfejsów API, konwencji nazewnictwa itd.)
 
 ### <a name="sdks"></a>Zestawy SDK
 

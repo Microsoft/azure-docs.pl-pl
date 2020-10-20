@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 645a0d21fc25cb45914eed02e023a0076c457ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4343a5e185fdfe96e1e3298b0fc3fe6719f3a4a2
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116301"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215845"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania do Azure Active Directory z wieloma dzierżawcami przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Aby włączyć Logowanie użytkowników z określonej organizacji usługi Azure 
 1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład `Azure AD B2C App`.
-1. Wybierz **konta w dowolnym katalogu organizacyjnym** dla tej aplikacji.
+1. Wybierz **konta w dowolnym katalogu organizacji (dowolny katalog usługi Azure AD — wielodostępny)** dla tej aplikacji.
 1. Dla **identyfikatora URI przekierowania**Zaakceptuj wartość **sieci Web**i wprowadź następujący adres URL w postaci małych liter, gdzie `your-B2C-tenant-name` jest zastępowana nazwą dzierżawy Azure AD B2C.
 
     ```
@@ -75,7 +75,7 @@ Należy przechowywać klucz aplikacji utworzony w dzierżawie Azure AD B2C.
 1. Wprowadź **nazwę** klucza zasad. Na przykład `AADAppSecret`.  Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza podczas jego tworzenia, więc jego odwołanie w kodzie XML w poniższej sekcji ma *B2C_1A_AADAppSecret*.
 1. W **kluczu tajnym**wprowadź wcześniej zarejestrowany klucz tajny klienta.
 1. W obszarze **użycie klucza**wybierz opcję `Signature` .
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 

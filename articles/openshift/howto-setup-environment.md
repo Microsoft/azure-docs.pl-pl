@@ -8,14 +8,20 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b468f967e68b72e3c9da276dc2077fc09256c895
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c189c0902e694dc49d81a48433e3269e9f2a438c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470038"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216882"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurowanie środowiska deweloperskiego usługi Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> Usługa Azure Red Hat OpenShift 3,11 zostanie wycofana 30 czerwca 2022. Obsługa tworzenia nowych klastrów usługi Azure Red Hat OpenShift 3,11 jest kontynuowana do 30 listopada 2020. Po wycofaniu pozostałe klastry usługi Azure Red Hat OpenShift 3,11 zostaną zamknięte, aby zapobiec występowaniu luk w zabezpieczeniach.
+> 
+> Postępuj zgodnie z tym przewodnikiem, aby [utworzyć klaster usługi Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Jeśli masz określone pytania, [skontaktuj się z nami](mailto:arofeedback@microsoft.com).
 
 Aby kompilować i uruchamiać Microsoft Azure aplikacje Red Hat OpenShift, należy wykonać następujące działania:
 

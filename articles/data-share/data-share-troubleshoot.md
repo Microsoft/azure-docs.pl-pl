@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151366"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220462"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Rozwiązywanie typowych problemów w usłudze Azure Data Share 
 
@@ -34,7 +34,7 @@ Może to być spowodowane jedną z następujących przyczyn:
     1. Wyszukaj pozycję **Microsoft.DataShare**
     1. Kliknij pozycję **Zarejestruj** 
 
-    Aby wykonać te kroki, musisz mieć [rolę współautor platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) w ramach subskrypcji platformy Azure. 
+    Aby wykonać te kroki, musisz mieć [rolę współautor platformy Azure](../role-based-access-control/built-in-roles.md#contributor) w ramach subskrypcji platformy Azure. 
 
 * **Zaproszenie jest wysyłane na alias adresu e-mail, a nie na adres e-mail logowania do platformy Azure.** Jeśli zarejestrowano usługę Azure Data Share lub już utworzono zasób usługi Data Share w dzierżawie platformy Azure, ale zaproszenie nadal nie jest widoczne, być może dostawca wprowadził jako adresata alias adresu e-mail, a nie adres e-mail logowania do platformy Azure. Skontaktuj się z dostawcą danych i upewnij się, że zaproszenie zostało wysłane na adres e-mail logowania do platformy Azure, a nie na alias adresu e-mail.
 
@@ -81,4 +81,3 @@ W przypadku źródeł SQL poniżej przedstawiono dodatkowe przyczyny błędów m
 Aby dowiedzieć się, jak zacząć udostępniać dane, przejdź do samouczka [udostępnianie danych](share-your-data.md) . 
 
 Aby dowiedzieć się, jak odbierać dane, przejdź do samouczka [akceptowanie i odbieranie danych](subscribe-to-data-share.md) .
-

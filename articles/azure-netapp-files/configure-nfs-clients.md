@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.author: b-juche
-ms.openlocfilehash: b2e597ff8fc761b66de6228063c471933a364144
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4b8b4b56693023ede2ccf8ae7eeac7ed5e16824
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449645"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216865"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Konfigurowanie klienta sieciowego systemu plików dla usługi Azure NetApp Files
 
@@ -28,56 +28,211 @@ Konfiguracja klienta NFS opisana w tym artykule jest częścią instalacji podcz
 Niezależnie od używanej wersji systemu Linux wymagane są następujące konfiguracje:
 * Skonfiguruj klienta NTP, aby uniknąć problemów z przechyleniem czasu.
 * Skonfiguruj wpisy DNS klienta systemu Linux na potrzeby rozpoznawania nazw.  
-    Ta konfiguracja obejmuje rekord "A" (dalej) oraz rekord PTR (reverse). 
-* W przypadku przyłączania do domeny Utwórz konto komputera w Active Directory docelowym (które jest tworzone podczas przyłączania do obszaru). 
+    Ta konfiguracja musi zawierać rekord "A" (dalej) oraz rekord PTR (reverse). 
+* W przypadku przyłączania do domeny Utwórz konto komputera dla klienta systemu Linux w Active Directory docelowej (który jest tworzony podczas przyłączania do obszaru). 
     > [!NOTE] 
     > `$SERVICEACCOUNT`Zmienna użyta w poniższych poleceniach powinna być kontem użytkownika z uprawnieniami lub delegowaniem w celu utworzenia konta komputera w jednostce organizacyjnej.
-* Umożliwienie Klientowi instalowania woluminów NFS i innych odpowiednich narzędzi do monitorowania.
 
 ## <a name="rhel-8-configuration"></a>Konfiguracja RHEL 8 
 
-1. Zainstaluj pakiety:   
-    `sudo yum -y install realmd sssd adcli samba-common krb5-workstation chrony`
+W tej sekcji opisano konfiguracje RHEL wymagane w przypadku szyfrowania Kerberos NFSv 4.1 i Dual Protocol.  
 
-2. Skonfiguruj klienta NTP:  
-    RHEL 8 `chrony` domyślnie używa.  [Aby skonfigurować NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp), należy przestrzegać wytycznych dotyczących konfiguracji w temacie using the chrony Suite.
+W przykładach w tej sekcji użyto następującej nazwy domeny i adresu IP:  
 
-3. Dołącz do domeny Active Directory:  
-    `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
+* Nazwa domeny: `contoso.com`
+* Prywatny adres IP: `10.6.1.4`
 
-## <a name="ubuntu-configuration"></a>Konfiguracja Ubuntu 
-W tej sekcji opisano konfigurację Ubuntu dla klientów systemu plików NFS.  
+### <a name="rhel-8-configuration-if-you-are-using-nfsv41-kerberos-encryption"></a><a name="rhel8_nfsv41_kerberos"></a>Konfiguracja RHEL 8 w przypadku korzystania z szyfrowania Kerberos NFSv 4.1
 
-### <a name="if-you-are-using-nfsv41-kerberos-encryption"></a>Jeśli używasz szyfrowania Kerberos w NFSv 4.1 
+1. Skonfiguruj `/etc/resolv.conf` przy użyciu odpowiedniego serwera DNS.  
 
-1. Zainstaluj pakiety:  
-    `sudo yum -y install realmd packagekit sssd adcli samba-common krb5-workstation chrony`
+    Na przykład:  
 
-2. Skonfiguruj klienta NTP.  
-    Domyślnie Ubuntu 18,04 `chrony` .  Zgodnie z zaleceniami dotyczącymi konfiguracji w [Ubuntu Bionic: używanie chrony do KONFIGUROWANIA NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
+    `[root@reddoc cbs]# cat /etc/resolv.conf`   
+    `search contoso.com`   
+    `nameserver 10.6.1.4(private IP)`   
 
-3. Dołącz do domena usługi Active Directory:  
-    `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
+2. Dodaj rekord klienta NFS na serwerze DNS dla strefy wyszukiwania do przodu i do tyłu DNS.
 
-### <a name="if-you-are-using-dual-protocol"></a>Jeśli używasz podwójnego protokołu  
+3. Aby sprawdzić system DNS, użyj następujących poleceń z klienta NFS:   
 
-1. Uruchom następujące polecenie, aby uaktualnić zainstalowane pakiety:  
+    `# nslookup [hostname/FQDN of NFS client(s)]`   
+    `# nslookup [IP address of NFS client(s)]`
+
+4. Zainstaluj pakiety:   
+
+    `yum update`   
+    `sudo yum -y install realmd sssd adcli samba-common krb5-workstation chrony nfs-utils`
+
+5.  Skonfiguruj klienta NTP.  
+
+    RHEL 8 domyślnie używa chrony. Postępując zgodnie z wytycznymi dotyczącymi konfiguracji w [ramach `Chrony` zestawu, aby skonfigurować NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp).
+
+6.  Dołącz do domeny Active Directory:  
+
+    `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
+
+    Na przykład: 
+
+    `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
+
+
+7. Uruchom ponownie wszystkie usługi NFS:  
+ 
+    `systemctl start nfs-*`   
+    `systemctl restart rpc-gssd.service`
+
+    Ponowne uruchomienie zapobiega warunkowi błędu `“mount.nfs: an incorrect mount option was specified”` podczas instalacji protokołu Kerberos.
+
+8. Uruchom `kinit` polecenie przy użyciu konta użytkownika, aby uzyskać bilety: 
+ 
+    `sudo kinit $SERVICEACCOUNT@DOMAIN`  
+
+    Na przykład:   
+
+    `sudo kinit ad_admin@CONTOSO.COM`
+
+
+### <a name="rhel-8-configuration-if-you-are-using-dual-protocol"></a>Konfiguracja RHEL 8 w przypadku korzystania z podwójnego protokołu
+
+Poniższe kroki są opcjonalne. Kroki te należy wykonać tylko w przypadku użycia mapowania użytkownika na kliencie NFS: 
+
+1. Wykonaj wszystkie kroki opisane w [konfiguracji RHEL 8, jeśli używasz sekcji Szyfrowanie Kerberos nfsv 4.1](#rhel8_nfsv41_kerberos) .   
+
+2. Dodaj statyczny rekord DNS w pliku/etc/hosts, aby użyć w pełni kwalifikowanej nazwy domeny (FQDN) dla usługi AD, zamiast korzystać z adresu IP w pliku konfiguracji SSSD:  
+
+    `cat /etc/hosts`   
+    `10.6.1.4 winad2016.contoso.com`
+
+3. Dodaj dodatkową sekcję dla domen w celu rozpoznania identyfikatorów z serwera usługi AD LDAP:    
+
+    `[root@reddoc cbs]# cat /etc/sssd/sssd.conf`   
+    `[sssd]`   
+    `domains = contoso.com, contoso-ldap (new entry added for LDAP as id_provider)`   
+    `config_file_version = 2`   
+    `services = nss, pam, ssh, sudo (ensure nss is present in this list)`   
+ 
+    `[domain/contoso-ldap] (Copy the following lines. Modify as per your domain name.)`   
+    `auth_provider = krb5`   
+    `chpass_provider = krb5`   
+    `id_provider = ldap`   
+    `ldap_search_base = dc=contoso,dc=com(your domain)`   
+    `ldap_schema = rfc2307bis`   
+    `ldap_sasl_mech = GSSAPI`   
+    `ldap_user_object_class = user`   
+    `ldap_group_object_class = group`   
+    `ldap_user_home_directory = unixHomeDirectory`   
+    `ldap_user_principal = userPrincipalName`   
+    `ldap_account_expire_policy = ad`   
+    `ldap_force_upper_case_realm = true`   
+    `ldap_user_search_base = cn=Users,dc=contoso,dc=com (based on your domain)`   
+    `ldap_group_search_base = cn=Users,dc=contoso,dc=com (based on your domain)`   
+    `ldap_sasl_authid = REDDOC$ (ensure $ at the end you can get this from “klist -kte” command)`   
+    `krb5_server = winad2016.contoso.com (same as AD address which is added in /etc/hosts)`   
+    `krb5_realm = CONTOSO.COM (domain name in caps)`   
+    `krb5_kpasswd = winad2016.contoso.com (same as AD address which is added in /etc/hosts)`   
+    `use_fully_qualified_names = false`   
+ 
+    `[domain/contoso.com]  (Do not edit or remove any of the following information. This information is automatically generated during the realm join process.)`   
+    `ad_domain = contoso.com`   
+    `krb5_realm = CONTOSO.COM`   
+    `realmd_tags = manages-system joined-with-adcli`   
+    `cache_credentials = True`   
+    `id_provider = ad`   
+    `krb5_store_password_if_offline = True`   
+    `default_shell = /bin/bash`   
+    `ldap_id_mapping = True`   
+    `use_fully_qualified_names = True`   
+    `fallback_homedir = /home/%u@%d`   
+    `access_provider = ad`   
+
+4. Upewnij `/etc/nsswitch.conf` się, że masz `sss` wpis:   
+
+    `cat /etc/nsswitch.conf`   
+    `passwd: sss files systemd`   
+    `group: sss files systemd`   
+    `netgroup: sss files`   
+
+5. Uruchom ponownie `sssd` usługę i wyczyść pamięć podręczną:   
+
+    `service sssd stop`   
+    `rm -f /var/lib/sss/db/*`   
+    `service sssd start`   
+ 
+6. Przetestuj, aby upewnić się, że klient jest zintegrowany z serwerem LDAP:   
+
+    `[root@red81 cbs]# id ldapuser1`   
+    `uid=1234(ldapuser1) gid=1111(ldapgroup1) groups=1111(ldapgroup1)`   
+
+## <a name="ubuntu-configuration"></a>Konfiguracja Ubuntu   
+
+W tej sekcji opisano konfiguracje Ubuntu wymagane w przypadku szyfrowania Kerberos NFSv 4.1 i Dual Protocol. 
+
+W przykładach w tej sekcji użyto następującej nazwy domeny i adresu IP:  
+
+* Nazwa domeny: `contoso.com`
+* Prywatny adres IP: `10.6.1.4`
+
+1. Skonfiguruj `/etc/resolv.conf` przy użyciu odpowiedniego serwera DNS:
+
+    `root@ubuntu-rak:/home/cbs# cat /etc/resolv.conf`   
+    `search contoso.com`   
+    `nameserver <private IP address of DNS server>`   
+
+2. Dodaj rekord klienta systemu plików NFS na serwerze DNS dla strefy wyszukiwania do przodu i do tyłu DNS.
+ 
+    Aby sprawdzić system DNS, użyj następujących poleceń z klienta NFS:
+
+    `# nslookup [hostname/FQDN of NFS client(s)]`   
+    `# nslookup [IP address of NFS client(s)]`   
+
+3. Zainstaluj pakiety:
+ 
+    `apt-get update`   
+    `apt-get install -y realmd packagekit sssd adcli samba-common chrony krb5-user nfs-common`
+    
+    Po wyświetleniu monitu wprowadź wartość wejściową `$DOMAIN.NAME` (na przykład używając wielkiej litery `CONTOSO.COM` ) jako domyślnego obszaru protokołu Kerberos.
+
+4. Uruchom ponownie usługę `rpc-gssd.service` : 
+
+    `sudo systemctl start rpc-gssd.service`
+
+5. Ubuntu 18,04 domyślnie używa chrony. Zgodnie z zaleceniami dotyczącymi konfiguracji w [Ubuntu Bionic: używanie chrony do KONFIGUROWANIA NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
+
+6. Dołącz do domena usługi Active Directory:   
+ 
+    `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
+ 
+    Na przykład:    
+    `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
+
+7. Wykonaj `kinit` z użytkownikiem, aby uzyskać bilety: 
+ 
+    `sudo kinit $SERVICEACCOUNT`   
+ 
+    Na przykład:    
+    `sudo kinit ad_admin`  
+
+### <a name="ubuntu-configuration-if-you-are-using-dual-protocol"></a>Konfiguracja Ubuntu w przypadku korzystania z podwójnego protokołu  
+
+Poniższe kroki są opcjonalne.  Kroki te należy wykonać tylko wtedy, gdy chcesz użyć mapowania użytkownika na kliencie NFS:  
+
+1. Uruchom następujące polecenie, aby uaktualnić zainstalowane pakiety:   
     `sudo apt update && sudo apt install libnss-ldap libpam-ldap ldap-utils nscd`
 
-    Przykład:   
+    W poniższym przykładzie zastosowano przykładowe wartości. Gdy polecenie monituje o dane wejściowe, należy podać dane wejściowe w oparciu o środowisko. 
 
-    `base dc=hariscus,dc=com` `uri ldap://10.20.0.4:389/`
-    `ldap_version 3`
-    `rootbinddn cn=admin,cn=Users,dc=hariscus,dc=com`
-    `pam_password ad`
- 
-2. Uruchom następujące polecenie, aby ponownie uruchomić i włączyć usługę:   
-    `sudo systemctl restart nscd && sudo systemctl enable nscd`
+    `base dc=contoso,dc=com uri ldap://10.20.0.4:389/ ldap_version 3 rootbinddn cn=admin,cn=Users,dc=contoso,dc=com pam_password ad`   
 
-Poniższy przykład wysyła zapytanie do serwera LDAP AD z klienta Ubuntu LDAP dla użytkownika LDAP `ldapu1` :   
+2. Uruchom następujące polecenie, aby ponownie uruchomić i włączyć usługę:
+
+    `sudo systemctl restart nscd && sudo systemctl enable nscd`   
+
+Poniższy przykład wysyła zapytanie do serwera LDAP AD z klienta Ubuntu LDAP dla użytkownika LDAP `‘hari1’` : 
 
 `root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
 `hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
+
 
 ## <a name="next-steps"></a>Następne kroki  
 

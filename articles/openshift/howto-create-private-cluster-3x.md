@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/02/2020
 keywords: ARO, OpenShift, prywatny klaster, Red Hat
-ms.openlocfilehash: f4ce6c79fa9fe6d05fdea4b877a8aa7faf404a9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37e9dc996fddf2b592ea6bf7fff1e1f4825f3ca8
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83727648"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220632"
 ---
 # <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Tworzenie prywatnego klastra przy użyciu usługi Azure Red Hat OpenShift 3,11
+
+> [!IMPORTANT]
+> Usługa Azure Red Hat OpenShift 3,11 zostanie wycofana 30 czerwca 2022. Obsługa tworzenia nowych klastrów usługi Azure Red Hat OpenShift 3,11 jest kontynuowana do 30 listopada 2020. Po wycofaniu pozostałe klastry usługi Azure Red Hat OpenShift 3,11 zostaną zamknięte, aby zapobiec występowaniu luk w zabezpieczeniach.
+> 
+> Postępuj zgodnie z tym przewodnikiem, aby [utworzyć klaster usługi Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Jeśli masz określone pytania, [skontaktuj się z nami](mailto:arofeedback@microsoft.com).
 
 Klastry prywatne zapewniają następujące korzyści:
 

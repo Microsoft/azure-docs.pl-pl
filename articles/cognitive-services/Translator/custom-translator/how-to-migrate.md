@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537990"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220877"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrowanie obszaru roboczego i projektów centrum do translatora niestandardowego
 
@@ -55,7 +55,7 @@ Aby przeprowadzić migrację projektu:
 
 3. Kliknij link "Migruj" dla odpowiedniego projektu.
 
-    ![Jak przeprowadzić migrację z centrum](media/how-to/how-to-migrate-from-hub.png)
+    ![Zrzut ekranu, który wyróżnia przycisk Migrowanie dla wybranego projektu.](media/how-to/how-to-migrate-from-hub.png)
 
 4. Po naciśnięciu linku migracji zostanie wyświetlony formularz umożliwiający:
    * Określ obszar roboczy, który chcesz przenieść do translatora niestandardowego
@@ -76,7 +76,7 @@ Aby przeprowadzić migrację obszaru roboczego:
 
 3. Na stronie "Ustawienia" kliknij pozycję "Migruj dane obszaru roboczego do translatora niestandardowego".
 
-    ![Jak przeprowadzić migrację z centrum](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![Zrzut ekranu, który wyróżnia opcję Migrowanie danych obszaru roboczego do usługi Custom translator.](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. Na następnej stronie wybierz jedną z następujących opcji:
 

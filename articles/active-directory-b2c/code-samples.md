@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 63a79df8e540e88d0f1e3f4c5b8d339ff03c877f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2db64a950569e4a96a9a87bb86a5397a17b4f2ba
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854294"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214944"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Przykłady kodu usługi Azure Active Directory B2C
 
@@ -47,7 +47,8 @@ Poniższe tabele zawierają linki do przykładów dla aplikacji systemu iOS i An
 
 | Sample | Opis |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Aplikacja jednostronicowa (SPA) wywołująca internetowy interfejs API. Uwierzytelnianie odbywa się z Azure AD B2C przy użyciu MSAL.js. |
+| [MS-Identity-B2C-JavaScript-Spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | Aplikacja jednostronicowa (SPA) wywołująca internetowy interfejs API. Uwierzytelnianie odbywa się z Azure AD B2C przy użyciu MSAL.js. Ten przykład używa przepływu kodu autoryzacji z PKCE. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Aplikacja jednostronicowa (SPA) wywołująca internetowy interfejs API. Uwierzytelnianie odbywa się z Azure AD B2C przy użyciu MSAL.js. Te przykłady używają przepływu niejawnego.|
 
 ## <a name="saml-test-application"></a>Aplikacja testowa SAML
 

@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 03/15/2020
-ms.author: matjazl
-ms.openlocfilehash: 8c0448d31cd89e2ca969b81361b30bac3f9610e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: cavoeg
+ms.openlocfilehash: f3b3430ef7669022e532166848cb16d6aa66efe8
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87851940"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220792"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Szybki Start: wdrażanie interfejsu API platformy Azure dla usługi FHIR przy użyciu Azure Portal
 

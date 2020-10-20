@@ -6,29 +6,30 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 9b0154889544e0054e309cc5f43851b73b4396b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ce7ffc66e0b6164b2e4ca9725b3f26403292a4a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80754696"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220775"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Samouczek: Konfigurowanie ustawień sieciowych klastra
 
-Przed użyciem nowo utworzonego klastra usługi Azure FXT Edge, należy sprawdzić i dostosować kilka ustawień sieciowych dla przepływu pracy. 
+Przed użyciem nowo utworzonego klastra usługi Azure FXT Edge, należy sprawdzić i dostosować kilka ustawień sieciowych dla przepływu pracy.
 
-W tym samouczku wyjaśniono ustawienia sieci, które mogą być konieczne do dostosowania nowego klastra. 
+W tym samouczku wyjaśniono ustawienia sieci, które mogą być konieczne do dostosowania nowego klastra.
 
-Dowiesz się: 
+Dowiesz się:
 
 > [!div class="checklist"]
+>
 > * Jakie ustawienia sieciowe mogą wymagać aktualizacji po utworzeniu klastra
-> * Które przypadki użycia usługi Azure FXT Edge wymagają serwera AD lub serwera DNS 
+> * Które przypadki użycia usługi Azure FXT Edge wymagają serwera AD lub serwera DNS
 > * Jak skonfigurować serwer DNS z działaniem okrężnym (RRDNS) w celu automatycznego równoważenia obciążenia żądań klientów do klastra FXT
 
 Czas potrzebny na wykonanie tych czynności zależy od liczby zmian konfiguracji wymaganych w systemie:
 
-* Jeśli musisz tylko przeczytać ten samouczek i sprawdzić kilka ustawień, powinien upłynąć od 10 do 15 minut. 
+* Jeśli musisz tylko przeczytać ten samouczek i sprawdzić kilka ustawień, powinien upłynąć od 10 do 15 minut.
 * Jeśli musisz skonfigurować system DNS działający w trybie okrężnym, zadanie może trwać godzinę lub dłużej.
 
 ## <a name="adjust-network-settings"></a>Dostosuj ustawienia sieci
@@ -78,20 +79,20 @@ Jeśli konieczne jest przekazanie certyfikatów do klastra, użyj **Cluster**  >
 
 Aby zaszyfrować komunikację z zarządzaniem klastrami, użyj **Cluster**  >  strony**Ogólne ustawienia konfiguracji** klastra, aby wybrać certyfikat do użycia na potrzeby administracyjnego protokołu TLS.
 
-> [!Note] 
-> Klucze dostępu do usługi w chmurze są przechowywane przy użyciu strony Konfiguracja **poświadczeń w chmurze** . Powyżej przedstawiono przykładową sekcję [Dodawanie podstawowego pliku](fxt-add-storage.md#add-a-core-filer) Szczegółowe informacje znajdują się [w sekcji Przewodnik po konfiguracji](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) klastra. 
+> [!Note]
+> Klucze dostępu do usługi w chmurze są przechowywane przy użyciu strony Konfiguracja **poświadczeń w chmurze** . Powyżej przedstawiono przykładową sekcję [Dodawanie podstawowego pliku](fxt-add-storage.md#add-a-core-filer) Szczegółowe informacje znajdują się [w sekcji Przewodnik po konfiguracji](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) klastra.
 
 ## <a name="configure-dns-for-load-balancing"></a>Konfigurowanie usługi DNS na potrzeby równoważenia obciążenia
 
-W tej części objaśniono podstawowe informacje dotyczące konfigurowania systemu DNS w trybie okrężnym do dystrybucji obciążenia klienta między wszystkimi adresami IP skierowanymi na klienta w klastrze usługi FXT Edge. 
+W tej części objaśniono podstawowe informacje dotyczące konfigurowania systemu DNS w trybie okrężnym do dystrybucji obciążenia klienta między wszystkimi adresami IP skierowanymi na klienta w klastrze usługi FXT Edge.
 
 ### <a name="decide-whether-or-not-to-use-dns"></a>Zdecyduj, czy należy używać systemu DNS
 
-Równoważenie obciążenia jest zawsze zalecane, ale nie trzeba używać systemu DNS. Na przykład w przypadku niektórych typów przepływów pracy klient może być bardziej zrozumiały do przypisywania adresów IP klastra nawet między klientami podczas instalacji klastra. Niektóre metody są opisane w artykule [Instalowanie klastra](fxt-mount-clients.md). 
+Równoważenie obciążenia jest zawsze zalecane, ale nie trzeba używać systemu DNS. Na przykład w przypadku niektórych typów przepływów pracy klient może być bardziej zrozumiały do przypisywania adresów IP klastra nawet między klientami podczas instalacji klastra. Niektóre metody są opisane w artykule [Instalowanie klastra](fxt-mount-clients.md).
 
-Należy pamiętać o tym, czy należy używać serwera DNS: 
+Należy pamiętać o tym, czy należy używać serwera DNS:
 
-* Jeśli system jest dostępny tylko dla klientów NFS, system DNS nie jest wymagany. Można określić wszystkie adresy sieciowe przy użyciu liczbowych adresów IP. 
+* Jeśli system jest dostępny tylko dla klientów NFS, system DNS nie jest wymagany. Można określić wszystkie adresy sieciowe przy użyciu liczbowych adresów IP.
 
 * Jeśli system obsługuje dostęp do protokołu SMB (CIFS), wymagany jest system DNS, ponieważ należy określić domenę DNS dla serwera Active Directory.
 
@@ -110,7 +111,7 @@ Vserver klastra jest pokazywany po lewej stronie, a adresy IP są wyświetlane w
 
 Każdy adres IP skierowany na klienta musi mieć unikatową nazwę do użytku wewnętrznego w klastrze. (Na tym diagramie adresy IP klientów mają nazwę VS1-Client-IP-* dla jasności, ale w środowisku produkcyjnym należy raczej używać czegoś bardziej zwięzłego, takiego jak klient *).
 
-Klienci instalują klaster przy użyciu nazwy vserver jako argumentu serwera. 
+Klienci instalują klaster przy użyciu nazwy vserver jako argumentu serwera.
 
 Zmodyfikuj plik serwera DNS ``named.conf`` w celu ustawienia kolejności cyklicznej dla zapytań do vserver. Ta opcja zapewnia, że wszystkie dostępne wartości są przetwarzane przez. Dodaj następującą instrukcję:
 
@@ -136,7 +137,7 @@ update add 11.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-11.example.com
 update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 ```
 
-### <a name="enable-dns-in-the-cluster"></a>Włączanie usługi DNS w klastrze 
+### <a name="enable-dns-in-the-cluster"></a>Włączanie usługi DNS w klastrze
 
 Określ serwer DNS, którego klaster używa na **Cluster**  >  stronie ustawień**sieci administracyjnej** klastra. Ustawienia na tej stronie obejmują:
 
@@ -148,8 +149,8 @@ Aby uzyskać więcej informacji, zapoznaj się z [ustawieniami DNS](<https://azu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jest to ostatni podstawowy krok konfiguracji klastra usługi Azure FXT Edge. 
+Jest to ostatni podstawowy krok konfiguracji klastra usługi Azure FXT Edge.
 
 * Zapoznaj się z diodami LED systemu i innymi wskaźnikami w temacie [monitorowanie stanu sprzętu](fxt-monitor.md).
-* Dowiedz się więcej o tym, jak klienci powinni instalować klaster plików FXT Edge w [instalacji klastra](fxt-mount-clients.md). 
-* Aby uzyskać więcej informacji na temat obsługi klastra FXT Edge i zarządzania nim, zobacz [Przewodnik po konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html). 
+* Dowiedz się więcej o tym, jak klienci powinni instalować klaster plików FXT Edge w [instalacji klastra](fxt-mount-clients.md).
+* Aby uzyskać więcej informacji na temat obsługi klastra FXT Edge i zarządzania nim, zobacz [Przewodnik po konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html).

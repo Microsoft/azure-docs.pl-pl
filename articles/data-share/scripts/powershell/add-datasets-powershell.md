@@ -1,20 +1,18 @@
 ---
-title: 'Skrypt programu PowerShell: Dodawanie zestawu danych obiektów BLOB do udziału danych platformy Azure | Microsoft Docs'
+title: 'Skrypt programu PowerShell: Dodawanie zestawu danych obiektów BLOB do udziału danych platformy Azure'
 description: Ten skrypt programu PowerShell dodaje zestaw danych obiektów BLOB do istniejącego udziału.
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 95a10b112c9f6448c437f20ee95f808632a31d2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f2a2dded0b9c817e0700f4f93782d3b5c11ac3f
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307301"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221387"
 ---
 # <a name="use-powershell-to-create-a-data-share-in-azure"></a>Tworzenie udziału danych na platformie Azure przy użyciu programu PowerShell
 
@@ -44,11 +42,11 @@ W tym skrypcie użyto następujących poleceń:
 
 | Polecenie | Uwagi |
 |---|---|
-| [New-AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | Dodaje zestaw danych do udziału danych. |
+| [New-AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset) | Dodaje zestaw danych do udziału danych. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
+Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/).
 
 Dodatkowe przykłady skryptów programu PowerShell dotyczące udziałów danych platformy Azure można znaleźć w [przykładach programu PowerShell w udziale danych platformy Azure](../../samples-powershell.md).

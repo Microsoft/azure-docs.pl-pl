@@ -166,7 +166,7 @@
     - name: Najlepsze rozwiązania
       items:
         - name: Najlepsze rozwiązania z zakresu bezpieczeństwa sieci i usług w chmurze
-          href: ../best-practices-network-security.md
+          href: /azure/cloud-adoption-framework/reference/networking-vdc
         - name: Optymalizowanie routingu
           href: expressroute-optimize-routing.md
         - name: Routing asymetryczny
@@ -192,9 +192,9 @@
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/network/express-route
     - name: REST
-      href: 'https://msdn.microsoft.com/library/azure/mt586720'
+      href: /rest/api/expressroute/
     - name: REST (klasyczny)
-      href: 'https://msdn.microsoft.com/library/azure/dn606310'
+      href: /previous-versions/azure/reference/dn606310(v=azure.100)
     - name: Szablon usługi Resource Manager
       displayName: 'ARM,resource manager template'
       href: /azure/templates/microsoft.network/expressroutecircuits

@@ -3,12 +3,12 @@ title: Ograniczanie dostępu przy użyciu punktu końcowego usługi
 description: Ograniczanie dostępu do usługi Azure Container Registry przy użyciu punktu końcowego usług w sieci wirtualnej platformy Azure. Dostęp do punktu końcowego usługi jest funkcją warstwy Premium usługi.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488675"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215505"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Ograniczanie dostępu do rejestru kontenerów przy użyciu punktu końcowego usługi w sieci wirtualnej platformy Azure
 
@@ -49,13 +49,11 @@ Konfigurowanie punktu końcowego usługi Registry Service jest dostępne w warst
 
 ## <a name="configure-network-access-for-registry"></a>Konfigurowanie dostępu do sieci dla rejestru
 
-W tej sekcji Skonfiguruj rejestr kontenerów w taki sposób, aby zezwalał na dostęp z podsieci w sieci wirtualnej platformy Azure. Dostępne są równoważne kroki przy użyciu interfejsu wiersza polecenia platformy Azure i Azure Portal.
+W tej sekcji Skonfiguruj rejestr kontenerów w taki sposób, aby zezwalał na dostęp z podsieci w sieci wirtualnej platformy Azure. Kroki są udostępniane za pomocą interfejsu wiersza polecenia platformy Azure.
 
-### <a name="allow-access-from-a-virtual-network---cli"></a>Zezwalanie na dostęp z sieci wirtualnej — interfejs wiersza polecenia
+### <a name="add-a-service-endpoint-to-a-subnet"></a>Dodawanie punktu końcowego usługi do podsieci
 
-#### <a name="add-a-service-endpoint-to-a-subnet"></a>Dodawanie punktu końcowego usługi do podsieci
-
-Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie tworzy sieć wirtualną w tej samej grupie zasobów. Nazwa sieci wirtualnej jest oparta na nazwie maszyny wirtualnej. Na przykład jeśli nazwasz maszyny wirtualnej *myDockerVM*, domyślną nazwą sieci wirtualnej jest *myDockerVMVNET*, z podsiecią o nazwie *myDockerVMSubnet*. Sprawdź to w Azure Portal lub przy użyciu polecenia [AZ Network VNET list][az-network-vnet-list] :
+Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie tworzy sieć wirtualną w tej samej grupie zasobów. Nazwa sieci wirtualnej jest oparta na nazwie maszyny wirtualnej. Na przykład jeśli nazwasz maszyny wirtualnej *myDockerVM*, domyślną nazwą sieci wirtualnej jest *myDockerVMVNET*, z podsiecią o nazwie *myDockerVMSubnet*. Sprawdź to przy użyciu polecenia [AZ Network VNET list][az-network-vnet-list] :
 
 ```azurecli
 az network vnet list \
@@ -101,7 +99,7 @@ Dane wyjściowe:
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="change-default-network-access-to-registry"></a>Zmień domyślny dostęp sieciowy do rejestru
+### <a name="change-default-network-access-to-registry"></a>Zmień domyślny dostęp sieciowy do rejestru
 
 Domyślnie usługa Azure Container Registry umożliwia nawiązywanie połączeń między hostami w dowolnej sieci. Aby ograniczyć dostęp do wybranej sieci, Zmień domyślną akcję na Odmów dostępu. Zastąp nazwę rejestru następującym poleceniem [AZ ACR Update][az-acr-update] :
 
@@ -109,7 +107,7 @@ Domyślnie usługa Azure Container Registry umożliwia nawiązywanie połączeń
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### <a name="add-network-rule-to-registry"></a>Dodawanie reguły sieci do rejestru
+### <a name="add-network-rule-to-registry"></a>Dodawanie reguły sieci do rejestru
 
 Użyj polecenia [AZ ACR Network-Rule Add][az-acr-network-rule-add] , aby dodać regułę sieci do rejestru, który umożliwia dostęp z podsieci maszyny wirtualnej. Zastąp nazwę rejestru kontenerów i identyfikator zasobu podsieci w następującym poleceniu: 
 
@@ -143,11 +141,9 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 
 ## <a name="restore-default-registry-access"></a>Przywróć domyślny dostęp do rejestru
 
-Aby przywrócić rejestr w celu zezwolenia na dostęp domyślnie, Usuń wszystkie skonfigurowane reguły sieciowe. Następnie ustaw domyślną akcję na Zezwalaj na dostęp. Dostępne są równoważne kroki przy użyciu interfejsu wiersza polecenia platformy Azure i Azure Portal.
+Aby przywrócić rejestr w celu zezwolenia na dostęp domyślnie, Usuń wszystkie skonfigurowane reguły sieciowe. Następnie ustaw domyślną akcję na Zezwalaj na dostęp. 
 
-### <a name="restore-default-registry-access---cli"></a>Przywróć domyślny dostęp do rejestru — interfejs wiersza polecenia
-
-#### <a name="remove-network-rules"></a>Usuń reguły sieci
+### <a name="remove-network-rules"></a>Usuń reguły sieci
 
 Aby wyświetlić listę reguł sieci skonfigurowanych dla rejestru, uruchom następujące polecenie [AZ ACR Network-Rule list][az-acr-network-rule-list] :
 
@@ -166,7 +162,7 @@ az acr network-rule remove \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="allow-access"></a>Zezwól na dostęp
+### <a name="allow-access"></a>Zezwól na dostęp
 
 Zastąp nazwę rejestru następującym poleceniem [AZ ACR Update][az-acr-update] :
 ```azurecli
@@ -180,8 +176,6 @@ Jeśli wszystkie zasoby platformy Azure zostały utworzone w tej samej grupie za
 ```azurecli
 az group delete --name myResourceGroup
 ```
-
-Aby wyczyścić zasoby w portalu, przejdź do grupy zasobów zasoby. Po załadowaniu grupy zasobów kliknij pozycję **Usuń grupę zasobów** , aby usunąć grupę zasobów i przechowywane w niej zasoby.
 
 ## <a name="next-steps"></a>Następne kroki
 

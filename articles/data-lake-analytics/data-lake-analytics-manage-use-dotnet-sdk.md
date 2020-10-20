@@ -1,19 +1,17 @@
 ---
 title: Zarządzanie Azure Data Lake Analytics przy użyciu zestawu Azure .NET SDK
 description: W tym artykule opisano, jak używać zestawu Azure .NET SDK do pisania aplikacji, które zarządzają Data Lake Analytics zadaniami, źródłami danych & użytkownikami.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/18/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b06530488e74120f3cc511694d290840269db453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9ece3fe54ca8596f610439f8a0dd228ae1ef907
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020069"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220911"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Zarządzanie usługą Azure Data Lake Analytics za pomocą aplikacji platformy .NET
 
@@ -31,7 +29,7 @@ W tym artykule opisano sposób zarządzania kontami Azure Data Lake Analytics, �
 
 |Pakiet|Wersja|
 |-------|-------|
-|[Microsoft. Rest. ClientRuntime. Azure. Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)| ppkt|
+|[Microsoft. Rest. ClientRuntime. Azure. Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)| 2.3.1|
 |[Microsoft.Azure.Management.DataLake.Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Analytics)|3.0.0|
 |[Microsoft.Azure.Management.DataLake.Store](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Store)|2.2.0|
 |[Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|1.6.0 — wersja zapoznawcza|
@@ -56,7 +54,7 @@ string rg == "<value>"; // Resource  group name
 string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (this will work, but you should pick your own)
 ```
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Istnieje wiele opcji logowania do Azure Data Lake Analytics. Poniższy fragment kodu przedstawia przykład uwierzytelniania z interakcyjnym uwierzytelnianiem użytkowników przy użyciu okna podręcznego.
 

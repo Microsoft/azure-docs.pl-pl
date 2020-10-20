@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49a5ff61e5f7a17005561e0729a9b0fcb0f954d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10f86d194c5c70f2de0ab6502893e228800b1bdf
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389568"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215471"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Konfigurowanie tokenów w Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ W tym artykule dowiesz się, jak skonfigurować [okres istnienia i zgodność to
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[Utwórz przepływ użytkownika](tutorial-create-user-flows.md) , aby umożliwić użytkownikom rejestrowanie się w aplikacji i logowanie się do niej.
+[Utwórz przepływ użytkownika](tutorial-create-user-flows.md), aby umożliwić użytkownikom rejestrowanie się w aplikacji i logowanie do niej.
 
 ## <a name="configure-jwt-token-lifetime"></a>Skonfiguruj okres istnienia tokenu JWT
 
@@ -39,7 +39,10 @@ Okres istnienia tokenu można skonfigurować w dowolnym przepływie użytkownika
 
     ![Ustawienia właściwości okresu istnienia tokenu w Azure Portal](./media/configure-tokens/token-lifetime.png)
 
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
+
+> [!NOTE]
+> Aplikacje jednostronicowe korzystające z przepływu kodu autoryzacji z PKCE zawsze mają okres istnienia tokenu odświeżania równy 24 godziny. [Dowiedz się więcej o implikacjach dotyczących zabezpieczeń tokenów odświeżania w przeglądarce](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
 
 ## <a name="configure-jwt-token-compatibility"></a>Konfigurowanie zgodności tokenów JWT
 
@@ -50,7 +53,7 @@ Okres istnienia tokenu można skonfigurować w dowolnym przepływie użytkownika
 
     ![Ustawienia właściwości zgodności tokenu w Azure Portal](./media/configure-tokens/token-compatibility.png)
 
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

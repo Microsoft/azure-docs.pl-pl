@@ -6,13 +6,13 @@ ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
-ms.date: 03/05/2020
-ms.openlocfilehash: d843b942702d335065a5f3798572e34c71b4cd0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/05/2020
+ms.openlocfilehash: a102c9f375b37579cf6f92b08d67f762d3dfd26a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78943970"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220894"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scenariusz: dzienniki Apache Hive zajmują miejsce na dysku w węzłach głównych w usłudze Azure HDInsight
 
@@ -24,6 +24,7 @@ W klastrze Apache Hive/LLAP niepożądane dzienniki zajmują całe miejsce na dy
 
 1. Dostęp SSH nie powiedzie się z powodu braku miejsca w węźle głównym.
 2. Ambari nadaje *błąd http: usługa 503 jest niedostępna*.
+3. Nie można uruchomić ponownie programu serwera hiveserver2 Interactive.
 
 `ambari-agent`Gdy wystąpi problem, dzienniki będą wyglądać następująco.
 ```
@@ -35,7 +36,7 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>Przyczyna
 
-W zaawansowanych konfiguracjach Hive-Log4J parametr *Log4J. appender. RFA. MaxBackupIndex* został pominięty. Powoduje to nieskończoną generację plików dziennika.
+W zaawansowanych konfiguracjach Hive-Log4J bieżący domyślny harmonogram usuwania jest ustawiany dla plików starszych niż 30 dni na podstawie daty ostatniej modyfikacji.
 
 ## <a name="resolution"></a>Rozwiązanie
 
@@ -43,30 +44,28 @@ W zaawansowanych konfiguracjach Hive-Log4J parametr *Log4J. appender. RFA. MaxBa
 
 2. Przejdź do `Advanced hive-log4j` sekcji w obszarze Ustawienia zaawansowane.
 
-3. Ustaw `log4j.appender.RFA` parametr jako RollingFileAppender. 
+3. Ustaw `appender.RFA.strategy.action.condition.age` parametr na wybrany wiek. Przykład przez 14 dni: `appender.RFA.strategy.action.condition.age = 14D`
 
-4. Ustaw `log4j.appender.RFA.MaxFileSize` i `log4j.appender.RFA.MaxBackupIndex` w następujący sposób.
+4. Jeśli nie są wyświetlane żadne powiązane ustawienia, należy dołączyć następujące ustawienia.
+    ```
+    # automatically delete hive log
+    appender.RFA.strategy.action.type = Delete
+    appender.RFA.strategy.action.basePath = ${sys:hive.log.dir}
+    appender.RFA.strategy.action.condition.type = IfLastModified
+    appender.RFA.strategy.action.condition.age = 30D
+    appender.RFA.strategy.action.PathConditions.type = IfFileName
+    appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
+    ```
 
-```
-log4jhive.log.maxfilesize=1024MB
-log4jhive.log.maxbackupindex=10
-
-log4j.appender.RFA=org.apache.log4j.RollingFileAppender
-log4j.appender.RFA.File=${hive.log.dir}/${hive.log.file}
-log4j.appender.RFA.MaxFileSize=${log4jhive.log.maxfilesize}
-log4j.appender.RFA.MaxBackupIndex=${log4jhive.log.maxbackupindex}
-log4j.appender.RFA.layout=org.apache.log4j.PatternLayout
-log4j.appender.RFA.layout.ConversionPattern=%d{ISO8601} %-5p [%t] %c{2}: %m%n
-```
 5. Ustaw `hive.root.logger` w `INFO,RFA` następujący sposób. Domyślnym ustawieniem jest debugowanie, co sprawia, że dzienniki stają się bardzo duże.
 
-```
-# Define some default values that can be overridden by system properties
-hive.log.threshold=ALL
-hive.root.logger=INFO,RFA
-hive.log.dir=${java.io.tmpdir}/${user.name}
-hive.log.file=hive.log
-```
+    ```
+    # Define some default values that can be overridden by system properties
+    hive.log.threshold=ALL
+    hive.root.logger=INFO,RFA
+    hive.log.dir=${java.io.tmpdir}/${user.name}
+    hive.log.file=hive.log
+    ```
 
 6. Zapisz konfiguracje i ponownie uruchom wymagane składniki.
 

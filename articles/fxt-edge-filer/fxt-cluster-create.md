@@ -6,25 +6,26 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.openlocfilehash: 7a471868bac8f5e0623942c0cc1dc4af4e3881e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d019f5df4bba6d223076c8ce35151510afedf2e9
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185353"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220809"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Samouczek: Tworzenie klastra usługi Azure FXT Edge
 
-Po zainstalowaniu i zainicjowaniu węzłów sprzętowych usługi Azure FXT Edge dla pamięci podręcznej Użyj oprogramowania klastra FXT, aby utworzyć klaster pamięci podręcznej. 
+Po zainstalowaniu i zainicjowaniu węzłów sprzętowych usługi Azure FXT Edge dla pamięci podręcznej Użyj oprogramowania klastra FXT, aby utworzyć klaster pamięci podręcznej.
 
-Ten samouczek przeprowadzi Cię przez kroki konfigurowania węzłów sprzętu jako klastra. 
+Ten samouczek przeprowadzi Cię przez kroki konfigurowania węzłów sprzętu jako klastra.
 
-Z tego samouczka dowiesz się: 
+Z tego samouczka dowiesz się:
 
 > [!div class="checklist"]
+>
 > * Jakie informacje są potrzebne przed rozpoczęciem tworzenia klastra
 > * Różnica między siecią zarządzania klastra, siecią klastrów i siecią dostępną po stronie klienta
-> * Jak nawiązać połączenie z węzłem klastra 
+> * Jak nawiązać połączenie z węzłem klastra
 > * Jak utworzyć początkowy klaster przy użyciu jednego węzła usługi Azure FXT Edge
 > * Jak zalogować się do panelu sterowania klastra w celu skonfigurowania ustawień klastra
 
@@ -34,14 +35,14 @@ Ta procedura zajmie od 15 do 45 minut, w zależności od tego, ile badań należ
 
 Przed rozpoczęciem tego samouczka wykonaj te wymagania wstępne:
 
-* Instalowanie systemów sprzętowych usługi Azure FXT Edge w centrum danych 
+* Instalowanie systemów sprzętowych usługi Azure FXT Edge w centrum danych
 
-  Potrzebny jest tylko jeden węzeł do utworzenia klastra, ale należy [dodać co najmniej dwa węzły](fxt-add-nodes.md) , aby można było skonfigurować klaster i uzyskać gotowość do użycia. 
+  Potrzebny jest tylko jeden węzeł do utworzenia klastra, ale należy [dodać co najmniej dwa węzły](fxt-add-nodes.md) , aby można było skonfigurować klaster i uzyskać gotowość do użycia.
 
 * Podłączanie odpowiednich kabli zasilacza i sieci do systemu  
 * Włącz co najmniej jeden węzeł usługi Azure FXT Edge i [Ustaw jego hasło główne](fxt-node-password.md)
 
-## <a name="gather-information-for-the-cluster"></a>Zbierz informacje dotyczące klastra 
+## <a name="gather-information-for-the-cluster"></a>Zbierz informacje dotyczące klastra
 
 Aby utworzyć klaster usługi Azure FXT Edge, potrzebne są następujące informacje:
 
@@ -52,18 +53,18 @@ Aby utworzyć klaster usługi Azure FXT Edge, potrzebne są następujące inform
 * Adresy IP:
 
   * Pojedynczy adres IP dla zarządzania klastrami oraz maska sieci i router, które mają być używane przez sieć zarządzania
-  * Pierwsze i ostatnie adresy IP w ciągłym zakresie adresów IP dla komunikacji klastra (węzła do węzła). Aby uzyskać szczegółowe informacje, zobacz temat [dystrybucja adresów IP](#ip-address-distribution)poniżej. 
+  * Pierwsze i ostatnie adresy IP w ciągłym zakresie adresów IP dla komunikacji klastra (węzła do węzła). Aby uzyskać szczegółowe informacje, zobacz temat [dystrybucja adresów IP](#ip-address-distribution)poniżej.
   * (Adresy IP dostępne po stronie klienta są ustawiane po utworzeniu klastra).
 
 * Informacje o infrastrukturze sieci:
 
   * Adres IP serwera DNS dla klastra
   * Nazwa domeny DNS dla klastra
-  * Nazwa lub adres IP serwerów NTP klastra (jeden serwer lub trzy lub więcej) 
+  * Nazwa lub adres IP serwerów NTP klastra (jeden serwer lub trzy lub więcej)
   * Czy chcesz włączyć agregację linków IEEE 802.1 AX-2008 w interfejsach klastra
   * Po włączeniu agregacji łączy, czy ma być używana agregacja dynamiczna IEEE 802.3 AD (LACP)
 
-Te elementy infrastruktury sieciowej można skonfigurować po utworzeniu klastra, ale lepiej jest to zrobić podczas tworzenia. 
+Te elementy infrastruktury sieciowej można skonfigurować po utworzeniu klastra, ale lepiej jest to zrobić podczas tworzenia.
 
 ### <a name="ip-address-distribution"></a>Dystrybucja adresów IP
 
@@ -117,11 +118,11 @@ Użyj polecenia, `ifconfig` Aby wyświetlić adresy przypisane do tego systemu.
 
 Na przykład polecenie `ifconfig | grep -B5 inet` wyszukuje porty z adresami internetowymi i zawiera pięć wierszy kontekstu do wyświetlania identyfikatora portu.
 
-Zapisz dowolny adres IP wyświetlany w raporcie ifconfig. Adresy na liście z nazwami portów, takimi jak e0a lub e0b, są dobrymi opcjami. Nie należy używać żadnych adresów IP wymienionych z nazwami E7 *, ponieważ te nazwy są używane tylko dla portów usługi iDRAC/IPMI.  
+Zapisz dowolny adres IP wyświetlany w raporcie ifconfig. Adresy na liście z nazwami portów, takimi jak e0a lub e0b, są dobrymi opcjami. Nie należy używać żadnych adresów IP wymienionych z nazwami E7 *, ponieważ te nazwy są używane tylko dla portów usługi iDRAC/IPMI.
 
 ## <a name="load-the-cluster-configuration-wizard"></a>Załaduj Kreatora konfiguracji klastra
 
-Utwórz klaster przy użyciu narzędzia do konfiguracji klastra opartego na przeglądarce. 
+Utwórz klaster przy użyciu narzędzia do konfiguracji klastra opartego na przeglądarce.
 
 Wprowadź adres IP dla węzła w przeglądarce sieci Web. Jeśli w przeglądarce zostanie wyświetlony komunikat o niezaufanej lokacji, należy kontynuować pracę z lokacją mimo to. (Poszczególne węzły usługi Azure FXT Edge nie mają certyfikatów zabezpieczeń dostarczonych przez urząd certyfikacji).
 
@@ -133,19 +134,19 @@ Pozostaw puste pola **Nazwa użytkownika** i **hasło** . Kliknij pozycję **Zal
 
 ## <a name="create-the-cluster"></a>Tworzenie klastra
 
-Narzędzie konfiguracji klastra przeprowadzi Cię przez zestaw ekranów, aby utworzyć klaster usługi Azure FXT Edge. Przed rozpoczęciem upewnij się, że masz [wymagane informacje](#gather-information-for-the-cluster) . 
+Narzędzie konfiguracji klastra przeprowadzi Cię przez zestaw ekranów, aby utworzyć klaster usługi Azure FXT Edge. Przed rozpoczęciem upewnij się, że masz [wymagane informacje](#gather-information-for-the-cluster) .
 
 ### <a name="creation-options"></a>Opcje tworzenia
 
 Pierwszy ekran zawiera trzy opcje. Użyj opcji konfiguracji ręcznej, chyba że masz specjalne instrukcje od personelu pomocy technicznej.
 
-Kliknięcie opcji **konfiguruje klaster ręcznie** , aby załadować nowy ekran Opcje konfiguracji klastra. 
+Kliknięcie opcji **konfiguruje klaster ręcznie** , aby załadować nowy ekran Opcje konfiguracji klastra.
 
 Inne opcje są rzadko używane:
 
-* "Aktualizacja obrazu systemu" powoduje wyświetlenie z prośbą o zainstalowanie nowego oprogramowania systemu operacyjnego przed utworzeniem klastra. (Aktualnie zainstalowana wersja oprogramowania znajduje się w górnej części ekranu). Należy podać plik pakietu oprogramowania — adres URL i nazwę użytkownika/hasło albo przez przekazanie pliku z komputera. 
+* "Aktualizacja obrazu systemu" powoduje wyświetlenie z prośbą o zainstalowanie nowego oprogramowania systemu operacyjnego przed utworzeniem klastra. (Aktualnie zainstalowana wersja oprogramowania znajduje się w górnej części ekranu). Należy podać plik pakietu oprogramowania — adres URL i nazwę użytkownika/hasło albo przez przekazanie pliku z komputera.
 
-* Opcja plik instalacji klastra jest czasami używana przez dział obsługi klienta firmy Microsoft. 
+* Opcja plik instalacji klastra jest czasami używana przez dział obsługi klienta firmy Microsoft.
 
 ## <a name="cluster-options"></a>Opcje klastra
 
@@ -157,36 +158,36 @@ Strona jest podzielona na dwie główne sekcje, **konfigurację podstawową** i 
 
 W górnej części Wypełnij podstawowe informacje dotyczące nowego klastra.
 
-![Szczegóły sekcji "Konfiguracja podstawowa" w graficznym interfejsie użytkownika przeglądarki. Pokazuje trzy pola (nazwa klastra, hasło administratora, potwierdzenie hasła)](media/fxt-cluster-create/basic-configuration.png) 
+![Szczegóły sekcji "Konfiguracja podstawowa" w graficznym interfejsie użytkownika przeglądarki. Pokazuje trzy pola (nazwa klastra, hasło administratora, potwierdzenie hasła)](media/fxt-cluster-create/basic-configuration.png)
 
 * **Nazwa klastra** — wprowadź unikatową nazwę klastra.
 
   Nazwa klastra musi spełniać następujące kryteria:
   
   * Długość od 1 do 16 znaków
-  * Może zawierać litery, cyfry oraz znaki kreski (-) i podkreślenia (_) 
+  * Może zawierać litery, cyfry oraz znaki kreski (-) i podkreślenia (_)
   * Nie może zawierać innych znaków interpunkcyjnych ani specjalnych
   
   Tę nazwę można zmienić później na **Cluster**  >  stronie Konfiguracja**ogólnej** konfiguracji klastra. (Aby uzyskać więcej informacji na temat ustawień klastra, Przeczytaj [Przewodnik konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html), który nie jest częścią tego zestawu dokumentacji).
 
-  > [!NOTE] 
+  > [!NOTE]
   > Nazwa klastra służy do identyfikowania informacji o systemie przekazanych do obsługi monitorowania lub rozwiązywania problemów, dlatego warto uwzględnić nazwę firmy.
 
 * **Hasło administratora** — Ustaw hasło dla domyślnego użytkownika administracyjnego `admin` .
   
   Należy skonfigurować indywidualne konta użytkowników dla każdej osoby, która administruje klastrem, ale nie można usunąć użytkownika `admin` . Zaloguj się tak, jakby `admin` trzeba utworzyć dodatkowych użytkowników.
- 
+
   Hasło można zmienić na `admin` **Administration**  >  stronie ustawienia**użytkowników** administracyjnych w panelu sterowania klastra. Aby uzyskać szczegółowe informacje, zapoznaj się z dokumentacją **użytkowników** w [podręczniku konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
 
 <!-- to do: update "legacy" URLs when docs are ported to Microsoft site -->
 
 ### <a name="network-configuration"></a>Konfiguracja sieci
 
-W sekcji **Sieć** zostanie wyświetlony komunikat z prośbą o określenie infrastruktury sieciowej, która będzie używana przez klaster. 
+W sekcji **Sieć** zostanie wyświetlony komunikat z prośbą o określenie infrastruktury sieciowej, która będzie używana przez klaster.
 
 Istnieją dwie oddzielne sieci do skonfigurowania:
 
-* *Sieć zarządzania* zapewnia administratorowi dostęp do klastra w celu konfiguracji i monitorowania. Określony tutaj adres IP jest używany podczas nawiązywania połączenia z panelem sterowania lub dostępem do protokołu SSH. 
+* *Sieć zarządzania* zapewnia administratorowi dostęp do klastra w celu konfiguracji i monitorowania. Określony tutaj adres IP jest używany podczas nawiązywania połączenia z panelem sterowania lub dostępem do protokołu SSH.
 
   W większości klastrów używany jest tylko jeden adres IP zarządzania, ale jeśli chcesz dodać interfejsy, możesz to zrobić po utworzeniu klastra.
 
@@ -216,9 +217,9 @@ Ustawienia w sekcji **Zarządzanie** dotyczą sieci, która zapewnia administrat
 
 * **Jednostka MTU** — w razie potrzeby Dostosuj maksymalną jednostkę transmisji (MTU) dla sieci zarządzania klastrami.
 
-* **Użyj sieci zarządzania (1 GB** ) — zaznacz to pole wyboru, jeśli chcesz przypisać dwa porty sieciowe 1GbE w węzłach FXT tylko do sieci zarządzania. (Wymagane są porty 25GbE/10GbE dla całego ruchu). Jeśli to pole nie jest zaznaczone, Sieć zarządzania korzysta z najwyższego dostępnego portu. 
+* **Użyj sieci zarządzania (1 GB** ) — zaznacz to pole wyboru, jeśli chcesz przypisać dwa porty sieciowe 1GbE w węzłach FXT tylko do sieci zarządzania. (Wymagane są porty 25GbE/10GbE dla całego ruchu). Jeśli to pole nie jest zaznaczone, Sieć zarządzania korzysta z najwyższego dostępnego portu.
 
-### <a name="configure-the-cluster-network"></a>Konfigurowanie sieci klastra 
+### <a name="configure-the-cluster-network"></a>Konfigurowanie sieci klastra
 
 Ustawienia sieci klastra mają zastosowanie do ruchu między węzłami klastra i między węzłami klastra a podstawowymi plikami programu.
 
@@ -230,11 +231,11 @@ Ustawienia sieci klastra mają zastosowanie do ruchu między węzłami klastra i
 
   Wartość w polu **Liczba adresów IP w zakresie** jest obliczana i wyświetlana automatycznie.
 
-* **Maska sieciowa bez zarządzania (opcjonalnie)** — określ maskę sieci klastra. 
+* **Maska sieciowa bez zarządzania (opcjonalnie)** — określ maskę sieci klastra.
 
   System automatycznie sugeruje wartość maski sieci wprowadzoną przez użytkownika do zarządzania; w razie konieczności zmień ją.
 
-* **Router klastra (opcjonalnie)** — Określ domyślny adres bramy używany przez sieć klastra. 
+* **Router klastra (opcjonalnie)** — Określ domyślny adres bramy używany przez sieć klastra.
 
   System automatycznie sugeruje ten sam adres bramy, który został podany dla sieci zarządzania.
 
@@ -242,7 +243,7 @@ Ustawienia sieci klastra mają zastosowanie do ruchu między węzłami klastra i
 
 * **Jednostka MTU bez zarządzania (opcjonalnie)** — w razie potrzeby Dostosuj maksymalną jednostkę transmisji (MTU) dla sieci klastra.
 
-### <a name="configure-cluster-dns-and-ntp"></a>Konfigurowanie klastra DNS i NTP 
+### <a name="configure-cluster-dns-and-ntp"></a>Konfigurowanie klastra DNS i NTP
 
 Poniżej sekcji **klaster** znajdują się pola służące do określania serwerów DNS i NTP oraz do włączania agregacji linków. Te ustawienia mają zastosowanie do wszystkich sieci używanych przez klaster.
 
@@ -250,7 +251,7 @@ Poniżej sekcji **klaster** znajdują się pola służące do określania serwer
 
 * Serwery DNS — wprowadź adres IP co najmniej jednego **serwera** DNS (Domain Name System).
 
-  Usługa DNS jest zalecana dla wszystkich klastrów i jest wymagana, jeśli chcesz użyć protokołu SMB, usługi AD lub protokołu Kerberos. 
+  Usługa DNS jest zalecana dla wszystkich klastrów i jest wymagana, jeśli chcesz użyć protokołu SMB, usługi AD lub protokołu Kerberos.
   
   W celu uzyskania optymalnej wydajności Skonfiguruj serwer DNS klastra do równoważenia obciążenia z działaniem okrężnym, zgodnie z opisem w temacie [Konfigurowanie systemu DNS dla klastra usługi Azure FXT Edge](fxt-configure-network.md#configure-dns-for-load-balancing).
 
@@ -272,13 +273,13 @@ System wyświetla komunikat podczas tworzenia klastra.
 
 ![komunikat o stanie konfiguracji klastra w przeglądarce: "węzeł FXT tworzy teraz klaster. Zajmie to kilka minut. Po utworzeniu klastra przejdź do tego linku, aby zakończyć konfigurację. z hiperłączem "odwiedź ten link"](media/fxt-cluster-create/creating-message.png)
 
-Po kilku chwilach można kliknąć link w wiadomości, aby przejść do panelu sterowania klastra. (Ten link powoduje przejście do adresu IP określonego w temacie Zarządzanie adresem **IP**). Gdy łącze stanie się aktywne po kliknięciu przycisku Utwórz, trwa od 15 sekund do jednej minuty. Jeśli interfejs sieci Web nie zostanie załadowany, poczekaj kilka sekund, a następnie ponownie kliknij link. 
+Po kilku chwilach można kliknąć link w wiadomości, aby przejść do panelu sterowania klastra. (Ten link powoduje przejście do adresu IP określonego w temacie Zarządzanie adresem **IP**). Gdy łącze stanie się aktywne po kliknięciu przycisku Utwórz, trwa od 15 sekund do jednej minuty. Jeśli interfejs sieci Web nie zostanie załadowany, poczekaj kilka sekund, a następnie ponownie kliknij link.
 
-Tworzenie klastra trwa kilka minut, ale możesz zalogować się do panelu sterowania w trakcie procesu. Jest to normalne dla strony pulpitu nawigacyjnego panelu sterowania do wyświetlania ostrzeżeń do momentu zakończenia procesu tworzenia klastra. 
+Tworzenie klastra trwa kilka minut, ale możesz zalogować się do panelu sterowania w trakcie procesu. Jest to normalne dla strony pulpitu nawigacyjnego panelu sterowania do wyświetlania ostrzeżeń do momentu zakończenia procesu tworzenia klastra.
 
-## <a name="open-the-settings-pages"></a>Otwórz strony ustawień 
+## <a name="open-the-settings-pages"></a>Otwórz strony ustawień
 
-Po utworzeniu klastra należy dostosować jego konfigurację do sieci i przepływu pracy. 
+Po utworzeniu klastra należy dostosować jego konfigurację do sieci i przepływu pracy.
 
 Użyj interfejsu sieci Web panelu sterowania, aby skonfigurować nowy klaster. Postępuj zgodnie z linkiem na ekranie stanu tworzenia klastra lub przejdź do adresu IP zarządzania ustawionego w klastrze.
 
@@ -300,9 +301,9 @@ W tym momencie w procesie klaster istnieje, ale ma tylko jeden węzeł, brak adr
 
 ### <a name="required-configuration"></a>Wymagana konfiguracja
 
-Te kroki są wymagane dla większości lub wszystkich klastrów. 
+Te kroki są wymagane dla większości lub wszystkich klastrów.
 
-* Dodawanie węzłów do klastra 
+* Dodawanie węzłów do klastra
 
   Trzy węzły są standardowe, ale wiele klastrów produkcyjnych ma więcej niż maksymalnie 24 węzły.
 
@@ -312,24 +313,24 @@ Te kroki są wymagane dla większości lub wszystkich klastrów.
 
   Dodaj definicje *podstawowych plików* dla każdego systemu magazynu zaplecza, który będzie używany przez klaster. Przeczytaj temat [Dodawanie magazynu zaplecza i skonfiguruj wirtualną przestrzeń nazw,](fxt-add-storage.md#about-back-end-storage) aby dowiedzieć się więcej.
 
-* Konfigurowanie dostępu klienta i wirtualnej przestrzeni nazw 
+* Konfigurowanie dostępu klienta i wirtualnej przestrzeni nazw
 
   Utwórz co najmniej jeden serwer wirtualny (vserver) i przypisz mu zakres adresów IP do użycia przez komputery klienckie. Należy również skonfigurować przestrzeń nazw klastra (czasami nazywaną globalną przestrzenią nazw lub GNS), wirtualną funkcję systemu plików, która umożliwia mapowanie eksportu magazynu zaplecza na ścieżki wirtualne. Przestrzeń nazw klastra zapewnia klientom spójną i dostępną strukturę systemu plików nawet w przypadku przełączenia nośnika magazynu zaplecza. Przestrzeń nazw może również zapewnić przyjazną dla użytkownika hierarchię magazynu wirtualnego dla kontenerów obiektów blob platformy Azure lub innych obsługiwanych magazynów obiektów w chmurze.
 
   Aby uzyskać szczegółowe informacje, przeczytaj temat [Konfigurowanie przestrzeni nazw](fxt-add-storage.md#configure-the-namespace) . Ten krok obejmuje:
   * Tworzenie vservers
-  * Konfigurowanie połączeń między widokiem sieci klienta i magazynem zaplecza 
+  * Konfigurowanie połączeń między widokiem sieci klienta i magazynem zaplecza
   * Definiowanie, które adresy IP klientów są obsługiwane przez poszczególne vserver
 
-  > [!Note] 
+  > [!Note]
   > Przed rozpoczęciem konfigurowania GNS klastra zaleca się istotne planowanie. Zapoznaj się z sekcją [Korzystanie z globalnej przestrzeni nazw](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html) i [Tworzenie i praca z](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers) sekcjami VServers w przewodniku konfigurowania klastra, aby uzyskać pomoc.
 
 * [Dostosuj ustawienia sieci](fxt-configure-network.md)
 
   Istnieje kilka ustawień związanych z siecią, które powinny być zweryfikowane lub dostosowane do nowego klastra. Aby uzyskać szczegółowe informacje na temat tych elementów, przeczytaj artykuł [dostosowanie ustawień sieciowych](fxt-configure-network.md) :
 
-  * Weryfikowanie konfiguracji DNS i NTP 
-  * Konfigurowanie usług katalogowych, w razie konieczności 
+  * Weryfikowanie konfiguracji DNS i NTP
+  * Konfigurowanie usług katalogowych, w razie konieczności
   * Konfigurowanie sieci VLAN
   * Konfigurowanie serwerów proxy
   * Dodawanie adresów IP do sieci klastra
@@ -343,14 +344,14 @@ Te kroki są wymagane dla większości lub wszystkich klastrów.
 
 ### <a name="optional-configuration"></a>Konfiguracja opcjonalna
 
-Te kroki nie są wymagane dla wszystkich klastrów. Są one niezbędne dla niektórych typów przepływów pracy lub niektórych stylów zarządzania klastrami. 
+Te kroki nie są wymagane dla wszystkich klastrów. Są one niezbędne dla niektórych typów przepływów pracy lub niektórych stylów zarządzania klastrami.
 
 * Dostosuj ustawienia węzła
 
   Można ustawić nazwy węzłów i skonfigurować porty IPMI węzła na poziomie całego klastra lub pojedynczo. Jeśli te ustawienia zostaną skonfigurowane przed dodaniem węzłów do klastra, nowe węzły będą mogły automatycznie pobrać ustawienia podczas ich przyłączania. Opcje są opisane w dokumencie Tworzenie starszych klastrów [Dostosowywanie ustawień węzła](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
 
   > [!TIP]
-  > Niektóre dokumenty dotyczące tego produktu nie są jeszcze dostępne w witrynie dokumentacji Microsoft Azure. Linki do [przewodnika po konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) i starszej wersji [podręcznika tworzenia klastra](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) przeprowadzą Cię do oddzielnej witryny sieci Web hostowanej w usłudze GitHub. 
+  > Niektóre dokumenty dotyczące tego produktu nie są jeszcze dostępne w witrynie dokumentacji Microsoft Azure. Linki do [przewodnika po konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) i starszej wersji [podręcznika tworzenia klastra](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) przeprowadzą Cię do oddzielnej witryny sieci Web hostowanej w usłudze GitHub.
 
 * Konfigurowanie protokołu SMB
 
@@ -364,14 +365,13 @@ Te kroki nie są wymagane dla wszystkich klastrów. Są one niezbędne dla niekt
 
   Jeśli chcesz używać magazynu w chmurze innego niż Azure Blob, musisz zainstalować dodatkową licencję funkcji. Skontaktuj się z przedstawicielem firmy Microsoft, aby uzyskać szczegółowe informacje o zakupie licencji FlashCloud<sup>TM</sup> . Szczegółowe informacje znajdują się w temacie [Dodawanie magazynu zaplecza i konfigurowanie wirtualnej przestrzeni nazw](fxt-add-storage.md#about-back-end-storage).
 
-
 ### <a name="enable-support"></a>Włącz obsługę
 
 Klaster plików usługi Azure FXT Edge może automatycznie przekazywać dane dotyczące obsługi klastra. Te operacje przekazywania umożliwiają personelowi dostarczenie najlepszej możliwej usługi klienta.
 
 Wykonaj następujące kroki, aby skonfigurować obsługę przekazywania.
 
-1. Przejdź do **Cluster**  >  strony ustawienia**obsługi** klastra. Zaakceptuj zasady ochrony prywatności. 
+1. Przejdź do **Cluster**  >  strony ustawienia**obsługi** klastra. Zaakceptuj zasady ochrony prywatności.
 
    ![Zrzut ekranu przedstawiający panel sterowania i wyskakujące okienko z przyciskiem Potwierdź, aby zaakceptować zasady ochrony prywatności](media/fxt-cluster-create/fxt-privacy-policy.png)
 
@@ -391,7 +391,7 @@ Wykonaj następujące kroki, aby skonfigurować obsługę przekazywania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po utworzeniu klastra podstawowego i zaakceptowaniu zasad ochrony prywatności należy dodać pozostałe węzły klastra. 
+Po utworzeniu klastra podstawowego i zaakceptowaniu zasad ochrony prywatności należy dodać pozostałe węzły klastra.
 
 > [!div class="nextstepaction"]
 > [Dodawanie węzłów klastra](fxt-add-nodes.md)

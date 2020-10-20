@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509689"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220860"
 ---
 # <a name="view-system-test-results"></a>Wyświetlanie wyników testu systemu
 
@@ -70,12 +70,12 @@ Aby zażądać wdrożenia:
 
 2. W przypadku modelu, który został pomyślnie przeszkolony, wyświetla przycisk "wdróż", jeśli nie został wdrożony.
 
-    ![Wdróż model](media/how-to/how-to-deploy-model.png)
+    ![Zrzut ekranu, który wyróżnia przycisk Wdróż na potrzeby wdrażania modelu.](media/how-to/how-to-deploy-model.png)
 
 3.  Kliknij pozycję Wdróż.
 4.  Wybierz pozycję **wdrożone** dla regionów, w których ma zostać wdrożony model, a następnie kliknij przycisk Zapisz. Można wybrać **wdrożenie** dla wielu regionów.
 
-    ![Wdróż model](media/how-to/how-to-deploy-model-regions.png)
+    ![Zrzut ekranu pokazujący, gdzie można wdrożyć lub cofnąć wdrożenie modelu.](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Stan modelu można wyświetlić w kolumnie Stan.
 
@@ -90,7 +90,7 @@ Aby zaktualizować ustawienia wdrożenia:
 
 2. W przypadku pomyślnie wdrożonego modelu zostanie wyświetlony przycisk **Aktualizuj** .
 
-    ![Wdróż model](media/how-to/how-to-update-undeploy-model.png)
+    ![Zrzut ekranu, który wyróżnia przycisk Aktualizuj na potrzeby aktualizowania ustawień wdrożenia.](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Wybierz pozycję **Aktualizuj**.
 4.  Wybierz opcję **wdrożone** lub **Niewdrożone** w regionach, w których model ma zostać wdrożony lub rozmieszczony, a następnie kliknij przycisk **Zapisz**.

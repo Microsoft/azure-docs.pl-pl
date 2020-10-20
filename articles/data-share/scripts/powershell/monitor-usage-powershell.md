@@ -1,20 +1,17 @@
 ---
-title: 'Skrypt programu PowerShell: monitorowanie użycia udziału danych platformy Azure | Microsoft Docs'
+title: 'Skrypt programu PowerShell: monitorowanie użycia udziału danych platformy Azure'
 description: Ten skrypt programu PowerShell pobiera metryki użycia wysłanego udziału danych.
-services: data-share
 author: joannapea
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 0a4084d309dd0160970f1c03540705b310eb8e75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9ff7a29cba9b8e9ca058bfe742f484c5b495cd7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307204"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221319"
 ---
 # <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Monitorowanie użycia wysłanego udziału danych przy użyciu programu PowerShell
 
@@ -44,12 +41,12 @@ W tym skrypcie użyto następujących poleceń:
 
 | Polecenie | Uwagi |
 |---|---|
-| [Get-AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronization?view=azps-2.6.0) | Wyświetl listę synchronizacji w udziale. |
-| [Get-AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail?view=azps-2.6.0) | Pobiera szczegóły synchronizacji synchronizacji udziału. |
+| [Get-AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronization) | Wyświetl listę synchronizacji w udziale. |
+| [Get-AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail) | Pobiera szczegóły synchronizacji synchronizacji udziału. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
+Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/).
 
 Dodatkowe przykłady skryptów programu PowerShell dotyczące udziałów danych platformy Azure można znaleźć w [przykładach programu PowerShell w udziale danych platformy Azure](../../samples-powershell.md).

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 23e443a542ed22906abb237e402834b707e623a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852036"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214910"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Uwagi dla deweloperów dotyczące zasad niestandardowych w Azure Active Directory B2C
 
@@ -66,7 +66,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 | Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Kod autoryzacji OAuth2](authorization-code-flow.md) |  |  | X |  |
-| OAuth2 kod autoryzacji z PKCE |  |  | X | Tylko aplikacje mobilne  |
+| OAuth2 kod autoryzacji z PKCE |  |  | X | [Klienci publiczni i aplikacje jednostronicowe](authorization-code-flow.md)  |
 | [Niejawny przepływ OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
 | [Poświadczenia hasła właściciela zasobu OAuth2](ropc-custom.md) |  | X |  |  |
 | [OIDC połączenie](openid-connect.md) |  |  | X |  |
@@ -138,7 +138,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 | [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
 | [Wylogowanie jednokrotne](session-overview.md#sign-out)  |  | X |  |  |
 
-### <a name="security"></a>Zabezpieczenia
+### <a name="security"></a>Bezpieczeństwo
 
 | Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
