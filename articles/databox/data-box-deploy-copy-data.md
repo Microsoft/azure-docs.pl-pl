@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 4dbae9d08a4adf250c9317b392d80f8e04c53d56
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766314"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951013"
 ---
 ::: zone target="docs"
 
@@ -116,14 +116,14 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Po nawiązaniu połączenia z udziałami urządzenia Data Box następnym krokiem jest skopiowanie danych. Przed rozpoczęciem kopiowania danych należy uwzględnić następujące kwestie:
 
 * Upewnij się, że dane są kopiowane do udziałów odpowiadających właściwym formatom danych. To znaczy na przykład, że dane blokowych obiektów blob są kopiowane do udziału dla blokowych obiektów blob. Skopiuj wirtualne dyski twarde do stronicowego obiektu blob. Jeśli format danych nie pasuje do odpowiedniego typu udziału, na późniejszym etapie przekazywanie danych na platformę Azure zakończy się niepowodzeniem.
+* Zawsze należy utworzyć w udziale folder na pliki, które chcesz skopiować, a następnie skopiować pliki do tego folderu. Folder utworzony w ramach udziałów blokowych obiektów blob i stronicowych obiektów blob reprezentuje kontener, do którego dane są przekazywane w postaci obiektów blob. Plików nie można kopiować bezpośrednio do folderu *głównego* na koncie magazynu.
 * Podczas kopiowania danych upewnij się, że rozmiar danych jest zgodny z ograniczeniami rozmiaru opisanymi w temacie [Limity rozmiaru konta magazynu na platformie Azure](data-box-limits.md#azure-storage-account-size-limits).
-* Jeśli dane przekazywane przy użyciu urządzenia Data Box będą jednocześnie przekazywane przez inne aplikacje, poza urządzeniem Data Box, skutkiem może być niepowodzenie zadania przekazywania oraz uszkodzenie danych.
+* Jeśli chcesz zachować metadane (listy ACL, znaczniki czasu i atrybuty plików) podczas transferowania danych do usługi Azure Files, postępuj zgodnie ze wskazówkami w artykule [Zachowywanie list ACL, atrybutów i znaczników czasu za pomocą rozwiązania Azure Data Box](data-box-file-acls-preservation.md)  
+* Jeśli dane przekazywane przy użyciu urządzenia Data Box będą w tym samym czasie przekazywane przez inne aplikacje, poza urządzeniem Data Box, skutkiem może być niepowodzenie zadania przekazywania oraz uszkodzenie danych.
 * Zalecenia:
   * Nie używaj protokołów SMB i NFS w tym samym czasie.
   * Kopiuj te same dane do tego samego miejsca docelowego na platformie Azure.
-
   W takich przypadkach nie można określić ostatecznego wyniku.
-* Zawsze należy utworzyć w udziale folder na pliki, które chcesz skopiować, a następnie skopiować pliki do tego folderu. Folder utworzony w ramach udziałów blokowych obiektów blob i stronicowych obiektów blob reprezentuje kontener, do którego dane są przekazywane w postaci obiektów blob. Plików nie można kopiować bezpośrednio do folderu *głównego* na koncie magazynu.
 
 > [!IMPORTANT]
 > Pamiętaj, aby zachować kopię danych źródłowych do czasu potwierdzenia, że usługa Data Box przeniosła Twoje dane do usługi Azure Storage.

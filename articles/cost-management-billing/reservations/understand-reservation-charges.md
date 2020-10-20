@@ -6,18 +6,18 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 10/13/2020
 ms.author: banders
-ms.openlocfilehash: 1df60eedfb776164be7e78f2994027b8d111828b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 054641d8136d121e611182c8d8b104aefcbc6481
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681961"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057879"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>W jaki sposób rabat na rezerwacje jest stosowany do usługi Azure SQL Database
 
-Po zakupie pojemności zarezerwowanej usługi Azure SQL Database rabat na rezerwację jest automatycznie stosowany do baz danych SQL Database pasujących do atrybutów i ilości rezerwacji. Rezerwacja obejmuje koszty zasobów obliczeniowych bazy danych SQL Database. Opłata jest naliczana za oprogramowanie, magazyn i sieć według normalnych stawek. Koszty licencjonowania usługi SQL Database można pokryć w ramach [Korzyści użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Po zakupie pojemności zarezerwowanej usługi Azure SQL Database rabat na rezerwację jest automatycznie stosowany do baz danych SQL Database pasujących do atrybutów i ilości rezerwacji. Rezerwacja ma zastosowanie do kosztów obliczeniowych usługi SQL Database, w tym do repliki podstawowej i każdej płatnej repliki pomocniczej. Opłata jest naliczana za oprogramowanie, magazyn i sieć według normalnych stawek. Koszty licencjonowania usługi SQL Database można pokryć w ramach [Korzyści użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Należy pamiętać, że rabaty rezerwacji nie mają zastosowania do bezserwerowej usługi Azure SQL Database.
 
@@ -31,7 +31,7 @@ Po wyłączeniu zasobu rabat za rezerwację automatycznie stosuje się do innego
 
 ## <a name="discount-applied-to-running-sql-databases"></a>Rabat dotyczący uruchomionych baz danych SQL Database
 
- Rabat na pojemność zarezerwowaną usługi SQL Database jest stosowany względem działających baz danych SQL Database z rozliczeniem godzinowym. Kupowana rezerwacja jest dopasowywana do użycia zasobów obliczeniowych emitowanych przez działające bazy danych SQL Database. W przypadku baz danych SQL Database, które nie działają przez pełną godzinę, rezerwacja jest automatycznie stosowana do innych baz danych SQL Database pasujących do atrybutów rezerwacji. Rabat może być stosowany względem baz danych SQL Database, które działają równolegle. Jeśli nie masz baz danych SQL Database, które działają przez pełną godzinę i pasują do atrybutów rezerwacji, nie wykorzystasz w pełni korzyści z rabatu na rezerwację w tej godzinie.
+Rabat na pojemność zarezerwowaną usługi SQL Database jest stosowany względem działających baz danych SQL Database z rozliczeniem godzinowym. Kupowana rezerwacja jest dopasowywana do użycia zasobów obliczeniowych emitowanych przez działające bazy danych SQL Database. W przypadku baz danych SQL Database, które nie działają przez pełną godzinę, rezerwacja jest automatycznie stosowana do innych baz danych SQL Database pasujących do atrybutów rezerwacji. Rabat może być stosowany względem baz danych SQL Database, które działają równolegle. Jeśli nie masz baz danych SQL Database, które działają przez pełną godzinę i pasują do atrybutów rezerwacji, nie wykorzystasz w pełni korzyści z rabatu na rezerwację w tej godzinie.
 
 W poniższych przykładach pokazano, w jaki sposób rabat na pojemność zarezerwowaną usługi SQL Database jest stosowany w zależności od liczby zakupionych rdzeni oraz czasu ich działania.
 
@@ -42,6 +42,7 @@ Na potrzeby pozostałych przykładów przyjęto założenie, że zakupiona pojem
 - Scenariusz 2. Uruchomiono dwie 8-rdzeniowe bazy danych SQL Database na jedną godzinę. Rabat na rezerwację 16 rdzeni jest stosowany do użycia zasobów obliczeniowych dla obu 8-rdzeniowych baz danych SQL Database.
 - Scenariusz 3. Uruchomiono jedną 16-rdzeniową bazę danych SQL Database od godziny 13:00 do 13:30. Uruchomiono kolejną 16-rdzeniową bazę danych SQL Database od godziny 13:30 do 14:00. Obie te bazy danych są objęte rabatem na rezerwację.
 - Scenariusz 4. Uruchomiono jedną 16-rdzeniową bazę danych SQL Database od godziny 13:00 do 13:45. Uruchomiono kolejną 16-rdzeniową bazę danych SQL Database od godziny 13:30 do 14:00. Za 15-minutowy okres jednoczesnego działania obu baz danych jest naliczana opłata według stawek płatności zgodnie z rzeczywistym użyciem. Na użycie zasobów obliczeniowych przez resztę czasu jest stosowany rabat na rezerwację.
+- Scenariusz 5. Uruchamiasz jedną 4-rdzeniową bazę danych SQL w hiperskali z trzema 4-rdzeniowymi replikami pomocniczymi. Rezerwacja dotyczy użycia obliczeniowego dla repliki podstawowej i dla wszystkich replik pomocniczych.
 
 Aby poznać zastosowanie swoich rezerwacji platformy Azure w raportach rozliczeń użycia i przejrzeć je, zobacz [Omówienie użycia rezerwacji platformy Azure](understand-reserved-instance-usage-ea.md).
 

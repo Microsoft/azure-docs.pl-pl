@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372259"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827573"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Wprowadzenie do usługi Azure Cost Management dla partnerów
 
@@ -151,9 +151,11 @@ Aby wyświetlić koszty dla subskrypcji, otwórz panel **Zarządzanie kosztami i
 
 Analiza kosztów, budżety i alerty są dostępne dla zakresów subskrypcji i zakresów RBAC platformy Azure grup zasobów z kosztami bazującymi na płatności zgodnie z rzeczywistym użyciem.
 
-Widoki amortyzowane i rzeczywiste koszty dla wystąpień zarezerwowanych w zakresach RBAC platformy Azure pokazują zero opłat. Koszty wystąpień zarezerwowanych są wyświetlane tylko w zakresach rozliczeniowych, w których dokonano zakupów.
+Widoki amortyzowane i rzeczywiste koszty dla wystąpień zarezerwowanych w zakresach RBAC platformy Azure pokazują zero opłat. Koszty zakupu dla uprawnień, takich jak wystąpienia zarezerwowane i opłaty w witrynie Marketplace, są wyświetlane tylko w zakresach rozliczeń w dzierżawie partnera, w których dokonano zakupów.
 
 Stawki detaliczne używane do obliczania kosztów pokazanych w widoku to te same ceny, które są widoczne w kalkulatorze cen platformy Azure dla wszystkich klientów. Pokazane koszty nie obejmują żadnych rabatów ani środków, które mogą być w posiadaniu partnera, takich jak środki uzyskane przez partnerów, rabaty dotyczące warstw i zniżki na usługi globalne.
+
+ 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analizowanie kosztów w obrębie analizy kosztów
 

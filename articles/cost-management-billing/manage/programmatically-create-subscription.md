@@ -1,29 +1,36 @@
 ---
-title: Programowe tworzenie subskrypcji platformy Azure
-description: Dowiedz się, jak programowo tworzyć dodatkowe subskrypcje platformy Azure.
+title: Programowe tworzenie subskrypcji platformy Azure za pomocą najnowszych interfejsów API
+description: Dowiedz się, jak programowo tworzyć subskrypcje platformy Azure przy użyciu najnowszych wersji interfejsu API REST, interfejsu wiersza polecenia platformy Azure i usługi Azure PowerShell.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/26/2020
+ms.topic: how-to
+ms.date: 10/12/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 62989c21333e53fcb58b4b637802c8b697ae970e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 28397d36a611f26544fefb9f4fa7593a0fdf3f73
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371443"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014532"
 ---
-# <a name="programmatically-create-azure-subscriptions-preview"></a>Programowe tworzenie subskrypcji platformy Azure (wersja zapoznawcza)
+# <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>Programowe tworzenie subskrypcji platformy Azure za pomocą najnowszych interfejsów API
 
-Klienci platformy Azure z kontem rozliczeniowym umowy [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [umowy klienta firmy Microsoft (MCA)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) lub [umowy partnerskiej firmy Microsoft (MPA)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) mogą tworzyć subskrypcje programowo. W tym artykule dowiesz się, jak programowo tworzyć subskrypcje za pomocą usługi Azure Resource Manager.
+Ten artykuł ułatwia programowe tworzenie subskrypcji platformy Azure przy użyciu najnowszych wersji interfejsu API. Jeśli nadal używasz starszej wersji zapoznawczej, zobacz [Programowe tworzenie subskrypcji platformy Azure za pomocą interfejsów API w wersji zapoznawczej](programmatically-create-subscription-preview.md). 
+
+Programowe tworzenie subskrypcji jest dostępne dla klientów platformy Azure z kontem rozliczeniowym dla następujących typów umów:
+
+- [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
+- [Umowa klienta firmy Microsoft (MCA)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
+- [Umowa partnerska firmy Microsoft](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement)
+
+W tym artykule dowiesz się, jak programowo tworzyć subskrypcje za pomocą usługi Azure Resource Manager.
 
 Subskrypcja platformy Azure utworzona programowo podlega warunkom umowy, w ramach której nabyto usługi platformy Azure od firmy Microsoft lub autoryzowanego odsprzedawcy. Aby dowiedzieć się więcej, zobacz [informacje prawne dotyczące platformy Microsoft Azure](https://azure.microsoft.com/support/legal/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 
 ## <a name="create-subscriptions-for-an-ea-billing-account"></a>Tworzenie subskrypcji dla konta rozliczeniowego umowy EA
 
@@ -34,8 +41,7 @@ W poniższych sekcjach przedstawiono informacje pomocne w tworzeniu subskrypcji 
 Aby utworzyć subskrypcję, musisz mieć rolę właściciela na koncie rejestracji. Istnieją dwa sposoby, aby uzyskać tę rolę:
 
 * Administrator przedsiębiorstwa Twojej rejestracji może [przyznać Ci rolę właściciela konta](https://ea.azure.com/helpdocs/addNewAccount) (wymagane jest zalogowanie się), dzięki czemu zostaniesz właścicielem konta rejestracji.
-
-* Aktualny właściciel konta rejestracji może [przyznać Ci dostęp](grant-access-to-create-subscription.md). Analogicznie, jeśli chcesz utworzyć subskrypcję umowy EA za pomocą jednostki usługi, musisz [przyznać jednostce usługi możliwość tworzenia subskrypcji](grant-access-to-create-subscription.md).
+* Aktualny właściciel konta rejestracji może [przyznać Ci dostęp](grant-access-to-create-subscription.md). Analogicznie, aby utworzyć subskrypcję umowy EA za pomocą jednostki usługi, musisz [przyznać jednostce usługi możliwość tworzenia subskrypcji](grant-access-to-create-subscription.md).
 
 ### <a name="find-accounts-you-have-access-to"></a>Odnajdowanie kont, do których masz dostęp
 
@@ -43,12 +49,12 @@ Po dodaniu Cię do konta rejestracji skojarzonego z właścicielem konta platfor
 
 Aby uruchomić poniższe polecenia, zaloguj się w *katalogu macierzystym* właściciela konta, czyli katalogu, w którym domyślnie tworzone są subskrypcje.
 
-### <a name="rest"></a>[REST](#tab/rest)
+### <a name="rest"></a>[REST](#tab/rest-getEnrollments)
 
 Wykonaj żądanie wyświetlenia listy wszystkich kont rejestracji, do których masz dostęp:
 
 ```json
-GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
+GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?api-version=2020-05-01
 ```
 
 Odpowiedź interfejsu API będzie zawierała listę wszystkich kont rejestracji, do których masz dostęp:
@@ -57,177 +63,199 @@ Odpowiedź interfejsu API będzie zawierała listę wszystkich kont rejestracji,
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
+      "id": "/providers/Microsoft.Billing/billingAccounts/1234567",
+      "name": "1234567",
       "properties": {
-        "principalName": "SignUpEngineering@contoso.com"
-      }
-    },
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "BillingPlatformTeam@contoso.com"
-      }
+        "accountStatus": "Unknown",
+        "accountType": "Enterprise",
+        "agreementType": "EnterpriseAgreement",
+        "soldTo": {
+          "companyName": "Contoso",
+          "country": "US "
+        },
+        "billingProfiles": {
+          "hasMoreResults": false
+        },
+        "displayName": "Contoso",
+        "enrollmentAccounts": [
+          {
+            "id": "/providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/7654321",
+            "name": "7654321",
+            "type": "Microsoft.Billing/enrollmentAccounts",
+            "properties": {
+              "accountName": "Contoso",
+              "accountOwnerEmail": "kenny@contoso.onmicrosoft.com",
+              "costCenter": "Test",
+              "isDevTest": false
+            }
+          }
+        ],
+        "hasReadAccess": false
+      },
+      "type": "Microsoft.Billing/billingAccounts"
     }
   ]
 }
+
 ```
 
-Użyj właściwości `principalName`, aby określić konto, w ramach którego będą rozliczane subskrypcje. Skopiuj właściwość `name` tego konta. Jeśli na przykład chcesz utworzyć subskrypcje w ramach konta rejestracji SignUpEngineering@contoso.com, skopiuj wartość ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Jest to identyfikator obiektu konta rejestracji. Wklej tę wartość w dogodnym miejscu, aby można było użyć jej w następnym kroku jako właściwości `enrollmentAccountObjectId`.
+Zanotuj wartość `id` z jednej z właściwości `enrollmentAccounts`. Jest to zakres rozliczeniowy, w ramach którego jest inicjowane żądanie utworzenia subskrypcji. 
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+<!-- 
+### [PowerShell](#tab/azure-powershell-getEnrollments)
 
-Otwórz usługę [Azure Cloud Shell](https://shell.azure.com/) i wybierz program PowerShell.
+we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
 
-Użyj polecenia cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount), aby wyświetlić wszystkie konta rejestracji, do których masz dostęp.
+-->
 
-```azurepowershell-interactive
-Get-AzEnrollmentAccount
-```
 
-Platforma Azure w odpowiedzi zwróci listę kont rejestracji, do których masz dostęp:
+<!--
+### [Azure CLI](#tab/azure-cli-getEnrollments)
 
-```azurepowershell
-ObjectId                               | PrincipalName
-747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
-4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
-```
-Użyj właściwości `principalName`, aby określić konto, w ramach którego będą rozliczane subskrypcje. Skopiuj właściwość `ObjectId` tego konta. Jeśli na przykład chcesz utworzyć subskrypcje w ramach konta rejestracji SignUpEngineering@contoso.com, skopiuj wartość ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Wklej ten identyfikator obiektu w dogodnym miejscu, aby można było użyć go w następnym kroku jako właściwości `enrollmentAccountObjectId`.
-
-### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-Użyj polecenia [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI), aby wyświetlić wszystkie konta rejestracji, do których masz dostęp.
-
-```azurecli-interactive
-az billing enrollment-account list
-```
-
-Platforma Azure w odpowiedzi zwróci listę kont rejestracji, do których masz dostęp:
-
-```json
-[
-  {
-    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "principalName": "SignUpEngineering@contoso.com",
-    "type": "Microsoft.Billing/enrollmentAccounts",
-  },
-  {
-    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "principalName": "BillingPlatformTeam@contoso.com",
-    "type": "Microsoft.Billing/enrollmentAccounts",
-  }
-]
-```
-
-Użyj właściwości `principalName`, aby określić konto, w ramach którego będą rozliczane subskrypcje. Skopiuj właściwość `name` tego konta. Jeśli na przykład chcesz utworzyć subskrypcje w ramach konta rejestracji SignUpEngineering@contoso.com, skopiuj wartość ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Jest to identyfikator obiektu konta rejestracji. Wklej tę wartość w dogodnym miejscu, aby można było użyć jej w następnym kroku jako właściwości `enrollmentAccountObjectId`.
+we're still working on enabling CLI SDK for billing APIs. Check back soon.
+-->
 
 ---
 
 ### <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Tworzenie subskrypcji w ramach konkretnego konta rejestracji
 
-W poniższym przykładzie na koncie rejestracji wybranym w poprzednim kroku zostanie utworzona subskrypcja o nazwie *Dev Team Subscription*. Oferta subskrypcji to *MS-AZR-0017P* (zwykła umowa Microsoft Enterprise Agreement). Umożliwia ona opcjonalne dodanie dwóch użytkowników jako właścicieli RBAC platformy Azure w subskrypcji.
+W poniższym przykładzie na koncie rejestracji wybranym w poprzednim kroku zostanie utworzona subskrypcja o nazwie *Dev Team Subscription*. 
 
-### <a name="rest"></a>[REST](#tab/rest)
+### <a name="rest"></a>[REST](#tab/rest-EA)
 
-Wykonaj następujące żądanie, zastępując wartość `<enrollmentAccountObjectId>` wartością `name` skopiowaną z pierwszego kroku (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Jeśli chcesz określić właścicieli, zobacz [jak pobrać identyfikatory obiektu użytkowników](grant-access-to-create-subscription.md#userObjectId).
+Wywołaj interfejs API PUT, aby utworzyć żądanie utworzenia subskrypcji/alias.
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01 
+```
 
+W treści żądania podaj jako element `billingScope` wartość `id` z jednego z elementów `enrollmentAccounts`.
+
+```json 
 {
-  "displayName": "Dev Team Subscription",
-  "offerType": "MS-AZR-0017P",
-  "owners": [
-    {
-      "objectId": "<userObjectId>"
-    },
-    {
-      "objectId": "<servicePrincipalObjectId>"
-    }
-  ]
+  "properties": {
+        "billingScope": "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321",
+        "DisplayName": "Dev Team Subscription", //Subscription Display Name
+        "Workload": "Production"
+  }
 }
 ```
 
-| Nazwa elementu  | Wymagany | Typ   | Opis                                                                                               |
-|---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Nie      | Ciąg | Wyświetlana nazwa subskrypcji. Jeśli jej nie określono, będzie nią nazwa oferty, na przykład „Microsoft Azure Enterprise”.                                 |
-| `offerType`   | Tak      | Ciąg | Oferta subskrypcji. Dwie opcje dla umów EA to [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (w środowisku produkcyjnym) i [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (w środowisku deweloperskim/testowym; wymaga [włączenia w portalu EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `owners`      | Nie       | Ciąg | Identyfikator obiektu dowolnego użytkownika, którego chcesz dodać jako właściciela RBAC platformy Azure subskrypcji po jej utworzeniu.  |
+#### <a name="response"></a>Reakcja
 
-W nagłówku `Location` odpowiedzi otrzymasz adres url, którego możesz użyć, aby wykonać zapytanie dotyczące stanu operacji tworzenia subskrypcji. Po zakończeniu tworzenia subskrypcji żądanie GET dla adresu url `Location` zwróci obiekt `subscriptionLink` z identyfikatorem subskrypcji. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API subskrypcji](/rest/api/subscription/).
+```json
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "type": "Microsoft.Subscription/aliases",
+  "properties": {
+    "subscriptionId": "b5bab918-e8a9-4c34-a2e2-ebc1b75b9d74",
+    "provisioningState": "Accepted"
+  }
+}
+```
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+Aby uzyskać stan żądania, możesz wykonać instrukcję GET dla tego samego adresu URL.
 
-Aby zainstalować najnowszą wersję modułu zawierającego polecenie cmdlet `New-AzSubscription`, uruchom polecenie `Install-Module Az.Subscription`. Aby zainstalować najnowszą wersję modułu PowerShellGet, zobacz [Uzyskiwanie modułu PowerShellGet](/powershell/scripting/gallery/installing-psget).
+### <a name="request"></a>Żądanie
 
-Uruchom następujące polecenie [New-AzSubscription](/powershell/module/az.subscription), zastępując wartość `<enrollmentAccountObjectId>` wartością `ObjectId` uzyskaną w pierwszym kroku (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Jeśli chcesz określić właścicieli, zobacz [jak pobrać identyfikatory obiektu użytkowników](grant-access-to-create-subscription.md#userObjectId).
+```json
+GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
+```
+
+### <a name="response"></a>Reakcja
+
+```json
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "type": "Microsoft.Subscription/aliases",
+  "properties": {
+    "subscriptionId": "b5bab918-e8a9-4c34-a2e2-ebc1b75b9d74",
+    "provisioningState": "Succeeded"
+  }
+}
+```
+
+Stan w toku jest zwracany jako stan `Accepted` w elemencie `provisioningState`.
+
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell-EA)
+
+Aby zainstalować najnowszą wersję modułu zawierającego polecenie cmdlet `New-AzSubscriptionAlias`, uruchom polecenie `Install-Module Az.Subscription`. Aby zainstalować najnowszą wersję modułu PowerShellGet, zobacz [Uzyskiwanie modułu PowerShellGet](/powershell/scripting/gallery/installing-psget).
+
+Uruchom następujące polecenie [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias), używając zakresu rozliczeniowego `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`. 
 
 ```azurepowershell-interactive
-New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
+New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" -Workload 'Production"
 ```
 
-| Nazwa elementu  | Wymagany | Typ   | Opis                                                                                               |
-|---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `Name` | Nie      | Ciąg | Wyświetlana nazwa subskrypcji. Jeśli jej nie określono, będzie nią nazwa oferty, na przykład „Microsoft Azure Enterprise”.                                 |
-| `OfferType`   | Tak      | Ciąg | Oferta subskrypcji. Dwie opcje dla umów EA to [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (w środowisku produkcyjnym) i [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (w środowisku deweloperskim/testowym; wymaga [włączenia w portalu EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Tak       | Ciąg | Identyfikator obiektu konta rejestracji, w ramach którego tworzona i rozliczana jest subskrypcja. Ta wartość to identyfikator GUID otrzymany w odpowiedzi na polecenie `Get-AzEnrollmentAccount`. |
-| `OwnerObjectId`      | Nie       | Ciąg | Identyfikator obiektu dowolnego użytkownika, którego chcesz dodać jako właściciela RBAC platformy Azure subskrypcji po jej utworzeniu.  |
-| `OwnerSignInName`    | Nie       | Ciąg | Adres e-mail dowolnego użytkownika, którego chcesz dodać jako właściciela RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `OwnerObjectId`.|
-| `OwnerApplicationId` | Nie       | Ciąg | Identyfikator aplikacji dowolnej jednostki usługi, którą chcesz dodać jako właściciela RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `OwnerObjectId`. Jeśli chcesz użyć tego parametru, jednostka usługi musi mieć [dostęp do odczytu tego katalogu](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+W ramach odpowiedzi z polecenia otrzymasz wartość identyfikatora subscriptionId.
 
-Aby wyświetlić pełną listę parametrów, zobacz [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
+```azurepowershell
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "type": "Microsoft.Subscription/aliases",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+  }
+}
+```
 
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli-EA)
 
-### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+Najpierw zainstaluj to rozszerzenie, uruchamiając polecenia `az extension add --name account` i `az extension add --name alias`.
 
-Najpierw zainstaluj to rozszerzenie w wersji zapoznawczej, uruchamiając polecenie `az extension add --name subscription`.
-
-Uruchom następujące polecenie [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create), zastępując wartość `<enrollmentAccountObjectId>` wartością `name` skopiowaną w pierwszym kroku (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Jeśli chcesz określić właścicieli, zobacz [jak pobrać identyfikatory obiektu użytkowników](grant-access-to-create-subscription.md#userObjectId).
+Uruchom następujące polecenie [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true) i dołącz wartości elementów `billing-scope` oraz `id` z jednego z elementów `enrollmentAccounts`. 
 
 ```azurecli-interactive
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/654321" --display-name "Dev Team Subscription" --workload "Production"
 ```
 
-| Nazwa elementu  | Wymagany | Typ   | Opis                                                                                               |
-|---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `display-name` | Nie      | Ciąg | Wyświetlana nazwa subskrypcji. Jeśli jej nie określono, będzie nią nazwa oferty, na przykład „Microsoft Azure Enterprise”.                                 |
-| `offer-type`   | Tak      | Ciąg | Oferta subskrypcji. Dwie opcje dla umów EA to [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (w środowisku produkcyjnym) i [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (w środowisku deweloperskim/testowym; wymaga [włączenia w portalu EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `enrollment-account-object-id`      | Tak       | Ciąg | Identyfikator obiektu konta rejestracji, w ramach którego tworzona i rozliczana jest subskrypcja. Ta wartość to identyfikator GUID otrzymany w odpowiedzi na polecenie `az billing enrollment-account list`. |
-| `owner-object-id`      | Nie       | Ciąg | Identyfikator obiektu dowolnego użytkownika, którego chcesz dodać jako właściciela RBAC platformy Azure subskrypcji po jej utworzeniu.  |
-| `owner-upn`    | Nie       | Ciąg | Adres e-mail dowolnego użytkownika, którego chcesz dodać jako właściciela RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `owner-object-id`.|
-| `owner-spn` | Nie       | Ciąg | Identyfikator aplikacji dowolnej jednostki usługi, którą chcesz dodać jako właściciela RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `owner-object-id`. Jeśli chcesz użyć tego parametru, jednostka usługi musi mieć [dostęp do odczytu tego katalogu](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+W ramach odpowiedzi z polecenia otrzymasz wartość identyfikatora subscriptionId.
 
-Aby wyświetlić pełną listę parametrów, zobacz [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
+```azurecli
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+  },
+  "type": "Microsoft.Subscription/aliases"
+}
+```
 
 ---
 
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Ograniczenia interfejsu API tworzenia subskrypcji Enterprise platformy Azure
 
 - Przy użyciu tego interfejsu API można tworzyć tylko subskrypcje Enterprise platformy Azure.
-- Obowiązuje limit 2000 subskrypcji na jedno konto rejestracji. Po przekroczeniu tego limitu kolejne subskrypcje dla tego konta można utworzyć wyłącznie w witrynie Azure Portal. Jeśli chcesz utworzyć więcej subskrypcji za pomocą interfejsu API, musisz utworzyć kolejne konto rejestracji.
+- Obowiązuje limit 2000 subskrypcji na jedno konto rejestracji. Po przekroczeniu tego limitu kolejne subskrypcje dla tego konta można utworzyć wyłącznie w witrynie Azure Portal. Aby utworzyć więcej subskrypcji za pomocą interfejsu API, musisz utworzyć kolejne konto rejestracji.
 - Użytkownicy, którzy nie są właścicielami konta, ale zostali dodani do konta rejestracji przy użyciu systemu RBAC platformy Azure, nie mogą tworzyć subskrypcji w witrynie Azure Portal.
 - Nie można wybrać dzierżawy, w której ma zostać utworzona subskrypcja. Subskrypcja jest zawsze tworzona w głównej dzierżawie właściciela konta. Jeśli chcesz przenieść subskrypcję do innej dzierżawy, zobacz [Zmiana dzierżawy subskrypcji](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 
 ## <a name="create-subscriptions-for-an-mca-account"></a>Tworzenie subskrypcji dla konta MCA
 
+W poniższych sekcjach przedstawiono informacje pomocne w tworzeniu subskrypcji Umowy klienta firmy Microsoft.
+
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 Aby tworzyć subskrypcje, musisz mieć rolę właściciela, współautora lub twórcy subskrypcji platformy Azure w sekcji faktury albo rolę właściciela lub współautora w profilu rozliczeniowym lub na koncie rozliczeniowym. Aby uzyskać więcej informacji, zobacz [Role rozliczeniowe i zadania w subskrypcji](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-W poniższym przykładzie używane są interfejsy API REST. Obecnie program PowerShell i interfejs wiersza polecenia platformy Azure nie są obsługiwane.
+W poniższych przykładach użyto interfejsów API REST. Obecnie program PowerShell i interfejs wiersza polecenia platformy Azure nie są obsługiwane.
 
 ### <a name="find-billing-accounts-that-you-have-access-to"></a>Odnajdowanie kont rozliczeniowych, do których masz dostęp
 
 Wykonaj następujące żądanie, aby wyświetlić listę wszystkich kont rozliczeniowych.
 
+### <a name="rest"></a>[REST](#tab/rest-getBillingAccounts)
+
 ```json
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
+GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?api-version=2020-05-01
+
 ```
 Odpowiedź interfejsu API będzie zawierała listę wszystkich kont rozliczeniowych, do których masz dostęp.
 
@@ -238,139 +266,270 @@ Odpowiedź interfejsu API będzie zawierała listę wszystkich kont rozliczeniow
       "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
       "name": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
       "properties": {
-        "accountId": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "accountStatus": "Active",
         "accountType": "Enterprise",
         "agreementType": "MicrosoftCustomerAgreement",
+        "billingProfiles": {
+          "hasMoreResults": false
+        },
         "displayName": "Contoso",
-        "hasReadAccess": true,
-        "organizationId": "41b29574-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
-      },
-      "type": "Microsoft.Billing/billingAccounts"
-    },
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "name": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "properties": {
-        "accountId": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "accountStatus": "Active",
-        "accountType": "Enterprise",
-        "agreementType": "MicrosoftCustomerAgreement",
-        "displayName": "Fabrikam",
-        "hasReadAccess": true,
-        "organizationId": "41b29574-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
+        "hasReadAccess": false
       },
       "type": "Microsoft.Billing/billingAccounts"
     }
   ]
 }
-
 ```
-Użyj właściwości `displayName`, aby określić konto rozliczeniowe, dla którego chcesz utworzyć subskrypcje. Upewnij się, że parametr agreeementType tego konta to *MicrosoftCustomerAgreement*. Skopiuj wartość `name` tego konta.  Jeśli na przykład chcesz utworzyć subskrypcję dla konta rozliczeniowego `Contoso`, skopiuj wartość `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Przeklej gdzieś tę wartość, aby można z niej było skorzystać w następnym kroku.
 
-### <a name="find-invoice-sections-to-create-subscriptions"></a>Odnajdowanie sekcji faktury w celu utworzenia subskrypcji
+Użyj właściwości `displayName`, aby określić konto rozliczeniowe, dla którego chcesz utworzyć subskrypcje. Upewnij się, że parametr agreeementType tego konta to *MicrosoftCustomerAgreement*. Skopiuj wartość `name` tego konta.  Przykładowo aby utworzyć subskrypcję dla konta rozliczeniowego `Contoso`, skopiuj wartość `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Wklej tę wartość w dogodnym miejscu, aby można było jej użyć w następnym kroku.
 
-Opłaty za subskrypcję są wyświetlane w sekcji faktury profilu rozliczeniowego. Użyj poniższego interfejsu API, aby uzyskać listę sekcji faktury i profilów rozliczeniowych, w ramach których masz uprawnienie do tworzenia subskrypcji platformy Azure.
+<!--
+### [PowerShell](#tab/azure-powershell-getBillingAccounts)
 
-Wykonaj następujące żądanie, zastępując wartość `<billingAccountName>` wartością `name` skopiowaną z pierwszego kroku (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```).
+we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+-->
 
+<!--
+### [Azure CLI](#tab/azure-cli-getBillingAccounts)
+
+we're still working on enabling CLI SDK for billing APIs. Check back soon.
+-->
+
+---
+
+### <a name="find-billing-profiles--invoice-sections-to-create-subscriptions"></a>Odnajdowanie profilów rozliczeniowych i sekcji faktury w celu utworzenia subskrypcji
+
+Opłaty za subskrypcję są wyświetlane w sekcji faktury profilu rozliczeniowego. Użyj poniższego interfejsu API, aby uzyskać listę profilów rozliczeniowych i sekcji faktury, w ramach których masz uprawnienie do tworzenia subskrypcji platformy Azure.
+
+Najpierw uzyskasz listę profilów rozliczeniowych w ramach konta rozliczeniowego, do którego masz dostęp.
+
+### <a name="rest"></a>[REST](#tab/rest-getBillingProfiles)
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/listInvoiceSectionsWithCreateSubscriptionPermission?api-version=2019-10-01-preview
+GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingprofiles/?api-version=2020-05-01
 ```
-Odpowiedź interfejsu API będzie zawierała listę wszystkich sekcji faktur i ich profilów rozliczeniowych, w ramach których masz dostęp do tworzenia subskrypcji:
+Odpowiedź interfejsu API zawiera listę wszystkich profilów rozliczeniowych, w ramach których masz dostęp do tworzenia subskrypcji:
 
 ```json
 {
-    "value": [{
-        "billingProfileDisplayName": "Contoso finance",
-        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
-        "enabledAzurePlans": [{
-            "productId": "DZH318Z0BPS6",
-            "skuId": "0001",
-            "skuDescription": "Microsoft Azure Plan"
-        }, {
-            "productId": "DZH318Z0BPS6",
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx",
+      "name": "AW4F-xxxx-xxx-xxx",
+      "properties": {
+        "billingRelationshipType": "Direct",
+        "billTo": {
+          "addressLine1": "One Microsoft Way",
+          "city": "Redmond",
+          "companyName": "Contoso",
+          "country": "US",
+          "email": "kenny@contoso.com",
+          "phoneNumber": "425xxxxxxx",
+          "postalCode": "98052",
+          "region": "WA"
+        },
+        "currency": "USD",
+        "displayName": "Contoso Billing Profile",
+        "enabledAzurePlans": [
+          {
             "skuId": "0002",
             "skuDescription": "Microsoft Azure Plan for DevTest"
-        }],
-        "invoiceSectionDisplayName": "Development",
-        "invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx/invoiceSections/GJ77-xxxx-xxx-xxx"
-    }, {
-        "billingProfileDisplayName": "Contoso finance",
-        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
-        "enabledAzurePlans": [{
-            "productId": "DZH318Z0BPS6",
+          },
+          {
             "skuId": "0001",
             "skuDescription": "Microsoft Azure Plan"
-        }, {
-            "productId": "DZH318Z0BPS6",
-            "skuId": "0002",
-            "skuDescription": "Microsoft Azure Plan for DevTest"
-        }],
-        "invoiceSectionDisplayName": "Testing",
-        "invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX"
-  }]
+          }
+        ],
+        "hasReadAccess": true,
+        "invoiceDay": 5,
+        "invoiceEmailOptIn": false,
+        "invoiceSections": {
+          "hasMoreResults": false
+        },
+        "poNumber": "001",
+        "spendingLimit": "Off",
+        "status": "Active",
+        "systemId": "AW4F-xxxx-xxx-xxx",
+        "targetClouds": []
+      },
+      "type": "Microsoft.Billing/billingAccounts/billingProfiles"
+    }
+  ]
 }
-
 ```
 
-Użyj właściwości `invoiceSectionDisplayName`, aby określić sekcję faktury, dla której chcesz utworzyć subskrypcje. Skopiuj wartość `invoiceSectionId`, `billingProfileId` i jedną z wartości `skuId` sekcji faktury. Jeśli na przykład chcesz utworzyć subskrypcję typu `Microsoft Azure plan` dla sekcji faktury `Development`, skopiuj wartości `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX`, `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-xxxx-xxx-xxx` i `0001`. Wklej te wartości w dogodnym miejscu, aby można było użyć ich w następnym kroku.
+ Skopiuj wartość elementu `id`, aby dalej identyfikować sekcje faktury poniżej profilu rozliczeniowego. Na przykład skopiuj wartość `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx` i wywołaj następujący interfejs API.
+
+```json
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoicesections?api-version=2020-05-01
+```
+### <a name="response"></a>Reakcja
+
+```json
+{
+  "totalCount": 1,
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
+      "name": "SH3V-xxxx-xxx-xxx",
+      "properties": {
+        "displayName": "Development",
+        "state": "Active",
+        "systemId": "SH3V-xxxx-xxx-xxx"
+      },
+      "type": "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections"
+    }
+  ]
+}
+```
+
+Użyj właściwości `id`, aby określić sekcję faktury, dla której chcesz utworzyć subskrypcje. Skopiuj cały ciąg. Na przykład `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+
+<!--
+### [PowerShell](#tab/azure-powershell-getBillingProfiles)
+
+we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+-->
+
+<!--
+### [Azure CLI](#tab/azure-cli-getBillingProfiles)
+
+we're still working on enabling CLI SDK for billing APIs. Check back soon.
+-->
+
+---
 
 ### <a name="create-a-subscription-for-an-invoice-section"></a>Tworzenie subskrypcji dla sekcji faktury
 
-W poniższym przykładzie zostanie utworzona subskrypcja o nazwie *Dev Team Subscription* typu *Microsoft Azure Plan* dla sekcji faktury *Development*. Ta subskrypcja będzie rozliczona w profilu rozliczeniowym *Contoso finance* i pojawi się w sekcji *Development* na tej fakturze.
+W poniższym przykładzie zostanie utworzona subskrypcja o nazwie *Dev Team subscription* dla sekcji faktury *Development*. Ta subskrypcja jest rozliczana w profilu rozliczeniowym *Contoso Billing Profile* i pojawia się w sekcji *Development* na tej fakturze. Użyjesz skopiowanego zakresu rozliczeniowego z poprzedniego kroku: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
-Wykonaj następujące żądanie, zastępując wartość `<invoiceSectionId>` wartością `invoiceSectionId` skopiowaną w drugim kroku (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_2019-05-31/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX```). Musisz przekazać wartości `billingProfileId` i `skuId` skopiowane w drugim kroku w parametrach żądania interfejsu API. Jeśli chcesz określić właścicieli, zobacz [jak pobrać identyfikatory obiektu użytkowników](grant-access-to-create-subscription.md#userObjectId).
-
-```json
-POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview
-```
+### <a name="rest"></a>[REST](#tab/rest-MCA)
 
 ```json
-'{"displayName": "Dev Team subscription",
-  "billingProfileId": "<billingProfileId>",
-  "skuId": "<skuId>",
-  "owners": [
-      {
-        "objectId": "<userObjectId>"
-      },
-      {
-        "objectId": "<servicePrincipalObjectId>"
-      }
-    ],
-  "costCenter": "35683",
-  "managementGroupId": "/providers/Microsoft.Management/managementGroups/xxxxxxx",",
-}'
-
+PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
 ```
 
-| Nazwa elementu  | Wymagany | Typ   | Opis                                                                                               |
-|---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Tak      | Ciąg | Wyświetlana nazwa subskrypcji.|
-| `billingProfileId`   | Tak      | Ciąg | Wybierz identyfikator profilu rozliczeniowego, dla którego zostanie naliczona opłata za subskrypcję.  |
-| `skuId` | Tak      | Ciąg | Identyfikator jednostki SKU, który określa typ planu platformy Azure. |
-| `owners`      | Nie       | Ciąg | Identyfikator obiektu dowolnego użytkownika lub jednostki usługi, których chcesz dodać jako właściciela RBAC platformy Azure subskrypcji po jej utworzeniu.  |
-| `costCenter` | Nie      | Ciąg | Centrum kosztów skojarzone z subskrypcją. Zostanie ono wyświetlone w pliku CSV dotyczącym użycia. |
-| `managementGroupId` | Nie      | Ciąg | Identyfikator grupy zarządzania, do której zostanie dodana subskrypcja. Jeśli chcesz uzyskać listę grup zarządzania, zobacz [Grupy zarządzania — interfejs API listy](/rest/api/resources/managementgroups/list). Użyj identyfikatora grupy zarządzania uzyskanego za pomocą interfejsu API. |
+### <a name="request-body"></a>Treść żądania
 
-W odpowiedzi uzyskasz obiekt `subscriptionCreationResult` na potrzeby monitorowania. Po zakończeniu tworzenia subskrypcji obiekt `subscriptionCreationResult` zwróci obiekt `subscriptionLink` z identyfikatorem subskrypcji.
+```json
+{
+  "properties":
+    {
+        "billingScope": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
+        "DisplayName": "Dev Team subscription",
+        "Workload": "Production"
+    }
+}
+```
+
+### <a name="response"></a>Reakcja
+
+```json
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "type": "Microsoft.Subscription/aliases",
+  "properties": {
+    "subscriptionId": "b5bab918-e8a9-4c34-a2e2-ebc1b75b9d74",
+    "provisioningState": "Accepted"
+  }
+}
+```
+
+Aby uzyskać stan żądania, możesz wykonać instrukcję GET dla tego samego adresu URL.
+
+### <a name="request"></a>Żądanie
+
+```json
+GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
+```
+
+### <a name="response"></a>Reakcja
+
+```json
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "type": "Microsoft.Subscription/aliases",
+  "properties": {
+    "subscriptionId": "b5bab918-e8a9-4c34-a2e2-ebc1b75b9d74",
+    "provisioningState": "Succeeded"
+  }
+}
+```
+
+Stan w toku jest zwracany jako stan `Accepted` w elemencie `provisioningState`.
+
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell-MCA)
+
+Aby zainstalować najnowszą wersję modułu zawierającego polecenie cmdlet `New-AzSubscriptionAlias`, uruchom polecenie `Install-Module Az.Subscription`. Aby zainstalować najnowszą wersję modułu PowerShellGet, zobacz [Uzyskiwanie modułu PowerShellGet](/powershell/scripting/gallery/installing-psget).
+
+Uruchom następujące polecenie [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias), używając zakresu rozliczeniowego `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
+
+```azurepowershell-interactive
+New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload 'Production"
+```
+
+W ramach odpowiedzi z polecenia otrzymasz wartość identyfikatora subscriptionId.
+
+```azurepowershell
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+  },
+  "type": "Microsoft.Subscription/aliases"
+}
+```
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli-MCA)
+
+Najpierw zainstaluj to rozszerzenie, uruchamiając polecenia `az extension add --name account` i `az extension add --name alias`.
+
+Uruchom polecenie [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true).
+
+```azurecli-interactive
+az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"
+```
+
+W ramach odpowiedzi z polecenia otrzymasz wartość identyfikatora subscriptionId.
+
+```azurecli
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+  },
+  "type": "Microsoft.Subscription/aliases"
+}
+```
+
+---
 
 ## <a name="create-subscriptions-for-an-mpa-billing-account"></a>Tworzenie subskrypcji dla konta rozliczeniowego umowy MPA
+
+W poniższych sekcjach przedstawiono informacje pomocne w tworzeniu subskrypcji umowy partnerskiej firmy Microsoft.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 Aby utworzyć subskrypcję dla konta rozliczeniowego, musisz mieć rolę globalnego administratora lub agenta administratora na koncie dostawcy rozwiązań w chmurze w swojej organizacji. Aby dowiedzieć się więcej, zobacz [Centrum partnerskie — przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview).
 
-W poniższym przykładzie używane są interfejsy API REST. Obecnie program PowerShell i interfejs wiersza polecenia platformy Azure nie są obsługiwane.
+W poniższych przykładach użyto interfejsów API REST. Obecnie program PowerShell i interfejs wiersza polecenia platformy Azure nie są obsługiwane.
 
 ### <a name="find-the-billing-accounts-that-you-have-access-to"></a>Odnajdowanie kont rozliczeniowych, do których masz dostęp
 
 Wykonaj następujące żądanie, aby wyświetlić listę wszystkich kont rozliczeniowych, do których masz dostęp.
 
+### <a name="rest"></a>[REST](#tab/rest-getBillingAccount-MPA)
+
 ```json
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
+GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?api-version=2020-05-01
 ```
-Odpowiedź interfejsu API będzie zawierała listę wszystkich kont rozliczeniowych.
+
+Odpowiedź interfejsu API zawiera listę wszystkich kont rozliczeniowych.
 
 ```json
 {
@@ -379,82 +538,104 @@ Odpowiedź interfejsu API będzie zawierała listę wszystkich kont rozliczeniow
       "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
       "name": "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
       "properties": {
-        "accountId": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "accountStatus": "Active",
-        "accountType": "Enterprise",
+        "accountType": "Partner",
         "agreementType": "MicrosoftPartnerAgreement",
+        "billingProfiles": {
+          "hasMoreResults": false
+        },
         "displayName": "Contoso",
-        "hasReadAccess": true,
-        "organizationId": "1d100e69-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
-      },
-      "type": "Microsoft.Billing/billingAccounts"
-    },
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "name": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "properties": {
-        "accountId": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "accountStatus": "Active",
-        "accountType": "Enterprise",
-        "agreementType": "MicrosoftCustomerAgreement",
-        "displayName": "Fabrikam",
-        "hasReadAccess": true,
-        "organizationId": "1d100e69-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
+        "hasReadAccess": true
       },
       "type": "Microsoft.Billing/billingAccounts"
     }
   ]
 }
-
 ```
-Użyj właściwości `displayName`, aby określić konto rozliczeniowe, dla którego chcesz utworzyć subskrypcje. Upewnij się, że parametr agreeementType tego konta to *MicrosoftPartnerAgreement*. Skopiuj wartość `name` tego konta. Jeśli na przykład chcesz utworzyć subskrypcję dla konta rozliczeniowego `Contoso`, skopiuj wartość `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Przeklej gdzieś tę wartość, aby można z niej było skorzystać w następnym kroku.
+
+Użyj właściwości `displayName`, aby określić konto rozliczeniowe, dla którego chcesz utworzyć subskrypcje. Upewnij się, że parametr agreementType tego konta to *MicrosoftPartnerAgreement*. Skopiuj wartość `name` tego konta. Przykładowo aby utworzyć subskrypcję dla konta rozliczeniowego `Contoso`, skopiuj wartość `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Wklej tę wartość w dogodnym miejscu, aby można było jej użyć w następnym kroku.
+
+<!--
+### [PowerShell](#tab/azure-powershell-getBillingAccounts-MPA)
+
+we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+-->
+
+<!--
+### [Azure CLI](#tab/azure-cli-getBillingAccounts-MPA)
+
+we're still working on enabling CLI SDK for billing APIs. Check back soon.
+-->
+
+---
 
 ### <a name="find-customers-that-have-azure-plans"></a>Odnajdowanie klientów z planami platformy Azure
 
-Wykonaj następujące żądanie, zastępując wartość `<billingAccountName>` wartością `name`skopiowaną w pierwszym kroku (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```), aby uzyskać listę wszystkich klientów na koncie rozliczeniowym, dla których możesz utworzyć subskrypcje platformy Azure.
+Wykonaj następujące żądanie z wartością elementu `name` skopiowaną z pierwszego kroku (```99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```), aby uzyskać listę wszystkich klientów na koncie rozliczeniowym, dla których możesz utworzyć subskrypcje platformy Azure.
+
+### <a name="rest"></a>[REST](#tab/rest-getCustomers)
 
 ```json
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/customers?api-version=2019-10-01-preview
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers?api-version=2020-05-01
 ```
+
 Odpowiedź interfejsu API będzie zawierała listę klientów z planami platformy Azure na koncie rozliczeniowym. Dla tych klientów można utworzyć subskrypcje.
 
 ```json
 {
+  "totalCount": 2,
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "properties": {
-        "billingProfileDisplayName": "Contoso USD",
-        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/JUT6-xxxx-xxxx-xxxx",
+        "billingProfileDisplayName": "Fabrikam toys Billing Profile",
+        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/YL4M-xxxx-xxx-xxx",
         "displayName": "Fabrikam toys"
       },
       "type": "Microsoft.Billing/billingAccounts/customers"
     },
     {
-      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/97c3fac4-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "97c3fac4-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "properties": {
-        "billingProfileDisplayName": "Fabrikam sports",
-        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/JUT6-xxxx-xxxx-xxxx",
-        "displayName": "Fabrikam bakery"
+        "billingProfileDisplayName": "Contoso toys Billing Profile",
+        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/YL4M-xxxx-xxx-xxx",
+        "displayName": "Contoso toys"
       },
       "type": "Microsoft.Billing/billingAccounts/customers"
-    }]
+    }
+  ]
 }
 
 ```
 
-Użyj właściwości `displayName`, aby określić klienta, dla którego chcesz utworzyć subskrypcje. Skopiuj wartość `id` klienta. Jeśli na przykład chcesz utworzyć subskrypcję dla klienta `Fabrikam toys`, skopiuj wartość `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Wklej tę wartość w dogodnym miejscu, aby można było z niej skorzystać w kolejnych krokach.
+Użyj właściwości `displayName`, aby określić klienta, dla którego chcesz utworzyć subskrypcje. Skopiuj wartość `id` klienta. Przykładowo aby utworzyć subskrypcję dla konta `Fabrikam toys`, skopiuj wartość `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Wklej tę wartość w dogodnym miejscu, aby można było z niej skorzystać w kolejnych krokach.
+
+<!--
+### [PowerShell](#tab/azure-powershell-getCustomers)
+
+we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+-->
+
+<!--
+### [Azure CLI](#tab/azure-cli-getCustomers)
+
+we're still working on enabling CLI SDK for billing APIs. Check back soon.
+-->
+
+---
 
 ### <a name="optional-for-indirect-providers-get-the-resellers-for-a-customer"></a>Opcjonalne dla dostawców pośrednich: Uzyskiwanie odsprzedawców dla klienta
 
 Jeśli jesteś dostawcą pośrednim w modelu dwuwarstwowym dostawców usług w chmurze, możesz określić odsprzedawcę podczas tworzenia subskrypcji dla klientów.
 
-Wykonaj następujące żądanie, zastępując wartość `<customerId>` wartością `id` skopiowaną w drugim kroku (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```), aby uzyskać listę wszystkich odsprzedawców dostępnych dla klienta.
+Wykonaj następujące żądanie z wartością elementu `id` skopiowaną w drugim kroku (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```), aby uzyskać listę wszystkich odsprzedawców dostępnych dla klienta.
+
+### <a name="rest"></a>[REST](#tab/rest-getIndirectResellers)
 
 ```json
-GET https://management.azure.com<customerId>?$expand=resellers&api-version=2019-10-01-preview
+GET "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx?$expand=resellers&api-version=2020-05-01"
 ```
 Odpowiedź interfejsu API będzie zawierała listę odsprzedawców dla klienta:
 
@@ -465,6 +646,8 @@ Odpowiedź interfejsu API będzie zawierała listę odsprzedawców dla klienta:
   "name": "2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "type": "Microsoft.Billing/billingAccounts/customers",
   "properties": {
+    "billingProfileDisplayName": "Fabrikam toys Billing Profile",
+    "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/YL4M-xxxx-xxx-xxx",
     "displayName": "Fabrikam toys",
     "resellers": [
       {
@@ -473,52 +656,563 @@ Odpowiedź interfejsu API będzie zawierała listę odsprzedawców dla klienta:
       }
     ]
   }
-},
-{
-  "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/4ed2c793-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "name": "4ed2c793-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "type": "Microsoft.Billing/billingAccounts/customers",
-  "properties": {
-    "displayName": "Fabrikam toys",
-    "resellers": [
-      {
-        "resellerId": "5xxxxx",
-        "description": "Tailspin"
-      }
-    ]
-  }
 }]
 }
 ```
-Użyj właściwości `description`, aby określić odsprzedawcę, który będzie skojarzony z subskrypcją. Skopiuj wartość `resellerId` odsprzedawcy. Jeśli na przykład chcesz skojarzyć odsprzedawcę `Wingtip`, skopiuj wartość `3xxxxx`. Przeklej gdzieś tę wartość, aby można z niej było skorzystać w następnym kroku.
+
+Użyj właściwości `description`, aby określić odsprzedawcę, który będzie skojarzony z subskrypcją. Skopiuj wartość `resellerId` odsprzedawcy. Przykładowo aby skojarzyć odsprzedawcę `Wingtip`, skopiuj wartość `3xxxxx`. Wklej tę wartość w dogodnym miejscu, aby można było jej użyć w następnym kroku.
+
+<!--
+### [PowerShell](#tab/azure-powershell-getIndirectResellers)
+
+we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+-->
+
+<!--
+### [Azure CLI](#tab/azure-cli-getIndirectResellers)
+
+we're still working on enabling CLI SDK for billing APIs. Check back soon.
+-->
+
+---
 
 ### <a name="create-a-subscription-for-a-customer"></a>Tworzenie subskrypcji dla klienta
 
-W poniższym przykładzie zostanie utworzona subskrypcja o nazwie *Dev Team Subscription* dla klienta *Fabrikam Toys*, ze skojarzonym odsprzedawcą *Wingtip*. T
+W poniższym przykładzie zostanie utworzona subskrypcja o nazwie *Dev Team Subscription* dla klienta *Fabrikam Toys*, ze skojarzonym odsprzedawcą *Wingtip*. Użyjesz skopiowanego zakresu rozliczeniowego z poprzedniego kroku: `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
-Wykonaj następujące żądanie, zastępując wartość `<customerId>` wartością `id` skopiowaną w drugim kroku (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Przekaż opcjonalną wartość *resellerId* skopiowaną w drugim kroku w parametrach żądania interfejsu API.
-
-```json
-POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview
-```
+### <a name="rest"></a>[REST](#tab/rest-MPA)
 
 ```json
-'{"displayName": "Dev Team subscription",
-  "skuId": "0001",
-  "resellerId": "<resellerId>",
-}'
+PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
 ```
 
-| Nazwa elementu  | Wymagany | Typ   | Opis                                                                                               |
-|---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Tak      | Ciąg | Wyświetlana nazwa subskrypcji.|
-| `skuId` | Tak      | Ciąg | Identyfikator jednostki SKU planu platformy Azure. Użyj ciągu *0001* dla subskrypcji typu Microsoft Azure Plan. |
-| `resellerId`      | Nie       | Ciąg | Identyfikator MPN odsprzedawcy, który będzie skojarzony z subskrypcją.  |
+### <a name="request-body"></a>Treść żądania
 
-W odpowiedzi uzyskasz obiekt `subscriptionCreationResult` na potrzeby monitorowania. Po zakończeniu tworzenia subskrypcji obiekt `subscriptionCreationResult` zwróci obiekt `subscriptionLink` z identyfikatorem subskrypcji.
+```json
+{
+  "properties":
+    {
+        "billingScope": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "DisplayName": "Dev Team subscription",
+        "Workload": "Production"
+    }
+}
+```
+### <a name="response"></a>Reakcja
+
+```json
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "type": "Microsoft.Subscription/aliases",
+  "properties": {
+    "subscriptionId": "b5bab918-e8a9-4c34-a2e2-ebc1b75b9d74",
+    "provisioningState": "Accepted"
+  }
+}
+```
+
+Aby uzyskać stan żądania, możesz wykonać instrukcję GET dla tego samego adresu URL.
+
+### <a name="request"></a>Żądanie
+
+```json
+GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
+```
+
+### <a name="response"></a>Reakcja
+
+```json
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "type": "Microsoft.Subscription/aliases",
+  "properties": {
+    "subscriptionId": "b5bab918-e8a9-4c34-a2e2-ebc1b75b9d74",
+    "provisioningState": "Succeeded"
+  }
+}
+```
+
+Stan w toku jest zwracany jako stan `Accepted` w elemencie `provisioningState`. 
+
+Przekaż opcjonalną wartość *resellerId* skopiowaną w drugim kroku w treści żądania interfejsu API.
+
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell-MPA)
+
+Aby zainstalować najnowszą wersję modułu zawierającego polecenie cmdlet `New-AzSubscriptionAlias`, uruchom polecenie `Install-Module Az.Subscription`. Aby zainstalować najnowszą wersję modułu PowerShellGet, zobacz [Uzyskiwanie modułu PowerShellGet](/powershell/scripting/gallery/installing-psget).
+
+Uruchom następujące polecenie [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias), używając zakresu rozliczeniowego `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`. 
+
+```azurepowershell-interactive
+New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"
+```
+
+W ramach odpowiedzi z polecenia otrzymasz wartość identyfikatora subscriptionId.
+
+```azurepowershell
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+  },
+  "type": "Microsoft.Subscription/aliases"
+}
+```
+
+Przekaż opcjonalną wartość *resellerId* skopiowaną w drugim kroku w wywołaniu polecenia `New-AzSubscriptionAlias`.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli-MPA)
+
+Najpierw zainstaluj to rozszerzenie, uruchamiając polecenia `az extension add --name account` i `az extension add --name alias`.
+
+Uruchom następujące polecenie [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true). 
+
+```azurecli-interactive
+az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --display-name "Dev Team Subscription" --workload "Production"
+```
+
+W ramach odpowiedzi z polecenia otrzymasz wartość identyfikatora subscriptionId.
+
+```azurecli
+{
+  "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
+  "name": "sampleAlias",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+  },
+  "type": "Microsoft.Subscription/aliases"
+}
+```
+
+Przekaż opcjonalną wartość *resellerId* skopiowaną w drugim kroku w wywołaniu polecenia `az account alias create`.
+
+---
+
+## <a name="create-subscriptions-using-arm-templates"></a>Tworzenie subskrypcji przy użyciu szablonów usługi Resource Manager
+
+Aby zautomatyzować procesy wdrażania w środowisku produkcyjnym/testowym, można tworzyć subskrypcje przy użyciu szablonu usługi Azure Resource Manager (szablonu usługi ARM). W poniższym przykładzie używany jest szablon usługi ARM do tworzenia subskrypcji i grupy zasobów platformy Azure.
+
+### <a name="prerequisites"></a>Wymagania wstępne
+
+Aby tworzyć subskrypcje, musisz mieć rolę właściciela, współautora lub twórcy subskrypcji platformy Azure w sekcji faktury albo rolę właściciela lub współautora w profilu rozliczeniowym lub na koncie rozliczeniowym. Aby uzyskać więcej informacji, zobacz [Role rozliczeniowe i zadania w subskrypcji](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+
+Ponadto, ponieważ wykonujesz wdrożenie przy użyciu szablonu usługi ARM, musisz mieć uprawnienia do zapisu w obiekcie głównym. Dlatego jeśli tworzysz wdrożenie za pomocą usługi ARM w grupie zarządzania, musisz mieć uprawnienia do zapisu w tej grupie zarządzania. Należy pamiętać, że wykonywane jest tu tylko wdrażanie za pomocą usługi ARM. Jeśli jest tworzona subskrypcja, jest ona tworzona tylko w grupie zarządzania określonej w szablonie usługi ARM.
+
+W poniższych przykładach użyto interfejsów API REST. Obecnie program PowerShell i interfejs wiersza polecenia platformy Azure nie są obsługiwane.
+
+### <a name="find-billing-accounts-that-you-have-access-to"></a>Odnajdowanie kont rozliczeniowych, do których masz dostęp
+
+Wykonaj następujące żądanie, aby wyświetlić listę wszystkich kont rozliczeniowych.
+
+### <a name="rest"></a>[REST](#tab/rest-getBillingAccounts)
+
+```json
+GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?api-version=2020-05-01
+```
+
+Odpowiedź interfejsu API będzie zawierała listę wszystkich kont rozliczeniowych, do których masz dostęp.
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+      "name": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+      "properties": {
+        "accountStatus": "Active",
+        "accountType": "Enterprise",
+        "agreementType": "MicrosoftCustomerAgreement",
+        "billingProfiles": {
+          "hasMoreResults": false
+        },
+        "displayName": "Contoso",
+        "hasReadAccess": false
+      },
+      "type": "Microsoft.Billing/billingAccounts"
+    }
+  ]
+}
+```
+
+Użyj właściwości `displayName`, aby określić konto rozliczeniowe, dla którego chcesz utworzyć subskrypcje. Upewnij się, że parametr agreeementType tego konta to *MicrosoftCustomerAgreement*. Skopiuj wartość `name` tego konta. Przykładowo aby utworzyć subskrypcję dla konta rozliczeniowego `Contoso`, skopiuj wartość `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Wklej tę wartość w dogodnym miejscu, aby można było jej użyć w następnym kroku.
+
+<!--
+### [PowerShell](#tab/azure-powershell-getBillingAccounts)
+
+we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+-->
+
+<!--
+### [Azure CLI](#tab/azure-cli-getBillingAccounts)
+
+we're still working on enabling CLI SDK for billing APIs. Check back soon.
+-->
+
+---
+
+### <a name="find-billing-profiles--invoice-sections-to-create-subscriptions"></a>Odnajdowanie profilów rozliczeniowych i sekcji faktury w celu utworzenia subskrypcji
+
+Opłaty za subskrypcję są wyświetlane w sekcji faktury profilu rozliczeniowego. Użyj poniższego interfejsu API, aby uzyskać listę profilów rozliczeniowych i sekcji faktury, w ramach których masz uprawnienie do tworzenia subskrypcji platformy Azure.
+
+Najpierw uzyskasz listę profilów rozliczeniowych w ramach konta rozliczeniowego, do którego masz dostęp.
+
+### <a name="rest"></a>[REST](#tab/rest-getBillingProfiles)
+
+```json
+GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingprofiles/?api-version=2020-05-01
+```
+
+Odpowiedź interfejsu API zawiera listę wszystkich profilów rozliczeniowych, w ramach których masz dostęp do tworzenia subskrypcji:
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx",
+      "name": "AW4F-xxxx-xxx-xxx",
+      "properties": {
+        "billingRelationshipType": "Direct",
+        "billTo": {
+          "addressLine1": "One Microsoft Way",
+          "city": "Redmond",
+          "companyName": "Contoso",
+          "country": "US",
+          "email": "kenny@contoso.com",
+          "phoneNumber": "425xxxxxxx",
+          "postalCode": "98052",
+          "region": "WA"
+        },
+        "currency": "USD",
+        "displayName": "Contoso Billing Profile",
+        "enabledAzurePlans": [
+          {
+            "skuId": "0002",
+            "skuDescription": "Microsoft Azure Plan for DevTest"
+          },
+          {
+            "skuId": "0001",
+            "skuDescription": "Microsoft Azure Plan"
+          }
+        ],
+        "hasReadAccess": true,
+        "invoiceDay": 5,
+        "invoiceEmailOptIn": false,
+        "invoiceSections": {
+          "hasMoreResults": false
+        },
+        "poNumber": "001",
+        "spendingLimit": "Off",
+        "status": "Active",
+        "systemId": "AW4F-xxxx-xxx-xxx",
+        "targetClouds": []
+      },
+      "type": "Microsoft.Billing/billingAccounts/billingProfiles"
+    }
+  ]
+}
+```
+
+ Skopiuj wartość elementu `id`, aby dalej identyfikować sekcje faktury poniżej profilu rozliczeniowego. Na przykład skopiuj wartość `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx` i wywołaj następujący interfejs API.
+
+```json
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoicesections?api-version=2020-05-01
+```
+
+### <a name="response"></a>Reakcja
+
+```json
+{
+  "totalCount": 1,
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx",
+      "name": "SH3V-xxxx-xxx-xxx",
+      "properties": {
+        "displayName": "Development",
+        "state": "Active",
+        "systemId": "SH3V-xxxx-xxx-xxx"
+      },
+      "type": "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections"
+    }
+  ]
+}
+```
+
+Użyj właściwości `id`, aby określić sekcję faktury, dla której chcesz utworzyć subskrypcje. Skopiuj cały ciąg. Na przykład `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+
+<!--
+### [PowerShell](#tab/azure-powershell-getBillingProfiles)
+
+we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+
+### [Azure CLI](#tab/azure-cli-getBillingProfiles)
+
+we're still working on enabling CLI SDK for billing APIs. Check back soon.
+-->
+
+---
+
+### <a name="create-a-subscription-and-resource-group-with-a-template"></a>Tworzenie subskrypcji i grupy zasobów przy użyciu szablonu
+
+Poniższy szablon usługi ARM tworzy subskrypcję o nazwie *Dev Team subscription* dla sekcji faktury *Development*. Ta subskrypcja jest rozliczana w profilu rozliczeniowym *Contoso Billing Profile* i pojawia się w sekcji *Development* na tej fakturze. Użyjesz skopiowanego zakresu rozliczeniowego z poprzedniego kroku: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+
+#### <a name="request"></a>Żądanie
+
+```rest
+PUT https://management.azure.com/providers/Microsoft.Resources/deployments/sampleTemplate?api-version=2019-10-01
+```
+
+#### <a name="request-body"></a>Treść żądania
+
+```json
+{
+  "properties":
+    {
+        "location": "westus",
+        "properties": {
+            "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {},
+                "variables": {
+                    "uniqueAliasName": "sampleAlias"
+                },
+                "resources": [
+                    {
+                        "type": "Microsoft.Resources/deployments",
+                        "apiVersion": "2019-10-01",
+                        "name": "sampleTemplate",
+                        "location": "westus",
+                        "properties": {
+                            "expressionEvaluationOptions": {
+                                "scope": "inner"
+                            },
+                            "mode": "Incremental",
+                            "template": {
+                                  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                                "contentVersion": "1.0.0.0",
+                                "variables": {
+                                    "uniqueAliasName": "sampleAlias"
+                                },
+                                "resources": [
+                                    {
+                                        "name": "[variables('uniqueAliasName')]",
+                                        "type": "Microsoft.Subscription/aliases",
+                                        "apiVersion": "2020-09-01",
+                                        "properties": {
+                                            "workLoad": "Production",
+                                            "displayName": "Dev Team subscription",
+                                            "billingScope": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"
+                                        },
+                                        "dependsOn": [],
+                                        "tags": {}
+                                    }
+                                ],
+                                "outputs": {
+                                    "subscriptionId": {
+                                        "type": "string",
+                                        "value": "[replace(reference(variables('uniqueAliasName')).subscriptionId, 'invalidrandom/', '')]"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "sampleOuterResource",
+                        "type": "Microsoft.Resources/deployments",
+                        "apiVersion": "2019-10-01",
+                        "location": "westus",
+                        "properties": {
+                            "expressionEvaluationOptions": {
+                                "scope": "inner"
+                            },
+                            "mode": "Incremental",
+                            "parameters": {
+                                "subscriptionId": {
+                                    "value": "[reference('sampleTemplate').outputs.subscriptionId.value]"
+                                }
+                            },
+                            "template": {
+                                "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                            "contentVersion": "1.0.0.0",
+                                "parameters": {
+                                    "subscriptionId": {
+                                        "type": "string"
+                                    }
+                                },
+                                "variables": {},
+                                "resources": [
+                                    {
+                                        "name": "sampleInnerResource",
+                                        "type": "Microsoft.Resources/deployments",
+                                        "subscriptionId": "[parameters('subscriptionId')]",
+                                        "apiVersion": "2019-10-01",
+                                        "location": "westus",
+                                        "properties": {
+                                            "expressionEvaluationOptions": {
+                                                "scope": "inner"
+                                            },
+                                            "mode": "Incremental",
+                                            "parameters": {},
+                                            "template": {
+                                                "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                                                "contentVersion": "1.0.0.0",
+                                                "parameters": {},
+                                                "variables": {},
+                                                "resources": [
+                                                    {
+                                                        "type": "Microsoft.Resources/resourceGroups",
+                                                        "apiVersion": "2020-05-01",
+                                                        "location": "[deployment().location]",
+                                                        "name": "sampleRG",
+                                                        "properties": {},
+                                                        "tags": {}
+                                                    }
+                                                ],
+                                                "outputs": {}
+                                            }
+                                        }
+                                    }
+                                ],
+                                "outputs": {}
+                            }
+                        }
+                    }
+                ],
+                "outputs": {
+                    "messageFromLinkedTemplate": {
+                        "type": "string",
+                        "value": "[reference('sampleTemplate').outputs.subscriptionId.value]"
+                    }
+                }
+            },
+            "mode": "Incremental"
+        }
+    }
+}
+```
+
+#### <a name="response"></a>Reakcja
+
+```json
+{
+  "id": "/providers/Microsoft.Resources/deployments/sampleTemplate",
+  "name": "sampleTemplate",
+  "type": "Microsoft.Resources/deployments",
+  "location": "westus",
+  "properties": {
+    "templateHash": "16005880870587497948",
+    "parameters": {},
+    "mode": "Incremental",
+    "provisioningState": "Accepted",
+    "timestamp": "2020-10-07T19:06:34.110811Z",
+    "duration": "PT0.1345459S",
+    "correlationId": "2b57ddf6-7e27-42cb-90b4-90eeccd11a28",
+    "providers": [
+      {
+        "namespace": "Microsoft.Resources",
+        "resourceTypes": [
+          {
+            "resourceType": "deployments",
+            "locations": [
+              "westus"
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/providers/Microsoft.Resources/deployments/sampleTemplate",
+            "resourceType": "Microsoft.Resources/deployments",
+            "resourceName": "anuragTemplate1"
+          }
+        ],
+        "id": "/providers/Microsoft.Resources/deployments/sampleOuterResource",
+        "resourceType": "Microsoft.Resources/deployments",
+        "resourceName": "sampleOuterResource"
+      }
+    ]
+  }
+}
+```
+
+Aby monitorować postęp, można za pomocą instrukcji GET uzyskać stan wdrożenia.
+
+```json
+GET https://management.azure.com/providers/Microsoft.Resources/deployments/sampleTemplate?api-version=2019-10-01
+```
+
+#### <a name="response"></a>Reakcja
+
+```json
+{
+  "id": "/providers/Microsoft.Resources/deployments/sampleDeployment5",
+  "name": "sampleDeployment5",
+  "type": "Microsoft.Resources/deployments",
+  "location": "westus",
+  "properties": {
+    "templateHash": "16005880870587497948",
+    "parameters": {},
+    "mode": "Incremental",
+    "provisioningState": "Succeeded",
+    "timestamp": "2020-10-07T19:07:20.8007311Z",
+    "duration": "PT46.824466S",
+    "correlationId": "2b57ddf6-7e27-42cb-90b4-90eeccd11a28",
+    "providers": [
+      {
+        "namespace": "Microsoft.Resources",
+        "resourceTypes": [
+          {
+            "resourceType": "deployments",
+            "locations": [
+              "westus"
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/providers/Microsoft.Resources/deployments/sampleTemplate",
+            "resourceType": "Microsoft.Resources/deployments",
+            "resourceName": "sampleTemplate"
+          }
+        ],
+        "id": "/providers/Microsoft.Resources/deployments/sampleOuterResource",
+        "resourceType": "Microsoft.Resources/deployments",
+        "resourceName": "sampleOuterResource"
+      }
+    ],
+    "outputs": {
+      "messageFromLinkedTemplate": {
+        "type": "String",
+        "value": "16edf959-11fd-48bb-9a46-85190963ead9"
+      }
+    },
+    "outputResources": [
+      {
+        "id": "/providers/Microsoft.Subscription/aliases/sampleAlias"
+      },
+      {
+        "id": "/subscriptions/16edf959-11fd-48bb-9a46-85190963ead9/resourceGroups/sampleRG"
+      }
+    ]
+  }
+}
+```
+
+W poprzednim przykładzie utworzono subskrypcję `16edf959-11fd-48bb-9a46-85190963ead9` i grupę zasobów o nazwie `sampleRG`.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać informacje dotyczące tworzenia subskrypcji Enterprise Agreement (EA) przy użyciu platformy .NET, zobacz [kod przykładowy w usłudze GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Po utworzeniu subskrypcji możesz przyznać tę możliwość innym użytkownikom i jednostkom usługi. Aby uzyskać więcej informacji, zobacz [Przyznawanie dostępu do tworzenia subskrypcji Enterprise platformy Azure (wersja zapoznawcza)](grant-access-to-create-subscription.md).
 * Aby dowiedzieć się więcej na temat zarządzania dużą liczbą subskrypcji za pomocą grup zarządzania, zobacz [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../../governance/management-groups/overview.md).
