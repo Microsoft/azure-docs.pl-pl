@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/14/2020
-ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/16/2020
+ms.openlocfilehash: 48a044e53602b330e43b35ce2425b4b7a90582bf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044500"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206581"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Typowe problemy występujące podczas certyfikowania obrazów maszyn wirtualnych w portalu Azure Marketplace
 
@@ -35,7 +35,7 @@ Aby rozwiązać ten problem, pobierz obraz z witryny Azure Marketplace i wprowad
 - [Obrazy systemu Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 > [!Note]
-> Jeśli używasz podstawowego obrazu systemu Linux, który nie został pobrany z witryny Marketplace, możesz przesunąć pierwszą partycję o 2048 KB. Pozwala to na niesformatowane miejsce na dodanie nowych informacji dotyczących rozliczeń i umożliwi korzystanie z platformy Azure z publikowaniem maszyny wirtualnej w portalu Marketplace.  
+> Jeśli używasz podstawowego obrazu systemu Linux, który nie został pobrany z portalu Azure Marketplace, możesz przesunąć pierwszą partycję o 2048 KB. Pozwala to na niesformatowane miejsce na dodanie nowych informacji dotyczących rozliczeń i umożliwi korzystanie z platformy Azure z publikowaniem maszyny wirtualnej w portalu Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Niepowodzenie rozszerzenia maszyny wirtualnej
 
@@ -87,7 +87,7 @@ Jeśli próbujesz zainstalować program Visual Studio lub dowolny produkt licenc
 
 Aby uzyskać więcej informacji na temat wybierania zatwierdzonej bazy, zobacz [Tworzenie zasobów technicznych maszyn wirtualnych platformy Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>Wykonanie przypadku testowego zestawu narzędzi nie powiodło się 
+## <a name="tool-kit-test-case-execution-failed"></a>Wykonanie przypadku testowego zestawu narzędzi nie powiodło się
 
 Zestaw narzędzi certyfikacji firmy Microsoft może pomóc w uruchomieniu przypadków testowych i upewnić się, że dysk VHD lub obraz jest zgodny ze środowiskiem platformy Azure.
 
@@ -145,7 +145,7 @@ W poniższej tabeli przedstawiono przypadki testowe systemu Windows, które będ
 |16|Usługa nazw internetowych systemu Windows|Usługa nazw internetowych systemu Windows. Ta funkcja serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |17|Usługa bezprzewodowej sieci LAN|Usługa bezprzewodowej sieci LAN. Ta funkcja serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 
-Jeśli występują problemy z poprzednimi przypadkami testowymi, zapoznaj się z kolumną **Opis** rozwiązania w tabeli. Jeśli potrzebujesz więcej informacji, skontaktuj się z zespołem pomocy technicznej. 
+Jeśli występują problemy z poprzednimi przypadkami testowymi, zapoznaj się z kolumną **Opis** rozwiązania w tabeli. Jeśli potrzebujesz więcej informacji, skontaktuj się z zespołem pomocy technicznej.
 
 ## <a name="data-disk-size-verification"></a>Weryfikacja rozmiaru dysku danych
 
@@ -199,8 +199,8 @@ Zaktualizuj jądro przy użyciu zatwierdzonej wersji i ponownie prześlij żąda
 
 Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, zaktualizuj go przy użyciu poprawnych poprawek. Zażądaj niepotrzebnego zatwierdzenia od zespołu pomocy technicznej po zaktualizowaniu obrazu przy użyciu wymaganych poprawek:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |Rodzina systemów operacyjnych|Wersja|Jądro|
@@ -261,12 +261,12 @@ Jeśli występują problemy z odmową dostępu podczas wykonywania przypadków t
 Sprawdź, czy w ramach konta, na którym są uruchomione przypadki samotestowe, jest włączony prawidłowy dostęp. Jeśli dostęp nie jest włączony, włącz go, aby uruchomić przypadki testowe. Jeśli nie chcesz włączyć dostępu, możesz udostępnić wyniki przypadków testowych z zespołem pomocy technicznej.
 
 ## <a name="download-failure"></a>Błąd pobierania
-    
+
 Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podczas pobierania obrazu maszyny wirtualnej przy użyciu adresu URL sygnatury dostępu współdzielonego (SAS).
 
 |Scenariusz|Błąd|Przyczyna|Rozwiązanie|
 |---|---|---|---|
-|1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji.|| 
+|1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji.||
 |2|Obiekt BLOB w użyciu|Wirtualny dysk twardy jest używany przez inny proces wewnętrzny.|Wirtualny dysk twardy powinien znajdować się w stanie używanym podczas pobierania go przy użyciu adresu URL sygnatury dostępu współdzielonego.|
 |3|Nieprawidłowy adres URL SAS|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
 |4|Nieprawidłowy podpis|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
@@ -317,7 +317,7 @@ W przypadku rozwiązań błędów, które są związane z dyskiem danych, należ
 
 ## <a name="remote-access-issue"></a>Problem z dostępem zdalnym
 
-Jeśli opcja Remote Desktop Protocol (RDP) nie jest włączona dla obrazu systemu Windows, zostanie wyświetlony ten błąd. 
+Jeśli opcja Remote Desktop Protocol (RDP) nie jest włączona dla obrazu systemu Windows, zostanie wyświetlony ten błąd.
 
 Włącz dostęp RDP dla obrazów systemu Windows przed ich przesłaniem.
 
@@ -334,11 +334,11 @@ Krok 2. Wybierz pierwszą opcję "RunShellScript" i uruchom poniższe polecenie.
 
 Polecenie: "Cat/dev/null > ~/.bash_history && History-c" ![ polecenie History bash na Azure Portal](./media/vm-certification-issues-solutions-4.png)
 
-Krok 3. Po pomyślnym wykonaniu polecenia Uruchom ponownie maszynę wirtualną.
+Krok 3. po pomyślnym wykonaniu polecenia Uruchom ponownie maszynę wirtualną.
 
 Krok 4. Uogólnij maszynę wirtualną, zrób dysk VHD obrazu i Zatrzymaj maszynę wirtualną.
 
-Krok 5.     Re-Submit uogólniony obraz.
+Krok 5. Re-Submit uogólniony obraz.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Żądanie wyjątków (szablonów niestandardowych) w obrazach maszyn wirtualnych dla testów selektywnych
 
@@ -349,7 +349,7 @@ W poniższych sekcjach porozmawiamy o głównych scenariuszach, w których żąd
 
 Scenariusze dla wyjątku
 
-Istnieją trzy scenariusze/przypadki, w których wydawcy zwykle żądają tych wyjątków. 
+Istnieją trzy scenariusze/przypadki, w których wydawcy zwykle żądają tych wyjątków.
 
 * **Wyjątek dla co najmniej jednego przypadku testowego:** Wydawcy mogą skontaktować się z żądaniem [obsługi wydawcy w portalu Marketplace](https://aka.ms/marketplacepublishersupport) dla przypadków testowych. 
 
@@ -357,20 +357,22 @@ Istnieją trzy scenariusze/przypadki, w których wydawcy zwykle żądają tych w
        W takim przypadku wydawcy mogą pobrać [certyfikowane Narzędzie testowe](https://aka.ms/AzureCertificationTestTool) tutaj i udostępnić raport na stronie [pomocy technicznej wydawcy w portalu Marketplace](https://aka.ms/marketplacepublishersupport)
 
 
-* **Szablony niestandardowe:** Niektórzy wydawcy publikują obrazy maszyn wirtualnych, które wymagają niestandardowego szablonu ARM do wdrożenia maszyn wirtualnych. W takim przypadku Wydawca jest proszony o dostarczenie szablonów niestandardowych w [pomocy technicznej wydawcy w portalu Marketplace](https://aka.ms/marketplacepublishersupport) , tak aby można było użyć tego samego zespołu certyfikacji do weryfikacji. 
+* **Szablony niestandardowe:** Niektórzy wydawcy publikują obrazy maszyn wirtualnych, które wymagają niestandardowego szablonu ARM do wdrożenia maszyn wirtualnych.
+
+W takim przypadku Wydawca jest proszony o dostarczenie szablonów niestandardowych w [pomocy technicznej wydawcy w portalu Marketplace](https://aka.ms/marketplacepublishersupport) , tak aby można było użyć tego samego zespołu certyfikacji do weryfikacji.
 
 ### <a name="information-to-provide-for-exception-scenarios"></a>Informacje, które należy podać dla scenariuszy wyjątków
 
 Wydawcy muszą skontaktować się z działem pomocy technicznej w [portalu Marketplace](https://aka.ms/marketplacepublishersupport) , aby zażądać wyjątków dla powyższego scenariusza z dodatkowymi następującymi informacjami:
 
-   1.   IDENTYFIKATOR wydawcy — identyfikator wydawcy w portalu Centrum partnerskiego
-   2.   Identyfikator/nazwa oferty — identyfikator/nazwę oferty, dla której żądany jest wyjątek 
-   3.   Jednostka SKU/identyfikator planu — identyfikator planu/jednostka SKU oferty maszyny wirtualnej, dla której żądany jest wyjątek
-   4.    Wersja — wersja oferty maszyny wirtualnej, dla której żądany jest wyjątek
-   5.   Typ wyjątku — testuje, zablokowano maszynę wirtualną i szablony niestandardowe
-   6.   Przyczyna żądania — powód tego wyjątku i informacje dotyczące testów do wykluczenia 
-   7. Oś czasu — Data, do której zażądano tego wyjątku 
-   8.   Załącznik — Dołącz wszelkie dokumenty z dowodem ważności. W przypadku zablokowanych maszyn wirtualnych Dołącz raport testowy i dla szablonów niestandardowych Podaj niestandardowy szablon ARM jako załącznik. Niepowodzenie dołączenia raportu do zablokowanych maszyn wirtualnych i niestandardowego szablonu ARM dla szablonów niestandardowych spowoduje odmowę żądania
+   1. IDENTYFIKATOR wydawcy — identyfikator wydawcy w portalu Centrum partnerskiego
+   1. Identyfikator/nazwa oferty — identyfikator/nazwę oferty, dla której żądany jest wyjątek 
+   1. Jednostka SKU/identyfikator planu — identyfikator planu/jednostka SKU oferty maszyny wirtualnej, dla której żądany jest wyjątek
+   1. Wersja — wersja oferty maszyny wirtualnej, dla której żądany jest wyjątek
+   1. Typ wyjątku — testuje, zablokowano maszynę wirtualną i szablony niestandardowe
+   1. Przyczyna żądania — powód tego wyjątku i informacje dotyczące testów do wykluczenia 
+   1. Oś czasu — Data, do której zażądano tego wyjątku 
+   1. Załącznik — Dołącz wszelkie dokumenty z dowodem ważności. W przypadku zablokowanych maszyn wirtualnych Dołącz raport testowy i dla szablonów niestandardowych Podaj niestandardowy szablon ARM jako załącznik. Niepowodzenie dołączenia raportu do zablokowanych maszyn wirtualnych i niestandardowego szablonu ARM dla szablonów niestandardowych spowoduje odmowę żądania
 
 ## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>Jak rozwiązać lukę w zabezpieczeniach lub wykorzystać ją w ramach oferty maszyny wirtualnej
 
@@ -403,7 +405,7 @@ Aby wykonać te kroki, należy przygotować zasób techniczny dla obrazu maszyny
 1. Na karcie **Przegląd planu** w kolumnie **Nazwa** wybierz plan, do którego chcesz dodać maszynę wirtualną.
 1. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych**wybierz pozycję **+ Dodaj obraz maszyny wirtualnej**.
    > [!NOTE]
-   > Do planu można dodać tylko jeden obraz maszyny wirtualnej. Aby dodać wiele obrazów maszyn wirtualnych, Opublikuj pierwszy z nich i zaczekaj, aż osiągnie etap _przygotowania wydawcy_ przed dodaniem kolejnego obrazu maszyny wirtualnej.
+   > Do planu można dodać tylko jeden obraz maszyny wirtualnej. Aby dodać wiele obrazów maszyn wirtualnych, Opublikuj każdą z nich na żywo przed dodaniem kolejnego obrazu maszyny wirtualnej.
 1. W wyświetlonych polach Podaj nową wersję dysku i obraz maszyny wirtualnej.
 1. Wybierz pozycję **Zapisz wersję roboczą**.
 1. Przejdź do następnej sekcji, aby usunąć obraz maszyny wirtualnej z luką w zabezpieczeniach.
@@ -425,6 +427,7 @@ Po usunięciu lub zastąpieniu obrazu maszyny wirtualnej należy ponownie opubli
 1. Wybierz pozycję **Przejrzyj i Opublikuj**.
 1. Jeśli musisz podać informacje dotyczące zespołu certyfikacji, Dodaj go do pola **uwagi dotyczące certyfikacji** .
 1. Kliknij pozycję **Opublikuj**.
+1. Gdy stan publikowania osiągnie fazę publikowanie, wybierz pozycję **Przejdź na żywo**.
 
 Aby uzyskać więcej informacji na temat procesu publikowania, zobacz [Jak przejrzeć i opublikować ofertę w portalu komercyjnym](../review-publish-offer.md).
 

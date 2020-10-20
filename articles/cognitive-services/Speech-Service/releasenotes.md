@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 94947499452c7f1b8515fee56996b13120232f34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eac4b08b590f93b3ec450eb1e1329d706fa09a3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462381"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206207"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
 
@@ -24,7 +24,7 @@ ms.locfileid: "89462381"
 
 ### <a name="new-features"></a>Nowe funkcje
 
-* **Neuronowych TTS: nowy styl wymawiania dla `en-US` Aria**. AriaNeural może wyglądać podobnie do newscaster podczas odczytywania wiadomości. Styl "Newscast-formaled" jest bardziej ważniejszy, podczas gdy styl "Newscast-swobodny" jest bardziej swobodny i nieformalny. Zobacz [, jak używać stylów mówiących w SSML](speech-synthesis-markup.md).
+* **Neuronowych TTS: nowy styl wymawiania dla `en-US` Aria**. AriaNeural może wyglądać podobnie jak rzutowanie wiadomości w przypadku odczytywania wiadomości. Styl "Newscast-formaled" jest bardziej ważniejszy, podczas gdy styl "Newscast-swobodny" jest bardziej swobodny i nieformalny. Zobacz [, jak używać stylów mówiących w SSML](speech-synthesis-markup.md).
 
 * **Niestandardowy głos: wydano nową funkcję, która umożliwia automatyczne sprawdzanie jakości danych szkoleniowych**. Po przekazaniu danych system będzie analizować różne aspekty danych audio i transkrypcji oraz automatycznie rozwiązywać lub filtrować problemy w celu poprawy jakości modelu głosu. Dotyczy to ilości dźwięku, poziomu szumu, dokładności wymowy mowy, wyrównania mowy z znormalizowanym tekstem, wyciszenia dźwięku oraz formatowania dźwięku i skryptu. 
 
@@ -38,7 +38,7 @@ ms.locfileid: "89462381"
 
     * Dokumentacja usługi SSML: połączona z dokumentem SSML, ułatwiająca sprawdzenie reguł korzystania ze wszystkich funkcji dostrajania.
 
-* **Interfejs API listy głosowej został zaktualizowany tak, aby zawierał przyjazną nazwę wyświetlaną użytkownika i style odmowy obsługiwane dla głosów neuronowych**.
+* **Interfejs API listy głosu został zaktualizowany tak, aby zawierał przyjazną dla użytkownika nazwę wyświetlaną i style odmowy obsługiwane dla głosów neuronowych**.
 
 ### <a name="general-tts-voice-quality-improvements"></a>Ulepszenia jakości głosu dotyczące ogólnej TTS
 
@@ -64,10 +64,10 @@ ms.locfileid: "89462381"
 * Naprawiono wiele usterek przy użyciu narzędzia do tworzenia zawartości audio 
     * Rozwiązano problem z autoodświeżaniem. 
     * Rozwiązano problemy ze stylami głosu w polu zh-CN w regionie Azja Wschodnia południowo.
-    * Rozwiązano problem dotyczący stabilności, w tym błąd eksportu ze znacznikiem "Break" i błędy w znakach interpunkcyjnych.    
+    * Rozwiązano problem dotyczący stabilności, w tym błąd eksportu ze znacznikiem "Break" i błędy w interpunkcji.
 
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Nowe ustawienia zamiany mowy na tekst: 2020 — wydanie z sierpnia
-Zamiana mowy na tekst wydana 26 nowych ustawień regionalnych w sierpniu: 2 Języki europejskie `cs-CZ` i `hu-HU` , 5 angielskie ustawienia regionalne oraz 19 hiszpańskie ustawienia regionalne, które obejmują większość krajów Ameryki Południowej. Poniżej znajduje się lista nowych ustawień regionalnych. Zapoznaj się z [pełną listą](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)języków.
+Zamiana mowy na tekst wydana 26 nowych ustawień regionalnych w sierpniu: 2 Języki europejskie `cs-CZ` i `hu-HU` , 5 angielskie ustawienia regionalne oraz 19 hiszpańskie ustawienia regionalne, które obejmują większość krajów Ameryki Południowej. Poniżej znajduje się lista nowych ustawień regionalnych. Zapoznaj się z pełną [listą](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)języków.
 
 | Regionalne  | Język                          |
 |---------|-----------------------------------|
@@ -120,7 +120,7 @@ Zamiana mowy na tekst wydana 26 nowych ustawień regionalnych w sierpniu: 2 Jęz
 - **JavaScript**: rozwiązano [problem](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) dotyczący przecieku pamięci w strumieniach.
 - **JavaScript**: dodano buforowanie dla odpowiedzi protokołu OCSP z NodeJS.
 - **Java**: Rozwiązano problem, który spowodował, że pola BigInteger zawsze zwracają 0.
-- **iOS**: rozwiązano [problem związany](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) z publikowaniem aplikacji opartych na zestawie mowy SDK w sklepie iOS App Store.
+- **iOS**: rozwiązano [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) z publikowaniem aplikacji opartych na zestawie SDK mowy w sklepie iOS App Store.
 
 **Samples**
 - **C++**: dodano przykładowy kod dla rozpoznawanie osoby mówiącej w [tym miejscu](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
@@ -136,7 +136,7 @@ Bądź w dobrej kondycji
 
 * **Niestandardowy głos, usprawnione testowanie głosu przy użyciu przepływu szkoleniowego, aby uprościć środowisko użytkownika**: dzięki nowej funkcji testowania każdy głos zostanie automatycznie przetestowany przy użyciu wstępnie zdefiniowanego zestawu testów zoptymalizowanego dla każdego języka, który będzie obejmować scenariusze ogólne i asystenta głosowego. Te zestawy testów są starannie wybierane i przetestowane w taki sposób, aby obejmowały typowe przypadki użycia i fonemów w języku. Oprócz tego użytkownicy nadal mogą wybrać opcję przekazania własnych skryptów testowych podczas uczenia modelu.
 
-* **Tworzenie zawartości audio: zestaw nowych funkcji jest udostępnianych w celu zapewnienia bardziej zaawansowanych funkcji dostrajania głosu i zarządzania dźwiękiem**
+* **Tworzenie zawartości audio: wydano zestaw nowych funkcji umożliwiających bardziej zaawansowane funkcje dostrajania głosu i zarządzania dźwiękiem**
 
     * `Pitch`, `rate` i `volume` są ulepszone do obsługi dostrajania ze wstępnie zdefiniowaną wartością, np. wolno, średnim i szybkim. Teraz jest to proste, aby użytkownicy mogli wybrać wartość "stała" do edycji dźwięku.
 
@@ -162,7 +162,7 @@ Bądź w dobrej kondycji
     * Zaktualizowano Katja w programie `de-DE` przy użyciu najnowszej metody modelowania Prosody, korzyści z MOS (średnia ocena opinii) to + 0,13. 
     * Zaktualizowano Nanami w programie `ja-JP` przy użyciu nowego modelu Prosody akcentu, a MOS (średnia ocena opinii) to + 0,19;  
 
-* Ulepszona dokładność wymowy na poziomie wyrazów w 5 językach.
+* Ulepszona dokładność wymowy na poziomie wyrazów w pięciu językach.
 
     | Język | Zmniejszenie błędów wymowy |
     |---|---|
@@ -210,7 +210,7 @@ Bądź w dobrej kondycji
 **Poprawki błędów**
 -   **C \# , C++**: stałe nagrywanie mikrofonu nie działa w 1,12 podczas rozpoznawania osoby mówiącej.
 -   **JavaScript**: poprawki dla zamiany tekstu na mowę w przeglądarce Firefox i Safari w systemach MacOS i iOS.
--   Poprawka dotycząca naruszenia zasad dostępu weryfikatora aplikacji systemu Windows w przypadku nieoczekiwanego transkrypcji konwersacji podczas korzystania ze strumienia 8-kanałowego.
+-   Poprawka dla programu sprawdzania aplikacji systemu Windows błąd naruszenia zasad dostępu podczas transkrypcji konwersacji podczas korzystania ze strumienia ośmiu kanałów.
 -   Poprawka dotycząca naruszenia zasad dostępu weryfikatora aplikacji systemu Windows w przypadku tłumaczenia konwersacji na wiele urządzeń.
 
 **Samples**
@@ -234,13 +234,13 @@ Bądź w dobrej kondycji
 
 **Udoskonalenia & optymalizacji**
 - **JavaScript**: Optymalizacja mikrofonu zoptymalizowanej przeglądarki poprawianie dokładności rozpoznawania mowy.
-- **Java**: powiązania refaktoryzacji przy użyciu bezpośredniej implementacji JNI bez SWIG. Zmniejsza to, 10X rozmiar powiązań dla wszystkich pakietów języka Java używanych dla systemów Windows, Android, Linux i Mac oraz ułatwia dalsze programowanie implementacji języka Java zestawu Speech SDK.
+- **Java**: powiązania refaktoryzacji przy użyciu bezpośredniej implementacji JNI bez SWIG. Ta zmiana zmniejsza się, 10X rozmiar powiązań dla wszystkich pakietów języka Java używanych dla systemów Windows, Android, Linux i Mac oraz ułatwia dalsze opracowywanie implementacji języka Java zestawu Speech SDK.
 - **Linux**: Zaktualizowano [dokumentację](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux) pomocy technicznej z najnowszymi uwagami specyficznymi dla programu RHEL 7.
-- Ulepszona logika połączenia, aby próbować łączyć się wiele razy w przypadku błędów usługi i sieci.
+- Ulepszona logika połączenia, aby próbować łączyć się wiele razy w przypadku wystąpienia błędów usługi i sieci.
 - Zaktualizowano stronę szybkiego startu mowy [Portal.Azure.com](https://portal.azure.com) , aby pomóc deweloperom w następnym kroku w podróży mowy na platformie Azure.
 
 **Poprawki błędów**
-- **C#, Java**: rozwiązano [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) z ładowaniem bibliotek SDK w systemie Linux ARM (w bitach 32 i 64).
+- **C#, Java**: rozwiązano [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) z ładowaniem bibliotek SDK w systemie Linux ARM (zarówno 32 bitów, jak i 64 bitów).
 - **C#**: stałe usuwanie uchwytów natywnych dla obiektów TranslationRecognizer, IntentRecognizer i Connection.
 - **C#**: stałe dane wejściowe okresu istnienia audio dla obiektu ConversationTranscriber.
 - Rozwiązano problem, `IntentRecognizer` w którym powód wyniku nie został poprawnie ustawiony podczas rozpoznawania intencji z prostych fraz.
@@ -253,7 +253,7 @@ Bądź w dobrej kondycji
 - **JavaScript**: dodano Przewodniki Szybki Start dla [zamiany tekstu na mowę](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript), [tłumaczenia](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script&pivots=programming-language-csharp)i [rozpoznawanie intencji](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
 - Przykłady rozpoznawania słów kluczowych dla języków [C \# ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) i [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
-**COVID-19 przetestowanie:** Ze względu na to, że praca zdalna jest wykonywana w ciągu ostatnich kilku tygodni, nie udało nam się wykonać tyle testów weryfikacyjnych ręcznych. Firma Microsoft nie wprowadziła żadnych zmian, które mogą być uszkodzone i wszystkie testy zautomatyzowane zostały zakończone powodzeniem. W mało prawdopodobnym zdarzeniu, poinformuj nas o tym w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+**COVID-19 przetestowanie:** Ze względu na to, że praca zdalna jest wykonywana w ciągu ostatnich kilku tygodni, nie udało nam się wykonać tyle testów weryfikacyjnych ręcznych. Firma Microsoft nie wprowadziła żadnych zmian, które mogą być uszkodzone i wszystkie testy zautomatyzowane zostały zakończone powodzeniem. W przypadku nieodebrania czegoś poinformuj nas o tym w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Bądź w dobrej kondycji
 
 ## <a name="speech-sdk-1110-2020-march-release"></a>Speech SDK 1.11.0:2020-marzec Release
@@ -271,14 +271,14 @@ Bądź w dobrej kondycji
 - C#, C++: Rozwiązano problem polegający na tym, że użycie `Connection MessageReceived` zdarzenia może spowodować awarię, jeśli element `Recognizer` zostanie usunięty przed `Connection` obiektem. Szczegóły dla [języków C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet)i [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived).
 - Android: rozmiar buforu audio z mikrofonu zmniejszył się z 800ms do 100 MS w celu usprawnienia opóźnienia.
 - Android: rozwiązano [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) z emulatorem x86 systemu android w Android Studio.
-- JavaScript: Dodano obsługę regionów w Chinach przy użyciu `fromSubscription` interfejsu API. Szczegóły [tutaj](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#fromsubscription-string--string-). 
+- JavaScript: Dodano obsługę regionów w Chinach przy użyciu `fromSubscription` interfejsu API. Szczegóły [tutaj](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#fromsubscription-string--string-). 
 - JavaScript: Dodaj więcej informacji o błędzie dla niepowodzeń połączeń z NodeJS.
         
 **Samples**
 - Unity: w przypadku niepowodzenia importu LUIS JSON został usunięty publiczny przykład rozpoznawania intencji. Szczegóły [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/369).
 - Python: dodano przykład dla `Language ID` . Szczegóły [tutaj](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
     
-**Covid19:** Ze względu na to, że praca zdalna jest wykonywana w ciągu ostatnich kilku tygodni, nie mogliśmy przeanalizować tak wielu ręcznych testów weryfikacyjnych urządzeń. Przykładem jest testowanie danych wejściowych mikrofonu i danych wyjściowych głośników w systemach Linux, iOS i macOS. Nie wprowadziliśmy żadnych zmian, na których myślimy, że na tych platformach zakończono wszystkie czynności i wszystkie testy zautomatyzowane zostały zakończone powodzeniem. W mało prawdopodobnym zdarzeniu, poinformuj nas o tym w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br> Dziękujemy za dalszą pomoc techniczną. Jak zawsze, Opublikuj pytania lub opinię w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen) lub [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/731).<br>
+**Covid19:** Ze względu na to, że praca zdalna jest wykonywana w ciągu ostatnich kilku tygodni, nie mogliśmy przeanalizować tak wielu ręcznych testów weryfikacyjnych urządzeń. Na przykład nie możemy przetestować danych wejściowych mikrofonu i danych wyjściowych głośników w systemach Linux, iOS i macOS. Nie wprowadziliśmy żadnych zmian, na których myślimy, że na tych platformach zakończono wszystkie czynności i wszystkie testy zautomatyzowane zostały zakończone powodzeniem. W mało prawdopodobnym zdarzeniu, poinformuj nas o tym w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br> Dziękujemy za dalszą pomoc techniczną. Jak zawsze, Opublikuj pytania lub opinię w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen) lub [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/731).<br>
 Bądź w dobrej kondycji
 
 ## <a name="speech-sdk-1100-2020-february-release"></a>Speech SDK 1.10.0:2020-luty Release
@@ -329,7 +329,7 @@ Bądź w dobrej kondycji
 
 - `OpenSSL` został zaktualizowany do wersji 1.1.1 b i jest statycznie połączony z biblioteką podstawową zestawu Speech SDK dla systemu Linux. Może to spowodować przerwanie, jeśli skrzynka odbiorcza `OpenSSL` nie została zainstalowana w `/usr/lib/ssl` katalogu w systemie. Aby obejść ten problem, zapoznaj się z [naszą dokumentacją](how-to-configure-openssl-linux.md) w obszarze dokumentacja zestawu Speech SDK.
 - Zmieniono typ danych zwrócony dla języka C# `WordLevelTimingResult.Offset` z na, `int` `long` Aby zezwolić na dostęp, `WordLevelTimingResults` gdy dane mowy są dłuższe niż 2 minuty.
-- `PushAudioInputStream` i `PullAudioInputStream` teraz Wysyłaj informacje z nagłówka WAV do usługi mowy opartej na systemie `AudioStreamFormat` , opcjonalnie określone podczas tworzenia. Klienci muszą teraz korzystać z [obsługiwanego formatu wejścia audio](how-to-use-audio-input-streams.md). Wszystkie inne formaty będą uzyskiwać optymalne wyniki rozpoznawania lub mogą powodować inne problemy. 
+- `PushAudioInputStream` i `PullAudioInputStream` teraz Wysyłaj informacje z nagłówka WAV do usługi mowy opartej na systemie `AudioStreamFormat` , opcjonalnie określone podczas tworzenia. Klienci muszą teraz korzystać z [obsługiwanego formatu wejścia audio](how-to-use-audio-input-streams.md). Wszystkie inne formaty będą uzyskać optymalne wyniki rozpoznawania lub mogą powodować inne problemy. 
 
 **Poprawki błędów**
 
@@ -369,7 +369,7 @@ Bądź w dobrej kondycji
 **Zmiany powodujące niezgodność**
 
 - Funkcje Transcriber konwersacji przenoszone w obszarze nazw `Microsoft.CognitiveServices.Speech.Transcription` .
-- Część metod Transcriber konwersacji jest przenoszona do nowej `Conversation` klasy.
+- Części metody Transcriber konwersacji są przenoszone do nowej `Conversation` klasy.
 - Porzucone wsparcie dla 32-bitowych (architektury ARMv7 i x86) iOS
 
 **Poprawki błędów**
@@ -442,7 +442,7 @@ Bądź w dobrej kondycji
 - Naprawa problemu z aplikacją .NET Core w celu załadowania biblioteki podstawowej z platformą docelową net461 w przykładach
 - Naprawa sporadycznych problemów związanych z wdrażaniem bibliotek natywnych w folderze wyjściowym w przykładach
 - Naprawa niezawodnego zamykania gniazda internetowego
-- Naprawianie możliwej awarii podczas otwierania połączenia w przypadku bardzo dużego obciążenia w systemie Linux
+- Naprawianie możliwej awarii podczas otwierania połączenia z dużym obciążeniem w systemie Linux
 - Naprawianie brakujących metadanych w pakiecie struktury dla macOS
 - Rozwiązywanie problemów z `pip install --user` systemem Windows
 
@@ -657,7 +657,7 @@ Jest to wersja tylko w języku JavaScript. Nie dodano żadnych funkcji. Wprowadz
 Ulepszenia niezawodności i poprawki błędów:
 
 - Naprawiono potencjalny błąd krytyczny spowodowany sytuacją wyścigu podczas usuwania aparatu rozpoznawania
-- Naprawiono potencjalny błąd krytyczny w przypadku nieustawionych właściwości.
+- Naprawiono potencjalny błąd krytyczny podczas wycofania właściwości.
 - Dodano dodatkowy błąd i sprawdzanie parametrów.
 - Zamierzenie-C: stały możliwy błąd krytyczny spowodowany przez zastąpienie nazwy w NSString.
 - Cel-C: dostosowany widoczność interfejsu API

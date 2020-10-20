@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 7810afffd5da6d46439ff27ddb3f5b0aafdc2341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981324"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201056"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute
 
@@ -20,7 +20,7 @@ Ten artykuł ułatwia skonfigurowanie rozszerzenia Network Performance Monitor d
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Dostępne możliwości:
+Można:
 
 * Monitorowanie strat i opóźnień w różnych sieci wirtualnych i Ustawianie alertów
 
@@ -54,7 +54,7 @@ Utwórz obszar roboczy w subskrypcji, który ma link sieci wirtualnych do obwod�
 1. W [Azure Portal](https://portal.azure.com)wybierz subskrypcję, która ma sieci wirtualnych komunikację równorzędną z obwodem usługi ExpressRoute. Następnie przeszukaj listę usług w **witrynie Marketplace** dla "Network Performance Monitor". W polu Wróć kliknij, aby otworzyć stronę **Network Performance Monitor** .
 
    >[!NOTE]
-   >Można utworzyć nowy obszar roboczy lub użyć istniejącego obszaru roboczego. Jeśli chcesz użyć istniejącego obszaru roboczego, musisz upewnić się, że obszar roboczy został zmigrowany do nowego języka zapytań. [Więcej informacji...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Można utworzyć nowy obszar roboczy lub użyć istniejącego obszaru roboczego. Jeśli chcesz użyć istniejącego obszaru roboczego, musisz upewnić się, że obszar roboczy został zmigrowany do nowego języka zapytań. [Więcej informacji...](../azure-monitor/log-query/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
@@ -92,7 +92,7 @@ Utwórz obszar roboczy w subskrypcji, który ma link sieci wirtualnych do obwod�
 Zalecamy zainstalowanie co najmniej dwóch agentów po każdej stronie połączenia ExpressRoute (na przykład lokalnie, Azure sieci wirtualnych). Agent musi być zainstalowany w systemie Windows Server (2008 z dodatkiem SP1 lub nowszym). Monitorowanie obwodów usługi ExpressRoute przy użyciu systemu operacyjnego Windows Desktop i systemu operacyjnego Linux nie jest obsługiwane. Wykonaj następujące kroki, aby zainstalować agentów:
    
   >[!NOTE]
-  >Agenci wypychani przez SCOM (w tym [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) mogą nie być w stanie spójnie wykryć ich lokalizację, jeśli są hostowane na platformie Azure. Zalecamy, aby nie używać tych agentów w usłudze Azure sieci wirtualnych do monitorowania ExpressRoute.
+  >Agenci wypychani przez SCOM (w tym [MMA](/previous-versions/system-center/system-center-2012-R2/dn465154(v=sc.12))) mogą nie być w stanie spójnie wykryć ich lokalizację, jeśli są hostowane na platformie Azure. Zalecamy, aby nie używać tych agentów w usłudze Azure sieci wirtualnych do monitorowania ExpressRoute.
   >
 
 1. Uruchom **Instalatora** , aby zainstalować agenta na każdym serwerze, który ma być używany na potrzeby monitorowania ExpressRoute. Serwer używany do monitorowania może być maszyną wirtualną lub lokalną i musi mieć dostęp do Internetu. Należy zainstalować co najmniej jednego agenta lokalnego i jednego agenta w każdym segmencie sieci, który ma być monitorowany na platformie Azure.
@@ -118,7 +118,7 @@ Zalecamy zainstalowanie co najmniej dwóch agentów po każdej stronie połącze
 
 ### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2,3: Skonfiguruj ustawienia serwera proxy (opcjonalnie)
 
-Jeśli używasz serwera proxy sieci Web do uzyskiwania dostępu do Internetu, wykonaj następujące kroki, aby skonfigurować ustawienia serwera proxy dla Microsoft Monitoring Agent. Wykonaj te kroki dla każdego serwera. Jeśli masz wiele serwerów, które trzeba skonfigurować, łatwiejszym rozwiązaniem może być użycie skryptu automatyzującego ten proces. Jeśli tak, zobacz [Konfigurowanie ustawień serwera proxy dla Microsoft Monitoring Agent przy użyciu skryptu](../log-analytics/log-analytics-windows-agent.md).
+Jeśli używasz serwera proxy sieci Web do uzyskiwania dostępu do Internetu, wykonaj następujące kroki, aby skonfigurować ustawienia serwera proxy dla Microsoft Monitoring Agent. Wykonaj te kroki dla każdego serwera. Jeśli masz wiele serwerów, które trzeba skonfigurować, łatwiejszym rozwiązaniem może być użycie skryptu automatyzującego ten proces. Jeśli tak, zobacz [Konfigurowanie ustawień serwera proxy dla Microsoft Monitoring Agent przy użyciu skryptu](../azure-monitor/platform/agent-windows.md).
 
 Aby skonfigurować ustawienia serwera proxy dla Microsoft Monitoring Agent przy użyciu panelu sterowania:
 
@@ -161,7 +161,7 @@ Na serwerach agentów Otwórz okno programu PowerShell z uprawnieniami administr
 
 Aby monitorować serwery agentów, które znajdują się na platformie Azure, należy skonfigurować reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) w celu zezwalania na ruch TCP na porcie używanym przez NPM dla transakcji syntetycznych. Domyślnym portem jest 8084. Dzięki temu Agent monitorowania zainstalowany na maszynie wirtualnej platformy Azure może komunikować się z lokalnym agentem monitorowania.
 
-Aby uzyskać więcej informacji na temat sieciowej grupy zabezpieczeń, zobacz [Network Security Groups](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
+Aby uzyskać więcej informacji na temat sieciowej grupy zabezpieczeń, zobacz [Network Security Groups](../virtual-network/tutorial-filter-network-traffic.md).
 
 >[!NOTE]
 >Upewnij się, że zainstalowano agentów (zarówno agenta lokalnego serwera, jak i agenta serwera Azure), i uruchom skrypt programu PowerShell przed wykonaniem tego kroku.

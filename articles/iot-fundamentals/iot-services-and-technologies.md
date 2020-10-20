@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: ad0712de85a08ed581ba89d7e01d8ba1244006b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0678b2c36d341b2bc2bd9be755b9a6213acdd462
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977565"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206088"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>Jakie technologie i usługi platformy Azure mogą służyć do tworzenia rozwiązań IoT?
 
@@ -61,7 +61,7 @@ Możesz bardziej uprościć sposób tworzenia kodu osadzonego dla urządzeń za 
 
 [Azure IoT Edge](../iot-edge/about-iot-edge.md) pozwala odciążać części obciążenia IoT z usług w chmurze platformy Azure na urządzeniach. IoT Edge może ograniczyć opóźnienia w rozwiązaniu, zmniejszyć ilość danych wymienianych przez urządzenia z chmurą i włączyć scenariusze międzywierszowe. Urządzeniami IoT Edge można zarządzać z poziomu IoT Central i niektórych akceleratorów rozwiązań.
 
-[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) to zabezpieczona platforma aplikacji wysokiego poziomu z wbudowanymi funkcjami komunikacji i zabezpieczeń dla urządzeń połączonych z Internetem. Obejmuje ona bezpieczną jednostkę mikrokontrolerów, niestandardowy system operacyjny oparty na systemie Linux oraz usługę zabezpieczeń opartą na chmurze, która zapewnia ciągły, odnawialny zabezpieczenia.
+[Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) to zabezpieczona platforma aplikacji wysokiego poziomu z wbudowanymi funkcjami komunikacji i zabezpieczeń dla urządzeń połączonych z Internetem. Obejmuje ona bezpieczną jednostkę mikrokontrolerów, niestandardowy system operacyjny oparty na systemie Linux oraz usługę zabezpieczeń opartą na chmurze, która zapewnia ciągły, odnawialny zabezpieczenia.
 
 ### <a name="cloud-connectivity"></a>Łączność z chmurą
 
@@ -76,7 +76,7 @@ IoT Hub jest głównym składnikiem akceleratorów rozwiązań i można go uży�
 
 ### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>Mostkowanie przerwy między fizycznym i cyfrowym światem
 
-[Azure Digital bliźniaczych reprezentacji](../digital-twins/about-digital-twins.md) to usługa IoT, która umożliwia modelowanie środowiska fizycznego. Używa grafu analizy przestrzennej do modelowania relacji między osobami, miejscami i urządzeniami. Dzięki rozwiązaniom danych w ramach sieci cyfrowych i fizycznych można tworzyć rozwiązania z obsługą kontekstową.
+[Azure Digital bliźniaczych reprezentacji](../digital-twins/overview.md) to usługa IoT, która umożliwia modelowanie środowiska fizycznego. Używa grafu analizy przestrzennej do modelowania relacji między osobami, miejscami i urządzeniami. Dzięki rozwiązaniom danych w ramach sieci cyfrowych i fizycznych można tworzyć rozwiązania z obsługą kontekstową.
 
 IoT Central używa cyfrowego bliźniaczych reprezentacji do synchronizowania urządzeń i danych w świecie rzeczywistym z modelami cyfrowymi, które umożliwiają użytkownikom monitorowanie tych połączonych urządzeń i zarządzanie nimi.
 
@@ -84,7 +84,7 @@ IoT Central używa cyfrowego bliźniaczych reprezentacji do synchronizowania urz
 
 Urządzenia IoT zazwyczaj generują duże ilości danych szeregów czasowych, takich jak odczyty temperatury z czujników. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) może nawiązać połączenie z usługą IoT Hub, odczytać strumień danych telemetrycznych z urządzeń, przechowywać te dane i umożliwić wykonywanie zapytań i wizualizację.
 
-[Azure Maps](/azure/azure-maps) jest kolekcją usług geoprzestrzennych, które używają danych do odwzorowania w celu zapewnienia dokładnego kontekstu geograficznego w aplikacjach sieci Web i mobilnych. Możesz użyć interfejsu API REST, opartej na sieci Web kontrolki JavaScript lub Android SDK do kompilowania aplikacji.
+[Azure Maps](../azure-maps/index.yml) jest kolekcją usług geoprzestrzennych, które używają danych do odwzorowania w celu zapewnienia dokładnego kontekstu geograficznego w aplikacjach sieci Web i mobilnych. Możesz użyć interfejsu API REST, opartej na sieci Web kontrolki JavaScript lub Android SDK do kompilowania aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

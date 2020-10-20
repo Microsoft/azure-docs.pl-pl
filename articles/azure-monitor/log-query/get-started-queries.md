@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874065"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207193"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor
 
@@ -171,7 +171,7 @@ Poprzedni przykład generuje te dane wyjściowe:
 Można również użyć **projektu** , aby zmienić nazwy kolumn i zdefiniować nowe. Poniższy przykład używa programu Project, aby wykonać następujące czynności:
 
 * Wybierz tylko *komputer* i *TimeGenerated* oryginalne kolumny.
-* Zmień nazwę kolumny *Activity* na *EventDetails*.
+* Wyświetla kolumnę *Activity* jako *EventDetails*.
 * Utwórz nową kolumnę o nazwie *Kod zdarzenia*. Funkcja **substring ()** służy do pobierania tylko pierwszych czterech znaków z pola aktywności.
 
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92b5685722b8a37de3945caa1305a76b3cabb8a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252633"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206241"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorowanie, metryki i alerty usługi ExpressRoute
 
@@ -42,8 +42,8 @@ Po wybraniu metryki zostanie zastosowana domyślna agregacja. Opcjonalnie można
 |GlobalReachBitsOutPerSecond|Ruch|<ui><li>Skey obwodu równorzędnego (klucz usługi)</ui></li>|Global Reach|
 |AdminState|Łączność fizyczna|Łącze|Usługa ExpressRoute Direct|
 |LineProtocol|Łączność fizyczna|Łącze|Usługa ExpressRoute Direct|
-|RxLightLevel|Łączność fizyczna|<ui><li>Powiązań</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
-|TxLightLevel|Łączność fizyczna|<ui><li>Powiązań</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
+|RxLightLevel|Łączność fizyczna|<ui><li>Łącze</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
+|TxLightLevel|Łączność fizyczna|<ui><li>Łącze</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
 >[!NOTE]
 >Użycie *GlobalGlobalReachBitsInPerSecond* i *GlobalGlobalReachBitsOutPerSecond* będzie widoczne tylko wtedy, gdy zostanie nawiązane co najmniej jedno połączenie Global REACH.
 >
@@ -70,7 +70,7 @@ Możesz przeglądać w czasie rzeczywistym dostępność protokołu BGP w przypa
 
 ### <a name="arp-availability---split-by-peering"></a>Dostępność protokołu ARP — dzielenie według komunikacji równorzędnej  
 
-Możesz przeglądać w czasie rzeczywistym dostępność [protokołu ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) między komunikacjami równorzędnymi i równorzędnymi (podstawowymi i pomocniczymi routerami ExpressRoute). Ten pulpit nawigacyjny pokazuje prywatną komunikację równorzędną ARP w ramach obu elementów równorzędnych, ale kończy się w przypadku komunikacji równorzędnej firmy Microsoft między różnymi elementami równorzędnymi. Agregacja domyślna (średnia) została wykorzystana w obu elementach równorzędnych.  
+Możesz przeglądać w czasie rzeczywistym dostępność [protokołu ARP](./expressroute-troubleshooting-arp-resource-manager.md) między komunikacjami równorzędnymi i równorzędnymi (podstawowymi i pomocniczymi routerami ExpressRoute). Ten pulpit nawigacyjny pokazuje prywatną komunikację równorzędną ARP w ramach obu elementów równorzędnych, ale kończy się w przypadku komunikacji równorzędnej firmy Microsoft między różnymi elementami równorzędnymi. Agregacja domyślna (średnia) została wykorzystana w obu elementach równorzędnych.  
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="metryki obwodu":::
 

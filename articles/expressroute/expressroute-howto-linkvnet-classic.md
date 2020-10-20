@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a731962f22985268093c547b09a8cd77c5b92660
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8a1d48934d73f1035c6f2c4c76e56d9a0e4052
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395812"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206974"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu programu PowerShell (wersja klasyczna)
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -42,7 +42,7 @@ Do obwodu ExpressRoute można połączyć maksymalnie 10 sieci wirtualnych. Wszy
    * Postępuj zgodnie z instrukcjami w celu [utworzenia obwodu usługi ExpressRoute](expressroute-howto-circuit-classic.md) i włączenia tego obwodu przez dostawcę połączenia.
    * Upewnij się, że masz skonfigurowaną prywatną komunikację równorzędną Azure dla obwodu. Instrukcje dotyczące routingu można znaleźć w artykule [Konfigurowanie routingu](expressroute-howto-routing-classic.md) .
    * Upewnij się, że skonfigurowano prywatną komunikację równorzędną platformy Azure, a Komunikacja równorzędna protokołu BGP między siecią i firmą Microsoft jest w stanie umożliwiającym kompleksową łączność.
-   * Musisz mieć sieć wirtualną i bramę sieci wirtualnej, która została utworzona i w pełni zainicjowana. Postępuj zgodnie z instrukcjami, aby [skonfigurować sieć wirtualną dla usługi ExpressRoute](expressroute-howto-vnet-portal-classic.md).
+   * Musisz mieć sieć wirtualną i bramę sieci wirtualnej, która została utworzona i w pełni zainicjowana. Postępuj zgodnie z instrukcjami, aby [skonfigurować sieć wirtualną dla usługi ExpressRoute](./expressroute-howto-add-gateway-portal-resource-manager.md).
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Pobierz najnowsze polecenia cmdlet programu PowerShell
 

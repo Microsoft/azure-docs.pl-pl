@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: ef99ff874376e0d76e45e4b0b2c36a78d938130b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91efdac9d17e679226f10012bbff9b5b6676ff0e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844009"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205582"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Odzyskiwanie po awarii urządzenia GPU z niepowodzeniem Azure Stack Edge 
 
 W tym artykule opisano sposób odzyskania z niedopuszczalnej awarii na urządzeniu z systemem Azure Stack Edge z procesorem GPU. Niedopuszczalne awarie na urządzeniu z procesorem GPU w systemie Azure Stack Edge wymaga zastąpienia urządzenia.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Upewnij się, że masz:
 
@@ -62,7 +62,8 @@ Aby przygotować się do potencjalnego błędu urządzenia, można wdrożyć jed
 | Oprogramowanie innych producentów           | Odwołanie do rozwiązania                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> Aby uzyskać szczegółowe informacje, skontaktuj się z Cohesity.          |
-| Firmę                        | Aby uzyskać szczegółowe informacje, skontaktuj się z firmą Veritas.   |
+| CommVault                      | https://www.commvault.com/azure <br> Aby uzyskać szczegółowe informacje, skontaktuj się z firmą CommVault. |
+| Firmę                        | http://veritas.com/azure <br> Aby uzyskać szczegółowe informacje, skontaktuj się z firmą Veritas.   |
 
 Po całkowitym skonfigurowaniu urządzenia zastępczego włącz je na potrzeby lokalnego magazynu. 
 
@@ -78,11 +79,12 @@ Aby przygotować się do potencjalnego błędu urządzenia, można wdrożyć jed
 
 
 
-| Rozwiązania do tworzenia kopii zapasowych        | Obsługiwane systemy operacyjne   | Tematy pomocy                                                                |
+| Rozwiązania do tworzenia kopii zapasowych        | Obsługiwane systemy operacyjne   | Dokumentacja                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agent Microsoft Azure Recovery Services (MARS) dla Azure Backup | Windows        | [Informacje o agencie MARS](/azure/backup/backup-azure-about-mars)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure integracja, rozwiązanie do tworzenia kopii zapasowych i odzyskiwania](https://www.cohesity.com/solution/cloud/azure) <br>Aby uzyskać szczegółowe informacje, skontaktuj się z Cohesity.                          |
-| Firmę                 | Windows, Linux | Aby uzyskać szczegółowe informacje, skontaktuj się z firmą Veritas.                    |
+| CommVault               | Windows, Linux | https://www.commvault.com/azure <br> Aby uzyskać szczegółowe informacje, skontaktuj się z firmą CommVault.
+| Firmę                 | Windows, Linux | http://veritas.com/azure <br> Aby uzyskać szczegółowe informacje, skontaktuj się z firmą Veritas.                    |
 
 Po całkowitym skonfigurowaniu urządzenia zastępczego można ponownie wdrożyć maszyny wirtualne z wcześniej używanym obrazem maszyny wirtualnej. 
 

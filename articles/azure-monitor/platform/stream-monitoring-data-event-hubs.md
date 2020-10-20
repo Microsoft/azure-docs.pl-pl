@@ -7,12 +7,12 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: f6272e3d976c7c3b04d5b1332e2d7b3410c3045c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 784ecd5c0539ee0dc84c8afd6b85dbc10a154982
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318882"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206887"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń lub zewnętrznego partnera
 
@@ -51,12 +51,12 @@ Kierowanie danych monitorowania do centrum zdarzeń za pomocą Azure Monitor poz
 | Narzędzie | Hostowane na platformie Azure | Opis |
 |:---|:---| :---|
 |  IBM QRadar | Nie | Microsoft Azure DSM i Microsoft Azure centrum zdarzeń jest dostępny do pobrania z [witryny sieci Web pomocy technicznej firmy IBM](https://www.ibm.com/support). Możesz dowiedzieć się więcej o integracji z platformą Azure w [konfiguracji DSM QRadar](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
-| Splunk | Nie | [Azure Monitor Add-On dla Splunk](https://splunkbase.splunk.com/app/3534/) jest projektem open source dostępnym w Splunkbase. Dokumentacja jest dostępna w [Azure monitor dodatku dla Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Jeśli nie można zainstalować dodatku w wystąpieniu usługi Splunk, jeśli na przykład używasz serwera proxy lub działającego w chmurze Splunk, możesz przesłać te zdarzenia do modułu zbierającego zdarzenia HTTP Splunk za pomocą [funkcji platformy Azure dla Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), która jest wyzwalana przez nowe komunikaty w centrum zdarzeń. |
+| Splunk | Nie | [Microsoft Azure Add-On dla Splunk](https://splunkbase.splunk.com/app/3757/) jest projektem open source dostępnym w Splunkbase. <br><br> Jeśli nie można zainstalować dodatku w wystąpieniu usługi Splunk, jeśli na przykład używasz serwera proxy lub działającego w chmurze Splunk, możesz przesłać te zdarzenia do modułu zbierającego zdarzenia HTTP Splunk za pomocą [funkcji platformy Azure dla Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), która jest wyzwalana przez nowe komunikaty w centrum zdarzeń. |
 | SumoLogic | Nie | Instrukcje dotyczące konfigurowania SumoLogic do korzystania z danych z centrum zdarzeń są dostępne w [dziennikach zbierania dla aplikacji inspekcji platformy Azure z centrum zdarzeń](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
 | ArcSight | Nie | Łącznik inteligentny ArcSight usługi Azure Event Hub jest dostępny jako część [kolekcji inteligentnych łączników ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
 | Serwer Syslog | Nie | Jeśli chcesz przesyłać strumieniowo Azure Monitor dane bezpośrednio do serwera dziennika systemowego, możesz użyć [rozwiązania na podstawie funkcji platformy Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRhythm | Nie| Instrukcje dotyczące konfigurowania LogRhythm do zbierania dzienników z centrum zdarzeń są dostępne [tutaj](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
-|Logz.io | Tak | Aby uzyskać więcej informacji, zobacz [wprowadzenie do monitorowania i rejestrowania przy użyciu programu Logz.IO for Java Apps uruchomionego na platformie Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
+|Logz.io | Yes | Aby uzyskać więcej informacji, zobacz [wprowadzenie do monitorowania i rejestrowania przy użyciu programu Logz.IO for Java Apps uruchomionego na platformie Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 Inni partnerzy mogą również być dostępni. Aby zapoznać się z bardziej kompletną listą wszystkich partnerów Azure Monitor i ich możliwości, zobacz [Azure monitor integracji partnerów](partners.md).
 

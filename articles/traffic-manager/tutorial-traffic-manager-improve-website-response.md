@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/23/2018
+ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: 4f646cdb4a3f000df219f627cbd7e7c841ed68ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8262a80fac42f103d571523c75c5064d5d43949
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651245"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207346"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Samouczek: ulepszanie odpowiedzi witryny sieci Web przy użyciu Traffic Manager
 
 W tym samouczku opisano, jak za pomocą programu Traffic Manager utworzyć witrynę sieci Web o wysokiej dostępności przez kierowanie ruchu użytkowników do witryny sieci Web przy najniższym opóźnieniu. Zwykle centrum danych o najniższym opóźnieniu jest tym, co jest najbliższe odległości geograficznej.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dwóch maszyn wirtualnych z podstawową witryną internetową w usługach IIS
@@ -68,7 +68,7 @@ W tej sekcji utworzysz dwie maszyny wirtualne *myIISVMEastUS* i *MyIISVMWestEuro
    - Reguły portów ruchu **przychodzącego**  >  **Wybierz pozycję porty wejściowe**: wybierz pozycję **RDP** i **protokół http** w polu ściąganie.
 
 3. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej: dyski**, a następnie kliknij kolejno pozycje **Sieć**i **Dalej: Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
-4. Wybierz pozycję **Przeglądanie + tworzenie**.
+4. Wybierz pozycję **Przejrzyj i utwórz**.
 5. Przejrzyj ustawienia, a następnie kliknij przycisk **Utwórz**.  
 6. Postępuj zgodnie z instrukcjami, aby utworzyć drugą maszynę wirtualną o nazwie *myIISVMWestEurope*, z nazwą **grupy zasobów** *MyResourceGroupTM2*, **lokalizacją** *Europa Zachodnia*i wszystkimi innymi ustawieniami takimi jak *myIISVMEastUS*.
 7. Proces tworzenia maszyny wirtualnej może potrwać kilka minut. Nie kontynuuj wykonywania pozostałych kroków, dopóki obie maszyny wirtualne nie zostaną utworzone.
@@ -127,7 +127,7 @@ W tej sekcji utworzysz maszynę wirtualną (*myVMEastUS* i *myVMWestEurope*) w k
    - Reguły portów ruchu **przychodzącego**  >  **Wybierz pozycję porty wejściowe**: wybierz pozycję **RDP** w polu ściąganie.
 
 3. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej: dyski**, a następnie kliknij kolejno pozycje **Sieć**i **Dalej: Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
-4. Wybierz pozycję **Przeglądanie + tworzenie**.
+4. Wybierz pozycję **Przejrzyj i utwórz**.
 5. Przejrzyj ustawienia, a następnie kliknij przycisk **Utwórz**.  
 6. Postępuj zgodnie z instrukcjami, aby utworzyć drugą maszynę wirtualną o nazwie *myVMWestEurope*, z nazwą **grupy zasobów** *MyResourceGroupTM2*, **lokalizacją** *Europa Zachodnia*i wszystkimi innymi ustawieniami takimi jak *myVMEastUS*.
 7. Proces tworzenia maszyny wirtualnej może potrwać kilka minut. Nie kontynuuj wykonywania pozostałych kroków, dopóki obie maszyny wirtualne nie zostaną utworzone.
@@ -209,7 +209,7 @@ W tej sekcji zobaczysz działanie usługi Traffic Manager.
 
    ![Testowanie profilu usługi Traffic Manager](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
 
-## <a name="delete-the-traffic-manager-profile"></a>Usuwanie profilu usługi Traffic Manager
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Kiedy grupy zasobów (**ResourceGroupTM1** i **ResourceGroupTM2**) przestaną być potrzebne, usuń je. Aby to zrobić, wybierz grupę zasobów (**ResourceGroupTM1** lub **ResourceGroupTM2**), a następnie wybierz pozycję **Usuń**.
 

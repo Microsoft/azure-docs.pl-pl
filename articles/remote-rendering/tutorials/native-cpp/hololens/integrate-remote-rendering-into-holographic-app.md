@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: 9457323b2642d0e7c5a623c13ec8440520bd5b8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56e889778e3b598dc4ded5f64eef20101c542b6a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88891780"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207516"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Samouczek: Integrowanie zdalnego renderowania w aplikacji Holographic HoloLens
 
@@ -33,7 +33,7 @@ W tym samouczku są potrzebne:
 * Informacje o koncie (Identyfikator konta, klucz konta, Identyfikator subskrypcji). Jeśli nie masz konta, [Utwórz konto](../../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0 [(Pobierz)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
 * Najnowsza wersja programu Visual Studio 2019 [(Pobierz)](https://visualstudio.microsoft.com/vs/older-downloads/).
-* [Visual Studio Tools dla rzeczywistości mieszanej](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). W szczególnych przypadkach następujące instalacje *obciążenia* są obowiązkowe:
+* [Visual Studio Tools dla rzeczywistości mieszanej](/windows/mixed-reality/install-the-tools). W szczególnych przypadkach następujące instalacje *obciążenia* są obowiązkowe:
   * **Programowanie aplikacji klasycznych w języku C++**
   * **Programowanie platforma uniwersalna systemu Windows (platformy UWP)**
 * Szablony aplikacji rzeczywistości mieszanej systemu Windows dla programu Visual Studio [(Pobierz)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX).
@@ -593,4 +593,4 @@ W tym samouczku przedstawiono wszystkie kroki niezbędne do dodania zdalnego ren
 Aby przekonwertować własny model, zapoznaj się z następującym przewodnikiem Szybki Start:
 
 > [!div class="nextstepaction"]
-> [Szybki Start: konwertowanie modelu do renderowania](../../../quickstarts/convert-model.md)
+> [Szybki start: Konwertowanie modelu do renderowania](../../../quickstarts/convert-model.md)

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88509369"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207227"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Szybki Start: renderowanie modelu przy użyciu aparatu Unity
 
@@ -18,7 +18,7 @@ W tym przewodniku szybki start opisano, jak uruchomić próbkę Unity, która zd
 
 Nie będziemy szczegółowo podawać samego interfejsu API ARR ani jak skonfigurować nowy projekt środowiska Unity. Te tematy zostały omówione w [samouczku: wyświetlanie zdalnie renderowane modele](../tutorials/unity/view-remote-models/view-remote-models.md).
 
-W tym przewodniku szybki start dowiesz się, jak:
+W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 >
 >* Konfigurowanie lokalnego środowiska programistycznego
@@ -33,7 +33,7 @@ Należy zainstalować następujące oprogramowanie:
 
 * Windows SDK 10.0.18362.0 [(pobieranie)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * Najnowsza wersja programu Visual Studio 2019 [(pobieranie)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Visual Studio Tools dla rzeczywistości mieszanej](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). W szczególnych przypadkach następujące instalacje *obciążenia* są obowiązkowe:
+* [Visual Studio Tools dla rzeczywistości mieszanej](/windows/mixed-reality/install-the-tools). W szczególnych przypadkach następujące instalacje *obciążenia* są obowiązkowe:
   * **Programowanie aplikacji klasycznych w języku C++**
   * **Programowanie platforma uniwersalna systemu Windows (platformy UWP)**
 * GIT [(pobieranie)](https://git-scm.com/downloads)
@@ -111,7 +111,7 @@ Aby zsynchronizować transformacje, kliknij pozycję **Synchronizuj teraz** lub 
 W następnym przewodniku szybki start wykonamy wdrożenie przykładu do urządzenia HoloLens w celu wyświetlenia zdalnie renderowanego modelu w oryginalnym rozmiarze.
 
 > [!div class="nextstepaction"]
-> [Szybki Start: wdrażanie przykładu aparatu Unity w usłudze HoloLens](deploy-to-hololens.md)
+> [Szybki start: Wdrażanie przykładu środowiska Unity na urządzeniu HoloLens](deploy-to-hololens.md)
 
 Alternatywnie można również wdrożyć ten przykład na komputerze stacjonarnym.
 

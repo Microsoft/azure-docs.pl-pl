@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114a0d6f97149baad0c9e76fb359c52996820575
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85958365"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207159"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Samouczek: korzystanie z platformy Apache HBase w usłudze Azure HDInsight
 
 W tym samouczku pokazano, jak utworzyć klaster Apache HBase w usłudze Azure HDInsight, utworzyć tabele HBase i tabele zapytań przy użyciu Apache Hive.  Aby uzyskać ogólne informacje o bazie danych HBase, zobacz [Omówienie bazy danych HBase w usłudze HDInsight](./apache-hbase-overview.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie klastra Apache HBase
@@ -206,6 +206,23 @@ Możesz wykonywać zapytania dotyczące danych w tabelach HBase przy użyciu [Ap
 1. Aby wyjść z Z usługi Beeline, użyj polecenia `!exit` .
 
 1. Aby wyjść z połączenia SSH, użyj polecenia `exit` .
+
+### <a name="separate-hive-and-hbase-clusters"></a>Oddzielanie klastrów Hive i HBase
+
+Zapytanie Hive umożliwiające dostęp do danych HBase nie musi być wykonywane z klastra HBase. Każdy klaster, który jest dostarczany z usługą Hive (w tym Spark, Hadoop, HBase lub Interactive Query), może służyć do wykonywania zapytań dotyczących danych HBase, pod warunkiem ukończenia następujących kroków:
+
+1. Oba klastry muszą być dołączone do tych samych Virtual Network i podsieci
+2. Skopiuj `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` z HBase klastra węzłów głównych do klastra Hive węzłów głównych
+
+### <a name="secure-clusters"></a>Bezpieczne klastry
+
+Z usługi Hive można także wykonywać zapytania dotyczące danych HBase przy użyciu HBase z włączoną funkcją ESP: 
+
+1. W przypadku wzorca wieloklastrowego oba klastry muszą być włączone przy użyciu protokołu ESP. 
+2. Aby zezwolić platformie Hive na wykonywanie zapytań dotyczących danych HBase, upewnij się, że `hive` użytkownik ma przyznane uprawnienia dostępu do danych HBase za pośrednictwem wtyczki HBase Apache Ranger
+3. W przypadku korzystania z oddzielnych klastrów obsługujących ESP należy dołączyć zawartość `/etc/hosts` z HBase klastra węzłów głównych do `/etc/hosts` klastra Hive węzłów głównych. 
+> [!NOTE]
+> Po przeskalowaniu obu klastrów `/etc/hosts` należy ponownie dołączyć
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Korzystanie z interfejsów API REST HBase przy użyciu programu Curl
 

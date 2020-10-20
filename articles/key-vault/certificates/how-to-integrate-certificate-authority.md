@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 01383acad9f221e376f814ecf99794eb0431d0cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d02568dbb5dfc6b7feb38d353e1ba0ecd8ae25d6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588929"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203997"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert
 
@@ -61,7 +61,7 @@ Po zebraniu powyższych informacji z konta DigiCert CertCentral możesz teraz do
     -   **Identyfikator konta**: Wprowadź identyfikator konta DigiCert CertCentral
     -   **Hasło konta**: Wprowadź klucz interfejsu API wygenerowany na koncie usługi DigiCert CertCentral
     -   **Identyfikator organizacji**: wprowadź OrgID zebrane z konta DigiCert CertCentral 
-    -   Kliknij przycisk **Utwórz**.
+    -   Kliknij pozycję **Utwórz**.
    
 6.  Zobaczysz, że DigicertCA został już dodany do listy urzędów certyfikacji.
 
@@ -136,8 +136,15 @@ Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacj
 
 - Czy mogę wygenerować certyfikat DigiCert z symbolem wieloznacznym za pomocą magazynu kluczy? 
    Tak. Zależą od tego, jak skonfigurowano konto usługi DigiCert.
-- Jeśli udało nam się utworzyć certyfikat EV, w jaki sposób należy określić? 
-   Podczas tworzenia certyfikatu kliknij pozycję Konfiguracja zasad zaawansowanych, a następnie określ typ certyfikatu. Obsługiwane są następujące wartości: OV-SSL, EV-SSL
+- Jak mogę utworzyć certyfikat **protokołu OV-SSL lub EV-SSL** z DigiCert? 
+   Magazyn kluczy obsługuje tworzenie OV i EV certyfikatów SSL. Podczas tworzenia certyfikatu kliknij pozycję Konfiguracja zasad zaawansowanych, a następnie określ typ certyfikatu. Obsługiwane są następujące wartości: OV-SSL, EV-SSL
+   
+   Jeśli zezwolisz na konto DigiCert, możesz utworzyć ten typ certyfikatu w magazynie kluczy. W przypadku tego typu certyfikatu sprawdzanie poprawności jest wykonywane przez DigiCert, a zespół pomocy technicznej będzie w stanie najlepiej pomóc Ci w rozwiązaniu, jeśli sprawdzanie poprawności zakończy się niepowodzeniem. Dodatkowe informacje można dodać podczas tworzenia certyfikatu przez definiowanie ich w temacie SubjectName.
+
+Przykład
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+   
 - Czy istnieje opóźnienie podczas tworzenia certyfikatu DigiCert poprzez integrację a uzyskanie certyfikatu bezpośrednio przez DigiCert?
    Nie. Podczas tworzenia certyfikatu jest to proces weryfikacji, który może zająć trochę czasu, i weryfikacja zależy od DigiCert procesu.
 

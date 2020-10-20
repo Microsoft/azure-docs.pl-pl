@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a81af14992c8557c245ab3a1073f031a6c505084
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019396"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203056"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
 
@@ -48,7 +48,7 @@ Ta sekcja zawiera informacje o domyślnych i maksymalnych limitach przydziału d
 + Środowisko obliczeniowe usługi Azure Machine Learning
 + Potoki Azure Machine Learning
 + Container Instances
-+ Storage
++ Magazyn
 
 > [!IMPORTANT]
 > Limity mogą ulec zmianie. Najnowsza wartość znajduje się w [dokumencie](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) dotyczącym limitu przydziału na poziomie usług dla wszystkich platform Azure.
@@ -101,7 +101,7 @@ W poniższej tabeli przedstawiono dodatkowe limity, których nie można przekroc
 
 Aby uzyskać więcej informacji, zobacz [limity Container Instances](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 Dla kont usługi Azure Storage obowiązuje limit 250 kont magazynu na region na subskrypcję. Dotyczy to zarówno kont standardowych, jak i Premium Storage.
 
 Aby zwiększyć limit, należy wysłać żądanie przez [Pomoc techniczną platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Zespół usługi Azure Storage zapoznaje się z Twoim przypadkiem i może zatwierdzić do 250 kont magazynu dla regionu.
@@ -178,11 +178,13 @@ Aby zażądać przydziału dla tych scenariuszy, wykonaj następujące czynnośc
     | Typ problemu | Szczegóły techniczne |
     | Usługa | Moje usługi. Na liście rozwijanej wybierz pozycję __Machine Learning__ . |
     | Typ problemu | Konfiguracja obszaru roboczego, zestaw SDK i interfejs wiersza polecenia |
-    | Podtyp problemu | Problem z aprowizacją obszaru roboczego lub zarządzaniem nim |
+    | Podtyp problemu | Prywatne żądanie dotyczące przydziału punktów końcowych i Prywatna strefa DNS |
 
 2. W sekcji __szczegóły__ Użyj pola __Opis__ , aby podać region platformy Azure, który ma być używany, i scenariusz, którego planujesz użyć. Jeśli trzeba będzie zażądać zwiększenia limitu przydziału dla wielu subskrypcji, należy również wyświetlić identyfikatory subskrypcji w tym polu.
 
 3. Wybierz pozycję __Utwórz__ , aby utworzyć żądanie.
+
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Zrzut ekranu przedstawiający prywatne żądanie zwiększenia limitu przydziału prywatnego punktu końcowego i prywatnego":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c8cf84aa697512b6d1147bf853d30761792370b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318560"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207312"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Compare Active Directory to Azure Active Directory (Porównanie usługi Active Directory z usługą Azure Active Directory)
 
@@ -26,7 +26,7 @@ Usługa Azure AD przyjmuje takie podejście do następnego poziomu, dostarczają
 
 Większość administratorów IT zna koncepcje Active Directory Domain Services. W poniższej tabeli przedstawiono różnice i podobieństwa między Active Directory pojęcia i Azure Active Directory.
 
-|Pojęcie|Active Directory (AD)|Usługa Azure Active Directory |
+|Pojęcie|Active Directory (AD)|Azure Active Directory |
 |:-|:-|:-|
 |**Użytkownicy**|||
 |Inicjowanie obsługi: Użytkownicy | Organizacje tworzą użytkowników wewnętrznych ręcznie lub używają wbudowanego lub zautomatyzowanego systemu aprowizacji, takiego jak Microsoft Identity Manager, do integracji z systemem kadr.|Istniejące organizacje usługi AD używają [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md) do synchronizowania tożsamości z chmurą.</br> Usługa Azure AD dodaje obsługę automatycznego tworzenia użytkowników z [systemów w chmurze](../saas-apps/workday-tutorial.md). </br>Usługa Azure AD może udostępniać tożsamości w [Standard scim włączonych](../app-provisioning/use-scim-to-provision-users-and-groups.md) aplikacjach SaaS w celu automatycznego dostarczania aplikacji z wymaganymi informacjami, aby umożliwić dostęp użytkownikom. |
@@ -39,9 +39,9 @@ Większość administratorów IT zna koncepcje Active Directory Domain Services.
 | Tradycyjne i starsze aplikacje| Większość aplikacji lokalnych korzysta z protokołu LDAP, uwierzytelniania Windows-Integrated (NTLM i Kerberos) lub uwierzytelniania opartego na nagłówkach, aby kontrolować dostęp do użytkowników.| Usługa Azure AD może zapewnić dostęp do tych typów aplikacji lokalnych przy użyciu agentów [serwera proxy aplikacji usługi Azure AD](../manage-apps/application-proxy.md) działających lokalnie. Za pomocą tej metody usługa Azure AD może uwierzytelniać Active Directory użytkowników lokalnych przy użyciu protokołu Kerberos podczas migracji lub konieczności współistnienia ze starszymi aplikacjami. |
 | Aplikacje SaaS|Active Directory nie obsługuje natywnie aplikacji SaaS i wymaga systemu federacyjnego, takiego jak AD FS.|Aplikacje SaaS obsługujące funkcje OAuth2, SAML i WS- \* Authentication można zintegrować z usługą Azure AD w celu uwierzytelniania. |
 | Aplikacje biznesowe (LOB) z nowoczesnego uwierzytelniania|Organizacje mogą używać AD FS z Active Directory, aby obsługiwać aplikacje LOB wymagające nowoczesnego uwierzytelniania.| Aplikacje LOB wymagające nowoczesnego uwierzytelniania można skonfigurować do uwierzytelniania za pomocą usługi Azure AD. |
-| Usługi warstwy średniej/demona|Usługi działające w środowiskach lokalnych zwykle używają kont usług AD lub kont usług zarządzanych przez grupę (gMSA) do uruchomienia. Następnie te aplikacje będą dziedziczyć uprawnienia konta usługi.| Usługa Azure AD zapewnia [zarządzane tożsamości](../managed-identities-azure-resources/index.yml) do uruchamiania innych obciążeń w chmurze. Cykl życia tych tożsamości jest zarządzany przez usługę Azure AD i powiązany z dostawcą zasobów nie może być używany do innych celów w celu uzyskania dostępu tylne wejście.|
+| Usługi warstwy średniej/demona|Usługi działające w środowiskach lokalnych zwykle używają kont usług AD lub kont usług zarządzanych przez grupę (gMSA) do uruchomienia. Następnie te aplikacje będą dziedziczyć uprawnienia konta usługi.| Usługa Azure AD zapewnia [zarządzane tożsamości](../managed-identities-azure-resources/index.yml) do uruchamiania innych obciążeń w chmurze. Cykl życia tych tożsamości jest zarządzany przez usługę Azure AD i jest powiązany z dostawcą zasobów, dlatego nie można go używać do innych celów w celu uzyskania dostępu tylne wejście.|
 | **Urządzenia**|||
-| Komórkowy|Active Directory nie obsługuje natywnie urządzeń przenośnych bez rozwiązań innych firm.| Rozwiązanie do zarządzania urządzeniami przenośnymi firmy Microsoft, Microsoft Intune, jest zintegrowane z usługą Azure AD. Microsoft Intune dostarcza informacje o stanie urządzenia do systemu tożsamości w celu ocenienia podczas uwierzytelniania. |
+| Aplikacje mobilne|Active Directory nie obsługuje natywnie urządzeń przenośnych bez rozwiązań innych firm.| Rozwiązanie do zarządzania urządzeniami przenośnymi firmy Microsoft, Microsoft Intune, jest zintegrowane z usługą Azure AD. Microsoft Intune dostarcza informacje o stanie urządzenia do systemu tożsamości w celu ocenienia podczas uwierzytelniania. |
 | Komputery stacjonarne z systemem Windows|Active Directory umożliwia dołączanie urządzeń z systemem Windows do domeny w celu zarządzania nimi przy użyciu zasady grupy, System Center Configuration Manager lub innych rozwiązań innych firm.|Urządzenia z systemem Windows można [przyłączyć do usługi Azure AD](../devices/index.yml). Dostęp warunkowy może sprawdzić, czy urządzenie jest dołączone do usługi Azure AD w ramach procesu uwierzytelniania. Urządzeniami z systemem Windows można także zarządzać za pomocą [Microsoft Intune](/intune/what-is-intune). W takim przypadku dostęp warunkowy będzie uwzględniać, czy urządzenie jest zgodne (na przykład Aktualności poprawek zabezpieczeń i podpisów wirusów) przed zezwoleniem na dostęp do aplikacji.|
 | Serwery z systemem Windows| Active Directory zapewnia silne możliwości zarządzania lokalnymi serwerami systemu Windows przy użyciu zasady grupy lub innych rozwiązań do zarządzania.| Maszyny wirtualne z systemem Windows Server na platformie Azure mogą być zarządzane za pomocą [Azure AD Domain Services](../../active-directory-domain-services/index.yml). [Tożsamości zarządzane](../managed-identities-azure-resources/index.yml) mogą być używane, gdy maszyny wirtualne wymagają dostępu do katalogu lub zasobów systemu tożsamości.|
 | Obciążenia dla systemu Linux/UNIX|Active Directory nie obsługuje natywnie systemów innych niż Windows bez rozwiązań innych firm, chociaż maszyny z systemem Linux można skonfigurować do uwierzytelniania za pomocą Active Directory jako obszaru protokołu Kerberos.|Maszyny wirtualne z systemem Linux/UNIX mogą używać [tożsamości zarządzanych](../managed-identities-azure-resources/index.yml) do uzyskiwania dostępu do systemu lub zasobów tożsamości. Niektóre organizacje migruje te obciążenia do technologii kontenera chmury, które mogą również używać tożsamości zarządzanych.|

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50abfec19295f80fa79864fedb31eadd31dd4d69
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803827"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203674"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -88,7 +88,7 @@ Jakość wideo może zostać naruszona przez jakość sieci lub brak kodera wide
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Wideo zarejestrowane przy użyciu MRC nie odzwierciedla jakości aktywnego środowiska
 
-Film wideo może być zarejestrowany w usłudze HoloLens za pomocą [funkcji przechwytywania rzeczywistości mieszanej (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Jednak wyniki wideo mają gorszą jakość niż środowisko na żywo z dwóch powodów:
+Film wideo może być zarejestrowany w usłudze HoloLens za pomocą [funkcji przechwytywania rzeczywistości mieszanej (MRC)](/windows/mixed-reality/mixed-reality-capture-for-developers). Jednak wyniki wideo mają gorszą jakość niż środowisko na żywo z dwóch powodów:
 * Szybkość wideo jest ograniczona do 30 Hz, a nie do 60 Hz.
 * Obrazy wideo nie przechodzą przez krok przetwarzania zachodzącego [projektu](../overview/features/late-stage-reprojection.md) , więc film wideo wygląda na choppier.
 

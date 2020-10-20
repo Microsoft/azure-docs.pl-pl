@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2508846e5dd2fcc96aade9ce64b599bb4154de00
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91397814"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203385"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Wprowadzenie do operatorów IT platformy Azure
 
@@ -70,7 +70,7 @@ SaaS to oprogramowanie, które jest centralnie hostowane i zarządzane. Zwykle b
 
 Microsoft 365 jest dobrym przykładem oferty SaaS. Subskrybenci zwracają miesięczną lub roczną opłatę za subskrypcję i otrzymują program Microsoft Exchange, Microsoft OneDrive i resztę pakietu Microsoft Office jako usługi. Subskrybenci zawsze uzyskują najnowszą wersję, a serwer Exchange jest zarządzany przez Ciebie. W porównaniu do instalowania i uaktualniania pakietu Office co roku jest to tańsze i wymaga mniejszego nakładu pracy.
 
-## <a name="azure-services"></a>Usługi Azure
+## <a name="azure-services"></a>Usługi platformy Azure
 
 Platforma Azure oferuje wiele usług w chmurze obliczeniowej. Te usługi obejmują:
 
@@ -130,7 +130,7 @@ Usługi dla sieci zarówno na platformie Azure, jak i na platformie Azure i loka
 
 - Azure Content Delivery Network
 
-Aby uzyskać szczegółową dokumentację dotyczącą usług platformy Azure, zobacz [dokumentację usługi platformy Azure](https://docs.microsoft.com/azure).
+Aby uzyskać szczegółową dokumentację dotyczącą usług platformy Azure, zobacz [dokumentację usługi platformy Azure](/azure).
 
 ## <a name="azure-key-concepts"></a>Podstawowe pojęcia związane z platformą Azure
 
@@ -142,7 +142,7 @@ Jedną z zalet korzystania z platformy Azure jest możliwość wdrażania aplika
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Azure Portal jest aplikacją opartą na sieci Web, która może służyć do tworzenia i usuwania zasobów i usług platformy Azure oraz zarządzania nimi. Azure Portal znajduje się w [Portal.Azure.com](https://portal.azure.com). Obejmuje to dostosowywalny pulpit nawigacyjny i narzędzia służące do zarządzania zasobami platformy Azure. Zawiera również informacje dotyczące rozliczeń i subskrypcji. Aby uzyskać więcej informacji, zobacz [Microsoft Azure Portal Omówienie](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) i [Zarządzanie zasobami platformy Azure za pomocą portalu](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+Azure Portal jest aplikacją opartą na sieci Web, która może służyć do tworzenia i usuwania zasobów i usług platformy Azure oraz zarządzania nimi. Azure Portal znajduje się w [Portal.Azure.com](https://portal.azure.com). Obejmuje to dostosowywalny pulpit nawigacyjny i narzędzia służące do zarządzania zasobami platformy Azure. Zawiera również informacje dotyczące rozliczeń i subskrypcji. Aby uzyskać więcej informacji, zobacz [Microsoft Azure Portal Omówienie](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) i [Zarządzanie zasobami platformy Azure za pomocą portalu](../../azure-resource-manager/management/manage-resources-portal.md).
 
 ### <a name="resources"></a>Zasoby
 
@@ -156,7 +156,7 @@ Grupa zasobów platformy Azure to kontener, który zawiera powiązane zasoby dla
 
 Szablon Azure Resource Manager to plik JavaScript Object Notation (JSON), który definiuje co najmniej jeden zasób do wdrożenia w grupie zasobów. Definiuje również zależności między wdrożonymi zasobami. Szablony Menedżer zasobów zostały omówione bardziej szczegółowo w dalszej części tego przewodnika.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatyzacja
 
 Oprócz tworzenia i usuwania zasobów oraz zarządzania nimi przy użyciu Azure Portal można zautomatyzować te działania przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
@@ -170,11 +170,11 @@ Interfejs wiersza polecenia platformy Azure to narzędzie, za pomocą którego m
 
 #### <a name="rest-apis"></a>Interfejsy API REST
 
-Platforma Azure jest oparta na zestawie interfejsów API REST, które obsługują interfejs użytkownika Azure Portal. Większość z tych interfejsów API REST jest również obsługiwana, aby umożliwić programistyczne udostępnianie zasobów i aplikacji platformy Azure oraz zarządzanie nimi z dowolnego urządzenia z obsługą Internetu. Aby uzyskać więcej informacji, zobacz [Dokumentacja zestawu SDK REST platformy Azure](https://docs.microsoft.com/rest/api/index).
+Platforma Azure jest oparta na zestawie interfejsów API REST, które obsługują interfejs użytkownika Azure Portal. Większość z tych interfejsów API REST jest również obsługiwana, aby umożliwić programistyczne udostępnianie zasobów i aplikacji platformy Azure oraz zarządzanie nimi z dowolnego urządzenia z obsługą Internetu. Aby uzyskać więcej informacji, zobacz [Dokumentacja zestawu SDK REST platformy Azure](/rest/api/index).
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Administratorzy mogą uzyskać dostęp do Azure PowerShell i interfejsu wiersza polecenia platformy Azure za pomocą środowiska dostępnego dla przeglądarki o nazwie Azure Cloud Shell. Ten interfejs interaktywny udostępnia elastyczne narzędzie dla administratorów systemów Linux i Windows, aby można było korzystać z wybranego interfejsu wiersza polecenia, bash lub PowerShell. Azure Cloud Shell można uzyskać dostęp za pośrednictwem portalu jako autonomiczny interfejs sieci Web w [Shell.Azure.com](https://shell.azure.com)lub z wielu innych punktów dostępu. Aby uzyskać więcej informacji, zobacz [omówienie Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Administratorzy mogą uzyskać dostęp do Azure PowerShell i interfejsu wiersza polecenia platformy Azure za pomocą środowiska dostępnego dla przeglądarki o nazwie Azure Cloud Shell. Ten interfejs interaktywny udostępnia elastyczne narzędzie dla administratorów systemów Linux i Windows, aby można było korzystać z wybranego interfejsu wiersza polecenia, bash lub PowerShell. Azure Cloud Shell można uzyskać dostęp za pośrednictwem portalu jako autonomiczny interfejs sieci Web w [Shell.Azure.com](https://shell.azure.com)lub z wielu innych punktów dostępu. Aby uzyskać więcej informacji, zobacz [omówienie Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="azure-subscriptions"></a>Subskrypcje platformy Azure
 
@@ -282,7 +282,7 @@ Dla automatyzacji wdrożenia dostępne są następujące mechanizmy:
 
 - **Łączenie szablonów**: z poziomu jednego szablonu Menedżer zasobów, można połączyć się z innym szablonem. Pozwala to na dekompozycję wdrożenia do zestawu docelowych szablonów specyficznych dla celu.
 
-Szablony Menedżer zasobów można tworzyć w dowolnym edytorze tekstu. Jednak zestaw Azure SDK dla programu Visual Studio zawiera narzędzia, które ułatwią Ci. Za pomocą programu Visual Studio można dodawać zasoby do szablonu za pomocą kreatora, a następnie wdrażać i debugować szablon bezpośrednio z poziomu programu Visual Studio. Aby uzyskać więcej informacji, zobacz [Tworzenie szablonów Azure Resource Manager](../../resource-group-authoring-templates.md).
+Szablony Menedżer zasobów można tworzyć w dowolnym edytorze tekstu. Jednak zestaw Azure SDK dla programu Visual Studio zawiera narzędzia, które ułatwią Ci. Za pomocą programu Visual Studio można dodawać zasoby do szablonu za pomocą kreatora, a następnie wdrażać i debugować szablon bezpośrednio z poziomu programu Visual Studio. Aby uzyskać więcej informacji, zobacz [Tworzenie szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 
 Na koniec można skonwertować istniejące grupy zasobów do szablonu do wielokrotnego użytku z Azure Portal. Może to być przydatne, jeśli chcesz utworzyć szablon do wdrożenia istniejącej grupy zasobów lub po prostu chcesz przejrzeć bazowe dane JSON. Aby wyeksportować grupę zasobów, wybierz przycisk **skryptu automatyzacji** z ustawień grupy zasobów.
 
@@ -314,7 +314,7 @@ Usługa Azure Virtual Machines to jedna z centralnych usług IaaS na platformie 
 
 Podczas wdrażania maszyny wirtualnej platformy Azure Możesz wybrać obraz z witryny Azure Marketplace lub udostępnić uogólniony obraz. Ten obraz służy do stosowania systemu operacyjnego i konfiguracji początkowej. Podczas wdrażania Menedżer zasobów będzie obsługiwać niektóre ustawienia konfiguracji, takie jak przypisanie nazwy komputera, poświadczeń administracyjnych i konfiguracji sieci. Rozszerzenia maszyny wirtualnej platformy Azure umożliwiają dalsze Automatyzowanie konfiguracji, takich jak instalacja oprogramowania, konfiguracja programu antywirusowego i rozwiązania do monitorowania.
 
-Można tworzyć maszyny wirtualne w wielu różnych rozmiarach. Rozmiar maszyny wirtualnej wymusza alokację zasobów, taką jak przetwarzanie, pamięć i pojemność magazynu. W niektórych przypadkach określone funkcje, takie jak karty sieciowe z obsługą funkcji RDMA i dyski SSD, są dostępne tylko w przypadku niektórych rozmiarów maszyn wirtualnych. Aby zapoznać się z pełną listą rozmiarów i możliwości maszyn wirtualnych, zobacz sekcję dotyczącą rozmiarów maszyny wirtualnej na platformie Azure dla [systemów Windows](../../virtual-machines/windows/sizes.md) i [Linux](../../virtual-machines/linux/sizes.md).
+Można tworzyć maszyny wirtualne w wielu różnych rozmiarach. Rozmiar maszyny wirtualnej wymusza alokację zasobów, taką jak przetwarzanie, pamięć i pojemność magazynu. W niektórych przypadkach określone funkcje, takie jak karty sieciowe z obsługą funkcji RDMA i dyski SSD, są dostępne tylko w przypadku niektórych rozmiarów maszyn wirtualnych. Aby zapoznać się z pełną listą rozmiarów i możliwości maszyn wirtualnych, zobacz sekcję dotyczącą rozmiarów maszyny wirtualnej na platformie Azure dla [systemów Windows](../../virtual-machines/sizes.md) i [Linux](../../virtual-machines/sizes.md).
 
 ### <a name="use-cases"></a>Przypadki zastosowań
 
@@ -344,7 +344,7 @@ Podobnie można użyć interfejsu wiersza polecenia platformy Azure, aby wdroży
 
 ### <a name="access-and-security-for-virtual-machines"></a>Dostęp i zabezpieczenia dla maszyn wirtualnych
 
-Dostęp do maszyny wirtualnej z Internetu wymaga skojarzonego interfejsu sieciowego lub modułu równoważenia obciążenia, jeśli ma to zastosowanie, do skonfigurowania za pomocą publicznego adresu IP. Publiczny adres IP zawiera nazwę DNS, który zostanie rozpoznany przez maszynę wirtualną lub moduł równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [adresy IP na platformie Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+Dostęp do maszyny wirtualnej z Internetu wymaga skojarzonego interfejsu sieciowego lub modułu równoważenia obciążenia, jeśli ma to zastosowanie, do skonfigurowania za pomocą publicznego adresu IP. Publiczny adres IP zawiera nazwę DNS, który zostanie rozpoznany przez maszynę wirtualną lub moduł równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [adresy IP na platformie Azure](../../virtual-network/public-ip-addresses.md).
 
 Dostęp do maszyny wirtualnej można zarządzać za pośrednictwem publicznego adresu IP przy użyciu zasobu sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń). SIECIOWEJ grupy zabezpieczeń działa jak zapora i zezwala na ruch między interfejsem sieciowym lub podsiecią w zestawie określonych portów lub odmówi go. Na przykład aby utworzyć sesję Pulpit zdalny z maszyną wirtualną platformy Azure, należy skonfigurować sieciowej grupy zabezpieczeń tak, aby zezwalał na ruch przychodzący na porcie 3389. Aby uzyskać więcej informacji, zobacz [otwieranie portów do maszyny wirtualnej na platformie Azure przy użyciu Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
@@ -378,7 +378,7 @@ Usługa Azure Storage obsługuje trzy typy obiektów blob:
 
 - **Dołącz obiekty blob** składają się z bloków takich jak blokowe obiekty blob, ale są one zoptymalizowane pod kątem operacji dołączania. Są one często używane do rejestrowania informacji z jednego lub kilku źródeł do tego samego obiektu BLOB. Można na przykład napisać wszystkie dzienniki śledzenia do tego samego obiektu BLOB dołączania dla aplikacji uruchomionej na wielu maszynach wirtualnych. Pojedynczy uzupełniany obiekt blob może mieć rozmiar do 195 GB.
 
-Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 #### <a name="file-storage"></a>File Storage
 
@@ -394,7 +394,7 @@ Magazyn tabel Azure to usługa, która przechowuje dane strukturalne NoSQL w chm
 
 Magazyn tabel umożliwia przechowywanie elastycznych zestawów danych, takich jak dane użytkownika dla aplikacji internetowych, książki adresowe, informacje o urządzeniach i wszelkie inne metadane, których wymaga Twoja usługa. W tabeli można przechowywać dowolną liczbę jednostek. Konto magazynu może zawierać dowolną liczbę tabel z limitem pojemności dla konta magazynu.
 
-Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure Table Storage](../../cosmos-db/table-storage-how-to-use-dotnet.md).
+Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure Table Storage](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 #### <a name="queue-storage"></a>Queue Storage
 
@@ -414,15 +414,15 @@ Oprócz wdrażania konta magazynu na podstawie Azure Portal można wdrożyć sza
 
 #### <a name="powershell"></a>PowerShell
 
-Wdrożenie konta usługi Azure Storage za pomocą programu PowerShell umożliwia pełne automatyzację wdrożenia konta magazynu. Aby uzyskać więcej informacji, zobacz [używanie Azure PowerShell z usługą Azure Storage](../../storage/common/storage-powershell-guide-full.md).
+Wdrożenie konta usługi Azure Storage za pomocą programu PowerShell umożliwia pełne automatyzację wdrożenia konta magazynu. Aby uzyskać więcej informacji, zobacz [używanie Azure PowerShell z usługą Azure Storage](/powershell/module/az.storage/).
 
 Oprócz wdrażania zasobów platformy Azure za pomocą modułu Azure PowerShell można wdrożyć szablon Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>Interfejs wiersza polecenia
 
-Podobnie jak w przypadku modułu programu PowerShell, interfejs wiersza polecenia platformy Azure zapewnia automatyzację wdrażania i może być używany w systemach Windows, OS X lub Linux. Aby utworzyć konto magazynu, można użyć polecenia **Create Account Storage** CLI dla systemu Azure. Aby uzyskać więcej informacji, zobacz [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage.](../../storage/common/storage-azure-cli.md)
+Podobnie jak w przypadku modułu programu PowerShell, interfejs wiersza polecenia platformy Azure zapewnia automatyzację wdrażania i może być używany w systemach Windows, OS X lub Linux. Aby utworzyć konto magazynu, można użyć polecenia **Create Account Storage** CLI dla systemu Azure. Aby uzyskać więcej informacji, zobacz [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage.](../../storage/blobs/storage-quickstart-blobs-cli.md)
 
-Podobnie można użyć interfejsu wiersza polecenia platformy Azure, aby wdrożyć szablon Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../../resource-group-template-deploy-cli.md).
+Podobnie można użyć interfejsu wiersza polecenia platformy Azure, aby wdrożyć szablon Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### <a name="access-and-security-for-azure-storage"></a>Dostęp i zabezpieczenia usługi Azure Storage
 
@@ -446,7 +446,7 @@ Każde konto magazynu ma dwa klucze uwierzytelniania — podstawowy i pomocniczy
 
 #### <a name="shared-access-signatures"></a>Sygnatury dostępu współdzielonego
 
-Jeśli musisz zezwolić użytkownikom na dostęp do zasobów magazynu, możesz utworzyć sygnaturę dostępu współdzielonego. Sygnatura dostępu współdzielonego to token, który można dołączyć do adresu URL, który umożliwia delegowany dostęp do zasobu magazynu. Każda osoba, która dysponuje tokenem, może uzyskać dostęp do zasobu, który wskazuje na określone przez niego uprawnienia, przez okres ważności. Aby uzyskać więcej informacji, zobacz [Używanie sygnatur dostępu współdzielonego](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Jeśli musisz zezwolić użytkownikom na dostęp do zasobów magazynu, możesz utworzyć sygnaturę dostępu współdzielonego. Sygnatura dostępu współdzielonego to token, który można dołączyć do adresu URL, który umożliwia delegowany dostęp do zasobu magazynu. Każda osoba, która dysponuje tokenem, może uzyskać dostęp do zasobu, który wskazuje na określone przez niego uprawnienia, przez okres ważności. Aby uzyskać więcej informacji, zobacz [Używanie sygnatur dostępu współdzielonego](../../storage/common/storage-sas-overview.md).
 
 ## <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -456,7 +456,7 @@ Sieci wirtualne są niezbędne do obsługi komunikacji między maszynami wirtual
 
 Usługa Azure Virtual Network jest domyślnie dostępna tylko dla zasobów przechowywanych na platformie Azure. Zasoby połączone z tą samą siecią wirtualną mogą komunikować się ze sobą. Można skojarzyć interfejsy sieciowe maszyny wirtualnej i moduły równoważenia obciążenia z publicznym adresem IP, aby umożliwić dostęp do maszyny wirtualnej za pośrednictwem Internetu. Można zabezpieczyć dostęp do publicznie narażonych zasobów przy użyciu sieciowej grupy zabezpieczeń.
 
-![Virtual Network platformy Azure dla wielowarstwowej aplikacji sieci Web](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+![Virtual Network platformy Azure dla wielowarstwowej aplikacji sieci Web](/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
 
 ### <a name="hybrid-virtual-networks"></a>Hybrydowe sieci wirtualne
 
@@ -479,7 +479,7 @@ Istnieje kilka opcji wdrażania sieci wirtualnej.
 
 ### <a name="access-and-security-for-virtual-networks"></a>Dostęp i zabezpieczenia dla sieci wirtualnych
 
-Można zabezpieczyć sieci wirtualne platformy Azure przy użyciu sieciowej grupy zabezpieczeń. Sieciowych grup zabezpieczeń zawierają listę reguł listy kontroli dostępu (ACL), które zezwalają na ruch sieciowy do wystąpień maszyn wirtualnych w sieci wirtualnej lub go odmawiają. Można skojarzyć sieciowych grup zabezpieczeń z podsieciami lub poszczególnymi wystąpieniami maszyn wirtualnych w tej podsieci. Po skojarzeniu sieciowej grupy zabezpieczeń z podsiecią reguły listy ACL dotyczą wszystkich wystąpień maszyn wirtualnych w tej podsieci. Ponadto można dodatkowo ograniczyć ruch do pojedynczej maszyny wirtualnej, kojarząc sieciowej grupy zabezpieczeń bezpośrednio z tą maszyną wirtualną. Aby uzyskać więcej informacji, zobacz [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../../virtual-network/security-overview.md).
+Można zabezpieczyć sieci wirtualne platformy Azure przy użyciu sieciowej grupy zabezpieczeń. Sieciowych grup zabezpieczeń zawierają listę reguł listy kontroli dostępu (ACL), które zezwalają na ruch sieciowy do wystąpień maszyn wirtualnych w sieci wirtualnej lub go odmawiają. Można skojarzyć sieciowych grup zabezpieczeń z podsieciami lub poszczególnymi wystąpieniami maszyn wirtualnych w tej podsieci. Po skojarzeniu sieciowej grupy zabezpieczeń z podsiecią reguły listy ACL dotyczą wszystkich wystąpień maszyn wirtualnych w tej podsieci. Ponadto można dodatkowo ograniczyć ruch do pojedynczej maszyny wirtualnej, kojarząc sieciowej grupy zabezpieczeń bezpośrednio z tą maszyną wirtualną. Aby uzyskać więcej informacji, zobacz [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../../virtual-network/network-security-groups-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

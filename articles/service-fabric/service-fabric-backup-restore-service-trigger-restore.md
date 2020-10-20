@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246694"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207397"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Przywracanie kopii zapasowej na platformie Azure Service Fabric
 
@@ -190,6 +190,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Postęp przywracania można śledzić za pomocą TrackRestoreProgress.
 
+> [!NOTE]
+> W przypadku przywracania partycji przy użyciu programu PowerShell, jeśli BackupLocation ma znak "$", należy użyć znaku "~"
+>
+
 ### <a name="using-service-fabric-explorer"></a>Używanie Service Fabric Explorer
 Możesz wyzwolić przywracanie z Service Fabric Explorer. Upewnij się, że tryb zaawansowany został włączony w ustawieniach Service Fabric Explorer.
 1. Wybierz żądane partycje i kliknij akcje. 
@@ -250,6 +254,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 Postęp przywracania można śledzić przy użyciu TrackRestoreProgress.
+
+> [!NOTE]
+> W przypadku przywracania partycji przy użyciu programu PowerShell, jeśli BackupLocation ma znak "$", należy użyć znaku "~"
+>
 
 ## <a name="track-restore-progress"></a>Śledź postęp przywracania
 

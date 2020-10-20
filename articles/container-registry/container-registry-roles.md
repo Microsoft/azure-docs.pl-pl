@@ -1,18 +1,18 @@
 ---
-title: Role i uprawnienia platformy Azure
+title: Role i uprawnienia rejestru
 description: Użyj kontroli dostępu opartej na rolach (Azure RBAC) i zarządzania tożsamościami i dostępem (IAM), aby zapewnić szczegółowe uprawnienia do zasobów w usłudze Azure Container Registry.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: b8562d3e33cd49082d4ba4d8567d5f0c816070b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 097ccf89caf63d2a504d072cf04c2b534a57a031
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661388"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207958"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry ról i uprawnień
 
-Usługa Azure Container Registry obsługuje zestaw [wbudowanych ról platformy Azure](../role-based-access-control/built-in-roles.md) , które zapewniają różne poziomy uprawnień do usługi Azure Container Registry. Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/index.yml) można przypisywać określone uprawnienia użytkownikom, podmiotom usług lub innym tożsamościom, które muszą korzystać z rejestru. Można także definiować [role niestandardowe](#custom-roles) z szczegółowymi uprawnieniami do rejestru dla różnych operacji.
+Usługa Azure Container Registry obsługuje zestaw [wbudowanych ról platformy Azure](../role-based-access-control/built-in-roles.md) , które zapewniają różne poziomy uprawnień do usługi Azure Container Registry. Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/index.yml) można przypisywać określone uprawnienia użytkownikom, podmiotom usług lub innym tożsamościom, które muszą współdziałać z rejestrem, na przykład do ściągania lub wypychania obrazów kontenerów. Można także definiować [role niestandardowe](#custom-roles) z szczegółowymi uprawnieniami do rejestru dla różnych operacji.
 
 | Rola/uprawnienie       | [Menedżer zasobów dostępu](#access-resource-manager) | [Utwórz/usuń rejestr](#create-and-delete-registry) | [Obraz wypychany](#push-image) | [Obraz ściągania](#pull-image) | [Usuń dane obrazu](#delete-image-data) | [Zmień zasady](#change-policies) |   [Podpisz obrazy](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -24,13 +24,19 @@ Usługa Azure Container Registry obsługuje zestaw [wbudowanych ról platformy A
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
+## <a name="assign-roles"></a>Przypisywanie ról
+
+Zapoznaj [się z instrukcjami, aby dodać przypisanie roli](../role-based-access-control/role-assignments-steps.md) dla kroków wysokiego poziomu, aby dodać przypisanie roli do istniejącego użytkownika, grupy, nazwy głównej usługi lub tożsamości zarządzanej. Możesz użyć Azure Portal, interfejsu wiersza polecenia platformy Azure lub innych narzędzi platformy Azure.
+
+Podczas tworzenia nazwy głównej usługi należy również skonfigurować dostęp i uprawnienia do zasobów platformy Azure, takich jak rejestr kontenerów. Przykładowy skrypt przy użyciu interfejsu wiersza polecenia platformy Azure znajduje się w temacie [Azure Container Registry Authentication with Service Principals](container-registry-auth-service-principal.md#create-a-service-principal).
+
 ## <a name="differentiate-users-and-services"></a>Odróżnianie użytkowników i usług
 
 Wszystkie uprawnienia są stosowane, najlepszym rozwiązaniem jest zapewnienie najbardziej ograniczonego zestawu uprawnień dla osoby lub usługi, w celu wykonania zadania. Następujące zbiory uprawnień reprezentują zestaw możliwości, które mogą być używane przez ludzi i usługi bezobsługowe.
 
 ### <a name="cicd-solutions"></a>Rozwiązania CI/CD
 
-W przypadku automatyzowania poleceń z rozwiązań ciągłej integracji/ciągłego wdrażania `docker build` wymagane są `docker push` funkcje. W przypadku tych scenariuszy usługi bezobsługowe sugerujemy przypisanie roli **AcrPush** . Ta rola, w przeciwieństwie do szerszej roli **współautor** , uniemożliwia kontu wykonywanie innych operacji rejestru lub uzyskiwanie dostępu do Azure Resource Manager.
+W przypadku automatyzowania poleceń z rozwiązań ciągłej integracji/ciągłego wdrażania `docker build` wymagane są `docker push` funkcje. W przypadku tych scenariuszy usługi bezobsługowej zaleca się przypisanie roli **AcrPush** . Ta rola, w przeciwieństwie do szerszej roli **współautor** , uniemożliwia kontu wykonywanie innych operacji rejestru lub uzyskiwanie dostępu do Azure Resource Manager.
 
 ### <a name="container-host-nodes"></a>Węzły hosta kontenera
 

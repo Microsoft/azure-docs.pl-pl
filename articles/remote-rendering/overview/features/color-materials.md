@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 93fde2d20aaa5b7bac4adc6f1d7fb076569e4bb8
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: ce3174516d8046df53b5290bcfeea03756937129
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893564"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201532"
 ---
 # <a name="color-materials"></a>Materiały kolorów
 
@@ -55,10 +55,10 @@ Następujące właściwości są specyficzne dla materiałów kolorów:
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 
-* [Klasa ColorMaterial języka C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterial)
-* [Zdalnymanager. demateriał ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
-* [Klasa C++ ColorMaterial](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterial)
-* [C++ RemoteManager:: demateriał ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [Klasa ColorMaterial języka C#](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [Zdalnymanager. demateriał ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [Klasa C++ ColorMaterial](/cpp/api/remote-rendering/colormaterial)
+* [C++ RemoteManager:: demateriał ()](/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Następne kroki
 

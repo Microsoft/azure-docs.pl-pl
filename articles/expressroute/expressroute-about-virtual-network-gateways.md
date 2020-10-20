@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: duau
-ms.openlocfilehash: 65e44acd1fe6ecb389f81cbd0ed88d1c161dfcdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b721a9b8d8bdff3f3aaf05f15857c00347e7abb4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397869"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202382"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Informacje o bramach sieci wirtualnej ExpressRoute
 
@@ -86,10 +86,10 @@ Aby uzyskać więcej informacji na temat FastPath, w tym ograniczeń i wymagań,
 ## <a name="rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>Interfejsy API REST i polecenia cmdlet programu PowerShell
 Dodatkowe zasoby techniczne i wymagania dotyczące składni w przypadku używania interfejsów API REST i poleceń cmdlet programu PowerShell dla konfiguracji bramy sieci wirtualnej można znaleźć na następujących stronach:
 
-| **Motyw** | **Resource Manager** |
+| **Klasyczny** | **Resource Manager** |
 | --- | --- |
-| [Program PowerShell](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure) |[Program PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
-| [Interfejs API REST](https://msdn.microsoft.com/library/jj154113.aspx) |[Interfejs API REST](https://msdn.microsoft.com/library/mt163859.aspx) |
+| [Program PowerShell](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure) |[Program PowerShell](/powershell/module/az.network#networking) |
+| [Interfejs API REST](/previous-versions/azure/reference/jj154113(v=azure.100)) |[Interfejs API REST](/rest/api/virtual-network/) |
 
 ## <a name="next-steps"></a>Następne kroki
 

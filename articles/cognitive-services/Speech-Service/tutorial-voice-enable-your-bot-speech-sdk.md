@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b0c85f2c9ba04ac999911e534b906c634d457b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 073fab4aee084513db4ca05af6c12087c0a8f911
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360960"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206377"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Samouczek: Voice — Włączanie bot przy użyciu zestawu Speech SDK
 
@@ -75,7 +75,7 @@ Aplikacja kliencka utworzona w tym samouczku korzysta z kilku usług platformy A
    * Wprowadź nazwę **grupy zasobów**. Zalecamy **SpeechEchoBotTutorial-zasobów**.
    * Z listy rozwijanej **region** wybierz pozycję **zachodnie stany USA**.
 1. Kliknij pozycję **Przejrzyj i utwórz**. Powinien pojawić się transparent informujący o pomyślnym **sprawdzeniu poprawności**odczytu.
-1. Kliknij przycisk **Utwórz**. Utworzenie grupy zasobów może potrwać kilka minut.
+1. Kliknij pozycję **Utwórz**. Utworzenie grupy zasobów może potrwać kilka minut.
 1. Podobnie jak w przypadku zasobów utworzonych w dalszej części tego samouczka, dobrym pomysłem jest Przypinanie tej grupy zasobów do pulpitu nawigacyjnego w celu ułatwienia dostępu. Jeśli chcesz przypiąć tę grupę zasobów, kliknij ikonę pinezki z prawej strony nazwy grupy zasobów.
 
 ### <a name="choosing-an-azure-region"></a>Wybieranie regionu platformy Azure
@@ -124,7 +124,7 @@ Następnym krokiem jest utworzenie planu App Service. Plan usługi App Service d
    * W **obszarze region**wybierz pozycję **zachodnie stany USA**.
    * W przypadku **warstwy cenowej**upewnij się, że wybrano opcję **standardowa S1** . Powinna to być wartość domyślna. Jeśli nie, upewnij się, że **system operacyjny** jest ustawiony na **system Windows** zgodnie z powyższym opisem.
 5. Kliknij pozycję **Przejrzyj i utwórz**. Powinien pojawić się transparent informujący o pomyślnym **sprawdzeniu poprawności**odczytu.
-6. Kliknij przycisk **Utwórz**. Utworzenie grupy zasobów może potrwać kilka minut.
+6. Kliknij pozycję **Utwórz**. Utworzenie grupy zasobów może potrwać kilka minut.
 
 Na tym etapie należy sprawdzić, czy grupa zasobów (**SpeechEchoBotTutorial-Resource**Group) ma dwa zasoby:
 
@@ -201,7 +201,7 @@ Następnym krokiem jest wdrożenie ECHA Bot na platformie Azure. Istnieje kilka 
    * W przypadku **subskrypcji**ustaw ją na **bezpłatną wersję próbną**
    * W obszarze **Grupa zasobów**wybierz pozycję **SpeechEchoBotTutorial-zasobów**
    * W przypadku **planu hostingu**wybierz pozycję **SpeechEchoBotTutorial — AppServicePlan**
-1. Kliknij przycisk **Utwórz**. Na końcowym ekranie kreatora kliknij przycisk **Zakończ**.
+1. Kliknij pozycję **Utwórz**. Na końcowym ekranie kreatora kliknij przycisk **Zakończ**.
 1. Kliknij przycisk **Publikuj** po prawej stronie ekranu publikowanie. Program Visual Studio wdraża Bot na platformie Azure.
 1. Powinien pojawić się komunikat o powodzeniu w oknie danych wyjściowych programu Visual Studio, który wygląda następująco:
 
@@ -227,7 +227,7 @@ Musisz wprowadzić małą zmianę konfiguracji, aby bot mógł komunikować się
 2. W okienku nawigacji po lewej stronie w obszarze **Ustawienia**kliknij pozycję **Konfiguracja**.
 3. Wybierz kartę **Ustawienia ogólne** .
 4. Znajdź przełącznik dla **gniazd sieci Web** i ustaw go na wartość **włączone**.
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
 > Możesz użyć kontrolek w górnej części strony Azure App Service, aby zatrzymać lub ponownie uruchomić usługę. Może się to okazać przydatne podczas rozwiązywania problemów.
@@ -291,11 +291,11 @@ Teraz czas na zarejestrowanie bot za pomocą kanału bezpośredniej linii mowy. 
    * Przejrzyj tekst na stronie zatytułowanej **Konfigurowanie Direct line Speech**, a następnie rozwiń menu rozwijane **konto usługi poznawczej** .
    * Wybierz utworzony wcześniej zasób mowy (np. **SpeechEchoBotTutorial-Speech**) z menu, aby skojarzyć bot z kluczem subskrypcji mowy.
    * Ignoruj pozostałe pola opcjonalne.
-   * Kliknij przycisk **Zapisz**.
+   * Kliknij pozycję **Zapisz**.
 
 1. W obszarze Nawigacja **bot Management** kliknij pozycję **Ustawienia**.
    * Zaznacz pole wyboru z etykietą **Włącz punkt końcowy przesyłania strumieniowego**. Jest to konieczne do utworzenia protokołu komunikacyjnego opartego na gniazdach sieci Web między bot i kanałem mowy liniowej.
-   * Kliknij przycisk **Zapisz**.
+   * Kliknij pozycję **Zapisz**.
 
 > [!TIP]
 > Jeśli chcesz dowiedzieć się więcej, zobacz [łączenie bot z bezpośrednim wierszem mowy](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Ta strona zawiera dodatkowe informacje i znane problemy.
@@ -412,7 +412,7 @@ Wykonaj następujące kroki, aby utworzyć model słów kluczowych, skonfigurowa
 
 W kodzie źródłowym klienta asystenta głosowego systemu Windows Obejrzyj te pliki, aby przejrzeć kod, który jest używany do włączenia wykrywania słowa kluczowego:
 
-1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) obejmuje wywołanie metody zestawu Speech SDK [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-) , która jest używana do tworzenia wystąpienia modelu z pliku lokalnego na dysku.
+1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) obejmuje wywołanie metody zestawu Speech SDK [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest&preserve-view=true#fromfile-string-) , która jest używana do tworzenia wystąpienia modelu z pliku lokalnego na dysku.
 1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) zawiera wywołanie metody zestawu Speech SDK [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) , która aktywuje funkcję wykrywania ciągłego słowa kluczowego.
 
 ## <a name="optional-change-the-language-and-bot-voice"></a>Obowiązkowe Zmień język i Głos bot
@@ -478,7 +478,7 @@ Jeśli nie chcesz nadal korzystać z funkcji echo-bot wdrożonej w tym samouczku
 * Wdrażanie w [regionie świadczenia usługi Azure, który obsługuje neuronowychy TTS o wysokiej jakości](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
 * Cennik związany z bezpośrednim kanałem mowy wiersza:
   * [Cennik usługi bot](https://azure.microsoft.com/pricing/details/bot-service/)
-  * [Usługa rozpoznawania mowy](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+  * [Usługa mowy](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Kompilowanie i wdrażanie własnych bot z obsługą głosu:
   * Utwórz [bot Framework bot](https://dev.botframework.com/). Zarejestruj się w [kanale mowy z linią Direct line](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) i [Dostosuj Bot na potrzeby głosu](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
   * Poznaj istniejące [rozwiązania bot Framework](https://microsoft.github.io/botframework-solutions/index): Kompiluj [asystenta wirtualnego](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) i [rozwiń go, aby uzyskać bezpośrednią mowę liniową](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

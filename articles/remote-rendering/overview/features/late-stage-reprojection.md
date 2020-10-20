@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f0951415bba22a226dadb7f2a115cede451399bc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893207"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205646"
 ---
 # <a name="late-stage-reprojection"></a>Reprojekcja na późnym etapie
 
@@ -46,7 +46,7 @@ Planarny LSR reprojektuje obiekty najlepiej, które znajdują się blisko podane
 
 ### <a name="configure-planar-lsr-in-unity"></a>Konfigurowanie planarnych LSR w środowisku Unity
 
-Parametry płaszczyzny są wyprowadzane z tak zwanego *punktu fokusu*, który należy dostarczyć każdą klatkę `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Aby uzyskać szczegółowe informacje, zobacz [interfejs API punktu fokusu aparatu Unity](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) . Jeśli nie ustawisz punktu fokusu, zostanie wybrana opcja powrotu. Jednak automatyczna rezerwa często prowadzi do nieoptymalnych wyników.
+Parametry płaszczyzny są wyprowadzane z tak zwanego *punktu fokusu*, który należy dostarczyć każdą klatkę `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Aby uzyskać szczegółowe informacje, zobacz [interfejs API punktu fokusu aparatu Unity](/windows/mixed-reality/focus-point-in-unity) . Jeśli nie ustawisz punktu fokusu, zostanie wybrana opcja powrotu. Jednak automatyczna rezerwa często prowadzi do nieoptymalnych wyników.
 
 Punkt fokusu można obliczyć samodzielnie, ale może się to okazać podstawą dla tego, który jest obliczany przez hosta renderowania zdalnego. Wywołanie `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` w celu uzyskania tego. Zostanie wyświetlony monit o podanie ramki współrzędnej, w której ma zostać wyświetlona punkt fokusu. W większości przypadków należy jedynie podać wynik z tego `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` miejsca.
 

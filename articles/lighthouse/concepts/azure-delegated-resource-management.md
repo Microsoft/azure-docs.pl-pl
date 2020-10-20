@@ -1,18 +1,18 @@
 ---
 title: Zarządzanie zasobami delegowanymi na platformie Azure
 description: Zarządzanie zasobami delegowanymi przez platformę Azure to kluczowa część usługi Azure Lighthouse, która umożliwia dostawcom usług Zarządzanie delegowanymi zasobami na dużą skalę z elastycznością i dokładnością.
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9a499ceda546b7ea5c71cd8c770f1a4b99001b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163530"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203861"
 ---
 # <a name="azure-delegated-resource-management"></a>Zarządzanie zasobami delegowanymi na platformie Azure
 
-Zarządzanie zasobami delegowanymi przez platformę Azure to jeden z najważniejszych składników [usługi Azure Lighthouse](../overview.md). Dzięki funkcji zarządzania zasobami delegowanymi na platformie Azure dostawcy usług mogą uprościć zaangażowanie klientów i dołączanie, a jednocześnie zarządzać zasobami delegowanymi na dużą skalę z elastycznością i dokładnością.
+Zarządzanie zasobami delegowanymi przez platformę Azure to jeden z najważniejszych składników [usługi Azure Lighthouse](../overview.md). Dzięki funkcji zarządzania zasobami delegowanymi na platformie Azure dostawcy usług mogą uprościć zaangażowanie klientów i dołączanie, a jednocześnie zarządzać zasobami delegowanymi na dużą skalę z elastycznością i dokładnością. Klienci zachowują kontrolę nad tym, którzy dostawcy usług mogą uzyskać dostęp do swoich dzierżawców, a klienci utrzymują kontrolę nad tym, kto może uzyskać dostęp do swojej dzierżawy, jakie zasoby mogą uzyskać dostęp i jakie akcje mogą być podejmowane.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>Co to jest zarządzanie zasobami delegowanymi przez platformę Azure?
 
@@ -35,7 +35,8 @@ Na wysokim poziomie poniżej przedstawiono sposób działania zarządzania zasob
 2. Należy określić ten dostęp i dołączyć klienta do usługi Azure Lighthouse na jeden z dwóch sposobów:
    - [Publikowanie oferty usługi zarządzanej w portalu Azure Marketplace](../how-to/publish-managed-services-offers.md) (prywatnej lub publicznej), która zostanie zaakceptowana przez klienta
    - [Wdrażanie szablonu Azure Resource Manager w dzierżawie klienta](../how-to/onboard-customer.md) dla jednej lub wielu określonych subskrypcji lub grup zasobów
-3. Po dołączeniu klienta autoryzowani użytkownicy mogą zalogować się do dzierżawy zarządzającej i wykonywać zadania w danym zakresie klienta na podstawie zdefiniowanego dostępu.
+
+3. Po dołączeniu klienta autoryzowani użytkownicy mogą zalogować się do dzierżawy zarządzającej i wykonywać zadania w danym zakresie klienta na podstawie zdefiniowanego dostępu. Klienci mogą przeglądać akcje dostawcy usług i mieć możliwość usuwania dostępu w razie potrzeby.
 
 > [!NOTE]
 > Można zarządzać delegowanymi zasobami, które znajdują się w różnych [regionach](../../availability-zones/az-overview.md#regions). Jednak delegowanie subskrypcji w [chmurze krajowej](../../active-directory/develop/authentication-national-cloud.md) oraz w chmurze publicznej platformy Azure lub w dwóch oddzielnych chmurach narodowych nie jest obsługiwane.

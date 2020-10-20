@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a2fde3e510c6eb7146da9c92d93f69111e8c80
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80681651"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206547"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Używanie usługi Azure Blob Storage do konwersji modelu
 
@@ -27,8 +27,8 @@ Usługa [konwersji modelu](model-conversion.md) wymaga dostępu do magazynu obie
 
 Tworzenie konta magazynu i kontenerów obiektów BLOB można wykonać przy użyciu jednego z następujących narzędzi:
 
-- [Azure Portal](https://portal.azure.com)
-- [AZ Command line](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Witryna Azure Portal](https://portal.azure.com)
+- [AZ Command line](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 - Zestawy SDK (C#, Python...)
 
@@ -46,13 +46,13 @@ Wykonaj czynności podane w sekcji [Tworzenie konta](../create-an-account.md#lin
 
 Przechowywane sygnatury dostępu są używane do udzielania dostępu do odczytu dla danych wejściowych i dostępu do zapisu dla danych wyjściowych. Zalecamy generowanie nowych identyfikatorów URI przy każdej konwersji modelu. Ponieważ identyfikatory URI wygasają po pewnym czasie, utrwalenie ich przez dłuższy czas może spowodować nieoczekiwane uszkodzenie aplikacji.
 
-Szczegóły dotyczące sygnatury dostępu współdzielonego można znaleźć w [dokumentacji sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Szczegóły dotyczące sygnatury dostępu współdzielonego można znaleźć w [dokumentacji sygnatury dostępu współdzielonego](../../../storage/common/storage-sas-overview.md).
 
 Identyfikator URI sygnatury dostępu współdzielonego można wygenerować przy użyciu jednego z:
 
 - AZ PowerShell module
   - Zobacz [przykładowe skrypty programu PowerShell](../../samples/powershell-example-scripts.md)
-- [AZ Command line](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [AZ Command line](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
   - Kliknij prawym przyciskiem myszy kontener "Uzyskaj sygnaturę dostępu współdzielonego" (odczyt, dostęp do listy dla kontenera danych wejściowych, dostęp do zapisu dla kontenera wyjściowego)
 - Zestawy SDK (C#, Python...)
@@ -64,11 +64,11 @@ Przykład użycia sygnatur dostępu współdzielonego w konwersji zasobów przed
 Aby rozpocząć konwertowanie modelu, należy go przekazać przy użyciu jednej z następujących opcji:
 
 - [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) — wygodny interfejs użytkownika do przekazywania/pobierania plików i zarządzania nimi w usłudze Azure Blob Storage
-- [Wiersz polecenia platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
-- [Moduł programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Wiersz polecenia platformy Azure](../../../storage/blobs/storage-quickstart-blobs-cli.md)
+- [Moduł programu Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.2.0)
   - Zobacz [przykładowe skrypty programu PowerShell](../../samples/powershell-example-scripts.md)
-- [Korzystanie z zestawu SDK magazynu (Python, C#...)](https://docs.microsoft.com/azure/storage/)
-- [Korzystanie z interfejsów API REST usługi Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
+- [Korzystanie z zestawu SDK magazynu (Python, C#...)](../../../storage/index.yml)
+- [Korzystanie z interfejsów API REST usługi Azure Storage](/rest/api/storageservices/blob-service-rest-api)
 
 Przykład przekazywania danych do konwersji można znaleźć w Conversion.ps1 [przykładowych skryptów programu PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
-ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ee9d39db130c76f683ca1f4d1ff64f9ed86d97e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80680078"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204745"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>Narzędzie do inspekcji ArrInspector
 
@@ -29,7 +29,7 @@ Jeśli aplikacja, która wywołuje program, `ConnectToArrInspectorAsync` jest ju
 
 Jeśli aplikacja działa na serwerze HoloLens:
 
-1. Dostęp do urządzenia HoloLens przy użyciu [portalu urządzeń z systemem Windows](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
+1. Dostęp do urządzenia HoloLens przy użyciu [portalu urządzeń z systemem Windows](/windows/mixed-reality/using-the-windows-device-portal).
 1. Przejdź do *Eksploratora systemu > plików*.
 1. Przejdź do *folderów użytkowników \\ LocalAppData \\ [your_app] \\ AC \\ temp*.
 1. Zapisz *StartArrInspector.html* na komputerze.

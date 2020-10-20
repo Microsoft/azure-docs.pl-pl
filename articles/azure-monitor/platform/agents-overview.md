@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: 8ca6794024d3a6327b918eb1c369a627837e0bd0
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: ec7b776f7d573ea07f010eeab81d98222102be41
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131024"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202008"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Omówienie agentów Azure Monitor
 
@@ -32,23 +32,23 @@ W poniższych tabelach przedstawiono krótkie porównanie Azure Monitor agentów
 
 ### <a name="windows-agents"></a>Agenci dla systemu Windows
 
-| | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (funkcji wad) | Log Analytics<br>agent | Zależność<br>agent |
+| | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (funkcji wad) | Usługa Log Analytics<br>agent | Zależność<br>agent |
 |:---|:---|:---|:---|:---|
 | **Obsługiwane środowiska** | Azure | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Środowiska lokalne | 
 | **Wymagania dotyczące agenta**  | Brak | Brak | Brak | Wymaga agenta Log Analytics |
 | **Zbierane dane** | Dzienniki zdarzeń<br>Wydajność | Dzienniki zdarzeń<br>zdarzenia ETW<br>Wydajność<br>Dzienniki na podstawie plików<br>Dzienniki usług IIS<br>Dzienniki aplikacji .NET<br>Zrzuty awaryjne<br>Dzienniki diagnostyki agentów | Dzienniki zdarzeń<br>Wydajność<br>Dzienniki na podstawie plików<br>Dzienniki usług IIS<br>Szczegółowe informacje i rozwiązania<br>Inne usługi | Zależności procesów<br>Metryki połączenia sieciowego |
 | **Dane wysyłane do** | Dzienniki usługi Azure Monitor<br>Metryki Azure Monitor | Azure Storage<br>Metryki Azure Monitor<br>Centrum zdarzeń | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor<br>(za poorednictwem agenta Log Analytics) |
-| **Usługi i**<br>**oferowanych**<br>**obsługiwał** | Log Analytics<br>Eksplorator metryk | Eksplorator metryk | Usługa Azure Monitor dla maszyn wirtualnych<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Usługa Azure Sentinel | Usługa Azure Monitor dla maszyn wirtualnych<br>Mapa usługi |
+| **Usługi i**<br>**oferowanych**<br>**obsługiwał** | Usługa Log Analytics<br>Eksplorator metryk | Eksplorator metryk | Usługa Azure Monitor dla maszyn wirtualnych<br>Usługa Log Analytics<br>Azure Automation<br>Azure Security Center<br>Usługa Azure Sentinel | Usługa Azure Monitor dla maszyn wirtualnych<br>Mapa usługi |
 
 ### <a name="linux-agents"></a>Agenci dla systemu Linux
 
-| | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Zależność<br>agent |
+| | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (LAD) | Telegraf<br>agent | Usługa Log Analytics<br>agent | Zależność<br>agent |
 |:---|:---|:---|:---|:---|:---|
 | **Obsługiwane środowiska** | Azure | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Środowiska lokalne |
 | **Wymagania dotyczące agenta**  | Brak | Brak | Brak | Brak | Wymaga agenta Log Analytics |
 | **Zbierane dane** | Dziennik systemu<br>Wydajność | Dziennik systemu<br>Wydajność | Wydajność | Dziennik systemu<br>Wydajność| Zależności procesów<br>Metryki połączenia sieciowego |
 | **Dane wysyłane do** | Dzienniki usługi Azure Monitor<br>Metryki Azure Monitor | Azure Storage<br>Centrum zdarzeń | Metryki Azure Monitor | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor<br>(za poorednictwem agenta Log Analytics) |
-| **Usługi i**<br>**oferowanych**<br>**obsługiwał** | Log Analytics<br>Eksplorator metryk | | Eksplorator metryk | Usługa Azure Monitor dla maszyn wirtualnych<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Usługa Azure Sentinel | Usługa Azure Monitor dla maszyn wirtualnych<br>Mapa usługi |
+| **Usługi i**<br>**oferowanych**<br>**obsługiwał** | Usługa Log Analytics<br>Eksplorator metryk | | Eksplorator metryk | Usługa Azure Monitor dla maszyn wirtualnych<br>Usługa Log Analytics<br>Azure Automation<br>Azure Security Center<br>Usługa Azure Sentinel | Usługa Azure Monitor dla maszyn wirtualnych<br>Mapa usługi |
 
 
 ## <a name="azure-monitor-agent-preview"></a>Agent Azure Monitor (wersja zapoznawcza)
@@ -81,8 +81,8 @@ Użyj agenta Log Analytics, jeśli zachodzi taka potrzeba:
 * Zbieraj dzienniki i dane wydajności z maszyn wirtualnych lub fizycznych z platformy Azure lub poza nią. 
 * Wyślij dane do obszaru roboczego Log Analytics, aby korzystać z funkcji obsługiwanych przez [dzienniki Azure monitor](data-platform-logs.md) , takie jak [zapytania dziennika](../log-query/log-query-overview.md).
 * Użyj [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) , która pozwala monitorować maszyny wirtualne w odpowiedniej skali i monitoruje ich procesy oraz zależności od innych zasobów i procesów zewnętrznych.  
-* Zarządzaj zabezpieczeniami maszyn wirtualnych przy użyciu [Azure Security Center](../../security-center/security-center-introduction.md)  lub [platformy Azure](../../sentinel/overview.md).
-* Użyj [Azure Automation zarządzania aktualizacjami](../../automation/update-management/update-mgmt-overview.md), [Azure Automation konfiguracji stanu](../../automation/automation-dsc-overview.md)lub [Azure Automation Change Tracking i spisu](../../automation/change-tracking.md) , aby zapewnić kompleksowe zarządzanie maszynami wirtualnymi platformy Azure
+* Zarządzaj zabezpieczeniami maszyn wirtualnych przy użyciu [Azure Security Center](../../security-center/security-center-intro.md)  lub [platformy Azure](../../sentinel/overview.md).
+* Użyj [Azure Automation zarządzania aktualizacjami](../../automation/update-management/update-mgmt-overview.md), [Azure Automation konfiguracji stanu](../../automation/automation-dsc-overview.md)lub [Azure Automation Change Tracking i spisu](../../automation/change-tracking/overview.md) , aby zapewnić kompleksowe zarządzanie maszynami wirtualnymi platformy Azure
 * Użyj różnych [rozwiązań](../monitor-reference.md#insights-and-core-solutions) do monitorowania określonej usługi lub aplikacji.
 
 Ograniczenia Log Analytics agenta obejmują:

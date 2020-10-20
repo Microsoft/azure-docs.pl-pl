@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: duau
-ms.openlocfilehash: 5c6551e721a4bf197ea7091b8c0b71829693ba76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 348f1d779f8ea67860726b8f8b7739921e7ad54a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398294"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205952"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Samouczek: kierowanie ruchu do określonych punktów końcowych na podstawie podsieci użytkownika przy użyciu Traffic Manager
 
@@ -24,7 +24,7 @@ W tym artykule opisano, jak skonfigurować metodę routingu ruchu dla podsieci. 
 
 W tym samouczku użyto routingu dla podsieci, aby w zależności od adresu IP użytkownika zapytania kierować ruch do wewnętrznej lub produkcyjnej witryny internetowej.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dwóch maszyn wirtualnych z podstawową witryną internetową w usługach IIS
@@ -72,7 +72,7 @@ W tej sekcji utworzysz dwie maszyny wirtualne *myIISVMEastUS* i *MyIISVMWestEuro
    - Reguły portów ruchu **przychodzącego**  >  **Wybierz pozycję porty wejściowe**: wybierz pozycję **RDP** i **protokół http** w polu ściąganie.
 
 3. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej: dyski**, a następnie kliknij kolejno pozycje **Sieć**i **Dalej: Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
-4. Wybierz pozycję **Przeglądanie + tworzenie**.
+4. Wybierz pozycję **Przejrzyj i utwórz**.
 5. Przejrzyj ustawienia, a następnie kliknij przycisk **Utwórz**.  
 6. Postępuj zgodnie z instrukcjami, aby utworzyć drugą maszynę wirtualną o nazwie *myIISVMWestEurope*, z nazwą **grupy zasobów** *MyResourceGroupTM2*, **lokalizacją** *Europa Zachodnia*i wszystkimi innymi ustawieniami takimi jak *myIISVMEastUS*.
 7. Proces tworzenia maszyny wirtualnej może potrwać kilka minut. Nie kontynuuj wykonywania pozostałych kroków, dopóki obie maszyny wirtualne nie zostaną utworzone.
@@ -140,7 +140,7 @@ W tej sekcji utworzysz maszynę wirtualną (*myVMEastUS* i *myVMWestEurope*) w k
    - Reguły portów ruchu **przychodzącego**  >  **Wybierz pozycję porty wejściowe**: wybierz pozycję **RDP** w polu ściąganie.
 
 3. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej: dyski**, a następnie kliknij kolejno pozycje **Sieć**i **Dalej: Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
-4. Wybierz pozycję **Przeglądanie + tworzenie**.
+4. Wybierz pozycję **Przejrzyj i utwórz**.
 5. Przejrzyj ustawienia, a następnie kliknij przycisk **Utwórz**.  
 6. Postępuj zgodnie z instrukcjami, aby utworzyć drugą maszynę wirtualną o nazwie *myVMWestEurope*, z nazwą **grupy zasobów** *MyResourceGroupTM2*, **lokalizacją** *Europa Zachodnia*i wszystkimi innymi ustawieniami takimi jak *myVMEastUS*.
 7. Proces tworzenia maszyny wirtualnej może potrwać kilka minut. Nie kontynuuj wykonywania pozostałych kroków, dopóki obie maszyny wirtualne nie zostaną utworzone.
@@ -214,12 +214,13 @@ W tej sekcji zobaczysz działanie usługi Traffic Manager.
 
 7. Następnie połącz się z maszyną wirtualną *myVMWestEurope* znajdującą się w **Europie zachodniej** , korzystając z kroków 1-5 i przejdź do nazwy domeny profilu Traffic Manager z tej maszyny wirtualnej. Ponieważ adres IP *myVMWestEurope* maszyny wirtualnej jest skojarzony z punktem końcowym *myProductionWebsiteEndpoint*, przeglądarka sieci Web uruchamia testową serwer witryny sieci Web — *myIISVMWestEurope*.
 
-## <a name="delete-the-traffic-manager-profile"></a>Usuwanie profilu usługi Traffic Manager
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Kiedy grupy zasobów (**ResourceGroupTM1** i **ResourceGroupTM2**) przestaną być potrzebne, usuń je. Aby to zrobić, wybierz grupę zasobów (**ResourceGroupTM1** lub **ResourceGroupTM2**), a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [ważonej metodzie routingu ruchu](traffic-manager-configure-weighted-routing-method.md).
-- Dowiedz się więcej o [priorytetowej metodzie routingu](traffic-manager-configure-priority-routing-method.md).
-- Dowiedz się więcej o [geograficznej metodzie routingu](traffic-manager-configure-geographic-routing-method.md).
+Aby dowiedzieć się więcej o metodzie routingu podsieci, zobacz:
+
+> [!div class="nextstepaction"]
+> [Metoda routingu ruchu podsieci](traffic-manager-routing-methods.md#subnet)

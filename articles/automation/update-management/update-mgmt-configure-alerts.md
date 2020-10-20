@@ -3,14 +3,14 @@ title: Jak utworzyć alerty dla Azure Automation Update Management
 description: W tym artykule opisano sposób konfigurowania alertów platformy Azure w celu powiadamiania o stanie ocen lub wdrożeń aktualizacji.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a46b5bf6c4be4953e6cde9972aa143be71406a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8f832f0359bd8f9caf13008939f482b440faa1a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977002"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203181"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Jak utworzyć alerty dla Update Management
 
@@ -86,3 +86,8 @@ Po skonfigurowaniu alertów można skonfigurować grupę akcji, która jest grup
 
 ## <a name="next-steps"></a>Następne kroki
 
+* Dowiedz się więcej o [alertach w Azure monitor](../../azure-monitor/platform/alerts-overview.md).
+
+* Dowiedz się więcej na temat [zapytań dzienników](../../azure-monitor/log-query/log-query-overview.md) dotyczących pobierania i analizowania danych z obszaru roboczego log Analytics.
+
+* Zarządzanie [użyciem i kosztami za pomocą dzienników Azure monitor](../../azure-monitor/platform/manage-cost-storage.md) opisuje sposób kontrolowania kosztów przez zmianę okresu przechowywania danych oraz analizowanie i zgłaszanie alertów dotyczących użycia danych.

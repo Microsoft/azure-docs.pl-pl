@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 18ee64e6866764e250cfa08a1d4721674bb66e5a
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 31660d13fe69d393a19167eaea8a69bfb6260467
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097341"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202076"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Usługa ExpressRoute dla dostawców rozwiązań w chmurze (CSP)
 Firma Microsoft oferuje usługi w hiperskali dla tradycyjnych odsprzedawców i dystrybutorów (CSP), dzięki czemu użytkownicy mogą szybko aprowizować nowe usługi i rozwiązania dla klientów bez konieczności inwestowania w ich opracowywanie. Aby umożliwić dostawcy rozwiązań w chmurze (CSP) bezpośrednie zarządzanie tymi nowymi usługami, firma Microsoft udostępnia programy oraz interfejsy API, które pozwalają dostawcy CSP na zarządzanie zasobami Microsoft Azure w imieniu klientów. Jednym z tych zasobów jest usługa ExpressRoute. Usługa ExpressRoute umożliwia dostawcy CSP łączenie istniejących zasobów klienta z usługami Azure. ExpressRoute to link do usług na platformie Azure o dużej szybkości. 
@@ -28,7 +28,7 @@ ExpressRoute składa się z pary obwodów o wysokiej dostępności, które są d
 Firma Microsoft Azure oferuje coraz więcej usług, które można zaoferować klientom. ExpressRoute pomaga użytkownikom i klientom korzystać z tych usług, zapewniając szybki dostęp do środowiska Microsoft Azure o wysokiej szybkości.
 
 ## <a name="microsoft-azure-management"></a>Zarządzanie na platformie Microsoft Azure
-Firma Microsoft udostępnia dostawcom usług kryptograficznych interfejsy API do zarządzania subskrypcjami klientów platformy Azure, umożliwiając programową integrację z własnymi systemami zarządzania usługami. Obsługiwane funkcje zarządzania można znaleźć [tutaj](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
+Firma Microsoft udostępnia dostawcom usług kryptograficznych interfejsy API do zarządzania subskrypcjami klientów platformy Azure, umożliwiając programową integrację z własnymi systemami zarządzania usługami. Obsługiwane funkcje zarządzania można znaleźć [tutaj](/previous-versions/windows/mt844538(v=win.10)).
 
 ## <a name="microsoft-azure-resource-management"></a>Zarządzanie zasobami Microsoft Azure
 Umowa z klientem określa, jak będzie zarządzana subskrypcja. Dostawca CSP może bezpośrednio zarządzać tworzeniem i obsługą zasobów lub klient może zachować kontrolę nad subskrypcją Microsoft Azure i tworzyć zasoby Azure zgodnie z zapotrzebowaniem. Jeśli klient zarządza tworzeniem zasobów w ramach subskrypcji Microsoft Azure, użyje jednego z dwóch modeli: modelu "*connect-through*" lub modelu "*Direct-to*". Te modele zostały szczegółowo opisane w poniższych sekcjach.  
@@ -129,6 +129,6 @@ Usługa dostawcy rozwiązań w chmurze zapewnia sposób na zwiększenie wartośc
 
 Dodatkowe informacje można znaleźć, używając następujących linków:
 
-[Azure Cloud Solution Provider program](https://docs.microsoft.com/azure/cloud-solution-provider) (Program dostawcy rozwiązań w chmurze dla platformy Azure).  
+[Azure Cloud Solution Provider program](/azure/cloud-solution-provider) (Program dostawcy rozwiązań w chmurze dla platformy Azure).  
 [Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch) (Przygotowanie do transakcji w roli dostawcy rozwiązań w chmurze).  
 [Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/solutions/cloud-reseller-resources) (Zasoby dostawcy rozwiązań w chmurze Microsoft).

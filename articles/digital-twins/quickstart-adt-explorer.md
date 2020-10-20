@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 848894518077ca41d3166570bf0dc39914f1c439
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5fb00fb6382bb53f40ad63a95c880c47f91cae2f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131160"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201668"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -47,18 +47,17 @@ Pierwszym krokiem w pracy z usługą Azure Digital bliźniaczych reprezentacji j
 
 Należy również skonfigurować uprawnienia dla Eksploratora ADT do uruchamiania na komputerze i uzyskać dostęp do swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Pozwoli to na korzystanie z przykładowej aplikacji do eksplorowania Twojego wystąpienia i jego danych.
 
-### <a name="set-up-azure-digital-twins-instance"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+### <a name="set-up-azure-digital-twins-instance-and-app-registration"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji i rejestracji aplikacji
 
-Najpierw skonfiguruj wystąpienie usługi Azure Digital bliźniaczych reprezentacji i wymagane uwierzytelnianie, aby móc z nich korzystać. Aby to zrobić, postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md). W zależności od preferowanego środowiska, artykuł instalacyjny jest oferowany dla [przykładowego skryptu wdrażania](how-to-set-up-instance-scripted.md) [Azure Portal](how-to-set-up-instance-portal.md), [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md)lub Cloud Shell. Wszystkie wersje instrukcji zawierają również kroki umożliwiające sprawdzenie, czy każdy krok został pomyślnie wykonany i jest gotowy do przejścia do korzystania z nowego wystąpienia.
+Najpierw **Skonfiguruj wystąpienie usługi Azure Digital bliźniaczych reprezentacji** i wymagane uwierzytelnianie, aby móc z nich korzystać. Aby to zrobić, postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md). W zależności od preferowanego środowiska, artykuł instalacyjny jest oferowany dla [przykładowego skryptu wdrażania](how-to-set-up-instance-scripted.md) [Azure Portal](how-to-set-up-instance-portal.md), [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md)lub Cloud Shell. Wszystkie wersje instrukcji zawierają również kroki umożliwiające sprawdzenie, czy każdy krok został pomyślnie wykonany i jest gotowy do przejścia do korzystania z nowego wystąpienia.
+* Po skonfigurowaniu wystąpienia usługi Azure Digital bliźniaczych reprezentacji należy określić **_nazwę hosta_** wystąpienia ([Znajdź w portalu](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-W tym przewodniku szybki start będziesz potrzebować następujących wartości z usługi podczas konfigurowania wystąpienia. Aby ponownie zebrać te wartości, Skorzystaj z poniższych linków, aby znaleźć je w [Azure Portal](https://portal.azure.com).
-* **_Nazwa hosta_** wystąpienia usługi Azure Digital bliźniaczych reprezentacji ([Znajdź w portalu](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Identyfikator aplikacji rejestracji aplikacji usługi Azure AD **_(klient)_** ([Znajdź w portalu](how-to-set-up-instance-portal.md#collect-important-values))
-* Identyfikator rejestracji w usłudze Azure AD ( **_dzierżawa)_** ([Znajdź w portalu](how-to-set-up-instance-portal.md#collect-important-values))
+Aby uwierzytelnić aplikację ADT Explorer, należy również skonfigurować **rejestrację aplikacji**. Postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Create a App Registration*](how-to-create-app-registration.md) to set up. 
+* Po zarejestrowaniu aplikacji będziesz potrzebować identyfikatora **_aplikacji (klienta)_** rejestracji i **_identyfikatora (dzierżawy)_** [w portalu](how-to-create-app-registration.md#collect-client-id-and-tenant-id).
 
 ### <a name="set-adt-explorer-permissions"></a>Ustawianie uprawnień programu ADT Explorer
 
-Następnie przygotuj utworzone wystąpienie usługi Azure Digital bliźniaczych reprezentacji do pracy z Eksploratorem ADT, który jest aplikacją sieci Web hostowaną lokalnie. Odwiedź stronę [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) w Azure Portal i wybierz nazwę rejestracji aplikacji z listy.
+Następnie przygotuj utworzone wystąpienie usługi Azure Digital bliźniaczych reprezentacji do pracy z Eksploratorem ADT, który jest aplikacją sieci Web hostowaną lokalnie. Odwiedź stronę [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) w Azure Portal i wybierz nazwę **rejestracji aplikacji** utworzonej w poprzedniej sekcji z listy.
 
 Wybierz pozycję *uwierzytelnianie* z menu Rejestracja i naciśnij pozycję *+ Dodaj platformę*.
 

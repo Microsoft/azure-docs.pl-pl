@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: cynthn
-ms.openlocfilehash: 361ed04a6448bec18fac94ad90a33fe01a49e595
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f3c1e305024eb255a85aa470105d99edd3c26982
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974162"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201311"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>How to detach a data disk from a Windows virtual machine (Jak odłączyć dysk od maszyny wirtualnej systemu Windows)
 
@@ -53,8 +53,7 @@ Można *gorąco* usuwanie dysku danych, ale nie należy aktywnie używać dysku 
 1. W menu po lewej stronie wybierz pozycję **Virtual Machines**.
 1. Wybierz maszynę wirtualną zawierającą dysk danych, który chcesz odłączyć.
 1. W obszarze **Ustawienia** wybierz pozycję **Dyski**.
-1. W górnej części okienka **dyski** wybierz pozycję **Edytuj**.
-1. W okienku **dyski** z prawej strony dysku z danymi, które chcesz odłączyć, wybierz opcję **Odłącz**.
+1. W okienku **dyski** z prawej strony dysku z danymi, które chcesz odłączyć, kliknij przycisk Usuń **X** .
 1. Wybierz pozycję **Zapisz** w górnej części strony, aby zapisać zmiany.
 
 Dysk pozostaje w magazynie, ale nie jest już dołączony do maszyny wirtualnej.

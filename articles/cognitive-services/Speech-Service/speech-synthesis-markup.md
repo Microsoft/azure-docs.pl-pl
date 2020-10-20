@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: baa8b1f302c0d8a7355f74b686ffedfb45ac22d3
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 2c60d2e874e861eebac54e24ba0cb949bfb9a57b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096049"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207686"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -148,7 +148,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -295,8 +295,8 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `strength` | Określa względny czas trwania pauzy przy użyciu jednej z następujących wartości:<ul><li>brak</li><li>x — słabe</li><li>lekko</li><li>Średni (domyślnie)</li><li>najwyższy</li><li>x — Strong</li></ul> | Opcjonalne |
-| `time` | Określa bezwzględny czas przerwy w sekundach lub milisekund. Przykłady prawidłowych wartości to `2s` i `500` | Opcjonalne |
+| `strength` | Określa względny czas trwania pauzy przy użyciu jednej z następujących wartości:<ul><li>brak</li><li>x — słabe</li><li>lekko</li><li>Średni (domyślnie)</li><li>najwyższy</li><li>x — Strong</li></ul> | Optional |
+| `time` | Określa bezwzględny czas przerwy w sekundach lub milisekund. Przykłady prawidłowych wartości to `2s` i `500` | Optional |
 
 | Naprężeni                      | Opis |
 |-------------------------------|-------------|
@@ -365,7 +365,7 @@ Alfabety fonetyczne składają się z telefonów, które składają się z liter
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `alphabet` | Określa alfabet fonetyczny do użycia podczas syntezowania wymowy ciągu w `ph` atrybucie. Ciąg określający alfabet musi być określony małymi literami. Poniżej przedstawiono możliwe litery, które można określić.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet <span class="docon docon-navigate-external x-hidden-focus"></span> fonetyczny</a></li><li>`sapi`&ndash; [Mowa — alfabet fonetyczny](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Uniwersalny zestaw telefonu</a></li></ul><br>Alfabet ma zastosowanie tylko do `phoneme` elementu w elemencie.. | Opcjonalne |
+| `alphabet` | Określa alfabet fonetyczny do użycia podczas syntezowania wymowy ciągu w `ph` atrybucie. Ciąg określający alfabet musi być określony małymi literami. Poniżej przedstawiono możliwe litery, które można określić.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet <span class="docon docon-navigate-external x-hidden-focus"></span> fonetyczny</a></li><li>`sapi`&ndash; [Mowa — alfabet fonetyczny](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Uniwersalny zestaw telefonu</a></li></ul><br>Alfabet ma zastosowanie tylko do `phoneme` elementu w elemencie.. | Optional |
 | `ph` | Ciąg zawierający telefony, które określają wymowę wyrazu w `phoneme` elemencie. Jeśli określony ciąg zawiera nierozpoznane telefony, usługa zamiany tekstu na mowę (TTS) odrzuci cały dokument SSML i nie wygeneruje żadnych danych wyjściowych mowy określonych w dokumencie. | Wymagany, jeśli jest używany fonemów. |
 
 **Przykłady**
@@ -534,12 +534,12 @@ Ponieważ wartości atrybutów granicę prozodyczną mogą się różnić w ró�
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `pitch` | Wskazuje gęstość linii bazowej dla tekstu. Możesz wyrazić gęstość jako:<ul><li>Wartość bezwzględna wyrażona jako liczba, po której następuje "Hz" (Hz). Na przykład `<prosody pitch="600Hz">some text</prosody>`.</li><li>Wartość względna, wyrażona jako liczba poprzedzona znakiem "+" lub "-", po której następuje "Hz" lub "St", która określa ilość, aby zmienić gęstość. Na przykład: `<prosody pitch="+80Hz">some text</prosody>` lub `<prosody pitch="-2st">some text</prosody>` . "St" wskazuje, że jednostka zmiany to semitone, czyli połowę tonu (pół kroku) w standardowej skali Diatonic.</li><li>Stała wartość:<ul><li>x — niska</li><li>małą</li><li>średni</li><li>wysoka</li><li>x — wysoka</li><li>default</li></ul></li></ul> | Opcjonalne |
-| `contour` |Rozkład obsługuje teraz zarówno neuronowych, jak i standardowe głosy. Rozkład reprezentuje zmiany w wysokości. Te zmiany są reprezentowane jako tablica obiektów docelowych w określonych miejscach w danych wyjściowych mowy. Każdy element docelowy jest definiowany przez zestawy par parametrów. Na przykład: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Pierwsza wartość w każdym zestawie parametrów określa lokalizację zmiany w postaci procentu czasu trwania tekstu. Druga wartość określa wielkość, aby podnieść lub obniżyć gęstość, przy użyciu wartości względnej lub wartości wyliczenia dla skoku (zobacz `pitch` ). | Opcjonalne |
-| `range` | Wartość, która reprezentuje zakres skoku dla tekstu. Można wyrazić `range` przy użyciu tych samych wartości bezwzględnych, wartości względnych lub wartości wyliczenia, które są używane do opisywania `pitch` . | Opcjonalne |
-| `rate` | Wskazuje stawkę głosu tekstu. Można wyrazić `rate` jako:<ul><li>Wartość względna wyrażona jako liczba, która działa jako mnożnik wartości domyślnej. Na przykład wartość *1* powoduje brak zmian w szybkości. Wartość *0,5* skutkuje halving szybkością. Wartość *3* powoduje przekroczenie stawki.</li><li>Stała wartość:<ul><li>x — powolne</li><li>opóźnienie</li><li>średni</li><li>szybki</li><li>x — Fast</li><li>default</li></ul></li></ul> | Opcjonalne |
-| `duration` | Okres, który powinien upłynąć, gdy usługa synteza mowy (TTS) odczytuje tekst w sekundach lub milisekundach. Na przykład *2S* lub *1800ms*. Czas trwania obsługuje tylko głosy standardowe.| Opcjonalne |
-| `volume` | Wskazuje poziom głośności głosu. Wolumin można wyrazić jako:<ul><li>Wartość bezwzględna wyrażona jako liczba z zakresu od 0,0 do 100,0, od *najcisza* do *głośnie*. Na przykład 75. Wartość domyślna to 100,0.</li><li>Wartość względna wyrażona jako liczba poprzedzona znakiem "+" lub "-", która określa wielkość zmiany woluminu. Na przykład + 10 lub-5,5.</li><li>Stała wartość:<ul><li>automatycznie</li><li>x — niewygładzone</li><li>rezerwacje</li><li>średni</li><li>głośn</li><li>x-głośne</li><li>default</li></ul></li></ul> | Opcjonalne |
+| `pitch` | Wskazuje gęstość linii bazowej dla tekstu. Możesz wyrazić gęstość jako:<ul><li>Wartość bezwzględna wyrażona jako liczba, po której następuje "Hz" (Hz). Na przykład `<prosody pitch="600Hz">some text</prosody>`.</li><li>Wartość względna, wyrażona jako liczba poprzedzona znakiem "+" lub "-", po której następuje "Hz" lub "St", która określa ilość, aby zmienić gęstość. Na przykład: `<prosody pitch="+80Hz">some text</prosody>` lub `<prosody pitch="-2st">some text</prosody>` . "St" wskazuje, że jednostka zmiany to semitone, czyli połowę tonu (pół kroku) w standardowej skali Diatonic.</li><li>Stała wartość:<ul><li>x — niska</li><li>małą</li><li>średni</li><li>wysoka</li><li>x — wysoka</li><li>default</li></ul></li></ul> | Optional |
+| `contour` |Rozkład obsługuje teraz zarówno neuronowych, jak i standardowe głosy. Rozkład reprezentuje zmiany w wysokości. Te zmiany są reprezentowane jako tablica obiektów docelowych w określonych miejscach w danych wyjściowych mowy. Każdy element docelowy jest definiowany przez zestawy par parametrów. Na przykład: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Pierwsza wartość w każdym zestawie parametrów określa lokalizację zmiany w postaci procentu czasu trwania tekstu. Druga wartość określa wielkość, aby podnieść lub obniżyć gęstość, przy użyciu wartości względnej lub wartości wyliczenia dla skoku (zobacz `pitch` ). | Optional |
+| `range` | Wartość, która reprezentuje zakres skoku dla tekstu. Można wyrazić `range` przy użyciu tych samych wartości bezwzględnych, wartości względnych lub wartości wyliczenia, które są używane do opisywania `pitch` . | Optional |
+| `rate` | Wskazuje stawkę głosu tekstu. Można wyrazić `rate` jako:<ul><li>Wartość względna wyrażona jako liczba, która działa jako mnożnik wartości domyślnej. Na przykład wartość *1* powoduje brak zmian w szybkości. Wartość *0,5* skutkuje halving szybkością. Wartość *3* powoduje przekroczenie stawki.</li><li>Stała wartość:<ul><li>x — powolne</li><li>opóźnienie</li><li>średni</li><li>szybki</li><li>x — Fast</li><li>default</li></ul></li></ul> | Optional |
+| `duration` | Okres, który powinien upłynąć, gdy usługa synteza mowy (TTS) odczytuje tekst w sekundach lub milisekundach. Na przykład *2S* lub *1800ms*. Czas trwania obsługuje tylko głosy standardowe.| Optional |
+| `volume` | Wskazuje poziom głośności głosu. Wolumin można wyrazić jako:<ul><li>Wartość bezwzględna wyrażona jako liczba z zakresu od 0,0 do 100,0, od *najcisza* do *głośnie*. Na przykład 75. Wartość domyślna to 100,0.</li><li>Wartość względna wyrażona jako liczba poprzedzona znakiem "+" lub "-", która określa wielkość zmiany woluminu. Na przykład + 10 lub-5,5.</li><li>Stała wartość:<ul><li>automatycznie</li><li>x — niewygładzone</li><li>rezerwacje</li><li>średni</li><li>głośn</li><li>x-głośne</li><li>default</li></ul></li></ul> | Optional |
 
 ### <a name="change-speaking-rate"></a>Zmień częstotliwość mówienia
 
@@ -618,8 +618,8 @@ Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyr
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `interpret-as` | Wskazuje typ zawartości tekstu elementu. Aby zapoznać się z listą typów, zobacz poniższą tabelę. | Wymagane |
-| `format` | Zawiera dodatkowe informacje na temat precyzyjnego formatowania tekstu elementu dla typów zawartości, które mogą mieć niejednoznaczne formaty. SSML definiuje formaty dla typów zawartości, które ich używają (patrz tabela poniżej). | Opcjonalne |
-| `detail` | Wskazuje poziom szczegółowości, który ma być wypowiadany. Na przykład ten atrybut może zażądać, aby aparat syntezy mowy wymawiał znaki interpunkcyjne. Nie zdefiniowano standardowych wartości dla `detail` . | Opcjonalne |
+| `format` | Zawiera dodatkowe informacje na temat precyzyjnego formatowania tekstu elementu dla typów zawartości, które mogą mieć niejednoznaczne formaty. SSML definiuje formaty dla typów zawartości, które ich używają (patrz tabela poniżej). | Optional |
+| `detail` | Wskazuje poziom szczegółowości, który ma być wypowiadany. Na przykład ten atrybut może zażądać, aby aparat syntezy mowy wymawiał znaki interpunkcyjne. Nie zdefiniowano standardowych wartości dla `detail` . | Optional |
 
 <!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
@@ -716,9 +716,9 @@ Dozwolony jest tylko jeden plik audio w tle dla dokumentu SSML. Można jednak pr
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `src` | Określa lokalizację/adres URL pliku dźwiękowego w tle. | Wymagany w przypadku używania dźwięku w tle w dokumencie SSML. |
-| `volume` | Określa wolumin pliku dźwiękowego w tle. **Akceptowane wartości**: `0` do `100` włącznie. Wartość domyślna to `1`. | Opcjonalne |
-| `fadein` | Określa czas trwania "zanikania" dźwięku w tle (w milisekundach). Wartość domyślna to `0` , która jest równoważna brak zanikania w. **Akceptowane wartości**: `0` do `10000` włącznie.  | Opcjonalne |
-| `fadeout` | Określa czas zanikania dźwięku w tle w milisekundach. Wartość domyślna to `0` , która jest równoważna brak zanikania. **Akceptowane wartości**: `0` do `10000` włącznie.  | Opcjonalne |
+| `volume` | Określa wolumin pliku dźwiękowego w tle. **Akceptowane wartości**: `0` do `100` włącznie. Wartość domyślna to `1`. | Optional |
+| `fadein` | Określa czas trwania "zanikania" dźwięku w tle (w milisekundach). Wartość domyślna to `0` , która jest równoważna brak zanikania w. **Akceptowane wartości**: `0` do `10000` włącznie.  | Optional |
+| `fadeout` | Określa czas zanikania dźwięku w tle w milisekundach. Wartość domyślna to `0` , która jest równoważna brak zanikania. **Akceptowane wartości**: `0` do `10000` włącznie.  | Optional |
 
 **Przykład**
 

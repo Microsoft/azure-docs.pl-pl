@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dc38b53705c24cb12a001237a9a80ec66ec33e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27395fe377972f51c849f8a61f51a628612ed54d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613790"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202671"
 ---
 # <a name="textures"></a>Tekstury
 
@@ -89,12 +89,12 @@ W zależności od tego, co ma być używane dla tekstury, mogą istnieć ogranic
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 
-* [Klasa tekstury C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.texture)
-* [Zdalnymanager. LoadTextureAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtextureasync)
-* [Zdalnymanager. LoadTextureFromSASAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtexturefromsasasync)
-* [Klasa tekstury C++](https://docs.microsoft.com/cpp/api/remote-rendering/texture)
-* [Zdalnymanager:: LoadTextureAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtextureasync)
-* [Zdalnymanager:: LoadTextureFromSASAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
+* [Klasa tekstury C#](/dotnet/api/microsoft.azure.remoterendering.texture)
+* [Zdalnymanager. LoadTextureAsync ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtextureasync)
+* [Zdalnymanager. LoadTextureFromSASAsync ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtexturefromsasasync)
+* [Klasa tekstury C++](/cpp/api/remote-rendering/texture)
+* [Zdalnymanager:: LoadTextureAsync ()](/cpp/api/remote-rendering/remotemanager#loadtextureasync)
+* [Zdalnymanager:: LoadTextureFromSASAsync ()](/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
 
 ## <a name="next-steps"></a>Następne kroki
 

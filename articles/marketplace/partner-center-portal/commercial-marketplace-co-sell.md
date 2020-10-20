@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 05/12/2020
-ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: ec076567d06a8237db2a708a5276a358f64a8388
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033255"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204915"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Wspólna sprzedaż w Centrum partnerskim
 
@@ -36,7 +36,7 @@ Opcja współsprzedaży w centrum partnerskim jest obecnie dostępna dla niektó
 
 ## <a name="listing"></a>Lista
 
-Aukcje ze wspólną sprzedażą będą pomocne dla zespołów sprzedaży firmy Microsoft na rynku Twojego rozwiązania dla szerszego grona odbiorców.
+Aukcje ze wspólną sprzedażą będą pomocne dla zespołów sprzedaży firmy Microsoft na rynku Twojego rozwiązania dla szerszego grona odbiorców. *(Wszystkie pola są wymagane).*
 
 - Wybierz platformy firmy Microsoft, z którymi została skompilowana oferta, która rozszerza lub integruje się z usługą.
 - Wybierz segmenty rynku, dla których oferta ma znaczenie.
@@ -58,26 +58,26 @@ Typy rozwiązań ułatwiają Definiowanie scenariuszy, w których oferta został
 
 Obszary rozwiązań ułatwiają dalsze Definiowanie rozwiązania.
 
-Możesz dodać maksymalnie trzy obszary rozwiązań dla swojej oferty. Dla każdego obszaru rozwiązania można wybrać maksymalnie dwa podobszary rozwiązania. Aby wybrać wiele podkategorii, użyj `Ctrl` klucza (w systemie Windows) lub klucza polecenia (w Mac OS).
+Możesz dodać maksymalnie trzy obszary rozwiązań dla swojej oferty. Dla każdego obszaru rozwiązania można wybrać maksymalnie dwa podobszary rozwiązania. Aby wybrać wiele podkategorii, użyj `Ctrl` klucza (w systemie Windows) lub klucza polecenia (na macOS).
 
 ## <a name="documents"></a>Dokumenty
 
-Istnieje możliwość udostępnienia dodatkowych dokumentów, których firma Microsoft będzie używać, aby dowiedzieć się więcej o ofercie i oszacować jej dopasowanie do potrzeb klientów. Wszystkie dokumenty wymienione w poniższej tabeli są opcjonalne.
+Istnieje możliwość udostępnienia dodatkowych dokumentów, których firma Microsoft będzie używać, aby dowiedzieć się więcej o ofercie i oszacować jej dopasowanie do potrzeb klientów.
 
 | **Dokumenty**    | **Opis**  |
 | :------------------- | :-------------------|
-| *Klient z jednym modułem stronicowania* | Gotowy do użycia opis oferty przez klienta. Zespoły sprzedaży firmy Microsoft mogą współdzielić te informacje z klientami, aby pomóc w ustaleniu, czy oferta może być dobrze dopasowana, i upewnić się, że jest ona gotowa dla klienta. <br> <br> Użyj jednego z odpowiednich szablonów dostępnych w centrum partnerskim: <br> <ul> <li> Microsoft Azure szablon z jednym modułem stronicowania </li> <li> Microsoft Dynamics 365 1 — szablon modułu stronicowania </li> <li> Microsoft 365 1 — szablon modułu stronicowania </li> <li> Windows 10 1 — szablon modułu stronicowania </li> </ul> |
-| *Prezentacja klienta* | Przesuń na talię swoje rozwiązanie i jego wartość. Po upewnieniu się, że oferta jest gotowa dla klienta, zespoły sprzedaży firmy Microsoft mogą udostępniać prezentację klientom, aby ideach wartość, którą obie firmy przyniosły podczas wdrażania wspólnego rozwiązania. Prezentacja powinna obejmować to, co to jest rozwiązanie, w jaki sposób może pomóc klientom, co to jest rozwiązanie, a także w porównaniu z rozwiązaniami konkurującymi. <br> <br> Użyj szablonu dostępnego w centrum partnerskim.|
+| *Klient z jednym modułem stronicowania (wymagany)* | Gotowy do użycia opis oferty przez klienta. Zespoły sprzedaży firmy Microsoft mogą współdzielić te informacje z klientami, aby pomóc w ustaleniu, czy oferta może być dobrze dopasowana, i upewnić się, że jest ona gotowa dla klienta. <br> <br> Użyj jednego z odpowiednich szablonów dostępnych w centrum partnerskim: <br> <ul> <li> Microsoft Azure szablon z jednym modułem stronicowania </li> <li> Microsoft Dynamics 365 1 — szablon modułu stronicowania </li> <li> Microsoft 365 1 — szablon modułu stronicowania </li> <li> Windows 10 1 — szablon modułu stronicowania </li> </ul> |
+| *Prezentacja klienta (wymagana)* | Przesuń na talię swoje rozwiązanie i jego wartość. Po upewnieniu się, że oferta jest gotowa dla klienta, zespoły sprzedaży firmy Microsoft mogą udostępniać prezentację klientom, aby ideach wartość, którą obie firmy przyniosły podczas wdrażania wspólnego rozwiązania. Prezentacja powinna obejmować to, co to jest rozwiązanie, w jaki sposób może pomóc klientom, co to jest rozwiązanie, a także w porównaniu z rozwiązaniami konkurującymi. <br> <br> Użyj szablonu dostępnego w centrum partnerskim.|
 | *Analiza przypadku klienta* | Te informacje pokazują potencjalnego klienta, w przypadku których firma Microsoft pomyślnie wdrożyła to rozwiązanie we wcześniejszych przypadkach. <br> <br> Użyj szablonu dostępnego w centrum partnerskim. |
-| *Zweryfikowanie klienta WINS (opcjonalnie)* | Określone przykłady sukcesu klientów po wdrożeniu rozwiązania. |
-| *Talia kanału (opcjonalnie)* | Slajd zawierający informacje ułatwiające odsprzedawców kanałów Dowiedz się więcej o Twoim rozwiązaniu i przygotuj zespoły sprzedaży do sprzedaży oferty. Zwykle zawiera ona szerokość windy, informacje na temat klientów docelowych, pytania dotyczące poproszenia klientów, punkty rozmowy i linki do filmów wideo, dokumentacji i pomocy technicznej. |
+| *Zweryfikowanie klienta usługi WINS* | Określone przykłady sukcesu klientów po wdrożeniu rozwiązania. |
+| *Talia kanału* | Slajd zawierający informacje ułatwiające odsprzedawców kanałów Dowiedz się więcej o Twoim rozwiązaniu i przygotuj zespoły sprzedaży do sprzedaży oferty. Zwykle zawiera ona szerokość windy, informacje na temat klientów docelowych, pytania dotyczące poproszenia klientów, punkty rozmowy i linki do filmów wideo, dokumentacji i pomocy technicznej. |
 | *Diagramy architektury referencyjnej* | Dokument przedstawiający model, który reprezentuje adres IP utworzony przez partnera, wraz z jego relacją z usługami w chmurze firmy Microsoft oraz jak spełnia wymagania techniczne dla współsprzedawanego programu IP. |
 | *Inne dokumenty* | Opcjonalnie możesz przekazać do pięciu dodatkowych dokumentów lub filmów, aby pomóc zespołom sprzedaży firmy Microsoft i odsprzedawcom kanałów dowiedzieć się więcej o rozwiązaniu, organizacji i/lub odróżniających. |
 | *Adres URL odwołania zewnętrznego* | Link do witryny produktu, gdzie zespoły sprzedaży firmy Microsoft i odsprzedawcy kanałów mogą dowiedzieć się więcej o rozwiązaniu. |
 
 ## <a name="contacts"></a>Kontakty
 
-Informacje kontaktowe umożliwiają zespołom sprzedaży firmy Microsoft i odsprzedawców kanałów zażądać dodatkowych informacji od odpowiedniego zasobu w organizacji. Informacje kontaktowe są dostępne dla wszystkich zespołów sprzedaży firmy Microsoft. Jeśli wybierzesz opcję udostępnienia oferty w programie CSP, informacje kontaktowe są również dostępne dla odsprzedawcaów kanałów.
+Informacje kontaktowe umożliwiają zespołom sprzedaży firmy Microsoft i odsprzedawców kanałów zażądać dodatkowych informacji od odpowiedniego zasobu w organizacji. Informacje kontaktowe są dostępne dla wszystkich zespołów sprzedaży firmy Microsoft. *(Kontakt dla każdej lokalizacji geograficznej, w której oferta jest dostępna, jest wymagany dla programu współsprzedaży).* Jeśli wybierzesz opcję udostępnienia oferty w programie CSP, informacje kontaktowe są również dostępne dla odsprzedawcaów kanałów.
 
 Możesz udostępnić swoje kontakty, pobierając szablon CSV z Centrum partnerskiego, wypełniając każdy wiersz informacjami o kontakcie i importując ten plik CSV. Importowanie pliku CSV spowoduje zastąpienie istniejących kontaktów.
 

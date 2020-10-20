@@ -3,14 +3,14 @@ title: Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 description: W tym artykule opisano sposób wdrażania hybrydowego procesu roboczego elementu Runbook, którego można użyć do uruchamiania elementów Runbook na maszynach z systemem Windows w lokalnym centrum danych lub w środowisku chmury.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/20/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a03d14fa272f5f86af1caf0ce9537bbb186d13cc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88660516"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204523"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 
@@ -28,7 +28,7 @@ Rola hybrydowego procesu roboczego elementu Runbook zależy od obszaru roboczego
 
 Jeśli nie masz obszaru roboczego Log Analytics Azure Monitor, zapoznaj się ze [wskazówkami dotyczącymi projektu dziennika Azure monitor](../azure-monitor/platform/design-logs-deployment.md) przed utworzeniem obszaru roboczego.
 
-Jeśli masz obszar roboczy, ale nie jest on połączony z kontem usługi Automation, włączenie funkcji automatyzacji powoduje dodanie funkcji dla Azure Automation, w tym obsługę hybrydowego procesu roboczego elementu Runbook. Po włączeniu jednej z Azure Automation funkcji w obszarze roboczym Log Analytics, w odróżnieniu od [Update Management](update-management/update-mgmt-overview.md) lub [Change Tracking i spisu](change-tracking.md), składniki procesu roboczego są automatycznie wypychane do komputera agenta.
+Jeśli masz obszar roboczy, ale nie jest on połączony z kontem usługi Automation, włączenie funkcji automatyzacji powoduje dodanie funkcji dla Azure Automation, w tym obsługę hybrydowego procesu roboczego elementu Runbook. Po włączeniu jednej z Azure Automation funkcji w obszarze roboczym Log Analytics, w odróżnieniu od [Update Management](update-management/update-mgmt-overview.md) lub [Change Tracking i spisu](change-tracking/overview.md), składniki procesu roboczego są automatycznie wypychane do komputera agenta.
 
 > [!NOTE]
 > Podczas włączania funkcji Update Management lub Change Tracking i spisu Azure Automation obsługuje tylko niektóre regiony do łączenia obszaru roboczego Log Analytics i konta usługi Automation. Aby uzyskać listę obsługiwanych par mapowania, zobacz [Mapowanie regionów dla konta usługi Automation i obszaru roboczego log Analytics](how-to/region-mappings.md). Przed włączeniem którejkolwiek z tych funkcji Przejrzyj informacje o [cenach platformy Azure](https://azure.microsoft.com/pricing/details/automation/) dotyczące Azure Automation.
@@ -120,12 +120,12 @@ Pobierz skrypt **New-OnPremiseHybridWorker.ps1** z [Galeria programu PowerShell]
 | --------- | ------ | ----------- |
 | `AAResourceGroupName` | Obowiązkowy | Nazwa grupy zasobów skojarzonej z kontem usługi Automation. |
 | `AutomationAccountName` | Obowiązkowy | Nazwa konta usługi Automation.
-| `Credential` | Opcjonalne | Poświadczenia, które mają być używane podczas logowania w środowisku platformy Azure. |
+| `Credential` | Optional | Poświadczenia, które mają być używane podczas logowania w środowisku platformy Azure. |
 | `HybridGroupName` | Obowiązkowy | Nazwa grupy hybrydowych procesów roboczych elementu Runbook, która została określona jako element docelowy dla elementów Runbook, które obsługują ten scenariusz. |
-| `OMSResourceGroupName` | Opcjonalne | Nazwa grupy zasobów dla obszaru roboczego Log Analytics. Jeśli ta grupa zasobów nie jest określona, `AAResourceGroupName` zostanie użyta wartość. |
+| `OMSResourceGroupName` | Optional | Nazwa grupy zasobów dla obszaru roboczego Log Analytics. Jeśli ta grupa zasobów nie jest określona, `AAResourceGroupName` zostanie użyta wartość. |
 | `SubscriptionID` | Obowiązkowy | Identyfikator subskrypcji platformy Azure skojarzonej z kontem usługi Automation. |
-| `TenantID` | Opcjonalne | Identyfikator organizacji dzierżawy skojarzonej z kontem usługi Automation. |
-| `WorkspaceName` | Opcjonalne | Nazwa obszaru roboczego Log Analytics. Jeśli nie masz obszaru roboczego Log Analytics, skrypt tworzy i konfiguruje go. |
+| `TenantID` | Optional | Identyfikator organizacji dzierżawy skojarzonej z kontem usługi Automation. |
+| `WorkspaceName` | Optional | Nazwa obszaru roboczego Log Analytics. Jeśli nie masz obszaru roboczego Log Analytics, skrypt tworzy i konfiguruje go. |
 
 ### <a name="step-2---open-windows-powershell-command-line-shell"></a>Krok 2. Otwieranie powłoki wiersza polecenia programu Windows PowerShell
 
@@ -175,7 +175,7 @@ Heartbeat
 
 W wynikach wyszukiwania powinny być widoczne rekordy pulsu dla maszyny, co oznacza, że jest ona podłączona i zgłaszana do usługi. Domyślnie każdy agent przekazuje rekord pulsu do przypisanego im obszaru roboczego. Aby ukończyć instalację i konfigurację agenta, wykonaj następujące czynności.
 
-1. Włącz tę funkcję, aby dodać maszynę agenta. Aby uzyskać Update Management i maszyn wirtualnych platformy Azure, zobacz [włączanie Update Management na podstawie konta usługi Automation](update-management/update-mgmt-enable-automation-account.md), [Włączanie Update Management przez przeglądanie Azure Portal](update-management/update-mgmt-enable-portal.md), [Włączanie Update Management z elementu Runbook](update-management/update-mgmt-enable-runbook.md)lub [Włączanie Update Management z maszyny wirtualnej platformy Azure](update-management/update-mgmt-enable-vm.md). Aby uzyskać Change Tracking i maszyn wirtualnych platformy Azure, zobacz [Włączanie maszyn wirtualnych platformy Azure](automation-enable-changes-from-auto-acct.md#enable-azure-vms)oraz maszyn wirtualnych spoza platformy Azure, zobacz [Włączanie maszyn w obszarze roboczym](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
+1. Włącz tę funkcję, aby dodać maszynę agenta. Aby uzyskać Update Management i maszyn wirtualnych platformy Azure, zobacz [włączanie Update Management na podstawie konta usługi Automation](update-management/update-mgmt-enable-automation-account.md), [Włączanie Update Management przez przeglądanie Azure Portal](update-management/update-mgmt-enable-portal.md), [Włączanie Update Management z elementu Runbook](update-management/update-mgmt-enable-runbook.md)lub [Włączanie Update Management z maszyny wirtualnej platformy Azure](update-management/update-mgmt-enable-vm.md). Aby uzyskać Change Tracking i maszyn wirtualnych platformy Azure, zobacz [Włączanie maszyn wirtualnych platformy Azure](change-tracking/enable-from-automation-account.md#enable-azure-vms)oraz maszyn wirtualnych spoza platformy Azure, zobacz [Włączanie maszyn w obszarze roboczym](change-tracking/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 2. Aby potwierdzić wersję hybrydowego procesu roboczego elementu Runbook, przejdź do `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` podfolderu **wersji** i zanotuj go.
 
@@ -214,7 +214,7 @@ Elementy Runbook mogą korzystać z dowolnych działań i poleceń cmdlet zdefin
 
 Ponieważ głównym celem hybrydowego procesu roboczego elementu Runbook jest zarządzanie zasobami lokalnymi, najprawdopodobniej trzeba zainstalować moduły obsługujące te zasoby, w szczególności `PowerShellGet` moduł. Aby uzyskać informacje na temat instalowania modułów programu Windows PowerShell, zobacz [Windows PowerShell](/powershell/scripting/developer/windows-powershell).
 
-Zainstalowane moduły muszą znajdować się w lokalizacji, do której odwołuje się `PSModulePath` zmienna środowiskowa, dzięki czemu hybrydowy proces roboczy może je automatycznie zaimportować. Aby uzyskać więcej informacji, zobacz [Install modules in PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+Zainstalowane moduły muszą znajdować się w lokalizacji, do której odwołuje się `PSModulePath` zmienna środowiskowa, dzięki czemu hybrydowy proces roboczy może je automatycznie zaimportować. Aby uzyskać więcej informacji, zobacz [Install modules in PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 ## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-machine"></a><a name="remove-windows-hybrid-runbook-worker"></a>Usuwanie hybrydowego procesu roboczego elementu Runbook z lokalnej maszyny z systemem Windows
 

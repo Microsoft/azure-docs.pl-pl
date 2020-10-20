@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 1c8143a19d7e18b24e202018698b37e1b2855db4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125426"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206801"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -164,7 +164,7 @@ Zostaną wyświetlone następujące dane wyjściowe:
     WSManStackVersion              3.0
 ```
 
-Jeśli wersja jest starsza niż 6.2.4, należy uaktualnić wersję programu Windows PowerShell. Aby zainstalować najnowszą wersję programu Windows PowerShell, zobacz [install Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7).
+Jeśli wersja jest starsza niż 6.2.4, należy uaktualnić wersję programu Windows PowerShell. Aby zainstalować najnowszą wersję programu Windows PowerShell, zobacz [install Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
 
 **Instalowanie modułów Azure PowerShell i urządzenie Data Box**
 
@@ -247,7 +247,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
     ![Zrzut ekranu przedstawiający kreatora kolejności, który zawiera informacje o poprawnym kroku kreatora z wypełnionymi informacjami.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    Domyślnie hasło odblokowywania urządzenia jest szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft. Po zakończeniu zamówienia możesz dodać klucz zarządzany przez klienta. Klucz zarządzany przez klienta umożliwia użycie własnego klucza z klucza magazynu kluczy platformy Azure w celu ochrony hasła do odblokowywania urządzenia. Aby uzyskać więcej informacji, zobacz [Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+    Domyślnie hasło odblokowywania urządzenia jest szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft. Po zakończeniu zamówienia można dodać klucz zarządzany przez klienta. Klucz zarządzany przez klienta umożliwia użycie klucza z klucza magazynu kluczy platformy Azure w celu ochrony hasła do odblokowywania urządzenia. Aby uzyskać więcej informacji, zobacz [Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
 7. Na karcie **miejsce docelowe danych** wybierz pozycję **miejsce docelowe danych**.
 
@@ -273,14 +273,44 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
     Wybierz pozycję **Dalej: zabezpieczenia** , aby kontynuować.
 
-1. W obszarze **zabezpieczenia**, jeśli chcesz włączyć podwójne szyfrowanie oparte na oprogramowaniu, wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**. 
+    Ekran **zabezpieczenia** pozwala korzystać z własnego urządzenia i udostępniać hasła oraz korzystać z szyfrowania podwójnego. 
+
+    Wszystkie ustawienia na ekranie **zabezpieczenia** są opcjonalne. Jeśli nie zmienisz żadnych ustawień, zostaną zastosowane ustawienia domyślne.
+
+    ![Ekran zabezpieczeń dla urządzenie Data Box zamówienie importu](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+
+1. Jeśli nie chcesz używać haseł generowanych przez system, które są domyślnie używane Azure Data Box, rozwiń pozycję **Przenieś własne hasło**.
+
+   Hasła generowane przez system są bezpieczne i są zalecane, chyba że organizacja wymaga inaczej.
+
+   ![Rozwinięte opcje przenoszenia własnych haseł dla urządzenie Data Box zamówienie importu](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+
+   - Aby użyć własnego hasła dla nowego urządzenia, **Ustaw preferencję hasła urządzenia**, wybierz opcję **Użyj własnego hasła**, a następnie wpisz hasło spełniające wymagania dotyczące zabezpieczeń.
+   
+     ![Ekran zabezpieczeń na potrzeby importowania urządzenie Data Box, opcje używania własnego hasła urządzenia](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+
+   - Aby użyć własnych haseł dla udziałów:
+
+     1. Ustawiając **preferencję dla haseł udostępniania**, wybierz opcję **Użyj własnych haseł** , a następnie **Wybierz hasła dla udziałów**.
+     
+        ![Ekran zabezpieczeń na potrzeby importowania urządzenie Data Box, opcje używania własnych haseł udostępniania](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+
+     1. Wpisz hasło dla każdego konta magazynu w kolejności. Hasło będzie używane dla wszystkich udziałów dla konta magazynu.
+     
+        Aby użyć tego samego hasła dla wszystkich kont magazynu, wybierz opcję **Kopiuj do wszystkich**. Po zakończeniu wybierz pozycję **Zapisz**.
+     
+        ![Ekran służący do wprowadzania haseł udostępniania dla zamówienia urządzenie Data Box importu](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+       Na ekranie **zabezpieczenia** można użyć **widoku zmiany haseł** , aby zmienić hasła.
+
+1. W obszarze **zabezpieczenia**, jeśli chcesz włączyć podwójne szyfrowanie oparte na oprogramowaniu, rozwiń pozycję **podwójne szyfrowanie (w przypadku wysoce bezpiecznych środowisk)**, a następnie wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**.
+
+   ![Ekran zabezpieczeń urządzenie Data Box importowania, Włączanie szyfrowania opartego na oprogramowaniu dla zamówienia urządzenie Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    Szyfrowanie oparte na oprogramowaniu jest wykonywane poza szyfrowaniem AES-256 bitowym danych na urządzenie Data Box.
 
    > [!NOTE]
    > Włączenie tej opcji może spowodować wydłużenie przetwarzania zamówień i kopiowania danych. Po utworzeniu zamówienia nie można zmienić tej opcji.
-
-   ![Ekran zabezpieczenia dla importu pola danych, podwójne szyfrowanie](media/data-box-deploy-ordered/select-data-box-import-07c.png)
 
    Wybierz pozycję **Dalej: szczegóły kontaktu** , aby kontynuować.
 
@@ -296,7 +326,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
 10. Wybierz pozycję **Dodaj adres wysyłkowy** po pomyślnym sprawdzeniu szczegółów wysyłki. Nastąpi powrót do karty **szczegóły kontaktu** .
 
-11. Po powrocie do **szczegółów kontaktowych** Dodaj jeden lub więcej adresów e-mail. Usługa wysyła powiadomienia e-mail dotyczące wszystkich aktualizacji stanu zamówienia na określone adresy e-mail.
+11. Po powrocie do **szczegółów kontaktu**Dodaj co najmniej jeden adres e-mail. Usługa wysyła powiadomienia e-mail dotyczące wszystkich aktualizacji stanu zamówienia na określone adresy e-mail.
 
     Zalecamy użycie grupowego adresu e-mail, aby otrzymywać powiadomienia, jeśli administrator opuści grupę.
 
@@ -338,7 +368,7 @@ Wykonaj następujące kroki, korzystając z interfejsu wiersza polecenia platfor
    |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie <string>|
    |tryb pełny| Uwzględnij pełne rejestrowanie. | --verbose |
 
-2. W wierszu polecenia wyboru lub terminalu Użyj [zadania AZ Data Box Create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) , aby utworzyć zamówienie Azure Data Box.
+2. W wierszu polecenia wyboru lub terminalu uruchom polecenie [AZ Data Box Job Create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) , aby utworzyć zamówienie Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -506,7 +536,7 @@ Firma Microsoft następnie przygotowuje i wysyła urządzenie za pośrednictwem 
 
 ### <a name="track-a-single-order"></a>Śledzenie pojedynczej kolejności
 
-Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data Box, uruchom polecenie [AZ DATAbox Job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). Polecenie wyświetla informacje na temat zamówienia, takie jak, ale nie ograniczone do: nazwa, Grupa zasobów, informacje o śledzeniu, Identyfikator subskrypcji, informacje kontaktowe, typ wysyłki i jednostka SKU urządzenia.
+Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data Box, uruchom polecenie [AZ DATAbox Job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). Polecenie wyświetla informacje na temat zamówienia, takie jak, ale nie ograniczone do: nazwa, Grupa zasobów, informacje o śledzeniu, Identyfikator subskrypcji, informacje kontaktowe, typ wysyłki i jednostka SKU urządzenia.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -547,7 +577,7 @@ Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data 
 
 ### <a name="list-all-orders"></a>Wyświetl listę wszystkich zamówień
 
-Jeśli masz uporządkowaną wiele urządzeń, możesz uruchomić polecenie [AZ DATAbox Job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) , aby wyświetlić wszystkie zamówienia Azure Data Box. Polecenie wyświetla listę wszystkich zamówień należących do określonej grupy zasobów. Są również wyświetlane w danych wyjściowych: Nazwa zamówienia, stan wysyłki, region platformy Azure, typ dostawy, stan zamówienia. Anulowane zamówienia są również zawarte na liście.
+Jeśli masz uporządkowaną wiele urządzeń, możesz uruchomić polecenie [AZ DATAbox Job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) , aby wyświetlić wszystkie zamówienia Azure Data Box. Polecenie wyświetla listę wszystkich zamówień należących do określonej grupy zasobów. Są również wyświetlane w danych wyjściowych: Nazwa zamówienia, stan wysyłki, region platformy Azure, typ dostawy, stan zamówienia. Anulowane zamówienia są również zawarte na liście.
 Polecenie wyświetla również sygnatury czasowe poszczególnych zamówień.
 
 ```azurecli
@@ -666,7 +696,7 @@ Aby usunąć anulowaną kolejność, przejdź do **omówienia** i wybierz pozycj
 
 ### <a name="cancel-an-order"></a>Anulowanie zamówienia
 
-Aby anulować kolejność Azure Data Box, uruchom polecenie [AZ DATAbox Job Cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). Musisz określić przyczynę anulowania zamówienia.
+Aby anulować kolejność Azure Data Box, uruchom polecenie [AZ DATAbox Job Cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Musisz określić przyczynę anulowania zamówienia.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -703,7 +733,7 @@ Aby anulować kolejność Azure Data Box, uruchom polecenie [AZ DATAbox Job Canc
 
 ### <a name="delete-an-order"></a>Usuwanie zamówienia
 
-Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecenie [AZ DATAbox Job Delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) , aby usunąć zamówienie.
+Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecenie [AZ DATAbox Job Delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) , aby usunąć zamówienie.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]

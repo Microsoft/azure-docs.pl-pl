@@ -8,12 +8,12 @@ keywords: Wysoka dostępność usługi Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 9eb0cd3fd327a53dd0761779916caa096153a010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856436"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207584"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Architektury ciągłości biznesowej usługi Azure HDInsight
 
@@ -24,7 +24,7 @@ W tym artykule przedstawiono kilka przykładów architektury ciągłości biznes
 
 ## <a name="apache-hive-and-interactive-query"></a>Zapytanie Apache Hive i interakcyjne
 
-[Replikacja programu Hive v2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) jest zalecana w przypadku ciągłości działania w ramach klastrów usługi HDInsight Hive i interaktywnych zapytań. Trwałe sekcje autonomicznego klastra Hive, które muszą być replikowane, to warstwa magazynu i magazyn metadanych Hive. Klastry Hive w scenariuszu obejmującym wiele użytkowników pakiet Enterprise Security potrzebują Azure Active Directory Domain Services i magazynu metadanych Ranger.
+[Replikacja Hive w wersji 2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) jest zalecana w przypadku ciągłości działania w ramach klastra usługi HDInsight i interaktywnych klastrów zapytań. Trwałe sekcje autonomicznego klastra Hive, które muszą być replikowane, to warstwa magazynu i magazyn metadanych Hive. Klastry Hive w scenariuszu obejmującym wiele użytkowników pakiet Enterprise Security potrzebują Azure Active Directory Domain Services i magazynu metadanych Ranger.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/hive-interactive-query.png" alt-text="Architektura zapytań Hive i Interactive":::
 
@@ -57,6 +57,8 @@ W *aktywnym serwerze podstawowym z architekturą pomocniczą na żądanie* aplik
 W *aktywnym elemencie podstawowym z rezerwą pomocniczą*, aplikacje zapisują się w aktywnym regionie podstawowym, podczas gdy awaryjny klaster skalowalny w poziomie w trybie tylko do odczytu jest uruchamiany podczas normalnego działania. Podczas normalnych operacji można odciążyć operacje odczytu specyficzne dla regionu do pomocniczego.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Architektura zapytań Hive i Interactive":::
+
+Aby uzyskać więcej informacji na temat replikacji i przykładów kodu programu Hive, odwołuje się [Apache Hive replikacji w klastrach usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
 
 ## <a name="apache-spark"></a>Apache Spark
 

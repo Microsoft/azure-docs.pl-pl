@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07374debf8d660d8f1c32788db3d218da611d539
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650480"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207533"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Samouczek: Zabezpieczanie zdalnego renderowania i magazynu modeli na platformie Azure
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -188,11 +188,11 @@ Mamy jeszcze jeden "hasło", czyli AccountKey do usunięcia z lokalnej aplikacji
 
 ## <a name="azure-active-directory-azure-ad-authentication"></a>Uwierzytelnianie Azure Active Directory (Azure AD)
 
-Uwierzytelnianie w usłudze AAD umożliwi określenie, którzy użytkownicy lub grupy korzystają z funkcji ARR w bardziej kontrolowany sposób. ARR ma wbudowaną obsługę akceptowania [tokenów dostępu](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) zamiast korzystania z klucza konta. Tokeny dostępu można traktować jako ograniczoną czasowo klucz specyficzny dla użytkownika, który odblokowuje tylko niektóre części konkretnego zasobu, którego żądała.
+Uwierzytelnianie w usłudze AAD umożliwi określenie, którzy użytkownicy lub grupy korzystają z funkcji ARR w bardziej kontrolowany sposób. ARR ma wbudowaną obsługę akceptowania [tokenów dostępu](../../../../active-directory/develop/access-tokens.md) zamiast korzystania z klucza konta. Tokeny dostępu można traktować jako ograniczoną czasowo klucz specyficzny dla użytkownika, który odblokowuje tylko niektóre części konkretnego zasobu, którego żądała.
 
 Skrypt **RemoteRenderingCoordinator** ma delegata o nazwie **ARRCredentialGetter**, który zawiera metodę zwracającą obiekt **AzureFrontendAccountInfo** , który jest używany do konfigurowania zarządzania sesją zdalną. Możemy przypisać do **ARRCredentialGetter**inną metodę, umożliwiając nam korzystanie z usługi Azure Signing w usłudze Flow, generując obiekt **AzureFrontendAccountInfo** , który zawiera token dostępu platformy Azure. Ten token dostępu będzie specyficzny dla użytkownika, który loguje się.
 
-1. Postępuj zgodnie z instrukcjami w temacie [jak skonfigurować uwierzytelnianie-uwierzytelnianie dla wdrożonych aplikacji](../../../how-tos/authentication.md#authentication-for-deployed-applications). w tym celu wykonaj instrukcje wymienione w dokumentacji kotwice przestrzenne platformy Azure [uwierzytelnianie użytkowników w usłudze Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication). Obejmuje to rejestrowanie nowej aplikacji Azure Active Directory i Konfigurowanie dostępu do wystąpienia ARR.
+1. Postępuj zgodnie z instrukcjami w temacie [jak skonfigurować uwierzytelnianie-uwierzytelnianie dla wdrożonych aplikacji](../../../how-tos/authentication.md#authentication-for-deployed-applications). w tym celu wykonaj instrukcje wymienione w dokumentacji kotwice przestrzenne platformy Azure [uwierzytelnianie użytkowników w usłudze Azure AD](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication). Obejmuje to rejestrowanie nowej aplikacji Azure Active Directory i Konfigurowanie dostępu do wystąpienia ARR.
 1. Po skonfigurowaniu nowej aplikacji usługi AAD Sprawdź, czy aplikacja AAD wygląda podobnie do następujących obrazów:
 
     **Aplikacja usługi AAD — uwierzytelnianie >** ![ Uwierzytelnianie aplikacji](./media/app-authentication-public.png)
@@ -361,7 +361,7 @@ Po zalogowaniu się po stronie platformy Azure należy zmodyfikować sposób, w 
 
 Kod najpierw próbuje uzyskać token dyskretnie przy użyciu **AquireTokenSilent**. Ten stan zakończy się pomyślnie, jeśli użytkownik wcześniej uwierzytelnił tę aplikację. Jeśli to się nie powiedzie, przechodź do większej strategii związanej z użytkownikami.
 
-W przypadku tego kodu używamy [przepływu kodu urządzenia](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code) w celu uzyskania tokenu dostępu. Ten przepływ umożliwia użytkownikowi zalogowanie się do swojego konta platformy Azure na komputerze lub urządzeniu przenośnym, a następnie wysłanie otrzymanego tokenu z powrotem do aplikacji HoloLens.
+W przypadku tego kodu używamy [przepływu kodu urządzenia](../../../../active-directory/develop/v2-oauth2-device-code.md) w celu uzyskania tokenu dostępu. Ten przepływ umożliwia użytkownikowi zalogowanie się do swojego konta platformy Azure na komputerze lub urządzeniu przenośnym, a następnie wysłanie otrzymanego tokenu z powrotem do aplikacji HoloLens.
 
 Najważniejszym elementem tej klasy z perspektywy ARR jest ten wiersz:
 

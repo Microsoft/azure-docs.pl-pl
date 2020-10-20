@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c17750fbe016e8bfa86569f34f9af26b1c6de3bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 32d0ebc3f37f7af4d9cdb1940f1870dbf51f86b4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055855"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206135"
 ---
 # <a name="example-powershell-scripts"></a>Przykładowe skrypty programu PowerShell
 
@@ -27,13 +27,13 @@ Zdalne renderowanie na platformie Azure udostępnia dwa następujące interfejsy
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać przykładowe skrypty, musisz mieć funkcjonalną konfigurację [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Aby wykonać przykładowe skrypty, musisz mieć funkcjonalną konfigurację [Azure PowerShell](/powershell/azure/).
 
 1. Zainstaluj moduł Azure PowerShell:
     1. Otwórz okno programu PowerShell z uprawnieniami administratora.
     1. Wykonane `Install-Module -Name Az -AllowClobber`
 
-1. W przypadku wystąpienia błędów dotyczących uruchamiania skryptów upewnij się, że [zasady wykonywania](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) zostały odpowiednio ustawione:
+1. W przypadku wystąpienia błędów dotyczących uruchamiania skryptów upewnij się, że [zasady wykonywania](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) zostały odpowiednio ustawione:
     1. Otwórz okno programu PowerShell z uprawnieniami administratora.
     1. Wykonane `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
@@ -44,7 +44,7 @@ Aby wykonać przykładowe skrypty, musisz mieć funkcjonalną konfigurację [Azu
     1. Uruchom: `Connect-AzAccount` i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
     > [!NOTE]
-    > W przypadku, gdy organizacja ma więcej niż jedną subskrypcję, może być konieczne określenie argumentów subskrypcji i dzierżawy. Szczegółowe informacje znajdują się w [dokumentacji Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    > W przypadku, gdy organizacja ma więcej niż jedną subskrypcję, może być konieczne określenie argumentów subskrypcji i dzierżawy. Szczegółowe informacje znajdują się w [dokumentacji Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Pobierz folder *skryptów* z [repozytorium GithHub zdalnego renderowania platformy Azure](https://github.com/Azure/azure-remote-rendering).
 
@@ -276,5 +276,5 @@ Użyj `-Poll` , aby poczekać na zakończenie konwersji lub wystąpił błąd.
 ## <a name="next-steps"></a>Następne kroki
 
 - [Szybki Start: renderowanie modelu przy użyciu aparatu Unity](../quickstarts/render-model.md)
-- [Szybki Start: konwertowanie modelu do renderowania](../quickstarts/convert-model.md)
+- [Szybki start: Konwertowanie modelu do renderowania](../quickstarts/convert-model.md)
 - [Konwersja modelu](../how-tos/conversion/model-conversion.md)

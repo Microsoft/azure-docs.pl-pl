@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/20/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 25003269fb6e00cadcc14d2356308cae54c70bf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be9ef05f18b43e9dc48b68797c18ba3b69cd1fcc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82085342"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92210885"
 ---
 W Cloud Shell Utwórz plan App Service w grupie zasobów za pomocą [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) polecenia.
 
@@ -27,7 +27,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do następujących:
 
-<pre>
+```json
 { 
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
@@ -38,9 +38,9 @@ Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Az
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  &lt; JSON data removed for brevity. &gt;
+  <JSON data removed for brevity.>
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
 } 
-</pre>
+```
