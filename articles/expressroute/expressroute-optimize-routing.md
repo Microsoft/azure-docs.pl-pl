@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: duau
-ms.openlocfilehash: 731101b1a8236e20a9af07f1bbf5a7b70d53c0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f35f1d390762d3f83176d7b36db8959dc5ed0157
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653387"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204881"
 ---
 # <a name="optimize-expressroute-routing"></a>Optymalizacja routingu usługi ExpressRoute
 Jeśli masz wiele obwodów usługi ExpressRoute, masz więcej niż jedną ścieżkę łączenia z firmą Microsoft. W związku z tym może wystąpić routing nieoptymalny, tzn. ruch może użyć dłuższej ścieżki w celu dotarcia do firmy Microsoft lub z firmy Microsoft do sieci użytkownika. Im dłuższa ścieżka sieciowa, tym większe opóźnienie. Opóźnienie ma bezpośredni wpływ na wydajność aplikacji i środowisko użytkownika. W tym artykule przedstawiono ten problem i wyjaśniono, jak zoptymalizować routing przy użyciu standardowych technologii routingu.
@@ -64,7 +64,7 @@ Aby zoptymalizować routing dla użytkowników obu biur, trzeba wiedzieć, któr
 >
 
 ## <a name="suboptimal-routing-from-microsoft-to-customer"></a>Suboptymalny routing od firmy Microsoft do klienta
-Oto inny przykład, w którym połączenia z firmy Microsoft używają dłuższej ścieżki, by dotrzeć do sieci. W tym przypadku używasz lokalnych serwerów programu Exchange i usługi Exchange Online w [środowisku hybrydowym](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Biura są połączone z siecią WAN. Prefiksy serwerów lokalnych w obu biurach są anonsowane do firmy Microsoft za pośrednictwem dwóch obwodów usługi ExpressRoute. Usługa Exchange Online inicjuje połączenia z serwerami lokalnymi w takich sytuacjach jak migracja skrzynek pocztowych. Niestety połączenie z biurem w Los Angeles zostaje skierowane do obwodu usługi ExpressRoute we wschodnich stanach USA, po czym przechodzi cały kontynent z powrotem na zachodnie wybrzeże. Przyczyna tego problemu jest podobna do pierwszej. Bez żadnej wskazówki sieć firmy Microsoft nie może rozróżnić, który prefiks klienta jest blisko wschodnich, a który blisko zachodnich stanów USA. Czasami wybiera nieprawidłową ścieżkę do biura w Los Angeles.
+Oto inny przykład, w którym połączenia z firmy Microsoft używają dłuższej ścieżki, by dotrzeć do sieci. W tym przypadku używasz lokalnych serwerów programu Exchange i usługi Exchange Online w [środowisku hybrydowym](/exchange/exchange-hybrid). Biura są połączone z siecią WAN. Prefiksy serwerów lokalnych w obu biurach są anonsowane do firmy Microsoft za pośrednictwem dwóch obwodów usługi ExpressRoute. Usługa Exchange Online inicjuje połączenia z serwerami lokalnymi w takich sytuacjach jak migracja skrzynek pocztowych. Niestety połączenie z biurem w Los Angeles zostaje skierowane do obwodu usługi ExpressRoute we wschodnich stanach USA, po czym przechodzi cały kontynent z powrotem na zachodnie wybrzeże. Przyczyna tego problemu jest podobna do pierwszej. Bez żadnej wskazówki sieć firmy Microsoft nie może rozróżnić, który prefiks klienta jest blisko wschodnich, a który blisko zachodnich stanów USA. Czasami wybiera nieprawidłową ścieżkę do biura w Los Angeles.
 
 ![Przypadek 2 dotyczący usługi ExpressRoute — suboptymalny routing od firmy Microsoft do klienta](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 

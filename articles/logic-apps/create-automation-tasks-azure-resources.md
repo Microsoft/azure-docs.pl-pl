@@ -6,17 +6,17 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1826b17a971b49fdfe8d5df02d71eb682b15db6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269730"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201124"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Zarządzanie zasobami platformy Azure i monitorowanie kosztów dzięki tworzeniu zadań automatyzacji (wersja zapoznawcza)
 
 > [!IMPORTANT]
-> Ta funkcja jest dostępna w publicznej wersji zapoznawczej, która jest oferowana bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ta możliwość jest dostępna w publicznej wersji zapoznawczej, nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Aby łatwiej zarządzać [zasobami platformy Azure](../azure-resource-manager/management/overview.md#terminology) , można utworzyć zautomatyzowane zadania zarządzania dla określonego zasobu lub grupy zasobów przy użyciu szablonów zadań automatyzacji, które różnią się w zależności od typu zasobu. Na przykład dla [konta usługi Azure Storage](../storage/common/storage-account-overview.md)można skonfigurować zadanie automatyzacji, które wyśle miesięczny koszt dla tego konta magazynu. W przypadku [maszyny wirtualnej platformy Azure](https://azure.microsoft.com/services/virtual-machines/)można utworzyć zadanie automatyzacji, które włącza lub wyłącza tę maszynę wirtualną zgodnie ze wstępnie zdefiniowanym harmonogramem.
 
@@ -47,7 +47,7 @@ W tym artykule przedstawiono sposób wykonywania następujących zadań:
 
 Obecnie można utworzyć zadanie automatyzacji tylko na poziomie zasobów, wyświetlić historię uruchomień zadania i edytować podstawowy przepływ pracy aplikacji logiki, który jest obsługiwany przez usługę [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . Zadania automatyzacji są bardziej podstawowe i lekkie niż [Azure Automation](../automation/automation-intro.md).
 
-Porównując Azure Automation to oparta na chmurze usługa automatyzacji i konfiguracji, która obsługuje spójne zarządzanie w środowiskach platformy Azure i innych niż platformy Azure. Usługa składa się z [automatyzacji procesów związanych z organizowaniem procesów](../automation/automation-intro.md#process-automation) przy użyciu [elementów Runbook](../automation/automation-runbook-execution.md), zarządzania konfiguracją [i funkcji śledzenia zmian oraz spisu](../automation/change-tracking.md), zarządzania aktualizacjami, funkcji udostępnionych i niejednorodnych. Automatyzacja zapewnia pełną kontrolę podczas wdrażania, działania i likwidowania obciążeń i zasobów.
+Porównując Azure Automation to oparta na chmurze usługa automatyzacji i konfiguracji, która obsługuje spójne zarządzanie w środowiskach platformy Azure i innych niż platformy Azure. Usługa składa się z [automatyzacji procesów związanych z organizowaniem procesów](../automation/automation-intro.md#process-automation) przy użyciu [elementów Runbook](../automation/automation-runbook-execution.md), zarządzania konfiguracją [i funkcji śledzenia zmian oraz spisu](../automation/change-tracking/overview.md), zarządzania aktualizacjami, funkcji udostępnionych i niejednorodnych. Automatyzacja zapewnia pełną kontrolę podczas wdrażania, działania i likwidowania obciążeń i zasobów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
