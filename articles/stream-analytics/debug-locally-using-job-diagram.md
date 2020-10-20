@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045403"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218259"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debuguj Azure Stream Analytics zapytań lokalnie przy użyciu diagramu zadań w programie Visual Studio
 
@@ -87,7 +87,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
   
 #### <a name="output-sinks-live-output"></a>Ujścia danych wyjściowych (dane wyjściowe na żywo)
 
-![Lokalne ujścia danych wyjściowych diagramu zadań](./media/debug-locally-using-job-diagram/live-output.png)
+![Diagram zadań, który pokazuje lokalne ujścia danych wyjściowych.](./media/debug-locally-using-job-diagram/live-output.png)
 
 |Metryka|Opis|
 |-|-|

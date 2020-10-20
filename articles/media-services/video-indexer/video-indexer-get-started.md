@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 10/19/2020
 ms.author: juliako
-ms.openlocfilehash: f6c3953947e6f7e84f4cf9b565d2f66648b177f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85130759"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219794"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Szybki Start: jak utworzyć konto i przekazać swoje pierwsze wideo
 
@@ -39,24 +39,28 @@ Listę formatów plików, których można używać z Video Indexer, zawiera arty
 ### <a name="upload-a-video"></a>Przekazywanie wideo
 
 1. Zaloguj się w witrynie internetowej usługi [Video Indexer](https://www.videoindexer.ai/).
-2. Aby przekazać plik wideo, naciśnij przycisk lub link **Upload** (Przekaż).
+1. Aby przekazać plik wideo, naciśnij przycisk lub link **Upload** (Przekaż).
 
     > [!NOTE]
     > Nazwa filmu wideo nie może być dłuższa niż 80 znaków.
 
-    ![Przekazywanie](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Przekaż":::
+1. Po przekazaniu pliku wideo usługa Video Indexer rozpocznie jego indeksowanie i analizowanie. Zobaczysz postęp. 
 
-    Po przekazaniu pliku wideo usługa Video Indexer rozpocznie jego indeksowanie i analizowanie.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Przekaż":::
+1. Po zakończeniu analizy Video Indexer otrzymasz wiadomość e-mail z linkiem do wideo i krótkim opisem tego, co zostało znalezione w filmie wideo. Na przykład: ludzie, mówiony i pisany wyraz, tematy i nazwane jednostki.
+1. Film wideo można później znaleźć na liście biblioteka i wykonać różne operacje. Na przykład: Wyszukaj, ponownie Indeksuj, Edytuj.
 
-    ![Przekazano](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Po zakończeniu analizowania przez usługę Video Indexer otrzymasz powiadomienie z linkiem do tego pliku wideo i krótki opis tego, co znaleziono w tym nagraniu. Na przykład: osoby, tematy i wyniki przetwarzania OCR.
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Przekaż":::
+ 
 ## <a name="see-also"></a>Zobacz też
 
 Aby uzyskać więcej informacji [, zobacz Przekazywanie i indeksowanie filmów wideo](upload-index-videos.md) .
 
-Po przekazaniu i poindeksowania wideo możesz zacząć korzystać z witryny sieci Web [Video Indexer](video-indexer-view-edit.md) lub [Video Indexer portalu dla deweloperów](video-indexer-use-apis.md) , aby zobaczyć szczegółowe informacje o filmie wideo. 
+Po przekazaniu i poindeksowania wideo możesz zacząć korzystać z [witryny sieci web video Indexer](video-indexer-view-edit.md) lub [Video Indexer portalu dla deweloperów](video-indexer-use-apis.md) , aby zobaczyć szczegółowe informacje o filmie wideo. 
 
 [Rozpocznij korzystanie z interfejsów API](video-indexer-use-apis.md)
 

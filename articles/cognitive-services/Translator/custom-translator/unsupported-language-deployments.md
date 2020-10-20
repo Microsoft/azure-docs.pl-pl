@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964689"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221200"
 ---
 # <a name="unsupported-language-deployments"></a>Wdrożenia w nieobsługiwanych językach
 
@@ -35,11 +35,11 @@ Aby Twoje modele mogły być kandydatami do wdrożenia, muszą spełniać nastę
 ## <a name="process"></a>Proces
 Po przeprowadzeniu migracji modeli z centrum, które są kandydatami do wdrożenia, można je znaleźć, przechodząc do strony **Ustawienia** obszaru roboczego i przewijając na koniec strony, w której zostanie wyświetlona sekcja **nieobsługiwane szkolenia w centrum usługi Translator** .  Ta sekcja pojawia się tylko wtedy, gdy istnieją projekty spełniające powyższe wymagania wstępne.
 
-![Jak przeprowadzić migrację z centrum](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![Zrzut ekranu, który podświetla sekcję nieobsługiwane szkolenia centrum usługi Translator.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
 Na stronie wyboru **nieobsługiwanych szkoleń centrum usługi Translator** karta **zażądana szkoleń** zawiera modele, które kwalifikują się do wdrożenia.  Wybierz modele, które chcesz wdrożyć i przesłać żądanie.   Przed upływem ostatecznego terminu wdrożenia 30 kwietnia można wybrać dowolną liczbę modeli do wdrożenia.
  
-![Jak przeprowadzić migrację z centrum](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![Zrzut ekranu przedstawiający kartę niewymagane szkolenia.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
 Po przesłaniu model nie będzie już dostępny na karcie **niewymagane szkolenia** i zostanie wyświetlony na karcie **żądane szkolenia** .  Wymagane szkolenia można wyświetlić w dowolnym momencie.
 

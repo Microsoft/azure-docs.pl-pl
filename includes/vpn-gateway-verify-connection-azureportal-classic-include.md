@@ -1,30 +1,27 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 010/17/2018
+ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 26e48d1af8e29c7d00a80910dcca62811da14822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0694003e2eb5005186f5c7ad450533437955d82
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67673443"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217948"
 ---
 Przechodząc w witrynie Azure Portal do połączenia, można sprawdzić stan połączenia klasycznej bramy VPN Gateway sieci wirtualnej. Poniższe kroki pokazują jeden ze sposobów nawigacji do połączenia oraz jego weryfikacji.
 
-1. W witrynie [Azure Portal](https://portal.azure.com) kliknij przycisk **Wszystkie zasoby** i przejdź do klasycznej sieci wirtualnej.
-2. W bloku sieci wirtualnej kliknij pozycję **Przegląd**, aby uzyskać dostęp do sekcji **Połączenia VPN** w bloku.
-3. Kliknij lokację na grafice połączeń VPN.
+1. W [Azure Portal](https://portal.azure.com)kliknij pozycję **wszystkie zasoby** i przejdź do klasycznej sieci wirtualnej (VNET).
+1. Na stronie Sieć wirtualna wybierz typ połączenia, które chcesz zobaczyć. Na przykład **połączenia lokacja-lokacja**.
 
-    ![Lokacja lokalna](./media/vpn-gateway-verify-connection-azureportal-classic/localsitename.png "lokacja lokalna")
-4. W bloku **Połączenia VPN lokacja-lokacja** wyświetl informacje o lokacji.
+   :::image type="content" source="./media/vpn-gateway-verify-connection-azureportal-classic/site-to-site.png" alt-text="Lokacja lokalna" lightbox="./media/vpn-gateway-verify-connection-azureportal-classic/site-to-site.png":::
+1. Na stronie **połączenia** między lokacjami w obszarze **Nazwa**wybierz połączenie, które chcesz wyświetlić.
 
-    ![Stan połączenia](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "Stan połączenia")
-5. Aby wyświetlić więcej informacji o połączeniu, kliknij nazwę połączenia w celu otwarcia bloku **Połączenia VPN lokacja-lokacja**.
-
-    ![Więcej informacji o stanie połączenia](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Więcej informacji o stanie połączenia")
+   :::image type="content" source="./media/vpn-gateway-verify-connection-azureportal-classic/name.png" alt-text="Lokacja lokalna":::
+1. Na stronie **Właściwości** Wyświetl informacje o połączeniu.

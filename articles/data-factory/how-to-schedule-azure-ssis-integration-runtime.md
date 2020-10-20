@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9647de255b749e064b94f57c9067aaff7dc3cb7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187255"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219466"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>How to start and stop Azure-SSIS Integration Runtime on a schedule (Jak uruchamiać i zatrzymywać środowisko Azure-SSIS Integration Runtime według harmonogramu)
 
@@ -72,7 +72,7 @@ Jeśli utworzysz trzeci wyzwalacz, który ma być uruchamiany codziennie o pół
 6. W obszarze **wersja**wybierz pozycję **v2** .
 7. W polu **Lokalizacja**wybierz jedną z lokalizacji obsługiwanych do tworzenia APD z listy rozwijanej.
 8. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
-9. Kliknij przycisk **Utwórz**.
+9. Kliknij pozycję **Utwórz**.
 10. Na pulpicie nawigacyjnym platformy Azure zostanie wyświetlony następujący kafelek ze stanem: **wdrażanie Data Factory**. 
 
     ![kafelek Wdrażanie fabryki danych](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
@@ -117,7 +117,7 @@ Jeśli utworzysz trzeci wyzwalacz, który ma być uruchamiany codziennie o pół
     1. W obszarze **rola**wybierz pozycję **współautor**. 
     2. W obszarze **Przypisywanie dostępu do**wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi Azure AD**. 
     3. W obszarze **Wybierz**Wyszukaj nazwę ADF i wybierz ją. 
-    4. Kliknij przycisk **Zapisz**.
+    4. Kliknij pozycję **Zapisz**.
     
    ![Przypisanie roli tożsamości zarządzanego przez funkcję ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -149,7 +149,7 @@ Teraz, gdy potok działa zgodnie z oczekiwaniami, można utworzyć wyzwalacze, a
 
 1. Na pasku narzędzi potoku wybierz pozycję **wyzwalacz** i wybierz pozycję **Nowy/Edytuj**. 
 
-   ![Wyzwalanie — > nowe/Edycja](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
+   ![Zrzut ekranu, który podświetla opcję menu Nowy/Edycja > wyzwalacza.](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
 
 2. W okienku **Dodaj wyzwalacze** wybierz pozycję **+ Nowy**.
 
@@ -163,7 +163,7 @@ Teraz, gdy potok działa zgodnie z oczekiwaniami, można utworzyć wyzwalacze, a
     4. W polu **cykl**wprowadź wartość erze dla wyzwalacza. W poniższym przykładzie jest to **codziennie** jeden raz. 
     5. Na **koniec**wybierz pozycję **Brak Zakończ** lub wprowadź datę i godzinę zakończenia po wybraniu pozycji **Data**. 
     6. Wybierz pozycję **aktywowany** , aby aktywować wyzwalacz natychmiast po opublikowaniu całego ustawienia ADF. 
-    7. Wybierz opcję **Dalej**.
+    7. Wybierz pozycję **Dalej**.
 
    ![Wyzwalanie — > nowe/Edycja](./media/how-to-schedule-azure-ssis-integration-runtime/new-trigger-window.png)
     
@@ -220,7 +220,7 @@ Jeśli nie masz już konta Azure Automation, utwórz je, postępując zgodnie z 
 2. Zaloguj się do [Azure Portal](https://portal.azure.com/).    
 3. Wybierz pozycję **Nowy** w menu po lewej stronie, wybierz pozycję **monitorowanie + zarządzanie**, a następnie wybierz pozycję **Automatyzacja**. 
 
-   ![> Monitorowanie + zarządzanie — Automatyzacja >](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
+   ![Zrzut ekranu, który podświetla opcję automatyzacji > Monitorowanie + zarządzanie.](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
     
 2. W okienku **Dodawanie konta usługi Automation** wykonaj następujące czynności.
 
@@ -230,7 +230,7 @@ Jeśli nie masz już konta Azure Automation, utwórz je, postępując zgodnie z 
     4. W obszarze **Lokalizacja**wybierz lokalizację konta Azure Automation. 
     5. Potwierdź **utworzenie konta Uruchom jako platformy Azure** jako **tak**. Zostanie utworzona jednostka usługi w Azure Active Directory i zostanie przypisana rola **współautor** w subskrypcji platformy Azure.
     6. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** , aby trwale wyświetlić ją na pulpicie nawigacyjnym platformy Azure. 
-    7. Wybierz przycisk **Utwórz**. 
+    7. Wybierz pozycję **Utwórz**. 
 
    ![> Monitorowanie + zarządzanie — Automatyzacja >](./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png)
    
@@ -262,13 +262,13 @@ W poniższej sekcji przedstawiono procedurę tworzenia elementu Runbook programu
 
 1. Przejdź do karty **elementy Runbook** i wybierz pozycję **+ Dodaj element Runbook** z paska narzędzi. 
 
-   ![Dodaj przycisk elementu Runbook](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   ![Zrzut ekranu, który podświetla przycisk + Dodaj element Runbook.](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
    
 2. Wybierz pozycję **Utwórz nowy element Runbook** i wykonaj następujące czynności: 
 
     1. W obszarze **Nazwa**wprowadź **StartStopAzureSsisRuntime**.
     2. W obszarze **Typ elementu Runbook**wybierz pozycję **PowerShell**.
-    3. Wybierz przycisk **Utwórz**.
+    3. Wybierz pozycję **Utwórz**.
     
    ![Dodaj przycisk elementu Runbook](./media/how-to-schedule-azure-ssis-integration-runtime/add-runbook-window.png)
    
@@ -339,13 +339,13 @@ W poniższej sekcji przedstawiono procedurę tworzenia elementu Runbook programu
     2. W polu **Nazwa fabryki danych**wprowadź nazwę usługi ADF z Azure-SSIS IR. 
     3. W polu **AZURESSISNAME**wprowadź nazwę Azure-SSIS IR. 
     4. W obszarze **operacja**wprowadź polecenie **Start**. 
-    5. Kliknij przycisk **OK**.  
+    5. Wybierz przycisk **OK**.  
 
    ![Uruchom okno elementu Runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
    
 6. W oknie zadania wybierz pozycję kafelek **wyjściowy** . W oknie dane wyjściowe poczekaj na komunikat **# # # # # zakończony # #** # # # po wyświetleniu monitu **# # # # # rozpoczynającego # #**# # #. Uruchamianie Azure-SSIS IR trwa około 20 minut. Zamknij okno **zadania** i wróć do okna **elementu Runbook** .
 
-   ![Środowisko IR Azure SSIS — rozpoczęte](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
+   ![Zrzut ekranu, który podświetla kafelek dane wyjściowe.](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
 7. Powtórz dwa poprzednie kroki przy użyciu opcji **Zatrzymaj** jako wartość dla **operacji**. Uruchom ponownie element Runbook, wybierając przycisk **Start** na pasku narzędzi. Wprowadź nazwę grupy zasobów, ADF i Azure-SSIS IR. W obszarze **operacja**wpisz **stop**. W oknie dane wyjściowe poczekaj na komunikat **# # # # # zakończony # #** # # # po wyświetleniu monitu **# # # # # Zatrzymywanie # #**# # #. Zatrzymywanie Azure-SSIS IR nie trwa od momentu jego uruchomienia. Zamknij okno **zadania** i wróć do okna **elementu Runbook** .
 
@@ -367,13 +367,13 @@ W poprzedniej sekcji utworzono Azure Automation element Runbook, który może ur
     4. Dla pozycji **Rozpocznij**Wprowadź godzinę, która jest późniejsza niż bieżąca godzina. 
     5. W obszarze **cykl**wybierz pozycję **cykliczne**. 
     6. Dla opcji **Powtarzaj co**wprowadź **1** i wybierz **dzień**. 
-    7. Wybierz przycisk **Utwórz**. 
+    7. Wybierz pozycję **Utwórz**. 
 
    ![Harmonogram uruchamiania środowiska IR platformy Azure SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
     
 3. Przejdź do opcji **Parametry i Uruchom ustawienia** kartę. Określ grupę zasobów, ADF i nazwy Azure-SSIS IR. W obszarze **operacja**wprowadź polecenie **Start** i wybierz polecenie **OK**. Ponownie wybierz **przycisk OK** , aby **wyświetlić stronę harmonogram** dla elementu Runbook. 
 
-   ![Harmonogram dla gwiazdy do środowiska Azure SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
+   ![Zrzut ekranu, który podświetla pole operacji.](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
     
 4. Powtórz dwa poprzednie kroki, aby utworzyć harmonogram o nazwie **Zatrzymaj środowisko IR codziennie**. Wprowadź czas, który jest co najmniej 30 minut po upływie czasu określonego dla **codziennego harmonogramu dla uruchomienia IR** . W obszarze **operacja**wpisz **stop** i wybierz **przycisk OK**. Ponownie wybierz **przycisk OK** , aby **wyświetlić stronę harmonogram** dla elementu Runbook. 
 

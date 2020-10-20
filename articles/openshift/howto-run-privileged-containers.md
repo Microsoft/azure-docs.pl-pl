@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: ARO, OpenShift, aquasec, TwistLock, Red Hat
-ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 914b29410a0f30e5c3d3a893c2e278ecbb83b648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78271379"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218871"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Uruchamianie uprzywilejowanych kontenerów w klastrze usługi Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> Usługa Azure Red Hat OpenShift 3,11 zostanie wycofana 30 czerwca 2022. Obsługa tworzenia nowych klastrów usługi Azure Red Hat OpenShift 3,11 jest kontynuowana do 30 listopada 2020. Po wycofaniu pozostałe klastry usługi Azure Red Hat OpenShift 3,11 zostaną zamknięte, aby zapobiec występowaniu luk w zabezpieczeniach.
+> 
+> Postępuj zgodnie z tym przewodnikiem, aby [utworzyć klaster usługi Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Jeśli masz określone pytania, [skontaktuj się z nami](mailto:arofeedback@microsoft.com).
 
 Nie można uruchamiać dowolnych kontenerów uprzywilejowanych w klastrach Red Hat OpenShift platformy Azure.
 W przypadku klastrów ARO mogą działać dwa rozwiązania do monitorowania zabezpieczeń i zgodności.
@@ -115,7 +121,7 @@ Podczas wdrażania wymuszania należy określić następujące pola:
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | akwamaryna — konto  |
-| Projekt        | akwamaryna — zabezpieczenia |
+| Project        | akwamaryna — zabezpieczenia |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Kroki specyficzne dla produktu Prisma Cloud/TwistLock
 

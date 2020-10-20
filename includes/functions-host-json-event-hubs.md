@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 2604a1608f21d7239db755027e15b8198fb3f9f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f3a58d3a7470867ab23249bbd645289e010ad89
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81791669"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223250"
 ---
 ### <a name="functions-2x-and-higher"></a>Funkcje w wersji 2.x i nowszych
 
@@ -28,10 +28,10 @@ ms.locfileid: "81791669"
 }  
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------|
 |maxBatchSize|10|Maksymalna liczba zdarzeń odebranych na pętlę odbierania.|
-|prefetchCount|300|Domyślna liczba pobrań poprzedzających, używana przez bazowe `EventProcessorHost` .|
+|prefetchCount|300|Domyślna liczba pobrań poprzedzających, używana przez bazowe `EventProcessorHost` . Minimalna dozwolona wartość to 10.|
 |batchCheckpointFrequency|1|Liczba partii zdarzeń do przetworzenia przed utworzeniem punktu kontrolnego kursora centrum EventHub.|
 
 > [!NOTE]
@@ -49,7 +49,7 @@ ms.locfileid: "81791669"
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |maxBatchSize|64|Maksymalna liczba zdarzeń odebranych na pętlę odbierania.|
 |prefetchCount|nie dotyczy|Domyślne pobranie wstępne, które będzie używane przez bazowe `EventProcessorHost` .| 
@@ -57,4 +57,3 @@ ms.locfileid: "81791669"
 
 > [!NOTE]
 > Aby uzyskać informacje na temat host.jsna Azure Functions 1. x, zobacz [host.json Reference for Azure Functions 1. x](../articles/azure-functions/functions-host-json-v1.md).
-

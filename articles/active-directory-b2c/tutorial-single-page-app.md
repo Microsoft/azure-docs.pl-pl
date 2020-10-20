@@ -11,16 +11,16 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d89dc6973e61f0cff80b5c65a8c5b836485575
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258918"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216535"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
-W tym samouczku pokazano, jak używać programu Azure Active Directory B2C (Azure AD B2C) do rejestrowania i logowania użytkowników w aplikacji jednostronicowej (SPA).
+W tym samouczku pokazano, jak używać programu Azure Active Directory B2C (Azure AD B2C) do rejestrowania i logowania użytkowników w aplikacji jednostronicowej (SPA) przy użyciu niejawnego przepływu OAuth 2,0.
 
 W tym samouczku pierwszy z serii dwóch części:
 
@@ -39,7 +39,7 @@ W tym samouczku pierwszy z serii dwóch części:
 Przed wykonaniem kroków opisanych w tym samouczku potrzebne są następujące Azure AD B2C zasoby:
 
 * [Dzierżawa Azure AD B2C](tutorial-create-tenant.md)
-* [Aplikacja zarejestrowana](tutorial-register-applications.md) w dzierżawie
+* [Aplikacja zarejestrowana](tutorial-register-spa.md) w dzierżawie (Użyj niejawnych opcji przepływu)
 * [Przepływy użytkowników utworzone](tutorial-create-user-flows.md) w dzierżawie
 
 Ponadto w lokalnym środowisku programistycznym są potrzebne następujące elementy:
@@ -60,7 +60,7 @@ Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. Wybierz pozycję **rejestracje aplikacji**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
 1. W obszarze **Sieć Web**wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:6420` .
-1. W obszarze **niejawne przyznanie**zaznacz pola wyboru **tokenów dostępu** i **tokenów identyfikatorów** , a następnie wybierz pozycję **Zapisz**.
+1. W obszarze **niejawne przyznanie**zaznacz pola wyboru **tokenów dostępu** i **tokenów identyfikatorów** , jeśli nie została jeszcze wybrana, a następnie wybierz pozycję **Zapisz**.
 1. Wybierz pozycję **Omówienie**.
 1. Rejestrowanie **identyfikatora aplikacji (klienta)** do użycia w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
 

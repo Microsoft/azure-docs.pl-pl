@@ -1,18 +1,16 @@
 ---
 title: Korzystanie z narzędzi Azure Data Lake Tools for Visual Studio Code
 description: Dowiedz się, jak używać kodu Azure Data Lake Tools for Visual Studio, aby tworzyć, testować i uruchamiać skrypty U-SQL.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87126486"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221251"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Korzystanie z narzędzi Azure Data Lake Tools for Visual Studio Code
 
@@ -146,7 +144,7 @@ Narzędzia Azure Data Lake obsługują wiele niestandardowych kodów. Aby uzyska
 
 ## <a name="work-with-assemblies"></a>Pracuj z zestawami
 
-Aby uzyskać informacje na temat tworzenia zestawów, zobacz [Tworzenie zestawów U-SQL dla zadań Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
+Aby uzyskać informacje na temat tworzenia zestawów, zobacz [Tworzenie zestawów U-SQL dla zadań Azure Data Lake Analytics]().
 
 Za pomocą narzędzi Data Lake można zarejestrować niestandardowe zestawy kodu w katalogu Data Lake Analytics.
 

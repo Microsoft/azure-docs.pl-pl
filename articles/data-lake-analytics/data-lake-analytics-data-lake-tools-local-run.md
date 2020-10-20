@@ -1,21 +1,18 @@
 ---
 title: Uruchamianie Azure Data Lake skryptów U-SQL na komputerze lokalnym
 description: Dowiedz się, jak używać Azure Data Lake Tools for Visual Studio do uruchamiania zadań U-SQL na komputerze lokalnym.
-services: data-lake-analytics
 author: liudan66
 ms.author: liud
 ms.reviewer: jasonh
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 24f1156fa4a97adb500033034bc7396fd1badbeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87125738"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219687"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Uruchamianie skryptów U-SQL na komputerze lokalnym
 
@@ -28,7 +25,7 @@ Poniższy wykres przedstawia składniki uruchamiania lokalnego oraz sposób mapo
 |Składnik|Uruchamianie lokalne|Uruchomienie w chmurze|
 |---------|---------|---------|
 |Magazyn|Lokalny folder danych głównych|Domyślne konto Azure Data Lake Store|
-|Compute|Lokalny aparat uruchamiania U-SQL|Usługa Azure Data Lake Analytics|
+|Obliczenia|Lokalny aparat uruchamiania U-SQL|Usługa Azure Data Lake Analytics|
 |Uruchom środowisko|Katalog roboczy na komputerze lokalnym|Klaster Azure Data Lake Analytics|
 
 Poniższe sekcje zawierają więcej informacji na temat składników uruchamiania lokalnego.
