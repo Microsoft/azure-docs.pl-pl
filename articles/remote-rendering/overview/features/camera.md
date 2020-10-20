@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: 5ad39ad9f5e585029cff5d573a026702f259607e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc82d046caa3663cffcda585258642813ab3a7d8
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564913"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207261"
 ---
 # <a name="camera"></a>Aparat fotograficzny
 
@@ -68,10 +68,10 @@ void ChangeStageSpace(ApiHandle<AzureSession> session)
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 
-* [CameraSettings C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.camerasettings)
-* [C++ CameraSettings](https://docs.microsoft.com/cpp/api/remote-rendering/camerasettings)
-* [C# GraphicsBindingSimD3d11. Update — funkcja](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11.update)
-* [C++ GraphicsBindingSimD3d11:: Update — funkcja](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingsimd3d11#update)
+* [CameraSettings C#](/dotnet/api/microsoft.azure.remoterendering.camerasettings)
+* [C++ CameraSettings](/cpp/api/remote-rendering/camerasettings)
+* [C# GraphicsBindingSimD3d11. Update — funkcja](/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11.update)
+* [C++ GraphicsBindingSimD3d11:: Update — funkcja](/cpp/api/remote-rendering/graphicsbindingsimd3d11#update)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca4ed58de030e372f97ebda87d12340a57a584d5
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756623"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207091"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim
 
@@ -161,7 +161,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* Usuwanie
+* Usuń
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -196,7 +196,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
 
     Aby uzyskać więcej informacji, zobacz [AZ ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
-* Usuwanie
+* Usuń
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v
@@ -256,6 +256,7 @@ Pakiety można instalować bezpośrednio w Jupyter Notebook lub RStudio:
 * Python: Dodawanie kodu instalacji i wykonywanie w komórce Jupyter Notebook.
 
 Można też zainstalować program z poziomu okna terminalu. Zainstaluj pakiety języka Python w środowisku **python 3,6-Azure** .  Zainstaluj pakiety języka R w środowisku **języka r** .
+Funkcje% PIP i% Conda Magic automatycznie instalują pakiety w aktualnie uruchomionym jądrze w sesji notesu Jupyter.
 
 ## <a name="add-new-kernels"></a>Dodaj nowe jądra
 

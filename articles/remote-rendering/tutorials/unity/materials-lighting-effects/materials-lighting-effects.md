@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04cb48a3ff84a67995c1a920a323fa568a67cdf3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021072"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203249"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Samouczek: poprawianie materiałów, oświetlenia i efektów
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Udostępnienie wizualnej opinii użytkownikowi jest ważnym elementem środowiska użytkownika w dowolnej aplikacji. Zdalne renderowanie na platformie Azure udostępnia mechanizmy przesyłania opinii wizualnych za pomocą [zastąpień stanu hierarchicznego](../../../overview/features/override-hierarchical-state.md). Zastąpienia stanu hierarchicznego są implementowane za pomocą składników dołączonych do lokalnych wystąpień modeli. Dowiesz się, jak utworzyć te wystąpienia lokalne podczas [synchronizowania zdalnego grafu obiektów z hierarchią aparatu Unity](../manipulate-models/manipulate-models.md#synchronizing-the-remote-object-graph-into-the-unity-hierarchy).
 
-Najpierw utworzymy otokę wokół składnika [**HierarchicalStateOverrideComponent**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent) . **HierarchicalStateOverrideComponent** jest skryptem lokalnym, który kontroluje zastąpienia w jednostce zdalnej. [**Zasoby samouczka**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) obejmują abstrakcyjną klasę bazową o nazwie **BaseEntityOverrideController**, która zostanie rozszerzona o tworzenie otoki.
+Najpierw utworzymy otokę wokół składnika [**HierarchicalStateOverrideComponent**](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent) . **HierarchicalStateOverrideComponent** jest skryptem lokalnym, który kontroluje zastąpienia w jednostce zdalnej. [**Zasoby samouczka**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) obejmują abstrakcyjną klasę bazową o nazwie **BaseEntityOverrideController**, która zostanie rozszerzona o tworzenie otoki.
 
 1. Utwórz nowy skrypt o nazwie **EntityOverrideController** i Zastąp jego zawartość następującym kodem:
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 2ddc15e9da3eaa3609b039f2f92e424b9d9449c1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 208fe9c5bfa20bf5b2daab296af9f955db67a33d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106318"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204677"
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej:
@@ -138,7 +138,7 @@ Trasy domyślne są dozwolone tylko w sesjach prywatnej komunikacji równorzędn
 * Używasz routingu zdefiniowanego przez użytkownika, aby zezwolić na połączenie z Internetem dla każdej podsieci wymagającej takiego połączenia.
 
 > [!NOTE]
-> Anonsowanie tras domyślnych spowoduje awarię aktywacji licencji maszyn wirtualnych systemu Windows i innych systemów. Aby obejść ten problem, postępuj zgodnie z instrukcjami zamieszczonymi [tutaj](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling).
+> Anonsowanie tras domyślnych spowoduje awarię aktywacji licencji maszyn wirtualnych systemu Windows i innych systemów. Aby obejść ten problem, postępuj zgodnie z instrukcjami zamieszczonymi [tutaj](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling).
 > 
 > 
 

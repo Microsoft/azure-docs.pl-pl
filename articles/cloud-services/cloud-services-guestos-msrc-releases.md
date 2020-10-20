@@ -10,17 +10,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2020
+ms.date: 10/19/2020
 ms.author: yohaddad
-ms.openlocfilehash: 6ceba8e81c4700963e0d147c10085760b9308319
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3f088d248037ecf552bf7130e3fe4c86d7430695
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076661"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207992"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
+
+## <a name="october-2020-guest-os"></a>System operacyjny gościa 2020 października
+>[!NOTE] 
+
+>System operacyjny gościa w październiku jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa z października uwzględniono następujące poprawki. Ta lista może ulec zmianie. 
+
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| --- | --- | --- | --- | --- |
+|  Rel 20-10 |  [4577010]  |  Aktualizacja zbiorcza programu IE | 2,103, 3,90, 4,83 | 8 SEP, 2020 |
+|  Rel 20-10 |  [4580325]  |  Aktualizacja Flash | 3,90, 4,83, 5,48, 6,24 | 13 października 2020 |
+|  Rel 20-10 |  [4577668]  |  Najnowsza aktualizacja zbiorcza | 6,24 | 13 października 2020 |
+|  Rel 20-10 |  [4580346]  |  Najnowsza aktualizacja zbiorcza | 5,48 | 13 października 2020 |
+|  Rel 20-10 |  [4580970]  |  Obsługa aktualizacji stosu | 2,103 | 13 października 2020 |
+|  Rel 20-10 |  [4580345]  |  Zestawienie miesięczne | 2,103 | 13 października 2020 |
+|  Rel 20-10 |  [4578952]  |  Pakiet zbiorczy zabezpieczeń i jakości .NET Framework 3.5.1 | 2,103 | 13 października 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 2,103 | 13 października 2020 |
+|  Rel 20-10 |  [4566426]  |  Obsługa aktualizacji stosu | 3,90 | 14 lipca 2020 |
+|  Rel 20-10 |  [4580382]  |  Zestawienie miesięczne | 3,90 | 13 października 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 3,90 | 13 października 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 3,90 | 13 października 2020 |
+|  Rel 20-10 |  [4566425]  |  Obsługa aktualizacji stosu | 4,83 | 14 lipca 2020 |
+|  Rel 20-10 |  [4580347]  |  Zestawienie miesięczne | 4,83 | 13 października 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 4,83 | 13 października 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 4,83 | 13 października 2020 |
+|  Rel 20-10 |  [4578013]  |  Autonomiczna aktualizacja zabezpieczeń | 4,83 | 19 sierpnia 2020 |
+|  Rel 20-10 |  [4576750]  |  Obsługa aktualizacji stosu | 5,48 | 8 SEP, 2020 |
+|  Rel 20-10 |  [4494175]  |  Włączenia mikrokodu | 5,48 | 1, 2020 |
+|  Rel 20-10 |  [4577667]  |  Obsługa aktualizacji stosu | 6,24 | 13 października 2020 |
+|  Rel 20-10 |  [4578966]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | 6,24 | 13 października 2020 |
+|  Rel 20-10 |  [4494174]  |  Włączenia mikrokodu | 6,24 | 3, 2020 |
+
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4580325]: https://support.microsoft.com/kb/4580325
+[4577668]: https://support.microsoft.com/kb/4577668
+[4580346]: https://support.microsoft.com/kb/4580346
+[4580970]: https://support.microsoft.com/kb/4580970
+[4580345]: https://support.microsoft.com/kb/4580345
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4566426]: https://support.microsoft.com/kb/4566426
+[4580382]: https://support.microsoft.com/kb/4580382
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4566425]: https://support.microsoft.com/kb/4566425
+[4580347]: https://support.microsoft.com/kb/4580347
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4494175]: https://support.microsoft.com/kb/4494175
+[4577667]: https://support.microsoft.com/kb/4577667
+[4578966]: https://support.microsoft.com/kb/4578966
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## <a name="september-2020-guest-os"></a>System operacyjny gościa z września 2020
 
@@ -1001,7 +1056,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Rel 18-12 | [4470491] | Zabezpieczenia programu .NET 4. x  | 4,61| 11 grudnia 2018 |
 | Rel 18-12 | [4471331] | Flash  | 3,68, 4,61, 5,26 | 5 grudnia 2018  |
 | Rel 18-12 | [4470199] | Internet Explorer  | 2,81, 3,68, 4,61 | 11 grudnia 2018 |
-| Nie dotyczy | [4468323] | Aktualizacja strefy czasowej    | 2,81, 3,68, 4,61 | 13 grudnia 2018 |
+| Nie dotyczy | [4468323] | Aktualizacja strefy czasowej    | 2,81, 3,68, 4,61 | 13 grudnia 2018 r. |
 | Nie dotyczy | [4467107] | Pakiet zbiorczy niezwiązanych z zabezpieczeniami   | 2,81 | 13 listopada 2018 |
 | Nie dotyczy | [4467701] | Pakiet zbiorczy niezwiązanych z zabezpieczeniami     | 3,68 | 13 listopada 2018 |
 | Nie dotyczy | [4467697] | Pakiet zbiorczy niezwiązanych z zabezpieczeniami     | 4,61 | 13 listopada 2018 |

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: duau
-ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0365fd8d0d04b7d144ca6826d3d5eff976558eb3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566402"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202160"
 ---
 # <a name="about-expressroute-direct"></a>Informacje o usłudze ExpressRoute Direct
 
@@ -73,7 +73,7 @@ Usługa ExpressRoute Direct obsługuje ogromne scenariusze pozyskiwania danych w
     * Należy dodać zewnętrzny tag sieci VLAN (STAG) na podstawie identyfikatora sieci VLAN określonego przez firmę Microsoft — *dotyczy tylko QinQ*
     * Musi obsługiwać wiele sesji protokołu BGP (VLAN) na port i urządzenie
     * Łączność z protokołami IPv4 i IPv6. *W przypadku protokołu IPv6 nie zostanie utworzony dodatkowy interfejs podrzędny. Adres IPv6 zostanie dodany do istniejącego interfejsu podrzędnego*. 
-    * Opcjonalne: Obsługa funkcji [wykrywania przekazywania dwukierunkowego (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) , która jest konfigurowana domyślnie na wszystkich prywatnych komunikacji równorzędnej w obwodach usługi ExpressRoute
+    * Opcjonalne: Obsługa funkcji [wykrywania przekazywania dwukierunkowego (BFD)](./expressroute-bfd.md) , która jest konfigurowana domyślnie na wszystkich prywatnych komunikacji równorzędnej w obwodach usługi ExpressRoute
 
 ## <a name="vlan-tagging"></a>Znakowanie sieci VLAN
 

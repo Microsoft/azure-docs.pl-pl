@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 082148ecfd4332abb42f96afcd94032d428069ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a05216fd44a64c037561662009987615f5657a8
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782521"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207176"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Opcje pomocy technicznej renderowania zdalnego platformy Azure
 
@@ -56,7 +56,7 @@ Aby przekazać opinię, Podziel się pomysłem lub sugestią dotyczącą zdalneg
 
 ## <a name="microsoft-qa"></a>Microsoft Q&A
 
-Aby uzyskać szybkie i niezawodne odpowiedzi na pytania dotyczące produktów technicznych od inżynierów firmy Microsoft, platformy Azure najbardziej cennych specjalistów (MVP) lub naszej społeczności eksperckiej, skontaktuj się z nami w [firmie Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-remote-rendering.html), preferowaną lokalizację docelową platformy Azure na potrzeby wsparcia dla społeczności.
+Aby uzyskać szybkie i niezawodne odpowiedzi na pytania dotyczące produktów technicznych od inżynierów firmy Microsoft, platformy Azure najbardziej cennych specjalistów (MVP) lub naszej społeczności eksperckiej, skontaktuj się z nami w [firmie Microsoft Q&A](/answers/topics/azure-remote-rendering.html), preferowaną lokalizację docelową platformy Azure na potrzeby wsparcia dla społeczności.
 
 ## <a name="next-steps"></a>Następne kroki
 

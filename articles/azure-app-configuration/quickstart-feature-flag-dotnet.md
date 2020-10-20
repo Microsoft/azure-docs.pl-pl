@@ -13,14 +13,14 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 10/21/2019
+ms.date: 10/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 145015b7645cf7923f15ecd7c0378ff6cb96dd7e
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: c379d3f99628c2d3fb32ae34ca0214f608d365c7
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767693"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201272"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji .NET Framework
 
@@ -30,7 +30,7 @@ Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [ .NET Framework 4.8](https://dotnet.microsoft.com/download)
 
@@ -70,6 +70,7 @@ Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsł
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
+    using System.Threading.Tasks;
     ```
 
 1. Zaktualizuj `Main` metodę, aby połączyć się z konfiguracją aplikacji, określając `UseFeatureFlags` opcję, aby można było pobrać flagi funkcji. Następnie Wyświetl komunikat, jeśli `Beta` Flaga funkcji jest włączona.
@@ -99,6 +100,8 @@ Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsł
             }
 
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Press any key to continue ...");
+            Console.Read();
         }
     ```
 

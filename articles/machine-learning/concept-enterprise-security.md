@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 35b39ceb7ef54b0e00eaa53dad821c9336ea88ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302625"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207941"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -26,7 +26,7 @@ W przypadku korzystania z usługi w chmurze najlepszym rozwiązaniem jest ograni
 > [!NOTE]
 > Informacje przedstawione w tym artykule współdziałają z Azure Machine Learning Python SDK w wersji 1.0.83.1 lub nowszej.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Uwierzytelnianie wieloskładnikowe jest obsługiwane, jeśli Azure Active Directory (Azure AD) jest skonfigurowany do korzystania z niego. Oto proces uwierzytelniania:
 
@@ -44,7 +44,7 @@ Azure Machine Learning obsługuje dwie formy uwierzytelniania dla usług sieci W
 
 |Metoda uwierzytelniania|Opis|Azure Container Instances|AKS|
 |---|---|---|---|
-|Klucz|Klucze są statyczne i nie trzeba ich odświeżyć. Klucze można generować ponownie ręcznie.|Domyślnie wyłączone| Domyślnie włączone|
+|Key|Klucze są statyczne i nie trzeba ich odświeżyć. Klucze można generować ponownie ręcznie.|Domyślnie wyłączone| Domyślnie włączone|
 |Token|Tokeny wygasają po upływie określonego czasu i wymagają odświeżenia.| Niedostępne| Domyślnie wyłączone |
 
 Aby zapoznać się z przykładami kodu, zobacz [sekcję uwierzytelnianie usługi sieci Web](how-to-setup-authentication.md#web-service-authentication).
@@ -115,7 +115,7 @@ Możesz również włączyć prywatne łącze platformy Azure dla Twojego obszar
 >
 > Wystąpienie obliczeniowe Azure Machine Learning jest środowiskiem deweloperskim/testowym. W przypadku korzystania z tego programu zalecamy przechowywanie plików, takich jak Notesy i skrypty, w udziale plików. Dane powinny być przechowywane w magazynie danych.
 
-### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
+### <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
 
 > [!IMPORTANT]
 > Jeśli obszar roboczy zawiera dane poufne, zalecamy ustawienie [flagi hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) podczas tworzenia obszaru roboczego. `hbi_workspace`Flagę można ustawić tylko podczas tworzenia obszaru roboczego. Nie można go zmienić dla istniejącego obszaru roboczego.
@@ -291,7 +291,7 @@ Szczegóły żądania oceniania są przechowywane w Application Insights. Applic
 >
 > Niektóre z tych akcji są wyświetlane w obszarze **działania** obszaru roboczego, ale te powiadomienia nie wskazują, kto zainicjował działanie.
 
-### <a name="vulnerability-scanning"></a>Skanowanie luk w zabezpieczeniach
+### <a name="vulnerability-scanning"></a>Skanowanie pod kątem luk w zabezpieczeniach
 
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. W przypadku usługi Azure Machine Learning należy włączyć skanowanie zasobów Azure Container Registry i zasobów usługi Azure Kubernetes. Zobacz [Azure Container Registry skanowanie obrazów przez Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) i [integrację usług Azure Kubernetes Services z usługą Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
 
@@ -324,7 +324,7 @@ Skojarzona z obszarem roboczym Azure Machine Learning to katalogi (eksperymenty)
 
 [![Przepływ pracy migawek kodu](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot.png#lightbox)
 
-### <a name="training"></a>Szkolenie
+### <a name="training"></a>Szkolenia
 
 Na poniższym diagramie przedstawiono przepływ pracy szkoleniowej.
 
@@ -376,6 +376,10 @@ Oto szczegółowe informacje:
 Aby uzyskać więcej informacji na temat Azure Policy, zobacz [dokumentację Azure Policy](/azure/governance/policy/overview).
 
 Aby uzyskać więcej informacji na temat zasad specyficznych dla Azure Machine Learning, zobacz [Inspekcja i zarządzanie zgodnością z Azure Policy](how-to-integrate-azure-policy.md).
+
+## <a name="resource-locks"></a>Blokady zasobów
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

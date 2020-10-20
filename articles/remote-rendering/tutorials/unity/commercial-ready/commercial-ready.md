@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 0dad78ad76a870ea9f1db28a3cb5ccace5cd804f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ff6d064b6bfabbd8a648c23b5648aae9b12a11d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510933"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207499"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Samouczek: Tworzenie komercyjnej gotowej aplikacji do zdalnego renderowania platformy Azure
 
@@ -35,8 +35,8 @@ Ten moduł przedstawia pewne dodatkowe możliwości, które należy wziąć pod 
 
 Aby zapoznać się z szeroką omówieniem najlepszych rozwiązań w zakresie architektury, odwiedź stronę:
 
-* [Centrum architektury platformy Azure](https://docs.microsoft.com/azure/architecture/)
-* [Przewodnik wprowadzenie dla deweloperów platformy Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
+* [Centrum architektury platformy Azure](/azure/architecture/)
+* [Przewodnik wprowadzenie dla deweloperów platformy Azure](../../../../guides/developer/azure-developer-guide.md)
 
 ## <a name="analytics"></a>Analiza
 
@@ -54,7 +54,7 @@ Aby to osiągnąć, platforma Azure oferuje usługę o nazwie tagowanie zasobów
 
 Aby uzyskać więcej informacji o nazewnictwie i znakowaniu zasobów, dobrym miejscem do rozpoczęcia jest:
 
-* [Przewodnik po nazewnictwie i znakowaniu zasobów](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+* [Przewodnik po nazewnictwie i znakowaniu zasobów](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
 ### <a name="diagnostics"></a>Diagnostyka
 
@@ -62,9 +62,9 @@ Zaawansowane narzędzia, takie jak śledzenie zdarzeń dla systemu Windows (ETW)
 
 Aby uzyskać więcej informacji, odwiedź stronę:
 
-* [Tworzenie śladów wydajności po stronie klienta](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
-* [Jak zbierać dane śledzenia zdarzeń systemu Windows (ETW)](https://docs.microsoft.com/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
-* [Korzystanie z portalu urządzeń z systemem Windows: rejestrowanie](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
+* [Tworzenie śladów wydajności po stronie klienta](../../../how-tos/performance-tracing.md)
+* [Jak zbierać dane śledzenia zdarzeń systemu Windows (ETW)](/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
+* [Korzystanie z portalu urządzeń z systemem Windows: rejestrowanie](/windows/mixed-reality/using-the-windows-device-portal)
 
 ### <a name="usage-analysis"></a>Analiza użycia
 
@@ -72,7 +72,7 @@ Usługa Azure Application Insights pomaga zrozumieć, jak użytkownicy korzystaj
 
 Aby uzyskać więcej informacji, odwiedź stronę:
 
-* [Analiza użycia za pomocą Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)
+* [Analiza użycia za pomocą Application Insights](../../../../azure-monitor/app/usage-overview.md)
 
 ## <a name="fast-startup-time-strategies"></a>Strategie szybkiego uruchamiania
 
@@ -102,7 +102,7 @@ Ta strategia pomaga również zoptymalizować wybór między sesjami *Standard* 
 
 Aby uzyskać więcej informacji na temat sesji renderowania zdalnego platformy Azure, zapoznaj się z tematem:
 
-* [Sesje usługi Remote Rendering](https://docs.microsoft.com/azure/remote-rendering/concepts/sessions)
+* [Sesje usługi Remote Rendering](../../../concepts/sessions.md)
 
 ## <a name="standard-vs-premium-server-size-routing-strategies"></a>Strategie routingu rozmiaru serwera w warstwie Standardowa i Premium
 
@@ -164,9 +164,9 @@ Inne przykłady obejmują przesyłane strumieniowo wideo, jednoczesne przekazywa
 Aby uzyskać więcej informacji na temat analizy sieci, zobacz:
 
 * [Test szybkości pobierania Azure Storage Blob](https://www.azurespeed.com/Azure/Download)
-* [Statystyka opóźnienia podróży sieci platformy Azure](https://docs.microsoft.com/azure/networking/azure-network-latency)
-* [Ślady wydajności po stronie serwera](https://docs.microsoft.com/azure/remote-rendering/overview/features/performance-queries)
-* [Ślady wydajności po stronie klienta](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
+* [Statystyka opóźnienia podróży sieci platformy Azure](../../../../networking/azure-network-latency.md)
+* [Ślady wydajności po stronie serwera](../../../overview/features/performance-queries.md)
+* [Ślady wydajności po stronie klienta](../../../how-tos/performance-tracing.md)
 
 ## <a name="collaboration-considerations"></a>Zagadnienia dotyczące współpracy
 
@@ -192,8 +192,8 @@ Jednak w przypadku zasobów 3W, które będą używane wielokrotnie, na przykła
 
 Więcej informacji:
 
-* [Udostępnione środowiska w rzeczywistości mieszanej](https://docs.microsoft.com/windows/mixed-reality/shared-experiences-in-mixed-reality)
-* [Nadmiarowość usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Udostępnione środowiska w rzeczywistości mieszanej](/windows/mixed-reality/shared-experiences-in-mixed-reality)
+* [Nadmiarowość usługi Azure Storage](../../../../storage/common/storage-redundancy.md)
 
 ## <a name="managing-model-access"></a>Zarządzanie dostępem do modelu
 
@@ -230,7 +230,7 @@ Takie podejście można wykonać jeszcze jeden krok poprzez utrwalanie skojarzen
 Więcej informacji:
 
 * [Szablon programu Microsoft PowerShell dla usługi OneDrive do usługi Azure Storage](https://flow.microsoft.com/galleries/public/templates/2f90b5d3-029b-4e2e-ad37-1c0fe6d187fe/when-a-file-is-uploaded-to-onedrive-copy-it-to-azure-storage-container/)
-* [Omówienie interfejsu API File Storage usługi OneDrive](https://docs.microsoft.com/graph/onedrive-concept-overview)
+* [Omówienie interfejsu API File Storage usługi OneDrive](/graph/onedrive-concept-overview)
 
 ### <a name="direct-cad-access"></a>Bezpośredni dostęp do CAD
 
@@ -255,7 +255,7 @@ Wielu klientów korporacyjnych zezwala na wdrożenie Azure Stack w ramach własn
 Więcej informacji:
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Samouczek: publikowanie aplikacji zarządzanych przez platformę Azure w portalu Marketplace](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-marketplace-app)
+* [Samouczek: publikowanie aplikacji zarządzanych przez platformę Azure w portalu Marketplace](../../../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 
 ### <a name="security"></a>Zabezpieczenia
 
@@ -277,6 +277,6 @@ W celu uwierzytelnienia warto przenieść do usługi sieci Web platformy Azure t
 
 Więcej informacji:
 
-* [Uwierzytelnianie usługi Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-service-authentication)
+* [Uwierzytelnianie usługi Azure AD](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Wzmocnij stan zabezpieczeń dzięki platformie Azure](https://azure.microsoft.com/overview/security/)
 * [Zabezpieczenia chmury](https://azure.microsoft.com/product-categories/security/)

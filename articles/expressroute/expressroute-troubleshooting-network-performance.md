@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a021d658711e77c3e3be0df722223cefe506abba
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566079"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204592"
 ---
 # <a name="troubleshooting-network-performance"></a>Rozwiązywanie problemów z wydajnością sieci
 ## <a name="overview"></a>Omówienie
@@ -53,7 +53,7 @@ Na powyższym diagramie po lewej stronie znajduje się sieć firmowa. W zależno
 
 Ze względu na złożoność tych trzech różnych środowisk sieciowych wysokiego poziomu, często najlepiej jest zacząć od krawędzi i próbować pokazać, gdzie wydajność jest dobra i gdzie ulega obniżeniu. Takie podejście może pomóc w zidentyfikowaniu domeny routingu problemu trzech, a następnie skoncentrowaniu się na tym konkretnym środowisku.
 
-## <a name="tools"></a>Narzędzia
+## <a name="tools"></a>narzędzia
 Większość problemów z siecią można analizować i izolować przy użyciu podstawowych narzędzi, takich jak ping i traceroute. Jest to rzadki przypadek, w którym należy przeanalizować pakiet, np. program Wireshark. Aby pomóc w rozwiązywaniu problemów, zestaw narzędzi Azure Connectivity Toolkit (AzureCT) został opracowany w celu umieszczenia niektórych z tych narzędzi w łatwym pakiecie. W przypadku testów wydajnościowych chcę używać iPerf i PSPing. iPerf to powszechnie używane narzędzie i działa w większości systemów operacyjnych. iPerf jest dobre dla podstawowych testów wydajności i jest dość łatwe w użyciu. PSPing to narzędzie ping opracowane przez program SysInternals. PSPing to prosty sposób na wykonywanie protokołu ICMP i poleceń ping protokołu TCP w jednym z nich. Oba te narzędzia są lekkie i są "zainstalowane" po prostu dodając polecenie ping do pliku do katalogu na hoście.
 
 Wszystkie te narzędzia i metody zostały zawinięte do modułu programu PowerShell (AzureCT), który można zainstalować i użyć.
@@ -146,7 +146,7 @@ W przypadku sieci WAN udostępnianie wyników testów z dostawcą usług lub us�
 
 Po rozwiązaniu problemu z platformą Azure, gdy jest to możliwe, należy zapoznać się z [dokumentacją sieci platformy Azure][Network Docs] , a następnie w razie potrzeby [otworzyć bilet pomocy technicznej][Ticket Link].
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Materiały źródłowe
 ### <a name="latencybandwidth-expectations"></a>Oczekiwania na opóźnienia/przepustowość
 >[!TIP]
 > Opóźnienie geograficzne (mile lub kilometry) między punktami końcowymi, które są testowane, to największy składnik opóźnienia. Chociaż występuje opóźnienie sprzętu (składniki fizyczne i wirtualne, liczba przeskoków itp.), Geografia została sprawdzona jako największy składnik ogólnego opóźnienia podczas pracy z połączeniami WAN. Należy również pamiętać, że odległość jest odległość między uruchomieniem włókna a odległością od osi liniowej lub mapy drogowej. Ta odległość jest trudno uzyskać z dokładnością niezwykle. W związku z tym ogólnie używamy kalkulatora odległości miast w Internecie i wiesz, że ta metoda jest miarowo niedokładnej miary, ale jest wystarczająca do ustawienia ogólnego oczekiwania.
@@ -186,7 +186,7 @@ Konfiguracja testu:
 | Seattle | Północno-środkowe stany USA |  2 792 km |  55 MS |  27,7 MB/s |  2,19 Gbits/s |
 | Seattle | Wschodnie stany USA 2        |  3 769 km |  73 MS |  21,3 MB/s |  1,79 Gbits/s |
 | Seattle | East US          |  3 699 km |  74 MS |  21,1 MB/s |  1,78 Gbits/s |
-| Seattle | Japan East       |  7 705 km | 106 MS |  14,6 MB/s |  1,22 Gbits/s |
+| Seattle | Japonia Wschodnia       |  7 705 km | 106 MS |  14,6 MB/s |  1,22 Gbits/s |
 | Seattle | Południowe Zjednoczone Królestwo         |  7 708 km | 146 MS |  10,6 MB/s |   896 MB/s |
 | Seattle | West Europe      |  7 834 km | 153 MS |  10,2 MB/s |   761 MB/s |
 | Seattle | Australia Wschodnia   | 12 484 km | 165 MS |   9,4 MB/s |   794 MB/s |
@@ -209,6 +209,6 @@ Konfiguracja testu:
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
-[Network Docs]: https://docs.microsoft.com/azure/index
+[Network Docs]: ../index.yml
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
 [ACT]: https://aka.ms/AzCT

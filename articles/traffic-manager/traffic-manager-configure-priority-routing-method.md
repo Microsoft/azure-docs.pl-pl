@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: duau
-ms.openlocfilehash: 1be507f3676a5531855e3a8deb6801b1a5cb8e74
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1835377f4690097c8390957bf7d897242ba7aace
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166719"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208060"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Samouczek: Konfigurowanie metody routingu ruchu priorytetowego w Traffic Manager
 
@@ -98,7 +98,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. Po zakończeniu działania profilu Traffic Manager Edytuj rekord DNS na autorytatywnym serwerze DNS, aby wskazywał nazwę domeny firmowej na nazwę domeny Traffic Manager.
 
-## <a name="clean-up-resource"></a>Wyczyść zasób
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli profil Traffic Manager nie jest już potrzebny, zlokalizuj profil i wybierz pozycję **Usuń profil**.
 

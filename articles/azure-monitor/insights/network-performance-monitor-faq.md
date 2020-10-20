@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8c8e7539b888141a22e92378d78282edd1ce6ff
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326141"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208026"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Rozwiązanie Network Performance Monitor — często zadawane pytania
 
@@ -95,7 +95,7 @@ Jeśli przeskok ma kolor czerwony, oznacza to, że jest on częścią co najmnie
 NPM używa mechanizmu probabilistyczne do przypisywania prawdopodobieństwa błędów do każdej ścieżki sieciowej, segmentu sieci i przeskoków sieci w zależności od liczby ścieżek w złej kondycji, które są częścią. Ponieważ segmenty i przeskoki sieciowe stają się częścią większej liczby ścieżek w złej kondycji, wzrasta prawdopodobieństwo wystąpienia błędu. Ten algorytm działa najlepiej, gdy istnieje wiele węzłów z NPM agentem podłączonym do siebie, ponieważ zwiększa to punkty danych do obliczenia prawdopodobieństwa błędów.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Jak mogę utworzyć alerty w programie NPM?
-Tworzenie alertów z interfejsu użytkownika NPM kończy się niepowodzeniem z powodu problemu. Utwórz alerty ręcznie.
+Obecnie tworzenie alertów z interfejsu użytkownika NPM kończy się niepowodzeniem z powodu znanego problemu. [Utwórz alerty ręcznie](../platform/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Jakie są domyślne Log Analytics zapytania dotyczące alertów
 Zapytanie monitora wydajności

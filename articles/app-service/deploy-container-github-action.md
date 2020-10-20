@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: d6f66993b0fb7f97c551f4fbcb305111cfb2097e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150286"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203198"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Wdrażanie niestandardowego kontenera do App Service przy użyciu akcji GitHub
 
@@ -190,15 +190,17 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>Wdrażanie do kontenera App Service
 
-Aby wdrożyć obraz do niestandardowego kontenera w App Service, użyj `azure/webapps-deploy@v2` akcji. Ta akcja ma pięć parametrów:
+Aby wdrożyć obraz do niestandardowego kontenera w App Service, użyj `azure/webapps-deploy@v2` akcji. Ta akcja ma siedem parametrów:
 
 | **Parametr**  | **Objaśnienie**  |
 |---------|---------|
 | **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
-| **Publikuj — profil** | Obowiązkowe Publikuj zawartość pliku profilu za pomocą wpisów tajnych Web Deploy |
-| **rastrow** | W pełni kwalifikowana nazwa obrazu kontenera. Na przykład "myregistry.azurecr.io/nginx:latest" lub "Python: 3.7.2-Alpine/". W przypadku scenariusza z wieloma kontenerami można podać wiele nazw obrazów kontenerów (rozdzielonych w wielu wierszach) |
+| **Publikuj — profil** | Obowiązkowe Dotyczy Web Apps (systemy Windows i Linux) oraz kontenerów aplikacji sieci Web (Linux). Scenariusz wielokontenerowy nie jest obsługiwany. Zawartość pliku profilu publikowania ( \* . publishsettings) z wpisami tajnymi Web Deploy | 
 | **Nazwa gniazda** | Obowiązkowe Wprowadź istniejące miejsce poza miejscem produkcyjnym |
-| **plik konfiguracji** | Obowiązkowe Ścieżka pliku Docker-Compose |
+| **Package** | Obowiązkowe Dotyczy tylko aplikacji internetowej: ścieżka do pakietu lub folderu. \*plik zip, \* War, \* jar lub folder do wdrożenia |
+| **rastrow** | Potrzeb Dotyczy tylko kontenerów aplikacji sieci Web: Określ w pełni kwalifikowaną nazwę obrazu kontenera. Na przykład "myregistry.azurecr.io/nginx:latest" lub "Python: 3.7.2-Alpine/". W przypadku aplikacji z wieloma kontenerami można podać wiele nazw obrazów kontenerów (rozdzielonych w wielu wierszach) |
+| **plik konfiguracji** | Obowiązkowe Dotyczy tylko kontenerów aplikacji sieci Web: ścieżka pliku Docker-Compose. Powinna być w pełni kwalifikowana ścieżka lub odnosząca się do domyślnego katalogu roboczego. Wymagane dla aplikacji wielokontenerowych. |
+| **Uruchamianie — polecenie** | Obowiązkowe Wprowadź polecenie uruchamiania. Na przykład filename.dll uruchomienia dotnet lub dotnet |
 
 # <a name="publish-profile"></a>[Publikuj profil](#tab/publish-profile)
 

@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d33af7a9c2d48ded84bd675364469dab09a79d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711474"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207125"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Tworzenie klastra obliczeniowego Azure Machine Learning
 
@@ -51,6 +51,8 @@ Klastry obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku sieci 
 * Niektóre scenariusze wymienione w tym dokumencie są oznaczone jako __wersja zapoznawcza__. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 * Azure Machine Learning COMPUTE ma limity domyślne, takie jak liczba rdzeni, które można przydzielić. Aby uzyskać więcej informacji, zobacz [Zarządzanie przydziałami zasobów platformy Azure i ich żądania](how-to-manage-quotas.md).
+
+* System Azure pozwala na umieszczenie _blokad_ w zasobach, dzięki czemu nie można ich usunąć lub tylko do odczytu. __Nie stosuj blokad zasobów do grupy zasobów, która zawiera obszar roboczy__. Zastosowanie blokady do grupy zasobów, która zawiera obszar roboczy, uniemożliwi operacje skalowania klastrów obliczeniowych platformy Azure ML. Aby uzyskać więcej informacji na temat blokowania zasobów, zobacz [blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](../azure-resource-manager/management/lock-resources.md).
 
 > [!TIP]
 > Klastry mogą zwykle skalować do 100 węzłów, o ile masz wystarczające limity przydziału dla wymaganej liczby rdzeni. Domyślnie klastry są skonfigurowane z obsługą komunikacji między węzłami między węzłami klastra w celu obsługi zadań MPI na przykład. Można jednak skalować klastry do tysięcy węzłów, po prostu [zwiększając bilet pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)i żądając zezwolenia na wyświetlenie listy subskrypcji lub obszaru roboczego lub określonego klastra w celu wyłączenia komunikacji między węzłami. 

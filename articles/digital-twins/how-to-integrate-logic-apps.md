@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 21e72e63dae2c52d04aca0cd11971fe5cd23fb47
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097528"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207550"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integracja z usługą Logic Apps przy użyciu łącznika niestandardowego
 
@@ -40,16 +40,15 @@ Należy również wykonać następujące czynności w ramach konfiguracji wymaga
 
 Aby połączyć Logic Apps wystąpienie usługi Azure Digital bliźniaczych reprezentacji w tym artykule, musisz mieć już skonfigurowane **wystąpienie usługi Azure Digital bliźniaczych reprezentacji** . 
 
-Najpierw skonfiguruj wystąpienie usługi Azure Digital bliźniaczych reprezentacji i wymagane uwierzytelnianie, aby móc z nich korzystać. Aby to zrobić, postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md). W zależności od preferowanego środowiska, artykuł instalacyjny jest oferowany dla [przykładowego skryptu wdrażania](how-to-set-up-instance-scripted.md) [Azure Portal](how-to-set-up-instance-portal.md), [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md)lub Cloud Shell. Wszystkie wersje instrukcji zawierają również kroki umożliwiające sprawdzenie, czy każdy krok został pomyślnie wykonany i jest gotowy do przejścia do korzystania z nowego wystąpienia.
+Najpierw **Skonfiguruj wystąpienie usługi Azure Digital bliźniaczych reprezentacji** i wymagane uwierzytelnianie, aby móc z nich korzystać. Aby to zrobić, postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md). W zależności od preferowanego środowiska, artykuł instalacyjny jest oferowany dla [przykładowego skryptu wdrażania](how-to-set-up-instance-scripted.md) [Azure Portal](how-to-set-up-instance-portal.md), [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md)lub Cloud Shell. Wszystkie wersje instrukcji zawierają również kroki umożliwiające sprawdzenie, czy każdy krok został pomyślnie wykonany i jest gotowy do przejścia do korzystania z nowego wystąpienia.
+* Po skonfigurowaniu wystąpienia usługi Azure Digital bliźniaczych reprezentacji należy określić **_nazwę hosta_** wystąpienia ([Znajdź w Azure Portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-W tym samouczku będziesz potrzebować kilku wartości z podczas konfigurowania wystąpienia. Aby ponownie zebrać te wartości, Skorzystaj z poniższych linków, aby znaleźć je w [Azure Portal](https://portal.azure.com).
-* **_Nazwa hosta_** wystąpienia usługi Azure Digital bliźniaczych reprezentacji ([Znajdź w portalu](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Identyfikator aplikacji rejestracji aplikacji usługi Azure AD **_(klient)_** ([Znajdź w portalu](how-to-set-up-instance-portal.md#collect-important-values))
-* Identyfikator rejestracji w usłudze Azure AD ( **_dzierżawa)_** ([Znajdź w portalu](how-to-set-up-instance-portal.md#collect-important-values))
+Aby uwierzytelnić aplikację ADT Explorer, należy również skonfigurować **rejestrację aplikacji**. Postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Create a App Registration*](how-to-create-app-registration.md) to set up. 
+* Po zarejestrowaniu aplikacji będziesz potrzebować identyfikatora **_aplikacji (klienta)_** rejestracji i **_identyfikatora (dzierżawy)_** ([Znajdź w Azure Portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### <a name="get-app-registration-client-secret"></a>Pobierz klucz tajny klienta rejestracji aplikacji
 
-Należy również utworzyć **_klucz tajny klienta_** dla rejestracji aplikacji usługi Azure AD. W tym celu przejdź do strony [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Portal (możesz użyć tego linku lub poszukać go na pasku wyszukiwania portalu). Wybierz swoją rejestrację z listy, aby otworzyć jej szczegóły. 
+Należy również utworzyć **_klucz tajny klienta_** dla rejestracji aplikacji usługi Azure AD. W tym celu przejdź do strony [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Portal (możesz użyć tego linku lub poszukać go na pasku wyszukiwania portalu). Wybierz swoją rejestrację utworzoną w poprzedniej sekcji z listy, aby otworzyć jej szczegóły. 
 
 Trafij *Certyfikaty i wpisy tajne* z menu Rejestracja i wybierz pozycję *+ nowy klucz tajny klienta*.
 

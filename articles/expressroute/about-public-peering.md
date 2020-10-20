@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
-ms.openlocfilehash: a5829399b70871903c8eb433b95e0cb09e5d2c60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 477145619e1b4d8b41c422389b57a46615597478
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398090"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202552"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Tworzenie publicznej komunikacji równorzędnej ExpressRoute i zarządzanie nią
 
@@ -30,7 +30,7 @@ W tym artykule opisano tworzenie publicznej konfiguracji routingu komunikacji r�
 
 ## <a name="connectivity"></a>Łączność
 
-Połączenie jest zawsze inicjowane z sieci WAN do Microsoft Azure usług. Usługi Microsoft Azure nie będą mogły inicjować połączeń do sieci za poorednictwem tej domeny routingu. Jeśli obwód usługi ExpressRoute jest włączony dla publicznej komunikacji równorzędnej Azure, możesz uzyskać dostęp do [publicznych zakresów adresów IP używanych na platformie Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) w ramach obwodu.
+Połączenie jest zawsze inicjowane z sieci WAN do Microsoft Azure usług. Usługi Microsoft Azure nie będą mogły inicjować połączeń do sieci za poorednictwem tej domeny routingu. Jeśli obwód usługi ExpressRoute jest włączony dla publicznej komunikacji równorzędnej Azure, możesz uzyskać dostęp do [publicznych zakresów adresów IP używanych na platformie Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) w ramach obwodu.
 
 Po włączeniu publicznej komunikacji równorzędnej można nawiązać połączenie z większością usług platformy Azure. Nie zezwalamy na selektywne Wybieranie usług, do których anonsuje trasy.
 
@@ -60,7 +60,7 @@ Aby sprawdzić dostępność określonej usługi, możesz sprawdzić dokumentacj
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 > [!NOTE]
-> Publiczna Komunikacja równorzędna Azure ma 1 adres IP translatora adresów sieciowych skojarzony z każdą sesją BGP. W przypadku więcej niż 2 adresów IP translatora adresów sieciowych Przenieś do komunikacji równorzędnej firmy Microsoft. Komunikacja równorzędna firmy Microsoft umożliwia skonfigurowanie własnych alokacji NAT, a także Używanie filtrów tras dla selektywnych anonsów prefiksów. Aby uzyskać więcej informacji, zobacz [przenoszenie do komunikacji równorzędnej firmy Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> Publiczna Komunikacja równorzędna Azure ma 1 adres IP translatora adresów sieciowych skojarzony z każdą sesją BGP. W przypadku więcej niż 2 adresów IP translatora adresów sieciowych Przenieś do komunikacji równorzędnej firmy Microsoft. Komunikacja równorzędna firmy Microsoft umożliwia skonfigurowanie własnych alokacji NAT, a także Używanie filtrów tras dla selektywnych anonsów prefiksów. Aby uzyskać więcej informacji, zobacz [przenoszenie do komunikacji równorzędnej firmy Microsoft](./how-to-move-peering.md).
 >
 
 ## <a name="custom-route-filters"></a>Niestandardowe filtry tras

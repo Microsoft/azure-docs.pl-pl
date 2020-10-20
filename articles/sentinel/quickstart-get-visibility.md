@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889135"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208230"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki start: wprowadzenie do usługi Azure Sentinel
 
@@ -26,7 +26,7 @@ W tym przewodniku szybki start dowiesz się, jak szybko wyświetlać i monitorow
 
 ## <a name="get-visualization"></a>Pobierz wizualizację
 
-Aby wizualizować i uzyskać analizę tego, co dzieje się w środowisku, najpierw zapoznaj się z omówieniem pulpitu nawigacyjnego, aby uzyskać pomysł dotyczący zabezpieczeń stan organizacji. Możesz kliknąć każdy element tych kafelków, aby przejść do danych pierwotnych, z których zostały utworzone. Aby ułatwić zredukowanie szumu i zminimalizować liczbę alertów, które należy przejrzeć i zbadać, wskaźnik platformy Azure używa techniki Fusion do skorelowania alertów w zdarzenia. **zdarzenia** to grupy powiązanych alertów, które razem tworzą incydent do działania, który można zbadać i rozwiązać.
+Aby wizualizować i uzyskać analizę tego, co dzieje się w środowisku, najpierw zapoznaj się z omówieniem pulpitu nawigacyjnego, aby uzyskać pomysł dotyczący zabezpieczeń stan organizacji. Możesz kliknąć każdy element tych kafelków, aby przejść do danych pierwotnych, z których zostały utworzone. Aby ułatwić zredukowanie szumu i zminimalizować liczbę alertów, które należy przejrzeć i zbadać, wskaźnik platformy Azure używa techniki Fusion do skorelowania alertów w zdarzenia. **Zdarzenia** to grupy powiązanych alertów, które razem tworzą incydent do działania, który można zbadać i rozwiązać.
 
 - W Azure Portal wybierz pozycję wskaźnik kontroli platformy Azure, a następnie wybierz obszar roboczy, który chcesz monitorować.
 
@@ -44,7 +44,7 @@ Główna treść strony Przegląd zapewnia wgląd w informacje o stanie zabezpie
 
    ![Mapa złośliwego ruchu](./media/qs-get-visibility/map.png)
 
-- **Ostatnie zdarzenia**: Aby wyświetlić ostatnie incydenty, ich ważność oraz liczbę alertów skojarzonych ze zdarzeniem. Jeśli widzisz jako nagły szczyt w określonym typie alertu, może to oznaczać, że jest aktualnie uruchomiony aktywny atak. Na przykład w przypadku nagłego szczytu 20 zdarzeń typu Pass-the-hash z usługi Microsoft Defender dla tożsamości (dawniej Azure ATP) istnieje możliwość, że ktoś aktualnie próbuje się zaatakować.
+- **Ostatnie zdarzenia**: Aby wyświetlić ostatnie incydenty, ich ważność oraz liczbę alertów skojarzonych ze zdarzeniem. Jeśli widzisz nagły szczyt w określonym typie alertu, może to oznaczać, że jest aktualnie uruchomiony aktywny atak. Na przykład w przypadku nagłego szczytu 20 zdarzeń typu Pass-the-hash z usługi Microsoft Defender dla tożsamości (dawniej Azure ATP) istnieje możliwość, że ktoś aktualnie próbuje się zaatakować.
 
 - **Anomalie źródła danych**: analityki danych firmy Microsoft utworzyły modele, które stale przeszukują dane ze źródeł danych pod kątem anomalii. Jeśli nie ma żadnych anomalii, nic nie zostanie wyświetlone. W przypadku wykrycia anomalii należy szczegółowo szczegółowe je, aby zobaczyć, co się stało. Na przykład kliknij pozycję skok w działaniu platformy Azure. Możesz kliknąć **Wykres** , aby zobaczyć, kiedy nastąpiło przekroczenie, a następnie odfiltrować działania, które wystąpiły w tym okresie, aby zobaczyć, co spowodowało skok.
 

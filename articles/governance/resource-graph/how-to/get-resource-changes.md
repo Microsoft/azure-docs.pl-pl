@@ -3,12 +3,12 @@ title: Uzyskiwanie zmian zasobów
 description: Dowiedz się, jak znaleźć, kiedy zasób został zmieniony, uzyskać listę właściwości, które uległy zmianie, i Oceń różnice.
 ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 70213caeaf71e1adc5a11ec0e9cbadfea032dca4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057573"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203470"
 ---
 # <a name="get-resource-changes"></a>Uzyskiwanie zmian zasobów
 
@@ -28,7 +28,7 @@ Wykrywanie zmian i szczegółowe informacje są przydatne dla następujących pr
 W tym artykule pokazano, jak zbierać te informacje za poorednictwem zestawu SDK grafu zasobów. Aby wyświetlić te informacje w Azure Portal, zobacz [historię zmian](../../policy/how-to/determine-non-compliance.md#change-history) Azure Policy lub [historię zmian](../../../azure-monitor/platform/activity-log.md#view-the-activity-log)dziennika aktywności platformy Azure. Aby uzyskać szczegółowe informacje o zmianach w aplikacjach z warstwy infrastruktury we wszystkich sposobach wdrażania aplikacji, zobacz [Korzystanie z analizy zmian aplikacji (wersja zapoznawcza)](../../../azure-monitor/app/change-analysis.md) w Azure monitor.
 
 > [!NOTE]
-> Szczegóły zmiany w grafie zasobów są przeznaczone dla Menedżer zasobów właściwości. Aby śledzić zmiany wewnątrz maszyny wirtualnej, zobacz Azure Automation [śledzenie zmian](../../../automation/change-tracking.md) lub [konfiguracja gościa Azure Policy dla maszyn wirtualnych](../../policy/concepts/guest-configuration.md).
+> Szczegóły zmiany w grafie zasobów są przeznaczone dla Menedżer zasobów właściwości. Aby śledzić zmiany wewnątrz maszyny wirtualnej, zobacz Azure Automation [śledzenie zmian](../../../automation/change-tracking/overview.md) lub [konfiguracja gościa Azure Policy dla maszyn wirtualnych](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
 > Historia zmian w usłudze Azure Resource Graph jest w publicznej wersji zapoznawczej.

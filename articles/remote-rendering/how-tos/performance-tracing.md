@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d4ce68bdda5fbc3dfdb7396141289a58dab5bd1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84021164"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204099"
 ---
 # <a name="create-client-side-performance-traces"></a>Tworzenie śladów wydajności po stronie klienta
 
@@ -24,7 +24,7 @@ Jeśli :::no-loc text="performance tracing"::: dopiero zaczynasz korzystać z fu
 
 ### <a name="installation"></a>Instalacja
 
-Aplikacje używane do śledzenia z ARR są narzędziami ogólnego przeznaczenia, które mogą być używane do tworzenia wszystkich okien. Są one dostępne za pomocą [zestawu narzędzi wydajności systemu Windows](https://docs.microsoft.com/windows-hardware/test/wpt/). Aby uzyskać ten zestaw narzędzi, Pobierz [zestaw do oceny i wdrażania systemu Windows](https://docs.microsoft.com/windows-hardware/get-started/adk-install).
+Aplikacje używane do śledzenia z ARR są narzędziami ogólnego przeznaczenia, które mogą być używane do tworzenia wszystkich okien. Są one dostępne za pomocą [zestawu narzędzi wydajności systemu Windows](/windows-hardware/test/wpt/). Aby uzyskać ten zestaw narzędzi, Pobierz [zestaw do oceny i wdrażania systemu Windows](/windows-hardware/get-started/adk-install).
 
 ### <a name="terminology"></a>Terminologia
 
@@ -35,13 +35,13 @@ Podczas wyszukiwania informacji na temat śladów wydajności będzie można w s
 * `WPR`
 * `WPA`
 
-Na potrzeby **funkcji ETW** jest przygotowana dla usługi [ **E** **t** **W**indows](https://docs.microsoft.com/windows/win32/etw/about-event-tracing). Jest to po prostu Przełożonej nazwy dla wydajnej funkcji śledzenia poziomu jądra, która jest wbudowana w system Windows. Jest to tzw. śledzenie *zdarzeń* , ponieważ aplikacje obsługujące ETW będą emitować zdarzenia do rejestrowania akcji, które mogą pomóc w śledzeniu problemów z wydajnością. Domyślnie system operacyjny emituje zdarzenia dotyczące takich operacji jak dostęp do dysku, przełączenia zadań. Aplikacje takie jak ARR dodatkowo emitują zdarzenia niestandardowe, na przykład w przypadku gubienia ramek, opóźnienia sieci itp.
+Na potrzeby **funkcji ETW** jest przygotowana dla usługi [ **E** **t** **W**indows](/windows/win32/etw/about-event-tracing). Jest to po prostu Przełożonej nazwy dla wydajnej funkcji śledzenia poziomu jądra, która jest wbudowana w system Windows. Jest to tzw. śledzenie *zdarzeń* , ponieważ aplikacje obsługujące ETW będą emitować zdarzenia do rejestrowania akcji, które mogą pomóc w śledzeniu problemów z wydajnością. Domyślnie system operacyjny emituje zdarzenia dotyczące takich operacji jak dostęp do dysku, przełączenia zadań. Aplikacje takie jak ARR dodatkowo emitują zdarzenia niestandardowe, na przykład w przypadku gubienia ramek, opóźnienia sieci itp.
 
 **W przypadku**usługi **ETL** odogginga na rasę **T** **1**. Oznacza to po prostu, że ślad został zebrany (zarejestrowany) i dlatego jest zazwyczaj używany jako rozszerzenie pliku dla plików, które przechowują dane śledzenia. W takim przypadku po wykonaniu śledzenia zazwyczaj będzie znajdował się \* plik. etl.
 
-**WP** ma wartość [ **w**indows **P**Eksplorator **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) i jest nazwą aplikacji, która uruchamia i przerywa nagrywanie śladów zdarzeń. Żądanie WP pobiera plik profilu ( \* . wprp), który konfiguruje dokładne zdarzenia do zarejestrowania. Taki `wprp` plik jest dostarczany z zestawem SDK arr. Gdy wykonujesz ślady na komputerze stacjonarnym, możesz uruchomić żądanie WP bezpośrednio. Podczas wykonywania operacji śledzenia na serwerze HoloLens zazwyczaj zamiast tego można przejść przez interfejs sieci Web.
+**WP** ma wartość [ **w**indows **P**Eksplorator **R**ecorder](/windows-hardware/test/wpt/windows-performance-recorder) i jest nazwą aplikacji, która uruchamia i przerywa nagrywanie śladów zdarzeń. Żądanie WP pobiera plik profilu ( \* . wprp), który konfiguruje dokładne zdarzenia do zarejestrowania. Taki `wprp` plik jest dostarczany z zestawem SDK arr. Gdy wykonujesz ślady na komputerze stacjonarnym, możesz uruchomić żądanie WP bezpośrednio. Podczas wykonywania operacji śledzenia na serwerze HoloLens zazwyczaj zamiast tego można przejść przez interfejs sieci Web.
 
-**WPA** oznacza w [ **W**indows **P**Eksplorator nalyzer **A**](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) i jest nazwą aplikacji graficznego interfejsu użytkownika, która jest używana do otwierania \* plików ETL i przechodzenia przez dane w celu zidentyfikowania problemów z wydajnością. WPA pozwala sortować dane według różnych kryteriów, wyświetlać dane na kilka sposobów, DIG do szczegółów i skorelować informacje.
+**WPA** oznacza w [ **W**indows **P**Eksplorator nalyzer **A**](/windows-hardware/test/wpt/windows-performance-analyzer) i jest nazwą aplikacji graficznego interfejsu użytkownika, która jest używana do otwierania \* plików ETL i przechodzenia przez dane w celu zidentyfikowania problemów z wydajnością. WPA pozwala sortować dane według różnych kryteriów, wyświetlać dane na kilka sposobów, DIG do szczegółów i skorelować informacje.
 
 Śledzenie ETL można tworzyć na dowolnym urządzeniu z systemem Windows (na komputerze lokalnym, serwerze HoloLens, w chmurze itp.), które są zwykle zapisywane na dysku i analizowane przy użyciu protokołu WPA na komputerze stacjonarnym. Pliki ETL mogą być wysyłane do innych deweloperów, aby mieć do nich wygląd. Należy pamiętać, że informacje poufne, takie jak ścieżki plików i adresy IP, mogą być przechwytywane w śladach ETL. Funkcji ETW można używać na dwa sposoby: do rejestrowania śladów lub analizowania śladów. Rejestrowanie śledzenia jest proste i wymaga minimalnej konfiguracji. Analizowanie śladów z drugiej strony wymaga znośnego zrozumienie zarówno narzędzia WPA, jak i badanego problemu. Poniżej przedstawiono materiał ogólny do uczenia WPA, a także wskazówki dotyczące sposobu interpretacji śladów specyficznych dla ARR.
 
@@ -51,7 +51,7 @@ W celu zidentyfikowania problemów z wydajnością klasy ARR należy wykonać ś
 
 ### <a name="wpr-configuration"></a>ŻĄDANIE konfiguracji
 
-1. Uruchom [:::no-loc text="Windows Performance Recorder":::](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) z *menu Start*.
+1. Uruchom [:::no-loc text="Windows Performance Recorder":::](/windows-hardware/test/wpt/windows-performance-recorder) z *menu Start*.
 1. Rozwiń **więcej opcji**
 1. Kliknij pozycję **Dodaj profile...**
 1. Wybierz plik *AzureRemoteRenderingNetworkProfiling. wprp*. Ten plik można znaleźć w zestawie SDK ARR w obszarze *Narzędzia/ETLProfiles*.
@@ -95,7 +95,7 @@ Masz teraz plik ETL, który można otworzyć bezpośrednio w WPA lub wysłać do
 
 Analizator wydajności systemu Windows jest standardowym narzędziem do otwierania plików ETL i inspekcji śladów. Wyjaśnienie, w jaki sposób program WPA działa poza zakresem tego artykułu. Aby rozpocząć, zapoznaj się z następującymi zasobami:
 
-* Obejrzyj [wstępne wideo](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) , aby zapoznać się z pierwszym omówieniem.
+* Obejrzyj [wstępne wideo](/windows-hardware/test/wpt/windows-performance-analyzer) , aby zapoznać się z pierwszym omówieniem.
 * Sam protokół WPA zawiera kartę *wprowadzenie* , która objaśnia typowe kroki. Zapoznaj się z dostępnymi tematami. W szczególności w obszarze "Wyświetlanie danych" przedstawiono krótkie instrukcje tworzenia grafów dla określonych danych.
 * [W tej witrynie sieci Web](https://randomascii.wordpress.com/2015/09/24/etw-central/)znajdują się doskonałe informacje, ale nie wszystkie są istotne dla początkujących.
 

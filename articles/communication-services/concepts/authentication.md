@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 928737608ae3e3e44b352724713a284ff9a45da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939607"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202960"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Uwierzytelnianie w usłudze Azure Communications Services
 
@@ -33,7 +33,7 @@ W poniższej tabeli opisano opcje uwierzytelniania obsługiwane przez biblioteki
 
 Każdą opcję autoryzacji można krótko opisać poniżej:
 
-- **Uzyskaj dostęp do uwierzytelniania klucza** dla programu SMS i operacji administracyjnych. Uwierzytelnianie klucza dostępu jest odpowiednie dla aplikacji działających w środowisku zaufanej usługi. Aby uwierzytelnić się przy użyciu klucza dostępu, Klient generuje [kod uwierzytelniania metody (HMAC) oparte na wykorzystaniu skrótu](https://en.wikipedia.org/wiki/HMAC) , a następnie dołącza go w `Authorization` nagłówku każdego żądania HTTP. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu klucza dostępu](#authenticate-with-an-access-key).
+- **Uzyskaj dostęp do uwierzytelniania klucza** dla programu SMS i operacji administracyjnych. Uwierzytelnianie klucza dostępu jest odpowiednie dla aplikacji działających w środowisku zaufanej usługi. Aby uwierzytelnić się przy użyciu klucza dostępu, Klient generuje [kod uwierzytelniania wiadomości oparty na wykorzystaniu skrótu (HMAC)](https://en.wikipedia.org/wiki/HMAC) i dołącza go w `Authorization` nagłówku każdego żądania HTTP. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu klucza dostępu](#authenticate-with-an-access-key).
 - Uwierzytelnianie **tokenu dostępu użytkownika** na potrzeby rozmowy i wywoływania. Tokeny dostępu użytkowników pozwalają aplikacjom klienckim uwierzytelniać się bezpośrednio w usłudze Azure Communications Services. Te tokeny są generowane w ramach usługi inicjowania obsługi tokenów po stronie serwera, która została utworzona. Są one następnie udostępniane urządzeniom klienckim, które używają tokenu do inicjowania rozmowy i wywoływania bibliotek klienckich. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu tokenu dostępu użytkownika](#authenticate-with-a-user-access-token).
 
 ## <a name="authenticate-with-an-access-key"></a>Uwierzytelnianie przy użyciu klucza dostępu
@@ -192,5 +192,5 @@ CommunicationUserCredential credential = new CommunicationUserCredential(tokenRe
 > [!div class="nextstepaction"]
 > [Tworzenie tokenów dostępu użytkowników](../quickstarts/access-tokens.md)
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - [Informacje o architekturze klienta i serwera](../concepts/client-and-server-architecture.md)

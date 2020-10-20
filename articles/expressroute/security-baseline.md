@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 69a47820d2afaf24f413aabf2c59a40c032070c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 053a64f276a09cfd1e11d51743a557e7a238cbc2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231388"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207907"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Podstawa zabezpieczeń platformy Azure dla ExpressRoute
 
 Podstawowa baza danych zabezpieczeń Azure dla usługi ExpressRoute zawiera zalecenia, które pomogą ulepszyć zabezpieczenia stan wdrożenia.
 
-Punkt odniesienia dla tej usługi jest rysowany w [wersji 1,0 usługi Azure Security test](https://docs.microsoft.com/azure/security/benchmarks/overview), która zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure z naszymi najlepszymi wskazówkami.
+Punkt odniesienia dla tej usługi jest rysowany w [wersji 1,0 usługi Azure Security test](../security/benchmarks/overview.md), która zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure z naszymi najlepszymi wskazówkami.
 
-Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure — omówienie](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure — omówienie](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: zabezpieczenia sieci](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
@@ -38,7 +38,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; podczas pracy z podsieciami bramy należy unikać kojarzenia sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) z podsiecią bramy. Skojarzenie sieciowej grupy zabezpieczeń z tą podsiecią może spowodować, że brama Virtual Network (VPN, ExpressRoute Gateway) przestanie działać zgodnie z oczekiwaniami.
 
-* [Informacje o wymaganiach usługi Azure ExpressRoute Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#requirements)
+* [Informacje o wymaganiach usługi Azure ExpressRoute Gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -56,9 +56,9 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Usługa expressroutes każdego klienta są zawarte w ich własnych domenach routingu i tunelowane do ich własnej sieci wirtualnej. Podczas gdy usługa expressroutes są izolowane, w celu zapewnienia dodatkowej ochrony innych zasobów, które współużytkują tę samą sieć wirtualną, można umożliwić DDoS Protection standardowi ochronę przed atakami DDoS.
 
-* [Informacje o kontrolkach zabezpieczeń dla usługi Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
+* [Informacje o kontrolkach zabezpieczeń dla usługi Azure ExpressRoute](./expressroute-security-controls.md)
 
-* [Jak skonfigurować ochronę DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [Jak skonfigurować ochronę DDoS](../virtual-network/manage-ddos-protection.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -76,7 +76,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: nie dotyczy; Usługa expressroutes każdego klienta są zawarte w ich własnych domenach routingu i tunelowane do ich własnej sieci wirtualnej.
 
-* [Informacje o kontrolkach zabezpieczeń dla usługi Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
+* [Informacje o kontrolkach zabezpieczeń dla usługi Azure ExpressRoute](./expressroute-security-controls.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -102,7 +102,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure ExpressRoute za pomocą Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieciowej ExpressRoute.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -116,7 +116,7 @@ Użyj dowolnych wbudowanych definicji Azure Policy związanych ze znakiem, takic
 
 Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby wyszukiwać lub wykonywać akcje na zasobach na podstawie ich tagów.
 
-* [Organizowanie zasobów platformy Azure przy użyciu tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -126,11 +126,11 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z połączeniami ExpressRoute. Utwórz alerty w Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w zasobach krytycznych.
 
-* [Jak włączyć inspekcję na platformie Azure — wskaźnik](https://docs.microsoft.com/azure/sentinel/resources)
+* [Jak włączyć inspekcję na platformie Azure — wskaźnik](../sentinel/resources.md)
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Jak utworzyć alerty w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -138,7 +138,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: rejestrowanie i monitorowanie](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Użyj źródeł synchronizacji zatwierdzonego czasu
 
@@ -152,7 +152,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure i wysyłanie dzienników do obszaru roboczego log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje wykonywane na zasobach usługi Azure ExpressRoute na poziomie płaszczyzny kontroli. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" w przypadku operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny kontroli dla zasobów ExpressRoute.
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -162,7 +162,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure i wysyłanie dzienników do obszaru roboczego log Analytics, usługi Azure Event Hub lub konta usługi Azure Storage w celu archiwizacji. Dzienniki aktywności zapewniają wgląd w operacje wykonywane na zasobach usługi Azure ExpressRoute na poziomie płaszczyzny kontroli. Korzystając z danych dziennika aktywności platformy Azure, można określić "co, kto i kiedy" w przypadku operacji zapisu (PUT, POST, DELETE) wykonanych na poziomie płaszczyzny kontroli dla zasobów ExpressRoute.
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -180,7 +180,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z zasobami ExpressRoute platformy Azure zgodnie z regulacjami zgodności w organizacji.
 
-* [Jak ustawić parametry przechowywania dziennika](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -190,9 +190,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure i wysyłanie dzienników do obszaru roboczego log Analytics. Wykonuj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie danych dziennika aktywności, które mogły zostać zebrane dla usługi Azure ExpressRoute.
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
 
-* [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
+* [Jak zbierać i analizować dzienniki aktywności platformy Azure w obszarze roboczym Log Analytics w Azure Monitor](../azure-monitor/platform/activity-log.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -202,7 +202,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: można skonfigurować w taki sposób, aby otrzymywać alerty na podstawie metryk i dzienników aktywności związanych z zasobami usługi Azure ExpressRoute. Azure Monitor umożliwia skonfigurowanie alertu w celu wysłania powiadomienia e-mail, wywołania elementu webhook lub wywoływać aplikację logiki platformy Azure.
 
-* [Informacje o monitorowaniu i alertach w ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-monitoring-metrics-alerts)
+* [Informacje o monitorowaniu i alertach w ExpressRoute](./expressroute-monitoring-metrics-alerts.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -234,7 +234,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: tożsamość i kontrola dostępu](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: tożsamość i kontrola dostępu](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
@@ -244,9 +244,9 @@ Za pomocą okienka tożsamość i kontrola dostępu (IAM) w Azure Portal subskry
 
 Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera ExpressRoute mogą zastosować Role-Based Access Control do zasobu expressRouteCrossConnection. Te kontrolki mogą definiować uprawnienia, dla których konta użytkowników mogą modyfikować zasób expressRouteCrossConnection oraz dodawać/aktualizować i usuwać konfiguracje komunikacji równorzędnej.
 
-* [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
-* [Korzystanie z usługi Azure RBAC w interfejsie API Menedżer zasobów partnera ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Korzystanie z usługi Azure RBAC w interfejsie API Menedżer zasobów partnera ExpressRoute](./cross-connections-api-development.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -269,9 +269,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 - Przestarzałe konta z uprawnieniami właściciela powinny zostać usunięte z subskrypcji
 - Konta zewnętrzne z uprawnieniami właściciela powinny zostać usunięte z subskrypcji
 
-* [Jak używać Azure Security Center do monitorowania tożsamości i dostępu (wersja zapoznawcza)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Jak używać Azure Security Center do monitorowania tożsamości i dostępu (wersja zapoznawcza)](../security-center/security-center-identity-access.md)
 
-* [Jak używać Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak używać Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -289,9 +289,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 **Wskazówki**: włączanie Azure Active Directory Multi-Factor Authentication i postępuj zgodnie z zaleceniami związanymi z zarządzaniem tożsamościami i dostępem Azure Security Center.
 
-* [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Jak monitorować tożsamość i dostęp w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -301,9 +301,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 **Wskazówki**: Użyj stacji roboczej dostępu uprzywilejowanego (dostępem uprzywilejowanym) z włączoną usługą Azure Multi-Factor Authentication (MFA), aby zalogować się i skonfigurować zasoby związane z platformą Azure.
 
-* [Stacje robocze z dostępem uprzywilejowanym](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Stacje robocze z dostępem uprzywilejowanym](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Planowanie wdrożenia usługi Azure Multi-Factor Authentication opartej na chmurze](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Planowanie wdrożenia usługi Azure Multi-Factor Authentication opartej na chmurze](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -315,9 +315,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetlać alerty i raporty na temat ryzykownego zachowania użytkowników.
 
-* [Jak wdrożyć Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Jak wdrożyć Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Omówienie wykrywania ryzyka usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Omówienie wykrywania ryzyka usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -327,7 +327,7 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 **Wskazówki**: Użyj dostępu warunkowego o nazwie Locations, aby zezwolić na dostęp do Azure Portal tylko z określonych logicznych grup zakresów lub krajów/regionów adresów IP.
 
-* [Jak skonfigurować nazwane lokalizacje na platformie Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Jak skonfigurować nazwane lokalizacje na platformie Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -337,7 +337,7 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 **Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla wystąpień usługi Azure wskaźnikowej. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
 
-* [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -347,9 +347,9 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 **Wskazówki**: Azure Active Directory (AD) zawiera dzienniki ułatwiające odnajdywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp.
 
-* [Informacje o raportowaniu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 
-* [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -363,9 +363,9 @@ Masz dostęp do źródeł działań związanych z logowaniem do usługi Azure AD
 
 Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty dzienników można skonfigurować w ramach Log Analytics.
 
-* [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Jak przejść do tablicy wskaźnikowej platformy Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Jak przejść do tablicy wskaźnikowej platformy Azure](../sentinel/quickstart-onboard.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -375,11 +375,11 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: w celu odróżnienia działania logowania do konta na płaszczyźnie kontroli (np. Azure Portal) użyj funkcji Azure AD Identity Protection i wykrywania ryzyka, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
 
-* [Jak wyświetlić ryzykowne logowanie do usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Jak wyświetlić ryzykowne logowanie do usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -389,7 +389,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: nie dotyczy; Skrytka klienta nie jest obsługiwana w przypadku usługi Azure ExpressRoute.
 
-* [Lista usług obsługiwanych przez Skrytka klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [Lista usług obsługiwanych przez Skrytka klienta](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -397,13 +397,13 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
 
 **Wskazówki**: Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, które przechowują lub przetwarzają informacje poufne.
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -413,9 +413,9 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji.
 
-* [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -425,7 +425,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: Firma Microsoft zarządza podstawową infrastrukturą dla obwodów usługi Azure ExpressRoute oraz powiązanych zasobów i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-* [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -435,7 +435,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: IPSec jest standardem IETF. Szyfruje dane na poziomie protokołu internetowego (IP) lub w warstwie sieciowej 3. Za pomocą protokołu IPsec można szyfrować kompleksowe połączenie między siecią lokalną a siecią wirtualną (VNET) na platformie Azure.
 
-* [Jak skonfigurować lokację do lokacji IPSEC przez ExpressRoute](https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering)
+* [Jak skonfigurować lokację do lokacji IPSEC przez ExpressRoute](./site-to-site-vpn-over-microsoft-peering.md)
 
 Jak skonfigurować lokację do lokacji IPSEC w ExpressRoute: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
 
@@ -447,7 +447,7 @@ Jak skonfigurować lokację do lokacji IPSEC w ExpressRoute: https://docs.micros
 
 **Wskazówki**: nie dotyczy; Usługa Azure ExpressRoute nie przechowuje danych klienta.
 
-* [Informacje o kontrolkach zabezpieczeń dla usługi Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
+* [Informacje o kontrolkach zabezpieczeń dla usługi Azure ExpressRoute](./expressroute-security-controls.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -461,11 +461,11 @@ Usługa Azure ExpressRoute ma także właściciela obwodu i role użytkownika ob
 
 Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera ExpressRoute mogą zastosować Role-Based Access Control do zasobu expressRouteCrossConnection. Te kontrolki mogą definiować uprawnienia, dla których konta użytkowników mogą modyfikować zasób expressRouteCrossConnection oraz dodawać/aktualizować i usuwać konfiguracje komunikacji równorzędnej.
 
-* [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
-* [Korzystanie z usługi Azure RBAC w interfejsie API Menedżer zasobów partnera ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Korzystanie z usługi Azure RBAC w interfejsie API Menedżer zasobów partnera ExpressRoute](./cross-connections-api-development.md)
 
-* [Poznanie ról administracyjnych w ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
+* [Poznanie ról administracyjnych w ExpressRoute](./expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -475,7 +475,7 @@ Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera Exp
 
 **Wskazówki**: nie dotyczy; to zalecenie jest przeznaczone do zasobów obliczeniowych. Firma Microsoft zarządza podstawową infrastrukturą dla platformy Azure i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-* [Ochrona danych klienta platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Ochrona danych klienta platformy Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -485,11 +485,11 @@ Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera Exp
 
 **Wskazówki**: MACsec jest standardem IEEE. Szyfruje dane na poziomie kontroli dostępu do nośnika (MAC) lub 2. Można użyć MACsec do szyfrowania fizycznych linków między urządzeniami sieciowymi i urządzeniami sieciowymi firmy Microsoft w przypadku łączenia się z firmą Microsoft za pośrednictwem ExpressRoute Direct. MACsec jest domyślnie wyłączona w portach bezpośrednie ExpressRoute. Możesz wprowadzić własny klucz MACsec na potrzeby szyfrowania i zapisać go w Azure Key Vault. Należy określić, kiedy należy obrócić klucz.
 
-* [Omówienie szyfrowania punkt-punkt na platformie Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-about-encryption)
+* [Omówienie szyfrowania punkt-punkt na platformie Azure ExpressRoute](./expressroute-about-encryption.md)
 
-* [Jak skonfigurować MACsec na portach Direct ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec)
+* [Jak skonfigurować MACsec na portach Direct ExpressRoute](./expressroute-howto-macsec.md)
 
-* [Podstawa zabezpieczeń platformy Azure dla Key Vault](https://docs.microsoft.com/azure/key-vault/general/security-baseline)
+* [Podstawa zabezpieczeń platformy Azure dla Key Vault](../key-vault/general/security-baseline.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -499,7 +499,7 @@ Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera Exp
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych usługi Azure ExpressRoute i innych krytycznych lub powiązanych zasobów.
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -507,7 +507,7 @@ Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera Exp
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Zarządzanie lukami w zabezpieczeniach](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: uruchamianie narzędzi do skanowania automatycznych luk w zabezpieczeniach
 
@@ -551,7 +551,7 @@ Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera Exp
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Spis i zarządzanie zasobami](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Spis i zarządzanie zasobami](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Użyj rozwiązania automatycznego odnajdywania zasobów
 
@@ -559,11 +559,11 @@ Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera Exp
 
 Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośrednictwem grafu zasobów, zdecydowanie zaleca się tworzenie i używanie Azure Resource Manager zasobów do przodu.
 
-* [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
-* [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -573,7 +573,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 **Wskazówki**: stosowanie tagów do zasobów platformy Azure, dzięki czemu metadane są logicznie zorganizowane w taksonomię.
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -587,11 +587,11 @@ Ponadto należy używać Azure Policy do umieszczania ograniczeń dotyczących t
 - Niedozwolone typy zasobów
 - Dozwolone typy zasobów
 
-* [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -611,9 +611,9 @@ Ponadto należy używać Azure Policy do umieszczania ograniczeń dotyczących t
 
 Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasobów w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-* [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -649,9 +649,9 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 - Niedozwolone typy zasobów
 - Dozwolone typy zasobów
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-* [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -669,7 +669,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Skonfiguruj dostęp warunkowy platformy Azure, aby ograniczyć możliwość korzystania przez użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management".
 
-* [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -693,15 +693,15 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: bezpieczna konfiguracja](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: bezpieczna konfiguracja](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure ExpressRoute za pomocą Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieciowej ExpressRoute.
 
-* [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -719,9 +719,9 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Użyj Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-* [Zrozumienie efektów Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -739,9 +739,9 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy, Użyj usługi Azure DevOps lub Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-* [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Dokumentacja Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -759,9 +759,9 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla usługi Azure ExpressRoute za pomocą Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieciowej ExpressRoute.
 
-* [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -779,7 +779,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: Użyj wbudowanych definicji Azure Policy, a także aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Użyj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], aby automatycznie wymuszać konfiguracje dla zasobów platformy Azure.
 
-* [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -797,7 +797,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: można użyć MACsec do szyfrowania fizycznych linków między urządzeniami sieciowymi i urządzeniami sieciowymi firmy Microsoft w przypadku łączenia się z firmą Microsoft za pośrednictwem ExpressRoute Direct. MACsec jest domyślnie wyłączona w portach bezpośrednie ExpressRoute. Możesz wprowadzić własny klucz MACsec na potrzeby szyfrowania i zapisać go w Azure Key Vault. Należy określić, kiedy należy obrócić klucz.
 
-* [Jak utworzyć wystąpienie Key Vault do przechowywania wpisów tajnych MACsec w nowej grupie zasobów](https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec)
+* [Jak utworzyć wystąpienie Key Vault do przechowywania wpisów tajnych MACsec w nowej grupie zasobów](./expressroute-howto-macsec.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -807,7 +807,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: nie dotyczy; Połączenia i zasoby platformy Azure ExpressRoute nie korzystają z zarządzanych tożsamości.
 
-* [Usługi platformy Azure, które obsługują tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+* [Usługi platformy Azure, które obsługują tożsamości zarządzane](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -825,7 +825,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Obrona złośliwego oprogramowania](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Obrona złośliwego oprogramowania](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Użyj centralnie zarządzanego oprogramowania chroniącego przed złośliwym oprogramowaniem
 
@@ -855,13 +855,13 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odzyskiwanie danych](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odzyskiwanie danych](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Zapewnij regularne zautomatyzowane przywracanie awaryjne
 
 **Wskazówki**: nie dotyczy; Usługa Azure ExpressRoute nie przechowuje danych klienta.
 
-* [Informacje o kontrolkach zabezpieczeń dla usługi Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
+* [Informacje o kontrolkach zabezpieczeń dla usługi Azure ExpressRoute](./expressroute-security-controls.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -871,7 +871,7 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 **Wskazówki**: w przypadku używania Azure Key Vault do przechowywania wpisów tajnych MACsec należy zapewnić regularne automatyczne tworzenie kopii zapasowych kluczy.
 
-* [Jak utworzyć kopię zapasową kluczy Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+* [Jak utworzyć kopię zapasową kluczy Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -881,9 +881,9 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 **Wskazówki**: testowanie przywracania kopii zapasowych kluczy zarządzanych przez klienta.
 
-* [Jak przywrócić klucze magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Jak przywrócić klucze magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Testowanie łączności obwodów usługi Azure ExpressRoute po skonfigurowaniu MACsec](https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec)
+* [Testowanie łączności obwodów usługi Azure ExpressRoute po skonfigurowaniu MACsec](./expressroute-howto-macsec.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -893,7 +893,7 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 **Wskazówki**: Włącz Soft-Delete w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
-* [Jak włączyć Soft-Delete w Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Jak włączyć Soft-Delete w Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -901,13 +901,13 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odpowiedź na zdarzenia](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odpowiedź na zdarzenia](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
 **Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu.
 
-* [Jak skonfigurować automatyzację przepływu pracy w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Jak skonfigurować automatyzację przepływu pracy w Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 * [Wskazówki dotyczące tworzenia własnego procesu reagowania na zdarzenia zabezpieczeń](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -943,7 +943,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 **Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych klienta został uzyskany przez nielegalną lub nieautoryzowaną osobę. Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
 
-* [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -953,9 +953,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 **Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center, aby przesłać strumieniowo wskaźnik do alertów.
 
-* [Jak skonfigurować eksport ciągły](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Jak skonfigurować eksport ciągły](../security-center/continuous-export.md)
 
-* [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](../sentinel/connect-azure-security-center.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -965,7 +965,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 **Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Azure Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń.
 
-* [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](../security-center/workflow-automation.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -973,7 +973,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: testy penetracji i czerwone ćwiczenia zespołu](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: testy penetracji i czerwone ćwiczenia zespołu](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 
@@ -987,5 +987,5 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

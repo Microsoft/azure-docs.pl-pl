@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: 41bb72ba4c220a0dd2ebb93f2bd313a15d108faa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9dda384e2ef30808559d10012dea2909b2af0fd
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856283"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206938"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Samouczek: łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu interfejsu wiersza polecenia
 
 W tym samouczku pokazano, jak połączyć sieci wirtualne (sieci wirtualnych) z obwodymi usługi Azure ExpressRoute przy użyciu interfejsu wiersza polecenia platformy Azure. Aby utworzyć łącze przy użyciu interfejsu wiersza polecenia platformy Azure, należy utworzyć sieci wirtualne przy użyciu Menedżer zasobów model wdrażania. Mogą one znajdować się w tej samej subskrypcji lub części innej subskrypcji. Jeśli chcesz użyć innej metody do łączenia sieci wirtualnej z obwodem usługi ExpressRoute, możesz wybrać artykuł z poniższej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -35,13 +35,13 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Potrzebna jest Najnowsza wersja interfejsu wiersza polecenia (CLI). Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Potrzebna jest Najnowsza wersja interfejsu wiersza polecenia (CLI). Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * Przed rozpoczęciem konfiguracji zapoznaj się z warunkami [wstępnymi](expressroute-prerequisites.md), [wymaganiami dotyczącymi routingu](expressroute-routing.md)i [przepływami pracy](expressroute-workflows.md) .
 * Musisz mieć aktywny obwód usługi ExpressRoute. 
   * Postępuj zgodnie z instrukcjami, aby [utworzyć obwód usługi ExpressRoute](howto-circuit-cli.md) i mieć obwód włączony przez dostawcę połączenia. 
   * Upewnij się, że masz skonfigurowaną prywatną komunikację równorzędną Azure dla obwodu. Instrukcje dotyczące routingu można znaleźć w artykule [Konfigurowanie routingu](howto-routing-cli.md) . 
   * Upewnij się, że skonfigurowano prywatną komunikację równorzędną Azure. Należy ustanowić komunikację równorzędną BGP między siecią i firmą Microsoft, aby umożliwić kompleksowe połączenie.
-  * Upewnij się, że masz utworzoną sieć wirtualną i bramę sieci wirtualnej i została ona w pełni zainicjowana. Postępuj zgodnie z instrukcjami, aby [skonfigurować bramę sieci wirtualnej dla usługi ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Upewnij się, że używasz `--gateway-type ExpressRoute` .
+  * Upewnij się, że masz utworzoną sieć wirtualną i bramę sieci wirtualnej i została ona w pełni zainicjowana. Postępuj zgodnie z instrukcjami, aby [skonfigurować bramę sieci wirtualnej dla usługi ExpressRoute](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md). Upewnij się, że używasz `--gateway-type ExpressRoute` .
 * Do obwodu standardowego ExpressRoute można połączyć maksymalnie 10 sieci wirtualnych. Wszystkie sieci wirtualne muszą znajdować się w tym samym regionie geopolitycznym w przypadku korzystania ze standardowego obwodu usługi ExpressRoute. 
 * Jedna sieć wirtualna może być połączona do maksymalnie czterech obwodów usługi ExpressRoute. Użyj poniższego procesu, aby utworzyć nowy obiekt połączenia dla każdego obwodu usługi ExpressRoute, z którym nawiązujesz połączenie. Obwody usługi ExpressRoute mogą znajdować się w tej samej subskrypcji, różnych subskrypcjach lub kombinacji obu tych elementów.
 * Po włączeniu dodatku ExpressRoute Premium można połączyć sieci wirtualne poza regionem geopolitycznym obwodu ExpressRoute. Dodatek Premium umożliwia również łączenie więcej niż 10 sieci wirtualnych do obwodu ExpressRoute, w zależności od wybranej przepustowości. Zapoznaj się z [często zadawanymi pytaniami](expressroute-faqs.md) , aby uzyskać więcej informacji na temat dodatku Premium.

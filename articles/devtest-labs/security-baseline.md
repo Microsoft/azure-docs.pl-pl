@@ -3,12 +3,12 @@ title: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 description: Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 838501bf4195c99c4d4ef7805fb8f4cba79e05d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151877"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207295"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Podstawa zabezpieczeń platformy Azure dla Azure DevTest Labs
 
@@ -493,7 +493,7 @@ Oprócz używania Change Tracking do monitorowania aplikacji programowych, adapt
 **Wskazówki:** Azure Automation zapewnia pełną kontrolę podczas wdrażania, działania i likwidowania obciążeń i zasobów. Administrator subskrypcji może używać Change Tracking do identyfikowania wszystkich programów zainstalowanych na maszynach wirtualnych hostowanych w DevTest Labs. Aby usunąć nieautoryzowane oprogramowanie, można zaimplementować własny proces lub użyć konfiguracji stanu Azure Automation.
 
 - [Wprowadzenie do usługi Azure Automation](../automation/automation-intro.md)
-- [Śledź zmiany w środowisku przy użyciu rozwiązania Change Tracking](../automation/change-tracking.md)
+- [Śledź zmiany w środowisku przy użyciu rozwiązania Change Tracking](../automation/change-tracking/overview.md)
 - [Przegląd konfiguracji stanu Azure Automation](../automation/automation-dsc-overview.md)
 
 **Monitorowanie Azure Security Center:** Niedostępne
@@ -581,7 +581,7 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 - [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 - [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](../governance/policy/tutorials/create-and-manage.md)
 - [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
-- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](../security-center/recommendations-reference.md)
+- [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](../security-center/recommendations-reference.md)
 
 **Monitorowanie Azure Security Center:** Nie dotyczy
 
@@ -591,7 +591,7 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 **Wskazówki:** Użyj zaleceń Azure Security Center, aby zachować konfiguracje zabezpieczeń dla wszystkich podstawowych zasobów obliczeniowych utworzonych w ramach DevTest Labs. Ponadto możesz użyć niestandardowych obrazów systemu operacyjnego lub Azure Automation konfiguracji stanu lub artefaktów DevTest Labs, aby określić konfigurację zabezpieczeń systemu operacyjnego wymaganego przez organizację.
 
 - [Jak monitorować zalecenia dotyczące Azure Security Center](../security-center/security-center-recommendations.md)
-- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](../security-center/recommendations-reference.md)
+- [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](../security-center/recommendations-reference.md)
 - [Przegląd konfiguracji stanu Azure Automation](../automation/automation-dsc-overview.md)
 - [Przekazywanie wirtualnego dysku twardego i używanie go do tworzenia nowych maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/windows/upload-generalized-managed.md)
 - [Tworzenie maszyny wirtualnej z systemem Linux na podstawie dysku niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure](../virtual-machines/linux/upload-vhd.md)

@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
-ms.openlocfilehash: 4cc96a8183e07a17ae880549cdc2b8bdca516322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70407d726b697dd6c4dfb6777cf6c445092d3b73
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651500"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206329"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja (wersja klasyczna)
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Istnieją dwa różne zestawy procedur do wyboru służące do konfigurowania po
 Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lokacja-lokacja oraz usługi ExpressRoute, które będą współistnieć.
 
 1. Niezbędne jest zainstalowanie najnowszej wersji poleceń cmdlet programu Azure PowerShell.  Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azure/) (Instalowanie i konfigurowanie programu Azure PowerShell). Pamiętaj, że polecenia cmdlet, które zostaną użyte do tej konfiguracji, mogą trochę różnić się od tych, które znasz. Koniecznie użyj poleceń cmdlet podanych w tych instrukcjach. 
-2. Utwórz schemat dla sieci wirtualnej. Więcej informacji na temat schematu konfiguracji znajduje się w artykule [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Schemat konfiguracji sieci wirtualnej Azure).
+2. Utwórz schemat dla sieci wirtualnej. Więcej informacji na temat schematu konfiguracji znajduje się w artykule [Azure Virtual Network configuration schema](/previous-versions/azure/reference/jj157100(v=azure.100)) (Schemat konfiguracji sieci wirtualnej Azure).
    
     Podczas tworzenia schematu pamiętaj, aby użyć następujących wartości:
    
@@ -229,7 +229,7 @@ Jeśli podsieć bramy ma wartość /27 lub większą, a sieć wirtualna jest po�
 4. Edytuj schemat pliku konfiguracji sieci w taki sposób, aby wartość podsieci bramy wynosiła /27 lub miała krótszy prefiks (np. /26 lub /25). Zobacz poniższy przykład. 
    
    > [!NOTE]
-   > Jeśli nie masz wystarczającej liczby adresów IP w sieci wirtualnej, aby zwiększyć rozmiar podsieci bramy, dodaj więcej przestrzeni adresowej IP. Więcej informacji na temat schematu konfiguracji znajduje się w artykule [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Schemat konfiguracji sieci wirtualnej Azure).
+   > Jeśli nie masz wystarczającej liczby adresów IP w sieci wirtualnej, aby zwiększyć rozmiar podsieci bramy, dodaj więcej przestrzeni adresowej IP. Więcej informacji na temat schematu konfiguracji znajduje się w artykule [Azure Virtual Network configuration schema](/previous-versions/azure/reference/jj157100(v=azure.100)) (Schemat konfiguracji sieci wirtualnej Azure).
    > 
    > 
    
@@ -253,4 +253,3 @@ Jeśli podsieć bramy ma wartość /27 lub większą, a sieć wirtualna jest po�
 
 ## <a name="next-steps"></a>Następne kroki
 Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
-

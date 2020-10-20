@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/23/2020
-ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268727"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207715"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -35,7 +35,7 @@ Oferty, które uzyskują dostęp **do usługi Azure IP zachęcani** , mają doda
 
 * Opłata za usługę Marketplace jest zmniejszana z 20% do 10%. Ten Rabat dotyczy oferty IaaS lub SaaS sprzedawanej za pomocą komercyjnej witryny Marketplace. Aby uzyskać więcej informacji, zobacz [ograniczoną opłatą za usługę](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) .
 * Partnerzy dostawcy rozwiązań w chmurze (CSP) otrzymują zachętę 10% do sprzedaży oferty IaaS lub SaaS. Dowiedz się więcej na temat programu CSP w [programie Cloud Solution Provider](cloud-solution-providers.md).
-* Sprzedaż oferty za pomocą komercyjnej witryny Marketplace przyczynia się do realizacji zobowiązań dotyczących użycia platformy Azure przez klientów. Uprawnieni klienci będą widzieć ofertę oznaczoną jako **"kwalifikujące się do korzystania z platformy Azure"** w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [korzyść z tytułu zobowiązania dotyczącego użycia platformy Azure](azure-consumption-commitment-benefit.md) .
+* Sprzedaż oferty za pomocą komercyjnej witryny Marketplace przyczynia się do realizacji zobowiązań dotyczących użycia platformy Azure przez klientów. Uprawnieni klienci będą widzieć ofertę oznaczoną jako **"uprawniający do korzystania z platformy Azure"** w Azure Portal. Aby uzyskać więcej informacji, zobacz [korzyść z tytułu zobowiązania dotyczącego użycia platformy Azure](azure-consumption-commitment-benefit.md) .
 * Oferty mające na celu osiągnięcie **zachęcani usługi Azure IP do współdzielenia** lub **Business Applications współsprzedażowego stanu zachęcani** będą otrzymywać wskaźnik **"preferowanych rozwiązań"** w lokalizacjach w sklepie. Wskaźnik promuje jakość, wydajność i możliwość zaspokajania potrzeb klientów w pewnym regionie lub obszarze rozwiązania. Dowiedz się więcej na temat [preferowanych rozwiązań w Microsoft AppSource i witrynie Azure Marketplace](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Współsprzedażowe kroki i wymagania dotyczące publikowania
@@ -45,7 +45,7 @@ W poniższej tabeli przedstawiono kroki i wymagania, które należy wykonać w c
 |Krok    |Typ oferty    |Wymagania    |Stan współpracy ze sprzedażą    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li> Utwórz konto w centrum partnerskim i Opublikuj swoją ofertę w komercyjnym portalu Marketplace.</li>|Wszystkie|<li>Oferta jest zgodna z komercyjnymi wymaganiami dotyczącymi publikowania w portalu Marketplace.</li><li>Masz pełny profil biznesowy w centrum partnerskim.</li>|Nie gotowy|
-|<ol start=2><li>Prześlij wymagane materiały do przedsprzedażu.</li>|Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Przekaż wymagane materiały w centrum partnerskim](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Kontakt sprzedaży dla każdego kwalifikującego się kraju.</li><li>Zestawienie materiałów: klient z jednym modułem stronicowania, pokładem prezentacji dla klientów (opcjonalnie), adresem URL strony docelowej rozwiązania, adresem URL kanału społecznościowego lub innym (na przykład z analizą przypadku).|Gotowe do rozłożenia|
+|<ol start=2><li>Prześlij wymagane materiały do przedsprzedażu.</li>|Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Przekaż wymagane materiały w centrum partnerskim](#how-to-submit-co-sell-materials-in-partner-center)|Gotowe do rozłożenia|
 ||Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.|Gotowe do rozłożenia|
 ||Usługi konsultingowe|<li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.</li><li>Aktywna kompetencja Gold.</li>|Gotowe do rozłożenia|
 |<ol start=3><li>Kwalifikuj na zachęty dla współsprzedażowych adresów IP</li>|Aplikacje platformy Azure, kontenery platformy Azure, moduły IoT Edge, SaaS, maszyny wirtualne|Po osiągnięciu gotowości do współpracy należy wykonać dwa dodatkowe wymagania: <ul> Wymaganie 1: osiągnięcie:<ul><li>*Na poziomie organizacji:* spełnia lub przekracza $100 000 USD przychodu zużywanego przez platformę Azure w ciągu ostatnich 12 miesięcy.</li><li>*Na poziomie oferty:* skumulowany przychód w portalu Marketplace $100 000 USD.</li></ul><br>Wymaganie 2: więcej niż 50% infrastruktury oferty musi działać na platformie Azure:<ul><li>Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): Przekaż diagram architektury z dokumentami towarzyszącymi w centrum partnerskim do przeglądu.</li><li>Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): Przekaż diagram architektury do OCP GTM.|Usługa Azure IP zachęcani — sprzedawanie|
@@ -63,15 +63,19 @@ Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonu
 
 1. W menu po lewej stronie wybierz pozycję **współsprzedaż z firmą Microsoft**.
 
-    [![Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::
 
-1. Podaj szczegółowe informacje o ofercie i przekaż zabezpieczenia w sekcji **dokumenty** . Sprzedawcy firmy Microsoft będą korzystać z tych informacji w celu zaproponowania i sprzedaży oferty.
+1. Podaj podstawowe szczegóły dotyczące aukcji, aby pomóc sprzedającym firmy Microsoft w szybkim posortowaniu i znalezieniu oferty w sekcji **wystawiania** . (*Wymagane: wszystkie pola).*
+
+    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::  
+
+1. Podaj szczegółowe informacje o ofercie i przekaż zabezpieczenia w sekcji **dokumenty** . Sprzedawcy firmy Microsoft będą korzystać z tych informacji w celu zaproponowania i sprzedaży oferty. (*Wymagane: klient z jednym modułem stronicowania i talią klienta).*
+
+    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::
  
-   [![Ten obraz przedstawia sekcję dokumenty na karcie współsprzedaż.](./media/co-sell/co-sell-documents-section.png)](./media/co-sell/co-sell-documents-section.png#lightbox)
+1. Przekaż informacje kontaktowe sprzedaży w sekcji **kontakty** . Sprzedawcy firmy Microsoft mogą skontaktować się z tymi kontaktami, aby zażądać dodatkowych informacji o ofercie. (*Wymagane: kontakt dla każdej lokalizacji geograficznej, w której oferta jest*udostępniona).
 
-1. Przekaż informacje kontaktowe sprzedaży w sekcji **kontakty** . Sprzedawcy firmy Microsoft mogą skontaktować się z tymi kontaktami, aby zażądać dodatkowych informacji o ofercie.
-
-     [![Ten obraz przedstawia sekcję kontakty na karcie współsprzedaż.](./media/co-sell/co-sell-contacts-section.png)](./media/co-sell/co-sell-contacts-section.png#lightbox)
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::
 
 1. Zapisz wersję roboczą przed kontynuowaniem.
 1. Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji. W prawym górnym rogu wybierz pozycję **Przejrzyj i Opublikuj**. Przejrzyj szczegóły oferty, a następnie wybierz pozycję **Publikuj**.

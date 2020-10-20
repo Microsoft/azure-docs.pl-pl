@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: a862b978d7737d3d1c301d090012576f64a3ddda
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150732"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202212"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -80,13 +80,13 @@ ExpressRoute obsługuje [trzy domeny routingu](expressroute-circuit-peerings.md)
 
 ### <a name="microsoft-peering"></a>Komunikacja równorzędna firmy Microsoft
 
-Jeśli obwód usługi ExpressRoute jest włączony dla komunikacji równorzędnej Azure Microsoft, możesz uzyskać dostęp do [zakresów publicznych adresów IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) używanych na platformie Azure w ramach obwodu. Komunikacja równorzędna Azure firmy Microsoft zapewnia dostęp do usług hostowanych obecnie na platformie Azure (z ograniczeniami geograficznymi w zależności od jednostki SKU obwodu). Aby sprawdzić dostępność określonej usługi, możesz sprawdzić dokumentację tej usługi, aby sprawdzić, czy istnieje zastrzeżony zakres opublikowany dla tej usługi. Następnie należy odszukać zakresy adresów IP usługi docelowej i porównać z zakresami wymienionymi w obszarze [zakresy adresów IP platformy Azure i Tagi usług — plik XML chmury publicznej](https://www.microsoft.com/download/details.aspx?id=56519). Możesz również otworzyć bilet pomocy technicznej dla omawianej usługi, aby uzyskać wyjaśnienie.
+Jeśli obwód usługi ExpressRoute jest włączony dla komunikacji równorzędnej Azure Microsoft, możesz uzyskać dostęp do [zakresów publicznych adresów IP](../virtual-network/public-ip-addresses.md#public-ip-addresses) używanych na platformie Azure w ramach obwodu. Komunikacja równorzędna Azure firmy Microsoft zapewnia dostęp do usług hostowanych obecnie na platformie Azure (z ograniczeniami geograficznymi w zależności od jednostki SKU obwodu). Aby sprawdzić dostępność określonej usługi, możesz sprawdzić dokumentację tej usługi, aby sprawdzić, czy istnieje zastrzeżony zakres opublikowany dla tej usługi. Następnie należy odszukać zakresy adresów IP usługi docelowej i porównać z zakresami wymienionymi w obszarze [zakresy adresów IP platformy Azure i Tagi usług — plik XML chmury publicznej](https://www.microsoft.com/download/details.aspx?id=56519). Możesz również otworzyć bilet pomocy technicznej dla omawianej usługi, aby uzyskać wyjaśnienie.
 
 **Obsługiwał**
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
-* Power BI — dostępne za pośrednictwem społeczności regionalnej platformy Azure, zobacz [tutaj](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) , jak sprawdzić region dzierżawy Power BI.
-* Usługa Azure Active Directory
+* Power BI — dostępne za pośrednictwem społeczności regionalnej platformy Azure, zobacz [tutaj](/power-bi/service-admin-where-is-my-tenant-located) , jak sprawdzić region dzierżawy Power BI.
+* Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (społeczność usług globalnych platformy Azure)
 * Publiczne adresy IP platformy Azure dla IaaS (Virtual Machines, bram Virtual Network, modułów równoważenia obciążenia itp.)  
 * Obsługiwane są również większość innych usług platformy Azure. Skontaktuj się bezpośrednio z usługą, która ma zostać użyta, aby zweryfikować pomoc techniczną.
@@ -118,7 +118,7 @@ Jeśli zobaczysz komunikat "wymagana Walidacja", Zbierz dokumenty, które pokazu
 Środowiska Dynamics 365 i Common Data Service (CD) są hostowane na platformie Azure, dlatego klienci korzystają z podstawowej obsługi ExpressRoute zasobów platformy Azure. Można nawiązać połączenie z punktami końcowymi usługi, jeśli filtr routera obejmuje regiony platformy Azure, w których są hostowane środowiska usługi Dynamics 365/CD.
 
 > [!NOTE]
-> Usługa [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) **nie** jest wymagana dla łączności z usługą Dynamics 365 za pośrednictwem usługi Azure ExpressRoute, jeśli obwód ExpressRoute jest wdrożony w tym samym [regionie geopolitycznym](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations).
+> Usługa [ExpressRoute Premium](#expressroute-premium) **nie** jest wymagana dla łączności z usługą Dynamics 365 za pośrednictwem usługi Azure ExpressRoute, jeśli obwód ExpressRoute jest wdrożony w tym samym [regionie geopolitycznym](./expressroute-locations-providers.md#expressroute-locations).
 
 ## <a name="data-and-connections"></a>Dane i połączenia
 
@@ -152,15 +152,15 @@ Jeśli jedno z połączeń krzyżowych zakończy się niepowodzeniem, nastąpi u
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Jak mogę zaimplementować nadmiarowości prywatnej komunikacji równorzędnej?
 
-Wiele obwodów usługi ExpressRoute z różnych lokalizacji komunikacji równorzędnej lub maksymalnie czterech połączeń z tej samej lokalizacji komunikacji równorzędnej można podłączyć do tej samej sieci wirtualnej, aby zapewnić wysoką dostępność w przypadku, gdy jeden obwód stanie się niedostępny. Następnie można [przypisać wyższe wagi](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) do jednego z połączeń lokalnych w celu preferowania określonego obwodu. Zdecydowanie zalecamy, aby klienci mogli skonfigurować co najmniej dwa obwody usługi ExpressRoute, aby uniknąć pojedynczych punktów awarii. 
+Wiele obwodów usługi ExpressRoute z różnych lokalizacji komunikacji równorzędnej lub maksymalnie czterech połączeń z tej samej lokalizacji komunikacji równorzędnej można podłączyć do tej samej sieci wirtualnej, aby zapewnić wysoką dostępność w przypadku, gdy jeden obwód stanie się niedostępny. Następnie można [przypisać wyższe wagi](./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection) do jednego z połączeń lokalnych w celu preferowania określonego obwodu. Zdecydowanie zalecamy, aby klienci mogli skonfigurować co najmniej dwa obwody usługi ExpressRoute, aby uniknąć pojedynczych punktów awarii. 
 
-Zobacz [tutaj](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) , aby zapoznać się z projektowaniem pod kątem wysokiej dostępności i w [tym miejscu](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) na potrzeby projektowania odzyskiwania po awarii.  
+Zobacz [tutaj](./designing-for-high-availability-with-expressroute.md) , aby zapoznać się z projektowaniem pod kątem wysokiej dostępności i w [tym miejscu](./designing-for-disaster-recovery-with-expressroute-privatepeering.md) na potrzeby projektowania odzyskiwania po awarii.  
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Jak wdrożyć nadmiarowość w komunikacji równorzędnej firmy Microsoft?
 
-Zdecydowanie zaleca się, aby klienci korzystali z komunikacji równorzędnej firmy Microsoft w celu uzyskiwania dostępu do usług publicznych platformy Azure, takich jak Azure Storage lub Azure SQL, a także klientów korzystających z komunikacji równorzędnej firmy Microsoft dla Microsoft 365, że implementują wiele obwodów w różnych lokalizacjach komunikacji równorzędnej w celu uniknięcia pojedynczych punktów awarii. Klienci mogą anonsować ten sam prefiks na obu obwodach i używać [jako ścieżki oczekujących](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) lub anonsować różne prefiksy w celu określenia ścieżki ze środowisk lokalnych.
+Zdecydowanie zaleca się, aby klienci korzystali z komunikacji równorzędnej firmy Microsoft w celu uzyskiwania dostępu do usług publicznych platformy Azure, takich jak Azure Storage lub Azure SQL, a także klientów korzystających z komunikacji równorzędnej firmy Microsoft dla Microsoft 365, że implementują wiele obwodów w różnych lokalizacjach komunikacji równorzędnej w celu uniknięcia pojedynczych punktów awarii. Klienci mogą anonsować ten sam prefiks na obu obwodach i używać [jako ścieżki oczekujących](./expressroute-optimize-routing.md#solution-use-as-path-prepending) lub anonsować różne prefiksy w celu określenia ścieżki ze środowisk lokalnych.
 
-Zobacz [tutaj](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) , aby zapoznać się z projektowaniem pod kątem wysokiej dostępności.
+Zobacz [tutaj](./designing-for-high-availability-with-expressroute.md) , aby zapoznać się z projektowaniem pod kątem wysokiej dostępności.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Jak mogę zapewnić wysoką dostępność w sieci wirtualnej połączonej z usługą ExpressRoute?
 
@@ -170,7 +170,7 @@ Wysoką dostępność można uzyskać, łącząc maksymalnie cztery obwody usłu
 
 Musisz zaimplementować lokalny atrybut *preferencji* na routerach, aby upewnić się, że ścieżka z lokalnego do platformy Azure jest zawsze preferowana w obwodach usługi ExpressRoute.
 
-[Więcej szczegółowych informacji](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) znajduje się w sekcji Wybór ścieżki BGP i typowe konfiguracje routera. 
+[Więcej szczegółowych informacji](./expressroute-optimize-routing.md#path-selection-on-microsoft-and-public-peerings) znajduje się w sekcji Wybór ścieżki BGP i typowe konfiguracje routera. 
 
 ### <a name="if-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>Jeśli nie znajduje się na serwerze Exchange w chmurze, a dostawca usług oferuje połączenie punkt-punkt, czy muszę zamówić dwa połączenia fizyczne między siecią lokalną a firmą Microsoft?
 
@@ -384,7 +384,7 @@ Aby uzyskać informacje [, zobacz ExpressRoute partnerzy i lokalizacje](expressr
 Tak. Punkty końcowe usługi Microsoft 365 są dostępne za pośrednictwem Internetu, nawet jeśli skonfigurowano ExpressRoute dla sieci. Skontaktuj się z zespołem sieci w organizacji, jeśli sieć w lokalizacji jest skonfigurowana do łączenia się z usługami Microsoft 365 za pomocą ExpressRoute.
 
 ### <a name="how-can-i-plan-for-high-availability-for-microsoft-365-network-traffic-on-azure-expressroute"></a>Jak zaplanować wysoką dostępność Microsoft 365 ruchu sieciowego na platformie Azure ExpressRoute?
-Zapoznaj się z zaleceniami dotyczącymi [wysokiej dostępności i trybu failover za pomocą usługi Azure ExpressRoute](https://aka.ms/erhighavailability)
+Zapoznaj się z zaleceniami dotyczącymi [wysokiej dostępności i trybu failover za pomocą usługi Azure ExpressRoute](/microsoft-365/enterprise/network-planning-with-expressroute)
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Czy mogę uzyskać dostęp do usług Office 365 dla instytucji rządowych USA (Microsoft Community) w ramach obwodu ExpressRoute dla instytucji rządowych USA platformy Azure?
 
@@ -422,5 +422,4 @@ Istniejący obwód będzie kontynuował anonsowanie prefiksów Microsoft 365. Je
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>Czy usługa ExpressRoute przechowuje dane klienta?
 
-Nie. 
-
+Nie.

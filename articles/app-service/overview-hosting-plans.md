@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742977"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200852"
 ---
 # <a name="azure-app-service-plan-overview"></a>Plan usługi Azure App Service — omówienie
 
@@ -37,7 +37,7 @@ Każda warstwa udostępnia również określony podzbiór funkcji App Service. T
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> Nowa warstwa cenowa **PremiumV3** gwarantuje [maszyny wirtualne z serii Dv3](../virtual-machines/dv3-dsv3-series.md) z szybszymi procesorami, magazynem SSD i czterokrotnym wskaźnikiem pamięci na rdzeń w porównaniu z warstwą **Standard** . Usługa **PremiumV3** obsługuje również wyższą skalę dzięki większej liczbie wystąpień, jednocześnie zapewniając jednocześnie wszystkie zaawansowane możliwości dostępne w warstwie **standardowa** . Wszystkie funkcje dostępne w istniejącej warstwie **PremiumV2** są zawarte w **PremiumV3**.
+> Nowa warstwa cenowa **PremiumV3** gwarantuje maszynom z szybszymi procesorami (minimalny 195 [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) na wirtualny procesor CPU), magazyn SSD i czterokrotny stosunek pamięci na rdzeń w porównaniu z warstwą **standardowa** . Usługa **PremiumV3** obsługuje również wyższą skalę dzięki większej liczbie wystąpień, jednocześnie zapewniając jednocześnie wszystkie zaawansowane możliwości dostępne w warstwie **standardowa** . Wszystkie funkcje dostępne w istniejącej warstwie **PremiumV2** są zawarte w **PremiumV3**.
 >
 > Podobnie jak w przypadku innych dedykowanych warstw, dla tej warstwy są dostępne trzy rozmiary maszyn wirtualnych:
 >

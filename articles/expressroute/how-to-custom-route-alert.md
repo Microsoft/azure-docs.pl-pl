@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b812a727a555f8c4c95389f2ba0cc5ccea2f608a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766663"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205563"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurowanie alertów niestandardowych do monitorowania anonsowanych tras
 
@@ -32,7 +32,7 @@ Konfigurowanie alertu niestandardowego odbywa się na podstawie trzech głównyc
 
 3. Utwórz aplikację logiki, która będzie wyzwalać konto usługi Automation i wysyłać wiadomości e-mail o alertach, jeśli liczba jest większa niż wartość progowa (na przykład 160).
 
-## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 
@@ -42,7 +42,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 
 * Znasz [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-* Wiesz już, jak korzystać z Azure PowerShell. Do zebrania prefiksów sieci w bramie ExpressRoute jest wymagane Azure PowerShell. Aby uzyskać więcej informacji na temat ogólnie Azure PowerShell, zapoznaj się z [dokumentacją Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-4.1.0).
+* Wiesz już, jak korzystać z Azure PowerShell. Do zebrania prefiksów sieci w bramie ExpressRoute jest wymagane Azure PowerShell. Aby uzyskać więcej informacji na temat ogólnie Azure PowerShell, zapoznaj się z [dokumentacją Azure PowerShell](/powershell/azure/?view=azps-4.1.0).
 
 ### <a name="notes-and-limitations"></a><a name="limitations"></a>Uwagi i ograniczenia
 
@@ -257,7 +257,7 @@ Po uruchomieniu skryptu programu PowerShell jest pobierana lista wartości:
 
 * Komunikat alertu dla pełnego opisu stanu (OK, ALERT, ostrzeżenie)
 
-Skrypt programu PowerShell konwertuje zebrane informacje na dane wyjściowe JSON. Element Runbook używa polecenia cmdlet [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  programu PowerShell jako strumienia wyjściowego do przekazywania informacji do klienta.
+Skrypt programu PowerShell konwertuje zebrane informacje na dane wyjściowe JSON. Element Runbook używa polecenia cmdlet [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output)  programu PowerShell jako strumienia wyjściowego do przekazywania informacji do klienta.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. Sprawdź poprawność elementu Runbook
 

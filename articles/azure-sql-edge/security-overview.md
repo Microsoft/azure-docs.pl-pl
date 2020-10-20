@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 17e3e8dca1c03f9783c0ca94350bb8a4ba5aca64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 737c7e61a7ae0573ca6de0d6daa8288313f70741
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938646"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201906"
 ---
 # <a name="securing-azure-sql-edge"></a>Zabezpieczanie usługi Azure SQL Edge
 
@@ -38,7 +38,7 @@ Aby uzyskać więcej informacji na temat protokołów sieciowych i punktów koń
 
 ## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja 
 
-### <a name="authentication"></a>Uwierzytelnianie  
+### <a name="authentication"></a>Authentication  
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Usługa Azure SQL Edge obecnie obsługuje tylko `SQL Authentication` mechanizm.
 
 - *Uwierzytelnianie SQL*:
@@ -92,8 +92,8 @@ Podobnie jak w przypadku usługi Azure SQL i Microsoft SQL Server, usługa Azure
 
 Najlepsze rozwiązania w zakresie zabezpieczeń usługi Azure SQL Edge obejmują pisanie bezpiecznych aplikacji klienckich. Aby uzyskać więcej informacji na temat zabezpieczania aplikacji klienckich w warstwie sieciowej, zobacz [Konfiguracja sieci klienta](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration).
 
-### <a name="sql-server-security-catalog-views-and-functions"></a>SQL Server widoków i funkcji wykazu zabezpieczeń  
- Informacje o zabezpieczeniach są udostępniane w kilku widokach i funkcjach, które są zoptymalizowane pod kątem wydajności i narzędzi. Poniższa tabela zawiera informacje o widokach i funkcjach zabezpieczeń.  
+### <a name="security-catalog-views-and-functions"></a>Widoki i funkcje wykazu zabezpieczeń  
+Informacje o zabezpieczeniach są udostępniane w kilku widokach i funkcjach, które są zoptymalizowane pod kątem wydajności i narzędzi. Poniższa tabela zawiera informacje o widokach i funkcjach zabezpieczeń w usłudze Azure SQL Edge.  
   
 |Funkcje i widoki|Linki|  
 |---------------------------|---------|  

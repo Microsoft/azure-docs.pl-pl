@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89396492"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208247"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurowanie trybu transportu IPsec dla prywatnej komunikacji równorzędnej ExpressRoute
 
@@ -61,11 +61,11 @@ Podczas konfigurowania zasad protokołu IPsec ważne jest zapoznanie się z nast
 
 [![5]][5]
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Upewnij się, że spełniono następujące wymagania wstępne:
 
-* Aby zaimplementować ustawienia zasady grupy, należy mieć działającą Active Directory konfigurację. Aby uzyskać więcej informacji o obiektach zasad grupy, zobacz [zasady grupy obiektów](https://msdn.microsoft.com/library/windows/desktop/aa374162(v=vs.85).aspx).
+* Aby zaimplementować ustawienia zasady grupy, należy mieć działającą Active Directory konfigurację. Aby uzyskać więcej informacji o obiektach zasad grupy, zobacz [zasady grupy obiektów](/previous-versions/windows/desktop/Policy/group-policy-objects).
 
 * Musisz mieć aktywny obwód usługi ExpressRoute.
   * Aby uzyskać informacje na temat tworzenia obwodu usługi ExpressRoute, zobacz [Tworzenie obwodu usługi ExpressRoute](expressroute-howto-circuit-arm.md). 

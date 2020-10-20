@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 072eeb0bee0d0441549d2edad448f3b1c85a28a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566504"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202348"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute circuits and peering (Obwody usługi ExpressRoute i komunikacja równorzędna)
 
@@ -70,7 +70,7 @@ Każda Komunikacja równorzędna wymaga oddzielnych sesji BGP (jedna para dla ka
 
 ## <a name="expressroute-health"></a><a name="health"></a>Kondycja usługi ExpressRoute
 
-Obwody usługi ExpressRoute mogą być monitorowane pod kątem dostępności, łączności z sieci wirtualnychą i wykorzystaniem przepustowości przy użyciu [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (npm).
+Obwody usługi ExpressRoute mogą być monitorowane pod kątem dostępności, łączności z sieci wirtualnychą i wykorzystaniem przepustowości przy użyciu [Network Performance Monitor](../networking/network-monitoring-overview.md) (npm).
 
 NPM monitoruje kondycję prywatnej komunikacji równorzędnej Azure i komunikacji równorzędnej firmy Microsoft. Zapoznaj się z naszym [wpisem](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) , aby uzyskać więcej informacji.
 

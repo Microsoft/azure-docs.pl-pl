@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, konfiguracja stanu, zarządzanie ak
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715972"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205340"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Wprowadzenie do usługi Azure Automation
 
@@ -35,7 +35,7 @@ Zarządzanie konfiguracją w programie Azure Automation umożliwia dostęp do dw
 
 ### <a name="change-tracking-and-inventory"></a>Śledzenie zmian i spis
 
-Change Tracking i spis łączy funkcje śledzenia zmian i spisu, aby umożliwić śledzenie zmian infrastruktury maszyny wirtualnej i serwera. Usługa obsługuje śledzenie zmian w usługach, demonach, oprogramowaniu, rejestrze i plikach w środowisku, aby ułatwić diagnozowanie niepożądanych zmian i zgłaszanie alertów. Obsługa spisu umożliwia wykonywanie zapytań dotyczących zasobów gościa w celu wglądu w zainstalowane aplikacje i inne elementy konfiguracji. Aby uzyskać szczegółowe informacje o tej funkcji, zobacz [Change Tracking i spis](change-tracking.md).
+Change Tracking i spis łączy funkcje śledzenia zmian i spisu, aby umożliwić śledzenie zmian infrastruktury maszyny wirtualnej i serwera. Usługa obsługuje śledzenie zmian w usługach, demonach, oprogramowaniu, rejestrze i plikach w środowisku, aby ułatwić diagnozowanie niepożądanych zmian i zgłaszanie alertów. Obsługa spisu umożliwia wykonywanie zapytań dotyczących zasobów gościa w celu wglądu w zainstalowane aplikacje i inne elementy konfiguracji. Aby uzyskać szczegółowe informacje o tej funkcji, zobacz [Change Tracking i spis](change-tracking/overview.md).
 
 ### <a name="azure-automation-state-configuration"></a>Usługa State Configuration w usłudze Azure Automation
 

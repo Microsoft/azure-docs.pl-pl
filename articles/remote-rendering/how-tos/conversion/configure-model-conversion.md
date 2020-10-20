@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 2134dde0fa0b92bec4519c0d6a24dcaad3792baa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb5312e164bac09930497c377f1590b6a77ca05
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575184"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205323"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurowanie konwersji modelu
 
@@ -258,7 +258,7 @@ Zgodnie z opisem w sekcji [najlepsze rozwiązania dotyczące zmian w formacie sk
 ### <a name="texture-sizes"></a>Rozmiary tekstury
 
 W zależności od typu scenariusza ilość danych tekstury może być większa niż ilość pamięci używanej przez dane siatki. Modele photogrammetry są kandydatami.
-Konfiguracja konwersji nie umożliwia automatycznego skalowania tekstur w dół. W razie potrzeby skalowanie tekstury musi odbywać się jako krok wstępnego przetwarzania po stronie klienta. Krok konwersji pozwala jednak wybrać odpowiedni [Format kompresji tekstury](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
+Konfiguracja konwersji nie umożliwia automatycznego skalowania tekstur w dół. W razie potrzeby skalowanie tekstury musi odbywać się jako krok wstępnego przetwarzania po stronie klienta. Krok konwersji pozwala jednak wybrać odpowiedni [Format kompresji tekstury](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
 
 * `BC1` dla nieprzezroczystych tekstur kolorów
 * `BC7` dla tekstur kolorów źródłowych z kanałem alfa

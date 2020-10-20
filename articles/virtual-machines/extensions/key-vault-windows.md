@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2595c79c024ea7583f6c6a263dcf4f6034ba6df9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 741f1ba60a5824654737558d9d977333d3911f45
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072292"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201685"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows
 
@@ -222,6 +222,11 @@ Należy pamiętać o następujących ograniczeniach/wymaganiach:
 ### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu Azure PowerShell. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu Azure PowerShell.
+
+### <a name="frequently-asked-questions"></a>Często zadawane pytania
+
+* Czy istnieje limit liczby observedCertificates można skonfigurować?
+  Nie, Key Vault rozszerzenie maszyny wirtualnej nie ma limitu liczby observedCertificates.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell

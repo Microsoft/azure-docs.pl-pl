@@ -7,17 +7,17 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau
-ms.openlocfilehash: 3428f092c4b2356e9ea6afa54d1a03fc8b4f9f05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e9b6ddc9da4467590946af12a47f1473a4ea494
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566181"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202059"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Tworzenie obwodu usługi ExpressRoute przy użyciu szablonu Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
 > * [Szablon usługi Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
@@ -25,9 +25,9 @@ ms.locfileid: "89566181"
 > * [PowerShell (klasyczny)](expressroute-howto-circuit-classic.md)
 >
 
-Dowiedz się, jak utworzyć obwód usługi ExpressRoute, wdrażając szablon Azure Resource Manager przy użyciu Azure PowerShell. Aby uzyskać więcej informacji na temat opracowywania szablonów Menedżer zasobów, zobacz [dokumentację Menedżer zasobów i dokumentacja](/azure/azure-resource-manager/) [szablonu](/azure/templates/microsoft.network/expressroutecircuits).
+Dowiedz się, jak utworzyć obwód usługi ExpressRoute, wdrażając szablon Azure Resource Manager przy użyciu Azure PowerShell. Aby uzyskać więcej informacji na temat opracowywania szablonów Menedżer zasobów, zobacz [dokumentację Menedżer zasobów i dokumentacja](../azure-resource-manager/index.yml) [szablonu](/azure/templates/microsoft.network/expressroutecircuits).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 * Przed rozpoczęciem konfiguracji Przejrzyj [wymagania wstępne](expressroute-prerequisites.md) i [przepływy pracy](expressroute-workflows.md) .
 * Upewnij się, że masz uprawnienia do tworzenia nowych zasobów sieciowych. Jeśli nie masz odpowiednich uprawnień, skontaktuj się z administratorem konta.

@@ -1,25 +1,25 @@
 ---
-title: Uwierzytelnianie
+title: Authentication
 description: Wyjaśnia, jak działa uwierzytelnianie
 author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 8f3b144a7790c3122d59d27183b3037998ddadd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e61767b9b8d904eae9a247f48d2d781fd0c95192
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85565854"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202722"
 ---
 # <a name="configure-authentication"></a>Konfigurowanie uwierzytelniania
 
-Zdalne renderowanie na platformie Azure używa tego samego mechanizmu uwierzytelniania jak [kotwice przestrzenne platformy Azure](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Klienci muszą ustawić *jedną* z następujących opcji, aby pomyślnie wywołać interfejsy API REST:
+Zdalne renderowanie na platformie Azure używa tego samego mechanizmu uwierzytelniania jak [kotwice przestrzenne platformy Azure](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Klienci muszą ustawić *jedną* z następujących opcji, aby pomyślnie wywołać interfejsy API REST:
 
 * **AccountKey**: można uzyskać na karcie "klucze" dla konta renderowania zdalnego na Azure Portal. Klucze kont są zalecane tylko w przypadku projektowania/tworzenia prototypów.
     ![Identyfikator konta](./media/azure-account-primary-key.png)
 
-* **AuthenticationToken**: jest tokenem usługi Azure AD, który można uzyskać za pomocą [biblioteki MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-overview). Istnieje wiele różnych przepływów umożliwiających zaakceptowanie poświadczeń użytkownika i użycie tych poświadczeń w celu uzyskania tokenu dostępu.
+* **AuthenticationToken**: jest tokenem usługi Azure AD, który można uzyskać za pomocą [biblioteki MSAL](../../active-directory/develop/msal-overview.md). Istnieje wiele różnych przepływów umożliwiających zaakceptowanie poświadczeń użytkownika i użycie tych poświadczeń w celu uzyskania tokenu dostępu.
 
 * **MRAccessToken**: jest tokenem Mr, który można uzyskać z usługi Azure Mixed Reality Security Token Service (STS). Pobrane z `https://sts.mixedreality.azure.com` punktu końcowego przy użyciu wywołania REST podobnego do poniższego wywołania:
 
@@ -44,7 +44,7 @@ Zdalne renderowanie na platformie Azure używa tego samego mechanizmu uwierzytel
 
 Klucze kont są zalecane do szybkiego tworzenia prototypów, tylko podczas programowania. Zaleca się, aby nie dostarczać aplikacji do środowiska produkcyjnego przy użyciu osadzonego klucza konta. Zalecanym podejściem jest użycie podejścia uwierzytelniania usługi Azure AD opartego na użytkowniku lub usłudze.
 
- Uwierzytelnianie usługi Azure AD jest opisane w sekcji [uwierzytelnianie użytkowników usługi Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) w usłudze [Azure przestrzenny kotwics (ASA)](https://docs.microsoft.com/azure/spatial-anchors/) .
+ Uwierzytelnianie usługi Azure AD jest opisane w sekcji [uwierzytelnianie użytkowników usługi Azure AD](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) w usłudze [Azure przestrzenny kotwics (ASA)](../../spatial-anchors/index.yml) .
 
  Aby uzyskać więcej informacji, zobacz [Samouczek: Zabezpieczanie zdalnego renderowania i magazynu modelu na platformie Azure — uwierzytelnianie Azure Active Directory](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 

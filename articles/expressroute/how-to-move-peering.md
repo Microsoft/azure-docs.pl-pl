@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: duau
-ms.openlocfilehash: 5671be5e54a9bb789e349a4da6d0f1809807d974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 608d6c87442821e904fde16c6b75841fe792e3f0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401422"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206292"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Move a public peering to Microsoft peering (Przechodzenie z publicznej komunikacji równorzędnej do komunikacji równorzędnej firmy Microsoft)
 
@@ -22,7 +22,7 @@ Publiczna Komunikacja równorzędna Azure ma 1 adres IP translatora adresów sie
 
 Po włączeniu publicznej komunikacji równorzędnej można nawiązać połączenie ze wszystkimi usługami platformy Azure. Nie zezwalamy na selektywne Wybieranie usług, do których anonsuje trasy. Podczas gdy Komunikacja równorzędna firmy Microsoft jest łącznością dwukierunkową, w której można inicjować połączenie z usługi Microsoft Azure Service wraz z siecią WAN. Aby uzyskać więcej informacji o domenach routingu i komunikacji równorzędnej, zobacz [obwody usługi ExpressRoute i domeny routingu](expressroute-circuit-peerings.md).
 
-## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
 
 Aby nawiązać połączenie z usługą komunikacji równorzędnej firmy Microsoft, należy skonfigurować translator adresów sieciowych i zarządzać nim. Dostawca połączenia może skonfigurować i zarządzać translatorem adresów sieciowych jako usługą zarządzaną. Jeśli planujesz uzyskiwanie dostępu do usług Azure PaaS i Azure SaaS na potrzeby komunikacji równorzędnej firmy Microsoft, ważne jest, aby poprawnie zmienić rozmiar puli adresów IP NAT. Aby uzyskać więcej informacji na temat translatora adresów sieciowych dla usługi ExpressRoute, zobacz [wymagania NAT dotyczące komunikacji równorzędnej firmy Microsoft](expressroute-nat.md#nat-requirements-for-microsoft-peering). Po nawiązaniu połączenia z firmą Microsoft za pomocą usługi Azure ExpressRoute (komunikacji równorzędnej firmy Microsoft) masz wiele linków do firmy Microsoft. Jedno połączenie to istniejące połączenie internetowe, a drugie to usługa ExpressRoute. Część ruchu do firmy Microsoft może wychodzić przez Internet ale wracać przez usługę ExpressRoute lub odwrotnie.
 
@@ -31,7 +31,7 @@ Aby nawiązać połączenie z usługą komunikacji równorzędnej firmy Microsof
 > [!Warning]
 > Pula adresów IP translatora adresów sieciowych anonsowana do firmy Microsoft nie może być anonsowana do Internetu. Spowodowałoby to przerwanie łączności z innymi usługami firmy Microsoft.
 
-Zapoznaj się z [routingiem asymetrycznym z wieloma ścieżkami sieciowymi](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) , aby zapamiętać Routing asymetryczny przed skonfigurowaniem komunikacji równorzędnej firmy Microsoft.
+Zapoznaj się z [routingiem asymetrycznym z wieloma ścieżkami sieciowymi](./expressroute-asymmetric-routing.md) , aby zapamiętać Routing asymetryczny przed skonfigurowaniem komunikacji równorzędnej firmy Microsoft.
 
 * Jeśli używasz publicznej komunikacji równorzędnej i masz obecnie reguły sieci IP dla publicznych adresów IP, które są używane do uzyskiwania dostępu do [usługi Azure Storage](../storage/common/storage-network-security.md) lub [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), musisz upewnić się, że pula adresów IP translatora adresów sieciowych skonfigurowana za pomocą komunikacji równorzędnej firmy Microsoft jest uwzględniona na liście publicznych adresów IP konta usługi Azure Storage lub konta usługi Azure SQL.<br>
 * Aby przejść do komunikacji równorzędnej firmy Microsoft bez przestojów, wykonaj kroki opisane w tym artykule w kolejności, w jakiej zostały przedstawione.

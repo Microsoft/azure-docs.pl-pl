@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264f0e59e2c43ca92fc5209b8613282a0b0fca37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822391"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203776"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Zarządzanie cyklem życia magazynu usługi Azure Blob Storage
 
@@ -22,8 +22,9 @@ Zestawy danych mają unikatowe cykle życia. Wczesne w cyklu życia, ludzie czę
 
 Zasady zarządzania cyklem życia umożliwiają:
 
-- Przechodzenie obiektów BLOB do warstwy magazynowania chłodnicy (gorąca do chłodna, gorąca do archiwum lub chłodna do archiwum) w celu optymalizacji pod kątem wydajności i kosztów
-- Usuwanie obiektów BLOB na końcu ich cykli życia
+- Przechodzenie obiektów blob z chłodnych do gorącej natychmiast, jeśli są dostępne do optymalizacji pod kątem wydajności 
+- Przenoszenie obiektów blob, wersji obiektów blob i migawek obiektów BLOB do warstwy magazynu chłodnicy (gorąca do chłodna, gorąca do archiwum lub chłodna do archiwum) w przypadku braku dostępu lub modyfikacji przez okres czasu na optymalizację kosztów
+- Usuwanie obiektów blob, wersji obiektów blob i migawek obiektów BLOB na końcu ich cykli życia
 - Zdefiniuj reguły, które mają być uruchamiane raz dziennie na poziomie konta magazynu
 - Stosowanie reguł do kontenerów lub podzbioru obiektów BLOB (przy użyciu prefiksów nazw lub [tagów indeksów obiektów BLOB](storage-manage-find-blobs.md) jako filtrów)
 
@@ -33,7 +34,7 @@ Rozważmy scenariusz, w którym dane są często dostępne podczas wczesnych eta
 
 ## <a name="availability-and-pricing"></a>Dostępność i Cennik
 
-Funkcja zarządzania cyklem życia jest dostępna we wszystkich regionach platformy Azure dla kont Ogólnego przeznaczenia v2 (GPv2), kont usługi BLOB Storage i bloków Premium BLOB Storage. W Azure Portal można uaktualnić istniejące konto Ogólnego przeznaczenia (GPv1) do konta GPv2. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).
+Funkcja zarządzania cyklem życia jest dostępna we wszystkich regionach platformy Azure dla kont Ogólnego przeznaczenia v2 (GPv2), kont usługi BLOB Storage, kont magazynu obiektów BLOB bloków Premium i kont Azure Data Lake Storage Gen2. W Azure Portal można uaktualnić istniejące konto Ogólnego przeznaczenia (GPv1) do konta GPv2. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).
 
 Funkcja zarządzania cyklem życia jest bezpłatna. Klienci są obciążani kosztami zwykłych operacji dla wywołań interfejsu API [zestawu warstwy obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) . Operacja usuwania jest bezpłatna. Aby uzyskać więcej informacji na temat cen, zobacz temat [Block BLOB — Cennik](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -244,7 +245,7 @@ Każda reguła w ramach zasad ma kilka parametrów:
 | Nazwa parametru | Typ parametru | Uwagi | Wymagane |
 |----------------|----------------|-------|----------|
 | `name`         | Ciąg |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter. Musi być unikatowa w ramach zasad. | Prawda |
-| `enabled`      | Boolean (wartość logiczna) | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | Fałsz | 
+| `enabled`      | Wartość logiczna | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | Fałsz | 
 | `type`         | Wartość wyliczenia | Bieżący prawidłowy typ to `Lifecycle` . | Prawda |
 | `definition`   | Obiekt, który definiuje regułę cyklu życia | Każda definicja składa się z zestawu filtrów i zestawu akcji. | Prawda |
 
@@ -263,29 +264,41 @@ Następująca przykładowa reguła filtruje konto, aby uruchomić akcje na obiek
 - Warstwa BLOB warstwy do warstwy chłodna 30 dni po ostatniej modyfikacji
 - Warstwa BLOB warstwy do archiwum 90 dni po ostatniej modyfikacji
 - Usuń obiekt BLOB 2 555 dni (siedem lat) po ostatniej modyfikacji
-- Usuwanie migawek obiektów BLOB 90 dni po utworzeniu migawki
+- Usuń poprzednie wersje obiektów BLOB 90 dni po utworzeniu
 
 ```json
 {
   "rules": [
     {
-      "name": "ruleFoo",
       "enabled": true,
+      "name": "rulefoo",
       "type": "Lifecycle",
       "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "container1/foo" ]
-        },
         "actions": {
-          "baseBlob": {
-            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-            "delete": { "daysAfterModificationGreaterThan": 2555 }
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
           },
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "container1/foo"
+          ]
         }
       }
     }
@@ -301,7 +314,7 @@ Dostępne są następujące filtry:
 
 | Nazwa filtru | Typ filtru | Uwagi | Jest wymagana |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Tablica wstępnie zdefiniowanych wartości wyliczeniowych. | Bieżąca wersja obsługuje `blockBlob` i `appendBlob` . Tylko usuwanie jest obsługiwane dla programu `appendBlob` , warstwa zestawu nie jest obsługiwana. | Tak |
+| blobTypes   | Tablica wstępnie zdefiniowanych wartości wyliczeniowych. | Bieżąca wersja obsługuje `blockBlob` i `appendBlob` . Tylko usuwanie jest obsługiwane dla programu `appendBlob` , warstwa zestawu nie jest obsługiwana. | Yes |
 | prefixMatch | Tablica ciągów dla prefiksów, które mają zostać dopasowane. Każda reguła może definiować do 10 prefiksów. Ciąg prefiksu musi rozpoczynać się od nazwy kontenera. Na przykład jeśli chcesz dopasować wszystkie obiekty blob w ramach `https://myaccount.blob.core.windows.net/container1/foo/...` reguły, prefixMatch jest `container1/foo` . | Jeśli nie zdefiniujesz prefixMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
 | blobIndexMatch | Tablica wartości słownika składająca się z klucza znacznika indeksu obiektów blob i warunków wartości do dopasowania. Każda reguła może definiować do 10 warunek tagu indeksu obiektów BLOB. Na przykład, jeśli chcesz dopasować wszystkie obiekty blob w `Project = Contoso` ramach `https://myaccount.blob.core.windows.net/` reguły, blobIndexMatch to `{"name": "Project","op": "==","value": "Contoso"}` . | Jeśli nie zdefiniujesz blobIndexMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
 
@@ -312,24 +325,24 @@ Dostępne są następujące filtry:
 
 Akcje są stosowane do filtrowanych obiektów blob, gdy spełniony jest warunek uruchomienia.
 
-Zarządzanie cyklem życia obsługuje warstwowe i usuwanie obiektów blob oraz usuwanie migawek obiektów BLOB. Zdefiniuj co najmniej jedną akcję dla każdej reguły dla obiektów blob lub migawek obiektów BLOB.
+Zarządzanie cyklem życia obsługuje warstwowe i usuwanie obiektów blob, poprzednich wersji obiektów blob i migawek obiektów BLOB. Zdefiniuj co najmniej jedną akcję dla każdej reguły dla podstawowych obiektów blob, poprzednich wersji obiektów blob lub migawek obiektów BLOB.
 
-| Akcja                      | Podstawowy obiekt BLOB                                   | Snapshot      |
-|-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | Obsługa obiektów BLOB obecnie w warstwie gorąca         | Nieobsługiwane |
-| enableAutoTierToHotFromCool | Obsługa obiektów BLOB obecnie w warstwie chłodna        | Nieobsługiwane |
-| tierToArchive               | Obsługa obiektów BLOB obecnie w warstwie gorąca lub chłodna | Nieobsługiwane |
-| delete                      | Obsługiwane przez `blockBlob` i `appendBlob`  | Obsługiwane     |
+| Akcja                      | Podstawowy obiekt BLOB                                  | Snapshot      | Wersja
+|-----------------------------|--------------------------------------------|---------------|---------------|
+| tierToCool                  | Obsługiwane przez `blockBlob`                  | Obsługiwane     | Obsługiwane     |
+| enableAutoTierToHotFromCool | Obsługiwane przez `blockBlob`                  | Nieobsługiwane | Nieobsługiwane |
+| tierToArchive               | Obsługiwane przez `blockBlob`                  | Obsługiwane     | Obsługiwane     |
+| delete                      | Obsługiwane przez `blockBlob` i `appendBlob` | Obsługiwane     | Obsługiwane     |
 
 >[!NOTE]
 >W przypadku zdefiniowania więcej niż jednej akcji w tym samym obiekcie blob Zarządzanie cyklem życia stosuje najtańszą akcję do obiektu BLOB. Na przykład akcja `delete` jest tańsza niż Akcja `tierToArchive` . Akcja `tierToArchive` jest tańsza niż Akcja `tierToCool` .
 
-Warunki uruchamiania są oparte na wieku. Podstawowe obiekty blob używają czasu ostatniej modyfikacji do śledzenia wieku, a migawki obiektów BLOB używają czasu utworzenia migawki do śledzenia wieku.
+Warunki uruchamiania są oparte na wieku. Podstawowe obiekty blob używają czasu ostatniej modyfikacji, wersje obiektów BLOB używają czasu tworzenia wersji, a migawki obiektów BLOB używają czasu tworzenia migawki do śledzenia wieku.
 
 | Warunek uruchomienia akcji               | Wartość warunku                          | Opis                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Wartość całkowita wskazująca wiek w dniach | Warunek dla podstawowych akcji obiektu BLOB                                              |
-| daysAfterCreationGreaterThan       | Wartość całkowita wskazująca wiek w dniach | Warunek akcji migawek obiektów BLOB                                          |
+| daysAfterCreationGreaterThan       | Wartość całkowita wskazująca wiek w dniach | Warunek dla akcji dla wersji obiektu BLOB i migawki obiektu BLOB                         |
 | daysAfterLastAccessTimeGreaterThan | Wartość całkowita wskazująca wiek w dniach | przeglądania Warunek dla akcji podstawowego obiektu BLOB, gdy czas ostatniego dostępu jest włączony |
 
 ## <a name="examples"></a>Przykłady
@@ -522,26 +535,35 @@ Niektóre dane powinny być wygasłe tylko wtedy, gdy są jawnie oznaczone do us
 }
 ```
 
-### <a name="delete-old-snapshots"></a>Usuń stare migawki
+### <a name="manage-versions"></a>Zarządzanie wersjami
 
-W przypadku danych, które są regularnie modyfikowane i dostępne przez cały okres istnienia, migawki są często używane do śledzenia starszych wersji danych. Można utworzyć zasady, które usuwa stare migawki na podstawie wieku migawki. Wiek migawki jest określany przez ocenę czasu utworzenia migawki. Ta zasada zasad usuwa migawki blokowych obiektów BLOB w kontenerze `activedata` o 90 dni lub starszej wersji po utworzeniu migawki.
+W przypadku danych, które są regularnie modyfikowane i dostępne w całym okresie istnienia, można włączyć obsługę wersji usługi BLOB Storage, aby automatycznie utrzymywać poprzednie wersje obiektu. Zasady można utworzyć w celu uzyskania warstwy lub usunięcia poprzednich wersji. Wiek wersji jest określany przez ocenę czasu tworzenia wersji. Ta reguła zasad ma warstwy poprzednie wersje w kontenerze `activedata` , które są 90 dni lub starsze po utworzeniu wersji w warstwie chłodna, i usuwa poprzednie wersje, które mają 365 dni lub starsze.
 
 ```json
 {
   "rules": [
     {
-      "name": "snapshotRule",
       "enabled": true,
+      "name": "versionrule",
       "type": "Lifecycle",
-    "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "activedata" ]
-        },
+      "definition": {
         "actions": {
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "version": {
+            "tierToCool": {
+              "daysAfterCreationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterCreationGreaterThan": 365
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "activedata"
+          ]
         }
       }
     }
@@ -549,7 +571,7 @@ W przypadku danych, które są regularnie modyfikowane i dostępne przez cały o
 }
 ```
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Po utworzeniu nowych zasad nie są one uruchamiane natychmiast?**
 

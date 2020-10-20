@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 302a478dd32c93a555bb17e9d7d0f60bd7859a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a4c7b8afab1a9f102bc0bc24b40a7525d93d83
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292714"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201357"
 ---
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Przygotowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
@@ -18,8 +18,4 @@ Do ukończenia tego samouczka potrzebne jest **wystąpienie usługi Azure Digita
 
 * W przeciwnym razie **Skonfiguruj wystąpienie i uwierzytelnianie** , korzystając z instrukcji podanymi w temacie [*How to: Set a instance and Authentication*](../articles/digital-twins/how-to-set-up-instance-portal.md). Instrukcje zawierają również kroki umożliwiające zweryfikowanie, czy każdy krok został pomyślnie ukończony i jest gotowy do przejścia do korzystania z nowego wystąpienia.
 
-W tym samouczku podczas konfigurowania wystąpienia będą potrzebne następujące wartości. Aby ponownie zebrać te wartości, Skorzystaj z poniższych linków, aby znaleźć je w [Azure Portal](https://portal.azure.com).
-* **_Nazwa_** wystąpienia bliźniaczych reprezentacji cyfrowych platformy Azure ([Znajdź w portalu](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* **_Nazwa hosta_** wystąpienia usługi Azure Digital bliźniaczych reprezentacji ([Znajdź w portalu](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Identyfikator aplikacji rejestracji aplikacji usługi Azure AD **_(klient)_** ([Znajdź w portalu](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-* Identyfikator rejestracji w usłudze Azure AD ( **_dzierżawa)_** ([Znajdź w portalu](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
+Gdy masz wystąpienie usługi Azure Digital bliźniaczych reprezentacji do pracy w samouczku, musisz mieć **_nazwę hosta_** wystąpienia ([Znajdź w portalu](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
