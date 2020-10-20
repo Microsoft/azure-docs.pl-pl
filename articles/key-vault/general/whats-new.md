@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac5fad51137cd08f2498db132768263a770430d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826923"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203878"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Co nowego w Azure Key Vault
 
@@ -37,7 +37,7 @@ Firma Microsoft aktualizuje usługi platformy Azure, aby używać certyfikatów 
 
 - Usługi [Azure Active Directory](/azure/active-directory) (Azure AD) zaczęły to przechodzenie od 7 lipca 2020.
 - Wszystkie nowo utworzone punkty końcowe protokołu TLS/SSL usługi Azure zawierają zaktualizowane certyfikaty łańcucha do nowych głównych urzędów certyfikacji.
-- Istniejące punkty końcowe platformy Azure będą przenoszone w sposób fazowy od 13 sierpnia 2020 i wypełniania do 26 października 2020.
+- Istniejące punkty końcowe platformy Azure będą przenoszone w sposób fazowy od 13 sierpnia 2020.
 - [Usługi Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) i [DPS](/azure/iot-dps/) POzostaną w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. Aby uzyskać szczegółowe informacje, zobacz obiekt BLOB post [usługi Azure IoT TLS: zmiany są dostępne. (... i dlaczego jest to ważne)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Usługa Azure Storage](/azure/storage) pozostanie w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. Aby uzyskać szczegółowe informacje, zobacz temat [Magazyn usługi Azure Storage TLS: zmiany zostały wprowadzone. (... i dlaczego jest to ważne)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 

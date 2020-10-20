@@ -3,12 +3,12 @@ title: Opis konfiguracji okresowej kopii zapasowej
 description: Użyj funkcji okresowej kopii zapasowej i przywracania Service Fabric, aby skonfigurować okresową kopię zapasową wiarygodnych usług stanowych lub Reliable Actors.
 ms.topic: article
 ms.date: 2/01/2019
-ms.openlocfilehash: 852e430a9183d92e13536fd6499f3d1404985455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633b13104ecc1697685f49a42b2a9c76b43b81d0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538623"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205697"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informacje o konfiguracji okresowej kopii zapasowej na platformie Azure Service Fabric
 
@@ -23,6 +23,9 @@ Konfigurowanie okresowej kopii zapasowej wiarygodnych usług stanowych lub Relia
 Zasady tworzenia kopii zapasowych składają się z następujących konfiguracji:
 
 * **Automatyczne przywracanie po utracie danych**: określa, czy przywracanie ma być wyzwalane automatycznie przy użyciu najnowszej dostępnej kopii zapasowej na wypadek, gdyby partycja napotyka zdarzenie utraty danych.
+> [!NOTE]
+> Zaleca się, aby nie ustawiać autoprzywracania w klastrach produkcyjnych
+>
 
 * **Maksymalna liczba przyrostowych kopii zapasowych**: określa maksymalną liczbę przyrostowych kopii zapasowych do wykonania między dwoma pełnymi kopiami zapasowymi. Maksymalna liczba przyrostowych kopii zapasowych określa górny limit. Pełną kopię zapasową można wykonać, zanim określona liczba przyrostowych kopii zapasowych zostanie ukończona w jednym z następujących warunków
 
@@ -86,6 +89,9 @@ Zasady tworzenia kopii zapasowych składają się z następujących konfiguracji
             "ContainerName": "BackupContainer"
         }
         ```
+> [!NOTE]
+> Usługa przywracania kopii zapasowych nie działa z usługą Azure Storage w wersji 1
+>
 
     2. **Udział plików**: ten typ magazynu powinien być wybrany dla klastrów _autonomicznych_ , gdy konieczne jest przechowywanie kopii zapasowych danych lokalnie. Opis tego typu magazynu wymaga ścieżki udziału plików, w której należy przekazać kopie zapasowe. Dostęp do udziału plików można skonfigurować przy użyciu jednej z następujących opcji.
         1. _Zintegrowane uwierzytelnianie systemu Windows_, w którym dostęp do udziału plików jest dostarczany wszystkim komputerom należącym do klastra Service Fabric. W takim przypadku ustaw następujące pola, aby skonfigurować magazyn kopii zapasowych na podstawie _udziałów plików_ .
@@ -129,6 +135,10 @@ Zasady tworzenia kopii zapasowych składają się z następujących konfiguracji
 
 ## <a name="enable-periodic-backup"></a>Włącz okresowe wykonywanie kopii zapasowej
 Po zdefiniowaniu zasad tworzenia kopii zapasowych w celu spełnienia wymagań dotyczących tworzenia kopii zapasowych należy odpowiednio powiązać zasady kopii zapasowej z _aplikacją_lub _usługą_albo _partycją_.
+
+> [!NOTE]
+> Przed włączeniem kopii zapasowej upewnij się, że nie ma żadnych uaktualnień aplikacji
+>
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>Hierarchiczna Propagacja zasad kopii zapasowych
 W Service Fabric relacja między aplikacją, usługą i partycjami jest hierarchiczna, jak wyjaśniono w [modelu aplikacji](./service-fabric-application-model.md). Zasady tworzenia kopii zapasowych można kojarzyć z _aplikacją_, _usługą_lub _partycją_ w hierarchii. Zasady tworzenia kopii zapasowej propagują hierarchicznie do następnego poziomu. Zakładając, że istnieje tylko jedna zasada tworzenia kopii zapasowych i skojarzona z _aplikacją_, wszystkie partycje stanowe należące do wszystkich _niezawodnych usług stanowych_ i _Reliable Actors_ _aplikacji_ zostaną wykonane przy użyciu zasad tworzenia kopii zapasowych. Lub jeśli zasady tworzenia kopii zapasowej są skojarzone z _niezawodną usługą stanową_, zostanie utworzona kopia zapasowa wszystkich jej partycji przy użyciu zasad tworzenia kopii zapasowych.
@@ -186,6 +196,9 @@ Zasady tworzenia kopii zapasowych można wyłączyć, jeśli nie ma potrzeby two
         "CleanBackup": true 
     }
     ```
+> [!NOTE]
+> Przed wyłączeniem kopii zapasowej upewnij się, że nie ma żadnych uaktualnień aplikacji
+>
 
 ## <a name="suspend--resume-backup"></a>Wstrzymywanie & Wznów tworzenie kopii zapasowej
 Niektóre sytuacje mogą wymagać tymczasowego zawieszania okresowej kopii zapasowej danych. W takiej sytuacji, w zależności od wymagań, w _aplikacji_, _usłudze_lub _partycji_może być używany interfejs API zawieszania kopii zapasowych. Okresowe zawieszenie kopii zapasowej jest przechodnie w porównaniu z poddrzewem hierarchii aplikacji od punktu, w którym jest stosowany. 
@@ -213,6 +226,10 @@ Wyłączenie może być wywoływane tylko na poziomie, który został wcześniej
 Partycja usługi może utracić dane z powodu nieoczekiwanych błędów. Na przykład dysk dla dwóch z trzech replik partycji (łącznie z repliką podstawową) jest uszkodzony lub wyczyszczony.
 
 Gdy Service Fabric wykryje, że partycja jest w utracie danych, wywołuje `OnDataLossAsync` metodę interfejsu na partycji i oczekuje, że partycja może wykonać wymaganą akcję, aby wyczerpać utratę danych. W takiej sytuacji, jeśli obowiązujące zasady tworzenia kopii zapasowych na partycji mają `AutoRestoreOnDataLoss` ustawioną flagę `true` , przywracanie zostanie wyzwolone automatycznie przy użyciu najnowszej dostępnej kopii zapasowej dla tej partycji.
+
+> [!NOTE]
+> Zaleca się, aby nie ustawiać autoprzywracania w klastrach produkcyjnych
+>
 
 ## <a name="get-backup-configuration"></a>Pobierz konfigurację kopii zapasowej
 Dostępne są oddzielne interfejsy API do uzyskiwania informacji o konfiguracji kopii zapasowych w ramach _aplikacji_, _usługi_i zakresu _partycji_ . [Pobierz informacje o konfiguracji kopii](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)zapasowej aplikacji, [Pobierz informacje o konfiguracji kopii zapasowej usługi](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)i [Pobierz informacje o konfiguracji kopii zapasowej partycji](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) są odpowiednio opisane. Głównie te interfejsy API zwracają odpowiednie zasady tworzenia kopii zapasowych, zakres, w którym są stosowane zasady tworzenia kopii zapasowych, oraz szczegóły zawieszenia kopii zapasowej. Poniżej znajduje się krótki opis zwracanych wyników tych interfejsów API.

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c098dc6b1d3b41a41246857f8a353dd4f5dfcef1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb120a533e4d11b34bb9712bf0164cec5a7728ce
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884182"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207737"
 ---
 # <a name="hierarchical-state-override"></a>Hierarchiczne zastępowanie stanu
 
@@ -105,8 +105,8 @@ Renderowanie przezroczyste zwiększa obciążenie procesora GPU serwera niż w p
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 
-* [Klasa HierarchicalStateOverrideComponent języka C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
-* [Klasa C++ HierarchicalStateOverrideComponent](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
+* [Klasa HierarchicalStateOverrideComponent języka C#](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [Klasa C++ HierarchicalStateOverrideComponent](/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: 5de3d61f5b671f5ed6685e6cdee25be951fab69e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071884"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206955"
 ---
 # <a name="what-is-azure-expressroute"></a>Co to jest usługa Azure ExpressRoute?
 Usługa ExpressRoute umożliwia poszerzanie sieci lokalnych w chmurze firmy Microsoft przez połączenie prywatne z pomocą dostawcy łączności. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Microsoft Azure i Microsoft 365.
@@ -39,7 +39,7 @@ Więcej informacji znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs
 Firma Microsoft używa protokołu BGP, standardowego protokołu routingu dynamicznego, do wymiany tras między siecią lokalną, wystąpieniami na platformie Azure i publicznymi adresami Microsoft. Ustanawiamy wiele sesji BGP z siecią dla różnych profilów ruchu. Więcej szczegółowych informacji można znaleźć w artykule [ExpressRoute circuit and routing domains](expressroute-circuit-peerings.md) (Obwód i domeny routingu usługi ExpressRoute).
 
 ### <a name="redundancy"></a>Nadmiarowość
-Każdy obwód usługi ExpressRoute składa się z dwóch połączeń z dwoma routerami granicznymi Microsoft Enterprise (MSEE) w [lokalizacji ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) od dostawcy połączenia/z granicy sieci. Firma Microsoft wymaga podwójnego połączenia BGP od dostawcy połączenia/brzegu Twojej sieci — po jednym do każdego routera MSEE. Można zdecydować o niewdrażaniu nadmiarowych urządzeń/obwodów sieci Ethernet po swojej stronie. Dostawcy połączenia używają jednak urządzeń nadmiarowych, aby zagwarantować, że połączenia będą przekazywane do firmy Microsoft w sposób nadmiarowy. Konfiguracja łączności nadmiarowej w warstwie 3 jest wymaganiem, które musi być spełnione, aby umowa [SLA](https://azure.microsoft.com/support/legal/sla/) była ważna.
+Każdy obwód usługi ExpressRoute składa się z dwóch połączeń z dwoma routerami granicznymi Microsoft Enterprise (MSEE) w [lokalizacji ExpressRoute](./expressroute-locations.md#expressroute-locations) od dostawcy połączenia/z granicy sieci. Firma Microsoft wymaga podwójnego połączenia BGP od dostawcy połączenia/brzegu Twojej sieci — po jednym do każdego routera MSEE. Można zdecydować o niewdrażaniu nadmiarowych urządzeń/obwodów sieci Ethernet po swojej stronie. Dostawcy połączenia używają jednak urządzeń nadmiarowych, aby zagwarantować, że połączenia będą przekazywane do firmy Microsoft w sposób nadmiarowy. Konfiguracja łączności nadmiarowej w warstwie 3 jest wymaganiem, które musi być spełnione, aby umowa [SLA](https://azure.microsoft.com/support/legal/sla/) była ważna.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Łączność z usługami w chmurze firmy Microsoft
 Połączenia ExpressRoute umożliwiają dostęp do następujących usług:
@@ -82,7 +82,7 @@ Najważniejsze funkcje dostarczane przez program ExpressRoute Direct obejmują, 
 * Fizyczne oddzielenie w przypadku tych branż, które są regulowane i w których łączność musi być dedykowana oraz oddzielona, na przykład w przypadku usług bankowych, rządowych i handlowych
 * Pełna kontrola nad rozmieszczeniem obwodów na podstawie jednostek biznesowych
 
-Aby uzyskać więcej informacji, zobacz [About ExpressRoute Direct (Usługa ExpressRoute Direct)](https://go.microsoft.com/fwlink/?linkid=2022973).
+Aby uzyskać więcej informacji, zobacz [About ExpressRoute Direct (Usługa ExpressRoute Direct)](./expressroute-erdirect-about.md).
 
 ### <a name="bandwidth-options"></a>Opcje przepustowości
 Możesz zakupić obwody usługi ExpressRoute do szerokiego zakresu przepustowości. Obsługiwane przepustowość są wyświetlane jako obserwowane. Koniecznie skontaktuj się z dostawcą połączenia, aby określić przepustowości obsługiwane przez niego.

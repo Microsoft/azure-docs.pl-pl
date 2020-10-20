@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4513a1997dc2955e1c5488a4a3740afa88f51623
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88892664"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207278"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Szybki Start: wdrażanie natywnego przykładu C++ w programie HoloLens
 
 W tym przewodniku szybki start opisano sposób wdrażania i uruchamiania natywnej aplikacji samouczka C++ w systemie HoloLens 2.
 
-W tym przewodniku szybki start dowiesz się, jak:
+W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ Należy zainstalować następujące oprogramowanie:
 
 * Windows SDK 10.0.18362.0 [(pobieranie)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * Najnowsza wersja programu Visual Studio 2019 [(pobieranie)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Visual Studio Tools dla rzeczywistości mieszanej](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). W szczególnych przypadkach następujące instalacje *obciążenia* są obowiązkowe:
+* [Visual Studio Tools dla rzeczywistości mieszanej](/windows/mixed-reality/install-the-tools). W szczególnych przypadkach następujące instalacje *obciążenia* są obowiązkowe:
   * **Programowanie aplikacji klasycznych w języku C++**
   * **Programowanie platforma uniwersalna systemu Windows (platformy UWP)**
 * GIT [(pobieranie)](https://git-scm.com/downloads)
@@ -87,9 +87,9 @@ Teraz można skompilować aplikację.
 
 ## <a name="launch-the-application"></a>Uruchamianie aplikacji
 
-1. Podłącz urządzenie HoloLens przy użyciu kabla USB do komputera.
+1. Podłącz urządzenie HoloLens do komputera przy użyciu kabla USB.
 1. Włącz urządzenie HoloLens i poczekaj na wyświetlenie menu Start.
-1. Uruchom Debuger w programie Visual Studio (F5). Aplikacja zostanie automatycznie wdrożona na urządzeniu.
+1. Uruchom debuger w programie Visual Studio (F5). Aplikacja zostanie automatycznie wdrożona na urządzeniu.
 
 Przykładowa aplikacja powinna zostać uruchomiona, a powinien pojawić się panel tekst, który informuje o bieżącym stanie aplikacji. Stan w czasie uruchamiania to rozpoczęcie nowej sesji lub połączenie z istniejącą sesją. Po zakończeniu ładowania modelu wbudowany model aparatu pojawia się bezpośrednio na pozycji głównej. Zamknięcia model aparatu współdziała prawidłowo z wirującym modułem, który jest renderowany lokalnie.
 

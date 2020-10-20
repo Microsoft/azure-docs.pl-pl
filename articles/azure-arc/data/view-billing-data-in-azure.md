@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5335442c7ffcdca950ba0e9c5f3b6bc9e4be9f63
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108154"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206456"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Przekaż dane dotyczące rozliczeń na platformę Azure i Wyświetl je w Azure Portal
 
@@ -135,11 +135,11 @@ Możesz również okresowo eksportować **szczegółowe** dane dotyczące użyci
 
 Wykonaj następujące kroki, aby skonfigurować zadanie eksportu rozliczeń:
 
-1. Kliknij pozycję eksporty po lewej stronie.
-1. Kliknij pozycję Add (Dodaj).
+1. Kliknij pozycję **eksporty** po lewej stronie.
+1. Kliknij pozycję **Dodaj**.
 1. Wprowadź nazwę i częstotliwość eksportowania, a następnie kliknij przycisk Dalej.
-1. Wybierz opcję utworzenia nowego konta magazynu lub Utwórz nowe konto i wypełnij formularz, aby określić konto magazynu, kontener i ścieżkę katalogu, do którego mają zostać wyeksportowane pliki danych rozliczeń, i kliknij przycisk Dalej.
-1. Kliknij pozycję Utwórz.
+1. Wybierz opcję utworzenia nowego konta magazynu lub Użyj istniejącego i wypełnij formularz, aby określić konto magazynu, kontener i ścieżkę katalogu do eksportowania plików danych dotyczących rozliczeń, a następnie kliknij przycisk Dalej.
+1. Kliknij pozycję **Utwórz**.
 
 Pliki eksportu danych dotyczących rozliczeń będą dostępne przez około 4 godziny i zostaną wyeksportowane zgodnie z harmonogramem określonym podczas tworzenia zadania eksportu rozliczenia.
 
@@ -156,7 +156,7 @@ Można sprawdzić poprawność plików danych rozliczeń w Azure Portal.
 5. Kliknij kontener, który został określony podczas tworzenia zadania eksportu rozliczenia powyżej.
 6. Kliknij folder określony podczas tworzenia zadania eksportu rozliczenia powyżej.
 7. Przejdź do szczegółów wygenerowanych folderów i plików, a następnie kliknij jeden z wygenerowanych plików CSV.
-8. Kliknij przycisk Pobierz, który zapisze plik w lokalnym folderze pobierania.
+8. Kliknij przycisk **Pobierz** , który zapisze plik w lokalnym folderze pobierania.
 9. Otwórz plik, używając przeglądarki plików CSV, takiej jak program Excel.
 10. Przefiltruj wyniki, aby wyświetlić tylko wiersze z **typem zasobu**  =  `Microsoft.AzureData/<data service resource type` .
 11. Zostanie wyświetlona liczba godzin użycia wystąpienia w bieżącym 24-godzinnym okresie w kolumnie UsageQuantity.

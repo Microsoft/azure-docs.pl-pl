@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: b44e15e4592de5e874ee50ebd390940e8ab16a22
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 2a62cae025be05a8f5a6ef4407737ab8da36a951
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92157882"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92210950"
 ---
 ## <a name="configure-the-sample-project"></a>Konfigurowanie przykładowego projektu
 
@@ -22,12 +22,10 @@ Po umieszczeniu w folderze przejdź do _AdtSampleApp_. Otwórz _**AdtE2ESample. 
 
 W programie Visual Studio użyj okienka *Eksplorator rozwiązań* , aby utworzyć kopię _serviceConfig.js> SampleClientApp **na. Plik szablonu** _ (możesz użyć menu z prawym przyciskiem myszy w celu skopiowania i wklejenia). Zmień nazwę *serviceConfig.jskopii na*. Będzie to stanowić wstępnie ustawiony plik JSON z niezbędnymi zmiennymi konfiguracyjnymi do uruchomienia projektu.
 
-Wybierz *serviceConfig.jsna* pliku, aby otworzyć go w oknie edycji. Zmień wartość `tenantId` na *Identyfikator katalogu*, `clientId` *Identyfikator aplikacji*i `instanceUrl` adres URL *nazwy hosta* usługi Azure Digital bliźniaczych reprezentacji (z *https://* przed nim, jak pokazano poniżej).
+Wybierz *serviceConfig.jsna* pliku, aby otworzyć go w oknie edycji. Zmień wartość `instanceUrl` na adres URL *nazwy hosta* usługi Azure Digital bliźniaczych reprezentacji (z *https://* przed nim, jak pokazano poniżej).
 
 ```json
 {
-  "tenantId": "<your-directory-ID>",
-  "clientId": "<your-application-ID>",
   "instanceUrl": "https://<your-Azure-Digital-Twins-instance-hostName>"
 }
 ```
