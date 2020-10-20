@@ -3,16 +3,25 @@ title: Jak zatrzymać monitorowanie klastra Red Hat OpenShift v3 platformy Azure
 description: W tym artykule opisano, jak można zatrzymać monitorowanie klastra Red Hat OpenShift platformy Azure za pomocą Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c21b17fd9faed7b133cd8ecad767ae7bd4aa868
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815440"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216542"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Jak zatrzymać monitorowanie klastra Red Hat OpenShift v3 platformy Azure 
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Jak zatrzymać monitorowanie klastra Red Hat OpenShift v3 platformy Azure
 
-Po włączeniu monitorowania klastra Red Hat OpenShift w wersji 3. x można zatrzymać monitorowanie klastra przy użyciu Azure Monitor dla kontenerów, jeśli zdecydujesz, że nie chcesz już ich monitorować. W tym artykule pokazano, jak to zrobić za pomocą podanego szablonu Azure Resource Manager. 
+>[!IMPORTANT]
+> Usługa Azure Red Hat OpenShift 3,11 zostanie wycofana z czerwca 2022.
+>
+> Od października 2020 nie będzie już można tworzyć nowych klastrów 3,11.
+> Istniejące klastry 3,11 będą nadal działać do 2022 czerwca, ale nie będą już obsługiwane po tej dacie.
+>
+> Postępuj zgodnie z tym przewodnikiem, aby [utworzyć klaster usługi Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
+> Jeśli masz określone pytania, [skontaktuj się z nami](mailto:aro-feedback@microsoft.com).
+
+Po włączeniu monitorowania klastra Red Hat OpenShift w wersji 3. x można zatrzymać monitorowanie klastra przy użyciu Azure Monitor dla kontenerów, jeśli zdecydujesz, że nie chcesz już ich monitorować. W tym artykule pokazano, jak to zrobić za pomocą podanego szablonu Azure Resource Manager.  
 
 ## <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 

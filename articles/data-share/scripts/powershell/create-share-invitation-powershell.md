@@ -1,20 +1,17 @@
 ---
-title: 'Skrypt programu PowerShell: Tworzenie zaproszenia do udziału danych platformy Azure | Microsoft Docs'
+title: 'Skrypt programu PowerShell: Tworzenie zaproszenia do udziału danych platformy Azure'
 description: Ten skrypt programu PowerShell wysyła zaproszenie do udziału danych.
-services: data-share
 author: joannapea
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 220677df3bd0c221f61efd28a80b05cfd76e2734
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f65d081e724206c1c64ad08189d1b620bbb4f2c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086646"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221336"
 ---
 # <a name="use-a-powershell-script-to-monitor-the-usage-of-a-sent-data-share"></a>Używanie skryptu programu PowerShell do monitorowania użycia wysłanego udziału danych
 
@@ -42,11 +39,11 @@ W tym skrypcie użyto następujących poleceń:
 
 | Polecenie | Uwagi |
 |---|---|
-| [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation?view=azps-2.6.0) | Utwórz zaproszenie do udziału danych. |
+| [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation) | Utwórz zaproszenie do udziału danych. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
+Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/).
 
 Dodatkowe przykłady skryptów programu PowerShell dotyczące udziałów danych platformy Azure można znaleźć w [przykładach programu PowerShell w udziale danych platformy Azure](../../samples-powershell.md).

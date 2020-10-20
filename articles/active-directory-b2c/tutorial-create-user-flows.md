@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 041b1766ae6a64f51d922de128ef316cc0ed8260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0fafe98c3ca48ecced46cef6fb5fe8876c7f50
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922173"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215998"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Samouczek: Tworzenie przepływów użytkowników w Azure Active Directory B2C
 
@@ -81,6 +81,9 @@ Przepływ użytkowników rejestracji i logowania obsługuje zarówno środowisko
 1. Wprowadź nowe hasło i Potwierdź hasło.
 1. Wybierz swój kraj i region, wprowadź nazwę, która ma zostać wyświetlona, wprowadź kod pocztowy, a następnie kliknij przycisk **Utwórz**. Token jest zwracany do `https://jwt.ms` i powinien być wyświetlony.
 1. Teraz możesz ponownie uruchomić przepływ użytkownika i móc zalogować się przy użyciu utworzonego konta. Zwrócony token obejmuje oświadczenia wybrane w kraju/regionie, nazwie i kodzie pocztowym.
+
+> [!NOTE]
+> Środowisko "Uruchamianie przepływu użytkownika" nie jest obecnie zgodne z typem adresu URL odpowiedzi SPA przy użyciu przepływu kodu autoryzacji. Aby użyć środowiska "Uruchamianie przepływu użytkownika" z tego rodzaju aplikacjami, należy zarejestrować adres URL odpowiedzi typu "Web" i włączyć przepływ niejawny zgodnie z opisem w [tym miejscu](tutorial-register-spa.md).
 
 ## <a name="create-a-profile-editing-user-flow"></a>Tworzenie przepływu użytkownika dotyczącego edytowania profilu
 

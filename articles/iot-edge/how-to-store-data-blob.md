@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6de96b9913b70dd1b2d423e00c58b95ccb8dcb07
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 22cef5919e597d4cd83ad80f5758a0427c52e2bb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048155"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219738"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Store data at the edge with Azure Blob Storage on IoT Edge (Przechowywanie danych na urządzeniu brzegowym dzięki usłudze Azure Blob Storage w usłudze IoT Edge)
 
@@ -77,7 +77,7 @@ Użyj odpowiednich właściwości modułu, aby ustawić **deviceToCloudUploadPro
 
 Nazwa tego ustawienia to `deviceToCloudUploadProperties` . Jeśli używasz symulatora IoT Edge, ustaw wartości w powiązanych zmiennych środowiskowych dla tych właściwości, które można znaleźć w sekcji wyjaśnienie.
 
-| Właściwość | Możliwe wartości | Objaśnienie |
+| Właściwość | Możliwe wartości | Wyjaśnienie |
 | ----- | ----- | ---- |
 | uploadOn | wartość true, false | Domyślnie ustawiona wartość `false` . Jeśli chcesz włączyć tę funkcję, ustaw to pole na `true` . <br><br> Zmienna środowiskowa: `deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | Umożliwia wybranie kolejności, w której dane są kopiowane na platformę Azure. Domyślnie ustawiona wartość `OldestFirst` . Kolejność jest określana według czasu ostatniej modyfikacji obiektu BLOB. <br><br> Zmienna środowiskowa: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
@@ -89,10 +89,10 @@ Nazwa tego ustawienia to `deviceToCloudUploadProperties` . Jeśli używasz symul
 
 Nazwa tego ustawienia to `deviceAutoDeleteProperties` . Jeśli używasz symulatora IoT Edge, ustaw wartości w powiązanych zmiennych środowiskowych dla tych właściwości, które można znaleźć w sekcji wyjaśnienie.
 
-| Właściwość | Możliwe wartości | Objaśnienie |
+| Właściwość | Możliwe wartości | Wyjaśnienie |
 | ----- | ----- | ---- |
 | deleteOn | wartość true, false | Domyślnie ustawiona wartość `false` . Jeśli chcesz włączyć tę funkcję, ustaw to pole na `true` . <br><br> Zmienna środowiskowa: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Określ czas (w minutach). Po wygaśnięciu tej wartości moduł automatycznie usunie obiekty blob z magazynu lokalnego. <br><br> Zmienna środowiskowa: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| deleteAfterMinutes | `<minutes>` | Określ czas (w minutach). Po wygaśnięciu tej wartości moduł automatycznie usunie obiekty blob z magazynu lokalnego. Bieżąca Maksymalna liczba dozwolonych minut to 35791. <br><br> Zmienna środowiskowa: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | wartość true, false | Domyślnie jest ustawiony na `true` i zachowuje obiekt BLOB podczas przekazywania go do magazynu w chmurze, jeśli deleteAfterMinutes wygasa. Można ją ustawić na `false` i będzie ona usuwać dane natychmiast po wygaśnięciu deleteAfterMinutes. Uwaga: aby ta właściwość działała, uploadOn powinna mieć wartość true.  <br><br> **Uwaga**: Jeśli używasz dołączanych obiektów blob, to ustawienie spowoduje usunięcie dołączanych obiektów blob z magazynu lokalnego, gdy wartość wygaśnie, a wszelkie przyszłe operacje dołączania bloków do tych obiektów BLOB zakończą się niepowodzeniem. Warto upewnić się, że wartość wygaśnięcia jest wystarczająco duża dla oczekiwanej częstotliwości operacji dołączania wykonywanych przez aplikację.<br><br> Zmienna środowiskowa: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Używanie udziału SMB jako magazynu lokalnego
@@ -195,7 +195,7 @@ W poniższych przykładach szybkiego startu są używane Języki, które są ró
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Nawiązywanie połączenia z magazynem lokalnym za pomocą Eksplorator usługi Azure Storage
 
-Za pomocą [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) można nawiązać połączenie z kontem magazynu lokalnego.
+Za pomocą [Eksplorator usługi Azure Storage](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) można nawiązać połączenie z kontem magazynu lokalnego.
 
 1. Pobieranie i instalowanie Eksploratora usługi Azure Storage
 

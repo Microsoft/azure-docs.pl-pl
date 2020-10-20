@@ -1,18 +1,16 @@
 ---
 title: Jak rozwiązywać problemy związane z błędami Azure Data Lake Analytics zadania U-SQL z powodu .NET Framework uaktualnienia 4.7.2
 description: Rozwiązywanie błędów zadań U-SQL z powodu uaktualnienia do .NET Framework 4.7.2.
-services: data-lake-analytics
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
-ms.workload: big-data
 ms.date: 10/11/2019
-ms.openlocfilehash: f553da53f665676dd44ec581d082f9a39e242516
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab03ea8a88187289f5dce55f8a396a9d51346a3f
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132385"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217681"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics jest uaktualniana do .NET Framework v 4.7.2
 

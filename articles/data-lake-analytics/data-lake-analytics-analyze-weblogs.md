@@ -1,18 +1,16 @@
 ---
 title: Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics
 description: Informacje na temat analizowania dzienników witryn sieci Web przy użyciu Azure Data Lake Analytics do uruchamiania funkcji i zapytań U-SQL.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 5ad837c51fafd7df2b019c78ae4adaf4967f2df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2764e5e3994eb7b80a8e7cf62fb7f437323c97e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132640"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219398"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics
 Dowiedz się, jak analizować dzienniki witryn sieci Web przy użyciu Data Lake Analytics, szczególnie w przypadku szukania odwołujących się błędów podczas próby odwiedzenia witryny sieci Web.
@@ -185,4 +183,4 @@ Aby rozpocząć pracę z usługą Data Lake Analytics przy użyciu różnych nar
 
 * [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu Portalu Azure](data-lake-analytics-get-started-portal.md)
 * [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu programu Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu zestawu SDK programu .NET](data-lake-analytics-get-started-net-sdk.md)
+* [Rozpoczynanie pracy z usługą Data Lake Analytics przy użyciu zestawu SDK programu .NET](./data-lake-analytics-get-started-cli.md)

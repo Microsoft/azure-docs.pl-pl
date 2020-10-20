@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1a172adb54593421ef56e09c131e0ddcaee9f6e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184690"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215828"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specyfikacje usługi Azure FXT Edge
 
@@ -28,7 +28,7 @@ W tym artykule opisano specyfikacje sprzętu dla węzłów sprzętowych usługi 
 
 ## <a name="drive-specifications"></a>Specyfikacje dysku
 
-System ma dziesięć kieszeni na napędy, z których można uzyskać dostęp z przodu. Każdy wypełniony dysk ma etykietę po prawej stronie z informacjami o pojemności. 
+System ma dziesięć kieszeni na napędy, z których można uzyskać dostęp z przodu. Każdy wypełniony dysk ma etykietę po prawej stronie z informacjami o pojemności.
 
 Numery dysków są drukowane w przestrzeni między dyskami. W systemie plików usługi Azure FXT Edge dysk 0 jest lewym górnym dyskiem, a dysk 1 jest bezpośrednio poniżej.
 
@@ -39,10 +39,9 @@ Numery dysków są drukowane w przestrzeni między dyskami. W systemie plików u
 | 0, 1             | System operacyjny     | DYSK SSD 480 GB SATA |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Dane   | FXT 6600:3,2 TB dysków SSD interfejsu NVMe <br> FXT 6400:1,6 TB dysków SSD interfejsu NVMe |
 
-
 ## <a name="dimensions-and-weight"></a>Wymiary i waga
 
-Usługa Azure FXT Edge Fileer została zaprojektowana tak, aby mieściła się w standardowym 19 "stojaku sprzętowym i jest wysoka jednostka stojaka (1U). 
+Usługa Azure FXT Edge Fileer została zaprojektowana tak, aby mieściła się w standardowym 19 "stojaku sprzętowym i jest wysoka jednostka stojaka (1U).
 
 <!-- 10x2.5 inches version -->
 
@@ -84,15 +83,15 @@ Ta sekcja zawiera klasyfikacje i pomiary dotyczące mocy w przypadku usługi Azu
 
 <!-- matches the Dell regulatory label exactly -->
 
-### <a name="power-and-thermal-measurements"></a>Pomiary mocy i termiczne 
+### <a name="power-and-thermal-measurements"></a>Pomiary mocy i termiczne
 
-W węzłach usługi Azure FXT Edge używane są zmienne szybkości, dlatego moc zależy od temperatury i obciążenia. Maksymalne szybkości wentylatorów można osiągnąć w przypadku niektórych kombinacji dużych obciążeń i podwyższonych temperatury otoczenia. 
+W węzłach usługi Azure FXT Edge używane są zmienne szybkości, dlatego moc zależy od temperatury i obciążenia. Maksymalne szybkości wentylatorów można osiągnąć w przypadku niektórych kombinacji dużych obciążeń i podwyższonych temperatury otoczenia.
 
-Te wykresy zapewniają zużycie mocy i termiczne pomiary wyjściowe dla często używanych kombinacji częstotliwości napięcia. 
+Te wykresy zapewniają zużycie mocy i termiczne pomiary wyjściowe dla często używanych kombinacji częstotliwości napięcia.
 
-| FXT 6600 moc temperatury pokojowej <br />(22 ° C, 71,6 ° F) | 100, 60 Hz | 120, 60 Hz | 208, 60 Hz | 230, 50 Hz | 240, 50 Hz | 
+| FXT 6600 moc temperatury pokojowej <br />(22 ° C, 71,6 ° F) | 100, 60 Hz | 120, 60 Hz | 208, 60 Hz | 230, 50 Hz | 240, 50 Hz |
 |---------|---|---|---|---|---|
-| Napięcie (V) | 100 | 120 | 208 | 230 | 240 | 
+| Napięcie (V) | 100 | 120 | 208 | 230 | 240 |
 | Częstotliwość (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Bieżący (A) | 5,02 | 4,16 |2,40 | 2,20 | 2,16 |
 | Pozorna moc (VA) | 502 | 499 | 499 | 506 | 518|
@@ -100,9 +99,9 @@ Te wykresy zapewniają zużycie mocy i termiczne pomiary wyjściowe dla często 
 | Rzeczywista moc (W) | 497 |494 | 489 | 496 | 508 |
 | Rozpraszanie termiczne (BTU/godz.) |1696 | 1686 | 1669 | 1692 | 1733 |
 
-| FXT 6600 moc z maksymalną prędkością wentylatora | 100, 60 Hz | 120, 60 Hz | 208, 60 Hz | 230, 50 Hz | 240, 50 Hz | 
+| FXT 6600 moc z maksymalną prędkością wentylatora | 100, 60 Hz | 120, 60 Hz | 208, 60 Hz | 230, 50 Hz | 240, 50 Hz |
 |---------|---|---|---|---|---|
-| Napięcie (V) | 100 |120 | 208 | 230 | 240| 
+| Napięcie (V) | 100 |120 | 208 | 230 | 240|
 | Częstotliwość (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Bieżący (A) | 5,98 | 5,01 | 2,81 | 2.55 | 2,48 |
 | Pozorna moc (VA) | 598 | 601 | 584 | 587 | 595 |
@@ -110,13 +109,13 @@ Te wykresy zapewniają zużycie mocy i termiczne pomiary wyjściowe dla często 
 | Rzeczywista moc (W) | 592 | 595 | 573 | 575 | 583 |
 | Rozpraszanie termiczne (BTU/godz.) | 2020 |2031 | 1954 | 1961 | 1990 |
 
-| FXT 6400 moc temperatury pokojowej <br />(22 ° C, 71,6 ° F) | 100, 60 Hz | 120, 60 Hz | 208, 60 Hz | 230, 50 Hz | 240, 50 Hz | 
+| FXT 6400 moc temperatury pokojowej <br />(22 ° C, 71,6 ° F) | 100, 60 Hz | 120, 60 Hz | 208, 60 Hz | 230, 50 Hz | 240, 50 Hz |
 |---------|---|---|---|---|---|
 | Napięcie (V) | 100 | 120 | 208 | 230 | 240 |
 | Częstotliwość (Hz) |60 | 60 | 60 | 50 | 50 |
 | Bieżący (A) | 4,63 | 3,86 | 2.24 | 2,04 | 1,94 |
 | Pozorna moc (VA) | 463 | 463 | 466 | 469 | 466 |
-| Współczynnik mocy | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 | 
+| Współczynnik mocy | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 |
 | Rzeczywista moc (W) | 458 | 459 | 457 | 460 | 456 |
 | Rozpraszanie termiczne (BTU/godz.) | 1564 | 1565 | 1558 | 1569 | 1557 |
 
@@ -143,10 +142,10 @@ Ta sekcja zawiera specyfikacje dotyczące środowiska otoczenia sprzętowego.
 | Maksymalny punkt Rosa         | 29 °C (84 °F)                       | 33 °C (91 °F)                 |
 | Wysokości                  | do 3048 metrów (10 000 stóp), z zastrzeżeniem powyższej klasyfikacji temperatury | do 12 000 metrów (39 370 stóp) |
 
-> [!NOTE] 
+> [!NOTE]
 > **Nieklasyfikacja temperatury wysokości:** Maksymalną temperaturę zmniejsza się o 1 c/300 m (1 °F/547 ft) powyżej 950 m (3 117 ft).
 
-### <a name="airflow-shock-and-vibration"></a>Przepływ powietrza, wstrząsy i wibracje 
+### <a name="airflow-shock-and-vibration"></a>Przepływ powietrza, wstrząsy i wibracje
 
 | Atrybut         | Specyfikacja |
 |-------------------|---------------|
@@ -156,13 +155,13 @@ Ta sekcja zawiera specyfikacje dotyczące środowiska otoczenia sprzętowego.
 | Wibracje, operacyjne     | 0,26 G<sub>RMS</sub> 5 hz do 350 Hz         |
 | Wibracje, niedziałające | 1,88 G<sub>RMS</sub> 10 Hz do 500 Hz przez 15 minut (wszystkie sześć stron przetestowanych)  |
 
-## <a name="safety-regulation-compliance"></a>Zgodność z regulacjami bezpieczeństwa 
+## <a name="safety-regulation-compliance"></a>Zgodność z regulacjami bezpieczeństwa
 
-Plik usługi Azure FXT Edge jest zgodny z wymienionymi przepisami. 
+Plik usługi Azure FXT Edge jest zgodny z wymienionymi przepisami.
 
-| Kategoria       | Specyfikacja przepisów | 
+| Kategoria       | Specyfikacja przepisów |
 |----------------|--------------------------|
-| Bezpieczeństwo ogólne | EN 60950-1:2006 + A1:2010 + a2:2013 + A11:2009 + A12:2011/IEC 60950-1:2005 ED2 + a1:2009 + a2:2013 <br>EN 62311:2008 | 
+| Bezpieczeństwo ogólne | EN 60950-1:2006 + A1:2010 + a2:2013 + A11:2009 + A12:2011/IEC 60950-1:2005 ED2 + a1:2009 + a2:2013 <br>EN 62311:2008 |
 | ELEKTROMAGNETYCZNEJ            | FCC A, ICES-003  <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 + A1:2015/CISPR 24:2010 + A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (Klasa D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013 |
 | Energetyczna         | Rozporządzenie Komisji (UE) nr. 617/2013  |
 | RoHS           |    EN 50581:2012   |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85801924"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217392"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Rozwiązywanie problemów z usługą Azure Load Balancer
 
@@ -30,6 +30,12 @@ Gdy Load Balancer łączność jest niedostępna, Najczęstsze objawy są nastę
 - Maszyny wirtualne znajdujące się za Load Balancer nie odpowiadają na ruch na skonfigurowanym porcie
 
 Gdy klienci zewnętrzni do maszyn wirtualnych zaplecza przechodzą przez moduł równoważenia obciążenia, adres IP klientów będzie używany do komunikacji. Upewnij się, że adres IP klientów został dodany do listy dozwolonych sieciowej grupy zabezpieczeń. 
+
+## <a name="symptom-no-outbound-connectivity-from-standard-internal-load-balancers-ilb"></a>Objaw: brak łączności wychodzącej ze standardowych wewnętrznych modułów równoważenia obciążenia (ILB)
+
+**Sprawdzanie poprawności i rozwiązywanie problemów**
+
+Standardowe ILB są **domyślnie zabezpieczone**. Podstawowy ILB zezwala na łączenie się z Internetem za pośrednictwem *ukrytego* publicznego adresu IP. Nie jest to zalecanych dla obciążeń produkcyjnych, ponieważ adres IP nie jest ani statyczny, ani zablokowany przez sieciowych grup zabezpieczeń. Jeśli ostatnio przeniesiono z podstawowej ILB do standardowej ILB, należy utworzyć publiczny adres IP jawnie za pośrednictwem konfiguracji [tylko wychodzącego](egress-only.md) , która blokuje adres IP za pośrednictwem sieciowych grup zabezpieczeń. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Objaw: maszyny wirtualne znajdujące się za Load Balancer nie reagują na sondy kondycji
 W przypadku serwerów zaplecza, które mają być uwzględnione w zestawie modułu równoważenia obciążenia, muszą one przekazywać sprawdzanie sondy. Aby uzyskać więcej informacji o sondach kondycji, zobacz [Opis sond Load Balancer](load-balancer-custom-probe-overview.md). 

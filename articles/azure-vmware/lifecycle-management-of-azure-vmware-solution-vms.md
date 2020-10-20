@@ -3,12 +3,12 @@ title: Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platform
 description: Dowiedz się, jak zarządzać wszystkimi aspektami cyklu życia maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu narzędzi Microsoft Azure natywnych.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 928a632a34dd31272c7c3bf92f6dc6dda97cb6cc
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950367"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216253"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure
 
@@ -53,8 +53,8 @@ Maszyny wirtualne rozwiązań VMware platformy Azure można monitorować za poś
 **Usługa Azure Update Management** w Azure Automation zarządza aktualizacjami systemu operacyjnego dla maszyn z systemami Windows i Linux w środowisku hybrydowym. Monitoruje zgodność poprawek i przekazuje alerty odchylenia poprawek do Azure Monitor na potrzeby korygowania. Usługa Azure Update Management musi połączyć się z obszarem roboczym Log Analytics, aby użyć przechowywanych danych do oceny stanu aktualizacji na maszynach wirtualnych.
 - Aby dodać Log Analytics do usługi Azure Update Management, musisz najpierw [utworzyć konto Azure Automation](../automation/automation-create-standalone-account.md).
 - Aby połączyć obszar roboczy Log Analytics z kontem usługi Automation, zobacz [log Analytics obszaru roboczego i konta usługi Automation](../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
-- Aby włączyć Update Management platformy Azure dla maszyn wirtualnych, zobacz [włączanie Update Management na podstawie konta usługi Automation](../automation/update-management/update-mgmt-enable-automation-account.md).
-- Po dodaniu maszyn wirtualnych do usługi Azure Update Management można [wdrażać aktualizacje na maszynach wirtualnych i przeglądać wyniki](../automation/update-management/update-mgmt-deploy-updates.md). 
+- Aby włączyć Update Management platformy Azure dla maszyn wirtualnych, zobacz [włączanie Update Management na podstawie konta usługi Automation](../automation/update-management/enable-from-automation-account.md).
+- Po dodaniu maszyn wirtualnych do usługi Azure Update Management można [wdrażać aktualizacje na maszynach wirtualnych i przeglądać wyniki](../automation/update-management/deploy-updates.md). 
 
 **Azure Security Center** zapewnia zaawansowaną ochronę przed zagrożeniami w ramach obciążeń hybrydowych w chmurze i lokalnie. Ocenia ona lukę w zabezpieczeniach maszyn wirtualnych rozwiązań platformy Azure VMware i zgłasza alerty zgodnie z potrzebami. Te alerty zabezpieczeń można przesłać dalej do Azure Monitor w celu rozwiązania problemu.
 - Azure Security Center nie wymaga wdrożenia. Aby uzyskać więcej informacji, zobacz listę [obsługiwanych funkcji dla maszyn wirtualnych](../security-center/security-center-services.md).

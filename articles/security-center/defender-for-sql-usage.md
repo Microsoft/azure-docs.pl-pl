@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a532418ebc5cab08b06f8dde87e8126bf8e96ffe
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577853"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217171"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Usługa Azure Defender dla serwerów SQL na maszynach 
 
@@ -118,7 +118,7 @@ Alerty usługi Azure Defender są dostępne na stronie Alerty Security Center, n
 
 1. Alerty zostały zaprojektowane jako samodzielne, z szczegółowymi krokami korygującymi i informacjami o badaniu w każdej z nich. Można dokładniej badać przy użyciu innych Azure Security Center i możliwości funkcji badania platformy Azure w szerszym widoku:
 
-    * Włącz funkcję inspekcji SQL Server na potrzeby dalszych badań. Jeśli jesteś użytkownikiem ze wskaźnikiem wydajności platformy Azure, możesz przekazać dzienniki inspekcji SQL z zdarzeń dziennika zabezpieczeń systemu Windows do badania wskaźnikowego i cieszyć się bogatym doświadczeniem. [Dowiedz się więcej na temat inspekcji SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
+    * Włącz funkcję inspekcji SQL Server na potrzeby dalszych badań. Jeśli jesteś użytkownikiem ze wskaźnikiem wydajności platformy Azure, możesz przekazać dzienniki inspekcji SQL z zdarzeń dziennika zabezpieczeń systemu Windows do badania wskaźnikowego i cieszyć się bogatym doświadczeniem. [Dowiedz się więcej na temat inspekcji SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15&preserve-view=true).
     * Aby ulepszyć stan zabezpieczeń, użyj zaleceń Security Center dla maszyny hosta wskazanej w każdym alercie. Pozwoli to zmniejszyć ryzyko ataków na ataki w przyszłości. 
 
     [Dowiedz się więcej o tym, jak zarządzać alertami i odpowiadać na](security-center-managing-and-responding-alerts.md)nie.
@@ -129,6 +129,6 @@ Alerty usługi Azure Defender są dostępne na stronie Alerty Security Center, n
 W przypadku pokrewnego materiału zapoznaj się z następującym artykułem:
 
 - [Alerty zabezpieczeń dotyczące SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
-- [Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń](security-center-provide-security-contact-details.md)
+- [Konfigurowanie powiadomień e-mail na potrzeby alertów zabezpieczeń](security-center-provide-security-contact-details.md)
 - [Dowiedz się więcej na temat platformy Azure — Wskaźnikowanie](https://docs.microsoft.com/azure/sentinel/)
 - [Pakiet zabezpieczeń danych Azure Security Center](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

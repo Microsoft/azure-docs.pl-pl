@@ -12,34 +12,32 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0fd062bd0e58ecc714e4f450c93384e47e743b65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f278f0713280dde27d6c3892b4d1f1557d17ecb4
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922017"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215947"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Samouczek: rejestrowanie aplikacji sieci Web w Azure Active Directory B2C
 
-Aby [aplikacje](application-types.md) mogły korzystać z Azure Active Directory B2C (Azure AD B2C), należy je zarejestrować w dzierżawie, którą zarządzasz. W tym samouczku pokazano, jak zarejestrować aplikację sieci Web przy użyciu Azure Portal.
+Aby [aplikacje](application-types.md) mogły korzystać z Azure Active Directory B2C (Azure AD B2C), należy je zarejestrować w dzierżawie, którą zarządzasz. W tym samouczku pokazano, jak zarejestrować aplikację sieci Web przy użyciu Azure Portal. 
 
-W tym artykule omówiono sposób wykonywania następujących zadań:
+"Aplikacja sieci Web" odnosi się do tradycyjnej aplikacji sieci Web, która wykonuje większość logiki aplikacji na serwerze. Mogą być kompilowane przy użyciu struktur, takich jak ASP.NET Core, Maven (Java), kolby (Python) i Express (Node.js).
 
-> [!div class="checklist"]
-> * Rejestrowanie aplikacji internetowej
-> * Tworzenie klucza tajnego klienta
-
-Jeśli używasz aplikacji natywnej (np. iOS, Android, Mobile & Desktop), Dowiedz się, [jak zarejestrować natywną aplikację kliencką](add-native-application.md).
-
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> [!IMPORTANT]
+> Jeśli używasz **aplikacji jednostronicowej ("Spa")** (np. przy użyciu funkcji kątowych, VUE lub reagować), Dowiedz się, [jak zarejestrować aplikację jednostronicową](tutorial-register-spa.md).
+> 
+> Jeśli używasz **aplikacji natywnej** (np. iOS, Android, Mobile & Desktop), Dowiedz się, [jak zarejestrować natywną aplikację kliencką](add-native-application.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 Jeśli nie utworzono jeszcze własnej [dzierżawy Azure AD B2C](tutorial-create-tenant.md), utwórz ją teraz. Możesz użyć istniejącej dzierżawy Azure AD B2C.
 
 ## <a name="register-a-web-application"></a>Rejestrowanie aplikacji internetowej
 
-Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
+Aby zarejestrować aplikację sieci Web w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
@@ -48,7 +46,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład *webapp1*.
-1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym lub dowolnym dostawcy tożsamości. Do uwierzytelniania użytkowników za pomocą Azure AD B2C**.
+1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym dostawcy tożsamości lub katalogu organizacji (do uwierzytelniania użytkowników za pomocą przepływów użytkowników)**.
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://jwt.ms` wartość w polu tekstowym adres URL.
 
     Identyfikator URI przekierowania jest punktem końcowym, do którego użytkownik jest wysyłany przez serwer autoryzacji (Azure AD B2C w tym przypadku) po zakończeniu interakcji z użytkownikiem oraz do którego zostanie wysłany token dostępu lub kod autoryzacji po pomyślnej autoryzacji. W aplikacji produkcyjnej zwykle jest dostępny publicznie punkt końcowy, w którym działa aplikacja, na przykład `https://contoso.com/auth-response` . Do celów testowych, takich jak ten samouczek, można ustawić dla niego `https://jwt.ms` aplikację sieci Web firmy Microsoft, która wyświetla zdekodowaną zawartość tokenu (zawartość tokenu nigdy nie opuszcza przeglądarki). Podczas tworzenia aplikacji możesz dodać punkt końcowy, w którym aplikacja nasłuchuje lokalnie, na przykład `https://localhost:5000` . Można w dowolnym momencie dodawać i modyfikować identyfikatory URI przekierowań w zarejestrowanych aplikacjach.
@@ -61,12 +59,6 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. W obszarze **uprawnienia**zaznacz pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
 1. Wybierz pozycję **Zarejestruj**.
 
-Po zakończeniu rejestracji aplikacji Włącz przepływ niejawnego przydzielenia:
-
-1. W menu po lewej stronie w obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
-1. W obszarze **niejawne przyznanie**zaznacz pola wyboru **tokeny dostępu** i **tokeny identyfikatora** .
-1. Wybierz pozycję **Zapisz**.
-
 #### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
@@ -74,7 +66,7 @@ Po zakończeniu rejestracji aplikacji Włącz przepływ niejawnego przydzielenia
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. Wybierz pozycję **aplikacje (starsza wersja)**, a następnie wybierz pozycję **Dodaj**.
 1. Wprowadź nazwę aplikacji. Na przykład *webapp1*.
-1. Dla pozycji **Uwzględnij aplikację internetową/internetowy interfejs API** i **Zezwalaj na niejawny przepływ** wybierz wartość **Tak**.
+1. W obszarze **Dołącz aplikację sieci Web/interfejs API sieci Web**wybierz pozycję **tak**.
 1. Dla pozycji **Adres URL odpowiedzi** wprowadź punkt końcowy, w którym usługa Azure AD B2C powinna zwracać wszelkie tokeny żądane przez Twoją aplikację. Na przykład można ustawić, aby nasłuchiwać lokalnie w `https://localhost:44316` . Jeśli nie znasz jeszcze numeru portu, możesz wprowadzić wartość symbolu zastępczego i zmienić ją później.
 
     Do celów testowych, takich jak ten samouczek, można ustawić, aby `https://jwt.ms` wyświetlić zawartość tokenu do inspekcji. Na potrzeby tego samouczka Ustaw **adres URL odpowiedzi** na `https://jwt.ms` .
@@ -90,8 +82,7 @@ Po zakończeniu rejestracji aplikacji Włącz przepływ niejawnego przydzielenia
 
 ## <a name="create-a-client-secret"></a>Tworzenie klucza tajnego klienta
 
-Jeśli aplikacja wymienia kod autoryzacji dla tokenu dostępu, należy utworzyć klucz tajny aplikacji.
-
+W przypadku aplikacji sieci Web należy utworzyć klucz tajny aplikacji. Ten klucz tajny będzie używany przez aplikację do wymiany kodu autoryzacji dla tokenu dostępu.
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 

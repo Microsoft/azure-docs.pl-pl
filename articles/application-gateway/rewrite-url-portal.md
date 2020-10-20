@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083161"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215777"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Ponowne zapisywanie adresu URL za pomocą usługi Azure Application Gateway — Azure Portal (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób użycia Azure Portal w celu skonfigurowania wyst�
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby wykonać kroki opisane w tym artykule, musisz mieć wystąpienie jednostki SKU Application Gateway v2. Ponowne zapisywanie adresu URL nie jest obsługiwane w jednostce SKU v1. Jeśli nie masz jednostki SKU w wersji 2, przed rozpoczęciem Utwórz wystąpienie [jednostki sku Application Gateway v2](tutorial-autoscale-ps.md) .
 
@@ -79,7 +79,7 @@ W poniższym przykładzie, gdy adres URL żądania zawiera */article*, Ścieżka
     
       () służy do przechwytywania podciągu w celu późniejszego użycia w redagowaniu wyrażenia służącego do ponownego zapisywania ścieżki URL. Aby uzyskać więcej informacji, zobacz [tutaj](rewrite-http-headers-url.md#capturing).
 
-    przykład Kliknij przycisk **OK**.
+    przykład Wybierz przycisk **OK**.
 
     :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Dodaj zestaw do ponownego zapisu":::
 
@@ -99,7 +99,7 @@ W poniższym przykładzie, gdy adres URL żądania zawiera */article*, Ścieżka
     
     `{var_uri_path_1}` i `{var_uri_path_1}` są używane do pobierania podciągów przechwytywanych podczas oceniania warunku w tym wyrażeniu `.*article/(.*)/(.*)`
     
-   f. Kliknij przycisk **OK**.
+   f. Wybierz przycisk **OK**.
 
     :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Dodaj zestaw do ponownego zapisu":::
 

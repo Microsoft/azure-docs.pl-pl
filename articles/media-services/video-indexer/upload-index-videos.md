@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268829"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218983"
 ---
 # <a name="upload-and-index-your-videos"></a>Przekazywanie i indeksowanie plików wideo  
 
@@ -72,15 +72,15 @@ Listę formatów plików, których można używać z Video Indexer, zawiera arty
 > Nazwa filmu wideo nie może być dłuższa niż 80 znaków.
 
 1. Zaloguj się w witrynie internetowej usługi [Video Indexer](https://www.videoindexer.ai/).
-2. Aby przekazać plik wideo, naciśnij przycisk lub link **Upload** (Przekaż).
+1. Aby przekazać plik wideo, naciśnij przycisk lub link **Upload** (Przekaż).
 
-    ![Przekazywanie](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Przekaż":::
+1. Po przekazaniu pliku wideo usługa Video Indexer rozpocznie jego indeksowanie i analizowanie.
 
-    Po przekazaniu pliku wideo usługa Video Indexer rozpocznie jego indeksowanie i analizowanie.
-
-    ![Przekazano](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Po zakończeniu analizowania przez usługę Video Indexer otrzymasz powiadomienie z linkiem do tego pliku wideo i krótki opis tego, co znaleziono w tym nagraniu. Na przykład: osoby, tematy i wyniki przetwarzania OCR.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Przekaż":::
+1. Po zakończeniu analizy Video Indexer otrzymasz wiadomość e-mail z linkiem do wideo i krótkim opisem tego, co zostało znalezione w filmie wideo. Na przykład: osoby, tematy i wyniki przetwarzania OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Przekazywanie i indeksowanie za pomocą interfejsu API
 

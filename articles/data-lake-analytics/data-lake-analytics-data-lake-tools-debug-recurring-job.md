@@ -1,22 +1,20 @@
 ---
 title: Debuguj zadania cykliczne w Azure Data Lake Analytics
 description: Dowiedz się, jak używać Azure Data Lake Tools for Visual Studio do debugowania nietypowego zadania cyklicznego.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 05/20/2018
-ms.openlocfilehash: 86d5134e257d2dae642eceb933a78047773b25a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b95d4b0a082e8eac191d610c9516e5ce72180b4c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87129954"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219177"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Rozwiązywanie problemów z nietypowym zadaniem cyklicznym
 
-W tym artykule pokazano, jak używać [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) do rozwiązywania problemów z cyklicznymi zadaniami. Dowiedz się więcej o zadaniach potokowych i cyklicznych w [blogu Azure Data Lake i Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+W tym artykule pokazano, jak używać [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) do rozwiązywania problemów z cyklicznymi zadaniami. Dowiedz się więcej o zadaniach potokowych i cyklicznych w [blogu Azure Data Lake i Azure HDInsight](/archive/blogs/azuredatalake/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy).
 
 Zadania cykliczne zwykle współdzielą tę samą logikę zapytań i podobne dane wejściowe. Załóżmy na przykład, że zadanie cykliczne jest uruchamiane co poniedziałek rano o godzinie 8 Aby obliczyć tygodniowy aktywny użytkownik w ubiegłym tygodniu. Skrypty tych zadań współużytkują jeden szablon skryptu, który zawiera logikę zapytania. Dane wejściowe dla tych zadań są danymi użycia dla ostatniego tygodnia. Udostępnianie tej samej logiki zapytań i podobnych danych wejściowych zwykle oznacza, że wydajność tych zadań jest podobna i stabilna. Jeśli jedno z cyklicznych zadań nagle działa nieprawidłowo, kończy się niepowodzeniem lub spowalnia pracę, warto wykonać następujące czynności:
 

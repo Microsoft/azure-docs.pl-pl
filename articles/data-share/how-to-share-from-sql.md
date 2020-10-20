@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150383"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217545"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Udostępnianie i odbieranie danych z usługi Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -39,7 +39,7 @@ Poniżej znajduje się lista wymagań wstępnych dotyczących udostępniania dan
 * Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/serwery/bazy danych/zapis*. To uprawnienie istnieje w roli Współautor.
 * Uprawnienie do udziału danych w celu uzyskania dostępu do magazynu danych. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do serwera SQL i ustaw go jako administratora Azure Active Directory.
-    1. Nawiązywanie połączenia z usługą Azure SQL Database/magazynem danych przy użyciu [edytora zapytań](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) lub SQL Server Management Studio z uwierzytelnianiem Azure Active Directory. 
+    1. Nawiązywanie połączenia z usługą Azure SQL Database/magazynem danych przy użyciu [edytora zapytań](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) lub SQL Server Management Studio z uwierzytelnianiem Azure Active Directory. 
     1. Wykonaj Poniższy skrypt, aby dodać tożsamość zarządzaną zasobu udziału danych jako db_datareader. Musisz nawiązać połączenie przy użyciu Active Directory, a nie SQL Server uwierzytelniania. 
     
         ```sql
@@ -144,7 +144,7 @@ Przed zaakceptowaniem zaproszenia udziału danych upewnij się, że wszystkie wy
 ### <a name="prerequisites-for-target-storage-account"></a>Wymagania wstępne dotyczące docelowego konta magazynu
 W przypadku wybrania opcji odbierania danych do usługi Azure Storage poniżej znajduje się lista wymagań wstępnych.
 
-* Konto usługi Azure Storage: Jeśli jeszcze go nie masz, możesz utworzyć [konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* Konto usługi Azure Storage: Jeśli jeszcze go nie masz, możesz utworzyć [konto usługi Azure Storage](../storage/common/storage-account-create.md). 
 * Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli Współautor. 
 * Uprawnienie do dodawania przypisania roli do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli Właściciel.  
 
@@ -154,7 +154,7 @@ Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Az
 * Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/Servers/Databases/Write*. To uprawnienie istnieje w roli Współautor. 
 * Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do Azure SQL Database lub analizy usługi Azure Synapse. Można to zrobić, wykonując następujące czynności: 
     1. W Azure Portal przejdź do serwera SQL i ustaw go jako administratora Azure Active Directory.
-    1. Nawiązywanie połączenia z usługą Azure SQL Database/magazynem danych przy użyciu [edytora zapytań](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) lub SQL Server Management Studio z uwierzytelnianiem Azure Active Directory. 
+    1. Nawiązywanie połączenia z usługą Azure SQL Database/magazynem danych przy użyciu [edytora zapytań](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) lub SQL Server Management Studio z uwierzytelnianiem Azure Active Directory. 
     1. Wykonaj następujący skrypt, aby dodać tożsamość zarządzaną udziału danych jako "db_datareader, db_datawriter, db_ddladmin". Musisz nawiązać połączenie przy użyciu Active Directory, a nie SQL Server uwierzytelniania. 
 
         ```sql
@@ -244,7 +244,7 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 | binarny |Byte [] |
 | bit |Wartość logiczna |
 | char |String, Char [] |
-| data |DateTime |
+| date |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
@@ -275,7 +275,7 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 
 >[!NOTE]
 > 1. W przypadku typów danych, które są mapowane na typ pośredni dziesiętnego, obecnie migawka obsługuje dokładność do 28. Jeśli masz dane wymagające dokładności większej niż 28, Rozważ przekonwertowanie na ciąg. 
-> 1.  Jeśli udostępniasz dane z usługi Azure SQL Database w usłudze Azure Synapse Analytics, nie wszystkie typy danych są obsługiwane. Aby uzyskać szczegółowe informacje, zobacz [typy danych tabeli w puli SQL Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) . 
+> 1.  Jeśli udostępniasz dane z usługi Azure SQL Database w usłudze Azure Synapse Analytics, nie wszystkie typy danych są obsługiwane. Aby uzyskać szczegółowe informacje, zobacz [typy danych tabeli w puli SQL Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) . 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Always Encrypted lub dynamiczne maskowanie danych
 Obecnie udział danych platformy Azure nie obsługuje baz danych usługi Azure SQL, w których skonfigurowano Always Encrypted. 
@@ -294,6 +294,3 @@ Najczęstszym powodem błędu migawki jest to, że udział danych nie ma uprawni
 
 ## <a name="next-steps"></a>Następne kroki
 Wiesz już, jak udostępniać i odbierać dane ze źródeł SQL za pomocą usługi udziału danych platformy Azure. Aby dowiedzieć się więcej o udostępnianiu z innych źródeł danych, przejdź do [obsługiwanych magazynów danych](supported-data-stores.md).
-
-
-

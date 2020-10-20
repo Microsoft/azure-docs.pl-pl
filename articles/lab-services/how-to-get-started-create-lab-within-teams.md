@@ -3,12 +3,12 @@ title: Rozpocznij pracę i Utwórz laboratorium Azure Lab Services w zespołach
 description: Dowiedz się, jak rozpocząć pracę i utworzyć laboratorium Azure Lab Services w ramach zespołów.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 4f8c0e2c5f7b75990460b0a1812d4fec3a758259
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092141"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217086"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Rozpocznij pracę i Utwórz laboratorium usług Lab Services w zespołach
 
@@ -24,6 +24,9 @@ Poniżej przedstawiono typowy przepływ pracy w przypadku używania Azure Lab Se
 1. [Twórca konta laboratorium dodaje innych użytkowników](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) do roli **twórcy laboratorium** . Na przykład twórca konta laboratorium/administrator dodaje wykładowców do roli **twórca laboratorium** , aby mogli tworzyć laboratoria dla ich klas.
 1. Następnie usługa wykładowcy tworzy laboratoria, wstępnie konfiguruje szablonową maszynę wirtualną i publikuje laboratorium, aby udostępnić maszynę wirtualną wszystkim członkom zespołu.
 1. Po opublikowaniu laboratorium maszyna wirtualna jest przypisana do wszystkich użytkowników na liście członkostwa zespołu przy pierwszym logowaniu do Azure Lab Services, klikając kartę zawierającą aplikację **Azure Lab Services** w programie Teams (SSO) lub uzyskując dostęp do [witryny sieci Web Labs](https://labs.azure.com). Użytkownicy mogą następnie użyć maszyny wirtualnej w celu wykonania klasy i pracy.
+
+> [!IMPORTANT]
+> Azure Lab Services mogą być używane w obrębie zespołów tylko wtedy, gdy konta laboratorium są tworzone w tej samej dzierżawie co zespoły.
 
 ## <a name="add-azure-lab-services-app-as-a-tab-to-a-team"></a>Dodawanie aplikacji Azure Lab Services jako karty do zespołu
 
@@ -60,7 +63,7 @@ Gdy laboratorium jest tworzone w zespołach, lista użytkowników laboratorium j
 
 [Zarządzanie listami użytkowników usług Lab Services w ramach zespołów](how-to-manage-user-lists-within-teams.md)
 
-### <a name="see-also"></a>Zobacz także
+### <a name="see-also"></a>Zobacz też
 
 Zobacz również następujące artykuły:
 

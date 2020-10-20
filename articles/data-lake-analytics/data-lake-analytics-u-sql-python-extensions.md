@@ -1,18 +1,17 @@
 ---
 title: Rozszerzone skrypty U-SQL z językiem Python w Azure Data Lake Analytics
 description: Dowiedz się, jak uruchomić kod języka Python w skryptach U-SQL przy użyciu Azure Data Lake Analytics
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
 ms.custom: devx-track-python
-ms.openlocfilehash: b15ab268433e4220d499f3e1fe7cb90ffac2a1be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d81e529d7073e8200c5a1d1fa8f51504b1dc9259
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87876021"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218446"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Rozszerzone skrypty U-SQL z kodem języka Python w Azure Data Lake Analytics
 
@@ -101,5 +100,5 @@ Każdy wierzchołek ma przypisaną ograniczoną ilość pamięci. Obecnie ten li
 
 * [Omówienie usługi Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools dla Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Korzystanie z funkcji okna języka U-SQL dla zadań Azure Data Lake Analytics](data-lake-analytics-use-window-functions.md)
+* [Korzystanie z funkcji okna języka U-SQL dla zadań Azure Data Lake Analytics](./data-lake-analytics-u-sql-get-started.md)
 * [Korzystanie z narzędzi Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

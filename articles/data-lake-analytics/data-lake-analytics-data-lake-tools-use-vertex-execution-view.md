@@ -1,17 +1,15 @@
 ---
 title: Widok wykonywania wierzchołka w narzędziach Data Lake Tools for Visual Studio
 description: W tym artykule opisano sposób użycia widoku wykonywania wierzchołka do przetworzenia Data Lake Analytics zadań.
-services: data-lake-analytics
 ms.service: data-lake-analytics
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: how-to
 ms.date: 10/13/2016
-ms.openlocfilehash: b8688af24e2b67f0e21de8344188b9a946f3258b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fba7bdaa5db1d812fbcd479e5f1eab50c8d1032
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331951"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215862"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Korzystanie z widoku wykonywania wierzchołków w narzędziach Data Lake Tools for Visual Studio
 Dowiedz się, jak za pomocą widoku wykonywania wierzchołków przeegzaminować Data Lake Analytics zadania.

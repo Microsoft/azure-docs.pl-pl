@@ -1,22 +1,20 @@
 ---
 title: Debugowanie kodu w języku C# dla Azure Data Lake zadań U-SQL
 description: W tym artykule opisano sposób debugowania niepowodzenia wierzchołka U-SQL przy użyciu Azure Data Lake Tools for Visual Studio.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87131875"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218021"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Debuguj kod języka C# zdefiniowany przez użytkownika dla niezakończonych zadań U-SQL
 
-Język U-SQL udostępnia model rozszerzalności przy użyciu języka C#. W skryptach U-SQL można łatwo wywoływać funkcje języka C# i wykonywać funkcje analityczne, które nie obsługują języka deklaratywnego przypominającego SQL. Aby dowiedzieć się więcej na temat rozszerzalności U-SQL, zobacz [Przewodnik programowania u-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+Język U-SQL udostępnia model rozszerzalności przy użyciu języka C#. W skryptach U-SQL można łatwo wywoływać funkcje języka C# i wykonywać funkcje analityczne, które nie obsługują języka deklaratywnego przypominającego SQL. Aby dowiedzieć się więcej na temat rozszerzalności U-SQL, zobacz [Przewodnik programowania u-SQL](./data-lake-analytics-u-sql-programmability-guide.md#use-user-defined-functions-udf). 
 
 W tym przypadku każdy kod może wymagać debugowania, ale trudno jest debugować zadanie rozproszone z niestandardowym kodem w chmurze przy użyciu ograniczonych plików dziennika. [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) udostępnia funkcję o nazwie **Nieudane debugowanie wierzchołka**, co ułatwia debugowanie błędów występujących w kodzie niestandardowym. Gdy zadanie U-SQL zakończy się niepowodzeniem, usługa utrzymuje stan niepowodzenia, a narzędzie pomaga pobrać środowisko awarii chmury do maszyny lokalnej na potrzeby debugowania. Lokalne pobieranie przechwytuje całe środowisko chmury, w tym wszelkie dane wejściowe i kod użytkownika.
 

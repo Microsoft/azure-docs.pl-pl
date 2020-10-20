@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281195"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216678"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP i adres URL przy użyciu Application Gateway
 
@@ -50,7 +50,7 @@ Dzięki możliwości ponownego zapisywania adresów URL w Application Gateway mo
 
 Aby dowiedzieć się, jak ponownie napisać adres URL z Application Gateway przy użyciu Azure Portal, zobacz [tutaj](rewrite-url-portal.md).
 
-![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
+![Diagram opisujący proces ponownego zapisywania adresu URL z Application Gateway.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
 >[!NOTE]
 > Funkcja ponownego zapisywania adresu URL jest w wersji zapoznawczej i jest dostępna tylko dla Standard_v2 i WAF_v2 jednostki SKU Application Gateway. Nie jest to zalecane do użycia w środowisku produkcyjnym. Aby dowiedzieć się więcej na temat wersji zapoznawczych, zobacz [warunki użytkowania tutaj](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

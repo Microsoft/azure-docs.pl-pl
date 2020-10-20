@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 880100c3d67dfe10aacf10ed5bb57dec6e2c2a83
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873102"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217069"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Używanie prywatnych punktów końcowych dla aplikacji internetowej platformy Azure
 
@@ -91,7 +91,7 @@ Na przykład rozpoznawanie nazw będzie:
 
 |Nazwa |Typ |Wartość |Dyskusji |
 |-----|-----|------|-------|
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|< — platforma Azure tworzy ten wpis w publicznej usłudze DNS platformy Azure, aby wskazywał usługę App Service na privatelink i jest ona zarządzana przez nas|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|< — zarządzanie tym wpisem w systemie DNS w celu wskazywania prywatnego adresu IP punktu końcowego|
 
 Po tej konfiguracji DNS można skontaktować się z Twoją aplikacją internetową, korzystając z nazwy domyślnej mywebappname.azurewebsites.net. Musisz użyć tej nazwy, ponieważ certyfikat domyślny został wystawiony dla *. azurewebsites.net.

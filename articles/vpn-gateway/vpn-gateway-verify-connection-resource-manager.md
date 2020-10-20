@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 70417ce862294e1041951d722bbbc09de4adeef6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fef9eb49b10008c86ee044a199ae69a43585f4f3
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107117"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217975"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Weryfikowanie połączenia VPN Gateway
 
@@ -34,7 +34,6 @@ Aby sprawdzić połączenie bramy sieci VPN dla Menedżer zasobów modelu wdraż
 Aby sprawdzić połączenie bramy sieci VPN dla modelu wdrażania Menedżer zasobów za pomocą interfejsu wiersza polecenia platformy Azure, zainstaluj najnowszą wersję [poleceń interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/install-azure-cli) (2,0 lub nowsze).
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
-
 
 ## <a name="azure-portal-classic"></a>Portal Azure (klasyczny)
 

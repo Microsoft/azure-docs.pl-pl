@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Ten artykuł zawiera omówienie usługi Azure Arc Kubernetes.
 keywords: Kubernetes, łuk, Azure, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: a4d53614a0ab6783b9adfe395fec4d79e7b62e1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601fcb096bf2bfeb1a6120015690c9aff4b6177b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858425"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216083"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Co to jest platforma Kubernetes z usługą Azure Arc (w wersji zapoznawczej)?
 
@@ -72,7 +72,7 @@ Usługa Azure ARC z włączonym Kubernetes jest obecnie obsługiwana w następuj
 
     Nie. Wszystkie funkcje usługi Azure ARC z włączonym Kubernetes, takie jak Azure Monitor, Azure Policy (strażnik) są natywnie dostępne dla AKS, który już ma reprezentację zasobów na platformie Azure.
     
-* Czy należy połączyć klaster AKS na Azure Stack HCL do usługi Azure Arc? Co o klastrach Kubernetes działających na Azure Stack koncentratorze lub aparacie Azure Stack?
+* Czy należy połączyć klaster AKS na Azure Stack HCL do usługi Azure Arc? Co o klastrach Kubernetes działających na Azure Stack centrum lub Azure Stack Edge?
 
     Tak, połączenie tych klastrów z usługą Azure Arc ma zalety. Zapewnia reprezentację zasobów dla tych klastrów Kubernetes w Azure Resource Manager. Przy użyciu tej reprezentacji zasobów można rozszerzyć takie możliwości jak konfiguracja klastra, Azure Monitor, Azure Policy (strażnik) do tych klastrów Kubernetes
 
