@@ -2,19 +2,19 @@
   items:
     - name: Pierwsze kroki z platformą Azure
       href: azure-operations-guide.md
-    - name: Przewodniki Szybki Start
+    - name: Przewodniki Szybki start
       items:
         - name: Virtual Machines
           items:
             - name: Windows Virtual Machines
               href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-            - name: Linux Virtual Machines
+            - name: Maszyny wirtualne z systemem Linux
               href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
         - name: Sieci wirtualne
           items:
             - name: Tworzenie sieci wirtualnej przy użyciu witryny Azure Portal
               href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-        - name: Zabezpieczenia
+        - name: Bezpieczeństwo
           items:
             - name: Zarządzanie zasobami za pomocą przypisań ról
               href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
@@ -32,32 +32,32 @@
               href: ../../site-recovery/azure-to-azure-quickstart.md
     - name: Samouczki
       items:
-        - name: Virtual Machines
+        - name: Maszyny wirtualne
           items:
             - name: Tworzenie maszyny wirtualnej z systemem Windows i zarządzanie nią
               href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Tworzenie maszyny wirtualnej z systemem Linux i zarządzanie nią
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Potok ciągłej integracji/ciągłego wdrażania narzędzia Jenkins
-              href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%252fazure%252fguides%252foperations%252ftoc.json
             - name: Równoważnie obciążenia maszyn wirtualnych
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Tworzenie szablonów usługi Azure Resource Manager
-              href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
             - name: Wykonywanie kopii zapasowych maszyn wirtualnych na dużą skalę
               href: ../../backup/tutorial-backup-vm-at-scale.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Jak pobrać fakturę rozliczeniową za platformę Azure i dane dziennego użycia
-          href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+          href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
     - name: Zasoby
       items:
         - name: Katalog produktów platformy Azure
-          href: 'https://docs.microsoft.com/azure/#pivot=products'
+          href: ../../index.yml
         - name: Harmonogram działania dla platformy Azure
           href: 'https://azure.microsoft.com/roadmap/'
         - name: Kalkulator cen
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Przegląd witryny Microsoft Azure Portal
           href: 'https://azure.microsoft.com/documentation/articles/azure-portal-overview/'
-    - name: Odwołania
+    - name: Materiały źródłowe

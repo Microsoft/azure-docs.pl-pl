@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: f06d1346e18c54c4a5ceed547dd14e0290e9676e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 5090ae0c5380a16a911ee433d85d288bd9d8fb25
+  ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91578209"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92205306"
 highlightedContent:
   items:
   - title: Co to jest usługa Azure IoT?
@@ -26,19 +26,19 @@ highlightedContent:
     url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
   - title: Rozpoczynanie tworzenia za pomocą interfejsu wiersza polecenia platformy Azure dla usługi Azure IoT
     itemType: reference
-    url: https://docs.microsoft.com/en-us/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest
+    url: /cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest
   - title: Przeglądanie przykładów kodu dla usługi Azure IoT
     itemType: overview
-    url: https://docs.microsoft.com/samples/browse/?term=iot
+    url: /samples/browse/?term=iot
   - title: Zabezpieczanie wdrożenia usługi Azure IoT
     itemType: concept
     url: ../iot-fundamentals/security-recommendations.md
   - title: Referencyjna architektura usługi Azure IoT
     itemType: architecture
-    url: https://docs.microsoft.com/azure/architecture/reference-architectures/iot/
+    url: /azure/architecture/reference-architectures/iot/
   - title: Usługa Azure IoT w usłudze Microsoft Learn
     itemType: learn
-    url: https://docs.microsoft.com/learn/browse/?products=azure&term=iot
+    url: /learn/browse/?products=azure&term=iot
   - title: Opcje wsparcia technicznego i pomocy
     itemType: how-to-guide
     url: ../iot-fundamentals/iot-support-help.md
@@ -90,13 +90,13 @@ conceptualContent:
       text: Zobacz więcej
   - title: Tworzenie połączonej i inteligentnej infrastruktury
     links:
-    - url: ../digital-twins/about-digital-twins.md
+    - url: ../digital-twins/overview.md
       itemType: overview
       text: Co to jest usługa Azure Digital Twins?
-    - url: ../digital-twins/quickstart-view-occupancy-dotnet.md
+    - url: /previous-versions/azure/digital-twins/quickstart-view-occupancy-dotnet
       itemType: quickstart
       text: Znajdowanie pustych pomieszczeń w budynku
-    - url: ../digital-twins/tutorial-facilities-setup.md
+    - url: /previous-versions/azure/digital-twins/tutorial-facilities-setup
       itemType: tutorial
       text: Monitorowanie biurowca
     footerLink:
@@ -124,7 +124,7 @@ conceptualContent:
     - url: ../iot-pnp/quickstart-connect-device-node.md
       itemType: quickstart
       text: Łączenie przykładowego urządzenia z usługą IoT Hub
-    - url: ../iot-pnp/concepts-developer-guide.md
+    - url: ../iot-pnp/concepts-developer-guide-device-csharp.md
       itemType: concept
       text: Przewodnik dla deweloperów
     footerLink:
@@ -132,13 +132,13 @@ conceptualContent:
       text: Zobacz więcej
   - title: Eksplorowanie i analizowanie danych urządzenia
     links:
-    - url: ../time-series-insights/time-series-insights-update-overview.md
+    - url: ../time-series-insights/overview-what-is-tsi.md
       itemType: overview
       text: Co to jest usługa Azure Time Series Insights?
     - url: ../time-series-insights/time-series-quickstart.md
       itemType: quickstart
       text: Poznawanie usługi Time Series Insights
-    - url: ../time-series-insights/tutorial-create-tsi-sample-spa.md
+    - url: https://tsiclientsample.azurewebsites.net/
       itemType: tutorial
       text: Tworzenie aplikacji internetowej usługi Time Series Insights
     footerLink:
@@ -178,16 +178,16 @@ tools:
   items:
   - title: Dokumentacja zestawu SDK usługi Azure IoT dla języka C
     imageSrc: https://docs.microsoft.com/media/logos/logo_c.svg
-    url: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
+    url: /azure/iot-hub/iot-c-sdk-ref/
   - title: Zestaw Azure IoT SDK dla języka Python
     imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
     url: https://github.com/Azure/azure-iot-sdk-python
   - title: Dokumentacja zestawu SDK usługi Azure IoT dla platformy Node.js
     imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
-    url: https://docs.microsoft.com/javascript/api/overview/azure/iot-hub?view=azure-node-latest
+    url: /javascript/api/overview/azure/iot-hub?view=azure-node-latest
   - title: Dokumentacja zestawu SDK usługi Azure IoT dla języka Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
+    url: /java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
   - title: Dokumentacja zestawu SDK usługi Azure IoT dla platformy .NET
     imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
-    url: https://docs.microsoft.com/dotnet/api/overview/azure/iot?view=azure-dotnet
+    url: /dotnet/api/overview/azure/iot?view=azure-dotnet

@@ -94,25 +94,24 @@
     - name: Monitorowanie
     - name: Tworzenie ról i uprawnień
       href: spring-cloud-howto-permissions.md
-      items:
-        - name: Śledzenie rozproszone i szczegółowe informacje o aplikacji
-          href: spring-cloud-tutorial-distributed-tracing.md
-        - name: Analizowanie dzienników i metryk
-          href: diagnostic-services.md
-        - name: Przesyłanie strumieniowe dzienników w czasie rzeczywistym
-          href: spring-cloud-howto-log-streaming.md
-    - name: Wdrożenie usługi DevOps
-      items:
-        - name: Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure DevOps
-          href: spring-cloud-howto-cicd.md
-        - name: Ciągła integracja/ciągłe wdrażanie za pomocą usługi GitHub Actions
-          href: spring-cloud-howto-github-actions.md
-        - name: Uwierzytelnianie za pomocą usługi Key Vault w usłudze GitHub Actions
-          href: spring-cloud-github-actions-key-vault.md
-    - name: Rozwiązywanie problemów
-      items:
-        - name: Przewodnik rozwiązywania problemów
-          href: spring-cloud-troubleshoot.md
+    - name: Śledzenie rozproszone i szczegółowe informacje o aplikacji
+      href: spring-cloud-tutorial-distributed-tracing.md
+    - name: Analizowanie dzienników i metryk
+      href: diagnostic-services.md
+    - name: Przesyłanie strumieniowe dzienników w czasie rzeczywistym
+      href: spring-cloud-howto-log-streaming.md
+- name: Wdrożenie usługi DevOps
+  items:
+    - name: Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure DevOps
+      href: spring-cloud-howto-cicd.md
+    - name: Ciągła integracja/ciągłe wdrażanie za pomocą usługi GitHub Actions
+      href: spring-cloud-howto-github-actions.md
+    - name: Uwierzytelnianie za pomocą usługi Key Vault w usłudze GitHub Actions
+      href: spring-cloud-github-actions-key-vault.md
+- name: Rozwiązywanie problemów
+  items:
+    - name: Przewodnik rozwiązywania problemów
+      href: spring-cloud-troubleshoot.md
 - name: Dokumentacja
   items:
     - name: Wtyczka interfejsu wiersza polecenia platformy Azure

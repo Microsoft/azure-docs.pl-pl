@@ -1,16 +1,15 @@
 ---
 title: Włączanie i wyświetlanie dzienników diagnostycznych dla Azure Data Lake Analytics
 description: Informacje na temat konfigurowania i uzyskiwania dostępu do dzienników diagnostycznych dla Azure Data Lake Analytics
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd339729f2300ff7e13e7422bf73373b4ce4658e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331934"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221013"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostic logs for Azure Data Lake Analytics (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics)
 
@@ -43,7 +42,7 @@ Rejestrowanie diagnostyczne umożliwia zbieranie dzienników inspekcji dostępu 
 
    * Dla __Archiwum na konto magazynu__Określ liczbę dni, przez które mają zostać zachowane dane.
 
-   * Kliknij przycisk __Zapisz__.
+   * Kliknij pozycję __Zapisz__.
 
         > [!NOTE]
         > Przed kliknięciem przycisku __Zapisz__ należy wybrać opcję __Archiwizuj na koncie magazynu__, __przesłać strumieniowo do centrum zdarzeń__ lub __wysłać do log Analytics__ .

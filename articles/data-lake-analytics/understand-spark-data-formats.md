@@ -6,16 +6,16 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
-ms.openlocfilehash: bff8c89dcdcbb7c319e04e5e7518985badf5a5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399914186ce9de62ef46b682c8d4a6e51426cc26
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132317"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221115"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>Zrozumienie różnic między formatami danych U-SQL i Spark
 
-Jeśli chcesz użyć obu [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) lub [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md), zalecamy przeprowadzenie migracji danych z [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) do [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+Jeśli chcesz użyć obu [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) lub [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md), zalecamy przeprowadzenie migracji danych z [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) do [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 Oprócz przechodzenia plików, warto również udostępnić dane przechowywane w tabelach U-SQL dostępnych dla platformy Spark.
 
@@ -26,13 +26,13 @@ Dane przechowywane w plikach można przenosić na różne sposoby:
 - Napisz potok [Azure Data Factory](../data-factory/introduction.md) , aby skopiować dane z konta [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) do konta [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) .
 - Napisz zadanie Spark, które odczytuje dane z konta [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) i zapisuje je na koncie [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) . Na podstawie Twojego przypadku użycia możesz chcieć napisać go w innym formacie, takim jak Parquet, jeśli nie ma potrzeby zachowywania oryginalnego formatu pliku.
 
-Zalecamy zapoznanie się z artykułem [Uaktualnianie rozwiązań do analizy danych Big Data z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
+Zalecamy zapoznanie się z artykułem [Uaktualnianie rozwiązań do analizy danych Big Data z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
 
 ## <a name="move-data-stored-in-u-sql-tables"></a>Przenoszenie danych przechowywanych w tabelach U-SQL
 
 Tabele U-SQL nie są rozpoznawane przez platformę Spark. Jeśli przechowujesz dane w tabelach U-SQL, uruchomisz zadanie U-SQL, które wyodrębnia dane tabeli i zapisuje je w formacie, który jest rozpoznawany przez platformę Spark. Najbardziej odpowiednim formatem jest utworzenie zestawu plików Parquet po układ folderu magazyn metadanych Hive.
 
-Dane wyjściowe można osiągnąć w języku U-SQL za pomocą wbudowanego wypełniania Parquet oraz przy użyciu dynamicznego partycjonowania danych wyjściowych z zestawami plików w celu utworzenia folderów partycji. [Przetwarzaj więcej plików niż kiedykolwiek, a korzystanie z Parquet](https://blogs.msdn.microsoft.com/azuredatalake/2018/06/11/process-more-files-than-ever-and-use-parquet-with-azure-data-lake-analytics) zawiera przykład sposobu tworzenia takich danych.
+Dane wyjściowe można osiągnąć w języku U-SQL za pomocą wbudowanego wypełniania Parquet oraz przy użyciu dynamicznego partycjonowania danych wyjściowych z zestawami plików w celu utworzenia folderów partycji. [Przetwarzaj więcej plików niż kiedykolwiek, a korzystanie z Parquet](/archive/blogs/azuredatalake/process-more-files-than-ever-and-use-parquet-with-azure-data-lake-analytics) zawiera przykład sposobu tworzenia takich danych.
 
 Po wykonaniu tej transformacji dane są kopiowane, jak opisano w rozdziale [przenoszenie danych przechowywanych w plikach Azure Data Lake Storage Gen1](#move-data-stored-in-azure-data-lake-storage-gen1-files).
 
@@ -47,8 +47,8 @@ Po wykonaniu tej transformacji dane są kopiowane, jak opisano w rozdziale [prze
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zrozumienie koncepcji kodu platformy Spark dla deweloperów U-SQL](understand-spark-code-concepts.md)
-- [Uaktualnij rozwiązania do analizy danych Big Data z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
-- [Platforma .NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Uaktualnij rozwiązania do analizy danych Big Data z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
+- [Platforma .NET for Apache Spark](/dotnet/spark/what-is-apache-spark-dotnet)
 - [Przekształcanie danych przy użyciu działania Spark w Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Przekształcanie danych przy użyciu działania programu Hive platformy Hadoop w Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [Co to jest platforma Apache Spark w usłudze Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

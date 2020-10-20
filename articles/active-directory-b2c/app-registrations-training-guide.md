@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433912"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214927"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nowe środowisko Rejestracje aplikacji dla Azure Active Directory B2C
 
@@ -53,13 +53,13 @@ Aby uzyskać dostęp do nowego środowiska, przejdź do **rejestracje aplikacji*
 ## <a name="new-supported-account-types"></a>Nowe obsługiwane typy kont
 
 W nowym środowisku wybierz typ konta pomocy technicznej z następujących opcji:
-- Tylko konta w tym katalogu organizacji.
-- Konta w dowolnym katalogu organizacji (dowolny katalog usługi Azure AD — wielodostępny).
-- Konta w dowolnym katalogu organizacyjnym lub u dowolnego dostawcy tożsamości. Do uwierzytelniania użytkowników za pomocą Azure AD B2C.
+- Konta tylko w tym katalogu organizacyjnym
+- Konta w dowolnym katalogu organizacji (dowolny katalog usługi Azure AD — wielodostępny)
+- Konta w dowolnym dostawcy tożsamości lub katalogu organizacji (do uwierzytelniania użytkowników za pomocą przepływów użytkowników)
 
 Aby poznać różne typy kont, wybierz pozycję **Pomóż mi wybrać** w temacie środowisko tworzenia.
 
-W starszym środowisku aplikacje były zawsze tworzone jako aplikacje dla klientów. Dla tych aplikacji typ konta jest ustawiony na **konta w dowolnym katalogu organizacyjnym lub u dowolnego dostawcy tożsamości. Do uwierzytelniania użytkowników za pomocą Azure AD B2C**.
+W starszym środowisku aplikacje były zawsze tworzone jako aplikacje dla klientów. Dla tych aplikacji typ konta jest ustawiony na **konta w dowolnym dostawcy tożsamości lub katalogu organizacyjnym (w celu uwierzytelniania użytkowników za pomocą przepływów użytkowników)**.
 > [!NOTE]
 > Ta opcja jest wymagana, aby można było uruchamiać Azure AD B2C przepływów użytkowników w celu uwierzytelniania użytkowników dla tej aplikacji. Dowiedz się [, jak zarejestrować aplikację do użycia z przepływami użytkowników.](tutorial-register-applications.md)
 
@@ -96,13 +96,12 @@ W nowym środowisku zamiast **kluczy**należy użyć bloku **Certyfikaty & wpisy
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Funkcje niemające zastosowania w dzierżawach Azure AD B2C
 Następujące możliwości rejestracji aplikacji usługi Azure AD nie mają zastosowania do dzierżaw Azure AD B2C ani do nich dostępnych:
-- **Role i Administratorzy** — wymaga Azure AD — wersja Premium licencji P1 lub P2, która nie jest obecnie dostępna dla Azure AD B2C.
+- **Role i Administratorzy** — obecnie nie są dostępne dla Azure AD B2C.
 - **Znakowanie** — Dostosowywanie interfejsu użytkownika/środowiska użytkownika jest konfigurowane w środowisku **znakowania firmowego** lub w ramach przepływu pracy. Dowiedz się, jak [dostosować interfejs użytkownika w Azure Active Directory B2C](customize-ui-overview.md).
 - **Weryfikacja domeny wydawcy** — Twoja aplikacja jest zarejestrowana w usłudze *. onmicrosoft.com*, która nie jest zweryfikowaną domeną. Ponadto domena wydawcy jest używana głównie do udzielania zgody użytkownika, która nie ma zastosowania do Azure AD B2C aplikacji do uwierzytelniania użytkowników. [Dowiedz się więcej o domenie wydawcy](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
 - **Konfiguracja tokenu** — token jest konfigurowany jako część przepływu użytkownika, a nie aplikacji.
 - Środowisko **Szybki Start** nie jest obecnie dostępne dla dzierżawców Azure AD B2C.
-- Blok **asystenta integracji** nie jest obecnie dostępny dla dzierżawców Azure AD B2C.
-
+<!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->
 
 ## <a name="limitations"></a>Ograniczenia
 Nowe środowisko ma następujące ograniczenia:

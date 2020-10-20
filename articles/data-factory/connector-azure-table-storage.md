@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/27/2019
-ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 5181ceb7d5959436b704202fd3179773c9654679
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417492"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220486"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Table Storage za pomocą usługi Azure Data Factory
 
@@ -41,7 +41,7 @@ Dane można kopiować z dowolnego obsługiwanego źródłowego magazynu danych d
 
 W każdym przypadku ten łącznik tabeli platformy Azure obsługuje kopiowanie danych przy użyciu uwierzytelniania sygnatury dostępu współdzielonego z użyciem klucza konta i usługi.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -222,7 +222,7 @@ Aby skopiować dane do i z tabeli platformy Azure, ustaw właściwość Type zes
 
 W przypadku magazynów danych bez schematu, takich jak Azure Table, Data Factory wnioskuje schemat w jeden z następujących sposobów:
 
-* Jeśli określisz Mapowanie kolumn w działaniu kopiowania, Data Factory Użyj listy kolumn po stronie źródłowej, aby pobrać dane. W takim przypadku, jeśli wiersz nie zawiera wartości dla kolumny, zostanie dla niego podana wartość null.
+* Jeśli określisz Mapowanie kolumn w działaniu kopiowania, Data Factory pobiera dane przy użyciu listy kolumn po stronie źródłowej. W takim przypadku, jeśli wiersz nie zawiera wartości dla kolumny, zostanie dla niego podana wartość null.
 * Jeśli nie określisz mapowania kolumn w działaniu kopiowania, Data Factory wnioskuje schemat przy użyciu pierwszego wiersza w danych. W tym przypadku, jeśli pierwszy wiersz nie zawiera pełnego schematu (np. niektóre kolumny mają wartość null), niektóre kolumny są pominięte w wyniku operacji kopiowania.
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
@@ -236,7 +236,7 @@ Aby skopiować dane z tabeli platformy Azure, ustaw typ źródła w działaniu C
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AzureTableSource**. |Tak |
-| azureTableSourceQuery |Użyj zapytania magazynu tabel niestandardowych do odczytu danych. Zobacz przykłady w poniższej sekcji. |Nie |
+| azureTableSourceQuery |Użyj zapytania magazynu tabel niestandardowych do odczytu danych.<br/>Zapytanie źródłowe to bezpośrednia mapa z `$filter` opcji zapytania obsługiwanej przez usługę Azure Table Storage, Dowiedz się więcej o składni z [tego dokumentu](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options)i Zobacz przykłady w poniższej [sekcji przykładów azureTableSourceQuery](#azuretablesourcequery-examples). |Nie |
 | azureTableSourceIgnoreTableNotFound |Wskazuje, czy zezwolić na wyjątek nieistniejącej tabeli.<br/>Dozwolone wartości to **true** i **false** (wartość domyślna). |Nie |
 
 ### <a name="azuretablesourcequery-examples"></a>Przykłady azureTableSourceQuery

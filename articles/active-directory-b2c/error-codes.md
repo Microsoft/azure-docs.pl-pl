@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664855"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215437"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Kody błędów: Azure Active Directory B2C
 
@@ -61,6 +61,7 @@ Usługa Azure Active Directory B2C może zwrócić następujące błędy.
 | `AADB2C90055` | Zakres " {0} " podany w żądaniu musi określać zasób, taki jak " https://example.com/calendar.read ". |
 | `AADB2C90057` | Podana aplikacja nie jest skonfigurowana tak, aby zezwalać na niejawny przepływ uwierzytelniania OAuth. |
 | `AADB2C90058` | Podana aplikacja nie jest skonfigurowana tak, aby zezwalać na publiczne komputery klienckie. |
+| `AADB2C99059` | Dostarczone żądanie musi mieć code_challenge. Wymagane w przypadku aplikacji jednostronicowych korzystających z przepływu kodu autoryzacji.| 
 | `AADB2C90067` | Identyfikator URI przekierowania wylogowania " {0} " ma nieprawidłowy format. Określ adres URL oparty na protokole https, taki jak " https://example.com/return ", lub dla klientów natywnych Użyj natywnego identyfikatora URI "urn: IETF klienta" (IETF: 2.0: OOB). |
 | `AADB2C90068` | Podana aplikacja o IDENTYFIKATORze " {0} " nie jest prawidłowa dla tej usługi. Użyj aplikacji utworzonej za pośrednictwem portalu B2C i spróbuj ponownie. |
 | `AADB2C90075` | W {0} kroku "" określono wymianę oświadczeń "" {1} , która zwróciła odpowiedź na błąd http z kodem " {2} " i przyczyną " {3} ". |

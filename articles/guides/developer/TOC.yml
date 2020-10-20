@@ -7,169 +7,169 @@
 - name: Szybki start
   items:
     - name: Web Apps
-      href: 'https://docs.microsoft.com/azure/app-service/quickstart-html'
+      href: ../../app-service/quickstart-html.md
     - name: Maszyny wirtualne
       items:
         - name: Linux
-          href: 'https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal'
+          href: ../../virtual-machines/linux/quick-create-portal.md
         - name: Windows
-          href: 'https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal'
+          href: ../../virtual-machines/windows/quick-create-portal.md
     - name: Praca bezserwerowa
-      href: 'https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function'
+      href: ../../azure-functions/functions-create-first-azure-function.md
     - name: Mikrousługi
       items:
         - name: Service Fabric
-          href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio'
+          href: ../../service-fabric/service-fabric-tutorial-create-dotnet-app.md
         - name: Container Service
-          href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-deployment'
+          href: /previous-versions/azure/container-service/dcos-swarm/container-service-intro
 - name: Samouczki
   items:
     - name: Tworzenie i wdrażanie aplikacji internetowej
       items:
         - name: .NET z bazą danych SQL
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase'
+          href: ../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md
         - name: Node.js z bazą danych Mongo
-          href: 'https://docs.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app'
+          href: ../../app-service/tutorial-nodejs-mongodb-app.md
         - name: PHP z bazą danych MySQL
-          href: 'https://docs.microsoft.com/azure/app-service/tutorial-php-mysql-app'
+          href: ../../app-service/tutorial-php-mysql-app.md
         - name: Java z bazą danych MySQL
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql'
+          href: ../../app-service/tutorial-java-spring-cosmosdb.md
     - name: Wdrażanie złożonych szablonów maszyn wirtualnych
       items:
         - name: Linux
-          href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm'
+          href: ../../virtual-machines/linux/tutorial-manage-vm.md
         - name: Windows
-          href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm'
+          href: ../../virtual-machines/windows/tutorial-manage-vm.md
     - name: Tworzenie funkcji połączonej z platformą Azure
-      href: 'https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function'
+      href: ../../azure-functions/functions-create-storage-queue-triggered-function.md
     - name: Aplikacja internetowa wdrażana w rozwiązaniu Docker w systemie Linux
-      href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go'
+      href: ../../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux
 - name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       items:
         - name: Web Apps
-          href: 'https://docs.microsoft.com/azure/app-service/samples-cli'
+          href: ../../app-service/samples-cli.md
         - name: Maszyna wirtualna z systemem Linux
-          href: 'https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples'
+          href: ../../virtual-machines/linux/cli-samples.md
         - name: Maszyna wirtualna z systemem Windows
-          href: 'https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples'
+          href: ../../virtual-machines/windows/cli-samples.md
     - name: Azure PowerShell
       items:
         - name: Web Apps
-          href: 'https://docs.microsoft.com/azure/app-service/samples-powershell'
+          href: ../../app-service/samples-powershell.md
         - name: Maszyna wirtualna z systemem Linux
-          href: 'https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples'
+          href: ../../virtual-machines/linux/powershell-samples.md
         - name: Maszyna wirtualna z systemem Windows
-          href: 'https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples'
+          href: ../../virtual-machines/windows/powershell-samples.md
 - name: Pojęcia
   items:
     - name: Rozliczenia i subskrypcje
-      href: 'https://docs.microsoft.com/azure/billing/billing-getting-started'
+      href: ../../cost-management-billing/cost-management-billing-overview.md
     - name: Porównania hostingu
       href: /azure/architecture/guide/technology-choices/compute-decision-tree
     - name: Co to jest usługa App Service?
-      href: 'https://docs.microsoft.com/azure/app-service/overview'
+      href: ../../app-service/overview.md
     - name: Maszyny wirtualne
       items:
         - name: Maszyny wirtualne z systemem Linux
-          href: 'https://docs.microsoft.com/azure/virtual-machines/linux/overview'
+          href: ../../virtual-machines/linux/overview.md
         - name: Maszyny wirtualne z systemem Windows
-          href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
+          href: ../../virtual-machines/windows/overview.md
     - name: Omówienie usługi Service Fabric
-      href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-overview'
+      href: ../../service-fabric/service-fabric-overview.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Planowanie
       items:
         - name: Architektury aplikacji internetowych
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
+          href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Architektury maszyn wirtualnych
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/'
+          href: /azure/architecture/reference-architectures/virtual-machines-windows/
         - name: Nawiązywanie połączenia z sieciami lokalnymi
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/'
+          href: /azure/architecture/reference-architectures/hybrid-networking/
         - name: Wzorce/scenariusze mikrousług
-          href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-and-scenarios'
+          href: ../../service-fabric/service-fabric-application-scenarios.md
     - name: Programowanie
       items:
         - name: Maszyna wirtualna z systemem Linux
-          href: 'https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-secured-vm-from-template'
+          href: ../../virtual-machines/linux/create-ssh-secured-vm-from-template.md
         - name: Maszyna wirtualna z systemem Windows
-          href: 'https://docs.microsoft.com/azure/virtual-machines/windows/ps-template'
+          href: ../../virtual-machines/windows/ps-template.md
         - name: Aplikacje bezserwerowe
-          href: 'https://docs.microsoft.com/azure/azure-functions/functions-reference'
+          href: ../../azure-functions/functions-reference.md
         - name: Klaster mikrousług
-          href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal'
+          href: ../../service-fabric/service-fabric-cluster-creation-via-portal.md
     - name: Wdrażanie
       items:
         - name: Aplikacje internetowe i mobilne z kontroli źródła
-          href: 'https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment'
+          href: ../../app-service/deploy-continuous-deployment.md
         - name: Mikrousługi lokalnie
-          href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster'
+          href: ../../service-fabric/service-fabric-deploy-remove-applications.md
         - name: Maszyna wirtualna z systemem Linux
-          href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm'
+          href: ../../virtual-machines/linux/tutorial-manage-vm.md
         - name: Maszyna wirtualna z systemem Windows
-          href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm'
+          href: ../../virtual-machines/windows/tutorial-manage-vm.md
     - name: Przechowywanie danych
       items:
         - name: Obiekty blob
-          href: 'https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs'
+          href: ../../storage/blobs/storage-quickstart-blobs-dotnet.md
         - name: Udziały plików
-          href: 'https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files'
+          href: ../../storage/files/storage-dotnet-how-to-use-files.md
         - name: Pary klucz-wartość
-          href: 'https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet'
+          href: ../../cosmos-db/create-table-dotnet.md
         - name: Dokumenty JSON
-          href: 'https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet'
+          href: ../../cosmos-db/create-sql-api-dotnet.md
         - name: Tabele relacyjne
-          href: 'https://docs.microsoft.com/azure/sql-database/sql-database-get-started'
+          href: ../../azure-sql/database/single-database-create-quickstart.md
         - name: Kolejki komunikatów
-          href: 'https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues'
+          href: ../../storage/queues/storage-dotnet-how-to-use-queues.md
     - name: Skalowanie
       items:
         - name: Aplikacje internetowe i mobilne
-          href: 'https://docs.microsoft.com/azure/app-service/manage-scale-up'
+          href: ../../app-service/manage-scale-up.md
         - name: Maszyny wirtualne
-          href: 'https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview'
+          href: ../../virtual-machine-scale-sets/overview.md
         - name: Aplikacje mikrousług
-          href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability'
+          href: ../../service-fabric/service-fabric-concepts-scalability.md
     - name: Bezpieczeństwo
       items:
         - name: Aplikacje internetowe i mobilne
-          href: 'https://docs.microsoft.com/azure/app-service/configure-ssl-bindings'
+          href: ../../app-service/configure-ssl-bindings.md
     - name: Backup
       items:
         - name: Aplikacje internetowe i mobilne
-          href: 'https://docs.microsoft.com/azure/app-service/manage-backup'
+          href: ../../app-service/manage-backup.md
         - name: Maszyny wirtualne
-          href: 'https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction'
+          href: ../../backup/backup-azure-vms-introduction.md
     - name: Monitorowanie
       items:
         - name: Aplikacje internetowe i mobilne
-          href: 'https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs'
+          href: ../../app-service/troubleshoot-diagnostic-logs.md
         - name: Maszyna wirtualna z systemem Linux
-          href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring'
+          href: ../../virtual-machines/linux/tutorial-monitor.md
         - name: Maszyna wirtualna z systemem Windows
-          href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring'
+          href: ../../virtual-machines/windows/tutorial-monitor.md
         - name: Mikrousługi
-          href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview'
+          href: ../../service-fabric/service-fabric-diagnostics-overview.md
         - name: Alerty dotyczące rozliczeń
-          href: 'https://docs.microsoft.com/azure/billing/billing-set-up-alerts'
+          href: ../../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md
     - name: Automatyzacja
       items:
         - name: Skalowanie maszyny wirtualnej z systemem Linux
-          href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss'
+          href: ../../virtual-machines/linux/tutorial-create-vmss.md
         - name: Skalowanie maszyny wirtualnej z systemem Windows
-          href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss'
+          href: ../../virtual-machines/windows/tutorial-create-vmss.md
 - name: Dokumentacja
   items:
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/'
+      href: /rest/api/
     - name: Zestawy SDK
       items:
         - name: .NET
-          href: 'https://go.microsoft.com/fwlink/?linkid=834925'
+          href: /dotnet/api/
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/'
+          href: /java/api/
         - name: Node.js
           href: 'https://azure.github.io/azure-sdk-for-node/'
         - name: PHP
@@ -181,11 +181,11 @@
     - name: Interfejsy wiersza polecenia
       items:
         - name: Interfejs wiersza polecenia platformy Azure
-          href: 'https://docs.microsoft.com/cli/azure/'
+          href: /cli/azure/
         - name: Azure PowerShell
-          href: 'https://docs.microsoft.com/powershell/'
+          href: /powershell/
     - name: Rozliczenia
-      href: 'https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview'
+      href: ../../cost-management-billing/manage/usage-rate-card-overview.md
 - name: Zasoby
   items:
     - name: Limity przydziału i ograniczenia platformy Azure

@@ -1,20 +1,18 @@
 ---
-title: 'Skrypt programu PowerShell: Wyświetlanie listy istniejących udziałów w udziale danych platformy Azure | Microsoft Docs'
+title: 'Skrypt programu PowerShell: Wyświetlanie listy istniejących udziałów w udziale danych platformy Azure'
 description: Ten skrypt programu PowerShell zawiera listę i wyświetla szczegóły udziałów.
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 6314bd348c22c901001b88eda6875181a2f69df4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54b4b6cedc2dc09e4a9d5c4b7b937e80750e17c6
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307136"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220826"
 ---
 # <a name="use-powershell-to-view-the-details-of-a-sent-data-share"></a>Wyświetlanie szczegółów wysłanego udziału danych przy użyciu programu PowerShell
 
@@ -45,11 +43,11 @@ W tym skrypcie użyto następujących poleceń:
 
 | Polecenie | Uwagi |
 |---|---|
-| [Get-AzDataShare](/powershell/module/az.datashare/get-azdatashare?view=azps-2.6.0) | Pobiera i wyświetla listę udziałów w ramach konta. |
+| [Get-AzDataShare](/powershell/module/az.datashare/get-azdatashare) | Pobiera i wyświetla listę udziałów w ramach konta. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
+Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/).
 
 Dodatkowe przykłady skryptów programu PowerShell dotyczące udziałów danych platformy Azure można znaleźć w [przykładach programu PowerShell w udziale danych platformy Azure](../../samples-powershell.md).

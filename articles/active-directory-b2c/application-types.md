@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84295426"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215408"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Typy aplikacji, które mogą być używane w Active Directory B2C
-
+ 
 Azure Active Directory B2C (Azure AD B2C) obsługuje uwierzytelnianie dla różnych nowoczesnych architektur aplikacji. Wszystkie one są oparte na standardowych protokołach branżowych [OAuth 2.0](protocols-overview.md) lub [OpenID Connect](protocols-overview.md). W tym artykule opisano typy aplikacji, które można kompilować, niezależnie od preferowanego języka lub platformy. Ułatwia on także zrozumienie ogólnych scenariuszy przed rozpoczęciem tworzenia aplikacji.
 
 Każda aplikacja, która używa Azure AD B2C musi być zarejestrowana w [dzierżawie Azure AD B2C](tutorial-create-tenant.md) przy użyciu [Azure Portal](https://portal.azure.com/). Proces rejestracji aplikacji zbiera i przypisuje wartości, takie jak:
@@ -75,6 +75,26 @@ Aby zapoznać się z tym scenariuszem w działaniu, wypróbuj jeden z przykład�
 
 Oprócz ułatwienia prostego logowania aplikacja serwera sieci Web może również potrzebować dostępu do usługi sieci Web zaplecza. W takim przypadku aplikacja sieci Web może wykonywać nieco inne [OpenID Connect połączenia](openid-connect.md) i uzyskiwać tokeny przy użyciu kodów autoryzacji i odświeżania tokenów. Ten scenariusz jest opisany w [sekcji dotyczącej interfejsów API sieci Web](#web-apis) poniżej.
 
+## <a name="single-page-applications"></a>Aplikacje jednostronicowe
+Wiele nowoczesnych aplikacji sieci Web jest skompilowanych jako aplikacje jednostronicowe po stronie klienta ("aplikacji jednostronicowych"). Deweloperzy zapisują je przy użyciu języka JavaScript lub środowiska SPA, takiego jak kątowy, Vue i reagują. Aplikacje te działają w przeglądarce internetowej i mają inne cechy uwierzytelniania niż tradycyjne aplikacje sieci Web po stronie serwera.
+
+Azure AD B2C dostępne są **dwie** opcje umożliwiające jednostronicowe aplikacje logowania użytkowników i uzyskiwanie tokenów w celu uzyskania dostępu do usług zaplecza lub interfejsów API sieci Web:
+
+### <a name="authorization-code-flow-with-pkce"></a>Przepływ kodu autoryzacji (z PKCE)
+- [Przepływ kodu autoryzacji OAuth 2,0 (z PKCE)](./authorization-code-flow.md). Przepływ kodu autoryzacji umożliwia aplikacji wymianę kodu autoryzacji dla tokenów **identyfikatora** , aby reprezentować tokeny uwierzytelnionego użytkownika i **dostępu** , które są konieczne do wywołania chronionych interfejsów API. Ponadto zwraca tokeny **odświeżania** , które zapewniają długoterminowy dostęp do zasobów w imieniu użytkowników, bez konieczności interakcji z tymi użytkownikami. 
+
+Jest to **zalecane** podejście. Tokeny odświeżania o ograniczonym okresie istnienia ułatwiają aplikacji dostosowanie do [nowoczesnej ochrony plików cookie w przeglądarce](../active-directory/develop/reference-third-party-cookies-spas.md), takich jak Safari itp.
+
+Aby skorzystać z tego przepływu, aplikacja może używać biblioteki uwierzytelniania, która obsługuje tę funkcję, na przykład [MSAL.js 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
+
+<!-- ![Single-page applications-auth](./media/tutorial-single-page-app/spa-app-auth.svg) -->
+![Aplikacje jednostronicowe — uwierzytelnianie](./media/tutorial-single-page-app/active-directory-oauth-code-spa.png)
+
+### <a name="implicit-grant-flow"></a>Niejawny przepływ dotacji
+- [Niejawny przepływ OAuth 2,0](implicit-flow-single-page-application.md). Niektóre struktury, takie jak [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), obsługują tylko niejawny przepływ. Przepływ niejawnego przydzielenia umożliwia aplikacji uzyskanie tokenów dotyczących **identyfikatorów** i **dostępu** . W przeciwieństwie do przepływu kodu autoryzacji niejawny przepływ przyznania nie zwraca **tokenu odświeżania**. 
+
+Ten przepływ uwierzytelniania nie obejmuje scenariuszy aplikacji, które wykorzystują Międzyplatformowe struktury JavaScript, takie jak elektron i reagowanie na nie. Te scenariusze wymagają dalszych możliwości interakcji z natywnymi platformami.
+
 ## <a name="web-apis"></a>Interfejsy API sieci Web
 
 Azure AD B2C można użyć do zabezpieczenia usług sieci Web, takich jak RESTful internetowy interfejs API aplikacji. Interfejsy API sieci Web mogą zabezpieczać swoje dane za pomocą protokołu OAuth 2.0, uwierzytelniając żądania przychodzące HTTP przy użyciu tokenów. Element wywołujący interfejs API sieci Web dołącza token w nagłówku autoryzacji żądania HTTP:
@@ -85,7 +105,7 @@ Host: www.mywebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
 Accept: application/json
 ...
-```
+``` 
 
 Interfejs API sieci Web może następnie użyć tego tokenu do zweryfikowania tożsamości elementu wywołującego interfejs API oraz do wyodrębnienia informacji o elemencie wywołującym z oświadczeń zakodowanych w tokenie. Aby uzyskać więcej informacji o typach tokenów i oświadczeń dostępnych dla aplikacji, zobacz [informacje o tokenach usługi Azure AD B2C](tokens-overview.md).
 
