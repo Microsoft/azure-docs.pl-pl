@@ -10,12 +10,12 @@ ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9f42359cc843a934cf1258576d13eec8af2279cc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9afe34097d005daeedf46fbaf30b37e53a8e3658
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687658"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132044"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Interpretacja raportów dotyczących zarządzania kosztami w usłudze Cloudyn
 
@@ -205,5 +205,5 @@ Podczas przeglądania dowolnego raportu kliknij pozycję **Akcje**, a następnie
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o raportach dostępnych w usłudze Cloudyn, zobacz [Raporty platformy Cloudyn](../../cost-management/use-reports.md).
-- Dowiedz się, jak używać raportów do tworzenia [pulpitów nawigacyjnych](../../cost-management/dashboards.md).
+- Aby dowiedzieć się więcej o raportach dostępnych w usłudze Cloudyn, zobacz [Raporty platformy Cloudyn](./use-reports.md).
+- Dowiedz się, jak używać raportów do tworzenia [pulpitów nawigacyjnych](./dashboards.md).

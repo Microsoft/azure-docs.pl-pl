@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076984"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339717"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -52,7 +52,7 @@ Przez Definiowanie list znanych bezpiecznych aplikacji oraz generowanie alertów
 |----|:----|
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
-|Obsługiwane maszyny:|![Tak na ](./media/icons/yes-icon.png) platformie Azure i na maszynach spoza platformy Azure z systemem Windows i Linux<br>![Tak — ](./media/icons/yes-icon.png) maszyny [usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/)|
+|Obsługiwane maszyny:|![Tak na ](./media/icons/yes-icon.png) platformie Azure i na maszynach spoza platformy Azure z systemem Windows i Linux<br>![Tak — ](./media/icons/yes-icon.png) maszyny [usługi Azure Arc](../azure-arc/index.yml)|
 |Wymagane role i uprawnienia:|Role czytnika i **czytnika** **zabezpieczeń** mogą wyświetlać grupy i listy znanych bezpiecznych aplikacji<br>Role administratora **współautora** i **zabezpieczeń** mogą edytować grupy i listy znanych bezpiecznych aplikacji|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
@@ -85,7 +85,7 @@ Wybierz zalecenie lub Otwórz stronę adaptacyjne kontrolki aplikacji, aby wyśw
     - **Brak zaleceń** -maszyn bez zdefiniowanej listy dozwolonych aplikacji, które nie obsługują tej funkcji. Twoja maszyna może znajdować się na tej karcie z następujących powodów:
       - Brak agenta Log Analytics
       - Agent Log Analytics nie wysyła zdarzeń
-      - Jest to maszyna z systemem Windows z wcześniej istniejącymi zasadami [funkcji AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) , które są włączone przez obiekt zasad grupy lub zasady zabezpieczeń lokalnych.
+      - Jest to maszyna z systemem Windows z wcześniej istniejącymi zasadami [funkcji AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) , które są włączone przez obiekt zasad grupy lub zasady zabezpieczeń lokalnych.
 
       > [!TIP]
       > Security Center potrzebuje co najmniej dwóch tygodni danych do zdefiniowania unikatowych zaleceń dla każdej grupy maszyn. Ostatnio utworzone maszyny lub należące do subskrypcji, które były niedawno włączone w usłudze Azure Defender, będą wyświetlane na karcie **bez rekomendacji** .
@@ -224,7 +224,7 @@ Po przeniesieniu maszyny z jednej grupy do innej zasady kontroli aplikacji zasto
 
 Aby zarządzać adaptacyjnymi kontrolkami aplikacji programowo, użyj naszego interfejsu API REST. 
 
-Pełna dokumentacja interfejsu API jest dostępna [tutaj](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols).
+Pełna dokumentacja interfejsu API jest dostępna [tutaj](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Niektóre funkcje, które są dostępne w interfejsie API REST:
 
@@ -245,5 +245,5 @@ Niektóre funkcje, które są dostępne w interfejsie API REST:
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób korzystania z adaptacyjnej kontroli aplikacji w Azure Security Center, aby zdefiniować listę dozwolonych aplikacji uruchomionych na maszynach na platformie Azure i poza platformą Azure. Aby dowiedzieć się więcej na temat innych funkcji ochrony obciążeń w chmurze Security Center, zobacz:
 
-* [Zrozumienie dostępu do maszyny wirtualnej just-in-Time (JIT)](just-in-time-explained.md)
+* [Informacje o dostępie just in time (JIT) do maszyny wirtualnej](just-in-time-explained.md)
 * [Zabezpieczanie klastrów usługi Azure Kubernetes](defender-for-kubernetes-introduction.md)

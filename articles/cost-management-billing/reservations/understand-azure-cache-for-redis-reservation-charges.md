@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
-ms.openlocfilehash: 10fedaf5680976ae93984c9b2c607882f650019d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4b5f77742d3b2611fd7baf5880b9f8fed047aa86
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213277"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147319"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>W jaki sposób rabat za rezerwację jest stosowany do usługi Azure Cache for Redis
 
-Po zakupie pojemności zarezerwowanej usługi Azure Cache for Redis rabat na rezerwację jest automatycznie stosowany do wystąpień pamięci podręcznej pasujących do atrybutów i ilości rezerwacji. Rezerwacja obejmuje tylko koszty obliczeniowe usługi Azure Cache for Redis. Opłata jest naliczana za magazyn i sieć według normalnych stawek. Pojemność zarezerwowana jest dostępna tylko w przypadku pamięci podręcznych [w warstwie Premium](/https://docs.microsoft.com/azure/azure-cache-for-redis/quickstart-create-redis).
+Po zakupie pojemności zarezerwowanej usługi Azure Cache for Redis rabat na rezerwację jest automatycznie stosowany do wystąpień pamięci podręcznej pasujących do atrybutów i ilości rezerwacji. Rezerwacja obejmuje tylko koszty obliczeniowe usługi Azure Cache for Redis. Opłata jest naliczana za magazyn i sieć według normalnych stawek. Pojemność zarezerwowana jest dostępna tylko w przypadku pamięci podręcznych [w warstwie Premium](//azure/azure-cache-for-redis/quickstart-create-redis).
 
 ## <a name="how-reservation-discount-is-applied"></a>Jak jest naliczany rabat za rezerwację
 
@@ -30,7 +30,7 @@ Rabat za pojemność zarezerwowaną usługi Azure Cache for Redis jest stosowany
 
 W poniższych przykładach pokazano, w jaki sposób rabat za pojemność zarezerwowaną usługi Azure Cache for Redis jest stosowany w zależności od liczby zakupionych pamięci podręcznych oraz czasu ich działania.
 
-* **Przykład 1**: Kupujesz pojemność zarezerwowaną usługi Azure Cache for Redis dla pamięci podręcznej 6 GB. Jeśli uruchamiasz pamięć podręczną 13 GB zgodną z resztą atrybutów rezerwacji, opłata jest naliczana według stawek płatności zgodnie z rzeczywistym użyciem za 7 GB użycia mocy obliczeniowej usługi Azure Cache for Redis, a rabat za rezerwację otrzymujesz na 1 godzinę użycia mocy obliczeniowej 6 GB pamięci podręcznej.
+**Przykład 1**: Kupujesz pojemność zarezerwowaną usługi Azure Cache for Redis dla pamięci podręcznej 6 GB. Jeśli uruchamiasz pamięć podręczną 13 GB zgodną z resztą atrybutów rezerwacji, opłata jest naliczana według stawek płatności zgodnie z rzeczywistym użyciem za 7 GB użycia mocy obliczeniowej usługi Azure Cache for Redis, a rabat za rezerwację otrzymujesz na 1 godzinę użycia mocy obliczeniowej 6 GB pamięci podręcznej.
 
 Na potrzeby pozostałych przykładów przyjęto założenie, że zakupiona pojemność zarezerwowana usługi Azure Cache for Redis jest przeznaczona dla 26 GB pamięci podręcznej, a pozostałe atrybuty rezerwacji pasują do działającej pamięci podręcznej.
 
@@ -40,7 +40,7 @@ Na potrzeby pozostałych przykładów przyjęto założenie, że zakupiona pojem
 
 * **Przykład 4**: Uruchamiasz jedną pamięć podręczną 26 GB od 13:00 do 13:45. Uruchamiasz kolejną pamięć podręczną 26 GB od 13:30 do 14:00. Za 15-minutowy okres jednoczesnego działania obu baz danych jest naliczana opłata według stawek płatności zgodnie z rzeczywistym użyciem. Na użycie zasobów obliczeniowych przez resztę czasu jest stosowany rabat na rezerwację.
 
-Aby poznać zastosowanie swoich rezerwacji platformy Azure w raportach rozliczeń użycia i przejrzeć je, zobacz [Omówienie użycia rezerwacji platformy Azure](/azure/billing/billing-understand-reserved-instance-usage-ea).
+Aby poznać zastosowanie swoich rezerwacji platformy Azure w raportach rozliczeń użycia i przejrzeć je, zobacz [Omówienie użycia rezerwacji platformy Azure](./understand-reserved-instance-usage-ea.md).
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami
 Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczną](https://go.microsoft.com/fwlink/?linkid=2083458).

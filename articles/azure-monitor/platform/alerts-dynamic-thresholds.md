@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261078"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340091"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alerty metryk z progami dynamicznymi w Azure Monitor
 
@@ -98,7 +98,7 @@ W przypadku istniejących zasobów o wystarczającej ilości danych metryk dynam
 
 ## <a name="dynamic-thresholds-best-practices"></a>Najlepsze praktyki dotyczące progów dynamicznych
 
-Progi dynamiczne mogą być stosowane do dowolnej platformy lub metryki niestandardowej w Azure Monitor i zostały również dostrojone dla typowych metryk aplikacji i infrastruktury.
+Progi dynamiczne mogą być stosowane do większości platform i metryk niestandardowych w Azure Monitor i zostały również dostrojone dla typowych metryk aplikacji i infrastruktury.
 Poniżej przedstawiono najlepsze rozwiązania dotyczące konfigurowania alertów dla niektórych z tych metryk przy użyciu progów dynamicznych.
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Progi dynamiczne w metrykach procentowych procesora CPU maszyny wirtualnej

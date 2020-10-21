@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 82e542eafe1578a969c4348fe7562ba1da106e2c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ac9828ca61009eb3ee39412169b2b454b9ecbd00
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683406"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131874"
 ---
 # <a name="group-and-filter-options-in-cost-analysis"></a>Opcje grupowania i filtrowania w analizie kosztów
 
@@ -49,10 +49,10 @@ W poniższej tabeli wymieniono niektóre z najpopularniejszych opcji grupowania 
 | **Nazwa usługi** lub **Kategoria miernika** | Podział kosztów według usługi platformy Azure. | Zakupy i użycie witryny Marketplace będą wyświetlane jako **Nie dotyczy** lub **nieprzypisane**. |
 | **Warstwa usługi** lub **Podkategoria miernika** | Podział kosztów według podklasyfikacji miernika użycia platformy Azure. | Zakupy i użycie witryny Marketplace będą wyświetlane jako **Nie dotyczy** lub **nieprzypisane**. |
 | **Subskrypcja** | Podział kosztów według subskrypcji platformy Azure i połączonego konta platformy AWS. | Zakupy i zasoby dzierżawy mogą być wyświetlane jako **Nie dotyczy**. |
-| **Tag** | Podział kosztów według wartości tagów dla określonego klucza tagu. | Tagi są niedostępne w przypadku zakupów, zasobów dzierżawy nieskojarzonych z subskrypcjami, zasobów subskrypcji niewdrożonych w grupie zasobów lub zasobów klasycznych. Niektóre usługi nie zawierają tagów w danych użycia. Dowiedz się więcej na temat [obsługi tagów dla każdego typu zasobu](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
+| **Tag** | Podział kosztów według wartości tagów dla określonego klucza tagu. | Tagi są niedostępne w przypadku zakupów, zasobów dzierżawy nieskojarzonych z subskrypcjami, zasobów subskrypcji niewdrożonych w grupie zasobów lub zasobów klasycznych. Niektóre usługi nie zawierają tagów w danych użycia. Dowiedz się więcej na temat [obsługi tagów dla każdego typu zasobu](../../azure-resource-manager/management/tag-support.md). |
 
 Aby uzyskać więcej informacji na temat terminów, zobacz [Omówienie terminów używanych w pliku użycia i opłat platformy Azure](../understand/understand-usage.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Rozpoczęcie analizy kosztów](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).
+- [Rozpoczęcie analizy kosztów](./quick-acm-cost-analysis.md).

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: 6b4b5fe5d7dffbcacc804500cc1f3f8f07f0090d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758544"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131143"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Dodawanie lub aktualizowanie karty kredytowej dla platformy Azure
 
@@ -32,7 +32,7 @@ W przypadku Umowy z Klientem Microsoft formy płatności są skojarzone z profil
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Zarządzanie kartami kredytowymi dla subskrypcji platformy Azure
 
-Poniższe sekcje dotyczą klientów, którzy mają konto rozliczeniowe programu Microsoft Online Services. Dowiedz się, jak [sprawdzić typ konta rozliczeniowego](#check-the-type-of-your-account). Jeśli typ konta rozliczeniowego to Program Microsoft Online Services, formy płatności są skojarzone z poszczególnymi subskrypcjami platformy Azure. Jeśli po dodaniu karty kredytowej wystąpi błąd, zobacz [Karta kredytowa została odrzucona podczas tworzenia konta platformy Azure](/azure/cost-management-billing/manage/troubleshoot-declined-card).
+Poniższe sekcje dotyczą klientów, którzy mają konto rozliczeniowe programu Microsoft Online Services. Dowiedz się, jak [sprawdzić typ konta rozliczeniowego](#check-the-type-of-your-account). Jeśli typ konta rozliczeniowego to Program Microsoft Online Services, formy płatności są skojarzone z poszczególnymi subskrypcjami platformy Azure. Jeśli po dodaniu karty kredytowej wystąpi błąd, zobacz [Karta kredytowa została odrzucona podczas tworzenia konta platformy Azure](./troubleshoot-declined-card.md).
 
 ### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Zmienianie karty kredytowej dla subskrypcji przez dodanie nowej karty kredytowej
 

@@ -1,15 +1,15 @@
 ---
 title: Skróty klawiaturowe w Azure Portal dla Eksploratora Azure Resource Graph
 description: Eksplorator wykresów zasobów platformy Azure w Azure Portal obsługuje skróty klawiaturowe ułatwiające wykonywanie akcji i nawigowanie w programie.
-ms.date: 08/25/2020
+ms.date: 10/21/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb53e079adf2f65180c15ab93da4f8343e3bab5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146440"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340125"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Skróty klawiaturowe dla Eksploratora Azure Resource Graph
 
@@ -24,7 +24,7 @@ W tym artykule przedstawiono skróty klawiaturowe, które działają na stronie 
 |Zwiększ wcięcie |<kbd>Ctrl</kbd> + <kbd>]</kbd> |<kbd>Polecenie cmd</kbd> + <kbd>]</kbd> |
 |Przesuń wiersz w dół |<kbd>Alt</kbd> + <kbd>↓</kbd> |<kbd>Opcja</kbd> + <kbd>↓</kbd> |
 |Przesuń wiersz w górę |<kbd>Alt</kbd> + <kbd>↑</kbd> |<kbd>Opcja</kbd> + <kbd>↑</kbd> |
-|Zamień |<kbd>Ctrl</kbd> + <kbd>F</kbd> |<kbd>Polecenie cmd</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd> |
+|Zamień |<kbd>Ctrl</kbd> + <kbd>H</kbd> |<kbd>Polecenie cmd</kbd> + <kbd>H</kbd> |
 |Zaznacz wszystko |<kbd>Ctrl</kbd> + <kbd>A</kbd> |<kbd>Polecenie cmd</kbd> + <kbd>A</kbd> |
 |Wybierz w dół |<kbd>SHIFT</kbd> + <kbd>↓</kbd> |<kbd>SHIFT</kbd> + <kbd>↓</kbd> |
 |Wybierz prawy |<kbd>SHIFT</kbd> + <kbd>→</kbd> |<kbd>SHIFT</kbd> + <kbd>→</kbd> |

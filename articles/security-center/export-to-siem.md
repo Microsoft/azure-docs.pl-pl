@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 0800c0d6fb2cf57b919d29ac354d2d89c06c7aeb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b4458a2b37a3da83591e101344d08c3090868696
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946729"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341808"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>Przesyłanie strumieniowe alertów do rozwiązania SIEM, o lub zarządzania usługami IT
 
@@ -60,7 +60,7 @@ Security Center ma wbudowaną integrację z interfejsem API zabezpieczeń Micros
 Tego interfejsu API można używać do przesyłania strumieniowego alertów z **całej dzierżawy** (i danych z wielu innych produktów zabezpieczeń firmy Microsoft) do rozwiązań Siem i innych popularnych platform:
 
 - Chmura Splunk Enterprise **i Splunk**  -  [Użyj Add-On interfejsu API zabezpieczeń Microsoft Graph dla Splunk](https://splunkbase.splunk.com/app/4564/) 
-- **Power BI**  -  [Nawiązywanie połączenia z interfejsem API zabezpieczeń Microsoft Graph w programie Power BI Desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-graph-security)
+- **Power BI**  -  [Nawiązywanie połączenia z interfejsem API zabezpieczeń Microsoft Graph w programie Power BI Desktop](/power-bi/connect-data/desktop-connect-graph-security)
 - **Usługi ServiceNow**  -  [Postępuj zgodnie z instrukcjami, aby zainstalować i skonfigurować aplikację interfejsu API zabezpieczeń Microsoft Graph ze sklepu usługi ServiceNow](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **QRadar**  -  [Moduł pomocy technicznej urządzenia firmy IBM dla Azure Security Center za pośrednictwem interfejsu API Microsoft Graph](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
 - **Palo Alto Networks**, **anomali**, **Lookout**, **Inspark**i innych — [interfejs API zabezpieczeń Microsoft Graph](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)

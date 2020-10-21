@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3ee600cb72d06781f87c8f68640576afa50cea06
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2e9b14fa264f3286134913e3c279c4400ce5bcc3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686500"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132333"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Rozwiązywanie problemów z logowaniem w przypadku subskrypcji platformy Azure
 
 Ten przewodnik pomaga w rozwiązywaniu problemów, gdy nie można zalogować się do witryny Azure Portal lub Centrum konta platformy Azure.
 
 > [!NOTE]
-> Jeśli masz problemy z zarejestrowaniem się w celu utworzenia nowego konta platformy Azure, zobacz [Rozwiązywanie problemów dotyczących tworzenia konta na potrzeby subskrypcji platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up).
+> Jeśli masz problemy z zarejestrowaniem się w celu utworzenia nowego konta platformy Azure, zobacz [Rozwiązywanie problemów dotyczących tworzenia konta na potrzeby subskrypcji platformy Azure](./troubleshoot-azure-sign-up.md).
 
 ## <a name="page-hangs-in-the-loading-status"></a>Strona zawiesza się podczas ładowania
 
@@ -66,7 +66,7 @@ Ten problem występuje, jeśli wybrano niewłaściwy katalog lub jeśli konto ni
 Aby rozwiązać ten problem:
 
 - Upewnij się, że wybrano prawidłowy katalog platformy Azure. W tym celu wybierz swoje konto w prawym górnym rogu.
-- Jeśli wybrano właściwy katalog platformy Azure, ale nadal pojawia się komunikat o błędzie, poproś [o dodanie konta jako właściciel](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator).
+- Jeśli wybrano właściwy katalog platformy Azure, ale nadal pojawia się komunikat o błędzie, poproś [o dodanie konta jako właściciel](./add-change-subscription-administrator.md).
 
 **Scenariusz 2:** Podczas logowania się do [Centrum konta platformy Azure](https://account.windowsazure.com/Subscriptions) zostaje wyświetlony komunikat o błędzie
 
@@ -80,11 +80,11 @@ Sprawdź, czy używane konto ma uprawnienia administratora konta. Aby sprawdzić
 
 Inne artykuły dotyczące rozwiązywania problemów z rozliczeniami i subskrypcjami platformy Azure
 
-- [Odrzucona karta](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Subscription sign-up issues (Problemy z rejestrowaniem subskrypcji)](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up)
-- [No subscriptions found (Nie odnaleziono żadnych subskrypcji)](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Wyłączony widok kosztów przedsiębiorstwa](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
-- [Dokumentacja dotycząca rozliczeń platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/)
+- [Odrzucona karta](./troubleshoot-declined-card.md)
+- [Subscription sign-up issues (Problemy z rejestrowaniem subskrypcji)](./troubleshoot-azure-sign-up.md)
+- [No subscriptions found (Nie odnaleziono żadnych subskrypcji)](./no-subscriptions-found.md)
+- [Wyłączony widok kosztów przedsiębiorstwa](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Dokumentacja dotycząca rozliczeń platformy Azure](../index.yml)
 
 ## <a name="contact-us-for-help"></a>Skontaktuj się z nami, aby uzyskać pomoc
 

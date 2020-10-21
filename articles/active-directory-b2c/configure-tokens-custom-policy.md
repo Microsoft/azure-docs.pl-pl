@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9b2c5b24b88dd51596dfb5bd8b5f397419ca6e4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e72bd04bb41537546191b8ceb320c0722bd10146
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215199"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340295"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Zarządzanie użyciem rejestracji jednokrotnej i tokenu przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -90,6 +90,45 @@ Poniższe wartości są ustawiane w poprzednim przykładzie:
 
 > [!NOTE]
 > Aplikacje jednostronicowe korzystające z przepływu kodu autoryzacji z PKCE zawsze mają okres istnienia tokenu odświeżania równy 24 godziny. [Dowiedz się więcej o implikacjach dotyczących zabezpieczeń tokenów odświeżania w przeglądarce](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
+## <a name="provide-optional-claims-to-your-app"></a>Podaj opcjonalne oświadczenia do aplikacji
+
+Oświadczenia dotyczące danych wyjściowych [profilu technicznego zasad jednostki uzależnionej](relyingparty.md#technicalprofile) to wartości, które są zwracane do aplikacji. Dodanie oświadczeń wyjściowych spowoduje wydanie oświadczeń do tokenu po pomyślnym przejściu użytkownika i zostanie wysłane do aplikacji. Zmodyfikuj element profil techniczny w sekcji jednostki uzależnionej, aby dodać żądane oświadczenia jako oświadczenie wyjściowe.
+
+1. Otwórz niestandardowy plik zasad. Na przykład SignUpOrSignin.xml.
+1. Znajdź element OutputClaims. Dodaj oświadczenie outputclaim, które mają być zawarte w tokenie. 
+1. Ustaw atrybuty zgłoszenia wynikowego. 
+
+Poniższy przykład dodaje to zgłoszenie `accountBalance` . AccountBalance jest wysyłana do aplikacji jako saldo. 
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <!--Add the optional claims here-->
+      <OutputClaim ClaimTypeReferenceId="accountBalance" DefaultValue="" PartnerClaimType="balance" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+Element oświadczenie outputclaim zawiera następujące atrybuty:
+
+  - **ClaimTypeReferenceId** — identyfikator typu "Claim" jest już zdefiniowany w sekcji [ClaimsSchema](claimsschema.md) w pliku zasad lub nadrzędnym pliku zasad.
+  - **PartnerClaimType** — pozwala zmienić nazwę żądania w tokenie. 
+  - **DefaultValue** — wartość domyślna. Możesz również ustawić wartość domyślną dla [mechanizmu rozwiązywania konfliktów](claim-resolver-overview.md), takie jak identyfikator dzierżawy.
+  - **AlwaysUseDefaultValue** — Wymuś użycie wartości domyślnej.
 
 ## <a name="next-steps"></a>Następne kroki
 

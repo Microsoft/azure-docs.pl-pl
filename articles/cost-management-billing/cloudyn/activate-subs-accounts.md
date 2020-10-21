@@ -10,12 +10,12 @@ ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: acfbdb203cfa6b1b54145c5d325493b90525bf43
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 52ac239369f2998a3a8eac9c400512ac845a0c49
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690157"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131432"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktywowanie subskrypcji i kont platformy Azure za pomocą platformy Cloudyn
 
@@ -96,7 +96,7 @@ Poprzednie komunikaty oznaczają, że umowa Azure Enterprise Agreement została 
 Oto sposoby rozwiązywania tych problemów:
 
 1. Odsprzedawca musi włączyć _znaczniki_ dla Twojego konta. Aby uzyskać instrukcje, zapoznaj się z dokumentem [Indirect Customer Onboarding Guide (Przewodnik dołączania klienta pośredniego)](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Wygenerujesz klucz umowy Azure Enterprise Agreement do użycia na platformie Cloudyn. Aby uzyskać instrukcje, zobacz [Register an Azure Enterprise Agreement and view cost data (Rejestrowanie umowy Azure Enterprise Agreement i wyświetlanie danych kosztów)](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
+2. Wygenerujesz klucz umowy Azure Enterprise Agreement do użycia na platformie Cloudyn. Aby uzyskać instrukcje, zobacz [Register an Azure Enterprise Agreement and view cost data (Rejestrowanie umowy Azure Enterprise Agreement i wyświetlanie danych kosztów)](./quick-register-ea.md).
 
 Przed wygenerowaniem klucza interfejsu API umowy Azure Enterprise Agreement w celu skonfigurowania platformy Cloudyn należy włączyć interfejs API rozliczeń platformy Azure, wykonując następujące instrukcje:
 

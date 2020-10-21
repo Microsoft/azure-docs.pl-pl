@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 5ee544a307be26c737a05e2147298a31a9ef7d1a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8cef36cf26231758eb839379d0c020484cbe09fb
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689987"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132605"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scenariusze automatyzacji dotyczące rozliczeń i zarządzania kosztami
 
@@ -60,43 +60,43 @@ Interfejsów API rozliczeń i zarządzania kosztami można używać w kilku scen
 ### <a name="consumption"></a>Zużycie
 Klienci korzystający z subskrypcji Web Direct i Enterprise mogą używać następujących interfejsów API, o ile nie zaznaczono inaczej:
 
--   [Interfejs API budżetów](https://docs.microsoft.com/rest/api/consumption/budgets) (*tylko klienci korporacyjni*): umożliwia tworzenie budżetów kosztów lub budżetów użycia dla zasobów, grup zasobów bądź mierników rozliczeń. Po utworzeniu budżetów można skonfigurować alerty umożliwiające powiadamianie o przekroczeniu zdefiniowanych progów budżetów. Można również skonfigurować akcje, które mają być wykonywane po osiągnięciu kwoty budżetu.
+-   [Interfejs API budżetów](/rest/api/consumption/budgets) (*tylko klienci korporacyjni*): umożliwia tworzenie budżetów kosztów lub budżetów użycia dla zasobów, grup zasobów bądź mierników rozliczeń. Po utworzeniu budżetów można skonfigurować alerty umożliwiające powiadamianie o przekroczeniu zdefiniowanych progów budżetów. Można również skonfigurować akcje, które mają być wykonywane po osiągnięciu kwoty budżetu.
 
--   [Interfejs API opłat za korzystanie z witryny Marketplace](https://docs.microsoft.com/rest/api/consumption/marketplaces): umożliwia uzyskanie danych opłat i danych użycia dla wszystkich zasobów witryny Azure Marketplace (oferty partnerów platformy Azure). Danych tych można użyć do sumowania kosztów wszystkich zasobów witryny Marketplace lub analizowania kosztów/użycia określonych zasobów.
+-   [Interfejs API opłat za korzystanie z witryny Marketplace](/rest/api/consumption/marketplaces): umożliwia uzyskanie danych opłat i danych użycia dla wszystkich zasobów witryny Azure Marketplace (oferty partnerów platformy Azure). Danych tych można użyć do sumowania kosztów wszystkich zasobów witryny Marketplace lub analizowania kosztów/użycia określonych zasobów.
 
--   [Interfejs API arkusza cen](https://docs.microsoft.com/rest/api/consumption/pricesheet) (*tylko klienci korporacyjni*): umożliwia pobieranie niestandardowego cennika dla wszystkich mierników. Przedsiębiorstwa mogą łączyć te dane z danymi użycia oraz informacjami o użyciu witryny Marketplace w celu obliczania kosztów.
+-   [Interfejs API arkusza cen](/rest/api/consumption/pricesheet) (*tylko klienci korporacyjni*): umożliwia pobieranie niestandardowego cennika dla wszystkich mierników. Przedsiębiorstwa mogą łączyć te dane z danymi użycia oraz informacjami o użyciu witryny Marketplace w celu obliczania kosztów.
 
--   [Interfejs API zaleceń dotyczących rezerwacji](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations): umożliwia uzyskanie zaleceń dotyczących zakupu wystąpień usługi Reserved VM Instances. Zalecenia ułatwiają analizowanie przewidywanych oszczędności i kwot zakupów. Aby uzyskać więcej informacji, zobacz [Interfejsy API na potrzeby automatyzacji rezerwacji platformy Azure](../reservations/reservation-apis.md).
+-   [Interfejs API zaleceń dotyczących rezerwacji](/rest/api/consumption/reservationrecommendations): umożliwia uzyskanie zaleceń dotyczących zakupu wystąpień usługi Reserved VM Instances. Zalecenia ułatwiają analizowanie przewidywanych oszczędności i kwot zakupów. Aby uzyskać więcej informacji, zobacz [Interfejsy API na potrzeby automatyzacji rezerwacji platformy Azure](../reservations/reservation-apis.md).
 
--   [Interfejs API szczegółów rezerwacji](https://docs.microsoft.com/rest/api/consumption/reservationsdetails): umożliwia uzyskanie informacji dotyczących zakupionych rezerwacji maszyn wirtualnych, takich jak bieżące zużycie na tle zarezerwowanego zużycia. Dane można wyświetlić na poziomie poszczególnych maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz [Interfejsy API na potrzeby automatyzacji rezerwacji platformy Azure](../reservations/reservation-apis.md).
+-   [Interfejs API szczegółów rezerwacji](/rest/api/consumption/reservationsdetails): umożliwia uzyskanie informacji dotyczących zakupionych rezerwacji maszyn wirtualnych, takich jak bieżące zużycie na tle zarezerwowanego zużycia. Dane można wyświetlić na poziomie poszczególnych maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz [Interfejsy API na potrzeby automatyzacji rezerwacji platformy Azure](../reservations/reservation-apis.md).
 
--   [Interfejs API podsumowań rezerwacji](https://docs.microsoft.com/rest/api/consumption/reservationssummaries): umożliwia uzyskanie zagregowanych informacji dotyczących rezerwacji maszyn wirtualnych zakupionych przez organizację, takich jak bieżące zużycie na tle zarezerwowanego zużycia w agregacji. Aby uzyskać więcej informacji, zobacz [Interfejsy API na potrzeby automatyzacji rezerwacji platformy Azure](../reservations/reservation-apis.md).
+-   [Interfejs API podsumowań rezerwacji](/rest/api/consumption/reservationssummaries): umożliwia uzyskanie zagregowanych informacji dotyczących rezerwacji maszyn wirtualnych zakupionych przez organizację, takich jak bieżące zużycie na tle zarezerwowanego zużycia w agregacji. Aby uzyskać więcej informacji, zobacz [Interfejsy API na potrzeby automatyzacji rezerwacji platformy Azure](../reservations/reservation-apis.md).
 
--   [Interfejs API szczegółów użycia](https://docs.microsoft.com/rest/api/consumption/usagedetails): umożliwia uzyskanie informacji o opłatach i użyciu dla wszystkich zasobów platformy Azure udostępnianych przez firmę Microsoft. Informacje te mają postać szczegółowych rekordów i aktualnie są udostępniane raz dziennie dla jednego miernika. Informacji tych można użyć do sumowania kosztów wszystkich zasobów lub analizowania kosztów/użycia określonych zasobów.
+-   [Interfejs API szczegółów użycia](/rest/api/consumption/usagedetails): umożliwia uzyskanie informacji o opłatach i użyciu dla wszystkich zasobów platformy Azure udostępnianych przez firmę Microsoft. Informacje te mają postać szczegółowych rekordów i aktualnie są udostępniane raz dziennie dla jednego miernika. Informacji tych można użyć do sumowania kosztów wszystkich zasobów lub analizowania kosztów/użycia określonych zasobów.
 
 -   [Interfejs API usługi RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)): klienci korzystający z subskrypcji Web Direct mogą uzyskiwać stawki mierników. Zwrócone informacje można połączyć z informacjami o użyciu zasobów w celu ręcznego obliczenia kwoty rachunku.
 
 -   [Interfejs API nieklasyfikowanego użycia](/previous-versions/azure/reference/mt219003(v=azure.100)): umożliwia pobieranie nieprzetworzonych informacji o użyciu przed rozpoczęciem pomiarów/naliczeniem opłat przez platformę Azure.
 
 ### <a name="billing"></a>Rozliczenia
--   [Interfejs API okresów rozliczeniowych](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): umożliwia określanie okresu rozliczeniowego do analizy i uzyskanie identyfikatorów faktur dla tego okresu. Identyfikatorów faktur można używać razem z interfejsem API faktur.
+-   [Interfejs API okresów rozliczeniowych](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): umożliwia określanie okresu rozliczeniowego do analizy i uzyskanie identyfikatorów faktur dla tego okresu. Identyfikatorów faktur można używać razem z interfejsem API faktur.
 
 -   [Interfejs API faktur](/rest/api/billing/2019-10-01-preview/invoices): umożliwia uzyskanie adresu URL, za pomocą którego można pobrać fakturę w postaci pliku PDF za dany okres rozliczeniowy.
 
 ### <a name="enterprise-consumption"></a>Użycie w ramach subskrypcji Enterprise
 Następujące interfejsy API są dostępne tylko w przypadku korzystania z subskrypcji Enterprise:
 
--   [Interfejs API podsumowania salda](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary): umożliwia uzyskanie comiesięcznego podsumowania informacji dotyczących sald, nowych zakupów, opłat za usługę Azure Marketplace, korekt i opłat za użycie nadwyżkowe. Informacje te mogą dotyczyć bieżącego okresu rozliczeniowego lub dowolnego okresu w przeszłości. Przedsiębiorstwa mogą porównać te dane z ręcznie obliczonymi podsumowaniami opłat. Ten interfejs API nie udostępnia informacji dotyczących określonych zasobów ani zagregowanego widoku kosztów.
+-   [Interfejs API podsumowania salda](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary): umożliwia uzyskanie comiesięcznego podsumowania informacji dotyczących sald, nowych zakupów, opłat za usługę Azure Marketplace, korekt i opłat za użycie nadwyżkowe. Informacje te mogą dotyczyć bieżącego okresu rozliczeniowego lub dowolnego okresu w przeszłości. Przedsiębiorstwa mogą porównać te dane z ręcznie obliczonymi podsumowaniami opłat. Ten interfejs API nie udostępnia informacji dotyczących określonych zasobów ani zagregowanego widoku kosztów.
 
--   [Interfejs API szczegółów użycia](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail): umożliwia uzyskanie informacji o użyciu platformy Azure (dla ofert firmy Microsoft) w bieżącym miesiącu, wskazanym okresie rozliczeniowym lub okresie niestandardowym. Za pomocą tych danych przedsiębiorstwa mogą ręcznie obliczyć rachunki na podstawie stawki i zużycia. Przedsiębiorstwa mogą również użyć informacji dla poszczególnych działów/organizacji w celu podzielenia kosztów na organizacje. Dane te zapewniają wgląd w użycie/koszty z podziałem na zasoby.
+-   [Interfejs API szczegółów użycia](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail): umożliwia uzyskanie informacji o użyciu platformy Azure (dla ofert firmy Microsoft) w bieżącym miesiącu, wskazanym okresie rozliczeniowym lub okresie niestandardowym. Za pomocą tych danych przedsiębiorstwa mogą ręcznie obliczyć rachunki na podstawie stawki i zużycia. Przedsiębiorstwa mogą również użyć informacji dla poszczególnych działów/organizacji w celu podzielenia kosztów na organizacje. Dane te zapewniają wgląd w użycie/koszty z podziałem na zasoby.
 
--   [Interfejs API opłat za sklep Marketplace](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge): umożliwia uzyskanie informacji o użyciu platformy Azure (dla ofert partnerów) w bieżącym miesiącu, wskazanym okresie rozliczeniowym lub okresie niestandardowym. Za pomocą tych danych przedsiębiorstwa mogą ręcznie obliczyć rachunki na podstawie stawki i zużycia. Przedsiębiorstwa mogą również użyć informacji dla poszczególnych działów/organizacji w celu podzielenia kosztów na organizacje. Ten interfejs API zapewnia wgląd w użycie/koszty z podziałem na zasoby.
+-   [Interfejs API opłat za sklep Marketplace](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge): umożliwia uzyskanie informacji o użyciu platformy Azure (dla ofert partnerów) w bieżącym miesiącu, wskazanym okresie rozliczeniowym lub okresie niestandardowym. Za pomocą tych danych przedsiębiorstwa mogą ręcznie obliczyć rachunki na podstawie stawki i zużycia. Przedsiębiorstwa mogą również użyć informacji dla poszczególnych działów/organizacji w celu podzielenia kosztów na organizacje. Ten interfejs API zapewnia wgląd w użycie/koszty z podziałem na zasoby.
 
--   [Interfejs API arkusza cen](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet): umożliwia uzyskanie odpowiedniej stawki za każdy miernik dla danej rejestracji i okresu rozliczeniowego. Informacje o stawce można łączyć z danymi użycia oraz informacjami o użyciu witryny Marketplace w celu ręcznego obliczenia kwoty rachunku.
+-   [Interfejs API arkusza cen](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet): umożliwia uzyskanie odpowiedniej stawki za każdy miernik dla danej rejestracji i okresu rozliczeniowego. Informacje o stawce można łączyć z danymi użycia oraz informacjami o użyciu witryny Marketplace w celu ręcznego obliczenia kwoty rachunku.
 
--   [Interfejs API okresów rozliczeniowych](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): umożliwia uzyskanie listy okresów rozliczeniowych. Ten interfejs API udostępnia również właściwość wskazującą trasę interfejsu API dla czterech zestawów danych interfejsu API Enterprise dotyczących okresu rozliczeniowego: BalanceSummary, UsageDetails, Marketplace Charges i PriceSheet.
+-   [Interfejs API okresów rozliczeniowych](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): umożliwia uzyskanie listy okresów rozliczeniowych. Ten interfejs API udostępnia również właściwość wskazującą trasę interfejsu API dla czterech zestawów danych interfejsu API Enterprise dotyczących okresu rozliczeniowego: BalanceSummary, UsageDetails, Marketplace Charges i PriceSheet.
 
--   [Interfejs API zaleceń dotyczących wystąpień zarezerwowanych](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation): udostępnia informacje o użyciu maszyn wirtualnych w okresie 7, 30 lub 60 dni i uzyskanie zaleceń dotyczących pojedynczych i współdzielonych zakupów. Za pomocą tego interfejsu API można analizować przewidywane oszczędności i zalecane kwoty zakupów. Aby uzyskać więcej informacji, zobacz [Interfejsy API na potrzeby automatyzacji rezerwacji platformy Azure](../reservations/reservation-apis.md).
+-   [Interfejs API zaleceń dotyczących wystąpień zarezerwowanych](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation): udostępnia informacje o użyciu maszyn wirtualnych w okresie 7, 30 lub 60 dni i uzyskanie zaleceń dotyczących pojedynczych i współdzielonych zakupów. Za pomocą tego interfejsu API można analizować przewidywane oszczędności i zalecane kwoty zakupów. Aby uzyskać więcej informacji, zobacz [Interfejsy API na potrzeby automatyzacji rezerwacji platformy Azure](../reservations/reservation-apis.md).
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -105,12 +105,12 @@ Te interfejsy API mają podobny zestaw funkcji i umożliwiają odpowiadanie na w
 
 - Interfejsy API raportowania korporacyjnego są dostępne dla klientów, którzy podpisali umowę Enterprise Agreement z firmą Microsoft i mogą korzystać z negocjowanych zobowiązań pieniężnych i niestandardowych cen. Interfejsy API wymagają klucza, który można uzyskać w witrynie [Enterprise Portal](https://ea.azure.com). Opis tych interfejsów API można znaleźć w temacie [Przegląd interfejsów API raportowania dla klientów korporacyjnych](enterprise-api.md).
 
-- Interfejsy API użycia są dostępne dla wszystkich klientów z kilkoma wyjątkami. Aby uzyskać więcej informacji, zobacz [Przegląd interfejsu API użycia platformy Azure](consumption-api-overview.md) i [Dokumentacja interfejsu API użycia platformy Azure](https://docs.microsoft.com/rest/api/consumption/). W najnowszych scenariuszach programistycznych zalecamy używanie udostępnionych interfejsów API.
+- Interfejsy API użycia są dostępne dla wszystkich klientów z kilkoma wyjątkami. Aby uzyskać więcej informacji, zobacz [Przegląd interfejsu API użycia platformy Azure](consumption-api-overview.md) i [Dokumentacja interfejsu API użycia platformy Azure](/rest/api/consumption/). W najnowszych scenariuszach programistycznych zalecamy używanie udostępnionych interfejsów API.
 
 ### <a name="whats-the-difference-between-the-usage-details-api-and-the-usage-api"></a>Czym różni się interfejs API szczegółów użycia od interfejsu API użycia?
 Te interfejsy API udostępniają zasadniczo różne dane:
 
-- [Interfejs API szczegółów użycia](https://docs.microsoft.com/rest/api/consumption/usagedetails) udostępnia informacje o użyciu i kosztach platformy Azure dotyczące wystąpienia miernika. Udostępnione dane zostały już przetworzone przez system zliczania kosztów na platformie Azure, a koszty — wraz z ewentualnymi innymi zmianami — zostały zastosowane:
+- [Interfejs API szczegółów użycia](/rest/api/consumption/usagedetails) udostępnia informacje o użyciu i kosztach platformy Azure dotyczące wystąpienia miernika. Udostępnione dane zostały już przetworzone przez system zliczania kosztów na platformie Azure, a koszty — wraz z ewentualnymi innymi zmianami — zostały zastosowane:
 
    - Zmiany na koncie dotyczące korzystania z przedpłaconych zobowiązań pieniężnych
    - Zmiany na koncie dotyczące rozbieżności użycia wykrytych przez platformę Azure
@@ -122,12 +122,12 @@ Te interfejsy API udostępniają różne widoki tych samych danych:
 
 - [Interfejs API faktur](/rest/api/billing/2019-10-01-preview/invoices) jest przeznaczony tylko dla klientów z subskrypcją Web Direct. Udostępnia on comiesięczne zestawienie na rachunku oparte na zagregowanych opłatach dla każdego typu miernika.
 
-- [Interfejs API szczegółów użycia](https://docs.microsoft.com/rest/api/consumption/usagedetails) udostępnia szczegółowy widok rejestru użycia/kosztów dla każdego dnia. Mogą z niego korzystać zarówno klienci z subskrypcją Enterprise, jak i subskrypcją Web Direct.
+- [Interfejs API szczegółów użycia](/rest/api/consumption/usagedetails) udostępnia szczegółowy widok rejestru użycia/kosztów dla każdego dnia. Mogą z niego korzystać zarówno klienci z subskrypcją Enterprise, jak i subskrypcją Web Direct.
 
 ### <a name="whats-the-difference-between-the-price-sheet-api-and-the-ratecard-api"></a>Czym różni się interfejs API arkusza cen od interfejsu API usługi RateCard?
 Te interfejsy API udostępniają podobne zestawy danych, ale są przeznaczone dla różnych użytkowników:
 
-- [Interfejs API arkusza cen](https://docs.microsoft.com/rest/api/consumption/pricesheet) udostępnia niestandardowy cennik, wynegocjowany dla klienta z subskrypcją Enterprise.
+- [Interfejs API arkusza cen](/rest/api/consumption/pricesheet) udostępnia niestandardowy cennik, wynegocjowany dla klienta z subskrypcją Enterprise.
 
 - [Interfejs API usługi RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)) udostępnia publiczny cennik, przeznaczony dla klientów z subskrypcją Web Direct.
 

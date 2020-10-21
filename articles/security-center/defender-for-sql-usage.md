@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: a532418ebc5cab08b06f8dde87e8126bf8e96ffe
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: aee886e4e5ccaa3e07851ba839532f47c0a46ef8
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217171"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342046"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Usługa Azure Defender dla serwerów SQL na maszynach 
 
@@ -49,13 +49,13 @@ Oba te elementy zostały opisane poniżej.
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Krok 1. Zainicjuj obsługę agenta Log Analytics na hoście programu SQL Server:
 
 - **SQL Server na maszynie wirtualnej platformy Azure** — Jeśli maszyna SQL jest hostowana na maszynie wirtualnej platformy Azure, można [zainicjować obsługę administracyjną log Analytics agenta](security-center-enable-data-collection.md#workspace-configuration). Alternatywnie można wykonać procedurę ręczną, aby [dołączyć Azure Stack maszyn wirtualnych](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
-- **SQL Server w usłudze Azure Arc** — Jeśli SQL Server jest hostowana na maszynie [usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/) , można wdrożyć agenta Log Analytics przy użyciu zalecenia Security Center "log Analytics Agent należy zainstalować na maszynach usługi Azure Arc opartych na systemie Windows (wersja zapoznawcza)". Alternatywnie można wykonać procedurę ręczną w [dokumentacji usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+- **SQL Server w usłudze Azure Arc** — Jeśli SQL Server jest hostowana na maszynie [usługi Azure Arc](../azure-arc/index.yml) , można wdrożyć agenta Log Analytics przy użyciu zalecenia Security Center "log Analytics Agent należy zainstalować na maszynach usługi Azure Arc opartych na systemie Windows (wersja zapoznawcza)". Alternatywnie można wykonać procedurę ręczną w [dokumentacji usługi Azure Arc](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
 
 - **SQL Server Premium** — Jeśli SQL Server jest hostowana na lokalnym komputerze z systemem Windows bez usługi Azure ARC, dostępne są dwie opcje połączenia z platformą Azure:
     
-    - **Wdrażanie usługi Azure Arc** — można podłączyć dowolną maszynę z systemem Windows do Security Center. Natomiast usługa Azure Arc zapewnia lepszą integrację ze *wszystkimi* środowiskami platformy Azure. W przypadku skonfigurowania usługi Azure Arc zostanie wyświetlona strona **SQL Server — usługa Azure Arc** w portalu, a na tej stronie zostaną wyświetlone **alerty zabezpieczeń.** Dlatego pierwszą i zalecaną opcją jest [skonfigurowanie usługi Azure Arc na hoście](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows) i postępuj zgodnie z instrukcjami dotyczącymi **SQL Server w usłudze Azure Arc**powyżej.
+    - **Wdrażanie usługi Azure Arc** — można podłączyć dowolną maszynę z systemem Windows do Security Center. Natomiast usługa Azure Arc zapewnia lepszą integrację ze *wszystkimi* środowiskami platformy Azure. W przypadku skonfigurowania usługi Azure Arc zostanie wyświetlona strona **SQL Server — usługa Azure Arc** w portalu, a na tej stronie zostaną wyświetlone **alerty zabezpieczeń.** Dlatego pierwszą i zalecaną opcją jest [skonfigurowanie usługi Azure Arc na hoście](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) i postępuj zgodnie z instrukcjami dotyczącymi **SQL Server w usłudze Azure Arc**powyżej.
         
-    - **Połącz maszynę z systemem Windows bez usługi Azure Arc** — w przypadku wybrania opcji łączenia SQL Server uruchomionego na komputerze z systemem Windows bez korzystania z usługi Azure Arc postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem windows, aby Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+    - **Połącz maszynę z systemem Windows bez usługi Azure Arc** — w przypadku wybrania opcji łączenia SQL Server uruchomionego na komputerze z systemem Windows bez korzystania z usługi Azure Arc postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem windows, aby Azure monitor](../azure-monitor/platform/agent-windows.md).
 
 
 ### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Krok 2. Włącz opcjonalny plan na stronie cennika i ustawienia Security Center:
@@ -75,7 +75,7 @@ Oba te elementy zostały opisane poniżej.
     Plan zostanie włączony na wszystkich serwerach SQL połączonych z wybranym obszarem roboczym. Ochrona zostanie w pełni aktywna po pierwszym ponownym uruchomieniu wystąpienia SQL Server.
 
     >[!TIP] 
-    > Aby utworzyć nowy obszar roboczy, postępuj zgodnie z instrukcjami w temacie [tworzenie log Analytics obszaru roboczego](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+    > Aby utworzyć nowy obszar roboczy, postępuj zgodnie z instrukcjami w temacie [tworzenie log Analytics obszaru roboczego](../azure-monitor/learn/quick-create-workspace.md).
 
 
 1. Opcjonalnie możesz skonfigurować powiadomienia e-mail o alertach zabezpieczeń. 
@@ -118,7 +118,7 @@ Alerty usługi Azure Defender są dostępne na stronie Alerty Security Center, n
 
 1. Alerty zostały zaprojektowane jako samodzielne, z szczegółowymi krokami korygującymi i informacjami o badaniu w każdej z nich. Można dokładniej badać przy użyciu innych Azure Security Center i możliwości funkcji badania platformy Azure w szerszym widoku:
 
-    * Włącz funkcję inspekcji SQL Server na potrzeby dalszych badań. Jeśli jesteś użytkownikiem ze wskaźnikiem wydajności platformy Azure, możesz przekazać dzienniki inspekcji SQL z zdarzeń dziennika zabezpieczeń systemu Windows do badania wskaźnikowego i cieszyć się bogatym doświadczeniem. [Dowiedz się więcej na temat inspekcji SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15&preserve-view=true).
+    * Włącz funkcję inspekcji SQL Server na potrzeby dalszych badań. Jeśli jesteś użytkownikiem ze wskaźnikiem wydajności platformy Azure, możesz przekazać dzienniki inspekcji SQL z zdarzeń dziennika zabezpieczeń systemu Windows do badania wskaźnikowego i cieszyć się bogatym doświadczeniem. [Dowiedz się więcej na temat inspekcji SQL Server](/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?preserve-view=true&view=sql-server-ver15).
     * Aby ulepszyć stan zabezpieczeń, użyj zaleceń Security Center dla maszyny hosta wskazanej w każdym alercie. Pozwoli to zmniejszyć ryzyko ataków na ataki w przyszłości. 
 
     [Dowiedz się więcej o tym, jak zarządzać alertami i odpowiadać na](security-center-managing-and-responding-alerts.md)nie.
@@ -130,5 +130,5 @@ W przypadku pokrewnego materiału zapoznaj się z następującym artykułem:
 
 - [Alerty zabezpieczeń dotyczące SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Konfigurowanie powiadomień e-mail na potrzeby alertów zabezpieczeń](security-center-provide-security-contact-details.md)
-- [Dowiedz się więcej na temat platformy Azure — Wskaźnikowanie](https://docs.microsoft.com/azure/sentinel/)
-- [Pakiet zabezpieczeń danych Azure Security Center](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+- [Dowiedz się więcej na temat platformy Azure — Wskaźnikowanie](../sentinel/index.yml)
+- [Pakiet zabezpieczeń danych Azure Security Center](../azure-sql/database/azure-defender-for-sql.md)

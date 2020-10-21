@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 73b1ba5e93ad82498938055db50abb665849f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2aa75fb7c532d48188493b2ed09adc8b141b6a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449000"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340023"
 ---
-# <a name="understanding-just-in-time-jit-vm-access"></a>Zrozumienie dostępu do maszyny wirtualnej just-in-Time (JIT)
+# <a name="understanding-just-in-time-jit-vm-access"></a>Informacje o dostępie just in time (JIT) do maszyny wirtualnej
 
 Na tej stronie objaśniono zasady dostępu do maszyny wirtualnej w trybie just-in-Time (JIT) Azure Security Center i logika zaleceń.
 
@@ -40,14 +40,14 @@ Aby rozwiązać ten dylematem, Azure Security Center oferuje JIT. Korzystając z
 
 ## <a name="how-jit-operates-with-network-security-groups-and-azure-firewall"></a>Jak działa kompilator JIT z sieciowymi grupami zabezpieczeń i zaporą platformy Azure
 
-Po włączeniu dostępu just in Time do maszyny wirtualnej można wybrać porty na maszynie wirtualnej, do której zostanie zablokowany ruch przychodzący. Security Center gwarantuje, że istnieją reguły "Odmów całego ruchu przychodzącego" dla wybranych portów w regułach [sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (sieciowej grupy zabezpieczeń) i [zapory platformy Azure](https://docs.microsoft.com/azure/firewall/rule-processing). Te reguły ograniczają dostęp do portów zarządzania maszyn wirtualnych platformy Azure i obrony przed atakami. 
+Po włączeniu dostępu just in Time do maszyny wirtualnej można wybrać porty na maszynie wirtualnej, do której zostanie zablokowany ruch przychodzący. Security Center gwarantuje, że istnieją reguły "Odmów całego ruchu przychodzącego" dla wybranych portów w regułach [sieciowej grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md#security-rules) (sieciowej grupy zabezpieczeń) i [zapory platformy Azure](../firewall/rule-processing.md). Te reguły ograniczają dostęp do portów zarządzania maszyn wirtualnych platformy Azure i obrony przed atakami. 
 
 Jeśli istnieją już inne reguły dla wybranych portów, te istniejące reguły mają pierwszeństwo przed nowym regułą "Odmów całego ruchu przychodzącego". Jeśli nie ma żadnych istniejących reguł na wybranych portach, nowe reguły mają najwyższy priorytet w sieciowej grupy zabezpieczeń i zaporze platformy Azure.
 
-Gdy użytkownik zażąda dostępu do maszyny wirtualnej, Security Center sprawdza, czy użytkownik ma uprawnienia do [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) dla tej maszyny wirtualnej. Jeśli żądanie zostało zatwierdzone, Security Center konfiguruje Zaporę sieciowych grup zabezpieczeń i platformy Azure tak, aby zezwalała na ruch przychodzący do wybranych portów z odpowiedniego adresu IP (lub zakresu) przez określony czas. Po upływie tego czasu program Security Center Przywraca poprzedni stan sieciowych grup zabezpieczeń. Połączenia, które zostały już ustanowione, nie są przerywane.
+Gdy użytkownik zażąda dostępu do maszyny wirtualnej, Security Center sprawdza, czy użytkownik ma uprawnienia do [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) dla tej maszyny wirtualnej. Jeśli żądanie zostało zatwierdzone, Security Center konfiguruje Zaporę sieciowych grup zabezpieczeń i platformy Azure tak, aby zezwalała na ruch przychodzący do wybranych portów z odpowiedniego adresu IP (lub zakresu) przez określony czas. Po upływie tego czasu program Security Center Przywraca poprzedni stan sieciowych grup zabezpieczeń. Połączenia, które zostały już ustanowione, nie są przerywane.
 
 > [!NOTE]
-> Kompilator JIT nie obsługuje maszyn wirtualnych chronionych przez zapory platformy Azure kontrolowane przez [Menedżera zapory platformy Azure](https://docs.microsoft.com/azure/firewall-manager/overview).
+> Kompilator JIT nie obsługuje maszyn wirtualnych chronionych przez zapory platformy Azure kontrolowane przez [Menedżera zapory platformy Azure](../firewall-manager/overview.md).
 
 
 

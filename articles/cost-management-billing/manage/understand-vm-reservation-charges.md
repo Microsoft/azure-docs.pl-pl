@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: e9ee1d9ff8145051bbbe6b65004f7f358b5fdade
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686449"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132146"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Jak rabat na rezerwację platformy Azure jest stosowany do maszyn wirtualnych
 
@@ -57,7 +57,7 @@ W przypadku uruchamiania wystąpień maszyn wirtualnych z systemem Windows rezer
 
 ## <a name="discount-can-apply-to-different-sizes"></a>Rabat może być stosowany do różnych rozmiarów
 
-Po zakupieniu wystąpienia zarezerwowanego maszyny wirtualnej i wybraniu opcji **Zoptymalizowane pod kątem elastyczności rozmiaru wystąpienia** rabat dotyczy wybranego rozmiaru maszyny wirtualnej. Może również obejmować inne rozmiary maszyn wirtualnych, które znajdują się w tej samej grupie elastyczności rozmiaru wystąpienia serii. Aby uzyskać więcej informacji, zobacz artykuł [Elastyczność rozmiaru maszyny wirtualnej z zarezerwowanymi wystąpieniami maszyn wirtualnych](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Po zakupieniu wystąpienia zarezerwowanego maszyny wirtualnej i wybraniu opcji **Zoptymalizowane pod kątem elastyczności rozmiaru wystąpienia** rabat dotyczy wybranego rozmiaru maszyny wirtualnej. Może również obejmować inne rozmiary maszyn wirtualnych, które znajdują się w tej samej grupie elastyczności rozmiaru wystąpienia serii. Aby uzyskać więcej informacji, zobacz artykuł [Elastyczność rozmiaru maszyny wirtualnej z zarezerwowanymi wystąpieniami maszyn wirtualnych](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>Maszyny wirtualne magazynu w warstwie Premium nie są objęte rabatami spoza tej warstwy
 

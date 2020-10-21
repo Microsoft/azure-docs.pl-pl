@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527143"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132809"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Samouczek: Tworzenie budżetów platformy Azure i zarządzanie nimi
 
 Budżety w usłudze Cost Management ułatwiają planowanie poprawy odpowiedzialności organizacji. Za pomocą budżetów możesz obserwować koszt wykorzystywanych lub subskrybowanych usług platformy Azure w określonym czasie. Ułatwiają one informowanie innych osób o ich wydatkach, co umożliwia proaktywne zarządzanie kosztami oraz monitorowanie wydatków w czasie. Po przekroczeniu utworzonych progów budżetowych wyzwalane są tylko powiadomienia. Nie ma to wpływu na zasoby ani nie następuje zatrzymanie użycia. Budżety umożliwiają porównywanie i śledzenie wydatków, co ułatwia analizę kosztów.
 
-Dane dotyczące kosztów i użycia są zwykle dostępne w ciągu 8–24 godzin, a ocena budżetów na podstawie tych kosztów odbywa się co 12–14 godzin. Nie zapomnij zapoznać się ze specyfiką [aktualizacji danych dotyczących kosztów i użycia](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention). Po osiągnięciu progu budżetowego są wysyłane wiadomości e-mail z powiadomieniami — zwykle w ciągu godziny od oceny.
+Dane dotyczące kosztów i użycia są zwykle dostępne w ciągu 8–24 godzin, a ocena budżetów na podstawie tych kosztów odbywa się co 12–14 godzin. Nie zapomnij zapoznać się ze specyfiką [aktualizacji danych dotyczących kosztów i użycia](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Po osiągnięciu progu budżetowego są wysyłane wiadomości e-mail z powiadomieniami — zwykle w ciągu godziny od oceny.
 
 Na koniec okresu (co miesiąc, co kwartał lub co rok), gdy użytkownik wybierze datę wygaśnięcia w przyszłości, budżety są automatycznie resetowane do takiej samej kwoty. Ponieważ budżety są resetowane do takiej samej kwoty, w przypadku konieczności jej zmiany w przyszłym okresie należy utworzyć kolejny budżet.
 
@@ -72,7 +72,7 @@ Na potrzeby tworzenia budżetów przez użytkownika i grupę w ramach subskrypcj
 - Współautor i współautor usługi Cost Management — może tworzyć, modyfikować i usuwać swoje budżety. Może też modyfikować kwoty budżetów utworzonych przez innych użytkowników.
 - Czytelnik i czytelnik usługi Cost Management — może wyświetlać budżety, do których ma uprawnienia.
 
-Aby uzyskać więcej informacji na temat przypisywania uprawnień do danych usługi Cost Management, zobacz [Przypisywanie dostępu do danych usługi Cost Management](../../cost-management/assign-access-acm-data.md).
+Aby uzyskać więcej informacji na temat przypisywania uprawnień do danych usługi Cost Management, zobacz [Przypisywanie dostępu do danych usługi Cost Management](./assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -104,7 +104,7 @@ Pojawi się wykres, na którym uwzględniono wybrane pola. Ułatwia on wybranie 
 
 Po skonfigurowaniu kwoty budżetu wybierz przycisk **Dalej**, aby skonfigurować alerty dotyczące budżetu. Budżety wymagają co najmniej jednego progu kosztów (wartości procentowej budżetu) i odpowiedniego adresu e-mail. Pojedynczy budżet może zawierać maksymalnie pięć progów i pięć adresów e-mail. Po osiągnięciu progu budżetowego są wysyłane wiadomości e-mail z powiadomieniami — zwykle w ciągu godziny od oceny.
 
-Jeśli chcesz otrzymywać wiadomości e-mail, dodaj adres azure-noreply@microsoft.com do listy zatwierdzonych nadawców, aby wiadomości e-mail nie były umieszczane w folderze wiadomości-śmieci. Aby uzyskać więcej informacji o powiadomieniach, zobacz [Korzystanie z alertów dotyczących kosztów](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
+Jeśli chcesz otrzymywać wiadomości e-mail, dodaj adres azure-noreply@microsoft.com do listy zatwierdzonych nadawców, aby wiadomości e-mail nie były umieszczane w folderze wiadomości-śmieci. Aby uzyskać więcej informacji o powiadomieniach, zobacz [Korzystanie z alertów dotyczących kosztów](./cost-mgt-alerts-monitor-usage-spending.md).
 
 W poniższym przykładzie zostanie wygenerowany alert e-mail, gdy koszty osiągną 90% wartości budżetu. W przypadku tworzenia budżetu za pomocą interfejsu API budżetów można także przypisać role do osób, które będą otrzymywać alerty. Przypisywanie ról do osób nie jest obsługiwane w witrynie Azure Portal. Aby uzyskać więcej informacji o interfejsie API budżetów platformy Azure, zobacz [Interfejs API budżetów](/rest/api/consumption/budgets). Jeśli chcesz, aby wysyłany alert e-mail był w innym języku, zobacz [Ustawienia regionalne obsługiwane w przypadku wiadomości e-mail z alertami budżetowymi](manage-automation.md#supported-locales-for-budget-alert-emails).
 
@@ -112,7 +112,7 @@ Limity alertów obsługują zakres od 0,01 do 1000% podanego progu budżetu.
 
 ![Przykładowe warunki alertu](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
-Utworzony budżet jest widoczny w obszarze analizy kosztów. Wyświetlenie budżetu względem trendu wydatków jest jednym z pierwszych kroków wykonywanych w ramach [analizowania kosztów i wydatków](../../cost-management/quick-acm-cost-analysis.md).
+Utworzony budżet jest widoczny w obszarze analizy kosztów. Wyświetlenie budżetu względem trendu wydatków jest jednym z pierwszych kroków wykonywanych w ramach [analizowania kosztów i wydatków](./quick-acm-cost-analysis.md).
 
 ![Przykładowy budżet z wydatkami w analizie kosztów](./media/tutorial-acm-create-budgets/cost-analysis.png)
 

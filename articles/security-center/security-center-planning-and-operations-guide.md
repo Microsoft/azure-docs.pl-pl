@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 0de41941fa5907b7d33e24de331571015510e7bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de6a416666866a4089d22f2fa047dc860c922d3c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713788"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341247"
 ---
 # <a name="planning-and-operations-guide"></a>Przewodnik dotyczący planowania i operacji
 Ten przewodnik jest przeznaczony dla specjalistów IT, architektów IT, analityków zabezpieczeń informacji i administratorów chmury do korzystania z Azure Security Center.
@@ -135,7 +135,7 @@ Azure Security Center używa agenta Log Analytics — jest to ten sam Agent, kt�
 
 ### <a name="agent"></a>Agent
 
-W przypadku włączenia automatycznej obsługi administracyjnej w zasadach zabezpieczeń Agent Log Analytics (dla [systemu Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) lub [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) jest instalowany na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i tworzonych nowych. Jeśli na maszynie wirtualnej lub komputerze jest już zainstalowany agent Log Analytics, Azure Security Center będzie korzystać z aktualnie zainstalowanego agenta. Proces agenta został zaprojektowany jako nieinwazyjny i ma minimalny wpływ na wydajność maszyny wirtualnej.
+W przypadku włączenia automatycznej obsługi administracyjnej w zasadach zabezpieczeń Agent Log Analytics (dla [systemu Windows](../azure-monitor/platform/agent-windows.md) lub [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)) jest instalowany na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i tworzonych nowych. Jeśli na maszynie wirtualnej lub komputerze jest już zainstalowany agent Log Analytics, Azure Security Center będzie korzystać z aktualnie zainstalowanego agenta. Proces agenta został zaprojektowany jako nieinwazyjny i ma minimalny wpływ na wydajność maszyny wirtualnej.
 
 Agent Log Analytics dla systemu Windows wymaga użycia portu TCP 443. Przeczytaj [artykuł na temat rozwiązywania problemów](security-center-troubleshooting-guide.md), aby uzyskać więcej informacji.
 
@@ -217,7 +217,7 @@ W poniższym przykładzie pokazano podejrzane działanie w protokole RDP:
 
 ![Podejrzane działania](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
-Ta strona pokazuje szczegóły dotyczące godziny, o której nastąpił atak, nazwy hosta źródłowego, docelowej maszyny wirtualnej oraz poszczególnych kroków zaleceń. W pewnych okolicznościach informacje źródłowe ataku mogą być puste. Więcej informacji na temat działania tego typu znajduje się w artykule [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Brakujące informacje źródłowe w alertach Centrum zabezpieczeń Azure).
+Ta strona pokazuje szczegóły dotyczące godziny, o której nastąpił atak, nazwy hosta źródłowego, docelowej maszyny wirtualnej oraz poszczególnych kroków zaleceń. W pewnych okolicznościach informacje źródłowe ataku mogą być puste. Więcej informacji na temat działania tego typu znajduje się w artykule [Missing Source Information in Azure Security Center Alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) (Brakujące informacje źródłowe w alertach Centrum zabezpieczeń Azure).
 
 Po zidentyfikowaniu zagrożonego systemu można uruchomić [automatyzację przepływu pracy](workflow-automation.md) , która została wcześniej utworzona. Są to zbiór procedur, które mogą być wykonywane z Security Center po wyzwoleniu alertu.
 
@@ -233,6 +233,6 @@ W tym dokumencie omówiono, jak zaplanować wykorzystanie usługi Security Cente
 
 * [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
-* [Monitorowanie rozwiązań partnerskich za pomocą Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
+* [Monitorowanie rozwiązań partnerskich za pomocą Azure Security Center](./security-center-partner-integration.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
 * [Azure Security Center — często zadawane pytania](faq-general.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
-* [Blog Azure Security](https://docs.microsoft.com/archive/blogs/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
+* [Blog Azure Security](/archive/blogs/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.

@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 345535ae52b9a271bcee5ff7a2b651af144624f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b4d6502e49fdd30a68188a1e580a1c137984c89f
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684715"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132384"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Przegląd rozliczeń subskrypcji przy użyciu interfejsów API REST
 
@@ -32,7 +32,7 @@ Authorization: Bearer
 
 Parametr `{subscriptionID}` jest wymagany i identyfikuje subskrypcję docelową.
 
-Parametr `{billingPeriod}` jest wymagany i określa bieżący [okres rozliczeniowy](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+Parametr `{billingPeriod}` jest wymagany i określa bieżący [okres rozliczeniowy](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
 Parametry `${startDate}` i `${endDate}` są wymagane w tym przykładzie, ale opcjonalne dla punktu końcowego. Określają one zakres dat jako ciągi w formacie RRRR-MM-DD (np. `'20180501'` i `'20180615'`).
 
@@ -41,7 +41,7 @@ Wymagane są następujące nagłówki:
 |Nagłówek żądania|Opis|
 |--------------------|-----------------|
 |*Content-Type:*|Wymagany. Ustaw wartość `application/json`.|
-|*Authorization:*|Wymagany. Ustaw na prawidłowy [token dostępu](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer`. |
+|*Authorization:*|Wymagany. Ustaw na prawidłowy [token dostępu](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer`. |
 
 ## <a name="response"></a>Odpowiedź
 
@@ -85,7 +85,7 @@ Każdy element w sekcji **value** reprezentuje szczegóły dotyczące korzystani
 |**meterDetails** | Szczegółowe informacje na temat użycia. |
 |**nextLink**| Po ustawieniu określa adres URL dla następnej „strony” ze szczegółami. Właściwość pozostaje pusta, gdy jest to ostatnia strona. |
 
-Ten przykład jest skrócony. Zobacz [Szczegóły użycia listy](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy), aby uzyskać pełny opis każdego pola odpowiedzi.
+Ten przykład jest skrócony. Zobacz [Szczegóły użycia listy](/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy), aby uzyskać pełny opis każdego pola odpowiedzi.
 
 Inne kody stanu wskazują na błędy. W takich przypadkach obiekt odpowiedzi wyjaśnia, dlaczego żądanie nie powiodło się.
 
@@ -101,6 +101,6 @@ Inne kody stanu wskazują na błędy. W takich przypadkach obiekt odpowiedzi wyj
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- Przejrzyj temat [Przegląd raportowania korporacyjnego](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Zapoznaj się z tematem [Interfejs API REST rozliczania korporacyjnego](https://docs.microsoft.com/rest/api/billing/)
-- [Get started with Azure REST API (Rozpoczęcie pracy z interfejsem API REST platformy Azure)](https://docs.microsoft.com/rest/api/azure/)
+- Przejrzyj temat [Przegląd raportowania korporacyjnego](./enterprise-api.md)
+- Zapoznaj się z tematem [Interfejs API REST rozliczania korporacyjnego](/rest/api/billing/)
+- [Get started with Azure REST API (Rozpoczęcie pracy z interfejsem API REST platformy Azure)](/rest/api/azure/)

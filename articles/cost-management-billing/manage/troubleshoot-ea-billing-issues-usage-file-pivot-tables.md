@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/09/2020
 ms.author: banders
-ms.openlocfilehash: a30f85ae1b65321a25ee93239374d2a8aae26769
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b32bb979176af8a8a3751db8edf9c129caf1002e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026427"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131993"
 ---
 # <a name="troubleshoot-ea-billing-issues-with-usage-file-pivot-tables"></a>Rozwiązywanie problemów z rozliczeniami w ramach umowy EA przy użyciu tabel przestawnych pliku użycia
 
@@ -33,7 +33,7 @@ Pliki użycia mogą pobierać tylko administratorzy umowy EA, właściciele kont
 
 Ponieważ pliki użycia platformy Azure są w formacie CSV, należy przygotować dane do użycia w programie Excel. Wykonaj następujące kroki, aby sformatować dane jako tabelę.
 
-1. Pobierz plik zawierający szczegóły użycia w wersji 2 ze wszystkimi opłatami (za zużycie i zakupy), korzystając z instrukcji z sekcji [Pobieranie zestawienia użycia dla klientów z umową EA](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-for-ea-customers).
+1. Pobierz plik zawierający szczegóły użycia w wersji 2 ze wszystkimi opłatami (za zużycie i zakupy), korzystając z instrukcji z sekcji [Pobieranie zestawienia użycia dla klientów z umową EA](./download-azure-invoice-daily-usage-date.md#download-usage-for-ea-customers).
 1. Otwórz plik w programie Excel.
 1. Niesformatowane dane są podobne do tych z poniższego przykładu.  
     :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" alt-text="Przykład przedstawiający niesformatowane dane w programie Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" :::

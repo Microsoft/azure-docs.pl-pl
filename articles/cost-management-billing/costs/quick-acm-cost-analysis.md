@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 89a12be047a3571c1d85febc246a1ed8a3c8b720
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 62651f611654fa601752308ac2fa7f4c388297d6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297865"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132843"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Szybki start: Eksplorowanie i analizowanie kosztów za pomocą analizy kosztów
 
@@ -32,7 +32,7 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 
 Analiza kosztów obsługuje różne typy kont platformy Azure. Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](understand-cost-mgt-data.md). Aby wyświetlić dane kosztów, potrzebujesz przynajmniej dostępu do odczytu dla Twojego konta platformy Azure.
 
-Aby uzyskać informacje na temat przypisywania dostępu do danych usługi Azure Cost Management, zobacz [Przypisywanie dostępu do danych](../../cost-management/assign-access-acm-data.md).
+Aby uzyskać informacje na temat przypisywania dostępu do danych usługi Azure Cost Management, zobacz [Przypisywanie dostępu do danych](./assign-access-acm-data.md).
 
 Jeśli masz nową subskrypcję, nie możesz od razu korzystać z funkcji usługi Cost Management. Aby można było korzystać ze wszystkich funkcji usługi Cost Management, może upłynąć do 48 godzin.
 
@@ -108,7 +108,7 @@ Po wyłączeniu prognozy wydatków nie widać przewidywanych wydatków w przysz�
 
 Ogólnie rzecz biorąc, w ciągu 8–12 godzin można spodziewać się danych lub powiadomień dotyczących wykorzystanych zasobów.
 
-**Grupuj według** typowych właściwości, aby dzielić koszty i identyfikować ich najważniejsze składniki. Na przykład aby grupować według tagów zasobów, wybierz klucz tagu, według którego chcesz grupować. Koszty zostaną podzielone według poszczególnych wartości tagu oraz dodatkowego segmentu dla zasobów, do których nie zastosowano tego tagu.  Aby uzyskać więcej informacji na temat opcji grupowania i filtrowania, zobacz [Opcje grupowania i filtrowania](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter).
+**Grupuj według** typowych właściwości, aby dzielić koszty i identyfikować ich najważniejsze składniki. Na przykład aby grupować według tagów zasobów, wybierz klucz tagu, według którego chcesz grupować. Koszty zostaną podzielone według poszczególnych wartości tagu oraz dodatkowego segmentu dla zasobów, do których nie zastosowano tego tagu.  Aby uzyskać więcej informacji na temat opcji grupowania i filtrowania, zobacz [Opcje grupowania i filtrowania](./group-filter.md).
 
 Większość [zasobów platformy Azure obsługuje tagowanie](../../azure-resource-manager/management/tag-support.md). Jednak niektóre tagi nie są dostępne na stronie Zarządzanie kosztami i rozliczenia. Ponadto nie są obsługiwane tagi grup zasobów. Obsługa tagów dotyczy użycia zgłaszanego *po tym*, gdy tag został zastosowany do zasobu. Tagi nie są stosowane wstecznie dla celów zestawień kosztów.
 
