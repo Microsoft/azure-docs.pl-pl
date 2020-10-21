@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: e5c9540bed34de3cad5c74c7041c8d7e06aef9ca
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 68df6d6707ebe4f1a4b75a8005e746e2c1eba864
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946063"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341587"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Zbieranie danych w usłudze Azure Security Center
 Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz innych niż platformy Azure (w tym komputerów lokalnych) do monitorowania luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
@@ -67,7 +67,7 @@ Aby wybrać obszar roboczy utworzony przez Security Center:
 1. W obszarze **Domyślna konfiguracja obszaru roboczego**wybierz pozycję Użyj obszarów roboczych utworzonych przez Centrum zabezpieczeń.
     :::image type="content" source="./media/security-center-enable-data-collection/workspace-selection.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics"::: 
 
-1. Kliknij przycisk **Zapisz**.<br>
+1. Kliknij pozycję **Zapisz**.<br>
     Security Center tworzy nową grupę zasobów i domyślny obszar roboczy w tej geolokalizacji i łączy agenta z tym obszarem roboczym. Konwencja nazewnictwa obszaru roboczego i grupy zasobów to:<br>
    **Obszar roboczy: DefaultWorkspace-[Identyfikator subskrypcji]-[geograficzna] <br> Grupa zasobów: DefaultResourceGroup-[Geo]**
 
@@ -133,7 +133,7 @@ Aby wybrać istniejący obszar roboczy Log Analytics:
 
 
 ## <a name="cross-subscription-workspace-selection"></a>Wybór obszaru roboczego między subskrypcjami
-Po wybraniu obszaru roboczego, w którym będą przechowywane dane, są dostępne wszystkie obszary robocze we wszystkich subskrypcjach. Możliwość wybrania obszaru roboczego z innej subskrypcji pozwala na zbieranie danych z maszyn wirtualnych działających w różnych subskrypcjach i przechowywanie ich w wybranym obszarze roboczym. Ten wybór jest przydatny, jeśli w swojej organizacji używasz scentralizowanego obszaru roboczego i chcesz używać go do zbierania danych dotyczących zabezpieczeń. Aby uzyskać więcej informacji na temat zarządzania obszarami roboczymi, zobacz [Zarządzanie dostępem do obszaru roboczego](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+Po wybraniu obszaru roboczego, w którym będą przechowywane dane, są dostępne wszystkie obszary robocze we wszystkich subskrypcjach. Możliwość wybrania obszaru roboczego z innej subskrypcji pozwala na zbieranie danych z maszyn wirtualnych działających w różnych subskrypcjach i przechowywanie ich w wybranym obszarze roboczym. Ten wybór jest przydatny, jeśli w swojej organizacji używasz scentralizowanego obszaru roboczego i chcesz używać go do zbierania danych dotyczących zabezpieczeń. Aby uzyskać więcej informacji na temat zarządzania obszarami roboczymi, zobacz [Zarządzanie dostępem do obszaru roboczego](../azure-monitor/platform/manage-access.md).
 
 
 
@@ -174,9 +174,9 @@ Poniżej znajduje się kompletny podział identyfikatorów zdarzeń związanych 
 | | 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
 
 > [!NOTE]
-> - W przypadku używania obiektu zasady grupy (GPO) zaleca się włączenie zdarzenia dotyczącego tworzenia procesu zasad inspekcji 4688 i pola *wiersza polecenia* wewnątrz zdarzenia 4688. Aby uzyskać więcej informacji o zdarzeniu tworzenia procesu 4688, zobacz [często zadawane pytania](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)dotyczące Security Center. Aby uzyskać więcej informacji na temat tych zasad inspekcji, zobacz [zalecenia dotyczące zasad inspekcji](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> - W przypadku używania obiektu zasady grupy (GPO) zaleca się włączenie zdarzenia dotyczącego tworzenia procesu zasad inspekcji 4688 i pola *wiersza polecenia* wewnątrz zdarzenia 4688. Aby uzyskać więcej informacji o zdarzeniu tworzenia procesu 4688, zobacz [często zadawane pytania](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)dotyczące Security Center. Aby uzyskać więcej informacji na temat tych zasad inspekcji, zobacz [zalecenia dotyczące zasad inspekcji](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 > -  Aby włączyć zbieranie danych na potrzeby [adaptacyjnego sterowania aplikacjami](security-center-adaptive-application.md), Security Center konfiguruje lokalne zasady funkcji AppLocker w trybie inspekcji, aby zezwolić na wszystkie aplikacje. Spowoduje to generowanie przez funkcję AppLocker zdarzeń, które są następnie zbierane i wykorzystywane przez Security Center. Należy pamiętać, że te zasady nie zostaną skonfigurowane na wszystkich komputerach, na których już skonfigurowano zasady funkcji AppLocker. 
-> - Aby zbierać zdarzenia platformy filtrowania systemu Windows o [identyfikatorze 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156), należy włączyć funkcję [filtrowania inspekcji dla platformy](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (auditpol/Set/Subcategory: "Filtering Platform Connection"/Success: Enable)
+> - Aby zbierać zdarzenia platformy filtrowania systemu Windows o [identyfikatorze 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156), należy włączyć funkcję [filtrowania inspekcji dla platformy](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (auditpol/Set/Subcategory: "Filtering Platform Connection"/Success: Enable)
 >
 
 Aby wybrać zasady filtrowania:
@@ -204,7 +204,7 @@ Program Security Center zainstaluje rozszerzenie agenta Log Analytics obok istni
 
 - Istnieje już istniejące rozszerzenie maszyny wirtualnej<br>
     - Gdy Agent monitorowania jest zainstalowany jako rozszerzenie, konfiguracja rozszerzenia umożliwia raportowanie tylko jednego obszaru roboczego. Security Center nie przesłania istniejących połączeń z obszarami roboczymi użytkowników. Security Center będą przechowywać dane zabezpieczeń z maszyny wirtualnej w już podłączonym obszarze roboczym, pod warunkiem, że zostało na nim zainstalowane rozwiązanie "Security" lub "securityFree". Security Center może uaktualnić wersję rozszerzenia do najnowszej wersji w tym procesie.  
-    - Aby zobaczyć, w którym obszarze roboczym jest wysyłane dane rozszerzenie, Uruchom test w celu [sprawdzenia łączności z Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Alternatywnie możesz otworzyć obszary robocze Log Analytics, wybrać obszar roboczy, wybrać maszynę wirtualną i sprawdzić połączenie z agentem Log Analytics. 
+    - Aby zobaczyć, w którym obszarze roboczym jest wysyłane dane rozszerzenie, Uruchom test w celu [sprawdzenia łączności z Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Alternatywnie możesz otworzyć obszary robocze Log Analytics, wybrać obszar roboczy, wybrać maszynę wirtualną i sprawdzić połączenie z agentem Log Analytics. 
     - Jeśli masz środowisko, w którym jest zainstalowany agent Log Analytics na stacjach roboczych klienta i raportowanie do istniejącego Log Analytics obszaru roboczego, przejrzyj listę [systemów operacyjnych obsługiwanych przez Azure Security Center](security-center-os-coverage.md) , aby upewnić się, że system operacyjny jest obsługiwany. Aby uzyskać więcej informacji, zobacz [istniejących klientów usługi log Analytics](./faq-azure-monitor-logs.md).
  
 ### <a name="turn-off-automatic-provisioning"></a>Wyłącz automatyczne Inicjowanie obsługi <a name="offprovisioning"></a>
@@ -265,8 +265,8 @@ Można ręcznie zainstalować agenta Log Analytics, aby Security Center mógł z
 
 1. Aby wdrożyć rozszerzenie przy użyciu programu PowerShell, Skorzystaj z instrukcji z dokumentacji dotyczącej maszyn wirtualnych:
 
-    - [Dla maszyn z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
-    - [Dla maszyn z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+    - [Dla maszyn z systemem Windows](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
+    - [Dla maszyn z systemem Linux](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
 
 
 

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 44f7ce657ea9341779e15f6e4817e8fae1515e47
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d6d0d0a4c4b3328fa50777b5106bac202c9972ef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685973"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151497"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Zaoszczędź na dużych wystąpieniach platformy SAP HANA dzięki rezerwacji platformy Azure
 
@@ -32,15 +32,15 @@ Przed przystąpieniem do zakupu pojemności zarezerwowanej należy zaaprowizowa�
 - Nie można mieć zakresu udostępnionego rezerwacji dla pojemności zarezerwowanej HANA. Zakresu rezerwacji nie można podzielić, scalić ani zaktualizować.
 - Można kupić jedno wystąpienie HLI jednocześnie, korzystając z wywołań interfejsu API pojemności zarezerwowanych. Aby kupić więcej wystąpień, wykonaj dodatkowe wywołania interfejsu API.
 
-Pojemność zarezerwowaną można kupić w witrynie Azure Portal lub przy użyciu interfejsu [API REST](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase).
+Pojemność zarezerwowaną można kupić w witrynie Azure Portal lub przy użyciu interfejsu [API REST](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ## <a name="buy-a-hana-large-instance-reservation"></a>Kupowanie rezerwacji dużego wystąpienia HANA
 
-Skorzystaj z poniższych informacji, aby kupić rezerwację wystąpienia HLI przy użyciu [interfejsów API REST zamówień rezerwacji](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase).
+Skorzystaj z poniższych informacji, aby kupić rezerwację wystąpienia HLI przy użyciu [interfejsów API REST zamówień rezerwacji](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ### <a name="get-the-reservation-order-and-price"></a>Uzyskiwanie zamówienia rezerwacji oraz ceny
 
-Najpierw uzyskaj zamówienie rezerwacji oraz i cenę dla zaaprowizowanej jednostki SKU dużego wystąpienia HANA przy użyciu interfejsu API [Oblicz cenę](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/calculate).
+Najpierw uzyskaj zamówienie rezerwacji oraz i cenę dla zaaprowizowanej jednostki SKU dużego wystąpienia HANA przy użyciu interfejsu API [Oblicz cenę](/rest/api/reserved-vm-instances/reservationorder/calculate).
 
 W poniższym przykładzie użyto klienta [armclient](https://github.com/projectkudu/ARMClient), aby wykonać wywołania interfejsu API REST przy użyciu programu PowerShell. Oto jak powinno wyglądać żądanie zamówienia rezerwacji i interfejsu API Oblicz cenę oraz treść żądania:
 
@@ -220,7 +220,7 @@ Poniższe informacje wyjaśniają znaczenie różnych pól rezerwacji.
 
   **Jednostka SKU** Nazwa jednostki SKU wystąpienia HLI. Wygląda następująco: `SAP_HANA_On_Azure_<SKUname>`.
 
-  **Lokalizacja** Dostępne regiony wystąpienia HLI. Zobacz [Jednostki SKU dla platformy SAP HANA na platformie Azure (duże wystąpienia)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus), aby poznać dostępne regiony. Aby uzyskać format ciągu lokalizacji, użyj [wywołania interfejsu API Pobierz lokalizacje](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations#locationlistresult).
+  **Lokalizacja** Dostępne regiony wystąpienia HLI. Zobacz [Jednostki SKU dla platformy SAP HANA na platformie Azure (duże wystąpienia)](../../virtual-machines/workloads/sap/hana-available-skus.md), aby poznać dostępne regiony. Aby uzyskać format ciągu lokalizacji, użyj [wywołania interfejsu API Pobierz lokalizacje](/rest/api/resources/subscriptions/listlocations#locationlistresult).
 
   **Typ zasobu zarezerwowanego** `SapHana`
 
@@ -248,5 +248,5 @@ location. You can also go to https://aka.ms/corequotaincrease to learn about quo
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, [jak wywoływać interfejsy API REST przy użyciu narzędzia Postman i cURL](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
-- Zobacz [Jednostki SKU dla platformy SAP HANA na platformie Azure (duże wystąpienia)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus), aby poznać listę dostępnych jednostek SKU i regionów.
+- Dowiedz się, [jak wywoływać interfejsy API REST przy użyciu narzędzia Postman i cURL](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
+- Zobacz [Jednostki SKU dla platformy SAP HANA na platformie Azure (duże wystąpienia)](../../virtual-machines/workloads/sap/hana-available-skus.md), aby poznać listę dostępnych jednostek SKU i regionów.

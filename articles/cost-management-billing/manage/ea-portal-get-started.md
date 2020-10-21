@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 617351d5d1bdf9b6528803552e2d34766e9ab217
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371953"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132656"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Wprowadzenie do witryny Azure Enterprise Portal
 
@@ -561,7 +561,7 @@ W ramach rejestracji EA platformy Azure możesz utworzyć tyle działów, ile po
 
 Po utworzeniu działów i subskrypcji można wyświetlić dane w raporcie użycia. Te informacje ułatwiają śledzenie użycia oraz zarządzanie kosztami i wydatkami na poziomie działu.
 
-Dane użycia są również dostępne za pośrednictwem interfejsu API raportowania. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Dane użycia są również dostępne za pośrednictwem interfejsu API raportowania. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](./ea-portal-rest-apis.md).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Czy mogę ustawić limit przydziału wydatków i otrzymywać alerty w miarę zbliżania się do tego limitu?
 
@@ -573,7 +573,7 @@ Aby zdefiniować limit przydziału wydatków, wybierz dział, a następnie wybie
 
 W przypadku używania _grup zasobów_ i _tagów_ informacje te są śledzone na poziomie usługi. Dostęp do nich można uzyskać, pobierając plik CSV ze szczegółowym użyciem. Zobacz [Pobieranie raportu użycia](https://ea.azure.com/report/downloadusage) w witrynie Azure Enterprise Portal.
 
-Dane o użyciu są również dostępne za pośrednictwem interfejsu API. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Dane o użyciu są również dostępne za pośrednictwem interfejsu API. Aby uzyskać szczegółowe informacje i przykładowy kod, zobacz artykuł [Interfejsy API REST usługi Azure Enterprise](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > Tagi można stosować tylko do zasobów, które obsługują operacje usługi Azure Resource Manager. W przypadku utworzenia maszyny wirtualnej, sieci wirtualnej lub magazynu za pomocą klasycznego modelu wdrażania (na przykład za pośrednictwem portalu klasycznego) nie można zastosować znacznika do takiego zasobu. Aby umożliwić obsługę tagowania, należy ponownie wdrożyć te zasoby za pomocą Menedżera zasobów. Wszystkie inne zasoby obsługują tagowanie.

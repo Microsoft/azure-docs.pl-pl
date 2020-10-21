@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/06/2020
-ms.openlocfilehash: e9b2ec017ca985c1de739ee74c4d0732f39bdc1d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 8e259dffe95b992003c2d8edb5d2a9eb3486631f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772740"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339343"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Szybki Start: używanie szablonu ARM do wdrażania interfejsu API platformy Azure dla usługi FHIR
 
@@ -83,7 +83,7 @@ Na stronie **wdrażanie interfejsu API platformy Azure dla FHIR** :
 
     :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Wdróż usługę Azure API for FHIR przy użyciu szablonu ARM w Azure Portal.":::
 
-5. Wybierz pozycję **Przeglądanie + tworzenie**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 
 6. Przeczytaj warunki i postanowienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -224,9 +224,14 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
+Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu ARM, zapoznaj się z [samouczkiem dotyczącym tworzenia i wdrażania pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu usługi ARM, zobacz:
+W tym przewodniku szybki start wdrożono interfejs API platformy Azure dla usługi FHIR w ramach subskrypcji. Aby ustawić dodatkowe ustawienia w interfejsie API platformy Azure dla usługi FHIR, należy przejoć do dodatkowych ustawień przewodnika. Jeśli wszystko jest gotowe do rozpoczęcia korzystania z interfejsu API platformy Azure dla usługi FHIR, Przeczytaj więcej na temat sposobu rejestrowania aplikacji.
 
-> [!div class="nextstepaction"]
-> [ Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+>[!div class="nextstepaction"]
+>[Dodatkowe ustawienia w interfejsie API platformy Azure dla usługi FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Przegląd rejestracji aplikacji](fhir-app-registration.md)

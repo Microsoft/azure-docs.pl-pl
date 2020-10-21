@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3e611e25288d52b0be93c76e8a3a28ce6d7d5088
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 91b3b7b71524c76006ad4d431774e05e47fd0266
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326610"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131075"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Rozwiązywanie problemów podczas tworzenia nowego konta w witrynie Azure Portal lub Centrum konta platformy Azure
 
 Podczas próby utworzenia nowego konta w witrynie Microsoft Azure Portal lub w Centrum konta platformy Azure może wystąpić problem. Ten krótki przewodnik przeprowadzi Cię przez proces rejestracji i omawia kilka typowych problemów na każdym kroku.
 
 > [!NOTE]
-> Jeśli masz już konto i szukasz wskazówek dotyczących rozwiązywania problemów z logowaniem, zobacz [Rozwiązywanie problemów z logowaniem w przypadku subskrypcji platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
+> Jeśli masz już konto i szukasz wskazówek dotyczących rozwiązywania problemów z logowaniem, zobacz [Rozwiązywanie problemów z logowaniem w przypadku subskrypcji platformy Azure](./troubleshoot-sign-in-issue.md).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -76,8 +76,8 @@ Aby rozwiązać ten problem, sprawdź ponownie, czy są poniższe kwestie są pr
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>Widzisz komunikat „Bieżący typ konta nie jest obsługiwany”
 
-Ten problem może wystąpić, jeśli konto zostało zarejestrowane w [niezarządzanym katalogu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup) i nie znajduje się w katalogu usługi Azure AD organizacji.
-Aby rozwiązać ten problem, utwórz konto platformy Azure przy użyciu innego konta lub przejmij niezarządzany katalog usługi AD. Aby uzyskać więcej informacji, zobacz temat [Take over an unmanaged directory as administrator in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) (Przejmowanie niezarządzanego katalogu jako administrator w usłudze Azure Active Directory).
+Ten problem może wystąpić, jeśli konto zostało zarejestrowane w [niezarządzanym katalogu usługi Azure AD](../../active-directory/users-groups-roles/directory-self-service-signup.md) i nie znajduje się w katalogu usługi Azure AD organizacji.
+Aby rozwiązać ten problem, utwórz konto platformy Azure przy użyciu innego konta lub przejmij niezarządzany katalog usługi AD. Aby uzyskać więcej informacji, zobacz temat [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md) (Przejmowanie niezarządzanego katalogu jako administrator w usłudze Azure Active Directory).
 
 ## <a name="identity-verification-by-phone"></a>Weryfikacja tożsamości przy użyciu telefonu
 
@@ -107,7 +107,7 @@ Oto kilka dodatkowych porad:
 
 #### <a name="credit-card-declined-or-not-accepted"></a>Karta kredytowa została odrzucona lub nie została zaakceptowana
 
-Wirtualne bądź przedpłacone karty kredytowe lub debetowe nie są akceptowane jako płatność za subskrypcje platformy Azure. Aby zobaczyć, co jeszcze może powodować odrzucenie Twojej karty, zobacz [Rozwiązywanie problemów z kartą odrzuconą podczas tworzenia konta platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card).
+Wirtualne bądź przedpłacone karty kredytowe lub debetowe nie są akceptowane jako płatność za subskrypcje platformy Azure. Aby zobaczyć, co jeszcze może powodować odrzucenie Twojej karty, zobacz [Rozwiązywanie problemów z kartą odrzuconą podczas tworzenia konta platformy Azure](./troubleshoot-declined-card.md).
 
 #### <a name="credit-card-form-doesnt-support-my-billing-address"></a>Formularz karty kredytowej nie obsługuje adresu rozliczeniowego
 
@@ -144,7 +144,7 @@ Uzupełnij umowę.
 Sprawdź, czy używasz prawidłowych poświadczeń logowania. Następnie sprawdź program korzyści i upewnij się, że masz odpowiednie uprawnienia.
 - MSDN
   - Sprawdź stan uprawnień na [stronie konta MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - Jeśli nie możesz zweryfikować swojego stanu, skontaktuj się z [centrum obsługi klienta subskrypcji MSDN](https://msdn.microsoft.com/library/aa493452.aspx).
+  - Jeśli nie możesz zweryfikować swojego stanu, skontaktuj się z [centrum obsługi klienta subskrypcji MSDN](/previous-versions/mappoint/aa493452(v=msdn.10)).
 - Microsoft for Startups
   - Zaloguj się do portalu [Microsoft for Startups](https://startups.microsoft.com/#start-two), aby zweryfikować stan uprawnień do uczestniczenia w programie Microsoft for Startups.
   - Jeśli nie możesz zweryfikować stanu, możesz uzyskać pomoc [na forach programu Microsoft for Startups](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
@@ -161,10 +161,10 @@ Aby utworzyć subskrypcję platformy Azure w ramach programu licencjonowania Ope
 
 Inne artykuły dotyczące rozwiązywania problemów z rozliczeniami i subskrypcjami platformy Azure
 
-- [Odrzucona karta](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Subscription sign-in issues (Problemy z logowaniem do subskrypcji)](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [No subscriptions found (Nie odnaleziono żadnych subskrypcji)](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Wyłączony widok kosztów przedsiębiorstwa](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [Odrzucona karta](./troubleshoot-declined-card.md)
+- [Subscription sign-in issues (Problemy z logowaniem do subskrypcji)](./troubleshoot-sign-in-issue.md)
+- [No subscriptions found (Nie odnaleziono żadnych subskrypcji)](./no-subscriptions-found.md)
+- [Wyłączony widok kosztów przedsiębiorstwa](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## <a name="contact-us-for-help"></a>Skontaktuj się z nami, aby uzyskać pomoc
 
@@ -172,4 +172,4 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 ## <a name="find-out-more-about-azure-cost-management"></a>Dowiedz się więcej o usłudze Azure Cost Management
 
-- [Dokumentacja usługi Azure Cost Management i rozliczeń](https://docs.microsoft.com/azure/cost-management-billing)
+- [Dokumentacja usługi Azure Cost Management i rozliczeń](../index.yml)

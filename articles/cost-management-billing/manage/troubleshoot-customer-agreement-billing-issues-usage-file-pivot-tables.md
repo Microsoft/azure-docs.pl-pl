@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/09/2020
 ms.author: banders
-ms.openlocfilehash: 2ca4affaeae7f19cf3c913b5dfcf89a04e5bc628
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 32c0779f4086574aeaf8d38ea675f80fbd2c1ec7
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026803"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132231"
 ---
 # <a name="troubleshoot-mca-billing-issues-with-usage-file-pivot-tables"></a>Rozwiązywanie problemów z rozliczeniami w ramach umowy MCA przy użyciu tabel przestawnych pliku użycia
 
@@ -27,13 +27,13 @@ Ten artykuł zawiera informacje pomocne przy rozwiązywaniu problemów z rozlicz
 
 Korzystając z informacji z plików użycia, można lepiej zrozumieć problemy dotyczące użycia i je zdiagnozować. Pliki użycia są generowane w formacie danych rozdzielanych przecinkami (CSV). Ponieważ pliki użycia mogą być dużymi plikami CSV, łatwiej nimi manipulować i wyświetlać je w postaci tabel przestawnych w aplikacji do obsługi arkusza kalkulacyjnego, takiej jak Excel. Przykłady w tym artykule są przedstawiane w programie Excel, ale możesz użyć dowolnej aplikacji do obsługi arkusza kalkulacyjnego.
 
-Tylko właściciele profilów rozliczeniowych, współautorzy, czytelnicy i menedżerowie faktur mogą pobierać pliki użycia. Aby uzyskać więcej informacji, zobacz [Pobieranie zestawienia użycia dla Umowy z Klientem Microsoft](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-for-your-microsoft-customer-agreement). 
+Tylko właściciele profilów rozliczeniowych, współautorzy, czytelnicy i menedżerowie faktur mogą pobierać pliki użycia. Aby uzyskać więcej informacji, zobacz [Pobieranie zestawienia użycia dla Umowy z Klientem Microsoft](./download-azure-invoice-daily-usage-date.md#download-usage-for-your-microsoft-customer-agreement). 
 
 ## <a name="get-the-data-and-format-it"></a>Pobieranie i formatowanie danych
 
 Ponieważ pliki użycia platformy Azure są w formacie CSV, należy przygotować dane do użycia w programie Excel. Wykonaj następujące kroki, aby sformatować dane jako tabelę.
 
-1. Pobierz plik użycia, postępując według instrukcji opisanych w artykule [Pobieranie danych użycia w witrynie Azure Portal](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
+1. Pobierz plik użycia, postępując według instrukcji opisanych w artykule [Pobieranie danych użycia w witrynie Azure Portal](./download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal).
 1. Otwórz plik w programie Excel.
 1. Niesformatowane dane są podobne do tych z poniższego przykładu.  
     :::image type="content" source="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/raw-csv-data-mca.png" alt-text="Przykład przedstawiający niesformatowane dane" lightbox="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/raw-csv-data-mca.png" :::

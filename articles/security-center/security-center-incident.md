@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: c31d3136ec4bcdf6da7680d41de078f8bd03d256
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447105"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341350"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Zarządzanie zdarzeniami zabezpieczeń w Azure Security Center
 
 Segregowania i badanie alertów zabezpieczeń może być czasochłonne dla nawet najbardziej wykwalifikowanych analityków zabezpieczeń. Dla wielu, trudno jest wiedzieć, gdzie zacząć. 
 
-Security Center używa [analizy](security-center-detection-capabilities.md) do łączenia informacji różnych [alertów zabezpieczeń](security-center-managing-and-responding-alerts.md). Korzystając z tych połączeń, Security Center może zapewnić pojedynczy widok kampanii atakującej i powiązane z nią alerty, aby ułatwić zrozumienie akcji osoby atakującej i odpowiednich zasobów.
+Security Center używa [analizy](./security-center-alerts-overview.md) do łączenia informacji różnych [alertów zabezpieczeń](security-center-managing-and-responding-alerts.md). Korzystając z tych połączeń, Security Center może zapewnić pojedynczy widok kampanii atakującej i powiązane z nią alerty, aby ułatwić zrozumienie akcji osoby atakującej i odpowiednich zasobów.
 
 Ta strona zawiera omówienie zdarzeń w Security Center.
 

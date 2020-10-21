@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: c8ab6f51daf18802b83508a3e1bbd5af3ee59799
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50180984423b7c6d2921234a3502495016c4df5c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336966"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150111"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Planowanie zarządzania kosztami platformy Azure
 
@@ -24,7 +24,7 @@ Ten artykuł ułatwia rozpoczęcie planowania zarządzania kosztami platformy Az
 - Poznaj szacowane koszty przed dodaniem usług przy użyciu [kalkulatora cen](https://azure.microsoft.com/pricing/calculator/), arkusza cen platformy Azure lub podczas dodawania usług w witrynie Azure Portal.
 - Monitoruj koszty za pomocą [budżetów](../costs/tutorial-acm-create-budgets.md), [alertów](../costs/cost-mgt-alerts-monitor-usage-spending.md) i [analizy kosztów](../costs/quick-acm-cost-analysis.md).
 - Sprawdź opłaty na fakturze, porównując je z [plikami szczegółowego użycia](../manage/download-azure-invoice-daily-usage-date.md).
-- Integruj dane dotyczące rozliczeń i kosztów z własnym systemem raportowania przy użyciu interfejsów API [rozliczeń](https://docs.microsoft.com/rest/api/billing/) i [użycia](https://docs.microsoft.com/rest/api/consumption/).
+- Integruj dane dotyczące rozliczeń i kosztów z własnym systemem raportowania przy użyciu interfejsów API [rozliczeń](/rest/api/billing/) i [użycia](/rest/api/consumption/).
 - Korzystaj z dodatkowych zasobów i narzędzi dla klientów z umową Enterprise (EA), należących do programu Cloud Solution Provider (CSP) i korzystających z Dostępu sponsorowanego Azure.
 - [Przez 12 miesięcy korzystaj bezpłatnie z niektórych najpopularniejszych usług platformy Azure](../manage/create-free-services.md) dostępnych na [bezpłatnym koncie platformy Azure](https://azure.microsoft.com/free/). Oprócz zaleceń wymienionych poniżej, zobacz [Unikanie naliczania opłat za bezpłatne konto](../manage/avoid-charges-free-account.md).
 
@@ -125,7 +125,7 @@ Zapoznaj się z samouczkiem [Optymalizowanie kosztów na podstawie rekomendacji]
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>Integrowanie z interfejsami API rozliczeń i użycia
 
-Aby programowo uzyskać dane dotyczące rozliczeń i kosztów, użyj interfejsów API [rozliczeń](https://docs.microsoft.com/rest/api/billing/) i [użycia](https://docs.microsoft.com/rest/api/consumption/) na platformie Azure. Aby pobrać rozliczane użycie, użyj interfejsu API usługi RateCard wraz z interfejsem API użycia. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie szczegółowych informacji o użyciu zasobów platformy Microsoft Azure](../manage/usage-rate-card-overview.md).
+Aby programowo uzyskać dane dotyczące rozliczeń i kosztów, użyj interfejsów API [rozliczeń](/rest/api/billing/) i [użycia](/rest/api/consumption/) na platformie Azure. Aby pobrać rozliczane użycie, użyj interfejsu API usługi RateCard wraz z interfejsem API użycia. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie szczegółowych informacji o użyciu zasobów platformy Microsoft Azure](../manage/usage-rate-card-overview.md).
 
 ## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Dodatkowe zasoby i przypadki specjalne
 

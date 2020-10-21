@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950741"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341927"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów i narzędzi do zarządzania
 
@@ -68,22 +68,22 @@ Na stronie spisu dostępne są następujące narzędzia:
     ![Opcje eksportu spisu](./media/asset-inventory/inventory-export-options.png)
 
     > [!TIP]
-    > Dokumentacja KQL zawiera bazę danych z przykładowymi danymi wraz z niektórymi prostymi zapytaniami dotyczącymi języka. [Dowiedz się więcej w tym samouczku KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > Dokumentacja KQL zawiera bazę danych z przykładowymi danymi wraz z niektórymi prostymi zapytaniami dotyczącymi języka. [Dowiedz się więcej w tym samouczku KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 - **Opcje zarządzania zasobami** — spis umożliwia wykonywanie złożonych zapytań odnajdowania. Po znalezieniu zasobów pasujących do zapytań Spis zawiera skróty do operacji takich jak:
 
     - Przypisywanie tagów do filtrowanych zasobów — zaznacz pola wyboru obok zasobów, które chcesz oznaczyć tagami.
     - Dodaj nowe serwery do Security Center — Użyj przycisku paska narzędzi **Dodawanie serwerów spoza platformy Azure** .
-    - Automatyzowanie obciążeń przy użyciu Azure Logic Apps — Użyj przycisku **Wyzwalaj aplikację logiki** , aby uruchomić aplikację logiki w jednym lub większej liczbie zasobów. Aplikacje logiki muszą zostać przygotowane z wyprzedzeniem i zaakceptować odpowiedni typ wyzwalacza (żądanie HTTP). [Dowiedz się więcej o usłudze Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+    - Automatyzowanie obciążeń przy użyciu Azure Logic Apps — Użyj przycisku **Wyzwalaj aplikację logiki** , aby uruchomić aplikację logiki w jednym lub większej liczbie zasobów. Aplikacje logiki muszą zostać przygotowane z wyprzedzeniem i zaakceptować odpowiedni typ wyzwalacza (żądanie HTTP). [Dowiedz się więcej o usłudze Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Jak działa spis zasobów?
 
-Spis zasobów używa usługi Azure [Resource Graph (arg)](https://docs.microsoft.com/azure/governance/resource-graph/), która umożliwia wykonywanie Security Center zapytań dotyczących danych stan zabezpieczeń w wielu subskrypcjach.
+Spis zasobów używa usługi Azure [Resource Graph (arg)](../governance/resource-graph/index.yml), która umożliwia wykonywanie Security Center zapytań dotyczących danych stan zabezpieczeń w wielu subskrypcjach.
 
 ARGUMENT jest zaprojektowany w celu zapewnienia wydajnej eksploracji zasobów z możliwością wykonywania zapytań na dużą skalę.
 
-Za pomocą [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/), spis zasobów może szybko tworzyć szczegółowe informacje przez krzyżowe dane ASC z innymi właściwościami zasobów.
+Za pomocą [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), spis zasobów może szybko tworzyć szczegółowe informacje przez krzyżowe dane ASC z innymi właściwościami zasobów.
 
 
 ## <a name="how-to-use-asset-inventory"></a>Jak korzystać z spisu zasobów
@@ -156,5 +156,5 @@ W tym artykule opisano stronę spisu zasobów Azure Security Center.
 
 Aby uzyskać więcej informacji na temat powiązanych narzędzi, zobacz następujące strony:
 
-- [Wykres zasobów platformy Azure (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-- [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Wykres zasobów platformy Azure (ARG)](../governance/resource-graph/index.yml)
+- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)

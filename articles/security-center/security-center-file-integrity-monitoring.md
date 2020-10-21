@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 45e173f87559368244ab7b0f90af1dbb6fc739d4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205391"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341536"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w Azure Security Center
 Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Azure Security Center przy użyciu tego przewodnika.
@@ -30,7 +30,7 @@ Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Az
 |----|:----|
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md).<br>KOD FIM przekazuje dane do obszaru roboczego Log Analytics. Opłaty za dane są stosowane w oparciu o ilość przekazywanych danych. Aby dowiedzieć się więcej, zobacz [cennik log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) .|
-|Wymagane role i uprawnienia:|**Właściciel obszaru roboczego** może włączyć/wyłączyć program FIM (Aby uzyskać więcej informacji, zobacz [role platformy Azure dla log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Czytelnik** może wyświetlać wyniki.|
+|Wymagane role i uprawnienia:|**Właściciel obszaru roboczego** może włączyć/wyłączyć program FIM (Aby uzyskać więcej informacji, zobacz [role platformy Azure dla log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**Czytelnik** może wyświetlać wyniki.|
 |Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) US gov<br>![Brak ](./media/icons/no-icon.png) Chin gov, inne gov<br>Obsługiwane tylko w regionach, w których jest dostępne Azure Automation rozwiązanie do śledzenia zmian.<br>Zobacz sekcję [Obsługiwane regiony dla połączonego obszaru roboczego log Analytics](../automation/how-to/region-mappings.md).<br>[Dowiedz się więcej o śledzeniu zmian](../automation/change-tracking/overview.md).|
 |||
 
@@ -262,7 +262,7 @@ W tym artykule przedstawiono sposób korzystania z monitorowania integralności 
 
 * [Ustawianie zasad zabezpieczeń](tutorial-security-policy.md) — informacje na temat konfigurowania zasad zabezpieczeń dla subskrypcji i grup zasobów platformy Azure.
 * [Zarządzanie zaleceniami](security-center-recommendations.md) dotyczącymi zabezpieczeń — Dowiedz się, jak zalecenia ułatwiają ochronę zasobów platformy Azure.
-* [Blog Azure Security](https://docs.microsoft.com/archive/blogs/azuresecurity/) — najnowsze informacje na temat zabezpieczeń platformy Azure.
+* [Blog Azure Security](/archive/blogs/azuresecurity/) — najnowsze informacje na temat zabezpieczeń platformy Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

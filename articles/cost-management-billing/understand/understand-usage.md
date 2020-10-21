@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d113ad7d3de3478fbbdcce32363e048b7a8a75ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681740"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149364"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Interpretacja terminów w pliku Użycie i opłaty platformy Azure
 
@@ -90,8 +90,8 @@ PublisherType | Wszyscy | Typ wydawcy (wartości: **Azure**, **AWS**, **Marketpl
 Liczba | Wszyscy | Liczba jednostek zakupionych lub użytych.
 ReservationId | EA, umowa klienta firmy Microsoft | Unikatowy identyfikator zakupionego wystąpienia rezerwacji.
 ReservationName | EA, umowa klienta firmy Microsoft | Nazwa zakupionego wystąpienia rezerwacji.
-ResourceGroup | Wszyscy | Nazwa [grupy zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), w której znajduje się zasób. Nie wszystkie opłaty wynikają z użycia zasobów wdrożonych w grupach zasobów. Opłaty, które nie są związane z grupą zasobów, będą wyświetlane jako null/puste, **Inne** lub z oznaczeniem **Nie dotyczy**.
-ResourceId<sup>1</sup> | Wszyscy | Unikatowy identyfikator zasobu usługi [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
+ResourceGroup | Wszyscy | Nazwa [grupy zasobów](../../azure-resource-manager/management/overview.md), w której znajduje się zasób. Nie wszystkie opłaty wynikają z użycia zasobów wdrożonych w grupach zasobów. Opłaty, które nie są związane z grupą zasobów, będą wyświetlane jako null/puste, **Inne** lub z oznaczeniem **Nie dotyczy**.
+ResourceId<sup>1</sup> | Wszyscy | Unikatowy identyfikator zasobu usługi [Azure Resource Manager](/rest/api/resources/resources).
 ResourceLocation | Wszyscy | Lokalizacja centrum danych, w którym jest uruchamiany zasób. Zobacz Location.
 ResourceName | EA, płatność zgodnie z rzeczywistym użyciem | Nazwa zasobu. Nie wszystkie opłaty wynikają z użycia wdrożonych zasobów. Opłaty, które nie są związane z typem zasobu, będą wyświetlane jako null/puste, **Inne** lub z oznaczeniem **Nie dotyczy**.
 ResourceType | Umowa klienta firmy Microsoft | Typ wystąpienia zasobu. Nie wszystkie opłaty wynikają z użycia wdrożonych zasobów. Opłaty, które nie są związane z typem zasobu, będą wyświetlane jako null/puste, **Inne** lub z oznaczeniem **Nie dotyczy**.

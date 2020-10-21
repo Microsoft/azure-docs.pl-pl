@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4d6208360bd876a2a1ae0a9ff154604a33584db9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4dff56db9f1450ff7eb2a2b9ca6f4ca648e2ac38
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447937"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150092"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Wprowadzenie do konta rozliczeniowego w ramach Umowy partnerskiej firmy Microsoft
 
@@ -29,7 +29,7 @@ Na poniższym diagramie przedstawiono relację między kontem rozliczeniowym, pr
 
 ![Diagram przedstawiający hierarchię rozliczeń w Umowie partnerskiej firmy Microsoft](./media/mpa-overview/mpa-hierarchy.svg)
 
-Użytkownicy mający rolę **administratora globalnego** i **agentów administratora** w organizacji mogą zarządzać kontami rozliczeniowymi, profilami rozliczeniowymi i klientami. Aby dowiedzieć się więcej, zobacz [Centrum partnerskie — Przypisywanie ról i uprawnień użytkowników](https://docs.microsoft.com/partner-center/permissions-overview).
+Użytkownicy mający rolę **administratora globalnego** i **agentów administratora** w organizacji mogą zarządzać kontami rozliczeniowymi, profilami rozliczeniowymi i klientami. Aby dowiedzieć się więcej, zobacz [Centrum partnerskie — Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview).
 
 ## <a name="billing-profiles"></a>Profile rozliczeniowe
 
@@ -47,7 +47,7 @@ W witrynie Azure Portal możesz wyświetlać klientów, którzy zaakceptowali um
 
 ### <a name="enable-policy-to-give-visibility-into-cost"></a>Włączanie zasad w celu zapewnienia widoczności kosztów
 
-Zastosuj zasady, aby kontrolować, czy użytkownicy w organizacji klienta mogą wyświetlać i analizować koszt według stawek płatności zgodnie z rzeczywistym użyciem dla ich użycia platformy Azure. Te zasady są domyślnie wyłączone, a użytkownicy nie mogą wyświetlić kosztu. Po włączeniu zasad użytkownicy mający odpowiedni dostęp [dla ról kontroli dostępu opartej na rolach platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) w subskrypcji mogą wyświetlać i analizować koszt dla subskrypcji.
+Zastosuj zasady, aby kontrolować, czy użytkownicy w organizacji klienta mogą wyświetlać i analizować koszt według stawek płatności zgodnie z rzeczywistym użyciem dla ich użycia platformy Azure. Te zasady są domyślnie wyłączone, a użytkownicy nie mogą wyświetlić kosztu. Po włączeniu zasad użytkownicy mający odpowiedni dostęp [dla ról kontroli dostępu opartej na rolach platformy Azure](../../role-based-access-control/overview.md) w subskrypcji mogą wyświetlać i analizować koszt dla subskrypcji.
 
 Aby włączyć zasady:
 
@@ -69,7 +69,7 @@ Aby włączyć zasady:
 
 ## <a name="resellers"></a>Odsprzedawcy
 
-Dostawcy pośredni w [modelu dwuwarstwowym](https://docs.microsoft.com/partner-center) dostawców usług w chmurze mogą wybrać odsprzedawcę podczas tworzenia subskrypcji dla klientów w witrynie Azure Portal. Po utworzeniu mogą wyświetlić listę subskrypcji z możliwością filtrowania według odsprzedawców i analizować koszt dla klienta zależnie od odsprzedawcy w ramach analizy kosztów platformy Azure.
+Dostawcy pośredni w [modelu dwuwarstwowym](/partner-center) dostawców usług w chmurze mogą wybrać odsprzedawcę podczas tworzenia subskrypcji dla klientów w witrynie Azure Portal. Po utworzeniu mogą wyświetlić listę subskrypcji z możliwością filtrowania według odsprzedawców i analizować koszt dla klienta zależnie od odsprzedawcy w ramach analizy kosztów platformy Azure.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Sprawdzanie dostępu do umowy partnerskiej firmy Microsoft
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
@@ -83,5 +83,5 @@ Jeśli potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://port
 Zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej na temat konta rozliczeniowego:
 
 - [Tworzenie dodatkowej subskrypcji platformy Azure dla Umowy partnerskiej firmy Microsoft](../manage/create-subscription.md)
-- Integrowanie danych dotyczących rozliczeń z własnym systemem raportowania przy użyciu [interfejsów API rozliczeń platformy Azure](https://docs.microsoft.com/rest/api/billing/)
-- [Przewodnik Szybki start dla partnerów dotyczący usługi Azure Cost Management](https://go.microsoft.com/fwlink/?linkid=2106482)
+- Integrowanie danych dotyczących rozliczeń z własnym systemem raportowania przy użyciu [interfejsów API rozliczeń platformy Azure](/rest/api/billing/)
+- [Przewodnik Szybki start dla partnerów dotyczący usługi Azure Cost Management](../costs/get-started-partners.md)

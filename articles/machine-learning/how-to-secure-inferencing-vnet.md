@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 806505e5ac9c9b3dcf53624a1151961b0db45ef9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e778538efe97266eb73f85e8548a9cd5ca1f53c4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972513"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341315"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska Azure Machine Learning inferencing z sieciami wirtualnymi
 
@@ -119,11 +119,11 @@ Po zakończeniu procesu tworzenia można uruchomić wnioskowanie lub ocenianie m
 
 Istnieją dwa podejścia do izolowania ruchu do i z klastra AKS do sieci wirtualnej:
 
-* __Prywatny klaster AKS__: to podejście używa prywatnego linku platformy Azure do utworzenia prywatnego punktu końcowego dla klastra AKS w sieci wirtualnej.
-* __Wewnętrzny moduł równoważenia obciążenia AKS__: takie podejście umożliwia skonfigurowanie modułu równoważenia obciążenia dla klastra do używania wewnętrznego adresu IP w sieci wirtualnej.
+* __Prywatny klaster AKS__: to podejście używa prywatnego linku platformy Azure do zabezpieczania komunikacji z klastrem na potrzeby operacji wdrażania i zarządzania.
+* __Wewnętrzny moduł równoważenia obciążenia AKS__: to podejście służy do konfigurowania punktu końcowego dla wdrożeń do AKS w celu korzystania z prywatnego adresu IP w ramach sieci wirtualnej.
 
 > [!WARNING]
-> Obie konfiguracje są różnymi sposobami osiągnięcia tego samego celu (Zabezpieczanie ruchu do klastra AKS w sieci wirtualnej). **Użyj jednego lub drugiego, ale nie obu jednocześnie**.
+> **Użyj AKS prywatnego lub wewnętrznego modułu równoważenia obciążenia, ale nie obu**.
 
 ### <a name="private-aks-cluster"></a>Prywatny klaster AKS
 

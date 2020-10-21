@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c277da54e56fcd0ce68444d499b17e84f706ad03
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c4c99142c64278514066efa8925ed8e3f6617235
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442500"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132588"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Interfejsy API REST usługi Azure Enterprise
 
@@ -25,15 +25,15 @@ Klienci korporacyjni platformy Azure firmy Microsoft mogą uzyskać informacje o
 
 ### <a name="available-apis"></a>Dostępne interfejsy API
 
-**Saldo i podsumowanie** — [Interfejs API salda i podsumowania](../../billing/billing-enterprise-api-balance-summary.md) zawiera comiesięczne podsumowanie informacji dotyczących sald, nowych zakupów, opłat za usługę Azure Marketplace, korekt i opłat za użycie nadwyżkowe. Aby uzyskać więcej informacji, zobacz [Interfejsy API raportowania dla klientów Enterprise — saldo i podsumowanie](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary).
+**Saldo i podsumowanie** — [Interfejs API salda i podsumowania](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) zawiera comiesięczne podsumowanie informacji dotyczących sald, nowych zakupów, opłat za usługę Azure Marketplace, korekt i opłat za użycie nadwyżkowe. Aby uzyskać więcej informacji, zobacz [Interfejsy API raportowania dla klientów Enterprise — saldo i podsumowanie](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary).
 
-**Szczegóły użycia** — [interfejs API szczegółów użycia](../../billing/billing-enterprise-api-usage-detail.md) zawiera dzienny podział ilości wykorzystanych zasobów i szacowane opłaty według rejestracji. Wynik zawiera również informacje na temat wystąpień, mierników i działów. Do interfejsu API można wysyłać zapytania według okresu rozliczeniowego lub określonej daty rozpoczęcia i zakończenia. Aby uzyskać więcej informacji, zobacz [Interfejsy API raportowania dla klientów Enterprise — szczegóły użycia](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+**Szczegóły użycia** — [interfejs API szczegółów użycia](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) zawiera dzienny podział ilości wykorzystanych zasobów i szacowane opłaty według rejestracji. Wynik zawiera również informacje na temat wystąpień, mierników i działów. Do interfejsu API można wysyłać zapytania według okresu rozliczeniowego lub określonej daty rozpoczęcia i zakończenia. Aby uzyskać więcej informacji, zobacz [Interfejsy API raportowania dla klientów Enterprise — szczegóły użycia](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-**Opłaty za sklep Marketplace** — [Interfejs API opłat za sklep Marketplace](../../billing/billing-enterprise-api-marketplace-storecharge.md) zwraca opłaty za witrynę Marketplace obliczone na podstawie użycia według dnia dla określonego okresu rozliczeniowego lub dat rozpoczęcia i zakończenia. Aby uzyskać więcej informacji, zobacz [Interfejsy API raportowania dla klientów Enterprise — opłaty za sklep Marketplace](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
+**Opłaty za sklep Marketplace** — [Interfejs API opłat za sklep Marketplace](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) zwraca opłaty za witrynę Marketplace obliczone na podstawie użycia według dnia dla określonego okresu rozliczeniowego lub dat rozpoczęcia i zakończenia. Aby uzyskać więcej informacji, zobacz [Interfejsy API raportowania dla klientów Enterprise — opłaty za sklep Marketplace](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
 
 **Arkusz cen** — [Interfejs API arkusza cen](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) udostępnia odpowiednią stawkę za każdy miernik dla rejestracji i okresu rozliczeniowego. Aby uzyskać więcej informacji, zobacz [Interfejsy API raportowania dla klientów Enterprise — arkusz cen](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
 
-**Okresy rozliczeniowe** — [interfejs API okresów rozliczeniowych](../../billing/billing-enterprise-api-billing-periods.md) zwraca listę okresów rozliczeniowych, które zawierają dane dotyczące użycia dla rejestracji w odwrotnej kolejności chronologicznej. Każdy okres zawiera właściwość wskazującą trasę interfejsu API dla czterech zestawów danych: BalanceSummary, UsageDetails, Marketplace Charges i PriceSheet (Podsumowanie salda, Szczegóły użycia, Opłaty za witrynę Marketplace i Arkusz cen). Aby uzyskać więcej informacji, zobacz [Interfejsy API raportowania dla klientów Enterprise — okresy rozliczeniowe](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+**Okresy rozliczeniowe** — [interfejs API okresów rozliczeniowych](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) zwraca listę okresów rozliczeniowych, które zawierają dane dotyczące użycia dla rejestracji w odwrotnej kolejności chronologicznej. Każdy okres zawiera właściwość wskazującą trasę interfejsu API dla czterech zestawów danych: BalanceSummary, UsageDetails, Marketplace Charges i PriceSheet (Podsumowanie salda, Szczegóły użycia, Opłaty za witrynę Marketplace i Arkusz cen). Aby uzyskać więcej informacji, zobacz [Interfejsy API raportowania dla klientów Enterprise — okresy rozliczeniowe](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
 ### <a name="enable-api-data-access"></a>Włączanie dostępu do danych interfejsu API
 

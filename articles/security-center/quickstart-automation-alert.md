@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c86561f7c677ec4a335ecb04cc0da95dad119d1e
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906358"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340975"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Szybki Start: Tworzenie automatycznej odpowiedzi na określony alert zabezpieczeń przy użyciu szablonu Azure Resource Manager (szablon ARM)
 
@@ -46,7 +46,7 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 
 Inne Security Center Szablony szybkiego startu można znaleźć w [szablonach](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Security)utworzonych przez społeczność.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
   - Program **PowerShell**:
     ```azurepowershell-interactive
@@ -64,7 +64,7 @@ Inne Security Center Szablony szybkiego startu można znaleźć w [szablonach](h
 
     [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-securitycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
-    Aby uzyskać więcej informacji na temat tej opcji wdrożenia, zobacz [Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button).
+    Aby uzyskać więcej informacji na temat tej opcji wdrożenia, zobacz [Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
@@ -94,4 +94,4 @@ Gdy nie jest już potrzebne, Usuń automatyzację przepływu pracy przy użyciu 
 Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

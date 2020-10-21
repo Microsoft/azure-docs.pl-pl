@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91301452"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341689"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Często zadawane pytania — ogólne pytania dotyczące Azure Security Center
 
@@ -62,7 +62,7 @@ Aby dowiedzieć się, jak skonfigurować zasady zabezpieczeń, zobacz [Ustawiani
 Usługa Azure Security Center analizuje stan zabezpieczeń zasobów platformy Azure. Po zidentyfikowaniu potencjalnych luk w zabezpieczeniach są tworzone zalecenia. Zalecenia przeprowadzą Cię przez proces konfigurowania wymaganego formantu. Oto przykłady:
 
 * Inicjowanie obsługi programu chroniącego przed złośliwym oprogramowaniem w celu identyfikowania i usuwania złośliwego oprogramowania
-* [Sieciowe grupy zabezpieczeń](../virtual-network/security-overview.md) i reguły sterujące ruchem do maszyn wirtualnych
+* [Sieciowe grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md) i reguły sterujące ruchem do maszyn wirtualnych
 * Inicjowanie obsługi zapory aplikacji sieci Web w celu ułatwienia obrony przed atakami ukierunkowanymi na aplikacje sieci Web
 * Wdrażanie brakujących aktualizacji systemu
 * Modyfikowanie konfiguracji systemu operacyjnego, które odbiegają od zalecanych standardów

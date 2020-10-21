@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946228"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341266"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorowanie tożsamość i dostępu
 
@@ -30,7 +30,7 @@ Monitorując działania i ustawienia konfiguracji związane z tożsamością, mo
 
 Azure Security Center ma dwie dedykowane mechanizmy kontroli zabezpieczeń, aby upewnić się, że spełniasz wymagania dotyczące tożsamości i zabezpieczeń organizacji: 
 
- - **Zarządzanie dostępem i uprawnieniami** — zachęcamy do zastosowania [modelu dostępu o najniższym poziomie uprawnień](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) i upewnienia się, że użytkownicy będą mieli tylko dostęp niezbędny do wykonywania swoich zadań. Ta kontrolka zawiera również zalecenia dotyczące implementowania [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/overview.md) w celu kontrolowania dostępu do zasobów.
+ - **Zarządzanie dostępem i uprawnieniami** — zachęcamy do zastosowania [modelu dostępu o najniższym poziomie uprawnień](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) i upewnienia się, że użytkownicy będą mieli tylko dostęp niezbędny do wykonywania swoich zadań. Ta kontrolka zawiera również zalecenia dotyczące implementowania [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/overview.md) w celu kontrolowania dostępu do zasobów.
  
  - **Włączenie uwierzytelniania wieloskładnikowego** — z włączoną funkcją [MFA](https://www.microsoft.com/security/business/identity/mfa) konta są bezpieczniejsze, a użytkownicy nadal mogą uwierzytelniać się w prawie każdej aplikacji z logowaniem jednokrotnym.
 
@@ -84,7 +84,7 @@ Aby sprawdzić, które konta nie mają włączonej usługi MFA, użyj następuj�
     > Konta są wyświetlane jako identyfikatory obiektów zamiast nazw kont w celu ochrony prywatności posiadaczy kont.
 
 > [!TIP]
-> Alternatywnie można użyć oceny metody interfejsu API REST Security Center [— Get](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
+> Alternatywnie można użyć oceny metody interfejsu API REST Security Center [— Get](/rest/api/securitycenter/assessments/get).
 
 
 ## <a name="next-steps"></a>Następne kroki

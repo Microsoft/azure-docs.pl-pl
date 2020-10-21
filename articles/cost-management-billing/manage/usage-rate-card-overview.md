@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: da657fdf2545b585ccd5ec83a7f86897b67c4fe2
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: b3ae2b8323c9f278dcec432dfaac05e9fcfb4b49
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370253"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132112"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Wykorzystanie interfejsów API rozliczeń platformy Azure do uzyskiwania szczegółowych informacji o użyciu platformy Azure
 Użyj interfejsów API rozliczeń platformy Azure, aby pobrać dane dotyczących użycia i zasobów do preferowanych narzędzi do analizy danych. Interfejsy API usługi RateCard i użycia zasobów platformy Azure mogą ułatwić dokładne przewidywanie kosztów i zarządzanie nimi. Interfejsy API są implementowane jako dostawca zasobów i należą do rodziny interfejsów API uwidacznianych przez usługę Azure Resource Manager.  
@@ -36,13 +36,13 @@ Użyj [interfejsu API użycia zasobów ](/previous-versions/azure/reference/mt21
 * **Agregacje godzinowe i dzienne** — obiekty wywołujące mogą określać, czy dane dotyczące użycia platformy Azure powinny być w przedziałach godzinowych, czy dziennych. Ustawieniem domyślnym są przedziały dzienne.
 * **Metadane wystąpienia (w tym tagi zasobów)** — uzyskaj szczegóły na poziomie wystąpienia, na przykład w pełni kwalifikowany identyfikator URI zasobu (/subscriptions/{subscription-id}/..), informacje o grupie zasobów i tagi zasobów. Te metadane pomagają jednoznacznie i programowo przydzielać użycie według tagów w takich przypadkach użycia jak opłaty krzyżowe.
 * **Metadane zasobu** — szczegóły zasobu, takie jak nazwa miernika, kategoria miernika, podkategoria miernika, jednostka i region, umożliwiają obiektowi wywołującemu lepszy wgląd w to, co zostało zużyte. Pracujemy również nad dopasowaniem terminologii dotyczącej metadanych zasobów w witrynie Azure Portal, pliku CSV użycia platformy Azure, pliku CSV rozliczeń umów EA i innych elementach publicznych, aby umożliwić skorelowanie danych między tymi elementami.
-* **Użycie dla różnych typów ofert** — dane użycia są dostępne dla typów ofert, takich jak płatność zgodnie z rzeczywistym użyciem, MSDN, zobowiązanie pieniężne, oferta kredytowo-finansowa i umowa EA, z wyjątkiem [CSP](https://docs.microsoft.com/partner-center).
+* **Użycie dla różnych typów ofert** — dane użycia są dostępne dla typów ofert, takich jak płatność zgodnie z rzeczywistym użyciem, MSDN, zobowiązanie pieniężne, oferta kredytowo-finansowa i umowa EA, z wyjątkiem [CSP](/partner-center).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>Interfejs API usługi RateCard zasobów platformy Azure (wersja zapoznawcza)
 Użyj [interfejsu API usługi RateCard zasobów platformy Azure](/previous-versions/azure/reference/mt219005(v=azure.100)), aby uzyskać listę dostępnych zasobów platformy Azure oraz informacje o szacowanych cenach dla każdego z nich. Ten interfejs API zawiera następujące składniki:
 
 * **Kontrola dostępu na podstawie ról (RBAC) platformy Azure** — konfiguruj zasady dostępu w witrynie [Azure Portal](https://portal.azure.com) lub przy użyciu [poleceń cmdlet programu Azure PowerShell](/powershell/azure/), aby określić, którzy użytkownicy lub które aplikacje mogą mieć dostęp do danych usługi RateCard. Obiekty wywołujące muszą używać standardowych tokenów usługi Azure Active Directory na potrzeby uwierzytelniania. Dodaj obiekt wywołujący do roli Czytelnik, Właściciel lub Współautor, aby uzyskać dostęp do danych użycia dla konkretnej subskrypcji platformy Azure.
-* **Obsługa płatności zgodnie z rzeczywistym użyciem, MSDN, zobowiązania pieniężnego i ofert kredytowo-finansowych (umowy EA i [CSP](https://docs.microsoft.com/partner-center) nie są obsługiwane)** — ten interfejs API zapewnia informacje o stawkach na poziomie ofert platformy Azure.  Obiekt wywołujący ten interfejs API musi przekazać informacje o ofercie w celu uzyskania stawek i szczegółów zasobów. Obecnie nie jesteśmy w stanie udostępniać stawek dla umów EA, ponieważ oferty EA mają niestandardowe stawki obowiązujące dla konkretnych rejestracji.
+* **Obsługa płatności zgodnie z rzeczywistym użyciem, MSDN, zobowiązania pieniężnego i ofert kredytowo-finansowych (umowy EA i [CSP](/partner-center) nie są obsługiwane)** — ten interfejs API zapewnia informacje o stawkach na poziomie ofert platformy Azure.  Obiekt wywołujący ten interfejs API musi przekazać informacje o ofercie w celu uzyskania stawek i szczegółów zasobów. Obecnie nie jesteśmy w stanie udostępniać stawek dla umów EA, ponieważ oferty EA mają niestandardowe stawki obowiązujące dla konkretnych rejestracji.
 
 ## <a name="scenarios"></a>Scenariusze
 Poniżej przedstawiono niektóre scenariusze, które są możliwe za pomocą kombinacji interfejsów API użycia i usługi RateCard:

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d964efd6d9923190a6fef92c91d357a8a650572d
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 9186c742f34f1c060b57ffdfbf1bf688607b4c03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766843"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125341"
 ---
 ::: zone target="docs"
 
@@ -273,7 +273,7 @@ Po zakończeniu kopiowania danych możesz przejść do walidowania danych. Jeśl
 
 Jeśli nie użyto narzędzia do dzielenia skopiowanych plików, musisz przeprowadzić walidację danych. Aby zweryfikować dane, wykonaj następujące czynności:
 
-1. Uruchom polecenie `DataBoxDiskValidation.cmd` w celu zweryfikowania sumy kontrolnej w folderze *DataBoxDiskImport* na dysku. Jest to dostępne tylko dla środowiska systemu Windows. Użytkownicy systemu Linux muszą sprawdzić, czy dane źródłowe, które są kopiowane na dysk, spełniają [wymagania wstępne](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
+1. Uruchom polecenie `DataBoxDiskValidation.cmd` w celu zweryfikowania sumy kontrolnej w folderze *DataBoxDiskImport* na dysku. Jest to dostępne tylko dla środowiska systemu Windows. Użytkownicy systemu Linux muszą sprawdzić, czy dane źródłowe, które są kopiowane na dysk, spełniają [wymagania wstępne](./data-box-disk-limits.md).
     
     ![Dane wyjściowe narzędzia walidacji dysków Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -335,6 +335,6 @@ Aby sprawdzić dane, wykonaj następujące czynności.
 1. Uruchom polecenie `DataBoxDiskValidation.cmd` w celu zweryfikowania sumy kontrolnej w folderze *DataBoxDiskImport* na dysku.
 2. Użyj opcji 2, aby zweryfikować pliki i wygenerować sumy kontrolne. Czas wykonywania tej operacji zależy od rozmiaru danych. Jeśli podczas walidacji i generowania sumy kontrolnej wystąpi błąd, zostanie wyświetlone powiadomienie i podany link do dzienników błędów.
 
-    Aby uzyskać więcej informacji na temat walidacji danych, zobacz [Walidowanie danych](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Jeśli występują błędy podczas walidacji, zobacz [Rozwiązywanie problemów z błędami walidacji](data-box-disk-troubleshoot.md).
+    Aby uzyskać więcej informacji na temat walidacji danych, zobacz [Walidowanie danych](#validate-data). Jeśli występują błędy podczas walidacji, zobacz [Rozwiązywanie problemów z błędami walidacji](data-box-disk-troubleshoot.md).
 
 ::: zone-end

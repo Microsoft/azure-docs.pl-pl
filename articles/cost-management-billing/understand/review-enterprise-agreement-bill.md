@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5340d6124ae4fdc669a30458b9e58cf4c86d6746
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684664"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150076"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Omówienie rachunku za umowę Enterprise platformy Azure
 
@@ -436,7 +436,7 @@ W przypadku problemów dotyczących usługi Power BI zarejestruj bilet skierowan
 
 ### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>Dlaczego w raportach nie ma tagów zasobów?
 
-Tagami zasobów zarządza się w witrynie Azure Portal. Możesz skontaktować się z zespołem subskrypcji platformy Azure w witrynie [Azure Portal](https://portal.azure.com). Wykonaj kroki opisane w artykule [Jak utworzyć żądanie pomocy technicznej dla platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Tagami zasobów zarządza się w witrynie Azure Portal. Możesz skontaktować się z zespołem subskrypcji platformy Azure w witrynie [Azure Portal](https://portal.azure.com). Wykonaj kroki opisane w artykule [Jak utworzyć żądanie pomocy technicznej dla platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="why-does-my-resource-rate-change-every-day"></a>Dlaczego moja stawka zasobu zmienia się codziennie?
 

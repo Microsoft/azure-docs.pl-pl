@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: bed158fb99654bd48184073b1266ae630255558b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613173"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341384"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Tworzenie pamięci podręcznej platformy Azure HPC
 
@@ -81,7 +81,7 @@ Po utworzeniu pamięci podręcznej należy autoryzować ją do korzystania z us�
 
 ## <a name="add-resource-tags-optional"></a>Dodaj Tagi zasobów (opcjonalnie)
 
-Na stronie **Tagi** można dodać [Tagi zasobów](https://go.microsoft.com/fwlink/?linkid=873112) do wystąpienia pamięci podręcznej platformy Azure HPC.
+Na stronie **Tagi** można dodać [Tagi zasobów](../azure-resource-manager/management/tag-resources.md) do wystąpienia pamięci podręcznej platformy Azure HPC.
 
 ## <a name="finish-creating-the-cache"></a>Zakończ tworzenie pamięci podręcznej
 
@@ -105,7 +105,7 @@ Po zakończeniu tworzenia zostanie wyświetlone powiadomienie z linkiem do noweg
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 > [!NOTE]
-> Interfejs wiersza polecenia platformy Azure aktualnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj Azure Portal.
+> Interfejs wiersza polecenia platformy Azure aktualnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj witryny Azure Portal.
 
 Użyj polecenia [AZ HPC-cache Create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) , aby utworzyć nową pamięć podręczną platformy Azure HPC.
 
@@ -192,11 +192,11 @@ Komunikat zawiera pewne przydatne informacje, w tym następujące elementy:
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 > [!CAUTION]
-> Moduł programu PowerShell AZ. HPCCache jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług. Nie jest to zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane lub mogą mieć ograniczone możliwości. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Moduł programu PowerShell AZ. HPCCache jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług. Nie jest ona zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane lub mogą mieć ograniczone możliwości. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Wymagania
 
-Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps). Jeśli zdecydujesz się używać Cloud Shell, zobacz [omówienie Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) , aby uzyskać więcej informacji.
+Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps). Jeśli zdecydujesz się używać Cloud Shell, zobacz [omówienie Azure Cloud Shell](../cloud-shell/overview.md) , aby uzyskać więcej informacji.
 
 > [!IMPORTANT]
 > Mimo że moduł **AZ. HPCCache** PowerShell jest w wersji zapoznawczej, należy go zainstalować oddzielnie przy użyciu `Install-Module` polecenia cmdlet. Po ogólnym udostępnieniu tego modułu programu PowerShell będzie on częścią przyszłych wydań modułu AZ PowerShell i dostępne natywnie z poziomu Azure Cloud Shell.
@@ -208,7 +208,7 @@ Install-Module -Name Az.HPCCache
 ## <a name="create-the-cache-with-azure-powershell"></a>Tworzenie pamięci podręcznej za pomocą Azure PowerShell
 
 > [!NOTE]
-> Azure PowerShell obecnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj Azure Portal.
+> Azure PowerShell obecnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj witryny Azure Portal.
 
 Użyj polecenia cmdlet [New-AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) , aby utworzyć nową pamięć podręczną platformy Azure HPC.
 

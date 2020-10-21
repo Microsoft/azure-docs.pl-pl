@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946019"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341333"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Szybki Start: Konfigurowanie Azure Security Center
 
@@ -105,7 +105,7 @@ W tym przewodniku szybki start włączono usługę Azure Defender i Zainicjowano
 Chcesz zoptymalizować i zapisać wydatki na chmurę?
 
 > [!div class="nextstepaction"]
-> [Rozpocznij analizowanie kosztów za pomocą Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Rozpocznij analizowanie kosztów za pomocą Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

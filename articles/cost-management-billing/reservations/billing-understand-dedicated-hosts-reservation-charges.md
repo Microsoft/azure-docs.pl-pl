@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: f9080d13c4358a03b3f13ffcf346af42e49c47c6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8d273aae3588a006f7b0a55d2798b7a43c040c9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689460"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148381"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Jak rabat na rezerwację platformy Azure jest stosowany względem hostów usługi Azure Dedicated Host
 
@@ -36,17 +36,16 @@ Jeśli masz pytania lub potrzebujesz pomocy,  [utwórz wniosek o pomoc technicz
 
 Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
 
-- [Co to są rezerwacje platformy Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [Co to są rezerwacje platformy Azure?](./save-compute-costs-reservations.md)
 
-- [Using Azure Dedicated Hosts (Używanie hostów usługi Azure Dedicated Host)](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Using Azure Dedicated Hosts (Używanie hostów usługi Azure Dedicated Host)](../../virtual-machines/dedicated-hosts.md)
 
 - [Dedicated Hosts Pricing (Ceny hostów usługi Azure Dedicated Host)](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Zarządzanie rezerwacjami platformy Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Zarządzanie rezerwacjami platformy Azure](./manage-reserved-vm-instance.md)
 
-- [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](./understand-reserved-instance-usage.md)
 
-- [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](./understand-reserved-instance-usage-ea.md)
 
-- [Understand reservation usage for CSP subscriptions (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
-
+- [Understand reservation usage for CSP subscriptions (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji CSP)](/partner-center/azure-reservations)

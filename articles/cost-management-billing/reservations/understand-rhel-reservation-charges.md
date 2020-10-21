@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 4314a52488473bcacd4aa62a0e8f44d88d2b75f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 311ce7edc617b02e62f4e4fefc7393318f99a1a9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681604"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148272"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Dowiedz się, jak na platformie Azure jest stosowany rabat za plany rezerwacji oprogramowania Red Hat Linux Enterprise
 
@@ -53,7 +53,7 @@ Nazwy na platformie Marketplace i w witrynie Azure Portal:
 Aby dowiedzieć się więcej na temat rezerwacji, zobacz następujące artykuły:
 
 - [Co to są rezerwacje platformy Azure](save-compute-costs-reservations.md)
-- [Opłacanie planów oprogramowania Red Hat z góry dzięki rezerwacjom platformy Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Opłacanie planów oprogramowania Red Hat z góry dzięki rezerwacjom platformy Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Zarządzanie rezerwacjami platformy Azure](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](understand-reserved-instance-usage.md)

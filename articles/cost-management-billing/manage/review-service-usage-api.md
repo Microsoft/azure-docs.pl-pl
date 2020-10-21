@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: reference
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a7b06ff41e537513558e7f4dc8e1732966299b01
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 018e61fbc74091fa25211b8a25ce067862a0cc7d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684732"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132401"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Przeglądanie użycia zasobów platformy Azure przy użyciu interfejsu API REST
 
@@ -153,4 +153,4 @@ Ustaw definicję `timeframe` na `Custom`, aby ustawić przedział czasu inny ni�
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- [Get started with Azure REST API (Rozpoczęcie pracy z interfejsem API REST platformy Azure)](https://docs.microsoft.com/rest/api/azure/)   
+- [Get started with Azure REST API (Rozpoczęcie pracy z interfejsem API REST platformy Azure)](/rest/api/azure/)

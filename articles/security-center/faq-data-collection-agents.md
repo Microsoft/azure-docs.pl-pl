@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441495"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341842"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
@@ -43,7 +43,7 @@ Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Security Ce
 
 ## <a name="what-is-the-log-analytics-agent"></a>Co to jest Agent Log Analytics?
 
-Aby monitorować luki w zabezpieczeniach i zagrożeniach, Azure Security Center zależy od [agenta log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) — jest to ten sam Agent, który jest używany przez usługę Azure monitor. 
+Aby monitorować luki w zabezpieczeniach i zagrożeniach, Azure Security Center zależy od [agenta log Analytics](../azure-monitor/platform/log-analytics-agent.md) — jest to ten sam Agent, który jest używany przez usługę Azure monitor. 
 
 Agent jest czasami określany jako Microsoft Monitoring Agent (lub "MMA"). 
 
@@ -66,7 +66,7 @@ Maszyny wirtualne z systemem Windows lub Linux IaaS kwalifikują się, jeśli:
 
 - Rozszerzenie agenta Log Analytics nie jest obecnie zainstalowane na maszynie wirtualnej.
 - Maszyna wirtualna jest w stanie uruchomienia.
-- [Agent maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) z systemem Windows lub Linux jest zainstalowany.
+- [Agent maszyny wirtualnej platformy Azure](../virtual-machines/extensions/agent-windows.md) z systemem Windows lub Linux jest zainstalowany.
 - Maszyna wirtualna nie jest używana jako urządzenie, takie jak Zapora aplikacji sieci Web lub Zapora nowej generacji.
 
 
@@ -88,7 +88,7 @@ Lokalizacja domyślnego obszaru roboczego zależy od regionu platformy Azure:
 
 ## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Jakie dane są zbierane przez agenta Log Analytics?
 
-Aby uzyskać pełną listę aplikacji i usług monitorowanych przez agenta, zobacz [co to jest monitorowane przez Azure monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+Aby uzyskać pełną listę aplikacji i usług monitorowanych przez agenta, zobacz [co to jest monitorowane przez Azure monitor?](../azure-monitor/monitor-reference.md#azure-services).
 
 > [!IMPORTANT]
 > Należy pamiętać, że w przypadku niektórych usług, takich jak Zapora platformy Azure, jeśli włączono rejestrowanie i wybrano zasób z czatem do zarejestrowania (na przykład ustawienie dziennika na *pełne*) może zostać wyświetlony znaczący wpływ na potrzeby magazynu log Analytics obszaru roboczego. 

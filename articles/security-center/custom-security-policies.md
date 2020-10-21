@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9be4b14ca51b56ec0a52147b409a56f87cf302
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448398"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341893"
 ---
 # <a name="using-custom-security-policies"></a>Korzystanie z niestandardowych zasad zabezpieczeń
 
@@ -21,7 +21,7 @@ Aby pomóc w zabezpieczeniu systemów i środowiska, Azure Security Center gener
 
 Korzystając z tej funkcji, możesz dodać własne inicjatywy *niestandardowe* . Następnie otrzymasz zalecenia, jeśli środowisko nie będzie zgodne z tworzonymi zasadami. Wszelkie utworzone inicjatywy niestandardowe będą wyświetlane wraz z wbudowanymi inicjatywami na pulpicie nawigacyjnym zgodności z przepisami, zgodnie z opisem w samouczku [poprawa zgodności z przepisami](security-center-compliance-dashboard.md).
 
-Zgodnie z opisem w [dokumentacji Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location), gdy określisz lokalizację dla inicjatywy niestandardowej, musi to być grupa zarządzania lub subskrypcja. 
+Zgodnie z opisem w [dokumentacji Azure Policy](../governance/policy/concepts/definition-structure.md#definition-location), gdy określisz lokalizację dla inicjatywy niestandardowej, musi to być grupa zarządzania lub subskrypcja. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Aby dodać inicjatywę niestandardową do subskrypcji 
 
@@ -52,7 +52,7 @@ Zgodnie z opisem w [dokumentacji Azure Policy](https://docs.microsoft.com/azure/
     1. Wprowadź lokalizację i nazwę definicji.
     1. Wybierz zasady do uwzględnienia i kliknij przycisk **Dodaj**.
     1. Wprowadź wszelkie wymagane parametry.
-    1. Kliknij przycisk **Zapisz**.
+    1. Kliknij pozycję **Zapisz**.
     1. Na stronie Dodaj niestandardowe inicjatywy kliknij przycisk Odśwież. Twoja nowa inicjatywa będzie wyświetlana jako dostępna.
     1. Kliknij pozycję **Dodaj** i przypisz ją do subskrypcji.
 
@@ -136,7 +136,7 @@ Poniżej znajduje się przykład zasad niestandardowych obejmujących Właściwo
 }
   ```
 
-Inny przykład użycia właściwości securityCenter można znaleźć w [tej sekcji dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
+Inny przykład użycia właściwości securityCenter można znaleźć w [tej sekcji dokumentacji interfejsu API REST](/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -146,4 +146,4 @@ W tym artykule przedstawiono sposób tworzenia niestandardowych zasad zabezpiecz
 Inne powiązane materiały można znaleźć w następujących artykułach: 
 
 - [Omówienie zasad zabezpieczeń](tutorial-security-policy.md)
-- [Lista wbudowanych zasad zabezpieczeń](security-center-policy-definitions.md)
+- [Lista wbudowanych zasad zabezpieczeń](./policy-reference.md)
