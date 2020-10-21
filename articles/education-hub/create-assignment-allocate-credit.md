@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: a850e5ea851ee539c663b00ecc7f2053eae8dc34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87534094"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332471"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Tworzenie przypisania i przydzielanie środków
 
@@ -31,7 +31,7 @@ Education Hub platformy Azure akceptuje wszelkie adresy e-mail w _____ @___.___ 
 > [!IMPORTANT]
 > Konta służbowe podlegają własnym zasadom, w tym, czy adres e-mail z domeny innej niż organizacja jest dozwolony (na przykład dodając student2@outlook.com do @school.edu domeny). Pamiętaj o sprawdzeniu tych zasad przed dodaniem nowych użytkowników.
 
-Gdy konto służbowe (na przykład student1@school.edu ) zostanie dodane jako kontrola dostępu oparta na rolach (RBAC) w portalu nauczycieli sponsora lub [Azure Portal](https://portal.azure.com), platforma Azure automatycznie wyśle wiadomość e-mail do adresata. Ta wiadomość e-mail wymaga od użytkownika zaakceptowania nowego konta i roli platformy Azure przed uzyskaniem dostępu do subskrypcji. Jeśli jesteś asystentem nauczania szkoleniowego (sam) lub profesor, pamiętaj, aby poinformować uczniów o tym, że ich subskrypcja będzie wyświetlana w Azure Portal zgodnie z oczekiwaniami. Wiadomość e-mail powinna wyglądać podobnie do tego:
+Gdy konto służbowe (na przykład student1@school.edu ) jest dodawane przy użyciu kontroli dostępu opartej na rolach (Azure RBAC) w portalu nauczycieli sponsora lub [Azure Portal](https://portal.azure.com), platforma Azure automatycznie wysyła pocztą e-mail do adresata. Ta wiadomość e-mail wymaga od użytkownika zaakceptowania nowego konta i roli platformy Azure przed uzyskaniem dostępu do subskrypcji. Jeśli jesteś asystentem nauczania szkoleniowego (sam) lub profesor, pamiętaj, aby poinformować uczniów o tym, że ich subskrypcja będzie wyświetlana w Azure Portal zgodnie z oczekiwaniami. Wiadomość e-mail powinna wyglądać podobnie do tego:
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Azure Active Directory wprowadzenie" border="false":::
 

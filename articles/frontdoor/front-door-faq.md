@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a5a02a063f90953982d42fe9c7d2c6dc199b2a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819028"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282285"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -71,7 +71,7 @@ Drzwi frontonu platformy Azure to usługa globalna i nie jest ona powiązana z �
 
 ### <a name="what-are-the-pop-locations-for-azure-front-door"></a>Jakie są lokalizacje POP dla drzwi frontonu platformy Azure?
 
-Drzwi frontonu platformy Azure mają tę samą listę lokalizacji POP (punkt obecności) jako Azure CDN od firmy Microsoft. Aby uzyskać pełną listę naszych punktów obecności, należy odnieść się [Azure CDN lokalizacji pop od firmy Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
+Drzwi frontonu platformy Azure mają tę samą listę lokalizacji POP (punkt obecności) jako Azure CDN od firmy Microsoft. Aby uzyskać pełną listę naszych punktów obecności, należy odnieść się [Azure CDN lokalizacji pop od firmy Microsoft](../cdn/cdn-pop-locations.md).
 
 ### <a name="is-azure-front-door-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Czy na platformie Azure z przodu jest dedykowane wdrożenie dla mojej aplikacji lub czy jest ono współużytkowane przez klientów?
 
@@ -91,9 +91,9 @@ Aby zablokować aplikację w celu akceptowania tylko ruchu pochodzącego z okre�
 
 - Skonfiguruj ACLing IP dla zaplecza, aby akceptować ruch z przestrzeni adresów IP zaplecza platformy Azure i usług infrastruktury platformy Azure. Zapoznaj się z poniższymi informacjami dotyczącymi adresu IP ACLing zaplecza:
  
-    - Zapoznaj *się z* sekcją *AzureFrontDoor. zaplecza* w obszarze zakresy adresów IP [platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla zakresu adresu IP zaplecza [IPv4.](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)
+    - Zapoznaj *się z* sekcją *AzureFrontDoor. zaplecza* w obszarze zakresy adresów IP [platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla zakresu adresu IP zaplecza [IPv4.](../virtual-network/network-security-groups-overview.md#security-rules)
     - Przestrzeń adresów IP zaplecza **protokołu IPv6** znajdujących się na początku i objęta tagiem usługi nie znajduje się na liście w pliku JSON zakresów adresów IP platformy Azure. Jeśli szukasz jawnego zakresu adresów IPv6, jest on obecnie ograniczony do `2a01:111:2050::/44`
-    - [Podstawowe usługi infrastruktury](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) platformy Azure za pomocą zwirtualizowanych adresów IP hosta: `168.63.129.16` i`169.254.169.254`
+    - [Podstawowe usługi infrastruktury](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) platformy Azure za pomocą zwirtualizowanych adresów IP hosta: `168.63.129.16` i`169.254.169.254`
 
     > [!WARNING]
     > Przestrzeń adresów IP zaplecza z drzwiami może ulec zmianie później, jednak zapewnimy, że przed takim wdrożeniem będziemy zintegrowane z [zakresem adresów IP i tagami usług platformy Azure](https://www.microsoft.com/download/details.aspx?id=56519). Zalecamy, aby zasubskrybować [zakresy adresów IP platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla wszelkich zmian lub aktualizacji.
@@ -156,7 +156,7 @@ Drzwi frontonu platformy Azure (AFD) wymagają publicznego adresu IP lub publicz
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Jakie są różne limity czasu i limity dotyczące zewnętrznych drzwi platformy Azure?
 
-Dowiedz się więcej na temat wszystkich udokumentowanych [limitów czasu i limitów dla drzwi platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
+Dowiedz się więcej na temat wszystkich udokumentowanych [limitów czasu i limitów dla drzwi platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits).
 
 ### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>Jak długo trwa wykonywanie reguły po dodaniu do aparatu reguł dla drzwi przednich?
 
@@ -179,7 +179,7 @@ Drzwi z przodu obsługują protokół TLS w wersji 1,0, 1,1 i 1,2. Protokół TL
 ### <a name="what-certificates-are-supported-on-azure-front-door"></a>Jakie certyfikaty są obsługiwane w ramach zewnętrznych drzwi platformy Azure?
 
 Aby włączyć protokół HTTPS w celu bezpiecznego dostarczania zawartości w domenie niestandardowej z drzwiami niestandardowymi, możesz wybrać użycie certyfikatu zarządzanego przez usługę Azure front-drzwi lub użyć własnego certyfikatu.
-Opcja zarządzana przed drzwiami udostępnia standardowy certyfikat TLS/SSL za pośrednictwem DigiCert i jest przechowywany w Key Vaultch przednich drzwi. Jeśli zdecydujesz się na korzystanie z własnego certyfikatu, możesz dołączyć certyfikat z obsługiwanego urzędu certyfikacji i może być to standardowy protokół TLS, rozszerzony certyfikat weryfikacji, a nawet certyfikat z symbolami wieloznacznymi. Certyfikaty z podpisem własnym nie są obsługiwane. Dowiedz się [, jak włączyć protokół HTTPS dla domeny niestandardowej](https://aka.ms/FrontDoorCustomDomainHTTPS).
+Opcja zarządzana przed drzwiami udostępnia standardowy certyfikat TLS/SSL za pośrednictwem DigiCert i jest przechowywany w Key Vaultch przednich drzwi. Jeśli zdecydujesz się na korzystanie z własnego certyfikatu, możesz dołączyć certyfikat z obsługiwanego urzędu certyfikacji i może być to standardowy protokół TLS, rozszerzony certyfikat weryfikacji, a nawet certyfikat z symbolami wieloznacznymi. Certyfikaty z podpisem własnym nie są obsługiwane. Dowiedz się [, jak włączyć protokół HTTPS dla domeny niestandardowej](./front-door-custom-domain-https.md).
 
 ### <a name="does-front-door-support-autorotation-of-certificates"></a>Czy przód drzwi obsługuje autorotację certyfikatów?
 
@@ -220,7 +220,7 @@ W przypadku używania domen niestandardowych z włączonym protokołem TLS 1.0/1
 
 ### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Czy można skonfigurować zasady protokołu TLS w celu kontrolowania wersji protokołu TLS?
 
-Można skonfigurować minimalną wersję protokołu TLS na platformie Azure Front drzwiczki w ustawieniach protokołu HTTPS domeny niestandardowej za pośrednictwem Azure Portal lub [interfejsu API REST platformy Azure](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Obecnie można wybrać między 1,0 a 1,2.
+Można skonfigurować minimalną wersję protokołu TLS na platformie Azure Front drzwiczki w ustawieniach protokołu HTTPS domeny niestandardowej za pośrednictwem Azure Portal lub [interfejsu API REST platformy Azure](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Obecnie można wybrać między 1,0 a 1,2.
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Czy można skonfigurować drzwiczki frontonu w celu obsługi tylko określonych mechanizmów szyfrowania?
 
@@ -247,7 +247,7 @@ W przypadku pomyślnego nawiązania połączenia HTTPS z zaplecem niezależnie o
 
 1. **Niezgodność nazwy podmiotu certyfikatu**: w przypadku połączeń HTTPS, drzwiczki z przodu oczekują, że zaplecze przedstawia certyfikat z prawidłowego urzędu certyfikacji z nazwami podmiotu pasującymi do nazwy hosta zaplecza. Jeśli na przykład nazwa hosta zaplecza jest ustawiona na, `myapp-centralus.contosonews.net` a certyfikat, którego zaplecze prezentuje się podczas uzgadniania protokołu TLS `myapp-centralus.contosonews.net` , nie ma ani `*myapp-centralus*.contosonews.net` w nazwie podmiotu, drzwi tylne odmówią połączenia i spowodują wystąpienie błędu. 
     1. **Rozwiązanie**: Chociaż nie jest to zalecane w punktu widzenia zgodności, można obejść ten błąd, wyłączając Sprawdzanie nazwy podmiotu certyfikatu dla drzwi z przodu. Ta opcja jest dostępna w obszarze Ustawienia w Azure Portal i w obszarze BackendPoolsSettings w interfejsie API.
-2. **Certyfikat hostingu zaplecza z nieprawidłowego urzędu certyfikacji**: można używać tylko certyfikatów z [prawidłowych urzędów certyfikacji](/azure/frontdoor/front-door-troubleshoot-allowed-ca) w zapleczu z przednimi drzwiami. Certyfikaty z wewnętrznych urzędów certyfikacji lub certyfikatów z podpisem własnym są niedozwolone.
+2. **Certyfikat hostingu zaplecza z nieprawidłowego urzędu certyfikacji**: można używać tylko certyfikatów z [prawidłowych urzędów certyfikacji](./front-door-troubleshoot-allowed-ca.md) w zapleczu z przednimi drzwiami. Certyfikaty z wewnętrznych urzędów certyfikacji lub certyfikatów z podpisem własnym są niedozwolone.
 
 ### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Czy mogę używać uwierzytelniania klienta/wzajemnego na platformie Azure
 

@@ -3,12 +3,12 @@ title: Uwierzytelnianie aplikacji w celu uzyskania dostępu do zasobów usługi 
 description: Ten artykuł zawiera informacje o uwierzytelnianiu aplikacji przy użyciu Azure Active Directory dostępu do zasobów Event Hubs platformy Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c8503aa8db7350275648d9f5eda69e9e352c859
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50c697e5c430b72f8d5da393e90f1db7ff6d48a1
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566333"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332488"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnianie aplikacji za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs
 Microsoft Azure zapewnia zintegrowane zarządzanie kontrolą dostępu dla zasobów i aplikacji na podstawie Azure Active Directory (Azure AD). Główną zaletą korzystania z usługi Azure AD z usługą Azure Event Hubs jest to, że nie musisz już przechowywać poświadczeń w kodzie. Zamiast tego można zażądać tokenu dostępu OAuth 2,0 z platformy tożsamości firmy Microsoft. Nazwa zasobu do żądania tokenu to `https://eventhubs.azure.net/` (dla klientów Kafka, zasób do żądania tokenu `https://<namespace>.servicebus.windows.net` ). Usługa Azure AD uwierzytelnia podmiot zabezpieczeń (użytkownika, grupę lub nazwę główną usługi), na którym działa aplikacja. W przypadku pomyślnego uwierzytelnienia usługa Azure AD zwraca token dostępu do aplikacji, a następnie może użyć tokenu dostępu do autoryzowania żądania do zasobów usługi Azure Event Hubs.
@@ -16,7 +16,7 @@ Microsoft Azure zapewnia zintegrowane zarządzanie kontrolą dostępu dla zasob�
 Gdy rola jest przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp można ograniczyć do poziomu subskrypcji, grupy zasobów, przestrzeni nazw Event Hubs lub dowolnego zasobu w ramach tego elementu. Zabezpieczenia usługi Azure AD mogą przypisywać role do użytkownika, grupy, nazwy głównej usługi aplikacji lub [zarządzanej tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
 > [!NOTE]
-> Definicja roli to kolekcja uprawnień. Kontrola dostępu oparta na rolach (RBAC) kontroluje, jak te uprawnienia są wymuszane za pośrednictwem przypisywania ról. Przypisanie roli składa się z trzech elementów: podmiotu zabezpieczeń, definicji roli i zakresu. Aby uzyskać więcej informacji, zobacz [Omówienie różnych ról](../role-based-access-control/overview.md).
+> Definicja roli to kolekcja uprawnień. Kontrola dostępu oparta na rolach (Azure RBAC) kontroluje, jak te uprawnienia są wymuszane przez przypisanie roli. Przypisanie roli składa się z trzech elementów: podmiotu zabezpieczeń, definicji roli i zakresu. Aby uzyskać więcej informacji, zobacz [Omówienie różnych ról](../role-based-access-control/overview.md).
 
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Wbudowane role dla Event Hubs platformy Azure
 Platforma Azure udostępnia następujące wbudowane role platformy Azure do autoryzowania dostępu do danych Event Hubs przy użyciu usługi Azure AD i uwierzytelniania OAuth:
@@ -25,13 +25,13 @@ Platforma Azure udostępnia następujące wbudowane role platformy Azure do auto
 - [Nadawca danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Użyj tej roli, aby udzielić dostępu do Event Hubs do zasobów.
 - [Usługa Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Ta rola umożliwia uzyskanie dostępu do Event Hubs zasobów.   
 
-Aby uzyskać wbudowane role rejestru schematu, zobacz [role rejestru schematu](schema-registry-overview.md#role-based-access-control).
+Aby uzyskać wbudowane role rejestru schematu, zobacz [role rejestru schematu](schema-registry-overview.md#azure-role-based-access-control).
 
 > [!IMPORTANT]
 > Nasza wersja zapoznawcza obsługuje dodawanie Event Hubs uprawnień dostępu do danych do roli właściciel lub współautor. Jednak uprawnienia dostępu do danych dla roli właściciela i współautora nie są już honorowane. Jeśli używasz roli właściciela lub współautora, przełącz się do korzystania z roli właściciela danych Event Hubs platformy Azure.
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Przypisywanie ról platformy Azure przy użyciu Azure Portal  
-Aby dowiedzieć się więcej na temat zarządzania dostępem do zasobów platformy Azure przy użyciu RBAC i Azure Portal, zobacz [ten artykuł](..//role-based-access-control/role-assignments-portal.md). 
+Aby dowiedzieć się więcej na temat zarządzania dostępem do zasobów platformy Azure przy użyciu usługi Azure RBAC i Azure Portal, zobacz [ten artykuł](..//role-based-access-control/role-assignments-portal.md). 
 
 Po ustaleniu odpowiedniego zakresu przypisania roli przejdź do tego zasobu w Azure Portal. Wyświetl ustawienia kontroli dostępu (IAM) dla zasobu i postępuj zgodnie z tymi instrukcjami, aby zarządzać przypisaniami ról:
 
@@ -109,12 +109,12 @@ Aby zapoznać się z listą scenariuszy, w których są obsługiwane tokeny, zob
     Ten przykład został zaktualizowany, aby można było użyć najnowszej biblioteki **Azure. Messaging. EventHubs** .
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby dowiedzieć się więcej na temat RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md)?
+- Aby dowiedzieć się więcej na temat usługi Azure RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md)?
 - Aby dowiedzieć się, jak przypisywać przypisania ról platformy Azure i zarządzać nimi za pomocą Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST, zobacz następujące artykuły:
-    - [Zarządzanie kontrolą dostępu opartą na rolach (RBAC) przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Zarządzanie kontrolą dostępu opartą na rolach (RBAC) przy użyciu interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md)
-    - [Zarządzanie kontrolą dostępu opartą na rolach (RBAC) za pomocą interfejsu API REST](../role-based-access-control/role-assignments-rest.md)
-    - [Zarządzanie kontrolą dostępu opartą na rolach (RBAC) przy użyciu szablonów Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+    - [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu programu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+    - [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md)
+    - [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](../role-based-access-control/role-assignments-rest.md)
+    - [Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
 Zapoznaj się z następującymi artykułami:
 - [Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs](authenticate-managed-identity.md)

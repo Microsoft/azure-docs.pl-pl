@@ -4,12 +4,12 @@ description: Ten artykuł zawiera informacje ułatwiające optymalizację kosztu
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dbf0bb9cae87a51eb6e0a4fb25c700ec6f423ff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476261"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328270"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Nadzór nad infrastrukturą Azure DevTest Labs — zarządzanie kosztami i własnością
 Koszt i własność to podstawowe zagadnienia, które należy wziąć pod uwagę podczas tworzenia środowisk deweloperskich i testowych. W tej sekcji znajdziesz informacje ułatwiające optymalizację kosztów i dostosowanie własności w środowisku.
@@ -34,9 +34,9 @@ Tylko aktywni subskrybenci programu Visual Studio (Subskrypcje standardowe, rocz
 
 W przypadku podjęcia decyzji o skorzystaniu z oferty DevTest należy zauważyć, że ta korzyść dotyczy wyłącznie tworzenia i testowania aplikacji. Użycie w ramach subskrypcji nie jest objęte gwarantowaną finansowo umową SLA, z wyjątkiem używania usług Azure DevOps i HockeyApp.
 
-## <a name="define-a-role-based-access-across-your-organization"></a>Definiowanie dostępu opartego na rolach w organizacji
+## <a name="define-role-based-access-across-your-organization"></a>Definiowanie dostępu opartego na rolach w organizacji
 ### <a name="question"></a>Pytanie
-Jak mogę zdefiniować kontrolę dostępu opartą na rolach dla środowisk DevTest Labs, aby upewnić się, że mogą one być regulowane, gdy deweloperzy/testy mogą wykonywać swoje prace? 
+Jak mogę zdefiniować kontrolę dostępu opartą na rolach na platformie Azure dla środowisk DevTest Labs, aby mieć pewność, że może ona być zarządzana, gdy deweloperzy/testy mogą wykonywać swoje prace? 
 
 ### <a name="answer"></a>Odpowiedź
 Istnieje szeroki wzorzec, jednak szczegóły są zależne od organizacji.

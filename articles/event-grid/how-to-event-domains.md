@@ -4,12 +4,12 @@ description: Pokazuje, jak zarządzać dużymi zestawami tematów w Azure Event 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9016d26384827279a5a89afecff59f572d7ce273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277db97211b196c9853470c2d12cc2246a4005b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502039"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330081"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Zarządzanie tematami i publikowanie zdarzeń przy użyciu domen zdarzeń
 
@@ -79,7 +79,7 @@ Należy pamiętać, że `endpoint` `id` są one wymagane do zarządzania domeną
 
 ## <a name="manage-access-to-topics"></a>Zarządzanie dostępem do tematów
 
-Zarządzanie dostępem do tematów odbywa się za pomocą [przypisywania ról](../role-based-access-control/role-assignments-cli.md). Przypisanie roli korzysta z kontroli dostępu opartej na rolach w celu ograniczenia operacji na zasobach platformy Azure do autoryzowanych użytkowników w określonym zakresie.
+Zarządzanie dostępem do tematów odbywa się za pomocą [przypisywania ról](../role-based-access-control/role-assignments-cli.md). Przypisanie roli korzysta z kontroli dostępu opartej na rolach na platformie Azure w celu ograniczenia operacji na zasobach platformy Azure do autoryzowanych użytkowników w określonym zakresie.
 
 Event Grid ma dwie wbudowane role, których można użyć do przypisywania określonych użytkowników w różnych tematach w domenie. Role te to `EventGrid EventSubscription Contributor (Preview)` , które umożliwiają tworzenie i usuwanie subskrypcji oraz `EventGrid EventSubscription Reader (Preview)` , które pozwalają na wyświetlanie listy subskrypcji zdarzeń.
 

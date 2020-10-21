@@ -4,12 +4,12 @@ description: Opisuje sposób wdrażania szablonów Azure Resource Manager przy u
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: b5852a65b4ed3c7cc73352fed37eeff035f8563c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106794"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282842"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Wdrażanie szablonów Azure Resource Manager przy użyciu akcji GitHub
 
@@ -40,13 +40,19 @@ Plik ma dwie sekcje:
 
 Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) można utworzyć jednostkę [usługi](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
 
+Utwórz grupę zasobów, jeśli jeszcze jej nie masz. 
+
+```azurecli-interactive
+    az group create -n {MyResourceGroup}
+```
+
 Zastąp symbol zastępczy `myApp` nazwą aplikacji. 
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
+   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji i grupą zasobów. Dane wyjściowe są obiektem JSON z poświadczeniami przypisywania roli, które zapewniają dostęp do aplikacji App Service podobnej do poniższego. Skopiuj ten obiekt JSON do nowszej wersji.
+W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji i grupą zasobów. Dane wyjściowe są obiektem JSON z poświadczeniami przypisywania roli, które zapewniają dostęp do aplikacji App Service podobnej do poniższego. Skopiuj ten obiekt JSON do nowszej wersji. Wymagane są tylko sekcje zawierające `clientId` wartości,, `clientSecret` `subscriptionId` i `tenantId` . 
 
 ```output 
   {
@@ -73,9 +79,9 @@ Musisz utworzyć wpisy tajne dla poświadczeń platformy Azure, grupy zasobów i
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
-1. Utwórz inny klucz tajny o nazwie `AZURE_RG` . Dodaj nazwę grupy zasobów do pola wartości klucza tajnego. 
+1. Utwórz inny klucz tajny o nazwie `AZURE_RG` . Dodaj nazwę grupy zasobów do pola wartości wpisu tajnego (przykład: `myResourceGroup` ). 
 
-1. Utwórz dodatkowy klucz tajny o nazwie `AZURE_SUBSCRIPTION` . Dodaj swój identyfikator subskrypcji do pola wartości klucza tajnego. 
+1. Utwórz dodatkowy klucz tajny o nazwie `AZURE_SUBSCRIPTION` . Dodaj swój identyfikator subskrypcji do pola wartości wpisu tajnego (przykład: `90fd3f9d-4c61-432d-99ba-1273f236afa2` ). 
 
 ## <a name="add-resource-manager-template"></a>Dodaj szablon Menedżer zasobów
 
@@ -114,17 +120,19 @@ Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows
             creds: ${{ secrets.AZURE_CREDENTIALS }}
      
           # Deploy ARM template
-        - uses: azure/arm-deploy@v1
         - name: Run ARM deploy
+          uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./azuredeploy.json
-            parameters: storageAccountType=Standard_LRS
+            parameters: storageAccountType=Standard_LRS 
         
           # output containerName variable from template
         - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
+    > [!NOTE]
+    > Zamiast tego można określić plik parametrów formatu JSON w akcji wdrażania ARM (przykład: `.azuredeploy.parameters.json` ).  
 
     Pierwsza sekcja pliku przepływu pracy zawiera:
 

@@ -7,14 +7,14 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: daf3b6c36b191f52f0d7ac7638ef59695325f541
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a7937745e839b54d9ee7b6f056d10ff627e191d3
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078548"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327335"
 ---
-# <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm-through-a-browser"></a>Samouczek: Tworzenie hosta usługi Azure bastionu i nawiązywanie połączenia z maszyną wirtualną z systemem Windows za pomocą przeglądarki
+# <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>Samouczek: Konfigurowanie bastionu i nawiązywanie połączenia z maszyną wirtualną z systemem Windows za pomocą przeglądarki
 
 W tym samouczku pokazano, jak nawiązać połączenie z maszyną wirtualną za pośrednictwem przeglądarki za pomocą usługi Azure bastionu i Azure Portal. W Azure Portal wdrażasz bastionu w sieci wirtualnej. Po wdrożeniu bastionu Nawiąż połączenie z maszyną wirtualną za pośrednictwem swojego prywatnego adresu IP przy użyciu Azure Portal. Maszyna wirtualna nie potrzebuje publicznego adresu IP ani specjalnego oprogramowania. Po aprowizacji usługi środowisko RDP/SSH jest dostępne dla wszystkich maszyn wirtualnych w tej samej sieci wirtualnej. Aby uzyskać więcej informacji na temat usługi Azure bastionu, zobacz [co to jest Azure bastionu?](bastion-overview.md).
 

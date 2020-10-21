@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44426103b8f0fce275f33682edbc3b84a08344b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257674"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329563"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analiza zdarzeń i wizualizacja z dziennikami Azure Monitor
  Dzienniki Azure Monitor zbierają i analizują dane telemetryczne z aplikacji i usług hostowanych w chmurze oraz udostępniają narzędzia do analizy ułatwiające maksymalizowanie ich dostępności i wydajności. W tym artykule opisano sposób uruchamiania zapytań w dziennikach Azure Monitor w celu uzyskania szczegółowych informacji i rozwiązywania problemów, co dzieje się w klastrze. Następujące często zadawane pytania są rozkierowane:
@@ -42,7 +42,7 @@ W programie `Summary` zobaczysz kafelki w formie wykresu dla każdego z włączo
 
 Na poniższej ilustracji przedstawiono stronę główną rozwiązania Service Fabric Analytics. Ta strona główna zawiera widok migawek, co dzieje się w klastrze.
 
-![Service Fabric rozwiązanie](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+![Zrzut ekranu przedstawiający stronę główną rozwiązania Service Fabric Analytics.](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
  Jeśli po utworzeniu klastra włączono diagnostykę, można zobaczyć zdarzenia dla 
 

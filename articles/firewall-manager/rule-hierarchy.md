@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893721"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331740"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Definiowanie hierarchii reguł przy użyciu zasad zapory platformy Azure
 
@@ -21,7 +21,7 @@ Administratorzy zabezpieczeń muszą zarządzać zaporami i zapewnić zgodność
 Zasady zapory platformy Azure umożliwiają zdefiniowanie hierarchii reguł i Wymuszanie zgodności:
 
 - Udostępnia strukturę hierarchiczną do nakładania centralnych zasad podstawowych na nadrzędne zasady zespołu aplikacji. Zasady podstawowe mają wyższy priorytet i są uruchamiane przed zasadami podrzędnymi.
-- Użyj niestandardowej definicji kontroli dostępu opartej na rolach (RBAC), aby zapobiec przypadkowemu usunięciu zasad podstawowych i zapewnić selektywny dostęp do grup kolekcji reguł w ramach subskrypcji lub grupy zasobów. 
+- Użyj definicji roli niestandardowej platformy Azure, aby zapobiec przypadkowemu usuwaniu zasad podstawowych i zapewnić selektywny dostęp do grup kolekcji reguł w ramach subskrypcji lub grupy zasobów. 
 
 ## <a name="solution-overview"></a>Omówienie rozwiązania
 
@@ -153,7 +153,7 @@ Powtórz tę procedurę dla innych zasad zapory.
 
 ### <a name="summary"></a>Podsumowanie
 
-Zasady zapory z niestandardową RBAC umożliwiają teraz dostęp do grup kolekcji reguł zasad zapory.
+Zasady zapory z rolami niestandardowymi oferują teraz selektywny dostęp do grup kolekcji reguł zasad zapory.
 
 Użytkownicy nie mają uprawnień do:
 - Usuń zaporę lub zasady zapory platformy Azure.

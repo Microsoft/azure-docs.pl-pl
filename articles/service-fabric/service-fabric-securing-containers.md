@@ -4,17 +4,17 @@ description: Zapoznaj się teraz z zaimportowaniem plików certyfikatów do usł
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219882a3f7f6db665f1ec311098ef53464773b71
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050747"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313697"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Zaimportuj plik certyfikatu do kontenera działającego na Service Fabric
 
 > [!NOTE]
-> W przypadku klastrów Service Fabric działających na platformie Azure zaleca się użycie [Service Fabric tożsamości zarządzanej aplikacji](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) do udostępniania certyfikatów aplikacji z poziomu kontenera. Tożsamość zarządzana zapewnia izolację wpisów tajnych i certyfikatów na poziomie usługi i zezwala na to, aby obsługa certyfikatów aplikacji była częścią przepływu pracy aplikacji, a nie z przepływem pracy infrastruktury. Mechanizm CertificateRef będzie przestarzały w przyszłej wersji.
+> W przypadku klastrów Service Fabric działających na platformie Azure zaleca się użycie [Service Fabric tożsamości zarządzanej aplikacji](./concepts-managed-identity.md) do udostępniania certyfikatów aplikacji z poziomu kontenera. Tożsamość zarządzana zapewnia izolację wpisów tajnych i certyfikatów na poziomie usługi i zezwala na to, aby obsługa certyfikatów aplikacji była częścią przepływu pracy aplikacji, a nie z przepływem pracy infrastruktury. Mechanizm CertificateRef będzie przestarzały w przyszłej wersji.
 
 Usługi kontenera można zabezpieczyć, określając certyfikat. Service Fabric udostępnia mechanizm dla usług wewnątrz kontenera w celu uzyskania dostępu do certyfikatu zainstalowanego na węzłach w klastrze z systemem Windows lub Linux (wersja 5,7 lub nowsza). Certyfikat należy zainstalować w magazynie certyfikatów w obszarze LocalMachine na wszystkich węzłach klastra. Klucz prywatny odpowiadający certyfikatowi musi być dostępny, dostępny i włączony do eksportu systemu Windows. Informacje o certyfikacie znajdują się w manifeście aplikacji pod `ContainerHostPolicies` tagiem, jak pokazano w poniższym fragmencie kodu:
 

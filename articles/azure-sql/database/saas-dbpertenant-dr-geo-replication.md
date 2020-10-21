@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e08150f5998b71523a986eac1f8a9be993125f5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619155"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330125"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Odzyskiwanie po awarii dla wielodostępnej aplikacji SaaS przy użyciu replikacji geograficznej bazy danych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ W tym zadaniu zostanie rozpoczęty proces, który synchronizuje konfigurację se
     * **$DemoScenario = 1**, uruchom zadanie w tle, które synchronizuje serwer dzierżawy i informacje o konfiguracji puli do wykazu
 
 3. Naciśnij klawisz **F5** , aby uruchomić skrypt synchronizacji. Zostanie otwarta nowa sesja programu PowerShell w celu zsynchronizowania konfiguracji zasobów dzierżawy.
-![Proces synchronizacji](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
+![Zrzut ekranu pokazujący nową sesję programu PowerShell otwartą w celu zsynchronizowania konfiguracji zasobów dzierżawy.](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
 
 Pozostaw okno programu PowerShell działające w tle i Kontynuuj pracę z pozostałą częścią samouczka. 
 

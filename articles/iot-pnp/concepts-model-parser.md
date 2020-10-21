@@ -1,20 +1,19 @@
 ---
 title: Opis parsera Digital bliźniaczych reprezentacji model | Microsoft Docs
-description: Jako deweloper, Dowiedz się, jak używać analizatora DTDL do sprawdzania poprawności modeli
+description: Deweloperzy mogą dowiedzieć się, jak używać analizatora DTDL do sprawdzania poprawności modeli.
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/29/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: peterpr
-ms.openlocfilehash: 20c4452a32c791f33e08c883d8cec89a345ab188
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d68abe8548dac3306228683e4b6ce8935a248ebc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87352435"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331791"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>Opis parsera modeli usługi Digital Twins
 
@@ -28,9 +27,12 @@ Analizator jest dostępny w NuGet.org z IDENTYFIKATORem: [Microsoft. Azure. Digi
 dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
+> [!NOTE]
+> W momencie pisania wersja parsera to `3.12.5` .
+
 ## <a name="use-the-parser-to-validate-a-model"></a>Weryfikowanie modelu przy użyciu analizatora
 
-Model, który ma zostać zweryfikowany, może składać się z co najmniej jednego interfejsu opisanego w plikach JSON. Analizatora można użyć do załadowania wszystkich plików w danym folderze i użycia analizatora do walidacji wszystkich plików jako całości, w tym wszystkich odwołań między plikami:
+Model może składać się z co najmniej jednego interfejsu opisanego w plikach JSON. Analizatora można użyć do załadowania wszystkich plików w danym folderze i użycia analizatora do walidacji wszystkich plików jako całości, w tym wszystkich odwołań między plikami:
 
 1. Utwórz `IEnumerable<string>` z listą wszystkich zawartości modelu:
 
@@ -57,18 +59,20 @@ Model, który ma zostać zweryfikowany, może składać się z co najmniej jedne
     IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     ```
 
-1. Sprawdź, czy występują błędy walidacji. Jeśli analizator odnajdzie błędy, zgłasza komunikat `AggregateException` z listą szczegółowych komunikatów o błędach:
+1. Sprawdź, czy występują błędy walidacji. Jeśli analizator odnajdzie błędy, zgłasza `ParsingException` listę błędów:
 
     ```csharp
     try
     {
         IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     }
-    catch (AggregateException ae)
+    catch (ParsingException pex)
     {
-        foreach (var e in ae.InnerExceptions)
+        Console.WriteLine(pex.Message);
+        foreach (var err in pex.Errors)
         {
-            Console.WriteLine(e.Message);
+            Console.WriteLine(err.PrimaryID);
+            Console.WriteLine(err.Message);
         }
     }
     ```
@@ -76,19 +80,10 @@ Model, który ma zostać zweryfikowany, może składać się z co najmniej jedne
 1. Sprawdź `Model` . Jeśli sprawdzanie poprawności zakończy się powodzeniem, można użyć interfejsu API parsera modelu do sprawdzenia modelu. Poniższy fragment kodu przedstawia sposób iteracji wszystkich modeli przeanalizowanych i wyświetla istniejące właściwości:
 
     ```csharp
-    foreach (var m in parseResult)
+    foreach (var item in parseResult)
     {
-        Console.WriteLine(m.Key);
-        foreach (var item in m.Value.AsEnumerable<DTEntityInfo>())
-        {
-            var p = item as DTInterfaceInfo;
-            if (p!=null)
-            {
-                Console.WriteLine($"\t{p.Id}");
-                Console.WriteLine($"\t{p.Description.FirstOrDefault()}");
-            }
-            Console.WriteLine("--------------");
-        }
+        Console.WriteLine($"\t{item.Key}");
+        Console.WriteLine($"\t{item.Value.DisplayName?.Values.FirstOrDefault()}");
     }
     ```
 

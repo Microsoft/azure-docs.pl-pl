@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542292"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330397"
 ---
 # <a name="execute-r-script-module"></a>Wykonaj moduł skryptu języka R
 
@@ -194,11 +194,11 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
     > [!NOTE]
     > Istniejący kod języka R może wymagać drobnych zmian do uruchomienia w potoku projektanta. Na przykład dane wejściowe, które podano w formacie CSV, powinny być jawnie konwertowane na zestaw danych, zanim będzie można używać go w kodzie. Typy danych i kolumn używane w języku R również różnią się w zależności od typu danych i kolumn używanych w projektancie.
 
-    Jeśli skrypt ma rozmiar większy niż 16 KB, użyj portu **pakietu skryptu** , aby uniknąć błędów, takich jak *CommandLine, przekracza limit 16597 znaków*. 
+1. Jeśli skrypt ma rozmiar większy niż 16 KB, użyj portu **pakietu skryptu** , aby uniknąć błędów, takich jak *CommandLine, przekracza limit 16597 znaków*. 
     
     1. Pakiet skryptu i innych zasobów niestandardowych należy powiązać z plikiem zip.
     1. Przekaż plik zip jako **zestaw danych pliku** do Studio. 
-    1. Przeciągnij moduł DataSet z listy *MOJE ZESTAWY* danych w lewym okienku modułu na stronie Tworzenie projektanta. 
+    1. Przeciągnij moduł DataSet z listy *DataSets* w lewym okienku modułu na stronie Tworzenie projektanta. 
     1. Połącz moduł DataSet z portem **pakietu** **wykonywania skryptu języka R** .
     
     Poniżej znajduje się przykładowy kod służący do użycia skryptu w pakiecie skryptu:

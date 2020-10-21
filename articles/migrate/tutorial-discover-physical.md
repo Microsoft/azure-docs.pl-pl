@@ -4,12 +4,12 @@ description: Dowiedz się, jak odnajdywać lokalne serwery fizyczne przy użyciu
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442283"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314082"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Samouczek: odnajdywanie serwerów fizycznych za pomocą oceny serwera
 
@@ -94,7 +94,7 @@ Skonfiguruj nowy projekt Azure Migrate.
 
    ![Pola nazwy i regionu projektu](./media/tutorial-discover-physical/new-project.png)
 
-7. Wybierz przycisk **Utwórz**.
+7. Wybierz pozycję **Utwórz**.
 8. Zaczekaj kilka minut, aż projekt usługi Azure Migrate zostanie wdrożony.
 
 **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
@@ -208,7 +208,7 @@ Skonfiguruj urządzenie po raz pierwszy.
    
    Logowanie przy użyciu numeru PIN nie jest obsługiwane.
 3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web. 
-4. Jeśli konto użytkownika platformy Azure używane do rejestrowania ma odpowiednie [uprawnienia](tutorial-prepare-physical.md) do zasobów platformy Azure utworzonych podczas generowania klucza, Rejestracja urządzenia zostanie zainicjowana.
+4. Jeśli konto użytkownika platformy Azure używane do rejestrowania ma odpowiednie [uprawnienia]() do zasobów platformy Azure utworzonych podczas generowania klucza, Rejestracja urządzenia zostanie zainicjowana.
 1. Po pomyślnym zarejestrowaniu urządzenia można wyświetlić szczegóły rejestracji, klikając pozycję **Wyświetl szczegóły**.
 
 
@@ -245,5 +245,3 @@ Po zakończeniu odnajdywania możesz sprawdzić, czy serwery są wyświetlane w 
 
 - [Oceń serwery fizyczne](tutorial-assess-physical.md) do migracji na maszyny wirtualne platformy Azure.
 - [Przejrzyj dane](migrate-appliance.md#collected-data---physical) zbierane przez urządzenie podczas odnajdywania.
-
-

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 20e20968b6367e0a8c0131d6e7e8d15e56c06d63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 738d62d60ad06431bd77cd99343fc8835c4c5685
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363226"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330176"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Ochrona prywatnych stref i rekordów DNS
 
@@ -22,9 +22,9 @@ Strefy Prywatna strefa DNS i rekordy są istotnymi zasobami. Usunięcie strefy D
 
 W tym artykule wyjaśniono, jak Azure DNS umożliwia ochronę prywatnych stref DNS i rekordów przed takimi zmianami.  Stosujemy dwie zaawansowane funkcje zabezpieczeń zapewniane przez Azure Resource Manager: [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) i [blokady zasobów](../azure-resource-manager/management/lock-resources.md).
 
-## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
-Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia precyzyjne zarządzanie dostępem użytkowników, grup i zasobów platformy Azure. Za pomocą RBAC można przyznać poziom dostępu wymagany użytkownikom. Aby uzyskać więcej informacji na temat sposobu, w jaki funkcja RBAC ułatwia zarządzanie dostępem, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md).
+Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia precyzyjne zarządzanie dostępem użytkowników, grup i zasobów platformy Azure. Za pomocą usługi Azure RBAC można przyznać poziom dostępu wymagany użytkownikom. Aby uzyskać więcej informacji na temat sposobu, w jaki usługa Azure RBAC ułatwia zarządzanie dostępem, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md).
 
 ### <a name="the-private-dns-zone-contributor-role"></a>Rola współautora strefy Prywatna strefa DNS
 
@@ -32,11 +32,11 @@ Rola współautor strefy Prywatna strefa DNS jest wbudowaną rolą do zarządzan
 
 Grupa zasobów *myPrivateDNS* zawiera pięć stref dla firmy Contoso Corporation. Przyznanie administratorowi DNS uprawnień współautora strefy Prywatna strefa DNS tej grupie zasobów umożliwia pełną kontrolę nad tymi strefami DNS. Pozwala to uniknąć udzielania niepotrzebnych uprawnień. Administrator DNS nie może tworzyć ani zatrzymywać maszyn wirtualnych.
 
-Najprostszym sposobem przypisywania uprawnień RBAC jest [za pośrednictwem Azure Portal](../role-based-access-control/role-assignments-portal.md).  
+Najprostszym sposobem przypisywania uprawnień do usługi Azure RBAC jest [za pośrednictwem Azure Portal](../role-based-access-control/role-assignments-portal.md).  
 
 Otwórz przystawkę **Kontrola dostępu (IAM)** dla grupy zasobów, wybierz pozycję **Dodaj**, a następnie wybierz rolę **współautor strefy prywatna strefa DNS** . Wybierz wymaganych użytkowników lub grupy, aby przyznać uprawnienia.
 
-![Kontrola RBAC na poziomie grupy zasobów za pomocą Azure Portal](./media/dns-protect-private-zones-recordsets/rbac1.png)
+![Poziom grupy zasobów na platformie Azure za pośrednictwem Azure Portal](./media/dns-protect-private-zones-recordsets/rbac1.png)
 
 Uprawnienia można także [przyznawać przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -61,15 +61,15 @@ az role assignment create \
 --resource-group "<resource group name>"
 ```
 
-### <a name="private-zone-level-rbac"></a>Kontrola RBAC na poziomie strefy prywatnej
+### <a name="private-zone-level-azure-rbac"></a>Na poziomie strefy prywatnej Azure RBAC
 
 Reguły RBAC platformy Azure mogą być stosowane do subskrypcji, grupy zasobów lub pojedynczego zasobu. Ten zasób może być pojedynczą strefą DNS lub pojedynczym zestawem rekordów.
 
 Na przykład grupa zasobów *myPrivateDNS* zawiera strefę *Private.contoso.com* i subzone *Customers.private.contoso.com*. Rekordy CNAME są tworzone dla każdego konta klienta. Konto administratora używane do zarządzania rekordami CNAME ma przypisane uprawnienia do tworzenia rekordów w strefie *Customers.private.contoso.com* . Konto może zarządzać tylko *Customers.private.contoso.com* .
 
-Uprawnienia kontroli RBAC na poziomie strefy można udzielać za pośrednictwem Azure Portal.  Otwórz przystawkę **Kontrola dostępu (IAM)** dla strefy, wybierz pozycję **Dodaj**, a następnie wybierz rolę **współautor strefy prywatna strefa DNS** . Wybierz wymaganych użytkowników lub grupy, aby przyznać uprawnienia.
+Uprawnienia kontroli RBAC platformy Azure na poziomie strefy można udzielić za pośrednictwem Azure Portal.  Otwórz przystawkę **Kontrola dostępu (IAM)** dla strefy, wybierz pozycję **Dodaj**, a następnie wybierz rolę **współautor strefy prywatna strefa DNS** . Wybierz wymaganych użytkowników lub grupy, aby przyznać uprawnienia.
 
-![Kontrola RBAC na poziomie strefy DNS za pośrednictwem Azure Portal](./media/dns-protect-private-zones-recordsets/rbac2.png)
+![Na poziomie strefy DNS Azure RBAC za pośrednictwem Azure Portal](./media/dns-protect-private-zones-recordsets/rbac2.png)
 
 Uprawnienia można także [przyznawać przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -96,17 +96,17 @@ az role assignment create \
 --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/privateDnsZones/<zone name>/"
 ```
 
-### <a name="record-set-level-rbac"></a>Poziom zestawu rekordów RBAC
+### <a name="record-set-level-azure-rbac"></a>Poziom zestawu rekordów na platformie Azure
 
 Uprawnienia są stosowane na poziomie zestawu rekordów.  Użytkownik otrzymuje kontrolę do wpisów, których potrzebują, i nie może wprowadzać żadnych innych zmian.
 
-Uprawnienia RBAC na poziomie rekordu można skonfigurować za pomocą Azure Portal przy użyciu przycisku **Access Control (IAM)** na stronie zestawu rekordów:
+Uprawnienia usługi Azure RBAC na poziomie rekordu można skonfigurować za pomocą Azure Portal przy użyciu przycisku **Access Control (IAM)** na stronie zestawu rekordów:
 
 ![Zrzut ekranu przedstawia przycisk Access Control (I M).](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
 ![Zrzut ekranu przedstawia Access Control z wybraną pozycją Dodaj przypisanie roli.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
-Na poziomie zestawu rekordów można także udzielić uprawnień RBAC [przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
+Uprawnienia kontroli RBAC platformy Azure na poziomie rekordu można również [udzielić przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```azurepowershell-interactive
 # Grant permissions to a specific record set
@@ -188,7 +188,7 @@ az role create -inputfile <file path>
 
 Rolę można następnie przypisać w taki sam sposób jak wbudowane role, zgodnie z opisem we wcześniejszej części tego artykułu.
 
-Aby uzyskać więcej informacji na temat tworzenia i przypisywania ról niestandardowych oraz zarządzania nimi, zobacz [role niestandardowe w usłudze Azure RBAC](../role-based-access-control/custom-roles.md).
+Aby uzyskać więcej informacji na temat tworzenia i przypisywania ról niestandardowych oraz zarządzania nimi, zobacz [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="resource-locks"></a>Blokady zasobów
 
@@ -287,5 +287,5 @@ Istnieje możliwość użycia obu metod — blokad zasobów i ról niestandardow
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat pracy z usługą RBAC, zobacz Wprowadzenie do [zarządzania dostępem w Azure Portal](../role-based-access-control/overview.md).
+* Aby uzyskać więcej informacji na temat pracy z usługą Azure RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md).
 * Aby uzyskać więcej informacji na temat pracy z blokadami zasobów, zobacz [blokowanie zasobów przy użyciu Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

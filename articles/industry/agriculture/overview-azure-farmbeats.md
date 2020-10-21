@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d9882f23096e19435566323de4d0ebaf7c0af3ef
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87439562"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331927"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Omówienie usługi Azure FarmBeats (wersja zapoznawcza)
 
@@ -43,7 +43,7 @@ Datahub zaprojektowano jako rozszerzalną platformę interfejsu API. Pracujemy n
 
 Usługa Azure FarmBeats Accelerator to przykładowa aplikacja internetowa, która jest oparta na Datahub. Akcelerator przyśpiesza — uruchamia interfejs użytkownika i programowanie modeli. Akcelerator Azure FarmBeats używa interfejsów API usługi Azure FarmBeats. Wizualizuje dane z czujników pozyskiwane jako wykresy i wyjścia modelu jako mapy. Można na przykład użyć akceleratora, aby szybko utworzyć farmę i uzyskać mapę indeksów oddziałów lub mapę umieszczenia czujnika dla tej farmy.
 
-## <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
+## <a name="azure-role-based-access-control-azure-rbac"></a>Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)
 
 Administrator może zdefiniować reguły dostępu dla usługi Azure FarmBeats przy użyciu jednej ze wstępnie zdefiniowanych ról. Role określają obszary aplikacji, do których użytkownik ma dostęp i jakie akcje mogą wykonywać. Istnieją dwa rodzaje ról w usłudze Azure FarmBeats — dla użytkowników i dla partnerów.
 

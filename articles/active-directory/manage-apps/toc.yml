@@ -61,6 +61,8 @@
           href: plan-sso-deployment.md
         - name: Opcje logowania jednokrotnego
           href: sso-options.md
+        - name: Logowanie jednokrotne oparte na protokole OIDC
+          href: configure-oidc-single-sign-on.md
         - name: Logowanie jednokrotne oparte na języku SAML
           href: configure-saml-single-sign-on.md
         - name: Logowanie jednokrotne oparte na haśle

@@ -1,16 +1,16 @@
 ---
 title: Migrowanie do rozszerzenia Bridge to Kubernetes
 services: azure-dev-spaces
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 description: Opisuje proces migracji z Azure Dev Spaces do mostka do Kubernetes
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers to Kubernetes
-ms.openlocfilehash: 008cb90c172d8106115e4424956d82d026dbcee0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6a6fe2367fca3d2068bb7d9a8e1a157fd2e5ca9b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044704"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329802"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrowanie do rozszerzenia Bridge to Kubernetes
 
@@ -50,10 +50,10 @@ Azure Dev Spaces i mostek do Kubernetes mają podobne funkcje, ale również ró
 | **Wykorzystania** |
 | Niezależna od Kubernetes i artefaktów platformy Docker  | Nie  | Tak   |
 | Automatyczne wycofywanie zmian, po debugowaniu  | Nie  | Tak   |
-| **Środowiska** |
+| **Obsługiwane narzędzia klienta** |
 | Współpracuje z programem Visual Studio 2019  | Tak  | Tak   |
 | Działa z Visual Studio Code  | Tak  | Tak   |
-| Współdziałanie z interfejsem wiersza polecenia  | Tak  | Nie   |
+| Praca z interfejsem wiersza polecenia  | Tak  | Nie   |
 | **Zgodność systemu operacyjnego** |
 | Działa w systemie Windows 10  | Tak  | Tak  |
 | Działa w systemie Linux  | Tak  | Tak  |

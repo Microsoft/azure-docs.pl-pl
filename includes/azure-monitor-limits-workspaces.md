@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91644708"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92321606"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
 
@@ -33,7 +33,7 @@ ms.locfileid: "91644708"
 | Warstwa Bezpłatna  | 10 | Nie można zwiększyć tego limitu. |
 | Wszystkie inne warstwy | Bez ograniczeń | Użytkownik ma ograniczoną liczbę zasobów w grupie zasobów oraz liczbę grup zasobów na subskrypcję. |
 
-**Azure Portal**
+**Witryna Azure Portal**
 
 | Kategoria | Limit | Komentarze |
 |:---|:---|:---|
@@ -47,7 +47,7 @@ ms.locfileid: "91644708"
 | Maksymalny rozmiar pojedynczego wpisu | 30 MB | Podziel większe woluminy na wiele wpisów. |
 | Maksymalny rozmiar wartości pól  | 32 KB | Pola dłuższe niż 32 KB są obcinane. |
 
-**Wyszukaj interfejs API**
+**Interfejs API wyszukiwania**
 
 | Kategoria | Limit | Komentarze |
 |:---|:---|:---|
@@ -70,31 +70,7 @@ Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klie
 
 W przypadku wysyłania danych do obszaru roboczego o współczynniku ilościowym wyższym niż 80% wartości progowej skonfigurowanej w obszarze roboczym, zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. Gdy ilość pozyskiwanych woluminów jest wyższa niż wartość progowa, niektóre dane są porzucane, a zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. W przypadku przekroczenia progu przez okres pozyskiwania lub oczekujesz, że zostanie on wkrótce osiągnięty, możesz poprosić o zwiększenie go, otwierając żądanie pomocy technicznej. 
 
-Aby otrzymywać powiadomienia o zbliżaniu się lub osiągnięciu limitu ilości woluminu pozyskiwania w obszarze roboczym, należy utworzyć [regułę alertu dziennika](../articles/azure-monitor/platform/alerts-log.md) przy użyciu następującego zapytania z podstawą logiki alertu na liczbie wyników większym niż zero, okres próbny wynoszący 5 minut i częstotliwość 5 minut.
-
-Współczynnik wolumenu pozyskiwania przekroczył próg
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Error"
-```
-
-Współczynnik objętości pozyskiwania przekraczający 80% wartości progowej
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Warning"
-```
-
-Współczynnik objętości pozyskiwania przekraczający 70% wartości progowej
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Info"
-```
+Zobacz [monitorowanie kondycji obszaru roboczego log Analytics w Azure monitor](../articles/azure-monitor/platform/monitor-workspace.md) , aby utworzyć reguły alertów w celu ich aktywnego powiadamiania, gdy osiągniesz limity pozyskiwania.
 
 >[!NOTE]
 >W zależności od tego, jak długo korzystasz z Log Analytics, możesz mieć dostęp do starszych warstw cenowych. Dowiedz się więcej na temat [log Analytics starszych warstw cenowych](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

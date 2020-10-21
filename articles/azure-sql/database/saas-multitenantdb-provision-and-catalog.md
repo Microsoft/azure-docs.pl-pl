@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 92dcb1e75d43a946b9b6a238aaa360ec3d84dbb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619626"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331944"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Udostępnianie i katalogowanie nowych dzierżawców w aplikacji SaaS przy użyciu wielodostępnego podzielonej na fragmenty Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -115,7 +115,7 @@ Dane dzierżawy są następnie inicjowane i zarejestrowane na mapie fragmentu wy
 
 ## <a name="tutorial-begins"></a>Początek samouczka
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Udostępnianie dzierżawy w bazie danych z wieloma dzierżawcami
@@ -150,7 +150,7 @@ Poniżej przedstawiono najważniejsze elementy przepływu pracy aprowizacji, kt�
 - **Dodaj nazwę dzierżawy do tabeli rozszerzeń wykazu**: nazwa miejsca jest dodawana do tabeli dzierżawców w katalogu.  To dodanie pokazuje, w jaki sposób baza danych wykazu może zostać rozszerzona w celu obsługi dodatkowych danych specyficznych dla aplikacji.
 - **Otwórz stronę zdarzeń dla nowej dzierżawy**: Strona zdarzeń *Bushwillow Blues* zostanie otwarta w przeglądarce.
 
-   ![zdarzenia](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![Zrzut ekranu przedstawiający stronę zdarzeń dla nowej dzierżawy.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>Kroki debugera
 
@@ -163,7 +163,7 @@ Aby zrozumieć, w jaki sposób aplikacja Wingtip implementuje nowe udostępniani
 
 2. Dodaj punkt przerwania, umieszczając kursor w dowolnym miejscu w wierszu 38, wiersz o następującej treści: *New-dzierżawca*, a następnie naciśnij klawisz **F9**.
 
-   ![punkt przerwania](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
+   ![Zrzut ekranu, który podświetla linię obejmującą nową dzierżawę.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
 3. Uruchom skrypt, naciskając klawisz **F5**.
 

@@ -43,6 +43,12 @@
     - name: Zarządzanie ładem tagów
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: Implementowanie zasad platformy Azure jako kodu w usłudze GitHub
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./tutorials/policy-as-code-github.md
+    - name: 'Learn: Sterowanie zasobami i wykonywanie ich inspekcji za pomocą usługi Azure Policy'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
 - name: Samples
   items:
     - name: Indeks
@@ -113,7 +119,7 @@
     - name: Zgodność z przepisami
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
-    - name: Projektowanie przepływów pracy typu zasady jako kod
+    - name: Projektowanie przepływów pracy typu „zasady platformy Azure jako kod”
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Integracja z platformą Kubernetes

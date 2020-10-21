@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: b25cac502a4e9a0cc5582134cb9601b75672ffd1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 159f4b2ea0cafb0b2c883cde76ddce7ddd3f1fc6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168503"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317570"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -863,7 +863,7 @@ Jeśli opcja [podstawowa](../active-directory-b2c/secure-rest-api.md) jest dost�
 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Tak | Podstawowy | Typ uwierzytelniania do użycia |
+| **Authentication** | `type` | Tak | Podstawowa | Typ uwierzytelniania do użycia |
 | **Nazwa użytkownika** | `username` | Tak | <*Nazwa użytkownika*>| Nazwa użytkownika służąca do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 | **Password** (Hasło) | `password` | Tak | <*hasło*> | Hasło do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 ||||||
@@ -1065,7 +1065,7 @@ Azure Logic Apps w [Azure Government](../azure-government/documentation-governme
 
   * [Plany Azure App Service](../app-service/overview-hosting-plans.md)
   * [Opcje sieciowe usługi Azure Functions](../azure-functions/functions-networking-options.md)
-  * [Dedykowane hosty platformy Azure dla maszyn wirtualnych](../virtual-machines/windows/dedicated-hosts.md)
+  * [Dedykowane hosty platformy Azure dla maszyn wirtualnych](../virtual-machines/dedicated-hosts.md)
   * [Izolacja maszyny wirtualnej na platformie Azure](../virtual-machines/isolation.md)
   * [Wdrażanie dedykowanych usług platformy Azure w sieciach wirtualnych](../virtual-network/virtual-network-for-azure-services.md)
 

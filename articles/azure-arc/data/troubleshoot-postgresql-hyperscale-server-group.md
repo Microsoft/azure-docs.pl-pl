@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570005"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320212"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Rozwiązywanie problemów z grupami serwerów PostgreSQL
 W tym artykule opisano niektóre techniki, których można użyć do rozwiązywania problemów z grupą serwerów. Oprócz tego artykułu warto zapoznać się z tematem jak używać [Kibana](monitor-grafana-kibana.md) do wyszukiwania dzienników lub używania [Grafana](monitor-grafana-kibana.md) do wizualizacji metryk dotyczących grupy serwerów. 
@@ -51,13 +51,13 @@ Na przykład Rozwiązywanie problemów z grupą serwerów PostgreSQL w ramach sk
 
 ### <a name="install-tools"></a>Instalowanie narzędzi
 
-Zainstaluj Azure Data Studio `kubectl` i `azdata` na komputerze klienckim, którego używasz do uruchamiania notesu w programie Azure Data Studio. Aby to zrobić, postępuj zgodnie z instrukcjami podanymi w tematach [Instalowanie narzędzi klienckich](install-client-tools.md) .
+Zainstaluj Azure Data Studio `kubectl` i [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] na komputerze klienckim, którego używasz do uruchamiania notesu w programie Azure Data Studio. Aby to zrobić, postępuj zgodnie z instrukcjami podanymi w tematach [Instalowanie narzędzi klienckich](install-client-tools.md) .
 
 ### <a name="update-the-path-environment-variable"></a>Aktualizowanie zmiennej środowiskowej PATH
 
 Upewnij się, że te narzędzia mogą być wywoływane z dowolnego miejsca na tej maszynie klienckiej. Na przykład na komputerze klienckim z systemem Windows zaktualizuj zmienną środowiskową PATH systemowej i Dodaj folder, w którym zainstalowano polecenia kubectl.
 
-### <a name="sign-in-with-azdata"></a>Zaloguj się przy użyciu `azdata`
+### <a name="sign-in-with-azure-data-cli-azdata"></a>Zaloguj się przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 Przed uruchomieniem Azure Data Studio Zaloguj się do kontrolera danych ARC z tego komputera klienckiego. W tym celu należy uruchomić polecenie takie jak:
 

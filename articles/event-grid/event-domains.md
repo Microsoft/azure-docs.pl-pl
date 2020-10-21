@@ -3,12 +3,12 @@ title: Domeny zdarzeń w Azure Event Grid
 description: W tym artykule opisano, jak używać domen zdarzeń do zarządzania przepływem zdarzeń niestandardowych do różnych organizacji, klientów i aplikacji branżowych.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 02529ba770e636021cf9cec4ed555247e1c63d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86114367"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328831"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informacje o domenach zdarzeń związanych z zarządzaniem Event Grid tematy
 
@@ -37,13 +37,13 @@ Zapewnia również pojedynczy punkt końcowy, w którym można opublikować wszy
 
 ## <a name="access-management"></a>Zarządzanie dostępem
 
-W przypadku domeny uzyskujesz szczegółowe uprawnienia do autoryzacji i kontroli uwierzytelniania poszczególnych tematów za pośrednictwem kontroli dostępu opartej na rolach (RBAC) na platformie Azure. Za pomocą tych ról można ograniczyć dzierżawy w aplikacji tylko do tematów, do których mają być udzielane dostęp.
+W przypadku domeny uzyskujesz szczegółowe uprawnienia do autoryzacji i kontroli uwierzytelniania poszczególnych tematów za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Za pomocą tych ról można ograniczyć dzierżawy w aplikacji tylko do tematów, do których mają być udzielane dostęp.
 
-RBAC w domenach zdarzeń działa tak samo jak [zarządzana kontrola dostępu](security-authorization.md) działa w pozostałej części Event Grid i na platformie Azure. Za pomocą RBAC można tworzyć i wymuszać niestandardowe definicje ról w domenach zdarzeń.
+Usługa Azure RBAC w domenach zdarzeń działa tak samo jak [zarządzana kontrola dostępu](security-authorization.md) działa w pozostałej części Event Grid i na platformie Azure. Korzystając z usługi Azure RBAC, można tworzyć i wymuszać niestandardowe definicje ról w domenach zdarzeń.
 
 ### <a name="built-in-roles"></a>Wbudowane role
 
-Event Grid ma dwie wbudowane definicje ról, które ułatwiają pracę z domenami zdarzeń. Role te są **EventGrid EventSubscription współautor (wersja zapoznawcza)** i **EventGrid EventSubscription Reader (wersja zapoznawcza**). Te role można przypisać do użytkowników, którzy muszą subskrybować tematy w domenie zdarzeń. Zakres przypisania roli należy określać tylko w temacie, do którego użytkownicy muszą subskrybować.
+Event Grid ma dwie wbudowane definicje ról umożliwiające łatwiejsze korzystanie z domen zdarzeń przez funkcję RBAC platformy Azure. Role te są **EventGrid EventSubscription współautor (wersja zapoznawcza)** i **EventGrid EventSubscription Reader (wersja zapoznawcza**). Te role można przypisać do użytkowników, którzy muszą subskrybować tematy w domenie zdarzeń. Zakres przypisania roli należy określać tylko w temacie, do którego użytkownicy muszą subskrybować.
 
 Informacje o tych rolach znajdują się w temacie [role wbudowane dla Event Grid](security-authorization.md#built-in-roles).
 

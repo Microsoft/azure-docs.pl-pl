@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 09/29/2020
-ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450135"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330374"
 ---
 # <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python
 
@@ -120,9 +120,47 @@ Moduł wykonywania skryptu języka Python zawiera przykładowy kod w języku Pyt
 
     ![Wykonaj mapę wejściową języka Python](media/module/python-module.png)
 
-4. Aby uwzględnić nowe pakiety lub kod w języku Python, należy dodać spakowany plik zawierający te zasoby niestandardowe w **pakiecie skryptu**. Dane wejściowe do **pakietu skryptu** muszą być plikiem skompresowanym przekazanym do obszaru roboczego jako zestaw danych typu plików. Zestaw danych można przekazać na stronie zasobów **zbiors** . Moduł DataSet można przeciągnąć z listy **MOJE ZESTAWY** danych w lewym drzewie modułów na stronie Tworzenie projektanta. 
+4. Aby uwzględnić nowe pakiety lub kod w języku Python, Połącz spakowany plik zawierający te zasoby niestandardowe z portem **pakietu skryptu** . Lub jeśli skrypt ma rozmiar większy niż 16 KB, użyj portu **pakietu skryptu** , aby uniknąć błędów, takich jak *CommandLine, przekracza limit 16597 znaków*. 
 
-    Podczas wykonywania potoku można użyć dowolnego pliku zawartego w przekazanym skompresowanym archiwum. Jeśli archiwum zawiera strukturę katalogów, struktura jest zachowywana, ale należy dołączać katalog o nazwie **src** do ścieżki.
+    
+    1. Pakiet skryptu i innych zasobów niestandardowych należy powiązać z plikiem zip.
+    1. Przekaż plik zip jako **zestaw danych pliku** do Studio. 
+    1. Przeciągnij moduł DataSet z listy *DataSets* w lewym okienku modułu na stronie Tworzenie projektanta. 
+    1. Połącz moduł DataSet z portem **pakietu** **wykonywania skryptu języka R** .
+    
+    Podczas wykonywania potoku można użyć dowolnego pliku zawartego w przekazanym skompresowanym archiwum. Jeśli archiwum zawiera strukturę katalogów, struktura jest zachowywana.
+    
+    Poniżej znajduje się przykład pakietu skryptu, który zawiera plik skryptu w języku Python i plik txt:
+      
+    > [!div class="mx-imgBorder"]
+    > ![Przykład pakietu skryptu](media/module/python-script-bundle.png)  
+
+    Poniżej znajduje się zawartość `my_script.py` :
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    Poniżej przedstawiono przykładowy kod pokazujący, jak używać plików w pakiecie skryptu:    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. W polu tekstowym **skrypt języka Python** wpisz lub wklej prawidłowy skrypt w języku Python.
 

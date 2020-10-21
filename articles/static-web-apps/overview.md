@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 086feb3aa7c9a38756fded58538eb22e094a5960
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9cd5136d69e4b14aa50a96d20f3187ce88db6e96
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906803"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320488"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Co to jest usługa Azure static Web Apps Preview?
 
@@ -44,7 +44,7 @@ W przypadku statycznych Web Apps zasoby statyczne są oddzielone od tradycyjnego
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Co możesz zrobić za pomocą Web Apps statycznej
 
-- Twórz **nowoczesne aplikacje sieci Web** za pomocą platform i bibliotek języka JavaScript, takich jak [kątowy](getting-started.md?tabs=angular), [reaguje](getting-started.md?tabs=react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react)lub [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) , aby tworzyć aplikacje webassembly przy użyciu zaplecza [Azure Functions](apis.md) .
+- Twórz **nowoczesne aplikacje sieci Web** za pomocą platform i bibliotek języka JavaScript, takich jak [kątowy](getting-started.md?tabs=angular), [reaguje](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react)lub [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) , aby tworzyć aplikacje webassembly przy użyciu zaplecza [Azure Functions](apis.md) .
 - **Publikuj Lokacje statyczne** przy użyciu struktur takich jak [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
 - **Wdrażaj aplikacje sieci Web** za pomocą platform, takich jak [Next.js](deploy-nextjs.md) i [Nuxt.js](deploy-nuxtjs.md).
 

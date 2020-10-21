@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217392"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314815"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Rozwiązywanie problemów z usługą Azure Load Balancer
 
@@ -157,6 +157,17 @@ Jeśli zdecydujesz się otworzyć zgłoszenie do pomocy technicznej, Zbierz poni
 - Użyj Psping z jednej z maszyn wirtualnych zaplecza w sieci wirtualnej, aby przetestować odpowiedź portu sondy (przykład: Psping 10.0.0.4:3389) i zapisać wyniki. 
 - Jeśli nie otrzymasz odpowiedzi w tych testach ping, uruchom jednoczesne śledzenie netsh na maszynie wirtualnej zaplecza i testowej maszynie wirtualnej podczas uruchamiania PsPing, a następnie Zatrzymaj śledzenie netsh. 
  
+## <a name="symptom-load-balancer-in-failed-state"></a>Objaw: Load Balancer w stanie niepowodzenia 
+
+**Rozwiązanie**
+
+- Po zidentyfikowaniu zasobu, który jest w stanie niepowodzenia, przejdź do [Azure Resource Explorer](https://resources.azure.com/) i zidentyfikuj zasób w tym stanie. 
+- Zaktualizuj przełącznik w prawym górnym rogu do odczytu/zapisu.
+- Kliknij pozycję Edytuj dla zasobu w stanie Niepowodzenie.
+- Kliknij przycisk "wykonane", a następnie pozycję Pobierz, aby upewnić się, że stan aprowizacji został zaktualizowany pomyślnie.
+- Następnie można kontynuować wykonywanie innych akcji, ponieważ stan zasobu jest niepowodzenie.
+
+
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli powyższe kroki nie rozwiążą problemu, Otwórz [bilet pomocy technicznej](https://azure.microsoft.com/support/options/).

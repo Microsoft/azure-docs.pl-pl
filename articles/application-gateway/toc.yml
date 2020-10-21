@@ -80,10 +80,10 @@
           href: redirect-overview.md
         - name: Ponowne zapisywanie nagłówków HTTP i adresów URL
           href: rewrite-http-headers-url.md
-        - name: Zabezpieczenia
-          items:
-            - name: Punkt odniesienia zabezpieczeń
-              href: security-baseline.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Protokół SSL
       items:
         - name: Kończenie żądań protokołu SSL i kompleksowa łączność SSL

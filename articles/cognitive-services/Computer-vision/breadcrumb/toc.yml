@@ -9,3 +9,14 @@
         - name: Analiza przestrzenna przetwarzania obrazów
           tocHref: /legal/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/Computer-vision/index
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Cognitive Services
+      tocHref: /azure/cognitive-services/
+      topicHref: /azure/cognitive-services/index
+      items:
+        - name: Przetwarzanie obrazów
+          tocHref: /azure/cognitive-services/
+          topicHref: /azure/cognitive-services/computer-vision/index

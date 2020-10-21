@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 16b9342f0374377349f338db7ce5c8389c77ea18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80e04ec06edc7169f0a4318c2c94de34dda9d96a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87425167"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331098"
 ---
 W tym kroku oceniasz, ile jest potrzebnych udziałów plików platformy Azure. Pojedyncze wystąpienie serwera systemu Windows (lub klaster) może synchronizować do 30 udziałów plików platformy Azure.
 
@@ -28,11 +28,15 @@ Jeśli Dział kadr (na przykład) ma łącznie 15 udziałów, można rozważyć 
 
 Azure File Sync obsługuje synchronizowanie katalogu głównego woluminu z udziałem plików platformy Azure. W przypadku synchronizacji folderu głównego wszystkie podfoldery i pliki będą przechodzić do tego samego udziału plików platformy Azure.
 
-Synchronizowanie katalogu głównego woluminu nie zawsze jest najlepszą odpowiedzią. Synchronizacja wielu lokalizacji ma zalety. Na przykład takie rozwiązanie pomaga zachować liczbę elementów mniejszą dla zakresu synchronizacji. Konfigurowanie Azure File Sync o mniejszej liczbie elementów nie jest samo przydatne w przypadku synchronizacji plików. Mniejsza liczba elementów korzysta również z następujących scenariuszy:
+Synchronizowanie katalogu głównego woluminu nie zawsze jest najlepszą odpowiedzią. Synchronizacja wielu lokalizacji ma zalety. Na przykład takie rozwiązanie pomaga zachować liczbę elementów mniejszą dla zakresu synchronizacji. Podczas testowania udziałów plików platformy Azure i Azure File Sync z 100 000 000 elementami (plikami i folderami) na udział najlepszym rozwiązaniem jest wypróbowanie i utrzymywanie liczby poniżej 20 lub 30 000 000 w jednym udziale. Konfigurowanie Azure File Sync o mniejszej liczbie elementów nie jest samo przydatne w przypadku synchronizacji plików. Mniejsza liczba elementów korzysta również z następujących scenariuszy:
 
-* Przywracanie po stronie chmury z migawki udziału plików platformy Azure można wykonać jako kopię zapasową.
+* Początkowe skanowanie zawartości w chmurze przed rozpoczęciem pracy z przestrzenią nazw może się pojawić na serwerze z włączonym Azure File Syncem.
+* Przywracanie po stronie chmury z migawki udziału plików platformy Azure będzie szybsze.
 * Odzyskiwanie awaryjne serwera lokalnego może znacznie przyspieszyć.
 * Zmiany wprowadzone bezpośrednio w udziale plików platformy Azure (synchronizację zewnętrzną) mogą być wykrywane i synchronizowane szybciej.
+
+> [!TIP]
+> Jeśli nie masz pewności, ile plików i folderów masz, możesz wyewidencjonować narzędzie TreeSize w programie dżem Software GmbH.
 
 #### <a name="a-structured-approach-to-a-deployment-map"></a>Podejście strukturalne do mapy wdrożenia
 
@@ -53,14 +57,12 @@ Aby podjąć decyzję o liczbie potrzebnych udziałów plików platformy Azure, 
 >
 > Takie grupowanie w ramach wspólnego elementu głównego nie ma wpływu na dostęp do danych. Listy ACL pozostają w stanie takim, w jakim się znajdują. Wystarczy dostosować wszystkie ścieżki udziałów (na przykład udziały SMB lub NFS), które mogą znajdować się w folderach na serwerze, które zostały teraz zmienione do wspólnego katalogu głównego. Nic nie zmienia.
 
-Innym ważnym aspektem Azure File Sync i zrównoważoną wydajnością i doświadczeniem jest zrozumienie czynników skalowania dla Azure File Sync wydajności. Oczywiście, gdy pliki są synchronizowane przez Internet, większe pliki przewyższają czas i przepustowość do synchronizacji.
-
 > [!IMPORTANT]
 > Najważniejszym wektorem skali dla Azure File Sync jest liczba elementów (plików i folderów), które muszą być synchronizowane.
 
 Azure File Sync obsługuje synchronizowanie maksymalnie 100 000 000 elementów z pojedynczym udziałem plików platformy Azure. Ten limit można przekroczyć i pokazuje tylko, co zespół Azure File Sync sprawdza w regularnych odstępach czasu.
 
-Najlepszym rozwiązaniem jest utrzymywanie liczby elementów na niski zakres synchronizacji. Jest to istotny czynnik, który należy wziąć pod uwagę w mapowaniu folderów do udziałów plików platformy Azure.
+Najlepszym rozwiązaniem jest utrzymywanie liczby elementów na niski zakres synchronizacji. Jest to istotny czynnik, który należy wziąć pod uwagę w mapowaniu folderów do udziałów plików platformy Azure. Podczas testowania udziałów plików platformy Azure i Azure File Sync z 100 000 000 elementami (plikami i folderami) na udział najlepszym rozwiązaniem jest wypróbowanie i utrzymywanie liczby poniżej 20 lub 30 000 000 w jednym udziale. Podziel przestrzeń nazw na wiele udziałów, jeśli zaczniesz przekroczyć te liczby. Można nadal grupować wiele udziałów Premium w tym samym udziale plików platformy Azure, o ile nie będziesz mniej więcej niż te liczby. Pozwoli to na zwiększenie pokoju.
 
 W danej sytuacji istnieje możliwość, że zestaw folderów można logicznie synchronizować z tym samym udziałem plików platformy Azure (przy użyciu nowego, wspólnego podejścia do folderu głównego wymienionego wcześniej). Jednak nadal warto ponownie zgrupować foldery, aby były synchronizowane z dwoma, a nie jednym udziałem plików platformy Azure. Tego podejścia można użyć, aby zachować liczbę plików i folderów na udziale plików, które są zrównoważone na serwerze.
 
@@ -73,7 +75,7 @@ W danej sytuacji istnieje możliwość, że zestaw folderów można logicznie sy
     :::column:::
         Aby określić liczbę potrzebnych udziałów plików platformy Azure, a które części istniejących danych zostaną zakończone w tym udziale plików platformy Azure, użyj kombinacji poprzednich koncepcji.
         
-        Utwórz tabelę, która rejestruje Twoje przemyślenia, więc możesz odwołać się do niej w następnym kroku. Jest to ważne, ponieważ można łatwo stracić szczegóły planu mapowania w przypadku aprowizacji wielu zasobów platformy Azure jednocześnie. Aby ułatwić tworzenie kompletnego mapowania, możesz pobrać plik programu Microsoft Excel jako szablon.
+        Utwórz tabelę, która rejestruje Twoje przemyślenia, więc możesz odwoływać się do niej w razie potrzeby. Jest to ważne, ponieważ można łatwo stracić szczegóły planu mapowania w przypadku aprowizacji wielu zasobów platformy Azure jednocześnie. Aby ułatwić tworzenie kompletnego mapowania, możesz pobrać plik programu Microsoft Excel jako szablon.
 
 [//]: # (KOD HTML jest wyświetlany jako jedyny sposób, aby wykonać Dodawanie zagnieżdżonej tabeli dwukolumnowej z funkcją analizy obrazów roboczych i tekstem/hiperłączem w tym samym wierszu.)
 
