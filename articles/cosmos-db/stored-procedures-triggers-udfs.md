@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82509673"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279903"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika
 
@@ -24,7 +24,7 @@ Pisanie procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytk
 
 * **Logika proceduralna:** JavaScript jako język programowania wysokiego poziomu, który zapewnia bogaty i przyjazny interfejs do wyrażania logiki biznesowej. Można wykonać sekwencję złożonych operacji na danych.
 
-* **Transakcje niepodzielne:** Azure Cosmos DB gwarantuje, że operacje bazy danych wykonywane w ramach jednej procedury składowanej lub wyzwalacza są niepodzielne. Ta funkcja niepodzielna umożliwia aplikacji łączenie powiązanych operacji w pojedynczą partię, dzięki czemu wszystkie operacje kończą się powodzeniem lub żadna z nich nie powiedzie się.
+* **Transakcje niepodzielne:** Operacje bazy danych Azure Cosmos DB, które są wykonywane w ramach jednej procedury składowanej lub wyzwalacza, są niepodzielne. Ta funkcja niepodzielna umożliwia aplikacji łączenie powiązanych operacji w pojedynczą partię, dzięki czemu wszystkie operacje kończą się powodzeniem lub żadna z nich nie powiedzie się.
 
 * **Wydajność:** Dane JSON są wewnętrznie mapowane na system typów języka JavaScript. To mapowanie pozwala na wiele optymalizacji, takich jak materializację z opóźnieniem dokumentów JSON w puli buforów i udostępnienie ich na żądanie do wykonywanego kodu. Istnieją inne korzyści dotyczące wydajności związane z dostarczaniem logiki biznesowej do bazy danych programu, w tym:
 
@@ -55,7 +55,7 @@ W Azure Cosmos DB środowisko uruchomieniowe JavaScript jest hostowane w aparaci
 
 ### <a name="scope-of-a-transaction"></a>Zakres transakcji
 
-Procedury składowane są skojarzone z kontenerem usługi Azure Cosmos, a wykonywanie procedury składowanej jest ograniczone do klucza partycji logicznej. Procedury składowane muszą zawierać wartość klucza partycji logicznej podczas wykonywania, która definiuje partycję logiczną dla zakresu transakcji. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [partycjonowania Azure Cosmos DB](partition-data.md) .
+Procedury składowane są skojarzone z kontenerem usługi Azure Cosmos, a wykonywanie procedury składowanej jest ograniczone do klucza partycji logicznej. Procedury składowane muszą zawierać wartość klucza partycji logicznej podczas wykonywania, która definiuje partycję logiczną dla zakresu transakcji. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [partycjonowania Azure Cosmos DB](partitioning-overview.md) .
 
 ### <a name="commit-and-rollback"></a>Zatwierdź i Wycofaj
 

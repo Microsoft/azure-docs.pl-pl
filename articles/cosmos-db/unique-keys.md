@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f5a867a00fa28dcd03842d02be16d88e3a7d2e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132657"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280993"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Ograniczenia unikatowego klucza w Azure Cosmos DB
 
-Klucze unikatowe umożliwiają dodanie warstwy integralności danych do kontenera usługi Azure Cosmos. Podczas tworzenia kontenera usługi Azure Cosmos można utworzyć unikatowe Zasady kluczy. Przy użyciu unikatowych kluczy upewnij się, że co najmniej jedna wartość w partycji logicznej jest unikatowa. Można również zagwarantować unikatowość dla każdego [klucza partycji](partition-data.md).
+Klucze unikatowe umożliwiają dodanie warstwy integralności danych do kontenera usługi Azure Cosmos. Podczas tworzenia kontenera usługi Azure Cosmos można utworzyć unikatowe Zasady kluczy. Przy użyciu unikatowych kluczy upewnij się, że co najmniej jedna wartość w partycji logicznej jest unikatowa. Można również zagwarantować unikatowość dla każdego [klucza partycji](partitioning-overview.md).
 
 Po utworzeniu kontenera z unikatowymi zasadami kluczy, utworzenie nowej lub aktualizacji istniejącego elementu, co spowodowało wystąpienie duplikatu w obrębie partycji logicznej, jest blokowane, zgodnie z ograniczeniami unikatowego klucza. Klucz partycji połączony z unikatowym kluczem gwarantuje unikatowość elementu w zakresie kontenera.
 
@@ -55,5 +55,5 @@ Klucze unikatowe można definiować tylko podczas tworzenia kontenera usługi Az
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat [partycji logicznych](partition-data.md)
+* Dowiedz się więcej na temat [partycji logicznych](partitioning-overview.md)
 * Zapoznaj [się z tematem Definiowanie unikatowych kluczy](how-to-define-unique-keys.md) podczas tworzenia kontenera

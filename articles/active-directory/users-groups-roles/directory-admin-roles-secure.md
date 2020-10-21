@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d845c1fbefd5c9a6119d089824eba6cc35228a3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7224f8fe1461727504a85df4a5fd95ba871258a8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055813"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308730"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -302,7 +302,7 @@ Jeśli Azure Active Directory jest podłączony do Active Directory lokalnych, p
 
 #### <a name="establish-integrated-monitoring"></a>Ustanów zintegrowane monitorowanie
 
-[Azure Security Center](../../security-center/security-center-intro.md):
+[Azure Security Center](../../security-center/security-center-introduction.md):
 
 * Zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami w ramach subskrypcji platformy Azure
 * Pomaga wykrywać zagrożenia, które w przeciwnym razie mogą być niezauważalne
@@ -364,7 +364,7 @@ Zabezpieczanie uprzywilejowanego dostępu jest ważne, aby ustanowić gwarancje 
 * Serwery
 * Aplikacje
 * Komputery
-* Devices
+* Urządzenia
 * Sieć szkieletowa chmury
 
 Podczas zarządzania kontami uprzywilejowanego dostępu zalecamy stosowanie następujących zasad:

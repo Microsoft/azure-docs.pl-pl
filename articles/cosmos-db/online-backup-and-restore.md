@@ -1,18 +1,18 @@
 ---
 title: Kopia zapasowa online i przywracanie danych na żądanie w Azure Cosmos DB
-description: W tym artykule opisano, jak działa automatyczne tworzenie kopii zapasowych, przywracanie danych na żądanie, sposób konfigurowania interwału i przechowywania kopii zapasowych w Azure Cosmos DB.
+description: W tym artykule opisano, jak działa funkcja automatycznego tworzenia kopii zapasowej, przywracanie danych na żądanie, sposób konfigurowania interwału i przechowywania kopii zapasowych, jak kontakty obsługujące przywracanie danych w Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 08/24/2020
+ms.topic: how-to
+ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0db34a615c9d92401e760c702feb0dbbf13ce01d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c506d66c101c2770cffb8cc8d105b2f841c539a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803878"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279481"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Kopia zapasowa online i przywracanie danych na żądanie w Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Azure Cosmos DB automatycznie pobiera kopie zapasowe danych w regularnych odstę
 
 W przypadku Azure Cosmos DB nie tylko Twoich danych, ale również kopie zapasowe danych są wysoce nadmiarowe i odporne na awarie regionalne. Poniższe kroki pokazują, jak Azure Cosmos DB wykonuje kopię zapasową danych:
 
-* Azure Cosmos DB automatycznie wykonuje pełną kopię zapasową bazy danych co 4 godziny i w dowolnym momencie, domyślnie są przechowywane tylko najnowsze kopie zapasowe. Jeśli domyślne interwały nie są wystarczające dla obciążeń, można zmienić interwał kopii zapasowych i okres przechowywania z Azure Portal. Konfigurację kopii zapasowej można zmienić podczas tworzenia konta usługi Azure Cosmos lub po nim. W przypadku usunięcia kontenera lub bazy danych Azure Cosmos DB zachowywania istniejących migawek danego kontenera lub bazy danych przez 30 dni.
+* Azure Cosmos DB automatycznie wykonuje pełną kopię zapasową bazy danych co 4 godziny i w dowolnym momencie, domyślnie są przechowywane tylko najnowsze kopie zapasowe. Jeśli domyślne interwały nie są wystarczające dla obciążeń, można zmienić interwał tworzenia kopii zapasowych i okres przechowywania z Azure Portal. Konfigurację kopii zapasowej można zmienić podczas tworzenia konta usługi Azure Cosmos lub po nim. W przypadku usunięcia kontenera lub bazy danych Azure Cosmos DB zachowywania istniejących migawek danego kontenera lub bazy danych przez 30 dni.
 
 * Azure Cosmos DB przechowuje te kopie zapasowe w usłudze Azure Blob Storage, a rzeczywiste dane znajdują się lokalnie w Azure Cosmos DB.
 
@@ -34,15 +34,7 @@ W przypadku Azure Cosmos DB nie tylko Twoich danych, ale również kopie zapasow
 
 * Kopie zapasowe są wykonywane bez wpływu na wydajność i dostępność aplikacji. Azure Cosmos DB wykonuje kopię zapasową danych w tle bez użycia dodatkowej, zainicjowanej przepływności (jednostek ru) ani wpływu na wydajność i dostępność bazy danych.
 
-## <a name="options-to-manage-your-own-backups"></a>Opcje zarządzania własnymi kopiami zapasowymi
-
-Za pomocą Azure Cosmos DB kont interfejsu API SQL można również zachować własne kopie zapasowe, korzystając z jednej z następujących metod:
-
-* Użyj [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) , aby okresowo przenosić dane do wybranego miejsca.
-
-* Użyj Azure Cosmos DB [źródła zmian](change-feed.md) , aby okresowo odczytywać dane dla pełnych kopii zapasowych lub przyrostowych zmian, i przechowywać je w magazynie.
-
-## <a name="modify-the-backup-interval-and-retention-period"></a>Modyfikowanie interwału i okresu przechowywania kopii zapasowych
+## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Modyfikowanie interwału i okresu przechowywania kopii zapasowych
 
 Azure Cosmos DB automatycznie wykonuje pełną kopię zapasową danych przez co 4 godziny i w dowolnym momencie są przechowywane najnowsze kopie zapasowe. Ta konfiguracja jest opcją domyślną i jest oferowana bez dodatkowych kosztów. Można zmienić domyślny interwał tworzenia kopii zapasowych i okres przechowywania podczas tworzenia konta usługi Azure Cosmos lub po utworzeniu konta. Konfiguracja kopii zapasowej jest ustawiana z poziomu konta usługi Azure Cosmos i należy ją skonfigurować na każdym koncie. Po skonfigurowaniu opcji tworzenia kopii zapasowej dla konta są one stosowane do wszystkich kontenerów w ramach tego konta. Obecnie opcje tworzenia kopii zapasowej można zmienić tylko w witrynie Azure Portal.
 
@@ -65,7 +57,32 @@ W przypadku konfigurowania opcji tworzenia kopii zapasowej podczas tworzenia kon
 
 :::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Okresowe pełne kopie zapasowe wszystkich jednostek Cosmos DB w usłudze GRS Azure Storage" border="true":::
 
-## <a name="restore-data-from-an-online-backup"></a>Przywracanie danych z kopii zapasowej online
+## <a name="request-data-restore-from-a-backup"></a>Żądanie przywracania danych z kopii zapasowej
+
+Jeśli przypadkowo usuniesz bazę danych lub kontener, możesz [utworzyć bilet pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) lub [wywoływać pomoc techniczną platformy Azure](https://azure.microsoft.com/support/options/) w celu przywrócenia danych z automatycznych kopii zapasowych online. Pomoc techniczna systemu Azure jest dostępna dla wybranych planów, takich jak **Standard**, **Developer**i plany wyższe niż te. Pomoc techniczna systemu Azure nie jest dostępna w planie **Basic** . Aby dowiedzieć się więcej o różnych planach pomocy technicznej, zobacz stronę [plany pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/) .
+
+Aby przywrócić określoną migawkę kopii zapasowej, Azure Cosmos DB wymaga, aby dane były dostępne na czas trwania cyklu tworzenia kopii zapasowej dla tej migawki.
+Przed zażądaniem przywrócenia należy mieć następujące szczegóły:
+
+* Przygotuj swój identyfikator subskrypcji.
+
+* W zależności od tego, jak dane zostały przypadkowo usunięte lub zmodyfikowane, należy przygotować się do posiadania dodatkowych informacji. Zaleca się, aby te informacje były dostępne z wyprzedzeniem, aby zminimalizować liczbę ponownych prób, które mogą być szkodliwe w pewnych przypadkach.
+
+* Jeśli całe konto Azure Cosmos DB zostanie usunięte, należy podać nazwę usuniętego konta. Jeśli utworzysz inne konto o tej samej nazwie co usunięte konto, udostępnij je zespołowi pomocy technicznej, ponieważ pomaga określić odpowiednie konto do wybrania. Zalecane jest, aby pliki były różne biletów pomocy technicznej dla każdego usuniętego konta, ponieważ minimalizuje to pomylenie stanu przywracania.
+
+* Jeśli co najmniej jedna baza danych została usunięta, należy podać konto usługi Azure Cosmos, a także nazwę bazy danych usługi Azure Cosmos i określić, czy istnieje nowa baza danych o takiej samej nazwie.
+
+* W przypadku usunięcia co najmniej jednego kontenera należy podać nazwę konta usługi Azure Cosmos, nazwy baz danych i nazwy kontenerów. I określ, czy kontener o tej samej nazwie już istnieje.
+
+* Jeśli przypadkowo usunięto lub uszkodzenie danych, należy skontaktować się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/) w ciągu 8 godzin, aby zespół Azure Cosmos DB mógł ułatwić przywrócenie danych z kopii zapasowych. **Przed utworzeniem żądania pomocy technicznej w celu przywrócenia danych pamiętaj o [zwiększeniu okresu przechowywania kopii zapasowych](#configure-backup-interval-retention) dla konta na co najmniej siedem dni. Najlepszym rozwiązaniem jest zwiększenie okresu przechowywania w ciągu 8 godzin od tego zdarzenia.** Dzięki temu zespół pomocy technicznej Azure Cosmos DB będzie miał wystarczająco dużo czasu na przywrócenie Twojego konta.
+
+Oprócz nazw kont usługi Azure Cosmos, nazw baz danych i nazw kontenerów należy określić punkt w czasie, do którego można przywrócić dane. Ważne jest, aby zapewnić możliwie precyzyjne określenie najlepszych dostępnych kopii zapasowych. **Ważne jest również, aby określić godzinę w formacie UTC.**
+
+Poniższy zrzut ekranu ilustruje sposób tworzenia żądania obsługi dla kontenera (kolekcji/wykresu/tabeli) w celu przywrócenia danych przy użyciu Azure Portal. Podaj dodatkowe szczegóły, takie jak typ danych, cel przywracania, czas, po usunięciu danych, aby pomóc nam określić priorytet żądania.
+
+:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Okresowe pełne kopie zapasowe wszystkich jednostek Cosmos DB w usłudze GRS Azure Storage":::
+
+## <a name="considerations-for-restoring-the-data-from-a-backup"></a>Zagadnienia dotyczące przywracania danych z kopii zapasowej
 
 Dane można przypadkowo usunąć lub zmodyfikować w jednym z następujących scenariuszy:  
 
@@ -85,38 +102,48 @@ Po przypadkowe usunięciu konta usługi Azure Cosmos można przywrócić dane do
 
 Po przypadkowej usunięciu bazy danych usługi Azure Cosmos można przywrócić całą bazę danych lub podzestaw kontenerów w tej bazie danych. Istnieje również możliwość wybrania określonych kontenerów między bazami danych i przywrócenia ich do nowego konta usługi Azure Cosmos.
 
-Po Przypadkowe usunięcie lub zmodyfikowanie jednego lub większej liczby elementów w kontenerze (przypadek uszkodzenia danych) należy określić czas przywracania. Czas jest ważny w przypadku uszkodzenia danych. Ponieważ kontener jest aktywny, kopia zapasowa jest nadal uruchomiona, więc jeśli czas oczekiwania przekracza okres przechowywania (wartość domyślna to osiem godzin), kopie zapasowe zostaną nadpisywane. **Aby zapobiec nadpisaniu kopii zapasowej, Zwiększ czas przechowywania kopii zapasowej dla konta na co najmniej siedem dni. Najlepszym rozwiązaniem jest zwiększenie okresu przechowywania w ciągu 8 godzin od uszkodzenia danych.**
+Po Przypadkowe usunięcie lub zmodyfikowanie jednego lub większej liczby elementów w kontenerze (przypadek uszkodzenia danych) należy określić czas przywracania. Czas jest ważny w przypadku uszkodzenia danych. Ponieważ kontener jest aktywny, kopia zapasowa jest nadal uruchomiona, więc jeśli czas oczekiwania przekracza okres przechowywania (wartość domyślna to osiem godzin), kopie zapasowe zostaną nadpisywane. Aby zapobiec nadpisaniu kopii zapasowej, Zwiększ czas przechowywania kopii zapasowej dla konta na co najmniej siedem dni. Najlepszym rozwiązaniem jest zwiększenie okresu przechowywania w ciągu 8 godzin od uszkodzenia danych.
 
 Jeśli przypadkowo usunięto lub uszkodzenie danych, należy skontaktować się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/) w ciągu 8 godzin, aby zespół Azure Cosmos DB mógł ułatwić przywrócenie danych z kopii zapasowych. Dzięki temu zespół pomocy technicznej Azure Cosmos DB będzie miał wystarczająco dużo czasu na przywrócenie Twojego konta.
 
 > [!NOTE]
 > Po przywróceniu danych nie wszystkie możliwości ani ustawienia źródłowe są przenoszone na przywrócone konto. Następujące ustawienia nie są przenoszone na nowe konto:
-
 > * Listy kontroli dostępu do sieci wirtualnej
 > * Procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika
 > * Ustawienia wieloregionu  
 
 Jeśli zainicjujesz przepływność na poziomie bazy danych, proces tworzenia kopii zapasowych i przywracania w tym przypadku odbywa się na całym poziomie bazy danych, a nie na poziomie poszczególnych kontenerów. W takich przypadkach nie można wybrać podzestawu kontenerów do przywrócenia.
 
-## <a name="migrate-data-to-the-original-account"></a>Migrowanie danych do oryginalnego konta
+## <a name="options-to-manage-your-own-backups"></a>Opcje zarządzania własnymi kopiami zapasowymi
 
-Głównym celem przywracania danych jest odzyskanie danych, które zostały przypadkowo usunięte lub zmodyfikowane. Dlatego zalecamy, aby najpierw sprawdzić zawartość odzyskanych danych, aby upewnić się, że jest to oczekiwane. Później można migrować dane z powrotem do konta głównego. Chociaż istnieje możliwość użycia przywróconego konta jako nowego aktywnego konta, nie jest to zalecana opcja, jeśli masz obciążenia produkcyjne.  
+Za pomocą Azure Cosmos DB kont interfejsu API SQL można również zachować własne kopie zapasowe, korzystając z jednej z następujących metod:
 
-Poniżej przedstawiono różne sposoby migrowania danych z powrotem do oryginalnego konta usługi Azure Cosmos:
+* Użyj [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) , aby okresowo przenosić dane do wybranego miejsca.
+
+* Użyj Azure Cosmos DB [źródła zmian](change-feed.md) , aby okresowo odczytywać dane dla pełnych kopii zapasowych lub przyrostowych zmian, i przechowywać je w magazynie.
+
+## <a name="post-restore-actions"></a>Akcje po przywróceniu
+
+Głównym celem przywracania danych jest odzyskanie danych, które zostały przypadkowo usunięte lub zmodyfikowane. Dlatego zalecamy, aby najpierw sprawdzić zawartość odzyskanych danych, aby upewnić się, że jest to oczekiwane. Jeśli wszystko wygląda dobrze, można przeprowadzić migrację danych z powrotem do konta głównego. Chociaż istnieje możliwość użycia przywróconego konta jako nowego aktywnego konta, nie jest to zalecana opcja, jeśli masz obciążenia produkcyjne. 
+
+Po przywróceniu danych otrzymasz powiadomienie o nazwie nowego konta (zwykle w formacie `<original-name>-restored1` ) i czasie, w którym konto zostało przywrócone. Przywrócone konto będzie miało taką samą przepływność, a zasady indeksowania i znajdują się w tym samym regionie co oryginalne konto. Użytkownik będący administratorem subskrypcji lub współadministratorem może zobaczyć przywrócone konto.
+
+### <a name="migrate-data-to-the-original-account"></a>Migrowanie danych do oryginalnego konta
+
+Poniżej przedstawiono różne sposoby migrowania danych z powrotem do oryginalnego konta:
 
 * Użyj [Narzędzia do migracji danych Azure Cosmos DB](import-data.md).
 * Użyj [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 * Użyj [źródła zmian](change-feed.md) w Azure Cosmos DB.
 * Można napisać własny kod niestandardowy.
 
-Pamiętaj o usunięciu przywróconych kont zaraz po przeprowadzeniu migracji danych, ponieważ będą one powodować naliczanie opłat.
+Zaleca się usunięcie kontenera lub bazy danych bezpośrednio po przeprowadzeniu migracji danych. Jeśli nie usuniesz przywróconych baz danych lub kontenerów, zostaną naliczone opłaty za jednostki żądań, magazyn i ruch wychodzący.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Następnie możesz dowiedzieć się, jak przywrócić dane z konta usługi Azure Cosmos lub dowiedzieć się, jak przeprowadzić migrację danych do konta usługi Azure Cosmos
 
 * Aby wykonać żądanie przywrócenia, skontaktuj się z pomocą techniczną platformy Azure, Utwórz [bilet z Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-* [Jak przywrócić dane z konta usługi Azure Cosmos](how-to-backup-and-restore.md)
 * Aby przenieść dane do Azure Cosmos DB, [Użyj kanału informacyjnego zmiany Cosmos DB](change-feed.md) .
 * Przenieś dane do Azure Cosmos DB [za pomocą Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) .
 

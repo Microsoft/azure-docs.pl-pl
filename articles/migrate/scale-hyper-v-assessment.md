@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 393c58334f4a1bead7e089d0a64b2d165b67401d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70279437"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317173"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Ocenianie dużej liczby maszyn wirtualnych funkcji Hyper-V na potrzeby migracji na platformę Azure
 
@@ -30,7 +30,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 
 > [!NOTE]
-> Jeśli chcesz wypróbować ocenę koncepcji, aby ocenić kilka maszyn wirtualnych przed oceną na dużą skalę, postępuj zgodnie z naszymi [seriami samouczków](tutorial-prepare-hyper-v.md)
+> Jeśli chcesz wypróbować ocenę koncepcji, aby ocenić kilka maszyn wirtualnych przed oceną na dużą skalę, postępuj zgodnie z naszymi [seriami samouczków](./tutorial-discover-hyper-v.md)
 
 ## <a name="plan-for-assessment"></a>Planowanie oceny
 
@@ -66,7 +66,7 @@ Przygotuj platformę Azure i funkcję Hyper-V do oceny serwera.
 2. Skonfiguruj uprawnienia dla Twojego konta platformy Azure, aby móc korzystać z Azure Migrate
 3. Przygotowywanie hostów i maszyn wirtualnych funkcji Hyper-V
 
-Aby skonfigurować te ustawienia, postępuj zgodnie z instrukcjami podanymi w [tym samouczku](tutorial-prepare-hyper-v.md) .
+Aby skonfigurować te ustawienia, postępuj zgodnie z instrukcjami podanymi w [tym samouczku](./tutorial-discover-hyper-v.md) .
 
 ## <a name="create-a-project"></a>Tworzenie projektu
 

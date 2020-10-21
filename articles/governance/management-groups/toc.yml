@@ -28,6 +28,11 @@
     - name: Tworzenie grupy zarządzania — REST
       displayName: hierarchy
       href: ./create-management-group-rest-api.md
+- name: Samouczki
+  items:
+    - name: 'Learn: Tworzenie strategii utrzymania ładu dotyczącego subskrypcji'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/3-create-subscription-governance-strategy
 - name: Przewodniki z instrukcjami
   expanded: true
   items:

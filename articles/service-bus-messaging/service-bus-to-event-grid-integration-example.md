@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6f64c8155724a1306f5074a9164bcf97391dfbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7f177b8738fdaf8d0975877d9af094b6f0a49a9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000349"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328151"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Samouczek: reagowanie na zdarzenia Azure Service Bus odbierane za pośrednictwem Azure Event Grid przy użyciu Azure Functions i Azure Logic Apps
 W tym samouczku dowiesz się, jak odpowiedzieć na zdarzenia Azure Service Bus, które są odbierane za pośrednictwem Azure Event Grid przy użyciu Azure Functions i Azure Logic Apps. 
@@ -96,7 +96,7 @@ Połącz aplikację logiki z Azure Service Bus i Azure Event Grid, wykonując na
         ![Projektant Logic Apps — wybierz klucz dostępu współdzielonego](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
     8. Wybierz swój **temat** i **subskrypcję**. 
     
-        ![Projektant Logic Apps — wybierz Service Bus temat i subskrypcję](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+        ![Zrzut ekranu pokazujący, gdzie wybierasz swój temat i subskrypcję.](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
 7. Wybierz pozycję **+ nowy krok**i wykonaj następujące czynności: 
     1. Wybierz pozycję **Service Bus**.
     2. Wybierz pozycję **Zakończ wiadomość w subskrypcji tematu** z listy akcji. 
@@ -326,7 +326,7 @@ W tej sekcji dowiesz się, jak odbierać i przetwarzać komunikaty po odebraniu 
 5. Na stronie **Publikowanie**wykonaj następujące czynności: 
     1. Wybierz pozycję **Rozpocznij** na stronie **Publikowanie** 
     2. Dla **elementu docelowego**wybierz pozycję **Importuj profil**. 
-    3. Wybierz opcję **Dalej**. 
+    3. Wybierz pozycję **Dalej**. 
 
         ![Visual Studio — przycisk importowania profilu](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
 7. Wybierz pobrany wcześniej **plik profilu publikowania** i wybierz pozycję **Zakończ**.

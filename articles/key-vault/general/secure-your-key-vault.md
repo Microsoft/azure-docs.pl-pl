@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b04bd6975a2ba8824124c769e66da1e4ebe7534a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019889"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309936"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
 
@@ -130,7 +130,7 @@ Aby uzyskać więcej informacji na temat zapory Key Vault i sieci wirtualnych, z
 
 ## <a name="private-endpoint-connection"></a>Połączenie prywatnego punktu końcowego
 
-W przypadku potrzeby całkowitego blokowania Key Vault narażenie na publiczną można użyć prywatnego punktu końcowego platformy Azure. Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, co skutecznie doprowadza usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, połączenia ExpressRoute lub sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można nawiązać połączenie z wystąpieniem zasobu platformy Azure, zapewniając najwyższy poziom szczegółowości kontroli dostępu.
+W przypadku potrzeby całkowitego blokowania Key Vault narażenie na publiczną można użyć [prywatnego punktu końcowego platformy Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) . Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, co skutecznie doprowadza usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, połączenia ExpressRoute lub sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można nawiązać połączenie z wystąpieniem zasobu platformy Azure, zapewniając najwyższy poziom szczegółowości kontroli dostępu.
 
 Typowe scenariusze korzystania z prywatnego linku dla usług platformy Azure:
 
@@ -199,11 +199,11 @@ Nasz przykład opisuje prosty scenariusz. Scenariusze życiowe mogą być bardzi
 
 ## <a name="resources"></a>Zasoby
 
-[Informacje o Azure Key Vault](overview.md) 
- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 
- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) 
- Kontrola [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 
- platformy Azure [Link prywatny](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [Informacje o usłudze Azure Key Vault](overview.md)
+- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+- [Kontrola dostępu na podstawie ról platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Link prywatny](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 6831cb3f39c25eb69d16300156f456980cf57fa0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88604837"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282054"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Jednostki żądania w usłudze Azure Cosmos DB
 
@@ -38,42 +38,50 @@ Typ używanego konta usługi Azure Cosmos określa sposób, w jaki wykorzystano 
 
 Podczas szacowania liczby jednostek ru zużywanych przez obciążenie należy wziąć pod uwagę następujące czynniki:
 
-* **Rozmiar elementu**: liczba jednostek RU do odczytu lub zapisu elementu zwiększa się wraz ze wzrostem rozmiaru elementu.
+- **Rozmiar elementu**: liczba jednostek RU do odczytu lub zapisu elementu zwiększa się wraz ze wzrostem rozmiaru elementu.
 
-* **Indeksowanie elementów**: domyślnie każdy element jest automatycznie indeksowany. Jeśli wyłączysz indeksowanie dla niektórych elementów w kontenerze, zostanie użytych mniej jednostek RU.
+- **Indeksowanie elementów**: domyślnie każdy element jest automatycznie indeksowany. Jeśli wyłączysz indeksowanie dla niektórych elementów w kontenerze, zostanie użytych mniej jednostek RU.
 
-* **Liczba właściwości elementów**: przy założeniu, że indeksowanie domyślne jest włączone dla wszystkich właściwości, liczba jednostek RU do zapisu elementu zwiększa się wraz ze wzrostem liczby właściwości elementu.
+- **Liczba właściwości elementów**: przy założeniu, że indeksowanie domyślne jest włączone dla wszystkich właściwości, liczba jednostek RU do zapisu elementu zwiększa się wraz ze wzrostem liczby właściwości elementu.
 
-* **Właściwości indeksowane**: zasady indeksowania w każdym kontenerze określają właściwości, które są indeksowane domyślnie. Aby zmniejszyć zużycie jednostek RU operacji zapisu, ogranicz liczbę indeksowanych właściwości.
+- **Właściwości indeksowane**: zasady indeksowania w każdym kontenerze określają właściwości, które są indeksowane domyślnie. Aby zmniejszyć zużycie jednostek RU operacji zapisu, ogranicz liczbę indeksowanych właściwości.
 
-* **Spójność danych**: mocne i ograniczone nieodświeżone poziomy spójności zużywają około dwa razy więcej jednostek ru podczas wykonywania operacji odczytu w porównaniu z innymi obniżonymi poziomami spójności.
+- **Spójność danych**: mocne i ograniczone nieodświeżone poziomy spójności zużywają około dwa razy więcej jednostek ru podczas wykonywania operacji odczytu w porównaniu z innymi obniżonymi poziomami spójności.
 
-* **Typ odczytu**: punkt odczytuje koszt znacznie mniej jednostek ru niż zapytania.
+- **Typ odczytu**: punkt odczytuje koszt znacznie mniej jednostek ru niż zapytania.
 
-* **Wzorce zapytań**: złożoność zapytania ma wpływ na liczbę jednostek RU używanych w ramach operacji. Czynniki mające wpływ na koszt operacji zapytań obejmują następujące elementu: 
-    
-    - Liczba wyników zapytań
-    - Liczba predykatów
-    - Rodzaj predykatów
-    - Liczba funkcji zdefiniowanych przez użytkownika
-    - Rozmiar danych źródłowych
-    - Rozmiar zestawu wyników
-    - Projekcje
+- **Wzorce zapytań**: złożoność zapytania ma wpływ na liczbę jednostek RU używanych w ramach operacji. Czynniki mające wpływ na koszt operacji zapytań obejmują następujące elementu: 
 
-  Usługa Azure Cosmos DB pozwala zagwarantować, że to samo zapytanie dotyczące tych samych danych zawsze kosztuje tyle samo jednostek RU w przypadku wielokrotnego wykonania.
+  - Liczba wyników zapytań
+  - Liczba predykatów
+  - Rodzaj predykatów
+  - Liczba funkcji zdefiniowanych przez użytkownika
+  - Rozmiar danych źródłowych
+  - Rozmiar zestawu wyników
+  - Projekcje
 
-* **Użycie skryptu**: podobnie jak w przypadku kwerend, procedury składowane i wyzwalacze wykorzystują jednostek RU w oparciu o złożoność wykonywanych operacji. Podczas opracowywania aplikacji sprawdź [nagłówek opłaty za żądanie](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query), aby lepiej zrozumieć, ile jednostek RU używa każda operacja.
+  Te same zapytania dotyczące tych samych danych będą zawsze kosztować tę samą liczbę jednostek ru przy powtarzanych wykonaniach.
+
+- **Użycie skryptu**: podobnie jak w przypadku kwerend, procedury składowane i wyzwalacze wykorzystują jednostek RU w oparciu o złożoność wykonywanych operacji. Podczas opracowywania aplikacji sprawdź [nagłówek opłaty za żądanie](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query), aby lepiej zrozumieć, ile jednostek RU używa każda operacja.
+
+## <a name="request-units-and-multiple-regions"></a>Jednostki żądań i wiele regionów
+
+Jeśli zainicjujesz jednostek ru *"r"* w kontenerze Cosmos (lub bazie danych), Cosmos DB zapewnia dostępność *"r"* jednostek RU w *każdym* regionie skojarzonym z Twoim kontem Cosmos. Nie można wybiórczo przypisywać jednostek ru do określonego regionu. Obsługa jednostek RU w kontenerze Cosmos (lub bazie danych) jest obsługiwana we wszystkich regionach skojarzonych z Twoim kontem Cosmos.
+
+Przy założeniu, że kontener Cosmos jest skonfigurowany przy użyciu *"R"* jednostek ru, a istnieją regiony *"N"* skojarzone z kontem Cosmos, Łączna liczba jednostek ru dostępnych globalnie w kontenerze = *R* x *N*.
+
+Wybór [modelu spójności](consistency-levels.md) wpływa również na przepływność. Możesz uzyskać około 2x przepływność odczytu dla bardziej swobodnych poziomów spójności (np. *sesji*, *spójnego prefiksu* i spójności *ostatecznej* ) w porównaniu z silniejszymi poziomami spójności (np. *z ograniczeniami nieodświeżonymi* lub *silną* spójnością).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [tym, jak zainicjować przepływność w kontenerach i bazach danych usługi Azure Cosmos](set-throughput.md).
-* Dowiedz się więcej o [Azure Cosmos DB](serverless.md).
-* Dowiedz się więcej na temat [partycji logicznych](partition-data.md).
-* Dowiedz się więcej o tym, jak [globalnie skalować zainicjowaną przepływność](scaling-throughput.md).
-* Dowiedz się, jak [zainicjować przepływność na kontenerze usługi Azure Cosmos](how-to-provision-container-throughput.md).
-* Dowiedz się, jak [udostępnić przepływność w bazie danych Azure Cosmos](how-to-provision-database-throughput.md).
-* Dowiedz się [, jak znaleźć opłatę jednostkową żądania dla operacji](find-request-unit-charge.md).
-* Informacje na temat [optymalizowania alokowanego kosztu przepływności w Azure Cosmos DB](optimize-cost-throughput.md).
-* Dowiedz się [, jak zoptymalizować operacje odczytu i zapisu w Azure Cosmos DB](optimize-cost-reads-writes.md).
-* Dowiedz się, jak [zoptymalizować koszt zapytań w Azure Cosmos DB](optimize-cost-queries.md).
-* Dowiedz się [, jak używać metryk do monitorowania przepływności](use-metrics.md).
+- Dowiedz się więcej o [tym, jak zainicjować przepływność w kontenerach i bazach danych usługi Azure Cosmos](set-throughput.md).
+- Dowiedz się więcej o [Azure Cosmos DB](serverless.md).
+- Dowiedz się więcej na temat [partycji logicznych](partition-data.md).
+- Dowiedz się więcej o tym, jak [globalnie skalować zainicjowaną przepływność](scaling-throughput.md).
+- Dowiedz się, jak [zainicjować przepływność na kontenerze usługi Azure Cosmos](how-to-provision-container-throughput.md).
+- Dowiedz się, jak [udostępnić przepływność w bazie danych Azure Cosmos](how-to-provision-database-throughput.md).
+- Dowiedz się [, jak znaleźć opłatę jednostkową żądania dla operacji](find-request-unit-charge.md).
+- Informacje na temat [optymalizowania alokowanego kosztu przepływności w Azure Cosmos DB](optimize-cost-throughput.md).
+- Dowiedz się [, jak zoptymalizować operacje odczytu i zapisu w Azure Cosmos DB](optimize-cost-reads-writes.md).
+- Dowiedz się, jak [zoptymalizować koszt zapytań w Azure Cosmos DB](optimize-cost-queries.md).
+- Dowiedz się [, jak używać metryk do monitorowania przepływności](use-metrics.md).

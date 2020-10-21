@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008696"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280517"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Tuning query performance with Azure Cosmos DB (Dostosowywanie wydajności zapytań w usłudze Azure Cosmos DB)
 
@@ -26,7 +26,7 @@ Azure Cosmos DB udostępnia [interfejs API SQL do wykonywania zapytań dotycząc
 
 ## <a name="about-sql-query-execution"></a>Informacje o wykonywaniu zapytań SQL
 
-W Azure Cosmos DB dane są przechowywane w kontenerach, które mogą rosnąć do dowolnego [rozmiaru magazynu lub przepływności żądania](partition-data.md). Azure Cosmos DB bezproblemowo skalować dane między partycjami fizycznymi w ramach okładek, aby obsłużyć wzrost ilości danych lub zwiększyć przepływność. Zapytania SQL można wydać do dowolnego kontenera przy użyciu interfejsu API REST lub jednego z obsługiwanych [zestawów SDK SQL](sql-api-sdk-dotnet.md).
+W Azure Cosmos DB dane są przechowywane w kontenerach, które mogą rosnąć do dowolnego [rozmiaru magazynu lub przepływności żądania](partitioning-overview.md). Azure Cosmos DB bezproblemowo skalować dane między partycjami fizycznymi w ramach okładek, aby obsłużyć wzrost ilości danych lub zwiększyć przepływność. Zapytania SQL można wydać do dowolnego kontenera przy użyciu interfejsu API REST lub jednego z obsługiwanych [zestawów SDK SQL](sql-api-sdk-dotnet.md).
 
 Krótkie omówienie partycjonowania: definiujesz klucz partycji, taki jak "miasto", który określa sposób podziału danych między partycjami fizycznymi. Dane należące do jednego klucza partycji (na przykład "miasto" = = "Seattle") są przechowywane w partycji fizycznej, ale zazwyczaj pojedynczej partycji fizycznej ma wiele kluczy partycji. Gdy partycja osiągnie rozmiar magazynu, usługa bezproblemowo dzieli partycję na dwie nowe partycje i dzieli klucz partycji równomiernie między te partycje. Ponieważ partycje są przejściowe, interfejsy API używają abstrakcji zakresu kluczy partycji, który oznacza zakresy skrótów kluczy partycji. 
 
@@ -163,7 +163,7 @@ W usłudze Azure Cosmos DB zapytania są przeważnie wykonywane w kolejności od
 
 Zapytania wymagające zapoznania się ze wszystkimi partycjami wymagają większego opóźnienia i mogą zużywać wyższe jednostek ru. Ponieważ każda partycja ma Automatyczne indeksowanie wszystkich właściwości, zapytanie może być obsługiwane efektywnie z indeksu w tym przypadku. Można wykonywać zapytania, które dzielą partycje szybciej, przy użyciu opcji równoległości.
 
-Aby dowiedzieć się więcej na temat partycjonowania i kluczy partycji, zobacz [partycjonowanie w Azure Cosmos DB](partition-data.md).
+Aby dowiedzieć się więcej na temat partycjonowania i kluczy partycji, zobacz [partycjonowanie w Azure Cosmos DB](partitioning-overview.md).
 
 ### <a name="sdk-and-query-options"></a>Opcje zestawu SDK i zapytania
 Zobacz [porady dotyczące wydajności](performance-tips.md) i [testy wydajnościowe](performance-testing.md) , aby uzyskać najlepszą wydajność po stronie klienta z Azure Cosmos DB. Obejmuje to korzystanie z najnowszych zestawów SDK, Konfigurowanie konfiguracji specyficznych dla platformy, takich jak domyślna liczba połączeń, częstotliwość wyrzucania elementów bezużytecznych i używanie uproszczonych opcji łączności, takich jak Direct/TCP. 

@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Event Hubs platformy Azure
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Event Hubs platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: event-hubs
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 6455e4e207a0a0028b97cf93f3572a028331e638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab5384793347f22141d36aca70e76284fdc7f26b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825993"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317696"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-hubs"></a>Azure Policy kontroli zgodności z przepisami dla Event Hubs platformy Azure
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f8a8f76ce7d46c0a44dd86ef1490c1c74a7992a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f45a1481661aa350815560d795ab7411f99545
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979510"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317847"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Typowe scenariusze zarządzania prawami w usłudze Azure AD
 
@@ -154,7 +154,7 @@ Istnieje kilka sposobów konfigurowania zarządzania prawami dla organizacji. Je
 
 ## <a name="programmatic-administration"></a>Administracja programowa
 
-Można także zarządzać pakietami dostępu, katalogami, zasadami, żądaniami i przypisaniami przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać [interfejs API zarządzania uprawnieniami](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta ).
+Można także zarządzać pakietami dostępu, katalogami, zasadami, żądaniami i przypisaniami przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać [interfejs API zarządzania uprawnieniami](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Następne kroki
 

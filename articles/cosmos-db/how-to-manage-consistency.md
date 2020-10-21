@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e43f2e9897293cb4d5bc25b6ef95252a28628401
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330591"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279604"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Zarządzanie poziomami spójności w usłudze Azure Cosmos DB
 
@@ -24,7 +24,7 @@ W tym artykule wyjaśniono, jak zarządzać poziomami spójności w usłudze Azu
 
 [Domyślny poziom spójności](consistency-levels.md) jest poziomem spójności używanym domyślnie przez klientów.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby wyświetlić lub zmodyfikować domyślny poziom spójności, zaloguj się do witryny Azure Portal. Znajdź konto usługi Azure Cosmos i Otwórz domyślne okienko **spójności** . Wybierz odpowiedni poziom spójności jako nowe ustawienie domyślne, a następnie wybierz pozycję **Zapisz**. Azure Portal udostępnia również wizualizację różnych poziomów spójności przy użyciu notatek muzycznych. 
 
@@ -95,7 +95,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -111,7 +111,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 ### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a> Zestawy SDK Java v2
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
 Async Java v2 SDK (Maven com. Microsoft. Azure:: Azure-cosmosdb)
 
@@ -196,7 +196,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -212,7 +212,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 ### <a name="java-v2-sdks"></a><a id="utilize-session-tokens-javav2"></a>Zestawy SDK Java v2
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
 Async Java v2 SDK (Maven com. Microsoft. Azure:: Azure-cosmosdb)
 
@@ -288,8 +288,9 @@ Jak ostateczna jest spójność ostateczna? W przypadku średniego przypadku mo�
 Dowiedz się więcej o zarządzaniu konfliktami danych lub przejdź do następnej kluczowej koncepcji w usłudze Azure Cosmos DB. Zobacz następujące artykuły:
 
 * [Poziomy spójności w Azure Cosmos DB](consistency-levels.md)
-* [Zarządzanie konfliktami między regionami](how-to-manage-conflicts.md)
 * [Partycjonowanie i dystrybucja danych](partition-data.md)
+* [Zarządzanie konfliktami między regionami](how-to-manage-conflicts.md)
+* [Partycjonowanie i dystrybucja danych](partitioning-overview.md)
 * [Założenia dotyczące spójności w nowoczesnych systemach rozproszonej bazy danych](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Wysoka dostępność](high-availability.md)
 * [Azure Cosmos DB umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

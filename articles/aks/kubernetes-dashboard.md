@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8df913234be1f3e07677520e41b699fe6d503204
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570823"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314501"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Dostęp do pulpitu nawigacyjnego sieci Web Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Aby uzyskać więcej informacji na temat pulpitu nawigacyjnego Kubernetes, zobac
  > * Począwszy od Kubernetes 1,19 w wersji zapoznawczej, AKS nie będzie już obsługiwał instalacji zarządzanego dodatku pulpitu nawigacyjnego polecenia. 
  > * Nie wpłynie to na istniejące klastry z włączonym dodatkiem. Użytkownicy będą nadal mogli ręcznie instalować pulpit nawigacyjny "open source" jako oprogramowanie zainstalowane przez użytkownika.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W krokach przedstawionych w tym dokumencie przyjęto założenie, że utworzono klaster AKS i nawiązano `kubectl` połączenie z klastrem. Jeśli musisz utworzyć klaster AKS, zobacz [Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart].
 
@@ -102,7 +102,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>Zaloguj się do pulpitu nawigacyjnego (Kubernetes 1.16 +)
 
 > [!IMPORTANT]
-> Począwszy od wersji [1.10.1 pulpitu nawigacyjnego Kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) lub Kubernetes v 1.16 + konto usługi "Kubernetes-Dashboard" nie może być już używane do pobierania zasobów ze względu na [poprawkę zabezpieczeń w tej wersji](https://github.com/kubernetes/dashboard/pull/3400). W związku z tym żądania bez informacji o uwierzytelnianiu zwracają nieautoryzowany błąd 401. Token okaziciela pobrany z konta usługi nadal może być używany jako przykład w tym [przykładzie pulpitu nawigacyjnego Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), ale ma to wpływ na przepływ logowania dodatku pulpitu nawigacyjnego w porównaniu ze starszymi wersjami.
+> Począwszy od wersji [1.10.1 pulpitu nawigacyjnego Kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) lub Kubernetes v 1.16 + konto usługi "Kubernetes-Dashboard" nie może być już używane do pobierania zasobów ze względu na [poprawkę zabezpieczeń w tej wersji](https://github.com/kubernetes/dashboard/pull/3400). W związku z tym żądania bez informacji o uwierzytelnianiu zwracają [nieautoryzowany błąd 401](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998). Token okaziciela pobrany z konta usługi nadal może być używany jako przykład w tym [przykładzie pulpitu nawigacyjnego Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), ale ma to wpływ na przepływ logowania dodatku pulpitu nawigacyjnego w porównaniu ze starszymi wersjami.
 >
 >Jeśli w dalszym ciągu jest uruchomiona wersja wcześniejsza niż 1,16, nadal możesz udzielić uprawnień do konta usługi "Kubernetes-Dashboard", ale **nie**jest to zalecane:
 > ```console

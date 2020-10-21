@@ -1,17 +1,17 @@
 ---
-title: Tworzenie obszaru roboczego Log Analytics w witrynie Azure Portal | Microsoft Docs
+title: Utwórz obszar roboczy Log Analytics w Azure Portal | Microsoft Docs
 description: Dowiedz się, jak utworzyć obszar roboczy Log Analytics, aby umożliwić zarządzanie rozwiązaniami i zbieraniem danych ze środowisk w chmurze i lokalnych w Azure Portal.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: f86cc5e3edc659a233066fcf2544ed4a5019d0f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf7c89c23b3df51dce2710be50c3c62f8f1e3cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324288"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320084"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Tworzenie obszaru roboczego usługi Log Analytics w witrynie Azure Portal
 Użyj menu **obszary robocze log Analytics** , aby utworzyć obszar roboczy log Analytics przy użyciu Azure Portal. Obszar roboczy Log Analytics jest unikatowym środowiskiem dla Azure Monitor danych dziennika. Każdy obszar roboczy ma własne repozytorium danych i konfigurację, a źródła danych i rozwiązania są skonfigurowane do przechowywania danych w określonym obszarze roboczym. Musisz mieć Log Analytics obszar roboczy, jeśli zamierzasz zbierać dane z następujących źródeł:
@@ -62,8 +62,5 @@ Podczas tworzenia obszaru roboczego, który został usunięty w ciągu ostatnich
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy dostępny jest obszar roboczy, można skonfigurować zbieranie danych telemetrycznych monitorowania, uruchamiać wyszukiwania w dziennikach, aby analizować te dane, i dodać rozwiązanie do zarządzania, aby zapewnić dodatkowe dane i szczegółowe informacje analityczne. 
 
-* Aby włączyć zbieranie danych z zasobów platformy Azure za pomocą usługi Diagnostyka Azure lub Azure Storage, zobacz [zbieranie dzienników usług platformy Azure i metryki do użycia w programie log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
-* [Dodaj System Center Operations Manager jako źródło danych](../platform/om-agents.md) , aby zebrać dane z agentów zgłaszających Operations Manager grupy zarządzania i zapisać je w obszarze roboczym log Analytics. 
-* Połącz [Configuration Manager](../platform/collect-sccm.md) , aby zaimportować komputery należące do kolekcji w hierarchii.  
-* Przejrzyj dostępne [rozwiązania do monitorowania](../insights/solutions.md) oraz sposób dodawania lub usuwania rozwiązania z obszaru roboczego.
-
+* Zobacz [monitorowanie kondycji obszaru roboczego log Analytics w Azure monitor](../platform/monitor-workspace.md) tworzenia reguł alertów w celu monitorowania kondycji obszaru roboczego. 
+* Zobacz [zbieranie dzienników usługi platformy Azure i metryki do użycia w log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace) , aby umożliwić zbieranie danych z zasobów platformy Azure za pomocą Diagnostyka Azure lub usługi Azure Storage.

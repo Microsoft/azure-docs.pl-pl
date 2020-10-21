@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: cc64e36e5fa65a8d6eca117f33be8cac89514177
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fd7425169ddc3ebed11ddaf513f0182dd397703
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88538182"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313536"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-academy-attendance"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z usługą Academy — frekwencja
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę Academy z usługą Azure
 * Zezwól użytkownikom na automatyczne logowanie do usługi Academy przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -94,7 +94,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     ![image (obraz)](common/edit-attribute.png)
 
     > [!NOTE]
-    > Program Academy frekwencja obsługuje dwie role dla użytkowników: **wykłady** i **uczniów**. Skonfiguruj te role w usłudze Azure AD, aby użytkownicy mogli przypisywać odpowiednie role. Zapoznaj się [tą](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) dokumentacją, w której wyjaśniono, jak tworzyć role niestandardowe w usłudze Azure AD.
+    > Program Academy frekwencja obsługuje dwie role dla użytkowników: **wykłady** i **uczniów**. Skonfiguruj te role w usłudze Azure AD, aby użytkownicy mogli przypisywać odpowiednie role. Zapoznaj się [tą](../develop/active-directory-enterprise-app-role-management.md) dokumentacją, w której wyjaśniono, jak tworzyć role niestandardowe w usłudze Azure AD.
 
 1. Oprócz powyższych, aplikacja w usłudze Academy frekwencja oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
 
@@ -120,7 +120,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -152,15 +152,14 @@ W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w usłudze Academy 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka usługi Academy w panelu dostępu należy automatycznie zalogować się do uczestnictwa w usłudze Academy, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka usługi Academy w panelu dostępu należy automatycznie zalogować się do uczestnictwa w usłudze Academy, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj usługę Academy obecność w usłudze Azure AD](https://aad.portal.azure.com/)
-

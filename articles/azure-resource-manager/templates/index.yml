@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 07/30/2020
-  ms.openlocfilehash: 6a21841d24fcafefe25473e428e1926849f5e9cf
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: eda40d7dafa2c9946798067622e2732cf9de738d
+  ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87446736"
+  ms.lasthandoff: 10/20/2020
+  ms.locfileid: "92282499"
 landingContent:
 - title: Informacje o szablonach usługi ARM
   linkLists:
@@ -49,18 +49,30 @@ landingContent:
       url: quickstart-create-templates-use-the-portal.md
     - text: Tworzenie szablonów — program VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
+    - text: Tworzenie i wdrażanie specyfikacji szablonu
+      url: quickstart-create-template-specs.md
   - linkListType: tutorial
     links:
     - text: Samouczki dla początkujących
       url: template-tutorial-create-first-template.md
     - text: Wdrożenie
       url: deployment-tutorial-local-template.md
+    - text: Specyfikacje szablonu
+      url: template-specs-create-linked.md
+    - text: Szablony zaawansowane
+      url: template-tutorial-use-template-reference.md
+    - text: Deployment Manager
+      url: deployment-manager-tutorial.md
   - linkListType: learn
     links:
     - text: Spójna infrastruktura
       url: /learn/modules/create-azure-resource-manager-template-vs-code/
     - text: Wiele środowisk
       url: /learn/modules/modify-azure-resource-manager-template-reuse/
+    - text: Weryfikowanie wdrożeń
+      url: /learn/modules/arm-template-test/
+    - text: Wdrażanie szablonów
+      url: /learn/modules/deploy-templates-command-line-github-actions/
 - title: Tworzenie szablonów
   linkLists:
   - linkListType: how-to-guide

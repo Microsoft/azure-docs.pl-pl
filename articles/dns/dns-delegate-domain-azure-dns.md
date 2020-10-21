@@ -1,18 +1,18 @@
 ---
 title: 'Samouczek: Hostowanie domeny i poddomeny — Azure DNS'
-description: W tym artykule dowiesz się, jak skonfigurować Azure DNS do hostowania stref DNS.
+description: W tym samouczku dowiesz się, jak skonfigurować Azure DNS do hostowania stref DNS.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 207254164296d6ed3b0c412c4bf19322ca3ffc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f64ab3141459142def12a1758b0fe0a94ca432
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077997"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282171"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Samouczek: hostowanie własnej domeny w usłudze Azure DNS
 

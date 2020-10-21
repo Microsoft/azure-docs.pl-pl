@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dce10fb85ac181bb06aef0058768bef659462a5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be1cfc097da4f1f10bb775c9b20043096b9fb8b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019984"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279643"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Utwórz wiele wyzwalaczy Azure Functions dla Cosmos DB
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób konfigurowania wielu wyzwalaczy usługi Azure Fun
 
 Podczas kompilowania architektur bezserwerowych za pomocą [Azure Functions](../azure-functions/functions-overview.md) [zaleca](../azure-functions/functions-best-practices.md#avoid-long-running-functions) się utworzenie małych zestawów funkcji, które współpracują ze sobą, zamiast dużych długotrwałych funkcji.
 
-Podczas tworzenia przepływów bezserwerowych opartych na zdarzeniach przy użyciu [wyzwalacza Azure Functions dla Cosmos DB](./change-feed-functions.md), należy uruchomić w scenariuszu, w którym chcesz wykonać wiele czynności, gdy istnieje nowe zdarzenie w konkretnym [kontenerze usługi Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers). Jeśli akcje, które mają być wyzwalane, są niezależne od siebie, idealnym rozwiązaniem jest **utworzenie jednego Azure Functions wyzwalaczy dla Cosmos DB na akcję** , którą chcesz wykonać, i wszystkie nasłuchiwanie zmian w tym samym kontenerze usługi Azure Cosmos.
+Podczas tworzenia przepływów bezserwerowych opartych na zdarzeniach przy użyciu [wyzwalacza Azure Functions dla Cosmos DB](./change-feed-functions.md), należy uruchomić w scenariuszu, w którym chcesz wykonać wiele czynności, gdy istnieje nowe zdarzenie w konkretnym [kontenerze usługi Azure Cosmos](./account-databases-containers-items.md#azure-cosmos-containers). Jeśli akcje, które mają być wyzwalane, są niezależne od siebie, idealnym rozwiązaniem jest **utworzenie jednego Azure Functions wyzwalaczy dla Cosmos DB na akcję** , którą chcesz wykonać, i wszystkie nasłuchiwanie zmian w tym samym kontenerze usługi Azure Cosmos.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Optymalizowanie kontenerów dla wielu wyzwalaczy
 

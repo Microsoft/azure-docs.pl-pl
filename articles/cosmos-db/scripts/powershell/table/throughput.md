@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 62e9e00b94da99e169d0002086e87b9942ca0ca4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28fd3e493a327593027f520f881faadddf6c4c51
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844237"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281892"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-table-for-azure-cosmos-db---table-api"></a>Operacje przepływności (RU/s) przy użyciu programu PowerShell dla tabeli dla Azure Cosmos DB-interfejs API tabel
 
@@ -57,5 +57,3 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
-
-Więcej przykładowych skryptów programu PowerShell dla usługi Azure Cosmos DB można znaleźć w artykule [Azure Cosmos DB PowerShell scripts](../../../powershell-samples.md) (Skrypty programu PowerShell dla usługi Azure Cosmos DB).

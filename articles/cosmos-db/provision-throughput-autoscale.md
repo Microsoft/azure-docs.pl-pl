@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570740"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282105"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Tworzenie kontenerów i baz danych usługi Azure Cosmos przy użyciu przepływności automatycznego skalowania
 
@@ -85,6 +85,6 @@ Więcej szczegółów można znaleźć w tej [dokumentacji](how-to-choose-offer.
 * Przejrzyj [często zadawane pytania dotyczące skalowania automatycznego](autoscale-faq.md).
 * Dowiedz się [, jak wybierać przepływność ręczną i skalowanie automatyczne](how-to-choose-offer.md).
 * Dowiedz się, jak [udostępnić przepływność automatycznego skalowania dla bazy danych lub kontenera usługi Azure Cosmos](how-to-provision-autoscale-throughput.md).
-* Więcej informacji na temat [partycjonowania](partition-data.md) znajduje się w Azure Cosmos DB.
+* Więcej informacji na temat [partycjonowania](partitioning-overview.md) znajduje się w Azure Cosmos DB.
 
 

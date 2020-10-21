@@ -80,6 +80,8 @@
       href: self-hosted-gateway-overview.md
     - name: Wgląd w informacje
       href: observability.md
+    - name: Ciągła integracja/ciągłe wdrażanie za pomocą szablonów usługi ARM
+      href: devops-api-development-templates.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Definiowanie interfejsów API

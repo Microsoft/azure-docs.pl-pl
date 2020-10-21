@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: a40be5212fb1335482ec5011d24c8eaf5f3d9a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39f116139d68f2382085dbbab5e862d0c621ad2e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409684"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282453"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Użyj poleceń rozszerzenia MongoDB, aby zarządzać danymi przechowywanymi w interfejsie API Azure Cosmos DB dla MongoDB 
 
-Następujący dokument zawiera polecenia akcji niestandardowych, które są specyficzne dla interfejsu API Azure Cosmos DB dla MongoDB. Te polecenia mogą służyć do tworzenia i uzyskiwania zasobów bazy danych, które są specyficzne dla [modelu wydajności Azure Cosmos DB](databases-containers-items.md).
+Następujący dokument zawiera polecenia akcji niestandardowych, które są specyficzne dla interfejsu API Azure Cosmos DB dla MongoDB. Te polecenia mogą służyć do tworzenia i uzyskiwania zasobów bazy danych, które są specyficzne dla [modelu wydajności Azure Cosmos DB](account-databases-containers-items.md).
 
 Za pomocą interfejsu API Azure Cosmos DB dla MongoDB można korzystać z korzyści Cosmos DB takich jak dystrybucja globalna, automatyczna fragmentowania, wysoka dostępność, gwarancje opóźnienia, automatyczne, szyfrowanie w stanie spoczynku, kopie zapasowe i wiele innych, przy zachowaniu inwestycji w aplikację MongoDB. Można komunikować się z interfejsem API Azure Cosmos DB dla MongoDB przy użyciu dowolnego ze [sterowników klienta MongoDB](https://docs.mongodb.org/ecosystem/drivers)typu open source. Interfejs API Azure Cosmos DB dla MongoDB umożliwia korzystanie z istniejących sterowników klienta, przestrzegając [protokołu MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -215,7 +215,7 @@ W poniższej tabeli opisano parametry w poleceniu:
 |---------|---------|---------|---------|
 | `customAction` | `string` | Wymagane | Nazwa polecenia niestandardowego. Musi być "CreateCollection".|
 | `collection` | `string` | Wymagane | Nazwa kolekcji. Nie są dozwolone żadne znaki specjalne ani spacje.|
-| `offerThroughput` | `int` | Opcjonalne | Zainicjowana przepływność do ustawienia w bazie danych. Jeśli ten parametr nie zostanie podany, wartość domyślna to 400 RU/s. * Aby określić przepływność poza 10 000 RU/s, `shardKey` parametr jest wymagany.|
+| `offerThroughput` | `int` | Optional | Zainicjowana przepływność do ustawienia w bazie danych. Jeśli ten parametr nie zostanie podany, wartość domyślna to 400 RU/s. * Aby określić przepływność poza 10 000 RU/s, `shardKey` parametr jest wymagany.|
 | `shardKey` | `string` | Wymagane dla kolekcji o dużej przepływności | Ścieżka do klucza fragmentu dla kolekcji podzielonej na fragmenty. Ten parametr jest wymagany, jeśli w programie ustawiono więcej niż 10 000 RU/s `offerThroughput` .  Jeśli jest określony, wszystkie dokumenty, które zostały wstawione, będą wymagały tego klucza i wartości. |
 | `autoScaleSettings` | `Object` | Wymagane dla [trybu skalowania automatycznego](provision-throughput-autoscale.md) | Ten obiekt zawiera ustawienia skojarzone z trybem pojemności skalowania automatycznego. Można skonfigurować `maxThroughput` wartość, która opisuje największą liczbę jednostek żądania, które zostaną zwiększone do dynamicznie. |
 

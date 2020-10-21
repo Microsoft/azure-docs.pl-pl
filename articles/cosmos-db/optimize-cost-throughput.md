@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801328"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281071"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Przepływność można aprowizować dla baz danych lub kontenerów, a każda str
 
 * Jeśli zainicjujesz przepływność w bazie danych, wszystkie kontenery, na przykład kolekcje/tabele/wykresy w tej bazie danych, mogą współużytkować przepływność na podstawie obciążenia. Przepływność zarezerwowana na poziomie bazy danych jest współdzielona nierównomiernie, w zależności od obciążenia określonego zestawu kontenerów.
 
-* Jeśli zainicjujesz przepływność na kontenerze, przepływność jest gwarantowana dla tego kontenera, objęta umową SLA. Wybór klucza partycji logicznej jest kluczowy dla równomiernego rozkładu obciążenia we wszystkich partycjach logicznych kontenera. Więcej informacji można znaleźć w artykule [partycjonowanie](partitioning-overview.md) i [skalowanie w poziomie](partition-data.md) .
+* Jeśli zainicjujesz przepływność na kontenerze, przepływność jest gwarantowana dla tego kontenera, objęta umową SLA. Wybór klucza partycji logicznej jest kluczowy dla równomiernego rozkładu obciążenia we wszystkich partycjach logicznych kontenera. Więcej informacji można znaleźć w artykule [partycjonowanie](partitioning-overview.md) i [skalowanie w poziomie](partitioning-overview.md) .
 
 Poniżej przedstawiono kilka wytycznych dotyczących podejmowania decyzji dotyczących strategii dotyczącej przepływności.
 

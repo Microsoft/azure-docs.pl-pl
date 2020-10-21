@@ -7,12 +7,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87366725"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282466"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrowanie z CouchBase Azure Cosmos DB do interfejsu API SQL
 
@@ -33,7 +33,7 @@ Poniżej przedstawiono kluczowe funkcje, które działają inaczej w Azure Cosmo
 
 * Azure Cosmos DB ma pole "ID" w dokumencie, a Couchbase ma identyfikator jako część przedziału. Pole "ID" jest unikatowe w ramach partycji.
 
-* Azure Cosmos DB skale przy użyciu metody partycjonowania lub fragmentowania. Oznacza to, że dzieli dane na wiele fragmentów/partycje. Te partycje/fragmentów są tworzone na podstawie właściwości klucza partycji, która jest dostarczana. Możesz wybrać klucz partycji, aby zoptymalizować odczyt jako operacje zapisu, lub tylko do odczytu/zapisu. Aby dowiedzieć się więcej, zobacz artykuł [partycjonowania](./partition-data.md) .
+* Azure Cosmos DB skale przy użyciu metody partycjonowania lub fragmentowania. Oznacza to, że dzieli dane na wiele fragmentów/partycje. Te partycje/fragmentów są tworzone na podstawie właściwości klucza partycji, która jest dostarczana. Możesz wybrać klucz partycji, aby zoptymalizować odczyt jako operacje zapisu, lub tylko do odczytu/zapisu. Aby dowiedzieć się więcej, zobacz artykuł [partycjonowania](./partitioning-overview.md) .
 
 * W Azure Cosmos DB nie jest wymagane, aby hierarchia najwyższego poziomu była oznaczona jako kolekcja, ponieważ nazwa kolekcji już istnieje. Ta funkcja sprawia, że struktura JSON znacznie prostsze. Poniżej przedstawiono przykład pokazujący różnice w modelu danych między Couchbase i Azure Cosmos DB:
 

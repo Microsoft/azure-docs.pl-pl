@@ -3,12 +3,12 @@ title: Odnajdywanie aplikacji, ról i funkcji na serwerach lokalnych przy użyci
 description: Informacje na temat odnajdywania aplikacji, ról i funkcji na serwerach lokalnych przy użyciu narzędzia do oceny Azure Migrate Server.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118651"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315210"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Odkryj aplikacje maszynowe, role i funkcje
 
@@ -46,7 +46,7 @@ Po wdrożeniu urządzenia i uzyskaniu poświadczeń urządzenie uruchamia ciąg�
 
 ## <a name="verify-permissions"></a>Weryfikowanie uprawnień
 
-[Utworzono konto vCenter Server tylko do odczytu](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) na potrzeby odnajdywania i oceny. Konto tylko do odczytu wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa**, aby można było korzystać z maszyny wirtualnej w celu odnajdywania aplikacji.
+[Utworzono konto vCenter Server tylko do odczytu](./tutorial-discover-vmware.md#prepare-vmware) na potrzeby odnajdywania i oceny. Konto tylko do odczytu wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa**, aby można było korzystać z maszyny wirtualnej w celu odnajdywania aplikacji.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>Dodaj konto użytkownika do urządzenia
 
@@ -56,7 +56,7 @@ Dodaj konto użytkownika w następujący sposób:
 2. Przejdź do panelu **Podaj szczegóły programu vCenter** .
 3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych**kliknij pozycję **Dodaj poświadczenia** .
 3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i hasło w polu **Nazwa użytkownika** / **Password**
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz**.
 7. Kliknij przycisk **Zapisz i Rozpocznij odnajdywanie**.
 
     ![Dodaj konto użytkownika maszyny wirtualnej](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)

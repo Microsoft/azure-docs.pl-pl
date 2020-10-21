@@ -1,20 +1,20 @@
 ---
 title: Azure Policy rozszerzenie dla Visual Studio Code
 description: Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania aliasów Azure Resource Manager.
-ms.date: 10/14/2020
+ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077936"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317612"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Użyj rozszerzenia Azure Policy dla Visual Studio Code
 
-> Dotyczy rozszerzenia Azure Policy w wersji **0.0.21** i nowszej
+> Dotyczy rozszerzenia Azure Policy w wersji **0.1.0** i nowszej
 
-Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania [aliasów](../concepts/definition-structure.md#aliases) i przeglądania zasobów i zasad. Najpierw opisano sposób instalowania rozszerzenia Azure Policy w programie Visual Studio Code. Następnie przeprowadzimy procedurę wyszukiwania aliasów.
+Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania [aliasów](../concepts/definition-structure.md#aliases), przeglądania zasobów i zasad, eksportowania obiektów i oceniania definicji zasad. Najpierw opisano sposób instalowania rozszerzenia Azure Policy w programie Visual Studio Code. Następnie przeprowadzimy procedurę wyszukiwania aliasów.
 
 Azure Policy rozszerzenia Visual Studio Code można zainstalować na wszystkich platformach obsługiwanych przez Visual Studio Code. Ta obsługa obejmuje systemy Windows, Linux i macOS.
 
@@ -151,6 +151,51 @@ Rozszerzenie Azure Policy wyświetla listę typów zasad i przypisań zasad jako
 1. Użyj filtru, aby wybrać zasady lub do wyświetlenia. Filtr działa dla parametru _DisplayName_ dla definicji zasad lub przypisania zasad.
 
 Podczas wybierania zasad lub przypisywania, niezależnie od tego, czy za pomocą interfejsu wyszukiwania, czy przez wybranie go w widoku drzewa, rozszerzenie Azure Policy otwiera plik JSON, który reprezentuje zasady lub przypisanie oraz wszystkie jego wartości właściwości Menedżer zasobów. Rozszerzenie może zweryfikować otwarty schemat JSON Azure Policy.
+
+## <a name="export-objects"></a>Eksportuj obiekty
+
+Obiekty z subskrypcji można eksportować do lokalnego pliku JSON. W okienku **zasoby** lub **zasady** Umieść kursor nad lub wybierz obiekt możliwy do wyeksportowania. Na końcu wyróżnionego wiersza wybierz ikonę Zapisz i wybierz folder, w którym mają zostać zapisane dane JSON.
+
+Następujące obiekty można eksportować lokalnie:
+
+- Okienko zasoby
+  - Grupy zasobów
+  - Poszczególne zasoby (w grupie zasobów lub w ramach dostawcy zasobów)
+- Okienko zasady
+  - Przypisania zasad
+  - Wbudowane definicje zasad
+  - Niestandardowe definicje zasad
+  - Inicjatyw
+
+## <a name="on-demand-evaluation-scan"></a>Skanowanie oceny na żądanie
+
+Skanowanie w celu oceny można rozpocząć od rozszerzenia Azure Policy Visual Studio Code. Aby rozpocząć ocenę, wybierz i Przypnij każdy z następujących obiektów: zasób, definicję zasad i przypisanie zasady.
+
+1. Aby przypiąć każdy obiekt, Znajdź go w okienku **zasoby** lub okienku **zasady** , a następnie wybierz ikonę Przypnij do karty Edycja. Przypinanie obiektu powoduje dodanie go do okienka **oceny** rozszerzenia.
+1. W okienku **oceny** wybierz jeden z tych obiektów i użyj ikony wybierz do oceny, aby oznaczyć ją jako uwzględnioną w ocenie.
+1. W górnej części okienka **oceny** wybierz ikonę oceny uruchomienia. Zostanie otwarte nowe okienko w Visual Studio Code z danymi oceny w formacie JSON.
+
+> [!NOTE]
+> Jeśli wybrana definicja zasad jest [AuditIfNotExists](../concepts/effects.md#auditifnotexists) lub [DeployIfNotExists](../concepts/effects.md#deployifnotexists), w okienku **oceny** Użyj ikony znaku plus, aby wybrać _powiązany_ zasób do sprawdzenia istnienia.
+
+Wyniki oceny zawierają informacje o definicji zasad i przypisaniu zasad wraz z właściwością **policyEvaluations. evaluationResult** . Dane wyjściowe wyglądają podobnie do poniższego przykładu:
+
+```json
+{
+    "policyEvaluations": [
+        {
+            "policyInfo": {
+                ...
+            },
+            "evaluationResult": "Compliant",
+            "effectDetails": {
+                "policyEffect": "Audit",
+                "existenceScope": "None"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="sign-out"></a>Wyloguj się
 

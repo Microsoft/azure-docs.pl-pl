@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 61a1d7cb3a5f43aa8100f1c7e8a102ab19b803f5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e35206b5fa9466cda064c09f060f45b437fafd20
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932451"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329580"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analiza zdarzeń i wizualizacja przy użyciu Application Insights
 
@@ -32,7 +32,7 @@ W przypadku korzystania z Service Fabric Program Application Insights ma rozbudo
 
 W prawym panelu na powyższym obrazie istnieją dwa główne typy wpisów: żądania i zdarzenia. Żądania są wywołaniami w interfejsie API aplikacji za pośrednictwem żądań HTTP w tym przypadku, a zdarzenia są zdarzeniami niestandardowymi, które działają jako dane telemetryczne, można dodać gdziekolwiek w kodzie. Możesz dodatkowo zbadać instrumentację aplikacji w [interfejsie API Application Insights, aby uzyskać niestandardowe zdarzenia i metryki](../azure-monitor/app/api-custom-events-metrics.md). Kliknięcie żądania spowoduje wyświetlenie dalszych informacji, jak pokazano na poniższej ilustracji, w tym danych specyficznych dla Service Fabric, które są zbierane w Application Insights Service Fabric pakiecie NuGet. Te informacje są przydatne do rozwiązywania problemów i znajomości stanu aplikacji, a wszystkie te informacje są przeszukiwane w ramach Application Insights
 
-![Szczegóły żądania Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
+![Zrzut ekranu pokazujący dalsze szczegóły, w tym dane specyficzne dla Service Fabric, które są zbierane w Application Insights Service Fabric pakiecie NuGet.](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
 Application Insights ma wyznaczono widok do wykonywania zapytań dotyczących wszystkich danych, które znajdują się w. Wybierz pozycję "Eksplorator metryk" w górnej części strony przegląd, aby przejść do portalu Application Insights. W tym miejscu można uruchamiać zapytania względem zdarzeń niestandardowych wymienionych przed, żądania, wyjątki, liczniki wydajności i inne metryki przy użyciu języka zapytań Kusto. Poniższy przykład przedstawia wszystkie żądania w ciągu ostatniej godziny.
 
@@ -48,7 +48,7 @@ Jeśli używasz użyciu struktury eventflow do agregowania zdarzeń, upewnij si�
 "outputs": [
     {
         "type": "ApplicationInsights",
-        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE**_"
     }
 ]
 ```
@@ -65,7 +65,7 @@ Jeśli opracowujesz program w programie .NET i prawdopodobnie będziesz używać
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Nawigowanie po zasobie Application Insights w Azure Portal
 
-Po skonfigurowaniu Application Insights jako danych wyjściowych dla zdarzeń i dzienników informacje powinny zacząć pojawić się w zasobie Application Insights w ciągu kilku minut. Przejdź do zasobu Application Insights, co spowoduje przejście do pulpitu nawigacyjnego zasobów Application Insights. Wybierz pozycję **Wyszukaj** na pasku zadań Application Insights, aby zobaczyć najnowsze otrzymane ślady i umożliwić filtrowanie ich.
+Po skonfigurowaniu Application Insights jako danych wyjściowych dla zdarzeń i dzienników informacje powinny zacząć pojawić się w zasobie Application Insights w ciągu kilku minut. Przejdź do zasobu Application Insights, co spowoduje przejście do pulpitu nawigacyjnego zasobów Application Insights. Wybierz pozycję _*Wyszukaj** na pasku zadań Application Insights, aby zobaczyć najnowsze otrzymane ślady, a następnie przefiltrować je.
 
 *Eksplorator metryk* to przydatne narzędzie do tworzenia niestandardowych pulpitów nawigacyjnych opartych na metrykach, które mogą być raportowane przez aplikacje, usługi i klaster. Zobacz [Eksplorowanie metryk w Application Insights](../azure-monitor/platform/metrics-charts.md) , aby skonfigurować kilka wykresów dla siebie na podstawie zbieranych danych.
 

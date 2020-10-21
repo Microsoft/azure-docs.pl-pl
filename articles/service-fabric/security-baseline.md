@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227716"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309150"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Podstawa zabezpieczeń platformy Azure dla Service Fabric
 
@@ -78,7 +78,7 @@ Rozważ wdrożenie zapory aplikacji sieci Web platformy Azure (WAF) przed krytyc
 
 * [Jak skonfigurować ochronę DDoS](../virtual-network/manage-ddos-protection.md)
 
-* [Opis Azure Security Center zintegrowanej analizy zagrożeń](../security-center/threat-protection.md)
+* [Opis Azure Security Center zintegrowanej analizy zagrożeń](../security-center/azure-defender.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -488,7 +488,7 @@ Aby usprawnić ten proces, można utworzyć ustawienia diagnostyczne dla kont u�
 
 * [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create.md)
+* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
 * [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
@@ -572,7 +572,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 * [Informacje o szyfrowaniu na platformie Azure](../security/fundamentals/encryption-atrest.md)
 
-* [Jak skonfigurować zarządzane przez klienta klucze szyfrowania](../storage/common/storage-encryption-keys-portal.md)
+* [Jak skonfigurować zarządzane przez klienta klucze szyfrowania](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 * [Włączanie szyfrowania dysków dla węzłów klastra usługi Azure Service Fabric w systemie Windows](./service-fabric-enable-azure-disk-encryption-windows.md)
 
@@ -608,7 +608,7 @@ Użyj rozwiązania innych firm do przeprowadzania ocen luk w zabezpieczeniach na
 
 * [Chaos kontrolowane w klastrach Service Fabric](./service-fabric-controlled-chaos.md)
 
-* [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -698,7 +698,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 * [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create.md)
+* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
 * [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
@@ -1042,7 +1042,7 @@ Jeśli używasz kluczy zarządzanych przez klienta, upewnij się, Soft-Delete w 
 
 * [Szyfrowanie danych magazynowanych w usłudze Azure Storage](../storage/common/storage-service-encryption.md)
 
-* [Jak włączyć Soft-Delete w Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Jak włączyć Soft-Delete w Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
