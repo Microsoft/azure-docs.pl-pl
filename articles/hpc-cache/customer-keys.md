@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092528"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340533"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Korzystanie z kluczy szyfrowania zarządzanych przez klienta dla pamięci podręcznej platformy Azure HPC
 
@@ -58,7 +58,7 @@ Uprawnienia dostępu do magazynu kluczy:
 
 * Użytkownik tworzący pamięć podręczną Azure HPC musi mieć uprawnienia równoważne [roli współautor Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor). Te same uprawnienia są konieczne do konfigurowania Azure Key Vault i zarządzania nimi.
 
-  Aby uzyskać więcej informacji [, przeczytaj bezpieczny dostęp do magazynu kluczy](../key-vault/key-vault-secure-your-key-vault.md) .
+  Aby uzyskać więcej informacji [, przeczytaj bezpieczny dostęp do magazynu kluczy](../key-vault/general/secure-your-key-vault.md) .
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Skonfiguruj Azure Key Vault
 
@@ -66,7 +66,7 @@ Można skonfigurować magazyn kluczy i klucz przed utworzeniem pamięci podręcz
 
 Podczas tworzenia pamięci podręcznej należy określić magazyn, klucz i wersję klucza do użycia na potrzeby szyfrowania pamięci podręcznej.
 
-Zapoznaj się z [dokumentacją Azure Key Vault](../key-vault/key-vault-overview.md) , aby uzyskać szczegółowe informacje.
+Zapoznaj się z [dokumentacją Azure Key Vault](../key-vault/general/overview.md) , aby uzyskać szczegółowe informacje.
 
 > [!NOTE]
 > Azure Key Vault musi używać tej samej subskrypcji i znajdować się w tym samym regionie co pamięć podręczna platformy Azure HPC. Upewnij się, że wybrany region [obsługuje funkcję klucze zarządzane przez klienta](hpc-cache-overview.md#region-availability).
@@ -92,7 +92,7 @@ Użytkownik, który tworzy pamięć podręczną, musi mieć uprawnienia równe [
 
 1. Po wybraniu magazynu wybierz jeden z dostępnych opcji lub Utwórz nowy klucz. Klucz musi być 2048-bitowym kluczem RSA.
 
-1. Określ wersję wybranego klucza. Więcej informacji o wersji znajduje się w [dokumentacji Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning).
+1. Określ wersję wybranego klucza. Więcej informacji o wersji znajduje się w [dokumentacji Azure Key Vault](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
 
 Kontynuuj pracę z pozostałymi specyfikacjami i Utwórz pamięć podręczną zgodnie z opisem w temacie [Tworzenie pamięci podręcznej platformy Azure HPC](hpc-cache-create.md).
 

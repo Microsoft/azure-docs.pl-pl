@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 0ecf3e5f30ee38c0d60c77df3d6aae3ad90930e9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 36e5bb33b7d555c3b457b63f94d9032ff390e6cb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332283"
+ms.locfileid: "92342318"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Omówienie zasad sieciowych platformy Azure Kubernetes
 
@@ -154,7 +154,7 @@ Otwórz witrynę Azure Portal. Po uzyskaniu wglądu w dane klastra przejdź do "
 Oprócz wyświetlania skoroszytu (obrazy poniżej) można również bezpośrednio wysyłać zapytania o metryki Prometheus w sekcji "Logs". Na przykład to zapytanie zwróci wszystkie zbierane metryki.
 | gdzie TimeGenerated > temu (5h) | gdzie nazwa zawiera "npm_"
 
-Możesz również badać Log Analytics bezpośrednio dla metryk. Więcej informacji na ten temat zawiera Wprowadzenie z zapytaniami Log Analytics] (https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 
+Możesz również badać Log Analytics bezpośrednio dla metryk. Dowiedz się więcej na temat [wprowadzenie z Zapytaniami log Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 
 
 #### <a name="viewing-in-grafana-dashboard"></a>Wyświetlanie na pulpicie nawigacyjnym Grafana
 Skonfiguruj serwer Grafana i Skonfiguruj źródło danych Log Analytics zgodnie z opisem w [tym miejscu](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource). Następnie zaimportuj [pulpit nawigacyjny Grafana z zapleczem log Analytics](https://grafana.com/grafana/dashboards/10956) do programu Grafana Labs.

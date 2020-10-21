@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446452"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131466"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Zarządzanie kosztami przy użyciu budżetów platformy Azure
 
-Kontrola kosztów to kluczowy składnik umożliwiający maksymalizowanie wartości inwestycji w chmurze. Istnieje kilka scenariuszy, w których widoczność kosztów, raportowanie i aranżacja oparta na kosztach mają kluczowe znaczenie dla zachowania ciągłości operacji biznesowych. [Interfejsy API usługi Azure Cost Management](https://docs.microsoft.com/rest/api/consumption/) udostępniają zestaw interfejsów API do obsługi każdego z tych scenariuszy. Interfejsy API udostępniają szczegółowe informacje dotyczące użycia, co pozwala na wyświetlanie szczegółowych kosztów na poziomie wystąpienia.
+Kontrola kosztów to kluczowy składnik umożliwiający maksymalizowanie wartości inwestycji w chmurze. Istnieje kilka scenariuszy, w których widoczność kosztów, raportowanie i aranżacja oparta na kosztach mają kluczowe znaczenie dla zachowania ciągłości operacji biznesowych. [Interfejsy API usługi Azure Cost Management](/rest/api/consumption/) udostępniają zestaw interfejsów API do obsługi każdego z tych scenariuszy. Interfejsy API udostępniają szczegółowe informacje dotyczące użycia, co pozwala na wyświetlanie szczegółowych kosztów na poziomie wystąpienia.
 
-Budżety są często używane jako część kontroli kosztów. Budżety mogą być objęte zakresem na platformie Azure. Na przykład możesz zawęzić widok budżetu na podstawie subskrypcji, grup zasobów lub kolekcji zasobów. Oprócz używania interfejsu API budżetów do powiadamiania użytkownika za pośrednictwem poczty e-mail, gdy próg budżetu zostanie osiągnięty, można użyć [grup akcji usługi Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) do wyzwolenia zorganizowanego zestawu akcji w wyniku zdarzenia budżetu.
+Budżety są często używane jako część kontroli kosztów. Budżety mogą być objęte zakresem na platformie Azure. Na przykład możesz zawęzić widok budżetu na podstawie subskrypcji, grup zasobów lub kolekcji zasobów. Oprócz używania interfejsu API budżetów do powiadamiania użytkownika za pośrednictwem poczty e-mail, gdy próg budżetu zostanie osiągnięty, można użyć [grup akcji usługi Azure Monitor](../../azure-monitor/platform/action-groups.md) do wyzwolenia zorganizowanego zestawu akcji w wyniku zdarzenia budżetu.
 
 Typowy scenariusz budżetów dla klienta uruchamiającego obciążenie inne niż krytyczne może wystąpić, gdy chce on zarządzać budżetem, a także uzyskać informacje o przewidywalnym koszcie podczas przeglądania faktury miesięcznej. Ten scenariusz wymaga opartej na kosztach aranżacji zasobów, które są częścią środowiska platformy Azure. W tym scenariuszu ustawiono miesięczny budżet dla subskrypcji wynoszący 1000 USD. Ponadto progi powiadomień zostały ustawione tak, aby wyzwalać kilka aranżacji. Ten scenariusz rozpoczyna się od progu kosztów wynoszącego 80%, co spowoduje zatrzymanie wszystkich maszyn wirtualnych w grupie zasobów **Opcjonalna**. Następnie przy progu kosztów wynoszącym 100% wszystkie wystąpienia maszyn wirtualnych zostaną zatrzymane.
 
@@ -35,7 +35,7 @@ Akcje opisane w tym samouczku umożliwiają:
 
 ## <a name="create-an-azure-automation-runbook"></a>Tworzenie elementu runbook usługi Azure Automation
 
-[Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) to usługa, która umożliwia tworzenie skryptów do obsługi większości zadań zarządzania zasobami oraz uruchamianie tych zadań zgodnie z harmonogramem lub na żądanie. W ramach tego scenariusza utworzysz [element runbook usługi Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-types), który będzie używany do zatrzymywania maszyn wirtualnych. W celu utworzenia tego scenariusza użyjesz graficznego elementu runbook [Zatrzymaj maszyny wirtualne platformy Azure w wersji 2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) z [galerii](https://docs.microsoft.com/azure/automation/automation-runbook-gallery). Po zaimportowaniu elementu runbook do konta platformy Azure i jego opublikowaniu możesz zatrzymać maszyny wirtualne po osiągnięciu progu budżetu.
+[Azure Automation](../../automation/automation-intro.md) to usługa, która umożliwia tworzenie skryptów do obsługi większości zadań zarządzania zasobami oraz uruchamianie tych zadań zgodnie z harmonogramem lub na żądanie. W ramach tego scenariusza utworzysz [element runbook usługi Azure Automation](../../automation/automation-runbook-types.md), który będzie używany do zatrzymywania maszyn wirtualnych. W celu utworzenia tego scenariusza użyjesz graficznego elementu runbook [Zatrzymaj maszyny wirtualne platformy Azure w wersji 2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) z [galerii](../../automation/automation-runbook-gallery.md). Po zaimportowaniu elementu runbook do konta platformy Azure i jego opublikowaniu możesz zatrzymać maszyny wirtualne po osiągnięciu progu budżetu.
 
 ### <a name="create-an-azure-automation-account"></a>Tworzenie konta usługi Azure Automation
 
@@ -49,7 +49,7 @@ Akcje opisane w tym samouczku umożliwiają:
 
 ### <a name="import-the-stop-azure-v2-vms-runbook"></a>Importowanie elementu runbook Zatrzymaj maszyny wirtualne platformy Azure w wersji 2
 
-Używając [elementu runbook usługi Azure Automation runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types), zaimportuj graficzny element runbook [Zatrzymaj maszyny wirtualne platformy Azure w wersji 2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) z galerii.
+Używając [elementu runbook usługi Azure Automation runbook](../../automation/automation-runbook-types.md), zaimportuj graficzny element runbook [Zatrzymaj maszyny wirtualne platformy Azure w wersji 2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) z galerii.
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com/) przy użyciu poświadczeń konta Azure.
 1. Otwórz konto usługi Automation, wybierając pozycję **Wszystkie usługi** > **Konta usługi Automation**. Następnie wybierz swoje konto usługi Automation.
@@ -60,7 +60,7 @@ Używając [elementu runbook usługi Azure Automation runbook](https://docs.micr
 1. Gdy element runbook ukończy proces importowania, wybierz pozycję **Edytuj**, aby wyświetlić edytor graficznych elementów runbook i opcję publikowania.  
     ![Azure — edytowanie graficznych elementów runbook](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. Wybierz pozycję **Opublikuj**, aby opublikować element runbook, a następnie wybierz pozycję **Tak** po wyświetleniu monitu. Podczas publikowania elementu runbook można zastąpić istniejącą wersję opublikowaną wersją roboczą. W tym przypadku nie ma jeszcze wersji opublikowanej, ponieważ element runbook został utworzony.
-    Aby uzyskać więcej informacji o publikowaniu elementu runbook, zobacz sekcję dotyczącą [tworzenia graficznego elementu runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical).
+    Aby uzyskać więcej informacji o publikowaniu elementu runbook, zobacz sekcję dotyczącą [tworzenia graficznego elementu runbook](../../automation/learn/automation-tutorial-runbook-graphical.md).
 
 ## <a name="create-webhooks-for-the-runbook"></a>Tworzenie elementów webhook dla elementu runbook
 
@@ -91,7 +91,7 @@ Konfiguracja usługi Azure Automation została zakończona. Możesz przetestowa�
 
 ## <a name="create-an-azure-logic-app-for-orchestration"></a>Tworzenie aplikacji logiki platformy Azure na potrzeby aranżacji
 
-Usługa Logic Apps ułatwia tworzenie, planowanie i automatyzowanie procesów jako przepływów pracy, aby można było integrować aplikacje, dane, systemy i usługi między przedsiębiorstwami i organizacjami. W tym scenariuszu tworzona [aplikacja logiki](https://docs.microsoft.com/azure/logic-apps/) wykona więcej pracy niż tylko wywołanie utworzonego elementu webhook usługi Automation.
+Usługa Logic Apps ułatwia tworzenie, planowanie i automatyzowanie procesów jako przepływów pracy, aby można było integrować aplikacje, dane, systemy i usługi między przedsiębiorstwami i organizacjami. W tym scenariuszu tworzona [aplikacja logiki](../../logic-apps/index.yml) wykona więcej pracy niż tylko wywołanie utworzonego elementu webhook usługi Automation.
 
 Można skonfigurować budżety, aby wyzwolić powiadomienie po osiągnięciu określonego progu. Można określić wiele progów w celu otrzymywania powiadomień, a aplikacja logiki będzie demonstrować zdolność wykonywania różnych akcji w oparciu o osiągnięty próg. W tym przykładzie skonfigurujesz scenariusz, w którym otrzymasz kilka powiadomień: pierwsze powiadomienie będzie dostępne po osiągnięciu 80% budżetu, a drugie powiadomienie po osiągnięciu 100% budżetu. Aplikacja logiki zostanie użyta do zamknięcia wszystkich maszyn wirtualnych w grupie zasobów. Najpierw próg **opcjonalny** zostanie osiągnięty przy wartości 80%, a następnie drugi próg zostanie osiągnięty, gdy wszystkie maszyny wirtualne w subskrypcji zostaną zamknięte.
 
@@ -122,11 +122,11 @@ Gdy platforma Azure wdroży aplikację logiki, zostanie otwarty **Projektant apl
 Każda aplikacja logiki musi rozpoczynać się od wyzwalacza, który jest aktywowany w momencie wystąpienia konkretnego zdarzenia lub spełnienia określonego warunku. Po każdym aktywowaniu wyzwalacza aparat usługi Logic Apps tworzy wystąpienie aplikacji logiki uruchamiającej i wykonującej przepływ pracy. akcje to wszystkie kroki wykonywane po aktywowaniu wyzwalacza.
 
 1. W części **Szablony** obszaru **Projektant aplikacji usługi Logic Apps** wybierz pozycję **Pusta aplikacja logiki**.
-1. Dodaj [wyzwalacz](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts), wprowadzając ciąg „Żądanie HTTP” w polu wyszukiwania **Projektanta aplikacji usługi Logic Apps**, aby znaleźć i wybrać wyzwalacz o nazwie **Żądanie — po odebraniu żądania HTTP**.  
+1. Dodaj [wyzwalacz](../../logic-apps/logic-apps-overview.md#logic-app-concepts), wprowadzając ciąg „Żądanie HTTP” w polu wyszukiwania **Projektanta aplikacji usługi Logic Apps**, aby znaleźć i wybrać wyzwalacz o nazwie **Żądanie — po odebraniu żądania HTTP**.  
     ![Azure — Aplikacja logiki — Wyzwalacz HTTP](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
 1. Wybierz pozycję **Nowy krok** > **Dodaj akcję**.  
     ![Azure — Nowy krok — Dodaj akcję](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-1. Wyszukaj ciąg „Przeanalizuj kod JSON” w polu wyszukiwania **Projektanta aplikacji usługi Logic Apps**, aby znaleźć i wybrać [akcję](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) **Operacje na danych — Przeanalizuj dane JSON**.  
+1. Wyszukaj ciąg „Przeanalizuj kod JSON” w polu wyszukiwania **Projektanta aplikacji usługi Logic Apps**, aby znaleźć i wybrać [akcję](../../logic-apps/logic-apps-overview.md#logic-app-concepts) **Operacje na danych — Przeanalizuj dane JSON**.  
     ![Azure — Aplikacja logiki — Dodawanie akcji analizy danych JSON](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
 1. Wprowadź „Ładunek” jako nazwę **zawartości** dla ładunku Przeanalizuj dane JSON” użyj tagu „Treść” z zawartości dynamicznej.
 1. Wybierz opcję **Użyj przykładowego ładunku do wygenerowania schematu** w polu **Przeanalizuj dane JSON**.  
@@ -311,7 +311,7 @@ Następnie skonfigurujesz rozwiązanie **Postman** w celu utworzenia budżetu, w
     ```
 1. Naciśnij przycisk **Send** (Wyślij), aby wysłać żądanie.
 
-Masz teraz wszystkie elementy potrzebne do wywołania [interfejsu API budżetów](https://docs.microsoft.com/rest/api/consumption/budgets). Dokumentacja interfejsu API budżetów zawiera dodatkowe szczegóły dotyczące konkretnych żądań, w tym:
+Masz teraz wszystkie elementy potrzebne do wywołania [interfejsu API budżetów](/rest/api/consumption/budgets). Dokumentacja interfejsu API budżetów zawiera dodatkowe szczegóły dotyczące konkretnych żądań, w tym:
 
 - **budgetName** — można obsługiwać wiele budżetów.  Nazwy budżetów muszą być unikatowe.
 - **category** — musi mieć wartość **Cost** (Koszt) lub **Usage** (Użycie). Interfejs API obsługuje zarówno budżety kosztów, jak i użycia.

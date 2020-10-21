@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611302"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340312"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -74,9 +74,9 @@ Po zakończeniu kliknij przycisk **OK** , aby dodać miejsce docelowe magazynu.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Dodaj role kontroli dostępu do swojego konta
 
-Pamięć podręczna Azure HPC używa [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) w celu autoryzowania usługi pamięci podręcznej do uzyskiwania dostępu do konta magazynu dla obiektów docelowych usługi Azure Blob Storage.
+Pamięć podręczna Azure HPC używa [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/index.yml) w celu autoryzowania usługi pamięci podręcznej do uzyskiwania dostępu do konta magazynu dla obiektów docelowych usługi Azure Blob Storage.
 
-Właściciel konta magazynu musi jawnie dodać rolę współautor danych [współautor konta magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) i [obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) dla użytkownika "dostawca zasobów pamięci podręcznej usługi HPC".
+Właściciel konta magazynu musi jawnie dodać rolę współautor danych [współautor konta magazynu](../role-based-access-control/built-in-roles.md#storage-account-contributor) i [obiektu blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) dla użytkownika "dostawca zasobów pamięci podręcznej usługi HPC".
 
 Można to zrobić wcześniej lub przez kliknięcie linku na stronie, w którym można dodać obiekt docelowy magazynu obiektów BLOB. Należy pamiętać, że może upłynąć do 5 minut, zanim ustawienia roli są propagowane za pomocą środowiska platformy Azure, więc przed utworzeniem elementu docelowego magazynu należy poczekać kilka minut.
 

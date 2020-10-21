@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018274"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339479"
 ---
 # <a name="azure-security-center-data-security"></a>Zabezpieczenia danych Azure Security Center
 
@@ -51,7 +51,7 @@ Firma Microsoft używa wzorców i analizy zagrożeń widocznych dla wielu dzier�
 ## <a name="manage-data-collection-from-machines"></a>Zarządzanie zbieraniem danych z maszyn
 W przypadku włączenia usługi Security Center na platformie Azure zbieranie danych jest włączone dla każdej subskrypcji platformy Azure. Możesz również włączyć zbieranie danych dla subskrypcji w Security Center. Gdy zbieranie danych jest włączone, Security Center inicjuje agenta Log Analytics we wszystkich istniejących obsługiwanych maszynach wirtualnych platformy Azure i nowych, które zostały utworzone.
 
-Agent Log Analytics skanuje w poszukiwaniu różnych konfiguracji związanych z zabezpieczeniami i zdarzeń do śledzenia [zdarzeń systemu Windows](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal) (ETW). Ponadto system operacyjny będzie zgłaszać zdarzenia dziennika zdarzeń w trakcie pracy maszyny. Przykłady takich danych to typ systemu operacyjnego i jego wersja, dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, nazwa maszyny, adresy IP, zalogowany użytkownik i identyfikator dzierżawy. Agent Log Analytics odczytuje wpisy dziennika zdarzeń i śledzenia ETW i kopiuje je do obszarów roboczych na potrzeby analizy. Agent Log Analytics włącza również zdarzenia tworzenia procesów i inspekcje wiersza polecenia.
+Agent Log Analytics skanuje w poszukiwaniu różnych konfiguracji związanych z zabezpieczeniami i zdarzeń do śledzenia [zdarzeń systemu Windows](/windows/win32/etw/event-tracing-portal) (ETW). Ponadto system operacyjny będzie zgłaszać zdarzenia dziennika zdarzeń w trakcie pracy maszyny. Przykłady takich danych to typ systemu operacyjnego i jego wersja, dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, nazwa maszyny, adresy IP, zalogowany użytkownik i identyfikator dzierżawy. Agent Log Analytics odczytuje wpisy dziennika zdarzeń i śledzenia ETW i kopiuje je do obszarów roboczych na potrzeby analizy. Agent Log Analytics włącza również zdarzenia tworzenia procesów i inspekcje wiersza polecenia.
 
 Jeśli nie korzystasz z usługi Azure Defender, możesz również wyłączyć zbieranie danych z maszyn wirtualnych w ramach zasad zabezpieczeń. Zbieranie danych jest wymagane w przypadku subskrypcji chronionych przez usługę Azure Defender. Kolekcja artefaktów i migawki dysków maszyny wirtualnej będzie nadal włączona, nawet jeśli wyłączono zbieranie danych.
 
@@ -60,7 +60,7 @@ Można określić obszar roboczy i region, w którym są przechowywane dane zbie
 | Lokalizacja geograficzna maszyny wirtualnej                                      | Lokalizacja geograficzna obszaru roboczego  |
 |---------------------------------------------|----------------|
 | Stany Zjednoczone, Brazylia, Afryka Południowa         | Stany Zjednoczone  |
-| Kanada                                      | Canada         |
+| Kanada                                      | Kanada         |
 | Europa (z wyjątkiem Zjednoczonego Królestwa)           | Europa         |
 | Zjednoczone Królestwo                              | Zjednoczone Królestwo |
 | Azja (z wyjątkiem Indii, Japonia, Korea, Chiny) | Azja i Pacyfik   |
@@ -83,9 +83,9 @@ Klienci mogą uzyskać dostęp do Security Center powiązanych danych z następu
 | Strumień                                                                                | Typy danych                                                                                                                                                                                                          |
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log.md)                       | Wszystkie alerty zabezpieczeń, zatwierdzone Security Center żądania dostępu [just in Time](security-center-just-in-time.md) i wszystkie alerty wygenerowane przez [adaptacyjne kontrolki aplikacji](security-center-adaptive-application.md).|
-| [Dzienniki Azure Monitor](../azure-monitor/platform/data-platform.md)                      | Wszystkie alerty zabezpieczeń.                                                                                                                                                                                                |
+| [Dzienniki usługi Azure Monitor](../azure-monitor/platform/data-platform.md)                      | Wszystkie alerty zabezpieczeń.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Alerty zabezpieczeń, zalecenia dotyczące zabezpieczeń, wyniki oceny luk w zabezpieczeniach, bezpieczne informacje o punktacji, stan kontroli zgodności i inne.                                                                       |
-| [Interfejs API REST usługi Azure Security Center](https://docs.microsoft.com/rest/api/securitycenter/) | Alerty zabezpieczeń, zalecenia dotyczące zabezpieczeń i inne elementy.                                                                                                                                                                |
+| [Interfejs API REST usługi Azure Security Center](/rest/api/securitycenter/) | Alerty zabezpieczeń, zalecenia dotyczące zabezpieczeń i inne elementy.                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>Następne kroki

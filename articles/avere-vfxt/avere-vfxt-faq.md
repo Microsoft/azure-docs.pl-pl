@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647a9792384a21dfc191371ef444cbdc098bc819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272695"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342369"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure — często zadawane pytania
 
@@ -160,7 +160,7 @@ Odłączanie i ponowne dołączanie dysków SSD nie jest obsługiwane. Metadane 
 
 ### <a name="does-the-system-encrypt-the-cache"></a>Czy system szyfruje pamięć podręczną?
 
-Dane są rozłożone na dyski, ale nie są szyfrowane. Dyski mogą jednak być szyfrowane. Aby uzyskać więcej informacji, zobacz [bezpieczne i Używanie zasad na maszynach wirtualnych na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
+Dane są rozłożone na dyski, ale nie są szyfrowane. Dyski mogą jednak być szyfrowane. Aby uzyskać więcej informacji, zobacz [bezpieczne i Używanie zasad na maszynach wirtualnych na platformie Azure](../virtual-machines/security-policy.md#encryption).
 
 ## <a name="technical-networking"></a>Techniczne: sieć
 
@@ -259,7 +259,7 @@ Nie. Umowa dotycząca poziomu usług (SLA) dla magazynu archiwum nie jest zgodna
 
 Magazyn obiektów BLOB warstwy chłodnej nie jest zazwyczaj zalecany dla programu avere vFXT for Azure Core. Warstwa chłodna oferuje niższe koszty magazynowania, ale wyższe koszty operacji. (Zobacz [Cennik blokowania obiektów BLOB](<https://azure.microsoft.com/pricing/details/storage/blobs/>) , aby uzyskać więcej informacji). Jeśli dane będą dostępne i modyfikowane lub usuwane często, należy rozważyć użycie warstwy gorąca.
 
-[Warstwy dostępu](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) udostępniają więcej informacji o tym, kiedy warto używać magazynu warstwy chłodnej jako podstawowego pliku vFXT.
+[Warstwy dostępu](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) udostępniają więcej informacji o tym, kiedy warto używać magazynu warstwy chłodnej jako podstawowego pliku vFXT.
 
 ### <a name="how-do-i-encrypt-the-blob-container"></a>Jak mogę zaszyfrować kontenera obiektów BLOB?
 

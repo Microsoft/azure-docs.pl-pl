@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: eb266680cc514b1e2d70e510ed65e9a7790c0260
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 255fbe4036c83618dd0131b262d13709ab7f9c2f
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370338"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131891"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Rejestracja przy użyciu konta platformy Microsoft 365 w celu uzyskania subskrypcji platformy Azure
 
-Jeśli masz subskrypcję platformy Microsoft 365, możesz użyć swojego konta platformy Microsoft 365, aby utworzyć subskrypcję platformy Azure. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) przy użyciu swojej nazwy użytkownika i hasła do konta platformy Microsoft 365. Jeśli chcesz skonfigurować maszyny wirtualne lub użyć innych usług platformy Azure, musisz zarejestrować się w celu uzyskania subskrypcji platformy Azure. Subskrypcję platformy Azure możesz udostępniać innym osobom i [korzystać z kontroli dostępu na podstawie ról (RBAC) platformy Azure w celu zarządzania dostępem do subskrypcji i zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Jeśli masz subskrypcję platformy Microsoft 365, możesz użyć swojego konta platformy Microsoft 365, aby utworzyć subskrypcję platformy Azure. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) przy użyciu swojej nazwy użytkownika i hasła do konta platformy Microsoft 365. Jeśli chcesz skonfigurować maszyny wirtualne lub użyć innych usług platformy Azure, musisz zarejestrować się w celu uzyskania subskrypcji platformy Azure. Subskrypcję platformy Azure możesz udostępniać innym osobom i [korzystać z kontroli dostępu na podstawie ról (RBAC) platformy Azure w celu zarządzania dostępem do subskrypcji i zasobów platformy Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Jeśli masz już konto platformy Microsoft 365 i subskrypcję platformy Azure, zobacz [Kojarzenie dzierżawy platformy Microsoft 365 z subskrypcją platformy Azure](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -57,4 +57,4 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Udostępniaj subskrypcję platformy Azure innym osobom i [korzystaj z kontroli dostępu na podstawie ról (RBAC) platformy Azure w celu zarządzania dostępem do subskrypcji i zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Udostępniaj subskrypcję platformy Azure innym osobom i [korzystaj z kontroli dostępu na podstawie ról (RBAC) platformy Azure w celu zarządzania dostępem do subskrypcji i zasobów platformy Azure](../../role-based-access-control/role-assignments-portal.md).

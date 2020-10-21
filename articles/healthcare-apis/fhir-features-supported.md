@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: matjazl
-ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: cavoeg
+ms.openlocfilehash: ea9a47676b8294b2541c27d361b0dc2fa1ae3627
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007574"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339512"
 ---
 # <a name="features"></a>Funkcje
 
@@ -37,6 +37,7 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | wysłana                          | Nie        | Nie        | Nie        |                                                     |
 | delete                         | Tak       | Tak       | Tak       |                                                     |
 | Usuń (warunkowe)           | Nie        | Nie        | Nie        |                                                     |
+| historia                        | Tak       | Tak       | Tak       |                                                     |
 | create                         | Tak       | Tak       | Tak       | Obsługa funkcji POST/PUT                               |
 | Utwórz (warunkowo)           | Tak       | Tak       | Tak       |                                                     |
 | search                         | Częściowe   | Częściowe   | Częściowe   | Zobacz poniżej                                           |
@@ -45,11 +46,10 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | możliwości                   | Tak       | Tak       | Tak       |                                                     |
 | partia                          | Tak       | Tak       | Tak       |                                                     |
 | Transaction                    | Nie        | Tak       | Nie        |                                                     |
-| historia                        | Tak       | Tak       | Tak       |                                                     |
 | stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self` i `next` są obsługiwane                     |
 | pośredników                 | Nie        | Nie        | Nie        |                                                     |
 
-## <a name="search"></a>Wyszukaj
+## <a name="search"></a>Wyszukiwanie
 
 Wszystkie typy parametrów wyszukiwania są obsługiwane. 
 
@@ -59,7 +59,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | Data/godzina         | Tak       | Tak       | Tak       |         |
 | Ciąg                | Tak       | Tak       | Tak       |         |
 | Token                 | Tak       | Tak       | Tak       |         |
-| Tematy pomocy             | Tak       | Tak       | Tak       |         |
+| Dokumentacja             | Tak       | Tak       | Tak       |         |
 | Złożenie             | Tak       | Tak       | Tak       |         |
 | Liczba              | Tak       | Tak       | Tak       |         |
 | URI                   | Tak       | Tak       | Tak       |         |
@@ -94,28 +94,30 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | `_has`                  | Nie        | Nie        | Nie        |         |
 | `_type`                 | Tak       | Tak       | Tak       |         |
 | `_query`                | Nie        | Nie        | Nie        |         |
-
-| Operacje wyszukiwania       | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
-|-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | Nie        | Nie        | Nie        |         |
+
+| Parametry wyników wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
+|-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Częściowe        | Częściowe   | Częściowe        |   `_sort=_lastUpdated` jest obsługiwana       |
-| `_score`                | Nie        | Nie        | Nie        |         |
-| `_count`                | Tak       | Tak       | Tak       |         |
-| `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count` jest obsługiwana |
+| `_count`                | Tak       | Tak       | Tak       | `_count` jest ograniczone do 100 znaków. Jeśli ustawiona na wartość większą niż 100, zostaną zwrócone tylko 100, a w pakiecie zostanie zwrócone ostrzeżenie. |
 | `_include`              | Nie        | Tak       | Nie        |         |
 | `_revinclude`           | Nie        | Tak       | Nie        | Uwzględnione elementy są ograniczone do 100. |
+| `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count` jest obsługiwana |
+| `_total`                | Częściowe   | Częściowe   | Częściowe   | _total = non i _total = dokładne      |
+| `_elements`             | Tak       | Tak       | Tak       |         |
 | `_contained`            | Nie        | Nie        | Nie        |         |
-| `_elements`             | Tak        | Tak        | Tak        |         |
+| `containedType`         | Nie        | Nie        | Nie        |         |
+| `_score`                | Nie        | Nie        | Nie        |         |
 
 ## <a name="extended-operations"></a>Operacje rozszerzone
 
 Wszystkie obsługiwane operacje, które zwiększają interfejs API RESTful.
 
 | Typ parametru wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
-|-----------------------|-----------|-----------|-----------|---------|
-| $export (cały system)                | Tak       | Tak       | Tak       |         |
-| Pacjent/$export         | Tak       | Tak       | Tak       |         |
-| Grupuj/$export               | Tak       | Tak       | Tak       |         |
+|------------------------|-----------|-----------|-----------|---------|
+| $export (cały system) | Tak       | Tak       | Tak       |         |
+| Pacjent/$export        | Tak       | Tak       | Tak       |         |
+| Grupuj/$export          | Tak       | Tak       | Tak       |         |
 
 ## <a name="persistence"></a>Trwałość
 

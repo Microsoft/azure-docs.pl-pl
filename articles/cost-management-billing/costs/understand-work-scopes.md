@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372361"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132299"
 ---
 # <a name="understand-and-work-with-scopes"></a>Opis zakresów i praca z nimi
 
@@ -180,7 +180,7 @@ W przypadku dostawców rozwiązań w chmurze mających klientów z umową klient
 
 Tylko użytkownicy mający role *Administrator globalny* i *Agent administratora* mogą wyświetlać koszty dla kont rozliczeniowych, profilów rozliczeniowych i klientów bezpośrednio w dzierżawie platformy Azure partnera oraz zarządzać nimi. Aby uzyskać więcej informacji na temat ról Centrum partnerskiego, zobacz [Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview).
 
-Usługa Azure Cost Management obsługuje klientów partnerów CSP tylko w przypadku, gdy mają oni umowę klienta firmy Microsoft. W przypadku klientów obsługiwanych przez dostawców rozwiązań w chmurze, którzy nie mają jeszcze umowy klienta firmy Microsoft, zobacz [Centrum partnerskie](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Usługa Azure Cost Management obsługuje klientów partnerów CSP tylko w przypadku, gdy mają oni umowę klienta firmy Microsoft. W przypadku klientów obsługiwanych przez dostawców rozwiązań w chmurze, którzy nie mają jeszcze umowy klienta firmy Microsoft, zobacz [Centrum partnerskie](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Grupy zarządzania w zakresach dostawców rozwiązań w chmurze nie są obsługiwane w usłudze Cost Management. Jeśli masz subskrypcję dostawcy CSP i w analizie kosztów ustawisz zakres grupy zarządzania, zostanie wyświetlony błąd podobny do następującego:
 

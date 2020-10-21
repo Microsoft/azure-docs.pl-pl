@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: c6bb335ad7783c180ceeaafde955d6ac9dcb8799
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d156887416fb9a587c9690c3b275229e91f1dbe
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280128"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339802"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -93,7 +93,7 @@ Każdy program zabezpieczeń zawiera wiele przepływów pracy dotyczących odpow
 
 Aby uzyskać więcej informacji o automatycznym i ręcznym Security Center możliwości uruchamiania przepływów pracy, zobacz [Automatyzacja przepływu pracy](workflow-automation.md).
 
-Dowiedz się więcej na temat [tworzenia Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Dowiedz się więcej na temat [tworzenia Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integracja Azure Security Center z centrum administracyjnym systemu Windows
@@ -214,7 +214,7 @@ Dzisiaj wprowadzamy nową funkcję w Security Center, która umożliwia klientom
 
 Aby uzyskać więcej informacji o automatycznym i ręcznym Security Center możliwości uruchamiania przepływów pracy, zobacz [Automatyzacja przepływu pracy](workflow-automation.md).
 
-Aby dowiedzieć się więcej na temat tworzenia Logic Apps, zobacz [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Aby dowiedzieć się więcej na temat tworzenia Logic Apps, zobacz [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### <a name="quick-fix-for-bulk-resources-generally-available"></a>Szybka poprawka dla zasobów zbiorczych jest ogólnie dostępna
@@ -270,9 +270,9 @@ Aplikacje zainstalowane na maszynach wirtualnych mogą często mieć luki w zabe
 
 Azure Security Center obsługa ochrony przed zagrożeniami i oceny luk w zabezpieczeniach usługi SQL baz danych uruchomionych na maszynach wirtualnych IaaS jest teraz w wersji zapoznawczej.
 
-[Ocena luk w zabezpieczeniach](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) to łatwa do skonfigurowania usługa umożliwiająca odnajdywanie i śledzenie potencjalnych luk w zabezpieczeniach bazy danych oraz pomagająca w ich usuwaniu. Zapewnia wgląd w stan zabezpieczeń w ramach bezpiecznej oceny platformy Azure i zawiera kroki rozwiązywania problemów z zabezpieczeniami i ulepszania bazy danych FORTIFICATIONS.
+[Ocena luk w zabezpieczeniach](../azure-sql/database/sql-vulnerability-assessment.md) to łatwa do skonfigurowania usługa umożliwiająca odnajdywanie i śledzenie potencjalnych luk w zabezpieczeniach bazy danych oraz pomagająca w ich usuwaniu. Zapewnia wgląd w stan zabezpieczeń w ramach bezpiecznej oceny platformy Azure i zawiera kroki rozwiązywania problemów z zabezpieczeniami i ulepszania bazy danych FORTIFICATIONS.
 
-[Zaawansowana ochrona przed zagrożeniami](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do programu SQL Server lub korzystania z niego. Nieustannie monitoruje bazę danych pod kątem podejrzanych działań i zapewnia zorientowane na działania alerty zabezpieczeń dotyczące nietypowych wzorców dostępu do bazy danych. Te alerty zawierają szczegóły podejrzanych działań i zalecane akcje do zbadania i ograniczenia zagrożenia.
+[Zaawansowana ochrona przed zagrożeniami](../azure-sql/database/threat-detection-overview.md) wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do programu SQL Server lub korzystania z niego. Nieustannie monitoruje bazę danych pod kątem podejrzanych działań i zapewnia zorientowane na działania alerty zabezpieczeń dotyczące nietypowych wzorców dostępu do bazy danych. Te alerty zawierają szczegóły podejrzanych działań i zalecane akcje do zbadania i ograniczenia zagrożenia.
 
 
 ### <a name="support-for-custom-policies-preview"></a>Obsługa zasad niestandardowych (wersja zapoznawcza)
@@ -346,7 +346,7 @@ Po włączeniu JIT dla maszyn wirtualnych należy utworzyć zasady określające
 
 Żądania są rejestrowane w dzienniku aktywności platformy Azure, dzięki czemu można łatwo monitorować i przeprowadzać inspekcję dostępu. Strona just in Time ułatwia również szybkie identyfikowanie istniejących maszyn wirtualnych z włączoną obsługą JIT oraz maszyn wirtualnych, na których jest zalecana metoda JIT.
 
-[Dowiedz się więcej o zaporze platformy Azure](https://docs.microsoft.com/azure/firewall/overview).
+[Dowiedz się więcej o zaporze platformy Azure](../firewall/overview.md).
 
 
 ### <a name="single-click-remediation-to-boost-your-security-posture-preview"></a>Korygowanie z jednym kliknięciem w celu zwiększenia stan zabezpieczeń (wersja zapoznawcza)

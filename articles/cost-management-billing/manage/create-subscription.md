@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: aa8cf0d2a48c75b71895eb75db362c4ec4e291c5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 006c995217ced91690798ae68f04e3b6c3148228
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925049"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131959"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Tworzenie dodatkowej subskrypcji platformy Azure
 
@@ -30,7 +30,7 @@ Do tworzenia subskrypcji wymagane są następujące uprawnienia:
 |---------|---------|
 |Umowa Enterprise Agreement (EA) |  Rola właściciela konta rejestracji umowy Enterprise Aby uzyskać więcej informacji, zobacz [Omówienie ról administracyjnych dla umowy Azure Enterprise Agreement na platformie Azure](understand-ea-roles.md).    |
 |Umowa klienta firmy Microsoft (MCA) |  Rola właściciela lub współautora w sekcji faktury, profilu rozliczeń lub koncie rozliczeniowym Rola twórcy subskrypcji platformy Azure w sekcji faktury  Aby uzyskać więcej informacji, zobacz [Role rozliczeniowe i zadania w subskrypcji](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Umowa partnerska firmy Microsoft |   Rola administratora globalnego i agenta administratora w organizacji partnera CSP. Aby dowiedzieć się więcej, zobacz [Centrum partnerskie — Przypisywanie ról i uprawnień użytkowników](https://docs.microsoft.com/partner-center/permissions-overview).  Użytkownik musi zalogować się do dzierżawy partnera w celu utworzenia subskrypcji platformy Azure.   |
+|Umowa partnerska firmy Microsoft |   Rola administratora globalnego i agenta administratora w organizacji partnera CSP. Aby dowiedzieć się więcej, zobacz [Centrum partnerskie — Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview).  Użytkownik musi zalogować się do dzierżawy partnera w celu utworzenia subskrypcji platformy Azure.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Tworzenie subskrypcji w witrynie Azure Portal
 
@@ -79,7 +79,7 @@ Dodatkowe subskrypcje można również tworzyć programowo. Aby uzyskać więcej
 
 - [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](add-change-subscription-administrator.md)
 - [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Tworzenie grup zarządzania na potrzeby organizowania zasobów i zarządzania nimi](../../governance/management-groups/create.md)
+- [Tworzenie grup zarządzania na potrzeby organizowania zasobów i zarządzania nimi](../../governance/management-groups/create-management-group-portal.md)
 - [Anulowanie subskrypcji platformy Azure](cancel-azure-subscription.md)
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.

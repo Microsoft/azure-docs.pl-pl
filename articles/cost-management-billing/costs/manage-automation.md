@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 939e621da414fc2d4d55d85e8b66a409b1338941
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372191"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131976"
 ---
 # <a name="manage-costs-with-automation"></a>Zarządzanie kosztami przy użyciu automatyzacji
 
@@ -21,7 +21,7 @@ Automatyzacja w usłudze Cost Management pozwala utworzyć niestandardowy zestaw
 
 ## <a name="automate-cost-data-retrieval-for-offline-analysis"></a>Automatyzowanie pobierania danych kosztów do analizy w trybie offline
 
-Pobranie danych kosztów platformy Azure może być konieczne w celu scalenia ich z innymi zestawami danych. Możesz też potrzebować zintegrować dane kosztów z własnymi systemami. Zależnie od ilości danych, których to dotyczy, dostępne są różne opcje. W każdym przypadku do korzystania z interfejsów API i narzędzi trzeba mieć odpowiedni zakres uprawnień w usłudze Cost Management. Aby uzyskać więcej informacji, zobacz [Przypisywanie dostępu do danych](https://docs.microsoft.com/azure/cost-management-billing/costs/assign-access-acm-data).
+Pobranie danych kosztów platformy Azure może być konieczne w celu scalenia ich z innymi zestawami danych. Możesz też potrzebować zintegrować dane kosztów z własnymi systemami. Zależnie od ilości danych, których to dotyczy, dostępne są różne opcje. W każdym przypadku do korzystania z interfejsów API i narzędzi trzeba mieć odpowiedni zakres uprawnień w usłudze Cost Management. Aby uzyskać więcej informacji, zobacz [Przypisywanie dostępu do danych](./assign-access-acm-data.md).
 
 ## <a name="suggestions-for-handling-large-datasets"></a>Sugestie dotyczące obsługi dużych zestawów danych
 
@@ -29,33 +29,33 @@ Jeśli w organizacji używanych jest wiele zasobów i subskrypcji platformy Azur
 
 **Power BI**
 
-Usługa Power BI służy do pozyskiwania i obsługi dużych ilości danych. Jeśli jesteś klientem z umową Enterprise Agreement, możesz użyć aplikacji szablonu usługi Power BI do analizowania kosztów dla konta rozliczeniowego. Raport zawiera najważniejsze widoki używane przez klientów. Aby uzyskać więcej informacji, zobacz [Analizowanie kosztów platformy Azure za pomocą aplikacji szablonu usługi Power BI](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
+Usługa Power BI służy do pozyskiwania i obsługi dużych ilości danych. Jeśli jesteś klientem z umową Enterprise Agreement, możesz użyć aplikacji szablonu usługi Power BI do analizowania kosztów dla konta rozliczeniowego. Raport zawiera najważniejsze widoki używane przez klientów. Aby uzyskać więcej informacji, zobacz [Analizowanie kosztów platformy Azure za pomocą aplikacji szablonu usługi Power BI](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 **Łącznik danych usługi Power BI**
 
-Jeśli chcesz analizować dane codziennie, zalecamy użycie [łącznika danych usługi Power BI](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management) w celu pobierania danych do szczegółowej analizy. Wszystkie raporty, które tworzysz, są aktualizowane przez łącznik w miarę naliczania kolejnych kosztów.
+Jeśli chcesz analizować dane codziennie, zalecamy użycie [łącznika danych usługi Power BI](/power-bi/connect-data/desktop-connect-azure-cost-management) w celu pobierania danych do szczegółowej analizy. Wszystkie raporty, które tworzysz, są aktualizowane przez łącznik w miarę naliczania kolejnych kosztów.
 
 **Eksporty z usługi Cost Management**
 
-Możesz nie mieć potrzeby codziennego analizowania danych. W takim przypadku rozważ użycie funkcji [Eksporty](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) w usłudze Cost Management w celu zaplanowania eksportów danych na konto usługi Azure Storage. Następnie możesz zgodnie z potrzebami ładować dane do usługi Power BI lub analizować je w programie Excel, jeśli plik będzie dostatecznie mały. Eksporty są dostępne w witrynie Azure Portal, ale można też je skonfigurować za pomocą [interfejsu API eksportów](https://docs.microsoft.com/rest/api/cost-management/exports).
+Możesz nie mieć potrzeby codziennego analizowania danych. W takim przypadku rozważ użycie funkcji [Eksporty](./tutorial-export-acm-data.md) w usłudze Cost Management w celu zaplanowania eksportów danych na konto usługi Azure Storage. Następnie możesz zgodnie z potrzebami ładować dane do usługi Power BI lub analizować je w programie Excel, jeśli plik będzie dostatecznie mały. Eksporty są dostępne w witrynie Azure Portal, ale można też je skonfigurować za pomocą [interfejsu API eksportów](/rest/api/cost-management/exports).
 
 **Interfejs API szczegółów użycia**
 
-Rozważ zastosowanie [interfejsu API szczegółów użycia](https://docs.microsoft.com/rest/api/consumption/usageDetails), jeśli masz niewielki zestaw danych kosztów. W przypadku dużej ilości danych kosztów powinno się żądać najmniejszej możliwej ilości danych użycia dla okresu. W tym celu należy określić niewielki zakres czasu lub użyć filtru w żądaniu. Na przykład w scenariuszu, w którym potrzebne są dane kosztów z trzech lat, interfejs API radzi sobie lepiej, gdy wykonujesz wiele wywołań dla różnych zakresów czasu zamiast pojedynczego wywołania. Z tego miejsca możesz załadować dane do programu Excel w celu dalszej analizy.
+Rozważ zastosowanie [interfejsu API szczegółów użycia](/rest/api/consumption/usageDetails), jeśli masz niewielki zestaw danych kosztów. W przypadku dużej ilości danych kosztów powinno się żądać najmniejszej możliwej ilości danych użycia dla okresu. W tym celu należy określić niewielki zakres czasu lub użyć filtru w żądaniu. Na przykład w scenariuszu, w którym potrzebne są dane kosztów z trzech lat, interfejs API radzi sobie lepiej, gdy wykonujesz wiele wywołań dla różnych zakresów czasu zamiast pojedynczego wywołania. Z tego miejsca możesz załadować dane do programu Excel w celu dalszej analizy.
 
 ## <a name="automate-retrieval-with-usage-details-api"></a>Automatyzacja pobierania za pomocą interfejsu API szczegółów użycia
 
-[Interfejs API szczegółów użycia](https://docs.microsoft.com/rest/api/consumption/usageDetails) zapewnia łatwy sposób uzyskiwania nieprzetworzonych, niezagregowanych danych kosztów, które odnoszą się do rachunku za platformę Azure. Interfejs API jest przydatny, gdy organizacja potrzebuje rozwiązania pobierającego dane w sposób programistyczny. Rozważ użycie interfejsu API, jeśli chcesz analizować mniejsze zestawy danych kosztów. W przypadku większych zestawów danych powinno się jednak korzystać z innych rozwiązań wskazanych wcześniej. Dane szczegółów użycia są udostępniane dla poszczególnych liczników i dni. Są stosowane do obliczania rachunków miesięcznych. Ogólnie dostępna wersja tych interfejsów API to `2019-10-01`. Użyj wersji `2019-04-01-preview`, aby uzyskać dostęp do wersji zapoznawczej dla rezerwacji i zakupów w witrynie Azure Marketplace przy użyciu interfejsów API.
+[Interfejs API szczegółów użycia](/rest/api/consumption/usageDetails) zapewnia łatwy sposób uzyskiwania nieprzetworzonych, niezagregowanych danych kosztów, które odnoszą się do rachunku za platformę Azure. Interfejs API jest przydatny, gdy organizacja potrzebuje rozwiązania pobierającego dane w sposób programistyczny. Rozważ użycie interfejsu API, jeśli chcesz analizować mniejsze zestawy danych kosztów. W przypadku większych zestawów danych powinno się jednak korzystać z innych rozwiązań wskazanych wcześniej. Dane szczegółów użycia są udostępniane dla poszczególnych liczników i dni. Są stosowane do obliczania rachunków miesięcznych. Ogólnie dostępna wersja tych interfejsów API to `2019-10-01`. Użyj wersji `2019-04-01-preview`, aby uzyskać dostęp do wersji zapoznawczej dla rezerwacji i zakupów w witrynie Azure Marketplace przy użyciu interfejsów API.
 
 ### <a name="usage-details-api-suggestions"></a>Sugestie dotyczące interfejsu API szczegółów użycia
 
 **Harmonogram żądań**
 
-Zalecamy, aby do interfejsu API szczegółów użycia kierować _nie więcej niż jedno żądanie_ dziennie. Aby uzyskać więcej informacji o tym, jak często dane kosztów są odświeżane i jak obsługiwane jest zaokrąglanie, zobacz [Omówienie danych usługi Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#rated-usage-data-refresh-schedule).
+Zalecamy, aby do interfejsu API szczegółów użycia kierować _nie więcej niż jedno żądanie_ dziennie. Aby uzyskać więcej informacji o tym, jak często dane kosztów są odświeżane i jak obsługiwane jest zaokrąglanie, zobacz [Omówienie danych usługi Cost Management](./understand-cost-mgt-data.md).
 
 **Ukierunkowanie na zakresy najwyższego poziomu bez filtrowania**
 
-Użyj interfejsu API, aby uzyskać wszystkie potrzebne dane w zakresie o najwyższym dostępnym poziomie. Przed wykonaniem jakiejkolwiek operacji filtrowania, grupowania lub agregowania albo analizy zagregowanych danych zaczekaj, aż wszystkie potrzebne dane zostaną pozyskane. Interfejs API jest zoptymalizowany pod kątem dostarczania dużej ilości niezagregowanych i nieprzetworzonych danych kosztów. Aby dowiedzieć się więcej o zakresach dostępnych w usłudze Cost Management, zobacz [Opis zakresów i praca z nimi](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-work-scopes). Po pobraniu potrzebnych danych dla zakresu użyj programu Excel do dalszej analizy danych za pomocą filtrów i tabel przestawnych.
+Użyj interfejsu API, aby uzyskać wszystkie potrzebne dane w zakresie o najwyższym dostępnym poziomie. Przed wykonaniem jakiejkolwiek operacji filtrowania, grupowania lub agregowania albo analizy zagregowanych danych zaczekaj, aż wszystkie potrzebne dane zostaną pozyskane. Interfejs API jest zoptymalizowany pod kątem dostarczania dużej ilości niezagregowanych i nieprzetworzonych danych kosztów. Aby dowiedzieć się więcej o zakresach dostępnych w usłudze Cost Management, zobacz [Opis zakresów i praca z nimi](./understand-work-scopes.md). Po pobraniu potrzebnych danych dla zakresu użyj programu Excel do dalszej analizy danych za pomocą filtrów i tabel przestawnych.
 
 ## <a name="example-usage-details-api-requests"></a>Przykładowe żądania do interfejsu API dotyczące szczegółów użycia
 
@@ -329,6 +329,6 @@ Aby zapewnić jednakowe działanie dla wszystkich subskrybentów usługi Cost Ma
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Analizowanie kosztów platformy Azure za pomocą aplikacji szablonu usługi Power BI](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app)
-- [Eksportowanie danych i zarządzanie nimi](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) za pomocą funkcji Eksporty.
-- Dowiedz się więcej na temat [interfejsu API szczegółów użycia](https://docs.microsoft.com/rest/api/consumption/usageDetails).
+- [Analizowanie kosztów platformy Azure za pomocą aplikacji szablonu usługi Power BI](./analyze-cost-data-azure-cost-management-power-bi-template-app.md)
+- [Eksportowanie danych i zarządzanie nimi](./tutorial-export-acm-data.md) za pomocą funkcji Eksporty.
+- Dowiedz się więcej na temat [interfejsu API szczegółów użycia](/rest/api/consumption/usageDetails).

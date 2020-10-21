@@ -5,28 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439842"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340629"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementy wiadomości e-mail z zaproszeniem do współpracy B2B — Azure Active Directory
 
 Wiadomości e-mail z zaproszeniem są składnikiem krytycznym umożliwiającym partnerom korzystanie z partnerów w usłudze Azure AD. [Nie jest wymagane, aby wysłać wiadomość e-mail z prośbą o zaproszenie kogoś przy użyciu współpracy B2B](add-user-without-invite.md). dzięki temu użytkownik może wszystkie informacje potrzebne do podjęcia decyzji o zaakceptowaniu zaproszenia. Podaje im również link, który zawsze może odwoływać się w przyszłości, gdy muszą powrócić do zasobów.
 
 ![Zrzut ekranu przedstawiający wiadomość e-mail z zaproszeniem B2B](media/invitation-email-elements/invitation-email.png)
-
-> [!NOTE]
-> Ten nowy szablon wiadomości e-mail jest nadal wdrażany dla wszystkich dzierżawców, więc niektórzy dzierżawcy nadal korzystają ze starszego projektu. Na koniec 2020 maja zaproszenia od wszystkich dzierżawców będą korzystać z tego szablonu.
 
 ## <a name="explaining-the-email"></a>Objaśnienie wiadomości e-mail
 
@@ -52,17 +49,11 @@ Wiadomość e-mail rozpoczyna się od krótkiego ostrzeżenia dla użytkownika d
 
 ![Obraz ostrzeżenia dotyczącego wyłudzania informacji w wiadomości e-mail](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>Informacje osoby zapraszające
+### <a name="inviters-information-and-invitation-message"></a>Informacje o zaproszeniu i wiadomości dla osoby zaproszonej
 
-Wiadomość e-mail zawiera informacje o zapraszaniu i organizacji, z których są wysyłane zaproszenia. Obejmuje to nazwę i adres e-mail nadawcy, a także nazwę i domenę podstawową skojarzoną z organizacją. Wszystkie te informacje powinny pomóc uczestnikom zapraszać w podejmowaniu świadomej decyzji o zaakceptowaniu zaproszenia.
+Wiadomość e-mail obejmuje nazwę i domenę podstawową skojarzoną z organizacją wysyłającą zaproszenie. Te informacje powinny pomóc uczestnikom zaproszenia do podejmowania świadomej decyzji o zaakceptowaniu zaproszenia. Jeśli zapraszający zawiera komunikat w ramach zaproszenia, gdy [zaprasza użytkownika-gościa do katalogu, grupy lub aplikacji](add-users-administrator.md) lub gdy [używają interfejsu API zaproszenia](customize-invitation-api.md), komunikat zostanie wyróżniony w sekcji głównej wiadomości e-mail. Jest również dołączony do nazwy i obrazu profilu osoby zapraszanej, jeśli je ustawili. Sam komunikat jest obszarem tekstu, dlatego ze względów bezpieczeństwa nie przetwarza tagów HTML.
 
-![Obraz informacji osoby zaproszonej w wiadomości e-mail](media/invitation-email-elements/inviters-information.png)
-
-### <a name="invitation-message"></a>Wiadomość z zaproszeniem
-
-Jeśli zapraszający zawiera komunikat w ramach zaproszenia, gdy [zaprasza użytkownika-gościa do katalogu, grupy lub aplikacji](add-users-administrator.md) lub gdy [używają interfejsu API zaproszenia](customize-invitation-api.md), komunikat zostanie wyróżniony w sekcji głównej wiadomości e-mail. Jest również dołączony do nazwy i obrazu profilu osoby zapraszanej, jeśli je ustawili. Sam komunikat jest obszarem tekstu, dlatego ze względów bezpieczeństwa nie przetwarza tagów HTML.
-
-![Obraz komunikatu zaproszenia w wiadomości e-mail](media/invitation-email-elements/invitation-message.png)
+![Obraz komunikatu zaproszenia w wiadomości e-mail](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### <a name="accept-button-and-redirect-url"></a>Zaakceptuj przycisk i adres URL przekierowania
 

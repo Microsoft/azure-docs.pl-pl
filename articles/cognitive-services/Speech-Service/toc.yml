@@ -580,9 +580,8 @@
       href: how-to-migrate-from-translator-speech-api.md
 - name: Zasoby
   items:
-    - name: Pomoc techniczna
-      displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
-      href: support.md
+    - name: Opcje pomocy technicznej
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Dokumentacja platformy Swagger
       href: swagger-documentation.md
     - name: Suwerenne chmury

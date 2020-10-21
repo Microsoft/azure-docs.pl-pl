@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 0049efda603532099cc9bf24dc9d9411b5aaa389
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360700"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132129"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Konta i zakresy rozliczeniowe w witrynie Azure Portal
 
@@ -27,7 +27,7 @@ W witrynie Azure Portal są obsługiwane następujące typy kont rozliczeniowych
 
 - **Umowa klienta firmy Microsoft**: Konto rozliczeniowe dla umowy klienta firmy Microsoft jest tworzone, gdy organizacja współpracuje z przedstawicielem firmy Microsoft w celu podpisania umowy klienta firmy Microsoft. Niektórzy klienci w wybranych regionach, którzy zarejestrują się za pomocą witryny internetowej Azure w celu utworzenia [konta ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/) lub [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), mogą mieć również konto rozliczeniowe do umowy klienta firmy Microsoft. W Umowie z Klientem Microsoft możesz mieć maksymalnie 20 subskrypcji. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z kontem rozliczeniowym do umowy klienta firmy Microsoft](../understand/mca-overview.md).
 
-- **Umowa partnerska firmy Microsoft**: Konto rozliczeniowe dla umowy partnerskiej firmy Microsoft jest tworzone dla dostawców rozwiązań w chmurze (CSP) w celu zarządzania ich klientami w nowym środowisku handlowym. Partnerzy muszą mieć co najmniej jednego klienta z [planem platformy Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan), aby mogli zarządzać kontem rozliczeniowym w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z kontem rozliczeniowym do umowy partnerskiej firmy Microsoft](../understand/mpa-overview.md).
+- **Umowa partnerska firmy Microsoft**: Konto rozliczeniowe dla umowy partnerskiej firmy Microsoft jest tworzone dla dostawców rozwiązań w chmurze (CSP) w celu zarządzania ich klientami w nowym środowisku handlowym. Partnerzy muszą mieć co najmniej jednego klienta z [planem platformy Azure](/partner-center/purchase-azure-plan), aby mogli zarządzać kontem rozliczeniowym w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z kontem rozliczeniowym do umowy partnerskiej firmy Microsoft](../understand/mpa-overview.md).
 
 Aby określić typ swojego konta rozliczeniowego, zobacz [Sprawdzanie typu konta rozliczeniowego](#check-the-type-of-your-account).
 
