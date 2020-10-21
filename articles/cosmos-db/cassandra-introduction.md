@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 05/21/2019
-ms.openlocfilehash: 70dbceb51ed030124d1b793d77c6bc287da91065
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e31150a15996d9c6e77c772e6d703a39adfa91f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81687641"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278921"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Wprowadzenie do interfejsu API Cassandra usługi Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Interfejs API Cassandra umożliwia korzystanie z danych przechowywanych w Azure 
 
 **Możliwość używania istniejącego kodu i narzędzi**: usługa Azure Cosmos DB udostępnia zgodność na poziomie protokołu przewodowego z istniejącymi zestawami SDK i narzędziami platformy Cassandra. Dzięki tej zgodności można używać istniejącej bazy kodu z interfejsem API Cassandra usługi Azure Cosmos DB z prostymi zmianami.
 
-**Elastyczność przepływności i magazynu**: usługa Azure Cosmos DB oferuje gwarantowaną przepływność we wszystkich regionach i możliwość skalowania aprowizowanej przepływności za pomocą witryny Azure Portal, programu PowerShell lub operacji interfejsu wiersza polecenia. W miarę potrzeb można [elastycznie skalować](manage-scale-cassandra.md) magazyn i przepływność dla tabel.
+**Elastyczność przepływności i przestrzeni dyskowej**: Azure Cosmos DB zapewnia przepływność we wszystkich regionach i może skalować zainicjowaną przepływność przy użyciu operacji Azure Portal, PowerShell lub interfejsu wiersza polecenia. W miarę potrzeb można [elastycznie skalować](manage-scale-cassandra.md) magazyn i przepływność dla tabel.
 
 **Dystrybucja globalna i dostępność**: usługa Azure Cosmos DB zapewnia możliwość globalnej dystrybucji danych we wszystkich regionach platformy Azure z lokalnym przekazywaniem danych przy jednoczesnym zapewnieniu dostępu do danych z małymi opóźnieniami i wysokiej dostępności. Usługa Azure Cosmos DB zapewnia dostępność przez 99,99% czasu w obrębie regionu oraz dostępność odczytu i zapisu przez 99,999% czasu w wielu regionach bez nadmiarowych operacji. Dowiedz się więcej z artykułu [Globalna dystrybucja danych](distribute-data-globally.md). 
 

@@ -86,7 +86,7 @@
     - name: Interfejs wiersza polecenia platformy Azure
       href: cli-samples.md
     - name: Azure Resource Manager
-      href: resource-manager-samples.md
+      href: templates-samples-sql.md
 - name: Pojęcia
   items:
     - name: Bazy danych NoSQL a relacyjne bazy danych
@@ -99,31 +99,17 @@
         - name: Poziomy spójności
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: consistency-levels.md
-        - name: Wybieranie właściwego poziomu spójności
-          displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
-          href: consistency-levels-choosing.md
-        - name: Poziomy spójności i interfejsy API usługi Azure Cosmos DB
-          href: consistency-levels-across-apis.md
-        - name: 'Kompromisy w zakresie spójności, dostępności i wydajności'
-          href: consistency-levels-tradeoffs.md
         - name: Wysoka dostępność
           href: high-availability.md
-        - name: Globalne skalowanie aprowizowanej przepływności
-          displayName: 'request units, RUs, RU'
-          href: scaling-throughput.md
         - name: Typy konfliktów i zasady ich rozwiązywania
           displayName: 'last write wins, custom, multi-region writes, multi-master'
           href: conflict-resolution-policies.md
         - name: Dystrybucja globalna — szczegóły działania
           href: global-dist-under-the-hood.md
-        - name: Obecność regionalna
-          href: regional-presence.md
     - name: Partycjonowanie
       items:
-        - name: Omówienie partycjonowania
-          href: partitioning-overview.md
         - name: Partycjonowanie i skalowanie w poziomie
-          href: partition-data.md
+          href: partitioning-overview.md
         - name: Syntetyczny klucz partycji
           href: synthetic-partition-keys.md
     - name: Pojemność
@@ -389,6 +375,9 @@
                     - name: LTRIM
                       displayName: 'LTRIM, left trim, built-in functions'
                       href: sql-query-ltrim.md
+                    - name: REGEXMATCH
+                      displayName: 'REGEXMATCH, built-in functions'
+                      href: sql-query-regexmatch.md
                     - name: REPLACE
                       displayName: 'REPLACE, built-in functions'
                       href: sql-query-replace.md
@@ -486,13 +475,11 @@
         - name: LINQ to SQL
           displayName: 'linq, .NET'
           href: sql-query-linq-to-sql.md
-    - name: Praca z kontem usługi Azure Cosmos
-      href: account-overview.md
+    - name: Model zasobów usługi Azure Cosmos DB
+      displayName: 'collection, document'
+      href: account-databases-containers-items.md
     - name: Kontenery i elementy
       items:
-        - name: 'Praca z bazami danych, kontenerami i elementami'
-          displayName: 'collection, document'
-          href: databases-containers-items.md
         - name: Modelowanie danych dokumentów
           displayName: document
           href: modeling-data.md
@@ -565,11 +552,10 @@
           displayName: 'request units, RUs, RU'
           href: optimize-cost-throughput.md
         - name: Optymalizacja kosztów zapytań
-          href: optimize-cost-queries.md
+          displayName: 'request, cost, read, write, query, queries, RUs, RU'
+          href: optimize-cost-reads-writes.md
         - name: Optymalizacja kosztów magazynu
           href: optimize-cost-storage.md
-        - name: Optymalizacja kosztów operacji odczytu i zapisu
-          href: optimize-cost-reads-writes.md
         - name: Optymalizacja kosztów korzystania z wielu regionów
           href: optimize-cost-regions.md
         - name: Optymalizacja kosztów projektowania i testowania
@@ -586,11 +572,6 @@
         - name: Zabezpieczanie dostępu do danych
           displayName: 'primary key, resource token, users, roles'
           href: secure-access-to-data.md
-        - name: Zapora IP
-          href: firewall-support.md
-        - name: Dostęp z sieci wirtualnych
-          displayName: service endpoint
-          href: vnet-service-endpoint.md
         - name: Tagi usługi
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Kontrola dostępu oparta na rolach
@@ -605,8 +586,6 @@
           href: security-baseline.md
     - name: Gotowość przedsiębiorstwa
       items:
-        - name: Tworzenie kopii zapasowych w trybie online i ich przywracanie na żądanie
-          href: online-backup-and-restore.md
         - name: Zgodność
           href: compliance.md
         - name: Obsługa usługi Azure Policy
@@ -663,6 +642,8 @@
               href: cassandra-partitioning.md
             - name: Indeksy pomocnicze
               href: cassandra-secondary-index.md
+            - name: Mapowanie poziomów spójności
+              href: cassandra-consistency.md
         - name: Przewodniki z instrukcjami
           items:
             - name: Migrowanie do interfejsu API Cassandra
@@ -675,6 +656,14 @@
                   href: cassandra-migrate-cosmos-db-blitzz.md
             - name: Źródło zmian
               href: cassandra-change-feed.md
+            - name: Tworzenie kontenera — Cassandra API
+              href: how-to-create-container-cassandra.md
+            - name: Przepływność aprowizacji — Cassandra API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-cassandra.md
+            - name: Znajdowanie opłaty za jednostkę żądania
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-cassandra.md
             - name: Magazynowanie danych rozwiązania Spring Data i zarządzanie nimi
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Oprogramowanie Cassandra i Spark
@@ -700,12 +689,12 @@
                 - name: Kopiowanie danych z tabeli
                   href: cassandra-spark-table-copy-ops.md
             - name: Zarządzanie przy użyciu szablonów usługi Resource Manager
-              href: manage-cassandra-with-resource-manager.md
+              href: templates-samples-cassandra.md
               displayName: ARM
             - name: Zarządzanie przy użyciu programu PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-cassandra.md
             - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
-              href: cli-samples.md
+              href: cli-samples-cassandra.md
     - name: Interfejs API usługi MongoDB
       items:
         - name: Omówienie
@@ -760,6 +749,8 @@
               href: mongodb-feature-support.md
             - name: Często zadawane pytania
               href: mongodb-api-faq.md
+            - name: Mapowanie poziomów spójności
+              href: mongodb-consistency.md
         - name: Przewodniki z instrukcjami
           items:
             - name: Migracja do interfejsu API MongoDB
@@ -793,18 +784,28 @@
               href: mongodb-change-streams.md
             - name: Zarządzanie indeksowaniem danych
               href: mongodb-indexing.md
+            - name: Tworzenie kontenera — MongoDB API
+              href: how-to-create-container-mongodb.md
+            - name: Aprowizacja przepływności — MongoDB API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-mongodb.md
+            - name: Znajdowanie opłaty za jednostkę żądania
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-mongodb.md
+            - name: Rozwiązywanie problemów z wydajnością zapytań
+              href: mongodb-troubleshoot-query.md
             - name: Magazynowanie danych rozwiązania Spring Data i zarządzanie nimi
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Polecenia rozszerzenia bazy danych MongoDB
               href: mongodb-custom-commands.md
               displayName: custom commands
             - name: Zarządzanie przy użyciu szablonów usługi Resource Manager
-              href: manage-mongodb-with-resource-manager.md
+              href: templates-samples-mongodb.md
               displayName: ARM
             - name: Zarządzanie przy użyciu programu PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-mongodb.md
             - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
-              href: cli-samples.md
+              href: cli-samples-mongodb.md
             - name: Rozwiązywanie typowych problemów
               href: mongodb-troubleshoot.md
     - name: Interfejs API języka Gremlin
@@ -838,6 +839,10 @@
           items:
             - name: Często zadawane pytania
               href: gremlin-api-faq.md
+            - name: Nagłówki odpowiedzi
+              href: gremlin-headers.md
+            - name: Limity
+              href: gremlin-limits.md
         - name: Przewodniki z instrukcjami
           items:
             - name: Modelowanie danych grafu
@@ -848,6 +853,14 @@
               href: bulk-executor-graph-dotnet.md
             - name: Optymalizacja zapytań języka Gremlin
               href: graph-execution-profile.md
+            - name: Tworzenie kontenera — Gremlin API
+              href: how-to-create-container-gremlin.md
+            - name: Aprowizacja przepływności — Gremlin API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-gremlin.md
+            - name: Znajdowanie opłaty za jednostkę żądania
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-gremlin.md
             - name: Używanie tokenów zasobów
               href: how-to-use-resource-tokens-gremlin.md
             - name: Korzystanie z regionalnych punktów końcowych
@@ -859,12 +872,12 @@
             - name: Magazynowanie danych rozwiązania Spring Data i zarządzanie nimi
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Zarządzanie przy użyciu szablonów usługi Resource Manager
-              href: manage-gremlin-with-resource-manager.md
+              href: templates-samples-gremlin.md
               displayName: ARM
             - name: Zarządzanie przy użyciu programu PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-gremlin.md
             - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
-              href: cli-samples.md
+              href: cli-samples-gremlin.md
         - name: Dokumentacja
           items:
             - name: Nagłówki odpowiedzi
@@ -927,15 +940,20 @@
           items:
             - name: Tworzenie aplikacji za pomocą interfejsu API tabel
               href: table-support.md
+            - name: Tworzenie kontenera — interfejs Table API
+              href: how-to-create-container-table.md
+            - name: Znajdowanie opłaty za jednostkę żądania
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-table.md
             - name: Przewodnik projektowania usługi Table Storage
               href: table-storage-design-guide.md
             - name: Zarządzanie przy użyciu szablonów usługi Resource Manager
-              href: manage-table-with-resource-manager.md
+              href: templates-samples-table.md
               displayName: ARM
             - name: Zarządzanie przy użyciu programu PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-table.md
             - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
-              href: cli-samples.md
+              href: cli-samples-table.md
         - name: Dokumentacja
           items:
             - name: .NET
@@ -971,7 +989,7 @@
         - name: Korzystanie z interfejsu wiersza polecenia platformy Azure
           href: manage-with-cli.md
         - name: Korzystanie z szablonów usługi Resource Manager
-          href: manage-sql-with-resource-manager.md
+          href: manage-with-templates.md
           displayName: ARM
         - name: Przenoszenie między regionami
           href: how-to-move-regions.md
@@ -1018,7 +1036,7 @@
               href: storage-explorer.md
             - name: Praca z danymi za pomocą eksploratora usługi Azure Cosmos
               href: data-explorer.md
-        - name: Tworzenie kontenera
+        - name: Tworzenie kontenera — interfejs SQL API
           href: how-to-create-container.md
         - name: Tworzenie kontenera przy użyciu dużego klucza partycji
           href: large-partition-keys.md
@@ -1038,6 +1056,8 @@
           href: how-to-define-unique-keys.md
     - name: Wydajność
       items:
+        - name: Tryby łączności
+          href: sql-sdk-connection-modes.md
         - name: Zapytanie
           items:
             - name: Pobieranie metryk wykonywania zapytań
@@ -1102,16 +1122,12 @@
               href: troubleshoot-java-async-sdk.md
     - name: Zestawienie zmian
       items:
-        - name: Dzienniki wyzwalacza usługi Azure Cosmos DB
-          href: how-to-configure-cosmos-db-trigger-logs.md
-        - name: Zasady połączeń wyzwalaczy usługi Azure Cosmos DB
-          href: how-to-configure-cosmos-db-trigger-connection-policy.md
+        - name: Zaawansowana konfiguracja wyzwalacza usługi Azure Cosmos DB
+          href: how-to-configure-cosmos-db-trigger.md
         - name: Wiele wyzwalaczy usługi Azure Cosmos DB
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Rozwiązywanie problemów z wyzwalaczami usługi Azure Cosmos DB
           href: troubleshoot-changefeed-functions.md
-        - name: Czas rozpoczęcia procesora zestawienia zmian
-          href: how-to-configure-change-feed-start-time.md
         - name: Korzystanie z estymatora zestawienia zmian
           href: how-to-use-change-feed-estimator.md
         - name: Migrowanie z biblioteki procesora zestawienia zmian
@@ -1180,8 +1196,8 @@
           href: how-to-setup-cmk.md
     - name: Gotowość przedsiębiorstwa
       items:
-        - name: Przywracanie danych z kopii zapasowej
-          href: how-to-backup-and-restore.md
+        - name: Tworzenie kopii zapasowych w trybie online i ich przywracanie na żądanie
+          href: online-backup-and-restore.md
         - name: Żądanie zwiększenia limitu przydziału
           href: create-support-request-quota-increase.md
     - name: Monitorowanie

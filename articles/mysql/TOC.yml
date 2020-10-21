@@ -85,6 +85,8 @@
               href: connect-cpp.md
             - name: Przejdź
               href: connect-go.md
+            - name: Funkcja GitHub Actions
+              href: quickstart-mysql-github-actions.md
     - name: Samouczki
       items:
         - name: Projektowanie bazy danych

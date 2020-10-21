@@ -1,22 +1,25 @@
 ---
-title: Obsługa przepływności automatycznego skalowania w Azure Cosmos DB
-description: Dowiedz się, jak udostępnić przepływność automatycznego skalowania na poziomie kontenera i bazy danych w Azure Cosmos DB przy użyciu Azure Portal, interfejsu wiersza polecenia, programu PowerShell i różnych innych zestawów SDK.
+title: Obsługa przepływności automatycznego skalowania w Azure Cosmos DB interfejsie API SQL
+description: Dowiedz się, jak udostępnić przepływność automatycznego skalowania na poziomie kontenera i bazy danych w Azure Cosmos DB interfejsie API SQL przy użyciu Azure Portal, interfejsu wiersza polecenia, programu PowerShell i różnych innych zestawów SDK.
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e7c5f3f4bf84b7a267cb883df5f375f2a8cf981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017145"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277832"
 ---
-# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Zastrzegaj przepływność skalowania automatycznego dla bazy danych lub kontenera w Azure Cosmos DB
+# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Udostępnianie przepływności automatycznego skalowania w bazie danych lub kontenerze w interfejsie API Azure Cosmos DB-SQL
 
-W tym artykule wyjaśniono, jak zainicjować przepływność automatycznego skalowania dla bazy danych lub kontenera (kolekcji, grafu lub tabeli) w Azure Cosmos DB. Możesz włączyć funkcję automatycznego skalowania na jednym kontenerze lub udostępnić przepływność automatycznego skalowania w bazie danych i udostępniać ją między wszystkimi kontenerami w bazie danych.
+W tym artykule wyjaśniono, jak zainicjować przepływność automatycznego skalowania dla bazy danych lub kontenera (kolekcji, grafu lub tabeli) w Azure Cosmos DB API SQL. Możesz włączyć funkcję automatycznego skalowania na jednym kontenerze lub udostępnić przepływność automatycznego skalowania w bazie danych i udostępniać ją między wszystkimi kontenerami w bazie danych.
+
+Jeśli używasz innego interfejsu API, zobacz artykuł [API for MongoDB](how-to-provision-throughput-mongodb.md), [interfejs API CASSANDRA](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) , aby zapewnić przepływność.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -30,7 +33,7 @@ W tym artykule wyjaśniono, jak zainicjować przepływność automatycznego skal
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Tworzenie kontenera i Konfigurowanie przepływności aprowizacji automatycznego skalowania":::
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 Aby zainicjować automatyczne skalowanie w udostępnionej bazie danych przepływności, wybierz opcję **zainicjuj przepływność bazy danych** podczas tworzenia nowej bazy danych. 
 
@@ -52,7 +55,7 @@ Aby zainicjować automatyczne skalowanie w udostępnionej bazie danych przepływ
 > [!NOTE]
 > Po włączeniu funkcji automatycznego skalowania w istniejącej bazie danych lub kontenera wartość początkowa dla Max RU/s jest określana przez system w oparciu o bieżące ręczne ustawienia przepływności i magazyn. Po zakończeniu operacji można zmienić w razie konieczności maksymalną wartość RU/s. [Dowiedz się więcej.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>Azure Cosmos DB .NET v3 SDK dla interfejsu API SQL
+## <a name="azure-cosmos-db-net-v3-sdk"></a>Azure Cosmos DB .NET v3 SDK
 
 Aby zarządzać zasobami skalowania automatycznego, użyj [wersji 3,9 lub nowszej](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) zestawu SDK programu Azure Cosmos DB .NET dla interfejsu API SQL. 
 
@@ -109,7 +112,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>Interfejs API języka Azure Cosmos DB Java v4 SDK
+## <a name="azure-cosmos-db-java-v4-sdk"></a>Azure Cosmos DB zestawu SDK Java v4
 
 Aby zarządzać zasobami skalowania automatycznego, można użyć [wersji 4,0 lub nowszej](https://mvnrepository.com/artifact/com.azure/azure-cosmos) Azure Cosmos DB Java SDK for SQL API.
 
@@ -118,7 +121,7 @@ Aby zarządzać zasobami skalowania automatycznego, można użyć [wersji 4,0 lu
 
 ### <a name="create-database-with-shared-throughput"></a>Tworzenie bazy danych z udostępnioną przepływność
 
-#### <a name="async"></a>[Asynchroniczne](#tab/api-async)
+#### <a name="async"></a>[Async](#tab/api-async)
 
 ```java
 // Create instance of CosmosClient
@@ -156,7 +159,7 @@ CosmosDatabase database = client.createDatabase(databaseName, autoscaleThroughpu
 
 ### <a name="create-container-with-dedicated-throughput"></a>Tworzenie kontenera z dedykowaną przepływność
 
-#### <a name="async"></a>[Asynchroniczne](#tab/api-async)
+#### <a name="async"></a>[Async](#tab/api-async)
 
 ```java
 // Get reference to database that container will be created in
@@ -191,7 +194,7 @@ CosmosContainer container = database.createContainer(autoscaleContainerPropertie
 
 ### <a name="read-the-current-throughput-rus"></a>Odczytaj bieżącą przepływność (RU/s)
 
-#### <a name="async"></a>[Asynchroniczne](#tab/api-async)
+#### <a name="async"></a>[Async](#tab/api-async)
 
 ```java
 // Get a reference to the resource
@@ -227,7 +230,7 @@ int currentThroughput = autoscaleContainerThroughput.Throughput;
 
 ### <a name="change-the-autoscale-max-throughput-rus"></a>Zmiana maksymalnej przepływności skalowania automatycznego (RU/s)
 
-#### <a name="async"></a>[Asynchroniczne](#tab/api-async)
+#### <a name="async"></a>[Async](#tab/api-async)
 
 ```java
 // Change the autoscale max throughput (RU/s)
@@ -242,14 +245,6 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 ```
 
 ---
-
-## <a name="cassandra-api"></a>Interfejs API rozwiązania Cassandra
-
-Azure Cosmos DB kont interfejs API Cassandra można obsługiwać automatyczne skalowanie przy użyciu [poleceń CQL](manage-scale-cassandra.md#use-autoscale), szablonów [interfejsu wiersza polecenia platformy Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) lub [Azure Resource Manager](resource-manager-samples.md).
-
-## <a name="azure-cosmos-db-api-for-mongodb"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB
-
-Obsługa kont Azure Cosmos DB dla interfejsu API MongoDB może być obsługiwana na potrzeby automatycznego skalowania przy użyciu [poleceń rozszerzenia MongoDB](mongodb-custom-commands.md), szablonów [interfejsu wiersza polecenia platformy Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) lub [Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

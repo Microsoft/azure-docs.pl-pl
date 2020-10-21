@@ -1,15 +1,15 @@
 ---
 title: Lista wbudowanych definicji zasad
 description: Utwórz listę wbudowanych definicji zasad dla Azure Policy. Kategorie obejmują Tagi, zgodność z przepisami, Key Vault, Kubernetes, konfigurację gościa i inne.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 7bbc65d2108fdc97585cb268103d5b66c6e04438
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1627c05e041b2b4a91f5fb5ad44d79641cb9756
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821005"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312172"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy wbudowane definicje zasad
 
@@ -61,7 +61,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Obliczenia
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
 
@@ -133,7 +133,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-network](../../../../includes/policy/reference/bycat/policies-network.md)]
 
-## <a name="search"></a>Wyszukaj
+## <a name="search"></a>Wyszukiwanie
 
 [!INCLUDE [azure-policy-reference-policies-search](../../../../includes/policy/reference/bycat/policies-search.md)]
 

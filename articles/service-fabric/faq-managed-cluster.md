@@ -6,12 +6,12 @@ ms.author: pepogors
 author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dc41d2c13c834657534971041440bb744cfca38
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729002"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319822"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Service Fabric często zadawane pytania dotyczące klastrów zarządzanych
 
@@ -41,7 +41,7 @@ Umowa SLA nie zmienia się z bieżącego modelu zasobów Service Fabric.
 
 ### <a name="what-is-the-difference-between-a-basic-and-standard-sku-cluster"></a>Jaka jest różnica między podstawowym i standardowym klastrem SKU?
 
-Podstawowy klaster SKU oznacza większość konfiguracji udostępnianych przez dostawcę zasobów Service Fabric. Podstawowe klastry SKU są przeznaczone do użycia na potrzeby testowania i środowiska produkcyjnego. Klaster standardowej jednostki SKU umożliwia użytkownikom skonfigurowanie klastra w celu spełnienia wymagań. Aby uzyskać więcej informacji, zobacz [Service Fabric zarządzanych jednostek SKU klastra](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster#service-fabric-managed-cluster-skus) , aby uzyskać więcej szczegółów.
+Podstawowy klaster SKU oznacza większość konfiguracji udostępnianych przez dostawcę zasobów Service Fabric. Podstawowe klastry SKU są przeznaczone do użycia na potrzeby testowania i środowiska produkcyjnego. Klaster standardowej jednostki SKU umożliwia użytkownikom skonfigurowanie klastra w celu spełnienia wymagań. Aby uzyskać więcej informacji, zobacz [Service Fabric zarządzanych jednostek SKU klastra](./overview-managed-cluster.md#service-fabric-managed-cluster-skus) , aby uzyskać więcej szczegółów.
 
 ## <a name="cluster-deployment-and-management"></a>Wdrażanie i zarządzanie klastrami
 
@@ -66,7 +66,7 @@ W wersji zapoznawczej wszystkie uaktualnienia środowiska uruchomieniowego zosta
 
 ### <a name="is-there-a-local-development-experience-for-service-fabric-managed-clusters"></a>Czy istnieje lokalne środowisko programistyczne dla Service Fabric zarządzanych klastrów?
 
-Lokalne środowisko programistyczne pozostaje niezmienione z istniejących klastrów Service Fabric. Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji platformy .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) , aby uzyskać więcej informacji na temat lokalnego środowiska programistycznego.
+Lokalne środowisko programistyczne pozostaje niezmienione z istniejących klastrów Service Fabric. Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji platformy .NET](./service-fabric-quickstart-dotnet.md) , aby uzyskać więcej informacji na temat lokalnego środowiska programistycznego.
 
 ### <a name="can-i-deploy-my-applications-as-an-azure-resource-manager-resource"></a>Czy mogę wdrożyć aplikacje jako zasób Azure Resource Manager?
 

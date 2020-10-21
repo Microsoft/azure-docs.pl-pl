@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 66eee67ae191d764228a85aaf1e63eae43208cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16412e6949bd6bf3d9496b33a900a0331bd1e9fb
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537739"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278161"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Samouczek: Migrowanie danych do Azure Cosmos DB za pomocą narzędzia do migracji danych
 
@@ -355,7 +355,7 @@ dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<userna
 
 ## <a name="import-to-the-sql-api-bulk-import"></a><a id="SQLBulkTarget"></a>Importowanie do interfejsu SQL API (import zbiorczy)
 
-Importer zbiorczy usługi Azure Cosmos DB umożliwia importowanie z dowolnych opcji źródła przy użyciu procedury składowanej usługi Azure Cosmos DB w celu zwiększenia wydajności. Narzędzie obsługuje importowanie do jednego kontenera usługi Azure Cosmos o pojedynczej partycji. Obsługuje również import podzielonej na fragmenty, w którym dane są partycjonowane na więcej niż jednym kontenerze Azure Cosmos o pojedynczej partycji. Aby uzyskać więcej informacji na temat partycjonowania danych, zobacz [Partitioning and scaling in Azure Cosmos DB (Partycjonowanie i skalowanie w usłudze Azure Cosmos DB)](partition-data.md). Narzędzie tworzy, wykonuje, a następnie usuwa procedurę składowaną z kolekcji docelowych.  
+Importer zbiorczy usługi Azure Cosmos DB umożliwia importowanie z dowolnych opcji źródła przy użyciu procedury składowanej usługi Azure Cosmos DB w celu zwiększenia wydajności. Narzędzie obsługuje importowanie do jednego kontenera usługi Azure Cosmos o pojedynczej partycji. Obsługuje również import podzielonej na fragmenty, w którym dane są partycjonowane na więcej niż jednym kontenerze Azure Cosmos o pojedynczej partycji. Aby uzyskać więcej informacji na temat partycjonowania danych, zobacz [Partitioning and scaling in Azure Cosmos DB (Partycjonowanie i skalowanie w usłudze Azure Cosmos DB)](partitioning-overview.md). Narzędzie tworzy, wykonuje, a następnie usuwa procedurę składowaną z kolekcji docelowych.  
 
 :::image type="content" source="./media/import-data/documentdbbulk.png" alt-text="Zrzut ekranu przedstawiający opcje źródła dla plików JSON — narzędzia do migracji bazy danych":::
 
@@ -414,7 +414,7 @@ Importer zbiorczy usługi Azure Cosmos DB ma następujące opcje zaawansowane:
 
 ## <a name="import-to-the-sql-api-sequential-record-import"></a><a id="SQLSeqTarget"></a>Importowanie do interfejsu SQL API (sekwencyjny import rekordów)
 
-Sekwencyjny import rekordów usługi Azure Cosmos DB umożliwia importowanie kolejnych rekordów z dostępnej opcji źródła. Można wybrać tę opcję w przypadku importowania do istniejącej kolekcji, która osiągnęła limit przydziału procedur składowanych. Narzędzie obsługuje importowanie do jednego kontenera platformy Azure Cosmos (zarówno z jedną partycją, jak i z wielopartycją). Obsługuje ona również podzielonej na fragmenty import, dzięki czemu dane są partycjonowane na więcej niż jednej partycji lub wielopartycji Azure Cosmos Container. Aby uzyskać więcej informacji na temat partycjonowania danych, zobacz [Partitioning and scaling in Azure Cosmos DB (Partycjonowanie i skalowanie w usłudze Azure Cosmos DB)](partition-data.md).
+Sekwencyjny import rekordów usługi Azure Cosmos DB umożliwia importowanie kolejnych rekordów z dostępnej opcji źródła. Można wybrać tę opcję w przypadku importowania do istniejącej kolekcji, która osiągnęła limit przydziału procedur składowanych. Narzędzie obsługuje importowanie do jednego kontenera platformy Azure Cosmos (zarówno z jedną partycją, jak i z wielopartycją). Obsługuje ona również podzielonej na fragmenty import, dzięki czemu dane są partycjonowane na więcej niż jednej partycji lub wielopartycji Azure Cosmos Container. Aby uzyskać więcej informacji na temat partycjonowania danych, zobacz [Partitioning and scaling in Azure Cosmos DB (Partycjonowanie i skalowanie w usłudze Azure Cosmos DB)](partitioning-overview.md).
 
 :::image type="content" source="./media/import-data/documentdbsequential.png" alt-text="Zrzut ekranu przedstawiający opcje źródła dla plików JSON — narzędzia do migracji bazy danych":::
 

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d0956634289713f691feb1a9182233e6795e319
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 652299ebb98f685a16871cf4e944608a471d8df2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201737"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279089"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
@@ -90,13 +90,13 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Gdy punkt końcowy nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony**.
 
-Aby można było utworzyć punkt końcowy z włączoną obsługą utraconych wiadomości, należy użyć [interfejsów API ARM](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) do utworzenia punktu końcowego. 
+Aby można było utworzyć punkt końcowy z włączoną obsługą utraconych wiadomości, należy użyć [interfejsów API ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) do utworzenia punktu końcowego. 
 
 Przed ustawieniem lokalizacji utraconych wiadomości musisz mieć konto magazynu z kontenerem. Podajesz adres URL dla tego kontenera podczas tworzenia punktu końcowego. Utracona wartość jest podawana jako adres URL kontenera z tokenem SAS. Ten token wymaga tylko `write` uprawnienia do kontenera docelowego na koncie magazynu. W pełni sformułowany adres URL będzie miał postać: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Aby dowiedzieć się więcej o tokenach SAS, zobacz: [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Aby dowiedzieć się więcej o tokenach SAS, zobacz: [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](/azure/storage/common/storage-sas-overview)
 
-Aby dowiedzieć się więcej o utraconych wiadomościach, zobacz [pojęcia: trasy zdarzeń](./concepts-route-events.md#dead-letter-events)
+Aby dowiedzieć się więcej o utraconych wiadomościach, zobacz [*pojęcia: trasy zdarzeń*](concepts-route-events.md#dead-letter-events).
 
 #### <a name="configuring-the-endpoint"></a>Konfigurowanie punktu końcowego
 
@@ -114,7 +114,7 @@ Podczas tworzenia punktu końcowego Dodaj `deadLetterSecret` do `properties` obi
 }
 ```
 
-Aby uzyskać więcej informacji, zapoznaj się z dokumentacją interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji: [Endpoints-DigitalTwinsEndpoint metodę createorupdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Aby uzyskać więcej informacji, zapoznaj się z dokumentacją interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji: [Endpoints-DigitalTwinsEndpoint metodę createorupdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Schemat magazynu komunikatów
 
@@ -124,7 +124,7 @@ Komunikaty o utraconych wiadomościach będą przechowywane w następującym for
 
 Wiadomości utracone będą zgodne ze schematem oryginalnego zdarzenia, które było przeznaczone do dostarczenia do oryginalnego punktu końcowego.
 
-Poniżej znajduje się przykład wiadomości utraconej dla [powiadomienia o tworzeniu sznurka](./how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
+Poniżej znajduje się przykład wiadomości utraconej dla [powiadomienia o tworzeniu sznurka](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
 
 ```json
 {

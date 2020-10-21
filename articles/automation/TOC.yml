@@ -193,29 +193,33 @@
         - name: Śledzenie zmian i spis
           items:
             - name: Omówienie
-              href: change-tracking.md
+              href: change-tracking/overview.md
             - name: Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
               href: how-to/region-mappings.md
             - name: Włączanie
               items:
-                - name: Włączanie śledzenia zmian i spisu w witrynie Azure Portal
-                  href: automation-enable-changes-from-browse.md
-                - name: Włączanie śledzenia zmian i spisu na maszynie wirtualnej platformy Azure
-                  href: automation-enable-changes-from-vm.md
-                - name: Włączanie śledzenia zmian i spisu na koncie usługi Automation
-                  href: automation-enable-changes-from-auto-acct.md
-                - name: Włączanie śledzenia zmian i spisu z poziomu elementu runbook
-                  href: automation-enable-changes-from-runbook.md
+                - name: Włączanie z poziomu witryny Azure Portal
+                  href: change-tracking/enable-from-portal.md
+                - name: Włączanie z poziomu maszyny wirtualnej platformy Azure
+                  href: change-tracking/enable-from-vm.md
+                - name: Włączanie z poziomu konta usługi Automation
+                  href: change-tracking/enable-from-automation-account.md
+                - name: Włączanie z poziomu elementu runbook
+                  href: change-tracking/enable-from-runbook.md
             - name: Zarządzanie usługą Change Tracking and Inventory
-              href: change-tracking-file-contents.md
+              href: change-tracking/manage-change-tracking.md
             - name: Zarządzanie zbieraniem spisu z maszyn wirtualnych
-              href: automation-vm-inventory.md
+              href: change-tracking/manage-inventory-vms.md
             - name: Praca z konfiguracjami zakresu
-              href: automation-scope-configurations-change-tracking.md
-            - name: Odłączanie obszaru roboczego od konta usługi Automation
-              href: automation-unlink-workspace-change-tracking.md
-            - name: Usuwanie maszyn wirtualnych ze śledzenia zmian i spisu
-              href: automation-remove-vms-from-change-tracking.md
+              href: change-tracking/manage-scope-configurations.md
+            - name: Konfigurowanie alertów
+              href: change-tracking/configure-alerts.md
+            - name: Wyłącz
+              items:
+                - name: Usuwanie funkcji Śledzenia zmian i spisu
+                  href: change-tracking/remove-feature.md
+                - name: Usuwanie maszyn wirtualnych ze śledzenia zmian i spisu
+                  href: change-tracking/remove-vms-from-change-tracking.md
             - name: Rozwiązywanie problemów
               items:
                 - name: Rozwiązywanie problemów z wdrażaniem funkcji
@@ -239,49 +243,49 @@
     - name: Zarządzanie aktualizacjami
       items:
         - name: Omówienie
-          href: update-management/update-mgmt-overview.md
+          href: update-management/overview.md
         - name: Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
           href: how-to/region-mappings.md
         - name: Włączanie
           items:
-            - name: Włączanie rozwiązania Update Management przy użyciu szablonu usługi Azure Resource Manager
-              href: update-management/update-mgmt-enable-template.md
-            - name: Włączanie rozwiązania Update Management w witrynie Azure Portal
-              href: update-management/update-mgmt-enable-portal.md
-            - name: Włączanie rozwiązania Update Management z poziomu maszyny wirtualnej platformy Azure
-              href: update-management/update-mgmt-enable-vm.md
-            - name: Włączanie rozwiązania Update Management z poziomu konta usługi Automation
-              href: update-management/update-mgmt-enable-automation-account.md
-            - name: Włączanie rozwiązania Update Management z poziomu elementu runbook
-              href: update-management/update-mgmt-enable-runbook.md
+            - name: Włączanie przy użyciu szablonu usługi Azure Resource Manager
+              href: update-management/enable-from-template.md
+            - name: Włączanie z poziomu witryny Azure Portal
+              href: update-management/enable-from-portal.md
+            - name: Włączanie z poziomu maszyny wirtualnej platformy Azure
+              href: update-management/enable-from-vm.md
+            - name: Włączanie z poziomu konta usługi Automation
+              href: update-management/enable-from-automation-account.md
+            - name: Włączanie z poziomu elementu runbook
+              href: update-management/enable-from-runbook.md
         - name: Zarządzanie aktualizacjami maszyn wirtualnych
           items:
             - name: Rozpoczęcie pracy
-              href: update-management/update-mgmt-manage-updates-for-vm.md
+              href: update-management/manage-updates-for-vm.md
             - name: Ocena zgodności
-              href: update-management/update-mgmt-view-update-assessments.md
+              href: update-management/view-update-assessments.md
             - name: Wdrażanie aktualizacji i przeglądanie stanu
-              href: update-management/update-mgmt-deploy-updates.md
+              href: update-management/deploy-updates.md
             - name: Używanie skryptów wstępnych i końcowych
-              href: update-management/update-mgmt-pre-post-scripts.md
+              href: update-management/pre-post-scripts.md
             - name: Konfigurowanie alertów
-              href: update-management/update-mgmt-configure-alerts.md
+              href: update-management/configure-alerts.md
         - name: Integracja z programem Configuration Manager
-          href: update-management/update-mgmt-mecmintegration.md
+          href: update-management/mecmintegration.md
         - name: Konfigurowanie klienta usługi Windows Update
-          href: update-management/update-mgmt-configure-wuagent.md
+          href: update-management/configure-wuagent.md
         - name: Używanie grup dynamicznych
-          href: update-management/update-mgmt-groups.md
+          href: update-management/configure-groups.md
         - name: Wykonywanie zapytań względem dzienników rozwiązania Update Management
-          href: update-management/update-mgmt-query-logs.md
+          href: update-management/query-logs.md
         - name: Praca z konfiguracjami zakresu
-          href: update-management/update-mgmt-scope-configuration.md
+          href: update-management/scope-configuration.md
         - name: Wyłączanie
           items:
             - name: Usuwanie rozwiązania Update Management
-              href: update-management/update-mgmt-remove-feature.md
+              href: update-management/remove-feature.md
             - name: Usuwanie maszyn wirtualnych z rozwiązania Update Management
-              href: update-management/update-mgmt-remove-vms.md
+              href: update-management/remove-vms.md
         - name: Rozwiązywanie problemów
           items:
             - name: Rozwiązywanie problemów z wdrażaniem funkcji

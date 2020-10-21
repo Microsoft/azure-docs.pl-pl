@@ -81,6 +81,8 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
 - name: Zasoby
   items:
+    - name: Opcje pomocy technicznej
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
     - name: Samples
       href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=vision'
     - name: Limity przydziału i ograniczenia

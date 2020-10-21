@@ -2,19 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 31d6c091e07d2f35d8856dce3adab04997b012b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e83e5fdd0d8797377407e27614e98c348b008164
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821149"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312196"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Dodatek Azure Policy dla usługi Kubernetes Service (AKS) powinien być zainstalowany i włączony w klastrach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |Dodatek Azure Policy dla usługi Kubernetes Service (AKS) rozszerza strażnik v3, element webhook kontrolera usługi Admission Control dla programu Open Policy Agent (NIEPRZEZ), aby stosować zasady wymuszania i zabezpieczenia w klastrach w scentralizowany, spójny sposób. |Inspekcja, wyłączona |[1.0.1 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
+|[Wdrażanie dodatku Azure Policy w klastrach usługi Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8eff44f-8c92-45c3-a3fb-9880802d67a7) |Dodatek Azure Policy umożliwia zarządzanie i raportowanie stanu zgodności klastrów usługi Azure Kubernetes Service (AKS). Aby uzyskać więcej informacji, zobacz [https://aka.ms/akspolicydoc](https://aka.ms/akspolicydoc). |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Deploy.json) |
 |[Wdrażanie GitOps w klastrze Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d61c4d2-aef2-432b-87fc-7f96b019b7e1) |Te zasady wdrażają klastry "sourceControlConfiguration" w celu zagwarantowania, że klastry będą odbierać swoje źródła prawdy ze zdefiniowanego repozytorium git. Aby uzyskać instrukcje dotyczące korzystania z tych zasad, odwiedź stronę [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy) . |DeployIfNotExists |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster_DINE.json) |
 |[Nie Zezwalaj na kontenery uprzywilejowane w klastrze Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |Te zasady nie zezwalają na tworzenie kontenerów uprzywilejowanych w klastrze Kubernetes. Te zasady są ogólnie dostępne dla usługi Kubernetes Service (AKS) oraz wersji zapoznawczej aparatu AKS i usługi Azure ARC z włączonym Kubernetes. Aby uzyskać instrukcje dotyczące korzystania z tych zasad, odwiedź stronę [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |Inspekcja, Odmów, wyłączone |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege.json) |
 |[Wymuś ruch przychodzący protokołu HTTPS w klastrze Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |Te zasady wymuszają ruch przychodzący HTTPS w klastrze Kubernetes. Te zasady są ogólnie dostępne dla usługi Kubernetes Service (AKS) oraz wersji zapoznawczej aparatu AKS i usługi Azure ARC z włączonym Kubernetes. Aby uzyskać instrukcje dotyczące korzystania z tych zasad, odwiedź stronę [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |Inspekcja, Odmów, wyłączone |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly.json) |

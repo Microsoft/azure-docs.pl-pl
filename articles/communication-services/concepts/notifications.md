@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: abc2367c309f46ee1b29a51145c67e8d71919774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e68e65a5c2ed73a8fb6d8e5d01c645e05ca5157
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665399"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320719"
 ---
 # <a name="communication-services-notifications"></a>Powiadomienia dotyczące usług komunikacyjnych
 
@@ -40,13 +40,20 @@ Możesz połączyć centrum powiadomień platformy Azure z zasobem usług komuni
 
 Usługi komunikacyjne korzystają z centrum powiadomień platformy Azure jako usługi przekazującej w celu komunikowania się z różnymi usługami powiadomień wypychanych specyficznymi dla platformy przy użyciu interfejsu API [bezpośredniego wysyłania](https://docs.microsoft.com/rest/api/notificationhubs/direct-send) . Dzięki temu możesz ponownie wykorzystać istniejące zasoby i konfiguracje usługi Azure Notification Hub, aby zapewnić małym opóźnieniu, niezawodne powiadomienia o wywołaniach do aplikacji.
 
+> [!NOTE]
+> Obecnie są obsługiwane tylko wywołania powiadomień wypychanych.
+
 ### <a name="notification-hub-provisioning"></a>Inicjowanie obsługi administracyjnej centrum powiadomień 
 
-Aby dostarczać powiadomienia wypychane do urządzeń klienckich przy użyciu Notification Hubs, [Utwórz centrum powiadomień](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) w ramach tej samej subskrypcji, co zasób usług komunikacyjnych. Usługa Azure Notification Hubs musi być skonfigurowana dla usługi powiadomień platformy, której chcesz użyć. Aby dowiedzieć się, jak uzyskać powiadomienia wypychane w aplikacji klienckiej z Notification Hubs, zobacz [wprowadzenie do Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/ios-sdk-get-started) i wybierz docelową platformę klienta z listy rozwijanej w górnej części strony.
+Aby dostarczać powiadomienia wypychane do urządzeń klienckich przy użyciu Notification Hubs, [Utwórz centrum powiadomień](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) w ramach tej samej subskrypcji, co zasób usług komunikacyjnych. Usługa Azure Notification Hubs musi być skonfigurowana dla usługi powiadomień platformy, której chcesz użyć. Aby dowiedzieć się, jak uzyskać powiadomienia wypychane w aplikacji klienckiej z Notification Hubs, zobacz [wprowadzenie do Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) i wybierz docelową platformę klienta z listy rozwijanej w górnej części strony.
+
+> [!NOTE]
+> Obecnie obsługiwane są platformy APNs i FCM.
 
 Po skonfigurowaniu centrum powiadomień można je skojarzyć z zasobem usług komunikacyjnych, dostarczając parametry połączenia dla centrum przy użyciu klienta Azure Resource Manager lub za pośrednictwem Azure Portal. Parametry połączenia powinny zawierać uprawnienia "Send". Zalecamy utworzenie innych zasad dostępu z uprawnieniami tylko do wysyłania przeznaczonymi dla centrum. Dowiedz się więcej na temat [Notification Hubs zasad zabezpieczeń i dostępu](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
 
-> Uwaga: Aby włączyć powiadomienia Apple Push Notification Service VOIP, należy ustawić nazwę centrum powiadomień jako identyfikator pakietu aplikacji z `.voip` sufiksem. Zobacz [Korzystanie z VoIP APN za pomocą Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
+> [!IMPORTANT]
+> Aby włączyć powiadomienia VOIP Apple Push Notification Service, należy ustawić nazwę centrum powiadomień jako identyfikator pakietu aplikacji z `.voip` sufiksem. Zobacz [Korzystanie z VoIP APN za pomocą Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Konfigurowanie centrum powiadomień przy użyciu klienta Azure Resource Manager
 
@@ -67,6 +74,9 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 W portalu przejdź do zasobu usługi Azure Communications Services. W obszarze zasób usług komunikacyjnych wybierz pozycję powiadomienia wypychane w menu po lewej stronie usługi komunikacyjne i Połącz się z centrum powiadomień, które zostało wcześniej zainicjowane. Należy podać parametry połączenia i identyfikator zasobu tutaj:
 
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Diagram przedstawiający sposób integracji usług komunikacyjnych z Event Grid.":::
+
+> [!NOTE]
+> Jeśli parametry połączenia centrum powiadomień platformy Azure zostały zaktualizowane, należy również zaktualizować zasób usług komunikacyjnych.
 
 #### <a name="device-registration"></a>Rejestracja urządzenia 
 

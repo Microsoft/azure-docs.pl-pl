@@ -3,18 +3,18 @@ title: Korzystanie z platformy Apache Flink dla Apache Kafka — Event Hubs Azur
 description: Ten artykuł zawiera informacje dotyczące sposobu łączenia oprogramowania Apache Flink z centrum zdarzeń platformy Azure
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f2e6eeb74c5a334d1692357edec0fd363349c7c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40efd15e56d0b74459aefb4d88972df293b48c26
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061652"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308441"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Korzystanie z platformy Apache Flink z usługą Azure Event Hubs dla platformy Apache Kafka
 W tym samouczku pokazano, jak połączyć Apache Flink z centrum zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Aby uzyskać więcej informacji o obsłudze Event Hubs "dla protokołu klienta Apache Kafka, zobacz [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Event Hubs
 > * Klonowanie projektu przykładowego
@@ -30,7 +30,7 @@ Aby ukończyć ten samouczek, upewnij się, że masz następujące wymagania wst
 
 * Zapoznaj się z artykułem [Usługa Event Hubs dla platformy Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* [Java Development Kit (JDK) 1.7 +](https://aka.ms/azure-jdks)
+* [Java Development Kit (JDK) 1.7 +](/azure/developer/java/fundamentals/java-jdk-long-term-support)
     * W systemie Ubuntu uruchom polecenie `apt-get install default-jdk`, aby zainstalować zestaw JDK.
     * Upewnij się, że zmienna środowiskowa JAVA_HOME wskazuje folder, w którym zainstalowano zestaw JDK.
 * [Pobieranie](https://maven.apache.org/download.cgi) i [Instalowanie](https://maven.apache.org/install.html) archiwum binarnego Maven

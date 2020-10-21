@@ -1,6 +1,6 @@
 ---
-title: Tworzenie kontrolera danych przy użyciu interfejsu wiersza polecenia platformy Azure (azdata)
-description: Utwórz kontroler danych usługi Azure Arc w typowym wielowęzłowym klastrze Kubernetes, który został już utworzony przy użyciu interfejsu wiersza polecenia platformy Azure (azdata).
+title: Utwórz kontroler danych przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+description: Utwórz kontroler danych usługi Azure Arc w typowym wielowęzłowym klastrze Kubernetes, który został już utworzony przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a405a7a32b1f54732589fb14e34ff52db4992028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb5fac5987a36c425b9e130df17412e5ad902345
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761689"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310936"
 ---
-# <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Tworzenie kontrolera danych usługi Azure ARC przy użyciu interfejsu wiersza polecenia platformy Azure (azdata)
+# <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Utwórz kontroler danych usługi Azure ARC przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -24,9 +24,9 @@ ms.locfileid: "91761689"
 
 Zapoznaj się z tematem [Tworzenie kontrolera danych usługi Azure ARC,](create-data-controller.md) Aby uzyskać informacje na temat przeglądu.
 
-Aby utworzyć kontroler danych usługi Azure ARC przy użyciu interfejsu wiersza polecenia platformy Azure, należy zainstalować interfejs wiersza polecenia platformy Azure.
+Aby utworzyć kontroler danych usługi Azure ARC przy użyciu programu, należy [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] zainstalować program.
 
-   [Instalowanie interfejsu wiersza polecenia platformy Azure](install-client-tools.md)
+   [Zainstaluj program [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
 
 Niezależnie od wybranej platformy docelowej, należy ustawić następujące zmienne środowiskowe przed utworzeniem dla użytkownika administratora kontrolera danych. Te poświadczenia można podać innym osobom, które muszą mieć dostęp administratora do kontrolera danych, zgodnie z potrzebami.
 

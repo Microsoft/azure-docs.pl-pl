@@ -1,26 +1,26 @@
 ---
-title: Aprowizowanie przepływności bazy danych w usłudze Azure Cosmos DB
-description: Dowiedz się, jak zainicjować przepływność na poziomie bazy danych w Azure Cosmos DB przy użyciu Azure Portal, interfejsu wiersza polecenia, programu PowerShell i różnych zestawów SDK.
+title: Obsługa przepływności bazy danych w Azure Cosmos DB interfejsie API SQL
+description: Dowiedz się, jak zainicjować przepływność na poziomie bazy danych w Azure Cosmos DB interfejsu API SQL przy użyciu Azure Portal, interfejsu wiersza polecenia, programu PowerShell i różnych zestawów SDK.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/28/2019
+ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 668aa51bdb57dc4bcde0e3a95c481bb60e3d8ed3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a67a062c06950294ec9e49e2ec69552edc4ee77a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997374"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278606"
 ---
-# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Udostępnianie standardowej (ręcznej) przepływności dla bazy danych w Azure Cosmos DB
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Udostępnianie standardowej (ręcznej) przepływności dla bazy danych w interfejsie API Azure Cosmos DB-SQL
 
-W tym artykule wyjaśniono, jak zapewnić przepustowość standardową (ręczną) w bazie danych programu Azure Cosmos DB. Można zainicjować przepływność dla jednego [kontenera](how-to-provision-container-throughput.md)lub dla bazy danych i udostępnić przepływność między kontenerami w tym kontenerze. Aby dowiedzieć się, kiedy należy używać poziomu kontenera i przepływności na poziomie bazy danych, zobacz artykuł [dotyczący obsługi przepływności dla kontenerów i baz danych](set-throughput.md) . Przepływność na poziomie bazy danych możesz aprowizować za pomocą witryny Azure Portal lub zestawów SDK usługi Azure Cosmos DB.
+W tym artykule wyjaśniono, jak zainicjować standardową (ręczną) przepływność bazy danych w Azure Cosmos DB interfejsie API SQL. Można zainicjować przepływność dla jednego [kontenera](how-to-provision-container-throughput.md)lub dla bazy danych i udostępnić przepływność między kontenerami w tym kontenerze. Aby dowiedzieć się, kiedy należy używać poziomu kontenera i przepływności na poziomie bazy danych, zobacz artykuł [dotyczący obsługi przepływności dla kontenerów i baz danych](set-throughput.md) . Przepływność na poziomie bazy danych możesz aprowizować za pomocą witryny Azure Portal lub zestawów SDK usługi Azure Cosmos DB.
+
+Jeśli używasz innego interfejsu API, zobacz artykuł [API for MongoDB](how-to-provision-throughput-mongodb.md), [interfejs API CASSANDRA](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) , aby zapewnić przepływność.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprowizowanie przepływności przy użyciu witryny Azure Portal
-
-### <a name="sql-core-api"></a><a id="portal-sql"></a>Interfejs API SQL (podstawowy)
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
@@ -29,11 +29,11 @@ W tym artykule wyjaśniono, jak zapewnić przepustowość standardową (ręczną
 1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa baza danych**. Podaj następujące szczegóły:
 
    * Wprowadź identyfikator bazy danych.
-   * Wybierz pozycję **Zaaprowizuj przepływność**.
+   * Wybierz opcję **zainicjuj przepływność bazy danych** .
    * Wprowadź przepływność (na przykład 1000 jednostek RU).
-   * Kliknij przycisk **OK**.
+   * Wybierz przycisk **OK**.
 
-    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Zrzut ekranu okna dialogowego Nowa baza danych":::
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Zrzut ekranu okna dialogowego Nowa baza danych":::
 
 ## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Obsługa przepływności przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell
 
@@ -45,9 +45,7 @@ Aby utworzyć bazę danych o wspólnej przepływności, zobacz
 ## <a name="provision-throughput-using-net-sdk"></a>Aprowizowanie przepływności przy użyciu zestawu .NET SDK
 
 > [!Note]
-> Za pomocą zestawów SDK Cosmos dla interfejsu API SQL można zainicjować obsługę przepływności dla wszystkich interfejsów API. Poniższego przykładu możesz też opcjonalnie użyć w przypadku interfejsu API Cassandra.
-
-### <a name="all-apis"></a><a id="dotnet-all"></a>Wszystkie interfejsy API
+> Za pomocą usługi Azure Cosmos SDK dla interfejsu API SQL można zainicjować obsługę przepływności dla wszystkich interfejsów API. Poniższego przykładu możesz też opcjonalnie użyć w przypadku interfejsu API Cassandra.
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -70,15 +68,6 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ---
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API rozwiązania Cassandra
-
-Podobne polecenie można wykonać przy użyciu dowolnego sterownika zgodnego z CQL.
-
-```csharp
-// Create a Cassandra keyspace and provision throughput of 400 RU/s
-session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
-```
- 
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o aprowizacji przepływności w Azure Cosmos DB:

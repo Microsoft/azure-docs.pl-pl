@@ -40,6 +40,8 @@
       href: quickstart-create-workspace.md
     - name: Tworzenie obszaru roboczego usługi Synapse za pomocą interfejsu wiersza polecenia platformy Azure
       href: quickstart-create-workspace-cli.md
+    - name: Tworzenie obszaru roboczego usługi Synapse za pomocą programu Azure PowerShell
+      href: quickstart-create-workspace-powershell.md
     - name: Wdrażanie za pomocą szablonu
       href: quickstart-deployment-template-workspaces.md
     - name: Korzystanie z programu Synapse Studio
@@ -388,7 +390,7 @@
           items:
             - name: Kreator oceniania modeli dla pul SQL
               href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-            - name: Uruchamianie eksperymentu regresji przy użyciu usługi Azure AutoML (ocenianie w magazynie danych)
+            - name: Uruchamianie eksperymentu regresji przy użyciu usługi Azure AutoML
               href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: 'Integracja narzędzi (AI, ETL, BI)'
       items:
@@ -483,9 +485,9 @@
             - name: Nawiązywanie połączenia z usługą Azure Synapse Link dla usługi Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Analizowanie bazy danych Azure Cosmos DB za pomocą usługi Power BI i bezserwerowej puli SQL
-              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Wykonywanie zapytań dotyczących danych w usłudze Azure Cosmos DB za pomocą bezserwerowej puli SQL
-              href: ./sql/query-cosmos-db-analytical-store.md
+              href: ./sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Wykonywanie zapytań dotyczących magazynu analitycznego usługi Azure Cosmos DB przy użyciu platformy Apache Spark
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Kopiowanie danych z usługi Synapse Link do puli SQL przy użyciu platformy Apache Spark
@@ -925,7 +927,7 @@
       href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/synapse@v43.3.0+incompatible'
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Interfejsy API REST
       href: /rest/api/synapse/

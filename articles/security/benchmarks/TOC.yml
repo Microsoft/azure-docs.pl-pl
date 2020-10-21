@@ -125,6 +125,8 @@
       href: ../../web-application-firewall/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Batch
       href: ../../batch/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Cloud Shell
+      href: ../../cloud-shell/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usług Cognitive Services
       href: ../../cognitive-services/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Container Instances

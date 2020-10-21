@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Resource Manager
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Resource Manager. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 author: tfitzmac
 ms.author: tomfitz
 ms.service: azure-resource-manager
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 7ae41878cb2008c5f237240d37de2a508ea3b5a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0951398535302ebf6ffb7e9cc728165ee88b9bac
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826328"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319564"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-resource-manager"></a>Azure Policy kontroli zgodności z przepisami dla Azure Resource Manager
 

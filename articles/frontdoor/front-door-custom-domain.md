@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: a161bc14e8f7628e04673700ca6d90ebc3e8f648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e153edd807dcb119c34f60dc34e33fed510916bb
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729172"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277623"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Samouczek: dodawanie domeny niestandardowej do usługi Front Door
 W tym Samouczku opisano, jak dodać domenę niestandardową do usługi Front Door. W przypadku korzystania z usługi Azure Front Drzwiczks do dostarczania aplikacji niestandardowa domena jest potrzebna, jeśli chcesz, aby Twoja nazwa domeny była widoczna na żądanie użytkownika końcowego. Widoczna nazwa domeny może być wygodna dla klientów i przydatna dla celów związanych ze znakowaniem.
@@ -39,9 +39,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 * Przed wykonaniem kroków opisanych w tym samouczku należy utworzyć usługę Front Door. Aby uzyskać więcej informacji, zobacz temat [Quickstart: Create a Front Door for a highly available global web application](quickstart-create-front-door.md) (Szybki start: tworzenie usługi Front Door na potrzeby łatwo dostępnej globalnej aplikacji internetowej).
 
-* Jeśli nie masz jeszcze domeny niestandardowej, musisz ją najpierw kupić od dostawcy domeny. Zobacz na przykład temat [Buy a custom domain name (Kupowanie nazwy domeny niestandardowej)](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
+* Jeśli nie masz jeszcze domeny niestandardowej, musisz ją najpierw kupić od dostawcy domeny. Zobacz na przykład temat [Buy a custom domain name (Kupowanie nazwy domeny niestandardowej)](../app-service/manage-custom-dns-buy-domain.md).
 
-* Jeśli używasz platformy Azure do hostowania [domen DNS](https://docs.microsoft.com/azure/dns/dns-overview), musisz delegować system nazw domen (DNS) dostawcy domen do usługi Azure DNS. Aby uzyskać więcej informacji, zobacz [delegowanie domeny do Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). W przeciwnym razie, jeśli używasz dostawcy domeny do obsługi domeny DNS, przejdź do sekcji [Tworzenie rekordu DNS CNAME](#create-a-cname-dns-record).
+* Jeśli używasz platformy Azure do hostowania [domen DNS](../dns/dns-overview.md), musisz delegować system nazw domen (DNS) dostawcy domen do usługi Azure DNS. Aby uzyskać więcej informacji, zobacz [delegowanie domeny do Azure DNS](../dns/dns-delegate-domain-azure-dns.md). W przeciwnym razie, jeśli używasz dostawcy domeny do obsługi domeny DNS, przejdź do sekcji [Tworzenie rekordu DNS CNAME](#create-a-cname-dns-record).
 
 
 ## <a name="create-a-cname-dns-record"></a>Tworzenie rekordu CNAME usługi DNS
@@ -65,7 +65,7 @@ Aby utworzyć rekord CNAME z poziomu domeny podrzędnej afdverify:
 
 3. Utwórz wpis rekordu CNAME dla domeny niestandardowej, a następnie wypełnij pola, tak jak pokazano w poniższej tabeli (nazwy pól mogą być inne):
 
-    | Źródło                    | Typ  | Element docelowy                     |
+    | Element źródłowy                    | Typ  | Element docelowy                     |
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
@@ -142,7 +142,7 @@ Aby utworzyć rekord CNAME dla domeny niestandardowej:
 
 3. Utwórz wpis rekordu CNAME dla domeny niestandardowej, a następnie wypełnij pola, tak jak pokazano w poniższej tabeli (nazwy pól mogą być inne):
 
-    | Źródło          | Typ  | Element docelowy           |
+    | Element źródłowy          | Typ  | Element docelowy           |
     |-----------------|-------|-----------------------|
     | <www.contoso.com> | CNAME | contoso-frontend.azurefd.net |
 

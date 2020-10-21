@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: fbf436f501ef2d21dcd3394e61a40d354376efb9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979091"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308537"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrowanie maszyn wirtualnych funkcji Hyper-V na platformę Azure 
 
@@ -22,7 +22,7 @@ Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i mi
 > [!NOTE]
 > Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Jeśli to możliwe, samouczki używają opcji domyślnych i nie przedstawiają wszystkich możliwych ustawień i ścieżek. 
 
- Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+ Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodaj Azure Migrate: Narzędzia migracji serwera.
@@ -151,7 +151,7 @@ Jeśli jest to pierwsza maszyna wirtualna, która jest replikowana w projekcie A
 - **Service Bus**: Azure Migrate: Migracja serwera używa Service Bus do wysyłania komunikatów aranżacji replikacji do urządzenia.
 - **Konto magazynu bramy**: Azure Migrate: Migracja serwera używa konta magazynu bramy do przechowywania informacji o stanie dotyczących replikowanych maszyn wirtualnych.
 - **Konto magazynu dzienników**: urządzenie Azure Migrate przekazuje dzienniki replikacji dla maszyn wirtualnych do konta magazynu dzienników. Azure Migrate stosuje informacje o replikacji do dysków zarządzanych przez replikę.
-- **Magazyn kluczy**: urządzenie Azure Migrate używa magazynu kluczy do zarządzania parametrami połączenia dla magistrali usług i kluczy dostępu dla kont magazynu używanych w replikacji. Należy skonfigurować uprawnienia wymagane przez Magazyn kluczy do uzyskiwania dostępu do konta magazynu podczas [przygotowywania usługi Azure](tutorial-prepare-hyper-v.md#prepare-azure) do oceny i migracji maszyn wirtualnych funkcji Hyper-V. 
+- **Magazyn kluczy**: urządzenie Azure Migrate używa magazynu kluczy do zarządzania parametrami połączenia dla magistrali usług i kluczy dostępu dla kont magazynu używanych w replikacji. Należy skonfigurować uprawnienia wymagane przez Magazyn kluczy do uzyskiwania dostępu do konta magazynu podczas [przygotowywania usługi Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) do oceny i migracji maszyn wirtualnych funkcji Hyper-V. 
 
 
 ## <a name="track-and-monitor"></a>Śledzenie i monitorowanie
@@ -232,7 +232,7 @@ Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można 
     - Zadbaj, aby pakiety robocze były uruchomione i stale dostępne, replikując maszyny wirtualne platformy Azure do regionu pomocniczego za pomocą usługi Site Recovery. [Dowiedz się więcej](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Aby zwiększyć bezpieczeństwo:
     - Zablokuj i Ogranicz dostęp do ruchu przychodzącego za pomocą [administracji Azure Security Center w czasie](../security-center/security-center-just-in-time.md).
-    - Ogranicz ruch sieciowy do punktów końcowych zarządzania za pomocą [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md).
+    - Ogranicz ruch sieciowy do punktów końcowych zarządzania za pomocą [sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md).
     - Wdróż usługę [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), aby ułatwić zabezpieczenie dysków i zabezpieczyć dane przed kradzieżą lub nieautoryzowanym dostępem.
     - Przeczytaj więcej na temat [zabezpieczania zasobów IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) i skorzystaj z usługi [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Na potrzeby monitorowania i zarządzania:

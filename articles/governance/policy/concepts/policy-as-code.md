@@ -1,29 +1,29 @@
 ---
-title: Projektowanie przepływów pracy typu zasady jako kod
+title: Projektuj Azure Policy jako przepływy pracy kodu
 description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje Azure Policy jako kod i automatycznie sprawdzać poprawność zasobów.
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598208"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320611"
 ---
-# <a name="design-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu zasady jako kod
+# <a name="design-azure-policy-as-code-workflows"></a>Projektuj Azure Policy jako przepływy pracy kodu
 
 W miarę postępów związanych z zarządzaniem chmurą należy zmienić ręczną procedurę zarządzania wszystkimi definicjami zasad w Azure Portal lub za pośrednictwem różnych zestawów SDK, aby łatwiej zarządzać i powtarzać się w skali przedsiębiorstwa. Dwa z dominujących metod zarządzania systemami na dużą skalę w chmurze to:
 
 - Infrastruktura jako kod: praktyczne traktowanie zawartości definiującej Twoje środowiska, wszystko z szablonów Azure Resource Manager (szablony ARM) do Azure Policy definicji do planów platformy Azure, jako kod źródłowy.
 - DevOps: związek osób, procesów i produktów, aby umożliwić ciągłe dostarczanie wartości naszym użytkownikom końcowym.
 
-Zasady jako kod to kombinacja tych pomysłów. Zasadniczo należy zachować definicje zasad w kontroli źródła oraz za każdym razem, gdy zmiana została wprowadzona, przetestować i zweryfikować tę zmianę. Jednak nie powinno to być stopień zaangażowania zasad z infrastrukturą jako kodem lub DevOps.
+Azure Policy, ponieważ kod jest kombinacją tych pomysłów. Zasadniczo należy zachować definicje zasad w kontroli źródła oraz za każdym razem, gdy zmiana została wprowadzona, przetestować i zweryfikować tę zmianę. Jednak nie powinno to być stopień zaangażowania zasad z infrastrukturą jako kodem lub DevOps.
 
 Krok walidacji powinien również być składnikiem innych przepływów pracy ciągłej integracji i ciągłego wdrażania. Przykłady obejmują wdrażanie środowiska aplikacji lub infrastruktury wirtualnej. Dzięki wykorzystaniu Azure Policy sprawdzać poprawność wczesnego składnika procesu kompilacji i wdrożenia, zespoły aplikacji i operacji wykrywają, czy zmiany nie są zgodne, długo przed upływem zbyt późno i podejmują próbę wdrożenia w środowisku produkcyjnym.
 
 ## <a name="definitions-and-foundational-information"></a>Definicje i informacje podstawowe
 
-Przed zapoznaj się ze szczegółami dotyczącymi zasad jako przepływu pracy w kodzie, przejrzyj następujące definicje i przykłady:
+Przed zapoznaj się ze szczegółami Azure Policy jako przepływ pracy kodu, przejrzyj następujące definicje i przykłady:
 
 - [Definicja zasad](./definition-structure.md)
 - [Definicja inicjatywy](./initiative-definition-structure.md)
@@ -43,10 +43,10 @@ Zapoznaj się również z tematem [eksportowanie Azure Policy zasobów](../how-t
 
 ## <a name="workflow-overview"></a>Omówienie przepływu pracy
 
-Zalecany ogólny przepływ pracy zasad jako kod wygląda jak na tym diagramie:
+Zalecany ogólny przepływ pracy Azure Policy jako kod wygląda podobnie do tego diagramu:
 
-:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagram przedstawiający zasady jako pola przepływu pracy kodu z tworzenia do przetestowania w celu wdrożenia." border="false":::
-   Diagram przedstawiający zasady jako pola przepływu pracy w kodzie. Tworzenie obejmuje tworzenie definicji zasad i inicjatyw. Test obejmuje przypisanie z wyłączonym trybem wymuszania. Po sprawdzeniu stanu zgodności następuje Nadanie uprawnień M S i korygowaniem zasobów.  Wdrożenie obejmuje aktualizację przypisania z włączonym trybem wymuszania.
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagram przedstawiający Azure Policy jako pola przepływu pracy kodu z tworzenia do przetestowania w celu wdrożenia." border="false":::
+   Diagram przedstawiający Azure Policy jako pola przepływu pracy w kodzie. Tworzenie obejmuje tworzenie definicji zasad i inicjatyw. Test obejmuje przypisanie z wyłączonym trybem wymuszania. Po sprawdzeniu stanu zgodności następuje Nadanie uprawnień M S i korygowaniem zasobów.  Wdrożenie obejmuje aktualizację przypisania z włączonym trybem wymuszania.
 :::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Tworzenie i aktualizowanie definicji zasad
@@ -56,22 +56,19 @@ Definicje zasad są tworzone przy użyciu formatu JSON i przechowywane w kontrol
 ```text
 .
 |
-|- policies/  ________________________ # Root folder for policies
+|- policies/  ________________________ # Root folder for policy resources
 |  |- policy1/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
-|
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |
 ```
 
@@ -89,17 +86,15 @@ Podobnie inicjatywy mają własny plik JSON i powiązane pliki, które powinny b
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 ```
 
@@ -114,7 +109,7 @@ Przypisanie powinno używać [wymuszania](./assignment-structure.md#enforcement-
 > [!NOTE]
 > Tryb wymuszania jest przydatny, ale nie zastępuje dokładnego testowania definicji zasad w różnych warunkach. Definicja zasad powinna być testowana przy użyciu `PUT` `PATCH` wywołań interfejsu API REST, zgodnych i niezgodnych zasobów oraz przypadków brzegowych, takich jak brak właściwości w zasobie.
 
-Po wdrożeniu przypisania Użyj zestawu SDK zasad lub [akcji Azure Policy skanowania zgodności](https://github.com/marketplace/actions/azure-policy-compliance-scan) w witrynie GitHub, aby [uzyskać dane zgodności](../how-to/get-compliance-data.md) dla nowego przypisania. Środowisko używane do testowania zasad i przypisań powinno mieć zarówno zgodne, jak i niezgodne zasoby.
+Po wdrożeniu przypisania Użyj zestawu SDK Azure Policy, [akcji skanowania zgodności Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan)lub zadania w witrynie GitHub dotyczącej [Azure Pipelines zabezpieczeń i zgodności](/azure/devops/pipelines/tasks/deploy/azure-policy) , aby [uzyskać dane zgodności](../how-to/get-compliance-data.md) dla nowego przypisania. Środowisko używane do testowania zasad i przypisań powinno mieć zarówno zgodne, jak i niezgodne zasoby.
 Podobnie jak w przypadku dobrego testu jednostkowego dla kodu, należy przetestować, czy zasoby są zgodne z oczekiwaniami, a także nie mają fałszywych wartości fałszywie dodatnich lub fałszywych. W przypadku testowania i weryfikowania tylko tego, czego oczekujesz, może wystąpić nieoczekiwany i niezidentyfikowany wpływ zasad. Aby uzyskać więcej informacji, zobacz [ocenę wpływu nowej definicji Azure Policy](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Włączanie zadań korygowania
@@ -138,13 +133,13 @@ Po zakończeniu wszystkich bram walidacji zaktualizuj przypisanie, aby używać 
 
 ## <a name="process-integrated-evaluations"></a>Przetwarzaj zintegrowane oceny
 
-Ogólny przepływ pracy dla zasad jako kod służy do opracowywania i wdrażania zasad oraz inicjatyw w środowisku na dużą skalę. Jednak Ocena zasad powinna być częścią procesu wdrażania dla każdego przepływu pracy, który wdraża lub tworzy zasoby na platformie Azure, takie jak wdrażanie aplikacji lub uruchamianie szablonów ARM w celu utworzenia infrastruktury.
+Ogólny przepływ pracy dla Azure Policy jako kod służy do opracowywania i wdrażania zasad oraz inicjatyw w środowisku na dużą skalę. Jednak Ocena zasad powinna być częścią procesu wdrażania dla każdego przepływu pracy, który wdraża lub tworzy zasoby na platformie Azure, takie jak wdrażanie aplikacji lub uruchamianie szablonów ARM w celu utworzenia infrastruktury.
 
 W takich przypadkach po wdrożeniu aplikacji lub infrastruktury w ramach subskrypcji testowej lub grupy zasobów należy przeprowadzić ocenę dla tego zakresu, sprawdzając sprawdzanie poprawności wszystkich istniejących zasad i inicjatyw. Chociaż mogą być skonfigurowane jako **wymuszenia** _wyłączone_ w takim środowisku, warto szybko wiedzieć, czy wdrożenie aplikacji lub infrastruktury ma na celu wczesne naruszenie definicji zasad. W związku z tym Ocena zasad powinna być krokiem w tych przepływach pracy i wdrożeniami zakończonymi niezgodnością.
 
 ## <a name="review"></a>Przegląd
 
-W tym artykule opisano ogólny przepływ pracy dla zasad jako kod, a także miejsce oceny zasad, które powinny być częścią innych przepływów pracy wdrożenia. Tego przepływu pracy można użyć w dowolnym środowisku, które obsługuje wykonywanie kroków skryptowych i automatyzację na podstawie wyzwalaczy.
+W tym artykule omówiono ogólny przepływ pracy dla Azure Policy jako kod, a także to, że Ocena zasad powinna być częścią innych przepływów pracy wdrożenia. Tego przepływu pracy można użyć w dowolnym środowisku, które obsługuje wykonywanie kroków skryptowych i automatyzację na podstawie wyzwalaczy. Aby zapoznać się z samouczkiem dotyczącym korzystania z tego przepływu pracy w usłudze GitHub, zobacz [Samouczek: implementowanie Azure Policy jako kodu w usłudze GitHub](../tutorials/policy-as-code-github.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

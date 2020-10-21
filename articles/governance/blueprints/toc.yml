@@ -31,6 +31,9 @@
     - name: Ochrona nowych zasobów za pomocą blokad zasobów strategii
       displayName: 'read only, do not delete, lock assignment'
       href: ./tutorials/protect-new-resources.md
+    - name: 'Learn: Nadzór nad wieloma subskrypcjami za pomocą usługi Azure Blueprints'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/10-govern-subscriptions-azure-blueprints
 - name: Samples
   items:
     - name: Indeks

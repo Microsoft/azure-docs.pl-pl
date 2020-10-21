@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ea823a16714f9db85c3d5148bc8bb2ba7629b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 427facaffa277ec44ee99d70681928f49fe31df8
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565517"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278474"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji mobilnych za pomocą platformy Xamarin i Azure Cosmos DB
 
@@ -25,7 +25,7 @@ ms.locfileid: "91565517"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-Większość aplikacji mobilnych musi przechowywać dane w chmurze, a usługa Azure Cosmos DB jest bazą danych w chmurze dla aplikacji mobilnych. Zawiera wszystko, czego potrzebuje deweloper aplikacji mobilnych. Jest to w pełni zarządzana baza danych jako usługa ze skalowaniem na żądanie. Umożliwia dostarczanie użytkownikom danych do aplikacji w sposób niewidoczny w dowolnym miejscu na całym świecie. Korzystając z [zestawu .NET Core SDK usługi Azure Cosmos DB](sql-api-sdk-dotnet-core.md), możesz umożliwić aplikacjom mobilnym platformy Xamarin bezpośrednią interakcję z usługą Azure Cosmos DB z pominięciem warstwy środkowej.
+Większość aplikacji mobilnych musi przechowywać dane w chmurze, a usługa Azure Cosmos DB jest bazą danych w chmurze dla aplikacji mobilnych. Ma wszystko, co jest potrzebne deweloperom mobilnym. Jest to w pełni zarządzana baza danych jako usługa ze skalowaniem na żądanie. Umożliwia dostarczanie użytkownikom danych do aplikacji w sposób niewidoczny w dowolnym miejscu na całym świecie. Korzystając z [zestawu .NET Core SDK usługi Azure Cosmos DB](sql-api-sdk-dotnet-core.md), możesz umożliwić aplikacjom mobilnym platformy Xamarin bezpośrednią interakcję z usługą Azure Cosmos DB z pominięciem warstwy środkowej.
 
 Ten artykuł zawiera samouczek tworzenia aplikacji mobilnych za pomocą platformy Xamarin i usługi Azure Cosmos DB. Pełny kod źródłowy samouczka, w tym informacje na temat sposobu zarządzania użytkownikami i uprawnieniami, możesz znaleźć w witrynie [platformy Xamarin i usługi Azure Cosmos DB w serwisie GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 
@@ -36,7 +36,7 @@ Usługa Azure Cosmos DB oferuje następujące kluczowe możliwości dla dewelope
 
 * Zaawansowane zapytania dotyczące danych bez schematu. Usługa Azure Cosmos DB przechowuje dane jako dokumenty JSON bez schematu w kolekcjach heterogenicznych. Umożliwia wysyłanie [zaawansowanych i szybkich zapytań](how-to-sql-query.md) bez konieczności martwienia się o schematy czy indeksy.
 * Szybka przepływność. Odczytywanie i zapisywanie dokumentów za pomocą usługi Azure Cosmos DB trwa zaledwie kilka milisekund. Deweloperzy mogą określić potrzebną przepływność, a usługa Azure Cosmos DB zapewni ją w ramach umowy SLA gwarantującej dostępność na poziomie co najmniej 99,99% dla wszystkich kont w obrębie jednego regionu i wszystkich kont w wielu regionach w przypadku rozluźnionej spójności, a także dostępność do odczytu na poziomie co najmniej 99,999% dla wszystkich kont bazy danych w wielu regionach.
-* Nieograniczone skalowanie. Twoje kontenery usługi Azure Cosmos rośnie wraz z rozwojem [aplikacji](partition-data.md). Możesz zacząć od niewielkiego rozmiaru danych i przepływności liczonej w setkach żądań na sekundę. Twoje kolekcje lub bazy danych mogą rozrosnąć się do petabajtów danych i dowolnie dużej przepływności na poziomie setek milionów żądań na sekundę.
+* Nieograniczone skalowanie. Twoje kontenery usługi Azure Cosmos rośnie wraz z rozwojem [aplikacji](partitioning-overview.md). Możesz zacząć od niewielkiego rozmiaru danych i przepływności liczonej w setkach żądań na sekundę. Twoje kolekcje lub bazy danych mogą rozrosnąć się do petabajtów danych i dowolnie dużej przepływności na poziomie setek milionów żądań na sekundę.
 * Dystrybucja globalna. Użytkownicy aplikacji mobilnych podróżują, często po całym świecie. Usługa Azure Cosmos DB jest [globalnie rozproszoną bazą danych](distribute-data-globally.md). Kliknij mapę, aby umożliwić użytkownikom dostęp do danych.
 * Wbudowana autoryzacja zaawansowana. W ramach usługi Azure Cosmos DB możesz łatwo implementować popularne wzorce, takie jak [dane dla poszczególnych użytkowników](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems) czy dane udostępnione wielu użytkownikom, nie używając złożonego, niestandardowego kodu autoryzacji.
 * Zapytania dotyczące danych geoprzestrzennych. Obecnie wiele aplikacji mobilnych zapewnia środowiska w kontekście geograficznym. Dzięki znakomitej obsłudze [typów danych geoprzestrzennych](geospatial.md) usługa Azure Cosmos DB ułatwia tworzenie tych środowisk.
@@ -45,12 +45,12 @@ Usługa Azure Cosmos DB oferuje następujące kluczowe możliwości dla dewelope
 ## <a name="azure-cosmos-db-and-xamarin-tutorial"></a>Samouczek dotyczący usługi Azure Cosmos DB i platformy Xamarin
 W poniższym samouczku pokazano sposób tworzenia aplikacji mobilnych za pomocą platformy Xamarin i usługi Azure Cosmos DB. Pełny kod źródłowy samouczka możesz znaleźć w witrynie [platformy Xamarin i usługi Azure Cosmos DB w serwisie GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 
-### <a name="get-started"></a>Rozpoczęcie pracy
+### <a name="get-started"></a>Wprowadzenie
 Rozpoczęcie pracy z usługą Azure Cosmos DB jest łatwe. Przejdź do witryny Azure Portal i utwórz nowe konto usługi Azure Cosmos DB. Kliknij kartę **Szybki Start** . Pobierz przykładową listę do wykonania formularzy Xamarin, która jest już połączona z kontem Azure Cosmos DB. 
 
 :::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Możliwości usługi Azure Cosmos DB w przypadku aplikacji mobilnych":::
 
-Jeśli masz istniejącą aplikację platformy Xamarin, możesz również dodać [pakiet NuGet usługi Azure Cosmos DB](sql-api-sdk-dotnet-core.md). Usługa Azure Cosmos DB obsługuje biblioteki udostępnione Xamarin.IOS, Xamarin.Android i Xamarin Forms.
+Jeśli masz istniejącą aplikację platformy Xamarin, możesz również dodać [pakiet NuGet usługi Azure Cosmos DB](sql-api-sdk-dotnet-core.md). Azure Cosmos DB obsługuje biblioteki udostępnione Xamarin. iOS, Xamarin. Android i Xamarin Forms.
 
 ### <a name="work-with-data"></a>Praca z danymi
 Rekordy danych są przechowywane w usłudze Azure Cosmos DB jako dokumenty JSON bez schematu w kolekcjach heterogenicznych. W jednej kolekcji możesz przechowywać dokumenty o różnych strukturach:
@@ -88,10 +88,10 @@ Pełny kod przykładowy tego wzorca możesz znaleźć w witrynie [brokera tokenu
 
 :::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Możliwości usługi Azure Cosmos DB w przypadku aplikacji mobilnych" border="false":::
 
-Jeśli chcesz, aby dwóch użytkowników miało dostęp do tej samej listy zadań do wykonania, możesz dodać dodatkowe uprawnienia do tokenu dostępu w brokerze tokenu zasobów.
+Jeśli chcesz, aby dwaj użytkownicy mieli dostęp do tej samej listy czynności do wykonania, możesz dodać dodatkowe uprawnienia do tokenu dostępu w brokerze tokenów zasobów.
 
 ### <a name="scale-on-demand"></a>Skalowanie na żądanie
-Azure Cosmos DB to zarządzana baza danych jako usługa. Gdy zwiększa się Twoja baza użytkowników, nie musisz troszczyć się o aprowizowanie maszyn wirtualnych czy zwiększanie liczby rdzeni. Musisz jedynie poinformować usługę Azure Cosmos DB, ilu operacji na sekundę (jakiej przepływności) potrzebuje Twoja aplikacja. Przepływność możesz określić za pomocą karty **Skala**, używając miary przepływności nazywanej jednostkami żądań (RU) na sekundę. Na przykład operacja odczytu dokumentu o rozmiarze 1 KB wymaga 1 jednostki żądania. Możesz także dodać alerty do metryki **Przepływność**, aby monitorować wzrost ruchu i programowo zmieniać przepływność po wystąpieniu alertu.
+Azure Cosmos DB to zarządzana baza danych jako usługa. Gdy zwiększa się Twoja baza użytkowników, nie musisz troszczyć się o aprowizowanie maszyn wirtualnych czy zwiększanie liczby rdzeni. Musisz jedynie poinformować usługę Azure Cosmos DB, ilu operacji na sekundę (jakiej przepływności) potrzebuje Twoja aplikacja. Przepływność możesz określić za pomocą karty **Skala**, używając miary przepływności nazywanej jednostkami żądań (RU) na sekundę. Na przykład operacja odczytu w dokumencie 1 KB wymaga jednego RU. Możesz także dodać alerty do metryki **Przepływność**, aby monitorować wzrost ruchu i programowo zmieniać przepływność po wystąpieniu alertu.
 
 :::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Możliwości usługi Azure Cosmos DB w przypadku aplikacji mobilnych":::
 

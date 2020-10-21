@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 26f635525afea289e2e791b802478040a7851eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87486514"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277675"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Elastyczne skalowanie Azure Cosmos DB interfejs API Cassandra konta
 
@@ -38,7 +38,7 @@ Jeśli zachodzi potrzeba zminimalizowania opóźnień, istnieje szeroki zakres o
 
 W poniższych sekcjach wyjaśniono zalety i wady poszczególnych rozwiązań. Następnie można określić najlepszą strategię, aby zrównoważyć wymagania dotyczące skalowania systemu, łączny koszt oraz potrzeby związane z wydajnością rozwiązania.
 
-## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Korzystanie z witryny Azure Portal
+## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Użyj Azure Portal
 
 Możesz skalować zasoby w Azure Cosmos DB interfejs API Cassandra koncie przy użyciu Azure Portal. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [obsługi przepływności na kontenerach i bazach danych](set-throughput.md). W tym artykule wyjaśniono względne zalety ustawiania przepływności na poziomie [bazy danych](set-throughput.md#set-throughput-on-a-database) lub [kontenera](set-throughput.md#set-throughput-on-a-container) w Azure Portal. Warunki "Database" i "Container" wymienione w tych artykułach są mapowane na "przestrzeń kluczy" i "Tabela" odpowiednio dla interfejs API Cassandra.
 
@@ -62,7 +62,7 @@ Zaletą tego podejścia jest to, że pozwala to na dynamiczne reagowanie na potr
 
 Oprócz standardowego (ręcznego) lub programowego sposobu aprowizacji przepływności można także skonfigurować kontenery usługi Azure Cosmos w przepływności z obsługą skalowania automatycznego. Skalowanie automatyczne będzie automatycznie i natychmiast skalowane do potrzeb użycia w określonych zakresach RU bez naruszenia umowy SLA. Aby dowiedzieć się więcej, zobacz artykuł [Tworzenie kontenerów i baz danych usługi Azure Cosmos w artykule Skalowanie automatyczne](provision-throughput-autoscale.md) .
 
-Zaletą tego podejścia jest najprostszy sposób zarządzania potrzebami skalowania w systemie. Gwarantuje to, że nie ma zastosowania ograniczenia stawki **w skonfigurowanych zakresach ru**. Wadą jest to, że jeśli wymagania dotyczące skalowania w systemie są przewidywalne, Skalowanie automatyczne może być tańszym sposobem obsługi wymagań dotyczących skalowania, niż przy użyciu Bespoke płaszczyzny kontroli lub poziomów zestawu SDK wymienionych powyżej.
+Zaletą tego podejścia jest najprostszy sposób zarządzania potrzebami skalowania w systemie. Nie ma zastosowania limitu szybkości **w skonfigurowanych zakresach ru**. Wadą jest to, że jeśli wymagania dotyczące skalowania w systemie są przewidywalne, Skalowanie automatyczne może być tańszym sposobem obsługi wymagań dotyczących skalowania, niż przy użyciu Bespoke płaszczyzny kontroli lub poziomów zestawu SDK wymienionych powyżej.
 
 Aby ustawić lub zmienić maksymalną przepływność (jednostek ru) na potrzeby automatycznego skalowania przy użyciu CQL, użyj następującej wartości (zastępowanie odpowiednio nazwy przestrzeni kluczy/tabeli):
 

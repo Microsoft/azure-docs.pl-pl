@@ -3,12 +3,12 @@ title: Ocenianie serwerów lokalnych przy użyciu zaimportowanego pliku CSV z oc
 description: Opisuje sposób odnajdywania serwerów lokalnych na potrzeby migracji na platformę Azure przy użyciu zaimportowanego pliku CSV w ramach oceny serwera Azure Migrate
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 743f18ce72e3f14fe54e0bbadff254ea03fc6278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30f17bb6b22d4d19cf225aa52d8284f5306a44ee
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604227"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308387"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Samouczek: ocenianie serwerów przy użyciu zaimportowanego pliku CSV
 
@@ -87,7 +87,7 @@ Skonfiguruj nowy projekt Azure Migrate, jeśli go nie masz.
 
    ![Pola nazwy i regionu projektu](./media/tutorial-discover-import/new-project.png)
 
-7. Wybierz przycisk **Utwórz**.
+7. Wybierz pozycję **Utwórz**.
 8. Zaczekaj kilka minut, aż projekt usługi Azure Migrate zostanie wdrożony.
 
 **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
@@ -203,4 +203,4 @@ W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Utworzono projekt Azure Migrate 
-> * Odnalezione serwery przy użyciu zaimportowanego pliku CSV. Teraz wykonaj ocenę [migracji maszyn wirtualnych VMware do maszyn wirtualnych platformy Azure](tutorial-assess-vmware.md).
+> * Odnalezione serwery przy użyciu zaimportowanego pliku CSV. Teraz wykonaj ocenę [migracji maszyn wirtualnych VMware do maszyn wirtualnych platformy Azure](./tutorial-assess-vmware-azure-vm.md).

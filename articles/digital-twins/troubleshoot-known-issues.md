@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047645"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311673"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Znane problemy w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -19,7 +19,7 @@ Ten artykuł zawiera informacje o znanych problemach związanych z usługą Azur
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>"400 błąd klienta: Nieprawidłowe żądanie" w Cloud Shell
 
-Polecenia w Cloud Shell mogą sporadycznie kończyć się niepowodzeniem z powodu błędu "400 błąd klienta: Nieprawidłowe żądanie adresu URL: http://localhost:50342/oauth2/token ", po którym następuje pełny ślad stosu.
+Polecenia w Cloud Shell uruchomione w systemie *https://shell.azure.com* mogą sporadycznie kończyć się niepowodzeniem z powodu błędu "400 błąd klienta: Nieprawidłowe żądanie dla adresu URL: http://localhost:50342/oauth2/token ", po którym następuje pełny ślad stosu.
 
 W odniesieniu do usługi Azure Digital bliźniaczych reprezentacji w systemie ma to wpływ na następujące grupy poleceń:
 * `az dt route`
@@ -30,7 +30,11 @@ W odniesieniu do usługi Azure Digital bliźniaczych reprezentacji w systemie ma
 
 Można rozwiązać ten problem, uruchamiając `az login` polecenie w Cloud Shell i wykonując kolejne kroki logowania. Następnie powinno być możliwe ponowne uruchomienie polecenia.
 
-Alternatywnym rozwiązaniem jest [zainstalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) na swoim komputerze, aby można było uruchomić polecenie interfejsu CLI platformy Azure lokalnie. Ten problem nie występuje w lokalnym interfejsie wiersza polecenia.
+Alternatywnie możesz otworzyć okienko Cloud Shell w Azure Portal i zakończyć pracę Cloud Shell z tego miejsca:
+
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Widok Azure Portal z wyróżnioną ikoną &quot;Cloud Shell&quot; i Cloud Shell pojawia się u dołu okna portalu":::
+
+Na koniec inne rozwiązanie polega na [zainstalowaniu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) na komputerze, aby umożliwić lokalne uruchamianie poleceń interfejsu CLI platformy Azure. Ten problem nie występuje w lokalnym interfejsie wiersza polecenia.
 
 ### <a name="possible-causes"></a>Możliwe przyczyny
 

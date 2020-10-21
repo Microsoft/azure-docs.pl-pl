@@ -55,6 +55,8 @@
               href: how-to-set-up-instance-portal.md
         - name: Pisanie kodu uwierzytelniania aplikacji
           href: how-to-authenticate-client.md
+        - name: Tworzenie rejestracji aplikacji
+          href: how-to-create-app-registration.md
         - name: Przenoszenie wystąpienia do innego regionu
           href: how-to-move-regions.md
     - name: Projektowanie modeli

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 208c9b4172719b876766f0c4d07a17caa24bfd63
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273147"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310949"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Utwórz kontroler danych w Azure Data Studio
 
@@ -25,7 +25,7 @@ Kontroler danych można utworzyć przy użyciu Azure Data Studio za pośrednictw
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Musisz mieć dostęp do klastra Kubernetes i mieć skonfigurowany plik kubeconfig, aby wskazywał klaster Kubernetes, który ma zostać wdrożony.
-- Należy [zainstalować narzędzia klienckie](install-client-tools.md) , w tym **Azure Data Studio** rozszerzenia Azure Data Studio o nazwie **Azure Arc** i **Azure Data CLI**.
+- Należy [zainstalować narzędzia klienckie](install-client-tools.md) , w tym **Azure Data Studio** rozszerzenia Azure Data Studio o nazwie **Azure Arc** i **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** .
 - Musisz zalogować się do platformy Azure w Azure Data Studio.  W tym celu: wpisz CTRL/Command + SHIFT + P, aby otworzyć okno tekstowe polecenia i wpisz **Azure**.  Wybierz pozycję **Azure: Zaloguj się**.   W panelu, który zostanie wyświetlony, kliknij ikonę + w prawym górnym rogu, aby dodać konto platformy Azure.
 
 ## <a name="use-the-deployment-wizard-to-create-azure-arc-data-controller"></a>Tworzenie kontrolera danych usługi Azure ARC przy użyciu Kreatora wdrażania

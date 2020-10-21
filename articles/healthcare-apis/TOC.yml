@@ -9,21 +9,17 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Wdrażanie interfejsu API platformy Azure dla standardu FHIR — portal
-      href: fhir-paas-portal-quickstart.md
-    - name: Wdrażanie interfejsu API platformy Azure dla standardu FHIR — PowerShell
-      href: fhir-paas-powershell-quickstart.md
-    - name: Wdrażanie interfejsu API platformy Azure dla standardu FHIR — interfejs wiersza polecenia
-      href: fhir-paas-cli-quickstart.md
-    - name: Wdrażanie usługi Azure API for FHIR — szablon usługi ARM
-      href: fhir-paas-arm-template-quickstart.md
-      displayName: deploy azure resource manager template
-    - name: Wdrażanie serwera FHIR dla platformy Azure — portal
-      href: fhir-oss-portal-quickstart.md
-    - name: Wdrażanie serwera FHIR dla platformy Azure — PowerShell
-      href: fhir-oss-powershell-quickstart.md
-    - name: Wdrażanie serwera FHIR dla platformy Azure — interfejs wiersza polecenia
-      href: fhir-oss-cli-quickstart.md
+    - name: Wdrażanie usługi Azure API for FHIR
+      expanded: false
+      items:
+        - name: Korzystanie z portalu
+          href: fhir-paas-portal-quickstart.md
+        - name: Korzystanie z programu PowerShell
+          href: fhir-paas-powershell-quickstart.md
+        - name: Korzystanie z interfejsu wiersza polecenia (CLI)
+          href: fhir-paas-cli-quickstart.md
+        - name: Korzystanie z szablonu usługi ARM
+          href: fhir-paas-arm-template-quickstart.md
     - name: Wdrażanie łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza) — portal
       href: iot-fhir-portal-quickstart.md
 - name: Samouczki
@@ -85,7 +81,7 @@
     - name: Eksportowanie danych
       expanded: false
       items:
-        - name: Eksportuj dane
+        - name: Eksportowanie danych
           href: export-data.md
         - name: Eksport bez danych identyfikujących
           href: de-identified-export.md
@@ -93,6 +89,8 @@
       href: find-identity-object-ids.md
     - name: Włączanie rejestrowania diagnostycznego w interfejsie Azure API for FHIR®
       href: enable-diagnostic-logging.md
+    - name: Eksportowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza) za pomocą ustawień diagnostycznych
+      href: iot-metrics-diagnostics-export.md
     - name: Uzyskiwanie tokenu interfejsu API platformy Azure dla standardu FHIR — interfejs wiersza polecenia
       href: get-healthcare-apis-access-token-cli.md
     - name: Rozwiązywanie problemów z błędami łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)

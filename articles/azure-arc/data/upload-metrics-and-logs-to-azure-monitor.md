@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: cda123adb667b4c857e05ce53d603e328e995766
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 869bfcb87aa4846674db233c4268e9269929cd04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108171"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320160"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Przekazywanie danych użycia, metryk i dzienników do Azure Monitor
 
@@ -25,7 +25,7 @@ Okresowo można wyeksportować informacje o użyciu dotyczące rozliczeń, metry
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wymagany jest interfejs wiersza polecenia platformy Azure (az) i zainstalowano interfejs wiersza polecenia platformy Azure (azdata).  [Zainstaluj narzędzia](./install-client-tools.md).
+Wymagany jest interfejs wiersza polecenia platformy Azure (az) i [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] zainstalowany program.  [Zainstaluj narzędzia](./install-client-tools.md).
 
 Przed przekazaniem danych na platformę Azure musisz upewnić się, że Twoja subskrypcja platformy Azure ma zarejestrowany dostawca zasobów Microsoft. AzureData.
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.AzureData --wait
 
 Informacje dotyczące użycia, takie jak spis i użycie zasobów, można przekazać do platformy Azure w następujący dwuetapowy sposób:
 
-1. Wyeksportuj dane użycia za pomocą ```azdata export``` polecenia w następujący sposób:
+1. Wyeksportuj dane użycia za pomocą `azdata export` polecenia w następujący sposób:
 
    ```console
    #login to the data controller and enter the values at the prompt
@@ -56,7 +56,7 @@ Informacje dotyczące użycia, takie jak spis i użycie zasobów, można przekaz
    ```
    To polecenie tworzy `usage.json` plik ze wszystkimi zasobami danych z obsługą usługi Azure ARC, takimi jak wystąpienia zarządzane SQL i wystąpieniami PostgreSQL, które są tworzone na kontrolerze danych.
 
-2. Przekazywanie danych użycia za pomocą ```azdata upload``` polecenia
+2. Przekazywanie danych użycia za pomocą `azdata upload` polecenia
 
    > [!NOTE]
    > Przed uruchomieniem przekazywania zaczekaj co najmniej 24 godziny od momentu utworzenia kontrolera danych usługi Azure Arc

@@ -17,12 +17,12 @@ ms.date: 09/23/2020
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fc5051a6cc8b8f36a980ff86690ed4f8cbac60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347717"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319775"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Raporty dotyczące działań związanych z logowaniem Azure Active Directory — wersja zapoznawcza
 
@@ -32,8 +32,8 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
     - **Logowania** — informacje o tym, kiedy użytkownicy, aplikacje i zarządzane zasoby logują się do usługi Azure AD w celu uzyskania dostępu do zasobów.
     - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
 - **Zabezpieczenia** 
-    - **Ryzykowne logowania** — [ryzykowne logowanie](concept-risky-sign-ins.md) jest wskaźnikiem próby logowania przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
-    - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](concept-user-at-risk.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
+    - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
+    - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
 Raport klasycznych logowań w Azure Active Directory zawiera omówienie logowania użytkowników interakcyjnych. Ponadto masz teraz dostęp do trzech dodatkowych raportów logowania, które są teraz dostępne w wersji zapoznawczej:
 
@@ -86,7 +86,7 @@ W bloku raport logowania można przełączać się między:
 
 - **Logowania główne usługi** — logowania według aplikacji i podmiotów usługi, które nie obejmują żadnego użytkownika. W tych logowaniach aplikacja lub usługa udostępnia poświadczenia w swoim imieniu w celu uwierzytelniania lub uzyskiwania dostępu do zasobów.
 
-- **Zarządzane tożsamości dla logowania do zasobów platformy Azure** — logowania przez zasoby platformy Azure, które mają wpisy tajne zarządzane przez platformę Azure. Aby uzyskać więcej informacji, zobacz [co to są zarządzane tożsamości dla zasobów platformy Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+- **Zarządzane tożsamości dla logowania do zasobów platformy Azure** — logowania przez zasoby platformy Azure, które mają wpisy tajne zarządzane przez platformę Azure. Aby uzyskać więcej informacji, zobacz [co to są zarządzane tożsamości dla zasobów platformy Azure?](../managed-identities-azure-resources/overview.md) 
 
 
 ![Typy raportów logowania](./media/concept-all-sign-ins/sign-ins-report-types.png)
@@ -214,7 +214,7 @@ W celu ułatwienia tworzenia podsumowania danych są grupowane zdarzenia nieinte
 - Identyfikator zasobu
 
 
-Dostępne możliwości:
+Można:
 
 - Rozwiń węzeł, aby wyświetlić poszczególne elementy grupy.  
 
@@ -271,7 +271,7 @@ W celu ułatwienia tworzenia podsumowania danych w dziennikach logowania nazwy g
 
 - Nazwa lub identyfikator zasobu
 
-Dostępne możliwości:
+Można:
 
 - Rozwiń węzeł, aby wyświetlić poszczególne elementy grupy.  
 

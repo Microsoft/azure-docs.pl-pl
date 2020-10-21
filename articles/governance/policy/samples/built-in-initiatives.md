@@ -1,15 +1,15 @@
 ---
 title: Lista wbudowanych inicjatyw zasad
 description: Utwórz listę wbudowanych inicjatyw zasad dla Azure Policy. Kategorie obejmują zgodność z przepisami, konfigurację gościa i inne.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 6c04ba975cf496dccfabc3aaa235f02490ba7b3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf685f10ba27064e650070a5e0a7fc44104f0bea
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91820109"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311622"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy wbudowane definicje inicjatyw
 
