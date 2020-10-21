@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662173"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276943"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 W tym artykule opisano wymagania wstępne i wymagania sprzętowe dotyczące programu Azure Active Directory (Azure AD) Connect.
@@ -46,6 +46,14 @@ Przed zainstalowaniem Azure AD Connect istnieje kilka rzeczy, które są potrzeb
 * Kontroler domeny używany przez usługę Azure AD musi być zapisywalny. Korzystanie z kontrolera domeny tylko do odczytu (RODC) *nie jest obsługiwane*, a Azure AD Connect nie jest zgodna z przekierowaniami zapisu.
 * Używanie lokalnych lasów lub domen przy użyciu "kropkowane" (nazwa zawiera kropkę ".") Nazwy NetBIOS *nie są obsługiwane*.
 * Zalecamy [włączenie kosza Active Directory](how-to-connect-sync-recycle-bin.md).
+
+### <a name="powershell-execution-policy"></a>Zasady wykonywania programu PowerShell
+Azure Active Directory Connect uruchamia podpisane skrypty programu PowerShell w ramach instalacji. Upewnij się, że zasady wykonywania programu PowerShell umożliwią uruchamianie skryptów.
+
+Zalecane zasady wykonywania podczas instalacji to "RemoteSigned".
+
+Aby uzyskać więcej informacji na temat ustawiania zasad wykonywania programu PowerShell, zobacz [Set-executionpolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+
 
 ### <a name="azure-ad-connect-server"></a>Serwer Azure AD Connect
 Serwer Azure AD Connect zawiera krytyczne dane tożsamości. Ważne jest, aby dostęp administracyjny do tego serwera był prawidłowo zabezpieczony. Postępuj zgodnie z wytycznymi w temacie [Zabezpieczanie uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/securing-privileged-access). 

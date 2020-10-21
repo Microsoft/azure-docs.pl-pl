@@ -3,12 +3,12 @@ title: Obsługiwane typy zasobów za poorednictwem Azure Resource Health | Micro
 description: Obsługiwane typy zasobów za pomocą usługi Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: e299e45f08b9e39af02208a0e74734475528b3ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bbc7b03a508c9b156de039b4f8706f5063fd23b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447054"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316122"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Typy zasobów i kontrole kondycji w usłudze Azure Resource Health
 Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zasoby według typów zasobów.
@@ -51,7 +51,7 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft. classiccompute/DomainNames
 |Wykonane sprawdzenia|
 |---|
-|<ul><li>Czy wdrożenie miejsca produkcyjnego jest w dobrej kondycji we wszystkich wystąpieniach roli?</li><li>Czy rola jest w dobrej kondycji dla wszystkich wystąpień maszyn wirtualnych?</li><li>Jaki jest stan kondycji każdej maszyny wirtualnej w ramach roli usługi w chmurze?</li><li>Czy stan maszyny wirtualnej został zmieniony z powodu operacji zainicjowanej przez platformę lub klienta?</li><li>Czy ukończono rozruch systemu operacyjnego gościa?</li><li>Czy nadal trwa planowana konserwacja?</li><li>Czy sprzęt hosta został obniżony i przewidziany do niepowodzenia?</li><li>[Dowiedz się więcej](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services) o wykonanych sprawdzeniach</li></ul>|
+|<ul><li>Czy wdrożenie miejsca produkcyjnego jest w dobrej kondycji we wszystkich wystąpieniach roli?</li><li>Czy rola jest w dobrej kondycji dla wszystkich wystąpień maszyn wirtualnych?</li><li>Jaki jest stan kondycji każdej maszyny wirtualnej w ramach roli usługi w chmurze?</li><li>Czy stan maszyny wirtualnej został zmieniony z powodu operacji zainicjowanej przez platformę lub klienta?</li><li>Czy ukończono rozruch systemu operacyjnego gościa?</li><li>Czy nadal trwa planowana konserwacja?</li><li>Czy sprzęt hosta został obniżony i przewidziany do niepowodzenia?</li><li>[Dowiedz się więcej](../cloud-services/resource-health-for-cloud-services.md) o wykonanych sprawdzeniach</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft. cognitiveservices/konta
 |Wykonane sprawdzenia|
@@ -257,4 +257,4 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 ## <a name="next-steps"></a>Następne kroki
 -  Zobacz [wprowadzenie do Azure Service Health pulpitu nawigacyjnego](service-health-overview.md) i [wprowadzenie do Azure Resource Health](resource-health-overview.md) , aby dowiedzieć się więcej o nich. 
 -  [Często zadawane pytania dotyczące Azure Resource Health](resource-health-faq.md)
-- Skonfiguruj alerty, aby otrzymywać powiadomienia o problemach z kondycją. Aby uzyskać więcej informacji, zobacz [Konfigurowanie alertów dla zdarzeń usługi Service Health](./alerts-activity-log-service-notifications-portal.md). 
+- Skonfiguruj alerty, aby otrzymywać powiadomienia o problemach z kondycją. Aby uzyskać więcej informacji, zobacz [Konfigurowanie alertów dla zdarzeń usługi Service Health](./alerts-activity-log-service-notifications-portal.md).

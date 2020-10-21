@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: f83f5da03d2db5354b020ce7d0c3c8d70f1830a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810c38397981a100c2d5a68492f8a15b75cd79bd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650099"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276045"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace
 
@@ -67,7 +67,7 @@ Teraz, gdy plan został ukryty przy użyciu starej ceny, Utwórz kopię tego pla
 
 1. W centrum partnerskim Wróć do **omówienia planu**.
 2. Wybierz pozycję **Utwórz nowy plan**. Wprowadź **identyfikator planu** i **nazwę planu**, a następnie wybierz pozycję **Utwórz**.
-1. Aby ponownie wykorzystać konfigurację techniczną z planu, który został ukryty, zaznacz pole wyboru **ponownie Użyj konfiguracji technicznej** . Zapoznaj się z [omówieniem planu](azure-vm-create-offer.md#plan-overview) , aby dowiedzieć się więcej.
+1. Aby ponownie wykorzystać konfigurację techniczną z planu, który został ukryty, zaznacz pole wyboru **ponownie Użyj konfiguracji technicznej** . Przeczytaj temat [Tworzenie planów dla oferty maszyny wirtualnej](../azure-vm-create-plans.md) , aby dowiedzieć się więcej.
     > [!IMPORTANT]
     > Jeśli wybierzesz opcję **ten plan ponownie używa konfiguracji technicznej z innego planu**, nie będzie można później przestać sprzedawać planu nadrzędnego. Nie używaj tej opcji, jeśli chcesz zrezygnować z sprzedaży planu nadrzędnego.
 3. Ukończ wszystkie wymagane sekcje dla nowego planu, w tym nową cenę.

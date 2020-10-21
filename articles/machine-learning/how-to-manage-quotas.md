@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203056"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275552"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
 
@@ -177,7 +177,7 @@ Aby zażądać przydziału dla tych scenariuszy, wykonaj następujące czynnośc
     | ----- | ----- |
     | Typ problemu | Szczegóły techniczne |
     | Usługa | Moje usługi. Na liście rozwijanej wybierz pozycję __Machine Learning__ . |
-    | Typ problemu | Konfiguracja obszaru roboczego, zestaw SDK i interfejs wiersza polecenia |
+    | Typ problemu | Konfiguracja i zabezpieczenia obszaru roboczego |
     | Podtyp problemu | Prywatne żądanie dotyczące przydziału punktów końcowych i Prywatna strefa DNS |
 
 2. W sekcji __szczegóły__ Użyj pola __Opis__ , aby podać region platformy Azure, który ma być używany, i scenariusz, którego planujesz użyć. Jeśli trzeba będzie zażądać zwiększenia limitu przydziału dla wielu subskrypcji, należy również wyświetlić identyfikatory subskrypcji w tym polu.

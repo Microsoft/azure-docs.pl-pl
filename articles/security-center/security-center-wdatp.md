@@ -1,6 +1,6 @@
 ---
-title: Microsoft Defender Advanced Threat Protection — Azure Security Center
-description: W tym dokumencie przedstawiono integrację między programem Azure Security Center i zaawansowaną ochroną przed zagrożeniami w usłudze Microsoft Defender.
+title: Korzystanie z licencji usługi Microsoft Defender dla punktu końcowego zawartej w programie Azure Security Center
+description: Dowiedz się więcej o usłudze Microsoft Defender dla punktów końcowych i wdrażaj ją z poziomu Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,125 +10,129 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 92feb159fe4c893a55d37fa90c34acf4c4c93631
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 026425c78934209a2d258d50a5c7f51feeebd63b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826162"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275372"
 ---
-# <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Zaawansowana ochrona przed zagrożeniami w usłudze Microsoft Defender przy użyciu Azure Security Center
+# <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
-Azure Security Center integruje się z usługą [Microsoft Defender Advanced Threat Protection (ATP)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) , aby zapewnić kompleksowe możliwości wykrywania i reagowania punktów końcowych (EDR).
+Microsoft Defender for Endpoint to całościowe, dostarczone w chmurze rozwiązanie zabezpieczeń punktu końcowego. Główne funkcje są następujące:
+
+- Zarządzanie lukami w zabezpieczeniach i Ocena 
+- Zmniejszanie obszaru ataków
+- Ochrona oparta na zasadach i w chmurze
+- Wykrywanie i reagowanie punktów końcowych (EDR)
+- Automatyczne badanie i korygowanie
+- Zarządzane usługi polowania
+
+> [!TIP]
+> Pierwotnie uruchomiono usługę **Windows Defender ATP**, nazwa produktu wykrywania i reagowania punktu końcowego (EDR) została zmieniona w 2019 jako usługa **Microsoft Defender ATP**.
+>
+> W przypadku zapłonu 2020 został uruchomiony [pakiet Microsoft Defender XDR](https://www.microsoft.com/security/business/threat-protection) i zmieniono nazwę usługi **Microsoft Defender dla punktu końcowego**.
 
 
 ## <a name="availability"></a>Dostępność
 
-|Aspekt|Szczegóły|
-|----|:----|
-|Stan wydania:|Ogólnie dostępna (GA)|
-|Wpisaną|Wymaga [usługi Azure Defender](security-center-pricing.md)|
-|Obsługiwane maszyny:|![Tak](./media/icons/yes-icon.png) Maszyny platformy Azure z systemem Windows<br>![Tak](./media/icons/yes-icon.png) Komputery z systemem Windows w usłudze Azure Arc|
-|Wymagane role i uprawnienia:|Aby włączyć/wyłączyć integrację: **administrator zabezpieczeń** lub **właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń**, **czytelnik**, **współautor grupy zasobów**, **właściciel grupy zasobów**, **administrator zabezpieczeń**, **właściciel subskrypcji**lub **współautor subskrypcji**|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne.<br>![Nie](./media/icons/no-icon.png) Klienci korzystający z usług w zatoce w publicznych chmurach platformy Azure<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
-|||
+| Aspekt                          | Szczegóły                                                                                                                                                                                                                                                                                                       |
+|---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Stan wydania:                  | Ogólnie dostępna (GA)                                                                                                                                                                                                                                                                                      |
+| Wpisaną                        | Wymaga [usługi Azure Defender dla serwerów](security-center-pricing.md)                                                                                                                                                                                                                                             |
+| Obsługiwane platformy:            | ![Tak](./media/icons/yes-icon.png) Maszyny platformy Azure z systemem Windows<br>![Tak](./media/icons/yes-icon.png) Komputery z systemem Windows w usłudze Azure Arc|
+| Obsługiwane wersje systemu Windows:  | Usługa Defender for Endpoint jest wbudowana w system Windows 10 1703 (i nowsze) i system Windows Server 2019.<br>Security Center obsługuje wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 SP1.<br>Monitorowanie punktu końcowego serwera przy użyciu tej integracji zostało wyłączone dla klientów usługi Office 365 w zatoce. |
+| Wymagane role i uprawnienia: | Aby włączyć/wyłączyć integrację: **administrator zabezpieczeń** lub **właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń**, **czytelnik**, **współautor grupy zasobów**, **właściciel grupy zasobów**, **administrator zabezpieczeń**, **właściciel subskrypcji**lub **współautor subskrypcji**                         |
+| Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne.<br>![Nie](./media/icons/no-icon.png) Klienci korzystający z usług w ramach usługi w chmurze w globalnych chmurach platformy Azure<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov                                                        |
+|                                 |                                                                                                                                                                                                                                                                                                               |
 
 
-## <a name="microsoft-defender-atp-features-in-security-center"></a>Funkcje ATP dotyczące programu Microsoft Defender w Security Center
+## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Funkcje usługi Microsoft Defender dla punktów końcowych w Security Center
 
-Usługa Microsoft Defender ATP oferuje następujące informacje:
+Usługa Microsoft Defender dla punktu końcowego oferuje następujące informacje:
 
-- **Zaawansowane czujniki wykrywania po naruszeniu**oprogramowania: czujniki usługi Microsoft Defender ATP dla serwerów z systemem Windows zbierają ogromną gamę sygnałów z zachowaniem.
+- **Zaawansowane czujniki wykrywania po naruszeniu naruszeń**. Usługa Defender dla czujników punktu końcowego dla maszyn z systemem Windows zbiera ogromną gamę sygnałów z zachowaniem.
 
-- **Wykrywanie naruszeń oprogramowania oparte na analizie w chmurze**: Usługa Microsoft Defender ATP szybko dostosowuje się do zmieniających się zagrożeń. Używa zaawansowanej analizy i danych Big Data. Usługa Microsoft Defender ATP jest wzmocniona możliwościami Intelligent Security Graph z sygnałami w systemach Windows, Azure i Office w celu wykrywania nieznanych zagrożeń. Zapewnia alerty funkcjonalne i umożliwia szybkie reagowanie na nie.
+- Wykrywanie z obsługą **analiz, oparte na chmurze, wykrycie po naruszeniu**. Usługa Defender dla punktów końcowych szybko dostosowuje się do zmieniających się zagrożeń. Używa zaawansowanej analizy i danych Big Data. Jest to wzmacniane przez możliwości Intelligent Security Graph z sygnałami w systemach Windows, Azure i Office w celu wykrywania nieznanych zagrożeń. Zapewnia alerty funkcjonalne i umożliwia szybkie reagowanie na nie.
 
-- **Analiza zagrożeń**: Usługa Microsoft Defender ATP generuje alerty po zidentyfikowaniu narzędzi, technik i procedur osoby atakującej. Używa on danych wygenerowanych przez program Microsoft Threat myśliwych i zespoły ds. zabezpieczeń, uzupełnione o analizy udostępniane przez partnerów.
+- **Analiza zagrożeń**. Usługa Defender dla punktu końcowego generuje alerty w przypadku identyfikacji narzędzi, technik i procedur osoby atakującej. Używa on danych wygenerowanych przez program Microsoft Threat myśliwych i zespoły ds. zabezpieczeń, uzupełnione o analizy udostępniane przez partnerów.
 
+Dzięki integracji usługi Defender dla punktów końcowych z Security Center można korzystać z następujących dodatkowych możliwości:
 
-Dzięki integracji usługi Defender ATP z Azure Security Center można także skorzystać z następujących dodatkowych możliwości:
+- **Automatyczne**dołączanie. Security Center automatycznie włącza czujnik usługi Microsoft Defender for Endpoint dla wszystkich serwerów z systemem Windows monitorowanych przez Security Center (chyba że jest uruchomiony system Windows Server 2019).
 
-- **Automatyczne**dołączanie: integracja automatycznie włącza czujnik usługi Microsoft Defender ATP dla serwerów z systemem Windows monitorowanych przez Azure Security Center (chyba że jest uruchomiony system Windows Server 2019).
+- **Pojedyncze okienko szkła**. W konsoli Security Center są wyświetlane alerty usługi Microsoft Defender dla punktów końcowych. Aby dowiedzieć się więcej, Użyj usługi Microsoft Defender dla własnych stron portalu punktu końcowego, na których zobaczysz dodatkowe informacje, takie jak drzewo procesu alertu i wykres incydentu. Możesz również wyświetlić szczegółową oś czasu komputera, która pokazuje każde zachowanie w okresie historycznym przez maksymalnie sześć miesięcy.
 
-- **Pojedyncze okienko szkła**: w konsoli Azure Security Center są wyświetlane alerty programu Microsoft Defender ATP. Aby przeprowadzić dalsze badanie, użyj programu Microsoft Defender ATP. Usługa Microsoft Defender ATP udostępnia dodatkowe informacje, takie jak drzewo procesu alertu i wykres incydentu. Możesz również wyświetlić szczegółową oś czasu komputera, która pokazuje każde zachowanie w okresie historycznym przez maksymalnie sześć miesięcy.
+    :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Security Center własne usługi Microsoft Defender dla punktu końcowego" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
-    ![Strona Microsoft Defender ATP ze szczegółowymi informacjami o alercie](media/security-center-wdatp/image3.png)
+## <a name="microsoft-defender-for-endpoint-tenant-location"></a>Lokalizacja dzierżawy usługi Microsoft Defender dla punktu końcowego
 
-## <a name="platform-support"></a>Obsługa platform
+W przypadku używania Azure Security Center do monitorowania serwerów usługa Microsoft Defender dla dzierżawy punktu końcowego jest tworzona automatycznie. Dane zbierane przez usługę Defender for Endpoint są przechowywane w lokalizacji geograficznej dzierżawy, która została zidentyfikowana podczas aprowizacji. Dane klienta w formie pseudonimowej — mogą być również przechowywane w centralnych systemach magazynowania i przetwarzania w Stany Zjednoczone. 
 
-Usługa Microsoft Defender ATP w Security Center obsługuje wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 z dodatkiem SP1. W przypadku maszyn wirtualnych platformy Azure potrzebna jest usługa Azure Defender w ramach subskrypcji, a dla maszyn wirtualnych z systemem innym niż Azure potrzebna jest możliwość włączenia usługi Azure Defender tylko na poziomie obszaru roboczego.
-
-Monitorowanie punktu końcowego serwera przy użyciu tej integracji zostało wyłączone dla klientów usługi Office 365 w zatoce.
-
-## <a name="data-storage-location"></a>Lokalizacja przechowywania danych
-
-W przypadku korzystania z Azure Security Center do monitorowania serwerów usługa Microsoft Defender ATP zostanie utworzona automatycznie. Dane zbierane przez usługę Microsoft Defender ATP są przechowywane w lokalizacji geograficznej dzierżawy, która została zidentyfikowana podczas aprowizacji. Dane klienta w formie pseudonimów mogą być również przechowywane w centralnych systemach magazynowania i przetwarzania w Stany Zjednoczone. 
-
-Po skonfigurowaniu nie można zmienić lokalizacji, w której są przechowywane dane. Jeśli musisz przenieść dane do innej lokalizacji, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu zresetowania dzierżawy.
+Po skonfigurowaniu lokalizacji nie można jej zmienić. Jeśli musisz przenieść dane do innej lokalizacji, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu zresetowania dzierżawy.
 
 
-## <a name="onboard-servers-to-security-center"></a>Dołączanie serwerów do Security Center 
+## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Włączanie integracji usługi Microsoft Defender for Endpoint
 
-Aby dołączać serwery do Security Center, kliknij przycisk **Przejdź do Azure Security Center do** dołączania serwerów z usługi Microsoft Defender ATP Server dołączanie.
+1. Włącz **usługę Azure Defender dla serwerów**. Zobacz [cennik Azure Security Center](security-center-pricing.md#enable-azure-defender).
 
-1. W obszarze **Onboarding** dołączania wybierz lub Utwórz obszar roboczy, w którym mają zostać zapisane dane.
+    > [!NOTE]
+    > Aby chronić maszyny z obsługą usługi Azure ARC, Skorzystaj z instrukcji w [przewodniku szybki start: łączenie maszyny hybrydowej z serwerami z obsługą usługi Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
-2. Jeśli nie widzisz wszystkich obszarów roboczych, może to być spowodowane brakiem uprawnień, upewnij się, że obszar roboczy jest chroniony przez usługę Azure Defender.
-    
-3. Wybierz pozycję **Dodaj serwery** , aby wyświetlić instrukcje dotyczące instalowania agenta log Analytics. 
+1. Jeśli masz już licencjonowane i wdrożone usługi Microsoft Defender dla punktów końcowych na serwerach, usuń je, korzystając z procedury opisanej w artykule [odłączania Windows Servers](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
+1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
+1. Wybierz subskrypcję, którą chcesz zmienić.
+1. Wybierz pozycję **wykrywanie zagrożeń**.
+1. Wybierz pozycję **Zezwalaj usłudze Windows Defender ATP na dostęp do moich danych**i wybierz pozycję **Zapisz**.
 
-4. Po dołączeniu można monitorować maszyny w [spisie zasobów](asset-inventory.md).
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Security Center własne usługi Microsoft Defender dla punktu końcowego":::
 
-   ![Dołączanie komputerów](media/security-center-wdatp/onboard-computers.png)
+    Azure Security Center automatycznie dołączać serwery do usługi Microsoft Defender dla punktu końcowego. Dołączanie może potrwać do 24 godzin.
 
-## <a name="enable-microsoft-defender-atp-integration"></a>Włącz integrację z programem Microsoft Defender ATP
 
-Aby sprawdzić, czy integracja z usługą Microsoft Defender ATP jest włączona, wybierz pozycję Cennik usługi **Security Center**  >  **& ustawienia** > wybierz subskrypcję.
+## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>Dostęp do portalu usługi Microsoft Defender dla punktów końcowych
 
-W tym miejscu można zobaczyć aktualnie włączone integracje.
+1. Upewnij się, że konto użytkownika ma wymagane uprawnienia. [Dowiedz się więcej](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
-  ![Strona ustawień wykrywania zagrożeń Azure Security Center z włączoną integracją z usługą Microsoft Defender ATP](media/security-center-wdatp/enable-integrations.png)
+1. Sprawdź, czy masz serwer proxy lub zaporę blokującą ruch anonimowy. Usługa Defender dla czujnika punktu końcowego nawiązuje połączenie z kontekstem systemowym, więc należy zezwolić na ruch anonimowy. Aby zapewnić niezakłócony dostęp do programu Defender for Endpoint Portal, postępuj zgodnie z instrukcjami w temacie [Włączanie dostępu do adresów URL usługi na serwerze proxy](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
-- Jeśli usługa Azure Defender została już włączona, nie są wymagane żadne dalsze działania. Azure Security Center automatycznie dołączać serwery do programu Microsoft Defender ATP. Dołączanie może potrwać do 24 godzin.
+1. Otwórz [portal Security Center Microsoft Defender](https://securitycenter.windows.com/). Więcej informacji na temat funkcji i ikon portalu można znaleźć w temacie [Omówienie usługi Microsoft Defender Security Center Portal](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
 
-- Jeśli serwery nie zostały dołączone do Azure Security Center, Dołącz je do Azure Security Center i Włącz usługę Azure Defender w zwykły sposób.
+## <a name="send-a-test-alert"></a>Wysyłanie alertu testowego
 
-- W przypadku dołączania serwerów za pomocą programu Microsoft Defender ATP:
-  - Zapoznaj się z dokumentacją, aby uzyskać wskazówki dotyczące [odłączania maszyn serwera](https://go.microsoft.com/fwlink/p/?linkid=852906).
-  - Dołącz te serwery do Azure Security Center.
-
-## <a name="access-to-the-microsoft-defender-atp-portal"></a>Dostęp do portalu Microsoft Defender ATP
-
-1. Postępuj zgodnie z instrukcjami w temacie [Przypisywanie dostępu użytkowników do portalu](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
-
-1. Sprawdź, czy masz serwer proxy lub zaporę blokującą ruch anonimowy. Czujnik usługi Defender ATP nawiązuje połączenie z kontekstem systemowym, więc należy zezwolić na ruch anonimowy. Aby zapewnić niezakłócony dostęp do portalu usługi Microsoft Defender ATP, postępuj zgodnie z instrukcjami zawartymi w temacie [Włączanie dostępu do adresów URL usługi Microsoft Defender ATP na serwerze proxy](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
-
-## <a name="test-the-feature"></a>Testowanie funkcji
-
-Aby wygenerować niegroźny alert dotyczący testu Microsoft Defender ATP:
+Aby wygenerować niegroźny alert dotyczący programu Microsoft Defender for Endpoint test:
 
 1. Utwórz folder "C:\test-MDATP-test".
-
-1. Użyj Pulpit zdalny, aby uzyskać dostęp do maszyny wirtualnej z systemem Windows Server 2012 R2 lub z maszyną wirtualną z systemem Windows Server 2016. Otwórz okno wiersza polecenia.
-
+1. Użyj Pulpit zdalny, aby uzyskać dostęp do maszyny wirtualnej z systemem Windows Server 2012 R2 lub z maszyną wirtualną z systemem Windows Server 2016.
+1. Otwórz okno wiersza polecenia.
 1. W wierszu polecenia skopiuj i uruchom następujące polecenie. Okno wiersza polecenia zostanie zamknięte automatycznie.
 
-    ```
+    ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
+    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Security Center własne usługi Microsoft Defender dla punktu końcowego":::
 
-   ![Okno wiersza polecenia z powyższym poleceniem](media/security-center-wdatp/image4.jpeg)
-
-1. Jeśli polecenie zakończy się pomyślnie, zobaczysz nowy Alert na pulpicie nawigacyjnym Azure Security Center i portalu Microsoft Defender ATP. Ten alert może potrwać kilka minut.
-
+1. Jeśli polecenie zakończy się pomyślnie, zobaczysz nowy Alert na pulpicie nawigacyjnym Azure Security Center oraz w portalu usługi Microsoft Defender dla punktów końcowych. Ten alert może potrwać kilka minut.
 1. Aby sprawdzić alert w Security Center, przejdź do **alertów zabezpieczeń**  >  **podejrzany wiersz polecenia programu PowerShell**.
+1. W oknie badanie wybierz link, aby przejść do portalu usługi Microsoft Defender dla punktu końcowego.
 
-1. W oknie badanie wybierz link, aby przejść do portalu usługi Microsoft Defender ATP.
+
+## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Często zadawane pytania dotyczące zintegrowanego Security Center usługi Microsoft Defender for Endpoint
+
+### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Jakie są wymagania dotyczące licencjonowania usługi Microsoft Defender for Endpoint?
+
+Usługa Defender dla punktów końcowych jest uwzględniana bez dodatkowych kosztów w **usłudze Azure Defender dla serwerów**. Alternatywnie można ją zakupić osobno dla maszyn 50 lub więcej.
+
+
+### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Jak mogę przełączać się z narzędzia EDR innej firmy?
+
+Pełne instrukcje dotyczące przełączania z rozwiązania punktu końcowego innego niż Microsoft są dostępne w dokumentacji usługi Microsoft Defender dla punktów końcowych: [Omówienie migracji](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
+  
+
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Platformy i funkcje obsługiwane przez usługę Azure Security Center](security-center-os-coverage.md)
-- [Ustawianie zasad zabezpieczeń w Azure Security Center](tutorial-security-policy.md): informacje na temat konfigurowania zasad zabezpieczeń dla subskrypcji i grup zasobów platformy Azure.
 - [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Azure Security Center](security-center-recommendations.md): informacje na temat sposobu, w jaki zalecenia ułatwiają ochronę zasobów platformy Azure.
-- [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.

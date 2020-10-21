@@ -6,15 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a802cc3d6178302445e0c31c52785d00207d0bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998547"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277035"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesor zestawienia zmian w usłudze Azure Cosmos DB
 
@@ -68,9 +68,9 @@ Normalny cykl życiowy wystąpienia hosta wygląda następująco:
 
 Procesor kanału informacyjnego zmiany jest odporny na błędy kodu użytkownika. Oznacza to, że jeśli w implementacji delegata występuje nieobsłużony wyjątek (krok #4), przetwarzanie wątku, w którym określona partia zmian zostanie zatrzymane i zostanie utworzony nowy wątek. Nowy wątek sprawdzi, który był ostatnim punktem w czasie, gdy magazyn dzierżawy ma dla tego zakresu wartości kluczy partycji, a następnie ponownie uruchomi się z tego powodu, wysyłając tę samą partię zmian do delegata. Takie zachowanie będzie kontynuowane do momentu poprawnego przetworzenia przez delegata zmian i jest to powód, dla którego procesor źródła zmian ma gwarancję "co najmniej raz", ponieważ jeśli kod delegata zgłasza wyjątek, ponowi próbę wykonania tej partii.
 
-Aby zapobiec nieudanej próbie wykonania tej samej partii zmian przez procesor kanału informacyjnego zmian, należy dodać logikę w kodzie delegata do zapisu dokumentów, po wyjątku, do kolejki utraconych wiadomości. Ten projekt umożliwia śledzenie nieprzetworzonych zmian, gdy nadal można nadal przetwarzać przyszłe zmiany. Kolejka utraconych wiadomości może po prostu być innym kontenerem Cosmos. Dokładny magazyn danych nie ma znaczenia, po prostu, że nieprzetworzone zmiany są utrwalane.
+Aby zapobiec nieudanej próbie wykonania tej samej partii zmian przez procesor kanału informacyjnego zmian, należy dodać logikę w kodzie delegata do zapisu dokumentów, po wyjątku, do kolejki utraconych wiadomości. Ten projekt umożliwia śledzenie nieprzetworzonych zmian, gdy nadal można nadal przetwarzać przyszłe zmiany. Kolejka utraconych wiadomości może być innym kontenerem Cosmos. Dokładny magazyn danych nie ma znaczenia, po prostu, że nieprzetworzone zmiany są utrwalane.
 
-Ponadto można użyć [szacowania źródła zmian](how-to-use-change-feed-estimator.md) do monitorowania postępu wystąpień procesora źródła zmian podczas odczytywania źródła zmian. Poza monitorowaniem, jeśli procesor źródła zmian nie zostanie "zablokowany" ciągle ponawianie tej samej partii zmian, można również zrozumieć, czy procesor kanału informacyjnego zmian jest opóźniony z powodu dostępnych zasobów, takich jak procesor CPU, pamięć i przepustowość sieci.
+Ponadto można użyć [szacowania źródła zmian](how-to-use-change-feed-estimator.md) do monitorowania postępu wystąpień procesora źródła zmian podczas odczytywania źródła zmian. Możesz użyć tego oszacowania, aby zrozumieć, czy procesor kanału informacyjnego zmian jest "zablokowany" lub opóźniony z powodu dostępnych zasobów, takich jak procesor CPU, pamięć i przepustowość sieci.
 
 ## <a name="deployment-unit"></a>Jednostka wdrożenia
 
@@ -94,7 +94,32 @@ Ponadto procesor kanału informacyjnego zmiany można dynamicznie dopasować do 
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Kanał informacyjny zmian i przepływność aprowizacji
 
-Opłata jest naliczana za zużyte jednostek ru, ponieważ przenoszenie danych do i z kontenerów Cosmos zawsze zużywa jednostek ru. Opłata jest naliczana za jednostek ru zużyty przez kontener dzierżawy.
+Operacje odczytu kanału informacyjnego zmiany w monitorowanym kontenerze będą zużywać jednostek ru. 
+
+Operacje w kontenerze dzierżawy zużywają jednostek ru. Im większa liczba wystąpień korzystających z tego samego kontenera dzierżawy, tym wyższy jest potencjalny poziom zużycia RU. Należy pamiętać, aby monitorować użycie RU w kontenerze dzierżawy, jeśli zdecydujesz się na skalowanie i zwiększanie liczby wystąpień.
+
+## <a name="starting-time"></a>Godzina rozpoczęcia
+
+Domyślnie, gdy procesor źródła zmian jest uruchamiany po raz pierwszy, zostanie zainicjowany kontener dzierżawy i rozpocznie się jego [cykl życia](#processing-life-cycle). Wszelkie zmiany, które wystąpiły w monitorowanym kontenerze przed zainicjowaniem procesora źródła zmian po raz pierwszy nie zostaną wykryte.
+
+### <a name="reading-from-a-previous-date-and-time"></a>Odczytywanie od podanej daty i godziny
+
+Możliwe jest zainicjowanie procesora kanału informacyjnego, aby odczytywać zmiany, rozpoczynając od **określonej daty i godziny**, przekazując wystąpienie `DateTime` do `WithStartTime` rozszerzenia konstruktora:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
+
+Procesor kanału informacyjnego zmian zostanie zainicjowany dla tej konkretnej daty i godziny i rozpocznie się odczytywanie zmian, które wystąpiły po.
+
+### <a name="reading-from-the-beginning"></a>Odczytywanie od początku
+
+W innych scenariuszach, takich jak migracja danych lub analizowanie całej historii kontenera, musimy przeczytać Źródło zmian od **początku okresu istnienia tego kontenera**. Aby to zrobić, można użyć `WithStartTime` na rozszerzeniu konstruktora, ale przekazywać `DateTime.MinValue.ToUniversalTime()` , które generują reprezentację UTC wartości minimalnej `DateTime` , na przykład:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
+
+Procesor kanału informacyjnego zmian zostanie zainicjowany i rozpocznie się odczytywanie zmian od początku okresu istnienia kontenera.
+
+> [!NOTE]
+> Te opcje dostosowania działają tylko w celu skonfigurowania punktu wyjścia w czasie procesora źródła zmian. Po zainicjowaniu kontenera dzierżaw po raz pierwszy zmiana nie ma żadnego wpływu.
 
 ## <a name="where-to-host-the-change-feed-processor"></a>Gdzie hostować procesor źródła zmian
 
@@ -105,9 +130,9 @@ Procesor kanału informacyjnego zmian może być hostowany na dowolnej platformi
 * Zadanie w tle w [usłudze Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * [Hostowana usługa ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
-Podczas gdy procesor kanału informacyjnego zmiany można uruchomić w środowiskach krótkich, ponieważ kontener dzierżawy utrzymuje stan, cykl uruchamiania i zatrzymywania tych środowisk doda opóźnienie do otrzymywania powiadomień (ze względu na obciążenie uruchomienia procesora przy każdym uruchomieniu środowiska).
+Podczas gdy procesor kanału informacyjnego zmiany można uruchomić w środowiskach krótkich, ponieważ kontener dzierżawy utrzymuje stan, cykl uruchamiania tych środowisk doda opóźnienie do otrzymania powiadomień (ze względu na obciążenie związane z uruchamianiem procesora przy każdym uruchomieniu środowiska).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zestaw SDK Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [Ukończ przykładową aplikację w witrynie GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)

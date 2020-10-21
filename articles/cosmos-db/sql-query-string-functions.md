@@ -4,15 +4,15 @@ description: Dowiedz się więcej o funkcjach systemu ciąg SQL w Azure Cosmos D
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 192f015b37eadb57b8e4a5c83ce3adf94c8bf038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ec1d83b97fadf3954a936847e8e8faeb47d1458
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85549520"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276084"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Funkcje ciągów (Azure Cosmos DB)
 
@@ -30,6 +30,7 @@ Następujące funkcje skalarne wykonują operacje na wartościach wejściowych c
 * [Długość](sql-query-length.md)
 * [LOWER](sql-query-lower.md)
 * [LTRIM](sql-query-ltrim.md)
+* [REGEXMATCH](sql-query-regexmatch.md)
 * [REPLACE](sql-query-replace.md)
 * [REPLIKACJA](sql-query-replicate.md)
 * [COFNIĘCI](sql-query-reverse.md)

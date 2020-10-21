@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5554cfcde9aba1b0e5c9c8b60e2e6a7e9a8ba378
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89271564"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309784"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Konfigurowanie ochrony tożsamości i dostępu warunkowego w Azure AD B2C
 
@@ -41,10 +41,12 @@ Następujące wykrycia ryzyka są obecnie obsługiwane w przypadku Azure AD B2C:
 |Typ wykrywania ryzyka  |Opis  |
 |---------|---------|
 | Nietypowa podróż     | Zaloguj się z nietypowej lokalizacji na podstawie ostatnich logowań użytkownika.        |
-|Anonimowy adres IP     | Zaloguj się przy użyciu anonimowego adresu IP (na przykład: przeglądarki tor, Anonymizer sieci VPN)        |
+|Anonimowy adres IP     | Zaloguj się przy użyciu anonimowego adresu IP (na przykład: przeglądarki tor, sieci VPN Anonymizer).        |
+|Połączony adres IP złośliwego oprogramowania     | Zaloguj się przy użyciu połączonego adresu IP złośliwego oprogramowania.         |
 |Nieznane właściwości logowania     | Zaloguj się przy użyciu właściwości, które nie były ostatnio widziane dla danego użytkownika.        |
-|Połączony adres IP złośliwego oprogramowania     | Zaloguj się przy użyciu połączonego adresu IP złośliwego oprogramowania         |
-|Analiza zagrożeń usługi Azure AD     | Wewnętrzne i zewnętrzne źródła analizy zagrożeń firmy Microsoft określiły znany wzorzec ataku        |
+|Administrator zatwierdził naruszenie zabezpieczeń    | Administrator wykrył, że naruszono bezpieczeństwo użytkownika.             |
+|Rozpylanie hasła     | Zalogowanie się za pomocą ataku polegającego na rozpylaniu hasła.      |
+|Analiza zagrożeń usługi Azure AD     | Wewnętrzne i zewnętrzne źródła analizy zagrożeń firmy Microsoft określiły znany wzorzec ataku.        |
 
 ## <a name="view-risk-events-for-your-azure-ad-b2c-tenant"></a>Wyświetlanie zdarzeń o podwyższonym ryzyku dla dzierżawy Azure AD B2C
 

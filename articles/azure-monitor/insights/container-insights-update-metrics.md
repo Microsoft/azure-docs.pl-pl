@@ -2,14 +2,14 @@
 title: Jak aktualizować Azure Monitor kontenerów dla metryk | Microsoft Docs
 description: W tym artykule opisano sposób aktualizowania Azure Monitor dla kontenerów w celu włączenia funkcji metryk niestandardowych, która obsługuje eksplorowanie i zgłaszanie alertów dotyczących zagregowanych metryk.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c420c91e20cc1cf9ab5e4f58bdd352ead3ba4d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a94f250c83fbd2779620376087a83b8851e583e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618149"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309448"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Jak zaktualizować usługę Azure Monitor dla kontenerów w celu włączenia metryk
 
@@ -26,6 +26,7 @@ Następujące metryki są włączone w ramach tej funkcji:
 | Szczegółowe informacje. kontenery/węzły | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Jako metryki *węzła* obejmują one *hosta* jako wymiar. Obejmują one również<br> Nazwa węzła jako wartość dla wymiaru *hosta* . |
 | Szczegółowe informacje. kontenery/zasobniki | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Jako *metryki* są to między innymi następujące: Dimensions-ControllerName, Kubernetes Namespace, Name, faz. |
 | Szczegółowe informacje. kontenery/kontenery | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
+| Szczegółowe informacje. Container/persistentvolumes | pvUsageExceededPercentage | |
 
 Aby zapewnić obsługę tych nowych funkcji, w wydaniu zostanie uwzględniony nowy Agent kontenerów w wersji **Microsoft/OMS: ciprod05262020** for AKS i Version **Microsoft/OMS: Ciprod09252020** for Azure ARC z włączonymi klastrami Kubernetes. Nowe wdrożenia programu AKS automatycznie uwzględniają tę zmianę konfiguracji i możliwości. Aktualizowanie klastra w celu obsługi tej funkcji można wykonać z poziomu Azure Portal, Azure PowerShell lub przy użyciu interfejsu wiersza polecenia platformy Azure. Przy użyciu Azure PowerShell i interfejsu wiersza polecenia. Możesz włączyć ten klaster lub wszystkie klastry w subskrypcji.
 

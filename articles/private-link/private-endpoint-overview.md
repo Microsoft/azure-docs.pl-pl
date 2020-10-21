@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639838"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277504"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -57,7 +57,7 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |---------|---------|---------|
 |**Usługa link prywatny** (Twoja usługa)   |  Microsoft. Network/privateLinkServices       | puste |
 |**Azure Automation** |  Microsoft. Automation/automationAccounts | Element webhook, DSCAndHybridWorker |
-|**Azure SQL Database** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        |
+|**Baza danych SQL Azure** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        | 
 |**Azure Storage**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Kolejka (Kolejka, queue_secondary)<BR> Plik (plik, file_secondary)<BR> Sieć Web (sieć Web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Gen2 systemu plików Data Lake (system plików DFS, dfs_secondary)       |
@@ -77,7 +77,7 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |**Azure Relay** | Microsoft. Relay/przestrzenie nazw | namespace |
 |**Azure Event Grid** | Microsoft. EventGrid/tematy    | temat |
 |**Azure Event Grid** | Microsoft. EventGrid/domeny    | domena |
-|**Azure webapps** | Microsoft. Web/witryny    | lokacje |
+|**Azure App Service** | Microsoft. Web/witryny    | lokacje |
 |**Azure Machine Learning** | Microsoft. MachineLearningServices/obszary robocze    | obszar roboczy |
 |**SignalR** | Microsoft. SignalRService/sygnalizujący    | signalR |
 |**Azure Monitor** | Microsoft. Insights/privateLinkScopes    | azuremonitor |

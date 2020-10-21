@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0ce6a5f909e67f0551c8667bb7e5c5e6d7eb04
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854919"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275606"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Plik konfiguracji biblioteki uwierzytelniania firmy Microsoft dla systemu Android
 
@@ -34,6 +34,7 @@ Ten artykuł pomoże zrozumieć różne ustawienia w pliku konfiguracji oraz spo
 |-----------|------------|-------------|-------|
 | `client_id` | Ciąg | Tak | Identyfikator klienta aplikacji na [stronie rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | Ciąg | Tak | Identyfikator URI przekierowania aplikacji ze [strony rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `broker_redirect_uri_registered` | Wartość logiczna | Nie | Możliwe wartości: `true` , `false` |
 | `authorities` | Staw\<Authority> | Nie | Lista urzędów, których potrzebuje aplikacja |
 | `authorization_user_agent` | AuthorizationAgent (enum) | Nie | Możliwe wartości: `DEFAULT` , `BROWSER` , `WEBVIEW` |
 | `http` | HttpConfiguration | Nie | Skonfiguruj `HttpUrlConnection` `connect_timeout` i `read_timeout` |
@@ -46,6 +47,10 @@ Identyfikator klienta lub identyfikator aplikacji, który został utworzony podc
 ### <a name="redirect_uri"></a>redirect_uri
 
 Identyfikator URI przekierowania zarejestrowany podczas rejestrowania aplikacji. Jeśli identyfikator URI przekierowania dotyczy aplikacji brokera, zapoznaj się z tematem [Identyfikator URI przekierowania dla publicznych aplikacji klienckich](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) , aby upewnić się, że używasz poprawnego formatu identyfikatora URI przekierowania dla aplikacji brokera.
+
+### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
+
+Jeśli chcesz użyć uwierzytelniania obsługiwanego przez brokera, `broker_redirect_uri_registered` Właściwość musi być ustawiona na `true` . Jeśli w scenariuszu uwierzytelniania obsługiwanego przez brokera aplikacja nie ma poprawnego formatu do komunikowania się z brokerem, zgodnie z opisem w temacie [Identyfikator URI przekierowania dla publicznych aplikacji klienckich](msal-client-application-configuration.md#redirect-uri-for-public-client-apps), aplikacja sprawdza poprawność identyfikatora URI przekierowania i zgłasza wyjątek podczas uruchamiania.
 
 ### <a name="authorities"></a>wykazu
 
@@ -86,7 +91,7 @@ Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejsc
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Zamapuj urząd usługi AAD & odbiorców na punkty końcowe platformy tożsamości firmy Microsoft
 
-| Type | Grupy odbiorców | Identyfikator dzierżawy | Authority_Url | Wynikający punkt końcowy | Uwagi |
+| Typ | Grupy odbiorców | Identyfikator dzierżawy | Authority_Url | Wynikający punkt końcowy | Uwagi |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` jest aliasem dzierżawy, w którym znajduje się konto. Takie jak określona dzierżawa Azure Active Directory lub system konto Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Tylko konta obecne w contoso.com mogą uzyskać token. Każda zweryfikowana domena lub identyfikator GUID dzierżawy może być używany jako identyfikator dzierżawy. |
@@ -98,6 +103,7 @@ Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejsc
 > Nie można włączyć i wyłączyć walidacji urzędu w MSAL.
 > Urzędy są znane jako deweloper określony przez konfigurację lub znany firmie Microsoft za pośrednictwem metadanych.
 > Jeśli MSAL odbiera żądanie tokenu do nieznanego urzędu, `MsalClientException` typu `UnknownAuthority` wyników.
+> Uwierzytelnianie obsługiwane przez brokera nie działa w przypadku Azure AD B2C.
 
 #### <a name="authority-properties"></a>Właściwości urzędu
 

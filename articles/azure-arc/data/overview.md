@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 47fef490c5ece577823a14e3fa4c415f0f613ccb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947608"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316966"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Co to są usługi danych z włączonym usługą Azure ARC (wersja zapoznawcza)?
 
@@ -41,7 +41,7 @@ Usługa Azure Arc oferuje również inne korzyści w chmurze, takie jak szybkie 
 
 ## <a name="unified-management"></a>Ujednolicone zarządzanie
 
-Korzystając ze znanych narzędzi, takich jak Azure Portal, Azure Data Studio i interfejsu wiersza polecenia platformy Azure, możesz teraz uzyskać ujednolicony widok wszystkich zasobów danych wdrożonych przy użyciu usługi Azure Arc. Możesz nie tylko wyświetlać i zarządzać różnymi relacyjnymi bazami danych w środowisku i na platformie Azure, ale również uzyskiwać dzienniki i dane telemetryczne z interfejsów API Kubernetes, aby analizować podstawową wydajność i kondycję infrastruktury. Oprócz zlokalizowanej usługi log Analytics i monitorowania wydajności można teraz wykorzystać Azure Monitor do kompleksowego wglądu w dane operacyjne.
+Korzystając ze znanych narzędzi, takich jak Azure Portal, Azure Data Studio i [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] , możesz teraz uzyskać ujednolicony widok wszystkich zasobów danych wdrożonych przy użyciu usługi Azure Arc. Możesz nie tylko wyświetlać i zarządzać różnymi relacyjnymi bazami danych w środowisku i na platformie Azure, ale również uzyskiwać dzienniki i dane telemetryczne z interfejsów API Kubernetes, aby analizować podstawową wydajność i kondycję infrastruktury. Oprócz zlokalizowanej usługi log Analytics i monitorowania wydajności można teraz wykorzystać Azure Monitor do kompleksowego wglądu w dane operacyjne.
 
 ## <a name="disconnected-scenario-support"></a>Obsługa scenariuszy rozłączonych
 

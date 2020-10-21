@@ -4,15 +4,15 @@ description: Informacje o opcjach konfiguracji klienta pomagające ulepszyć wyd
 author: j82w
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 432d9656bf56b87798d6563cfd545b34c20001b6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c869f80eba5a6bdff4b952c62b0d964401f904d2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204031"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277313"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 
@@ -62,37 +62,12 @@ W przypadku testowania o wysokiej przepływności lub stawek, które są większ
 > [!NOTE] 
 > Duże użycie procesora CPU może spowodować zwiększone opóźnienia i wyjątki limitu czasu żądania.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 <a id="direct-connection"></a>
 
 **Zasady połączenia: Użyj trybu połączenia bezpośredniego**
 
-Sposób, w jaki klient nawiązuje połączenie z Azure Cosmos DB, ma ważne konsekwencje dotyczące wydajności, szczególnie w przypadku zaobserwowanego opóźnienia po stronie klienta. Do konfigurowania zasad połączenia klienta dostępne są dwa ustawienia konfiguracji: *tryb* połączenia i *Protokół*połączenia. Dostępne są dwa tryby połączeń:
-
-   * Tryb bezpośredni (domyślnie)
-
-     Tryb bezpośredni obsługuje łączność za pośrednictwem protokołu TCP i jest domyślnym trybem łączności, jeśli używany jest [zestaw Microsoft. Azure. Cosmos/. NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3). Tryb bezpośredni zapewnia lepszą wydajność i wymaga mniejszej liczby przeskoków sieci niż tryb bramy.
-
-   * Tryb bramy
-      
-     Jeśli aplikacja działa w sieci firmowej, która ma ścisłe ograniczenia zapory, najlepszym wyborem jest tryb bramy, ponieważ używa on standardowego portu HTTPS i pojedynczego punktu końcowego. 
-     
-     Jednak jest to, że tryb bramy obejmuje dodatkowy przeskok sieciowy za każdym razem, gdy dane są odczytywane lub zapisywane w Azure Cosmos DB. Tryb bezpośredni zapewnia lepszą wydajność z powodu mniejszej liczby przeskoków sieci. Zalecamy również tryb połączenia bramy w przypadku uruchamiania aplikacji w środowiskach, które mają ograniczoną liczbę połączeń gniazd.
-
-     Korzystając z zestawu SDK w Azure Functions, szczególnie w [planie zużycia](../azure-functions/functions-scale.md#consumption-plan), należy pamiętać o bieżących [limitach połączeń](../azure-functions/manage-connections.md). W takim przypadku tryb bramy może być lepszy, jeśli pracujesz również z innymi klientami opartymi na protokole HTTP w aplikacji Azure Functions.
-     
-W przypadku korzystania z protokołu TCP w trybie bezpośrednim oprócz portów bramy należy upewnić się, że zakres portów od 10000 do 20000 jest otwarty, ponieważ Azure Cosmos DB używa dynamicznych portów TCP. W przypadku używania trybu bezpośredniego w [prywatnych punktach końcowych](./how-to-configure-private-endpoints.md)powinien być otwarty cały zakres portów TCP od 0 do 65535. Porty są domyślnie otwarte dla standardowej konfiguracji maszyny wirtualnej platformy Azure. Jeśli te porty nie są otwarte i próbujesz użyć protokołu TCP, zostanie wyświetlony komunikat o błędzie "503 usługi niedostępna". 
-
-W poniższej tabeli przedstawiono tryby łączności dostępne dla różnych interfejsów API i portów usług używanych dla każdego interfejsu API:
-
-|Tryb połączenia  |Obsługiwany protokół  |Obsługiwane zestawy SDK  |Port API/usługi  |
-|---------|---------|---------|---------|
-|Brama  |   HTTPS    |  Wszystkie zestawy SDK    |   SQL (443), MongoDB (10250, 10255, 10256), tabela (443), Cassandra (10350), Graph (443) <br><br> Port 10250 mapuje do domyślnego interfejsu API Azure Cosmos DB wystąpienia MongoDB bez replikacji geograficznej, a porty 10255 i 10256 mapują do wystąpienia z replikacją geograficzną.   |
-|Direct    |     TCP    |  Zestaw SDK .NET    | Gdy korzystasz z punktów końcowych publicznych/usług: porty w zakresie od 10000 do 20000<br><br>Jeśli używasz prywatnych punktów końcowych: porty w zakresie od 0 do 65535 |
-
-Azure Cosmos DB oferuje prosty, otwarty model programowania RESTful za pośrednictwem protokołu HTTPS. Ponadto oferuje wydajny protokół TCP, który jest również RESTful w swoim modelu komunikacji i jest dostępny za pośrednictwem zestawu SDK klienta platformy .NET. Protokół TCP używa Transport Layer Security (TLS) do uwierzytelniania początkowego i szyfrowania ruchu. Aby uzyskać najlepszą wydajność, Użyj protokołu TCP, gdy jest to możliwe.
-
-W przypadku zestawu SDK v3 można skonfigurować tryb połączenia podczas tworzenia `CosmosClient` wystąpienia w programie `CosmosClientOptions` . Należy pamiętać, że tryb bezpośredni jest domyślnie.
+Domyślny tryb połączenia zestawu SDK platformy .NET V3 jest bezpośredni. Podczas tworzenia wystąpienia w programie należy skonfigurować tryb połączenia `CosmosClient` `CosmosClientOptions` .  Aby dowiedzieć się więcej o różnych opcjach łączności, zobacz artykuł dotyczący [trybów łączności](sql-sdk-connection-modes.md) .
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
@@ -102,10 +77,6 @@ new CosmosClientOptions
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
 });
 ```
-
-Ponieważ protokół TCP jest obsługiwany tylko w trybie bezpośrednim, w przypadku korzystania z trybu bramy protokół HTTPS jest zawsze używany do komunikacji z bramą.
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Ustanów połączenie z Azure Cosmos DB przy użyciu różnych trybów połączenia i protokołów." border="false":::
 
 **Wyczerpanie portów efemerycznych**
 
@@ -126,7 +97,7 @@ Jeśli to możliwe, należy umieścić wszystkie aplikacje, które wywołują Az
 
 Najniższe możliwe opóźnienie można uzyskać, upewniając się, że aplikacja wywołująca znajduje się w tym samym regionie platformy Azure, co punkt końcowy Azure Cosmos DB aprowizacji. Aby uzyskać listę dostępnych regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Ustanów połączenie z Azure Cosmos DB przy użyciu różnych trybów połączenia i protokołów." border="false":::
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Kolokacja klientów w tym samym regionie." border="false":::
 
    <a id="increase-threads"></a>
 
@@ -287,4 +258,4 @@ Opłata za żądanie (czyli koszt przetwarzania żądań) określonej operacji j
 ## <a name="next-steps"></a>Następne kroki
 Aby skorzystać z przykładowej aplikacji służącej do oceny Azure Cosmos DB w scenariuszach o wysokiej wydajności na kilku komputerach klienckich, zobacz [testowanie wydajności i skalowania przy użyciu Azure Cosmos DB](performance-testing.md).
 
-Aby dowiedzieć się więcej na temat projektowania aplikacji pod kątem skalowania i wysokiej wydajności, zobacz [partycjonowanie i skalowanie w Azure Cosmos DB](partition-data.md).
+Aby dowiedzieć się więcej na temat projektowania aplikacji pod kątem skalowania i wysokiej wydajności, zobacz [partycjonowanie i skalowanie w Azure Cosmos DB](partitioning-overview.md).

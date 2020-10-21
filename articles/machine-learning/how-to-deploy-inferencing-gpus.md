@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 0fda407a916ca43ed36fa567374752bbb7a49a80
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 9a18b35ce974aebb38f8f58b892fd93b94f5e3c8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998966"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314799"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Wdrażanie modelu uczenia głębokiego na potrzeby wnioskowania z procesorem GPU
 
@@ -26,7 +26,7 @@ W tym artykule przedstawiono sposób użycia Azure Machine Learning do wdrożeni
 Wnioskowanie, lub ocenianie modelu, to faza, w której wdrożony model jest używany do tworzenia prognoz. Korzystanie z procesorów GPU zamiast procesorów oferuje zalety wydajności na wysoce działania równoległego obliczeń.
 
 > [!IMPORTANT]
-> W przypadku wdrożeń usług sieci Web wnioskowanie procesora GPU jest obsługiwane tylko w usłudze Azure Kubernetes. W przypadku wnioskowania przy użyciu __potoku uczenia maszynowego__procesory GPU są obsługiwane tylko w przypadku Azure Machine Learning obliczeń. Aby uzyskać więcej informacji na temat używania potoków ML, zobacz [Uruchamianie prognoz wsadowych](how-to-use-parallel-run-step.md). 
+> W przypadku wdrożeń usług sieci Web wnioskowanie procesora GPU jest obsługiwane tylko w usłudze Azure Kubernetes. W przypadku wnioskowania przy użyciu __potoku uczenia maszynowego__procesory GPU są obsługiwane tylko w przypadku Azure Machine Learning obliczeń. Aby uzyskać więcej informacji na temat używania potoków ML, zobacz [Samouczek: Tworzenie potoku Azure Machine Learning na potrzeby oceniania partii](tutorial-pipeline-batch-scoring-classification.md). 
 
 > [!TIP]
 > Chociaż fragmenty kodu w tym artykule korzystają z modelu TensorFlow, można zastosować informacje do dowolnej platformy uczenia maszynowego, która obsługuje procesory GPU.

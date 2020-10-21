@@ -5,12 +5,12 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: afadd68b4c74ede522aa16809fab341e5802c627
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 977cd79de629670cef526f072340f8897fa6446e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165931"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316498"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opcje pomocy technicznej platformy Azure Service Fabric
 
@@ -71,6 +71,6 @@ Wersja zapoznawcza zawsze rozpoczyna się od wersji głównej i pomocniczej o nu
 [Microsoft Q&A question page]: /answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
-[acom-docs]: https://aka.ms/servicefabricdocs
-[sample-repos]: https://aka.ms/servicefabricsamples
+[acom-docs]: ./index.yml
+[sample-repos]: /samples/browse/?products=azure
 [msdn-forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?category=windowsazureplatform

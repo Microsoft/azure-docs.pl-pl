@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: 6aa960837a3bfc7f8a04ca1f554fb10d635c2ea2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a24c0fdb244f87dbf281bcf59b5e1986a215142a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91349143"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275619"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Szybki Start: Tworzenie czołowych drzwi dla globalnej aplikacji sieci Web o wysokiej dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -46,7 +46,7 @@ Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. Mo
 
 W tym przewodniku szybki start potrzebne są dwie grupy zasobów. Jedno w *środkowe stany USA* i drugie w *Południowo-środkowe stany USA*.
 
-Utwórz grupę zasobów za pomocą [AZ Group Create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true):
+Utwórz grupę zasobów za pomocą [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true):
 
 ```azurecli-interactive
 az group create \
@@ -68,7 +68,7 @@ Jeśli nie masz jeszcze aplikacji sieci Web, użyj poniższego skryptu, aby skon
 
 Aby można było tworzyć aplikacje sieci Web, potrzebne są dwa plany usługi App Service — jeden w obszarze *środkowe stany USA* , a drugi w regionie *Południowo-środkowe stany USA*.
 
-Utwórz plany usługi App Service za pomocą [AZ appService plan Create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true):
+Utwórz plany usługi App Service za pomocą [AZ appService plan Create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true):
 
 ```azurecli-interactive
 az appservice plan create \
@@ -84,7 +84,7 @@ az appservice plan create \
 
 Uruchomienie następujących poleceń spowoduje utworzenie aplikacji sieci Web w każdym planie usługi App Service w poprzednim kroku. Nazwy aplikacji sieci Web muszą być unikatowe globalnie.
 
-Utwórz aplikację sieci Web za pomocą [AZ webapp Create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true):
+Utwórz aplikację sieci Web za pomocą [AZ webapp Create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true):
 
 ```azurecli-interactive
 az webapp create \
@@ -104,7 +104,7 @@ Zanotuj domyślną nazwę hosta każdej aplikacji sieci Web, aby można było zd
 
 Utwórz podstawowe tylne drzwi z domyślnymi ustawieniami równoważenia obciążenia, sondą kondycji i regułami routingu, wykonując następujące czynności:
 
-Utwórz drzwi tylne przy użyciu [AZ Network Front-drzwiczk Create](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true):
+Utwórz drzwi tylne przy użyciu [AZ Network Front-drzwiczk Create](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true):
 
 ```azurecli-interactive
 az network front-door create \
@@ -134,7 +134,7 @@ Otwórz przeglądarkę internetową i wprowadź nazwę hosta uzyskaną z polece�
 
 Gdy nie potrzebujesz już zasobów utworzonych przy użyciu drzwi przednich, Usuń obie grupy zasobów. Po usunięciu grupy zasobów można także usunąć drzwi z przodu i wszystkie powiązane z nią zasoby. 
 
-Aby usunąć grupę zasobów, użyj [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
+Aby usunąć grupę zasobów, użyj [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
 
 ```azurecli-interactive
 az group delete \

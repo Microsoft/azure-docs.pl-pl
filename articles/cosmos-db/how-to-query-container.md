@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261260"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276115"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Wykonywanie zapytania dotyczącego kontenera usługi Azure Cosmos
 
@@ -19,7 +19,7 @@ W tym artykule wyjaśniono, jak wykonywać zapytania dla kontenera (kolekcji, gr
 
 ## <a name="in-partition-query"></a>Zapytanie wewnątrz partycji
 
-W przypadku wykonywania zapytań dotyczących danych z kontenerów, jeśli zapytanie ma określony filtr klucza partycji, Azure Cosmos DB automatycznie optymalizuje zapytanie. Kieruje zapytanie do [partycji fizycznych](partition-data.md#physical-partitions) odpowiadających wartościom klucza partycji określonym w filtrze.
+W przypadku wykonywania zapytań dotyczących danych z kontenerów, jeśli zapytanie ma określony filtr klucza partycji, Azure Cosmos DB automatycznie optymalizuje zapytanie. Kieruje zapytanie do [partycji fizycznych](partitioning-overview.md#physical-partitions) odpowiadających wartościom klucza partycji określonym w filtrze.
 
 Rozważmy na przykład poniższe zapytanie z filtrem równości `DeviceId` . Jeśli to zapytanie zostanie uruchomione w kontenerze partycjonowanym na `DeviceId` , to zapytanie zostanie przefiltrowane na jedną partycję fizyczną.
 
@@ -61,7 +61,7 @@ Możesz zarządzać równoległym wykonywaniem zapytań przez dostrojenie nastę
 
 - **MaxBufferedItemCount**: wyznacza kompromis między wykorzystaniem pamięci po stronie klienta i opóźnieniem zapytań. Jeśli ta opcja zostanie pominięta lub ustawiona na wartość -1, zestaw SDK będzie zarządzać liczbą elementów buforowanych podczas równoległego wykonywania zapytań.
 
-Ze względu na Azure Cosmos DB możliwości zrównoleglanie zapytań między partycjami, opóźnienie zapytań będzie ogólnie skalowane, a system dodaje [partycje fizyczne](partition-data.md#physical-partitions). Jednak opłata za RU zostanie znacznie zwiększona w miarę wzrostu całkowitej liczby partycji fizycznych.
+Ze względu na Azure Cosmos DB możliwości zrównoleglanie zapytań między partycjami, opóźnienie zapytań będzie ogólnie skalowane, a system dodaje [partycje fizyczne](partitioning-overview.md#physical-partitions). Jednak opłata za RU zostanie znacznie zwiększona w miarę wzrostu całkowitej liczby partycji fizycznych.
 
 Po uruchomieniu zapytania obejmującego wiele partycji, zasadniczo wykonujesz oddzielne zapytanie na poszczególne partycje fizyczne. Gdy zapytania zapytań między partycjami będą używać indeksu, jeśli jest dostępny, nadal nie są niemal efektywne jako zapytania w partycji.
 

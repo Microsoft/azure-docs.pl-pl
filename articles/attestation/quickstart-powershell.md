@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d25cdce2670de64fecc8590a2f5f833c10d2df69
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421292"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315999"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Szybki Start: Konfigurowanie zaświadczania platformy Azure za pomocą Azure PowerShell
 
@@ -23,7 +23,7 @@ Należy pamiętać, że Galeria programu PowerShell ma przestarzałe wersje Tran
 - Ostrzeżenie: nie można rozpoznać źródła pakietu " https://www.powershellgallery.com/api/v2 "
 - PackageManagement\Install-Package: nie znaleziono dopasowania dla określonych kryteriów wyszukiwania i nazwy modułu 
 
-Aby nadal korzystać z Galeria programu PowerShell, uruchom następujące polecenie przed poleceniami instalacji-modułu
+Aby nadal korzystać z Galeria programu PowerShell, uruchom następujące polecenie przed poleceniami Install-Module
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
@@ -81,7 +81,7 @@ Uruchom poniższe polecenie, aby sprawdzić zainstalowaną wersję wszystkich po
 ```powershell
 Get-InstalledModule
 ```
-Jeśli wersje nie są zgodne z wymaganiem minimalnym, uruchom polecenie Update-module.
+Jeśli wersje nie są zgodne z wymaganiem minimalnym, uruchom polecenia Update-Module.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -186,7 +186,7 @@ $teeType = "<tee Type>"
 Get-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType 
 ```
 
-Obsługiwane typy TEE to "sgxenclave" i "vbsenclave".
+Obsługiwane typy TEE to "SgxEnclave", "OpenEnclave" i "VbsEnclave".
 
 Set-AttestationPolicy ustawia nowe zasady dla określonego TEE. Polecenie cmdlet akceptuje zasady w formacie tekstowym lub JWT i jest kontrolowane przez parametr PolicyFormat. "Tekst" jest wartością domyślną dla PolicyFormat. 
 

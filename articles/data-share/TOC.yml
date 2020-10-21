@@ -44,10 +44,6 @@
         - name: Udostępnianie z usługi Azure Data Explorer
           href: /azure/data-explorer/data-share
           maintainContext: true
-    - name: Monitorowanie
-      href: how-to-monitor.md
-    - name: Rozwiązywanie problemów
-      href: data-share-troubleshoot.md
     - name: Dodawanie zestawów danych
       href: how-to-add-datasets.md
     - name: Konfigurowanie mapowań zestawów danych
@@ -58,10 +54,14 @@
       href: how-to-delete-invitation.md
     - name: Odwoływanie subskrypcji udostępniania
       href: how-to-revoke-share-subscription.md
+    - name: Monitorowanie
+      href: how-to-monitor.md
     - name: Zabezpieczenia
       href: security.md
     - name: Odzyskiwanie po awarii
       href: disaster-recovery.md
+    - name: Rozwiązywanie problemów
+      href: data-share-troubleshoot.md
 - name: Dokumentacja
   items:
     - name: .NET

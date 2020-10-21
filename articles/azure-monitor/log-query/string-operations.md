@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/16/2018
-ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 7838f9f1febcab073633dbb4af011e99acbe22d3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75397470"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310289"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Pracuj z ciągami w zapytaniach dziennika Azure Monitor
 
@@ -74,8 +74,8 @@ Operator       |Opis                         |Case-Sensitive|Przykład (yields `
 `!startswith_cs`  |Po prawej stronie nie jest początkową podsekwencją lewej strony|Tak        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |Po prawej stronie jest zamykaną podsekwencją lewej strony|Nie             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |Po prawej stronie nie jest zamykana podsekwencja po lewej stronie|Nie         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |Po prawej stronie jest zamykaną podsekwencją lewej strony|Tak             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |Po prawej stronie nie jest zamykana podsekwencja po lewej stronie|Tak         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |Po prawej stronie jest zamykaną podsekwencją lewej strony|Tak             |`"Fabrikam" endswith_cs "kam"`
+`!endswith_cs`    |Po prawej stronie nie jest zamykana podsekwencja po lewej stronie|Tak         |`"Fabrikam" !endswith_cs "brik"`
 `matches regex`|po lewej stronie zawiera dopasowanie po prawej stronie        |Tak           |`"Fabrikam" matches regex "b.*k"`
 `in`           |Równa się jednemu z elementów       |Tak           |`"abc" in ("123", "345", "abc")`
 `!in`          |Nie równa się żadnym elementom   |Tak           |`"bca" !in ("123", "345", "abc")`

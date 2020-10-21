@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b74f3ecdc048b6468906fb46a848d27cd1f23b9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329758"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275413"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Pomoc techniczna dla portalu komercyjnego firmy Microsoft
 
@@ -45,6 +45,6 @@ Otwórz bilet z [obsługą wydawcy portalu Microsoft Marketplace](https://aka.ms
 ## <a name="next-steps"></a>Następne kroki
 
 * Odwiedź [stronę przewodnika wydawcy komercyjnej witryny Marketplace](index.yml).
-* Dowiedz się więcej o [pomocy technicznej dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](partner-center-portal/support.md).
+* Dowiedz się więcej o [pomocy technicznej dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](support.md).
 
 ---
