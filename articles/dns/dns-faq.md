@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
-ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa03e9a9bbbc7f8eefc1e0ba57a0a8b18da6e29
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77121718"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328763"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS często zadawane pytania
 
@@ -24,7 +24,7 @@ System nazw domen (DNS) tłumaczy lub rozpoznaje nazwę witryny sieci Web lub us
 
 Domeny DNS w Azure DNS są hostowane w globalnej sieci Azure serwerów nazw DNS. Ten system używa sieci emisji dowolnej, aby każde zapytanie DNS zostało odebrane przez najbliższy dostępny serwer DNS. Azure DNS zapewnia szybką wydajność i wysoką dostępność dla domeny.
 
-Azure DNS jest oparty na Azure Resource Manager. Azure DNS korzyści z funkcji Menedżer zasobów, takich jak kontrola dostępu oparta na rolach, dzienniki inspekcji i blokowanie zasobów. Można zarządzać domenami i rekordami za pomocą Azure Portal, Azure PowerShell poleceń cmdlet i międzyplatformowego interfejsu wiersza polecenia platformy Azure. Aplikacje wymagające automatycznego zarządzania systemem DNS można zintegrować z usługą za pośrednictwem interfejsu API REST i zestawów SDK.
+Azure DNS jest oparty na Azure Resource Manager. Azure DNS korzyści z funkcji Menedżer zasobów, takich jak kontrola dostępu oparta na rolach na platformie Azure, dzienniki inspekcji i blokowanie zasobów. Można zarządzać domenami i rekordami za pomocą Azure Portal, Azure PowerShell poleceń cmdlet i międzyplatformowego interfejsu wiersza polecenia platformy Azure. Aplikacje wymagające automatycznego zarządzania systemem DNS można zintegrować z usługą za pośrednictwem interfejsu API REST i zestawów SDK.
 
 ### <a name="how-much-does-azure-dns-cost"></a>Ile kosztuje Azure DNS?
 
@@ -177,7 +177,7 @@ Zmiany w istniejących rekordach DNS mogą trwać nieco dłużej. Zazwyczaj są 
 
 ### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>Jak chronić strefy DNS przed przypadkowym usunięciem?
 
-Azure DNS jest zarządzany przy użyciu Azure Resource Manager. Azure DNS korzyści z funkcji kontroli dostępu zapewnianych przez Azure Resource Manager. Kontrola dostępu oparta na rolach kontroluje, którzy użytkownicy mają dostęp do odczytu lub zapisu do stref i zestawów rekordów DNS. Blokady zasobów uniemożliwiają przypadkowe modyfikację lub usunięcie stref DNS i zestawów rekordów.
+Azure DNS jest zarządzany przy użyciu Azure Resource Manager. Azure DNS korzyści z funkcji kontroli dostępu zapewnianych przez Azure Resource Manager. Za pomocą kontroli dostępu opartej na rolach platformy Azure można kontrolować, którzy użytkownicy mają dostęp do odczytu lub zapisu do stref i zestawów rekordów DNS. Blokady zasobów uniemożliwiają przypadkowe modyfikację lub usunięcie stref DNS i zestawów rekordów.
 
 Aby uzyskać więcej informacji, zobacz [Ochrona stref i rekordów DNS](dns-protect-zones-recordsets.md).
 

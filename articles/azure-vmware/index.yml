@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 09/21/2020
-  ms.openlocfilehash: 197cf8ca3f819a83d13869a43c3685bba916ce4f
-  ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+  ms.date: 10/19/2020
+  ms.openlocfilehash: 31b3ad9c33ffd07b62067de3aa46333608522f97
+  ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/12/2020
-  ms.locfileid: "91949109"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92172139"
 landingContent:
 - title: Informacje o usłudze Azure VMware Solution
   linkLists:
@@ -36,14 +36,12 @@ landingContent:
       url: concepts-role-based-access-control.md
     - text: Uaktualnienia chmur prywatnych
       url: concepts-upgrades.md
-- title: Wdrażanie usługi Azure VMware Solution
+- title: Wprowadzenie
   linkLists:
-  - linkListType: get-started
+  - linkListType: deploy
     links:
-    - text: Proces przed wdrożeniem
+    - text: Planowanie wdrożenia
       url: production-ready-deployment-steps.md
-    - text: Lista kontrolna przed wdrożeniem
-      url: pre-deployment-checklist.md
     - text: 1. Wdrażanie usługi Azure VMware Solution
       url: deploy-azure-vmware-solution.md
     - text: 2. Nawiązywanie połączenia ze środowiskiem lokalnym
@@ -64,14 +62,16 @@ landingContent:
       url: tutorial-nsx-t-network-segment.md
     - text: Komunikacja równorzędna środowiska lokalnego z chmurą prywatną
       url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: Wdrażanie i konfigurowanie usługi VMware HCX
-      url: tutorial-deploy-vmware-hcx.md
     - text: Skalowanie chmury prywatnej
       url: tutorial-scale-private-cloud.md
 - title: Rozszerzanie usługi Azure VMware Solution
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Włączanie usługi Azure VMware Solution
+      url: enable-azure-vmware-solution.md
+    - text: Obniżanie kosztów za pomocą wystąpienia zarezerwowanego
+      url: reserved-instance.md
     - text: Ocena migracji
       url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - text: Zarządzanie protokołem DHCP
@@ -80,5 +80,49 @@ landingContent:
       url: disaster-recovery-for-virtual-machines.md
     - text: Wdrażanie maszyny wirtualnej za pomocą biblioteki zawartości
       url: ./deploy-vm-content-library.md
-    - text: Korzystanie z funkcji publicznego adresu IP
+    - text: Konfigurowanie serwera usługi GitHub Enterprise
+      url: github-enterprise-server.md
+    - text: Używanie publicznego adresu IP
       url: public-ip-usage.md
+    - text: Tworzenie tunelu IPSec
+      url: create-ipsec-tunnel.md
+- title: Integracja z funkcjami macierzystymi platformy Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: API Management
+      url: concepts-api-management.md
+    - text: Gwiazda
+      url: concepts-hub-and-spoke.md
+    - text: Azure Backup Server
+      url: set-up-backup-server-for-azure-vmware-solution.md
+    - text: Zarządzanie cyklem życia na maszynach wirtualnych
+      url: lifecycle-management-of-azure-vmware-solution-vms.md
+    - text: Application Gateway
+      url: protect-azure-vmware-solution-with-application-gateway.md
+    - text: Traffic Manager
+      url: deploy-traffic-manager-balance-workloads.md
+- title: Rozwiązania VMware
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurowanie operacji vRealize
+      url: vrealize-operations-for-azure-vmware-solution.md
+    - text: Wdrażanie rozwiązania VMware Horizon
+      url: azure-vmware-solution-horizon.md
+- title: Ekosystem oprogramowania VMware
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych
+      url: ecosystem-back-up-vms.md
+- title: Zasoby
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.vmware
+    - text: Uzyskiwanie pomocy dotyczącej błędów wdrażania lub aprowizacji
+      url: fix-deployment-provisioning-failures.md
+    - text: Często zadawane pytania
+      url: faq.md

@@ -7,24 +7,24 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015008"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331757"
 ---
 # <a name="secure-azure-digital-twins"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji
 
-W celu zapewnienia bezpieczeństwa usługa Azure Digital bliźniaczych reprezentacji zapewnia precyzyjną kontrolę dostępu do określonych danych, zasobów i akcji we wdrożeniu. Robi to za pośrednictwem szczegółowej strategii zarządzania rolami i uprawnieniami o nazwie **kontroli dostępu opartej na rolach (RBAC)**. W [tym miejscu](../role-based-access-control/overview.md)możesz zapoznać się z ogólnymi zasadami RBAC dla platformy Azure.
+W celu zapewnienia bezpieczeństwa usługa Azure Digital bliźniaczych reprezentacji zapewnia precyzyjną kontrolę dostępu do określonych danych, zasobów i akcji we wdrożeniu. Odbywa się to za pośrednictwem szczegółowej strategii zarządzania rolami i uprawnieniami o nazwie **Kontrola dostępu oparta na rolach (RBAC) platformy Azure**. W [tym miejscu](../role-based-access-control/overview.md)możesz zapoznać się z ogólnymi zasadami kontroli RBAC platformy Azure.
 
 Usługa Azure Digital bliźniaczych reprezentacji obsługuje również szyfrowanie przechowywanych danych.
 
-## <a name="granting-permissions-with-rbac"></a>Przyznawanie uprawnień przy użyciu RBAC
+## <a name="granting-permissions-with-azure-rbac"></a>Przyznawanie uprawnień za pomocą usługi Azure RBAC
 
-Kontrola RBAC jest dostarczana do usługi Azure Digital bliźniaczych reprezentacji przez integrację z usługą [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
+Usługa Azure RBAC jest świadczona do usługi Azure Digital bliźniaczych reprezentacji za pośrednictwem integracji z usługą [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Za pomocą RBAC można przyznać uprawnienia *podmiotowi zabezpieczeń*, który może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD i odbiera token OAuth 2,0 w programie Return. Token ten może służyć do autoryzowania żądania dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
+Możesz użyć kontroli RBAC platformy Azure, aby przyznać uprawnienia *podmiotowi zabezpieczeń*, które może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD i odbiera token OAuth 2,0 w programie Return. Token ten może służyć do autoryzowania żądania dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 ### <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
 
@@ -57,7 +57,7 @@ Platforma Azure oferuje następujące wbudowane role platformy Azure umożliwiaj
 Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, zobacz [*Omówienie definicji ról*](../role-based-access-control/role-definitions.md) w dokumentacji usługi Azure RBAC. Aby uzyskać informacje na temat tworzenia ról niestandardowych platformy Azure, zobacz [*role niestandardowe platformy Azure*](../role-based-access-control/custom-roles.md).
 
 Role można przypisywać na dwa sposoby:
-* za pośrednictwem okienka kontroli dostępu (IAM) dla usługi Azure Digital bliźniaczych reprezentacji w Azure Portal (zobacz [*Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal*](../role-based-access-control/role-assignments-portal.md))
+* za pośrednictwem okienka kontroli dostępu (IAM) dla usługi Azure Digital bliźniaczych reprezentacji w Azure Portal (zobacz [*Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * za pomocą poleceń interfejsu wiersza polecenia w celu dodania lub usunięcia roli
 
 Aby uzyskać bardziej szczegółowe instrukcje, jak to zrobić, wypróbuj w samouczku Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md).
@@ -95,4 +95,4 @@ Aby rozwiązać ten problem, można wykonać jedną z następujących czynności
 
 * Zapoznaj się z tematem jak korzystać z tych koncepcji z kodu aplikacji klienta w artykule [*instrukcje: pisanie kodu uwierzytelniania aplikacji*](how-to-authenticate-client.md).
 
-* Przeczytaj więcej [na temat RBAC na platformie Azure](../role-based-access-control/overview.md).
+* Przeczytaj więcej na temat kontroli [RBAC platformy Azure](../role-based-access-control/overview.md).

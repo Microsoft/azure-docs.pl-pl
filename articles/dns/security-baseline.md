@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f107741dc3e601d0a46c295932a745c99dadb96d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225670"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328080"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Podstawa zabezpieczeń platformy Azure dla Azure DNS
 
@@ -102,7 +102,7 @@ W Azure DNS istnieje rola współautor strefy DNS, a także poziom strefy i reko
 
 - [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-- [Informacje o usłudze Azure RBAC w Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Informacje o usłudze Azure RBAC w Azure DNS](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -260,13 +260,13 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: Korzystaj z usługi Azure RBAC, aby zarządzać dostępem do zasobów
 
-**Wskazówki**: usługa azure Role-Based Access Control (RBAC systemu Azure) umożliwia precyzyjne zarządzanie dostępem użytkowników, grup i zasobów platformy Azure. Za pomocą usługi Azure RBAC można przyznać poziom dostępu wymagany użytkownikom. 
+**Wskazówki**: Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia precyzyjne zarządzanie dostępem użytkowników, grup i zasobów platformy Azure. Za pomocą usługi Azure RBAC można przyznać poziom dostępu wymagany użytkownikom. 
 
 W Azure DNS istnieje rola współautor strefy DNS, a także poziom strefy i rekordu zestawu RBAC platformy Azure. Istnieje również możliwość utworzenia własnych niestandardowych ról platformy Azure, aby zapewnić bardziej precyzyjną kontrolę.
 
 - [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Informacje o usłudze Azure RBAC w Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Informacje o usłudze Azure RBAC w Azure DNS](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 - [Informacje o usłudze Azure RBAC na platformie Azure Prywatna strefa DNS](dns-protect-private-zones-recordsets.md)
 

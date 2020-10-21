@@ -3,12 +3,12 @@ title: Szyfrowanie dysków systemu operacyjnego przy użyciu kluczy zarządzanyc
 description: Dowiedz się, jak szyfrować dyski systemu operacyjnego (OS) przy użyciu kluczy zarządzanych przez klienta w programie Azure DevTest Labs.
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc29f8cf924bca6c757843ae8b7062757ff61bf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489858"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329546"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Szyfruj dyski systemu operacyjnego (OS) przy użyciu kluczy zarządzanych przez klienta w Azure DevTest Labs
 Szyfrowanie po stronie serwera (SSE) chroni dane i pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji. Funkcja SSE automatycznie szyfruje dane przechowywane na dyskach zarządzanych na platformie Azure (na dyskach z systemem operacyjnym i danych) domyślnie, gdy są utrwalane w chmurze. Dowiedz się więcej o [szyfrowaniu dysków](../virtual-machines/windows/disk-encryption.md) na platformie Azure. 

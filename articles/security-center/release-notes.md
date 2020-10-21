@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: a93ba674e82da090eb2b7c8805880f6e79d7e5d7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 565282b2da5383c1d3471337f64588f97157a79c
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280197"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328678"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -172,7 +172,6 @@ Aktualizacje we wrześniu obejmują:
 - [Wykluczanie zasobu z rekomendacji](#exempt-a-resource-from-a-recommendation)
 - [Łączniki AWS i GCP w Security Center zapewniają środowisko z obsługą chmury](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
 - [Pakiet rekomendacji ochrony obciążeń Kubernetes](#kubernetes-workload-protection-recommendation-bundle)
-- [Ulepszenia ochrony IoT Threat w usłudze Azure Defender dla IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [Wyniki oceny luk w zabezpieczeniach są teraz dostępne w przypadku eksportu ciągłego](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Zapobiegaj błędom konfiguracji zabezpieczeń, wymuszając zalecenia podczas tworzenia nowych zasobów](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Ulepszone zalecenia dotyczące sieciowej grupy zabezpieczeń](#network-security-group-recommendations-improved)
@@ -200,8 +199,7 @@ Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure 
 - [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
 - [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
 - [Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)
-- [Azure Defender for SQL](defender-for-sql-introduction.md)
-- [Usługa Azure Defender dla IoT](defender-for-iot-introduction.md)
+- [Usługa Azure Defender dla bazy danych SQL](defender-for-sql-introduction.md)
 - [Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)
 - [Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)
 - [Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)
@@ -293,13 +291,6 @@ Po zainstalowaniu dodatku Azure Policy dla Kubernetes w klastrze AKS, każde ż�
 Na przykład można przystąpić do tego, że kontenery uprzywilejowane nie powinny być tworzone, a wszystkie przyszłe żądania, które należy wykonać, zostaną zablokowane.
 
 Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
-
-
-### <a name="iot-threat-protection-enhancements-in-azure-defender-for-iot"></a>Ulepszenia ochrony IoT Threat w usłudze Azure Defender dla IoT
-
-Usługa Azure Defender dla IoT oferuje więcej możliwości ochrony przed zagrożeniami, dzięki czemu można dołączać technologię CyberX bez agenta. Zapewnia to ochronę zabezpieczeń dla niezarządzanych urządzeń brownfield używanych w środowiskach technologii operacyjnych (OT), takich jak produkcja, systemy zarządzania budynku (MS), nauki przyrodnicze, narzędzia energetyczne i wodne, olej & i logistyka.
-
-Dowiedz się więcej w temacie [wprowadzenie do usługi Azure Defender dla IoT](defender-for-iot-introduction.md).
 
 
 ### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>Wyniki oceny luk w zabezpieczeniach są teraz dostępne w przypadku eksportu ciągłego

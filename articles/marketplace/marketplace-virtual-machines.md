@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: d92dad445b1aeace24dc0af7d95289f5535a5680
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281787"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329036"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Planowanie oferty maszyny wirtualnej
 
@@ -23,10 +23,7 @@ Przed rozpoczęciem [Utwórz komercyjne konto w witrynie Marketplace w centrum p
 
 ### <a name="technical-fundamentals"></a>Podstawy techniczne
 
-Proces projektowania, kompilowania i testowania ofert trwa od czasu i wymaga znajomości zarówno platformy Azure, jak i technologii używanych do tworzenia oferty. Zespół inżynieryjny powinien mieć działającą wiedzę o następujących technologiach firmy Microsoft:
-
-- [Projektowanie i Architektura aplikacji platformy Azure](https://azure.microsoft.com/solutions/architecture/)
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)i [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
+Proces projektowania, kompilowania i testowania ofert trwa od czasu i wymaga znajomości zarówno platformy Azure, jak i technologii używanych do tworzenia oferty. Zespół inżynieryjny powinien mieć praktyczną wiedzę na temat [platformy azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [usługi Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)i [sieci platformy Azure](https://azure.microsoft.com/services/?filter=networking#networking), a także biegłości z [projektowaniem i architekturą aplikacji platformy Azure](https://azure.microsoft.com/solutions/architecture/). Zobacz następujące dodatkowe zasoby techniczne: 
 
 - Samouczki
   - [Maszyny wirtualne z systemem Linux](../virtual-machines/linux/tutorial-manage-vm.md)
@@ -40,9 +37,17 @@ Proces projektowania, kompilowania i testowania ofert trwa od czasu i wymaga zna
 
 ## <a name="technical-requirements"></a>Wymagania techniczne
 
+Oferty maszyn wirtualnych mają następujące wymagania techniczne:
+
+- Należy przygotować jeden wirtualny dysk twardy (VHD) systemu operacyjnego. Dyski VHD z danymi są opcjonalne. Szczegółowo wyjaśniono poniżej.
+- Klient może w dowolnej chwili zrezygnować z oferty.
+- Musisz utworzyć co najmniej jeden plan dla swojej oferty. Cena Twojego planu jest naliczana na podstawie wybranej [opcji licencjonowania](#licensing-options) .
+   > [!IMPORTANT]
+   > Każdy obraz maszyny wirtualnej w planie musi mieć taką samą liczbę dysków danych.
+
 Maszyna wirtualna zawiera dwa składniki:
 
-- **Wirtualny dysk twardy (VHD) systemu operacyjnego** — zawiera system operacyjny i rozwiązanie, które jest wdrażane wraz z ofertą. Proces przygotowywania dysku VHD różni się w zależności od tego, czy jest to maszyna wirtualna z systemem Linux, Windows-, czy niestandardowa.
+- **Wirtualny dysk twardy** — zawiera system operacyjny i rozwiązanie, które jest wdrażane wraz z ofertą. Proces przygotowywania dysku VHD różni się w zależności od tego, czy jest to maszyna wirtualna z systemem Linux, Windows-, czy niestandardowa.
 - **Wirtualne dyski twarde z danymi** (opcjonalnie) — dedykowany magazyn trwały dla maszyny wirtualnej. Nie używaj wirtualnego dysku twardego systemu operacyjnego (na przykład dysku C:) do przechowywania informacji trwałych. 
     - Możesz dołączyć do 16 dysków danych.
     - Użyj jednego wirtualnego dysku twardego na dysk danych, nawet jeśli dysk jest pusty.
@@ -50,13 +55,7 @@ Maszyna wirtualna zawiera dwa składniki:
     > [!NOTE]
     > Niezależnie od używanego systemu operacyjnego, należy dodać tylko minimalną liczbę dysków z danymi wymaganą przez rozwiązanie. Klienci nie mogą usunąć dysków, które są częścią obrazu w czasie wdrażania, ale mogą zawsze dodawać dyski w trakcie wdrażania lub po nim.
 
-Oferty maszyn wirtualnych mają następujące wymagania techniczne:
-
-- Należy przygotować jeden wirtualny dysk twardy (VHD) systemu operacyjnego. Dyski VHD z danymi są opcjonalne.
-- Klient może w dowolnej chwili zrezygnować z oferty.
-- Musisz utworzyć co najmniej jeden plan dla swojej oferty. Cena Twojego planu jest naliczana na podstawie wybranej [opcji licencjonowania](#licensing-options) .
-   > [!IMPORTANT]
-   > Każdy obraz maszyny wirtualnej w planie musi mieć taką samą liczbę dysków danych.
+Aby uzyskać szczegółowe instrukcje dotyczące przygotowania zasobów technicznych, zobacz temat [Tworzenie maszyny wirtualnej przy użyciu zatwierdzonej bazy](azure-vm-create-using-approved-base.md) lub [Tworzenie maszyny wirtualnej przy użyciu własnego obrazu](azure-vm-create-using-own-image.md).
 
 ## <a name="preview-audience"></a>Podgląd odbiorców
 
@@ -134,5 +133,6 @@ Podczas tworzenia oferty w centrum partnerskim zostanie wyświetlona karta **ods
 
 ## <a name="next-steps"></a>Następne kroki
 
+- [Tworzenie oferty maszyny wirtualnej w witrynie Azure Marketplace](azure-vm-create.md)
 - [Utwórz maszynę wirtualną przy użyciu zatwierdzonej bazy](azure-vm-create-using-approved-base.md) lub [Utwórz maszynę wirtualną przy użyciu własnego obrazu](azure-vm-create-using-own-image.md).
 - [Najlepsze rozwiązania dotyczące ofert](gtm-offer-listing-best-practices.md)

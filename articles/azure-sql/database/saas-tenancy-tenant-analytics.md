@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 19c09bd03a3d1eb3b16f69b9a605a4ccb763030a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8076b417c8043a4f6796ccca0e67db79360ede73
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619546"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331672"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analiza wielu dzierżawców przy użyciu wyodrębnionych aplikacji z jedną dzierżawą
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -95,7 +95,7 @@ W poniższych krokach zostanie wdrożony magazyn analityczny o nazwie **tenantan
 
 Teraz, gdy aplikacja została wdrożona i uzupełniona o interesujące dane dzierżawy, [użyj SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) do połączenia serwerów **tenants1-DPT- &lt; User &gt; ** i **Catalog-DPT- &lt; Users &gt; ** przy użyciu funkcji login = *Developer*, Password = *P \@ ssword1*. Zobacz [samouczek wprowadzający](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) , aby uzyskać więcej wskazówek.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
+![Zrzut ekranu pokazujący informacje konieczne do nawiązania połączenia z SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
 W Eksplorator obiektów wykonaj następujące czynności:
 
@@ -110,7 +110,7 @@ Zobacz następujące elementy bazy danych w narzędziu SSMS Eksplorator obiektó
 - Tabele schematu gwiazdy to **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**i **dim_Dates**.
 - Procedura składowana służy do wypełniania tabel schematu gwiazdy z nieprzetworzonych tabel danych.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
+![Zrzut ekranu przedstawiający elementy bazy danych widoczne w Eksplorator obiektów SSMS.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
 
 ## <a name="data-extraction"></a>Wyodrębnianie danych 
 

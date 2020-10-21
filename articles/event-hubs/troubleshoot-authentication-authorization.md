@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów dotyczących uwierzytelniania i autoryzacji —
 description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z uwierzytelnianiem i autoryzacją za pomocą usługi Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566231"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329614"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Rozwiązywanie problemów dotyczących uwierzytelniania i autoryzacji — Event Hubs platformy Azure
 Artykuł [Rozwiązywanie problemów z łącznością](troubleshooting-guide.md) zawiera wskazówki dotyczące rozwiązywania problemów z łącznością z usługą Azure Event Hubs. Ten artykuł zawiera porady i zalecenia dotyczące rozwiązywania problemów z uwierzytelnianiem i autoryzacją za pomocą usługi Azure Event Hubs. 
@@ -21,7 +21,7 @@ Jeśli używasz usługi Azure Active Directory (Azure AD) do uwierzytelniania i 
 - [Nadawca danych usługi Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) dla dostępu do wysyłania.
 - [Usługa Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) dla dostępu do odbioru.
 
-Aby uzyskać wbudowane role rejestru schematu, zobacz [role rejestru schematu](schema-registry-overview.md#role-based-access-control).
+Aby uzyskać wbudowane role rejestru schematu, zobacz [role rejestru schematu](schema-registry-overview.md#azure-role-based-access-control).
 
 ### <a name="resource-scopes"></a>Zakresy zasobów
 - **Grupa konsumentów**: w tym zakresie przypisanie roli ma zastosowanie tylko do tej jednostki. Obecnie Azure Portal nie obsługuje przypisywania roli platformy Azure do podmiotu zabezpieczeń na tym poziomie. 
@@ -30,7 +30,7 @@ Aby uzyskać wbudowane role rejestru schematu, zobacz [role rejestru schematu](s
 - **Grupa zasobów**: przypisanie roli dotyczy wszystkich zasobów Event Hubs w grupie zasobów.
 - **Subskrypcja**: przypisanie roli dotyczy wszystkich zasobów Event Hubs we wszystkich grupach zasobów w subskrypcji.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Uwierzytelnianie aplikacji za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs](authenticate-application.md)
 - [Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory](authorize-access-azure-active-directory.md)
@@ -43,7 +43,7 @@ Jeśli używasz [sygnatury dostępu współdzielonego](authenticate-shared-acces
 - Sprawdź, czy klucz wygasł. Zalecamy odnowienie sygnatury dostępu współdzielonego przed wygaśnięciem. W przypadku pochylenia zegara między klientem a węzłami usługi Event Hubs token uwierzytelniania może wygasnąć przed jego zapisaniem przez klienta. W przypadku bieżących kont implementacji rozchylony zegar do 5 minut, czyli klient odnawia token 5 minut przed jego wygaśnięciem. W związku z tym, jeśli skośność zegara jest większa niż 5 minut, klient może obserwować sporadyczne błędy uwierzytelniania.
 - Jeśli jest ustawiona wartość **czasu rozpoczęcia SAS** , w ciągu kilku minut mogą pojawić **się**sporadyczne błędy spowodowane pochyleniem zegara (różnice w bieżącym czasie na różnych komputerach). Ustaw godzinę rozpoczęcia na co najmniej 15 minut w przeszłości lub nie ustawiaj jej wcale. To samo ogólnie dotyczy czasu wygaśnięcia. 
 
-Aby uzyskać więcej informacji zobacz następujące artykuły: 
+Aby uzyskać więcej informacji, zobacz następujące artykuły: 
 
 - [Uwierzytelnianie przy użyciu sygnatur dostępu współdzielonego (SAS)](authenticate-shared-access-signature.md). 
 - [Autoryzowanie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego](authorize-access-shared-access-signature.md)

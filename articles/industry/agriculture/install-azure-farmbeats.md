@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79479563"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330482"
 ---
 # <a name="install-azure-farmbeats"></a>Zainstaluj projekt Azure FarmBeats
 
@@ -87,7 +87,7 @@ Pierwsze dwa uprawnienia są niezbędne do [utworzenia kroku aplikacji usługi A
 
 Osoba, która uruchamia instalację FarmBeats z witryny Marketplace, musi być właścicielem grupy zasobów, w której jest instalowany FarmBeats. W przypadku właścicieli subskrypcji jest to wykonywane automatycznie podczas tworzenia grupy zasobów. W przypadku innych użytkowników należy najpierw utworzyć grupę zasobów i poproś właściciela subskrypcji o utworzenie właściciela grupy zasobów.
 
-Możesz sprawdzić uprawnienia dostępu w Azure Portal, postępując zgodnie z instrukcjami na stronie [Kontrola dostępu oparta na rolach](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+Możesz sprawdzić uprawnienia dostępu w Azure Portal, postępując zgodnie z instrukcjami w temacie [Kontrola dostępu oparta na rolach na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
 ### <a name="decide-subscription-and-region"></a>Wybieranie subskrypcji i regionu
 
@@ -144,7 +144,7 @@ Postępuj zgodnie z instrukcjami, aby utworzyć bezpłatne konto przy użyciu ko
 
 Proces rejestracji został ukończony. Zanotuj **nazwę użytkownika** i hasło do urządzenia **wskaźnikowego**, po zakończeniu weryfikacji.
 
-## <a name="install"></a>Instalowanie
+## <a name="install"></a>Zainstaluj
 
 Teraz można przystąpić do instalowania FarmBeats. Wykonaj poniższe kroki, aby rozpocząć instalację:
 
@@ -152,7 +152,7 @@ Teraz można przystąpić do instalowania FarmBeats. Wykonaj poniższe kroki, ab
 
 2. Przejdź do witryny Azure Marketplace w portalu i Wyszukaj **usługę Azure FarmBeats** w witrynie Marketplace.
 
-3. Zostanie wyświetlone nowe okno z omówieniem usługi Azure FarmBeats. Wybierz przycisk **Utwórz**.
+3. Zostanie wyświetlone nowe okno z omówieniem usługi Azure FarmBeats. Wybierz pozycję **Utwórz**.
 
 4. Zostanie wyświetlone nowe okno. Ukończ proces rejestracji, wybierając poprawną subskrypcję, grupę zasobów i lokalizację, w której chcesz zainstalować usługę Azure FarmBeats.
 
@@ -172,7 +172,7 @@ Po zakończeniu instalacji możesz zweryfikować instalację i rozpocząć korzy
 
 **Datahub** można znaleźć pod adresem https:// \<FarmBeats-website-name> -API.azurewebsites.NET/Swagger. W tym miejscu zobaczysz różne obiekty interfejsu API FarmBeats i wykonamy operacje REST w interfejsach API.
 
-## <a name="upgrade"></a>Uaktualnienie
+## <a name="upgrade"></a>Upgrade
 
 Aby uaktualnić FarmBeats do najnowszej wersji, uruchom następujące kroki w wystąpieniu Cloud Shell przy użyciu środowiska programu PowerShell. Użytkownik musi być właścicielem subskrypcji, w której zainstalowano FarmBeats.
 
@@ -198,7 +198,7 @@ Użytkownicy korzystający z pierwszego czasu będą monitowani o wybranie subsk
 
 Ścieżka do input.jsw pliku jest opcjonalna. Jeśli nie zostanie określony, skrypt będzie pytał wszystkie wymagane dane wejściowe. Uaktualnienie powinno zakończyć się około 30 minut.
 
-## <a name="uninstall"></a>Odinstalowanie
+## <a name="uninstall"></a>Dezinstalacja
 
 Aby odinstalować usługę Azure FarmBeats Datahub lub akcelerator, wykonaj następujące czynności:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
-ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20bb77711833a1a17082e25e31d4a2e14db5bf9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567540"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328202"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parametry globalne w Azure Data Factory
 
@@ -52,7 +52,7 @@ W przypadku większości przypadków użycia zaleca się uwzględnienie parametr
 
 ![Uwzględnij w szablonie ARM](media/author-global-parameters/include-arm-template.png)
 
-Dodanie parametrów globalnych do szablonu ARM powoduje dodanie ustawienia poziomu fabryki, które może zastąpić inne ustawienia na poziomie fabryki, takie jak klucz zarządzany przez klienta lub konfiguracja Git w innych środowiskach. Jeśli te ustawienia są włączone w środowisku z podwyższonym poziomem uprawnień, takim jak przeprowadzających lub PROD, lepiej jest wdrożyć parametry globalne za pośrednictwem skryptu programu PowerShell w poniższych krokach.
+Dodanie parametrów globalnych do szablonu ARM powoduje dodanie ustawienia poziomu fabryki, które zastąpi inne ustawienia na poziomie fabryki, takie jak klucz zarządzany przez klienta lub konfiguracja Git w innych środowiskach. Jeśli te ustawienia są włączone w środowisku z podwyższonym poziomem uprawnień, takim jak przeprowadzających lub PROD, lepiej jest wdrożyć parametry globalne za pośrednictwem skryptu programu PowerShell w poniższych krokach.
 
 ### <a name="deploying-using-powershell"></a>Wdrażanie przy użyciu programu PowerShell
 

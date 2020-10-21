@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: a01d4137217aa594d4636f3338d3f33dc03cc836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6c3fff3ed265cb910388a2c9456b8a3f9d63c8b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713738"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281199"
 ---
 # <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie ataków cybernetycznymi.
@@ -32,9 +32,10 @@ Security Center jest oferowane w dwóch trybach:
 
 - **Usługa Azure Defender włączona** — włączenie usługi Azure Defender rozszerza możliwości trybu wolnego do obciążeń działających w prywatnych i innych chmurach publicznych, zapewniając ujednolicone Zarządzanie zabezpieczeniami i ochronę przed zagrożeniami w ramach obciążeń chmury hybrydowej. Niektóre główne funkcje usługi Azure Defender:
 
+    - **Microsoft Defender for Endpoint** — usługa Azure Defender dla serwerów zawiera [program Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) do kompleksowego wykrywania i reagowania punktów końcowych (EDR). Dowiedz się więcej o zaletach korzystania z usługi Microsoft Defender dla punktów końcowych wraz z usługą Azure Defender w [użyciu zintegrowanego rozwiązania EDR Security Center](security-center-wdatp.md).
+    - **Skanowanie luk w zabezpieczeniach maszyn wirtualnych i rejestrów kontenerów** — łatwo Wdrażaj skaner na wszystkich maszynach wirtualnych, które zapewniają najbardziej zaawansowane rozwiązanie do zarządzania lukami w zabezpieczeniach. Wyświetlaj, badaj i Koryguj wyniki bezpośrednio w Security Center. 
     - **Bezpieczeństwo hybrydowe** — Uzyskaj ujednolicony widok zabezpieczeń we wszystkich obciążeniach lokalnych i w chmurze. Stosuj zasady zabezpieczeń i stale oceniaj bezpieczeństwo obciążeń chmury hybrydowej w celu zapewnienia zgodności ze standardami zabezpieczeń. Zbieranie, wyszukiwanie i analizowanie danych zabezpieczeń z wielu źródeł, w tym zapór i innych rozwiązań partnerskich.
     - **Alerty ochrony przed zagrożeniami** — Zaawansowana analiza zachowań i Microsoft Intelligent Security Graph zapewniają krawędź nad rozwijającym się atakami cybernetycznymi. Korzystaj z wbudowanej analizy behawioralnej i uczenia maszynowego, aby identyfikować ataki i wypróbować programy wykorzystujące zero dni. Monitoruj sieci, maszyny i usługi w chmurze pod kątem ataków przychodzących i działań po naruszeniu. Usprawnij badanie przy użyciu interaktywnych narzędzi i kontekstowej analizy zagrożeń.
-    - **Skanowanie luk w zabezpieczeniach maszyn wirtualnych i rejestrów kontenerów** — łatwo Wdrażaj skaner na wszystkich maszynach wirtualnych, które zapewniają najbardziej zaawansowane rozwiązanie do zarządzania lukami w zabezpieczeniach. Wyświetlaj, badaj i Koryguj wyniki bezpośrednio w Security Center. 
     - **Kontrola dostępu i aplikacji** — blokowanie złośliwego oprogramowania i innych niechcianych aplikacji przez zastosowanie zaleceń z obsługą uczenia maszynowego przystosowanych do określonych obciążeń do tworzenia list dozwolonych i zablokowanych. Ogranicz obszar ataków sieci z dostępem just-in-Time do portów zarządzania na maszynach wirtualnych platformy Azure. Radykalnie zmniejsza to narażenie na rozżycie i inne ataki sieciowe.
     - **Funkcje zabezpieczeń kontenerów** — Skorzystaj z funkcji zarządzania lukami w zabezpieczeniach i ochrony przed zagrożeniami w czasie rzeczywistym w środowiskach kontenerów. Po włączeniu **usługi Azure Defender dla rejestrów kontenerów**może upłynąć do 12hrs do momentu włączenia wszystkich funkcji. Opłaty są oparte na liczbie unikatowych obrazów kontenerów, które zostały wypchnięte do dołączonego rejestru. Po przeskanowaniu obrazu do tego momentu nie zostanie naliczona opłata za niego, chyba że zostanie on zmodyfikowany i wypychany jeszcze raz. 
 

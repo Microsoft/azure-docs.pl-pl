@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201446"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331502"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Żądanie usługi nie powiodło się. Stan: 403 (dostęp zabroniony)
 
@@ -25,7 +25,7 @@ Ten błąd może wystąpić w przypadku wielu typów żądań obsługi, które w
 
 ### <a name="cause-1"></a>Przyczyna #1
 
-Najczęściej ten błąd wskazuje, że uprawnienia kontroli dostępu opartej na rolach (RBAC) dla usługi nie są poprawnie skonfigurowane. Wiele akcji wystąpienia usługi Azure Digital bliźniaczych reprezentacji wymaga posiadania roli *właściciela Digital bliźniaczych reprezentacji (wersja zapoznawcza)* **w wystąpieniu, które chcesz zarządzać**. 
+Najczęściej ten błąd oznacza, że uprawnienia kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure nie są poprawnie skonfigurowane. Wiele akcji wystąpienia usługi Azure Digital bliźniaczych reprezentacji wymaga posiadania roli *właściciela Digital bliźniaczych reprezentacji (wersja zapoznawcza)* **w wystąpieniu, które chcesz zarządzać**. 
 
 ### <a name="cause-2"></a>Przyczyna #2
 

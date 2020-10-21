@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 0c7838b291ca5ba1747b08d7e8fcc6d17cc35f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eac64eff8c87046fd1ce76ee71475fda79ac6f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802229"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329257"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 
@@ -41,6 +41,9 @@ Azure Monitor prywatny zakres łączy jest zasobem grupującym, aby połączyć 
 ## <a name="planning-based-on-your-network"></a>Planowanie w oparciu o sieć
 
 Przed skonfigurowaniem zasobów AMPLS należy wziąć pod uwagę wymagania dotyczące izolacji sieci. Oceń dostęp sieci wirtualnych do publicznego Internetu i ograniczenia dostępu do poszczególnych zasobów Azure Monitor (to znaczy składniki Application Insights i Log Analytics obszary robocze).
+
+> [!NOTE]
+> Sieci typu Hub i szprych lub jakakolwiek inna topologia sieci równorzędnych, można skonfigurować połączenie prywatne między siecią wirtualną centralną (główną) i odpowiednimi zasobami Azure Monitor, zamiast konfigurować prywatne łącze do każdej sieci wirtualnej. Jest to szczególnie przydatne, jeśli Azure Monitor zasoby używane przez te sieci są udostępniane. Jeśli jednak chcesz zezwolić każdej sieci wirtualnej na dostęp do oddzielnego zestawu zasobów monitorowania, Utwórz prywatny link do dedykowanej AMPLS dla każdej z nich.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Oceń, które sieci wirtualne powinny łączyć się z prywatnym linkiem
 
@@ -142,7 +145,7 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
  
    d.    Zezwalaj na weryfikację. 
  
-   e.    Kliknij przycisk **Utwórz**. 
+   e.    Kliknij pozycję **Utwórz**. 
 
     ![Zrzut ekranu przedstawiający pozycję Utwórz prywatny Endpoint2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 

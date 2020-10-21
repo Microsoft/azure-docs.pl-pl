@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6de0a6632c53055dd3d3f428481dcc465b67ef6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6869aa8bc7ede7d2047abf8eddc98b01f567fa
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568016"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280813"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB
 
@@ -59,7 +59,7 @@ Dobrą kardynalnością kluczy partycji jest istotna dla każdej skalowalnej apl
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
 
-Nierówna dystrybucja przepływności może spowodować powstanie partycji na *gorąco* , co może spowodować ograniczenie żądań i może wymagać ponownego partycjonowania. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partition-data.md).
+Nierówna dystrybucja przepływności może spowodować powstanie partycji na *gorąco* , co może spowodować ograniczenie żądań i może wymagać ponownego partycjonowania. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Określanie dystrybucji magazynu między partycjami
 
@@ -71,7 +71,7 @@ Możesz przyczynić się, że klucz partycji pochyla dystrybucję, klikając par
 
 :::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
 
-Po zidentyfikowaniu, który klucz partycji powoduje pochylenie w dystrybucji, może być konieczne ponowne partycjonowanie kontenera przy użyciu bardziej rozproszonego klucza partycji. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partition-data.md).
+Po zidentyfikowaniu, który klucz partycji powoduje pochylenie w dystrybucji, może być konieczne ponowne partycjonowanie kontenera przy użyciu bardziej rozproszonego klucza partycji. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="compare-data-size-against-index-size"></a>Porównaj rozmiar danych z rozmiarem indeksu
 

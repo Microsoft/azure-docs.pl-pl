@@ -3,12 +3,12 @@ title: Obsługa oceny funkcji Hyper-V w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny funkcji Hyper-V dzięki ocenie serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4c50bd2bdd0e5a0d68b545a914582352d7b34421
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311333"
+ms.locfileid: "92331978"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Macierz obsługi dla oceny funkcji Hyper-V
 
@@ -63,7 +63,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących portów dla oceny.
 **Urządzenie** | **Połączenie**
 --- | ---
 **Wprowadzony** | Połączenia przychodzące na porcie TCP 3389, aby zezwolić na połączenia pulpitu zdalnego z urządzeniem.<br/><br/> Połączenia przychodzące na porcie 44368 do zdalnego dostępu do aplikacji do zarządzania urządzeniami przy użyciu adresu URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Połączenia wychodzące na portach 443 (HTTPS), w celu wysyłania metadanych odnajdywania i wydajności do Azure Migrate.
-**Host/klaster funkcji Hyper-V** | Połączenie przychodzące na porcie WinRM 5985 (HTTP) do ściągania metadanych i danych wydajności dla maszyn wirtualnych funkcji Hyper-V przy użyciu sesji model wspólnych informacji (CIM).
+**Host/klaster funkcji Hyper-V** | Połączenie przychodzące na porcie WinRM 5985 (HTTP) lub 5986 (HTTPS) do ściągania metadanych i danych wydajności dla maszyn wirtualnych funkcji Hyper-V przy użyciu sesji model wspólnych informacji (CIM).
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Wymagania dotyczące analizy zależności opartej na agentach
 

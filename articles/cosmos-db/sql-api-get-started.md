@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 912b4966312d8925f70deeed99042d2701641f49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 587fe536e860f3039bfd3a2d2c1e3c76cb40e4d5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801515"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278461"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Samouczek: Tworzenie aplikacji konsolowej .NET do zarządzania danymi w Azure Cosmos DB koncie interfejsu API SQL
 
@@ -117,7 +117,7 @@ Utwórzmy konto usługi Azure Cosmos DB. Jeśli masz już konto, którego chcesz
     ```
 
    > [!NOTE]
-   > Jeśli znasz poprzednią wersję zestawu .NET SDK, możesz zapoznać się z tematem *zbieranie* terminów i *dokument*. Ponieważ Azure Cosmos DB obsługuje wiele modeli interfejsów API, wersja 3,0 zestawu .NET SDK używa *kontenera* warunków ogólnych i *elementu*. *Kontener* może być kolekcją, wykresem lub tabelą. *Element* może być dokumentem, krawędzią/wierzchołkiem lub wierszem, a jest zawartością wewnątrz kontenera. Aby uzyskać więcej informacji, zobacz [Working with Databases, Containers and items in Azure Cosmos DB](databases-containers-items.md).
+   > Jeśli znasz poprzednią wersję zestawu .NET SDK, możesz zapoznać się z tematem *zbieranie* terminów i *dokument*. Ponieważ Azure Cosmos DB obsługuje wiele modeli interfejsów API, wersja 3,0 zestawu .NET SDK używa *kontenera* warunków ogólnych i *elementu*. *Kontener* może być kolekcją, wykresem lub tabelą. *Element* może być dokumentem, krawędzią/wierzchołkiem lub wierszem, a jest zawartością wewnątrz kontenera. Aby uzyskać więcej informacji, zobacz [Working with Databases, Containers and items in Azure Cosmos DB](account-databases-containers-items.md).
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com). Znajdź konto Azure Cosmos DB, a następnie wybierz pozycję **klucze**.
 
@@ -260,7 +260,7 @@ Baza danych jest logicznym kontenerem elementów podzielonym na partycje w konte
 1. Wybierz klawisz F5, aby uruchomić aplikację.
 
    > [!NOTE]
-   > Jeśli wystąpi błąd "wyjątek niedostępności usługi 503", istnieje możliwość, że wymagane [porty](performance-tips.md#networking) dla trybu łączności bezpośredniej są blokowane przez zaporę. Aby rozwiązać ten problem, należy otworzyć wymagane porty lub użyć łączności w trybie bramy, jak pokazano w poniższym kodzie:
+   > Jeśli wystąpi błąd "wyjątek niedostępności usługi 503", istnieje możliwość, że wymagane [porty](sql-sdk-connection-modes.md#service-port-ranges) dla trybu łączności bezpośredniej są blokowane przez zaporę. Aby rozwiązać ten problem, należy otworzyć wymagane porty lub użyć łączności w trybie bramy, jak pokazano w poniższym kodzie:
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

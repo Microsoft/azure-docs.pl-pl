@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e7b24dd9cdbd11b56545f85ac233665f8fa4adfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d33811dc056baa3d205d7d86c1bdd7bff74ae54
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574283"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330006"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>Składniki technologii IoT Plug and Play w modelach
 
@@ -69,7 +69,7 @@ Identyfikator modelu jest przechowywany we właściwości przędzy urządzenia, 
 Model DTDL bez składników to przydatne uproszczenie dla urządzeń lub IoT Edge modułu z pojedynczym zestawem danych telemetrycznych, właściwościami i poleceniami. Model, który nie używa składników, ułatwia Migrowanie istniejącego urządzenia lub modułu jako urządzenia Plug and Play IoT lub modułu — tworzysz model DTDL, który opisuje rzeczywiste urządzenie lub moduł bez konieczności definiowania składników.
 
 > [!TIP]
-> Modułem może być urządzenie [module] (.. /IoT-Hub/IoT-Hub-DevGuide-module-Twins.MD lub [moduł IoT Edge](../iot-edge/about-iot-edge.md).
+> Moduł może [być modułem urządzenia lub](../iot-hub/iot-hub-devguide-module-twins.md) [modułem IoT Edge](../iot-edge/about-iot-edge.md).
 
 ## <a name="multiple-components"></a>Wiele składników
 

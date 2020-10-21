@@ -3,18 +3,18 @@ title: Azure DevTest Labs często zadawane pytania | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144581"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328389"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs — często zadawane pytania
 Uzyskaj odpowiedzi na niektóre często zadawane pytania dotyczące Azure DevTest Labs.
 
 ## <a name="blog-post"></a>Wpis w blogu
-Nasz blog zespołu DevTest Labs został wycofany z 20 marca 2019. 
+Nasz blog zespołu DevTest Labs został wycofany z 20 marca 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>Gdzie mogę teraz śledzić aktualizacje funkcji?
 Od teraz będziemy ogłaszać aktualizacje funkcji i wpisy w blogach w blogu platformy Azure i aktualizacjach platformy Azure. Te wpisy w blogu również łączą się z naszą dokumentacją wszędzie tam, gdzie jest to wymagane.
@@ -22,7 +22,7 @@ Od teraz będziemy ogłaszać aktualizacje funkcji i wpisy w blogach w blogu pla
 Zasubskrybuj [blog DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) i [DevTest Labs Azure](https://azure.microsoft.com/updates/?product=devtest-lab) , aby uzyskać informacje o nowych funkcjach w DevTest Labs.
 
 ### <a name="what-happens-to-the-existing-blog-posts"></a>Co się dzieje z istniejącymi wpisami w blogu?
-Obecnie pracujemy nad migrowaniem istniejących wpisów w blogu (z wyjątkiem aktualizacji przestoju) do naszej [dokumentacji DevTest Labs](devtest-lab-overview.md). Gdy blog MSDN jest przestarzały, zostanie on przekierowany do omówienia dokumentacji dotyczącej usługi DevTest Labs. Po przekierowaniu można wyszukać szukany artykuł w tytule "Filtruj według". Nie przeprowadzono jeszcze wszystkich wpisów, ale powinny one zostać wykonane z końcem tego miesiąca. 
+Obecnie pracujemy nad migrowaniem istniejących wpisów w blogu (z wyjątkiem aktualizacji przestoju) do naszej [dokumentacji DevTest Labs](devtest-lab-overview.md). Gdy blog MSDN jest przestarzały, zostanie on przekierowany do omówienia dokumentacji dotyczącej usługi DevTest Labs. Po przekierowaniu można wyszukać szukany artykuł w tytule "Filtruj według". Nie przeprowadzono jeszcze wszystkich wpisów, ale powinny one zostać wykonane z końcem tego miesiąca. 
 
 
 ### <a name="where-do-i-see-outage-updates"></a>Gdzie mogę zobaczyć aktualizacje przestoju?
@@ -68,7 +68,7 @@ DevTest Labs to bezpłatna usługa. Tworzenie laboratoriów oraz Konfigurowanie 
 ## <a name="security"></a>Zabezpieczenia
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Jakie są różne poziomy zabezpieczeń w DevTest Labs?
-Dostęp zabezpieczeń jest określany przez Role-Based Access Control (RBAC). Aby dowiedzieć się, jak działa program Access, można poznać różnice między uprawnieniami, rolą i zakresem zdefiniowanym przez RBAC.
+Dostęp zabezpieczeń jest określany przez kontrolę dostępu opartą na rolach (Azure RBAC). Aby dowiedzieć się, jak działa program Access, można poznać różnice między uprawnieniami, rolą i zakresem zdefiniowanym przez funkcję RBAC platformy Azure.
 
 - **Uprawnienie**: uprawnienie jest zdefiniowany dostęp do konkretnej akcji. Na przykład uprawnienie może mieć dostęp do odczytu do wszystkich maszyn wirtualnych.
 - **Rola**: rola to zestaw uprawnień, które mogą być pogrupowane i przypisywane do użytkownika. Na przykład użytkownik z rolą właściciela subskrypcji ma dostęp do wszystkich zasobów w ramach subskrypcji.
@@ -83,7 +83,7 @@ Role niestandardowe można także tworzyć w DevTest Labs. Aby dowiedzieć się,
 
 Ponieważ zakresy są hierarchiczne, gdy użytkownik ma uprawnienia w określonym zakresie, użytkownik ma automatycznie przyznane te uprawnienia dla każdego zakresu niższego poziomu w zakresie. Na przykład jeśli użytkownik ma przypisaną rolę właściciela subskrypcji, użytkownik ma dostęp do wszystkich zasobów w ramach subskrypcji. Te zasoby obejmują maszyny wirtualne, sieci wirtualne i laboratoria. Właściciel subskrypcji automatycznie dziedziczy rolę właściciela laboratorium. Jednak przeciwieństwo nie jest prawdziwe. Właściciel laboratorium ma dostęp do laboratorium, który jest niższym zakresem niż poziom subskrypcji. Dlatego właściciel laboratorium nie widzi maszyn wirtualnych, sieci wirtualnych ani innych zasobów poza laboratorium.
 
-### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Jak mogę zdefiniować kontrolę dostępu opartą na rolach dla środowisk DevTest Labs, aby upewnić się, że mogą one być regulowane, gdy deweloperzy/testy mogą wykonywać swoje prace?
+### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Jak mogę zdefiniować kontrolę dostępu opartą na rolach na platformie Azure dla środowisk DevTest Labs, aby mieć pewność, że może ona być zarządzana, gdy deweloperzy/testy mogą wykonywać swoje prace?
 Istnieje szeroki wzorzec, jednak szczegóły są zależne od organizacji.
 
 Centralna powinna być tylko to, co jest niezbędne, i umożliwia zespołom projektu i aplikacji posiadanie wymaganego poziomu kontroli. Zazwyczaj oznacza to, że Central IT jest właścicielem subskrypcji i obsługuje podstawowe funkcje IT, takie jak konfiguracje sieci. Zestaw **właścicieli** dla subskrypcji powinien być niewielki. Tacy właściciele mogą mianować dodatkowych właścicieli w razie potrzeby lub zastosować zasady na poziomie subskrypcji, na przykład "Brak publicznego adresu IP".
@@ -92,7 +92,7 @@ Może istnieć podzbiór użytkowników, którzy wymagają dostępu między subs
 
 Zasób DevTest Labs powinien należeć do właścicieli, którzy znajdują się blisko zespołu projektu/aplikacji. Jest to spowodowane tym, że rozumieją one wymagania dotyczące maszyn i wymaganego oprogramowania. W większości organizacji właściciel tego zasobu DevTest Labs jest często liderem projektu/projektowania. Ten właściciel może zarządzać użytkownikami i zasadami w środowisku laboratoryjnym i może zarządzać wszystkimi maszynami wirtualnymi w środowisku DevTest Labs.
 
-Członków zespołu projektu/aplikacji należy dodać do roli **Użytkownicy DevTest Labs** . Ci użytkownicy mogą tworzyć maszyny wirtualne (w trybie online z zasadami dotyczącymi poziomu laboratorium i subskrypcji). Mogą również zarządzać własnymi maszynami wirtualnymi. Nie mogą oni zarządzać maszynami wirtualnymi należącymi do innych użytkowników.
+Członków zespołu projektu/aplikacji należy dodać do roli **użytkownika DevTest Labs** . Ci użytkownicy mogą tworzyć maszyny wirtualne (w trybie online z zasadami dotyczącymi poziomu laboratorium i subskrypcji). Mogą również zarządzać własnymi maszynami wirtualnymi. Nie mogą oni zarządzać maszynami wirtualnymi należącymi do innych użytkowników.
 
 Aby uzyskać więcej informacji, zobacz artykuł [Azure Enterprise szkielet — dokumentacja dotycząca nadzoru subskrypcji](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
@@ -337,7 +337,7 @@ Poniższe wpisy w blogu oferują wskazówki i informacje dotyczące korzystania 
 
 W przypadku innych/Continuous dostarczanych (ciągłej integracji) łańcuchy narzędzi można osiągnąć te same scenariusze, wdrażając [szablony Azure Resource Manager](https://azure.microsoft.com/resources/templates/) przy użyciu [poleceń cmdlet Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) i [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Możesz również używać [interfejsów API REST do DevTest Labs](https://aka.ms/dtlrestapis) , aby zintegrować je z łańcucha narzędzi.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Kiedy należy utworzyć nową sieć wirtualną dla środowiska DevTest Labs a przy użyciu istniejącej sieci wirtualnej?
 Jeśli maszyny wirtualne muszą współdziałać z istniejącą infrastrukturą, rozważ użycie istniejącej sieci wirtualnej w środowisku usługi DevTest Labs. Jeśli używasz ExpressRoute, możesz zminimalizować liczbę sieci wirtualnych/podsieci, aby nie było fragmentacji przestrzeni adresów IP, która jest przypisana do użycia w subskrypcjach.

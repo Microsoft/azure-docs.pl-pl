@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 652299ebb98f685a16871cf4e944608a471d8df2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 96d759f0f722e332eb25e049fd336c784eb99789
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279089"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332080"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
@@ -64,7 +64,7 @@ Po utworzeniu tematu można połączyć go z usługą Azure Digital bliźniaczyc
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Teraz temat usługi Event Grid jest dostępny jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną za pomocą `--endpoint-name` argumentu. Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#event-routes-with-apis-and-the-c-sdk) przy użyciu interfejsu API usługi Digital bliźniaczych reprezentacji.
+Teraz temat usługi Event Grid jest dostępny jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną za pomocą `--endpoint-name` argumentu. Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#create-an-event-route) przy użyciu interfejsu API usługi Digital bliźniaczych reprezentacji.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Utwórz punkt końcowy Event Hubs lub Service Bus
 
@@ -150,7 +150,7 @@ Poniżej znajduje się przykład wiadomości utraconej dla [powiadomienia o twor
 }
 ```
 
-## <a name="event-routes-with-apis-and-the-c-sdk"></a>Trasy zdarzeń (za pomocą interfejsów API i zestawu C# SDK)
+## <a name="create-an-event-route"></a>Tworzenie trasy zdarzeń
 
 Aby faktycznie wysyłać dane z usługi Azure Digital bliźniaczych reprezentacji do punktu końcowego, należy zdefiniować **trasę zdarzeń**. **Interfejsy API** usługi Azure Digital bliźniaczych reprezentacji EventRoutes umożliwiają deweloperom tworzenie przepływów zdarzeń w całym systemie i w ramach usług podrzędnych. Przeczytaj więcej na temat tras zdarzeń w temacie [*pojęcia: Routing Digital bliźniaczych reprezentacji Events*](concepts-route-events.md).
 
@@ -163,7 +163,7 @@ W przykładach w tej sekcji użyto [zestawu SDK platformy .NET (C#)](https://www
 >
 > W przypadku wykonywania skryptów w tym przepływie warto uwzględnić to przez utworzenie w ciągu 2-3 minut czasu oczekiwania na zakończenie wdrażania usługi punktu końcowego przed przejściem do konfiguracji trasy.
 
-### <a name="create-an-event-route"></a>Tworzenie trasy zdarzeń
+### <a name="creation-code-with-apis-and-the-c-sdk"></a>Tworzenie kodu przy użyciu interfejsów API i zestawu C# SDK
 
 Trasy zdarzeń są definiowane przy użyciu [interfejsów API płaszczyzny danych](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
@@ -217,7 +217,7 @@ catch (RequestFailedException e)
 }
 ```
 
-### <a name="filter-events"></a>Filtrowanie zdarzeń
+## <a name="filter-events"></a>Filtrowanie zdarzeń
 
 Bez filtrowania punkty końcowe otrzymują wiele zdarzeń z usługi Azure Digital bliźniaczych reprezentacji:
 * Dane telemetryczne wywoływane przez [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) przy użyciu interfejsu API usługi Digital bliźniaczych reprezentacji platformy Azure

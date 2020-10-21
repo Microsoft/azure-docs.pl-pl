@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f2046614f3665a699d02c76210676fb32f99fc73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288923"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279072"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Korzystanie z procedur składowanych w programie Synapse SQL
 
-Wskazówki dotyczące implementowania procedur składowanych w puli SQL Synapse (magazyn danych) do tworzenia rozwiązań.
+Wskazówki dotyczące implementowania procedur składowanych w puli SQL Synapse na potrzeby tworzenia rozwiązań.
 
 ## <a name="what-to-expect"></a>Czego oczekiwać
 
@@ -181,7 +181,7 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXEUROCZE
 
-Synapse SQL nie zezwala na używanie zestawu wyników procedury składowanej z instrukcją INSERT. Istnieje alternatywne podejście, którego można użyć. Aby zapoznać się z przykładem, zapoznaj się z artykułem dotyczącym [tabel tymczasowych](develop-tables-temporary.md).
+Synapse SQL nie zezwala na używanie zestawu wyników procedury składowanej z instrukcją INSERT. Istnieje alternatywne podejście, którego można użyć. Aby zapoznać się z przykładem, zapoznaj się z artykułem dotyczącym [tabel tymczasowych](develop-tables-temporary.md) dla puli aprowizacji Synapse.
 
 ## <a name="limitations"></a>Ograniczenia
 

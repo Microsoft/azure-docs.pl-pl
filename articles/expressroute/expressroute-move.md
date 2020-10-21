@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: duau
-ms.openlocfilehash: 12ace8dff58d3d747bf17260950d2b91e31b398a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 649174e59c3e58b4675393ce665cf765016d5551
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395166"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331553"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Przenoszenie obwodów usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager | Microsoft Azure
 W tym artykule wyjaśniono przenoszenie obwodu usługi Azure ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Azure Resource Manager.
@@ -85,9 +85,9 @@ W tej sekcji opisano, jakie operacje są obsługiwane dla obwodów usługi Expre
 W tej sekcji opisano, jakie operacje nie są obsługiwane dla obwodów usługi ExpressRoute:
 
 * Zarządzanie cyklem życia obwodu usługi ExpressRoute z klasycznego modelu wdrażania.
-* Obsługa kontroli dostępu opartej na rolach (RBAC) dla klasycznego modelu wdrażania. W klasycznym modelu wdrażania nie można wykonywać kontrolek RBAC do obwodu. Dowolny administrator/współadministrator subskrypcji może połączyć sieci wirtualne z obwodem lub je od niego odłączyć.
+* Obsługa kontroli dostępu opartej na rolach (Azure RBAC) dla klasycznego modelu wdrażania. Nie można przeprowadzić kontroli RBAC platformy Azure w obwodzie w klasycznym modelu wdrażania. Dowolny administrator/współadministrator subskrypcji może połączyć sieci wirtualne z obwodem lub je od niego odłączyć.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Wykonaj instrukcje opisane w artykule [Move an ExpressRoute circuit from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md) (Przenoszenie obwodu usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager).
 
 ## <a name="next-steps"></a>Następne kroki

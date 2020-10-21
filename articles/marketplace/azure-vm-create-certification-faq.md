@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: ee7a7101740e88d55d77f769263ab03a86b878d4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 14360ab7668248f39c8ad0916eb964ffe11f7959
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284919"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331298"
 ---
 # <a name="vm-certification-troubleshooting"></a>Rozwiązywanie problemów z certyfikacją maszyn wirtualnych
 
@@ -410,7 +410,7 @@ Aby wykonać te kroki, należy przygotować zasoby techniczne dla obrazu maszyny
 5. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** wybierz pozycję **+ Dodaj obraz maszyny wirtualnej**.
 
 > [!NOTE]
-> Do jednego planu można dodać tylko jeden obraz maszyny wirtualnej. Aby dodać wiele obrazów maszyn wirtualnych, Opublikuj pierwszy z nich i zaczekaj, aż osiągnie etap wylogowania wydawcy, a następnie Dodaj następny obraz maszyny wirtualnej.
+> Do jednego planu można dodać tylko jeden obraz maszyny wirtualnej. Aby dodać wiele obrazów maszyn wirtualnych, Opublikuj pierwszy na żywo przed dodaniem kolejnego obrazu maszyny wirtualnej.
 
 6. W wyświetlonych polach Podaj nową wersję dysku i obraz maszyny wirtualnej.
 7. Wybierz pozycję **Zapisz wersję roboczą**.

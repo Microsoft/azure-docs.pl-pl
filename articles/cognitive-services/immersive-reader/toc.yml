@@ -40,6 +40,8 @@
       href: reference.md
 - name: Zasoby
   items:
+    - name: Opcje pomocy technicznej
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Obsługa języków

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 17474b4f38ccc6f43e664042b1218a8c253718e5
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 770c9f7d677f739781db6290fa0c43e410761d17
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203419"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327822"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -281,7 +281,7 @@ Aby utworzyć subskrypcję platformy Azure lub korzystać z niej, musisz mieć k
 
 Każda subskrypcja platformy Azure jest połączona relacją zaufania z wystąpieniem usługi Azure AD. Oznacza to, że subskrypcja ufa katalogowi na potrzeby uwierzytelniania użytkowników, usług i urządzeń. Wiele subskrypcji może ufać temu samemu katalogowi, ale dana subskrypcja może ufać tylko jednemu katalogowi. Aby dowiedzieć się więcej, zobacz [jak subskrypcje platformy Azure są skojarzone z Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-A także Definiowanie indywidualnych tożsamości konta platformy Azure, nazywanych również *użytkownikami*, można definiować *grupy* w usłudze Azure AD. Tworzenie grup użytkowników jest dobrym sposobem na zarządzanie dostępem do zasobów w ramach subskrypcji przy użyciu kontroli dostępu opartej na rolach (RBAC). Aby dowiedzieć się, jak tworzyć grupy, zobacz [Tworzenie grupy w programie Azure Active Directory Preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Można także tworzyć grupy i zarządzać nimi za [pomocą programu PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
+A także Definiowanie indywidualnych tożsamości konta platformy Azure, nazywanych również *użytkownikami*, można definiować *grupy* w usłudze Azure AD. Tworzenie grup użytkowników jest dobrym sposobem na zarządzanie dostępem do zasobów w ramach subskrypcji przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Aby dowiedzieć się, jak tworzyć grupy, zobacz [Tworzenie grupy w programie Azure Active Directory Preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Można także tworzyć grupy i zarządzać nimi za [pomocą programu PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Zarządzanie subskrypcjami
 
@@ -297,11 +297,11 @@ Azure Resource Explorer to doskonałe narzędzie do wizualizacji zasobów, któr
 
 Gdy zezwolisz na dostęp do zasobów platformy Azure, zawsze najlepszym rozwiązaniem jest zapewnienie użytkownikom najniższych uprawnień, które są wymagane do wykonania danego zadania.
 
-- **Kontrola dostępu oparta na rolach (RBAC)**: na platformie Azure można udzielić dostępu do kont użytkowników (podmiotów zabezpieczeń) w określonym zakresie: subskrypcji, grupy zasobów lub poszczególnych zasobów. RBAC umożliwia wdrażanie zasobów w grupie zasobów i udzielanie uprawnień określonym użytkownikowi lub grupie. Pozwala również ograniczyć dostęp tylko do zasobów należących do docelowej grupy zasobów. Możesz również udzielić dostępu do pojedynczego zasobu, na przykład maszyny wirtualnej lub sieci wirtualnej. Aby udzielić dostępu, należy przypisać rolę do użytkownika, grupy lub nazwy głównej usługi. Istnieje wiele wstępnie zdefiniowanych ról i można także definiować własne role niestandardowe. Aby dowiedzieć się więcej, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md).
+- **Kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)**: na platformie Azure można udzielić dostępu do kont użytkowników (podmiotów zabezpieczeń) w określonym zakresie: subskrypcji, grupy zasobów lub poszczególnych zasobów. Usługa Azure RBAC umożliwia wdrażanie zasobów w grupie zasobów i udzielanie uprawnień określonym użytkownikowi lub grupie. Pozwala również ograniczyć dostęp tylko do zasobów należących do docelowej grupy zasobów. Możesz również udzielić dostępu do pojedynczego zasobu, na przykład maszyny wirtualnej lub sieci wirtualnej. Aby udzielić dostępu, należy przypisać rolę do użytkownika, grupy lub nazwy głównej usługi. Istnieje wiele wstępnie zdefiniowanych ról i można także definiować własne role niestandardowe. Aby dowiedzieć się więcej, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md).
 
   > **Kiedy należy używać**: Jeśli potrzebujesz szczegółowych zarządzania dostępem dla użytkowników i grup lub jeśli chcesz, aby użytkownik był właścicielem subskrypcji.
   >
-  > **Wprowadzenie**: Aby dowiedzieć się więcej, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+  > **Wprowadzenie**: Aby dowiedzieć się więcej, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 - **Obiekty główne usługi**: wraz z zapewnianiem dostępu do podmiotów zabezpieczeń i grup użytkowników można przyznać ten sam dostęp do nazwy głównej usługi.
 

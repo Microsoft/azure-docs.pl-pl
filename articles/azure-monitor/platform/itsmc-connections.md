@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: b2b8bed9233073e629ee3bce2630fd373c87663b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 3cb335cb32ded68377b4eec0af3b1ebbc19e77d9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215879"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328305"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](./itsmc-overview.md).
@@ -45,7 +45,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 > [!NOTE]
 > 
 > - Łącznik ITSM może łączyć się tylko z wystąpieniami usługi ServiceNow opartymi na chmurze. Lokalne wystąpienia usługi ServiceNow nie są obecnie obsługiwane.
-> - Aby można było używać szablonów niestandardowych jako części akcji, parametr "projekcja" w SCSM powinien być zamapowany na "IncidentManagement! System. robocze. incydent. projekcja "
+> - Aby można było używać szablonów niestandardowych jako części akcji, parametr "projekcja" w szablonie SCSM powinien być zamapowany na "IncidentManagement! System. robocze. incydent. projekcja "
 
 ### <a name="connection-procedure"></a>Procedura połączenia
 

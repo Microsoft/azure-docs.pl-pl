@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 007409d755da2d879297b4b898663dcbd9fd6d7f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401133"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329631"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Podstawa zabezpieczeń platformy Azure dla Event Hubs
 
@@ -397,7 +397,7 @@ Jak skonfigurować nazwane lokalizacje na platformie Azure: https://docs.microso
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
-**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla zasobów platformy Azure, takich jak Event Hubs. Umożliwia to kontrolę dostępu opartą na rolach (RBAC) do poufnych zasobów administracyjnych.
+**Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla zasobów platformy Azure, takich jak Event Hubs. Umożliwia to kontrolę dostępu opartą na rolach (Azure RBAC) na potrzeby administracyjnych zasobów poufnych.
 
  Jak utworzyć i skonfigurować wystąpienie usługi Azure AD: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
@@ -539,9 +539,9 @@ Zrozumienie ochrony danych klientów na platformie Azure: https://docs.microsoft
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: usługa Azure Event Hubs obsługuje używanie Azure Active Directory (AD) do autoryzacji żądań Event Hubs zasobów. Za pomocą usługi Azure AD można używać kontroli dostępu opartej na rolach (RBAC) do udzielania uprawnień podmiotowi zabezpieczeń, który może być użytkownikiem lub podmiotem usługi aplikacji.
+**Wskazówki**: usługa Azure Event Hubs obsługuje używanie Azure Active Directory (AD) do autoryzacji żądań Event Hubs zasobów. Korzystając z usługi Azure AD, możesz użyć kontroli dostępu opartej na rolach (Azure RBAC), aby przyznać uprawnienia podmiotowi zabezpieczeń, który może być użytkownikiem lub podmiotem usługi aplikacji.
 
-Informacje na temat funkcji RBAC i ról dostępnych w usłudze Azure AD dla Event Hubs platformy Azure: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Poznaj usługę Azure RBAC i dostępne role dla Event Hubs platformy Azure: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

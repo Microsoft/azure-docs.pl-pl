@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843315"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320505"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Omówienie klastrów Service Fabric na platformie Azure
 Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem klastra. Klastry mogą być skalowane do tysięcy węzłów. Jeśli dodasz nowe węzły do klastra, Service Fabric ponownie zrównoważą repliki partycji usługi i wystąpienia w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji i wystąpienia na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.
@@ -78,7 +78,7 @@ Aby uzyskać więcej informacji, Przeczytaj [Service Fabric Role-Based Access Co
 ### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci 
 Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) kontrolują ruch przychodzący i wychodzący podsieci, maszyny wirtualnej lub konkretnej karty sieciowej.  Domyślnie, gdy wiele maszyn wirtualnych jest umieszczanych w tej samej sieci wirtualnej, mogą komunikować się ze sobą za pośrednictwem dowolnego portu.  Jeśli chcesz ograniczyć komunikację między maszynami, możesz zdefiniować sieciowych grup zabezpieczeń do segmentacji sieci lub izolowania maszyn wirtualnych od siebie.  Jeśli w klastrze istnieje wiele typów węzłów, można zastosować sieciowych grup zabezpieczeń do podsieci, aby uniemożliwić komunikację między maszynami należącymi do różnych typów węzłów.  
 
-Aby uzyskać więcej informacji, Przeczytaj o [grupach zabezpieczeń](../virtual-network/security-overview.md)
+Aby uzyskać więcej informacji, Przeczytaj o [grupach zabezpieczeń](../virtual-network/network-security-groups-overview.md)
 
 ## <a name="scaling"></a>Skalowanie
 
@@ -98,11 +98,11 @@ Możesz tworzyć klastry na maszynach wirtualnych z następującymi systemami op
 | --- | --- |
 | Windows Server 2012 z dodatkiem R2 | Wszystkie wersje |
 | Windows Server 2016 | Wszystkie wersje |
-| System Windows Server 1709 | 6.0 |
+| System Windows Server 1709 | 6,0 |
 | System Windows Server 1803 | 6.4 |
 | System Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16,04 | 6.0 |
+| Linux Ubuntu 16,04 | 6,0 |
 | Linux Ubuntu 18,04 | 7.1 |
 
 Aby uzyskać dodatkowe informacje, zobacz [obsługiwane wersje klastra na platformie Azure](./service-fabric-versions.md#supported-operating-systems)
