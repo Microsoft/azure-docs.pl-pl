@@ -3,12 +3,12 @@ title: Ustaw zakres odnajdowania maszyn wirtualnych VMware z Azure Migrate
 description: Opisuje sposób ustawiania zakresu odnajdywania na potrzeby oceny i migracji maszyn wirtualnych VMware przy użyciu Azure Migrate.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c61f544e3222dba83123aa1be5e53a19e671035
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919730"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314028"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Ustaw zakres odnajdowania dla maszyn wirtualnych VMware
 
@@ -21,7 +21,7 @@ Skonfigurowanie urządzenia spowoduje nawiązanie połączenia z vCenter Server 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Jeśli nie skonfigurowano konta użytkownika vCenter, którego Azure Migrate używa do odnajdywania, zrób to teraz na potrzeby [oceny](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) lub [migracji bez agentów](tutorial-prepare-vmware.md#assign-permissions-to-an-account).
+Jeśli nie skonfigurowano konta użytkownika vCenter, którego Azure Migrate używa do odnajdywania, zrób to teraz na potrzeby [oceny](./tutorial-discover-vmware.md#prepare-vmware) lub [migracji bez agentów](./migrate-support-matrix-vmware-migration.md#agentless-migration).
 
 
 ## <a name="assign-permissions-and-roles"></a>Przypisywanie uprawnień i ról

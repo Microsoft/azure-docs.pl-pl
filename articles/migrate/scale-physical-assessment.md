@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 227e27d25ad5d0c61ed4f36c234222a079315619
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85081076"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317134"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Ocenianie dużej liczby serwerów fizycznych na potrzeby migracji na platformę Azure
 
@@ -30,7 +30,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 
 > [!NOTE]
-> Jeśli chcesz wypróbować koncepcję weryfikacji kilku serwerów przed oceną na dużą skalę, postępuj zgodnie z naszymi [seriami samouczków](tutorial-prepare-physical.md).
+> Jeśli chcesz wypróbować koncepcję weryfikacji kilku serwerów przed oceną na dużą skalę, postępuj zgodnie z naszymi [seriami samouczków](./tutorial-discover-physical.md).
 
 ## <a name="plan-for-assessment"></a>Planowanie oceny
 
@@ -64,7 +64,7 @@ Przygotuj platformę Azure i serwery fizyczne do oceny serwera.
 2. Skonfiguruj uprawnienia dla Twojego konta platformy Azure, aby móc korzystać z Azure Migrate.
 3. Przygotuj serwery fizyczne.
 
-Aby skonfigurować te ustawienia, postępuj zgodnie z instrukcjami podanymi w [tym samouczku](tutorial-prepare-physical.md) .
+Aby skonfigurować te ustawienia, postępuj zgodnie z instrukcjami podanymi w [tym samouczku](./tutorial-discover-physical.md) .
 
 ## <a name="create-a-project"></a>Tworzenie projektu
 

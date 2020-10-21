@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421462"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275759"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -56,7 +56,7 @@ Z listy rozwijanej **Wybierz format identyfikatora nazwy** można wybrać jedną
 
 | Format NameID | Opis |
 |---------------|-------------|
-| **Wartooć** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
+| **Domyślny** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
 | **Stale** | Platforma tożsamości firmy Microsoft będzie używać trwałego formatu NameID. |
 | **EmailAddress (Adres e-mail)** | Platforma tożsamości firmy Microsoft będzie używać EmailAddress jako formatu NameID. |
 | **Nie określono** | Platforma tożsamości firmy Microsoft będzie używać nieokreślone jako formatu NameID. |
@@ -70,7 +70,7 @@ Wybierz żądane źródło dla `NameIdentifier` żądania (lub NameID). Można w
 
 | Nazwa | Opis |
 |------|-------------|
-| Poczta e-mail | Adres e-mail użytkownika |
+| E-mail | Adres e-mail użytkownika |
 | userprincipalName | Główna nazwa użytkownika (UPN) użytkownika |
 | onpremisessamaccount | Nazwa konta SAM, które zostało zsynchronizowane z lokalnej usługi Azure AD |
 | obiektu | Identyfikator obiektu użytkownika w usłudze Azure AD |
@@ -167,7 +167,7 @@ Aby dodać warunek roszczeń:
 3. Wybierz grupy, do których należy użytkownik. Można wybrać maksymalnie 50 grup unikatowych dla wszystkich oświadczeń dla danej aplikacji. 
 4. Wybierz **Źródło** , do którego ma zostać pobrana wartość. Można wybrać atrybut użytkownika z listy rozwijanej atrybutów źródłowych lub zastosować transformację do atrybutu użytkownika przed wyemitowaniem go jako roszczeń.
 
-Kolejność, w której zostały dodane warunki, jest ważna. Usługa Azure AD szacuje warunki od góry do dołu, aby zdecydować, która wartość ma być emitowana w ramach tego żądania. 
+Kolejność, w której zostały dodane warunki, jest ważna. Usługa Azure AD szacuje warunki od góry do dołu, aby zdecydować, która wartość ma być emitowana w ramach tego żądania. Ostatnia wartość zgodna z wyrażeniem będzie emitowana w ramach tego żądania.
 
 Na przykład Britta Simon jest użytkownikiem-gościem w dzierżawie contoso. Należy do innej organizacji, która również korzysta z usługi Azure AD. Zgodnie z poniższą konfiguracją aplikacji Fabrikam, gdy Britta próbuje zalogować się do firmy Fabrikam, platforma Microsoft Identity platform oceni warunki w następujący sposób.
 

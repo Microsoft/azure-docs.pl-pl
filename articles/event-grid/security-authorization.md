@@ -3,18 +3,18 @@ title: Azure Event Grid zabezpieczenia i uwierzytelnianie
 description: Opis usługi Azure Event Grid i pojęć z nią związanych.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8220e0f913a16cc32b4598ecb3836cc892ea83fd
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a1e4af17c2f4335ed26490bfc2408c66f4aee6b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318553"
+ms.locfileid: "92328729"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autoryzowanie dostępu do zasobów Event Grid
-Azure Event Grid umożliwia kontrolowanie poziomu dostępu nadawanego różnym użytkownikom w celu wykonywania różnych **operacji zarządzania** , takich jak subskrypcje zdarzeń listy, tworzenie nowych i generowanie kluczy. Event Grid używa kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
+Azure Event Grid umożliwia kontrolowanie poziomu dostępu nadawanego różnym użytkownikom w celu wykonywania różnych **operacji zarządzania** , takich jak subskrypcje zdarzeń listy, tworzenie nowych i generowanie kluczy. Event Grid używa kontroli dostępu opartej na rolach (Azure RBAC).
 
 > [!NOTE]
-> EventGrid nie obsługuje funkcji RBAC do publikowania zdarzeń do Event Grid tematów lub domen. Użyj klucza sygnatury dostępu współdzielonego (SAS) lub tokenu do uwierzytelniania klientów, którzy publikują zdarzenia. Aby uzyskać więcej informacji, zobacz temat [uwierzytelnianie klientów publikowanych](security-authenticate-publishing-clients.md). 
+> EventGrid nie obsługuje funkcji RBAC na platformie Azure na potrzeby publikowania zdarzeń do Event Grid tematów lub domen. Użyj klucza sygnatury dostępu współdzielonego (SAS) lub tokenu do uwierzytelniania klientów, którzy publikują zdarzenia. Aby uzyskać więcej informacji, zobacz temat [uwierzytelnianie klientów publikowanych](security-authenticate-publishing-clients.md). 
 
 ## <a name="operation-types"></a>Typy operacji
 

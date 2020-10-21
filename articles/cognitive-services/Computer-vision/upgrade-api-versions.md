@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3394156b073df54d6582dc43571137b21df29cd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cfc9745fc4684a7b0d8f7da7e63149a6fe50f6d2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968943"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331842"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Uaktualnij z odczytu v2. x, aby odczytać v3. x
 
@@ -27,11 +27,12 @@ Skorzystaj z poniższej tabeli, aby określić **ciąg wersji** w ścieżce inte
 
 |Typ produktu| Wersja | Ciąg wersji w ścieżce interfejsu API 3. x |
 |:-----|:----|:----|
-|Usługa | Przeczytaj 3,0 | **wersja 3.0** |
-|Kontener | Przeczytaj Podgląd 3,0 | **wersja 3.0** |
-|Usługa/kontener | Przeczytaj Podgląd 3,1 | **v 3.1 — wersja zapoznawcza. 2** |
+|Usługa | Przeczytaj 3,0 lub 3,1 | odpowiednio **3.0** lub **v 3.1** |
+|Usługa | Przeczytaj Podgląd 3,2 | **v 3.2 — wersja zapoznawcza 1** |
+|Kontener | Przeczytaj artykuł 3,0 Preview lub przeczytaj wersję zapoznawczą 3,1 | **v 3.0** lub **v 3.1 — wersja zapoznawcza. 2** odpowiednio |
 
-Następnie skorzystaj z poniższych sekcji, aby zawęzić operacje i zastąpić **ciąg wersji** w ścieżce interfejsu API wartością z tabeli. Na przykład w przypadku wersji **zapoznawczej** w chmurze i wersjach zapoznawczych, zaktualizuj ścieżkę interfejsu API do **protokołu https://{Endpoint}/Vision/v 3.1 — wersja zapoznawcza. 2/Odczytaj/Analizuj [? język]**.
+
+Następnie skorzystaj z poniższych sekcji, aby zawęzić operacje i zastąpić **ciąg wersji** w ścieżce interfejsu API wartością z tabeli. Na przykład w przypadku **odczytu wersja zapoznawcza** i wersje kontenerów w wersji v 3.2 należy zaktualizować ścieżkę interfejsu API do **protokołu https://{Endpoint}/Vision/v 3.2 — wersja zapoznawcza. 1/odczyt/analiza [? język]**.
 
 ## <a name="servicecontainer"></a>Usługa/kontener
 

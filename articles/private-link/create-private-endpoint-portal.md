@@ -1,237 +1,256 @@
 ---
-title: Szybki Start — zarządzanie prywatnymi punktami końcowymi na platformie Azure
-description: Dowiedz się, jak utworzyć prywatny punkt końcowy przy użyciu Azure Portal w tym przewodniku Szybki Start
+title: Szybki Start — tworzenie prywatnego punktu końcowego przy użyciu Azure Portal
+description: Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak utworzyć prywatny punkt końcowy przy użyciu Azure Portal.
 services: private-link
-author: malopMSFT
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 09/16/2019
+ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: ef6d49c9046ba04bbac40ec9bf555e12d2faa8f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3deeca4635f33b63a6e0bcecc0c829d3df88e352
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84021708"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327513"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu Azure Portal
+# <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu Azure Portal
 
-Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Umożliwia ona korzystanie z zasobów platformy Azure, takich jak Virtual Machines (VM), w celu komunikacji z prywatnymi zasobami łączy prywatnych. W tym przewodniku szybki start dowiesz się, jak utworzyć maszynę wirtualną na platformie Azure Virtual Network, logicznym serwerze SQL z prywatnym punktem końcowym platformy Azure przy użyciu Azure Portal. Następnie możesz bezpiecznie uzyskać dostęp do SQL Database z maszyny wirtualnej.
+Zacznij korzystać z prywatnego linku platformy Azure przy użyciu prywatnego punktu końcowego, aby bezpiecznie połączyć się z aplikacją internetową platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+W tym przewodniku szybki start utworzysz prywatny punkt końcowy dla aplikacji internetowej platformy Azure i wdrożono maszynę wirtualną w celu przetestowania połączenia prywatnego.  
 
+Prywatne punkty końcowe można utworzyć dla różnych rodzajów usług platformy Azure, takich jak Azure SQL i Azure Storage.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Aplikacja internetowa platformy Azure z planem usługi App Service **PremiumV2** lub nowszym wdrożonym w ramach subskrypcji platformy Azure.  
+    * Aby uzyskać więcej informacji i zapoznać się z przykładem, zobacz [Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure](../app-service/quickstart-dotnetcore.md). 
+    * Aby uzyskać szczegółowy samouczek dotyczący tworzenia aplikacji sieci Web i punktu końcowego, zobacz [Samouczek: łączenie się z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure](tutorial-private-endpoint-webapp-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
-## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
-W tej sekcji utworzysz sieć wirtualną i podsieć służącą do hostowania maszyny wirtualnej, która jest używana do uzyskiwania dostępu do prywatnego zasobu linku (w tym przykładzie programu SQL Server na platformie Azure).
+## <a name="create-a-virtual-network-and-bastion-host"></a>Tworzenie sieci wirtualnej i hosta bastionu
 
-## <a name="virtual-network-and-parameters"></a>Sieć wirtualna i parametry
+W tej sekcji utworzysz sieć wirtualną, podsieć i hosta bastionu. 
 
-W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować maszynę wirtualną, która jest używana do uzyskiwania dostępu do prywatnego zasobu linku.
+Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyną wirtualną w celu przetestowania prywatnego punktu końcowego.
 
-W tej sekcji należy zamienić następujące parametry w krokach z poniższymi informacjami:
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > Sieć > Sieć wirtualna** lub wyszukaj frazę **Sieć wirtualna** w polu wyszukiwania.
 
-| Parametr                   | Wartość                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroup |
-| **\<virtual-network-name>** | myVirtualNetwork          |
-| **\<region-name>**          | Zachodnio-środkowe stany USA    |
-| **\<IPv4-address-space>**   | 10.1.0.0/16          |
-| **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 10.1.0.0/24          |
+2. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+    | **Ustawienie**          | **Wartość**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Szczegóły projektu**  |                                                                 |
+    | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
+    | Grupa zasobów   | Wybierz pozycję **CreatePrivateEndpointQS — RG** |
+    | **Szczegóły wystąpienia** |                                                                 |
+    | Nazwa             | Wprowadź **myVNet**                                    |
+    | Region           | Wybierz pozycję **\<your-web-app-region>**. </br> Wybierz region, w którym wdrożono aplikację sieci Web.|
 
-### <a name="create-virtual-machine"></a>Utwórz maszynę wirtualną
+3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **maszyny wirtualnej**.
+4. Na karcie **adresy IP** wprowadź następujące informacje:
 
-1. W obszarze **Tworzenie maszyny wirtualnej — ustawienia podstawowe** wprowadź lub wybierz następujące informacje:
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Przestrzeń adresowa IPv4 | Wprowadź **10.1.0.0/16** |
 
-    | Ustawienie | Wartość |
-    | ------- | ----- |
-    | **SZCZEGÓŁY PROJEKTU** | |
-    | Subskrypcja | Wybierz subskrypcję. |
-    | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.  |
-    | **SZCZEGÓŁY WYSTĄPIENIA** |  |
-    | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
-    | Region | Wybierz pozycję **WestCentralUS**. |
-    | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
-    | Rozmiar | Pozostaw domyślną wartość **Standard DS1 v2**. |
-    | **KONTO ADMINISTRATORA** |  |
-    | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
-    | Hasło | Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Potwierdź hasło | Ponownie wprowadź hasło. |
-    | **REGUŁY PORTÓW WEJŚCIOWYCH** |  |
-    | Publiczne porty wejściowe | Pozostaw wartość domyślną **Brak**. |
-    | **OSZCZĘDZAJ PIENIĄDZE** |  |
-    | Masz już licencję systemu Windows? | Pozostaw wartość domyślną **nie**. |
-    |||
+5. W obszarze **Nazwa podsieci**wybierz pozycję **domyślny**wyraz.
 
-1. Wybierz pozycję **Dalej: dyski**.
+6. W obszarze **Edytuj podsieć**wprowadź następujące informacje:
 
-1. W obszarze **Tworzenie maszyny wirtualnej — dyski** pozostaw wartości domyślne i wybierz przycisk **Dalej: Sieć**.
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Nazwa podsieci | Wprowadź **maskę** |
+    | Zakres adresów podsieci | Wprowadź **10.1.0.0/24** |
 
-1. W obszarze **Tworzenie maszyny wirtualnej — sieć** wybierz następujące informacje:
+7. Wybierz pozycję **Zapisz**.
 
-    | Ustawienie | Wartość |
-    | ------- | ----- |
-    | Sieć wirtualna | Pozostaw wartość domyślną **MyVirtualNetwork**.  |
-    | Przestrzeń adresowa | Pozostaw wartość domyślną **10.1.0.0/24**.|
-    | Podsieć | Pozostaw domyślną wartość moja **podsieć (10.1.0.0/24)**.|
-    | Publiczny adres IP | Pozostaw wartość domyślną **(New) myVm-IP**. |
-    | Publiczne porty wejściowe | Wybierz pozycję **Zezwalaj na wybrane porty**. |
-    | Wybierz porty wejściowe | Wybierz pozycje **HTTP** i **RDP**.|
-    |||
+8. Wybierz kartę **zabezpieczenia** .
+
+9. W obszarze **BastionHost**wybierz pozycję **enable (Włącz**). Wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Nazwa bastionu | Wprowadź **myBastionHost** |
+    | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
 
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację.
+8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-1. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 
-## <a name="create-a-logical-sql-server"></a>Tworzenie logicznego serwera SQL
+## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-W tej sekcji utworzysz logiczny serwer SQL Server na platformie Azure. 
+W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowania prywatnego punktu końcowego.
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Databases**  >  **bazy danych SQL Database**.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **maszyny wirtualnej** lub Wyszukaj **maszynę wirtualną** w polu wyszukiwania.
+   
+2. W obszarze **Utwórz maszynę wirtualną**wpisz lub wybierz wartości z karty **podstawowe** :
 
-1. W obszarze **Tworzenie bazy danych SQL — podstawy**wprowadź lub wybierz następujące informacje:
+    | Ustawienie | Wartość                                          |
+    |-----------------------|----------------------------------|
+    | **Szczegóły projektu** |  |
+    | Subskrypcja | Wybierz subskrypcję platformy Azure |
+    | Grupa zasobów | Wybierz pozycję **CreatePrivateEndpointQS — RG** |
+    | **Szczegóły wystąpienia** |  |
+    | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
+    | Region | Wybierz pozycję **\<your-web-app-region>**. </br> Wybierz region, w którym wdrożono aplikację sieci Web. |
+    | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
+    | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
+    | **Konto administratora** |  |
+    | Nazwa użytkownika | Wprowadź nazwę użytkownika |
+    | Hasło | Wprowadź hasło |
+    | Potwierdź hasło | Ponownie wprowadź hasło |
 
-    | Ustawienie | Wartość |
-    | ------- | ----- |
-    | **Szczegóły bazy danych** | |
-    | Subskrypcja | Wybierz subskrypcję. |
-    | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.|
-    | **SZCZEGÓŁY WYSTĄPIENIA** |  |
-    | Nazwa bazy danych  | Wprowadź *bazę danych*. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę. |
-    |||
-5. W obszarze **serwer**wybierz pozycję **Utwórz nowy**. 
-6. W obszarze **nowy serwer**wprowadź lub wybierz następujące informacje:
+3. Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski**, a następnie pozycję **Dalej: Sieć**.
+  
+4. Na karcie Sieć wybierz lub wprowadź:
 
     | Ustawienie | Wartość |
-    | ------- | ----- |
-    |Nazwa serwera  | Wprowadź *tekst*. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę.|
-    | Identyfikator logowania administratora serwera| Wprowadź wybraną nazwę administratora. |
-    | Hasło | Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 8 znaków i spełniać zdefiniowane wymagania. |
-    | Lokalizacja | Wybierz region platformy Azure, w którym chcesz mieć SQL Server. |
-    
-7. Wybierz przycisk **OK**. 
-8. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację. 
-9. Po wyświetleniu komunikatu Sprawdzanie poprawności zakończone powodzeniem kliknij przycisk **Utwórz**. 
-10. Po wyświetleniu komunikatu Sprawdzanie poprawności zakończone powodzeniem kliknij przycisk Utwórz. 
+    |-|-|
+    | **Interfejs sieciowy** |  |
+    | Sieć wirtualna | **myVNet** |
+    | Podsieć | **mySubnet** |
+    | Publiczny adres IP | Wybierz pozycję **Brak**. |
+    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
+    | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
+   
+5. Wybierz pozycję **Przejrzyj i utwórz**. 
+  
+6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
-W tej sekcji utworzysz program SQL Server i dodasz do niego prywatny punkt końcowy. 
+W tej sekcji utworzysz prywatny punkt końcowy dla aplikacji sieci Web utworzonej w sekcji wymagania wstępne.
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatne centrum linków (wersja zapoznawcza)**.
-2. W **centrum linków prywatnych — Omówienie**opcji **tworzenia połączenia prywatnego z usługą**wybierz pozycję **Rozpocznij**.
-1. W obszarze **Tworzenie prywatnego punktu końcowego (wersja zapoznawcza) — podstawy**wprowadź lub wybierz następujące informacje:
+1. W lewym górnym rogu ekranu w portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatny link**lub w polu wyszukiwania wprowadź **łącze prywatne**.
+
+2. Wybierz pozycję **Utwórz**.
+
+3. W **prywatnym centrum połączenia**wybierz pozycję **prywatne punkty końcowe** w menu po lewej stronie.
+
+4. W obszarze **prywatne punkty końcowe**wybierz pozycję **+ Dodaj**.
+
+5. Na karcie **podstawy** **Utwórz prywatny punkt końcowy**, wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **Szczegóły projektu** | |
     | Subskrypcja | Wybierz subskrypcję. |
-    | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.|
-    | **SZCZEGÓŁY WYSTĄPIENIA** |  |
-    | Nazwa | Wprowadź *myPrivateEndpoint*. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę. |
-    |Region|Wybierz pozycję **WestCentralUS**.|
-    |||
-5. Wybierz pozycję **Dalej: zasób**.
-6. W obszarze **Utwórz prywatny punkt końcowy zasobu**wprowadź lub wybierz następujące informacje:
+    | Grupa zasobów | Wybierz pozycję **CreatePrivateEndpointQS-RG**. Ta grupa zasobów została utworzona w poprzedniej sekcji.|
+    | **Szczegóły wystąpienia** |  |
+    | Nazwa  | Wprowadź **myPrivateEndpoint**. |
+    | Region | Wybierz pozycję **\<your-web-app-region>**. </br> Wybierz region, w którym wdrożono aplikację sieci Web. |
+
+6. Wybierz kartę **zasób** lub przycisk **Dalej: zasób** w dolnej części strony.
+    
+7. W obszarze **zasób**wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    |Metoda połączenia  | Wybierz pozycję Połącz z zasobem platformy Azure w moim katalogu.|
-    | Subskrypcja| Wybierz subskrypcję. |
-    | Typ zasobu | Wybierz pozycję **Microsoft. SQL/Server**. |
-    | Zasób |Wybierz *pozycję* Wyznacz|
-    |Docelowy zasób podrzędny |Wybierz *sqlServer*|
-    |||
-7. Wybierz pozycję **Dalej: Konfiguracja**.
-8. W obszarze **Tworzenie prywatnego punktu końcowego (wersja zapoznawcza) — Konfiguracja**wprowadź lub wybierz następujące informacje:
+    | Metoda połączenia | Wybierz pozycję **Połącz z zasobem platformy Azure w moim katalogu**. |
+    | Subskrypcja | Wybierz subskrypcję. |
+    | Typ zasobu | Wybierz pozycję **Microsoft. Web/Sites**. |
+    | Zasób | Wybierz pozycję **\<your-web-app-name>**. </br> Wybierz nazwę aplikacji sieci Web utworzonej w sekcji wymagania wstępne. |
+    | Docelowy zasób podrzędny | Wybierz pozycję **Lokacje**. |
+
+8. Wybierz kartę **Konfiguracja** lub przycisk **Dalej: Konfiguracja** w dolnej części ekranu.
+
+9. W obszarze **Konfiguracja**wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    |**SIEĆ**| |
-    | Sieć wirtualna| Wybierz pozycję *MyVirtualNetwork*. |
-    | Podsieć | Wybierz pozycję Moja *podsieć*. |
-    |**INTEGRACJA PRYWATNEJ USŁUGI DNS**||
-    |Integruj z prywatną strefą DNS |Wybierz pozycję **Tak**. |
-    |Prywatna strefa DNS |SELECT *(New) privatelink. Database. Windows. NET* |
-    |||
+    | **Sieć** |  |
+    | Sieć wirtualna | Wybierz pozycję **myVNet**. |
+    | Podsieć | Wybierz pozycję Moja **podsieć**. |
+    | **Integracja Prywatna strefa DNS** |  |
+    | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak**. |
+    | Subskrypcja | Wybierz subskrypcję. |
+    | Prywatne strefy DNS | Pozostaw wartość domyślną **(New) privatelink.azurewebsites.NET**.
+    
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację. 
-2. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**. 
- 
-## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Nawiązywanie połączenia z maszyną wirtualną przy użyciu Pulpitu zdalnego (RDP)
+13. Wybierz pozycję **Przejrzyj i utwórz**.
 
+14. Wybierz pozycję **Utwórz**.
 
-Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następujący sposób: 
+## <a name="test-connectivity-to-private-endpoint"></a>Testowanie łączności z prywatnym punktem końcowym
 
-1. Na pasku wyszukiwania portalu wpisz *myVm*.
+W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawiązać połączenie z aplikacją sieci Web w prywatnym punkcie końcowym.
 
-1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
+1. W okienku nawigacji po lewej stronie wybierz pozycję **grupy zasobów** .
 
-1. Wybierz pozycję **Pobierz plik RDP**. Platforma Azure tworzy plik Remote Desktop Protocol (*RDP*) i pobiera go na komputer.
+2. Wybierz pozycję **CreatePrivateEndpointQS-RG**.
 
-1. Otwórz *pobrany plik RDP* .
+3. Wybierz pozycję **myVM**.
 
-    1. Po wyświetleniu monitu wybierz pozycję **Połącz**.
+4. Na stronie Przegląd dla **myVM**wybierz pozycję **Połącz** , a następnie **bastionu**.
 
-    1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
+5. Wybierz przycisk **bastionu Użyj** niebieska.
 
-        > [!NOTE]
-        > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
+6. Wprowadź nazwę użytkownika i hasło wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Wybierz pozycję **OK**.
+7. Po nawiązaniu połączenia Otwórz program Windows PowerShell na serwerze.
 
-1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
+8. Wprowadź `nslookup <your-webapp-name>.azurewebsites.net`. Zamień **\<your-webapp-name>** na nazwę aplikacji sieci Web utworzonej w poprzednich krokach.  Zostanie wyświetlony komunikat podobny do następującego:
 
-1. Po wyświetleniu pulpitu maszyny wirtualnej zminimalizuj ją i wróć z powrotem do pulpitu lokalnego.  
-
-## <a name="access-sql-database-privately-from-the-vm"></a>Dostęp SQL Database prywatnie z maszyny wirtualnej
-
-1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
-
-2. Wprowadź `nslookup myserver.database.windows.net`. 
-
-    Zostanie wyświetlony komunikat podobny do tego:
-    ```azurepowershell
+    ```powershell
     Server:  UnKnown
     Address:  168.63.129.16
+
     Non-authoritative answer:
-    Name:    myserver.privatelink.database.windows.net
-    Address:  10.0.0.5
-    Aliases:   myserver.database.windows.net
+    Name:    mywebapp8675.privatelink.azurewebsites.net
+    Address:  10.1.0.5
+    Aliases:  mywebapp8675.azurewebsites.net
     ```
-3. Zainstaluj [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. W obszarze **Połącz z serwerem**wprowadź lub wybierz następujące informacje:
+    Prywatny adres IP **10.1.0.5** jest zwracany dla nazwy aplikacji sieci Web.  Ten adres znajduje się w podsieci sieci wirtualnej, która została wcześniej utworzona.
 
-    | Ustawienie | Wartość |
-    | ------- | ----- |
-    | Typ serwera| Wybierz pozycję **Aparat bazy danych**.|
-    | Nazwa serwera| Wybierz *MyServer.Database.Windows.NET* |
-    | Nazwa użytkownika | Wprowadź nazwę użytkownika, username@servername która jest dostępna podczas tworzenia programu SQL Server. |
-    |Hasło |Wprowadź hasło podane podczas tworzenia programu SQL Server. |
-    |Remember password (Zapamiętaj hasło)|Wybierz pozycję **Tak**.|
-    |||
-1. Wybierz pozycję **Połącz**.
-2. Przeglądaj bazy danych z menu po lewej stronie.
-3. Zdefiniować Utwórz lub zapytaj informacje z bazy danych.
-4. Zamknij połączenie pulpitu zdalnego z *myVm*. 
+11. W bastionu połączenie z **myVM**Otwórz program Internet Explorer.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów 
-Gdy skończysz korzystać z prywatnego punktu końcowego, programu SQL Server i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby: 
-1. Wprowadź w polu **wyszukiwania** w górnej części portalu *i wybierz pozycję* *moja zasobów z* wyników wyszukiwania. 
-2. Wybierz pozycję **Usuń grupę zasobów**. 
-3. W polu **WPISZ NAZWĘ GRUPY ZASOBÓW:** wprowadź nazwę myResourceGroup, a następnie wybierz pozycję **Usuń**.
+12. Wprowadź adres URL aplikacji sieci Web, **https:// \<your-webapp-name> . azurewebsites.NET**.
+
+13. Jeśli aplikacja nie została wdrożona, zostanie wyświetlona domyślna strona aplikacji sieci Web:
+
+    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Domyślna strona aplikacji sieci Web." border="true":::
+
+18. Zamknij połączenie z usługą **myVM**.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń sieć wirtualną, maszynę wirtualną i aplikację sieci Web, wykonując następujące czynności:
+
+1. Z menu po lewej stronie wybierz pozycję **grupy zasobów**.
+
+2. Wybierz pozycję **CreatePrivateEndpointQS-RG**.
+
+3. Wybierz pozycję **Usuń grupę zasobów**.
+
+4. Wprowadź **CreatePrivateEndpointQS-RG** w polu **wpisz nazwę grupy zasobów**.
+
+5. Wybierz pozycję **Usuń**.
+
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono MASZYNę wirtualną w sieci wirtualnej, logicznym serwerze SQL i prywatnym punkcie końcowym dostępu prywatnego. Połączenie z jedną maszyną wirtualną z Internetu i bezpieczne komunikowanie się SQL Database przy użyciu prywatnego linku. Aby dowiedzieć się więcej o prywatnych punktach końcowych, zobacz [co to jest prywatny punkt końcowy platformy Azure?](private-endpoint-overview.md).
+W tym przewodniku szybki start utworzono:
+
+* Sieć wirtualna i Host bastionu.
+* Maszyna wirtualna.
+* Prywatny punkt końcowy dla aplikacji internetowej platformy Azure.
+
+Maszyna wirtualna została użyta do bezpiecznego testowania łączności z aplikacją sieci Web w prywatnym punkcie końcowym.
+
+
+
+Aby uzyskać więcej informacji na temat usług, które obsługują prywatny punkt końcowy, zobacz:
+> [!div class="nextstepaction"]
+> [Dostępność linku prywatnego](private-link-overview.md#availability)

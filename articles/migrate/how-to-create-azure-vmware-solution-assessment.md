@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: 89dc962c73a6446afc79eec2a0fcfd5c0e32e84e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834fd32d17c4a5ff112dd11a331a59336d7cbcb7
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576714"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315252"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Tworzenie oceny rozwiązania Azure VMware (Automatyczna synchronizacja)
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób tworzenia oceny rozwiązania Azure VMware (Automa
 - Upewnij się, że [utworzono](how-to-add-tool-first-time.md) projekt Azure Migrate.
 - Jeśli projekt został już utworzony, upewnij się, że [dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera.
 - Aby utworzyć ocenę, należy skonfigurować urządzenie Azure Migrate dla oprogramowania [VMware](how-to-set-up-appliance-vmware.md), które umożliwia odnajdywanie maszyn lokalnych i wysyłanie metadanych i danych wydajności do Azure Migrate: Ocena serwera. [Dowiedz się więcej](migrate-appliance.md).
-- Można również [zaimportować metadane serwera](tutorial-assess-import.md) w formacie wartości rozdzielanych przecinkami (CSV).
+- Można również [zaimportować metadane serwera](./tutorial-discover-import.md) w formacie wartości rozdzielanych przecinkami (CSV).
 
 
 ## <a name="azure-vmware-solution-avs-assessment-overview"></a>Przegląd oceny rozwiązań VMware na platformie Azure (Automatyczna synchronizacja)

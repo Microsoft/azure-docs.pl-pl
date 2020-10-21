@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89615f53f62329ca37ae4a4dde301a9fae6b1202
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400506"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279741"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Używanie grafu podzielonego na partycje w usłudze Azure Cosmos DB
 
 Jedną z najważniejszych funkcji interfejsu API Gremlin w Azure Cosmos DB jest możliwość obsługi wykresów o dużej skali za pomocą skalowania w poziomie. Kontenery mogą być skalowane niezależnie pod względem magazynu i przepływności. Możesz tworzyć kontenery w Azure Cosmos DB, które mogą być automatycznie skalowane w celu przechowywania danych grafu. Dane są automatycznie równoważone w oparciu o określony **klucz partycji**.
 
-**Partycjonowanie jest wymagane** , jeśli oczekuje się, że rozmiar kontenera przekracza 20 GB lub jeśli chcesz przydzielić więcej niż 10 000 jednostek żądań na sekundę (jednostek ru). Te same ogólne zasady dotyczące [mechanizmu partycjonowania Azure Cosmos DB](partition-data.md) stosują się z kilkoma optymalizacjami specyficznymi dla wykresu opisanymi poniżej.
+**Partycjonowanie jest wymagane** , jeśli oczekuje się, że rozmiar kontenera przekracza 20 GB lub jeśli chcesz przydzielić więcej niż 10 000 jednostek żądań na sekundę (jednostek ru). Te same ogólne zasady dotyczące [mechanizmu partycjonowania Azure Cosmos DB](partitioning-overview.md) stosują się z kilkoma optymalizacjami specyficznymi dla wykresu opisanymi poniżej.
 
 :::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Partycjonowanie wykresu." border="false":::
 
@@ -78,7 +78,7 @@ Skorzystaj z poniższych wskazówek, aby zapewnić wydajność i skalowalność 
 
 - **Użyj kierunku wychodzącego podczas wykonywania zapytania o krawędzi wszędzie tam, gdzie jest to możliwe**. Jak wspomniano powyżej, krawędzie są przechowywane z wierzchołkami źródła w kierunku wychodzącym. W związku z tym szanse na przekroczenie zapytań między partycjami są zminimalizowane, gdy dane i zapytania są zaprojektowane z tym wzorcem. W przeciwieństwie do `in()` kwerendy zawsze będzie kosztowne zapytanie w wentylator.
 
-- **Wybierz klucz partycji, który będzie równomiernie dystrybuowany dane między partycjami**. Ta decyzja jest silnie zależna od modelu danych rozwiązania. Przeczytaj więcej na temat tworzenia odpowiedniego klucza partycji na potrzeby [partycjonowania i skalowania w Azure Cosmos DB](partition-data.md).
+- **Wybierz klucz partycji, który będzie równomiernie dystrybuowany dane między partycjami**. Ta decyzja jest silnie zależna od modelu danych rozwiązania. Przeczytaj więcej na temat tworzenia odpowiedniego klucza partycji na potrzeby [partycjonowania i skalowania w Azure Cosmos DB](partitioning-overview.md).
 
 - **Optymalizuj zapytania, aby uzyskać dane w granicach partycji**. Optymalna strategia partycjonowania będzie wyrównana do wzorców zapytań. Zapytania, które uzyskują dane z pojedynczej partycji, zapewniają najlepszą możliwą wydajność.
 
@@ -86,6 +86,6 @@ Skorzystaj z poniższych wskazówek, aby zapewnić wydajność i skalowalność 
 
 Następnie możesz zapoznać się z następującymi artykułami:
 
-* Dowiedz się więcej [na temat partycji i skalowania w Azure Cosmos DB](partition-data.md).
+* Dowiedz się więcej [na temat partycji i skalowania w Azure Cosmos DB](partitioning-overview.md).
 * Dowiedz się więcej o [obsłudze Gremlin w interfejsie API Gremlin](gremlin-support.md).
 * Dowiedz się więcej o [wprowadzeniu do interfejsu API Gremlin](graph-introduction.md).

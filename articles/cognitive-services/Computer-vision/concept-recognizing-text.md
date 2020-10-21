@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 32759ed59e280980abdced46c29390e00ee7229c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 34a7cd8669c1545361bc7cd9579cfb6140c0c946
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973278"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331706"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -37,7 +37,7 @@ Wywołanie **odczytu** pobiera obrazy i dokumenty jako dane wejściowe. Mają on
 * Wymiary PDF muszą mieć co najwyżej 17 x 17 cali, odpowiadające rozmiarowi papieru legalnego lub A3 i mniejszym.
 
 ### <a name="read-32-preview-allows-selecting-pages"></a>Wersja zapoznawcza 3,2 umożliwia wybieranie stron
-Za pomocą [interfejsu API programu Read 3,2 Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)dla dużych dokumentów wielostronicowych można podać określone numery stron lub zakresy stron jako parametr wejściowy, aby wyodrębnić tekst z tylko tych stron. Jest to nowy parametr wejściowy oprócz opcjonalnego parametru języka.
+Za pomocą [interfejsu API programu Read 3,2 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005)dla dużych dokumentów wielostronicowych można podać określone numery stron lub zakresy stron jako parametr wejściowy, aby wyodrębnić tekst z tylko tych stron. Jest to nowy parametr wejściowy oprócz opcjonalnego parametru języka.
 
 > [!NOTE]
 > **Dane wejściowe języka** 
@@ -50,7 +50,7 @@ Za pomocą [interfejsu API programu Read 3,2 Preview](https://westus2.dev.cognit
 
 |Nagłówek odpowiedzi| Adres URL wyniku |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/vision/v3.2/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/vision/v3.1/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 > [!NOTE]
 > **Rozliczenia** 
@@ -129,23 +129,17 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
 }
 ```
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Odczyt 3,2 w wersji zapoznawczej dodaje styl linii tekstu (tylko języki łacińskie)
-[Interfejs API odczytu 3,2 w wersji zapoznawczej](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) wyświetla obiekt **wyglądu** klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu jest stylem drukowania, czy też z wynikiem ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
+[Interfejs API odczytu 3,2 w wersji zapoznawczej](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) wyświetla obiekt **wyglądu** klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu jest stylem drukowania, czy też z wynikiem ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
 
-```json
-  "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.836
-            }
-```
-Rozpocznij pracę z [zestawem SDK przetwarzanie obrazów OCR — szybki](./quickstarts-sdk/client-library.md) Start i [interfejs API REST do odczytu — Przewodnik Szybki](./QuickStarts/CSharp-hand-text.md) Start, aby rozpocząć integrację funkcji OCR z aplikacjami.
+Rozpocznij pracę z [Przetwarzanie obrazówą przewodnika Szybki Start dla zestawu SDK](./quickstarts-sdk/client-library.md) do odczytu i [interfejsu API REST](./QuickStarts/CSharp-hand-text.md) , aby rozpocząć integrację funkcji OCR z aplikacjami.
 
 ## <a name="supported-languages-for-print-text"></a>Obsługiwane języki na potrzeby drukowania tekstu
-[Interfejs API odczytu 3,2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim.
+[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim.
 
 Pełną listę języków obsługiwanych przez OCR można znaleźć w [obsługiwanych językach](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
 
 ### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Read 3,2 Preview dodaje uproszczony chiński i japoński
-W [publicznej wersji zapoznawczej interfejsu API Read 3,2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) dodano obsługę języka chińskiego uproszczonego i japońskiego. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz sekcję dotyczącą [interfejsu API OCR](#ocr-api) . 
+W [publicznej wersji zapoznawczej interfejsu API Read 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) dodano obsługę języka chińskiego uproszczonego i japońskiego. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz sekcję dotyczącą [interfejsu API OCR](#ocr-api) . 
 
 ## <a name="supported-languages-for-handwritten-text"></a>Obsługiwane języki dla tekstu odręcznego
 Operacja odczytu obsługuje obecnie Wyodrębnianie tekstu odręcznego wyłącznie w języku angielskim.
@@ -154,7 +148,7 @@ Operacja odczytu obsługuje obecnie Wyodrębnianie tekstu odręcznego wyłączni
 [Interfejs API REST do odczytu 3. x](./QuickStarts/CSharp-hand-text.md) jest preferowaną opcją dla większości klientów ze względu na łatwość integracji i szybką produktywność z usługi Box. Platforma Azure i usługa przetwarzanie obrazów obsługują skalowanie, wydajność, bezpieczeństwo danych i wymagania dotyczące zgodności podczas skoncentrowania się na potrzebach klientów.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
-[Kontener platformy docker 2,0 (wersja zapoznawcza)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) umożliwia wdrażanie nowych funkcji OCR w środowisku lokalnym. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi.
+[Odczytaj kontener platformy Docker (wersja zapoznawcza)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) umożliwia wdrożenie nowych funkcji OCR w środowisku lokalnym. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi.
 
 ## <a name="example-outputs"></a>Przykładowe dane wyjściowe
 
@@ -201,7 +195,7 @@ Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystając
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Rozpocznij pracę z [Przetwarzanie obrazów Przeczytaj zestaw SDK 3,0 dla przewodników szybki start](./quickstarts-sdk/client-library.md) w językach C#, Java, JavaScript i Python.
-- Aby dowiedzieć się, jak używać interfejsów API REST, Skorzystaj z [przewodnika Szybki start 3,1 interfejsu API REST](./QuickStarts/CSharp-hand-text.md) w językach C#, Java, JavaScript i Python.
-- Dowiedz się więcej o [interfejsie API REST do odczytu 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Dowiedz się więcej o [interfejsie API REST usługi Read 3,2 Public Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) z dodaną obsługą języka chińskiego uproszczonego i japońskiego.
+- Rozpocznij pracę z [Przetwarzanie obrazów odczyty przewodników szybki start dotyczących zestawu SDK](./quickstarts-sdk/client-library.md) w językach C#, Java, JavaScript i Python.
+- Skorzystaj z [przewodnika Szybki start interfejsu API REST](./QuickStarts/CSharp-hand-text.md) w językach C#, Java, JavaScript lub Python, aby dowiedzieć się, jak używać interfejsów API REST.
+- Dowiedz się więcej na temat [interfejsu API REST odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Dowiedz się więcej o [interfejsie API REST usługi Read 3,2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) z dodaną obsługą języka chińskiego uproszczonego i japońskiego.

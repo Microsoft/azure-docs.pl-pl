@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 1e395e4e73f6c140d81189f1abbccca8c064f757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee440c77ec94a7c3e61c37e589aa5ef23031ca7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616656"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332420"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Eksploruj SaaS Analytics, korzystając z Azure SQL Database, Azure Synapse Analytics, Data Factory i Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ Następnie wyodrębnione dane są przekształcane i ładowane do zestawu tabel z
 
 Tabele centralne i wymiary umożliwiają wydajne przetwarzanie analityczne. Schemat gwiazdy używany w tym samouczku jest wyświetlany na poniższej ilustracji:
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
+![Diagram przedstawiający schemat gwiazdy, który jest używany w tym samouczku.](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
 
 Na koniec są badane zapytania dotyczące tabel schematu gwiazdy. Wyniki zapytania są wyświetlane wizualnie przy użyciu Power BI, aby wyróżnić wgląd w zachowanie dzierżawy i korzystanie z aplikacji. Dzięki temu schematowi gwiazdy można uruchamiać zapytania, które uwidaczniają:
 

@@ -3,12 +3,12 @@ title: Azure Event Hubs — przetwarzanie zdarzeń Apache Kafka
 description: 'Samouczek: w tym artykule przedstawiono sposób przetwarzania zdarzeń Kafka, które są pozyskiwane za pośrednictwem centrów zdarzeń przy użyciu Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 1f0c7bf40b721a3f35fcf68c71cb38a4302a56f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531291"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319389"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Samouczek: proces Apache Kafka dla zdarzeń Event Hubs za pomocą usługi Stream Analytics 
 W tym artykule pokazano, jak przesłać strumieniowo dane do Event Hubs i przetworzyć je z Azure Stream Analytics. Przeprowadzi Cię przez następujące kroki: 
@@ -25,7 +25,7 @@ Nie trzeba zmieniać klientów protokołu ani uruchamiać własnych klastrów, g
 Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz następującymi elementami:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* [Zestaw Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
+* [Zestaw Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Pobierz](https://maven.apache.org/download.cgi) i [zainstaluj](https://maven.apache.org/install.html) archiwum binarne Maven.
 * [Git](https://www.git-scm.com/)
 * **Konto usługi Azure Storage**. Jeśli go nie masz, [Utwórz go](../storage/common/storage-account-create.md) przed kontynuowaniem. Zadanie Stream Analytics w tym instruktażu przechowuje dane wyjściowe w usłudze Azure Blob Storage. 
@@ -171,4 +171,4 @@ Po skonfigurowaniu zadania usługi Stream Analytics do odczytu przychodzącego s
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule przedstawiono sposób przesyłania strumieniowego do Event Hubs bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Aby dowiedzieć się więcej na temat Event Hubs Apache Kafka, zobacz [Przewodnik dla deweloperów Apache Kafka dla Event Hubs platformy Azure](apache-kafka-developer-guide.md). 
+W tym artykule przedstawiono sposób przesyłania strumieniowego do Event Hubs bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Aby dowiedzieć się więcej na temat Event Hubs Apache Kafka, zobacz [Przewodnik dla deweloperów Apache Kafka dla Event Hubs platformy Azure](apache-kafka-developer-guide.md).

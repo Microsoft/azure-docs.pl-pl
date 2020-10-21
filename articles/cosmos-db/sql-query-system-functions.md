@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat wbudowanych i zdefiniowanych przez u�
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6f41adbb726313ef095084d079dc7852736e0c06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18fdab8f4aa90e993f6802508c13a78565b9fa6e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74870534"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279925"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funkcje systemowe (Azure Cosmos DB)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74870534"
 |[Funkcje daty i godziny](sql-query-date-time-functions.md)|Funkcje daty i godziny umożliwiają uzyskanie bieżącej daty i godziny UTC w dwóch formach; liczbowa sygnatura czasowa, której wartość to epoka systemu UNIX w milisekundach lub ciąg, który jest zgodny z formatem ISO 8601. | [GetCurrentDateTime](sql-query-getcurrentdatetime.md), [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md) |
 |[Funkcje matematyczne](sql-query-mathematical-functions.md)|Funkcja matematyczna wykonuje obliczenia, zazwyczaj na podstawie wartości wejściowych, które są podane jako argumenty, i zwraca wartość liczbową. | [ABS](sql-query-abs.md), [Acos](sql-query-acos.md), [ASIN](sql-query-asin.md), [atan](sql-query-atan.md), [ATN2](sql-query-atn2.md), [sufit](sql-query-ceiling.md), [cos](sql-query-cos.md), [COT](sql-query-cot.md), [stopnie](sql-query-degrees.md), [EXP](sql-query-exp.md), [piętro](sql-query-floor.md), [log](sql-query-log.md), [log10 —](sql-query-log10.md), [pi](sql-query-pi.md), [moc](sql-query-power.md), [radiany](sql-query-radians.md), [Los](sql-query-rand.md), [Zaokrąglij](sql-query-round.md), [znak](sql-query-sign.md), [Sin](sql-query-sin.md), [sqrt](sql-query-sqrt.md), [kwadrat](sql-query-square.md), [Tan](sql-query-tan.md), [TRUNC —](sql-query-trunc.md) |
 |[Funkcje przestrzenne](sql-query-spatial-functions.md)|Funkcje przestrzenne wykonują operacje na wartości wejściowej obiektu przestrzennego i zwracają wartość liczbową lub logiczną. | [ST_DISTANCE](sql-query-st-distance.md), [ST_INTERSECTS](sql-query-st-intersects.md), [ST_ISVALID](sql-query-st-isvalid.md), [ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md), [ST_WITHIN](sql-query-st-within.md) |
-|[Funkcje ciągów](sql-query-string-functions.md)|Funkcja String wykonuje operację na wartości wejściowej ciągu i zwraca ciąg, wartość liczbową lub logiczną. | [Concat](sql-query-concat.md), [Contains](sql-query-contains.md), [ENDSWITH](sql-query-endswith.md), [INDEX_OF](sql-query-index-of.md), [Left](sql-query-left.md), [Length](sql-query-length.md), [Lower](sql-query-lower.md), [LTRIM](sql-query-ltrim.md), [replace](sql-query-replace.md), [replika](sql-query-replicate.md), [Reverse](sql-query-reverse.md), [Right](sql-query-right.md), [RTRIM](sql-query-rtrim.md), [STARTSWITH](sql-query-startswith.md), [StringToArray](sql-query-stringtoarray.md), [StringToBoolean](sql-query-stringtoboolean.md), [StringToNull](sql-query-stringtonull.md), [StringToNumber](sql-query-stringtonumber.md), [StringToObject](sql-query-stringtoobject.md), [substring](sql-query-substring.md), [ToString](sql-query-tostring.md), [Trim](sql-query-trim.md), [Upper](sql-query-upper.md) |
+|[Funkcje ciągów](sql-query-string-functions.md)|Funkcja String wykonuje operację na wartości wejściowej ciągu i zwraca ciąg, wartość liczbową lub logiczną. | [Concat](sql-query-concat.md), [Contains](sql-query-contains.md), [ENDSWITH](sql-query-endswith.md), [INDEX_OF](sql-query-index-of.md), [Left](sql-query-left.md), [Length](sql-query-length.md), [Lower](sql-query-lower.md), [LTRIM](sql-query-ltrim.md), [REGEXMATCH](sql-query-regexmatch.md)[Zastąp](sql-query-replace.md), [replika](sql-query-replicate.md), [Wstecz](sql-query-reverse.md), [Right](sql-query-right.md), [RTRIM](sql-query-rtrim.md), [STARTSWITH](sql-query-startswith.md), [StringToArray](sql-query-stringtoarray.md), [StringToBoolean](sql-query-stringtoboolean.md), [StringToNull](sql-query-stringtonull.md), [StringToNumber](sql-query-stringtonumber.md), [StringToObject](sql-query-stringtoobject.md), [podciąg](sql-query-substring.md), [ToString](sql-query-tostring.md), [Trim](sql-query-trim.md), [Upper](sql-query-upper.md) |
 |[Funkcje kontroli typów](sql-query-type-checking-functions.md)|Funkcje kontroli typów pozwalają sprawdzić typ wyrażenia w zapytaniach języka SQL. | [IS_ARRAY](sql-query-is-array.md), [IS_BOOL](sql-query-is-bool.md), [IS_DEFINED](sql-query-is-defined.md), [IS_NULL](sql-query-is-null.md), [IS_NUMBER](sql-query-is-number.md), [IS_OBJECT](sql-query-is-object.md), [IS_PRIMITIVE](sql-query-is-primitive.md), [IS_STRING](sql-query-is-string.md) |
 
 ## <a name="built-in-versus-user-defined-functions-udfs"></a>Wbudowane a funkcje zdefiniowane przez użytkownika (UDF)

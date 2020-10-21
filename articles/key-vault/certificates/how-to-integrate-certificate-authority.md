@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d02568dbb5dfc6b7feb38d353e1ba0ecd8ae25d6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203997"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327420"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert
 
@@ -52,9 +52,9 @@ Po zebraniu powyższych informacji z konta DigiCert CertCentral możesz teraz do
 
 1.  Aby dodać urząd certyfikacji DigiCert, przejdź do magazynu kluczy, który chcesz dodać DigiCert. 
 2.  Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
-3.  Wybierz kartę **urzędy certyfikacji** . ![ Właściwości certyfikatu](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+3.  Wybierz kartę **urzędy certyfikacji** . ![ Wybierz urzędy certyfikacji](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
 4.  Wybierz opcję **Dodaj** .
- ![Właściwości certyfikatu](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
+ ![Dodawanie urzędów certyfikacji](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  Na ekranie **Tworzenie urzędu certyfikacji** wybierz następujące wartości:
     -   **Nazwa**: Dodaj rozpoznawalną nazwę wystawcy. Przykład DigicertCA
     -   **Dostawca**: wybierz z menu pozycję DigiCert.
@@ -101,24 +101,22 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 - Definiowanie zmiennej **identyfikatora konta**
 - Definiowanie zmiennej **identyfikatora organizacji**
 - Definiowanie zmiennej **klucza interfejsu API**
-- Zdefiniuj zmienną **nazwy wystawcy**
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
-$issuerName = "DigiCertCA"
 ```
 
-4. Ustawianie **wystawcy**. Spowoduje to dodanie DigiCert jako urzędu certyfikacji w magazynie kluczy.
+4. Ustawianie **wystawcy**. Spowoduje to dodanie DigiCert jako urzędu certyfikacji w magazynie kluczy. Aby dowiedzieć się więcej na temat parametrów, [Przeczytaj tutaj](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
-Set-AzureKeyVaultCertificateIssuer -VaultName $vaultName -IssuerName $issuerName -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org
+Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
 
 5. **Ustawianie zasad dla certyfikatu i wystawianie certyfikatu** z DigiCert bezpośrednio w Key Vault.
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName DigiCertCA -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
@@ -128,7 +126,7 @@ Certyfikat został teraz pomyślnie wystawiony przez urząd certyfikacji DigiCer
 
 Jeśli certyfikat wystawiony w stanie "Disabled" w Azure Portal, należy wyświetlić **operację certyfikatu** w celu przejrzenia komunikatu o błędzie DigiCert dla tego certyfikatu.
 
- ![Właściwości certyfikatu](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+ ![Operacja certyfikatu](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacji interfejsu API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy).
 

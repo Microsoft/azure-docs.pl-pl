@@ -3,12 +3,12 @@ title: Obsługa oceny serwera fizycznego w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny serwera fizycznego za pomocą oceny serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f7dea69c78bb038c06e5cb276628eba0381bb2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660347"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319306"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Macierz obsługi dla oceny serwera fizycznego 
 
@@ -74,4 +74,4 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących portów dla oceny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przygotuj się do oceny serwera fizycznego](tutorial-prepare-physical.md).
+[Przygotuj się do oceny serwera fizycznego](./tutorial-discover-physical.md).

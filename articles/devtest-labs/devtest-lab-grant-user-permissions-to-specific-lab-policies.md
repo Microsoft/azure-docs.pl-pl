@@ -3,25 +3,25 @@ title: Przyznawanie uprawnień użytkownikom do określonych zasad laboratorium 
 description: Dowiedz się, jak udzielić użytkownikom uprawnień do określonych zasad laboratorium w DevTest Labs na podstawie potrzeb poszczególnych użytkowników
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8e910a5d4499d104e4b09076ec7862ae96272ef4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 976862476d25e4e9a4933d8a5319eec9d77ca39b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835684"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328474"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Przyznawanie uprawnień użytkownikom do określonych zasad laboratorium
 ## <a name="overview"></a>Omówienie
 W tym artykule przedstawiono sposób użycia programu PowerShell do przyznawania użytkownikom uprawnień do określonych zasad laboratorium. W ten sposób uprawnienia mogą być stosowane w zależności od potrzeb poszczególnych użytkowników. Na przykład możesz chcieć udzielić określonemu użytkownikowi możliwości zmiany ustawień zasad maszyny wirtualnej, ale nie zasad kosztów.
 
 ## <a name="policies-as-resources"></a>Zasady jako zasoby
-Zgodnie z opisem w artykule [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) , RBAC umożliwia precyzyjne zarządzanie dostępem do zasobów na platformie Azure. Korzystając z funkcji RBAC, można oddzielić cła w zespole DevOps i przyznać dostęp tylko do użytkowników, których potrzebują do wykonywania swoich zadań.
+Zgodnie z opisem w artykule [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) usługa Azure RBAC umożliwia precyzyjne zarządzanie dostępem do zasobów na platformie Azure. Korzystając z funkcji RBAC systemu Azure, można oddzielić cła w zespole DevOps i przyznać dostęp tylko do użytkowników, którzy potrzebują do wykonywania swoich zadań.
 
-W DevTest Labs zasady to typ zasobu, który umożliwia działanie RBAC akcji **Microsoft. wspólny/Labs/policySets/Policy/**. Każda zasada laboratorium jest zasobem w typie zasobu zasad i może być przypisana jako zakres do roli platformy Azure.
+W DevTest Labs, zasady to typ zasobu, który włącza akcję RBAC platformy Azure **Microsoft. wspólny/Labs/policySets/Policy/**. Każda zasada laboratorium jest zasobem w typie zasobu zasad i może być przypisana jako zakres do roli platformy Azure.
 
 Na przykład, aby przyznać użytkownikom uprawnienia do odczytu/zapisu dla **dozwolonych rozmiarów maszyn wirtualnych** , należy utworzyć rolę niestandardową, która współdziała z **Microsoft. wspólny/Labs/policySets/** Policy/Action, a następnie przypisać odpowiednich użytkowników do tej roli niestandardowej w zakresie **Microsoft. wspólny/Labs/policySets/Policy/AllowedVmSizesInLab**.
 
-Aby dowiedzieć się więcej na temat ról niestandardowych w RBAC, zobacz [Kontrola dostępu ról niestandardowych](../role-based-access-control/custom-roles.md).
+Aby dowiedzieć się więcej na temat ról niestandardowych w usłudze Azure RBAC, zobacz [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Tworzenie roli niestandardowej laboratorium przy użyciu programu PowerShell
 Aby rozpocząć, musisz [zainstalować Azure PowerShell](/powershell/azure/install-az-ps). 

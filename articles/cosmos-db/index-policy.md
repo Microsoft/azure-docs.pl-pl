@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089517"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277794"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 
@@ -271,7 +271,7 @@ Nie ma to wpływu na zapisywanie dostępności podczas przekształcania indeksó
 
 Podczas dodawania nowego indeksu nie ma wpływu na dostępność. Zapytania będą korzystać tylko z nowych indeksów po zakończeniu przekształcania indeksu. Podczas przekształcania indeksu aparat zapytań będzie kontynuował korzystanie z istniejących indeksów, więc zobaczysz podobną wydajność odczytu podczas transformacji indeksowania do zaobserwowanego przed zainicjowaniem zmiany indeksowania. Przy dodawaniu nowych indeksów nie jest również ryzykowne żadne niekompletne lub niespójne wyniki zapytania.
 
-W przypadku usuwania indeksów i natychmiastowego uruchamiania zapytań, które odfiltrują się do usuniętych indeksów, nie istnieje gwarancja spójnych lub pełnych wyników zapytania. W przypadku usunięcia wielu indeksów i przeprowadzenia tej operacji w ramach jednej pojedynczej zmiany zasad indeksowania aparat zapytań gwarantuje spójne i kompletne wyniki w trakcie przekształcania indeksu. Jeśli jednak usuniesz indeksy przy użyciu wielu zmian zasad indeksowania, aparat zapytań nie gwarantuje spójnych ani pełnych wyników do momentu zakończenia wszystkich przekształceń indeksu. Większość deweloperów nie porzuca indeksów, a następnie natychmiast próbuje uruchomić zapytania, które używają tych indeksów, w przeciwnym razie ta sytuacja jest mało prawdopodobne.
+W przypadku usuwania indeksów i natychmiastowego uruchamiania zapytań, które odfiltrują się do usuniętych indeksów, nie istnieje gwarancja spójnych lub pełnych wyników zapytania. W przypadku usunięcia wielu indeksów i przeprowadzenia tej operacji w ramach jednej pojedynczej zmiany zasad indeksowania aparat zapytań zapewnia spójne i kompletne wyniki w całej transformacji indeksu. Jeśli jednak usuniesz indeksy przy użyciu wielu zmian zasad indeksowania, aparat zapytań nie będzie zapewniać spójnych ani kompletnych wyników do momentu zakończenia wszystkich przekształceń indeksu. Większość deweloperów nie porzuca indeksów, a następnie natychmiast próbuje uruchomić zapytania, które używają tych indeksów, w przeciwnym razie ta sytuacja jest mało prawdopodobne.
 
 > [!NOTE]
 > Jeśli to możliwe, zawsze należy próbować grupować wiele zmian indeksowania w jedną modyfikację pojedynczej zasady indeksowania

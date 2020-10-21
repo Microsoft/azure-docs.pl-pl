@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 053a64f276a09cfd1e11d51743a557e7a238cbc2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e1a9a644e3ec4690dbb1f536dd15db995b56cf12
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207907"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331723"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Podstawa zabezpieczeń platformy Azure dla ExpressRoute
 
@@ -242,7 +242,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 Za pomocą okienka tożsamość i kontrola dostępu (IAM) w Azure Portal subskrypcji możesz skonfigurować kontrolę dostępu opartą na rolach (Azure RBAC). Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory.
 
-Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera ExpressRoute mogą zastosować Role-Based Access Control do zasobu expressRouteCrossConnection. Te kontrolki mogą definiować uprawnienia, dla których konta użytkowników mogą modyfikować zasób expressRouteCrossConnection oraz dodawać/aktualizować i usuwać konfiguracje komunikacji równorzędnej.
+Dodatkowo partnerzy korzystający z interfejsu API Menedżer zasobów partnera ExpressRoute mogą stosować kontrolę dostępu opartą na rolach do zasobu expressRouteCrossConnection. Te kontrolki mogą definiować uprawnienia, dla których konta użytkowników mogą modyfikować zasób expressRouteCrossConnection oraz dodawać/aktualizować i usuwać konfiguracje komunikacji równorzędnej.
 
 * [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -459,7 +459,7 @@ Jak skonfigurować lokację do lokacji IPSEC w ExpressRoute: https://docs.micros
 
 Usługa Azure ExpressRoute ma także właściciela obwodu i role użytkownika obwodu. Użytkownicy obwodu to właściciele bram sieci wirtualnej, którzy nie znajdują się w tej samej subskrypcji co obwód usługi ExpressRoute. Właściciel obwodu ma uprawnienia do modyfikowania i odwoływania autoryzacji w dowolnym momencie. Odwoływanie autoryzacji powoduje usunięcie wszystkich połączeń linków z subskrypcji, której dostęp został odwołany. Użytkownicy obwodów mogą wykorzystać autoryzacje (jedna autoryzacja na sieć wirtualną).
 
-Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera ExpressRoute mogą zastosować Role-Based Access Control do zasobu expressRouteCrossConnection. Te kontrolki mogą definiować uprawnienia, dla których konta użytkowników mogą modyfikować zasób expressRouteCrossConnection oraz dodawać/aktualizować i usuwać konfiguracje komunikacji równorzędnej.
+Dodatkowo partnerzy korzystający z interfejsu API Menedżer zasobów partnera ExpressRoute mogą stosować kontrolę dostępu opartą na rolach do zasobu expressRouteCrossConnection. Te kontrolki mogą definiować uprawnienia, dla których konta użytkowników mogą modyfikować zasób expressRouteCrossConnection oraz dodawać/aktualizować i usuwać konfiguracje komunikacji równorzędnej.
 
 * [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 

@@ -2,13 +2,13 @@
 title: Zabezpieczenia sieciowe dla Event Hubs platformy Azure
 description: W tym artykule opisano sposób konfigurowania dostępu z prywatnych punktów końcowych
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 02a3a3436c354f7a9c817298d0ce887e33d8016a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/20/2020
+ms.openlocfilehash: 9503fc26c22d7dbff13c5754288f577b7bb3242f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318477"
+ms.locfileid: "92331315"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Zabezpieczenia sieciowe dla Event Hubs platformy Azure 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w usłudze Azure Event Hubs: 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób korzystania z następujących funkcji zabezpiecze
 ## <a name="service-tags"></a>Tagi usługi
 Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [Omówienie tagów usług](../virtual-network/service-tags-overview.md).
 
-Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md#security-rules)   lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **EventHub**) w odpowiednim polu *źródłowym*   lub *docelowym*   reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
+Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md#security-rules) lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **EventHub**) w odpowiednim polu *źródłowym* lub *docelowym* reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -72,8 +72,8 @@ Aby uzyskać więcej informacji, zobacz [jak skonfigurować punkty końcowe usł
 
 Prywatny punkt końcowy to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, co skutecznie doprowadza usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, połączenia ExpressRoute lub sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można nawiązać połączenie z wystąpieniem zasobu platformy Azure, zapewniając najwyższy poziom szczegółowości kontroli dostępu.
 
-> [!NOTE]
-> Ta funkcja jest obsługiwana tylko w przypadku warstwy **dedykowanej** . Aby uzyskać więcej informacji na temat warstwy dedykowanej, zobacz [omówienie Event Hubs — warstwa dedykowana](event-hubs-dedicated-overview.md). 
+> [!IMPORTANT]
+> Ta funkcja jest obsługiwana dla warstw **standardowa** i **dedykowana** . Ta wartość nie jest obsługiwana w warstwie **podstawowa** .
 
 Aby uzyskać więcej informacji, zobacz [jak skonfigurować prywatne punkty końcowe dla centrum zdarzeń](private-link-service.md)
 

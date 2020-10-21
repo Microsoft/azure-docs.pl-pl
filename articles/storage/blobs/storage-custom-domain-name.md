@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e6289fb4e3b5bb695b79589d544d0ae475f9774
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88053630"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314667"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage
 
@@ -23,7 +23,7 @@ Domenę niestandardową można zamapować na punkt końcowy usługi BLOB Service
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> To mapowanie działa tylko dla poddomen (na przykład: `www.contoso.com` ). Jeśli chcesz, aby punkt końcowy sieci Web był dostępny w domenie głównej (na przykład: `contoso.com` ), musisz użyć Azure CDN. Aby uzyskać wskazówki, zobacz sekcję [Mapowanie domeny niestandardowej z włączonym protokołem HTTPS](#enable-https) w tym artykule. Ponieważ przechodzenie do tej sekcji tego artykułu, aby włączyć domenę główną domeny niestandardowej, krok w tej sekcji do włączenia protokołu HTTPS jest opcjonalny. 
+> To mapowanie działa tylko dla poddomen (na przykład: `www.contoso.com` ). Jeśli chcesz, aby punkt końcowy sieci Web był dostępny w domenie głównej (na przykład: `contoso.com` ), musisz użyć Azure CDN. Aby uzyskać wskazówki, zobacz sekcję [Mapowanie domeny niestandardowej z włączonym protokołem HTTPS](#enable-https) w tym artykule. Ponieważ przeprowadzisz do tej sekcji tego artykułu, aby włączyć domenę główną domeny niestandardowej, krok w tej sekcji do włączenia protokołu HTTPS jest opcjonalny. 
 
 <a id="enable-http"></a>
 
@@ -177,7 +177,7 @@ Utwórz tymczasowy rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest 
        
    - Nazwa hosta uzyskana w sekcji [pobieranie nazwy hosta punktu końcowego magazynu](#endpoint) we wcześniejszej części tego artykułu. 
 
-     Dodaj poddomenę `asverify` do nazwy hosta. Przykład: `asverify.mystorageaccount.blob.core.windows.net`.
+     Dodaj poddomenę `asverify` do nazwy hosta. Na przykład: `asverify.mystorageaccount.blob.core.windows.net`.
 
 4. Aby zarejestrować domenę niestandardową, wybierz przycisk **Zapisz** .
 

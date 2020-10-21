@@ -4,12 +4,12 @@ description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji .NET
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 170484b5a24367eb19e69f0a72918d99b6595fca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4949d68750e95e5b62b8387f03c77c082fbaf7f4
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728509"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329325"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs — .NET (Azure. Messaging. EventHubs) 
 W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu biblioteki platformy .NET **Azure. Messaging. EventHubs** . 
@@ -61,6 +61,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji konsolowej .NET Core w ce
 1. Dodaj następujące `using` instrukcje na początku pliku **program.cs** :
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading.Tasks;
     using Azure.Messaging.EventHubs;
@@ -150,6 +151,7 @@ W tym przewodniku szybki start użyjesz usługi Azure Storage jako magazynu punk
 1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** .
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading.Tasks;
     using Azure.Storage.Blobs;
@@ -230,4 +232,4 @@ Zapoznaj się z przykładami w witrynie GitHub.
 
 - [Przykłady Event Hubs w witrynie GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
 - [Przykłady procesora zdarzeń w witrynie GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples)
-- [Przykład kontroli dostępu opartej na rolach (RBAC)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+- [Przykładowa kontrola dostępu oparta na rolach (RBAC) na platformie Azure](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)

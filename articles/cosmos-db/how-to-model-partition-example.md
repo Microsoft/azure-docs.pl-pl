@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 91589a88712b093acfbb88df146074ad91ba0ea2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168379"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277986"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Jak modelować i partycjonować dane w usłudze Azure Cosmos DB przy użyciu przykładu wziętego z życia
 
@@ -327,7 +327,7 @@ Ta procedura składowana przyjmuje identyfikator wpisu i treść nowego komentar
 - zastępuje wpis
 - dodaje nowy komentarz
 
-Ponieważ procedury składowane są wykonywane jako transakcje niepodzielne, gwarantowane jest, że wartość `commentCount` i rzeczywista liczba komentarzy będą zawsze zsynchronizowane.
+Ponieważ procedury składowane są wykonywane jako transakcje niepodzielne, wartość `commentCount` i rzeczywista liczba komentarzy będą zawsze zsynchronizowane.
 
 Oczywiście wywołujemy podobną procedurę przechowywaną podczas dodawania nowych polubień, aby zwiększyć `likeCount` .
 
@@ -586,6 +586,6 @@ Kanał informacyjny zmiany używany do dystrybuowania aktualizacji do innych kon
 
 Po tym wprowadzeniu do praktycznego modelowania i partycjonowania danych warto zapoznać się z następującymi artykułami, aby przejrzeć omówione koncepcje:
 
-- [Praca z bazami danych, kontenerami i elementami](databases-containers-items.md)
+- [Praca z bazami danych, kontenerami i elementami](account-databases-containers-items.md)
 - [Partitioning in Azure Cosmos DB (Partycjonowanie w usłudze Azure Cosmos DB)](partitioning-overview.md)
 - [Źródło zmian w Azure Cosmos DB](change-feed.md)

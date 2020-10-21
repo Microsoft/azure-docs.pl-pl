@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e67d705f8e878cff6934c2e8a172148fab3f1d71
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82598474"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329002"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrowanie do szczegółowego dostępu opartego na rolach w przypadku konfiguracji klastrów
 
@@ -183,9 +183,9 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-Możesz również użyć Azure Portal, aby dodać przypisanie roli operatora klastra usługi HDInsight do użytkownika. Zobacz dokumentację, [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC i Azure Portal — Dodaj przypisanie roli](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+Możesz również użyć Azure Portal, aby dodać przypisanie roli operatora klastra usługi HDInsight do użytkownika. Zobacz dokumentację, [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal-Dodaj przypisanie roli](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>Dlaczego widzę odpowiedź 403 (Zabronione) po zaktualizowaniu żądań interfejsu API i/lub narzędzia?
 

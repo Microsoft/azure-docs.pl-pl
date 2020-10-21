@@ -3,12 +3,12 @@ title: Konfigurowanie galerii obrazów udostępnionych w Azure DevTest Labs | Mi
 description: Dowiedz się, jak skonfigurować galerię obrazów udostępnionych w Azure DevTest Labs, co umożliwia użytkownikom uzyskiwanie dostępu do obrazów z udostępnionej lokalizacji podczas tworzenia zasobów laboratoryjnych.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96563b1dcfac171af38b229bb81d12b3afda2e2f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271043"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327981"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurowanie galerii obrazów udostępnionych w usłudze Azure DevTest Labs
 DevTest Labs obsługuje teraz funkcję [galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md) . Umożliwia użytkownikom laboratorium dostęp do obrazów z udostępnionej lokalizacji podczas tworzenia zasobów laboratoryjnych. Ułatwia ona również tworzenie struktury i organizacji na podstawie niestandardowych zarządzanych obrazów maszyn wirtualnych. Funkcja galerii obrazów udostępnionych obsługuje:
@@ -16,7 +16,7 @@ DevTest Labs obsługuje teraz funkcję [galerii obrazów udostępnionych](../vir
 - Zarządza replikacją globalną obrazów
 - Przechowywanie wersji i grupowanie obrazów w celu łatwiejszego zarządzania
 - Zapewnianie wysokiej dostępności obrazów przy użyciu kont magazynu Strefowo nadmiarowego (ZRS) w regionach, które obsługują strefy dostępności. ZRS zapewnia lepszą odporność na awarie stref.
-- Udostępnianie między subskrypcjami, a nawet między dzierżawcami, przy użyciu kontroli dostępu opartej na rolach (RBAC).
+- Udostępnianie między subskrypcjami, a nawet między dzierżawcami, przy użyciu kontroli dostępu opartej na rolach (Azure RBAC).
 
 Aby uzyskać więcej informacji, zobacz [dokumentację udostępnionej galerii obrazów](../virtual-machines/windows/shared-image-galleries.md). 
  

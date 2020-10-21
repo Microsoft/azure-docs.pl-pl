@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c8219214e7053dcf6b119f6cd5dc97daaa355f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73663174"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327641"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Wyniki testu dla replikacji funkcji Hyper-V do lokacji dodatkowej
 
@@ -47,7 +47,7 @@ Oto co się dzieje w przebiegu testu:
 * Funkcja Hyper-V Replica wykorzystuje nieobsługiwaną pamięć podręczną pamięci, aby zminimalizować obciążenie operacji we/wy na potrzeby śledzenia. Zapisuje zapisy w dysku VHDX w pamięci i opróżnia je do pliku dziennika przed upływem czasu wysłania dziennika do lokacji odzyskiwania. Opróżnianie dysku następuje również wtedy, gdy w zapisie osiągnięto wstępnie określony limit.
 * Wykres poniżej przedstawia obciążenie operacji wejścia/wyjścia o stałym stanie dla replikacji. Możemy zobaczyć, że obciążenie IOPS spowodowane replikacją wynosi około 5%, co jest dość małe.
 
-  ![Podstawowe wyniki](./media/hyper-v-vmm-performance-results/IC744913.png)
+  ![Wykres przedstawiający stałe obciążenie IOPS stanu na potrzeby replikacji.](./media/hyper-v-vmm-performance-results/IC744913.png)
 
 Funkcja Hyper-V Replica używa pamięci na serwerze podstawowym w celu zoptymalizowania wydajności dysków. Jak pokazano na poniższym wykresie, obciążenie pamięci na wszystkich serwerach w klastrze podstawowym jest marginalne. Pokazanym obciążeniem pamięci jest procent pamięci używanej przez replikację w porównaniu do całkowitej zainstalowanej pamięci na serwerze funkcji Hyper-V.
 
@@ -55,20 +55,20 @@ Funkcja Hyper-V Replica używa pamięci na serwerze podstawowym w celu zoptymali
 
 Funkcja Hyper-V Replica ma minimalne obciążenie procesora CPU. Jak pokazano na wykresie, obciążenie związane z replikacją znajduje się w zakresie 2-3%.
 
-![Podstawowe wyniki](./media/hyper-v-vmm-performance-results/IC744915.png)
+![Wykres przedstawiający obciążenie związane z replikacją znajduje się w zakresie 2-3%.](./media/hyper-v-vmm-performance-results/IC744915.png)
 
 ## <a name="secondary-server-performance"></a>Wydajność serwera pomocniczego
 
 Funkcja Hyper-V Replica korzysta z niewielkiej ilości pamięci na serwerze odzyskiwania, aby zoptymalizować liczbę operacji magazynowania. Wykres podsumowuje użycie pamięci na serwerze odzyskiwania. Pokazanym obciążeniem pamięci jest procent pamięci używanej przez replikację w porównaniu do całkowitej zainstalowanej pamięci na serwerze funkcji Hyper-V.
 
-![Wyniki pomocnicze](./media/hyper-v-vmm-performance-results/IC744916.png)
+![Wykres, który podsumowuje użycie pamięci na serwerze odzyskiwania.](./media/hyper-v-vmm-performance-results/IC744916.png)
 
 Liczba operacji we/wy w lokacji odzyskiwania jest funkcją liczby operacji zapisu w lokacji głównej. Przyjrzyjmy się łącznym operacjom we/wy w lokacji odzyskiwania w porównaniu z całkowitymi operacjami we/wy i operacjami zapisu w lokacji głównej. Wykresy pokazują, że łączna liczba operacji we/wy w lokacji odzyskiwania jest
 
 * Około 1,5 razy liczba operacji we/wy zapisu na serwerze podstawowym.
 * Około 37% całkowitej liczby operacji we/wy w lokacji głównej.
 
-![Wyniki pomocnicze](./media/hyper-v-vmm-performance-results/IC744917.png)
+![Wykres przedstawiający porównanie operacji we/wy w lokacjach głównych i dodatkowych.](./media/hyper-v-vmm-performance-results/IC744917.png)
 
 ![Wyniki pomocnicze](./media/hyper-v-vmm-performance-results/IC744918.png)
 
