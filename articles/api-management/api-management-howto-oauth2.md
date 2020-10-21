@@ -11,21 +11,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 08/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 4a0e8c6eb87b053c0e3ee524c60435dc45d81ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f2673bd181bc24d821b41ae1466c05a9593f154
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87902262"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315743"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Jak autoryzować konta dewelopera przy użyciu protokołu OAuth 2,0 na platformie Azure API Management
 
 Wiele interfejsów API obsługuje protokół [OAuth 2,0](https://oauth.net/2/) , aby zabezpieczyć interfejs API i upewnić się, że tylko Prawidłowi użytkownicy mają dostęp, i mogą uzyskać dostęp tylko do zasobów, do których są uprawnieni. Aby można było używać interaktywnej konsoli dewelopera platformy Azure API Management z takimi interfejsami API, Usługa umożliwia skonfigurowanie wystąpienia usługi do pracy z interfejsem API z włączonym protokołem OAuth 2,0.
-
-> [!IMPORTANT]
-> Autoryzacja OAuth 2,0 nie jest jeszcze dostępna w interaktywnej konsoli nowego portalu dla deweloperów.
 
 ## <a name="prerequisites"></a><a name="prerequisites"> </a>Wymagania wstępne
 
@@ -123,7 +120,7 @@ Po wybraniu **kodu autoryzacji** zostanie wyświetlone okno podręczne z formula
 > [!NOTE]
 > Jeśli wyskakujące okienka zostały wyłączone, zostanie wyświetlony monit o włączenie ich przez przeglądarkę. Po ich włączeniu ponownie wybierz pozycję **kod autoryzacji** , a zostanie wyświetlony formularz logowania.
 
-![Zaloguj][api-management-oauth2-signin]
+![Logowanie][api-management-oauth2-signin]
 
 Po zalogowaniu **nagłówki żądań** są wypełniane `Authorization : Bearer` nagłówkiem, który autoryzuje żądanie.
 

@@ -9,12 +9,12 @@ ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: abd6d6379fba1efac20255ca97e66e6b2d7e72ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324412"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282366"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB
 
@@ -324,7 +324,7 @@ Niezależnie od wartości określonej dla właściwości indeks w **tle** , aktu
 
 Podczas dodawania nowego indeksu nie ma wpływu na dostępność. Zapytania będą korzystać tylko z nowych indeksów po zakończeniu przekształcania indeksu. Podczas przekształcania indeksu aparat zapytań będzie kontynuował korzystanie z istniejących indeksów, więc zobaczysz podobną wydajność odczytu podczas transformacji indeksowania do zaobserwowanego przed zainicjowaniem zmiany indeksowania. Przy dodawaniu nowych indeksów nie jest również ryzykowne żadne niekompletne lub niespójne wyniki zapytania.
 
-W przypadku usuwania indeksów i natychmiastowego wykonywania zapytań filtry mają filtrów dla usuniętych indeksów, wyniki mogą być niespójne i niekompletne do momentu zakończenia transformacji indeksu. W przypadku usunięcia indeksów aparat zapytań nie gwarantuje spójnych ani pełnych wyników, gdy zapytania filtrują te nowo usuniętych indeksów. Większość deweloperów nie porzuca indeksów, a następnie natychmiast próbuje wykonać zapytania do nich, w przeciwnym razie ta sytuacja jest mało prawdopodobne.
+W przypadku usuwania indeksów i natychmiastowego wykonywania zapytań filtry mają filtrów dla usuniętych indeksów, wyniki mogą być niespójne i niekompletne do momentu zakończenia transformacji indeksu. W przypadku usunięcia indeksów aparat zapytań nie zapewnia spójnych ani pełnych wyników, gdy zapytania filtrują te nowo usuniętych indeksów. Większość deweloperów nie porzuca indeksów, a następnie natychmiast próbuje wykonać zapytania do nich, w przeciwnym razie ta sytuacja jest mało prawdopodobne.
 
 > [!NOTE]
 > [Postęp indeksowania można śledzić](#track-index-progress).

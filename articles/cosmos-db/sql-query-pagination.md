@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 1cd0c3f48d4dc79294b3ebf9907ac18d23794830
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de3ec79b94969e45553857f1179a1104e090347
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804201"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276106"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Stronicowanie w Azure Cosmos DB
 
@@ -21,7 +21,7 @@ W Azure Cosmos DB kwerendy mogą mieć wiele stron wyników. W tym dokumencie op
 
 Czasami wyniki zapytania zostaną podzielone na wiele stron. Wyniki każdej strony są generowane przez oddzielne wykonywanie zapytań. Gdy nie można zwrócić wyników zapytania w jednym wykonaniu, Azure Cosmos DB automatycznie podzieli wyniki na wiele stron.
 
-Można określić maksymalną liczbę elementów zwracanych przez zapytanie, ustawiając `MaxItemCount` . `MaxItemCount`Jest określony na żądanie i gwarantuje, że aparat zapytań zwróci tę liczbę elementów lub mniej. Możesz ustawić `MaxItemCount` na, `-1` Jeśli nie chcesz umieszczać limitu liczby wyników na wykonanie zapytania.
+Można określić maksymalną liczbę elementów zwracanych przez zapytanie, ustawiając `MaxItemCount` . `MaxItemCount`Jest określony na żądanie i Instruuje aparat zapytań, aby zwrócił tę liczbę elementów lub mniej. Możesz ustawić `MaxItemCount` na, `-1` Jeśli nie chcesz umieszczać limitu liczby wyników na wykonanie zapytania.
 
 Ponadto istnieją inne powody, dla których aparat kwerend może potrzebować podzielenia wyników zapytania na wiele stron. Należą do nich:
 

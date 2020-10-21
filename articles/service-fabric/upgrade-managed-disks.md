@@ -3,12 +3,12 @@ title: Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed di
 description: Oto jak uaktualnić istniejący klaster Service Fabric, aby używać usługi Azure Managed disks z niewielkim lub żadnym przestojem klastra.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717527"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316158"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed disks
 
@@ -25,7 +25,7 @@ Ogólna strategia uaktualniania Service Fabric węzła klastra do korzystania z 
 W tym artykule opisano kroki uaktualniania podstawowego typu węzła przykładowego klastra do korzystania z dysków zarządzanych, unikając czasu przestoju klastra (patrz Uwaga poniżej). Początkowy stan przykładowego klastra testowego składa się z jednego typu węzła o [trwałości Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), który jest objęty jednym zestawem skalowania z pięcioma węzłami.
 
 > [!NOTE]
-> Ograniczenia podstawowego modułu równoważenia obciążenia jednostki SKU uniemożliwiają dodanie dodatkowego zestawu skalowania. Zalecamy użycie w zamian standardowego modułu równoważenia obciążenia jednostki SKU. Aby uzyskać więcej informacji, zobacz [porównanie dwóch jednostek SKU](/azure/load-balancer/skus).
+> Ograniczenia podstawowego modułu równoważenia obciążenia jednostki SKU uniemożliwiają dodanie dodatkowego zestawu skalowania. Zalecamy użycie w zamian standardowego modułu równoważenia obciążenia jednostki SKU. Aby uzyskać więcej informacji, zobacz [porównanie dwóch jednostek SKU](../load-balancer/skus.md).
 
 > [!CAUTION]
 > W tej procedurze wystąpi awaria tylko wtedy, gdy istnieją zależności w systemie DNS klastra (na przykład podczas uzyskiwania dostępu do [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Najlepszym rozwiązaniem w zakresie architektury dla usług frontonu](/azure/architecture/microservices/design/gateway) jest posiadanie pewnego rodzaju [modułu równoważenia obciążenia](/azure/architecture/guide/technology-choices/load-balancing-overview) przed typami węzłów w celu zapewnienia możliwości wymiany węzłów bez przestoju.

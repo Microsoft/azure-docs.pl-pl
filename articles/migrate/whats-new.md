@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat Nowości i ostatnich aktualizacji w u
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: a36e73496b07df18c61b07df9d90992c0ab399ce
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b03f3a7e10aa42f3393ecc22cb74f4e565587032
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124660"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314575"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w Azure Migrate
 
@@ -36,7 +36,7 @@ ms.locfileid: "92124660"
 
 ## <a name="update-june-2020"></a>Aktualizacja (Czerwiec 2020)
 
-- Ocenianie migracji lokalnych maszyn wirtualnych programu VMware do [rozwiązania Azure VMware (Automatyczna synchronizacja)](https://go.microsoft.com/fwlink/?linkid=2132637) jest teraz obsługiwane. [Dowiedz się więcej](how-to-create-azure-vmware-solution-assessment.md)
+- Ocenianie migracji lokalnych maszyn wirtualnych programu VMware do [rozwiązania Azure VMware (Automatyczna synchronizacja)](./concepts-azure-vmware-solution-assessment-calculation.md) jest teraz obsługiwane. [Dowiedz się więcej](how-to-create-azure-vmware-solution-assessment.md)
 - Obsługa wielu poświadczeń na urządzeniu na potrzeby odnajdywania serwera fizycznego.
 - Obsługa zezwalania na logowanie do platformy Azure z urządzenia dla dzierżawy, w której skonfigurowano ograniczenie dzierżawy.
 
@@ -104,4 +104,4 @@ Jeśli używasz wcześniejszej wersji Azure Migrate (obsługiwana jest tylko Oce
 
 - [Uzyskaj więcej informacji](https://azure.microsoft.com/pricing/details/azure-migrate/) o cenach usługi Azure Migrate.
 - [Przejrzyj często zadawane pytania](resources-faq.md) dotyczące usługi Azure Migrate.
-- Wypróbuj nasze samouczki, aby ocenić [maszyny wirtualne VMware](tutorial-assess-vmware.md) i [maszyny wirtualne funkcji Hyper-V](tutorial-assess-hyper-v.md).
+- Wypróbuj nasze samouczki, aby ocenić [maszyny wirtualne VMware](./tutorial-assess-vmware-azure-vm.md) i [maszyny wirtualne funkcji Hyper-V](tutorial-assess-hyper-v.md).

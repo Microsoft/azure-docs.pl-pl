@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce81ce9afa45c93010c457bc292bba037607f96f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fd7431b19ed21ee9cf76b6c2fe190b3f31cacf6
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020885"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281041"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Wycofywanie poziomów wydajności S1, S2 i S3
 
@@ -82,7 +82,7 @@ Przy założeniu, że masz 10 zbiorów S1, 1 GB miejsca w magazynie dla każdego
 
 ## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>Co zrobić, jeśli potrzebuję więcej niż 20 GB miejsca?
 
-Bez względu na to, czy masz kolekcję z poziomem wydajności S1, S2 lub S3, czy masz kolekcję o pojedynczej partycji, z których wszystkie mają 20 GB dostępnego miejsca w magazynie, możesz użyć narzędzia do migracji danych Azure Cosmos DB, aby zmigrować dane do kolekcji partycjonowanej z niemal nieograniczonym magazynem. Aby uzyskać informacje o korzyściach z kolekcji partycjonowanej, zobacz [partycjonowanie i skalowanie w Azure Cosmos DB](sql-api-partition-data.md). 
+Bez względu na to, czy masz kolekcję z poziomem wydajności S1, S2 lub S3, czy masz kolekcję o pojedynczej partycji, z których wszystkie mają 20 GB dostępnego miejsca w magazynie, możesz użyć narzędzia do migracji danych Azure Cosmos DB, aby zmigrować dane do kolekcji partycjonowanej z niemal nieograniczonym magazynem. Aby uzyskać informacje o korzyściach z kolekcji partycjonowanej, zobacz [partycjonowanie i skalowanie w Azure Cosmos DB](partitioning-overview.md). 
 
 <a name="change-before"></a>
 
@@ -132,6 +132,6 @@ Klienci z umowami EA będą zabezpieczeni z ceną do końca bieżącego kontrakt
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat cen i zarządzania danymi za pomocą Azure Cosmos DB, zapoznaj się z następującymi zasobami:
 
-1.  [Partycjonowanie danych w Cosmos DB](sql-api-partition-data.md). Zapoznaj się z różnicą między kontenerem z jedną partycją i kontenerami partycjonowanymi, a także wskazówki dotyczące wdrażania strategii partycjonowania w sposób płynny.
+1.  [Partycjonowanie danych w Cosmos DB](partitioning-overview.md). Zapoznaj się z różnicą między kontenerem z jedną partycją i kontenerami partycjonowanymi, a także wskazówki dotyczące wdrażania strategii partycjonowania w sposób płynny.
 2.  [Cennik Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Dowiedz się więcej o kosztach aprowizacji i zużywaniu magazynu.
 3.  [Jednostki żądania](request-units.md). Zapoznaj się z użyciem przepływności dla różnych typów operacji, na przykład odczyt, zapis, zapytanie.

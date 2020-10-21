@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f8b1129c94ecf80efb60a13a0b80b1cc1817ff3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 905560094afa9338d44ba73120d316b3c81b5580
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871092"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277156"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-exceptions"></a>Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB częstotliwość żądań za duże wyjątki
 Komunikat "częstotliwość żądań zbyt duża" lub kod błędu 429 wskazuje, że Twoje żądania są ograniczone.
@@ -24,7 +24,7 @@ Poniższa sekcja zawiera znane przyczyny i rozwiązania zbyt wiele żądań.
 Sprawdź [Azure Cosmos DB monitorowania](monitor-cosmos-db.md) , aby zobaczyć liczbę wyjątków 429.
 
 #### <a name="cause"></a>Przyczyna:
-Wykorzystana przepływność (liczba jednostek żądań na sekundę) przekroczyła [zainicjowaną przepływność](set-throughput.md). Zestaw SDK automatycznie ponawia żądania na podstawie określonych zasad ponawiania. Jeśli ten błąd występuje często, należy rozważyć zwiększenie przepływności kolekcji. Sprawdź metryki portalu, aby sprawdzić, czy są wyświetlane błędy 429. Przejrzyj klucz partycji, aby upewnić się, że jest to [równomierny rozkład magazynu i woluminu żądania](partition-data.md).
+Wykorzystana przepływność (liczba jednostek żądań na sekundę) przekroczyła [zainicjowaną przepływność](set-throughput.md). Zestaw SDK automatycznie ponawia żądania na podstawie określonych zasad ponawiania. Jeśli ten błąd występuje często, należy rozważyć zwiększenie przepływności kolekcji. Sprawdź metryki portalu, aby sprawdzić, czy są wyświetlane błędy 429. Przejrzyj klucz partycji, aby upewnić się, że jest to [równomierny rozkład magazynu i woluminu żądania](partitioning-overview.md).
 
 #### <a name="solution"></a>Rozwiązanie:
 1. Użyj [portalu lub zestawu SDK](set-throughput.md) , aby zwiększyć przepływność aprowizacji.

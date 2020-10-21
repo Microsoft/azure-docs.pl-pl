@@ -2,13 +2,13 @@
 title: Alerty metryk z Azure Monitor dla kontenerów
 description: W tym artykule opisano zalecane alerty metryk dostępne w programie Azure Monitor for Containers w publicznej wersji zapoznawczej.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619954"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308640"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Zalecane alerty metryk (wersja zapoznawcza) z Azure Monitor dla kontenerów
 
@@ -45,6 +45,7 @@ Aby otrzymywać alerty dotyczące tego, co się stało, Azure Monitor dla konten
 |Średnia pamięć zestawu roboczego kontenera% |Oblicza średnią ilość pamięci zestawu roboczego użytą na kontener.|Gdy średnie użycie pamięci zestawu roboczego na kontener jest większe niż 95%. |
 |Średnie użycie CPU (%) |Oblicza średni czas użycia procesora CPU na węzeł. |Gdy średnie użycie procesora CPU przez węzeł przekracza 80% |
 |Średnie użycie dysku (%) |Oblicza średnie użycie dysku dla węzła.|Gdy użycie dysku dla węzła jest większe niż 80%. |
+|Średnie użycie trwałego woluminu% |Oblicza średnie użycie PV na jednostkę. |Gdy średnie użycie PV na wartość pod jest większe niż 80%.|
 |Średnia pamięć zestawu roboczego% |Oblicza średnią pamięć zestawu roboczego dla węzła. |Gdy średnia ilość pamięci zestawu roboczego dla węzła jest większa niż 80%. |
 |Ponowne uruchamianie liczby kontenerów |Oblicza liczbę ponownych uruchomień kontenerów. | Gdy ponowne uruchomienia kontenera są większe niż 0. |
 |Liczba zakończonych niepowodzeniem |Oblicza, czy którykolwiek z nich jest w stanie niepowodzenia.|Gdy liczba numerów w stanie niepowodzenia jest większa niż 0. |
@@ -75,6 +76,8 @@ Następujące metryki oparte na alertach mają unikatowe cechy zachowania w por�
 
 * metryki *cpuExceededPercentage*, *memoryRssExceededPercentage*i *memoryWorkingSetExceededPercentage* są wysyłane, gdy wartości z zestawu roboczego procesora CPU, pamięci RSS i pamięci przekraczają skonfigurowany próg (domyślny próg to 95%). Te progi mają wyłączny próg warunku alertu określony dla odpowiedniej reguły alertu. Znaczenie, jeśli chcesz zbierać te metryki i analizować je za pomocą [Eksploratora metryk](../platform/metrics-getting-started.md), zalecamy skonfigurowanie progu do wartości mniejszej niż wartość progowa alertu. Konfiguracja dotycząca ustawień kolekcji dla ich progów wykorzystania zasobów kontenera może zostać przesłonięta w pliku ConfigMaps w sekcji `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Aby uzyskać szczegółowe informacje dotyczące konfigurowania pliku konfiguracji ConfigMap, zobacz sekcję [Konfigurowanie metryk alertów ConfigMaps](#configure-alertable-metrics-in-configmaps) .
 
+* Metryka *pvUsageExceededPercentage* jest wysyłana, gdy wartość procentowa użycia woluminu trwałego przekracza skonfigurowany próg (wartość domyślna to 60%). Ten próg ma wyłączny próg warunku alertu określony dla odpowiedniej reguły alertu. Znaczenie, jeśli chcesz zbierać te metryki i analizować je za pomocą [Eksploratora metryk](../platform/metrics-getting-started.md), zalecamy skonfigurowanie progu do wartości mniejszej niż wartość progowa alertu. Konfigurację powiązaną z ustawieniami kolekcji dla trwałych progów wykorzystania woluminu można przesłonić w pliku ConfigMaps w sekcji `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Aby uzyskać szczegółowe informacje dotyczące konfigurowania pliku konfiguracji ConfigMap, zobacz sekcję [Konfigurowanie metryk alertów ConfigMaps](#configure-alertable-metrics-in-configmaps) . Kolekcja trwałych metryk woluminów z oświadczeniami w przestrzeni nazw *polecenia-system* jest domyślnie wykluczona. Aby włączyć zbieranie danych w tej przestrzeni nazw, użyj sekcji `[metric_collection_settings.collect_kube_system_pv_metrics]` w pliku ConfigMap. Aby uzyskać szczegółowe informacje, zobacz [Ustawienia zbierania metryki](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) .
+
 ## <a name="metrics-collected"></a>Zebrane metryki
 
 Następujące metryki są włączone i zbierane, o ile nie określono inaczej, w ramach tej funkcji:
@@ -97,6 +100,7 @@ Następujące metryki są włączone i zbierane, o ile nie określono inaczej, w
 |Szczegółowe informacje. kontenery/kontenery |cpuExceededPercentage |Procent użycia procesora CPU w przypadku kontenerów przekraczających wartość progową konfigurowalną przez użytkownika (wartość domyślna to 95,0) według nazwy kontenera, nazwy kontrolera, Kubernetes nazw, pod nazwą.<br> Gromadzenia  |
 |Szczegółowe informacje. kontenery/kontenery |memoryRssExceededPercentage |Wartość procentowa RSS pamięci dla kontenerów przekraczająca wartość progową konfigurowalną przez użytkownika (wartość domyślna to 95,0) według nazwy kontenera, nazwy kontrolera, Kubernetes przestrzeni nazw, pod nazwą.|
 |Szczegółowe informacje. kontenery/kontenery |memoryWorkingSetExceededPercentage |Procent zestawu roboczego pamięci dla kontenerów przekraczających wartość progową konfigurowalną przez użytkownika (wartość domyślna to 95,0) według nazwy kontenera, nazwy kontrolera, Kubernetes przestrzeni nazw, pod nazwą.|
+|Szczegółowe informacje. Container/persistentvolumes |pvUsageExceededPercentage |Wartość procentowa użycia PV dla woluminów trwałych przekraczających wartość progową konfigurowalną przez użytkownika (wartość domyślna to 60,0) według nazwy, Kubernetes przestrzeni nazw, nazwy woluminu, nazwy pod nazwą i nazwy węzła.
 
 ## <a name="enable-alert-rules"></a>Włącz reguły alertów
 
@@ -146,7 +150,7 @@ Podstawowe kroki są następujące:
 
 3. Wyszukaj **szablon**, a następnie wybierz pozycję **Template Deployment**.
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
 5. Zobaczysz kilka opcji tworzenia szablonu, wybierz opcję **Kompiluj własny szablon w edytorze**.
 
@@ -207,29 +211,40 @@ Aby wyświetlić alerty utworzone dla zasad włączonych, w okienku **zalecane a
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Konfigurowanie metryk z alertami w ConfigMaps
 
-Wykonaj następujące kroki, aby skonfigurować plik konfiguracyjny ConfigMap w celu zastąpienia domyślnych progów wykorzystania zasobów kontenera. Te kroki dotyczą tylko następujących metryk z alertami.
+Wykonaj następujące kroki, aby skonfigurować plik konfiguracyjny ConfigMap w celu zastąpienia domyślnych progów użycia. Te kroki dotyczą tylko następujących metryk z alertami:
 
 * *cpuExceededPercentage*
 * *memoryRssExceededPercentage*
 * *memoryWorkingSetExceededPercentage*
+* *pvUsageExceededPercentage*
 
-1. Edytuj plik YAML ConfigMap w sekcji `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` .
+1. Edytuj plik YAML ConfigMap w sekcji `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` lub `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` .
 
-2. Aby zmodyfikować próg *cpuExceededPercentage* na 90% i rozpocząć zbieranie tej metryki po spełnieniu i przekroczeniu tego progu, Skonfiguruj plik ConfigMap przy użyciu poniższego przykładu.
+   - Aby zmodyfikować próg *cpuExceededPercentage* na 90% i rozpocząć zbieranie tej metryki po spełnieniu i przekroczeniu tego progu, Skonfiguruj plik ConfigMap przy użyciu poniższego przykładu:
 
-    ```
-    container_cpu_threshold_percentage = 90.0
-    # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
-    container_memory_rss_threshold_percentage = 95.0
-    # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
-    container_memory_working_set_threshold_percentage = 95.0
-    ```
+     ```
+     [alertable_metrics_configuration_settings.container_resource_utilization_thresholds]
+         # Threshold for container cpu, metric will be sent only when cpu utilization exceeds or becomes equal to the following percentage
+         container_cpu_threshold_percentage = 90.0
+         # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
+         container_memory_rss_threshold_percentage = 95.0
+         # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
+         container_memory_working_set_threshold_percentage = 95.0
+     ```
 
-3. Uruchom następujące polecenie polecenia kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` .
+   - Aby zmodyfikować próg *pvUsageExceededPercentage* na 80% i rozpocząć zbieranie tej metryki po spełnieniu i przekroczeniu tego progu, Skonfiguruj plik ConfigMap przy użyciu poniższego przykładu:
+
+     ```
+     [alertable_metrics_configuration_settings.pv_utilization_thresholds]
+         # Threshold for persistent volume usage bytes, metric will be sent only when persistent volume utilization exceeds or becomes equal to the following percentage
+         pv_usage_threshold_percentage = 80.0
+     ```
+
+2. Uruchom następujące polecenie polecenia kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` .
 
     Przykład: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" created` .
+Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentowych zasobników; nie wszystkie są ponownie uruchomione w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do następującego przykładu i uwzględniono wynik: `configmap "container-azm-ms-agentconfig" created` .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575014"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314839"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Uruchamianie akcji na podstawie stanu grupy przy użyciu zakresów w Azure Logic Apps
 
@@ -31,7 +31,7 @@ Aby postępować zgodnie z przykładem w tym artykule, potrzebne są następują
 
 * Konto e-mail od dowolnego dostawcy poczty e-mail obsługiwanego przez Logic Apps. W tym przykładzie używa Outlook.com. Jeśli używasz innego dostawcy, przepływ ogólny pozostaje taki sam, ale interfejs użytkownika wygląda inaczej.
 
-* Klucz mapy usługi Bing. Aby uzyskać ten klucz, zobacz sekcję <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Pobieranie klucza usługi mapy Bing</a>.
+* Klucz mapy usługi Bing. Aby uzyskać ten klucz, zobacz sekcję <a href="/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key" target="_blank">Pobieranie klucza usługi mapy Bing</a>.
 
 * Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -78,7 +78,7 @@ Aplikację logiki można zapisać w dowolnym momencie, dlatego Zapisz swoją sł
       | **Punkt nawigacyjny 1** | <*Start*> | Wprowadź Początek trasy. | 
       | **Punkt nawigacyjny 2** | <*punktów*> | Wprowadź lokalizację docelową trasy. | 
       | **Uniknięcie** | Brak | Wprowadź elementy, które mają być unikane na trasie, takie jak Autostrade, opłaty i tak dalej. Aby uzyskać możliwe wartości, zobacz [Obliczanie trasy](/bingmaps/rest-services/routes/calculate-a-route). | 
-      | **Optymalizacja** | timeWithTraffic | Wybierz parametr, aby zoptymalizować trasę, na przykład odległość, czas z bieżącymi informacjami o ruchu itd. Ten przykład używa tej wartości: "timeWithTraffic" | 
+      | **Zoptymalizować** | timeWithTraffic | Wybierz parametr, aby zoptymalizować trasę, na przykład odległość, czas z bieżącymi informacjami o ruchu itd. Ten przykład używa tej wartości: "timeWithTraffic" | 
       | **Jednostka odległości** | <*Twoje preferencje*> | Wprowadź jednostkę odległości do obliczenia trasy. Ten przykład używa tej wartości: "mila" | 
       | **Tryb podróży** | Jazda samochodem | Wprowadź tryb podróży dla trasy. W tym przykładzie jest stosowana ta wartość "kierowanie" | 
       | **Transport publiczny — data i godzina** | Brak | Dotyczy tylko trybu tranzytowego. | 

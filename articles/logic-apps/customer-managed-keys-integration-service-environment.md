@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: ad5b4245cc445ecf8fae22c39db3365d71730a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400147"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318446"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Skonfiguruj klucze zarządzane przez klienta, aby szyfrować dane przechowywane w środowiskach usługi Integration Environment (ISEs) w Azure Logic Apps
 
@@ -39,7 +39,7 @@ W tym temacie przedstawiono sposób konfigurowania i określania własnego klucz
 
 * Magazyn kluczy platformy Azure z włączonymi nietrwałymi właściwościami **usuwania** i **nieprzeczyszczania**
 
-  Aby uzyskać więcej informacji na temat włączania tych właściwości, zobacz [Azure Key Vault narzędzia nietrwałego usuwania](../key-vault/general/soft-delete-overview.md) i [konfigurowania kluczy zarządzanych przez klienta przy użyciu Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Jeśli dopiero zaczynasz Azure Key Vault, Dowiedz się, [jak utworzyć magazyn kluczy](../key-vault/secrets/quick-create-portal.md#create-a-vault) za pomocą Azure Portal lub przy użyciu polecenia Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Aby uzyskać więcej informacji na temat włączania tych właściwości, zobacz [Azure Key Vault narzędzia nietrwałego usuwania](../key-vault/general/soft-delete-overview.md) i [konfigurowania kluczy zarządzanych przez klienta przy użyciu Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Jeśli dopiero zaczynasz Azure Key Vault, Dowiedz się, [jak utworzyć magazyn kluczy](../key-vault/secrets/quick-create-portal.md#create-a-vault) za pomocą Azure Portal lub przy użyciu polecenia Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * W magazynie kluczy, który jest tworzony przy użyciu tych wartości właściwości:
 
@@ -52,7 +52,7 @@ W tym temacie przedstawiono sposób konfigurowania i określania własnego klucz
 
   ![Tworzenie klucza szyfrowania zarządzanego przez klienta](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  Aby uzyskać więcej informacji, zobacz [Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) lub Azure PowerShell polecenie [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
+  Aby uzyskać więcej informacji, zobacz [Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md) lub Azure PowerShell polecenie [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
 
 * Narzędzie, za pomocą którego można utworzyć ISE przez wywołanie interfejsu API REST Logic Apps przy użyciu żądania HTTPS PUT. Na przykład można użyć programu [Poster](https://www.getpostman.com/downloads/)lub można utworzyć aplikację logiki, która wykonuje to zadanie.
 
@@ -225,7 +225,7 @@ W przypadku tego zadania można użyć polecenia Azure PowerShell [Set-AzKeyVaul
 
    1. Po zakończeniu pracy z okienkiem **zasady dostępu** wybierz pozycję **Zapisz**.
 
-Aby uzyskać więcej informacji, zobacz [jak uwierzytelniać się w celu Key Vault](/azure/key-vault/general/authentication) i [przypisywania zasad dostępu Key Vault](/azure/key-vault/general/assign-access-policy-portal).
+Aby uzyskać więcej informacji, zobacz [jak uwierzytelniać się w celu Key Vault](../key-vault/general/authentication.md) i [przypisywania zasad dostępu Key Vault](../key-vault/general/assign-access-policy-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

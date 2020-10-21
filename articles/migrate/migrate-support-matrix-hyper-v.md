@@ -3,12 +3,12 @@ title: Obsługa oceny funkcji Hyper-V w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny funkcji Hyper-V dzięki ocenie serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318181"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311333"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Macierz obsługi dla oceny funkcji Hyper-V
 
@@ -83,4 +83,4 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących portów dla oceny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przygotowanie do oceny maszyn wirtualnych funkcji Hyper-V](tutorial-prepare-hyper-v.md)
+[Przygotowanie do oceny maszyn wirtualnych funkcji Hyper-V](./tutorial-discover-hyper-v.md)

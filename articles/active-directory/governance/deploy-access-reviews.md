@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306569"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318132"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
 
@@ -87,7 +87,7 @@ Należy wziąć pod uwagę potrzebę organizacji, aby określić strategię wdra
 
 ### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich uczestników projektu
 
-Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnością oczekiwań, rezultatów i obowiązków. Aby uniknąć tych pułapek, [upewnij się, że interesują](https://aka.ms/deploymentplans) Cię odpowiednie osoby zainteresowane i że role projektu są jasne.
+Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnością oczekiwań, rezultatów i obowiązków. Aby uniknąć tych pułapek, [upewnij się, że interesują](../fundamentals/active-directory-deployment-plans.md) Cię odpowiednie osoby zainteresowane i że role projektu są jasne.
 
 Aby zapoznać się z przeglądami dostępu, prawdopodobnie zostaną uwzględnione przedstawiciele następujących zespołów w organizacji:
 
@@ -182,7 +182,7 @@ Typowe elementy docelowe do przeglądu obejmują:
 
 * [Członkostwo](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) w grupach (synchronizowane z usługą Azure AD lub utworzone w usłudze Azure ad lub Microsoft 365, w tym Microsoft Teams).
 
-* [Pakiet dostępu](/azure/active-directory/governance/entitlement-management-overview) , który grupuje zasoby (grupy, aplikacje i lokacje) w jednym pakiecie w celu zarządzania dostępem.
+* [Pakiet dostępu](./entitlement-management-overview.md) , który grupuje zasoby (grupy, aplikacje i lokacje) w jednym pakiecie w celu zarządzania dostępem.
 
 * [Role usługi Azure AD i role zasobów platformy Azure](../privileged-identity-management/pim-resource-roles-assign-roles.md) zgodnie z definicją w Privileged Identity Management.
 
@@ -244,7 +244,7 @@ Aby utworzyć zasady przeglądu dostępu, musisz dysponować następującymi inf
 | Składnik| Wartość |
 | - | - |
 | **Zasoby do przejrzenia**| Dostęp do systemu Microsoft Dynamics |
-| **Częstotliwość przeglądu**| Co miesiąc |
+| **Częstotliwość przeglądu**| Miesięcznie |
 | **Kto wykonuje przegląd**| Menedżerowie programów grupy Dynamics Business |
 | **Powiadomienie**| Wyślij wiadomość e-mail na 24 godziny przed rozpoczęciem przeglądu aliasu Dynamics-Pms<p>Dołącz do recenzentów niestandardową wiadomość, aby zabezpieczyć swój zakup |
 | **Oś czasu**| 48 godzin od powiadomienia |
@@ -448,7 +448,7 @@ Aby zmniejszyć ryzyko związane ze starymi przypisaniami ról, należy regularn
 
 ![Zrzut ekranu przedstawiający listę "przegląd członkostwa" ról Azure A D.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
-Postępuj zgodnie z instrukcjami podanymi w poniższych linkach:
+Postępuj zgodnie z instrukcjami pod poniższymi linkami:
 
 | Instrukcje | Opis |
 | - | - |
@@ -463,7 +463,7 @@ Aby zmniejszyć ryzyko związane ze starymi przypisaniami ról, należy regularn
 
 ![przeglądanie ról usługi Azure AD](./media/deploy-access-review/9-review-azure-roles-picker.png)
 
-Postępuj zgodnie z instrukcjami podanymi w poniższych linkach:
+Postępuj zgodnie z instrukcjami pod poniższymi linkami:
 
 | Instrukcje| Opis |
 | - | -|
@@ -518,4 +518,3 @@ Dowiedz się więcej na temat pokrewnych technologii.
 * [Co to jest zarządzanie prawami w usłudze Azure AD?](entitlement-management-overview.md)
 
 * [Co to jest usługa Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-

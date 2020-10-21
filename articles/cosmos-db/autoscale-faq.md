@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567591"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277970"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące przepływności dotyczącej automatycznego skalowania w Azure Cosmos DB
 
@@ -125,7 +125,7 @@ Załóżmy na przykład, że masz kontener skalowania automatycznego z 400 – 4
 - Godzina 1: T = 2: kontener rozpoczyna pobieranie żądań, co zużywa 1000 RU w ciągu 1 sekundy. Dostępne są również 200 jednostek ru wartości TTL. Możliwe do rozliczenia RU/s nadal 1000 RU/s. Bez względu na to, kiedy wystąpi TTLs, nie wpłynie to na logikę skalowania automatycznego skalowania.
 
 ### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>Co to jest mapowanie między maksymalną liczbą jednostek RU/s a partycjami fizycznymi?
-W przypadku wybrania opcji Maksymalna liczba jednostek RU na sekundę Azure Cosmos DB będzie można zapewnić: maks. RU/s/10 000 RU/s = # partycji fizycznych. Każda [partycja fizyczna](partition-data.md#physical-partitions) może obsługiwać do 10 000 ru/s i 50 GB miejsca w magazynie. W miarę wzrostu rozmiaru magazynu Azure Cosmos DB automatycznie podzielić partycje w celu dodania większej liczby partycji fizycznych, aby obsłużyć wzrost magazynu, lub zwiększyć maksymalną wartość RU/s, jeśli [Rozmiar magazynu przekracza związany z nimi limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+W przypadku wybrania opcji Maksymalna liczba jednostek RU na sekundę Azure Cosmos DB będzie można zapewnić: maks. RU/s/10 000 RU/s = # partycji fizycznych. Każda [partycja fizyczna](partitioning-overview.md#physical-partitions) może obsługiwać do 10 000 ru/s i 50 GB miejsca w magazynie. W miarę wzrostu rozmiaru magazynu Azure Cosmos DB automatycznie podzielić partycje w celu dodania większej liczby partycji fizycznych, aby obsłużyć wzrost magazynu, lub zwiększyć maksymalną wartość RU/s, jeśli [Rozmiar magazynu przekracza związany z nimi limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
 
 Maksymalna wartość RU/s bazy danych lub kontenera jest dzielona równomiernie między wszystkie partycje fizyczne. W związku z tym całkowita przepływność może być skalowana na jedną partycję fizyczną: maksymalna wartość RU/s bazy danych lub partycji fizycznych kontenera/#. 
 
@@ -147,5 +147,5 @@ Jeśli na przykład zostanie wybrana opcja 20 000 RU/s i ma 200 GB miejsca w mag
 
 * Dowiedz się, jak [włączyć automatyczne skalowanie na Azure Cosmos DB bazie danych lub kontenerze](how-to-provision-autoscale-throughput.md).
 * Dowiedz się więcej na temat [korzyści z przedziału IT obsługiwanego przez automatyczne skalowanie](provision-throughput-autoscale.md#benefits-of-autoscale).
-* Dowiedz się więcej o [partycjach logicznych i fizycznych](partition-data.md).
+* Dowiedz się więcej o [partycjach logicznych i fizycznych](partitioning-overview.md).
                         

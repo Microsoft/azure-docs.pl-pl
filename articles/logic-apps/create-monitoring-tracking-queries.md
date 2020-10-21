@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: cb1af437fc663fcb95c768ec295862209a26064e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090403"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309913"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Wyświetlaj i twórz zapytania dotyczące monitorowania i śledzenia w Azure Monitor dziennikach dla Azure Logic Apps
 
-Można wyświetlić podstawowe zapytania, które tworzą wyniki z [dzienników Azure monitor](../azure-monitor/log-query/log-query-overview.md) i tworzyć zapytania filtrujące wyniki na podstawie określonych kryteriów. Na przykład można znaleźć komunikaty na podstawie określonego numeru kontrolnego wymiany. Zapytania używają [języka zapytań Kusto](https://aka.ms/LogAnalyticsLanguageReference), który można edytować, jeśli chcesz wyświetlić różne wyniki. Aby uzyskać więcej informacji, zobacz [Azure monitor kwerendy dzienników](../azure-monitor/log-query/query-language.md).
+Można wyświetlić podstawowe zapytania, które tworzą wyniki z [dzienników Azure monitor](../azure-monitor/log-query/log-query-overview.md) i tworzyć zapytania filtrujące wyniki na podstawie określonych kryteriów. Na przykład można znaleźć komunikaty na podstawie określonego numeru kontrolnego wymiany. Zapytania używają [języka zapytań Kusto](/azure/data-explorer/kusto/query/), który można edytować, jeśli chcesz wyświetlić różne wyniki. Aby uzyskać więcej informacji, zobacz [Azure monitor kwerendy dzienników](/azure/data-explorer/kusto/query/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -59,7 +59,7 @@ Aby znaleźć lub filtrować wyniki na podstawie określonych właściwości lub
 
      ![Zacznij od "Logic Apps B2B" wstępnie skompilowanych zapytań](./media/create-monitoring-tracking-queries/b2b-prebuilt-queries.png)
 
-   * Aby rozpocząć od pustego zapytania, w edytorze zapytań Rozpocznij pisanie [języka zapytań Kusto](../azure-monitor/log-query/query-language.md) dla zapytania.
+   * Aby rozpocząć od pustego zapytania, w edytorze zapytań Rozpocznij pisanie [języka zapytań Kusto](/azure/data-explorer/kusto/query/) dla zapytania.
 
      ![Rozpocznij od pustego zapytania](./media/create-monitoring-tracking-queries/create-query-from-blank.png)
 

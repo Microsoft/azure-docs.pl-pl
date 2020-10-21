@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090284"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317375"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Typowe scenariusze, przykłady, samouczki i przewodniki dotyczące Azure Logic Apps
 
@@ -126,7 +126,7 @@ Możesz w pełni opracowywać i wdrażać aplikacje logiki za pomocą programu V
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>Obsługa typów zawartości, konwersji i transformacji
 
-Można uzyskać dostęp do, konwertować i przetwarzać wiele typów zawartości za pomocą wielu funkcji w Azure Logic Apps [języku definicji przepływu pracy](https://aka.ms/logicappsdocs). Na przykład można dokonać konwersji między ciągami, JSON i XML za pomocą `@json()` `@xml()` wyrażeń i. Aparat Logic Apps zachowuje typy zawartości obsługujące transfer zawartości w sposób bezstratny między usługami.
+Można uzyskać dostęp do, konwertować i przetwarzać wiele typów zawartości za pomocą wielu funkcji w Azure Logic Apps [języku definicji przepływu pracy](./logic-apps-workflow-definition-language.md). Na przykład można dokonać konwersji między ciągami, JSON i XML za pomocą `@json()` `@xml()` wyrażeń i. Aparat Logic Apps zachowuje typy zawartości obsługujące transfer zawartości w sposób bezstratny między usługami.
 
 * [Obsługa typów zawartości w Azure Logic Apps](../logic-apps/logic-apps-content-type.md), takich jak `application/` , `application/octet-stream` , i `multipart/formdata`
 * [Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji](../logic-apps/workflow-definition-language-functions-reference.md)

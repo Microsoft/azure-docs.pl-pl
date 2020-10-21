@@ -3,18 +3,18 @@ title: Dodawanie rozszerzenia zestawu skalowania maszyn wirtualnych do Service F
 description: Poniżej przedstawiono sposób dodawania rozszerzenia zestawu skalowania maszyn wirtualnych Service Fabric typu węzła klastra zarządzanego
 ms.topic: article
 ms.date: 09/28/2020
-ms.openlocfilehash: 10487bad4fce41c68b4e2cb90c311b986d709eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be51a03494c90ba91cddb383b62b2477fabc8fc3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410322"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309294"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type-preview"></a>Dodawanie rozszerzenia zestawu skalowania maszyn wirtualnych do Service Fabric typu węzła klastra zarządzanego (wersja zapoznawcza)
 
 Każdy typ węzła w klastrze zarządzanym Service Fabric jest obsługiwany przez zestaw skalowania maszyn wirtualnych. Dzięki temu można dodać [rozszerzenia zestawu skalowania maszyn wirtualnych](../virtual-machines/extensions/overview.md) do Service Fabric typów węzłów klastra zarządzanego.
 
-Rozszerzenie zestawu skalowania maszyn wirtualnych można dodać do typu węzła za pomocą polecenia programu PowerShell [Add-AzServiceFabricManagedNodeTypeVMExtension](https://docs.microsoft.com/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension?view=azps-4.7.0&preserve-view=true) .
+Rozszerzenie zestawu skalowania maszyn wirtualnych można dodać do typu węzła za pomocą polecenia programu PowerShell [Add-AzServiceFabricManagedNodeTypeVMExtension](/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension?preserve-view=true&view=azps-4.7.0) .
 
 Alternatywnie możesz mieć rozszerzenie zestawu skalowania maszyn wirtualnych na Service Fabric typu węzła klastra zarządzanego w Azure Resource Manager szablonie, na przykład:
 
@@ -51,7 +51,7 @@ Alternatywnie możesz mieć rozszerzenie zestawu skalowania maszyn wirtualnych n
 }
 ```
 
-Aby uzyskać więcej informacji na temat konfigurowania Service Fabric zarządzanych typów węzłów klastra, zobacz [Typ węzła klastra zarządzanego](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes).
+Aby uzyskać więcej informacji na temat konfigurowania Service Fabric zarządzanych typów węzłów klastra, zobacz [Typ węzła klastra zarządzanego](/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes).
 
 ## <a name="next-steps"></a>Następne kroki
 

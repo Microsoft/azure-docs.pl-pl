@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896635"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311511"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant
 
@@ -61,7 +61,7 @@ Aby wdrożyć potok, należy najpierw skonwertować potok szkoleniowy do potoku 
 
 1. Wybierz pozycję **Prześlij**, a następnie użyj tego samego elementu docelowego obliczeń i eksperymentu, który został użyty w części pierwszej.
 
-    Jeśli jest to pierwsze uruchomienie, ukończenie potoku może potrwać do 20 minut. Domyślne ustawienia obliczeń mają minimalny rozmiar węzła równy 0, co oznacza, że projektant musi przydzielić zasoby po stanie bezczynności. Powtarzające się uruchomienia potoku będą trwać krócej od czasu przydziału zasobów obliczeniowych. Ponadto projektant używa buforowanych wyników dla każdego modułu, aby zwiększyć wydajność.
+    Jeśli jest to pierwsze uruchomienie, ukończenie działania potoku może potrwać do 20 minut. Domyślne ustawienia obliczeń mają minimalny rozmiar węzła równy 0, co oznacza, że projektant musi przydzielić zasoby po stanie bezczynności. Powtarzające się uruchomienia potoku będą trwać krócej od czasu przydziału zasobów obliczeniowych. Ponadto projektant używa buforowanych wyników dla każdego modułu, aby zwiększyć wydajność.
 
 1. Wybierz pozycję **Deploy** (Wdróż).
 
@@ -81,7 +81,7 @@ W wyświetlonym oknie dialogowym możesz wybrać dowolny z istniejących klastr�
     
 1. Wybierz region znajdujący się w pobliżu, który jest dostępny dla **regionu**.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     > [!NOTE]
     > Utworzenie nowej usługi AKS trwa około 15 minut. Stan aprowizacji można sprawdzić na stronie **klastry wnioskowania** .
@@ -103,21 +103,17 @@ Po zakończeniu aprowizacji usługi AKS Wróć do potoku inferencing w czasie rz
 
     Powiadomienie o powodzeniu powyżej kanwy pojawia się po zakończeniu wdrażania. Może to potrwać kilka minut.
 
-## <a name="test-the-real-time-endpoint"></a>Testowanie punktu końcowego w czasie rzeczywistym
+## <a name="view-the-real-time-endpoint"></a>Wyświetlanie punktu końcowego w czasie rzeczywistym
 
-Po zakończeniu wdrażania można testować punkt końcowy w czasie rzeczywistym, przechodząc do strony **punkty końcowe** .
+Po zakończeniu wdrażania można wyświetlić punkt końcowy w czasie rzeczywistym, przechodząc do strony **punkty końcowe** .
 
 1. Na stronie **punkty końcowe** Wybierz wdrożony punkt końcowy.
 
-    ![Zrzut ekranu przedstawiający kartę punkty końcowe czasu rzeczywistego z wyróżnionym ostatnio utworzonym punktem końcowym](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
+1. Na karcie **szczegóły** można zobaczyć więcej informacji, takich jak identyfikator URI REST, stan i Tagi.
 
-1. Kliknij przycisk **Testuj**.
+1. Na karcie **Korzystanie** można znaleźć klucze zabezpieczeń i ustawić metody uwierzytelniania.
 
-1. Możesz ręcznie wprowadzić dane testowe lub użyć autowypełnianych danych przykładowych, a następnie wybrać opcję **Testuj**.
-
-    Portal przesyła żądanie testowe do punktu końcowego i wyświetla wyniki. Mimo że dla danych wejściowych jest generowana wartość ceny, nie jest ona używana do generowania wartości przewidywania.
-
-    ![Zrzut ekranu przedstawiający sposób testowania punktu końcowego w czasie rzeczywistym z etykietą z oceną dla wyróżnionej ceny](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
+Aby uzyskać więcej informacji na temat konsumowania usługi sieci Web, zobacz [Korzystanie z modelu wdrożonego jako usługa WebService](how-to-consume-web-service.md)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

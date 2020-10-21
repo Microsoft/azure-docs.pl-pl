@@ -5,18 +5,18 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4bd6cdf6d3a5dc30b90abc5094202360181ae0b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061686"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318517"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrowanie usługi Apache Kafka Connect Support w usłudze Azure Event Hubs (wersja zapoznawcza) z usługą Debezium na potrzeby przechwytywania zmian danych
 
 **Przechwytywanie zmian (Reporting Data Capture)** to technika służąca do śledzenia zmian na poziomie wierszy w tabelach bazy danych w odpowiedzi na tworzenie, aktualizowanie i usuwanie operacji. [Debezium](https://debezium.io/) to platforma rozproszona, która kompiluje się na podstawie funkcji przechwytywania zmian danych dostępnych w różnych bazach danych (np. [dekodowanie logiczne w PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). Udostępnia zestaw [łączników połączeń Kafka](https://debezium.io/documentation/reference/1.2/connectors/index.html) , które wybierają zmiany na poziomie wierszy w tabelach bazy danych i konwertują je na strumienie zdarzeń, które następnie są wysyłane do [Apache Kafka](https://kafka.apache.org/).
 
-Ten samouczek przeprowadzi Cię przez proces konfigurowania systemu opartego na funkcji przechwytywania zmian danych na platformie Azure przy użyciu [usługi azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=devto-blog-abhishgu) (dla Kafka), [usługi Azure DB dla PostgreSQL](../postgresql/overview.md) i Debezium. Użycie [łącznika Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) do przesyłania strumieniowego modyfikacji bazy danych z PostgreSQL do Kafka tematów na platformie Azure Event Hubs
+Ten samouczek przeprowadzi Cię przez proces konfigurowania systemu opartego na funkcji przechwytywania zmian danych na platformie Azure przy użyciu [usługi azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (dla Kafka), [usługi Azure DB dla PostgreSQL](../postgresql/overview.md) i Debezium. Użycie [łącznika Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) do przesyłania strumieniowego modyfikacji bazy danych z PostgreSQL do Kafka tematów na platformie Azure Event Hubs
 
 W tym samouczku wykonasz następujące kroki:
 

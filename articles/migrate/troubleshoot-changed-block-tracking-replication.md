@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871188"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314727"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Rozwiązywanie problemów z replikacją w przypadku migracji maszyn wirtualnych VMware bez agentów
 
@@ -90,7 +90,7 @@ Składnik próbujący zreplikować dane na platformę Azure jest wyłączony lub
     
     **Kroki prowadzące do uruchomienia testu porównawczego wydajności:**
     
-      1. [Pobierz](https://go.microsoft.com/fwlink/?linkid=2138966) AzCopy
+      1. [Pobierz](../storage/common/storage-use-azcopy-v10.md) AzCopy
         
       2. Poszukaj konta magazynu urządzenia w grupie zasobów. Konto magazynu ma nazwę podobną do migrategwsa \* \* \* \* \* \* \* \* \* \* . Jest to wartość parametru [Account] w powyższym poleceniu.
         
@@ -170,7 +170,7 @@ Możliwe przyczyny:
     
     **Kroki prowadzące do uruchomienia testu porównawczego wydajności:**
     
-      1. [Pobierz](https://go.microsoft.com/fwlink/?linkid=2138966) AzCopy
+      1. [Pobierz](../storage/common/storage-use-azcopy-v10.md) AzCopy
         
       2. Poszukaj konta magazynu urządzenia w grupie zasobów. Konto magazynu ma nazwę podobną do migratelsa \* \* \* \* \* \* \* \* \* \* . Jest to wartość parametru [Account] w powyższym poleceniu.
         
@@ -295,4 +295,4 @@ Dzieje się tak, gdy bufor hosta NFC ma za mało pamięci. Aby rozwiązać ten p
 
 ## <a name="next-steps"></a>Następne kroki
 
-Kontynuuj replikację maszyny wirtualnej i przeprowadź [migrację testową](https://go.microsoft.com/fwlink/?linkid=2139333).
+Kontynuuj replikację maszyny wirtualnej i przeprowadź [migrację testową](./tutorial-migrate-vmware.md#run-a-test-migration).

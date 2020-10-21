@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/06/2020
+ms.date: 10/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: f8c6f7daecd38babaa4f2961d04a6cd4c3b4dbed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840561"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309677"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: dostępność regionu & dane miejsca do zamieszkania
 
@@ -59,6 +59,14 @@ Następujące kraje/regiony są w trakcie dodawania do listy. Na razie można na
 
 > Argentyna, Australia, Brazylia, Chile, Kolumbia, Ekwador, Irak, Nowa Zelandia, Paragwaj, Peru, Urugwaj i Wenezuela.
 
+## <a name="remote-profile-solution"></a>Rozwiązanie profilu zdalnego
+
+Dzięki Azure AD B2C [zasad niestandardowych](custom-policy-overview.md)można zintegrować z [usługami interfejsu API RESTful](custom-policy-rest-api-intro.md), które umożliwiają przechowywanie i odczytywanie profilów użytkowników ze zdalnej bazy danych (np. marketingowej bazy danych, systemu CRM lub dowolnych aplikacji biznesowych).  
+- Podczas procesu rejestrowania i edytowania profilów Azure AD B2C wywołuje niestandardowy interfejs API REST, aby utrzymać profil użytkownika w zdalnym źródle danych. Poświadczenia użytkownika są przechowywane w katalogu Azure AD B2C. 
+- Po zalogowaniu się po sprawdzeniu poprawności poświadczeń przy użyciu konta lokalnego lub społecznościowego Azure AD B2C wywołuje interfejs API REST, który wysyła unikatowy identyfikator użytkownika jako klucz podstawowy użytkownika (adres e-mail lub identyfikator obiektu użytkownika). Interfejs API REST odczytuje dane ze zdalnej bazy danych i zwraca profil użytkownika.  
+
+Po zakończeniu rejestracji, edycji profilu lub zalogowaniu Azure AD B2C zawiera profil użytkownika w tokenie dostępu, który jest zwracany do aplikacji. Aby uzyskać więcej informacji, zapoznaj się z [przykładowym rozwiązaniem Azure AD B2C profilu zdalnego](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) w serwisie GitHub.
+
 ## <a name="preview-tenant"></a>Zapoznawcza dzierżawy
 
 Jeśli dzierżawa B2C została utworzona w okresie zapoznawczym usługi Azure AD B2C's, prawdopodobnie **Typ dzierżawy** ma wartość **wersja zapoznawcza**.
@@ -70,3 +78,7 @@ W takim przypadku należy użyć dzierżawy tylko do celów deweloperskich i tes
 Istnieją znane problemy związane z usuwaniem dzierżawy B2C w wersji zapoznawczej i tworzenie dzierżawy B2C w skali produkcyjnej o tej samej nazwie domeny. *Musisz utworzyć dzierżawę B2C w skali produkcyjnej z inną nazwą domeny*.
 
 ![Zrzut ekranu przedstawiający typ dzierżawy jako dzierżawę w wersji zapoznawczej.](./media/data-residency/preview-b2c-tenant.png)
+
+## <a name="next-steps"></a>Następne kroki
+
+- [Utwórz dzierżawę Azure AD B2C](tutorial-create-tenant.md).

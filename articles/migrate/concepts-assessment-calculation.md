@@ -3,12 +3,12 @@ title: Oceny maszyn wirtualnych platformy Azure w ramach oceny Azure Migrate Ser
 description: Dowiedz się więcej na temat ocen w Azure Migrate oceny serwera
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d08e3c1c0035ee2bb56ee54f1ffb7ffb439d61b6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275527"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319313"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Przegląd oceny serwera (Migrowanie do maszyn wirtualnych platformy Azure)
 
@@ -54,7 +54,7 @@ Jeśli wdrażasz urządzenie Azure Migrate w celu odnajdywania serwerów lokalny
 
 Po rozpoczęciu odnajdywania urządzenia przez urządzenie można zbierać maszyny do oceny w grupie i uruchamiać ocenę dla grupy z typem oceny **maszyny wirtualnej platformy Azure**.
 
-Postępuj zgodnie z naszymi samouczkami dotyczącymi [rozwiązań VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md)i [serwerów fizycznych](tutorial-prepare-physical.md) , aby wypróbować te kroki.
+Postępuj zgodnie z naszymi samouczkami dotyczącymi [rozwiązań VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md)i [serwerów fizycznych](./tutorial-discover-physical.md) , aby wypróbować te kroki.
 
 ## <a name="how-do-i-assess-with-imported-data"></a>Jak mogę oceniać z zaimportowanymi danymi?
 
@@ -173,7 +173,7 @@ Windows Server 2012 R2 i wszystkie SPs | Platforma Azure oferuje pełną pomoc t
 Windows Server 2012 i wszystkie SPs | Platforma Azure oferuje pełną pomoc techniczną. | Gotowe na platformę Azure.
 Windows Server 2008 R2 ze wszystkimi usługami SPs | Platforma Azure oferuje pełną pomoc techniczną.| Gotowe na platformę Azure.
 Windows Server 2008 (32-bitowe i 64-bit) | Platforma Azure oferuje pełną pomoc techniczną. | Gotowe na platformę Azure.
-Windows Server 2003 i Windows Server 2003 R2 | Te systemy operacyjne przekazały swoje daty końca obsługi i potrzebują [niestandardowej umowy pomocy technicznej (CSA)](https://aka.ms/WSosstatement) w celu uzyskania pomocy technicznej na platformie Azure. | Warunkowo gotowy na platformę Azure. Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie systemu operacyjnego.
+Windows Server 2003 i Windows Server 2003 R2 | Te systemy operacyjne przekazały swoje daty końca obsługi i potrzebują [niestandardowej umowy pomocy technicznej (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) w celu uzyskania pomocy technicznej na platformie Azure. | Warunkowo gotowy na platformę Azure. Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie systemu operacyjnego.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 i MS-DOS | Te systemy operacyjne przekazały swoje daty końca wsparcia. Maszyna może zaczynać się na platformie Azure, ale nie obsługuje systemu operacyjnego. | Warunkowo gotowy na platformę Azure. Zalecamy uaktualnienie systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.
 Windows 7, Windows 8 i Windows 10 | Platforma Azure zapewnia pomoc techniczną tylko w przypadku [subskrypcji programu Visual Studio.](../virtual-machines/windows/client-images.md) | Warunkowo gotowy na platformę Azure.
 Windows 10 Pro | Platforma Azure zapewnia pomoc techniczną z [wielodostępnymi prawami hostingu.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Warunkowo gotowy na platformę Azure.
@@ -297,6 +297,6 @@ Koszty są wyświetlane w walucie określonej w ustawieniach oceny.
 
 [Zapoznaj](best-practices-assessment.md) się z najlepszymi rozwiązaniami dotyczącymi tworzenia ocen. 
 
-- Dowiedz się więcej o uruchamianiu ocen dla [maszyn wirtualnych VMware](tutorial-prepare-vmware.md), [maszyn wirtualnych funkcji Hyper-V](tutorial-prepare-hyper-v.md)i [serwerów fizycznych](tutorial-prepare-physical.md).
-- Dowiedz się więcej na temat oceniania serwerów [zaimportowanych przy użyciu pliku CSV](tutorial-assess-import.md).
+- Dowiedz się więcej o uruchamianiu ocen dla [maszyn wirtualnych VMware](./tutorial-discover-vmware.md), [maszyn wirtualnych funkcji Hyper-V](./tutorial-discover-hyper-v.md)i [serwerów fizycznych](./tutorial-discover-physical.md).
+- Dowiedz się więcej na temat oceniania serwerów [zaimportowanych przy użyciu pliku CSV](./tutorial-discover-import.md).
 - Dowiedz się więcej na temat konfigurowania [wizualizacji zależności](concepts-dependency-visualization.md).

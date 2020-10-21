@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626483"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279214"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Samouczek: szybka skalowanie i ochrona aplikacji sieci Web przy użyciu platformy Azure z przodu i zapory aplikacji sieci Web platformy Azure (WAF)
 
@@ -36,10 +36,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Instrukcje podane w tym samouczku korzystają z interfejsu wiersza polecenia platformy Azure. [Obejrzyj ten przewodnik](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) , aby rozpocząć pracę z interfejsem wiersza polecenia platformy Azure.
+- Instrukcje podane w tym samouczku korzystają z interfejsu wiersza polecenia platformy Azure. [Obejrzyj ten przewodnik](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) , aby rozpocząć pracę z interfejsem wiersza polecenia platformy Azure.
 
   > [!TIP] 
-  > Łatwa i szybka metoda rozpoczynania pracy w interfejsie wiersza polecenia platformy Azure to [bash w Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+  > Łatwa i szybka metoda rozpoczynania pracy w interfejsie wiersza polecenia platformy Azure to [bash w Azure Cloud Shell](../cloud-shell/quickstart.md).
 
 - Upewnij się, że `front-door` rozszerzenie zostało dodane do interfejsu wiersza polecenia platformy Azure:
 
@@ -48,7 +48,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
    ```
 
 > [!NOTE] 
-> Aby uzyskać więcej informacji na temat poleceń używanych w tym samouczku, zobacz [Dokumentacja interfejsu wiersza polecenia platformy Azure dla drzwi zewnętrznych](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true).
+> Aby uzyskać więcej informacji na temat poleceń używanych w tym samouczku, zobacz [Dokumentacja interfejsu wiersza polecenia platformy Azure dla drzwi zewnętrznych](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-an-azure-front-door-resource"></a>Tworzenie zasobu frontonu platformy Azure
 
@@ -62,7 +62,7 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 `--name`: Nazwa zasobu usługi Azure front-drzwi.
 
-`--resource-group`: Grupa zasobów, w której ma zostać umieszczony ten zasób platformy Azure. Aby dowiedzieć się więcej na temat grup zasobów, zobacz [Zarządzanie grupami zasobów na platformie Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
+`--resource-group`: Grupa zasobów, w której ma zostać umieszczony ten zasób platformy Azure. Aby dowiedzieć się więcej na temat grup zasobów, zobacz [Zarządzanie grupami zasobów na platformie Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 W odpowiedzi, którą uzyskasz po uruchomieniu tego polecenia, poszukaj klucza `hostName` . Ta wartość będzie potrzebna w późniejszym kroku. `hostName`Jest nazwą DNS utworzonego zasobu platformy Azure z góry.
 
@@ -130,21 +130,21 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 Niestandardowa nazwa domeny aplikacji sieci Web jest używana przez klientów do odwoływania się do Twojej aplikacji. Na przykład www.contoso.com. Początkowo Ta niestandardowa nazwa domeny wskazywała lokalizację, w której została uruchomiona przed wprowadzeniem zewnętrznych drzwi platformy Azure. Po dodaniu platformy Azure z przodu i WAF do aplikacji, wpis DNS, który odpowiada tej domenie niestandardowej, powinien wskazywać na zasób frontonu platformy Azure. Możesz wprowadzić tę zmianę, ponownie mapując wpis na serwerze DNS na moje drzwi platformy Azure `hostName` zanotowane podczas tworzenia zasobu platformy Azure z przodu.
 
-Określone kroki aktualizowania rekordów DNS będą zależeć od dostawcy usługi DNS. Jeśli używasz Azure DNS do hostowania nazwy DNS, możesz zapoznać się z dokumentacją, aby uzyskać [instrukcje dotyczące aktualizacji rekordu DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) i wskazywać drzwiczki frontonu platformy Azure `hostName` . 
+Określone kroki aktualizowania rekordów DNS będą zależeć od dostawcy usługi DNS. Jeśli używasz Azure DNS do hostowania nazwy DNS, możesz zapoznać się z dokumentacją, aby uzyskać [instrukcje dotyczące aktualizacji rekordu DNS](../dns/dns-operations-recordsets-cli.md) i wskazywać drzwiczki frontonu platformy Azure `hostName` . 
 
-Należy pamiętać o tym, że klienci mogą uzyskać dostęp do witryny sieci Web przy użyciu wierzchołka strefy (na przykład contoso.com). W takim przypadku należy użyć Azure DNS i jego [typu rekordu aliasu](https://docs.microsoft.com/azure/dns/dns-alias) , aby hostować nazwę DNS. 
+Należy pamiętać o tym, że klienci mogą uzyskać dostęp do witryny sieci Web przy użyciu wierzchołka strefy (na przykład contoso.com). W takim przypadku należy użyć Azure DNS i jego [typu rekordu aliasu](../dns/dns-alias.md) , aby hostować nazwę DNS. 
 
-Należy również zaktualizować konfigurację drzwi platformy Azure, aby dodać do niej [domenę niestandardową](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) , tak aby była ona świadoma tego mapowania.
+Należy również zaktualizować konfigurację drzwi platformy Azure, aby dodać do niej [domenę niestandardową](./front-door-custom-domain.md) , tak aby była ona świadoma tego mapowania.
 
-Na koniec, jeśli używasz domeny niestandardowej do uzyskiwania dostępu do aplikacji sieci Web i chcesz włączyć protokół HTTPS. Musisz [skonfigurować certyfikaty dla niestandardowej domeny na platformie Azure](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Na koniec, jeśli używasz domeny niestandardowej do uzyskiwania dostępu do aplikacji sieci Web i chcesz włączyć protokół HTTPS. Musisz [skonfigurować certyfikaty dla niestandardowej domeny na platformie Azure](./front-door-custom-domain-https.md). 
 
 ## <a name="lock-down-your-web-application"></a>Zablokuj aplikację sieci Web
 
-Zalecamy upewnienie się, że tylko krawędzie z przodu platformy Azure mogą komunikować się z Twoją aplikacją sieci Web. Dzięki temu nikt nie będzie mógł ominąć ochrony przed drzwiami platformy Azure i bezpośrednio uzyskiwać dostęp do aplikacji. Aby wykonać tę blokadę, zobacz [Jak mogę zablokować dostęp do mojego zaplecza tylko do platformy Azure — przód?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+Zalecamy upewnienie się, że tylko krawędzie z przodu platformy Azure mogą komunikować się z Twoją aplikacją sieci Web. Dzięki temu nikt nie będzie mógł ominąć ochrony przed drzwiami platformy Azure i bezpośrednio uzyskiwać dostęp do aplikacji. Aby wykonać tę blokadę, zobacz [Jak mogę zablokować dostęp do mojego zaplecza tylko do platformy Azure — przód?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy zasoby używane w tym samouczku nie są już potrzebne, użyj polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) , aby usunąć grupę zasobów, drzwiczki z przodu i zasady WAF:
+Gdy zasoby używane w tym samouczku nie są już potrzebne, użyj polecenia [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) , aby usunąć grupę zasobów, drzwiczki z przodu i zasady WAF:
 
 ```azurecli-interactive
   az group delete \

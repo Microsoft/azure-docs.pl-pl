@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8757399329f3a9bd9f4d7b914b12b2a0f7e85603
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711963a60d5c75031ff676a9c7f1db47f20fe895
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448285"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275257"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Wprowadzenie do usługi Azure Defender dla serwerów
 
@@ -27,11 +27,18 @@ W przypadku systemu Linux usługa Azure Defender zbiera rekordy inspekcji z masz
 
 Możliwości wykrywania zagrożeń i ochrony zapewniane w usłudze Azure Defender dla serwerów obejmują:
 
+- **Zintegrowanej licencji dla programu Microsoft Defender for Endpoint (tylko system Windows)** — usługa Azure Defender dla serwerów zawiera usługę  [Microsoft Defender dla punktu końcowego](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Razem zapewniają kompleksowe możliwości wykrywania i reagowania punktów końcowych (EDR). [Dowiedz się więcej](security-center-wdatp.md).
+
+    Gdy usługa Defender dla punktów końcowych wykryje zagrożenie, wyzwala alert. Alert jest wyświetlany w Security Center. W Security Center można również przestawić do usługi Defender dla konsoli punktu końcowego i przeprowadzić szczegółowe badanie, aby odkryć zakres ataku. Dowiedz się więcej o usłudze Microsoft Defender dla punktu końcowego.
+
+    > [!IMPORTANT]
+    > Czujnik usługi **Microsoft Defender dla punktów końcowych** jest automatycznie włączany na serwerach z systemem Windows, które używają Security Center.
+
 - **Skanowanie w celu oceny luk w zabezpieczeniach dla maszyn wirtualnych** — skaner luk w zabezpieczeniach zawarty w Azure Security Center jest obsługiwany przez Qualys. 
 
     Skaner Qualys jest jednym z wiodących narzędzi do identyfikacji luk w zabezpieczeniach w czasie rzeczywistym w usłudze Azure Virtual Machines. Nie potrzebujesz licencji Qualys, a nawet konta Qualys — wszystko, co jest obsługiwane bezproblemowo w Security Center. [Dowiedz się więcej](deploy-vulnerability-assessment-vm.md).
 
-- Uczestnicy **dostępu do maszyn wirtualnych "just-in-Time (JIT)" aktywnie czekają** dostępne maszyny z otwartymi portami zarządzania, takimi jak RDP lub SSH. Wszystkie maszyny wirtualne są potencjalnymi obiektami docelowymi ataku. Po pomyślnym naruszeniu maszyny wirtualnej jest ona używana jako punkt wejścia do ataku dalszych zasobów w środowisku.
+- **W przypadku maszyn wirtualnych z dostępem "just-in-Time (JIT)" (VM)** dla osób niezagrażających zagrożeniom aktywne komputery z otwartymi portami zarządzania, takimi jak RDP lub SSH. Wszystkie maszyny wirtualne są potencjalnymi obiektami docelowymi ataku. Po pomyślnym naruszeniu maszyny wirtualnej jest ona używana jako punkt wejścia do ataku dalszych zasobów w środowisku.
 
     Po włączeniu usługi Azure Defender dla serwerów można użyć dostępu just in Time do maszyny wirtualnej w celu zablokowania ruchu przychodzącego do maszyn wirtualnych, co zmniejsza narażenie na ataki, zapewniając łatwy dostęp do łączenia się z maszynami wirtualnymi w razie potrzeby. [Dowiedz się więcej](just-in-time-explained.md).
 
@@ -46,13 +53,6 @@ Możliwości wykrywania zagrożeń i ochrony zapewniane w usłudze Azure Defende
 - **Adaptacyjne ograniczanie sieci (Anh)** — stosowanie sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) do filtrowania ruchu do i z zasobów, usprawnia zabezpieczenia sieci stan. Nadal jednak mogą istnieć sytuacje, w których rzeczywisty ruch przepływający przez sieciowej grupy zabezpieczeń jest podzbiorem zdefiniowanych reguł sieciowej grupy zabezpieczeń. W takich przypadkach dalsze ulepszanie stan zabezpieczeń można osiągnąć przez zaostrzonie reguł sieciowej grupy zabezpieczeń na podstawie rzeczywistych wzorców ruchu.
 
     Adaptacyjne zwiększanie przepustowości sieci zapewnia rekomendacje w celu dalszej ochrony reguł sieciowej grupy zabezpieczeń. Używa algorytmu uczenia maszynowego, który ma czynniki w rzeczywistym ruchu, znanej zaufanej konfiguracji, analizie zagrożeń i innych wskaźnikach naruszenia, a następnie udostępnia zalecenia zezwalające na ruch tylko z konkretnych krotek IP/portów. [Dowiedz się więcej](security-center-adaptive-network-hardening.md).
-
-- **Integracja z usługą Microsoft Defender Advanced Threat Protection (tylko system Windows)** — usługa Azure Defender integruje się z usługą Microsoft Defender Advanced Threat Protection (ATP). Razem zapewniają kompleksowe możliwości wykrywania i reagowania punktów końcowych (EDR). [Dowiedz się więcej](security-center-wdatp.md).
-
-    > [!IMPORTANT]
-    > Czujnik ATP programu Microsoft Defender jest automatycznie włączany na serwerach z systemem Windows, które używają Security Center.
-
-    Gdy usługa Microsoft Defender ATP wykryje zagrożenie, wyzwala alert. Alert jest wyświetlany w Security Center. W Security Center można również przestawić na konsolę usługi Microsoft Defender ATP i wykonać szczegółowe badanie w celu odzyskania zakresu ataku. Aby uzyskać więcej informacji o usłudze Microsoft Defender ATP, zobacz Dołączanie [serwerów do usługi Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 - **Ograniczanie funkcjonalności hosta platformy Docker** — Azure Security Center identyfikuje niezarządzane kontenery hostowane na maszynach wirtualnych z systemem Linux IaaS lub innych maszynach systemu Linux z uruchomionymi kontenerami Docker Security Center stale ocenia konfiguracje tych kontenerów. Następnie porównuje je ze wzorcem usługi Docker dla usługi Internet Security (CIS). Security Center obejmuje cały zestaw reguł testu wydajnościowego usługi CIS Docker i generuje alert, jeśli kontenery nie spełniają żadnej z tych kontrolek. [Dowiedz się więcej](harden-docker-hosts.md).
 

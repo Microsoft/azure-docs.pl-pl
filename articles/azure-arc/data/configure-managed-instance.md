@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f687923f1185d848c2c4f2f40d949c71a7743d65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940634"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311124"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Konfiguruj wystąpienie zarządzane SQL z obsługą usługi Azure Arc
 
@@ -22,11 +22,11 @@ W tym artykule wyjaśniono, jak skonfigurować wystąpienie zarządzane SQL z ob
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="configure-resources-for-azure-arc-enabled-sql-managed-instance"></a>Konfigurowanie zasobów dla wystąpienia zarządzanego SQL z obsługą usługi Azure Arc
+## <a name="configure-resources"></a>Konfigurowanie zasobów
 
-### <a name="configure-using-azdata"></a>Konfigurowanie przy użyciu azdata
+### <a name="configure-using-azure-data-cli-azdata"></a>Konfiguruj przy użyciu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
-Można edytować konfigurację wystąpień zarządzanych przez usługę Azure ARC przy użyciu `azdata` interfejsu wiersza polecenia. Uruchom następujące polecenie, aby wyświetlić opcje konfiguracji. 
+Można edytować konfigurację wystąpień zarządzanych przez usługę Azure ARC przy użyciu programu [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] . Uruchom następujące polecenie, aby wyświetlić opcje konfiguracji. 
 
 ```
 azdata arc sql mi edit --help

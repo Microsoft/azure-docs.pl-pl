@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4a3325592c2085034473163cb886ba2b8b416a30
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b2a15bcc9d9dce922470031fd07b66cf9899f0b3
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205833"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281360"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Szybki start: Konwertowanie modelu do renderowania
 
@@ -27,7 +27,7 @@ Omawiane tematy:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Kończenie [szybkiego startu: renderowanie modelu przy użyciu aparatu Unity](render-model.md)
-* Zainstaluj Azure PowerShell [(dokumentacja)](/powershell/azure/)
+* Dla konwersji przy użyciu skryptu programu PowerShell: Install Azure PowerShell [(dokumentacja)](/powershell/azure/)
   * Otwieranie programu PowerShell z uprawnieniami administratora
   * Wykonane `Install-Module -Name Az -AllowClobber`
 
@@ -108,12 +108,21 @@ Teraz powinny istnieć dwa kontenery magazynu obiektów blob:
 
 ## <a name="run-the-conversion"></a>Uruchamianie konwersji
 
+Istnieją trzy różne sposoby wyzwalania konwersji modelu:
+
+### <a name="1-conversion-via-the-arrt-tool"></a>1. Konwersja za pośrednictwem narzędzia ARRT
+
+Istnieje [Narzędzie oparte na interfejsie użytkownika o nazwie ARRT](./../samples/azure-remote-rendering-asset-tool.md) , które umożliwia uruchamianie konwersji i współdziałanie z renderowanym wynikiem.
+![ARRT](./../samples/media/azure-remote-rendering-asset-tool.png "Zrzut ekranu ARRT")
+
+### <a name="2-conversion-via-a-powershell-script"></a>2. Konwersja za pośrednictwem skryptu programu PowerShell
+
 Aby ułatwić Wywoływanie usługi konwersji zasobów, udostępniamy skrypt narzędziowy. Znajduje się w folderze *skryptów* i nosi nazwę **Conversion.ps1**.
 
 W szczególności ten skrypt
 
 1. przekazuje wszystkie pliki w danym katalogu z dysku lokalnego do wejściowego kontenera magazynu
-1. wywołuje [interfejs API REST konwersji zasobów](../how-tos/conversion/conversion-rest-api.md) , który pobierze dane z wejściowego kontenera magazynu i rozpocznie konwersję, która zwróci identyfikator konwersji
+1. wywołuje [interfejs API REST konwersji zasobów](../how-tos/conversion/conversion-rest-api.md), który pobierze dane z wejściowego kontenera magazynu i rozpocznie konwersję, która zwróci identyfikator konwersji
 1. sondowanie interfejsu API stanu konwersji z pobranym IDENTYFIKATORem konwersji do momentu zakończenia procesu konwersji z sukcesem lub niepowodzeniem
 1. Pobiera link do przekonwertowanego elementu zawartości w magazynie danych wyjściowych
 
@@ -149,13 +158,13 @@ Konfiguracja w ramach grupy **accountSettings** (Identyfikator konta i klucz) po
 Upewnij się, że w grupie **assetConversionSettings** należy zmienić grupę **zasobów**, **blobInputContainerName**i **blobOutputContainerName** , jak pokazano powyżej.
 Należy pamiętać, że wartość **arrtutorialstorage** musi zostać zastąpiona unikatową nazwą, którą pobrano podczas tworzenia konta magazynu.
 
-Zmień **localAssetDirectoryPath** w taki sposób, aby wskazywał katalog na dysku zawierający model, który ma zostać przekształcony. Należy zachować ostrożność w prawidłowym wykorzystaniu ukośników odwrotnych (" \\ ") w ścieżce przy użyciu podwójnych ukośników odwrotnych (" \\ \\ ").
+Zmień **localAssetDirectoryPath** tak, aby wskazywał katalog na dysku, który zawiera model, który ma zostać przekonwertowany. Należy zachować ostrożność w prawidłowym wykorzystaniu ukośników odwrotnych (" \\ ") w ścieżce przy użyciu podwójnych ukośników odwrotnych (" \\ \\ ").
 
 Wszystkie dane ze ścieżki podanej w **localAssetDirectoryPath** zostaną przekazane do kontenera obiektów BLOB **blobInputContainerName** w ramach ścieżki podrzędnej podanej przez **inputFolderPath**. Dlatego w przykładowej konfiguracji powyżej zawartości katalogu "D: \\ tmp \\ Robot" zostanie przekazany do kontenera obiektów BLOB "arrinput" konta magazynu "arrtutorialstorage" pod ścieżką "robotConversion". Już istniejące pliki zostaną nadpisywane.
 
-Zmień **inputAssetPath** na ścieżkę modelu do przekonwertowania — ścieżka jest względna do localAssetDirectoryPath. Użyj znaku "/" zamiast znaku " \\ " jako separatora ścieżki. Tak więc dla pliku "Robot. FBX", który znajduje się bezpośrednio w "D: \\ tmp \\ Robot", użyj "Robot. FBX".
+Zmień **inputAssetPath** na ścieżkę modelu do przekonwertowania — ścieżka jest względna do localAssetDirectoryPath. Użyj znaku "/" zamiast znaku " \\ " jako separatora ścieżki. W przypadku pliku "Robot. FBX", który znajduje się bezpośrednio w "D: \\ tmp \\ Robot", należy użyć "Robot. FBX".
 
-Przekonwertowany model zostanie zapisany z powrotem do kontenera magazynu podanego przez **blobOutputContainerName**. Ścieżka podrzędna może być określona przez podanie opcjonalnej **outputFolderPath**. W powyższym przykładzie "Robot. arrAsset" zostanie skopiowany do wyjściowego kontenera obiektów BLOB w obszarze "skonwertowane/robotny".
+Po przekonwertowaniu modelu zostanie on zapisany z powrotem do kontenera magazynu podanego przez **blobOutputContainerName**. Ścieżka podrzędna może być określona przez podanie opcjonalnej **outputFolderPath**. W powyższym przykładzie wynik "Robot. arrAsset" zostanie skopiowany do wyjściowego kontenera obiektów BLOB w obszarze "skonwertowane/robotny".
 
 Ustawienie konfiguracji **outputAssetFileName** określa nazwę przekonwertowanego elementu zawartości — parametr jest opcjonalny, a wartość pliku wyjściowego zostanie wyliczona z nazwy pliku wejściowego w przeciwnym razie.
 
@@ -175,6 +184,13 @@ Przejdź do `azure-remote-rendering\Scripts` katalogu i uruchom skrypt konwersji
 ```
 
 Powinieneś wyglądać następująco: ![Conversion.ps1](./media/successful-conversion.png)
+
+### <a name="3-conversion-via-api-calls"></a>3. Konwersja za pośrednictwem wywołań interfejsu API
+
+Zarówno język C#, jak i interfejs API C++ zapewniają punkt wejścia do współpracy z usługą:
+* [C# AzureFrontend. StartAssetConversionAsync ()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
+* [C++ AzureFrontend:: StartAssetConversionAsync ()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+
 
 ## <a name="insert-new-model-into-quickstart-sample-app"></a>Wstaw nowy model do przykładowej aplikacji szybkiego startu
 

@@ -3,17 +3,17 @@ title: Diagnozowanie i rozwiązywanie problemów z dostępnością zestawów SDK
 description: Więcej informacji o zachowaniu dostępności zestawu SDK usługi Azure Cosmos w przypadku korzystania z wielu środowisk regionalnych.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/05/2020
+ms.date: 10/20/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743968"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319363"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnozowanie i rozwiązywanie problemów z dostępnością zestawów SDK usługi Azure Cosmos w środowiskach wieloregionowych
 
@@ -34,7 +34,7 @@ Po ustawieniu preferencji regionalnych klient będzie łączył się z regionem,
 | Pojedynczy region zapisu | Preferowany region | Region podstawowy  |
 | Wiele regionów zapisu | Preferowany region | Preferowany region  |
 
-Jeśli nie ustawisz preferowanego regionu:
+Jeśli **nie ustawisz preferowanego regionu**, klient zestawu SDK domyślnie będzie regionem podstawowym:
 
 |Typ konta |Odczyty |Zapisy |
 |------------------------|--|--|
@@ -44,7 +44,9 @@ Jeśli nie ustawisz preferowanego regionu:
 > [!NOTE]
 > Region podstawowy odwołuje się do pierwszego regionu na [liście regionów konta usługi Azure Cosmos](distribute-data-globally.md)
 
-W przypadku wystąpienia jednego z następujących scenariuszy klient korzystający z zestawu SDK usługi Azure Cosmos udostępnia dzienniki i zawiera informacje o ponownych próbach w ramach **informacji diagnostycznych dotyczących operacji**:
+W normalnych warunkach klient zestawu SDK będzie łączył się z preferowanym regionem (Jeśli ustawiona jest preferencja regionalna) lub do regionu podstawowego (jeśli nie ustawiono preferencji), a operacje będą ograniczone do tego regionu, chyba że wystąpi którykolwiek z poniższych scenariuszy.
+
+W takich przypadkach klient korzystający z zestawu SDK usługi Azure Cosmos udostępnia dzienniki i zawiera informacje o ponownych próbach w ramach **informacji diagnostycznych dotyczących operacji**:
 
 * Właściwość *RequestDiagnosticsString* na odpowiedziach w zestawie SDK platformy .net v2.
 * Właściwość *diagnostyki* odpowiedzi i wyjątków w programie .NET v3 SDK.
@@ -66,7 +68,7 @@ Jeśli usuniesz region, a później dodasz go ponownie do konta, jeśli dodany r
 
 Jeśli klient zostanie skonfigurowany w taki sposób, aby łączył się z regionem, który nie ma konta usługi Azure Cosmos, preferowany region jest ignorowany. W przypadku dodania tego regionu później klient wykryje go i przestanie się trwale w tym regionie.
 
-## <a name="failover-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Przełączenie w tryb failover regionu zapisu w jednym koncie regionu zapisu
+## <a name="fail-over-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Przechodzenie w tryb failover w regionie zapisu w jednym koncie regionu zapisu
 
 Jeśli zainicjujesz tryb failover bieżącego regionu zapisu, następne żądanie zapisu zakończy się niepowodzeniem ze znaną odpowiedzią zaplecza. Po wykryciu tej odpowiedzi klient będzie wysyłać zapytanie do konta w celu uzyskania informacji o nowym regionie zapisu, a następnie ponawiać próbę wykonania bieżącej operacji i trwale kierować wszystkie przyszłe operacje zapisu do nowego regionu.
 
@@ -76,7 +78,7 @@ Jeśli konto jest pojedynczym regionem zapisu, a w trakcie operacji zapisu wyst�
 
 ## <a name="session-consistency-guarantees"></a>Gwarancje spójności sesji
 
-W przypadku korzystania ze [spójności sesji](consistency-levels.md#guarantees-associated-with-consistency-levels)klient musi zagwarantować, że może odczytać własne zapisy. W przypadku kont w jednym regionie zapisu, w których preferencja regionu odczytu różni się od regionu zapisu, mogą wystąpić przypadki, w których użytkownik wystawia zapis i podczas odczytu z regionu lokalnego nie otrzymał jeszcze replikacji danych (szybkość ograniczenia światła). W takich przypadkach zestaw SDK wykrywa konkretny błąd operacji odczytu i ponawia próbę odczytu w regionie centrum, aby zapewnić spójność sesji.
+W przypadku korzystania ze [spójności sesji](consistency-levels.md#guarantees-associated-with-consistency-levels)klient musi zagwarantować, że może odczytać własne zapisy. W przypadku kont w jednym regionie zapisu, w których preferencja regionu odczytu różni się od regionu zapisu, mogą wystąpić przypadki, w których użytkownik wystawia zapis i podczas odczytu z regionu lokalnego nie otrzymał jeszcze replikacji danych (szybkość ograniczenia światła). W takich przypadkach zestaw SDK wykrywa konkretny błąd operacji odczytu i ponawia próbę odczytu w regionie podstawowym, aby zapewnić spójność sesji.
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Przejściowe problemy z łącznością w protokole TCP
 

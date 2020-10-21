@@ -4,12 +4,12 @@ description: Dowiedz się więcej o usłudze Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 72f2dfb3e5e05466892d838af4e1c84c855b94a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86122085"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314763"
 ---
 # <a name="about-azure-migrate"></a>Informacje o usłudze Azure Migrate
 
@@ -80,7 +80,7 @@ Ocena serwera korzysta z uproszczonego [urządzenia Azure Migrate](migrate-appli
 
 Azure Migrate: Narzędzie do migracji serwera ułatwia Migrowanie do platformy Azure:
 
-**Dokonać** | **Szczegóły**
+**Migrate (Migracja)** | **Szczegóły**
 --- | ---
 Lokalne maszyny wirtualne VMware | Migrowanie maszyn wirtualnych na platformę Azure przy użyciu funkcji bezagentowej lub migracji opartej na agentach.<br/><br/> W przypadku migracji bez wykorzystania agentów Migracja serwera używa urządzenia Azure Migrate, które jest wdrażane lokalnie. Jest to ten sam typ urządzenia, którego używasz do oceny serwera.<br/><br/> W przypadku migracji na podstawie agenta Ocena serwera korzysta z urządzenia replikacji.
 Lokalne maszyny wirtualne funkcji Hyper-V | Migrowanie maszyn wirtualnych na platformę Azure.<br/><br/> Funkcja oceny serwera używa agentów dostawcy zainstalowanych na hoście funkcji Hyper-V na potrzeby migracji.
@@ -124,5 +124,5 @@ Istnieją dwie wersje usługi Azure Migrate.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Wypróbuj nasze samouczki, aby ocenić [maszyny wirtualne VMware](tutorial-prepare-vmware.md), [maszyny wirtualne funkcji Hyper-V](tutorial-prepare-hyper-v.md)lub [serwery fizyczne](tutorial-prepare-physical.md).
+- Wypróbuj nasze samouczki, aby ocenić [maszyny wirtualne VMware](./tutorial-discover-vmware.md), [maszyny wirtualne funkcji Hyper-V](./tutorial-discover-hyper-v.md)lub [serwery fizyczne](./tutorial-discover-physical.md).
 - [Przejrzyj często zadawane pytania](resources-faq.md) dotyczące usługi Azure Migrate.

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: db1de363856fd560fea97f8f9cdf542717c4cca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce6f0ff97b1dfa8757b05b13dff653a1d34f4531
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090097"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315287"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Tworzenie planu migracji za pomocą usługi Azure Migrate
 
@@ -166,4 +166,4 @@ Gdy wszystko będzie gotowe do migracji, użyj *Narzędzia migracji serwera* Azu
 
 - Zbadaj [podróż migracji w chmurze](/azure/architecture/cloud-adoption/getting-started/migrate)   w strukturze wdrażania w chmurze platformy Azure.
 - [Rozpocznij pracę](https://youtu.be/wFfq3YPxYHE) z Azure Migrate.
-- Utwórz ocenę dla [maszyn wirtualnych VMware](tutorial-assess-vmware.md) lub [maszyn wirtualnych funkcji Hyper-V](tutorial-assess-hyper-v.md).
+- Utwórz ocenę dla [maszyn wirtualnych VMware](./tutorial-assess-vmware-azure-vm.md) lub [maszyn wirtualnych funkcji Hyper-V](tutorial-assess-hyper-v.md).

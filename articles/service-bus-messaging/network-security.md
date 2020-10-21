@@ -3,12 +3,12 @@ title: Zabezpieczenia sieci dla Azure Service Bus
 description: W tym artykule opisano funkcje zabezpieczeń sieci, takie jak Tagi usług, reguły zapory adresów IP, punkty końcowe usługi i prywatne punkty końcowe.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db0dd89d1f902699c27b724609505ba681757454
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766400"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310461"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Zabezpieczenia sieci dla Azure Service Bus 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Service Bus: 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób korzystania z następujących funkcji zabezpiecze
 ## <a name="service-tags"></a>Tagi usługi
 Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [Omówienie tagów usług](../virtual-network/service-tags-overview.md).
 
-Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/security-overview.md#security-rules) lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **ServiceBus**) w odpowiednim polu *źródłowym* lub *docelowym* reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
+Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md#security-rules) lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **ServiceBus**) w odpowiednim polu *źródłowym* lub *docelowym* reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -30,7 +30,7 @@ Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grup
 
 
 > [!NOTE]
-> Tagów usługi można używać tylko w przypadku przestrzeni nazw **Premium** . Jeśli używasz **standardowej** przestrzeni nazw, użyj adresu IP, który będzie widoczny podczas uruchamiania następującego polecenia: `nslookup <host name for the namespace>` . Przykład: `nslookup contosons.servicebus.windows.net`. 
+> Tagów usługi można używać tylko w przypadku przestrzeni nazw **Premium** . Jeśli używasz **standardowej** przestrzeni nazw, użyj adresu IP, który będzie widoczny podczas uruchamiania następującego polecenia: `nslookup <host name for the namespace>` . Na przykład: `nslookup contosons.servicebus.windows.net`. 
 
 ## <a name="ip-firewall"></a>Zapora IP 
 Domyślnie obszary nazw Service Bus są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją tylko do zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .

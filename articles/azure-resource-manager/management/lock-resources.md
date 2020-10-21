@@ -2,14 +2,14 @@
 title: Zablokuj zasoby, aby uniemożliwić zmiany
 description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania krytycznych zasobów platformy Azure, stosując blokadę dla wszystkich użytkowników i ról.
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 10/20/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e76287c4524831a84a22fb23ddf8a5fdee8bc12b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3830c7e78cf3cc607c7abfca63e6ae74f89b7aff
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87827286"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281742"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -66,11 +66,13 @@ Aby usunąć wszystkie elementy usługi, w tym zablokowaną grupę zasobów infr
 
 ![Usuń usługę](./media/lock-resources/delete-service.png)
 
-## <a name="portal"></a>Portal
+## <a name="configure-locks"></a>Konfigurowanie blokad
+
+### <a name="portal"></a>Portal
 
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
-## <a name="template"></a>Szablon
+### <a name="arm-template"></a>Szablon ARM
 
 W przypadku użycia szablonu Menedżer zasobów do wdrożenia blokady należy użyć różnych wartości dla nazwy i typu w zależności od zakresu blokady.
 
@@ -143,7 +145,7 @@ Poniższy przykład przedstawia szablon, który tworzy plan usługi App Service,
 
 Aby zapoznać się z przykładem ustawienia blokady grupy zasobów, zobacz [Tworzenie grupy zasobów i blokowanie jej](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
-## <a name="powershell"></a>Program PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 Wdrożone zasoby można blokować za pomocą Azure PowerShell przy użyciu polecenia [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) .
 
@@ -184,7 +186,7 @@ $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceN
 Remove-AzResourceLock -LockId $lockId
 ```
 
-## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 Wdrożone zasoby można zablokować za pomocą polecenia [AZ Lock Create](/cli/azure/lock#az-lock-create) .
 
@@ -225,7 +227,7 @@ lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --re
 az lock delete --ids $lockid
 ```
 
-## <a name="rest-api"></a>Interfejs API REST
+### <a name="rest-api"></a>Interfejs API REST
 
 Wdrożone zasoby można zablokować za pomocą [interfejsu API REST dla blokad zarządzania](/rest/api/resources/managementlocks). Interfejs API REST umożliwia tworzenie i usuwanie blokad oraz pobieranie informacji o istniejących blokadach.
 

@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące migracji Azure Migrate serwera
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące korzystania z migracji Azure Migrate serwera w celu migrowania maszyn.
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 80334bb2f0d6c0284c9031a99c0eb469b348873d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b62110e6b2ce97cdd80ed91ee4b1e75d119c7c7d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275544"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315233"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migracja serwera Azure Migrate: typowe pytania
 
@@ -29,25 +29,25 @@ Azure Migrate: Narzędzie migracji serwera migruje maszyny oparte na interfejsie
 
 | **Systemy operacyjne obsługiwane w przypadku komputerów z interfejsem UEFI** | **VMware bez agentów do platformy Azure**                                                                                                             | **Funkcja Hyper-V bez agentów na platformie Azure** | **Oparty na agencie oprogramowanie VMware, fizyczne i inne chmury na platformie Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| Windows Server 2019, 2016, 2012 R2, 201                 | T                                                                                                                                         | T                              | T                                                          |
-| Windows 10 Pro, Windows 10 Enterprise                   | T                                                                                                                                         | T                              | T                                                          |
-| SUSE Linux Enterprise Server 15 SP1                     | T                                                                                                                                         | T                              | T                                                          |
-| SUSE Linux Enterprise Server 12 SP4                     | T                                                                                                                                         | T                              | T                                                          |
-| Ubuntu Server 16,04, 18,04, 19,04, 19,10                | T                                                                                                                                         | T                              | T                                                          |
-| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | T<br>                 _RHEL 8. x wymaga [ręcznego przygotowania](https://go.microsoft.com/fwlink/?linkid=2143939)_   | T                              | T                                                          |
-| Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | T<br>_Cent OS 8. x wymaga [przygotowania ręcznego](https://go.microsoft.com/fwlink/?linkid=2143939)_ | T                              | T                                                          |
-| Oracle Linux 7,7, 7,7-CI                                |  T                                                                                                                                        | T                              | T                                                          |
+| Windows Server 2019, 2016, 2012 R2, 201                 | Y                                                                                                                                         | Y                              | Y                                                          |
+| Windows 10 Pro, Windows 10 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| Ubuntu Server 16,04, 18,04, 19,04, 19,10                | Y                                                                                                                                         | Y                              | Y                                                          |
+| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | Y<br>                 _RHEL 8. x wymaga [ręcznego przygotowania](./prepare-for-migration.md#linux-machines)_   | Y                              | Y                                                          |
+| Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | Y<br>_Cent OS 8. x wymaga [przygotowania ręcznego](./prepare-for-migration.md#linux-machines)_ | Y                              | Y                                                          |
+| Oracle Linux 7,7, 7,7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
 
 ## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>Czy mogę używać magazynu usługi Recovery Services utworzonego przez Azure Migrate na potrzeby scenariuszy odzyskiwania po awarii?
 Nie zalecamy korzystania z magazynu usługi Recovery Services utworzonego przez Azure Migrate na potrzeby scenariuszy odzyskiwania po awarii. Wykonanie tej czynności może skutkować uruchomieniem niepowodzeń replikacji w Azure Migrate. 
 
 ## <a name="where-should-i-install-the-replication-appliance-for-agent-based-migrations"></a>Gdzie należy zainstalować urządzenie replikacji dla migracji opartych na agencie?
 
-Urządzenie replikacji należy zainstalować na dedykowanym komputerze. Urządzenia replikacji nie należy instalować na maszynie źródłowej, która ma zostać zreplikowana lub na urządzeniu odnajdywania Azure Migrate i ocenie, które zainstalowano wcześniej. Aby uzyskać więcej informacji, postępuj zgodnie z [samouczkiem](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) .
+Urządzenie replikacji należy zainstalować na dedykowanym komputerze. Urządzenia replikacji nie należy instalować na maszynie źródłowej, która ma zostać zreplikowana lub na urządzeniu odnajdywania Azure Migrate i ocenie, które zainstalowano wcześniej. Aby uzyskać więcej informacji, postępuj zgodnie z [samouczkiem](./tutorial-migrate-physical-virtual-machines.md) .
 
 ## <a name="how-can-i-migrate-my-aws-ec2-instances-to-azure"></a>Jak migrować wystąpienia AWS EC2 na platformę Azure?
 
-Zapoznaj się z tym [artykułem](https://docs.microsoft.com/azure/migrate/tutorial-migrate-aws-virtual-machines) , aby odkrywać, oceniać i MIGROWAĆ wystąpienia AWS EC2 na platformie Azure.
+Zapoznaj się z tym [artykułem](./tutorial-migrate-aws-virtual-machines.md) , aby odkrywać, oceniać i MIGROWAĆ wystąpienia AWS EC2 na platformie Azure.
 
 ## <a name="can-i-migrate-aws-vms-running-amazon-linux-operating-system"></a>Czy można migrować maszyny wirtualne AWS z systemem operacyjnym Amazon Linux?
 
@@ -79,18 +79,18 @@ Bez względu na wybraną opcję migracji pierwszy krok migracji serwera przy uż
 Poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę podczas wybierania opcji migracji.
 
 **Migracja bez agentów** nie wymaga, aby żadne oprogramowanie (agenci) zostały wdrożone na źródłowych maszynach wirtualnych/serwerach, które są migrowane. Opcja bezagent organizuje replikację przez integrację z funkcjami udostępnianymi przez dostawcę wirtualizacji.
-Opcje replikacji bez agenta są dostępne dla [maszyn wirtualnych VMware](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) i [maszyn wirtualnych funkcji Hyper-V](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v).
+Opcje replikacji bez agenta są dostępne dla [maszyn wirtualnych VMware](./tutorial-migrate-vmware.md) i [maszyn wirtualnych funkcji Hyper-V](./tutorial-migrate-hyper-v.md).
 
 **Migracje oparte na agentach** wymagają zainstalowania oprogramowania Azure Migrate (agenci) na źródłowych maszynach wirtualnych/maszynach, które mają zostać zmigrowane. Opcja oparta na agentach nie bazuje na platformie wirtualizacji funkcji replikacji i dlatego może być używana z dowolnym serwerem z uruchomioną architekturą x86/x64 i wersją systemu operacyjnego obsługiwaną przez metodę replikacji opartą na agentach.
 
-Opcja migracji opartej na agencie może być używana w przypadku [maszyn wirtualnych VMware](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware-agent), [maszyn wirtualnych funkcji Hyper-V](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines), [serwerów fizycznych](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines), [maszyn wirtualnych działających w systemie AWS](https://docs.microsoft.com/azure/migrate/tutorial-migrate-aws-virtual-machines), maszyn wirtualnych działających w usłudze GCP lub maszyn wirtualnych działających na różnych dostawcach wirtualizacji. Migracja oparta na agencie traktuje maszyny jako serwery fizyczne na potrzeby migracji.
+Opcja migracji opartej na agencie może być używana w przypadku [maszyn wirtualnych VMware](./tutorial-migrate-vmware-agent.md), [maszyn wirtualnych funkcji Hyper-V](./tutorial-migrate-physical-virtual-machines.md), [serwerów fizycznych](./tutorial-migrate-physical-virtual-machines.md), [maszyn wirtualnych działających w systemie AWS](./tutorial-migrate-aws-virtual-machines.md), maszyn wirtualnych działających w usłudze GCP lub maszyn wirtualnych działających na różnych dostawcach wirtualizacji. Migracja oparta na agencie traktuje maszyny jako serwery fizyczne na potrzeby migracji.
 
 Mimo że migracja bez agenta oferuje dodatkową wygodę i prostotę nad opcjami replikacji opartymi na agentach dla obsługiwanych scenariuszy (VMWare i Hyper-V), warto rozważyć użycie scenariusza opartego na agentach dla następujących przypadków użycia:
 
 - Ograniczone środowisko IOPS: replikacja bezagentowa korzysta z migawek i zużywa liczbę operacji we/wy magazynu. Zaleca się, aby Metoda migracji oparta na agentach była w przypadku ograniczeń dotyczących magazynu/operacji we/wy w danym środowisku.
 - Jeśli nie masz vCenter Server, możesz traktować maszyny wirtualne VMware jako serwery fizyczne i używać przepływu pracy migracji opartego na agentach.
 
-Aby dowiedzieć się więcej, zapoznaj się z tym [artykułem](https://docs.microsoft.com/azure/migrate/server-migrate-overview) , aby porównać opcje migracji programu VMware.
+Aby dowiedzieć się więcej, zapoznaj się z tym [artykułem](./server-migrate-overview.md) , aby porównać opcje migracji programu VMware.
 
 ## <a name="how-does-agentless-migration-work"></a>Jak działa migracja bez agentów?
 
@@ -101,13 +101,13 @@ Opcja replikacji bez agenta działa przy użyciu mechanizmów dostarczonych prze
 Po skonfigurowaniu replikacji dla maszyny wirtualnej najpierw przechodzi ona przez fazę replikacji początkowej. Podczas replikacji początkowej tworzona jest migawka maszyny wirtualnej, a pełna kopia danych z dysków migawek jest replikowana do dysków zarządzanych w ramach subskrypcji. Po zakończeniu replikacji początkowej dla maszyny wirtualnej proces replikacji przechodzi do fazy replikacji przyrostowej (replikacja różnicowa). W fazie replikacji przyrostowej zmiany danych, które wystąpiły od czasu ostatniego zakończonego cyklu replikacji, są okresowo replikowane i stosowane do dysków zarządzanych repliki, dzięki czemu Synchronizacja replikacji ze zmianami odbywa się na maszynie wirtualnej. W przypadku maszyn wirtualnych VMware zmieniono technologię śledzenia bloków programu VMware do śledzenia zmian między cyklami replikacji. Na początku cyklu replikacji tworzona jest migawka maszyny wirtualnej, a w celu uzyskania zmian między bieżącą migawką a ostatnią pomyślnie replikowana migawką zostanie użyta funkcja śledzenia bloków. Dzięki temu tylko dane, które uległy zmianie od czasu ostatniego zakończonego cyklu replikacji, muszą zostać zreplikowane, aby zachować replikację maszyny wirtualnej w celu synchronizacji. Na końcu każdego cyklu replikacji tworzona jest migawka i konsolidacja migawek dla maszyny wirtualnej. Podobnie w przypadku maszyn wirtualnych funkcji Hyper-V aparat śledzenia zmian funkcji Hyper-V Replica służy do śledzenia zmian między kolejnymi cyklami replikacji.
 Podczas wykonywania operacji migrowania na replikacji maszyny wirtualnej można zamknąć lokalną maszynę wirtualną i wykonać jedną ostateczną replikację przyrostową w celu zapewnienia zerowej utraty danych. Po wykonaniu opcji Migrowanie dyski zarządzane repliki odpowiadające maszynie wirtualnej są używane do tworzenia maszyny wirtualnej na platformie Azure.
 
-Aby rozpocząć, należy zapoznać się z samouczkiem dotyczącym [migracji bez](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) agentów [funkcji Hyper-V](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v) .
+Aby rozpocząć, należy zapoznać się z samouczkiem dotyczącym [migracji bez](./tutorial-migrate-vmware.md) agentów [funkcji Hyper-V](./tutorial-migrate-hyper-v.md) .
 
 ## <a name="how-does-agent-based-migration-work"></a>Jak działa migracja oparta na agencie?
 
 Oprócz opcji migracji bez wykorzystania agentów dla maszyn wirtualnych VMware i maszyn wirtualnych funkcji Hyper-V, narzędzie migracji serwera udostępnia opcję migracji opartej na agencie służącą do migrowania serwerów z systemami Windows i Linux działających na serwerach fizycznych lub działających jako maszyny wirtualne x86/x64 w oprogramowaniu VMware, funkcji Hyper-V, AWS, Google Cloud Platform itd.
 
-Metoda migracji oparta na agentach korzysta z oprogramowania agenta zainstalowanego na serwerze migrowanym w celu replikowania danych serwera na platformę Azure. Proces replikacji używa architektury odciążania, w której Agent przekazuje dane replikacji do dedykowanego serwera replikacji o nazwie urządzenie replikacji lub serwer konfiguracji (lub do serwera przetwarzania skalowalnego w poziomie). [Dowiedz się więcej](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture) o tym, jak działa opcja migracji opartej na agencie. 
+Metoda migracji oparta na agentach korzysta z oprogramowania agenta zainstalowanego na serwerze migrowanym w celu replikowania danych serwera na platformę Azure. Proces replikacji używa architektury odciążania, w której Agent przekazuje dane replikacji do dedykowanego serwera replikacji o nazwie urządzenie replikacji lub serwer konfiguracji (lub do serwera przetwarzania skalowalnego w poziomie). [Dowiedz się więcej](./agent-based-migration-architecture.md) o tym, jak działa opcja migracji opartej na agencie. 
 
 Uwaga: urządzenie replikacji różni się od urządzenia odnajdywania Azure Migrate i musi być zainstalowane na oddzielnym/dedykowanym komputerze.
 
@@ -127,7 +127,7 @@ Czas do ukończenia replikacji początkowej = {size disks (lub używany rozmiar)
 
 ### <a name="agent-based-vmware-vm-migration"></a>Migracja maszyny wirtualnej VMware oparta na agencie
 
-W przypadku metody replikacji opartej na agencie planista wdrożenia może pomóc w założeniu środowiska na potrzeby zmiany danych i przewidzieć wymaganą przepustowość. Aby dowiedzieć się więcej, zobacz ten [artykuł](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture#plan-vmware-deployment). 
+W przypadku metody replikacji opartej na agencie planista wdrożenia może pomóc w założeniu środowiska na potrzeby zmiany danych i przewidzieć wymaganą przepustowość. Aby dowiedzieć się więcej, zobacz ten [artykuł](./agent-based-migration-architecture.md#plan-vmware-deployment). 
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Jak mogęnie przepustowości w przypadku używania urządzenia Azure Migrate do replikacji VMware bez agentów?  
 
@@ -153,10 +153,10 @@ Na przykład jeśli maszyna wirtualna zajmuje cztery godziny cyklu różnicowego
 
 ## <a name="how-do-i-migrate-windows-server-2003-running-on-vmwarehyper-v-to-azure"></a>Jak mogę przeprowadzić migrację systemu Windows Server 2003 uruchomionego w oprogramowaniu VMware/Hyper-V do platformy Azure?
 
-[Rozszerzona pomoc techniczna systemu Windows Server 2003](https://go.microsoft.com/fwlink/?linkid=2140400) zakończyła się 14 lipca 2015.  Zespół pomocy technicznej systemu Azure nadal pomaga w rozwiązywaniu problemów związanych z uruchamianiem systemu Windows Server 2003 na platformie Azure. Ta obsługa jest jednak ograniczona do problemów, które nie wymagają rozwiązywania problemów lub poprawek na poziomie systemu operacyjnego.
+[Rozszerzona pomoc techniczna systemu Windows Server 2003](/troubleshoot/azure/virtual-machines/run-win-server-2003#microsoft-windows-server-2003-end-of-support) zakończyła się 14 lipca 2015.  Zespół pomocy technicznej systemu Azure nadal pomaga w rozwiązywaniu problemów związanych z uruchamianiem systemu Windows Server 2003 na platformie Azure. Ta obsługa jest jednak ograniczona do problemów, które nie wymagają rozwiązywania problemów lub poprawek na poziomie systemu operacyjnego.
 Zalecanym podejściem do migrowania aplikacji do wystąpień platformy Azure z nowszą wersją systemu Windows Server jest zapewnienie elastyczności i niezawodności chmury platformy Azure.
 
-Jeśli jednak nadal zdecydujesz się na migrację systemu Windows Server 2003 na platformę Azure, możesz użyć narzędzia migracji serwera Azure Migrate, jeśli serwer systemu Windows jest maszyną wirtualną działającą w oprogramowaniu VMware lub funkcji Hyper-V, zapoznaj się z tym artykułem, aby [przygotować maszyny z systemem Windows Server 2003 do migracji](https://go.microsoft.com/fwlink/?linkid=2140302).
+Jeśli jednak nadal zdecydujesz się na migrację systemu Windows Server 2003 na platformę Azure, możesz użyć narzędzia migracji serwera Azure Migrate, jeśli serwer systemu Windows jest maszyną wirtualną działającą w oprogramowaniu VMware lub funkcji Hyper-V, zapoznaj się z tym artykułem, aby [przygotować maszyny z systemem Windows Server 2003 do migracji](./prepare-windows-server-2003-migration.md).
 
 ## <a name="what-is-the-difference-between-the-test-migration-and-migrate-operations"></a>Jaka jest różnica między migracją testową i migracją operacji?
 

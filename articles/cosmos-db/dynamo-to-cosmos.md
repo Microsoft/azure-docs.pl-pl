@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
-ms.openlocfilehash: cfdeda8ac3957da272ab4c47fb93930c826d55aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 167d1f21a2eb7ea4c685b5bbbb5d8d64fcc1367e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261872"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278708"
 ---
 # <a name="migrate-your-application-from-amazon-dynamodb-to-azure-cosmos-db"></a>Migruj swoją aplikację z usługi Amazon DynamoDB do Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Poniżej przedstawiono kluczowe różnice pojęciowe między Azure Cosmos DB i D
 |  DynamoDB | Azure Cosmos DB  |
 |---|---|
 |Nie dotyczy|  baza danych |
-|tabela      |  Kolekcja |
+|Tabela      |  Kolekcja |
 |  Element |  Dokument |
 |Atrybut|Pole|
 |Indeks pomocniczy|Indeks pomocniczy|
@@ -144,7 +144,7 @@ client_documentDB = new CosmosClient("your connectionstring from the Azure porta
 
 Za pomocą Azure Cosmos DB można zoptymalizować połączenie przy użyciu następujących opcji:
 
-* **Connectionmode** — Użyj trybu połączenia bezpośredniego, aby nawiązać połączenie z węzłami danych w usłudze Azure Cosmos DB. Tryb bramy służy tylko do inicjowania i buforowania adresów logicznych oraz do odświeżania w ramach aktualizacji. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [trybów łączności](performance-tips.md#networking) .
+* **Connectionmode** — Użyj trybu połączenia bezpośredniego, aby nawiązać połączenie z węzłami danych w usłudze Azure Cosmos DB. Tryb bramy służy tylko do inicjowania i buforowania adresów logicznych oraz do odświeżania w ramach aktualizacji. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [trybów łączności](sql-sdk-connection-modes.md) .
 
 * **ApplicationRegion** — ta opcja służy do ustawiania preferowanego regionu geograficznego, który jest używany do współpracy z Azure Cosmos DB. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [dystrybucji globalnej](distribute-data-globally.md) .
 
