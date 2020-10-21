@@ -3,12 +3,12 @@ title: Service Fabric platformy Azure — korzystanie z Service Fabric odwołań
 description: W tym artykule wyjaśniono, jak używać obsługi KeyVaultReference usługi Service-Fabric dla wpisów tajnych aplikacji.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2221bb3e8e3ee3181b2cff70107dccc203954cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261145"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313791"
 ---
 # <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Obsługa KeyVaultReference dla aplikacji Service Fabric (wersja zapoznawcza)
 
@@ -18,7 +18,7 @@ Typowym wyzwaniem podczas kompilowania aplikacji w chmurze jest sposób bezpiecz
 > Korzystanie z tej funkcji w wersji zapoznawczej nie jest zalecane w środowiskach produkcyjnych.
 
 > [!NOTE]
-> Funkcja w wersji zapoznawczej magazynu [kluczy obsługuje](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) tylko wpisy tajne. Wpisy tajne bez wersji nie są obsługiwane.
+> Funkcja w wersji zapoznawczej magazynu [kluczy obsługuje](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) tylko wpisy tajne. Wpisy tajne bez wersji nie są obsługiwane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -155,7 +155,7 @@ KeyVaultReference jest obsługiwanym typem kontenera RepositoryCredentials, poni
         <RepositoryCredentials AccountName="user1" Type="KeyVaultReference" Password="https://ttkvault.vault.azure.net/secrets/containerpwd/e225bd97e203430d809740b47736b9b8"/>
       </ContainerHostPolicies>
 ```
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 - Tożsamość zarządzana musi być włączona na potrzeby obsługi KeyVaultReference, jednak aktywacja aplikacji zakończy się niepowodzeniem, jeśli KeyVaultReference jest używany bez włączania tożsamości zarządzanej.
 
 - Jeśli używasz tożsamości przypisanej do systemu, jest ona tworzona dopiero po wdrożeniu aplikacji i spowoduje to utworzenie zależności cyklicznej. Po wdrożeniu aplikacji można przyznać systemowi uprawnienia dostępu do tożsamości dla magazynu kluczy. Tożsamość przypisaną przez system można znaleźć według nazwy {Cluster}/{Application Name}/{ServiceName}

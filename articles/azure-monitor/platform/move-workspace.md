@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979698"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282863"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego Log Analytics do innej subskrypcji lub grupy zasobów
 
@@ -39,10 +39,12 @@ Rozwiązania, które należy usunąć, aby można było odłączyć konto usług
 - Azure Security Center
 
 >[!IMPORTANT]
-> **Klienci usługi Azure — wskaźnik:**
+> **Klienci z wskaźnikiem na platformę Azure**
 > - Po wdrożeniu w obszarze roboczym centrum kontrolne platformy Azure **nie obsługuje obecnie** przeniesienia tego obszaru roboczego do innych grup zasobów lub subskrypcji. 
->
->   Jeśli obszar roboczy został już przeniesiony, wyłącz wszystkie aktywne reguły w obszarze **Analiza** i włącz je ponownie po pięciu minutach. Ta sytuacja powinna być skuteczna w większości przypadków, ale w celu przeprowadzonej iteracji nie jest to obsługiwane i realizowane na własne ryzyko.
+> - Jeśli obszar roboczy został już przeniesiony, wyłącz wszystkie aktywne reguły w obszarze **Analiza** i włącz je ponownie po pięciu minutach. Ta sytuacja powinna być skuteczna w większości przypadków, ale w celu przeprowadzonej iteracji nie jest to obsługiwane i realizowane na własne ryzyko.
+> 
+> **Alerty**
+> - Wszystkie alerty muszą zostać ponownie utworzone po przeniesieniu, ponieważ uprawnienia są oparte na IDENTYFIKATORze zasobu platformy Azure obszaru roboczego i są zmieniane za pomocą przenoszenia obszaru roboczego. 
 
 ### <a name="delete-solutions-in-azure-portal"></a>Usuwanie rozwiązań w Azure Portal
 Aby usunąć rozwiązania przy użyciu Azure Portal, należy wykonać czynności opisane w poniższej procedurze:
@@ -98,7 +100,7 @@ Aby przenieść obszar roboczy przy użyciu Azure Portal, wykonaj czynności opi
 
     ![Zrzut ekranu przedstawia okienko przegląd w obszarze roboczym Log Analytics z opcjami zmiany nazwy grupy zasobów i subskrypcji.](media/move-workspace/portal.png)
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 Aby przenieść obszar roboczy przy użyciu programu PowerShell, użyj polecenia [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) jak w poniższym przykładzie:
 
 ``` PowerShell

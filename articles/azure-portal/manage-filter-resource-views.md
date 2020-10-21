@@ -3,15 +3,15 @@ title: Wyświetlanie i filtrowanie informacji o zasobach platformy Azure
 description: Filtruj informacje i korzystaj z różnych widoków, aby lepiej zrozumieć zasoby platformy Azure.
 author: mgblythe
 ms.service: azure-portal
-ms.topic: quickstart
+ms.topic: how-to
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f6185e1c4042110f446337c1b2c2904fefdae7a9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650406"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280240"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Wyświetlanie i filtrowanie informacji o zasobach platformy Azure
 
@@ -53,7 +53,7 @@ Aby usunąć widok:
 
 ## <a name="summarize-resources-with-visuals"></a>Podsumowywanie zasobów za pomocą wizualizacji
 
-Oglądane przez nas widoki zostały uwzględnione w _widokach listy_, ale istnieją również _widoki podsumowania_ zawierające wizualizacje. Możesz zapisywać i korzystać z tych widoków tak samo jak w przypadku widoków listy. Filtry są utrwalane między dwoma typami widoków. Istnieją Standardowe widoki, takie jak widok **lokalizacji** przedstawiony poniżej, a także widoki, które są istotne dla określonych usług, takich jak widok **stanu** dla maszyn wirtualnych.
+Oglądane przez nas widoki zostały uwzględnione w _widokach listy_, ale istnieją również _widoki podsumowania_ zawierające wizualizacje. Możesz zapisywać i korzystać z tych widoków tak samo jak w przypadku widoków listy. Filtry są utrwalane między dwoma typami widoków. Istnieją Standardowe widoki, takie jak widok **lokalizacji** przedstawiony poniżej, a także widoki, które są istotne dla określonych usług, takich jak widok **stanu** usługi Azure Storage.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Widok Azure Portal wszystkich zasobów":::
 

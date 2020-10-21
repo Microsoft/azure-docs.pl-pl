@@ -97,8 +97,6 @@
               href: howto-v1-enable-sso-android.md
             - name: Włączanie logowania jednokrotnego w systemie iOS
               href: howto-v1-enable-sso-ios.md
-            - name: Debugowanie logowania jednokrotnego opartego na protokole SAML
-              href: howto-v1-debug-saml-sso-issues.md
         - name: Konfigurowanie oświadczeń
           items:
             - name: Konfigurowanie oświadczeń roli

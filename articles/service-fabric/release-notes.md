@@ -5,19 +5,19 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 467018e57a0783839cb9495fcc6df89aad9daa8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bfca7def313fc701798ff96d0ed4b18ca13ef60
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280613"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313872"
 ---
 # <a name="service-fabric-releases"></a>Wersje Service Fabric
 
 - <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Przewodniki dotyczące rozwiązywania problemów</a> 
 - <a href="https://github.com/Azure/service-fabric-issues" target="blank">Śledzenie problemów</a> 
-- <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">Opcje pomocy technicznej</a> 
-- <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">Obsługiwane wersje</a> 
+- <a href="/azure/service-fabric/service-fabric-support" target="blank">Opcje pomocy technicznej</a> 
+- <a href="/azure/service-fabric/service-fabric-versions" target="blank">Obsługiwane wersje</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Przykłady kodu</a>
 
 Ten artykuł zawiera więcej informacji o najnowszych wersjach i aktualizacjach środowiska uruchomieniowego Service Fabric i zestawów SDK.

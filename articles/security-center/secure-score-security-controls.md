@@ -1,5 +1,5 @@
 ---
-title: Zabezpiecz ocenę w Azure Security Center
+title: Wskaźnik bezpieczeństwa w usłudze Azure Security Center
 description: Opis bezpiecznego wyniku Azure Security Center i jego kontroli zabezpieczeń
 services: security-center
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4897c1b54eff5eb06e0ef49f0c74e261f5a9687e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268268"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281277"
 ---
-# <a name="secure-score-in-azure-security-center"></a>Zabezpiecz ocenę w Azure Security Center
+# <a name="secure-score-in-azure-security-center"></a>Wskaźnik bezpieczeństwa w usłudze Azure Security Center
 
 ## <a name="introduction-to-secure-score"></a>Wprowadzenie do zabezpieczenia oceny
 
@@ -57,7 +57,7 @@ Security Center wyświetla wyniki w portalu w widocznym miejscu: jest to pierwsz
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Uzyskiwanie bezpiecznego wyniku z interfejsu API REST
 
-Możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API bezpiecznego oceny](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (obecnie w wersji zapoznawczej). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład możesz użyć interfejsu API **Secure Scores** , aby uzyskać ocenę dla określonej subskrypcji. Ponadto można użyć interfejsu API **kontroli** zabezpieczeń, aby wyświetlić listę kontrolek bezpieczeństwa i bieżący wynik subskrypcji.
+Możesz uzyskać dostęp do oceny za pośrednictwem interfejsu API bezpiecznego oceny (obecnie w wersji zapoznawczej). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład możesz użyć [interfejsu API Secure Scores](https://docs.microsoft.com/rest/api/securitycenter/securescores) , aby uzyskać ocenę dla określonej subskrypcji. Ponadto można użyć [interfejsu API kontroli](https://docs.microsoft.com/rest/api/securitycenter/securescorecontrols) zabezpieczeń, aby wyświetlić listę kontrolek bezpieczeństwa i bieżący wynik subskrypcji.
 
 ![Pobieranie pojedynczego, bezpiecznego wyniku za pośrednictwem interfejsu API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -156,7 +156,7 @@ W poniższej tabeli wymieniono kontrolki zabezpieczeń w Azure Security Center. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Ogranicz nieautoryzowany dostęp do sieci (maksymalny wynik 4)</p></strong>Punkty końcowe w organizacji zapewniają bezpośrednie połączenie z sieci wirtualnej z obsługiwanymi usługami platformy Azure. Maszyny wirtualne w podsieci mogą komunikować się ze wszystkimi zasobami. Aby ograniczyć komunikację do i z zasobów w podsieci, Utwórz sieciową grupę zabezpieczeń i skojarz ją z podsiecią. Organizacje mogą ograniczać i chronić przed nieautoryzowanym ruchem, tworząc reguły ruchu przychodzącego i wychodzącego.</td>
-    <td class="tg-lboi"; width=55%>- Przekazywanie adresów IP na maszynie wirtualnej powinno być wyłączone<br>- Dozwolone zakresy adresów IP powinny być zdefiniowane w usługach Kubernetes Services (wersja zapoznawcza)<br>- PRZESTARZAŁE Dostęp do App Services powinien być ograniczony (wersja zapoznawcza)<br>- PRZESTARZAŁE Reguły dla aplikacji sieci Web na IaaS sieciowych grup zabezpieczeń powinny być zaostrzone<br>- Maszyny wirtualne powinny być skojarzone z sieciową grupą zabezpieczeń<br>- Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacji interfejsu API<br>- Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacja funkcji<br>- Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacji sieci Web<br>- Debugowanie zdalne powinno być wyłączone dla aplikacji interfejsu API<br>- Zdalne debugowanie powinno zostać wyłączone dla aplikacja funkcji<br>- Zdalne debugowanie powinno zostać wyłączone dla aplikacji sieci Web<br>- Dostęp powinien być ograniczony do ograniczeń sieciowych grup zabezpieczeń z maszynami wirtualnymi z Internetu<br>- Reguły sieciowej grupy zabezpieczeń dla maszyn wirtualnych mających dostęp do Internetu powinny być zaostrzone<br>- Dodatek Azure Policy dla Kubernetes powinien być zainstalowany i włączony w klastrach (wersja zapoznawcza)<br>- Kontenery powinny nasłuchiwać tylko dozwolonych portów (wersja zapoznawcza)<br>- Usługi powinny nasłuchiwać tylko na dozwolonych portach (wersja zapoznawcza)<br>- Użycie sieci i portów hosta powinno być ograniczone (wersja zapoznawcza)</td>
+    <td class="tg-lboi"; width=55%>- Przekazywanie adresów IP na maszynie wirtualnej powinno być wyłączone<br>- Dozwolone zakresy adresów IP powinny być zdefiniowane w usługach Kubernetes Services (wersja zapoznawcza)<br>- PRZESTARZAŁE Dostęp do App Services powinien być ograniczony (wersja zapoznawcza)<br>- PRZESTARZAŁE Reguły dla aplikacji sieci Web na IaaS sieciowych grup zabezpieczeń powinny być zaostrzone<br>- Maszyny wirtualne powinny być skojarzone z sieciową grupą zabezpieczeń<br>- Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacji interfejsu API<br>- Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacja funkcji<br>- Mechanizm CORS nie powinien zezwalać wszystkim zasobom na dostęp do aplikacji sieci Web<br>- Debugowanie zdalne powinno być wyłączone dla aplikacji interfejsu API<br>- Zdalne debugowanie powinno zostać wyłączone dla aplikacja funkcji<br>- Zdalne debugowanie powinno zostać wyłączone dla aplikacji sieci Web<br>- Dostęp powinien być ograniczony do ograniczeń sieciowych grup zabezpieczeń z maszynami wirtualnymi z Internetu<br>- Reguły sieciowej grupy zabezpieczeń dla maszyn wirtualnych mających dostęp do Internetu powinny być zaostrzone<br>- Dodatek Azure Policy dla Kubernetes powinien być zainstalowany i włączony w klastrach (wersja zapoznawcza)<br>- Kontenery powinny nasłuchiwać tylko dozwolonych portów (wersja zapoznawcza)<br>- Usługi powinny nasłuchiwać tylko na dozwolonych portach (wersja zapoznawcza)<br>- Użycie sieci i portów hosta powinno być ograniczone (wersja zapoznawcza)<br>- Sieci wirtualne powinny być chronione przez zaporę platformy Azure (wersja zapoznawcza)</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Zastosuj adaptacyjną kontrolę aplikacji (maksymalny wynik 3)</p></strong>Adaptacyjna kontrola aplikacji (AAC) to inteligentne, zautomatyzowane i kompleksowe rozwiązanie, które umożliwia kontrolowanie, które aplikacje mogą być uruchamiane na maszynach Azure i poza platformą Azure. Pomaga również w zabezpieczaniu maszyn przed złośliwym oprogramowaniem.<br>Security Center używa usługi Machine Learning, aby utworzyć listę znanych bezpiecznych aplikacji dla grupy komputerów.<br>To innowacyjne podejście do zatwierdzonej listy aplikacji zapewnia korzyści związane z bezpieczeństwem bez złożoności zarządzania.<br>AAC jest szczególnie istotny dla serwerów utworzonych specjalnie dla celów, które muszą uruchamiać określony zestaw aplikacji.</td>

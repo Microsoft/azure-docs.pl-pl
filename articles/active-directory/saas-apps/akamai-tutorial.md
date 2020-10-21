@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329520"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319011"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Akamai
 
@@ -26,9 +26,9 @@ W tym samouczku dowiesz się, jak zintegrować usługę Akamai z usługą Azure 
 * Zezwól użytkownikom na automatyczne logowanie się do usługi Akamai przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-Integracja dostępu do aplikacji dla przedsiębiorstw Azure Active Directory i Akamai umożliwia bezproblemowe dostęp do starszych aplikacji hostowanych w chmurze lub lokalnie. Zintegrowane rozwiązanie korzysta ze wszystkich nowoczesnych możliwości Azure Active Directory takich jak [dostęp warunkowy usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) i [Azure AD Identity Governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview) w przypadku starszych aplikacji dostęp bez modyfikacji aplikacji ani agentów.
+Integracja dostępu do aplikacji dla przedsiębiorstw Azure Active Directory i Akamai umożliwia bezproblemowe dostęp do starszych aplikacji hostowanych w chmurze lub lokalnie. Zintegrowane rozwiązanie korzysta ze wszystkich nowoczesnych możliwości Azure Active Directory takich jak [dostęp warunkowy usługi Azure AD](../conditional-access/overview.md), [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) i [Azure AD Identity Governance](../governance/identity-governance-overview.md) w przypadku starszych aplikacji dostęp bez modyfikacji aplikacji ani agentów.
 
 Na poniższym obrazie opisano, gdzie Akamai EAA mieści się w szerszym scenariuszu bezpiecznego dostępu hybrydowego
 
@@ -169,7 +169,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -277,7 +277,7 @@ Uwierzytelnianie na podstawie nagłówka Akamai
 
     ![Zrzut ekranu przedstawiający konsolę Akamai EAA z ustawieniami certyfikatu i lokalizacji.](./media/header-akamai-tutorial/configure08.png)
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Uwierzytelnianie
 
 1. Wybierz kartę **uwierzytelnianie** .
 
@@ -341,7 +341,7 @@ Kliknij przycisk Zapisz i przejdź do uwierzytelniania.
 
     ![Zrzut ekranu przedstawiający konsolę Akamai EAA z ustawieniami certyfikatu i lokalizacji. Skojarzone łączniki są ustawione na USWST-CON1.](./media/header-akamai-tutorial/configure19.png)
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Uwierzytelnianie
 
 Kliknij przycisk **Zapisz i przejdź do usługi**.
 
@@ -403,7 +403,7 @@ Kliknij przycisk **Zapisz i przejdź do pozycji Ustawienia zaawansowane**.
 
     e. Określ lokalizację łącznika i wybierz łącznik.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Uwierzytelnianie
 
 Kliknij przycisk **Zapisz i przejdź do usług**.
 
@@ -540,7 +540,7 @@ Przypisywanie dostawcy tożsamości
 
 1. Przykład został wyjaśniony
 
-    | Fragment kodu | Objaśnienie |
+    | Fragment kodu | Wyjaśnienie |
     | - | - |
     | Ktpass/out EAADemo. plik KEYTAB | Nazwa pliku wyjściowego plik KEYTAB |
     | /princ HTTP/corpapps.login.go.akamai-access.com@superdemo.live | // HTTP/yourIDPName@YourdomainName |
@@ -589,14 +589,14 @@ W tej sekcji utworzysz użytkownika o nazwie B. Simon w Akamai. Współpracuj z 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Akamai w panelu dostępu należy automatycznie zalogować się do Akamai, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Akamai w panelu dostępu należy automatycznie zalogować się do Akamai, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj Akamai z usługą Azure AD](https://aad.portal.azure.com/)

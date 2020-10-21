@@ -3,12 +3,12 @@ title: Skonfiguruj urządzenie Azure Migrate za pomocą skryptu
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate za pomocą skryptu
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438915"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317329"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurowanie urządzenia za pomocą skryptu
 
@@ -16,7 +16,7 @@ Postępuj zgodnie z tym artykułem, aby utworzyć [urządzenie Azure Migrate](./
 
 Możesz wdrożyć urządzenie dla maszyn wirtualnych VMware i funkcji Hyper-V za pomocą skryptu lub przy użyciu szablonu pobranego z Azure Portal. Użycie skryptu jest przydatne, jeśli nie można utworzyć maszyny wirtualnej przy użyciu pobranego szablonu.
 
-- Aby użyć szablonu, postępuj zgodnie z samouczkami dla programu [VMware](tutorial-prepare-vmware.md) lub [funkcji Hyper-V](tutorial-prepare-hyper-v.md).
+- Aby użyć szablonu, postępuj zgodnie z samouczkami dla programu [VMware](./tutorial-discover-vmware.md) lub [funkcji Hyper-V](./tutorial-discover-hyper-v.md).
 - Aby skonfigurować urządzenie dla serwerów fizycznych, można użyć tylko skryptu. Postępuj zgodnie z [tym artykułem](how-to-set-up-appliance-physical.md).
 - Aby skonfigurować urządzenie w chmurze Azure Government, postępuj zgodnie z [tym artykułem](deploy-appliance-script-government.md).
 

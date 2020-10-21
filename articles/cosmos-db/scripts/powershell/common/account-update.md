@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: d3df2e91624f9b5d82d534a1d525fa6866f1a489
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a13bbc3f3d9758accdf10daa21f45df1b973775
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87506790"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282771"
 ---
 # <a name="update-the-regions-on-an-azure-cosmos-db-account-using-powershell"></a>Aktualizowanie regionów na koncie Azure Cosmos DB przy użyciu programu PowerShell
 
@@ -52,5 +52,3 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
-
-Więcej przykładowych skryptów programu PowerShell dla usługi Azure Cosmos DB można znaleźć w artykule [Azure Cosmos DB PowerShell scripts](../../../powershell-samples.md) (Skrypty programu PowerShell dla usługi Azure Cosmos DB).

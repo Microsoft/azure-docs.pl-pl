@@ -4,12 +4,12 @@ description: Informacje na temat odnajdywania lokalnych maszyn wirtualnych VMwar
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e8f61c898b08cc0638597e77fd3260cb4593b2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442223"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311298"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Samouczek: odnajdywanie maszyn wirtualnych VMware z oceną serwera
 
@@ -115,7 +115,7 @@ Skonfiguruj nowy projekt Azure Migrate.
 
    ![Pola nazwy i regionu projektu](./media/tutorial-discover-vmware/new-project.png)
 
-7. Wybierz przycisk **Utwórz**.
+7. Wybierz pozycję **Utwórz**.
 8. Zaczekaj kilka minut, aż projekt usługi Azure Migrate zostanie wdrożony.
 
 **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
@@ -238,7 +238,7 @@ Skonfiguruj urządzenie po raz pierwszy.
    
    Logowanie przy użyciu numeru PIN nie jest obsługiwane.
 3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web. 
-4. Jeśli konto użytkownika platformy Azure używane do rejestrowania ma odpowiednie [uprawnienia](tutorial-prepare-vmware.md#prepare-azure) do zasobów platformy Azure utworzonych podczas generowania klucza, Rejestracja urządzenia zostanie zainicjowana.
+4. Jeśli konto użytkownika platformy Azure używane do rejestrowania ma odpowiednie uprawnienia do zasobów platformy Azure utworzonych podczas generowania klucza, Rejestracja urządzenia zostanie zainicjowana.
 1. Po pomyślnym zarejestrowaniu urządzenia można wyświetlić szczegóły rejestracji, klikając pozycję **Wyświetl szczegóły**.
 
 
@@ -248,7 +248,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 Urządzenie musi połączyć się z vCenter Server, aby odnaleźć dane dotyczące konfiguracji i wydajności maszyn wirtualnych.
 
 1. W **kroku 1: podaj poświadczenia vCenter Server**, kliknij pozycję **Dodaj poświadczenia** , aby określić przyjazną nazwę dla poświadczeń, Dodaj **nazwę użytkownika** i **hasło** do konta vCenter Server, które będzie używane przez urządzenie do odnajdywania maszyn wirtualnych w wystąpieniu vCenter Server.
-    - Należy skonfigurować konto z uprawnieniami wymaganymi w [poprzednim samouczku](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - Należy skonfigurować konto z uprawnieniami wymaganymi w poprzednim samouczku.
     - Jeśli chcesz przeznaczyć zakres odnajdywania do określonych obiektów VMware (vCenter Server centrach danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych maszyn wirtualnych), zapoznaj się z instrukcjami w [tym artykule](set-discovery-scope.md) , aby ograniczyć konto używane przez Azure Migrate.
 1. W **kroku 2: podaj vCenter Server Szczegóły**, kliknij pozycję **Dodaj źródło odnajdywania** , aby wybrać przyjazną nazwę dla poświadczeń z listy rozwijanej, określ **adres IP/nazwę FQDN** wystąpienia vCenter Server. Możesz pozostawić **port** domyślny (443) lub określić port niestandardowy, dla którego vCenter Server nasłuchiwanie i kliknąć przycisk **Zapisz**.
 1. Po kliknięciu przycisku Zapisz Urządzenie spróbuje sprawdzić poprawność połączenia z vCenter Server przy użyciu podanych poświadczeń i wyświetlić **stan weryfikacji** w tabeli dotyczącej VCENTER Server adres IP/nazwa FQDN.
@@ -268,5 +268,5 @@ Odnajdywanie działa w następujący sposób:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Ocenianie maszyn wirtualnych VMware](tutorial-assess-vmware.md) na potrzeby migracji do maszyn wirtualnych platformy Azure.
+- [Ocenianie maszyn wirtualnych VMware](./tutorial-assess-vmware-azure-vm.md) na potrzeby migracji do maszyn wirtualnych platformy Azure.
 - [Przejrzyj dane](migrate-appliance.md#collected-data---vmware) zbierane przez urządzenie podczas odnajdywania.

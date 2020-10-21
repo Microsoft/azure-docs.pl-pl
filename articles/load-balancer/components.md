@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 4dbbd3443ec6c455ba9bcb88ff90dd4960aff5d2
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930955"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317448"
 ---
 # <a name="azure-load-balancer-components"></a>Składniki Azure Load Balancer
 
@@ -130,6 +130,7 @@ Podstawowa usługa równoważenia obciążenia nie obsługuje reguł ruchu wycho
 
 ## <a name="limitations"></a>Ograniczenia
 
+- Dowiedz się więcej na temat [limitów](https://aka.ms/lblimits) Load Balancer 
 - Moduł równoważenia obciążenia zapewnia Równoważenie obciążenia i przekazywanie portów dla określonych protokołów TCP lub UDP. Reguły równoważenia obciążenia i reguły NAT dla ruchu przychodzącego obsługują protokoły TCP i UDP, ale nie są to adresy IP, w tym protokół ICMP.
 - Przepływ wychodzący z maszyny wirtualnej zaplecza do frontonu wewnętrznej Load Balancer zakończy się niepowodzeniem.
 - Reguła modułu równoważenia obciążenia nie może obejmować dwóch sieci wirtualnych.  Frontony i ich wystąpienia zaplecza muszą znajdować się w tej samej sieci wirtualnej.  

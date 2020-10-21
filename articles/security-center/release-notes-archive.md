@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 09b23e9951c6da597b82d2e012a57f2c93410a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6bb335ad7783c180ceeaafde955d6ac9dcb8799
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289807"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280128"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -28,6 +28,50 @@ Ta strona zawiera informacje na temat:
 - Nowe funkcje
 - Poprawki błędów
 - Funkcje uznane za przestarzałe
+
+
+## <a name="april-2020"></a>Kwiecień 2020 r.
+
+Aktualizacje w kwietniu obejmują:
+- [Dynamiczne pakiety zgodności są teraz ogólnie dostępne](#dynamic-compliance-packages-are-now-generally-available)
+- [Zalecenia dotyczące tożsamości zawarte obecnie w Azure Security Center warstwy Bezpłatna](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
+### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Dynamiczne pakiety zgodności są teraz ogólnie dostępne
+
+Pulpit nawigacyjny zgodności z przepisami Azure Security Center obejmuje teraz **dynamiczne pakiety zgodności** (teraz ogólnie dostępne) do śledzenia dodatkowych standardów branżowych i prawnych.
+
+Dynamiczne pakiety zgodności można dodać do swojej subskrypcji lub grupy zarządzania ze strony Security Center zasady zabezpieczeń. Po dodaniu standardowego lub testu porównawczego Standard pojawia się na pulpicie nawigacyjnym zgodności z przepisami, który ma wszystkie skojarzone dane zgodności zamapowane jako oceny. Raport podsumowujący dla dowolnych ze standardów, które zostały dołączone, będzie dostępny do pobrania.
+
+Teraz możesz dodawać standardy, takie jak:
+
+- **NIST SP 800-53 R4**
+- **SWIFT CSP CSCF-V2020**
+- **Oficjalne Królestwo brytyjskie i Zjednoczone Królestwo NHS**
+- **Canada Federal PBMM**
+- **Azure CIS 1.1.0 (nowy)** (czyli bardziej kompletna reprezentacja usługi Azure CIS 1.1.0)
+
+Ponadto został niedawno dodany **test testów zabezpieczeń platformy Azure**, oparte na platformie Azure wskazówki dotyczące zabezpieczeń i zgodności w oparciu o typowe struktury zgodności. Dodatkowe standardy będą obsługiwane na pulpicie nawigacyjnym, gdy staną się dostępne.  
+ 
+Dowiedz się więcej o [dostosowywaniu zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami](update-regulatory-compliance-packages.md).
+
+
+### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>Zalecenia dotyczące tożsamości zawarte obecnie w Azure Security Center warstwy Bezpłatna
+
+Zalecenia dotyczące zabezpieczeń dotyczące tożsamości i dostępu w Azure Security Center warstwy Bezpłatna są teraz ogólnie dostępne. Jest to część nakładu pracy, aby udostępnić funkcje usługi Cloud Security stan Management (CSPM). Do tej pory te zalecenia były dostępne tylko w warstwie cenowej standardowa.
+
+Przykłady zaleceń dotyczących tożsamości i dostępu to:
+
+- "Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji".
+- "Dla subskrypcji należy wyznaczyć maksymalnie trzech właścicieli".
+- "Przestarzałe konta powinny zostać usunięte z subskrypcji".
+
+Jeśli masz subskrypcje w bezpłatnej warstwie cenowej, będzie to miało wpływ na ich bezpieczeństwo, ponieważ nigdy nie oceniono ich pod kątem bezpieczeństwa tożsamości i dostępu.
+
+Dowiedz się więcej o [zaleceniach dotyczących tożsamości i dostępu](recommendations-reference.md#recs-identity).
+
+Dowiedz się więcej o [monitorowaniu tożsamości i dostępu](security-center-identity-access.md).
+
 
 
 ## <a name="march-2020"></a>Marzec 2020 r.
