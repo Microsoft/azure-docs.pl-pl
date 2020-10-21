@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38e1fc7f062908f8c4a4b9aa903ca09dd7fb9ea5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314491"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342335"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plan gotowości Azure Security Center
 Ten dokument zapewnia mapę gotowości, która będzie pomocna w rozpoczynaniu pracy z usługą Azure Security Center.
@@ -32,7 +32,7 @@ Artykuły
 - [Wprowadzenie do usługi Azure Security Center](security-center-introduction.md)
 - [Przewodnik Szybki start dotyczący usługi Azure Security Center](security-center-get-started.md)
 
-Wideo
+Filmy wideo
 - [Wideo z szybkim wprowadzeniem](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
 - [Omówienie możliwości związanych z zapobieganiem, wykrywaniem i reagowaniem usługi Security Center](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
@@ -59,9 +59,9 @@ Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzien
 Użyj następujących zasobów, aby uzyskać pomoc w zarządzaniu alertami zabezpieczeń i zabezpieczaniu swoich zasobów.
 
 Artykuły    
-- [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-- [Ochrona sieci w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-- [Ochrona usługi Azure SQL i danych w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+- [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](./security-center-monitoring.md)
+- [Ochrona sieci w usłudze Azure Security Center](./security-center-network-recommendations.md)
+- [Ochrona usługi Azure SQL i danych w usłudze Azure Security Center](./security-center-remediate-recommendations.md)
 
 
 Wideo    
@@ -72,12 +72,12 @@ Aby zmniejszyć koszty i szkody, ważne jest, aby przed atakiem uzyskać plan re
 
 Użyj następujących zasobów, aby zrozumieć sposób dołączenia usługi Security Center do procesu reagowania na zdarzenia.
 
-Wideo    
+Filmy wideo    
 * [Usługa Azure Security Center na potrzeby reagowania na zdarzenia](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Szybkie reagowanie na zagrożenia przy użyciu zabezpieczeń, obsługi i badań nowej generacji](https://youtu.be/e8iFCz5RM4g)
 
 Artykuły    
-* [Używanie usługi Azure Security Center do reagowania na zdarzenia](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
+* [Używanie usługi Azure Security Center do reagowania na zdarzenia](./tutorial-security-incident.md)
 * [Automatyzowanie odpowiedzi z automatyzacją przepływu pracy](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Zaawansowana ochrona w chmurze
@@ -86,13 +86,13 @@ Maszyny wirtualne platformy Azure mogą wykorzystywać zaawansowane możliwości
 
 Użyj następujących zasobów, aby dowiedzieć się, jak korzystać z tych możliwości w usłudze Security Center.
 
-Wideo    
+Filmy wideo    
 * [Azure Security Center — dostęp just in Time do maszyny wirtualnej](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center — funkcje adaptacyjnego sterowania aplikacjami](https://youtu.be/wWWekI1Y9ck)
 
 Artykuły    
-* [Zarządzanie dostępem do maszyny wirtualnej przy użyciu funkcji just in Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
-* [Funkcje adaptacyjnego sterowania aplikacjami w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Zarządzanie dostępem do maszyny wirtualnej przy użyciu funkcji just in Time](./security-center-just-in-time.md)
+* [Funkcje adaptacyjnego sterowania aplikacjami w usłudze Azure Security Center](./security-center-adaptive-application.md)
 
 ## <a name="hands-on-activities"></a>Praktyczne działania
 
@@ -101,17 +101,17 @@ Artykuły
 * [Podręcznik dotyczący usługi Azure Security Center: alerty zabezpieczeń](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
-* [Strona dokumentacji usługi Security Center](https://docs.microsoft.com/azure/security-center/)
-* [Strona dokumentacji interfejsu API REST usługi Security Center](https://msdn.microsoft.com/library/mt704034.aspx)
-* [Często zadawane pytania dotyczące usługi Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-faq)
+* [Strona dokumentacji usługi Security Center](./index.yml)
+* [Strona dokumentacji interfejsu API REST usługi Security Center](/previous-versions/azure/reference/mt704034(v=azure.100))
+* [Często zadawane pytania dotyczące usługi Azure Security Center](./faq-general.md)
 * [Strona cennika usługi Security Center](https://azure.microsoft.com/pricing/details/security-center/)
-* [Najlepsze rozwiązania z zakresu zabezpieczeń tożsamości](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
-* [Najlepsze rozwiązania z zakresu zabezpieczeń sieci](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
-* [Zalecenia PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
+* [Najlepsze rozwiązania z zakresu zabezpieczeń tożsamości](../security/fundamentals/identity-management-best-practices.md)
+* [Najlepsze rozwiązania z zakresu zabezpieczeń sieci](../security/fundamentals/network-best-practices.md)
+* [Zalecenia PaaS](../security/fundamentals/paas-deployments.md)
 * [Zgodność](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [Klienci usługi log Analytics mogą teraz używać Azure Security Center do ochrony obciążeń chmury hybrydowej](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Klienci usługi log Analytics mogą teraz używać Azure Security Center do ochrony obciążeń chmury hybrydowej](/archive/blogs/msoms/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads)
 
 ## <a name="community-resources"></a>Zasoby społeczności
 
 * [Usługa Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [P&stronę dla Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)
+* [P&stronę dla Security Center](/answers/topics/azure-security-center.html)

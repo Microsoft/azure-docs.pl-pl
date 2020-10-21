@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102157"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342131"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -228,7 +228,7 @@ Upewnij się, że używasz właściwych poleceń interfejsu wiersza polecenia dl
 Aby utworzyć regułę alertu metryki, należy mieć następujące uprawnienia:
 
 - Uprawnienie do odczytu w zasobie docelowym reguły alertu
-- Uprawnienie do zapisu w grupie zasobów, w której jest tworzona reguła alertu (Jeśli tworzysz regułę alertu na podstawie Azure Portal, reguła alertu zostanie utworzona w tej samej grupie zasobów, w której znajduje się zasób docelowy).
+- Uprawnienie do zapisu w grupie zasobów, w której jest tworzona reguła alertu (Jeśli tworzysz regułę alertu na podstawie Azure Portal, reguła alertu jest tworzona domyślnie w tej samej grupie zasobów, w której znajduje się zasób docelowy).
 - Uprawnienie Odczyt dla każdej grupy akcji skojarzonej z regułą alertu (jeśli dotyczy)
 
 

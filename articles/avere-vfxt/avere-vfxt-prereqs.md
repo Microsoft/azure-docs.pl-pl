@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: be5c640ef069690c408460b7374aee82c35b3a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272420"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342114"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Przygotowanie do utworzenia systemu Avere vFXT
 
@@ -42,7 +42,7 @@ Istnieją pewne obejścia, aby umożliwić innym firmom tworzenie avere vFXT dla
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Przydział dla klastra vFXT
 
-Sprawdź, czy masz wystarczający przydział dla następujących składników platformy Azure. W razie konieczności [Poproś o zwiększenie limitu przydziału](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Sprawdź, czy masz wystarczający przydział dla następujących składników platformy Azure. W razie konieczności [Poproś o zwiększenie limitu przydziału](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 > [!NOTE]
 > Maszyny wirtualne i składniki SSD wymienione w tym miejscu są przeznaczone dla samego klastra vFXT. Należy pamiętać, że wymagany jest również przydział dla maszyn wirtualnych i dysków SSD, które będą używane dla farmy obliczeniowej.

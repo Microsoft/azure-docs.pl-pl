@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d91f8242e31aa1efdf9301101307d5bad39a459
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436008"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342216"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>Często zadawane pytania — pytania dotyczące maszyn wirtualnych
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Jakie typy maszyn wirtualnych są obsługiwane?
 
-Monitorowanie i zalecenia są dostępne dla maszyn wirtualnych utworzonych przy użyciu zarówno [klasycznych, jak i Menedżer zasobów modeli wdrażania](../azure-classic-rm.md).
+Monitorowanie i zalecenia są dostępne dla maszyn wirtualnych utworzonych przy użyciu zarówno [klasycznych, jak i Menedżer zasobów modeli wdrażania](/azure/security-center/./azure-resource-manager/management/deployment-models).
 
 Zobacz [obsługiwane platformy w Azure Security Center](security-center-os-coverage.md) , aby uzyskać listę obsługiwanych platform.
 
@@ -51,7 +51,7 @@ Poniżej przedstawiono czasy opóźnienia Security Center skanowania luk w zabez
 Program Security Center zwykle skanuje nowe dane co godzinę i odświeża odpowiednio zalecenia. 
 
 > [!NOTE]
-> Security Center używa agenta Log Analytics do zbierania i przechowywania danych. Aby dowiedzieć się więcej, zobacz [Azure Security Center migracji platformy](security-center-platform-migration.md).
+> Security Center używa agenta Log Analytics do zbierania i przechowywania danych. Aby dowiedzieć się więcej, zobacz [Azure Security Center migracji platformy](./security-center-enable-data-collection.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Dlaczego otrzymuję komunikat "Brak agenta maszyny wirtualnej"?

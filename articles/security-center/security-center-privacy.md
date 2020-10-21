@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: bf715d872fab421de30ebcb146a1981a7d008738
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e270185550fac5a06d800d74d5fcd751aceb25d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80585973"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342233"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Zarządzanie danymi użytkownika w usłudze Azure Security Center
 Ten artykuł zawiera informacje o sposobach zarządzania danymi użytkownika w programie Azure Security Center. Zarządzanie danymi użytkownika obejmuje możliwość uzyskiwania dostępu do danych, ich usuwania lub eksportowania.
@@ -87,7 +87,7 @@ Administrator konta może wyeksportować szczegóły alertu:
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
   ```
 
-Aby uzyskać więcej informacji, zobacz [Uzyskiwanie alertów zabezpieczeń (Get Collection)](https://msdn.microsoft.com/library/mt704050.aspx).
+Aby uzyskać więcej informacji, zobacz [Uzyskiwanie alertów zabezpieczeń (Get Collection)](/previous-versions/azure/reference/mt704050(v=azure.100)).
 
 ## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Ograniczanie użycia danych osobowych do profilowania lub marketingu bez zgody
 Użytkownik Security Center może zrezygnować z usunięcia swoich [danych kontaktowych o zabezpieczeniach](security-center-provide-security-contact-details.md).

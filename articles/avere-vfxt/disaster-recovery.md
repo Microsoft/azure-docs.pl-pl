@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cc4678b082aa5a4a3f90518ff8fac448f414f1a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75966650"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342250"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Wskazówki dotyczące odzyskiwania po awarii dla avere vFXT dla platformy Azure
 
@@ -117,7 +117,7 @@ Aby uzyskać dostęp do kontenera kopii zapasowych z avere vFXT dla klastra plat
 * Aby uzyskać więcej informacji na temat dostosowywania ustawień dla avere vFXT dla platformy Azure, zobacz [dostrajanie klastra](avere-vfxt-tuning.md).
 * Dowiedz się więcej na temat odzyskiwania po awarii i tworzenia odpornych aplikacji na platformie Azure:
 
-  * [Odporność platformy Azure — wskazówki techniczne](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-  * [Odzyskiwanie po obejmujących cały region zakłóceniach usługi](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
-  * [Odzyskiwanie aplikacji platformy Azure po awarii i ich wysoka dostępność](<https://docs.microsoft.com/azure/resiliency/resiliency-disaster-recovery-high-availability-azure-applications>)
+  * [Odporność platformy Azure — wskazówki techniczne](/azure/architecture/framework/resiliency/overview)
+  * [Odzyskiwanie po obejmujących cały region zakłóceniach usługi](/azure/architecture/resiliency/recovery-loss-azure-region)
+  * [Odzyskiwanie aplikacji platformy Azure po awarii i ich wysoka dostępność](/azure/architecture/framework/resiliency/backup-and-recovery)
   <!-- can't find these in the source tree to use relative links -->

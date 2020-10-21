@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 300ac0996d9dcb9ecb07abd3392447e393c1781b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400130"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151627"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Zarządzanie rezerwacjami zasobów platformy Azure
 
@@ -110,7 +110,7 @@ Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy t
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Zmienianie ustawienia optymalizacji dla wystąpień zarezerwowanych maszyn wirtualnych
 
- Podczas zakupu wystąpienia zarezerwowanego maszyny wirtualnej wybierasz elastyczność rozmiaru wystąpienia lub priorytet pojemności. Elastyczność wystąpienia maszyny wirtualnej powoduje zastosowanie rabatu związanego z rezerwacją do innych maszyn wirtualnych w tej samej [grupie rozmiarów maszyn wirtualnych](https://aka.ms/RIVMGroups). Priorytet pojemności powoduje przydzielanie priorytetów pojemności centrum danych dla wdrożeń. Ta opcja oferuje dodatkową gwarancję możliwości uruchamiania wystąpień maszyn wirtualnych, gdy ich potrzebujesz.
+ Podczas zakupu wystąpienia zarezerwowanego maszyny wirtualnej wybierasz elastyczność rozmiaru wystąpienia lub priorytet pojemności. Elastyczność wystąpienia maszyny wirtualnej powoduje zastosowanie rabatu związanego z rezerwacją do innych maszyn wirtualnych w tej samej [grupie rozmiarów maszyn wirtualnych](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Priorytet pojemności powoduje przydzielanie priorytetów pojemności centrum danych dla wdrożeń. Ta opcja oferuje dodatkową gwarancję możliwości uruchamiania wystąpień maszyn wirtualnych, gdy ich potrzebujesz.
 
 Domyślnie, gdy zakres rezerwacji jest współużytkowany, elastyczność rozmiaru wystąpienia jest włączona. W przypadku wdrożeń maszyn wirtualnych nie ma priorytetu wydajności centrum danych.
 
@@ -173,7 +173,7 @@ Kup plan usługi:
 - [Opłacanie zasobów usługi Azure Cosmos DB z góry za pomocą zarezerwowanej pojemności usługi Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Kup plan oprogramowania:
-- [Opłacanie planów oprogramowania Red Hat z góry z poziomu usługi Azure Reservations](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Opłacanie planów oprogramowania Red Hat z góry z poziomu usługi Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Prepay for SUSE software plans from Azure Reservations (Opłacanie planów oprogramowania SUSE z góry z poziomu usługi Azure Reservations)](../../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Informacje o rabacie i użyciu:

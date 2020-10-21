@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85505617"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342437"
 ---
 # <a name="access-the-vfxt-cluster"></a>Uzyskiwanie dostępu do klastra vFXT
 
@@ -27,7 +27,7 @@ Istnieją dwa podstawowe kroki:
 > [!NOTE]
 > W tym artykule przyjęto założenie, że został ustawiony publiczny adres IP na kontrolerze klastra lub na innej maszynie wirtualnej w sieci wirtualnej klastra. W tym artykule opisano sposób korzystania z tej maszyny wirtualnej jako hosta w celu uzyskania dostępu do klastra. Jeśli używasz sieci VPN lub ExpressRoute do dostępu do sieci wirtualnej, Pomiń, aby [nawiązać połączenie z panelem sterowania avere](#connect-to-the-avere-control-panel-in-a-browser).
 
-Przed połączeniem upewnij się, że para klucz publiczny/prywatny SSH użyta podczas tworzenia kontrolera klastra jest zainstalowana na komputerze lokalnym. Zapoznaj się z dokumentacją kluczy SSH dla [systemu Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) lub [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) , jeśli potrzebujesz pomocy. Jeśli użyto hasła zamiast klucza publicznego, po nawiązaniu połączenia zostanie wyświetlony monit o wprowadzenie go.
+Przed połączeniem upewnij się, że para klucz publiczny/prywatny SSH użyta podczas tworzenia kontrolera klastra jest zainstalowana na komputerze lokalnym. Zapoznaj się z dokumentacją kluczy SSH dla [systemu Windows](../virtual-machines/linux/ssh-from-windows.md) lub [Linux](../virtual-machines/linux/mac-create-ssh-keys.md) , jeśli potrzebujesz pomocy. Jeśli użyto hasła zamiast klucza publicznego, po nawiązaniu połączenia zostanie wyświetlony monit o wprowadzenie go.
 
 ## <a name="create-an-ssh-tunnel"></a>Tworzenie tunelu SSH
 

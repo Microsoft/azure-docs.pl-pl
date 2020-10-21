@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 39c890e9e6634413947a96b1ddac608ee44bd9a0
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327403"
+ms.locfileid: "92344019"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Wymagania wstępne dotyczące usługi Azure HPC cache
 
@@ -65,7 +65,7 @@ Jeśli potrzebujesz dostępu do usługi BLOB Storage, możesz użyć domyślnego
 
 Prosty serwer DNS może być również używany do równoważenia obciążenia połączeń klientów między wszystkimi dostępnymi punktami instalacji pamięci podręcznej.
 
-Dowiedz się więcej na temat sieci wirtualnych platformy Azure i konfiguracji serwera DNS w temacie [rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+Dowiedz się więcej na temat sieci wirtualnych platformy Azure i konfiguracji serwera DNS w temacie [rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="permissions"></a>Uprawnienia
 
@@ -110,7 +110,7 @@ W przypadku korzystania z systemu magazynu NFS (na przykład lokalnego sprzętow
 
 Więcej informacji znajduje się w temacie [Rozwiązywanie problemów z konfiguracją serwera nas i miejsca docelowego magazynu NFS](troubleshoot-nas.md).
 
-* **Łączność sieciowa:** Pamięć podręczna Azure HPC wymaga dostępu do sieci o wysokiej przepustowości między podsiecią pamięci podręcznej a centrum danych systemu plików NFS. Zalecany jest [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) lub podobny dostęp. W przypadku korzystania z sieci VPN może być konieczne skonfigurowanie jej w celu zablokowania protokołu TCP o rozmiarze 1350, aby upewnić się, że duże pakiety nie są blokowane. Odczytaj [ograniczenia rozmiaru pakietów sieci VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) , aby uzyskać dodatkową pomoc w rozwiązywaniu problemów z ustawieniami sieci VPN.
+* **Łączność sieciowa:** Pamięć podręczna Azure HPC wymaga dostępu do sieci o wysokiej przepustowości między podsiecią pamięci podręcznej a centrum danych systemu plików NFS. Zalecany jest [ExpressRoute](../expressroute/index.yml) lub podobny dostęp. W przypadku korzystania z sieci VPN może być konieczne skonfigurowanie jej w celu zablokowania protokołu TCP o rozmiarze 1350, aby upewnić się, że duże pakiety nie są blokowane. Odczytaj [ograniczenia rozmiaru pakietów sieci VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) , aby uzyskać dodatkową pomoc w rozwiązywaniu problemów z ustawieniami sieci VPN.
 
 * **Dostęp do portów:** Pamięć podręczna musi mieć dostęp do określonych portów TCP/UDP w systemie magazynu. Różne typy magazynów mają różne wymagania dotyczące portów.
 

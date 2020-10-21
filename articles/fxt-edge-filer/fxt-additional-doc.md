@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: f2f40d2ac6652b2b7c968a428961a9bd7f7b4288
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6be5e9bda27ddff157eda10bbb695dfacaecda7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217511"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342267"
 ---
 # <a name="additional-documentation-for-azure-fxt-edge-filer"></a>Dodatkowa dokumentacja usługi Azure FXT Edge
 
@@ -19,7 +19,7 @@ Niektóre zasoby spoza tej witryny sieci Web docs.microsoft.com mogą pomóc w z
 
 ## <a name="avere-vfxt-for-azure-cache-documentation"></a>Dokumentacja usługi avere vFXT for Azure cache
 
-[Avere vFXT for Azure](https://docs.microsoft.com/azure/avere-vfxt/) to podobny produkt pamięci podręcznej klastra, który używa węzłów wirtualnych w Microsoft Azure. Jest on tworzony przy użyciu Azure Portal, ale używa tego samego oprogramowania konfiguracji panelu sterowania co pamięć podręczna sprzętowego pliku usługi Azure FXT Edge.
+[Avere vFXT for Azure](../avere-vfxt/index.yml) to podobny produkt pamięci podręcznej klastra, który używa węzłów wirtualnych w Microsoft Azure. Jest on tworzony przy użyciu Azure Portal, ale używa tego samego oprogramowania konfiguracji panelu sterowania co pamięć podręczna sprzętowego pliku usługi Azure FXT Edge.
 
 ## <a name="legacy-hardware-documentation"></a>Dokumentacja starszego sprzętu
 

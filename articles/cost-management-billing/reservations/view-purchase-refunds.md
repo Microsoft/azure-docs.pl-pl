@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d9e5269468f7cd4571e7ae686af7f1ef159b4ef3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b986aa2bfce203be85adbcde8e2966c167bf7ca1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681706"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151776"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>Wyświetlanie transakcji zakupu i zwrotów za rezerwacje
 
@@ -39,11 +39,11 @@ Administrator rozliczeń rejestracji Enterprise lub umowy z Klientem Microsoft m
 
 [![Przykład przedstawiający transakcje dotyczące rezerwacji](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
 
-Aby uzyskać więcej informacji, zobacz [Analizowanie kosztów za pomocą aplikacji Azure Cost Management usługi Power BI dla umów Enterprise Agreement (EA)](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
+Aby uzyskać więcej informacji, zobacz [Analizowanie kosztów za pomocą aplikacji Azure Cost Management usługi Power BI dla umów Enterprise Agreement (EA)](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 ## <a name="use-apis-to-get-reservation-transactions"></a>Pobieranie transakcji dotyczących rezerwacji przy użyciu interfejsów API
 
-Użytkownicy z umową Enterprise Agreement lub umową z Klientem Microsoft mogą pobierać dane transakcji dotyczących rezerwacji za pomocą [Interfejsu API listy transakcji dotyczących rezerwacji](https://docs.microsoft.com/rest/api/consumption/reservationtransactions/list).
+Użytkownicy z umową Enterprise Agreement lub umową z Klientem Microsoft mogą pobierać dane transakcji dotyczących rezerwacji za pomocą [Interfejsu API listy transakcji dotyczących rezerwacji](/rest/api/consumption/reservationtransactions/list).
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 

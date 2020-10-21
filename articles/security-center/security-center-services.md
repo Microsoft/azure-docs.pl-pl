@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: dad35af600b8973268d07f3a8baae225b91cebc1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275225"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342301"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -55,7 +55,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |**Funkcja**|**Azure Virtual Machines**|**Zestawy skalowania maszyn wirtualnych platformy Azure**|**Maszyny z obsługą usługi Azure Arc**|**Usługa Azure Defender jest wymagana**
 |----|:----:|:----:|:----:|:----:|
 |[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Tak|
-|[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](security-center-alerts-iaas.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Tak|
+|[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](./azure-defender.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Tak|
 |[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|-|-|-|Tak|
 |[Alerty zabezpieczeń oparte na sieci](other-threat-protections.md#network-layer)|✔|✔|-|Tak|
 |[Dostęp just in time do maszyny wirtualnej](security-center-just-in-time.md)|✔|-|-|Tak|
@@ -96,10 +96,10 @@ Aby uzyskać informacje o tym, kiedy są generowane zalecenia dla każdej z tych
 | Trend Micro — głębokie zabezpieczenia | Rodzina systemów Windows Server  | Nie | Tak |
 | Symantec — w wersji co najmniej 12.1.1100| Rodzina systemów Windows Server  | Nie | Tak |
 | McAfee — w wersji co najmniej 10 | Rodzina systemów Windows Server  | Nie | Tak |
-| McAfee — w wersji co najmniej 10 | Rodzina serwerów z systemem Linux  | Nie | Opcję **\*** |
-| Sophos V9 +| Rodzina serwerów z systemem Linux  | Nie | Opcję  **\***  |
+| McAfee — w wersji co najmniej 10 | Rodzina serwerów z systemem Linux  | Nie | Tak * *\** _ |
+| Sophos V9 +| Rodzina serwerów z systemem Linux  | Nie | Opcję  _*\**_  |
 
- **\*** Stan pokrycia i dane pomocnicze są obecnie dostępne tylko w obszarze roboczym Log Analytics skojarzonym z chronionymi subskrypcjami. Nie jest to odzwierciedlone w portalu Azure Security Center.
+ _ *\** * Stan pokrycia i dane pomocnicze są obecnie dostępne tylko w obszarze roboczym log Analytics skojarzonym z chronionymi subskrypcjami. Nie jest to odzwierciedlone w portalu Azure Security Center.
 
 > [!NOTE]
 > Wykrywanie programu System Center Endpoint Protection (SCEP) na maszynie wirtualnej z systemem Windows Server 2008 R2 wymaga zainstalowania protokołu SCEP po zainstalowaniu programu PowerShell (wersja 3.0 lub nowsza).

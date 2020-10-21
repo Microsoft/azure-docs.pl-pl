@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440733"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342386"
 ---
-# <a name="secure-your-management-ports-with-just-in-time-access"></a>Zabezpieczanie portów zarządzania przy użyciu dostępu just in Time
+# <a name="secure-your-management-ports-with-just-in-time-access"></a>Zabezpieczanie portów zarządzania przy użyciu dostępu just in time
 
 Zablokuj ruch przychodzący do usługi Azure Virtual Machines przy użyciu funkcji dostępu do maszyny wirtualnej (JIT) Azure Security Center (just-in-Time). Pozwala to ograniczyć narażenie na ataki, zapewniając łatwy dostęp, gdy konieczne jest połączenie z maszyną wirtualną.
 
@@ -35,7 +35,7 @@ Na tej stronie zawarto informacje na temat sposobu dołączania JIT do programu 
 |----|:----|
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
-|Obsługiwane maszyny wirtualne:|![Tak ](./media/icons/yes-icon.png) w przypadku maszyn wirtualnych wdrożonych za pośrednictwem Azure Resource Manager.<br>![Nie ](./media/icons/no-icon.png) wdrożono żadnych maszyn wirtualnych z klasycznymi modelami wdrażania. [Dowiedz się więcej na temat tych modeli wdrażania](../azure-resource-manager/management/deployment-models.md).<br>![Brak ](./media/icons/no-icon.png) maszyn wirtualnych chronionych przez zapory platformy Azure kontrolowane przez [Menedżera zapory platformy Azure](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|Obsługiwane maszyny wirtualne:|![Tak ](./media/icons/yes-icon.png) w przypadku maszyn wirtualnych wdrożonych za pośrednictwem Azure Resource Manager.<br>![Nie ](./media/icons/no-icon.png) wdrożono żadnych maszyn wirtualnych z klasycznymi modelami wdrażania. [Dowiedz się więcej na temat tych modeli wdrażania](../azure-resource-manager/management/deployment-models.md).<br>![Brak ](./media/icons/no-icon.png) maszyn wirtualnych chronionych przez zapory platformy Azure kontrolowane przez [Menedżera zapory platformy Azure](../firewall-manager/overview.md)|
 |Wymagane role i uprawnienia:|Role **Reader** i **SecurityReader** mogą wyświetlać stan i parametry JIT.<br>Aby utworzyć role niestandardowe, które mogą korzystać z JIT, zobacz [jakie uprawnienia są potrzebne do skonfigurowania i użycia JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Aby utworzyć rolę najniższych uprawnień dla użytkowników, którzy muszą zażądać dostępu JIT do maszyny wirtualnej i wykonać inne operacje JIT, użyj [skryptu Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) ze stron społeczności usługi GitHub Security Center.|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
@@ -162,9 +162,9 @@ Można włączyć JIT na maszynie wirtualnej ze stron usługi Azure Virtual Mach
     1. Po zakończeniu edycji portów wybierz pozycję **Zapisz**.
 
 
-### <a name="powershell"></a>[**Program PowerShell**](#tab/jit-config-powershell)
+### <a name="powershell"></a>[**PowerShell**](#tab/jit-config-powershell)
 
-### <a name="enable-jit-on-your-vms-using-powershell"></a>Włączanie JIT na maszynach wirtualnych za pomocą programu PowerShell
+### <a name="enable-jit-on-your-vms-using-powershell"></a>Włączanie funkcji JIT na maszynach wirtualnych za pomocą programu PowerShell
 
 Aby włączyć dostęp just in Time do maszyny wirtualnej za pomocą programu PowerShell, użyj oficjalnego polecenia cmdlet programu PowerShell Azure Security Center `Set-AzJitNetworkAccessPolicy` .
 
@@ -215,7 +215,7 @@ Następujące polecenia programu PowerShell tworzą tę konfigurację JIT:
 
 Funkcja dostępu just in Time do maszyny wirtualnej może być używana za pośrednictwem interfejsu API Azure Security Center. Użyj tego interfejsu API, aby uzyskać informacje o skonfigurowanych maszynach wirtualnych, dodać nowe, zażądać dostępu do maszyny wirtualnej i nie tylko. 
 
-Dowiedz się więcej na temat [zasad dostępu do sieci JIT](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Dowiedz się więcej na temat [zasad dostępu do sieci JIT](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 
 --- 
@@ -229,7 +229,7 @@ Dowiedz się więcej na temat [zasad dostępu do sieci JIT](https://docs.microso
 
 
 
-## <a name="request-access-to-a-jit-enabled-vm"></a>Zażądaj dostępu do maszyny wirtualnej z obsługą JIT
+## <a name="request-access-to-a-jit-enabled-vm"></a>Żądanie dostępu do maszyny wirtualnej z obsługą JIT
 
 Możesz zażądać dostępu do maszyny wirtualnej z obsługą JIT z Azure Portal (w Security Center lub na maszynach wirtualnych platformy Azure) lub programowo.
 
@@ -288,9 +288,9 @@ Aby zażądać dostępu z usługi Azure Virtual Machines:
 
 
 
-### <a name="powershell"></a>[**Program PowerShell**](#tab/jit-request-powershell)
+### <a name="powershell"></a>[**PowerShell**](#tab/jit-request-powershell)
 
-### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Zażądaj dostępu do maszyny wirtualnej z obsługą JIT przy użyciu programu PowerShell
+### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Żądanie dostępu do maszyny wirtualnej z obsługą JIT za pomocą programu PowerShell
 
 W poniższym przykładzie można zobaczyć żądanie dostępu just in Time do określonej maszyny wirtualnej, w której zażądano otwarcia portu 22 dla określonego adresu IP i przez określony czas:
 
@@ -319,7 +319,7 @@ Uruchom następujące polecenia w programie PowerShell:
     Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
     ```
 
-Więcej informacji znajduje się w [dokumentacji poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
+Więcej informacji znajduje się w [dokumentacji poleceń cmdlet programu PowerShell](/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 
 
@@ -329,7 +329,7 @@ Więcej informacji znajduje się w [dokumentacji poleceń cmdlet programu PowerS
 
 Funkcja dostępu just in Time do maszyny wirtualnej może być używana za pośrednictwem interfejsu API Azure Security Center. Użyj tego interfejsu API, aby uzyskać informacje o skonfigurowanych maszynach wirtualnych, dodać nowe, zażądać dostępu do maszyny wirtualnej i nie tylko. 
 
-Dowiedz się więcej na temat [zasad dostępu do sieci JIT](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Dowiedz się więcej na temat [zasad dostępu do sieci JIT](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 ---
 

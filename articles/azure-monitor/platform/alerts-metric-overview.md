@@ -4,12 +4,12 @@ description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami m
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3581c1f1660527bfbf2ae598349e30001962b1b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578074"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342182"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -166,7 +166,7 @@ Tworzenie reguł alertów dotyczących metryk, które monitorują wiele zasobów
 
 ## <a name="typical-latency"></a>Typowe opóźnienia
 
-W przypadku alertów dotyczących metryk, zazwyczaj otrzymasz powiadomienie w ciągu 5 minut, jeśli ustawisz częstotliwość reguły alertu na 1 min. W przypadku dużego obciążenia systemów powiadomień może pojawić się dłuższe opóźnienie.
+W przypadku alertów dotyczących metryk zazwyczaj otrzymasz powiadomienie w ciągu 5 minut, jeśli ustawisz częstotliwość reguły alertu na 1 min. W przypadku dużego obciążenia systemów powiadomień może pojawić się dłuższe opóźnienie.
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Obsługiwane typy zasobów dla alertów metryk
 
@@ -179,4 +179,5 @@ Pełną listę obsługiwanych typów zasobów można znaleźć w tym [artykule](
 - [Dowiedz się, jak wdrażać alerty metryk przy użyciu szablonów Azure Resource Manager](./alerts-metric-create-templates.md)
 - [Dowiedz się więcej na temat grup akcji](action-groups.md)
 - [Dowiedz się więcej o typie warunku progi dynamiczne](alerts-dynamic-thresholds.md)
+- [Dowiedz się więcej o rozwiązywaniu problemów z alertami metryk](alerts-troubleshoot-metric.md)
 

@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015b3fb116c4eb16e4280e2f71873e88dccff278
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712293"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344036"
 ---
-# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Tworzenie automatycznych odpowiedzi na alerty i zalecenia z automatyzacją przepływu pracy
+# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Tworzenie automatycznych odpowiedzi na alerty i zaleceń z automatyzacją przepływu pracy
 
 Każdy program zabezpieczeń zawiera wiele przepływów pracy dotyczących odpowiedzi na zdarzenia. Procesy te mogą obejmować Powiadamianie właściwych uczestników projektu, uruchamianie procesu zarządzania zmianami i stosowanie określonych czynności zaradczych. Specjaliści ds. zabezpieczeń zaleca się zautomatyzować dowolną liczbę kroków tych procedur. Automatyzacja redukuje obciążenie. Pozwala również zwiększyć bezpieczeństwo, zapewniając, że kroki procesu są wykonywane szybko, spójnie i zgodnie ze wstępnie zdefiniowanymi wymaganiami.
 
-W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Center. Ta funkcja może wyzwolić Logic Apps na temat alertów zabezpieczeń i zaleceń. Na przykład możesz chcieć, aby Security Center e-mail określonego użytkownika w przypadku wystąpienia alertu. Dowiesz się również, jak utworzyć Logic Apps przy użyciu [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Center. Ta funkcja może wyzwolić Logic Apps na temat alertów zabezpieczeń i zaleceń. Na przykład możesz chcieć, aby Security Center e-mail określonego użytkownika w przypadku wystąpienia alertu. Dowiesz się również, jak utworzyć Logic Apps przy użyciu [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 > [!NOTE]
 > Jeśli wcześniej był używany widok elementy PlayBook (wersja zapoznawcza) na pasku bocznym, znajdziesz te same funkcje wraz z rozwiniętymi funkcjami na nowej stronie automatyzacji przepływu pracy.
@@ -32,7 +32,7 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 |----|:----|
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Bezpłatna|
-|Wymagane role i uprawnienia:|**Rola administratora zabezpieczeń** lub **właściciel** grupy zasobów<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego<br><br>Aby można było korzystać z przepływów pracy Azure Logic Apps, należy mieć również następujące role/uprawnienia Logic Apps:<br> - Wymagane są uprawnienia [operatora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) lub dostęp do odczytu/wyzwalacza aplikacji logiki (Ta rola nie może tworzyć ani edytować aplikacji logiki; można *uruchamiać* tylko istniejące)<br> - Uprawnienia [współautora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) są wymagane do utworzenia i modyfikacji aplikacji logiki<br>Jeśli chcesz używać łączników aplikacji logiki, możesz potrzebować dodatkowych poświadczeń, aby zalogować się do odpowiednich usług (na przykład wystąpień programu Outlook/zespołów/zapasowych).|
+|Wymagane role i uprawnienia:|**Rola administratora zabezpieczeń** lub **właściciel** grupy zasobów<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego<br><br>Aby można było korzystać z przepływów pracy Azure Logic Apps, należy mieć również następujące role/uprawnienia Logic Apps:<br> - Wymagane są uprawnienia [operatora aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-operator) lub dostęp do odczytu/wyzwalacza aplikacji logiki (Ta rola nie może tworzyć ani edytować aplikacji logiki; można *uruchamiać* tylko istniejące)<br> - Uprawnienia [współautora aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-contributor) są wymagane do utworzenia i modyfikacji aplikacji logiki<br>Jeśli chcesz używać łączników aplikacji logiki, możesz potrzebować dodatkowych poświadczeń, aby zalogować się do odpowiednich usług (na przykład wystąpień programu Outlook/zespołów/zapasowych).|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
@@ -101,9 +101,9 @@ Ten artykuł zawiera informacje na temat tworzenia Logic Apps, automatyzowania i
 
 W przypadku pokrewnego materiału Zobacz: 
 
-- [Moduł Microsoft Learn dotyczący używania automatyzacji przepływu pracy do automatyzowania odpowiedzi zabezpieczeń](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
+- [Moduł Microsoft Learn dotyczący używania automatyzacji przepływu pracy do automatyzowania odpowiedzi zabezpieczeń](/learn/modules/resolve-threats-with-azure-security-center/)
 - [Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure](security-center-recommendations.md)
 - [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](security-center-alerts-overview.md)
-- [Azure Logic Apps — informacje](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Łączniki usługi Logic Apps](https://docs.microsoft.com/connectors/)
+- [Azure Logic Apps — informacje](../logic-apps/logic-apps-overview.md)
+- [Łączniki usługi Logic Apps](/connectors/)
 - [Schematy typów danych automatyzacji przepływu pracy](https://aka.ms/ASCAutomationSchemas)

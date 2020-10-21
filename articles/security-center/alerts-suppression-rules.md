@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448478"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342097"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Pomijanie alertów z usługi Azure Defender
 
@@ -49,16 +49,16 @@ Reguły pomijania definiują kryteria, dla których alerty powinny być automaty
 
 ## <a name="create-a-suppression-rule"></a>Tworzenie reguły pomijania
 
-Istnieje kilka sposobów, aby można było utworzyć reguły pomijające niepożądane alerty zabezpieczeń:
+Istnieje kilka sposobów tworzenia reguł pomijania niepożądanych alertów zabezpieczeń:
 
-- Aby pominąć alerty na poziomie grupy zarządzania, użyj Azure Policy
-- Aby pominąć alerty na poziomie subskrypcji, można użyć Azure Portal lub interfejsu API REST, jak wyjaśniono poniżej
+- Aby pominąć alerty na poziomie grupy zarządzania, użyj usługi Azure Policy
+- Aby pominąć alerty na poziomie subskrypcji, możesz użyć witryny Azure Portal lub interfejsu API REST, jak wyjaśniono poniżej
 
 Reguły pomijania mogą odrzucać tylko alerty, które zostały już wyzwolone w wybranych subskrypcjach.
 
 Aby utworzyć regułę bezpośrednio w Azure Portal:
 
-1. Ze strony alertów zabezpieczeń Security Center:
+1. Na stronie alertów zabezpieczeń portalu Security Center:
 
     - Znajdź konkretny alert, którego nie chcesz już zobaczyć, a następnie z menu wielokropka (...) dla alertu wybierz pozycję **Utwórz regułę pomijania**:
 
@@ -77,7 +77,7 @@ Aby utworzyć regułę bezpośrednio w Azure Portal:
 
     [![Okienko tworzenia reguły pomijania](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 1. Wprowadź szczegóły reguły:
-    - **Nazwa** — Nazwa reguły. Nazwy reguł muszą zaczynać się literą lub cyfrą od 2 do 50 znaków i nie mogą zawierać symboli innych niż kreski (-) ani znaki podkreślenia (_). 
+    - **Nazwa** — Nazwa reguły. Nazwy reguł muszą zaczynać się literą lub cyfrą i mieć od 2 do 50 znaków oraz nie mogą zawierać symboli innych niż kreski (-) i podkreślenia (_). 
     - **Stan** — włączony lub wyłączony.
     - **Przyczyna** — wybierz jedno z wbudowanych przyczyn lub "inne", jeśli nie spełnią Twoich potrzeb.
     - **Data wygaśnięcia** — Data i godzina zakończenia dla reguły. Reguły mogą działać przez maksymalnie sześć miesięcy.
@@ -139,7 +139,7 @@ Odpowiednie metody HTTP dla reguł pomijania w interfejsie API REST są następu
 
 - **Usuń**: Usuwa istniejącą regułę (ale nie zmienia stanu alertów, które zostały już odrzucone przez niego).
 
-Aby zapoznać się z pełnymi szczegółami i przykładami użycia, zobacz [dokumentację interfejsu API](https://docs.microsoft.com/rest/api/securitycenter/). 
+Aby zapoznać się z pełnymi szczegółami i przykładami użycia, zobacz [dokumentację interfejsu API](/rest/api/securitycenter/). 
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8b27c3d0982e945fcabc6e7748646ea2ee1a4184
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ffc74e05d6cbe7722b9bf293c1a1e75a7de1b879
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945297"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342063"
 ---
 # <a name="continuously-export-security-alerts-and-recommendations"></a>Nieustanne eksportowanie alertów zabezpieczeń i zaleceń
 
@@ -52,7 +52,7 @@ W tym artykule opisano sposób konfigurowania eksportu ciągłego do Log Analyti
 
 Można skonfigurować eksport ciągły ze stron Security Center w Azure Portal, za pośrednictwem interfejsu API REST Security Center lub na skalę przy użyciu dostarczonych szablonów Azure Policy. Wybierz odpowiednią kartę poniżej, aby uzyskać szczegółowe informacje o każdej z nich.
 
-### <a name="use-the-azure-portal"></a>[**Korzystanie z witryny Azure Portal**](#tab/azure-portal)
+### <a name="use-the-azure-portal"></a>[**Użyj Azure Portal**](#tab/azure-portal)
 
 ### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Skonfiguruj eksport ciągły na stronach Security Center w Azure Portal
 
@@ -80,7 +80,7 @@ Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły
 
 ### <a name="configure-continuous-export-using-the-rest-api"></a>Konfigurowanie eksportu ciągłego przy użyciu interfejsu API REST
 
-Eksport ciągły można skonfigurować i zarządzać nim za pośrednictwem [interfejsu API Azure Security Center automations](https://docs.microsoft.com/rest/api/securitycenter/automations). Użyj tego interfejsu API, aby utworzyć lub zaktualizować reguły eksportowania do dowolnego z następujących możliwych miejsc docelowych:
+Eksport ciągły można skonfigurować i zarządzać nim za pośrednictwem [interfejsu API Azure Security Center automations](/rest/api/securitycenter/automations). Użyj tego interfejsu API, aby utworzyć lub zaktualizować reguły eksportowania do dowolnego z następujących możliwych miejsc docelowych:
 
 - Centrum zdarzeń Azure
 - Obszar roboczy usługi Log Analytics
@@ -97,7 +97,7 @@ Interfejs API zapewnia dodatkowe funkcje niedostępne w Azure Portal, na przykł
     > [!TIP]
     > Jeśli skonfigurowano wiele konfiguracji eksportu przy użyciu interfejsu API lub jeśli użyto parametrów tylko do API, te dodatkowe funkcje nie będą wyświetlane w interfejsie użytkownika Security Center. Zamiast tego zostanie wyświetlony transparent informujący o tym, że istnieją inne konfiguracje.
 
-Więcej informacji na temat interfejsu API usługi automations znajduje się w [dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/securitycenter/automations).
+Więcej informacji na temat interfejsu API usługi automations znajduje się w [dokumentacji interfejsu API REST](/rest/api/securitycenter/automations).
 
 
 
@@ -169,7 +169,7 @@ Aby wyświetlić schematy zdarzeń wyeksportowanych typów danych, odwiedź [log
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Wyświetlanie wyeksportowanych alertów i zaleceń w Azure Monitor
 
-W niektórych przypadkach można wyświetlić wyeksportowane alerty zabezpieczeń i/lub zalecenia w [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
+W niektórych przypadkach można wyświetlić wyeksportowane alerty zabezpieczeń i/lub zalecenia w [Azure monitor](../azure-monitor/platform/alerts-overview.md). 
 
 Azure Monitor zapewnia ujednolicone środowisko alertów dla różnych alertów platformy Azure, w tym dzienników diagnostycznych, alertów metryk i alertów niestandardowych opartych na zapytaniach Log Analytics obszaru roboczego.
 
@@ -179,13 +179,13 @@ Aby wyświetlić alerty i zalecenia z Security Center w Azure Monitor, skonfigur
 
     ![Strona alertów Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
-1. Na stronie Tworzenie reguły Skonfiguruj nową regułę (w taki sam sposób jak w przypadku konfigurowania [reguły alertu dziennika w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)):
+1. Na stronie Tworzenie reguły Skonfiguruj nową regułę (w taki sam sposób jak w przypadku konfigurowania [reguły alertu dziennika w Azure monitor](../azure-monitor/platform/alerts-unified-log.md)):
 
     * W obszarze **zasób**wybierz obszar roboczy log Analytics, do którego wyeksportowano alerty zabezpieczeń i zalecenia.
 
     * W obszarze **warunek**wybierz opcję **Wyszukiwanie w dzienniku niestandardowym**. Na wyświetlonej stronie Skonfiguruj zapytanie, okres lookback i okres częstotliwości. W zapytaniu wyszukiwania można wpisać *SecurityAlert* lub *SecurityRecommendation* , aby wykonać zapytanie dotyczące typów danych, które Security Center ciągle eksportować w miarę włączania eksportu ciągłego do log Analytics funkcji. 
     
-    * Opcjonalnie Skonfiguruj [grupę akcji](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) , którą chcesz wyzwolić. Grupy akcji mogą wyzwalać wysyłanie wiadomości e-mail, bilety narzędzia ITSM, elementy webhook i inne elementy.
+    * Opcjonalnie Skonfiguruj [grupę akcji](../azure-monitor/platform/action-groups.md) , którą chcesz wyzwolić. Grupy akcji mogą wyzwalać wysyłanie wiadomości e-mail, bilety narzędzia ITSM, elementy webhook i inne elementy.
     ![Reguła alertu Azure Monitor](./media/continuous-export/azure-monitor-alert-rule.png)
 
 Zobaczysz teraz nowe alerty i zalecenia dotyczące Azure Security Center (w zależności od skonfigurowanych reguł eksportu ciągłego i warunku zdefiniowanego w regule alertu Azure Monitor) w Azure Monitor alertach z automatycznym wyzwalaniem grupy akcji (jeśli została podana).
@@ -220,7 +220,7 @@ W tym artykule przedstawiono sposób konfigurowania ciągłego eksportowania zal
 W przypadku pokrewnego materiału zapoznaj się z następującą dokumentacją: 
 
 - Dowiedz się więcej o [szablonach automatyzacji przepływu pracy](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
-- [Dokumentacja usługi Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)
-- [Dokumentacja usługi Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-- [Dokumentacja usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+- [Dokumentacja usługi Azure Event Hubs](../event-hubs/index.yml)
+- [Dokumentacja usługi Azure Sentinel](../sentinel/index.yml)
+- [Dokumentacja usługi Azure Monitor](../azure-monitor/index.yml)
 - [Eksportuj schematy typów danych](https://aka.ms/ASCAutomationSchemas)

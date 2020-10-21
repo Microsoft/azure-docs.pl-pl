@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 31d12466186bb7f66197218fbb9675888a35fef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272777"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342420"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Wdrażanie klastra vFXT
 
@@ -64,7 +64,7 @@ Wprowadź następujące informacje:
 
 * **Nazwa użytkownika kontrolera** — Ustaw nazwę użytkownika root dla maszyny wirtualnej kontrolera klastra.
 
-* **Typ uwierzytelniania** — wybierz opcję hasło lub uwierzytelnianie klucza publicznego SSH w celu nawiązania połączenia z kontrolerem. Zalecana jest metoda klucza publicznego SSH; Jeśli potrzebujesz pomocy, przeczytaj artykuł [jak utworzyć klucze SSH i jak z nich korzystać](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) .
+* **Typ uwierzytelniania** — wybierz opcję hasło lub uwierzytelnianie klucza publicznego SSH w celu nawiązania połączenia z kontrolerem. Zalecana jest metoda klucza publicznego SSH; Jeśli potrzebujesz pomocy, przeczytaj artykuł [jak utworzyć klucze SSH i jak z nich korzystać](../virtual-machines/linux/ssh-from-windows.md) .
 
 * **Hasło** lub **klucz publiczny SSH** — w zależności od wybranego typu uwierzytelniania należy podać klucz publiczny RSA lub hasło w następnych polach. To poświadczenie jest używane z podaną wcześniej nazwą użytkownika.
 
