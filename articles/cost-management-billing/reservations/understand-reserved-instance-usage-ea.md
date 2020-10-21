@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 20a9fb6a158134ffc18dc5bbb7eddd34d2b79562
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6e51363ff2f3782b77288f9dc1fcb8e59e9ffe0c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682012"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151795"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Pobieranie kosztów i użycia rezerwacji w ramach umowy Enterprise Agreement
 
@@ -55,7 +55,7 @@ Inne informacje dostępne w danych użycia platformy Azure uległy zmianie:
 - Okres — 12 miesięcy lub 36 miesięcy.
 - RINormalizationRatio — dostępne w obszarze AdditionalInfo. Jest to stosunek rezerwacji do rekordu użycia. Jeśli na potrzeby rezerwacji włączono elastyczność rozmiaru wystąpienia, może ona mieć zastosowanie w przypadku innych rozmiarów. Wartość przedstawia współczynnik, do którego została zastosowana rezerwacja dla rekordu użycia.
 
-[Zobacz definicję pola](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+[Zobacz definicję pola](/rest/api/consumption/usagedetails/list#definitions)
 
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Pobieranie danych użycia platformy Azure i rezerwacji przy użyciu interfejsu API
 
@@ -71,7 +71,7 @@ Oto przykład wywołania interfejsu API szczegółów użycia:
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
-Aby uzyskać więcej informacji na temat parametrów {enrollmentId} i {billingPeriodId}, zobacz artykuł dotyczący interfejsu API [Usage Details – List](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) (Szczegóły użycia — lista).
+Aby uzyskać więcej informacji na temat parametrów {enrollmentId} i {billingPeriodId}, zobacz artykuł dotyczący interfejsu API [Usage Details – List](/rest/api/consumption/usagedetails/list) (Szczegóły użycia — lista).
 
 Informacje przedstawione w poniższej tabeli dotyczące metryki i filtru mogą pomóc w rozwiązywaniu typowych problemów z rezerwacją.
 

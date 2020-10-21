@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371409"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132367"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
@@ -26,7 +26,7 @@ Rozliczający się bezpośrednio partnerzy będący dostawcami usług w chmurze,
 Po zatwierdzeniu żądania dostawca usług w chmurze może udostępnić swoim klientom łączną fakturę. Aby dowiedzieć się więcej o tym, jak dostawcy usług w chmurze przenoszą subskrypcje, zobacz [Uzyskiwanie własności rozliczeń subskrypcji platformy Azure dla konta umowy partnerskiej firmy Microsoft](mpa-request-ownership.md).
 
 >[!IMPORTANT]
-> Po przeniesieniu subskrypcji EA do partnera dostawcy rozwiązań w chmurze każde zwiększenie limitu przydziału wcześniej zastosowane w subskrypcji EA zostanie zresetowane do wartości domyślnej. Jeśli po przeniesieniu subskrypcji wymagany jest dodatkowy limit przydziału, dostawca rozwiązań w chmurze musi przesłać żądanie [zwiększenia limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
+> Po przeniesieniu subskrypcji EA do partnera dostawcy rozwiązań w chmurze każde zwiększenie limitu przydziału wcześniej zastosowane w subskrypcji EA zostanie zresetowane do wartości domyślnej. Jeśli po przeniesieniu subskrypcji wymagany jest dodatkowy limit przydziału, dostawca rozwiązań w chmurze musi przesłać żądanie [zwiększenia limitu przydziału](../../azure-portal/supportability/regional-quota-requests.md). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Przenoszenie innych subskrypcji do partnera będącego dostawcą usług w chmurze CSP
 
@@ -42,7 +42,7 @@ Aby przenieść wszelkie inne subskrypcje platformy Azure do partnera będącego
 1. Przed rozpoczęciem [zweryfikuj](/rest/api/resources/resources/validatemoveresources), czy wszystkie zasoby platformy Azure mogą zostać przeniesione z subskrypcji źródłowej do subskrypcji docelowej.  
     Niektórych zasobów platformy Azure nie można przenosić między subskrypcjami. Aby wyświetlić pełną listę zasobów platformy Azure, które można przenieść, zobacz [Obsługa operacji przenoszenia dla zasobów](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
-    >  - Dostawca usług w chmurze platformy Azure obsługuje tylko zasoby usługi Azure Resource Manager. Jeśli jakiekolwiek zasoby platformy Azure w subskrypcji źródłowej zostały utworzone przy użyciu klasycznego modelu wdrażania platformy Azure, przed rozpoczęciem migracji należy zmigrować je do usługi [Azure Resource Manager](https://docs.microsoft.com/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm). Aby wyświetlić stronę internetową, musisz być partnerem.
+    >  - Dostawca usług w chmurze platformy Azure obsługuje tylko zasoby usługi Azure Resource Manager. Jeśli jakiekolwiek zasoby platformy Azure w subskrypcji źródłowej zostały utworzone przy użyciu klasycznego modelu wdrażania platformy Azure, przed rozpoczęciem migracji należy zmigrować je do usługi [Azure Resource Manager](/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm). Aby wyświetlić stronę internetową, musisz być partnerem.
 
 1. Sprawdź, czy wszystkie usługi subskrypcji źródłowej korzystają z modelu usługi Azure Resource Manager. Następnie przenieś zasoby z subskrypcji źródłowej do subskrypcji docelowej przy użyciu funkcji [przenoszenia zasobów platformy Azure](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
     > [!IMPORTANT]

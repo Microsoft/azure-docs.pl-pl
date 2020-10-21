@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 3e8cef04e0711492b6e76d4c865695ac75e21422
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9927d4780ea015502151188b61c50ddbd2656819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125683"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339547"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować trwałość danych dla pamięci podręcznej systemu Azure w warstwie Premium dla Redis
 W tym artykule dowiesz się, jak skonfigurować trwałość w pamięci podręcznej systemu Azure w warstwie Premium dla wystąpienia Redis za pomocą Azure Portal. Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. 
@@ -83,11 +83,11 @@ Trwałość zapisuje dane Redis do konta usługi Azure Storage, którego jesteś
 
 11. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób. 
 
-12. Wybierz pozycję **Recenzja + Utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
+12. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
 
 13. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz**.
 
-Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd**usługi Azure cache for Redis   . Gdy **stan**   jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia. 
+Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia. 
 
 ## <a name="persistence-faq"></a>Często zadawane pytania dotyczące trwałości
 Poniższa lista zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure cache for Redis trwałość.
@@ -96,6 +96,7 @@ Poniższa lista zawiera odpowiedzi na często zadawane pytania dotyczące usług
 * [Czy mogę włączyć trwałość kopia zapasowa AOF i RDB w tym samym czasie?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Który model trwałości należy wybrać?](#which-persistence-model-should-i-choose)
 * [Co się stanie, jeśli przeprowadzono skalowanie do innego rozmiaru i przywrócono kopię zapasową wykonaną przed operacją skalowania?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [Czy można używać tego samego konta magazynu w celu zapewnienia trwałości w dwóch różnych pamięciach podręcznych?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 
 
 ### <a name="rdb-persistence"></a>Trwałość RDB
@@ -135,6 +136,9 @@ W przypadku trwałości programu RDB i kopia zapasowa AOF:
 * W przypadku skalowania do większego rozmiaru nie ma to żadnego wpływu.
 * W przypadku skalowania do mniejszego rozmiaru i ustawienia niestandardowych [baz danych](cache-configure.md#databases) , które są większe niż [Limit baz danych](cache-configure.md#databases) dla nowego rozmiaru, dane w tych bazach danych nie są przywracane. Aby uzyskać więcej informacji, zobacz [Ustawienia moje niestandardowe bazy danych, których to dotyczy, podczas skalowania?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
 * W przypadku skalowania do mniejszego rozmiaru i braku miejsca na mniejszym rozmiarze do przechowywania wszystkich danych z ostatniej kopii zapasowej klucze zostaną wykluczone podczas procesu przywracania, zazwyczaj przy użyciu zasad wykluczania [AllKeys-LRU](https://redis.io/topics/lru-cache) .
+
+### <a name="can-i-use-the-same-storage-account-for-persistence-across-two-different-caches"></a>Czy można używać tego samego konta magazynu w celu zapewnienia trwałości w dwóch różnych pamięciach podręcznych?
+Tak, możesz użyć tego samego konta magazynu w celu zapewnienia trwałości w dwóch różnych pamięciach podręcznych
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Czy mogę zmienić częstotliwość tworzenia kopii zapasowych RDB po utworzeniu pamięci podręcznej?
 Tak, możesz zmienić częstotliwość tworzenia kopii zapasowych dla trwałości RDB w bloku **trwałość danych** . Aby uzyskać instrukcje, zobacz Konfigurowanie trwałości Redis.

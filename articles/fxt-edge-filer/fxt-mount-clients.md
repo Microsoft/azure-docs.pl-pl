@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: c9ee50c146271106e2b9c693702827b2e1b52199
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: fa1f9da2c60aaf4c552916d16c266e984bf08892
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219551"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340516"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Samouczek: Instalowanie klastra
 
@@ -109,6 +109,6 @@ Aby zapewnić bezproblemowe Instalowanie klienta, należy przekazać te ustawien
 
 Po zainstalowaniu klientów można testować przepływ pracy i rozpocząć pracę z klastrem.
 
-Jeśli musisz przenieść dane do nowego pliku w chmurze, skorzystaj ze struktury pamięci podręcznej, używając funkcji pozyskiwania danych równoległych. Niektóre strategie zostały opisane w artykule [przeniesienie danych do klastra vFXT](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest). (Avere vFXT for Azure to produkt oparty na chmurze, który korzysta z technologii pamięci podręcznej, podobnie jak w przypadku usługi Azure FXT Edge.)
+Jeśli musisz przenieść dane do nowego pliku w chmurze, skorzystaj ze struktury pamięci podręcznej, używając funkcji pozyskiwania danych równoległych. Niektóre strategie zostały opisane w artykule [przeniesienie danych do klastra vFXT](../avere-vfxt/avere-vfxt-data-ingest.md). (Avere vFXT for Azure to produkt oparty na chmurze, który korzysta z technologii pamięci podręcznej, podobnie jak w przypadku usługi Azure FXT Edge.)
 
 Przeczytaj artykuł [monitorowanie stanu sprzętu usługi Azure FXT Edge](fxt-monitor.md) w przypadku konieczności rozwiązywania problemów ze sprzętem.

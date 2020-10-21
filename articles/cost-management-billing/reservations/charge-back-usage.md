@@ -7,18 +7,18 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4387a1aa5b22c9808f36364b71f89a71736958b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: aba6ea467788c51d179ef9377243efb6035b6f98
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689477"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148355"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Koszty rezerwacji platformy Azure — obciążenie zwrotne
 
 Osoby pełniące rolę czytelnika rozliczeń dla umów Enterprise i umów z Klientem Microsoft mogą przeglądać dane o zamortyzowanych kosztach rezerwacji. Na podstawie tych danych o kosztach mogą wykonać obciążenie zwrotne wartości pieniężnej za subskrypcję, grupę zasobów, zasób lub tag na rzecz partnerów. W danych zamortyzowanych rzeczywista cena to obliczony proporcjonalnie godzinowy koszt rezerwacji. Jest to całkowity koszt użycia rezerwacji przez zasób w danym dniu.
 
-Użytkownicy mający subskrypcję indywidualną mogą znaleźć dane o kosztach zamortyzowanych w pliku użycia. Jeśli zasób jest objęty rabatem za rezerwację, szczegóły rezerwacji będą widoczne w sekcji *AdditionalInfo* (Informacje dodatkowe) w pliku użycia. Aby uzyskać więcej informacji, zobacz [Pobieranie danych użycia z witryny Azure Portal](https://docs.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage#download-usage-from-the-azure-portal-csv).
+Użytkownicy mający subskrypcję indywidualną mogą znaleźć dane o kosztach zamortyzowanych w pliku użycia. Jeśli zasób jest objęty rabatem za rezerwację, szczegóły rezerwacji będą widoczne w sekcji *AdditionalInfo* (Informacje dodatkowe) w pliku użycia. Aby uzyskać więcej informacji, zobacz [Pobieranie danych użycia z witryny Azure Portal](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv).
 
 ## <a name="get-reservation-charge-back-data-for-chargeback"></a>Pobieranie danych dotyczących obciążeń zwrotnych za rezerwacje
 

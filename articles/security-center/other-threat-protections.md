@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 377c68cd2f0b0c132fc690cb03d7c3c5694bb52e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438894"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340890"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Dodatkowa ochrona przed zagrożeniami w Azure Security Center
 Również wbudowane funkcje [ochrony usługi Azure Defender](azure-defender.md)Azure Security Center oferują również następujące możliwości ochrony przed zagrożeniami.
@@ -90,7 +90,7 @@ Ataki rozproszonego typu "odmowa usługi" (DDoS) są znane, aby można je było 
 
 Atak DDoS próbuje wymusić wyczerpanie zasobów aplikacji, co sprawia, że aplikacja jest niedostępna dla uprawnionych użytkowników. Ataki DDoS mogą wskazywać każdy punkt końcowy, który można uzyskać za pomocą Internetu.
 
-Aby chronić przed atakami DDoS, Kup licencję na Azure DDoS Protection i upewnij się, że korzystasz z najlepszych rozwiązań dotyczących projektowania aplikacji. DDoS Protection oferuje różne warstwy usług. Aby uzyskać więcej informacji, zobacz [Azure DDoS Protection przegląd](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Aby chronić przed atakami DDoS, Kup licencję na Azure DDoS Protection i upewnij się, że korzystasz z najlepszych rozwiązań dotyczących projektowania aplikacji. DDoS Protection oferuje różne warstwy usług. Aby uzyskać więcej informacji, zobacz [Azure DDoS Protection przegląd](../virtual-network/ddos-protection-overview.md).
 
 Listę alertów Azure DDoS Protection można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-azureddos).
 

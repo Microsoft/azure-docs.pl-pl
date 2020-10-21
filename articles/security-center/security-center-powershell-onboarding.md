@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: c805b35b2c05600f96983da42ea7206a09e2e3e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20fce643defd12897eceb1accc7ade8b10548568
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447395"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341169"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatyzowanie dołączania Azure Security Center przy użyciu programu PowerShell
 
@@ -101,7 +101,7 @@ Teraz można używać tych poleceń cmdlet programu PowerShell ze skryptami auto
 ## <a name="see-also"></a>Zobacz też
 Aby dowiedzieć się więcej na temat sposobu automatyzowania dołączania do Security Center za pomocą programu PowerShell, zobacz następujący artykuł:
 
-* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security)
+* [AZ. Security](/powershell/module/az.security)
 
 Aby dowiedzieć się więcej na temat Security Center, zobacz następujący artykuł:
 

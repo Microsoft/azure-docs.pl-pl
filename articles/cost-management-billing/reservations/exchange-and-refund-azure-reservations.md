@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 553652832f3f4ce84a0a141455551e4977215184
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 32db8396a687428c668a9b8a4213b50986614083
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684426"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150127"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Samoobsługowe wymiany i zwroty kosztów dotyczące rezerwacji na platformie Azure
 
@@ -21,7 +21,7 @@ Rezerwacje platformy Azure zapewniają elastyczność, dzięki której można ł
 Możliwości samoobsługowej wymiany i anulowania nie są dostępne dla klientów z umową Enterprise Agreement dla instytucji rządowych USA. Inne typy subskrypcji dla instytucji rządowych USA, w tym Płatność zgodnie z rzeczywistym użyciem i Dostawca CSP (Cloud Solution Provider), są obsługiwane.
 
 > [!NOTE]
-> - **Aby wymienić istniejącą rezerwację lub uzyskać zwrot jej kosztów, musisz mieć dostęp właściciela do zamówienia rezerwacji**. Możesz [dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+> - **Aby wymienić istniejącą rezerwację lub uzyskać zwrot jej kosztów, musisz mieć dostęp właściciela do zamówienia rezerwacji**. Możesz [dodawać lub zmieniać użytkowników, którzy mogą zarządzać rezerwacją](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 > - Firma Microsoft obecnie nie nalicza opłat za wcześniejsze zakończenie w przypadku zwrotów rezerwacji. Możemy naliczać opłaty za zwroty dokonywane w przyszłości. Obecnie nie mamy ustalonej daty włączenia tej opłaty.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Jak wymienić lub zwrócić istniejącą rezerwację

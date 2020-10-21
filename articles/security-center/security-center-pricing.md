@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: d6c3fff3ed265cb910388a2c9456b8a3f9d63c8b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 01d7d29e9fffff3be2c98c0ec52c01774439e3f7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281199"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341192"
 ---
 # <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie ataków cybernetycznymi.
@@ -71,4 +71,4 @@ W tym artykule wprowadzono cenniki dotyczące Security Center. W przypadku pokre
 
 - [Jak zoptymalizować koszty obciążeń platformy Azure](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)
 - [Szczegóły cennika w wybranej walucie i zgodnie z Twoim regionem](https://azure.microsoft.com/pricing/details/security-center/)
-- Możesz chcieć zarządzać kosztami i ograniczyć ilość danych zbieranych dla rozwiązania, ograniczając je do określonego zestawu agentów. [Określanie celu rozwiązania](../operations-management-suite/operations-management-suite-solution-targeting.md) pozwala zastosować zakres do rozwiązania i określić podzestaw komputerów w obszarze roboczym. W przypadku korzystania z funkcji określania wartości docelowej rozwiązania Security Center zawiera listę obszarów roboczych bez rozwiązania.
+- Możesz chcieć zarządzać kosztami i ograniczyć ilość danych zbieranych dla rozwiązania, ograniczając je do określonego zestawu agentów. [Określanie celu rozwiązania](../azure-monitor/insights/solution-targeting.md) pozwala zastosować zakres do rozwiązania i określić podzestaw komputerów w obszarze roboczym. W przypadku korzystania z funkcji określania wartości docelowej rozwiązania Security Center zawiera listę obszarów roboczych bez rozwiązania.

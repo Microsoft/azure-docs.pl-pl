@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b1015573e4c01f01d82c7c152b66db80bef0aee
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065866"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342165"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor
 
@@ -43,11 +43,11 @@ Poniższa procedura opisuje sposób tworzenia reguły alertu dotyczącego metryk
 8. Jeśli Metryka ma wymiary, zostanie wyświetlona tabela wymiarów. Wybierz co najmniej jedną wartość na wymiar.
     - Wyświetlone wartości wymiarów są oparte na danych metryk z ostatnich trzech dni.
     - Jeśli wartość wymiaru, którego szukasz, nie jest wyświetlana, kliknij przycisk "+", aby dodać wartość niestandardową.
-    - Możesz również **wybrać \* ** dla dowolnego z wymiarów. **Wybierz \* pozycję** umożliwia dynamiczne skalowanie zaznaczenia do wszystkich bieżących i przyszłych wartości wymiaru.
+    - Możesz także **wybrać \* *_ dla dowolnego wymiaru. _*Wybierz \* pozycję*_ umożliwia dynamiczne skalowanie zaznaczenia do wszystkich bieżących i przyszłych wartości wymiaru.
 
     Reguła alertu metryki będzie szacować warunek dla wszystkich wybranych kombinacji wartości. [Dowiedz się więcej o tym, jak działa alert dotyczący metryk wielowymiarowych](alerts-metric-overview.md).
 
-9. Wybierz typ **progu** , **operator**i **typ agregacji**. Spowoduje to określenie logiki, która będzie Szacowana przez regułę alertu metryki.
+9. Wybierz wartość _*Threshold** typ, **operator**i **typ agregacji**. Spowoduje to określenie logiki, która będzie Szacowana przez regułę alertu metryki.
     - Jeśli używasz progu **statycznego** , Kontynuuj definiowanie **wartości progowej**. Wykres metryk może pomóc w ustaleniu, co może być rozsądnym progiem.
     - Jeśli używasz progu **dynamicznego** , Kontynuuj definiowanie **czułości progowej**. Na wykresie metryki zostaną wyświetlone obliczone progi na podstawie ostatnich danych. [Dowiedz się więcej o opcjach typu i czułości wartości progów dynamicznych](alerts-dynamic-thresholds.md).
 
@@ -154,8 +154,8 @@ Reguły alertów dotyczących metryk mają dostępne dedykowane polecenia cmdlet
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie alertów metryk przy użyciu szablonów Azure Resource Manager](./alerts-metric-create-templates.md).
-- [Informacje o działaniu alertów dotyczących metryk](alerts-metric-overview.md).
-- [Informacje o tym, jak działają Alerty metryczne z warunkiem progów dynamicznych](alerts-dynamic-thresholds.md).
+- [Tworzenie alertów metryk przy użyciu szablonów Azure Resource Manager](./alerts-metric-create-templates.md)
+- [Objaśnienie działania alertów metryk](alerts-metric-overview.md)
+- [Informacje o działaniu alertów metryk z dynamicznymi progami](alerts-dynamic-thresholds.md)
 - [Informacje o schemacie elementu webhook dla alertów dotyczących metryk](./alerts-metric-near-real-time.md#payload-schema)
-
+- [Rozwiązywanie problemów z alertami metryk](alerts-troubleshoot-metric.md)

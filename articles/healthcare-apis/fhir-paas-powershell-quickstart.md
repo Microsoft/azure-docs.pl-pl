@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/15/2019
 ms.author: cavoeg
-ms.openlocfilehash: 07221e0cf8feeef48de27a84450c28b08d22e0d3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2cb50f2ae98dab1e64e01498e0913d1932e455cd
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217494"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339411"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-powershell"></a>Szybki Start: wdrażanie interfejsu API platformy Azure dla usługi FHIR przy użyciu programu PowerShell
 
@@ -68,7 +68,10 @@ Remove-AzResourceGroup -Name myResourceGroupName
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start wdrożono interfejs API platformy Azure dla usługi FHIR w ramach subskrypcji. Aby ustawić dodatkowe ustawienia w interfejsie API platformy Azure dla usługi FHIR, należy przejoć do dodatkowych ustawień przewodnika.
+W tym przewodniku szybki start wdrożono interfejs API platformy Azure dla usługi FHIR w ramach subskrypcji. Aby ustawić dodatkowe ustawienia w interfejsie API platformy Azure dla usługi FHIR, należy przejoć do dodatkowych ustawień przewodnika. Jeśli wszystko jest gotowe do rozpoczęcia korzystania z interfejsu API platformy Azure dla usługi FHIR, Przeczytaj więcej na temat sposobu rejestrowania aplikacji.
 
 >[!div class="nextstepaction"]
 >[Dodatkowe ustawienia w interfejsie API platformy Azure dla usługi FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Przegląd rejestracji aplikacji](fhir-app-registration.md)

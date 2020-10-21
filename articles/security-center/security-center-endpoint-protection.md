@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 8cc12ba40b6722f75e4f3f4e8ce7023a0523c278
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219670"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341417"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Ocena i zalecenia dotyczące programu Endpoint Protection w Azure Security Center
 
@@ -29,9 +29,9 @@ Azure Security Center zapewnia oceny kondycji [obsługiwanych](security-center-s
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* W Security Center zalecane jest **"Instalowanie rozwiązań programu Endpoint Protection na maszynie wirtualnej"** po uruchomieniu [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps&preserve-view=true) , a wynikiem jest **AMServiceEnabled: false**
+* W Security Center zalecane jest **"Instalowanie rozwiązań programu Endpoint Protection na maszynie wirtualnej"** po uruchomieniu [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) , a wynikiem jest **AMServiceEnabled: false**
 
-* Security Center zaleca **"Rozwiązywanie problemów z kondycją programu Endpoint Protection na maszynach" w** przypadku uruchamiania [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps&preserve-view=true) i dowolnego z następujących wystąpień:
+* Security Center zaleca **"Rozwiązywanie problemów z kondycją programu Endpoint Protection na maszynach" w** przypadku uruchamiania [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) i dowolnego z następujących wystąpień:
 
   * Każda z następujących właściwości ma wartość false:
 

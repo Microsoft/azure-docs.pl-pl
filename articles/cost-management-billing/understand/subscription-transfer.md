@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 237565a7b72c3317e2c443f86965634ed7c9942c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336959"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149370"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Informacje na temat przenoszenia własności rozliczeń subskrypcji platformy Azure
 
@@ -63,7 +63,7 @@ Przenoszenie subskrypcji w witrynie Azure Portal jest dostępne dla typów subsk
 
 ## <a name="resources-transferred-with-subscriptions"></a>Zasoby przenoszone wraz z subskrypcjami
 
-Wszystkie zasoby, takie jak maszyny wirtualne, dyski i witryny internetowe, są przenoszone na nowe konto. Jeśli jednak przeniesiesz subskrypcję do konta w innej dzierżawie usługi Azure AD, żadne [role administratora](../manage/add-change-subscription-administrator.md) ani [przypisania ról platformy Azure](../../role-based-access-control/role-assignments-portal.md) w ramach subskrypcji nie zostaną przeniesione. Ponadto [rejestracje aplikacji](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ani inne usługi specyficzne dla dzierżawy nie są przenoszone razem z subskrypcją.
+Wszystkie zasoby, takie jak maszyny wirtualne, dyski i witryny internetowe, są przenoszone na nowe konto. Jeśli jednak przeniesiesz subskrypcję do konta w innej dzierżawie usługi Azure AD, żadne [role administratora](../manage/add-change-subscription-administrator.md) ani [przypisania ról platformy Azure](../../role-based-access-control/role-assignments-portal.md) w ramach subskrypcji nie zostaną przeniesione. Ponadto [rejestracje aplikacji](../../active-directory/develop/quickstart-register-app.md) ani inne usługi specyficzne dla dzierżawy nie są przenoszone razem z subskrypcją.
 
 ## <a name="transfer-account-ownership-to-another-countryregion"></a>Przenoszenie własności konta do innego kraju/regionu
 
@@ -99,7 +99,7 @@ W witrynie Azure Portal możesz wyświetlić użytkowników, którzy mają przyp
 Nawet jeśli [przypisania ról platformy Azure](../../role-based-access-control/role-assignments-portal.md) zostaną usunięte podczas przenoszenia, użytkownicy pierwotnego konta właściciela mogą nadal mieć dostęp do subskrypcji za pośrednictwem innych mechanizmów zabezpieczeń, takich jak:
 
 * Certyfikaty zarządzania, które przyznają użytkownikowi uprawnienia administratora do zasobów subskrypcji. Więcej informacji — zobacz [Tworzenie i przekazywanie certyfikatu zarządzania dla platformy Azure](../../cloud-services/cloud-services-certs-create.md).
-* Klucze dostępu dla usług, takich jak Storage. Aby uzyskać więcej informacji, zobacz [Informacje o kontach usługi Azure Storage](../../storage/common/storage-create-storage-account.md).
+* Klucze dostępu dla usług, takich jak Storage. Aby uzyskać więcej informacji, zobacz [Informacje o kontach usługi Azure Storage](../../storage/common/storage-account-create.md).
 * Poświadczenia dostępu zdalnego dla usług, takich jak Azure Virtual Machines.
 
 Jeśli odbiorca musi ograniczyć dostęp do zasobów platformy Azure, powinien rozważyć zaktualizowanie wszystkich wpisów tajnych skojarzonych z usługą. Większość zasobów można zaktualizować. Zaloguj się do witryny [Azure Portal](https://portal.azure.com), a następnie w menu Centrum wybierz pozycję **Wszystkie zasoby**. W dalszej kolejności wybierz zasób. Następnie na stronie zasobu wybierz opcję **Ustawienia**. Możesz tam wyświetlać i aktualizować istniejące wpisy tajne.

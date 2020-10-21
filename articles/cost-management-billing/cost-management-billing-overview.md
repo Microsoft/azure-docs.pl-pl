@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: ''
-ms.openlocfilehash: 7f4585d7199b44c82df9a03ea3244885da72d2fa
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1e5f49fb48cfc9be9cfb6970641ad7b4b3c06fb5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685174"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131058"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Co to jest Zarządzanie kosztami i rozliczenia na platformie Azure?
 
@@ -112,7 +112,7 @@ Obejrzyj [wideo z porównaniem usług Azure Cost Management i Cloudyn](https://w
 Platforma Azure oferuje inne narzędzia, które nie są częścią zestawu funkcji Zarządzanie kosztami i rozliczenia na platformie Azure. Pełnią one jednak ważną rolę w procesie zarządzania kosztami. Aby dowiedzieć się więcej o tych narzędziach, skorzystaj z poniższych linków.
 
 - [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) — to narzędzie umożliwia szacowanie początkowych kosztów chmury.
-- [Usługa Azure Migrate](../migrate/migrate-overview.md) — umożliwia ocenianie bieżącego obciążenia centrum danych w celu uzyskania szczegółowych informacji o potrzebach w zakresie zastępczego rozwiązania platformy Azure.
+- [Usługa Azure Migrate](/azure/cost-management-billing/migrate-services-overview) — umożliwia ocenianie bieżącego obciążenia centrum danych w celu uzyskania szczegółowych informacji o potrzebach w zakresie zastępczego rozwiązania platformy Azure.
 - [Usługa Azure Advisor](../advisor/advisor-overview.md) — umożliwia zidentyfikowanie nieużywanych maszyn wirtualnych i zapoznanie się z rekomendacjami w zakresie zakupów wystąpień zarezerwowanych platformy Azure.
 - [Korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) — umożliwia oszczędzanie dzięki użyciu bieżących licencji systemu Windows Server lub programu SQL Server dla maszyn wirtualnych na platformie Azure.
 

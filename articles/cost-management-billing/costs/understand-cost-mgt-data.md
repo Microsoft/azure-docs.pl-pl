@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 904ea7a50e4546d2721a9e701c78b6b77ed2d43a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683185"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132316"
 ---
 # <a name="understand-cost-management-data"></a>Omówienie danych usługi Cost Management
 
@@ -110,7 +110,7 @@ Usługa Azure Cost Management odbiera tagi w ramach każdego rekordu użycia prz
 
 - Tagi muszą być stosowane bezpośrednio do zasobów i nie są niejawnie dziedziczone z nadrzędnej grupy zasobów.
 - Tagi są obsługiwane tylko w przypadku zasobów wdrożonych w grupach zasobów.
-- Niektóre wdrożone zasoby mogą nie obsługiwać tagów lub mogą nie mieć tagów w danych użycia — zobacz [Obsługa tagów dla zasobów platformy Azure](../../azure-resource-manager/tag-support.md).
+- Niektóre wdrożone zasoby mogą nie obsługiwać tagów lub mogą nie mieć tagów w danych użycia — zobacz [Obsługa tagów dla zasobów platformy Azure](../../azure-resource-manager/management/tag-support.md).
 - Tagi zasobów są uwzględniane w danych użycia tylko wtedy, gdy tag jest zastosowany — tagi nie są stosowane do danych historycznych.
 - Tagi zasobów stają się dostępne w usłudze Cost Management wyłącznie po odświeżeniu danych — zobacz [Aktualizacje oraz przechowywanie danych dotyczących kosztów i użycia](#cost-and-usage-data-updates-and-retention).
 - Tagi zasobów są dostępne w usłudze Cost Management tylko wtedy, gdy zasób jest aktywny/uruchomiony i tworzy rekordy użycia (np. nie wtedy, gdy cofnięto przydział maszyny wirtualnej).
@@ -121,7 +121,7 @@ Jeśli nie widzisz konkretnego tagu w usłudze Cost Management, weź pod uwagę 
 
 - Czy tag został zastosowany bezpośrednio do zasobu?
 - Czy tag został zastosowany ponad 24 godziny temu? Zobacz [Aktualizacje oraz przechowywanie danych dotyczących kosztów i użycia](#cost-and-usage-data-updates-and-retention)
-- Czy typ zasobu obsługuje tagi? Następujące typy zasobów nie obsługują tagów w danych użycia od 1 grudnia 2019 r. Zobacz [Obsługa tagów dla zasobów platformy Azure](../../azure-resource-manager/tag-support.md), aby uzyskać pełną listę obsługiwanych tagów.
+- Czy typ zasobu obsługuje tagi? Następujące typy zasobów nie obsługują tagów w danych użycia od 1 grudnia 2019 r. Zobacz [Obsługa tagów dla zasobów platformy Azure](../../azure-resource-manager/management/tag-support.md), aby uzyskać pełną listę obsługiwanych tagów.
     - Katalogi usługi Azure Active Directory B2C
     - Azure Bastion
     - Zapory usługi Azure Firewall
@@ -185,4 +185,4 @@ Dane historyczne dla ofert opartych na środkach i płatnych z góry mogą nie b
 
 ## <a name="see-also"></a>Zobacz też
 
-- Jeśli pierwszy przewodnik Szybki start dla usługi Cost Management nie został jeszcze przez Ciebie ukończony, przeczytaj go w temacie [Rozpoczęcie analizowania kosztów](../../cost-management/quick-acm-cost-analysis.md).
+- Jeśli pierwszy przewodnik Szybki start dla usługi Cost Management nie został jeszcze przez Ciebie ukończony, przeczytaj go w temacie [Rozpoczęcie analizowania kosztów](./quick-acm-cost-analysis.md).

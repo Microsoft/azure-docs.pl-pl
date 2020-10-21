@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f41dfa0889b7f0c34486eee5d16362f4c3c7360d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04745a618832285c44fe96affb0caa8d371a1a17
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894598"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340448"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Podstawa zabezpieczeń platformy Azure dla Security Center
 
@@ -20,7 +20,7 @@ Ta linia bazowa zabezpieczeń stosuje wskazówki z [testu porównawczego zabezpi
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [wzorzec zabezpieczeń Azure: zabezpieczenia sieci](/azure/security/benchmarks/security-control-network-security).*
+*Aby uzyskać więcej informacji, zobacz [wzorzec zabezpieczeń Azure: zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
@@ -72,7 +72,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 - [Wymagania dotyczące zapory dla korzystania z agenta Log Analytics](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md) 
 
 - [Jak utworzyć Virtual Network platformy Azure](../virtual-network/quick-create-portal.md) 
 
@@ -86,7 +86,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów i wykrywania zmian zasobów sieciowych związanych z Azure Security Center. Utwórz alerty w Azure Monitor, aby powiadomić użytkownika o zmianach w zasobach krytycznych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view) 
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
 - [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -96,7 +96,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: rejestrowanie i monitorowanie](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
@@ -186,7 +186,7 @@ Alternatywnie można włączać i dostarczać dane związane z i tworzonymi w op
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: tożsamość i kontrola dostępu](/azure/security/benchmarks/security-control-identity-access-control).*
+*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: tożsamość i kontrola dostępu](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
@@ -194,9 +194,9 @@ Alternatywnie można włączać i dostarczać dane związane z i tworzonymi w op
 
 - [Uprawnienia w usłudze Azure Security Center](security-center-permissions.md)
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -260,7 +260,7 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 **Wskazówki**: Użyj Azure Active Directory raportów i monitorowania zabezpieczeń, aby wykrywać, kiedy w środowisku występuje podejrzane lub niebezpieczne działania. Użyj Azure Security Center, aby monitorować działania związane z tożsamościami i dostępem.
 
-- [Identyfikowanie użytkowników usługi Azure AD oflagowanych w celu działania ryzykownego](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+- [Identyfikowanie użytkowników usługi Azure AD oflagowanych w celu działania ryzykownego](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](security-center-identity-access.md)
 
@@ -294,7 +294,7 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 **Wskazówki**: Azure Active Directory zawiera dzienniki ułatwiające wykrywanie starych kont. Ponadto za pomocą przeglądów tożsamości i dostępu w usłudze Azure AD można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników związanych z Azure Security Centerami może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają stały dostęp. 
 
-- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/) 
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml) 
 
 - [Jak korzystać z przeglądów tożsamości i dostępu w usłudze Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -308,7 +308,7 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty można skonfigurować w obszarze roboczym Log Analytics.  
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -318,7 +318,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: użyj funkcji Azure AD Identity Protection, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy. 
 
-- [Jak wyświetlić ryzykowne logowania usługi Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Jak wyświetlić ryzykowne logowania usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -330,13 +330,13 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Azure Security test: Data Protection](/azure/security/benchmarks/security-control-data-protection).*
+*Aby uzyskać więcej informacji, zobacz [Azure Security test: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
 
 **Wskazówki**: Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, takich jak obszar roboczy log Analytics, który przechowuje poufne informacje o zabezpieczeniach z Azure Security Center.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -352,11 +352,11 @@ Domyślnie dane Azure Security Center są przechowywane w usłudze zaplecza Secu
 
 - [Zbieranie danych w usłudze Azure Security Center](security-center-enable-data-collection.md)
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription) 
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md) 
 
-- [Tworzenie grup zarządzania](../governance/management-groups/create.md) 
+- [Tworzenie grup zarządzania](../governance/management-groups/create-management-group-portal.md) 
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -412,7 +412,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5,5: Użyj procesu oceny ryzyka, aby określić priorytety korygowania odkrytych luk w zabezpieczeniach
 
@@ -426,7 +426,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Inventory and Asset Management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Użyj rozwiązania automatycznego odnajdywania zasobów
 
@@ -434,7 +434,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 - [Jak tworzyć zapytania za pomocą Eksploratora Azure Resource Graph](../governance/resource-graph/first-query-portal.md) 
 
-- [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
 
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -446,7 +446,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 **Wskazówki**: Użyj tagów, aby pomóc w śledzeniu zasobów platformy Azure, takich jak obszar roboczy log Analytics, który przechowuje poufne informacje o zabezpieczeniach z Azure Security Center.
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -461,11 +461,11 @@ Ponadto Użyj zasad platformy Azure, aby wprowadzić ograniczenia dotyczące typ
 - Niedozwolone typy zasobów
 - Dozwolone typy zasobów
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create.md)
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
-- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -512,7 +512,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 - [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -530,13 +530,13 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: bezpieczna konfiguracja](/azure/security/benchmarks/security-control-secure-configuration).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: bezpieczna konfiguracja](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla Azure Security Center i połączonego obszaru roboczego za pośrednictwem Azure Policy. Użyj aliasów Azure Policy w przestrzeniach nazw "Microsoft. OperationalInsights" i "Microsoft. Security", aby utworzyć niestandardowe definicje Azure Policy do inspekcji lub wymuszania konfiguracji Security Center oraz jej obszaru roboczego Log Analytics.
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
@@ -562,7 +562,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 **Wskazówki**: Użyj usługi Azure DevOps, aby bezpiecznie przechowywać kod, taki jak niestandardowe definicje Azure Policy, szablony Azure Resource Manager i skrypty konfiguracji żądanego stanu, oraz zarządzać nimi. Aby uzyskać dostęp do zasobów zarządzanych w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS. 
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops) 
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops) 
 
 - [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -614,7 +614,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Obrona złośliwego oprogramowania](/azure/security/benchmarks/security-control-malware-defense).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Obrona złośliwego oprogramowania](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: przeskanuj pliki przed przekazaniem do zasobów platformy Azure, które nie są obliczeniowe
 
@@ -626,7 +626,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
-*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: odzyskiwanie danych](/azure/security/benchmarks/security-control-data-recovery).*
+*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: odzyskiwanie danych](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Zapewnij regularne zautomatyzowane przywracanie awaryjne 
 
@@ -656,9 +656,9 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 **Wskazówki**: Zapewnij okresowe wykonywanie przywracania przy użyciu Azure Resource Manager plików szablonów kopii zapasowych. Testowanie przywracania kopii zapasowych kluczy zarządzanych przez klienta.
 
-- [Zarządzanie obszarem roboczym Log Analytics przy użyciu szablonów Azure Resource Manager](../azure-monitor/platform/template-workspace-configuration.md)
+- [Zarządzanie obszarem roboczym Log Analytics przy użyciu szablonów Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md)
 
-- [Jak przywrócić klucze magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Jak przywrócić klucze magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -670,13 +670,13 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 Ponadto Włącz ochronę Soft-Delete i przeczyszczanie w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.  Jeśli usługa Azure Storage jest używana do przechowywania kopii zapasowych szablonów Azure Resource Manager, należy włączyć funkcję usuwania nietrwałego, aby zapisywać i odzyskiwać dane po usunięciu obiektów blob lub migawek obiektów BLOB. 
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-- [Jak włączyć ochronę Soft-Delete i przeczyszczania w programie Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) 
+- [Jak włączyć ochronę Soft-Delete i przeczyszczania w programie Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal) 
 
-- [Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
+- [Soft delete for Azure Storage blobs](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -684,7 +684,7 @@ Ponadto Włącz ochronę Soft-Delete i przeczyszczanie w Key Vault, aby chronić
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: odpowiedź na zdarzenia](/azure/security/benchmarks/security-control-incident-response).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: odpowiedź na zdarzenia](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
@@ -708,7 +708,7 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 - [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](security-center-alerts-overview.md) 
 
-- [Organizowanie zasobów platformy Azure przy użyciu tagów](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -758,7 +758,7 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
-*Aby uzyskać więcej informacji, zobacz test [porównawczy zabezpieczeń platformy Azure: testy penetracji i czerwone ćwiczenia zespołu](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Aby uzyskać więcej informacji, zobacz test [porównawczy zabezpieczeń platformy Azure: testy penetracji i czerwone ćwiczenia zespołu](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 
@@ -774,5 +774,5 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

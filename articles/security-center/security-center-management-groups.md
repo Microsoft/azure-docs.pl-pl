@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440781"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339734"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Uzyskaj widoczność dla całej dzierżawy dla Azure Security Center
 W tym artykule wyjaśniono, jak zarządzać stan zabezpieczeń organizacji na dużą skalę, stosując zasady zabezpieczeń do wszystkich subskrypcji platformy Azure połączonych z dzierżawą Azure Active Directory.
@@ -33,10 +33,10 @@ Główna Grupa zarządzania jest tworzona automatycznie podczas wykonywania jedn
 2. Utwórz grupę zarządzania za pośrednictwem wywołania interfejsu API.
 3. Utwórz grupę zarządzania przy użyciu programu PowerShell.
 
-Aby uzyskać szczegółowe omówienie grup zarządzania, zobacz artykuł [organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../azure-resource-manager/management-groups-overview.md) .
+Aby uzyskać szczegółowe omówienie grup zarządzania, zobacz artykuł [organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../governance/management-groups/overview.md) .
 
 ## <a name="create-a-management-group-in-the-azure-portal"></a>Utwórz grupę zarządzania w Azure Portal
-Subskrypcje można organizować w grupy zarządzania i stosować zasady zarządzania do grup zarządzania. Wszystkie subskrypcje w grupie zarządzania automatycznie dziedziczą zasady zastosowane do tej grupy zarządzania. Gdy grupy zarządzania nie są wymagane do dołączania Security Center, zdecydowanie zaleca się utworzenie co najmniej jednej grupy zarządzania w celu utworzenia głównej grupy zarządzania. Po utworzeniu grupy zostaną do niej połączone wszystkie subskrypcje w ramach dzierżawy usługi Azure AD. Aby uzyskać instrukcje dotyczące programu PowerShell i więcej informacji, zobacz [Tworzenie grup zarządzania na potrzeby zarządzania zasobami i organizacjami](../azure-resource-manager/management-groups-create.md).
+Subskrypcje można organizować w grupy zarządzania i stosować zasady zarządzania do grup zarządzania. Wszystkie subskrypcje w grupie zarządzania automatycznie dziedziczą zasady zastosowane do tej grupy zarządzania. Gdy grupy zarządzania nie są wymagane do dołączania Security Center, zdecydowanie zaleca się utworzenie co najmniej jednej grupy zarządzania w celu utworzenia głównej grupy zarządzania. Po utworzeniu grupy zostaną do niej połączone wszystkie subskrypcje w ramach dzierżawy usługi Azure AD. Aby uzyskać instrukcje dotyczące programu PowerShell i więcej informacji, zobacz [Tworzenie grup zarządzania na potrzeby zarządzania zasobami i organizacjami](../governance/management-groups/create-management-group-portal.md).
 
  
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).

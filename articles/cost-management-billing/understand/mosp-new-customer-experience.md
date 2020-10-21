@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371746"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149399"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Rozpoczynanie pracy ze zaktualizowanym kontem rozliczeniowym platformy Azure
 
@@ -104,8 +104,8 @@ Jeśli korzystasz z usługi Cost Management lub interfejsów API rozliczeń do w
 
 |Interfejs API | Zmiany  |
 |---------|---------|
-|[Billing Accounts — List](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/billingaccounts/list) | W interfejsie API Billing Accounts — List stare konto rozliczeniowe ma parametr agreementType o wartości **MicrosoftOnlineServiceProgram**, a nowe konto rozliczeniowe będzie miało parametr agreementType o wartości **MicrosoftCustomerAgreement**. Jeśli korzystasz z zależności od parametru agreementType, zaktualizuj je. |
-|[Invoices — List By Billing Subscription](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Ten interfejs API zwróci tylko faktury, które zostały wygenerowane przed zaktualizowaniem konta. Aby zwrócić faktury wygenerowane w nowym koncie rozliczeniowym, należy użyć interfejsu API [Invoices — List By Billing Account](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount). |
+|[Billing Accounts — List](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | W interfejsie API Billing Accounts — List stare konto rozliczeniowe ma parametr agreementType o wartości **MicrosoftOnlineServiceProgram**, a nowe konto rozliczeniowe będzie miało parametr agreementType o wartości **MicrosoftCustomerAgreement**. Jeśli korzystasz z zależności od parametru agreementType, zaktualizuj je. |
+|[Invoices — List By Billing Subscription](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Ten interfejs API zwróci tylko faktury, które zostały wygenerowane przed zaktualizowaniem konta. Aby zwrócić faktury wygenerowane w nowym koncie rozliczeniowym, należy użyć interfejsu API [Invoices — List By Billing Account](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount). |
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 

@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 328a565dbb22a13c71a7001d43941e7be062dff9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7301f6bbb33c3eedff2e8c41edeaacb3df66d4c2
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449053"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342029"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Wprowadzenie do usługi Azure Defender dla programu SQL
 
-Usługa Azure Defender dla programu SQL obejmuje dwa plany usługi Azure Defender, które rozszerzają [pakiet zabezpieczeń danych](../azure-sql/database/advanced-data-security.md) Azure Security Center, aby zabezpieczyć bazy danych i ich dane w dowolnym miejscu. 
+Usługa Azure Defender dla programu SQL obejmuje dwa plany usługi Azure Defender, które rozszerzają [pakiet zabezpieczeń danych](../azure-sql/database/azure-defender-for-sql.md) Azure Security Center, aby zabezpieczyć bazy danych i ich dane w dowolnym miejscu. 
 
 ## <a name="availability"></a>Dostępność
 
@@ -34,7 +34,7 @@ Usługa Azure Defender dla programu SQL obejmuje dwa plany usługi Azure Defende
 **Usługa Azure Defender dla programu SQL** obejmuje dwa oddzielne plany usługi Azure Defender:
 
 - **Usługa Azure Defender dla serwerów usługi Azure SQL Database** chroni:
-  - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
+  - [Baza danych SQL Azure](../azure-sql/database/sql-database-paas-overview.md)
   - [Wystąpienie zarządzane Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
   - [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
@@ -69,5 +69,5 @@ W tym artykule przedstawiono informacje o usłudze Azure Defender dla programu S
 W przypadku pokrewnego materiału zapoznaj się z następującymi artykułami: 
 
 - [Jak włączyć usługę Azure Defender dla serwerów SQL na maszynach](defender-for-sql-usage.md)
-- [Jak włączyć usługę Azure Defender dla serwerów baz danych SQL](../azure-sql/database/advanced-data-security.md)
+- [Jak włączyć usługę Azure Defender dla serwerów baz danych SQL](../azure-sql/database/azure-defender-for-sql.md)
 - [Lista alertów usługi Azure Defender dla programu SQL](alerts-reference.md#alerts-sql-db-and-warehouse)

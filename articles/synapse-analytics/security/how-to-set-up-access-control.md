@@ -9,14 +9,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260159"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341553"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza)
+# <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza) 
 
 W tym artykule opisano sposób korzystania z ról i kontroli dostępu w celu kontrolowania działań i uzyskiwania dostępu do danych. Zgodnie z tymi instrukcjami kontrola dostępu w usłudze Azure Synapse Analytics jest uproszczona. Wystarczy dodać i usunąć użytkowników z jednej z trzech grup zabezpieczeń.
 
@@ -31,7 +31,7 @@ Aby zabezpieczyć obszar roboczy Synapse (wersja zapoznawcza), postępuj zgodnie
   - Apache Spark dla administratora usługi Azure Synapse Analytics
 - Kontrola dostępu do danych w Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Kontrola dostępu do Synapse baz danych SQL i Spark
-
+- 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Procedura zabezpieczania obszaru roboczego Synapse
 
 Ten dokument używa standardowych nazw do uproszczenia instrukcji. Zastąp je wszystkimi wybranymi nazwami.
@@ -71,11 +71,12 @@ Zidentyfikuj te informacje o magazynie:
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>Krok 3. Tworzenie i Konfigurowanie obszaru roboczego Synapse
 
-W Azure Portal Utwórz obszar roboczy Synapse:
+ W Azure Portal Utwórz obszar roboczy Synapse:
 
+- Wybierz swoją subskrypcję
+- Wybierz grupę zasobów — musisz mieć dostęp do grupy zasobów, do której przypisano rolę **właściciela** .
 - Nazwij obszar roboczy WS1
-- Wybierz STG1 dla konta magazynu
-- Wybierz pozycję CNT1 dla kontenera, który jest używany jako "system plików".
+- Wybierz pozycję STG1 dla konta magazynu —. Wybierz pozycję CNT1 dla kontenera, który jest używany jako "system plików".
 - Otwórz WS1 w programie Synapse Studio
 - Wybierz pozycję **Zarządzaj**  >  **Access Control** Przypisz grupy zabezpieczeń do następujących ról Synapse.
   - Przypisywanie **WS1 \_ WSAdmins** do administratorów obszaru roboczego Synapse

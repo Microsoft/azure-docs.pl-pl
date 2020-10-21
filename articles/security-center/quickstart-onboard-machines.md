@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8fa72dcd857977474cf76eada500214bf8129aca
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993607"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340873"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Połącz maszyny spoza platformy Azure z usługą Security Center
 
@@ -86,7 +86,7 @@ Aby dodać maszyny wirtualne Azure Stack, należy uzyskać informacje na stronie
 1. Zaloguj się do portalu **Azure Stack** i Otwórz stronę **maszyny wirtualne** .
 1. Wybierz maszynę wirtualną, która ma być chroniona za pomocą Security Center.
     >[!TIP]
-    > Aby uzyskać informacje na temat sposobu tworzenia maszyny wirtualnej na Azure Stack, zobacz [ten przewodnik Szybki Start dla maszyn wirtualnych z systemem Windows](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) lub [w tym przewodniku szybki start dla maszyn wirtualnych systemu Linux](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+    > Aby uzyskać informacje na temat sposobu tworzenia maszyny wirtualnej na Azure Stack, zobacz [ten przewodnik Szybki Start dla maszyn wirtualnych z systemem Windows](/azure-stack/user/azure-stack-quick-windows-portal) lub [w tym przewodniku szybki start dla maszyn wirtualnych systemu Linux](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Wybierz pozycję **Rozszerzenia**. Zostanie wyświetlona lista rozszerzeń maszyn wirtualnych zainstalowanych na tej maszynie wirtualnej.
 1. Wybierz kartę **Dodaj** . W menu **nowy zasób** zostanie wyświetlona lista dostępnych rozszerzeń maszyn wirtualnych.
 1. Wybierz rozszerzenie **Azure monitor, aktualizacji i zarządzania konfiguracją,** a następnie wybierz pozycję **Utwórz**. Zostanie otwarta strona Konfiguracja **rozszerzenia instalacji** .

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 1fedad7dac4c253c68a0f27d0e0470123833a3be
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91666113"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131925"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Przeniesienie własności rozliczeń subskrypcji platformy Azure na inne konto
 
@@ -69,7 +69,7 @@ Jeśli zaakceptujesz własność rozliczeń subskrypcji platformy Azure, zalecam
 1. Przejrzyj i zaktualizuj role administratora usługi, współadministratorów i przypisania ról platformy Azure. Aby dowiedzieć się więcej, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](add-change-subscription-administrator.md) i [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 1. Zaktualizuj poświadczenia skojarzone z usługami tej subskrypcji, w tym:
    1. Certyfikaty zarządzania, które przyznają użytkownikowi uprawnienia administratora do zasobów subskrypcji. Więcej informacji — zobacz [Tworzenie i przekazywanie certyfikatu zarządzania dla platformy Azure](../../cloud-services/cloud-services-certs-create.md).
-   1. Klucze dostępu dla usług, takich jak Storage. Więcej informacji — zobacz [Informacje o kontach usługi Azure Storage](../../storage/common/storage-create-storage-account.md).
+   1. Klucze dostępu dla usług, takich jak Storage. Więcej informacji — zobacz [Informacje o kontach usługi Azure Storage](../../storage/common/storage-account-create.md).
    1. Poświadczenia dostępu zdalnego dla usług, takich jak Azure Virtual Machines.
 1. Jeśli pracujesz z partnerem, rozważ zaktualizowanie identyfikatora partnera w ramach subskrypcji. Identyfikator partnera można zaktualizować w witrynie [Azure Portal](https://portal.azure.com). Więcej informacji — zobacz [Łączenie identyfikatora partnera z kontami platformy Azure](link-partner-id.md).
 

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 09/24/2020
+ms.date: 10/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 24b30842bea51394a375cf48e09b7547e057405c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 22b202d0ef54984ea2818112b49bbdf7f1098833
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91261740"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341621"
 ---
 # <a name="what-is-azure-firewall"></a>Co to jest usługa Azure Firewall?
 
@@ -50,13 +50,16 @@ Reguły filtrowania dla protokołów innych niż TCP/UDP (na przykład ICMP) nie
 |Aktywne FTP nie jest obsługiwane|Usługa Active FTP została wyłączona w zaporze platformy Azure w celu ochrony przed atakami za pośrednictwem protokołu FTP za pomocą polecenia FTP PORT.|Zamiast tego można użyć pasywnego protokołu FTP. Należy nadal jawnie otwierać porty TCP 20 i 21 w zaporze.
 |Metryka wykorzystania portów przez przytranslatora adresów sieciowych pokazuje 0%|Metryka wykorzystania portów w zaporze platformy Azure może wskazywać na użycie 0% nawet wtedy, gdy są używane porty. W takim przypadku użycie metryki jako części metryki kondycji zapory zapewnia niepoprawny wynik.|Ten problem został rozwiązany, a wdrażanie w środowisku produkcyjnym jest celem 2020 maja. W niektórych przypadkach ponowne wdrożenie zapory rozwiązuje problem, ale nie jest to spójne. Jako obejście pośrednie Użyj stanu kondycji zapory tylko w celu wyszukania *stanu = obniżona*wartość, a nie dla *stanu = zła kondycja*. W przypadku wyczerpania portów zostanie wyświetlony stan *obniżonej wydajności*. *Nie* działa w przyszłości, gdy jest więcej metryk, które mają wpływ na kondycję zapory.
 |DNAT nie jest obsługiwana z włączonym wymuszonym tunelowaniem|Zapory wdrożone z włączonym wymuszonym tunelowaniem nie mogą obsługiwać przychodzącego dostępu z Internetu z powodu asymetrycznego routingu.|Jest to spowodowane projektem routingu asymetrycznego. Ścieżka zwrotna dla połączeń przychodzących odbywa się za pośrednictwem lokalnej zapory, która nie widziała ustanowionego połączenia.
-|Pasywny protokół FTP nie działa w przypadku zapór z wieloma publicznymi adresami IP|Pasywne FTP ustanawia różne połączenia dla kanałów kontroli i danych. Gdy Zapora z wieloma publicznymi adresami IP wysyła dane wychodzące, losowo wybiera jeden z jego publicznych adresów IP dla źródłowego adresu IP. Usługa FTP kończy się niepowodzeniem, gdy kanały danych i kontroli używają różnych źródłowych adresów IP.|Zaplanowano jawną konfigurację translatora adresów sieciowych. W międzyczasie Rozważ użycie pojedynczego adresu IP w tej sytuacji.|
+|Ruch wychodzący pasywnego protokołu FTP może nie funkcjonować w przypadku zapór z wieloma publicznymi adresami IP, w zależności od konfiguracji serwera FTP.|Pasywne FTP ustanawia różne połączenia dla kanałów kontroli i danych. Gdy Zapora z wieloma publicznymi adresami IP wysyła dane wychodzące, losowo wybiera jeden z jego publicznych adresów IP dla źródłowego adresu IP. Usługa FTP może zakończyć się niepowodzeniem, gdy kanały danych i kontroli używają różnych źródłowych adresów IP, w zależności od konfiguracji serwera FTP.|Zaplanowano jawną konfigurację translatora adresów sieciowych. W międzyczasie można skonfigurować serwer FTP do akceptowania kanałów danych i kontroli z różnych źródłowych adresów IP (zobacz [przykład dla usług IIS](https://docs.microsoft.com/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity)). Alternatywnie Rozważ użycie pojedynczego adresu IP w tej sytuacji.|
+|Przychodzące pasywne FTP może nie funkcjonować w zależności od konfiguracji serwera FTP |Pasywne FTP ustanawia różne połączenia dla kanałów kontroli i danych. Połączenia przychodzące w zaporze platformy Azure są podłączony do jednego z prywatnych adresów IP zapory, aby zapewnić symetryczne Routing. Usługa FTP może zakończyć się niepowodzeniem, gdy kanały danych i kontroli używają różnych źródłowych adresów IP, w zależności od konfiguracji serwera FTP.|Trwa badanie oryginalnego źródłowego adresu IP. W międzyczasie można skonfigurować serwer FTP do akceptowania kanałów danych i kontroli z różnych źródłowych adresów IP.|
 |W metryce NetworkRuleHit brakuje wymiaru protokołu|Metryka ApplicationRuleHit umożliwia filtrowanie na podstawie protokołu, ale w odpowiedniej metryce NetworkRuleHit nie ma tej możliwości.|Trwa badanie poprawki.|
 |Reguły NAT z portami z zakresu od 64000 do 65535 nie są obsługiwane|Zapora platformy Azure zezwala na dowolny port w zakresie 1-65535 w regułach sieci i aplikacji, jednak reguły NAT obsługują tylko porty w zakresie 1-63999.|Jest to bieżące ograniczenie.
 |Aktualizacje konfiguracji mogą mieć średnio pięć minut|Aktualizacja konfiguracji zapory platformy Azure może trwać od trzech do pięciu minut, a aktualizacje równoległe nie są obsługiwane.|Trwa badanie poprawki.|
 |Zapora platformy Azure używa nagłówków SNI TLS do filtrowania ruchu HTTPS i MSSQL|Jeśli oprogramowanie przeglądarki lub serwera nie obsługuje rozszerzenia wskaźnika nazwy serwera (SNI), nie będzie można nawiązać połączenia za pomocą zapory platformy Azure.|Jeśli oprogramowanie przeglądarki lub serwera nie obsługuje SNI, może być możliwe sterowanie połączeniem przy użyciu reguły sieci zamiast reguły aplikacji. Zobacz [oznaczanie nazwy serwera](https://wikipedia.org/wiki/Server_Name_Indication) oprogramowania, które obsługuje SNI.|
 |Niestandardowy system DNS (wersja zapoznawcza) nie działa z wymuszonym tunelowaniem|Jeśli Wymuszone tunelowanie jest włączone, niestandardowa usługa DNS (wersja zapoznawcza) nie działa.|Trwa badanie poprawki.|
-|Nowy publiczny adres IP obsługa wielu Strefy dostępności|Nie można dodać nowego publicznego adresu IP podczas wdrażania zapory z dwiema strefami dostępności (1 i 2, 2 i 3 lub 1 i 3)|Jest to ograniczenie zasobów publicznego adresu IP.
+|Nowy publiczny adres IP obsługa wielu Strefy dostępności|Nie można dodać nowego publicznego adresu IP podczas wdrażania zapory z dwiema strefami dostępności (1 i 2, 2 i 3 lub 1 i 3)|Jest to ograniczenie zasobów publicznego adresu IP.|
+|Uruchomienie/zatrzymanie nie działa z zaporą skonfigurowaną w trybie tunelowania wymuszonego|Uruchomienie/zatrzymanie nie działa z zaporą platformy Azure skonfigurowaną w trybie tunelowania wymuszonego. Próba uruchomienia zapory platformy Azure z skonfigurowanym wymuszonym tunelowaniem powoduje następujący błąd:<br><br>*Set-AzFirewall: AzureFirewall PD-XX Konfiguracja protokołu IP nie może zostać dodana do istniejącej zapory. Wdróż ponownie z konfiguracją protokołu IP zarządzania, jeśli chcesz użyć wymuszonego tunelowania. <br> StatusCode: 400 <br> ReasonPhrase: złe żądanie*|W trakcie badania.<br><br>Aby obejść ten sposób, można usunąć istniejącą zaporę i utworzyć nową z tymi samymi parametrami.|
+
 
 ## <a name="next-steps"></a>Następne kroki
 

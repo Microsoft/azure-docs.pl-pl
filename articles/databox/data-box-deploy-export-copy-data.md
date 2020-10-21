@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 204e89bdf8c660a7e96438f8cb3b8a18aeaec306
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742387"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123912"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Samouczek: Kopiowanie danych z urządzenia Azure Data Box za pośrednictwem protokołu SMB (wersja zapoznawcza)
 
@@ -82,7 +82,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
     ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
-W przypadku korzystania z klienta systemu Linux użyj następującego polecenia, aby zainstalować udział SMB. Parametr „vers” poniżej to wersja protokołu SMB obsługiwana przez Twój host z systemem Linux. Podłącz odpowiednią wersję w poleceniu poniżej. W przypadku wersji protokołu SMB obsługiwanych przez urządzenia Data Box zobacz [Obsługiwane systemy plików dla klientów systemu Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+W przypadku korzystania z klienta systemu Linux użyj następującego polecenia, aby zainstalować udział SMB. Parametr „vers” poniżej to wersja protokołu SMB obsługiwana przez Twój host z systemem Linux. Podłącz odpowiednią wersję w poleceniu poniżej. W przypadku wersji protokołu SMB obsługiwanych przez urządzenia Data Box zobacz [Obsługiwane systemy plików dla klientów systemu Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
 ```console
 sudo mount -t nfs -o vers=2.1 169.254.143.85:/exportbvtdataset2_BlockBlob /home/databoxubuntuhost/databox
@@ -119,4 +119,3 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak odesłać urządzen
 
 > [!div class="nextstepaction"]
 > [Wysyłka urządzenia Azure Data Box do firmy Microsoft](./data-box-deploy-export-picked-up.md)
-

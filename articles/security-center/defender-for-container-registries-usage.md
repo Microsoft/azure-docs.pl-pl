@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532605"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342080"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Korzystanie z usługi Azure Defender dla rejestrów kontenerów do skanowania obrazów pod kątem luk w zabezpieczeniach
 
@@ -29,7 +29,7 @@ Gdy skaner zgłasza luki w zabezpieczeniach Security Center, Security Center prz
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Opłaty za **usługę Azure Defender dla rejestrów kontenerów** są rozliczane zgodnie z pokazaną na [stronie cennika](security-center-pricing.md)|
 |Obsługiwane rejestry i obrazy:|![Tak ](./media/icons/yes-icon.png) hostowane w systemie Linux rejestry ACR, które są dostępne z publicznego Internetu i zapewniają dostęp do powłoki.<br>![Brak ](./media/icons/no-icon.png) rejestrów ACR hostowanych przez system Windows.<br>![Brak ](./media/icons/no-icon.png) rejestrów prywatnych — Security Center wymaga dostępu do Twoich rejestrów z publicznego Internetu. Security Center nie może obecnie nawiązać połączenia z usługą, ani skanować rejestrów z dostępem ograniczonym za pomocą zapory, punktu końcowego usługi lub prywatnych punktów końcowych, takich jak link prywatny platformy Azure.<br>![Nie ](./media/icons/no-icon.png) są to obrazy minimalistyczny, takie jak obrazy wyłuskane [platformy Docker](https://hub.docker.com/_/scratch/) ani obrazy "Distroless", które zawierają tylko aplikacje i ich zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego.|
-|Wymagane role i uprawnienia:|Rola **czytelnik zabezpieczeń** i [Azure Container Registry czytelnik](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Wymagane role i uprawnienia:|Rola **czytelnik zabezpieczeń** i [Azure Container Registry czytelnik](../container-registry/container-registry-roles.md)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 

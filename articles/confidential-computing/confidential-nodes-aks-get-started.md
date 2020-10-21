@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122184"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341910"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) z węzłami niejawnego przetwarzania za pomocą interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
 
@@ -27,11 +27,11 @@ W tym przewodniku szybki start dowiesz się, jak wdrożyć klaster usługi Azure
 ### <a name="deployment-pre-requisites"></a>Wymagania wstępne dotyczące wdrożenia
 
 1. Mieć aktywną subskrypcję platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-1. Należy zainstalować i skonfigurować interfejs wiersza polecenia platformy Azure w wersji 2.0.64 lub nowszej na komputerze wdrożenia (Uruchom,  `az --version` Aby znaleźć wersję. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+1. Należy zainstalować i skonfigurować interfejs wiersza polecenia platformy Azure w wersji 2.0.64 lub nowszej na komputerze wdrożenia (Uruchom, `az --version` Aby znaleźć wersję. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
 1. [AKS — minimalna wersja rozszerzenia w wersji zapoznawczej](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) 0.4.62 
-1. Aby można było użyć co najmniej sześciu rdzeni DCSv2 dostępnych w ramach subskrypcji. Domyślnie przydziały maszyn wirtualnych są przydzielone do danych poufnych za korzystanie z subskrypcji platformy Azure 8. Jeśli planujesz obsługę klastra wymagającego więcej niż 8 rdzeni, postępuj zgodnie z [tymi](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instrukcjami, aby zgłosić bilet wzrostu limitu przydziału
+1. Aby można było używać co najmniej sześciu rdzeni **kontrolera domeny <x> s-v2** w Twojej subskrypcji. Domyślnie przydziały maszyn wirtualnych są przydzielone do danych poufnych za korzystanie z subskrypcji platformy Azure 8. Jeśli planujesz obsługę klastra wymagającego więcej niż 8 rdzeni, postępuj zgodnie z [tymi](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instrukcjami, aby zgłosić bilet wzrostu limitu przydziału
 
-### <a name="confidential-computing-node-features"></a>Funkcje węzła poufnego obliczeń
+### <a name="confidential-computing-node-features-dcxs-v2"></a>Funkcje węzła poufnego obliczeń (DC <x> s-v2)
 
 1. Węzły procesu roboczego systemu Linux obsługujące tylko kontenery systemu Linux
 1. Ubuntu generacja 2 18,04 Virtual Machines
@@ -94,14 +94,14 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-Powyższe polecenie powinno inicjować nowy klaster AKS z pulami węzłów DCSv2 i automatycznie instalować dwa zestawy demonów — (Pomocnik[urządzenia SGX](confidential-nodes-aks-overview.md#sgx-plugin)  &  [SGX Helper](confidential-nodes-aks-overview.md#sgx-quote))
+Powyższe polecenie powinno inicjować nowy klaster AKS z pulami węzłów **DC <x> s-v2** i automatycznie instalować dwa zestawy demonów — (Pomocnik[urządzenia SGX](confidential-nodes-aks-overview.md#sgx-plugin)  &  [SGX Helper](confidential-nodes-aks-overview.md#sgx-quote))
 
 Pobierz poświadczenia dla klastra AKS za pomocą polecenia AZ AKS Get-Credentials:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-Sprawdź, czy węzły zostały prawidłowo utworzone, a zestawy demonów SGX są uruchomione w pulach węzłów DCSv2 przy użyciu polecenia polecenia kubectl & Get węzłów, jak pokazano poniżej:
+Sprawdź, czy węzły zostały prawidłowo utworzone, a zestawy demonów SGX są uruchomione w pulach węzłów **DC <x> s-v2** przy użyciu polecenia polecenia kubectl & Get węzłów, jak pokazano poniżej:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -130,9 +130,12 @@ Po pierwsze, program umożliwia włączanie poufnych dodatków AKS związanych z
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Teraz Dodaj pulę węzłów DCSv2 do klastra
-
-```azurecli-interactive
+Teraz Dodaj pulę węzłów **DC <x> s-v2** do klastra
+    
+> [!NOTE]
+> Aby można było korzystać z możliwości przetwarzania poufnego, istniejący klaster AKS musi mieć co najmniej jedną pulę węzłów opartą na maszynie wirtualnej **z systemem DC <x> s-v2** . Dowiedz się więcej na temat poufnego przetwarzania jednostek SKU maszyn wirtualnych DCsv2 w tym miejscu [dostępne jednostki SKU i obsługiwane regiony](virtual-machine-solutions.md).
+    
+  ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2 --aks-custom-headers usegen2vm=true
 
 output node pool added

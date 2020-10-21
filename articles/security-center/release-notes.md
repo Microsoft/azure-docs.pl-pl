@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 565282b2da5383c1d3471337f64588f97157a79c
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 098cfa1784571856cbd80d55fec4e6232e882d17
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328678"
+ms.locfileid: "92339853"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -227,7 +227,7 @@ Dowiedz się więcej w [usłudze Azure Defender dla Key Vault](defender-for-key-
 
 **Usługa Azure Defender for Storage** wykrywa potencjalnie szkodliwe działanie na kontach usługi Azure Storage. Dane można chronić, niezależnie od tego, czy są przechowywane jako kontenery obiektów blob, udziały plików czy jeziora danych.
 
-Obsługa [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) i [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) jest teraz ogólnie dostępna.
+Obsługa [Azure Files](../storage/files/storage-files-introduction.md) i [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) jest teraz ogólnie dostępna.
 
 Od 1 października 2020 rozpocznie się naliczanie opłat za ochronę zasobów w tych usługach.
 
@@ -363,7 +363,7 @@ Udoskonalono następujące zalecenia dotyczące zabezpieczeń dotyczące sieciow
 
 ### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>Przestarzałe zalecenie dotyczące wersji zapoznawczej AKS "pod kątem zasad zabezpieczeń należy zdefiniować w usługach Kubernetes Services"
 
-Zalecenia dotyczące wersji zapoznawczej muszą być zdefiniowane w usługach Kubernetes Services są przestarzałe zgodnie z opisem w dokumentacji [usługi Azure Kubernetes](https://docs.microsoft.com/azure/aks/use-pod-security-policies) .
+Zalecenia dotyczące wersji zapoznawczej muszą być zdefiniowane w usługach Kubernetes Services są przestarzałe zgodnie z opisem w dokumentacji [usługi Azure Kubernetes](../aks/use-pod-security-policies.md) .
 
 Funkcja zasad zabezpieczeń (wersja zapoznawcza) jest ustawiana jako przestarzała i nie będzie już dostępna po 15 października Azure Policy 2020 AKS.
 
@@ -481,7 +481,7 @@ Dowiedz się więcej na temat [spisu zasobów](asset-inventory.md).
 
 ### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Dodano obsługę domyślnych ustawień zabezpieczeń Azure Active Directory (w przypadku uwierzytelniania wieloskładnikowego)
 
-Security Center dodaliśmy pełną obsługę [zabezpieczeń domyślnych](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), bezpłatna ochrona zabezpieczeń firmy Microsoft.
+Security Center dodaliśmy pełną obsługę [zabezpieczeń domyślnych](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), bezpłatna ochrona zabezpieczeń firmy Microsoft.
 
 Wartości domyślne zabezpieczeń zapewniają wstępnie skonfigurowane ustawienia zabezpieczeń tożsamości, aby chronić organizację przed typowymi atakami związanymi z tożsamościami. Zabezpieczenia domyślne chronią już więcej niż 5 000 000 dzierżawców; dzierżawy 50 000 są również chronione przez Security Center.
 
@@ -489,7 +489,7 @@ Security Center teraz zawiera zalecenie dotyczące zabezpieczeń, za każdym raz
 
 Naszym celem jest zachęcanie większej liczby klientów do zabezpieczania środowisk w chmurze za pomocą usługi MFA i łagodzenie jednego z największych zagrożeń, które są również najbardziej wpływem na [bezpieczny wynik](secure-score-security-controls.md).
 
-Dowiedz się więcej o [domyślnych ustawieniach zabezpieczeń](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+Dowiedz się więcej o [domyślnych ustawieniach zabezpieczeń](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 
 ### <a name="service-principals-recommendation-added"></a>Dodano zalecenie dotyczące jednostek usługi
@@ -498,7 +498,7 @@ Dodano nowe zalecenie, aby zalecić Security Center klientom używającym certyf
 
 Zaleca się, **Aby Ochrona Twoich subskrypcji zamiast certyfikatów zarządzania była chroniona** przy użyciu jednostek usługi lub Azure Resource Manager do bezpieczniejszego zarządzania subskrypcjami. 
 
-Więcej informacji o [obiektach głównych aplikacji i usług znajduje się w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+Więcej informacji o [obiektach głównych aplikacji i usług znajduje się w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object).
 
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Ocena luk w zabezpieczeniach maszyn wirtualnych — zaleceń i zasad skonsolidowanych
@@ -679,7 +679,7 @@ Sześć zasad związanych z zaawansowanymi zabezpieczeniami danych dla maszyn SQ
 - Powiadomienia e-mail do administratorów i właścicieli subskrypcji powinny być włączone w ustawieniach zaawansowanych danych wystąpienia zarządzanego SQL
 - Powiadomienia e-mail dla administratorów i właścicieli subskrypcji powinny być włączone w ustawieniach zaawansowanych zabezpieczeń danych programu SQL Server
 
-Dowiedz się więcej o [zasadach wbudowanych](security-center-policy-definitions.md).
+Dowiedz się więcej o [zasadach wbudowanych](./policy-reference.md).
 
 
 
@@ -699,7 +699,7 @@ Aktualizacje w czerwcu obejmują:
 
 ### <a name="secure-score-api-preview"></a>Interfejs API usługi Secure Score (wersja zapoznawcza)
 
-Teraz możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API protokołu Secure Score](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (obecnie w wersji zapoznawczej). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład możesz użyć interfejsu API **Secure Scores** , aby uzyskać ocenę dla określonej subskrypcji. Ponadto można użyć interfejsu API **kontroli** zabezpieczeń, aby wyświetlić listę kontrolek bezpieczeństwa i bieżący wynik subskrypcji.
+Teraz możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API protokołu Secure Score](/rest/api/securitycenter/securescores/) (obecnie w wersji zapoznawczej). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład możesz użyć interfejsu API **Secure Scores** , aby uzyskać ocenę dla określonej subskrypcji. Ponadto można użyć interfejsu API **kontroli** zabezpieczeń, aby wyświetlić listę kontrolek bezpieczeństwa i bieżący wynik subskrypcji.
 
 Aby zapoznać się z przykładowymi narzędziami zewnętrznymi z bezpiecznym interfejsem API oceny, zapoznaj [się z obszarem "bezpieczeństwo" w naszej społeczności usługi GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
@@ -725,7 +725,7 @@ Dowiedz się więcej o [zaawansowanych zabezpieczeniach danych dla maszyn SQL](d
 
 ### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Dwa nowe zalecenia dotyczące wdrażania agenta Log Analytics na maszynach usługi Azure ARC (wersja zapoznawcza)
 
-Dodano dwa nowe zalecenia ułatwiające wdrożenie [agenta log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) na maszynach usługi Azure Arc i zapewnienie ich ochrony przez Azure Security Center:
+Dodano dwa nowe zalecenia ułatwiające wdrożenie [agenta log Analytics](../azure-monitor/platform/log-analytics-agent.md) na maszynach usługi Azure Arc i zapewnienie ich ochrony przez Azure Security Center:
 
 - **Agenta Log Analytics należy zainstalować na komputerach z systemem Windows Azure ARC (wersja zapoznawcza)**
 - **Agent Log Analytics powinien być zainstalowany na komputerach z systemem Linux Azure ARC (wersja zapoznawcza)**
@@ -921,11 +921,11 @@ Trzy zaleceń, które przeniesiono:
 
 Dwa nowe rekomendacje dodane do kontrolki są następujące:
 
-- **Rozszerzenie konfiguracji gościa powinno być zainstalowane na maszynach wirtualnych z systemem Windows (wersja zapoznawcza)** — używanie [Azure Policy konfiguracji gościa](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) zapewnia widoczność w obrębie maszyn wirtualnych do ustawień serwera i aplikacji (tylko system Windows).
+- **Rozszerzenie konfiguracji gościa powinno być zainstalowane na maszynach wirtualnych z systemem Windows (wersja zapoznawcza)** — używanie [Azure Policy konfiguracji gościa](../governance/policy/concepts/guest-configuration.md) zapewnia widoczność w obrębie maszyn wirtualnych do ustawień serwera i aplikacji (tylko system Windows).
 
 - **Funkcja Windows Defender Exploit Guard powinna być włączona na maszynach (wersja zapoznawcza)** — usługa Windows Defender Exploit guard wykorzystuje Azure Policy agenta konfiguracji gościa. Funkcja Exploit Guard ma cztery składniki przeznaczone do blokowania urządzeń przed szeroką gamą wektorów ataków i blokowania zachowań często używanych w atakach złośliwego oprogramowania, a jednocześnie umożliwia przedsiębiorstwom zrównoważenie zagrożeń bezpieczeństwa i wymagań dotyczących produktywności (tylko system Windows).
 
-Dowiedz się więcej o funkcji Windows Defender Exploit Guard w temacie [Tworzenie i wdrażanie zasad funkcji Exploit Guard](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
+Dowiedz się więcej o funkcji Windows Defender Exploit Guard w temacie [Tworzenie i wdrażanie zasad funkcji Exploit Guard](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Dowiedz się więcej o kontrolkach zabezpieczeń w [ulepszonym zabezpieczeniu (wersja zapoznawcza)](secure-score-security-controls.md).
 

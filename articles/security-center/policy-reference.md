@@ -7,12 +7,12 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 371bbd6919f787401da361339f705fa5edfa4547
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b7478199e4bb6f1e9ad986193370d4ea8610bd7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328695"
+ms.locfileid: "92340907"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Wbudowane definicje usługi Azure Policy dla usługi Azure Security Center
 
@@ -52,5 +52,5 @@ W tym artykule przedstawiono informacje dotyczące Azure Policy definicji zasad 
 - [Azure Security Center Przewodnik planowania i](./security-center-planning-and-operations-guide.md)obsługi: informacje na temat planowania i zrozumienia zagadnień projektowych w programie Azure Security Center.
 - [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](./security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
 - [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](./security-center-managing-and-responding-alerts.md) — informacje na temat reagowania na alerty zabezpieczeń i zarządzania nimi.
-- [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](./security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
+- [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](./security-center-partner-integration.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
 - [Azure Policy](../governance/policy/overview.md): informacje na temat inspekcji i zarządzania zasobami platformy Azure.

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/17/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 01fdaa95dd396e5545b65bada2a9d6410169230b
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 789bd2f62673e7faf562d3a407bf2f0a4fd861bf
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052464"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125496"
 ---
 # <a name="quickstart-get-started-with-azure-data-box-to-export-data-from-azure"></a>Szybki start: Rozpoczynanie pracy z usługą Azure Data Box w celu wyeksportowania danych z platformy Azure
 
@@ -28,7 +28,7 @@ Przed rozpoczęciem:
 
 * Sprawdź, czy subskrypcja, której używasz na potrzeby usługi Data Box, to subskrypcja jednego z następujących typów:
   * Microsoft Enterprise Agreement (EA). Dowiedz się więcej na temat [subskrypcji umowy EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-  * Cloud Solution Provider (CSP). Dowiedz się więcej o [programie Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+  * Cloud Solution Provider (CSP). Dowiedz się więcej o [programie Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-overview).
   * Dostęp sponsorowany Microsoft Azure. Dowiedz się więcej o [programie dostępu sponsorowanego Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 * Sprawdź, czy masz dostęp na poziomie właściciela lub współautora do subskrypcji, aby móc utworzyć zamówienie urządzenia Data Box.
@@ -96,7 +96,7 @@ Ten krok zajmuje około 5–7 minut.
 
 Czas wymagany do ukończenia tej operacji zależy od rozmiaru danych i prędkości połączenia sieciowego.
 
-1. Jeśli używasz klienta z systemem Windows, skorzystaj z narzędzia do kopiowania plików zgodnego z protokołem SMB, na przykład Robocopy. W przypadku hosta z systemem plików NFS skopiuj dane za pomocą polecenia `cp` lub `rsync`. Aby uzyskać więcej informacji na temat kopiowania danych za pomocą narzędzia Robocopy, zobacz [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+1. Jeśli używasz klienta z systemem Windows, skorzystaj z narzędzia do kopiowania plików zgodnego z protokołem SMB, na przykład Robocopy. W przypadku hosta z systemem plików NFS skopiuj dane za pomocą polecenia `cp` lub `rsync`. Aby uzyskać więcej informacji na temat kopiowania danych za pomocą narzędzia Robocopy, zobacz [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
 2. Nawiąż połączenie z udziałami urządzeń i rozpocznij kopiowanie danych do komputera hosta.
 <!-- 1. Connect to the device shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box. --> 
 

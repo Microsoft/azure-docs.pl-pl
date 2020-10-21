@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 025b9b7e503f38a111bd158f17b7fbeec5b23579
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 51baa26cf78846bd0a719b8b86056e2ea8176155
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684987"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131092"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Tworzenie reguł alokacji kosztów platformy Azure i zarządzanie nimi (wersja zapoznawcza)
 
@@ -58,16 +58,16 @@ W przypadku dystrybucji kosztów według kosztów zasobów obliczeniowych, koszt
 
 Podczas dystrybucji kosztów w stosunku do łącznych kosztów wartość procentowa jest przydzielana proporcjonalnie na podstawie sumy lub łącznego kosztu wybranych elementów docelowych w bieżącym miesiącu rozliczeniowym.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Przykład przedstawiający procent alokacji" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Przykład przedstawiający tworzenie nazwy reguły" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 Następnie określa się wstępnie wypełnione stałe wartości procentowe. Mają one zastosowanie do wszystkich bieżących alokacji. Wartości procentowe ulegają zmianie tylko wtedy, gdy reguła jest aktualizowana ręcznie.
 
 1. Na liście **Wypełnij wstępnie procent do** wybierz jedną z następujących opcji.
     - **Rozłóż równomiernie** — każdy element docelowy otrzymuje równy procent całkowitego kosztu.
     - **Całkowity koszt** – tworzy współczynnik proporcjonalny względem elementów docelowych w oparciu o ich całkowity koszt. Współczynnik ten służy do podziału kosztów pochodzących z określonych źródeł.
-    - **Koszt zasobów obliczeniowych** — tworzy współczynnik proporcjonalny względem elementów docelowych w oparciu o ich koszt zasobów obliczeniowych na platformie Azure (typy zasobów w przestrzeni nazw [Microsoft. Compute](https://docs.microsoft.com/azure/templates/microsoft.compute/allversions)). Współczynnik ten służy do podziału kosztów pochodzących z określonych źródeł.
-    - **Koszt magazynu** — tworzy współczynnik proporcjonalny względem elementów docelowych w oparciu o ich koszty magazynu na platformie Azure (typy zasobów w przestrzeni nazw [Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions)). Współczynnik ten służy do podziału kosztów pochodzących z określonych źródeł.
-    - **Koszt sieci** — tworzy współczynnik proporcjonalny względem elementów docelowych w oparciu o ich koszty sieci na platformie Azure (typy zasobów w przestrzeni nazw [Microsoft. Network](https://docs.microsoft.com/azure/templates/microsoft.network/allversions)). Współczynnik ten służy do podziału kosztów pochodzących z określonych źródeł.
+    - **Koszt zasobów obliczeniowych** — tworzy współczynnik proporcjonalny względem elementów docelowych w oparciu o ich koszt zasobów obliczeniowych na platformie Azure (typy zasobów w przestrzeni nazw [Microsoft. Compute](/azure/templates/microsoft.compute/allversions)). Współczynnik ten służy do podziału kosztów pochodzących z określonych źródeł.
+    - **Koszt magazynu** — tworzy współczynnik proporcjonalny względem elementów docelowych w oparciu o ich koszty magazynu na platformie Azure (typy zasobów w przestrzeni nazw [Microsoft.Storage](/azure/templates/microsoft.storage/allversions)). Współczynnik ten służy do podziału kosztów pochodzących z określonych źródeł.
+    - **Koszt sieci** — tworzy współczynnik proporcjonalny względem elementów docelowych w oparciu o ich koszty sieci na platformie Azure (typy zasobów w przestrzeni nazw [Microsoft. Network](/azure/templates/microsoft.network/allversions)). Współczynnik ten służy do podziału kosztów pochodzących z określonych źródeł.
     - **Niestandardowe** – umożliwia ręczne określenie wartości procentowej. Podane wartości muszą w sumie wynosić równo 100%.
 1. Po skonfigurowaniu reguły wybierz pozycję **Utwórz**.
 
@@ -84,7 +84,7 @@ Gdy reguła alokacji kosztów jest aktywna, koszty z wybranych źródeł są dys
 
 Wpływ reguły alokacji można sprawdzić w obszarze analizy kosztów. W witrynie Azure Portal przejdź do sekcji [Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Wybierz z listy subskrypcję objętą aktywną regułą alokacji kosztów. Następnie z menu wybierz pozycję **Analiza kosztów**. W obszarze Analiza kosztów wybierz pozycję **Grupuj według**, a następnie wybierz pozycję **Alokacja kosztów**. W wyświetlonym widoku pojawi się skrócony podział kosztów wygenerowany przez subskrypcję, a także koszty przydzielone do danej subskrypcji (co widać na poniższej ilustracji).
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Przykład przedstawiający podział kosztów" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Przykład przedstawiający tworzenie nazwy reguły" lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### <a name="view-cost-allocation-for-a-resource-group"></a>Wyświetlanie alokacji kosztów dla grupy zasobów
 
@@ -94,7 +94,7 @@ Podobny proces należy zastosować w przypadku reguły alokacji kosztów dotycz�
 
 W witrynie Azure Portal przejdź do obszaru **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami** > **Analiza kosztów**. Na stronie Analiza kosztów wybierz pozycję **Dodaj filtr**. Wybierz pozycję **Tag**, a następnie wybierz klucz tagu i wartości tagów, do których przydzielono koszty.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Przykład przedstawiający koszty dla elementów otagowanych" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Przykład przedstawiający tworzenie nazwy reguły" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Edytowanie istniejącej reguły alokacji kosztów
 
@@ -112,10 +112,10 @@ Alokacja kosztów w usłudze Cost Management jest obecnie obsługiwana w widokac
 Publiczna wersja zapoznawcza alokacji kosztów nie obsługuje obecnie następujących elementów:
 
 - Zaplanowane [eksporty](tutorial-export-acm-data.md)
-- Dane udostępniane przez interfejs API [szczegółów użycia](https://docs.microsoft.com/rest/api/consumption/usagedetails/list)
+- Dane udostępniane przez interfejs API [szczegółów użycia](/rest/api/consumption/usagedetails/list)
 - Obszar subskrypcji rozliczeniowych
 - [Aplikacja Cost Management w usłudze Power BI](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
-- [Łącznik w programie Power BI Desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management)
+- [Łącznik w programie Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
 ### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>Czy koszty są uwzględniane w widokach budżetów i prognoz?
 <a name="budgets-forecast"></a>
@@ -144,5 +144,5 @@ Nie zaleca się stosowania reguł, których źródła lub elementy docelowe pokr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Utwórz lub zaktualizuj reguły alokacji za pomocą [Interfejsu API Rest alokacji kosztów](https://go.microsoft.com/fwlink/?linkid=2135004)
+- Utwórz lub zaktualizuj reguły alokacji za pomocą [Interfejsu API Rest alokacji kosztów](/rest/api/cost-management/costallocationrules)
 - Dowiedz się więcej na temat [sposobu optymalizowania inwestycji w chmurę za pomocą usługi Azure Cost Management](cost-mgt-best-practices.md)

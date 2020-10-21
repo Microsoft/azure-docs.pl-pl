@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b6f4e50cac2f809172c2525ea9136a63e6bd9066
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107015"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341570"
 ---
 # <a name="access-built-in-metrics"></a>Uzyskiwanie dostępu do wbudowanych metryk
 
@@ -27,7 +27,7 @@ Uzyskaj dostęp do metryk z hosta, ujawniając i mapując port metryk z modułu 
 ```
 {
   "ExposedPorts": {
-    "9600/tcp": {},
+    "9600/tcp": {}
   },
   "HostConfig": {
     "PortBindings": {
