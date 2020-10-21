@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 188c30a79074b819c5785cf5560f5843a3fcf6b4
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131619"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320472"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listy kontroli dostępu (ACL) w Azure Data Lake Storage Gen2
 
@@ -199,7 +199,7 @@ Jak pokazano w algorytmie kontroli dostępu, maska ogranicza dostęp dla użytko
 
 W przypadku nowego kontenera Data Lake Storage Gen2 maska listy ACL dostępu katalogu głównego ("/") domyślnie **750** dla katalogów i **640** dla plików. W poniższej tabeli przedstawiono notację symboliczną tych poziomów uprawnień.
 
-|Jednostka|Katalogi|Files|
+|Jednostka|Katalogi|Pliki|
 |--|--|--|
 |Użytkownik będący właścicielem|`rwx`|`r-w`|
 |Grupa będąca właścicielem|`r-x`|`r--`|
@@ -326,6 +326,11 @@ Zostanie wyświetlony identyfikator OID.
 
 Jeśli masz prawidłowy identyfikator OID dla jednostki usługi, przejdź do strony Eksplorator usługi Storage **Zarządzanie dostępem** , aby dodać identyfikator OID i przypisać odpowiednie uprawnienia dla identyfikatora OID. Upewnij się, że wybrano pozycję **Zapisz**.
 
+### <a name="can-i-set-the-acl-of-a-container"></a>Czy mogę ustawić listę kontroli dostępu dla kontenera?
+
+Nie. Kontener nie ma listy ACL. Można jednak ustawić listę kontroli dostępu dla katalogu głównego kontenera. Każdy kontener ma katalog główny i ma taką samą nazwę jak kontener. Na przykład jeśli kontener ma nazwę `my-container` , katalog główny ma nazwę `myContainer/` . 
+
+Interfejs API REST usługi Azure Storage zawiera operację o nazwie [list ACL kontenera zestawu](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), ale tej operacji nie można użyć do ustawienia listy ACL kontenera lub katalogu głównego kontenera. Zamiast tego ta operacja służy do wskazywania, czy dostęp do obiektów BLOB w kontenerze można [uzyskać publicznie](anonymous-read-access-configure.md). 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Gdzie można dowiedzieć się więcej na temat modelu kontroli dostępu POSIX?
 

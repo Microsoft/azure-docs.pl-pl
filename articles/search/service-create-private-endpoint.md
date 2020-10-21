@@ -1,19 +1,19 @@
 ---
 title: Utwórz prywatny punkt końcowy dla bezpiecznego połączenia
 titleSuffix: Azure Cognitive Search
-description: Skonfiguruj prywatny punkt końcowy w sieci wirtualnej w celu nawiązania bezpiecznego połączenia z usługą Wyszukiwanie poznawcze platformy Azure
+description: Skonfiguruj prywatny punkt końcowy w sieci wirtualnej w celu nawiązania bezpiecznego połączenia z usługą Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935759"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280407"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Utwórz prywatny punkt końcowy dla bezpiecznego połączenia z platformą Azure Wyszukiwanie poznawcze
 
@@ -96,7 +96,7 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
     | Prywatna strefa DNS  | Pozostaw wartość domyślną * * (New) privatelink.search.windows.net * *. |
     |||
 
-1. Kliknij przycisk **OK**. 
+1. Wybierz przycisk **OK**. 
 
 1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację. 
 
@@ -152,10 +152,16 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
     | Wybierz porty wejściowe | Wybierz pozycje **HTTP** i **RDP**.|
     ||
 
+   > [!NOTE]
+   > Adresy IPv4 można wyrazić w formacie [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Należy pamiętać, aby uniknąć zakresu adresów IP zarezerwowanych dla sieci prywatnej, zgodnie z opisem w [dokumencie RFC 1918](https://tools.ietf.org/html/rfc1918):
+   >
+   > - `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
+   > - `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
+   > - `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
+
 1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację.
 
 1. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**. 
-
 
 ## <a name="connect-to-the-vm"></a>Łączenie z maszyną wirtualną
 
@@ -181,7 +187,6 @@ Pobierz *myVm* maszyny wirtualnej, a następnie połącz się z nią w następuj
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
 1. Po wyświetleniu pulpitu maszyny wirtualnej zminimalizuj ją i wróć z powrotem do pulpitu lokalnego.  
-
 
 ## <a name="test-connections"></a>Testuj połączenia
 

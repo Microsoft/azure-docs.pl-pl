@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1b1cf90efa14345fa8395f5f62fd80934b922352
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2007d8f0c558d35c0507b6e12bce6d6777fad52
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273011"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310897"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Utwórz skalowanie PostgreSQL z użyciem usługi Azure ARC przy użyciu Azure Data Studio
 
@@ -62,7 +62,7 @@ Teraz można zaimplementować następny krok.
 1. Na karcie połączenia kliknij trzy kropki w lewym górnym rogu i wybierz pozycję "nowe wdrożenie".
 1. Z opcji wdrożenia wybierz pozycję **PostgreSQL Grupa serwerów — Azure Arc**
     >[!NOTE]
-    > Może zostać wyświetlony monit o zainstalowanie `azdata` interfejsu wiersza polecenia, jeśli nie jest on aktualnie zainstalowany.
+    > Może zostać wyświetlony monit o zainstalowanie tego programu, [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Jeśli nie jest on aktualnie zainstalowany.
 1. Zaakceptuj postanowienia dotyczące prywatności i licencji, a następnie kliknij pozycję **Wybierz** u dołu
 1. W bloku Wdróż PostgreSQL grupy serwerów — Azure Arc wprowadź następujące informacje:
    - Wprowadź nazwę grupy serwerów

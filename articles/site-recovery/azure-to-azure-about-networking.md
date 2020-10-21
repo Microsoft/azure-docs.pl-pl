@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 525ab34bb9edff737686a88d7a8e664500282555
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096338"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320533"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informacje o sieci w usłudze odzyskiwania po awarii maszyny wirtualnej platformy Azure
 
@@ -41,8 +41,8 @@ Zwykle sieci są chronione za pomocą zapór i sieciowych grup zabezpieczeń (si
 > Używanie uwierzytelnionego serwera proxy do sterowania łącznością sieciową nie jest obsługiwane przez Site Recovery i nie można włączyć replikacji.
 
 >[!NOTE]
-> Filtrowanie na podstawie adresów IP nie powinno być przeprowadzane w celu kontrolowania łączności wychodzącej.
-> Azure Site Recovery adresów IP nie należy dodawać w tabeli routingu platformy Azure w celu kontrolowania łączności wychodzącej.
+>- Filtrowanie na podstawie adresów IP nie powinno być przeprowadzane w celu kontrolowania łączności wychodzącej.
+>- Azure Site Recovery adresów IP nie należy dodawać w tabeli routingu platformy Azure w celu kontrolowania łączności wychodzącej.
 
 ## <a name="outbound-connectivity-for-urls"></a>Połączenia ruchu wychodzącego dla adresów URL
 

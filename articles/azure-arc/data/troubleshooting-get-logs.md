@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71c84b35c001be7fafdc2df53014050ae21dec63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939116"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320205"
 ---
 # <a name="get-azure-arc-enabled-data-services-logs"></a>Pobierz dzienniki usług danych z obsługą usługi Azure Arc
 
@@ -22,48 +22,60 @@ ms.locfileid: "90939116"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było pobrać dzienniki usług danych z obsługą usługi Azure ARC, potrzebne jest narzędzie Azure Data CLI. [Instrukcje instalacji](./install-client-tools.md)
+Przed kontynuowaniem należy:
 
-Musisz mieć możliwość zalogowania się do usługi kontrolera usług danych z obsługą usługi Azure Arc jako administrator.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Instrukcje dotyczące instalacji](./install-client-tools.md).
+* Konto administratora do logowania się do kontrolera usług danych z włączonym usługą Azure Arc.
 
 ## <a name="get-azure-arc-enabled-data-services-logs"></a>Pobierz dzienniki usług danych z obsługą usługi Azure Arc
 
-W celu rozwiązywania problemów można uzyskać dzienniki usług danych z obsługą usługi Azure Arc w ramach wszystkich zasobników lub określonych zasobników.  Można to zrobić za pomocą standardowych narzędzi Kubernetes, takich jak `kubectl logs` polecenie lub w tym artykule, będziesz używać narzędzia interfejsu wiersza polecenia platformy Azure, które ułatwia pobieranie wszystkich dzienników jednocześnie.
+W celu rozwiązywania problemów można uzyskać dzienniki usług danych z obsługą usługi Azure Arc w ramach wszystkich zasobników lub określonych zasobników. Można to zrobić przy użyciu standardowych narzędzi Kubernetes, takich jak `kubectl logs` polecenie lub w tym artykule, w którym będziesz korzystać z [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Narzędzia, co ułatwia pobieranie wszystkich dzienników jednocześnie.
 
-Najpierw upewnij się, że zalogowano się do kontrolera danych.
+1. Zaloguj się do kontrolera danych przy użyciu konta administratora.
 
-```console
-azdata login
-```
+   ```console
+   azdata login
+   ```
 
-Następnie uruchom następujące polecenie, aby zrzucić dzienniki:
-```console
-azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+2. Uruchom następujące polecenie, aby zrzucić dzienniki:
 
-#Example:
-#azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
-```
+   ```console
+   azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+   ```
 
-Pliki dziennika zostaną utworzone w bieżącym katalogu roboczym domyślnie w podkatalogu o nazwie "Logs".  Pliki dziennika można wyprowadzać do innego katalogu przy użyciu `--target-folder` parametru.
+   Na przykład:
 
-Możesz wybrać kompresję plików, pomijając `--skip-compress` parametr.
+   ```console
+   #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
+   ```
 
-Można wyzwolić i uwzględnić zrzuty pamięci, pomijając `--exclude-dumps` , ale nie jest to zalecane, chyba że pomoc techniczna firmy Microsoft zażądał zrzutów pamięci.  Wykonanie zrzutu pamięci wymaga ustawienia kontrolera danych `allowDumps` ustawionego na `true` czas tworzenia kontrolera danych.
+Kontroler danych tworzy pliki dziennika w bieżącym katalogu roboczym w podkatalogu o nazwie `logs` . 
 
-Opcjonalnie możesz wybrać filtr, aby zbierać dzienniki dla tylko określonego ( `--pod` ) lub kontenera ( `--container` ) według nazwy.
+## <a name="options"></a>Opcje
 
-Możesz również wybrać filtr, aby zbierać dzienniki dla określonego zasobu niestandardowego przez przekazanie do `--resource-kind` i `--resource-name` parametr.  `resource-kind`Wartość parametru powinna być jedną z niestandardowych nazw definicji zasobów, które mogą zostać pobrane przez polecenie `kubectl get customresourcedefinition` .
+`azdata arc dc debug copy-logs` Program udostępnia następujące opcje zarządzania danymi wyjściowymi.
+
+* Wyprowadza pliki dziennika do innego katalogu przy użyciu `--target-folder` parametru.
+* Kompresuj pliki, pomijając `--skip-compress` parametr.
+* Wyzwól i Uwzględnij zrzuty pamięci, pomijając `--exclude-dumps` . Ta metoda nie jest zalecana, chyba że pomoc techniczna firmy Microsoft zażądał zrzutów pamięci. Wykonanie zrzutu pamięci wymaga ustawienia kontrolera danych `allowDumps` ustawionego na `true` czas tworzenia kontrolera danych.
+* Przefiltruj, aby zbierać dzienniki dla tylko określonego ( `--pod` ) lub kontenera ( `--container` ) według nazwy.
+* Przefiltruj, aby zbierać dzienniki dla określonego zasobu niestandardowego przez przekazanie `--resource-kind` `--resource-name` parametru i. `resource-kind`Wartość parametru powinna być jedną z niestandardowych nazw definicji zasobów, które można pobrać za pomocą polecenia `kubectl get customresourcedefinition` .
+
+Za pomocą tych parametrów można zastąpić `<parameters>` w poniższym przykładzie. 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+```
 
-#Example
+Na przykład
+
+```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Przykład hierarchii folderów.  Należy zauważyć, że hierarchia folderów jest uporządkowana według nazwy nazwy, a następnie według kontenera, a następnie według hierarchii katalogów w kontenerze.
+Przykład hierarchii folderów. Hierarchia folderów jest zorganizowana według nazwy, a następnie kontenera, a następnie według hierarchii katalogów w kontenerze.
 
-```console
+```output
 <export directory>
 ├───debuglogs-arc-20200827-180403
 │   ├───bootstrapper-vl8j2
@@ -181,3 +193,7 @@ Przykład hierarchii folderów.  Należy zauważyć, że hierarchia folderów je
             ├───journal
             └───openvpn
 ```
+
+## <a name="next-steps"></a>Następne kroki
+
+[azdata Arc — Dzienniki debugowania DC](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)

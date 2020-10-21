@@ -1,17 +1,17 @@
 ---
-title: Sposób wybierania odpowiedniej oferty przepływności w Azure Cosmos DB
-description: Dowiedz się, w jaki sposób wybrać między standardową (ręczną) i elastyczną skalowalną przepływność dla obciążenia.
+title: Jak wybrać między ręczne i automatyczne skalowanie na Azure Cosmos DB
+description: Dowiedz się, jak wybrać między standardową (ręczną) elastyczną przepływność i elastyczną skalowalną przepływność dla obciążenia.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0365238fd70e2e098e5a228ee71d5b9e0e584c71
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605211"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279783"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Jak wybrać między standardowym (ręcznym) i automatycznym skalowaniem przepływności 
 
@@ -54,17 +54,82 @@ Jeśli masz istniejącą aplikację korzystającą z standardowej (ręcznej) prz
 
 Najpierw Znajdź [znormalizowaną metrykę użycia jednostki żądania](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) dla bazy danych lub kontenera. Znormalizowane użycie to miara, ile aktualnie korzystasz z standardowej (ręcznej) przepływności. Im bliżej liczby jest 100%, tym więcej jest w pełni korzystasz z zainicjowanej usługi RU/s. [Dowiedz się więcej](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) o metryki.
 
-Następnie ustal, w jaki sposób znormalizowane wykorzystanie jest różne w miarę upływu czasu. Jeśli widzisz, że znormalizowane użycie jest zmienne lub nieprzewidywalne, rozważ włączenie automatycznego skalowania dla bazy danych lub kontenera. Natomiast jeśli jest to stała i przewidywalna, weź pod uwagę pozostałą w standardowej (ręcznej) przepływności. 
+Następnie ustal, w jaki sposób znormalizowane wykorzystanie jest różne w miarę upływu czasu. Znajdź największe znormalizowane użycie dla każdej godziny. Następnie Oblicz średnie znormalizowane użycie przez wszystkie godziny. Jeśli widzisz, że średnie wykorzystanie jest mniejsze niż 66%, rozważ włączenie automatycznego skalowania dla bazy danych lub kontenera. W przeciwieństwie do tego, czy średnie wykorzystanie jest większe niż 66%, zaleca się pozostawienie w standardowej (ręcznej) przepływności.
+
+> [!TIP]
+> Jeśli Twoje konto jest skonfigurowane do korzystania z zapisów w wielu regionach i ma więcej niż jeden region, stawka za 100 RU/s jest taka sama dla ręcznego i automatycznego skalowania. Oznacza to, że włączenie automatycznego skalowania nie wiąże się z żadnymi dodatkowymi kosztami, niezależnie od użycia. W związku z tym zawsze zaleca się używanie funkcji automatycznego skalowania przy użyciu zapisu w wielu regionach, gdy masz więcej niż jeden region, aby skorzystać z oszczędności wynikających z płacenia tylko za jednostki RU/s, do których aplikacja jest skalowana. Jeśli masz zapisy w wielu regionach i jeden region, użyj średniego wykorzystania, aby określić, czy automatyczne skalowanie spowoduje oszczędności kosztów. 
+
+#### <a name="examples"></a>Przykłady
+
+Przyjrzyjmy się dwóm różnym przykładowym obciążom i przeanalizować je, jeśli są odpowiednie dla przepływności ręcznej lub automatycznego skalowania. Aby zilustrować ogólne podejście, przeanalizujemy trzy godziny historii, aby określić różnicę kosztów między ręcznym i automatycznym skalowaniem. W przypadku obciążeń produkcyjnych zalecane jest użycie od 7 do 30 dni historii (lub dłużej, jeśli jest to możliwe) do ustanowienia wzorca użycia RU/s.
+
+> [!NOTE]
+> Wszystkie przykłady przedstawione w tym dokumencie są oparte na cenie konta usługi Azure Cosmos, które zostało wdrożone w regionie nierządowym w Stanach Zjednoczonych. Ceny i obliczenia różnią się w zależności od regionu, z którego korzystasz, aby uzyskać najnowsze informacje o cenach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) Azure Cosmos DB.
+
+Założenia:
+- Załóżmy, że mamy obecnie ręczną przepływność 30 000 RU/s. 
+- W naszym regionie jest konfigurowana jednoregionowa zapis z jednym regionem. W przypadku wielu regionów będziemy mnożyć koszt godzinowy według liczby regionów.
+- Użyj stawek cennika publicznego dla ręcznego ($0,008 USD za 100 RU/s na godzinę) i przepływności skalowania automatycznego ($0,012 USD za 100 RU/s na godzinę) w ramach kont zapisu z jednym regionem. Aby uzyskać szczegółowe informacje, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) . 
+
+#### <a name="example-1-variable-workload-autoscale-recommended"></a>Przykład 1: obciążenie zmienne (zalecane automatyczne skalowanie)
+
+Najpierw Spójrzmy na znormalizowane użycie RU. To obciążenie ma zmienny ruch, z znormalizowanym zużyciem RU w zakresie od 6% do 100%. Istnieją sporadyczne gwałtowne przewidywalność do 100%, ale wiele godzin o niskim obciążeniu. 
+
+:::image type="content" source="media/how-to-choose-offer/variable-workload_use_autoscale.png" alt-text="Obciążenie z zmiennym ruchem — znormalizowane użycie RU między 6% a 100% przez wszystkie godziny":::
+
+Porównujemy koszty aprowizacji 30 000 RU/s, a w przeciwieństwie do ustawiania automatycznego skalowania RU/s do 30 000 (skaluje się między 3000-30 000 RU/s). 
+
+Teraz Przeanalizujmy historię. Załóżmy, że użycie zostało opisane w poniższej tabeli. Średnie użycie w tych trzech godzinach wynosi 39%. Ze względu na to, że znormalizowana wartość zużycia RU jest mniejsza niż 66%, oszczędzamy przy użyciu funkcji automatycznego skalowania. 
+
+Należy pamiętać, że w godzinie 1, gdy istnieje 6% użycia, funkcja automatycznego skalowania będzie rozliczać RU/s dla 10% maksymalnej wartości RU/s, czyli minimum na godzinę. Chociaż koszt automatycznego skalowania może być wyższa niż ręczna przepływność w określonych godzinach, pod warunkiem, że średnie wykorzystanie jest mniejsze niż 66% przez cały czas, Skalowanie automatyczne będzie tańsze.
+
+|  | Wykorzystanie |Rozliczane automatyczne skalowanie RU/s  |Opcja 1: ręczne 30 000 RU/s  | Opcja 2: automatyczne skalowanie w zakresie od 3000 do 30 000 RU/s |
+|---------|---------|---------|---------|---------|
+|Godzina 1  | 6%  |     3000  |  30 000 * 0,008/100 = $2,40        |   3000 * 0,012/100 = $0,36      |
+|Godzina 2  | 100%  |     30 000    |  30 000 * 0,008/100 = $2,40       |  30 000 * 0,012/100 = $3,60      |
+|Godzina 3 |  11  |     3300    |  30 000 * 0,008/100 = $2,40       |    3300 * 0,012/100 = $0,40     |
+|**Łącznie**   |  |        |  $7,20       |    $4,36 (39% oszczędności)    |
+
+#### <a name="example-2-steady-workload-manual-throughput-recommended"></a>Przykład 2: stałe obciążenie (zalecane ręczne przepływność)
+
+To obciążenie ma stały ruch z znormalizowanym zużyciem RU od 72% do 100%. W przypadku 30 000 RU/s zainicjowano, oznacza to, że zużywamy od 21 600 do 30 000 RU/s.
+
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Obciążenie z zmiennym ruchem — znormalizowane użycie RU między 6% a 100% przez wszystkie godziny":::
+
+Porównujemy koszty aprowizacji 30 000 RU/s, a w przeciwieństwie do ustawiania automatycznego skalowania RU/s do 30 000 (skaluje się między 3000-30 000 RU/s).
+
+Załóżmy, że mamy historię użycia zgodnie z opisem w tabeli. Nasze średnie użycie w tych trzech godzinach wynosi 88%. Ze względu na to, że znormalizowana wartość zużycia RU jest większa niż 66%, oszczędzamy przy użyciu ręcznej przepływności.
+
+Ogólnie rzecz biorąc, jeśli średnie wykorzystanie przez wszystkie 730 godzin w ciągu miesiąca jest większe niż 66%, zostanie ono zapisane za pomocą ręcznej przepływności. 
+
+|  | Wykorzystanie |Rozliczane automatyczne skalowanie RU/s  |Opcja 1: ręczne 30 000 RU/s  | Opcja 2: automatyczne skalowanie w zakresie od 3000 do 30 000 RU/s |
+|---------|---------|---------|---------|---------|
+|Godzina 1  | 72%  |     21 600   |  30 000 * 0,008/100 = $2,40        |   21600 * 0,012/100 = $2,59      |
+|Godzina 2  | 93%  |     28 000    |  30 000 * 0,008/100 = $2,40       |  28 000 * 0,012/100 = $3,36       |
+|Godzina 3 |  100%  |     30 000    |  30 000 * 0,008/100 = $2,40       |    30 000 * 0,012/100 = $3,60     |
+|**Łącznie**   |  |        |  $7,20       |    $9,55     |
 
 > [!TIP]
 > Przy użyciu standardowej (ręcznej) przepływności można użyć znormalizowanej metryki użycia do oszacowania rzeczywistej wartości RU/s, która może być używana w przypadku przełączenia na automatyczne skalowanie. Pomnóż znormalizowane użycie w danym punkcie w czasie przez aktualnie zainicjowaną Standard (ręczna) RU/s. Jeśli na przykład Zainicjowano obsługę zasobów 5000 RU/s, a znormalizowane wykorzystanie wynosi 90%, użycie RU/s jest 0,9 * 5000 = 4500 RU/s. Jeśli widzisz, że wzorzec ruchu jest zmienny, ale jesteś w trybie przekraczającym lub nieobsługiwanym, możesz włączyć funkcję automatycznego skalowania, a następnie odpowiednio zmienić ustawienie maksymalnego RU/s skalowania automatycznego.
+
+#### <a name="how-to-calculate-average-utilization"></a>Jak obliczyć średnie wykorzystanie
+Automatycznie Skaluj rachunki dla najwyższego RU/s skalowane do godziny. Podczas analizowania znormalizowanego zużycia RU w miarę upływu czasu ważne jest, aby przy obliczaniu średniej użyć najwyższego użycia na godzinę. 
+
+Aby obliczyć średnią o największym wykorzystaniu przez wszystkie godziny:
+1. Ustaw **agregację** dla metryki użycia Noramlized ru na **wartość Max**.
+1. Wybierz poziom **szczegółowości czasu** do 1 godziny.
+1. Przejdź do **opcji wykresu**.
+1. Wybierz opcję wykres słupkowy. 
+1. W obszarze **udostępnianie**wybierz opcję **Pobierz do programu Excel** . W wygenerowanym arkuszu kalkulacyjnym Oblicz średnie wykorzystanie przez wszystkie godziny. 
+
+:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Obciążenie z zmiennym ruchem — znormalizowane użycie RU między 6% a 100% przez wszystkie godziny":::
 
 ## <a name="measure-and-monitor-your-usage"></a>Mierzenie i monitorowanie użycia
 W miarę upływu czasu, po wybraniu typu przepływności należy monitorować aplikację i wprowadzać odpowiednie korekty zgodnie z potrzebami. 
 
 W przypadku korzystania z funkcji automatycznego skalowania należy użyć Azure Monitor, aby zobaczyć, że zainicjowano maksymalną skalowalność skalowania automatycznego/s (**Automatyczne skalowanie w poziomie**) i ru/s system jest obecnie skalowany do (**zainicjowana przepływność**). Poniżej znajduje się przykład zmiennej lub nieprzewidywalnego obciążenia przy użyciu funkcji automatycznego skalowania. Należy pamiętać, że w przypadku braku ruchu, system skaluje RU/s do minimum 10% maksymalnej wartości RU/s, która w tym przypadku jest odpowiednio 5000 RU/s i 50 000 RU/s. 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Przykład obciążenia przy użyciu funkcji automatycznego skalowania":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Obciążenie z zmiennym ruchem — znormalizowane użycie RU między 6% a 100% przez wszystkie godziny":::
 
 > [!NOTE]
 > W przypadku korzystania z standardowej (ręcznej) przepływności zapewnianej przez zainicjowaną **przepływność** jest określana przez użytkownika. Gdy używana jest przepływność automatycznego skalowania, ta Metryka odnosi się do jednostki RU/s, do której system jest obecnie skalowany.

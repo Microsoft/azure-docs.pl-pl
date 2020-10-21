@@ -4,12 +4,12 @@ description: W tym samouczku zostanie wdrożony Service Fabric zarządzany klast
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: c7ed1a8fceeddecb942edb541c6112492a6e5a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410452"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316171"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Samouczek: Wdrażanie klastra zarządzanego Service Fabric (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ Przed rozpoczęciem tego samouczka:
 
 * Zainstaluj [zestaw Service Fabric SDK i moduł programu PowerShell](service-fabric-get-started.md).
 
-* Zainstaluj [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) (lub nowszy).
+* Zainstaluj [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) (lub nowszy).
 
 ## <a name="connect-to-your-azure-account"></a>Nawiąż połączenie z kontem platformy Azure
 
@@ -73,7 +73,7 @@ W tym kroku Podaj własne wartości dla następujących parametrów:
 
 * **Nazwa klastra**: Wprowadź unikatową nazwę klastra, na przykład *mysfcluster*.
 * **Hasło administratora**: wprowadź hasło administratora, które ma być używane na potrzeby protokołu RDP na podstawowych maszynach wirtualnych w klastrze.
-* **Odcisk palca certyfikatu klienta**: Podaj odcisk palca certyfikatu klienta, który ma być używany w celu uzyskania dostępu do klastra. Jeśli nie masz certyfikatu, postępuj zgodnie z [zestawem i pobieraniem certyfikatu](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) w celu utworzenia certyfikatu z podpisem własnym.
+* **Odcisk palca certyfikatu klienta**: Podaj odcisk palca certyfikatu klienta, który ma być używany w celu uzyskania dostępu do klastra. Jeśli nie masz certyfikatu, postępuj zgodnie z [zestawem i pobieraniem certyfikatu](../key-vault/certificates/quick-create-portal.md) w celu utworzenia certyfikatu z podpisem własnym.
 * **Jednostka SKU klastra**: określ [Typ Service Fabric zarządzanego klastra](overview-managed-cluster.md#service-fabric-managed-cluster-skus) do wdrożenia. *Podstawowa* Klastry SKU są przeznaczone wyłącznie do wdrożeń testowych i nie zezwalają na dodawanie lub usuwanie typu węzła.
 
 ```powershell

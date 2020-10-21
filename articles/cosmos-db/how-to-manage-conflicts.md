@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 657d3f84a1dd196733ed23dd3b68db92e4b35e25
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570680"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279467"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami rozwiązywania konfliktów w usłudze Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 ### <a name="java-v4-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-javav4"></a> Zestaw SDK Java v4
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -244,7 +244,7 @@ await container.Scripts.CreateStoredProcedureAsync(
 
 ### <a name="java-v4-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-javav4"></a> Zestaw SDK Java v4
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -359,7 +359,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 ### <a name="java-v4-sdk"></a><a id="create-custom-conflict-resolution-policy-javav4"></a> Zestaw SDK Java v4
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -517,5 +517,5 @@ Poznaj następujące pojęcia dotyczące usługi Azure Cosmos DB:
 - [Konfigurowanie klientów dla usługi wieloadresowości](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Dodawanie lub usuwanie regionów z konta usługi Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [Jak configuremulti zapisy w aplikacjach](how-to-multi-master.md).
-- [Partycjonowanie i dystrybucja danych](partition-data.md)
+- [Partycjonowanie i dystrybucja danych](partitioning-overview.md)
 - [Indeksowanie w usłudze Azure Cosmos DB](indexing-policies.md)

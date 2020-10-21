@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 2c949447635ccdf4cf36acec43a09c1104b9fdd4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943870"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280026"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure
 Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
@@ -53,7 +53,7 @@ Upewnij się, że zespół ds. operacji zabezpieczeń otrzymuje powiadomienia o 
 W portalu rejestracji platformy Azure można upewnić się, że informacje kontaktowe administratora zawierają szczegóły powiadamiające o operacjach zabezpieczeń. Informacje kontaktowe to adres e-mail i numer telefonu.
 
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Organizuj subskrypcje platformy Azure w grupach zarządzania
-Jeśli Twoja organizacja ma wiele subskrypcji, konieczny może być sposób na wydajne zarządzanie dostępem, zasadami i zgodnością dla tych subskrypcji. [Grupy zarządzania platformy Azure](/azure/governance/management-groups/create) zapewniają poziom zakresu, który jest wyższy niż subskrypcje. Można organizować subskrypcje w kontenery nazywane grupami zarządzania i stosować warunki zarządzania do grup zarządzania. Wszystkie subskrypcje w grupie zarządzania automatycznie dziedziczą warunki zastosowane do tej grupy zarządzania.
+Jeśli Twoja organizacja ma wiele subskrypcji, konieczny może być sposób na wydajne zarządzanie dostępem, zasadami i zgodnością dla tych subskrypcji. [Grupy zarządzania platformy Azure](/azure/governance/management-groups/create) zapewniają poziom zakresu, który jest wyższy niż subskrypcje. Subskrypcje można organizować w kontenery nazywane grupami zarządzania i stosować warunki ładu do grup zarządzania. Wszystkie subskrypcje w grupie zarządzania automatycznie dziedziczą warunki zastosowane do tej grupy zarządzania.
 
 Można utworzyć elastyczną strukturę grup zarządzania i subskrypcji w katalogu. Każdy katalog ma jedną grupę zarządzania najwyższego poziomu nazywaną główną grupą zarządzania. Główna grupa zarządzania jest wbudowana w hierarchię, aby wszystkie grupy zarządzania i subskrypcje pod nią podlegały. Główna Grupa zarządzania pozwala na stosowanie zasad globalnych i przypisań ról platformy Azure na poziomie katalogu.
 
@@ -122,7 +122,7 @@ Wynik bezpiecznego, który jest oparty na kontrolkach w centrum zabezpieczeń in
 **Szczegóły**: Użyj [Azure monitor, aby zebrać i wyeksportować dane](/azure/azure-monitor/overview#integrate-and-export-data). To rozwiązanie ma kluczowe znaczenie dla włączenia badania zdarzeń związanych z zabezpieczeniami, a przechowywanie dzienników w trybie online jest ograniczone. Jeśli używasz funkcji wskaźnikowej platformy Azure, zobacz temat [łączenie ze źródłami danych](../../sentinel/connect-data-sources.md).
 
 **Najlepsze rozwiązanie**: przyspieszanie procesów badania i polowania oraz zmniejszanie fałszywych wyników pozytywnych przez integrację funkcji wykrywania i reagowania punktów końcowych (EDR) z badaniem ataku.   
-**Szczegóły**: [Włącz integrację z programem Microsoft Defender ATP](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) za pośrednictwem zasad zabezpieczeń Security Center. Rozważ użycie funkcji wskaźnikowej platformy Azure na potrzeby łowiectwa zagrożeń i reagowania na zdarzenia.
+**Szczegóły**: [Włączanie integracji usługi Microsoft Defender dla punktów końcowych](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) za pośrednictwem zasad zabezpieczeń Security Center. Rozważ użycie funkcji wskaźnikowej platformy Azure na potrzeby łowiectwa zagrożeń i reagowania na zdarzenia.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Monitorowanie kompleksowego monitorowania sieci opartego na scenariuszu
 Klienci tworzą kompleksową sieć na platformie Azure, łącząc zasoby sieciowe, takie jak sieć wirtualna, ExpressRoute, Application Gateway i moduły równoważenia obciążenia. Monitorowanie jest dostępne w każdym z zasobów sieciowych.

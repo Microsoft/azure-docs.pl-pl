@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056161"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319725"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
@@ -61,7 +61,7 @@ Dzienniki aprowizacji zapewniają odpowiedzi na następujące pytania:
 
 Dostęp do dzienników aprowizacji można uzyskać, wybierając pozycję **dzienniki aprowizacji** w sekcji **monitorowanie** w bloku **Azure Active Directory** w [Azure Portal](https://portal.azure.com). W przypadku niektórych rekordów aprowizacji w portalu może upłynąć do dwóch godzin.
 
-![Dzienniki aprowizacji](./media/concept-provisioning-logs/access-provisioning-logs.png "Dzienniki aprowizowania")
+![Dzienniki aprowizowania](./media/concept-provisioning-logs/access-provisioning-logs.png "Dzienniki aprowizowania")
 
 
 Dziennik aprowizacji zawiera domyślny widok listy, który pokazuje:
@@ -119,7 +119,7 @@ Po wybraniu niestandardowego przedziału czasu można skonfigurować datę pocz�
 
 Filtr **stanu** umożliwia wybranie:
 
-- Wszystko
+- Wszystkie
 - Powodzenie
 - Niepowodzenie
 - Pominięto
@@ -215,7 +215,7 @@ Karta **Podsumowanie** zawiera przegląd informacji o tym, co się stało i iden
 
 - Można użyć atrybutu identyfikatora zmiany jako unikatowego identyfikatora. Jest to przydatne na przykład podczas współdziałania z pomocą techniczną produktu.
 
-- Obecnie nie ma możliwości pobrania danych aprowizacji jako pliku CSV, ale dane można eksportować przy użyciu [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
+- Obecnie nie ma możliwości pobrania danych aprowizacji jako pliku CSV, ale dane można eksportować przy użyciu [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - W przypadku użytkowników, którzy nie znajdują się w zakresie, mogą zostać wyświetlone pominięte zdarzenia. Jest to oczekiwane, szczególnie w przypadku, gdy zakres synchronizacji jest ustawiony na wszystkich użytkowników i grupy. Nasza usługa oceni wszystkie obiekty w dzierżawie, nawet te, które znajdują się poza zakresem. 
 
@@ -245,10 +245,10 @@ Skorzystaj z poniższej tabeli, aby lepiej zrozumieć, jak rozwiązywać błędy
 |DuplicateSourceEntries | Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika lub Zmień konfigurację mapowań atrybutów zgodnie z opisem w [tym miejscu](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Podczas oceniania każdego użytkownika podjęto próbę zaimportowania użytkownika z systemu źródłowego. Ten błąd występuje często, gdy importowany użytkownik nie ma pasującej właściwości zdefiniowanej w mapowaniu atrybutów. Bez wartości znajdującej się w obiekcie użytkownika dla pasującego atrybutu nie można obliczyć zakresu, dopasowywania ani eksportowania zmian. Należy zauważyć, że obecność tego błędu nie wskazuje, że użytkownik należy do zakresu, ponieważ nie oceniamy jeszcze zakresu dla użytkownika.|
 |EntrySynchronizationSkipped | Usługa aprowizacji pomyślnie zbadał system źródłowy i zidentyfikował użytkownika. Nie wykonano żadnych dalszych akcji dla użytkownika i zostały one pominięte. Pominięcie mogą być spowodowane brakiem zakresu lub użytkownikiem już istniejącym w systemie docelowym bez konieczności wprowadzania dalszych zmian.|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Podczas wykonywania żądania GET w celu pobrania użytkownika lub grupy w odpowiedzi otrzymano wielu użytkowników lub grupy. Oczekujemy, że w odpowiedzi otrzymasz tylko jednego użytkownika lub grupę. Jeśli [na przykład](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group)wyślemy żądanie pobrania grupy i udostępnienia filtru do wykluczania elementów członkowskich, a punkt końcowy Standard scim zwraca członków, zgłosi ten błąd.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Podczas wykonywania żądania GET w celu pobrania użytkownika lub grupy w odpowiedzi otrzymano wielu użytkowników lub grupy. Oczekujemy, że w odpowiedzi otrzymasz tylko jednego użytkownika lub grupę. Jeśli [na przykład](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group)wyślemy żądanie pobrania grupy i udostępnienia filtru do wykluczania elementów członkowskich, a punkt końcowy Standard scim zwraca członków, zgłosi ten błąd.|
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Sprawdź stan aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD](../app-provisioning/application-provisioning-config-problem.md)
-* [Interfejs API grafu obsługi dzienników aprowizacji](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [Interfejs API grafu obsługi dzienników aprowizacji](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

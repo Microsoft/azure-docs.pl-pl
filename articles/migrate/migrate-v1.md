@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001641"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317204"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Pracuj z poprzednią wersją Azure Migrate
 
@@ -121,7 +121,7 @@ Windows Server 2012 R2 i wszystkie SPs | Platforma Azure oferuje pełną pomoc t
 Windows Server 2012 i wszystkie SPs | Platforma Azure oferuje pełną pomoc techniczną. | Gotowa na platformę Azure
 Windows Server 2008 R2 i wszystkie SPs | Platforma Azure oferuje pełną pomoc techniczną.| Gotowa na platformę Azure
 Windows Server 2008 (32-bitowe i 64-bit) | Platforma Azure oferuje pełną pomoc techniczną. | Gotowa na platformę Azure
-Windows Server 2003, 2003 R2 | Poza wsparciem i potrzebna jest [niestandardowa umowa dotycząca pomocy technicznej](https://aka.ms/WSosstatement) w celu uzyskania pomocy technicznej na platformie Azure. | Warunkowo gotowa na platformę Azure Rozważ uaktualnienie systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.
+Windows Server 2003, 2003 R2 | Poza wsparciem i potrzebna jest [niestandardowa umowa dotycząca pomocy technicznej](/troubleshoot/azure/virtual-machines/server-software-support) w celu uzyskania pomocy technicznej na platformie Azure. | Warunkowo gotowa na platformę Azure Rozważ uaktualnienie systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.
 Windows 2000, 98, 95, NT, 3,1, MS-DOS | Poza wsparciem. Komputer może przeprowadzić rozruch na platformie Azure, ale nie ma pomocy technicznej systemu operacyjnego na platformie Azure. | Warunkowo gotowa na platformę Azure zaleca się uaktualnienie systemu operacyjnego przed przeprowadzeniem migracji na platformę Azure.
 Klient z systemem Windows 7, 8 i 10 | Platforma Azure zapewnia pomoc techniczną tylko w przypadku [subskrypcji programu Visual Studio.](../virtual-machines/windows/client-images.md) | Warunkowo gotowa na platformę Azure
 Windows 10 Pro Desktop | Platforma Azure zapewnia pomoc techniczną z [wielodostępnymi prawami hostingu.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Warunkowo gotowa na platformę Azure

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.custom: devx-track-js
-ms.openlocfilehash: a2ac8a84b4df4a241665e7f4269803908733ca82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a655199d854462285ca98a2d8f454c483c061f99
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249913"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316668"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric Visual Studio Code
 
@@ -42,7 +42,7 @@ Poniższe wymagania wstępne muszą być zainstalowane we wszystkich środowiska
 
 Do programowania w języku Java należy zainstalować następujące wymagania wstępne:
 
-* [Zestaw Java SDK](https://aka.ms/azure-jdks) (wersja 1,8)
+* [Zestaw Java SDK](/azure/developer/java/fundamentals/java-jdk-long-term-support) (wersja 1,8)
 * [Gradle](https://gradle.org/install/)
 * [Debuger dla rozszerzenia vs Code Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Wymagany do debugowania usług Java. Debugowanie usług Java jest obsługiwane tylko w systemie Linux. Możesz zainstalować program, klikając ikonę rozszerzenia na **pasku działania** w vs Code i wyszukując rozszerzenie lub z poziomu witryny vs Code Marketplace.
 

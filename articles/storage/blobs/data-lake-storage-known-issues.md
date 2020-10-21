@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fee5427981cbd2c04a5ee88500a1aee77e2e5ffd
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876128"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282196"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -92,7 +92,11 @@ Aplikacje innych firm, które używają interfejsów API REST do pracy, będą n
 
 Jeśli [anonimowy dostęp do odczytu](storage-manage-access-to-resources.md) został przyznany do kontenera, listy ACL nie mają wpływu na ten kontener ani pliki w tym kontenerze.
 
-## <a name="premium-performance-blockblobstorage-storage-accounts"></a>Premium — konta magazynu BlockBlobStorage wydajności
+### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
+
+Ustawienie dni przechowywania nie jest jeszcze obsługiwane, ale można je usunąć ręcznie przy użyciu dowolnego obsługiwanego narzędzia, takiego jak Eksplorator usługi Azure Storage, REST lub zestaw SDK.
+
+## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>Problemy specyficzne dla kont magazynu BlockBlobStorage wydajności Premium
 
 ### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
 
@@ -108,8 +112,6 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
-
-Ustawienie dni przechowywania nie jest jeszcze obsługiwane, ale można je usunąć ręcznie przy użyciu dowolnego obsługiwanego narzędzia, takiego jak Eksplorator usługi Azure Storage, REST lub zestaw SDK.
 
 ### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 

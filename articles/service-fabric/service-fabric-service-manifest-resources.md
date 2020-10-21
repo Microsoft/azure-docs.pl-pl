@@ -4,12 +4,12 @@ description: Jak opisać zasoby punktu końcowego w manifeście usługi, w tym s
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017594"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313564"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Określanie zasobów w manifeście usługi
 ## <a name="overview"></a>Omówienie
@@ -158,7 +158,7 @@ Poniżej znajduje się przykład ApplicationManifest pokazujący konfigurację w
 
 W przypadku klastrów systemu Linux magazyn **My** default jest domyślnie używany w folderze **/var/lib/sfcerts**.
 
-Aby zapoznać się z przykładem pełnej aplikacji korzystającej z punktu końcowego HTTPS, zobacz [Dodawanie punktu końcowego HTTPS do usługi frontonu internetowego interfejsu API ASP.NET Core przy użyciu Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+Aby zapoznać się z przykładem pełnej aplikacji korzystającej z punktu końcowego HTTPS, zobacz [Dodawanie punktu końcowego HTTPS do usługi frontonu internetowego interfejsu API ASP.NET Core przy użyciu Kestrel](./service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest).
 
 ## <a name="port-acling-for-http-endpoints"></a>ACLing portów dla punktów końcowych HTTP
 W Service Fabric automatycznie są określane punkty końcowe HTTP (S) listy ACL. **Nie** zostanie wykonana automatyczna ACLing, jeśli punkt końcowy nie ma skojarzonego z nim [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) i Service Fabric jest skonfigurowany do uruchamiania przy użyciu konta z uprawnieniami administratora.

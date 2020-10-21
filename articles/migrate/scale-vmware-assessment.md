@@ -3,12 +3,12 @@ title: Ocenianie dużej liczby maszyn wirtualnych VMware do migracji na platform
 description: Opisuje sposób oceny dużej liczby maszyn wirtualnych VMware do migracji na platformę Azure przy użyciu usługi Azure Migrate. e
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a5a29ffc8abe0e8ec4fe85a41b4b67c2e655d2b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171915"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314113"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Ocenianie dużej liczby maszyn wirtualnych VMware na potrzeby migracji na platformę Azure
 
@@ -26,7 +26,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 
 > [!NOTE]
-> Jeśli chcesz wypróbować ocenę koncepcji, aby ocenić kilka maszyn wirtualnych przed oceną na dużą skalę, postępuj zgodnie z naszymi [seriami samouczków](tutorial-prepare-vmware.md)
+> Jeśli chcesz wypróbować ocenę koncepcji, aby ocenić kilka maszyn wirtualnych przed oceną na dużą skalę, postępuj zgodnie z naszymi [seriami samouczków](./tutorial-discover-vmware.md)
 
 ## <a name="plan-for-assessment"></a>Planowanie oceny
 
@@ -78,7 +78,7 @@ Przygotuj platformę Azure i oprogramowanie VMware do oceny serwera.
 2. Skonfiguruj uprawnienia dla Twojego konta platformy Azure, aby móc korzystać z Azure Migrate.
 3. Przygotuj oprogramowanie VMware do oceny.
 
-Aby skonfigurować te ustawienia, postępuj zgodnie z instrukcjami podanymi w [tym samouczku](tutorial-prepare-vmware.md) .
+Aby skonfigurować te ustawienia, postępuj zgodnie z instrukcjami podanymi w [tym samouczku](./tutorial-discover-vmware.md) .
 
 
 ## <a name="create-a-project"></a>Tworzenie projektu
@@ -96,7 +96,7 @@ Zgodnie z wymaganiami dotyczącymi planowania wykonaj następujące czynności:
 1. Zapoznaj się z ocenami w temacie przygotowanie do planowania migracji.
 
 
-Aby skonfigurować te ustawienia, postępuj zgodnie z instrukcjami podanymi w [tym samouczku](tutorial-assess-vmware.md) .
+Aby skonfigurować te ustawienia, postępuj zgodnie z instrukcjami podanymi w [tym samouczku](./tutorial-assess-vmware-azure-vm.md) .
     
 
 ## <a name="next-steps"></a>Następne kroki

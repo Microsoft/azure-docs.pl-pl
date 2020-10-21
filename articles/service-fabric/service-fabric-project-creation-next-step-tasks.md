@@ -3,12 +3,12 @@ title: Service Fabric tworzenia projektu w następnym kroku
 description: Dowiedz się więcej o projekcie aplikacji, który właśnie został utworzony w programie Visual Studio.  Dowiedz się, jak tworzyć usługi przy użyciu samouczków i dowiedzieć się więcej na temat opracowywania usług dla Service Fabric.
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01a69016e0c299fba0365fab5332b572fd2ca87a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75349413"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314469"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Twoja aplikacja Service Fabric i następne kroki
 Aplikacja Service Fabric platformy Azure została utworzona. W tym artykule opisano niektóre samouczki, które należy wypróbować, korzeń projektu, kilka dodatkowych informacji, które mogą być interesujące, oraz potencjalnych dalszych kroków.
@@ -24,7 +24,7 @@ Można też wypróbować jedno z poniższych przewodników i utworzyć swoje pie
 - [Usługa wykonywalna gościa w systemie Windows](quickstart-guest-app.md) 
 - [Aplikacja kontenera dla systemu Windows](service-fabric-get-started-containers.md) 
 
-Warto również zainteresować się próbą wykonania naszych [przykładowych aplikacji](https://aka.ms/servicefabricsamples).
+Warto również zainteresować się próbą wykonania naszych [przykładowych aplikacji](/samples/browse/?products=azure).
 
 ## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>Masz pytania lub uwagi?  Potrzebujesz zgłosić problem?
 Zapoznaj się z [typowymi pytaniami](service-fabric-common-questions.md) i Znajdź odpowiedzi na temat tego, co Service Fabric może zrobić, i jak powinno być używane.
@@ -62,5 +62,3 @@ Podobnie jak w przypadku innych platform, aplikacja Service Fabric zwykle przech
 - [Utwórz klaster systemu Windows na platformie Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Wizualizuj klaster, w tym wdrożone aplikacje i układ fizyczny, przy użyciu [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 - [Wersja i uaktualnienie usług](service-fabric-application-upgrade-tutorial.md)
-
-
