@@ -67,6 +67,8 @@
       items:
         - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — REST
           href: stream-files-tutorial-with-rest.md
+        - name: Klucze zarządzane przez klienta w usłudze Media Services
+          href: tutorial-byok.md
     - name: Interfejs wiersza polecenia
       items:
         - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — interfejs wiersza polecenia
@@ -175,6 +177,8 @@
         - name: Szyfrowanie dynamiczne i dostarczanie kluczy
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
+        - name: Klucze zarządzane przez klienta
+          href: concept-use-customer-managed-keys-byok.md
         - name: Projektowanie systemu z wieloma mechanizmami DRM
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md
@@ -385,7 +389,7 @@
           href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Przejdź
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.media/allversions

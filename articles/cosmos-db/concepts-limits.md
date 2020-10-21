@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708955"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329376"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Ten artykuł zawiera omówienie domyślnych przydziałów oferowanych na potrzeb
 
 ## <a name="storage-and-database-operations"></a>Operacje magazynu i bazy danych
 
-Po utworzeniu konta usługi Azure Cosmos w ramach subskrypcji możesz zarządzać danymi na swoim koncie przez [Tworzenie baz danych, kontenerów i elementów](databases-containers-items.md).
+Po utworzeniu konta usługi Azure Cosmos w ramach subskrypcji możesz zarządzać danymi na swoim koncie przez [Tworzenie baz danych, kontenerów i elementów](account-databases-containers-items.md).
 
 ### <a name="provisioned-throughput"></a>Aprowizowana przepływność
 
@@ -27,15 +27,15 @@ Przepustowość można zainicjować na poziomie kontenera lub na poziomie bazy d
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| Maksymalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md) |
-| Maksymalna liczba jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md) |
+| Maksymalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](account-databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md) |
+| Maksymalna liczba jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](account-databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md) |
 | Maksymalna jednostek ru na (logiczne) partycji | 10 000 |
 | Maksymalny rozmiar magazynu na partycję wszystkie elementy na (logiczne) | 20 GB |
 | Maksymalna liczba różnych (logicznych) kluczy partycji | Nieograniczona liczba |
 | Maksymalny rozmiar magazynu na kontener | Nieograniczona liczba |
 | Maksymalny rozmiar magazynu na bazę danych | Nieograniczona liczba |
 | Maksymalny rozmiar załączników na konto (funkcja załącznika jest przestarzała) | 2 GB |
-| Minimalna jednostek ru wymagana na 1 GB | 10 RU/s |
+| Minimalna wymagana jednostka RU/s na 1 GB | 10 RU/s<br>**Uwaga:** Jeśli kontener lub baza danych zawiera więcej niż 1 TB danych, Twoje konto może kwalifikować się do naszego [programu "High Storage/niska przepływność"](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > Aby dowiedzieć się więcej o najlepszych rozwiązaniach dotyczących zarządzania obciążeniami z kluczami partycji wymagającymi wyższych limitów dla magazynu lub przepływności, zobacz [Tworzenie klucza partycji syntetycznej](synthetic-partition-keys.md).
@@ -55,8 +55,8 @@ Poniżej znajduje się podsumowanie minimalnych limitów przydziałów RU.
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| Minimalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimalna jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Minimalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Minimalna jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minimalna jednostek ru na kontener w ramach udostępnionej bazy danych przepływności | 100 |
 
 Cosmos DB obsługuje elastyczne skalowanie przepływności (jednostek ru) na kontener lub bazę danych za pośrednictwem zestawów SDK lub portalu. Każdy kontener można skalować synchronicznie i od razu w zakresie od 10 do 100 razy od wartości minimalnej i maksymalnej. Jeśli żądana wartość przepływności znajduje się poza zakresem, skalowanie jest wykonywane asynchronicznie. Skalowanie asynchroniczne może zająć kilka minut, w zależności od wymaganej przepływności i rozmiaru magazynu danych w kontenerze.  

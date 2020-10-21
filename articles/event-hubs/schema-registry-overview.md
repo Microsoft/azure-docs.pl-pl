@@ -4,12 +4,12 @@ description: Ten artykuł zawiera omówienie obsługi rejestru schematu w usłud
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 30ef2f102a4b8d9f9908ba915f179889710bafd0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938801"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330499"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Rejestr schematów platformy Azure w usłudze Event Hubs (wersja zapoznawcza)
 W wielu scenariuszach przesyłania strumieniowego zdarzeń i przesyłania komunikatów zdarzenie lub komunikat zawiera dane strukturalne, które są serializowane lub deserializowane przy użyciu formatu opartego na schemacie, takiego jak Apache Avro. Zarówno nadawcy, jak i odbiorcy mogą chcieć sprawdzić integralność danych za pomocą dokumentu schematu, jak w schemacie JSON. W przypadku formatów opartych na schemacie udostępnianie schematu dla konsumenta wiadomości jest wymagane przez odbiorcę do deserializacji danych. 
@@ -50,8 +50,8 @@ Na poniższej ilustracji przedstawiono przepływ informacji rejestru schematu z 
 ## <a name="standard-vs-dedicated-limits"></a>Limity standardowe a dedykowane
 Dla limitów (na przykład: liczba grup schematu w przestrzeni nazw), które są takie same i różne dla warstw standardowa i dedykowana Event Hubs, zobacz [limity rejestru schematu](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)
 
-## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
-W przypadku programistycznego uzyskiwania dostępu do rejestru schematu należy zarejestrować aplikację w usłudze Azure Active Directory (Azure AD) i dodać podmiot zabezpieczeń aplikacji do jednej z ról kontroli dostępu opartej na rolach (RBAC):
+## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
+W przypadku programistycznego uzyskiwania dostępu do rejestru schematu należy zarejestrować aplikację w usłudze Azure Active Directory (Azure AD) i dodać podmiot zabezpieczeń aplikacji do jednej z ról kontroli dostępu opartej na rolach (Azure RBAC):
 
 | Rola | Opis | 
 | ---- | ----------- | 

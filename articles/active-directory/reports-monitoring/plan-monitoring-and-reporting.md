@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331203"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311220"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planowanie wdrożenia Azure Active Directory raportowanie i monitorowanie
 
@@ -73,7 +73,7 @@ W tym projekcie zdefiniujemy odbiorców, którzy będą korzystać z raportów i
 
 ### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich uczestników projektu
 
-Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnością oczekiwań, rezultatów i obowiązków. Aby uniknąć tych pułapek, [upewnij się, że interesują](https://aka.ms/deploymentplans)Cię odpowiednie osoby zainteresowane. Należy również upewnić się, że role udziałowców w projekcie są zrozumiałe poprzez dokumentowanie uczestników projektu i ich danych wejściowych i accountabilities.
+Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnością oczekiwań, rezultatów i obowiązków. Aby uniknąć tych pułapek, [upewnij się, że interesują](../fundamentals/active-directory-deployment-plans.md)Cię odpowiednie osoby zainteresowane. Należy również upewnić się, że role udziałowców w projekcie są zrozumiałe poprzez dokumentowanie uczestników projektu i ich danych wejściowych i accountabilities.
 
 ### <a name="plan-communications"></a>Planowanie komunikacji
 
@@ -133,7 +133,7 @@ Dowiedz się, jak [zainstalować widoki analizy dzienników dla dzienników akty
 
 Dzienniki routingu do centrum zdarzeń platformy Azure umożliwiają integrację z narzędziami SIEM innych firm. Ta integracja pozwala połączyć dane dzienników aktywności usługi Azure AD z innymi danymi zarządzanymi przez rozwiązania SIEM, co zapewnia lepszy wgląd w środowisko. 
 
-Dowiedz się, jak [wysyłać strumieniowo dzienniki do centrum zdarzeń](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Dowiedz się, jak [wysyłać strumieniowo dzienniki do centrum zdarzeń](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planowanie operacji i zabezpieczeń na potrzeby raportowania i monitorowania usługi Azure AD
 

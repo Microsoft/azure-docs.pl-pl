@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 1bcaaed394d8e802a9660e2fdf0e37994ee795a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04d29b82ecf09d1ee52986fc40687e5511573da
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617693"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331910"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Szybki Start: Konfigurowanie połączenia punkt-lokacja z wystąpieniem zarządzanym usługi Azure SQL z lokalnego
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -86,13 +86,13 @@ Ten przewodnik Szybki start:
 2. Wybierz pozycję **Połącz**.
 3. W oknie dialogowym wybierz pozycję **Połącz**.
 
-    ![Połączenie VPN](./media/point-to-site-p2s-configure/vpn-connection2.png)  
+    ![Zrzut ekranu, który podświetla przycisk Połącz.](./media/point-to-site-p2s-configure/vpn-connection2.png)  
 4. Gdy zostanie wyświetlony monit, że Menedżer połączeń potrzebuje podniesionych uprawnień, aby zaktualizować tabelę tras, wybierz pozycję **Kontynuuj**.
 5. Aby kontynuować, wybierz pozycję **tak** w oknie dialogowym Kontrola konta użytkownika.
 
    Nawiązano połączenie sieci VPN z siecią wirtualną wystąpienia zarządzanego SQL.
 
-    ![Połączenie VPN](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
+    ![Zrzut ekranu, który podświetla połączony komunikat, gdy połączenie zostało nawiązane.](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
 
 ## <a name="connect-with-ssms"></a>Nawiązywanie połączenia z programem SSMS
 

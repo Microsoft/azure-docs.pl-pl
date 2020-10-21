@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób uwierzytelniania dostępu do zasobó
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f0cdf37963e40d871ad1079e9ccd5d0eb61fa2c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270104"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332437"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Uwierzytelnianie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego (SAS)
 Sygnatura dostępu współdzielonego (SAS) zapewnia szczegółową kontrolę nad typem dostępu przyznanym klientom, którzy mają sygnaturę dostępu współdzielonego. Poniżej przedstawiono niektóre kontrolki, które można ustawić w sygnaturze dostępu współdzielonego: 
@@ -183,7 +183,7 @@ Każdy klient Event Hubs ma przypisany unikatowy token, który jest przekazywany
 
 Wszystkie tokeny są przypisywane przy użyciu kluczy SAS. Zwykle wszystkie tokeny są podpisane przy użyciu tego samego klucza. Klienci nie mają informacji o kluczu, co uniemożliwia klientom użycie tokenów produkcyjnych. Klienci działają na tych samych tokenach do momentu ich wygaśnięcia.
 
-Na przykład w celu zdefiniowania reguł autoryzacji objętych zakresem do wysyłania/publikowania do Event Hubs należy zdefiniować regułę autoryzacji wysyłania. Można to zrobić na poziomie przestrzeni nazw lub nadać bardziej szczegółowy zakres określonej jednostce (wystąpienie Centra zdarzeń lub temat). Jest wywoływany klient lub aplikacja objęta zakresem takich szczegółowych praw dostępu, Event Hubs wydawcy. Aby to zrobić, wykonaj następujące kroki:
+Na przykład w celu zdefiniowania reguł autoryzacji objętych zakresem do wysyłania/publikowania do Event Hubs należy zdefiniować regułę autoryzacji wysyłania. Można to zrobić na poziomie przestrzeni nazw lub nadać bardziej szczegółowy zakres określonej jednostce (wystąpienie Centra zdarzeń lub temat). Jest wywoływany klient lub aplikacja objęta zakresem takich szczegółowych praw dostępu, Event Hubs wydawcy. W tym celu wykonaj następujące czynności:
 
 1. Utwórz klucz sygnatury dostępu współdzielonego na jednostce, którą chcesz opublikować, aby przypisać do niej zakres **wysyłania** . Aby uzyskać więcej informacji, zobacz [zasady autoryzacji dostępu współdzielonego](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
 2. Wygeneruj token sygnatury dostępu współdzielonego z upływem czasu wygaśnięcia określonego wydawcy przy użyciu klucza wygenerowanego w krok 1.
@@ -222,7 +222,7 @@ Aby uwierzytelniać aplikacje zaplecza, które wykorzystują dane wygenerowane p
 Zobacz następujące artykuły:
 
 - [Autoryzuj przy użyciu sygnatury dostępu współdzielonego](authenticate-shared-access-signature.md)
-- [Autoryzuj przy użyciu kontroli dostępu opartej na rolach (RBAC)](authenticate-shared-access-signature.md)
+- [Autoryzuj przy użyciu kontroli dostępu opartej na rolach (Azure RBAC)](authenticate-shared-access-signature.md)
 - [Dowiedz się więcej o Event Hubs](event-hubs-about.md)
 
 Zapoznaj się z następującymi artykułami:

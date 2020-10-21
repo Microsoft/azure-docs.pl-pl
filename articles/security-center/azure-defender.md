@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576862"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331689"
 ---
 # <a name="introduction-to-azure-defender"></a>Wprowadzenie do usługi Azure Defender
 
@@ -35,14 +35,15 @@ Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure 
 - [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
 - [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
 - [Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)
-- [Azure Defender for SQL](defender-for-sql-introduction.md)
-- [Usługa Azure Defender dla IoT](defender-for-iot-introduction.md)
+- [Usługa Azure Defender dla bazy danych SQL](defender-for-sql-introduction.md)
 - [Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)
 - [Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)
 - [Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)
 
 Każdy z tych planów został opisany osobno w dokumentacji Security Center.
 
+> [!TIP]
+> Usługa Azure Defender for IoT (wersja zapoznawcza) to odrębny produkt. Wszystkie szczegóły znajdują się w temacie [wprowadzenie do usługi Azure Defender for IoT (wersja zapoznawcza)](../defender-for-iot/overview.md). 
 
 ## <a name="hybrid-cloud-protection"></a>Ochrona chmury hybrydowej
 
@@ -50,7 +51,6 @@ Oprócz obrony środowiska platformy Azure można dodać możliwości usługi Az
 
 - Ochrona serwerów spoza platformy Azure
 - Ochrona maszyn wirtualnych w innych chmurach (takich jak AWS i GCP)
-- Ochrona urządzeń IoT
 
 Będziesz otrzymywać dostosowane analizy zagrożeń i alerty z priorytetami zgodnie z określonym środowiskiem, dzięki czemu możesz skupić się na tym, co najważniejsze.
 

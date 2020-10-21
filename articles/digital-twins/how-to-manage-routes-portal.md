@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91c767fb031633900434b3aa07ccfae7cf7458cb
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279365"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332097"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -72,7 +72,7 @@ Możesz również wyświetlić punkt końcowy, który został utworzony ponownie
 
 Jeśli Tworzenie punktu końcowego nie powiedzie się, obserwuj komunikat o błędzie i spróbuj ponownie za kilka minut.
 
-Teraz temat usługi Event Grid jest dostępny jako punkt końcowy w programie Azure Digital bliźniaczych reprezentacji, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#event-routes).
+Teraz temat usługi Event Grid jest dostępny jako punkt końcowy w programie Azure Digital bliźniaczych reprezentacji, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#create-an-event-route).
 
 ### <a name="create-an-event-hubs-endpoint"></a>Tworzenie punktu końcowego Event Hubs
 
@@ -94,7 +94,7 @@ Możesz sprawdzić, czy punkt końcowy został pomyślnie utworzony, sprawdzają
 
 Jeśli Tworzenie punktu końcowego nie powiedzie się, obserwuj komunikat o błędzie i spróbuj ponownie za kilka minut.
 
-Teraz centrum zdarzeń jest dostępne jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#event-routes).
+Teraz centrum zdarzeń jest dostępne jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#create-an-event-route).
 
 ### <a name="create-a-service-bus-endpoint"></a>Tworzenie punktu końcowego Service Bus
 
@@ -116,7 +116,7 @@ Możesz sprawdzić, czy punkt końcowy został pomyślnie utworzony, sprawdzają
 
 Jeśli Tworzenie punktu końcowego nie powiedzie się, obserwuj komunikat o błędzie i spróbuj ponownie za kilka minut.
 
-Teraz temat Service Bus jest dostępny jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#event-routes).
+Teraz temat Service Bus jest dostępny jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Tworzenie punktu końcowego z utraconymi wiadomościami
 
@@ -126,7 +126,7 @@ Aby można było utworzyć punkt końcowy z włączoną obsługą utraconych wia
 
 Aby uzyskać instrukcje, jak to zrobić za pomocą interfejsów API, zobacz [*interfejsy API i wersja interfejsu wiersza polecenia*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) tego artykułu.
 
-## <a name="event-routes"></a>Trasy zdarzeń
+## <a name="create-an-event-route"></a>Tworzenie trasy zdarzeń
 
 Aby faktycznie wysyłać dane z usługi Azure Digital bliźniaczych reprezentacji do punktu końcowego, należy zdefiniować **trasę zdarzeń**. Te trasy umożliwiają deweloperom tworzenie przepływów zdarzeń w całym systemie i w ramach usług podrzędnych. Przeczytaj więcej na temat tras zdarzeń w temacie [*pojęcia: Routing Digital bliźniaczych reprezentacji Events*](concepts-route-events.md).
 
@@ -135,7 +135,7 @@ Aby faktycznie wysyłać dane z usługi Azure Digital bliźniaczych reprezentacj
 >[!NOTE]
 >Jeśli ostatnio wdrożono punkty końcowe, sprawdź, czy są one gotowe do wdrożenia, **przed** podjęciem próby użycia ich dla nowej trasy zdarzeń. Jeśli nie możesz skonfigurować trasy, ponieważ punkty końcowe nie są gotowe, odczekaj kilka minut i spróbuj ponownie.
 
-### <a name="create-an-event-route"></a>Tworzenie trasy zdarzeń 
+### <a name="creation-steps-with-the-azure-portal"></a>Kroki tworzenia z Azure Portal
 
 Definicja trasy zdarzeń zawiera następujące elementy:
 * Nazwa trasy, która ma być używana
@@ -161,7 +161,7 @@ Aby można było włączyć trasę, należy również **dodać filtr trasy zdarz
 
 Po zakończeniu kliknij przycisk _Zapisz_ , aby utworzyć trasę zdarzenia.
 
-### <a name="filter-events"></a>Filtrowanie zdarzeń
+## <a name="filter-events"></a>Filtrowanie zdarzeń
 
 Jak opisano powyżej, trasy mają pole **filtru** . Jeśli wartość filtru w marszrucie to `false` ., żadne zdarzenia nie będą wysyłane do punktu końcowego. 
 

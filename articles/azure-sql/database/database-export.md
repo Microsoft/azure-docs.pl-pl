@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
-ms.openlocfilehash: b91b7175fa4c7b91fec63a817206fa540813bdb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0e62a7d9b9beb8ecdfaabdd44fdd547dd78d38f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443796"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328195"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Eksportowanie do Azure SQL Database pliku BACPAC i wystąpienia zarządzanego usługi Azure SQL
 
@@ -48,7 +48,7 @@ Eksportowanie BACPAC bazy danych z [wystąpienia zarządzanego Azure SQL](../man
 
 1. Aby wyeksportować bazę danych przy użyciu [Azure Portal](https://portal.azure.com), Otwórz stronę bazy danych i kliknij przycisk **Eksportuj** na pasku narzędzi.
 
-   ![Eksport bazy danych](./media/database-export/database-export1.png)
+   ![Zrzut ekranu, który podświetla przycisk Eksportuj.](./media/database-export/database-export1.png)
 
 2. Określ nazwę pliku BACPAC, wybierz istniejące konto usługi Azure Storage i kontener do wyeksportowania, a następnie podaj odpowiednie poświadczenia, aby uzyskać dostęp do źródłowej bazy danych. W tym miejscu jest wymagana **Nazwa logowania administratora** programu SQL Server, nawet jeśli jesteś administratorem platformy Azure, ponieważ administrator platformy Azure nie ma uprawnień administratora w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL.
 
@@ -76,7 +76,7 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.d
 
 Najnowsze wersje SQL Server Management Studio udostępniają kreatora do eksportowania bazy danych w Azure SQL Database lub bazy danych wystąpienia zarządzanego SQL do pliku BACPAC. Zapoznaj się z tematem [Eksportowanie aplikacji warstwy danych](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 > [!NOTE]
 > [Wystąpienie zarządzane Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) nie obsługuje obecnie eksportowania bazy danych do pliku BACPAC przy użyciu Azure PowerShell. Aby wyeksportować wystąpienie zarządzane do pliku BACPAC, użyj SQL Server Management Studio lub sqlpackage.

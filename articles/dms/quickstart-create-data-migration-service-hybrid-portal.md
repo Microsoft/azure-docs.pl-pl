@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 39f893e9375970ff4bb6e3cfa2c93ceea48ec896
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84195688"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331808"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Szybki Start: Tworzenie wystąpienia trybu hybrydowego z Azure Portal & Azure Database Migration Service
 
@@ -75,7 +75,7 @@ Zarejestruj dostawcę zasobów Microsoft. datamigration przed utworzeniem pierws
 
          ![Tworzenie usługi migracji — podstawy](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
-4. Wybierz pozycję **Przeglądanie + tworzenie**.
+4. Wybierz pozycję **Przejrzyj i utwórz**.
 
 5. Na karcie **Recenzja + tworzenie** Przejrzyj warunki, sprawdź inne podane informacje, a następnie wybierz pozycję **Utwórz**.
 
@@ -184,7 +184,7 @@ Oprócz instalacji Azure Database Migration Service hybrydowego procesu roboczeg
 Ten skrypt jest przeznaczony do szybkiego tworzenia prototypów, gdy użytkownik dysponuje już wszystkimi niezbędnymi uprawnieniami w środowisku. Należy pamiętać, że w środowisku produkcyjnym AdApp i certyfikat mogą mieć inne wymagania, więc skrypt może się nie powieść.
 
 > [!IMPORTANT]
-> Ten skrypt zakłada, że istnieje wystąpienie Azure Database Migration Service w trybie hybrydowym oraz że używane konto platformy Azure ma uprawnienia do tworzenia AdApps w dzierżawie oraz modyfikowania kontroli RBAC w ramach subskrypcji.
+> Ten skrypt zakłada, że istnieje wystąpienie Azure Database Migration Service w trybie hybrydowym oraz że używane konto platformy Azure ma uprawnienia do tworzenia AdApps w dzierżawie oraz modyfikowania funkcji kontroli dostępu platformy Azure w ramach subskrypcji.
 
 Wypełnij parametry w górnej części skryptu, a następnie uruchom skrypt z wystąpienia administratora programu PowerShell.
 

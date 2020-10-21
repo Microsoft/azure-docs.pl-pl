@@ -75,6 +75,8 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
+        - name: Zestaw WebAssembly Blazor
+          href: tutorial-blazor-webassembly.md
         - name: JavaScript — przepływ kodu uwierzytelniania
           href: tutorial-v2-javascript-auth-code.md
         - name: JavaScript — niejawny przepływ
@@ -123,6 +125,9 @@
       href: authentication-flows-app-scenarios.md
     - name: Najlepsze rozwiązania dotyczące platformy tożsamości
       href: identity-platform-integration-checklist.md
+    - name: Mobilne logowanie jednokrotne
+      href: mobile-sso-support-overview.md
+      displayName: 'android, ios'
     - name: Scenariusze aplikacji
       displayName: App scenarios
       items:
@@ -291,10 +296,8 @@
           items:
             - name: Konta i profile dzierżaw
               href: accounts-overview.md
-            - name: Agenci autoryzacji
-              href: authorization-agents.md
-            - name: Uwierzytelnianie obsługiwane przez brokera
-              href: brokered-auth.md
+            - name: Logowanie jednokrotne przy użyciu biblioteki MSAL dla systemu Android
+              href: msal-android-single-sign-on.md
             - name: Integracja z usługą Azure AD B2C
               href: msal-android-b2c.md
             - name: Migrowanie do biblioteki MSAL.Android

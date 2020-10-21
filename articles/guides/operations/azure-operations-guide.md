@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 2508846e5dd2fcc96aade9ce64b599bb4154de00
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203385"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327777"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Wprowadzenie do operatorów IT platformy Azure
 
@@ -198,9 +198,9 @@ W przypadku przekroczenia kwoty środków usługa zostanie wyłączona do moment
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Udzielanie dostępu administracyjnego do subskrypcji platformy Azure
 
-Funkcja RBAC ma kilka wbudowanych ról, których można użyć do przypisywania uprawnień. Aby użytkownik był administratorem subskrypcji platformy Azure, przypisz im rolę [właściciela](../../role-based-access-control/built-in-roles.md#owner) w zakresie subskrypcji. Rola właściciela daje użytkownikowi pełen dostęp do wszystkich zasobów w subskrypcji, w tym prawo do przydzielania dostępu innym osobom.
+Funkcja RBAC platformy Azure ma kilka wbudowanych ról, których można użyć do przypisywania uprawnień. Aby użytkownik był administratorem subskrypcji platformy Azure, przypisz im rolę [właściciela](../../role-based-access-control/built-in-roles.md#owner) w zakresie subskrypcji. Rola właściciela daje użytkownikowi pełen dostęp do wszystkich zasobów w subskrypcji, w tym prawo do przydzielania dostępu innym osobom.
 
-Aby uzyskać więcej informacji, zobacz temat [Zarządzanie dostępem przy użyciu kontroli RBAC i witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Wyświetl informacje dotyczące rozliczeń w Azure Portal
 
@@ -238,7 +238,7 @@ Usługa Resource Manager zapewnia kilka korzyści:
 
 - Możliwość definiowania zależności między zasobami, aby wdrażać je w odpowiedniej kolejności.
 
-- Kontrolę dostępu można stosować do wszystkich usług w grupie zasobów, ponieważ RBAC jest natywnie zintegrowana z platformą zarządzania.
+- Możesz zastosować kontrolę dostępu do wszystkich usług w grupie zasobów, ponieważ usługa Azure RBAC jest natywnie zintegrowana z platformą zarządzania.
 
 - Możesz zastosować Tagi do zasobów, aby logicznie organizować wszystkie zasoby w subskrypcji.
 
@@ -286,7 +286,7 @@ Szablony Menedżer zasobów można tworzyć w dowolnym edytorze tekstu. Jednak z
 
 Na koniec można skonwertować istniejące grupy zasobów do szablonu do wielokrotnego użytku z Azure Portal. Może to być przydatne, jeśli chcesz utworzyć szablon do wdrożenia istniejącej grupy zasobów lub po prostu chcesz przejrzeć bazowe dane JSON. Aby wyeksportować grupę zasobów, wybierz przycisk **skryptu automatyzacji** z ustawień grupy zasobów.
 
-## <a name="security-of-azure-resources-rbac"></a>Zabezpieczenia zasobów platformy Azure (RBAC)
+## <a name="security-of-azure-resources-azure-rbac"></a>Bezpieczeństwo zasobów platformy Azure (RBAC na platformie Azure)
 
 Dostęp operacyjny do kont użytkowników można udzielić w określonym zakresie: subskrypcji, grupy zasobów lub poszczególnych zasobów. Oznacza to, że można wdrożyć zestaw zasobów w grupie zasobów, takiej jak maszyna wirtualna i wszystkie powiązane zasoby, a także udzielić uprawnień dla określonego użytkownika lub grupy. Takie podejście ogranicza dostęp tylko do zasobów należących do docelowej grupy zasobów. Możesz również udzielić dostępu do pojedynczego zasobu, na przykład maszyny wirtualnej lub sieci wirtualnej.
 
@@ -306,7 +306,7 @@ Oto kilka przykładowych [wbudowanych ról na platformie Azure](../../role-based
 
 - **Współautor konta magazynu**: użytkownik mający tę rolę może zarządzać kontami magazynu, ale nie może zarządzać dostępem do kont magazynu.
 
-Aby uzyskać więcej informacji, zobacz temat [Zarządzanie dostępem przy użyciu kontroli RBAC i witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

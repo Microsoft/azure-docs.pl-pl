@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013750"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332505"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalowanie agenta Log Analytics na komputerach z systemem Linux
 Ten artykuł zawiera szczegółowe informacje dotyczące instalowania agenta Log Analytics na komputerach z systemem Linux przy użyciu następujących metod:
@@ -43,9 +43,11 @@ Począwszy od wersji wydanej po 2018 sierpnia, wprowadzamy następujące zmiany 
 >[!NOTE]
 >Jeśli używasz dystrybucji lub wersji, która nie jest obecnie obsługiwana i nie jest zgodna z naszym modelem pomocy technicznej, zalecamy przerozwidlenie tego repozytorium, co oznacza, że pomoc techniczna firmy Microsoft nie będzie świadczyć pomocy z wersjami agentów z rozwidleniami.
 
-### <a name="python-2-requirement"></a>Wymagania dotyczące języka Python 2
+### <a name="python-requirement"></a>Wymagania dotyczące języka Python
 
- Agent Log Analytics wymaga języka Python 2. Jeśli maszyna wirtualna używa dystrybucji, która domyślnie nie zawiera języka Python 2, należy ją zainstalować. Następujące przykładowe polecenia zainstalują środowisko Python 2 na różnych dystrybucje.
+Począwszy od wersji 1.13.27 agenta, Agent systemu Linux będzie obsługiwał zarówno Język Python 2, jak i 3. Zawsze zalecamy korzystanie z najnowszego agenta. 
+
+Jeśli używasz starszej wersji agenta, maszyna wirtualna musi domyślnie korzystać z języka Python 2. Jeśli maszyna wirtualna używa dystrybucji, która domyślnie nie zawiera języka Python 2, należy ją zainstalować. Następujące przykładowe polecenia zainstalują środowisko Python 2 na różnych dystrybucje.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -71,7 +73,7 @@ Agent pakietu OMS ma ograniczoną obsługę dostosowywania dla systemu Linux.
 Obecnie obsługiwane są następujące elementy: 
 - Trybu
 
-Następujące elementy są planowane, ale nie są jeszcze obsługiwane:
+Są one rozważane, ale nie są jeszcze obsługiwane:
 - SIC
 - SELINUX
 

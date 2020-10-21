@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289426"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329155"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Tworzenie asystenta głosowego przy użyciu poleceń niestandardowych
 
@@ -123,7 +123,7 @@ W zakresie tego artykułu będziemy używać klienta asystenta głosowego system
 1. Uruchom **VoiceAssistantClient.exe**.
 1. Utwórz nowy profil publikowania i wprowadź wartość dla **profilu połączenia**. W sekcji **Ustawienia ogólne** wprowadź **klucz subskrypcji** wartości (jest to taka sama jak wartość **klucza zasobu mowy** zapisana podczas publikowania aplikacji), **region klucza subskrypcji** i **Identyfikator aplikacji poleceń niestandardowych**.
     > [!div class="mx-imgBorder"]
-    > ![WVAC Utwórz profil](media/custom-commands/create-profile.png)
+    > ![Zrzut ekranu przedstawiający sekcję ustawień ogólnych służącą do tworzenia profilu WVAC.](media/custom-commands/create-profile.png)
 1. Wybierz pozycję **Zapisz i Zastosuj profil**.
 1. Teraz wypróbuj następujące dane wejściowe za pośrednictwem mowy/tekstu
     > [!div class="mx-imgBorder"]

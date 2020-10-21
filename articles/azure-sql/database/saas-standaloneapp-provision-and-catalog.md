@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: efee261478cdc8b9b5349ef4c69ab5fc250315c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619462"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332199"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Inicjowanie obsługi administracyjnej i katalogowanie nowych dzierżawców przy użyciu wzorca aplikacji dla dzierżawców SaaS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Podczas wdrażania aplikacji dla dzierżawy, aplikacja i baza danych są obsług
 
 Chociaż każda aplikacja i baza danych dzierżawy są w pełni izolowane, różne scenariusze zarządzania i analizy mogą działać między dzierżawcami.  Na przykład zastosowanie zmiany schematu dla nowej wersji aplikacji wymaga wprowadzenia zmian w schemacie każdej bazy danych dzierżawy. Scenariusze raportowania i analizy mogą również wymagać dostępu do wszystkich baz danych dzierżawy niezależnie od tego, gdzie są wdrożone.
 
-   ![Wzorzec aplikacji dla dzierżawy](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
+   ![Diagram pokazujący, jak używać katalogu dzierżawcy z aplikacją dla każdej dzierżawy.](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
 
 Katalog dzierżawców zawiera mapowanie między identyfikatorem dzierżawy i bazą danych dzierżawy, co pozwala na rozpoznanie identyfikatora na serwerze i o nazwie bazy danych.  W aplikacji Wingtip SaaS identyfikator dzierżawy jest obliczany jako skrót nazwy dzierżawy, chociaż można użyć innych schematów.  Gdy aplikacje autonomiczne nie potrzebują wykazu do zarządzania połączeniami, można użyć wykazu do określania zakresu innych akcji do zestawu baz danych dzierżaw. Na przykład elastyczne zapytanie może korzystać z wykazu w celu określenia zestawu baz danych, dla których są dystrybuowane zapytania na potrzeby raportowania między dzierżawcami.
 

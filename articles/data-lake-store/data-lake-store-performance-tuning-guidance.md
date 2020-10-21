@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 4c9cb1d0496fe05c208cfd446a51cbf4ef8e8d4e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e9a589b43490613834a810a68636c426e45c2656
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108613"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332522"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Dostrajanie Azure Data Lake Storage Gen1 na potrzeby wydajności
 
@@ -25,7 +25,7 @@ Data Lake Storage Gen1 można skalować w celu zapewnienia odpowiedniej przepły
 
 W przypadku pozyskiwania danych z systemu źródłowego do Data Lake Storage Gen1 należy pamiętać, że sprzęt źródłowy, sprzęt sieciowy i połączenie sieciowe, które mają Data Lake Storage Gen1 może być wąskim gardłem.
 
-![Data Lake Storage Gen1 wydajność](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Diagram pokazujący, że sprzęt źródłowy, źródłowy sprzęt sieciowy i łączność sieciowa z Data Lake Storage Gen1 może stanowić wąskie gardło.](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 Ważne jest, aby upewnić się, że te czynniki nie wpływają na przeniesienie danych.
 
@@ -43,11 +43,11 @@ Po rozwiązaniu problemów ze źródłem zasobów sprzętowych i połączeń sie
 
 | Narzędzie          | Ustawienia | Więcej szczegółów                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Powiązań](./data-lake-store-get-started-powershell.md) |
-| AdlCopy    | Jednostki Azure Data Lake Analytics | [Powiązań](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
-| Pomocą distcp            | -m (mapowanie) | [Powiązań](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies | [Powiązań](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS. Azure. Block. size,-m (Maper) | [Powiązań](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Łącze](./data-lake-store-get-started-powershell.md) |
+| AdlCopy    | Jednostki Azure Data Lake Analytics | [Łącze](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| Pomocą distcp            | -m (mapowanie) | [Łącze](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies | [Łącze](../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS. Azure. Block. size,-m (Maper) | [Łącze](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Struktura zestawu danych
 
@@ -100,7 +100,7 @@ W klastrze usługi HDInsight znajdują się trzy warstwy, które można dostraja
 
 **Uruchom klaster z większą liczbą węzłów i/lub maszynami wirtualnymi o większej wielkości.** Większy klaster umożliwi Ci uruchamianie więcej kontenerów PRZĘDZy, jak pokazano na poniższej ilustracji.
 
-![Data Lake Storage Gen1 wydajność](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Diagram przedstawiający użycie większej liczby kontenerów PRZĘDZy.](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
 **Używaj maszyn wirtualnych z większą przepustowością sieci.** Przepustowość sieci może stanowić wąskie gardło, jeśli przepustowość sieci jest mniejsza niż Data Lake Storage Gen1 przepływność. Różne maszyny wirtualne będą miały różne rozmiary przepustowości sieci. Wybierz typ maszyny wirtualnej, który ma największą możliwą przepustowość sieci.
 
@@ -108,7 +108,7 @@ W klastrze usługi HDInsight znajdują się trzy warstwy, które można dostraja
 
 **Używaj mniejszych kontenerów PRZĘDZy.** Zmniejsz rozmiar każdego kontenera PRZĘDZy, aby utworzyć więcej kontenerów z taką samą ilością zasobów.
 
-![Data Lake Storage Gen1 wydajność](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Diagram przedstawiający użycie mniejszych kontenerów PRZĘDZy.](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 W zależności od obciążenia będzie zawsze wymagany minimalny rozmiar kontenera PRZĘDZy. W przypadku wybrania zbyt małego kontenera zadania będą działać w przypadku problemów z brakiem pamięci. Zazwyczaj kontenery PRZĘDZy nie powinny być mniejsze niż 1 GB. Często widzisz kontenery PRZĘDZy 3 GB. W przypadku niektórych obciążeń może zajść potrzeba większego kontenera PRZĘDZy.
 
@@ -118,7 +118,7 @@ W zależności od obciążenia będzie zawsze wymagany minimalny rozmiar kontene
 
 **Użyj wszystkich dostępnych kontenerów.** Ustaw liczbę zadań, które mają być równe lub większe niż liczba dostępnych kontenerów, tak aby wszystkie zasoby były używane.
 
-![Data Lake Storage Gen1 wydajność](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Diagram przedstawiający użycie wszystkich dostępnych kontenerów.](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **Zadania zakończone niepowodzeniem są kosztowne.** Jeśli każde zadanie zawiera dużą ilość danych do przetworzenia, wówczas niepowodzenie zadania skutkuje kosztowną ponowną próbą. W związku z tym lepiej jest utworzyć więcej zadań, z których każdy przetwarza niewielką ilość danych.
 
@@ -131,7 +131,7 @@ Oprócz ogólnych wytycznych, każda aplikacja ma inne parametry dostępne do do
 | [MapReduce w usłudze HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>MapReduce. map. Memory</li><li>MapReduce. job. Maps</li><li>MapReduce. Zmniejsz ilość pamięci</li><li>MapReduce. job. Zmniejsz</li></ul> |
 | [Usługa Storm w usłudze HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Liczba procesów roboczych</li><li>Liczba wystąpień programu wykonującego elementu Spout</li><li>Liczba wystąpień programu wykonującego Piorun </li><li>Liczba zadań elementu Spout</li><li>Liczba zadań obiektu Piorun</li></ul>|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Rozpoczynanie pracy z usługą Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

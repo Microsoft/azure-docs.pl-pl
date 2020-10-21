@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: a6f0af188bb999acecad7fee0a90256eff05f902
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e72d1161f80ad92c1e4cfc7fd2c9fde0d46e77b9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742081"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332012"
 ---
 # <a name="what-is-azure-security-center"></a>Co to jest usługa Azure Security Center?
 
@@ -120,10 +120,6 @@ Usługa Security Center pomaga ograniczyć narażenie na ataki siłowe. Ogranicz
 ### <a name="protect-data-services"></a>Ochrona usług danych
 
 Usługa Security Center obejmuje funkcje, które ułatwiają wykonywanie automatycznej klasyfikacji danych w Azure SQL. Możesz także uzyskać oceny potencjalnych luk w zabezpieczeniach w usługach Azure SQL i Storage oraz zalecenia dotyczące sposobu rozwiązania tych problemów.
-
-### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Ochrona obciążeń związanych z chmurą IoT i hybrydową
-
-Usługa Defender for IoT (Internet rzeczy) upraszcza ochronę przy użyciu hybrydowego obciążenia, zapewniając ujednoliconą widoczność i kontrolę, adaptacyjne zapobieganie zagrożeniom oraz inteligentną ochronę przed zagrożeniami i odpowiedzi w ramach obciążeń działających na urządzeniach brzegowych, lokalnych, na platformie Azure oraz w innych chmurach. Aby uzyskać więcej informacji, zobacz [Defender for IoT](../defender-for-iot/index.yml).
 
 ## <a name="get-secure-faster"></a>Szybsze osiągnięcie bezpieczeństwa
 

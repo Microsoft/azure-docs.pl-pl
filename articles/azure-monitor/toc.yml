@@ -292,8 +292,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
-                - name: Szablon usługi Resource Manager
-                  href: ./samples/resource-manager-workspace.md
+            - name: Monitorowanie obszaru roboczego
+              href: platform/monitor-workspace.md
             - name: Usuwanie i odzyskiwanie obszaru roboczego
               href: platform/delete-workspace.md
             - name: Zarządzanie dostępem

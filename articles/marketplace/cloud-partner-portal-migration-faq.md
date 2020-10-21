@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bda72a72e8ac0adf48fd8981a6eccf40385469d5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 122de64e33778966d563cc8e94b46515e54769f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281409"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331213"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
 
@@ -77,8 +77,8 @@ W przypadku typów ofert obsługiwanych w centrum partnerskim wszystkie oferty z
 
 | Typ oferty <img src="" width=150px>| Przenosisz do Centrum partnerskiego? <img src="" width=100px>| Następne kroki |
 | --- | --- | --- |
-| SaaS | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia nowej oferty SaaS w komercyjnej witrynie Marketplace](partner-center-portal/create-new-saas-offer.md). |
-| Maszyna wirtualna | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na [temat tworzenia oferty Azure Virtual Machine w witrynie Azure Marketplace](azure-vm-create.md). |
+| SaaS | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [planowania oferty SaaS dla komercyjnej witryny Marketplace](plan-saas-offer.md). |
+| Maszyna wirtualna | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [planowania oferty maszyny wirtualnej](marketplace-virtual-machines.md). |
 | Aplikacja platformy Azure | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty aplikacji platformy Azure](partner-center-portal/create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 dla zaangażowania klienta & PowerApps | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty usługi Dynamics 365 dla klientów & usługi powerapps](partner-center-portal/create-new-customer-engagement-offer.md). |

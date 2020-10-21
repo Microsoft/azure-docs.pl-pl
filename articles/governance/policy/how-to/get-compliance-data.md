@@ -3,12 +3,12 @@ title: Pobierz dane zgodności zasad
 description: Azure Policy oceny i efekty określają zgodność. Dowiedz się, jak uzyskać szczegóły zgodności zasobów platformy Azure.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 36645d5eb50aaf571c608fc51127b47ac885777d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873629"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320418"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Pobieranie danych zgodności zasobów platformy Azure
 
@@ -156,6 +156,11 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
     "status": "Succeeded"
 }
 ```
+
+#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>Skanowanie w celu oceny na żądanie — Visual Studio Code
+
+Rozszerzenie Azure Policy dla programu Visual Studio Code jest w stanie uruchomić skanowanie w poszukiwaniu określonego zasobu. To skanowanie jest procesem synchronicznym, w przeciwieństwie do metod Azure PowerShell i REST.
+Aby uzyskać szczegółowe informacje i kroki, zobacz [ocenę na żądanie przy użyciu rozszerzenia vs Code](./extension-for-vscode.md#on-demand-evaluation-scan).
 
 ## <a name="how-compliance-works"></a>Jak działa zgodność
 

@@ -1,6 +1,6 @@
 ---
-title: Przewodnik dotyczący platformy Azure — tworzenie magazynu kluczy platformy Azure i zasad dostępu do magazynu przy użyciu szablonu Azure Resource Manager | Microsoft Docs
-description: Pokazuje, jak tworzyć magazyny kluczy Azure i zasady dostępu do magazynu przy użyciu szablonu Azure Resource Manager.
+title: Tworzenie magazynu kluczy platformy Azure i zasad dostępu do magazynu przy użyciu szablonu ARM
+description: W tym artykule pokazano, jak utworzyć magazyny kluczy Azure i zasady dostępu do magazynu przy użyciu szablonu Azure Resource Manager.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,27 +10,27 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cf19561005fe2e98b7b5cf6812ff9224fd9474dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804397"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282326"
 ---
-# <a name="how-to-create-azure-key-vault-and-vault-access-policy-using-a-resource-manager-template"></a>Jak utworzyć zasady dostępu Azure Key Vault i magazynu przy użyciu szablonu Menedżer zasobów
+# <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Jak utworzyć zasady dostępu magazynu i magazynu kluczy platformy Azure przy użyciu szablonu Menedżer zasobów
 
-[Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn dla wpisów tajnych, takich jak klucze, hasła, certyfikaty i inne wpisy tajne. Ten przewodnik koncentruje się na procesie wdrażania szablonu Azure Resource Manager (szablon ARM) w celu utworzenia magazynu kluczy.
+[Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn dla wpisów tajnych, takich jak klucze, hasła i certyfikaty. W tym artykule opisano proces wdrażania szablonu Azure Resource Manager (szablon ARM) w celu utworzenia magazynu kluczy.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten artykuł:
+Aby wykonać kroki opisane w tym artykule:
 
-* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 
-## <a name="create-key-vault-resource-manager-template"></a>Utwórz szablon Menedżer zasobów Key Vault
+## <a name="create-a-key-vault-resource-manager-template"></a>Tworzenie szablonu Menedżer zasobów Key Vault
 
 Poniższy szablon przedstawia podstawowy sposób tworzenia magazynu kluczy. Niektóre wartości są określone w szablonie.
 
@@ -87,11 +87,11 @@ Poniższy szablon przedstawia podstawowy sposób tworzenia magazynu kluczy. Niek
 Aby uzyskać więcej informacji na temat Key Vault ustawień szablonu, zobacz sekcję [Key Vault informacje o szablonie usługi ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
-> Jeśli szablon zostanie wdrożony ponownie, spowoduje zastąpienie wszystkich istniejących zasad dostępu w magazynie kluczy. Zalecane jest wypełnienie `accessPolicies` Właściwości istniejącymi zasadami dostępu, aby uniknąć utracie dostępu do magazynu kluczy. 
+> Jeśli szablon zostanie ponownie wdrożony, wszystkie istniejące zasady dostępu w magazynie kluczy zostaną zastąpione. Zalecamy wypełnienie `accessPolicies` Właściwości istniejącymi zasadami dostępu, aby uniknąć utraty dostępu do magazynu kluczy. 
 
-## <a name="add-access-policy-to-key-vault-resource-manager-template"></a>Dodawanie zasad dostępu do szablonu Menedżer zasobów Key Vault
+## <a name="add-an-access-policy-to-a-key-vault-resource-manager-template"></a>Dodawanie zasad dostępu do szablonu Menedżer zasobów Key Vault
 
-Zasady dostępu można wdrożyć do istniejącego magazynu kluczy bez ponownego wdrożenia całego szablonu magazynu kluczy. Poniższy szablon przedstawia podstawowy sposób tworzenia zasad dostępu.
+Zasady dostępu można wdrożyć do istniejącego magazynu kluczy bez ponownego wdrażania całego szablonu magazynu kluczy. Poniższy szablon przedstawia podstawowy sposób tworzenia zasad dostępu:
 
 ```json
 {
@@ -160,23 +160,23 @@ Zasady dostępu można wdrożyć do istniejącego magazynu kluczy bez ponownego 
 }
 
 ```
-Aby uzyskać więcej informacji na temat Key Vault ustawień szablonu, zobacz sekcję [Key Vault informacje o szablonie usługi ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+Aby uzyskać więcej informacji na temat ustawień szablonu Key Vault, zobacz sekcję [Key Vault informacje o szablonie usługi ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
-## <a name="other-available-key-vault-resource-manager-templates"></a>Inne dostępne szablony Menedżer zasobów Key Vault
+## <a name="more-key-vault-resource-manager-templates"></a>Więcej szablonów Menedżer zasobów Key Vault
 
 Istnieją inne szablony Menedżer zasobów dostępne dla obiektów Key Vault:
 
 | Wpisy tajne | Klucze | Certyfikaty |
 |--|--|--|
-|[Szybki start](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<br>[Odwołanie](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|NIE DOTYCZY|NIE DOTYCZY|
+|<ul><li>[Szybki start](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Odwołanie](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|NIE DOTYCZY|NIE DOTYCZY|
 
-Więcej szablonów Key Vault można znaleźć tutaj: [Key Vault Menedżer zasobów odwołania](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)
+Więcej Key Vault szablonów można znaleźć tutaj: [Key Vault Menedżer zasobów Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Wdrażanie szablonów
 
-Azure Portal można użyć do wdrożenia powyższych szablonów przy użyciu opcji "Kompiluj własny szablon w edytorze" w przewodniku poniżej: [Wdróż zasoby z szablonu niestandardowego](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)
+Możesz użyć Azure Portal do wdrożenia powyższych szablonów przy użyciu opcji **Kompiluj własny szablon w edytorze** , jak opisano tutaj: [Wdróż zasoby z szablonu niestandardowego](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
 
-Można również zapisać powyższe szablony do plików i użyć następujących poleceń:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create):
+Można również zapisać powyższe szablony w plikach i użyć następujących poleceń:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json
@@ -188,7 +188,7 @@ az group deployment create --resource-group ExampleGroup --template-file key-vau
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, możesz pozostawić te zasoby na miejscu. Gdy zasoby nie będą już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie magazynu kluczy i powiązanych zasobów. Aby usunąć grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, wykonaj następujące czynności.
+Jeśli planujesz kontynuować korzystanie z kolejnych przewodników Szybki Start i samouczków, możesz pozostawić te zasoby na miejscu. Jeśli zasoby nie są już potrzebne, Usuń grupę zasobów. Usunięcie grupy spowoduje również usunięcie magazynu kluczy i powiązanych zasobów. Aby usunąć grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, wykonaj następujące kroki:
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -211,12 +211,12 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="resources"></a>Zasoby
 
-- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Dowiedz się więcej o usłudze [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
+- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md).
+- Dowiedz się więcej o [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Zapoznaj się z [najlepszymi rozwiązaniami Azure Key Vault](../general/best-practices.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Bezpieczny dostęp do magazynu kluczy](secure-your-key-vault.md)
 - [Uwierzytelnianie w magazynie kluczy](authentication.md)
-- [Przewodnik dewelopera Azure Key Vault](developers-guide.md)
+- [Przewodnik dewelopera usługi Azure Key Vault](developers-guide.md)

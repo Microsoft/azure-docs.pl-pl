@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: c15724643fb3c8c74d3afe58509822c56d2d17f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0cd8245b6d8298ae1d99e2dbe1e8457a40dc7d6
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821961"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330414"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Przewodnik odwołujący się do schematu dla wyzwalaczy i typów akcji w Azure Logic Apps
 
@@ -151,7 +151,7 @@ Ten wyzwalacz sprawdza lub *sonduje* punkt końcowy przy użyciu [interfejsów A
 
 *Dane wyjściowe*
  
-| Element | Type | Opis |
+| Element | Typ | Opis |
 |---------|------|-------------|
 | nagłówka | JSON, obiekt | Nagłówki odpowiedzi |
 | body | JSON, obiekt | Treść z odpowiedzi |
@@ -268,7 +268,7 @@ Ta definicja wyzwalacza subskrybuje interfejs API pakietu Office 365, udostępni
 
 <a name="http-trigger"></a>
 
-### <a name="http-trigger"></a>Wyzwalacz HTTP
+### <a name="http-trigger"></a>HTTP trigger
 
 Ten wyzwalacz wysyła żądanie do określonego punktu końcowego HTTP lub HTTPS na podstawie określonego harmonogramu cyklu. Następnie wyzwalacz sprawdza odpowiedź, aby określić, czy przepływ pracy jest uruchomiony. Aby uzyskać więcej informacji, zobacz [wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z Azure Logic Apps](../connectors/connectors-native-http.md).
 
@@ -326,7 +326,7 @@ Ten wyzwalacz wysyła żądanie do określonego punktu końcowego HTTP lub HTTPS
 
 *Dane wyjściowe*
 
-| Element | Type | Opis |
+| Element | Typ | Opis |
 |---------|------|-------------|
 | `headers` | JSON, obiekt | Nagłówki odpowiedzi |
 | `body` | JSON, obiekt | Treść z odpowiedzi |
@@ -420,7 +420,7 @@ Niektóre wartości, takie jak <*typu metody*>, są dostępne zarówno dla `"sub
 
 *Dane wyjściowe* 
 
-| Element | Type | Opis |
+| Element | Typ | Opis |
 |---------|------|-------------| 
 | nagłówka | JSON, obiekt | Nagłówki odpowiedzi | 
 | body | JSON, obiekt | Treść z odpowiedzi | 
@@ -826,9 +826,9 @@ Poniżej przedstawiono niektóre powszechnie używane typy akcji:
 | [**Join**](#join-action) | Tworzy ciąg ze wszystkich elementów w tablicy i oddziela te elementy o określonym znaku ogranicznika. | 
 | [**Analiza JSON**](#parse-json-action) | Tworzy przyjazne dla użytkownika tokeny na podstawie właściwości w zawartości JSON. Następnie można odwołać się do tych właściwości, dołączając tokeny w aplikacji logiki. | 
 | [**Zapytanie**](#query-action) | Tworzy tablicę z elementów w innej tablicy na podstawie warunku lub filtru. | 
-| [**Reakcji**](#response-action) | Tworzy odpowiedź na wywołanie przychodzące lub żądanie. | 
-| [**Wybierz**](#select-action) | Tworzy tablicę z obiektami JSON przez transformowanie elementów z innej tablicy na podstawie określonej mapy. | 
-| [**Tabela**](#table-action) | Tworzy tabelę CSV lub HTML z tablicy. | 
+| [**Reakcja**](#response-action) | Tworzy odpowiedź na wywołanie przychodzące lub żądanie. | 
+| [**Zaznaczenia**](#select-action) | Tworzy tablicę z obiektami JSON przez transformowanie elementów z innej tablicy na podstawie określonej mapy. | 
+| [**Tabele**](#table-action) | Tworzy tabelę CSV lub HTML z tablicy. | 
 | [**Zakończ**](#terminate-action) | Powoduje zatrzymanie aktywnie działającego przepływu pracy. | 
 | [**Trwa**](#wait-action) | Wstrzymuje przepływ pracy przez określony czas lub do określonej daty i godziny. | 
 | [**Przepływ pracy**](#workflow-action) | Zagnieżdża przepływ pracy w innym przepływie pracy. | 
@@ -2309,6 +2309,9 @@ Ta akcja pętli zawiera akcje, które są uruchamiane do momentu, gdy określony
 | <*Pętla — limit czasu*> | Ciąg | Limit najdłuższego czasu, w którym można uruchomić pętlę. Wartość domyślna `timeout` to `PT1H` , który jest wymaganym [formatem ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
 
+> [!NOTE]
+> Jeśli wyrażenie jest zależne od danych wyjściowych z akcji w pętli until, upewnij się, że dla każdego błędu powstałego w wyniku tej akcji istnieje konto.
+
 *Przykład*
 
 Ta definicja akcji pętli wysyła żądanie HTTP do określonego adresu URL do momentu spełnienia jednego z następujących warunków:
@@ -2378,7 +2381,7 @@ Dla obu wyzwalaczy i akcji można ograniczyć czas trwania wzorca asynchroniczne
 
 Można zmienić domyślne zachowanie środowiska uruchomieniowego dla wyzwalaczy i akcji, dodając te `runtimeConfiguration` właściwości do wyzwalacza lub definicji akcji.
 
-| Właściwość | Type | Opis | Wyzwalacz lub Akcja | 
+| Właściwość | Typ | Opis | Wyzwalacz lub Akcja | 
 |----------|------|-------------|-------------------| 
 | `runtimeConfiguration.concurrency.runs` | Liczba całkowita | Zmień [*domyślny limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) liczby wystąpień przepływów pracy, które mogą być uruchamiane w tym samym czasie (współbieżnie lub równolegle). Dostosowanie tej wartości może pomóc w ograniczeniu liczby żądań odbieranych przez systemy zaplecza. <p>Ustawianie `runs` właściwości tak `1` , aby działała tak samo jak ustawienie `operationOptions` właściwości na `SingleInstance` . Można ustawić każdą właściwość, ale nie obie jednocześnie. <p>Aby zmienić domyślny limit, zobacz [sekwencyjne Zmienianie wystąpień](#sequential-trigger) [współbieżności](#change-trigger-concurrency) lub wyzwalaczy wyzwalacza. | Wszystkie wyzwalacze | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Liczba całkowita | Zmień [*domyślny limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) liczby wystąpień przepływów pracy, które muszą oczekiwać na uruchomienie, gdy w aplikacji logiki jest już uruchomiona Maksymalna liczba równoczesnych wystąpień. <p>Aby zmienić domyślny limit, zobacz [Limit uruchamiania oczekujących zmian](#change-waiting-runs). | Wszystkie wyzwalacze | 
@@ -2394,7 +2397,7 @@ Można zmienić domyślne zachowanie środowiska uruchomieniowego dla wyzwalaczy
 
 Można zmienić domyślne zachowanie wyzwalaczy i akcji z `operationOptions` właściwością w wyzwalaczu lub definicji akcji.
 
-| Opcja operacji | Type | Opis | Wyzwalacz lub Akcja | 
+| Opcja operacji | Typ | Opis | Wyzwalacz lub Akcja | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | Ciąg | Wykonywanie akcji opartych na protokole HTTP synchronicznie, a nie asynchronicznie. <p><p>Aby ustawić tę opcję, zobacz [Uruchamianie akcji synchronicznie](#disable-asynchronous-pattern). | Wykonane <p>[ApiConnection](#apiconnection-action), <br>[Protokół http](#http-action), <br>[Odpowiedź](#response-action) | 
 | `IncludeAuthorizationHeadersInOutputs` | Ciąg | W przypadku aplikacji logiki, które [umożliwiają Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) w celu autoryzowania dostępu do wywołań przychodzących do punktu końcowego wyzwalacza opartego na żądaniach, Uwzględnij `Authorization` Nagłówek z tokenu dostępu OAuth w danych wyjściowych wyzwalacza. Aby uzyskać więcej informacji, zobacz [dołączanie nagłówka "Authorization" w danych wyjściowych wyzwalacza żądania](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Wyzwalacze <p>[Żądanie](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 

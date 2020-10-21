@@ -263,6 +263,8 @@
           items:
             - name: Reguły zapory bazujące na adresach IP na poziomie serwera
               href: database/firewall-create-server-level-portal-quickstart.md
+        - name: Funkcja GitHub Actions
+          href: database/connect-github-actions-sql-db.md
     - name: Samouczki
       items:
         - name: Projektowanie bazy danych

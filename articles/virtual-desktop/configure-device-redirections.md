@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3441d7c7f42c58928bb97c945e7b1e7673f7afa
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877098"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328883"
 ---
 # <a name="configure-device-redirections"></a>Konfigurowanie przekierowań urządzeń
 
@@ -50,7 +50,10 @@ Ustaw następującą Właściwość RDP, aby skonfigurować przekierowanie apara
 - `camerastoredirect:s:*` przekierowuje wszystkie kamery.
 - `camerastoredirect:s:` wyłącza przekierowywanie aparatu.
 
-Można również przekierować określone aparaty przy użyciu rozdzielanej średnikami listy interfejsów KSCATEGORY_VIDEO_CAMERA, takich jak `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` .
+>[!NOTE]
+>Nawet jeśli `camerastoredirect:s:` Właściwość jest wyłączona, lokalne aparaty fotograficzne mogą zostać przekierowane przez `devicestoredirect:s:` Właściwość. Aby całkowicie wyłączyć zestaw przekierowań aparatu `camerastoredirect:s:` i ustawić `devicestoredirect:s:` lub zdefiniować podzestaw urządzeń typu Plug and Play, które nie zawierają żadnego aparatu.
+
+Można również przekierować określone aparaty przy użyciu rozdzielanej średnikami listy interfejsów KSCATEGORY_VIDEO_CAMERA, takich jak `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` . 
 
 ### <a name="clipboard-redirection"></a>Przekierowanie schowka
 

@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure RBAC
 description: Wyświetla listę wbudowanych definicji zasad usługi Azure RBAC, Azure Policy. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6d8cfec34790a886cb433c01c3bd0cf11ec9d284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbe3ad82e7abf783e4579653d43c67b57e213121
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822408"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332131"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-rbac"></a>Azure Policy wbudowane definicje dla usługi Azure RBAC
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8cca75f7071b8b9c8d1108b82ebf8f7049ec316a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282575"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331825"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Wprowadzenie do zainicjowanej przepływności w Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Można połączyć te dwa modele. Przepływność aprowizacji zarówno dla bazy 
 
 Po utworzeniu kontenera usługi Azure Cosmos lub bazy danych można zaktualizować zainicjowaną przepływność. Nie ma żadnego limitu maksymalnej alokowanej przepływności, którą można skonfigurować dla bazy danych lub kontenera.
 
-### <a name="current-provisioned-throughput"></a>Bieżąca obsługiwana przepływność
+### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> Bieżąca obsługiwana przepływność
 
 Można pobrać zainicjowaną przepływność kontenera lub bazy danych w Azure Portal lub przy użyciu zestawów SDK:
 
@@ -135,6 +135,14 @@ Możesz programowo sprawdzić postęp skalowania, odczytując [bieżącą przep�
 * [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) w zestawie Java SDK.
 
 Za pomocą [metryk Azure monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) można wyświetlić historię zainicjowanej przepływności (ru/s) i magazynu w ramach zasobu.
+
+## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> Duży magazyn/niska przepływność
+
+Zgodnie z opisem w powyższej sekcji dotyczącej [przepływności](#current-provisioned-throughput) , minimalna przepływność, którą można udostępnić na kontenerze lub w bazie danych, zależy od wielu czynników. Jedną z nich jest ilość przechowywanych danych, ponieważ Azure Cosmos DB wymusza minimalną przepływność 10 RU/s na GB miejsca w magazynie.
+
+Może to stanowić problem w sytuacjach, w których należy przechowywać duże ilości danych, ale mają one niewielkie wymagania dotyczące przepływności. Aby lepiej dopasować te scenariusze, Azure Cosmos DB wprowadził **"wysoki magazyn/niska przepływność"** , który zmniejsza ograniczenie ru/s na GB z 10 do 1 na kwalifikujących się kontach.
+
+Obecnie musisz mieć co najmniej 1 bazę danych o pojemności lub udostępnionej przepływności zawierającej więcej niż 1 TB danych na koncie, aby można było kwalifikować się do korzystania z niego. Aby dołączyć do tego programu i ocenić swoje pełne uprawnienia, musisz wypełnić [tę ankietę](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Zespół Azure Cosmos DB będzie następnie kontynuował pracę i Doprowadzimy do dołączania.
 
 ## <a name="comparison-of-models"></a>Porównanie modeli
 W tej tabeli przedstawiono porównanie standardowego (ręcznej) przepływności dla bazy danych i kontenera. 
