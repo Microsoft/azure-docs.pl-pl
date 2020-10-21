@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bda72a72e8ac0adf48fd8981a6eccf40385469d5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369913"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281409"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
 
@@ -78,7 +78,7 @@ W przypadku typów ofert obsługiwanych w centrum partnerskim wszystkie oferty z
 | Typ oferty <img src="" width=150px>| Przenosisz do Centrum partnerskiego? <img src="" width=100px>| Następne kroki |
 | --- | --- | --- |
 | SaaS | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia nowej oferty SaaS w komercyjnej witrynie Marketplace](partner-center-portal/create-new-saas-offer.md). |
-| Maszyna wirtualna | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na [temat tworzenia oferty Azure Virtual Machine w witrynie Azure Marketplace](partner-center-portal/azure-vm-create-offer.md). |
+| Maszyna wirtualna | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na [temat tworzenia oferty Azure Virtual Machine w witrynie Azure Marketplace](azure-vm-create.md). |
 | Aplikacja platformy Azure | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty aplikacji platformy Azure](partner-center-portal/create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 dla zaangażowania klienta & PowerApps | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty usługi Dynamics 365 dla klientów & usługi powerapps](partner-center-portal/create-new-customer-engagement-offer.md). |
@@ -155,7 +155,7 @@ Zauważysz pewne zmiany znakowania. Na przykład *jednostki SKU* są oznaczone j
 
 Ponadto informacje, które wcześniej podano w **witrynie Marketplace** lub **szczegółowej**  (usługa doradcza, aplikacja Power BI) w Portal Cloud partner, są teraz zbierane na stronie z **listą ofert** w centrum partnerskim:
 
-[![Zrzut ekranu przedstawia stronę z listą ofert Centrum partnerskiego.](media/cpp-pc-faq/offer-listing.png "Pokazuje stronę z listą ofert Centrum partnerskiego")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[! [Zrzut ekranu przedstawia stronę z listą ofert Centrum partnerskiego.] (Media/CPP-PC — często zadawane pytania/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 Informacje podane wcześniej dla jednostek SKU na jednej stronie portal Cloud Partner mogą być teraz zbierane na kilku stronach w centrum partnerskim:
 
@@ -164,7 +164,7 @@ Informacje podane wcześniej dla jednostek SKU na jednej stronie portal Cloud Pa
 - Zaplanuj stronę dostępności
 - Zaplanuj stronę konfiguracji technicznej, jak pokazano poniżej:
 
-![! [Zrzut ekranu przedstawia stronę konfiguracji technicznej Centrum partnerskiego.] (Media/CPP — często zadawane pytania/technical-configuration.png "zawiera stronę konfiguracji technicznej Centrum partnerskiego")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+[![Pokazuje stronę konfiguracji technicznej Centrum partnerskiego.](media/cpp-pc-faq/technical-configuration.png)](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Identyfikator oferty jest teraz pokazywany na pasku nawigacyjnym po lewej stronie oferty:
 

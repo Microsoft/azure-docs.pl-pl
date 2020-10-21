@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e041ed67513a9be79c45f9fb4d1658d9d44aeeac
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: bffaca9db9a6ecefc9870a2e39ba86640d70b945
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123083"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281723"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji sieci Web platformy .NET przy użyciu interfejsu API Azure Cosmos DB dla MongoDB 
 
@@ -27,7 +27,7 @@ ms.locfileid: "92123083"
 > * [Golang](create-mongodb-go.md)
 >  
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki dystrybucji globalnej i możliwości skalowania poziomego w usłudze Cosmos DB możesz szybko tworzyć i badać za pomocą zapytań bazy danych dokumentów, par klucz/wartość oraz grafów. 
+Azure Cosmos DB to Microsoft Fast NoSQL Database z otwartymi interfejsami API dla dowolnej skali. Dzięki dystrybucji globalnej i możliwości skalowania poziomego w usłudze Cosmos DB możesz szybko tworzyć i badać za pomocą zapytań bazy danych dokumentów, par klucz/wartość oraz grafów. 
 
 Ten przewodnik Szybki start opisuje sposób tworzenia konta usługi Cosmos przy użyciu [interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB](mongodb-introduction.md). Następnie utworzysz i wdrożysz aplikację internetową listy zadań, korzystając ze [sterownika .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 

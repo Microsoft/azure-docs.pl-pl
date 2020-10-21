@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9d8bd72b6a03164a41e0b7c0ff00ac728cecf7f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355389"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278739"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transakcje i optymistyczna kontrola współbieżności
 
 Transakcje bazy danych zapewniają bezpieczny i przewidywalny model programowania do obsługi równoczesnych zmian w danych. Tradycyjne relacyjne bazy danych, takie jak SQL Server, umożliwiają pisanie logiki biznesowej za pomocą procedur składowanych i/lub wyzwalaczy, wysyłać je do serwera w celu wykonania bezpośrednio w aparacie bazy danych. W przypadku tradycyjnych relacyjnych baz danych wymagane jest zaradzenie sobie z dwoma różnymi językami programowania (nietransakcyjnymi) językami programowania aplikacji, takimi jak JavaScript, Python, C#, Java itp. oraz transakcyjnym językiem programowania (na przykład T-SQL), który jest natywnie wykonywany przez bazę danych.
 
-Aparat bazy danych w Azure Cosmos DB obsługuje transakcję zgodności z pełnym KWASem (niepodzielność, spójność, izolacja, trwałość) z izolacją migawki. Wszystkie operacje bazy danych w zakresie [partycji logicznej](partition-data.md) kontenera są transakcjami wykonywane w aparacie bazy danych hostowanym przez replikę partycji. Te operacje obejmują zarówno zapis (Aktualizacja co najmniej jednego elementu w ramach partycji logicznej), jak i operacje odczytu. W poniższej tabeli przedstawiono różne operacje i typy transakcji:
+Aparat bazy danych w Azure Cosmos DB obsługuje transakcję zgodności z pełnym KWASem (niepodzielność, spójność, izolacja, trwałość) z izolacją migawki. Wszystkie operacje bazy danych w zakresie [partycji logicznej](partitioning-overview.md) kontenera są transakcjami wykonywane w aparacie bazy danych hostowanym przez replikę partycji. Te operacje obejmują zarówno zapis (Aktualizacja co najmniej jednego elementu w ramach partycji logicznej), jak i operacje odczytu. W poniższej tabeli przedstawiono różne operacje i typy transakcji:
 
 | **Operacja**  | **Typ operacji** | **Pojedyncza lub wieloelementowa transakcja** |
 |---------|---------|---------|
@@ -51,7 +51,7 @@ Możliwość wykonywania kodu JavaScript bezpośrednio w aparacie bazy danych za
 
 Optymistyczna kontrola współbieżności umożliwia Zapobieganie utracie aktualizacji i usunięć. Współbieżne operacje powodujące konflikt są uzależnione od zwykłego blokowania pesymistycznego aparatu bazy danych hostowanego przez partycję logiczną będącą właścicielem elementu. Gdy dwie operacje współbieżne będą próbowały zaktualizować najnowszą wersję elementu w ramach partycji logicznej, jeden z nich zostanie wygrany, a drugie zakończy się niepowodzeniem. Jeśli jednak jedna lub dwie operacje próbujące zaktualizować ten sam element wcześniej odczytały starszą wartość elementu, baza danych nie wie, czy poprzednio odczytana wartość przez jedną lub obie operacje powodujące konflikt były rzeczywiście ostatnią wartością elementu. Na szczęście tę sytuację można wykryć przy użyciu **optymistycznej kontroli współbieżności (OCC)** przed umożliwieniem, aby dwie operacje mogły wprowadzić granicę transakcji wewnątrz aparatu bazy danych. OCC chroni dane przed przypadkowym zastąpieniem zmian wprowadzonych przez inne osoby. Uniemożliwia to innym osobom przypadkowe zastąpienie własnych zmian.
 
-Współbieżne aktualizacje elementu są uzależnione od warstwy protokołu komunikacyjnego OCC przez Azure Cosmos DB. Usługa Azure Cosmos Database gwarantuje, że wersja elementu po stronie klienta aktualizowana (lub usuwana) jest taka sama jak wersja elementu w kontenerze usługi Azure Cosmos. Gwarantuje to, że zapisy są chronione przed przypadkowym zastąpieniem przez zapisy innych i na odwrót. W środowisku z obsługą kilku użytkowników optymistyczna kontrola współbieżności chroni przed przypadkowym usunięciem lub aktualizacją nieprawidłowej wersji elementu. W związku z tym elementy są chronione przed problemami z inFAMOUS "utraconej aktualizacji" lub "utracone usuwanie".
+Współbieżne aktualizacje elementu są uzależnione od warstwy protokołu komunikacyjnego OCC przez Azure Cosmos DB. Usługa Azure Cosmos Database gwarantuje, że wersja elementu po stronie klienta aktualizowana (lub usuwana) jest taka sama jak wersja elementu w kontenerze usługi Azure Cosmos. Dzięki temu zapisy są chronione przed przypadkowym zapisaniem przez zapisy innych i na odwrót. W środowisku z obsługą kilku użytkowników optymistyczna kontrola współbieżności chroni przed przypadkowym usunięciem lub aktualizacją nieprawidłowej wersji elementu. W związku z tym elementy są chronione przed problemami z inFAMOUS "utraconej aktualizacji" lub "utracone usuwanie".
 
 Każdy element przechowywany w kontenerze usługi Azure Cosmos ma właściwość zdefiniowaną przez system `_etag` . Wartość `_etag` jest automatycznie generowana i aktualizowana przez serwer za każdym razem, gdy element zostanie zaktualizowany. `_etag` może być używany z nagłówkiem żądania dostarczonego przez klienta, `if-match` Aby umożliwić serwerowi podjęcie decyzji o tym, czy element może być aktualizowany warunkowo. Wartość `if-match` nagłówka jest zgodna z wartością na `_etag` serwerze, a następnie jest aktualizowana. Jeśli wartość `if-match` nagłówka żądania nie jest już aktualna, serwer odrzuca operację z komunikatem odpowiedzi "Niepowodzenie warunku wstępnego HTTP 412". Następnie klient może ponownie pobrać element, aby uzyskać bieżącą wersję elementu na serwerze, lub zastąpić wersję elementu na serwerze własną `_etag` wartością dla tego elementu. Ponadto, `_etag` można użyć z `if-none-match` nagłówkiem, aby określić, czy konieczne jest ponowne pobranie zasobu.
 
@@ -61,7 +61,7 @@ Wartość elementu jest `_etag` zmieniana za każdym razem, gdy element zostanie
 
 Dowiedz się więcej o transakcjach bazy danych i optymistycznej kontroli współbieżności w następujących artykułach:
 
-- [Praca z bazami danych usługi Azure Cosmos, kontenerami i elementami](databases-containers-items.md)
+- [Praca z bazami danych usługi Azure Cosmos, kontenerami i elementami](account-databases-containers-items.md)
 - [Poziomy spójności](consistency-levels.md)
 - [Typy konfliktów i zasady ich rozwiązywania](conflict-resolution-policies.md)
 - [Procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika](stored-procedures-triggers-udfs.md)

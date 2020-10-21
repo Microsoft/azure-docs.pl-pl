@@ -3,12 +3,12 @@ title: Macierz obsługi programu serwera usługi MAB & System Center DPM
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej w przypadku używania serwera Microsoft Azure Backup (serwera usługi MAB) lub programu System Center DPM do tworzenia kopii zapasowych zasobów lokalnych i maszyn wirtualnych platformy Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332699"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276963"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Macierz obsługi dla tworzenia kopii zapasowych za pomocą serwera Microsoft Azure Backup lub programu System Center DPM
 
@@ -60,7 +60,7 @@ Program DPM/serwera usługi MAB można wdrożyć zgodnie z podsumowaniem w poni�
 
 **Wdrożenie** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
-**Wdrożone lokalnie** | Serwer fizyczny<br/><br/>Maszyna wirtualna funkcji Hyper-V<br/><br/> Maszyna wirtualna VMware | Jeśli program DPM/serwera usługi MAB jest instalowany jako maszyna wirtualna VMware, tworzy on tylko kopie zapasowe maszyn wirtualnych VMware i obciążeń uruchomionych na tych maszynach wirtualnych.
+**Wdrożone lokalnie** | Serwer fizyczny<br/><br/>Maszyna wirtualna funkcji Hyper-V<br/><br/> Maszyna wirtualna VMware | Więcej informacji można znaleźć w [macierzy ochrony](backup-mabs-protection-matrix.md) . 
 **Wdrożono jako maszynę wirtualną Azure Stack** | Tylko serwera usługi MAB | Programu DPM nie można używać do tworzenia kopii zapasowych maszyn wirtualnych Azure Stack.
 **Wdrożono jako maszynę wirtualną platformy Azure** | Ochrona maszyn wirtualnych platformy Azure i obciążeń uruchomionych na tych maszynach wirtualnych | W programie DPM/serwera usługi MAB działającym na platformie Azure nie można tworzyć kopii zapasowych maszyn lokalnych.
 
@@ -146,7 +146,7 @@ Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRo
 
 Aby kopie zapasowe działały prawidłowo, wymagana jest łączność z usługą Azure Backup i subskrypcja platformy Azure powinna być aktywna. W poniższej tabeli przedstawiono zachowanie, jeśli te dwa kwestie nie wystąpią.
 
-**SERWERA usługi MAB na platformę Azure** | **Subskrypcja** | **Tworzenie/przywracanie kopii zapasowych**
+**SERWERA usługi MAB na platformę Azure** | **Subskrypcja** | **Tworzenie kopii zapasowej/przywracanie**
 --- | --- | ---
 Połączone | Aktywny | Utwórz kopię zapasową na dysku programu DPM/serwera usługi MAB.<br/><br/> Utwórz kopię zapasową na platformie Azure.<br/><br/> Przywróć z dysku.<br/><br/> Przywróć z platformy Azure.
 Połączone | Wygasłe lub anulowano obsługę administracyjną | Brak kopii zapasowej na dysku lub na platformie Azure.<br/><br/> Jeśli subskrypcja wygasła, możesz przywrócić ją z dysku lub platformy Azure.<br/><br/> Jeśli subskrypcja została zlikwidowana, nie można jej przywrócić z dysku lub platformy Azure. Punkty odzyskiwania platformy Azure są usuwane.

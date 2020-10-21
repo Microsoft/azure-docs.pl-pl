@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6c890e9fbda316bfa7f5f3a42572f35ca73811ea
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931805"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275543"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>Interfejsy API realizacji SaaS w wersji 2 na komercyjnej witrynie Marketplace
 
@@ -953,11 +953,11 @@ Wydawca musi zaimplementować element webhook w usłudze SaaS, aby zapewnić, ż
 
 Aby rozpocząć proces opracowywania, zalecamy utworzenie fikcyjnych odpowiedzi interfejsu API po stronie wydawcy.  Odpowiedzi te mogą opierać się na przykładowych odpowiedziach podanych w tym dokumencie.
 
-Gdy Wydawca jest gotowy do zakończenia testowania: 
+Gdy Wydawca jest gotowy do zakończenia testowania:
 
 * Opublikuj ofertę SaaS w ograniczonej grupie odbiorców w wersji zapoznawczej i Zachowaj ją na etapie wersji zapoznawczej.
-* Ta oferta powinna mieć plan z równą 0 cenie, dlatego nie należy wyzwalać rzeczywistych wydatków rozliczeniowych podczas testowania.  Innym rozwiązaniem jest ustawienie ceny niezerowej i anulowanie wszystkich zakupów testowych w ciągu 24 godzin. 
-* Upewnij się, że wszystkie przepływy są wywoływane na zakończenie, tak jak w przypadku zakupienia oferty przez klienta. 
+* Ta oferta powinna mieć plan z równą 0 cenie, dlatego nie należy wyzwalać rzeczywistych wydatków rozliczeniowych podczas testowania.  Innym rozwiązaniem jest ustawienie ceny niezerowej i anulowanie wszystkich zakupów testowych w ciągu 24 godzin.
+* Upewnij się, że wszystkie przepływy są wywoływane na zakończenie, tak jak w przypadku zakupienia oferty przez klienta.
 * Jeśli Partner chce przetestować pełny przepływ zakupów i rozliczeń, należy to zrobić z ofertą podaną powyżej $0.  Zakup zostanie rozliczony i zostanie wygenerowana faktura.
 
 Przepływ zakupu można wyzwolić z poziomu witryny Azure Portal lub Microsoft AppSource, w zależności od tego, gdzie jest publikowana oferta.
@@ -966,8 +966,7 @@ Akcje *zmiany planu*, *ilości*i *anulowania subskrypcji* są testowane po stron
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-Zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](support.md) dla opcji pomocy technicznej wydawcy.
-
+Zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](../support.md) dla opcji pomocy technicznej wydawcy.
 
 ## <a name="next-steps"></a>Następne kroki
 

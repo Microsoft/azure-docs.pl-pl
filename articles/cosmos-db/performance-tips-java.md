@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: ac7879590424fa921425dcd077503733affeb634
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ef5c0cb0ffca5cc156d64074ebe241cebbcfb8e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361751"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277275"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB synchronizacji Java SDK V2
 
@@ -35,7 +35,7 @@ Azure Cosmos DB to szybka i elastyczna dystrybuowana baza danych, która bezprob
 
 Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" należy wziąć pod uwagę następujące opcje:
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 <a id="direct-connection"></a>
 
 1. **Tryb połączenia: Użyj DirectHttps**
@@ -184,4 +184,4 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
     Opłata za żądanie (koszt przetwarzania żądania) danej operacji jest bezpośrednio skorelowana z rozmiarem dokumentu. Operacje na dużych dokumentach są droższe niż operacje w przypadku małych dokumentów.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej na temat projektowania aplikacji pod kątem skalowania i wysokiej wydajności, zobacz [partycjonowanie i skalowanie w Azure Cosmos DB](partition-data.md).
+Aby dowiedzieć się więcej na temat projektowania aplikacji pod kątem skalowania i wysokiej wydajności, zobacz [partycjonowanie i skalowanie w Azure Cosmos DB](partitioning-overview.md).

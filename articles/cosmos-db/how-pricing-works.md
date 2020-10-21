@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb47dde8813f31f4a6acceb696a8b7c7eb0095be
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605255"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281547"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Model cen w usłudze Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Model cen usługi Azure Cosmos DB upraszcza zarządzanie kosztami i planowanie. 
 
 - **Operacje bazy danych**: sposób naliczania opłat za operacje bazy danych zależy od typu konta usługi Azure Cosmos, którego używasz.
 
-  - **Nieobsługiwana przepływność**: [zainicjowana przepływność](set-throughput.md) (nazywana również przepływem zarezerwowanym) gwarantuje wysoką wydajność w dowolnej skali. Należy określić przepływność, która jest wymagana w [jednostkach żądań](request-units.md) na sekundę (ru/s), a Azure Cosmos DB przydzielenia zasobów wymaganych do zagwarantowania skonfigurowanej przepływności. Przepustowość można [zainicjować przy użyciu bazy danych lub kontenera](set-throughput.md). W zależności od potrzeb związanych z obciążeniem można skalować przepustowość w górę/w dół w dowolnym momencie lub użyć funkcji [automatycznego skalowania](provision-throughput-autoscale.md) (chociaż w bazie danych lub kontenerze jest wymagana minimalna przepływność, która gwarantuje umowy SLA). Opłaty są naliczane godzinowo za maksymalną zainicjowaną przepływność przez daną godzinę.
+  - **Elastyczna przepływność**: [zainicjowana](set-throughput.md) przepływność (nazywana również przepływem zarezerwowanym) zapewnia wysoką wydajność w dowolnej skali. Należy określić przepływność, która jest wymagana w [jednostkach żądań](request-units.md) na sekundę (ru/s), a Azure Cosmos DB przydzielenia zasobów wymaganych do zapewnienia skonfigurowanej przepływności. Przepustowość można [zainicjować przy użyciu bazy danych lub kontenera](set-throughput.md). W zależności od potrzeb związanych z obciążeniem można skalować przepustowość w górę/w dół w dowolnym momencie lub użyć funkcji [automatycznego skalowania](provision-throughput-autoscale.md) (chociaż w bazie danych lub kontenerze jest wymagana minimalna przepływność, która gwarantuje umowy SLA). Opłaty są naliczane godzinowo za maksymalną zainicjowaną przepływność przez daną godzinę.
 
    > [!NOTE]
    > Ze względu na to, że dedykowany model przepływności przydzieli zasoby do kontenera lub bazy danych, opłata zostanie naliczona za przepływność, która została zainicjowana, nawet jeśli nie uruchomiono żadnych obciążeń.

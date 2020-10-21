@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252837"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279365"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -117,6 +117,14 @@ Możesz sprawdzić, czy punkt końcowy został pomyślnie utworzony, sprawdzają
 Jeśli Tworzenie punktu końcowego nie powiedzie się, obserwuj komunikat o błędzie i spróbuj ponownie za kilka minut.
 
 Teraz temat Service Bus jest dostępny jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#event-routes).
+
+### <a name="create-an-endpoint-with-dead-lettering"></a>Tworzenie punktu końcowego z utraconymi wiadomościami
+
+Gdy punkt końcowy nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony**.
+
+Aby można było utworzyć punkt końcowy z włączoną obsługą utraconych wiadomości, należy użyć [interfejsów API ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) do utworzenia punktu końcowego, a nie Azure Portal.
+
+Aby uzyskać instrukcje, jak to zrobić za pomocą interfejsów API, zobacz [*interfejsy API i wersja interfejsu wiersza polecenia*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) tego artykułu.
 
 ## <a name="event-routes"></a>Trasy zdarzeń
 

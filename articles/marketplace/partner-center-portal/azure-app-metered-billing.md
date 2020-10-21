@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52ae961a813b6d14592953fdf8662cbaecf662e1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320055"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280443"
 ---
 # <a name="managed-application-metered-billing"></a>Rozliczenia taryfowe zarządzanej aplikacji 
 
@@ -117,7 +117,7 @@ Jeśli masz jeden z następujących problemów, możesz otworzyć bilet pomocy t
 * Problem, który należy eskalować ze względu na błąd lub usterkę na stronie (np. nieprawidłowe zdarzenie użycia).
 * Wszystkie inne problemy związane z naliczaniem opłat.
 
-Postępuj zgodnie z instrukcjami w temacie [obsługa komercyjnego programu Marketplace w centrum partnerskim](./support.md) , aby poznać opcje pomocy technicznej wydawcy i otworzyć bilet pomocy technicznej w firmie Microsoft.
+Postępuj zgodnie z instrukcjami w temacie [obsługa komercyjnego programu Marketplace w centrum partnerskim](../support.md) , aby poznać opcje pomocy technicznej wydawcy i otworzyć bilet pomocy technicznej w firmie Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 

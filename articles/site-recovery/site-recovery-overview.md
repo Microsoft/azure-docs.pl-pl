@@ -4,12 +4,12 @@ description: Zawiera omówienie usługi Azure Site Recovery oraz podsumowanie sc
 ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
-ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 19860e64182cd73fe9f9fa1246f440a03109d465
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86135234"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281884"
 ---
 # <a name="about-site-recovery"></a>Informacje o usłudze Site Recovery
 
@@ -50,7 +50,7 @@ Usługa Site Recovery może zarządzać replikacją dla:
 **Obsługiwane** | **Szczegóły**
 --- | ---
 **Scenariusze replikacji** | Replikowanie maszyn wirtualnych platformy Azure między regionami platformy Azure.<br/><br/>  Replikowanie lokalnych maszyn wirtualnych programu VMware, maszyn wirtualnych funkcji Hyper-V, serwerów fizycznych (z systemami Windows i Linux) oraz maszyn wirtualnych usługi Azure Stack do platformy Azure.<br/><br/> Replikuj wystąpienia systemu Windows AWS na platformę Azure.<br/><br/> Replikowanie lokalnych maszyn wirtualnych programu VMware, maszyn wirtualnych funkcji Hyper-V zarządzanych przez program System Center VMM oraz serwerów fizycznych do lokacji dodatkowej.
-**Regiony** | Przejrzyj [regiony obsługiwane](https://azure.microsoft.com/regions/services/) na potrzeby usługi Site Recovery. |
+**Regiony** | Przejrzyj [regiony obsługiwane](https://azure.microsoft.com/global-infrastructure/services/?products=site-recovery) na potrzeby usługi Site Recovery. |
 **Zreplikowane maszyny** | Przejrzyj wymagania dotyczące replikacji [maszyn wirtualnych platformy Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), [lokalnych maszyn wirtualnych programu VMware i serwerów fizycznych](vmware-physical-azure-support-matrix.md#replicated-machines) oraz [lokalnych maszyn wirtualnych funkcji Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms).
 **Pakiety robocze** | Możesz replikować dowolne obciążenia uruchomione na maszynie, która jest obsługiwana na potrzeby replikacji. I zespół Site Recoverył testy specyficzne dla aplikacji dla [wielu aplikacji](site-recovery-workload.md#workload-summary).
 

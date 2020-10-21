@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23bd7a26bc6215f50a2860ab4aac84f1b46301f5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600504"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308943"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Rozwiązywanie problemów dotyczących użytkowników oflagowanych w związku z ryzykiem w portalu usługi Azure Active Directory
 
@@ -60,7 +60,7 @@ Aby uzyskać dostęp do raportów o **użytkowniku oflagowane w celu** zgłaszan
 Wykonaj następujące akcje, aby pomóc usunąć zagrożenie z kont i zabezpieczyć swoje środowisko:
 
 1.  [Sprawdź](https://aka.ms/MFAValid) poprawność informacji dotyczących uwierzytelniania wieloskładnikowego i samoobsługowego resetowania hasła. 
-2.  [Włącz uwierzytelnianie wieloskładnikowe](https://aka.ms/MFAuth) dla wszystkich użytkowników. 
+2.  [Włącz uwierzytelnianie wieloskładnikowe](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication) dla wszystkich użytkowników. 
 3.  Użyj tego [skryptu korygującego](https://aka.ms/remediate) dla każdego konta, którego dotyczy problem, aby automatycznie wykonać następujące czynności: 
 
     a. Zresetuj hasło, aby zabezpieczyć konto i Wykasuj aktywne sesje.
@@ -85,8 +85,8 @@ Wykonaj następujące akcje, aby pomóc usunąć zagrożenie z kont i zabezpiecz
 
 Ponadto wykonaj następujące czynności:
 
-- Przeczytaj i zaimplementuj te [wskazówki dotyczące rozwiązywania nietypowych działań](https://aka.ms/fixaccount). 
-- [Włącz potok inspekcji](https://aka.ms/improvesecurity) , aby ułatwić Analizowanie aktywności w dzierżawie. Po zakończeniu magazyn inspekcji rozpoczyna zapełnianie przy użyciu dzienników aktywności. W tym momencie można również skorzystać z [zasobów wyszukiwania i badania Centrum zabezpieczeń i zgodności](https://aka.ms/sccsearch). 
+- Przeczytaj i zaimplementuj te [wskazówki dotyczące rozwiązywania nietypowych działań](/archive/blogs/office365security/how-to-fix-a-compromised-hacked-microsoft-office-365-account). 
+- [Włącz potok inspekcji](/archive/blogs/office365security/using-office-365-activity-data-to-improve-your-cybersecurity-stance-and-capability) , aby ułatwić Analizowanie aktywności w dzierżawie. Po zakończeniu magazyn inspekcji rozpoczyna zapełnianie przy użyciu dzienników aktywności. W tym momencie można również skorzystać z [zasobów wyszukiwania i badania Centrum zabezpieczeń i zgodności](https://aka.ms/sccsearch). 
 - Przejrzyj reguły delegowania uprawnień i przekazywania poczty dla wszystkich skrzynek pocztowych. Do wykonania tego zadania możesz użyć tego [skryptu programu PowerShell](https://aka.ms/delegateforwardrules). 
 
 ## <a name="next-steps"></a>Następne kroki

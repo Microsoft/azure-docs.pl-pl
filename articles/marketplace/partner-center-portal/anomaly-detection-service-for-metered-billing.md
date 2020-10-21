@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320089"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280538"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Usługa wykrywania anomalii dla rozliczeń taryfowych
 
@@ -74,7 +74,7 @@ Aby przesłać bilet:
     - **Komercyjne witryny Marketplace**  >  **Naliczanie opłat**  >  **Wysłano nieprawidłowe użycie dla oferty SaaS**
 3. W **następnym kroku**wybierz przycisk **Przejrzyj rozwiązania** , aby skierować do Centrum partnerskiego, aby przesłać bilet pomocy technicznej.
 
-Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](support.md).
+Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](../support.md).
 
 ## <a name="next-step"></a>Następny krok
 

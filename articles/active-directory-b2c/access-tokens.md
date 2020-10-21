@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 10/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6adb06f22013e68987f3315d52e3594fba63907
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115542"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309012"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Żądanie tokenu dostępu w usłudze Azure Active Directory B2C
 
@@ -50,10 +50,15 @@ Poniższy przykład przedstawia zakresy zakodowane w adresie URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Jeśli zażądasz więcej zakresów niż przyznano aplikacji klienckiej, wywołanie zakończy się powodzeniem w przypadku przyznania co najmniej jednego uprawnienia. Oświadczenie **scp** w wynikowym tokenie dostępu zostanie wypełnione tylko uprawnieniami, które zostały pomyślnie przyznane. Standard OpenID Connect określa kilka specjalnych wartości zakresów. Następujące zakresy reprezentują uprawnienie dostępu do profilu użytkownika:
+Jeśli zażądasz więcej zakresów niż przyznano aplikacji klienckiej, wywołanie zakończy się powodzeniem w przypadku przyznania co najmniej jednego uprawnienia. Oświadczenie **scp** w wynikowym tokenie dostępu zostanie wypełnione tylko uprawnieniami, które zostały pomyślnie przyznane. 
+
+### <a name="openid-connect-scopes"></a>Zakresy połączeń OpenID Connect
+
+Standard OpenID Connect określa kilka specjalnych wartości zakresów. Następujące zakresy reprezentują uprawnienie dostępu do profilu użytkownika:
 
 - **openid** — żąda tokenu identyfikatora.
 - **offline_access** — żąda tokenu odświeżania przy użyciu [przepływów kodu uwierzytelniania](authorization-code-flow.md).
+- **00000000-0000-0000-0000-000000000000** — użycie identyfikatora klienta jako zakresu wskazuje, że aplikacja wymaga tokenu dostępu, który może być używany w odniesieniu do własnej usługi lub internetowego interfejsu API, reprezentowanego przez ten sam identyfikator klienta.
 
 Jeśli parametr **response_type** w żądaniu `/authorize` zawiera element `token`, parametr **scope** musi zawierać co najmniej jeden zakres zasobów inny niż `openid` i `offline_access`, który zostanie przyznany. W przeciwnym razie żądanie `/authorize` zakończy się niepowodzeniem.
 

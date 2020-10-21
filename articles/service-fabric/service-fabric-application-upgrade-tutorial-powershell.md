@@ -4,12 +4,12 @@ description: W tym artykule omówiono środowisko wdrażania aplikacji Service F
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61eba8b7285c2a015ee40d48bc4a73850b412576
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee040916ae1ce6ac931abc1fc07021b08cdbf895
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075192"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309072"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Service Fabric uaktualniania aplikacji przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ Uaktualnienie monitorowanej aplikacji można wykonać przy użyciu zarządzanych
 Przy Service Fabric monitorowanych uaktualnień stopniowych administrator aplikacji może skonfigurować zasady oceny kondycji, których Service Fabric używa do określenia, czy aplikacja jest w dobrej kondycji. Ponadto administrator może skonfigurować akcję, która ma zostać podjęta w przypadku niepowodzenia oceny kondycji (na przykład podczas automatycznego wycofywania). W tej sekcji przedstawiono monitorowane uaktualnienie dla jednego z przykładów zestawu SDK korzystającego z programu PowerShell. 
 
 > [!NOTE]
-> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s nie są zachowywane podczas uaktualniania aplikacji. Aby zachować bieżące parametry aplikacji, użytkownik powinien najpierw pobrać parametry i przekazać je do wywołania interfejsu API uaktualniania, takiego jak poniżej:
+> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s nie są zachowywane podczas uaktualniania aplikacji. Aby zachować bieżące parametry aplikacji, użytkownik powinien najpierw pobrać parametry i przekazać je do wywołania interfejsu API uaktualniania, takiego jak poniżej:
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -149,4 +149,3 @@ Aby uaktualnić aplikacje, należy się upewnić, jak używać [serializacji dan
 Dowiedz się, jak korzystać z zaawansowanych funkcji podczas uaktualniania aplikacji, odwołując się do [zaawansowanych tematów](service-fabric-application-upgrade-advanced.md).
 
 Rozwiązywanie typowych problemów dotyczących uaktualnień aplikacji, w odniesieniu do kroków w [temacie Troubleshooting Upgrades Applications](service-fabric-application-upgrade-troubleshooting.md).
-

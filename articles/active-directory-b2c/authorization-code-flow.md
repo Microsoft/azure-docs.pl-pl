@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9ae5632f2495ac5916ac8c86666e973c34d1b789
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 10444974cf31b95fccd2d11aef20bfd57fab7939
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215233"
+ms.locfileid: "92275290"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Przepływ kodu autoryzacji OAuth 2,0 w Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Aby uzyskać dostęp do chronionych zasobów, takich jak interfejsy API sieci We
 
 Przepływ kodu autoryzacji OAuth 2,0 został opisany w [sekcji 4,1 specyfikacji oauth 2,0](https://tools.ietf.org/html/rfc6749). Można jej używać do uwierzytelniania i autoryzacji w przypadku większości [typów aplikacji](application-types.md), w tym aplikacji sieci Web, aplikacji jednostronicowych i natywnie zainstalowanych aplikacji. Przepływ kodu autoryzacji OAuth 2,0 umożliwia bezpieczne pozyskiwanie tokenów dostępu i odświeżanie tokenów aplikacji, które mogą być używane w celu uzyskania dostępu do zasobów zabezpieczonych przez [serwer autoryzacji](protocols-overview.md).  Token odświeżania pozwala klientowi uzyskać nowe tokeny dostępu (i odświeżania) po wygaśnięciu tokenu dostępu, zwykle po godzinie.
 
-<!-- This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes single-page applications, mobile apps, desktop applications, and essentially any application that runs on a device and needs to get access tokens. -->
+Ten artykuł koncentruje się na przepływie kodu autoryzacji protokołu OAuth 2,0 dla **klientów publicznych** . Klient publiczny to dowolna aplikacja kliencka, której nie można zaufać, aby bezpiecznie zachować integralność hasła tajnego. Obejmuje to aplikacje jednostronicowe, aplikacje mobilne, aplikacje klasyczne i zasadniczo wszystkie aplikacje, które nie są uruchamiane na serwerze.
 
 > [!NOTE]
 > Aby dodać Zarządzanie tożsamościami do aplikacji sieci Web przy użyciu Azure AD B2C, użyj funkcji [OpenID Connect Connect](openid-connect.md) zamiast uwierzytelniania OAuth 2,0.
@@ -39,15 +39,9 @@ Aby wypróbować żądania HTTP w tym artykule:
 
 ## <a name="redirect-uri-setup-required-for-single-page-apps"></a>Wymagana jest konfiguracja identyfikatora URI przekierowania dla aplikacji jednostronicowych
 
-Przepływ kodu autoryzacji dla aplikacji jednostronicowych wymaga dodatkowej konfiguracji.  Postępuj zgodnie z instrukcjami dotyczącymi [tworzenia aplikacji jednostronicowych](tutorial-register-spa.md) , aby poprawnie oznaczyć identyfikator URI przekierowania jako włączony dla mechanizmu CORS. Aby zaktualizować istniejący identyfikator URI przekierowania w celu włączenia mechanizmu CORS, Otwórz Edytor manifestu i ustaw `type` pole dla identyfikatora URI przekierowania na `spa` w `replyUrlsWithType` sekcji. Możesz również kliknąć identyfikator URI przekierowania w sekcji "Web" na karcie uwierzytelnianie i wybrać identyfikatory URI, które mają zostać zmigrowane, aby użyć przepływu kodu autoryzacji.
+Przepływ kodu autoryzacji dla aplikacji jednostronicowych wymaga dodatkowej konfiguracji.  Postępuj zgodnie z instrukcjami dotyczącymi [tworzenia aplikacji jednostronicowych](tutorial-register-spa.md) , aby poprawnie oznaczyć identyfikator URI przekierowania jako włączony dla mechanizmu CORS. Aby zaktualizować istniejący identyfikator URI przekierowania w celu włączenia mechanizmu CORS, można kliknąć monit Migrowanie w sekcji "Web" na karcie **uwierzytelnianie** **aplikacji**. Alternatywnie możesz otworzyć **Edytor manifestu rejestracje aplikacji** i ustawić `type` pole dla identyfikatora URI przekierowania na `spa` w `replyUrlsWithType` sekcji.
 
 `spa`Typ przekierowania jest wstecznie zgodny z niejawnym przepływem. Aplikacje używające obecnie niejawnego przepływu do uzyskiwania tokenów mogą zostać przeniesione do `spa` typu identyfikatora URI przekierowania bez problemów i nadal przy użyciu niejawnego przepływu.
-
-W przypadku próby użycia przepływu kodu autoryzacji i wyświetlenia tego błędu:
-
-`access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
-
-Następnie należy odwiedzić rejestrację aplikacji i zaktualizować identyfikator URI przekierowania dla aplikacji do typu `spa` .
 
 ## <a name="1-get-an-authorization-code"></a>1. Pobierz kod autoryzacji
 Przepływ kodu autoryzacji zaczyna się od klienta kierującego użytkownika do `/authorize` punktu końcowego. Jest to interaktywna część przepływu, w której użytkownik wykonuje akcję. W tym żądaniu klient wskazuje w `scope` parametrze uprawnienia wymagane do uzyskania od użytkownika. Poniższe trzy przykłady (z podziałami wierszy na potrzeby czytelności) używają innego przepływu użytkownika.

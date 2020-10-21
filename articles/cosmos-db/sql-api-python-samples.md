@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: a0db0ff7db8f0bf5b036e40080ee7ff8eac62b63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba4382e03e6fc1acfd606a375a062c05581f712c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322686"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278220"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Przykłady kodu Python dla usługi Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Przykładowe rozwiązania do wykonywania operacji CRUD i innych typowych działa
 
 ## <a name="database-examples"></a>Przykłady dotyczące baz danych
 
-Przykład w języku Python [database_management. PR](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat baz danych usługi Azure Cosmos przed uruchomieniem poniższych przykładów, zobacz [Praca z bazami danych, kontenerami i elementami](databases-containers-items.md) .
+Przykład w języku Python [database_management. PR](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat baz danych usługi Azure Cosmos przed uruchomieniem poniższych przykładów, zobacz [Praca z bazami danych, kontenerami i elementami](account-databases-containers-items.md) .
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |
@@ -62,7 +62,7 @@ Przykład w języku Python [database_management. PR](https://github.com/Azure/az
 
 ## <a name="container-examples"></a>Przykłady dotyczące kontenerów
 
-Przykład w języku Python [container_management. PR](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat kolekcji usługi Azure Cosmos przed uruchomieniem poniższych przykładów, zobacz [Praca z bazami danych, kontenerami i elementami](databases-containers-items.md) .
+Przykład w języku Python [container_management. PR](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat kolekcji usługi Azure Cosmos przed uruchomieniem poniższych przykładów, zobacz [Praca z bazami danych, kontenerami i elementami](account-databases-containers-items.md) .
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |
@@ -75,7 +75,7 @@ Przykład w języku Python [container_management. PR](https://github.com/Azure/a
 
 ## <a name="item-examples"></a>Przykłady dotyczące elementów
 
-Przykład w języku Python [item_management. PR](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej o dokumentach usługi Azure Cosmos przed uruchomieniem poniższych przykładów, zobacz [Praca z bazami danych, kontenerami i elementami](databases-containers-items.md) .
+Przykład w języku Python [item_management. PR](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej o dokumentach usługi Azure Cosmos przed uruchomieniem poniższych przykładów, zobacz [Praca z bazami danych, kontenerami i elementami](account-databases-containers-items.md) .
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |

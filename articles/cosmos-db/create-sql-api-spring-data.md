@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0ccab295d39e463d4b6d1e764862678469fba751
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: acd5914ca9f465c69df4c017162ef92f795b235a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776412"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278383"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Szybki Start: Tworzenie danych wiosennych Azure Cosmos DB aplikacji V3 w celu zarządzania Azure Cosmos DB danymi interfejsu API SQL
 
@@ -23,7 +23,7 @@ ms.locfileid: "91776412"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK 4](create-sql-api-java.md)
-> * [Wiosenne dane v3](create-sql-api-spring-data.md)
+> * [Spring Data 3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -52,9 +52,9 @@ W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejsu API SQ
 
 *Struktura konta Cosmos DB.* Niezależnie od interfejsu API lub języka programowania, *konto* Cosmos DB zawiera zero lub więcej *baz danych*, *baza danych* (DB) zawiera zero lub więcej *kontenerów*, a *kontener* zawiera zero lub więcej elementów, jak pokazano na poniższym diagramie:
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Jednostki kont usługi Azure Cosmos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Jednostki kont usługi Azure Cosmos" border="false":::
 
-Więcej informacji na temat baz danych, kontenerów i elementów można znaleźć [tutaj.](databases-containers-items.md) Niektóre ważne właściwości są definiowane na poziomie kontenera, między nimi *przepływność* i *klucz partycji*. 
+Więcej informacji na temat baz danych, kontenerów i elementów można znaleźć [tutaj.](account-databases-containers-items.md) Niektóre ważne właściwości są definiowane na poziomie kontenera, między nimi *przepływność* i *klucz partycji*. 
 
 Zainicjowana przepływność jest mierzona w jednostkach żądania (*jednostek ru*), które mają cenę pieniężną i są istotnym czynnikiem w kosztu eksploatacyjnym konta. Zainicjowaną przepływność można wybrać w poziomie szczegółowości poszczególnych kontenerów lub stopnia szczegółowości poszczególnych baz danych, jednak Specyfikacja przepływności na poziomie kontenera jest zazwyczaj preferowana. Więcej informacji o aprowizacji przepływności można znaleźć [tutaj.](set-throughput.md)
 

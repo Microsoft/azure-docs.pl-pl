@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167610"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278192"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API Cassandra w programie Azure Cosmos DB
 
@@ -79,11 +79,11 @@ Dzienniki diagnostyczne zostały omówione w artykule [rejestrowanie diagnostycz
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>Czy klucz podstawowy jest mapowany na klucz partycji koncepcji Azure Cosmos DB?
 
-Tak, klucz partycji jest używany do umieszczania jednostki w prawej lokalizacji. W Azure Cosmos DB służy do znajdowania odpowiedniej partycji logicznej przechowywanej na partycji fizycznej. Koncepcja partycjonowania jest dobrze omówiona w [partycji i skalowaniu w Azure Cosmos DB](partition-data.md) artykule. Istotną wnioskiemą jest to, że partycja logiczna nie powinna przekroczyć limitu 20 GB.
+Tak, klucz partycji jest używany do umieszczania jednostki w prawej lokalizacji. W Azure Cosmos DB służy do znajdowania odpowiedniej partycji logicznej przechowywanej na partycji fizycznej. Koncepcja partycjonowania jest dobrze omówiona w [partycji i skalowaniu w Azure Cosmos DB](partitioning-overview.md) artykule. Istotną wnioskiemą jest to, że partycja logiczna nie powinna przekroczyć limitu 20 GB.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>Co się stanie, gdy otrzymam powiadomienie o zapełnieniu partycji?
 
-Azure Cosmos DB to system oparty na umowie dotyczącej poziomu usług (SLA). Zapewnia nieograniczoną skalę i gwarantuje opóźnienia, przepływność, dostępność i spójność. Ten nieograniczony magazyn jest oparty na skalowalnych w poziomie danych, przy użyciu partycjonowania w ramach kluczowych koncepcji. Koncepcja partycjonowania jest dobrze omówiona w [partycji i skalowaniu w Azure Cosmos DB](partition-data.md) artykule.
+Azure Cosmos DB to system oparty na umowie dotyczącej poziomu usług (SLA). Zapewnia nieograniczoną skalę i gwarantuje opóźnienia, przepływność, dostępność i spójność. Ten nieograniczony magazyn jest oparty na skalowalnych w poziomie danych, przy użyciu partycjonowania w ramach kluczowych koncepcji. Koncepcja partycjonowania jest dobrze omówiona w [partycji i skalowaniu w Azure Cosmos DB](partitioning-overview.md) artykule.
 
 Należy przestrzegać limitu 20 GB dla liczby jednostek lub elementów na partycję logiczną. Aby upewnić się, że aplikacja jest odpowiednio skalowana, zalecamy, aby *nie* tworzyć partycji gorąca, przechowując wszystkie informacje w jednej partycji i wykonując zapytania. Ten błąd może występować tylko wtedy, gdy dane są skośne: oznacza to, że masz dużo danych dla jednego klucza partycji (więcej niż 20 GB). Dystrybucję danych można znaleźć za pomocą portalu magazynu. Aby naprawić ten błąd, należy ponownie utworzyć tabelę i wybrać szczegółowy podstawowy (klucz partycji), co umożliwi lepsze dystrybuowanie danych.
 
@@ -133,7 +133,7 @@ Tak, wartość czasu wygaśnięcia jest obsługiwana.
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>Jak mogę monitorować infrastrukturę wraz z przepływem?
 
-Azure Cosmos DB to usługa platformy, która pozwala zwiększyć produktywność i nie martwić się o zarządzanie i monitorowanie infrastruktury. Na przykład nie trzeba monitorować stanu węzła, stanu repliki, GC i parametrów systemu operacyjnego wcześniej przy użyciu różnych narzędzi. Wystarczy zadbać o przepływność, która jest dostępna w metrykach portalu, aby zobaczyć, czy masz ograniczenie przepustowości, a następnie zwiększyć lub zmniejszyć tę przepływność. Dostępne możliwości:
+Azure Cosmos DB to usługa platformy, która pozwala zwiększyć produktywność i nie martwić się o zarządzanie i monitorowanie infrastruktury. Na przykład nie trzeba monitorować stanu węzła, stanu repliki, GC i parametrów systemu operacyjnego wcześniej przy użyciu różnych narzędzi. Wystarczy zadbać o przepływność, która jest dostępna w metrykach portalu, aby zobaczyć, czy masz ograniczenie przepustowości, a następnie zwiększyć lub zmniejszyć tę przepływność. Można:
 
 - Monitorowanie [umowy SLA](monitor-accounts.md)
 - Korzystanie z [metryk](use-metrics.md)

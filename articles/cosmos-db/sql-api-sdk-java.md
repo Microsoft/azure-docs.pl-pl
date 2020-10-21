@@ -9,32 +9,32 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1061cd7a37cbe9ce5ea360de22594d6eb4c0c2f5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569934"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275293"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
 > * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
 > * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
-> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
+> * [Zestaw SDK zestawienia zmian platformy .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
-> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
+> * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
 Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interfejsu API SQL, który obsługuje operacje synchroniczne.
 
@@ -85,10 +85,10 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 ### <a name="230"></a><a name="2.3.0"></a>2.3.0
 * Dodano obsługę oddzielnego limitu czasu dla trybu bezpośredniego.
 
-### <a name="223"></a><a name="2.2.3"></a>Regulamin
+### <a name="223"></a><a name="2.2.3"></a>2.2.3
 * Zużywanie pustego komunikatu o błędzie z usługi i Tworzenie wyjątku klienta dokumentu.
 
-### <a name="222"></a><a name="2.2.2"></a>ppkt
+### <a name="222"></a><a name="2.2.2"></a>2.2.2
 * Udoskonalenie połączenia gniazda, Dodawanie SoKeepAlive domyślnego true.
 
 ### <a name="220"></a><a name="2.2.0"></a>2.2.0
@@ -232,7 +232,7 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 * Dodano obsługę czasu wygaśnięcia (TTL) dla dokumentów.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* Wdrożone [kolekcje partycjonowane](partition-data.md) i [poziomy wydajności zdefiniowane przez użytkownika](performance-levels.md).
+* Wdrożone [kolekcje partycjonowane](partitioning-overview.md) i [poziomy wydajności zdefiniowane przez użytkownika](performance-levels.md).
 
 ### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * Naprawiono usterkę w HashPartitionResolver, aby generować wartości skrótu w postaci little-endian, aby były spójne z innymi zestawami SDK.
@@ -256,14 +256,14 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 * Implementuje zasady indeksowania v2
 
 ### <a name="100"></a><a name="1.0.0"></a>1.0.0
-* ZESTAW SDK GA
+* Zestaw SDK ogólnej dostępności
 
 ## <a name="release-and-retirement-dates"></a>Daty wydania i wycofania
 
-Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe.
+Firma Microsoft udostępni powiadomienie co najmniej **12 miesięcy** przed wycofaniem zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe.
 
 > [!WARNING]
-> Po 30 maju 2020 Azure Cosmos DB nie będą już naprawiać błędów, dodawać nowych funkcji i zapewniać pomoc techniczną do wersji 1. x Azure Cosmos DB Java SDK dla interfejsu API SQL. Jeśli wolisz nie aktualizować, żądania wysyłane z wersji 1. x zestawu SDK będą nadal obsługiwane przez usługę Azure Cosmos DB.
+> Po 30 maju 2020 Azure Cosmos DB nie będą już naprawiać błędów, dodawać nowych funkcji i zapewniać pomoc techniczną do wersji 1. x Azure Cosmos DB Java SDK dla interfejsu API SQL. Jeśli nie chcesz przeprowadzać uaktualnienia, żądania wysyłane z wersji 1.x zestawu SDK będą nadal obsługiwane przez usługę Azure Cosmos DB.
 >
 > Po 29 lutego 2016 Azure Cosmos DB nie będą już naprawiać błędów, dodawać nowych funkcji i zapewniać pomoc techniczną do wersji 0. x Azure Cosmos DB Java SDK dla interfejsu API SQL. Jeśli wolisz nie aktualizować, żądania wysyłane z wersji 0. x zestawu SDK będą nadal obsługiwane przez usługę Azure Cosmos DB.
 
@@ -280,8 +280,8 @@ Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFAN
 | [2.4.1](#2.4.1) |18 lipca 2019 |--- |
 | [2.4.0](#2.4.0) |04, 2019 |--- |
 | [2.3.0](#2.3.0) |24 kwietnia 2019 |--- |
-| [Regulamin](#2.2.3) |16 kwietnia 2019 |--- |
-| [ppkt](#2.2.2) |Kwi 05, 2019 |--- |
+| [2.2.3](#2.2.3) |16 kwietnia 2019 |--- |
+| [2.2.2](#2.2.2) |Kwi 05, 2019 |--- |
 | [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
 | [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
 | [2.1.2](#2.1.2) |Mar 09, 2019 |--- |
@@ -326,9 +326,9 @@ Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFAN
 | od 0.9.1 — przedlease |19 grudnia 2014 |29 lutego 2016 |
 | 0.9.0 — przedlease |10 grudnia 2014 |29 lutego 2016 |
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zobacz też
-Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .
+Aby dowiedzieć się więcej na temat usługi Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

@@ -3,16 +3,18 @@ title: Azure Event Grid zabezpieczenia i uwierzytelnianie
 description: Opis usługi Azure Event Grid i pojęć z nią związanych.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 09317b310a5934d27b82d265ec7f9b276135f882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8220e0f913a16cc32b4598ecb3836cc892ea83fd
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119093"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318553"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autoryzowanie dostępu do zasobów Event Grid
-Azure Event Grid umożliwia kontrolowanie poziomu dostępu nadawanego różnym użytkownikom w celu wykonywania różnych operacji zarządzania, takich jak subskrypcje zdarzeń listy, tworzenie nowych i generowanie kluczy. Event Grid używa kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
+Azure Event Grid umożliwia kontrolowanie poziomu dostępu nadawanego różnym użytkownikom w celu wykonywania różnych **operacji zarządzania** , takich jak subskrypcje zdarzeń listy, tworzenie nowych i generowanie kluczy. Event Grid używa kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
 
+> [!NOTE]
+> EventGrid nie obsługuje funkcji RBAC do publikowania zdarzeń do Event Grid tematów lub domen. Użyj klucza sygnatury dostępu współdzielonego (SAS) lub tokenu do uwierzytelniania klientów, którzy publikują zdarzenia. Aby uzyskać więcej informacji, zobacz temat [uwierzytelnianie klientów publikowanych](security-authenticate-publishing-clients.md). 
 
 ## <a name="operation-types"></a>Typy operacji
 

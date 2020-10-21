@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 49fe4f2d0a31918dec94163b4ebb5c45af53cfe7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145977"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282251"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -83,7 +83,7 @@ await client.CreateEventRoute("routeName", er);
 
 1. Najpierw `EventRoute` tworzony jest obiekt, a Konstruktor przyjmuje nazwę punktu końcowego. To `endpointName` pole identyfikuje punkt końcowy, taki jak centrum zdarzeń, Event Grid lub Service Bus. Te punkty końcowe muszą zostać utworzone w subskrypcji i dołączone do usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API płaszczyzny kontroli przed wykonaniem tego wywołania.
 
-2. Obiekt trasy zdarzeń ma także pole [**filtru**](./how-to-manage-routes-apis-cli.md#filter-events) , które może służyć do ograniczania typów zdarzeń, które są zgodne z tą trasą. Filtr `true` włącza trasę bez dodatkowych filtrowania (filtr `false` wyłącza trasę). 
+2. Obiekt trasy zdarzeń ma także pole [**filtru**](how-to-manage-routes-apis-cli.md#filter-events) , które może służyć do ograniczania typów zdarzeń, które są zgodne z tą trasą. Filtr `true` włącza trasę bez dodatkowych filtrowania (filtr `false` wyłącza trasę). 
 
 3. Ten obiekt trasy zdarzeń jest następnie przesyłany do `CreateEventRoute` , wraz z nazwą trasy.
 
@@ -93,18 +93,19 @@ await client.CreateEventRoute("routeName", er);
 Trasy można także tworzyć za pomocą [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
 ## <a name="dead-letter-events"></a>Zdarzenia utraconych wiadomości
+
 Gdy punkt końcowy nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony**. Po spełnieniu **jednego z następujących** warunków usługa Azure Digital bliźniaczych reprezentacji będzie martwa zdarzenie. 
 
-- Zdarzenie nie jest dostarczane w okresie czasu wygaśnięcia
-- Liczba prób dostarczenia zdarzenia przekroczyła limit.
+* Zdarzenie nie jest dostarczane w okresie czasu wygaśnięcia
+* Liczba prób dostarczenia zdarzenia przekroczyła limit.
 
-Jeśli spełniony jest dowolny z warunków, zdarzenie zostanie porzucone lub utracone.  Domyślnie **każdy punkt końcowy nie włącza** utraconych wiadomości. Aby je włączyć, należy określić konto magazynu do przechowywania niedostarczonych zdarzeń podczas tworzenia punktu końcowego. Zdarzenia z tego konta magazynu są ściągane, aby można było rozpoznać dostawy.
+Jeśli spełniony jest dowolny z warunków, zdarzenie zostanie porzucone lub utracone. Domyślnie **każdy punkt końcowy nie włącza** utraconych wiadomości. Aby je włączyć, należy określić konto magazynu do przechowywania niedostarczonych zdarzeń podczas tworzenia punktu końcowego. Następnie można ściągnąć zdarzenia z tego konta magazynu w celu rozpoznania dostaw.
 
 Przed ustawieniem lokalizacji utraconych wiadomości musisz mieć konto magazynu z kontenerem. Podajesz adres URL dla tego kontenera podczas tworzenia punktu końcowego. Utracona wartość jest podawana jako adres URL kontenera z tokenem SAS. Ten token wymaga tylko `write` uprawnienia do kontenera docelowego na koncie magazynu. W pełni sformułowany adres URL będzie miał postać: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
 Aby dowiedzieć się więcej o tokenach SAS, zobacz: [ *udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-Aby dowiedzieć się, jak skonfigurować martwą literę [*, zobacz How to: Manage Endpoints and Routes in Azure Digital bliźniaczych reprezentacji (interfejsy API i CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
+Aby dowiedzieć się, jak skonfigurować punkt końcowy przy użyciu utraconych wiadomości, zobacz [*How to: Manage Endpoints and Routes in Azure Digital bliźniaczych reprezentacji (interfejsy API i CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Typy komunikatów o zdarzeniach
 

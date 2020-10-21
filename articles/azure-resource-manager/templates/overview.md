@@ -3,12 +3,12 @@ title: Przegląd szablonów
 description: Opisuje zalety korzystania z szablonów Azure Resource Manager na potrzeby wdrażania zasobów.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1873c737d17fc8774ddd1276d1375799ca2da35e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119365"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280050"
 ---
 # <a name="what-are-arm-templates"></a>Co to są szablony usługi ARM?
 
@@ -54,7 +54,7 @@ Jeśli próbujesz zdecydować się na korzystanie z szablonów usługi ARM i jed
 
 * **Kod możliwy do eksportu**: można uzyskać szablon dla istniejącej grupy zasobów, eksportując bieżący stan grupy zasobów lub wyświetlając szablon używany do określonego wdrożenia. Przeglądając [wyeksportowany szablon](export-template-portal.md), można poznać jego składnię.
 
-* **Narzędzia autorskie**: szablony można tworzyć za pomocą [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) i rozszerzenia narzędzia szablonu. Uzyskasz funkcję IntelliSense, wyróżnianie składni, pomoc w wierszu i wiele innych funkcji języka. Oprócz programu Visual Studio Code można również użyć [programu Visual Studio](create-visual-studio-deployment-project.md).
+* **Narzędzia autorskie**: szablony można tworzyć za pomocą [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) i rozszerzenia narzędzia szablonu. Uzyskasz funkcję IntelliSense, wyróżnianie składni, pomoc w wierszu i wiele innych funkcji języka. Oprócz Visual Studio Code można również użyć [programu Visual Studio](create-visual-studio-deployment-project.md).
 
 ## <a name="template-file"></a>Plik szablonu
 

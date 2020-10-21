@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d232f7ba1304d76a0ba2db62b9f0f9b4229513f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378608"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279175"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Naliczanie opłat za SaaS przy użyciu komercyjnej usługi pomiarowej Marketplace
 
@@ -153,7 +153,7 @@ Jeśli masz jeden z następujących problemów, możesz otworzyć bilet pomocy t
 - Problem, który należy eskalować ze względu na błąd lub usterkę na stronie (np. nieprawidłowe zdarzenie użycia).
 - Wszystkie inne problemy związane z naliczaniem opłat.
 
-Aby poznać opcje pomocy technicznej wydawcy i otworzyć bilet pomocy technicznej w firmie Microsoft, postępuj zgodnie z instrukcjami w temacie [obsługa komercyjnego programu Marketplace w centrum partnerskim](./support.md).
+Aby poznać opcje pomocy technicznej wydawcy i otworzyć bilet pomocy technicznej w firmie Microsoft, postępuj zgodnie z instrukcjami w temacie [obsługa komercyjnego programu Marketplace w centrum partnerskim](../support.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

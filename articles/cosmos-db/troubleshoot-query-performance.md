@@ -4,27 +4,27 @@ description: Dowiedz się, jak identyfikować, diagnozować i rozwiązywać prob
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089993"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277175"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
 
-W tym artykule przedstawiono ogólne zalecane podejście do rozwiązywania problemów z zapytaniami w Azure Cosmos DB. Chociaż nie należy traktować kroków opisanych w tym artykule, pełna ochrona przed potencjalnymi problemami związanymi z zapytaniami zawiera najpopularniejsze porady dotyczące wydajności. Ten artykuł powinien być używany jako punkt wyjścia do rozwiązywania problemów z powolnymi lub kosztownymi zapytaniami w podstawowym interfejsie API usługi Azure Cosmos DB (SQL). Można również używać [dzienników diagnostycznych](cosmosdb-monitor-resource-logs.md) do identyfikowania zapytań, które są powolne lub zużywają znaczną ilość przepływności.
+W tym artykule przedstawiono ogólne zalecane podejście do rozwiązywania problemów z zapytaniami w Azure Cosmos DB. Chociaż nie należy traktować kroków opisanych w tym artykule, pełna ochrona przed potencjalnymi problemami związanymi z zapytaniami zawiera najpopularniejsze porady dotyczące wydajności. Ten artykuł powinien być używany jako punkt wyjścia do rozwiązywania problemów z powolnymi lub kosztownymi zapytaniami w podstawowym interfejsie API usługi Azure Cosmos DB (SQL). Można również używać [dzienników diagnostycznych](cosmosdb-monitor-resource-logs.md) do identyfikowania zapytań, które są powolne lub zużywają znaczną ilość przepływności. Jeśli używasz interfejsu API Azure Cosmos DB dla MongoDB, należy użyć [interfejsu api Azure Cosmos DB dla przewodnika rozwiązywania problemów z kwerendą MongoDB](mongodb-troubleshoot-query.md)
 
-Optymalizacje zapytań można w szerokim zakresie klasyfikować w Azure Cosmos DB:
+Optymalizacje zapytań w Azure Cosmos DB są szeroko kategoryzowane w następujący sposób:
 
 - Optymalizacje, które zmniejszają opłatę jednostki żądania (RU) zapytania
 - Optymalizacje, które po prostu skracają opóźnienia
 
-W przypadku zredukowania opłaty za usługę RU do programu dla kwerendy niemal znacznie zmniejszasz opóźnienia.
+W przypadku obniżenia opłaty za usługę RU z kwerendy zazwyczaj zmniejsza się również opóźnienia.
 
 W tym artykule przedstawiono przykłady, które można utworzyć ponownie przy użyciu [zestawu danych odżywiania](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
@@ -191,7 +191,7 @@ Zaktualizowane zasady indeksowania:
 
 **Opłata za ru:** 2,98 jednostek ru
 
-W dowolnej chwili można dodać właściwości do zasad indeksowania bez wpływu na dostępność zapisu ani wydajność. Jeśli dodasz nową właściwość do indeksu, zapytania, które używają właściwości, będą natychmiast używały nowego dostępnego indeksu. Zapytanie będzie używać nowego indeksu podczas kompilowania. Wyniki zapytania mogą być niespójne w czasie, gdy trwa ponowne kompilowanie indeksu. Jeśli nowa właściwość jest indeksowana, nie wpłynie to na zapytania, które używają tylko istniejących indeksów podczas ponownego kompilowania indeksu. [Postęp przekształcania indeksów można śledzić](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+W dowolnej chwili można dodać właściwości do zasad indeksowania bez wpływu na dostępność zapisu lub odczytu. [Postęp przekształcania indeksów można śledzić](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Informacje o tym, które funkcje systemowe używają indeksu
 
@@ -469,7 +469,7 @@ Oto odpowiedni indeks złożony:
 
 ## <a name="optimizations-that-reduce-query-latency"></a>Optymalizacje zmniejszające czas oczekiwania na zapytanie
 
-W wielu przypadkach opłata za usługę RU może być akceptowalna, gdy opóźnienie zapytania jest wciąż zbyt wysokie. Poniższe sekcje zawierają omówienie wskazówek dotyczących skracania opóźnień zapytań. W przypadku uruchomienia tego samego zapytania wiele razy w tym samym zestawie danych będzie on miał te same opłaty RU za każdym razem. Opóźnienia zapytań mogą się różnić między wykonaniami zapytań.
+W wielu przypadkach opłata za usługę RU może być akceptowalna, gdy opóźnienie zapytania jest wciąż zbyt wysokie. Poniższe sekcje zawierają omówienie wskazówek dotyczących skracania opóźnień zapytań. W przypadku uruchomienia tego samego zapytania wiele razy w tym samym zestawie danych w każdym momencie będzie ona mieć ten sam koszt. Opóźnienia zapytań mogą się różnić między wykonaniami zapytań.
 
 ### <a name="improve-proximity"></a>Zwiększ bliskość
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9821e53abcdf95c6cf235cb9d39cd310fcfb66f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334433"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279728"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurowanie prywatnego linku platformy Azure dla konta usługi Azure Cosmos
 
@@ -73,7 +73,7 @@ Wykonaj następujące kroki, aby utworzyć prywatny punkt końcowy dla istnieją
     |Prywatna strefa DNS |Wybierz pozycję **privatelink.documents.Azure.com**. <br><br/> Prywatna strefa DNS jest określana automatycznie. Nie można go zmienić za pomocą Azure Portal.|
     |||
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Na stronie **Recenzja i tworzenie** zweryfikuje swoją konfigurację.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Na stronie **Recenzja i tworzenie** zweryfikuje swoją konfigurację.
 1. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 Po zaakceptowaniu prywatnego linku dla konta usługi Azure Cosmos w obszarze Azure Portal opcja **wszystkie sieci** w okienku **Zapora i sieci wirtualne** jest niedostępna.
@@ -684,7 +684,7 @@ Jeśli rekordy DNS nie są czyszczone, mogą wystąpić nieoczekiwane problemy z
 
 Aby dowiedzieć się więcej na temat funkcji zabezpieczeń Azure Cosmos DB, zobacz następujące artykuły:
 
-* Aby skonfigurować zaporę dla Azure Cosmos DB, zobacz [Obsługa zapory](firewall-support.md).
+* Aby skonfigurować zaporę dla Azure Cosmos DB, zobacz [Obsługa zapory](how-to-configure-firewall.md).
 
 * Aby dowiedzieć się, jak skonfigurować punkt końcowy usługi sieci wirtualnej dla konta usługi Azure Cosmos, zobacz [Konfigurowanie dostępu z sieci wirtualnych](how-to-configure-vnet-service-endpoint.md).
 

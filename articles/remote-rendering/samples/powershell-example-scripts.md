@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32d0ebc3f37f7af4d9cdb1940f1870dbf51f86b4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206135"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279010"
 ---
 # <a name="example-powershell-scripts"></a>Przykładowe skrypty programu PowerShell
 
@@ -21,6 +21,9 @@ Zdalne renderowanie na platformie Azure udostępnia dwa następujące interfejsy
 - [Interfejs API REST sesji](../how-tos/session-rest-api.md)
 
 [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przykładowe skrypty w folderze *skryptów* na potrzeby współpracy z interfejsami API REST usługi. W tym artykule opisano ich użycie.
+
+> [!TIP]
+> Istnieje również [Narzędzie oparte na interfejsie użytkownika o nazwie ARRT](azure-remote-rendering-asset-tool.md) do współdziałania z usługą, która jest wygodną alternatywą dla korzystania ze skryptów. ![ARRT](./media/azure-remote-rendering-asset-tool.png "Zrzut ekranu ARRT")
 
 > [!CAUTION]
 > Zbyt częste wywoływanie funkcji interfejsu API REST spowoduje, że serwer zostanie ograniczony i ostatecznie nie zwróci błędu. Identyfikator kodu błędu HTTP w tym przypadku to 429 ("zbyt wiele żądań"). Zgodnie z zasadą dla elementu kciuka należy mieć opóźnienie **5-10 sekund między kolejnymi wywołaniami**.
@@ -46,7 +49,7 @@ Aby wykonać przykładowe skrypty, musisz mieć funkcjonalną konfigurację [Azu
     > [!NOTE]
     > W przypadku, gdy organizacja ma więcej niż jedną subskrypcję, może być konieczne określenie argumentów subskrypcji i dzierżawy. Szczegółowe informacje znajdują się w [dokumentacji Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-1. Pobierz folder *skryptów* z [repozytorium GithHub zdalnego renderowania platformy Azure](https://github.com/Azure/azure-remote-rendering).
+1. Pobierz folder *skryptów* z [repozytorium usługi Azure Remote rendering](https://github.com/Azure/azure-remote-rendering)do serwisu GitHub.
 
 ## <a name="configuration-file"></a>Plik konfiguracji
 

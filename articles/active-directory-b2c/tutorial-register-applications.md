@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f278f0713280dde27d6c3892b4d1f1557d17ecb4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d38f10e5a4f2562825ed2374317602b0640894ae
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215947"
+ms.locfileid: "92275886"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Samouczek: rejestrowanie aplikacji sieci Web w Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Aby [aplikacje](application-types.md) mogły korzystać z Azure Active Directory
 "Aplikacja sieci Web" odnosi się do tradycyjnej aplikacji sieci Web, która wykonuje większość logiki aplikacji na serwerze. Mogą być kompilowane przy użyciu struktur, takich jak ASP.NET Core, Maven (Java), kolby (Python) i Express (Node.js).
 
 > [!IMPORTANT]
-> Jeśli używasz **aplikacji jednostronicowej ("Spa")** (np. przy użyciu funkcji kątowych, VUE lub reagować), Dowiedz się, [jak zarejestrować aplikację jednostronicową](tutorial-register-spa.md).
+> Jeśli używasz aplikacji jednostronicowej ("SPA") (np. przy użyciu funkcji kątowych, VUE lub reagować), Dowiedz się, [jak zarejestrować aplikację jednostronicową](tutorial-register-spa.md).
 > 
-> Jeśli używasz **aplikacji natywnej** (np. iOS, Android, Mobile & Desktop), Dowiedz się, [jak zarejestrować natywną aplikację kliencką](add-native-application.md).
+> Jeśli używasz aplikacji natywnej (np. iOS, Android, Mobile & Desktop), Dowiedz się, [jak zarejestrować natywną aplikację kliencką](add-native-application.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -67,13 +67,11 @@ Aby zarejestrować aplikację sieci Web w dzierżawie Azure AD B2C, możesz uży
 1. Wybierz pozycję **aplikacje (starsza wersja)**, a następnie wybierz pozycję **Dodaj**.
 1. Wprowadź nazwę aplikacji. Na przykład *webapp1*.
 1. W obszarze **Dołącz aplikację sieci Web/interfejs API sieci Web**wybierz pozycję **tak**.
-1. Dla pozycji **Adres URL odpowiedzi** wprowadź punkt końcowy, w którym usługa Azure AD B2C powinna zwracać wszelkie tokeny żądane przez Twoją aplikację. Na przykład można ustawić, aby nasłuchiwać lokalnie w `https://localhost:44316` . Jeśli nie znasz jeszcze numeru portu, możesz wprowadzić wartość symbolu zastępczego i zmienić ją później.
+1. Dla pozycji **Adres URL odpowiedzi** wprowadź punkt końcowy, w którym usługa Azure AD B2C powinna zwracać wszelkie tokeny żądane przez Twoją aplikację. Na przykład można ustawić, aby nasłuchiwać lokalnie w `http://localhost:5000` . Można w dowolnym momencie dodawać i modyfikować identyfikatory URI przekierowań w zarejestrowanych aplikacjach.
 
-    Do celów testowych, takich jak ten samouczek, można ustawić, aby `https://jwt.ms` wyświetlić zawartość tokenu do inspekcji. Na potrzeby tego samouczka Ustaw **adres URL odpowiedzi** na `https://jwt.ms` .
+    Identyfikatory URI przekierowania dotyczą następujących ograniczeń:
 
-    Do adresów URL odpowiedzi są stosowane następujące ograniczenia:
-
-    * Adres URL odpowiedzi musi rozpoczynać się od schematu `https` .
+    * Adres URL odpowiedzi musi rozpoczynać się od schematu `https` , chyba że jest używany `localhost` .
     * W adresie URL odpowiedzi jest rozróżniana wielkość liter. Jego wielkość liter musi być zgodna z wielkością liter w ścieżce URL działającej aplikacji. Na przykład jeśli aplikacja zawiera jako część swojej ścieżki `.../abc/response-oidc` , nie należy określać jej `.../ABC/response-oidc` w adresie URL odpowiedzi. Ponieważ przeglądarka sieci Web traktuje ścieżki w miarę uwzględniania wielkości liter, pliki cookie skojarzone z programem `.../abc/response-oidc` mogą zostać wykluczone w przypadku przekierowania do niezgodnego z wielkością liter `.../ABC/response-oidc` adresów URL.
 
 1. Wybierz pozycję **Utwórz** , aby zakończyć rejestrację aplikacji.

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a44848e81e974d8294b84471d68ded8509f4ddf6
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067614"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282807"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
 
@@ -35,7 +35,7 @@ Azure Cosmos DB to szybka i elastyczna dystrybuowana baza danych, która bezprob
 
 Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" należy wziąć pod uwagę następujące opcje:
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 * **Tryb połączenia: Użyj trybu bezpośredniego**
     
@@ -97,7 +97,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
     Jeśli używasz Azure Cosmos DB jako bazy danych referencyjnych (oznacza to, że baza danych jest używana w wielu operacjach odczytu punktu i kilku operacjach zapisu), można zaakceptować wartość *idleEndpointTimeout* na 0 (czyli bez limitu czasu).
 
 
-    | Opcja konfiguracji       | Domyślne    |
+    | Opcja konfiguracji       | Domyślny    |
     | :------------------:       | :-----:    |
     | bufferPageSize             | 8192       |
     | Parametru          | "PT1M"     |
@@ -304,4 +304,4 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat projektowania aplikacji pod kątem skalowania i wysokiej wydajności, zobacz [partycjonowanie i skalowanie w Azure Cosmos DB](partition-data.md).
+Aby dowiedzieć się więcej na temat projektowania aplikacji pod kątem skalowania i wysokiej wydajności, zobacz [partycjonowanie i skalowanie w Azure Cosmos DB](partitioning-overview.md).

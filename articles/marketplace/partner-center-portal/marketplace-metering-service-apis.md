@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319987"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278017"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Interfejsy API rozliczeń mierzonych w witrynie Marketplace
 
@@ -273,7 +273,7 @@ Możesz również użyć planu prywatnego dla istniejącej oferty na żywo, aby 
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-Postępuj zgodnie z instrukcjami w temacie [obsługa komercyjnego programu Marketplace w centrum partnerskim](./support.md) , aby poznać opcje pomocy technicznej wydawcy i otworzyć bilet pomocy technicznej w firmie Microsoft.
+Postępuj zgodnie z instrukcjami w temacie [obsługa komercyjnego programu Marketplace w centrum partnerskim](../support.md) , aby poznać opcje pomocy technicznej wydawcy i otworzyć bilet pomocy technicznej w firmie Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 

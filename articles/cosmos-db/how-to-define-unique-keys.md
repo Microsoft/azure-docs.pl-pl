@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: b275703e0f5952be9ab052a789b64d2ea171922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330540"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279550"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiowanie unikatowych kluczy dla kontenera usługi Azure Cosmos
 
@@ -151,5 +151,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat [partycjonowania](partition-data.md)
+- Dowiedz się więcej na temat [partycjonowania](partitioning-overview.md)
 - Zapoznaj się z [działaniem indeksowania](index-overview.md)

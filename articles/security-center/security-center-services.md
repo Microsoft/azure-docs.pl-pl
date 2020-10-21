@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad35af600b8973268d07f3a8baae225b91cebc1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858017"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275225"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -28,7 +28,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 
 ### <a name="windows-machines"></a>[**Maszyny z systemem Windows**](#tab/features-windows)
 
-|**Funkcja**|**Azure Virtual Machines**|**Zestawy skalowania maszyn wirtualnych platformy Azure**|**Maszyny spoza platformy Azure**|**Usługa Azure Defender jest wymagana**
+|**Funkcja**|**Azure Virtual Machines**|**Zestawy skalowania maszyn wirtualnych platformy Azure**|**Maszyny z obsługą usługi Azure Arc**|**Usługa Azure Defender jest wymagana**
 |----|:----:|:----:|:----:|:----:|
 |[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Tak|
 |[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](alerts-reference.md)|✔|✔|✔|Tak|
@@ -42,9 +42,9 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |[Adaptacyjne wzmocnienie zabezpieczeń sieci](security-center-adaptive-network-hardening.md)|✔|-|-|Tak|
 |[& raporty dotyczące pulpitu nawigacyjnego zgodności z przepisami](security-center-compliance-dashboard.md)|✔|✔|✔|Tak|
 |Zalecenia i ochrona przed zagrożeniami w kontenerach IaaS hostowanych przez platformę Docker|-|-|-|Tak|
-|Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
-|Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
-|[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
+|Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: nie<br><br>Łuk włączony: tak|
+|Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: nie<br><br>Łuk włączony: tak|
+|[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: nie<br><br>Łuk włączony: tak|
 |Ocena szyfrowania dysku|✔</br>(dla [obsługiwanych scenariuszy](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nie|
 |Ocena luk w zabezpieczeniach innych firm|✔|-|-|Nie|
 |[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Nie|
@@ -52,7 +52,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 
 ### <a name="linux-machines"></a>[**Maszyny z systemem Linux**](#tab/features-linux)
 
-|**Funkcja**|**Azure Virtual Machines**|**Zestawy skalowania maszyn wirtualnych platformy Azure**|**Maszyny spoza platformy Azure**|**Usługa Azure Defender jest wymagana**
+|**Funkcja**|**Azure Virtual Machines**|**Zestawy skalowania maszyn wirtualnych platformy Azure**|**Maszyny z obsługą usługi Azure Arc**|**Usługa Azure Defender jest wymagana**
 |----|:----:|:----:|:----:|:----:|
 |[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Tak|
 |[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](security-center-alerts-iaas.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Tak|
@@ -66,8 +66,8 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |[Adaptacyjne wzmocnienie zabezpieczeń sieci](security-center-adaptive-network-hardening.md)|✔|-|-|Tak|
 |[& raporty dotyczące pulpitu nawigacyjnego zgodności z przepisami](security-center-compliance-dashboard.md)|✔|✔|✔|Tak|
 |Zalecenia i ochrona przed zagrożeniami w kontenerach IaaS hostowanych przez platformę Docker|✔|✔|✔|Tak|
-|Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
-|Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
+|Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: nie<br><br>Łuk włączony: tak|
+|Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: nie<br><br>Łuk włączony: tak|
 |[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Nie|
 |Ocena szyfrowania dysku|✔</br>(dla [obsługiwanych scenariuszy](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nie|
 |Ocena luk w zabezpieczeniach innych firm|✔|-|-|Nie|

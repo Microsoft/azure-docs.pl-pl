@@ -4,14 +4,14 @@ description: Zarządzaj zasobami interfejsu API Azure Cosmos DB Core (SQL) za po
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: dce041a46f173216844322b5a8985acbdfb86f26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 631dd3242e695a1e7872a4b078ab3f9761591c56
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840595"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277761"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Zarządzanie zasobami interfejsu API platformy Azure Cosmos Core (SQL) przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -20,6 +20,8 @@ W poniższym przewodniku opisano typowe polecenia służące do automatyzowania 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.12.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+
+Przykłady interfejsu wiersza polecenia platformy Azure dla innych interfejsów API, zobacz przykłady interfejsu wiersza polecenia [dla Cassandra](cli-samples-cassandra.md), [przykłady interfejsu wiersza polecenia dla MongoDB API](cli-samples-mongodb.md), przykłady interfejsu wiersza polecenia [dla Gremlin](cli-samples-gremlin.md), [przykłady interfejsu wiersza polecenia dla tabeli](cli-samples-table.md)
 
 > [!IMPORTANT]
 > Nie można zmienić nazw zasobów Azure Cosmos DB, ponieważ to narusza sposób, w jaki Azure Resource Manager współpracuje z identyfikatorami URI zasobów.

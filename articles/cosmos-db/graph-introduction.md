@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409616"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279842"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Wprowadzenie do interfejsu API Gremlin w Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Poniżej przedstawiono zróżnicowane funkcje, które Azure Cosmos DB Gremlin in
 
   Usługa Azure Cosmos DB eliminuje konieczność zarządzania zasobami maszyn i baz danych. Większość istniejących platform baz danych grafów jest związanych z ograniczeniami ich infrastruktury i często wymagają wysokiego stopnia konserwacji w celu zapewnienia jego działania. 
   
-  W pełni zarządzana usługa Cosmos DB eliminuje konieczność zarządzania maszynami wirtualnymi, aktualizacji oprogramowania środowiska uruchomieniowego, zarządzania fragmentowaniaą lub replikacją lub rozwiązywania złożonych uaktualnień w warstwie danych. Dla każdego grafu jest automatycznie tworzona kopia zapasowa w celu ochrony przed regionalnymi awariami. Te gwarancje umożliwiają deweloperom skoncentrowanie się na dostarczaniu wartości aplikacji zamiast działania i zarządzania bazami danych grafów. 
+  W pełni zarządzana usługa Cosmos DB eliminuje konieczność zarządzania maszynami wirtualnymi, aktualizacji oprogramowania środowiska uruchomieniowego, zarządzania fragmentowaniaą lub replikacją lub rozwiązywania złożonych uaktualnień w warstwie danych. Dla każdego grafu jest automatycznie tworzona kopia zapasowa w celu ochrony przed regionalnymi awariami. Pozwala to deweloperom skoncentrować się na dostarczaniu wartości aplikacji zamiast działania i zarządzania bazami danych grafów. 
 
 * **Automatyczne indeksowanie**
 

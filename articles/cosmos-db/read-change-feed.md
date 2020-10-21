@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399f81a5246633912d1e17a13492e404119e362f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018973"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282074"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Odczytywanie zestawienia zmian w usłudze Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Korzystanie z modelu wypychania to najprostszy sposób odczytywania ze źródła
 
 ### <a name="azure-functions"></a>Azure Functions
 
-Azure Functions jest najprostszą opcją, jeśli dopiero zaczynasz korzystać ze źródła zmian. Ze względu na prostotę jest to również zalecana opcja dla większości przypadków użycia źródła zmian. Po utworzeniu wyzwalacza Azure Functions dla Azure Cosmos DB, należy wybrać kontener do połączenia, a funkcja platformy Azure zostanie wyzwolona za każdym razem, gdy istnieje zmiana w kontenerze. Ponieważ Azure Functions używa procesora danych zmiany w tle, automatycznie parallelizes przetwarzanie zmian w [partycjach](partition-data.md)kontenera.
+Azure Functions jest najprostszą opcją, jeśli dopiero zaczynasz korzystać ze źródła zmian. Ze względu na prostotę jest to również zalecana opcja dla większości przypadków użycia źródła zmian. Po utworzeniu wyzwalacza Azure Functions dla Azure Cosmos DB, należy wybrać kontener do połączenia, a funkcja platformy Azure zostanie wyzwolona za każdym razem, gdy istnieje zmiana w kontenerze. Ponieważ Azure Functions używa procesora danych zmiany w tle, automatycznie parallelizes przetwarzanie zmian w [partycjach](partitioning-overview.md)kontenera.
 
 Programowanie przy użyciu Azure Functions jest prostym doświadczeniem i może być szybsze niż wdrożenie procesora źródła zmian. Wyzwalacze można tworzyć przy użyciu portalu Azure Functions lub programowo przy użyciu zestawów SDK. Program Visual Studio i VS Code zapewniają pomoc techniczną do pisania Azure Functions i można nawet użyć interfejsu wiersza polecenia Azure Functions do tworzenia aplikacji dla wielu platform. Można napisać i debugować kod na pulpicie, a następnie wdrożyć funkcję jednym kliknięciem. Aby dowiedzieć się więcej, zobacz temat [Przetwarzanie baz danych bez użycia serwera przy użyciu Azure Functions](serverless-computing-database.md) i [Używanie kanału informacyjnego zmian z](change-feed-functions.md) artykułami Azure Functions.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea5d291f372485da714104eaa7df19ed3a153423
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b481a1ccf36120a30bf7c923e2d59c5782433567
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206190"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282507"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -73,16 +73,14 @@ W tej sekcji znajdują się informacje dotyczące konfigurowania logowania jedno
 
 
 ## <a name="documentation-on-integration-of-azure-services-into-sap-components"></a>Dokumentacja dotycząca integracji usług platformy Azure z składnikami SAP
+W tej sekcji znajdziesz dokumenty dotyczące integracji usługi PowerBI ze źródłami danych SAP oraz Azure Data Factory integrację z SAP BW.
 
-- [Używanie oprogramowania SAP HANA w programie Power BI Desktop](/power-bi/desktop-sap-hana)
-- [Zapytanie bezpośrednie i platforma SAP HANA](/power-bi/desktop-directquery-sap-hana)
-- [Używanie łącznika SAP BW Connector w programie Power BI Desktop](/power-bi/desktop-sap-bw-connector) 
-- [Usługa Azure Data Factory oferuje integrację danych oprogramowania SAP HANA i Business Warehouse](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 
 ## <a name="change-log"></a>Dziennik zmian
 
-- 10/16/2020: zmiana [wysokiej dostępności programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na platformie SLES z Pacemaker](./dbms-guide-ha-ibm.md), [ha for SAP NW na maszynach wirtualnych platformy Azure w witrynie RHEL for SAP Applications](./high-availability-guide-rhel.md), [ha of IBM DB2 LUW na maszynach](./high-availability-guide-rhel-ibm-db2-luw.md)wirtualnych platformy Azure w RHEL, [ha](./high-availability-guide-rhel-multi-sid.md)for SAP NW na maszynach wirtualnych platformy Azure na RHEL [z RHEL](./high-availability-guide-rhel-netapp-files.md), [ha dla SAP NW na maszynach wirtualnych platformy Azure w systemie SLES for SAP Applications,](./high-availability-guide-suse.md)ha for [SAP NNW na maszynach wirtualnych platformy Azure w przypadku SLES z przewodnikiem z obsługą wielosid, ha](./high-availability-guide-suse-multi-sid.md)for SAP [NW na maszynach wirtualnych platformy Azure w witrynie SLES z ANF dla aplikacji SAP, ha](./high-availability-guide-suse-netapp-files.md)dla [systemu plików NFS na maszynach](./high-availability-guide-suse-nfs.md)wirtualnych Azure na SLES SAP HANA SAP HANA [HA of SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) , [HA SAP HANA na maszynach wirtualnych platformy Azure w systemie RHEL](./sap-hana-high-availability-rhel.md), [SAP HANA skalowanie w poziomie HSR z Pacemaker na maszynach wirtualnych platformy Azure na platformie RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [Przygotowanie infrastruktury platformy Azure dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i dysku udostępnionego](./sap-high-availability-infrastructure-wsfc-shared-disk.md), [przewodnika o wysokiej dostępności dla](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) oprogramowania SAP ASCS/SCS z usługą WSFC i dysku udostępnionego na platformie Azure, a ponadto w scenariuszach równoważenia [obciążenia dla](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) pomocniczych adresów IP  
+- 10/16/2020: zmiana [wysokiej dostępności programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na platformie SLES z Pacemaker](./dbms-guide-ha-ibm.md), [ha for SAP NW na maszynach wirtualnych platformy Azure w witrynie RHEL for SAP Applications](./high-availability-guide-rhel.md), [ha of IBM DB2 LUW na maszynach](./high-availability-guide-rhel-ibm-db2-luw.md)wirtualnych platformy Azure w RHEL, [ha](./high-availability-guide-rhel-multi-sid.md)for SAP NW na maszynach wirtualnych platformy Azure na RHEL [z RHEL](./high-availability-guide-rhel-netapp-files.md), [ha dla SAP NW na maszynach wirtualnych platformy Azure w systemie SLES for SAP Applications,](./high-availability-guide-suse.md)ha for [SAP NNW na maszynach wirtualnych platformy Azure w przypadku SLES z przewodnikiem z obsługą wielosid, ha](./high-availability-guide-suse-multi-sid.md)for SAP [NW na maszynach wirtualnych platformy Azure w witrynie SLES z ANF dla aplikacji SAP, ha](./high-availability-guide-suse-netapp-files.md)dla [systemu plików NFS na maszynach](./high-availability-guide-suse-nfs.md)wirtualnych Azure na SLES SAP HANA SAP HANA [HA of SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) , [HA SAP HANA na maszynach wirtualnych platformy Azure w systemie RHEL](./sap-hana-high-availability-rhel.md), [SAP HANA skalowanie w poziomie HSR z Pacemaker na maszynach wirtualnych platformy Azure na platformie RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [Przygotowanie infrastruktury platformy Azure dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i dysku udostępnionego](./sap-high-availability-infrastructure-wsfc-shared-disk.md), [przewodnika o wysokiej dostępności dla](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) oprogramowania SAP ASCS/SCS z usługą WSFC i dysku udostępnionego na platformie Azure, a ponadto w scenariuszach równoważenia [obciążenia dla](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) pomocniczych adresów IP 
+- 10/16/2020: Dodawanie dokumentacji w celu kontrolowania migawek magazynu dużych wystąpień platformy HANA w [przypadku tworzenia kopii zapasowych i przywracania SAP HANA w dużych wystąpieniach platformy Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)
 - 10/15/2020: wydanie programu SAP BusinessObjects BI platform w dokumentacji platformy Azure, przewodnik dotyczący [planowania i implementacji platformy SAP BUSINESSOBJECTS BI na platformie Azure](businessobjects-deployment-guide.md) i [SAP BusinessObjects BI — Przewodnik wdrażania dla systemu Linux na platformie Azure](businessobjects-deployment-guide-linux.md)
 - 10/05/2020: wersja [SAP HANA skalowalnego w poziomie HSR z Pacemaker na maszynach wirtualnych platformy Azure w](./sap-hana-high-availability-scale-out-hsr-rhel.md) podręczniku konfiguracji RHEL
 - 09/30/2020: zmiana [wysokiej dostępności SAP HANA na maszynach wirtualnych platformy Azure w systemie RHEL](./sap-hana-high-availability-rhel.md), [ha dla SAP HANA skalowanie w górę z ANF na RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) i [Konfigurowanie Pacemaker na RHEL na platformie Azure w](./high-availability-guide-rhel-pacemaker.md) celu dostosowania instrukcji dla RHEL 8,1

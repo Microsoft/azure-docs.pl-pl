@@ -7,12 +7,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0bf6836fd08e20d97f1cfd85627b25e31bf380
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136043"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278405"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelowanie danych w Azure Cosmos DB
 
@@ -440,6 +440,6 @@ Tak samo jak nie istnieje jeden sposób reprezentowania fragmentu danych na ekra
 
 Aby dowiedzieć się więcej na temat Azure Cosmos DB, zapoznaj się ze stroną [dokumentacji](https://azure.microsoft.com/documentation/services/cosmos-db/) usługi.
 
-Aby dowiedzieć się, jak fragmentu dane w wielu partycjach, zobacz [Partycjonowanie danych w Azure Cosmos DB](sql-api-partition-data.md).
+Aby dowiedzieć się, jak fragmentu dane w wielu partycjach, zobacz [Partycjonowanie danych w Azure Cosmos DB](partitioning-overview.md).
 
 Aby dowiedzieć się, jak modelować i dzielić dane na Azure Cosmos DB przy użyciu rzeczywistego przykładu, zapoznaj się z artykułem [ modelowanie i partycjonowanie danych — Real-World przykład](how-to-model-partition-example.md).

@@ -1,28 +1,28 @@
 ---
-title: Konfigurowanie usługi Azure Multi-Factor Authentication dla pulpitu wirtualnego systemu Windows — Azure
-description: Jak skonfigurować usługę Azure Multi-Factor Authentication w celu zwiększenia bezpieczeństwa na pulpicie wirtualnym systemu Windows.
+title: Konfigurowanie uwierzytelniania wieloskładnikowego platformy Azure dla pulpitu wirtualnego systemu Windows — Azure
+description: Konfigurowanie uwierzytelniania wieloskładnikowego platformy Azure w celu zwiększenia bezpieczeństwa na pulpicie wirtualnym systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 10/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e67e3d391ba69bacb82a9154f577942a017e5795
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108987"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312646"
 ---
-# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Włączanie usługi Azure Multi-Factor Authentication na potrzeby usługi Windows Virtual Desktop
+# <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Włączanie uwierzytelniania wieloskładnikowego platformy Azure dla pulpitu wirtualnego systemu Windows
 
 >[!IMPORTANT]
 > Jeśli odwiedzasz Tę stronę z dokumentacji pulpitu wirtualnego systemu Windows (klasycznego), pamiętaj, aby [wrócić do dokumentacji pulpitu wirtualnego systemu Windows (klasycznego)](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) po zakończeniu.
 
 Klient systemu Windows dla pulpitu wirtualnego systemu Windows jest doskonałym rozwiązaniem do integrowania pulpitu wirtualnego systemu Windows z maszyną lokalną. Jednak podczas konfigurowania konta pulpitu wirtualnego systemu Windows na kliencie systemu Windows istnieją pewne miary, które należy podjąć, aby zapewnić sobie bezpieczeństwo i użytkowników.
 
-Po pierwszym zalogowaniu klient monituje o podanie nazwy użytkownika, hasła i usługi Azure MFA. Po tym czasie przy następnym logowaniu klient będzie pamiętał token z aplikacji Azure Active Directory (AD) dla przedsiębiorstw. Po wybraniu opcji **Zapamiętaj mnie**użytkownicy mogą się zalogować po ponownym uruchomieniu klienta bez konieczności ponownego wprowadzania poświadczeń.
+Po pierwszym zalogowaniu Klient prosi o podanie nazwy użytkownika, hasła i uwierzytelniania wieloskładnikowego platformy Azure. Po tym czasie przy następnym logowaniu klient będzie pamiętał token z aplikacji Azure Active Directory (AD) dla przedsiębiorstw. Po wybraniu opcji **Zapamiętaj mnie** w przypadku monitu o podanie poświadczeń dla hosta sesji użytkownicy mogą się zalogować po ponownym uruchomieniu klienta bez konieczności ponownego wprowadzania poświadczeń.
 
-Zapamiętanie poświadczeń jest wygodne, ale może również sprawić, że wdrożenia w scenariuszach korporacyjnych lub na urządzeniach osobistych są mniej bezpieczne. Aby zapewnić ochronę użytkowników, należy się upewnić, że klient będzie monitować o poświadczenia usługi Azure Multi-Factor Authentication (MFA). W tym artykule opisano sposób konfigurowania zasad dostępu warunkowego dla pulpitu wirtualnego systemu Windows w celu włączenia tego ustawienia.
+Zapamiętanie poświadczeń jest wygodne, ale może również sprawić, że wdrożenia w scenariuszach korporacyjnych lub na urządzeniach osobistych są mniej bezpieczne. Aby chronić użytkowników, należy się upewnić, że klient nadal będzie pytać o poświadczenia uwierzytelniania wieloskładnikowego platformy Azure. W tym artykule opisano sposób konfigurowania zasad dostępu warunkowego dla pulpitu wirtualnego systemu Windows w celu włączenia tego ustawienia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -30,10 +30,10 @@ Oto co należy zrobić:
 
 - Przypisz użytkownikom licencję obejmującą Azure Active Directory — wersja Premium P1 lub P2.
 - Grupa Azure Active Directory z użytkownikami przypisanymi jako członkowie grupy.
-- Włącz usługę Azure MFA dla wszystkich użytkowników. Aby uzyskać więcej informacji o tym, jak to zrobić, zobacz [temat jak wymagać weryfikacji dwuetapowej dla użytkownika](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
+- Włącz uwierzytelnianie wieloskładnikowe Azure dla wszystkich użytkowników. Aby uzyskać więcej informacji o tym, jak to zrobić, zobacz [temat jak wymagać weryfikacji dwuetapowej dla użytkownika](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
 > [!NOTE]
-> Poniższe ustawienie dotyczy również [klienta sieci Web pulpitu wirtualnego systemu Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
+> Poniższe ustawienie dotyczy również [klienta sieci Web pulpitu wirtualnego systemu Windows](https://rdweb.wvd.microsoft.com/arm/webclient/index.html).
 
 ## <a name="create-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
@@ -63,7 +63,7 @@ Poniżej przedstawiono sposób tworzenia zasad dostępu warunkowego, które wyma
         Następnie przejdź do kroku 10.
 
    >[!IMPORTANT]
-   > Nie wybieraj aplikacji o nazwie Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Ta aplikacja jest używana tylko do pobierania źródła danych użytkownika i nie powinna mieć usługi MFA.
+   > Nie wybieraj aplikacji o nazwie Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Ta aplikacja jest używana tylko do pobierania źródła danych użytkownika i nie powinna mieć uwierzytelniania wieloskładnikowego.
    > 
    > Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego), jeśli zasady dostępu warunkowego blokują dostęp i tylko nie wykluczają identyfikatorów aplikacji pulpitu wirtualnego systemu Windows, możesz rozwiązać ten problem, dodając identyfikator aplikacji 9cdead84-a844-4324-93f2-b2e6bb768d07 do zasad. Nie dodawaj tego identyfikatora aplikacji spowoduje odnalezienie źródła zasobów pulpitu wirtualnego systemu Windows (klasycznego).
 
@@ -85,7 +85,7 @@ Poniżej przedstawiono sposób tworzenia zasad dostępu warunkowego, które wyma
     >Aby znaleźć identyfikator aplikacji dla aplikacji, którą chcesz wybrać, przejdź do pozycji **aplikacje dla przedsiębiorstw** i wybierz pozycję **aplikacje firmy Microsoft** z menu rozwijanego Typ aplikacji.
 
 12. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie **Wybierz opcję**.
-13. W obszarze sesja **kontroli dostępu**  >  **Session**wybierz **pozycję częstotliwość logowania**, ustaw wartość **1** i jednostkę na **godziny**, a następnie wybierz pozycję **Wybierz**.
+13. W obszarze sesja **kontroli dostępu**  >  **Session**wybierz pozycję **częstotliwość logowania**, ustaw wartość na żądany czas między wierszami, a następnie wybierz pozycję **Wybierz**. Na przykład ustawienie wartości **1** i jednostki na **godziny**wymaga uwierzytelniania wieloskładnikowego, jeśli połączenie zostanie uruchomione godzinę po ostatnim z nich.
 14. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 15. Wybierz pozycję **Utwórz** , aby włączyć zasady.
 

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35d81d0076c4b29a8b1399331aa0254178720931
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068391"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277817"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indeksowanie w usłudze Azure Cosmos DB — omówienie
 
-Azure Cosmos DB to baza danych niezależny od schematu, która pozwala na iterację aplikacji bez konieczności rozwiązywania problemów z zarządzaniem schematami i indeksami. Domyślnie Azure Cosmos DB automatycznie indeksuje każdą właściwość dla wszystkich elementów w [kontenerze](databases-containers-items.md#azure-cosmos-containers) bez konieczności definiowania schematu lub konfigurowania indeksów pomocniczych.
+Azure Cosmos DB to baza danych niezależny od schematu, która pozwala na iterację aplikacji bez konieczności rozwiązywania problemów z zarządzaniem schematami i indeksami. Domyślnie Azure Cosmos DB automatycznie indeksuje każdą właściwość dla wszystkich elementów w [kontenerze](account-databases-containers-items.md#azure-cosmos-containers) bez konieczności definiowania schematu lub konfigurowania indeksów pomocniczych.
 
 Celem tego artykułu jest wyjaśnienie sposobu indeksowania danych przez usługę Azure Cosmos DB i wykorzystania tych indeksów do podwyższenia wydajności zapytań. Zaleca się przechodzenie przez tę sekcję przed rozpoczęciem dostosowywania [zasad indeksowania](index-policy.md).
 

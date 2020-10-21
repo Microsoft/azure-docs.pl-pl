@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: f5804819e3a7a63120fa8c64d8df27b16608ece1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2774750b61ce92b3b34f6a5cbd961e4faa7d3e7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798078"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277476"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aktualizowanie informacji o grupach w portalu Moje aplikacje
 
@@ -44,13 +44,11 @@ Jeśli administrator udzielił Ci uprawnień do wyświetlania kafelka **grupy** 
 
     Zostanie wyświetlona strona **aplikacje** przedstawiająca wszystkie aplikacje oparte na chmurze należące do organizacji i dostępne do użycia.
 
-    ![Strona aplikacje w portalu Moje aplikacje](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
+    ![Strona aplikacje w portalu Moje aplikacje](media/my-apps-portal-end-user-groups/my-apps-home-large.png)
 
-3. Wybierz kafelek **grupy** , aby wyświetlić informacje związane z grupą.
+3. Pobierz menu **Moje aplikacje** i wybierz pozycję **Moje grupy** , aby wyświetlić informacje związane z grupą.
 
-    ![Strona grup z członkami i grupami należącymi do grupy](media/my-apps-portal/my-apps-portal-groups-page.png)
-
-4. Na podstawie uprawnień możesz użyć strony **grupy** do:
+4. Na podstawie uprawnień możesz użyć strony **Moje grupy** , aby:
 
     - **Przejrzyj posiadane grupy.** Wyświetl informacje o wszystkich grupach należących do organizacji w obszarze **grupy I** obszary. Wybranie określonej nazwy grupy zapewnia więcej szczegółów na temat grupy, w tym typ grupy, liczbę elementów członkowskich, zasady dołączania i listę aktywnych członków.
 
@@ -90,7 +88,7 @@ Jeśli administrator udzielił Ci uprawnień do wyświetlania kafelka **grupy** 
 
     - **Zasady grupy.** Wybierz opcję, aby umożliwić wszystkim dołączenie do grupy lub zezwalanie na dodawanie elementów członkowskich tylko właścicielowi grupy.
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
     Nowa grupa zostanie utworzona za pomocą użytkownika jako właściciel i zostanie wyświetlona na liście Twoich **grup** . Ponieważ jesteś właścicielem, ta grupa jest również wyświetlana na liście **grupy**
 

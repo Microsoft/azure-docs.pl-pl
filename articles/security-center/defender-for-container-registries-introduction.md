@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 12264a79ee5428e98d6cf7d37bef6706295e68dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448381"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275968"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Wprowadzenie do usługi Azure Defender dla rejestrów kontenerów
 
@@ -66,7 +66,7 @@ Security Center filtrów i klasyfikuje wyniki ze skanera. Gdy obraz jest w dobre
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Czy mogę uzyskać wyniki skanowania za pośrednictwem interfejsu API REST?
 Tak. Wyniki są poniżej [interfejsu API REST podocen](/rest/api/securitycenter/subassessments/list/). Ponadto można użyć usługi Azure Resource Graph (ARG), interfejsu API podobnej do Kusto dla wszystkich zasobów: zapytanie może pobrać określone skanowanie.
- 
+
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Jakie typy rejestrów są skanowane? Jakie typy są rozliczane?
 Listę typów rejestrów kontenerów obsługiwanych przez usługę Azure Defender dla rejestrów kontenerów można znaleźć w temacie [Availability (dostępność](defender-for-container-registries-usage.md#availability)).
 
