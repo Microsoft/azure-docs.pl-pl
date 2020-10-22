@@ -62,8 +62,6 @@
       items:
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
-        - name: Wbudowane mechanizmy zabezpieczeń
-          href: api-management-security-controls.md
     - name: Subskrypcje
       href: api-management-subscriptions.md
     - name: Wersje
@@ -160,6 +158,8 @@
       items:
         - name: Omówienie portalu deweloperów
           href: api-management-howto-developer-portal.md
+        - name: Migrowanie z przestarzałego do nowego portalu deweloperów
+          href: developer-portal-deprecated-migration.md
         - name: Uwierzytelnianie za pomocą usługi Azure AD
           href: api-management-howto-aad.md
         - name: Uwierzytelnianie za pomocą usługi Azure AD B2C
@@ -170,13 +170,13 @@
           href: api-management-howto-configure-notifications.md
         - name: Włączanie obsługi uwierzytelniania OAuth konsoli
           href: api-management-howto-oauth2.md
-        - name: Starszy portal — dostosowywanie portalu
+        - name: Przestarzały portal — dostosowywanie portalu
           href: api-management-customize-styles.md
-        - name: Starszy portal — modyfikowanie stron i układów
+        - name: Przestarzały portal — modyfikowanie stron i układów
           href: api-management-modify-content-layout.md
-        - name: Starszy portal — dostosowywanie przy użyciu szablonów
+        - name: Przestarzały portal — dostosowywanie za pomocą szablonów
           href: api-management-developer-portal-templates.md
-    - name: Szablony starszego portalu
+    - name: Szablony przestarzałego portalu
       items:
         - name: Dokumentacja dotycząca modeli obiektów
           href: api-management-template-data-model-reference.md
