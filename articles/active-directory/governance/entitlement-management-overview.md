@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91597388"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362471"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Co to jest zarządzanie upoważnieniami w usłudze Azure AD?
 
@@ -77,9 +77,9 @@ Zarządzanie prawami wprowadza do usługi Azure AD pojęcie *pakietu dostępu*. 
 
 Można również kontrolować dostęp do innych zasobów, które są zależne od grup zabezpieczeń usługi Azure AD lub grup Microsoft 365.  Na przykład:
 
-- Można udzielić użytkownikom licencji na Microsoft 365 za pomocą grupy zabezpieczeń usługi Azure AD w pakiecie dostępu i konfigurowania [licencjonowania opartego na grupach](../users-groups-roles/licensing-groups-assign.md) dla tej grupy.
+- Można udzielić użytkownikom licencji na Microsoft 365 za pomocą grupy zabezpieczeń usługi Azure AD w pakiecie dostępu i konfigurowania [licencjonowania opartego na grupach](../enterprise-users/licensing-groups-assign.md) dla tej grupy.
 - Można udzielić użytkownikom dostępu do zarządzania zasobami platformy Azure za pomocą grupy zabezpieczeń usługi Azure AD w pakiecie dostępu i tworzenia [przypisania roli platformy Azure](../../role-based-access-control/role-assignments-portal.md) dla tej grupy.
-- Możesz dać użytkownikom dostęp do zarządzania rolami usługi Azure AD za pomocą grup, które można przypisać do ról usługi Azure AD w pakiecie dostępu i [przypisywać rolę usługi Azure AD do tej grupy](../users-groups-roles/roles-groups-assign-role.md).
+- Możesz dać użytkownikom dostęp do zarządzania rolami usługi Azure AD za pomocą grup, które można przypisać do ról usługi Azure AD w pakiecie dostępu i [przypisywać rolę usługi Azure AD do tej grupy](../roles/groups-assign-role.md).
 
 ## <a name="how-do-i-control-who-gets-access"></a>Jak mogę kontrolować, kto uzyskuje dostęp?
 

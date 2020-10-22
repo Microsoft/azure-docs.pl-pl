@@ -3,16 +3,16 @@ title: Samouczek — Tworzenie segmentu sieci NSX-T w rozwiązaniu Azure VMware
 description: Dowiedz się, jak utworzyć segmenty sieci NSX-T, które są używane na potrzeby maszyn wirtualnych w programie vCenter
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 780cac15efc043b9ae44b77af1234adca3fec5a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f88f186d2af10bcc114d64920a3ac489ef7be54f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254537"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367673"
 ---
 # <a name="tutorial-create-an-nsx-t-network-segment-in-azure-vmware-solution"></a>Samouczek: Tworzenie segmentu sieci NSX-T w rozwiązaniu Azure VMware
 
-Segmenty sieci utworzone w Menedżerze NSX-T są używane jako sieci maszyn wirtualnych w programie vCenter. Maszyny wirtualne utworzone w programie vCenter są umieszczane na segmentach sieci utworzonych w NSX-T i są widoczne w programie vCenter.
+Maszyny wirtualne utworzone w programie vCenter są umieszczane na segmentach sieci utworzonych w NSX-T i są widoczne w programie vCenter.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -23,7 +23,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka wymagane jest chmurę prywatną rozwiązania VMware platformy Azure z dostępem do interfejsów zarządzania Menedżera vCenter i NSX-T. Aby uzyskać więcej informacji, zapoznaj się z samouczkiem [Konfigurowanie sieci dla swojej chmury prywatnej VMware w systemie Azure](tutorial-configure-networking.md) .
+Musisz mieć chmurę prywatną rozwiązania Azure VMware z dostępem do interfejsów zarządzania programu vCenter i NSX-T. Aby uzyskać więcej informacji, zobacz samouczek [Konfigurowanie sieci](tutorial-configure-networking.md) .
 
 ## <a name="provision-a-network-segment-in-nsx-t"></a>Inicjowanie obsługi administracyjnej segmentu sieci w NSX-T
 
@@ -71,7 +71,7 @@ Do ukończenia tego samouczka wymagane jest chmurę prywatną rozwiązania VMwar
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono segmenty sieci NSX-T, które są używane dla maszyn wirtualnych w programie vCenter. Teraz możesz [utworzyć bibliotekę zawartości, aby wdrożyć maszyny wirtualne w rozwiązaniu VMware platformy Azure](deploy-vm-content-library.md) i zainicjować obsługę administracyjną maszyny wirtualnej w sieci utworzonej w tym samouczku.
+W tym samouczku utworzono segmenty sieci NSX-T, które są używane dla maszyn wirtualnych w programie vCenter. Teraz możesz [utworzyć bibliotekę zawartości, aby wdrożyć maszyny wirtualne w rozwiązaniu VMware platformy Azure](deploy-vm-content-library.md). Możesz również zainicjować obsługę administracyjną maszyny wirtualnej w sieci utworzonej w tym samouczku.
 
 W przeciwnym razie przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć ExpressRoute Global Reach komunikację równorzędną z chmurą prywatną w rozwiązaniu VMware platformy Azure.
 

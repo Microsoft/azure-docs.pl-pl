@@ -3,14 +3,14 @@ title: Jak utworzyć wdrożenia aktualizacji dla Azure Automation Update Managem
 description: W tym artykule opisano sposób planowania wdrożeń aktualizacji i przeglądania ich stanu.
 services: automation
 ms.subservice: update-management
-ms.date: 10/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8b9b3df024839007a349d3a412de4a70ff3a1cd2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222742"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369707"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Jak wdrażać aktualizacje i przeglądać wyniki
 
@@ -54,12 +54,12 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
     > [!NOTE]
     > Ta opcja jest niedostępna w przypadku wybrania maszyny wirtualnej lub serwera z włączonym Łukem platformy Azure. System operacyjny jest identyfikowany automatycznie.
 
-5. W regionie **grupy do zaktualizowania (wersja zapoznawcza)** Zdefiniuj zapytanie łączące subskrypcję, grupy zasobów, lokalizacje i Tagi, aby utworzyć dynamiczną grupę maszyn wirtualnych platformy Azure, które mają zostać uwzględnione we wdrożeniu. Aby dowiedzieć się więcej, zobacz [Używanie grup dynamicznych z Update Management](configure-groups.md).
+5. W obszarze **grupy do zaktualizowania** Zdefiniuj zapytanie łączące subskrypcję, grupy zasobów, lokalizacje i Tagi, aby utworzyć dynamiczną grupę maszyn wirtualnych platformy Azure do uwzględnienia w danym wdrożeniu. Aby dowiedzieć się więcej, zobacz [Używanie grup dynamicznych z Update Management](configure-groups.md).
 
     > [!NOTE]
     > Ta opcja jest niedostępna w przypadku wybrania maszyny wirtualnej lub serwera z włączonym Łukem platformy Azure. Komputer jest automatycznie kierowany do zaplanowanego wdrożenia.
 
-6. W obszarze **maszyny do zaktualizowania** Wybierz zapisane wyszukiwanie, zaimportowaną grupę lub wybierz **maszyny** z menu rozwijanego i wybierz opcję poszczególne maszyny. Po wybraniu tej opcji można zobaczyć gotowość Log Analytics agenta dla każdej maszyny. Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach Azure Monitor, zobacz [grupy komputerów w dziennikach Azure monitor](../../azure-monitor/platform/computer-groups.md). W zaplanowanym wdrożeniu aktualizacji można uwzględnić maksymalnie 500 maszyn.
+6. W obszarze **maszyny do zaktualizowania** Wybierz zapisane wyszukiwanie, zaimportowaną grupę lub wybierz **maszyny** z menu rozwijanego i wybierz opcję poszczególne maszyny. Po wybraniu tej opcji można zobaczyć gotowość Log Analytics agenta dla każdej maszyny. Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach Azure Monitor, zobacz [grupy komputerów w dziennikach Azure monitor](../../azure-monitor/platform/computer-groups.md). W zaplanowanym wdrożeniu aktualizacji można uwzględnić maksymalnie 1000 maszyn.
 
     > [!NOTE]
     > Ta opcja jest niedostępna w przypadku wybrania maszyny wirtualnej lub serwera z włączonym Łukem platformy Azure. Komputer jest automatycznie kierowany do zaplanowanego wdrożenia.
@@ -83,7 +83,7 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
 
 10. Użyj **cyklu** , aby określić, czy wdrożenie występuje raz, czy za pomocą harmonogramu cyklicznego, a następnie wybierz **przycisk OK**.
 
-11. W regionie **pre-scripts + post-Scripts (wersja zapoznawcza)** wybierz skrypty do uruchomienia przed i po wdrożeniu. Aby dowiedzieć się więcej, zobacz temat Zarządzanie skryptami [wstępnymi i po skryptach](pre-post-scripts.md).
+11. W regionie **pre-scripts + po skrypcie** wybierz skrypty do uruchomienia przed i po wdrożeniu. Aby dowiedzieć się więcej, zobacz temat Zarządzanie skryptami [wstępnymi i po skryptach](pre-post-scripts.md).
 
 12. Za pomocą pola **okna obsługi (minuty)** określ ilość czasu dozwoloną dla aktualizacji do zainstalowania. Podczas określania okna obsługi należy wziąć pod uwagę następujące informacje:
 
@@ -111,7 +111,7 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
     > [!NOTE]
     > Po zakończeniu konfigurowania harmonogramu wdrażania dla wybranego serwera z włączonym Łukem wybierz pozycję **Przegląd + Utwórz**.
 
-15. Nastąpi powrót do pulpitu nawigacyjnego stanu. Wybierz pozycję **harmonogramy wdrażania** , aby wyświetlić utworzony harmonogram wdrożenia.
+15. Nastąpi powrót do pulpitu nawigacyjnego stanu. Wybierz pozycję **harmonogramy wdrażania** , aby wyświetlić utworzony harmonogram wdrożenia. Wyświetlane są maksymalnie 500 harmonogramów. Jeśli masz więcej niż 500 harmonogramów i chcesz zapoznać się z pełną listą, zobacz metodę interfejsu API REST [konfiguracje aktualizacji oprogramowania](/rest/api/automation/softwareupdateconfigurations/list) przy użyciu wersji 2019-06-01 lub nowszej.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Programowe Planowanie wdrożenia aktualizacji
 

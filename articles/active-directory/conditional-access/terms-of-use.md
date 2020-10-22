@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 233645519a6a918e451c425971d2e2e16f788f3a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145401"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366500"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
@@ -44,7 +44,7 @@ Warunki użytkowania usługi Azure AD mają następujące możliwości:
 - Przed zarejestrowaniem informacji o zabezpieczeniach w usłudze Azure Multi-Factor Authentication (MFA) wymagane jest, aby pracownicy lub Goście zaakceptowali warunki użytkowania.
 - Wymaganie od pracowników akceptacji warunków użytkowania przed zarejestrowaniem informacji o zabezpieczeniach w usłudze Azure AD Samoobsługowe resetowanie hasła (SSPR).
 - Zaprezentowanie ogólnych warunków użytkowania dla wszystkich użytkowników w organizacji.
-- Zaprezentowanie określonych warunków użytkowania na podstawie atrybutów użytkownika (np. warunki dla lekarzy różnią się od warunków dla pielęgniarek, a pracownicy krajowi mają inne warunki niż pracownicy międzynarodowi) za pomocą [grup dynamicznych](../users-groups-roles/groups-dynamic-membership.md).
+- Zaprezentowanie określonych warunków użytkowania na podstawie atrybutów użytkownika (np. warunki dla lekarzy różnią się od warunków dla pielęgniarek, a pracownicy krajowi mają inne warunki niż pracownicy międzynarodowi) za pomocą [grup dynamicznych](../enterprise-users/groups-dynamic-membership.md).
 - Obecne warunki użytkowania podczas uzyskiwania dostępu do aplikacji o wysokiej wpływ na działalność biznesową, takich jak Salesforce.
 - Prezentowanie warunków użytkowania w różnych językach.
 - Lista użytkowników, którzy mają lub nie zaakceptowali warunków użytkowania.
@@ -94,8 +94,8 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
    | Wygasanie od | Częstotliwość | Wynik |
    | --- | --- | --- |
-   | Dzisiejsza data  | Co miesiąc | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania, a następnie zaakceptować je ponownie co miesiąc. |
-   | Data w przyszłości  | Co miesiąc | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania. Po upływie tego czasu termin wysłane zostanie wygaśnie, a następnie użytkownicy muszą ponownie zaakceptować każdy miesiąc.  |
+   | Dzisiejsza data  | Miesięcznie | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania, a następnie zaakceptować je ponownie co miesiąc. |
+   | Data w przyszłości  | Miesięcznie | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania. Po upływie tego czasu termin wysłane zostanie wygaśnie, a następnie użytkownicy muszą ponownie zaakceptować każdy miesiąc.  |
 
    Na przykład jeśli ustawisz wygaśnięcie, rozpoczynając od **1 stycznia** , a częstotliwość na **co miesiąc**, poniżej przedstawiono sposób wygaśnięcia może wystąpić w przypadku dwóch użytkowników:
 

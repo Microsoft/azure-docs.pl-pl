@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e02df83d4b7874a1d158aae45f1619eb543e0aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91306467"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362454"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Co to jest usługa Azure AD Identity Governance?
 
@@ -58,7 +58,7 @@ Organizacje muszą mieć proces zarządzania dostępem poza to, co zostało pocz
 
 Zwykle deleguje decyzje dotyczące zatwierdzenia dostępu do podmiotów podejmujących decyzje biznesowe.  Ponadto może to dotyczyć samych użytkowników.  Na przykład użytkownicy, którzy uzyskują dostęp do poufnych danych klienta w aplikacji marketingowej firmy w Europie, muszą znać zasady firmy. Użytkownicy-Goście mogą nie wiedzieć, jakie są wymagania dotyczące obsługi danych w organizacji, do której zostały zaproszone.
 
-Organizacje mogą zautomatyzować proces cyklu życia dostępu za pomocą technologii, takich jak [grupy dynamiczne](../users-groups-roles/groups-dynamic-membership.md), w połączeniu z obsługą użytkowników, aby [SaaS aplikacje](../saas-apps/tutorial-list.md) lub [Aplikacje zintegrowane z usługą Standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organizacje mogą również kontrolować, którzy [Użytkownicy-Goście mają dostęp do aplikacji lokalnych](../external-identities/hybrid-cloud-to-on-premises.md).  Te prawa dostępu można następnie regularnie przeglądać przy użyciu cyklicznych [przeglądów dostępu do usługi Azure AD](access-reviews-overview.md).   [Zarządzanie prawami w usłudze Azure AD](entitlement-management-overview.md) umożliwia także definiowanie sposobu, w jaki użytkownicy żądają dostępu między pakietami członkostwa grup i zespołów, rolami aplikacji i rolami usługi SharePoint Online.
+Organizacje mogą zautomatyzować proces cyklu życia dostępu za pomocą technologii, takich jak [grupy dynamiczne](../enterprise-users/groups-dynamic-membership.md), w połączeniu z obsługą użytkowników, aby [SaaS aplikacje](../saas-apps/tutorial-list.md) lub [Aplikacje zintegrowane z usługą Standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organizacje mogą również kontrolować, którzy [Użytkownicy-Goście mają dostęp do aplikacji lokalnych](../external-identities/hybrid-cloud-to-on-premises.md).  Te prawa dostępu można następnie regularnie przeglądać przy użyciu cyklicznych [przeglądów dostępu do usługi Azure AD](access-reviews-overview.md).   [Zarządzanie prawami w usłudze Azure AD](entitlement-management-overview.md) umożliwia także definiowanie sposobu, w jaki użytkownicy żądają dostępu między pakietami członkostwa grup i zespołów, rolami aplikacji i rolami usługi SharePoint Online.
 
 Gdy użytkownik próbuje uzyskać dostęp do aplikacji, usługa Azure AD wymusza zasady [dostępu warunkowego](../conditional-access/index.yml) . Na przykład zasady dostępu warunkowego mogą zawierać [warunki użytkowania](../conditional-access/terms-of-use.md) i [upewnić się, że użytkownik wyraził zgodę na te warunki](../conditional-access/require-tou.md) przed uzyskaniem dostępu do aplikacji.
 
@@ -100,7 +100,7 @@ Jeśli masz opinię na temat funkcji zarządzania tożsamościami, kliknij przyc
 Chociaż nie ma doskonałego rozwiązania lub rekomendacji dla każdego klienta, następujące przewodniki konfiguracyjne zawierają również zasady linii bazowej firmy Microsoft zalecane do zapewnienia większego bezpieczeństwa i produktywności pracowników.
 
 - [Konfiguracje tożsamości i dostępu do urządzeń](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Zabezpieczanie dostępu uprzywilejowanego](../users-groups-roles/directory-admin-roles-secure.md)
+- [Zabezpieczanie dostępu uprzywilejowanego](../roles/security-planning.md)
 
 ## <a name="appendix---least-privileged-roles-for-managing-in-identity-governance-features"></a>Dodatek-najmniejsze role uprzywilejowane do zarządzania w funkcjach ładu tożsamości
 

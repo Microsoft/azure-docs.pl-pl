@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 01f10d3ba83d23478a7113cf4935181ee34959e3
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e459f654aa6824bc13b880f042d168b5b7cbafc0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125290"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368421"
 ---
 # <a name="enclave-aware-containers"></a>Kontenery obsługujące enklawy
 
@@ -65,5 +65,5 @@ RT bezgraniczny jest projektem "open source", który kompiluje się w otwartym z
 
 
 <!-- LINKS - internal -->
-[Maszyna](/confidential-computing/virtual-machine-solutions) 
- wirtualna DC [Kontenery poufne](/confidential-computing/containercompute/confidential-containers)
+[Maszyna](/azure/confidential-computing/virtual-machine-solutions) 
+ wirtualna DC [Kontenery poufne](/azure/confidential-computing/confidential-containers)

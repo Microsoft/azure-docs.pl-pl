@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: d6c447deedbdcc4f2439fc069f368db88b3560b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88483b29c8951f8e3f38f7cdc5bbdfb80eeca2b1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278043"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370138"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Samouczek: Przypisywanie roli czytelnicy katalogów do grupy usługi Azure AD i zarządzanie przypisaniami ról
 
@@ -23,9 +23,9 @@ ms.locfileid: "91278043"
 > [!NOTE]
 > Przypisanie roli **czytelnicy katalogów** do grupy w tym artykule jest w **publicznej wersji zapoznawczej**. 
 
-Ten artykuł przeprowadzi Cię przez proces tworzenia grupy w Azure Active Directory (Azure AD) i przypisywania grupy roli [**czytelnicy katalogów**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) . Uprawnienia odczyty katalogów umożliwiają właścicielom grupy Dodawanie dodatkowych członków do grupy, takich jak [zarządzana tożsamość](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)i [usługi Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Pozwala to pominąć potrzebę uprawnienia [administratora globalnego](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) lub [administratora roli uprzywilejowanej](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) do przypisywania roli czytelnicy katalogów bezpośrednio dla każdej tożsamości serwera logicznego usługi Azure SQL w dzierżawie.
+Ten artykuł przeprowadzi Cię przez proces tworzenia grupy w Azure Active Directory (Azure AD) i przypisywania grupy roli [**czytelnicy katalogów**](../../active-directory/roles/permissions-reference.md#directory-readers) . Uprawnienia odczyty katalogów umożliwiają właścicielom grupy Dodawanie dodatkowych członków do grupy, takich jak [zarządzana tożsamość](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)i [usługi Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Pozwala to pominąć potrzebę uprawnienia [administratora globalnego](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) lub [administratora roli uprzywilejowanej](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) do przypisywania roli czytelnicy katalogów bezpośrednio dla każdej tożsamości serwera logicznego usługi Azure SQL w dzierżawie.
 
-W tym samouczku użyto funkcji wprowadzonej w temacie [Używanie grup w chmurze do zarządzania przypisaniami ról w programie Azure Active Directory (wersja zapoznawcza)](../../active-directory/users-groups-roles/roles-groups-concept.md). 
+W tym samouczku użyto funkcji wprowadzonej w temacie [Używanie grup w chmurze do zarządzania przypisaniami ról w programie Azure Active Directory (wersja zapoznawcza)](../../active-directory/roles/groups-concept.md). 
 
 Aby uzyskać więcej informacji na temat korzyści z przypisywania roli czytelnicy Directory do grupy usługi Azure AD dla usługi Azure SQL, zobacz temat [rola czytelnicy Directory w Azure Active Directory dla usługi Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -38,7 +38,7 @@ Aby uzyskać więcej informacji na temat korzyści z przypisywania roli czytelni
 
 ### <a name="create-a-new-group-and-assign-owners-and-role"></a>Utwórz nową grupę i przypisz właścicieli i rolę
 
-1. Użytkownik z uprawnieniami [administratora globalnego](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) lub [administratorem roli uprzywilejowanej](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) jest wymagany dla tej początkowej konfiguracji.
+1. Użytkownik z uprawnieniami [administratora globalnego](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) lub [administratorem roli uprzywilejowanej](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) jest wymagany dla tej początkowej konfiguracji.
 1. Zalogować się do [Azure Portal](https://portal.azure.com)przez użytkownika uprzywilejowanego.
 1. Przejdź do zasobu **Azure Active Directory** . W obszarze **zarządzane**przejdź do pozycji **grupy**. Wybierz pozycję **Nowa grupa** , aby utworzyć nową grupę.
 1. Wybierz pozycję **zabezpieczenia** jako typ grupy i wypełnij pozostałe pola. Upewnij się, że ustawienie **role usługi Azure AD można przypisać do grupy (wersja zapoznawcza)** jest przełączane na **wartość tak**. Następnie przypisz rolę **czytelnicy katalogów** usługi Azure AD do grupy.
@@ -94,7 +94,7 @@ Przypisanie roli **czytniki katalogów** do tożsamości serwera nie jest wymaga
 ## <a name="directory-readers-role-assignment-using-powershell"></a>Przypisanie roli czytniki katalogów przy użyciu programu PowerShell
 
 > [!IMPORTANT]
-> Administrator [globalny](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) lub [administrator ról uprzywilejowanych](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) będzie musiał wykonać te kroki. Oprócz programu PowerShell usługa Azure AD oferuje Microsoft Graph interfejs API do [tworzenia grupy z możliwością przypisywania ról w usłudze Azure AD](../../active-directory/users-groups-roles/roles-groups-create-eligible.md#using-microsoft-graph-api).
+> Administrator [globalny](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) lub [administrator ról uprzywilejowanych](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) będzie musiał wykonać te kroki. Oprócz programu PowerShell usługa Azure AD oferuje Microsoft Graph interfejs API do [tworzenia grupy z możliwością przypisywania ról w usłudze Azure AD](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api).
 
 1. Pobierz moduł programu PowerShell usługi Azure AD w wersji zapoznawczej przy użyciu następujących poleceń. Może być konieczne uruchomienie programu PowerShell jako administrator.
 

@@ -4,12 +4,12 @@ description: Jak przenieść maszyny wirtualne/serwery fizyczne do trybu failove
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: 481e7c692be24bbebd14584f8158740a5b7043ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6737f64773f91ede1631d42cd7f28c7d961c0454
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317892"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368625"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Przechodzenie w tryb failover z lokacji lokalnej do platformy Azure
 
@@ -127,8 +127,8 @@ Jeśli chcesz nawiązać połączenie z maszynami wirtualnymi platformy Azure ut
 
 **Tryb failover** | **Lokalizacja** | **Akcje**
 --- | --- | ---
-**Maszyna wirtualna platformy Azure z systemem Windows** | Maszyna wirtualna platformy Azure po przejściu w tryb failover |  [Dodaj publiczny adres IP](https://aka.ms/addpublicip) dla maszyny wirtualnej.<br/><br/> Reguły sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover (i podsieci platformy Azure, z którą jest połączona) muszą zezwalać na połączenia przychodzące do portu RDP.<br/><br/> Sprawdź **diagnostykę rozruchu** , aby zweryfikować zrzut ekranu maszyny wirtualnej.<br/><br/> Jeśli nie możesz się połączyć, sprawdź, czy maszyna wirtualna jest uruchomiona, i przejrzyj te [wskazówki dotyczące rozwiązywania problemów](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
-**Maszyna wirtualna platformy Azure z systemem Linux** | Maszyna wirtualna platformy Azure po przejściu w tryb failover | Reguły sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover (i podsieci platformy Azure, z którą jest połączona) muszą zezwalać na połączenia przychodzące do portu SSH.<br/><br/> [Dodaj publiczny adres IP](https://aka.ms/addpublicip) dla maszyny wirtualnej.<br/><br/> Sprawdź **diagnostykę rozruchu** dla zrzutu ekranu maszyny wirtualnej.<br/><br/>
+**Maszyna wirtualna platformy Azure z systemem Windows** | Maszyna wirtualna platformy Azure po przejściu w tryb failover |  [Dodaj publiczny adres IP](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) dla maszyny wirtualnej.<br/><br/> Reguły sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover (i podsieci platformy Azure, z którą jest połączona) muszą zezwalać na połączenia przychodzące do portu RDP.<br/><br/> Sprawdź **diagnostykę rozruchu** , aby zweryfikować zrzut ekranu maszyny wirtualnej.<br/><br/> Jeśli nie możesz się połączyć, sprawdź, czy maszyna wirtualna jest uruchomiona, i przejrzyj te [wskazówki dotyczące rozwiązywania problemów](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Maszyna wirtualna platformy Azure z systemem Linux** | Maszyna wirtualna platformy Azure po przejściu w tryb failover | Reguły sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover (i podsieci platformy Azure, z którą jest połączona) muszą zezwalać na połączenia przychodzące do portu SSH.<br/><br/> [Dodaj publiczny adres IP](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) dla maszyny wirtualnej.<br/><br/> Sprawdź **diagnostykę rozruchu** dla zrzutu ekranu maszyny wirtualnej.<br/><br/>
 
 Wykonaj czynności opisane [tutaj](site-recovery-failover-to-azure-troubleshoot.md), aby rozwiązać wszystkie problemy z łącznością po przejściu do trybu failover.
 
@@ -149,4 +149,3 @@ Po przełączeniu w tryb failover należy ponownie włączyć ochronę, aby rozp
 - [Przygotuj](vmware-azure-reprotect.md) się do reochrony oprogramowania VMware i powrotu po awarii.
 - [Powrót po awarii](hyper-v-azure-failback.md) Maszyny wirtualne funkcji Hyper-V.
 - [Dowiedz się więcej o](physical-to-azure-failover-failback.md) procesie przełączania do trybu failover i powrotu po awarii dla serwerów fizycznych.
-

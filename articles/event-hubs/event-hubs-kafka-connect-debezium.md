@@ -5,12 +5,12 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: e4bd6cdf6d3a5dc30b90abc5094202360181ae0b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318517"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369560"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrowanie usługi Apache Kafka Connect Support w usłudze Azure Event Hubs (wersja zapoznawcza) z usługą Debezium na potrzeby przechwytywania zmian danych
 
@@ -98,6 +98,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> Zamień na `{YOUR.EVENTHUBS.CONNECTION.STRING}` Parametry połączenia dla przestrzeni nazw Event Hubs. Aby uzyskać instrukcje dotyczące uzyskiwania parametrów połączenia, zobacz [pobieranie parametrów połączenia Event Hubs](event-hubs-get-connection-string.md). Oto Przykładowa konfiguracja: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ### <a name="run-kafka-connect"></a>Uruchamianie narzędzia Kafka Connect
 W tym kroku proces roboczy narzędzia Kafka Connect został uruchomiony lokalnie w trybie rozproszonym przy użyciu usługi Event Hubs w celu zachowania stanu klastra.

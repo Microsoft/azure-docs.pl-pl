@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrożyć i skonfigurować rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 607ff3cb04002883b49b4c5bc37d312cbb83c8e5
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: c78eae11497702054bb54b5980228fd0a3962577
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173610"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367775"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
@@ -64,7 +64,9 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
 * Skonfiguruj [Global REACH Azure ExpressRoute](tutorial-expressroute-global-reach-private-cloud.md) między środowiskiem lokalnym i usługą Azure VMware SDDC ExpressRoute.
 
-* Wszystkie wymagane porty powinny być otwarte do komunikacji między składnikami lokalnymi i rozwiązaniem Azure VMware SDDC. Aby uzyskać więcej informacji, zobacz [dokumentację programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
+* [Wszystkie wymagane porty](https://ports.vmware.com/home/VMware-HCX) powinny być otwarte do komunikacji między składnikami lokalnymi i rozwiązaniem Azure VMware SDDC.
+
+Aby uzyskać więcej informacji, zobacz [dokumentację programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
 
 
 ### <a name="ip-addresses"></a>Adresy IP
@@ -73,13 +75,13 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
    
 ## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>Wdrażanie lokalnych komórek jajowych łącznika VMware HCX
 
->[!NOTE]
->Przed wdrożeniem urządzenia wirtualnego w lokalnym programie vCenter należy pobrać komórki jajowe łącznika VMware HCX. 
+> [!NOTE]
+> Przed wdrożeniem urządzenia wirtualnego w lokalnym programie vCenter należy pobrać komórki jajowe łącznika VMware HCX. 
 
 1. Otwórz okno przeglądarki, zaloguj się do usługi Azure VMware Solution HCX Manager na `https://x.x.x.9` porcie 443 przy użyciu poświadczeń użytkownika **cloudadmin** , a następnie przejdź do **pomocy technicznej**.
 
-   >[!TIP]
-   >Zanotuj adres IP HCX Cloud Manager w rozwiązaniu Azure VMware. Aby zidentyfikować adres IP, w okienku rozwiązania Azure VMware przejdź do pozycji **Zarządzanie**  >  **łącznością** , a następnie wybierz kartę **HCX** . 
+   > [!TIP]
+   > Zanotuj adres IP HCX Cloud Manager w rozwiązaniu Azure VMware. Aby zidentyfikować adres IP, w okienku rozwiązania Azure VMware przejdź do pozycji **Zarządzanie**  >  **łącznością** , a następnie wybierz kartę **HCX** . 
    >
    >Hasło vCenter zostało zdefiniowane podczas konfigurowania chmury prywatnej.
 
@@ -102,8 +104,8 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
 1. Wybierz pozycję **dalej**, sprawdź konfigurację, a następnie wybierz pozycję **Zakończ** , aby wdrożyć komórki jajowe łącznika HCX.
      
-   >[!NOTE]
-   >Zazwyczaj wdrożony łącznik VMware HCX jest wdrażany w sieci zarządzania klastrami.  
+   > [!NOTE]
+   > Zazwyczaj wdrożony łącznik VMware HCX jest wdrażany w sieci zarządzania klastrami.  
    
    > [!IMPORTANT]
    > Może być konieczne ręczne włączenie urządzenia wirtualnego.  W takim przypadku należy poczekać 10-15 minut przed przejściem do następnego kroku.
@@ -171,7 +173,7 @@ Korzystając z łącznika VMware HCX w centrum danych, możesz połączyć się 
 1. Wprowadź zanotowany wcześniej adres URL lub adres IP HCX zdalnego, nazwę użytkownika rozwiązania VMware platformy Azure cloudadmin@vsphere.local oraz hasło. Następnie wybierz pozycję **Połącz**.
 
    > [!NOTE]
-   > Zdalny adres URL HCX jest adresem IP w chmurze prywatnej usługi Azure VMware HCX, który jest adresem ". 9" sieci zarządzania. Na przykład jeśli serwer vCenter to 192.168.4.2, adres URL HCX będzie 192.168.4.9.
+   > Aby pomyślnie nawiązać parę lokacji, łącznik HCX musi być w stanie kierować do usługi HCX Cloud Manager IP przez port 443.
    >
    > Hasło jest to samo hasło, które zostało użyte do zalogowania się do programu vCenter. To hasło zostało zdefiniowane na ekranie wdrożenia początkowego.
 
@@ -272,6 +274,13 @@ Aby zapoznać się z kompleksowym omówieniem tej procedury, zobacz temat [rozwi
 
 Teraz można skonfigurować siatkę usługi między środowiskiem lokalnym i rozwiązaniem Azure VMware SDDC.
 
+   > [!NOTE]
+   > Aby pomyślnie nawiązać siatkę usług z rozwiązaniem VMware platformy Azure:
+   >
+   > Porty UDP 500/4500 są otwarte między lokalnymi adresami profilu sieciowego (pasma) HCX i adresem profilu sieci "pasmem" w chmurze platformy Azure.
+   >
+   > Sprawdź, czy [HCX wymagane porty](https://ports.vmware.com/home/VMware-HCX).
+
 1. W obszarze **infrastruktura**wybierz **Interconnect**pozycję  >  **Sieć usługi**Interconnect  >  **Utwórz siatkę usług**.    
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="Zrzut ekranu przedstawiający przeglądanie szablonu OVF." lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
@@ -351,3 +360,4 @@ Aby uzyskać więcej informacji na temat korzystania z HCX, przejdź do dokument
 
 * [Dokumentacja programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Migrowanie Virtual Machines przy użyciu oprogramowania VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
+* [HCX wymagane porty](https://ports.vmware.com/home/VMware-HCX)

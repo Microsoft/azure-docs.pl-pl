@@ -1,6 +1,6 @@
 ---
 title: Przekształcanie danych
-description: Przekształć dane lub Przetwarzaj dane w Azure Data Factory przy użyciu usługi Hadoop, Machine Learning lub Azure Data Lake Analytics.
+description: Przekształć dane lub Przetwarzaj dane w Azure Data Factory przy użyciu usługi Hadoop, Azure Machine Learning Studio (klasyczne) lub Azure Data Lake Analytics.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039afdafdccbefe03b5b366a89256409fda482e9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442789"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368863"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Przekształcanie danych w usłudze Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "89442789"
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [Przesyłanie strumieniowe w usłudze HDInsight](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Azure Machine Learning Studio (klasyczny)](transform-data-using-machine-learning.md) 
 > * [Procedura składowana](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Notes datakostki](transform-data-databricks-notebook.md)
@@ -70,12 +70,12 @@ Działanie przesyłania strumieniowego usługi HDInsight w potoku Data Factory w
 ### <a name="hdinsight-spark-activity"></a>Działanie usługi HDInsight Spark
 Działanie usługi HDInsight Spark w potoku Data Factory wykonuje programy platformy Spark w ramach własnego klastra usługi HDInsight. Aby uzyskać szczegółowe informacje, zobacz [wywoływanie programów Spark z Azure Data Factory](transform-data-using-spark.md). 
 
-### <a name="machine-learning-activities"></a>Działania Machine Learning
-Azure Data Factory umożliwia łatwe tworzenie potoków używających opublikowanej usługi sieci Web Azure Machine Learning do analizy predykcyjnej. Za pomocą [działania wykonywania wsadowego](transform-data-using-machine-learning.md) w potoku Azure Data Factory można wywołać usługę sieci Web Machine Learning, aby przetworzyć prognozy dotyczące danych w usłudze Batch.
+### <a name="azure-machine-learning-studio-classic-activities"></a>Działania Azure Machine Learning Studio (klasyczne)
+Azure Data Factory umożliwia łatwe tworzenie potoków korzystających z opublikowanej usługi sieci Web Azure Machine Learning Studio (klasycznej) na potrzeby analizy predykcyjnej. Za pomocą [działania wykonywania wsadowego](transform-data-using-machine-learning.md) w potoku Azure Data Factory można wywołać usługę sieci Web programu Studio (klasyczną), aby tworzyć prognozy dotyczące danych w usłudze Batch.
 
-W miarę upływu czasu modele predykcyjne w eksperymentach oceniających Machine Learning muszą być ponownie przeszkoli przy użyciu nowych wejściowych zestawów danych. Po wykonaniu ponownych szkoleń należy zaktualizować usługę sieci Web oceniania za pomocą Machine Learninggo modelu. Możesz użyć [działania Aktualizuj zasób](update-machine-learning-models.md) , aby zaktualizować usługę sieci Web przy użyciu nowo nauczonego modelu.  
+W miarę upływu czasu modele predykcyjne w eksperymentach oceniania w programie Studio (klasycznej) muszą być ponownie przeszkoli przy użyciu nowych wejściowych zestawów danych. Po wykonaniu ponownych szkoleń, chcesz zaktualizować usługę oceniania przy użyciu modelu uczenia maszynowego. Możesz użyć [działania Aktualizuj zasób](update-machine-learning-models.md) , aby zaktualizować usługę sieci Web przy użyciu nowo nauczonego modelu.  
 
-Aby uzyskać szczegółowe informacje o tych Machine Learning działaniach, zobacz temat [używanie Machine Learning działań](transform-data-using-machine-learning.md) . 
+Aby uzyskać szczegółowe informacje o działaniach programu Studio (klasycznych), zobacz temat [Korzystanie z działań Azure Machine Learning Studio (klasycznych)](transform-data-using-machine-learning.md) . 
 
 ### <a name="stored-procedure-activity"></a>Działanie procedury składowanej
 Możesz użyć działania procedury składowanej SQL Server w potoku Data Factory, aby wywołać procedurę składowaną w jednym z następujących magazynów danych: Azure SQL Database, Azure Synapse Analytics (dawniej SQL Data Warehouse), SQL Server Database w przedsiębiorstwie lub maszynie wirtualnej platformy Azure. Szczegóły można znaleźć w artykule dotyczącym [działania procedury składowanej](transform-data-using-stored-procedure.md) .  

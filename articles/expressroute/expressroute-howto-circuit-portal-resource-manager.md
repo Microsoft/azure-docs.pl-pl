@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: c2e0f7736aa5d6779e4ed7cb3824f6606c121565
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b0fd844021e7398e061072d7939b782616580c1c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073142"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368693"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Szybki Start: Tworzenie i modyfikowanie obwodu ExpressRoute
 

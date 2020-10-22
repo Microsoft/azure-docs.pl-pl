@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa1016307cc6e838e2e1136f6bbacd82d2f8c82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88640756"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362369"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Jak skonfigurować przypisanie aplikacji samoobsługi
 
@@ -82,4 +82,4 @@ Aby włączyć samoobsługowy dostęp do aplikacji, wykonaj następujące czynno
 Po zakończeniu konfigurowania aplikacji samoobsługi użytkownicy mogą przechodzić do swoich [aplikacji](https://myapps.microsoft.com/) , a następnie kliknąć przycisk **Dodaj aplikacje** samoobsługowe, aby znaleźć aplikacje, które są włączone z dostępem samoobsługowym. Osoby zatwierdzające firmy widzą również powiadomienie w swoich [aplikacjach](https://myapps.microsoft.com/). Możesz włączyć wiadomość e-mail z powiadomieniem, gdy użytkownik zażądał dostępu do aplikacji, która wymaga zatwierdzenia.
 
 ## <a name="next-steps"></a>Następne kroki
-[Konfigurowanie usługi Azure Active Directory do samoobsługowego zarządzania grupami](../users-groups-roles/groups-self-service-management.md)
+[Konfigurowanie usługi Azure Active Directory do samoobsługowego zarządzania grupami](../enterprise-users/groups-self-service-management.md)

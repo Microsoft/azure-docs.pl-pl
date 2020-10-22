@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8776ad915ff215eef143f62aaa9e242ff0354f3e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83736504"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368795"
 ---
 # <a name="identity-protection-policies"></a>Zasady ochrony tożsamości
 
-Azure Active Directory Identity Protection obejmuje trzy domyślne zasady, które Administratorzy mogą włączyć. Te zasady obejmują ograniczone dostosowanie, ale mają zastosowanie w przypadku większości organizacji. Wszystkie zasady zezwalają na wykluczenie użytkowników, takich jak [dostęp awaryjny lub konta administratora z przerwaniem](../users-groups-roles/directory-emergency-access.md).
+Azure Active Directory Identity Protection obejmuje trzy domyślne zasady, które Administratorzy mogą włączyć. Te zasady obejmują ograniczone dostosowanie, ale mają zastosowanie w przypadku większości organizacji. Wszystkie zasady zezwalają na wykluczenie użytkowników, takich jak [dostęp awaryjny lub konta administratora z przerwaniem](../roles/security-emergency-access.md).
 
 ![Zasady ochrony tożsamości](./media/concept-identity-protection-policies/identity-protection-policies.png)
 

@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące odzyskiwania po awarii oprogramowania
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odzyskiwania po awarii lokalnych maszyn wirtualnych VMware na platformę Azure przy użyciu Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89054975"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359802"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Typowe pytania dotyczące replikacji z programu VMware do platformy Azure
 
@@ -75,7 +75,7 @@ Site Recovery jest certyfikowany dla ISO 27001:2013 i 27018, HIPAA i DPA. Jest t
 
 Za pomocą [kalkulatora cen](https://aka.ms/asr_pricing_calculator) można oszacować koszty przy użyciu Site Recovery.
 
-Aby uzyskać szczegółowe oszacowanie kosztów, uruchom narzędzie planista wdrażania dla oprogramowania [VMware](https://aka.ms/siterecovery_deployment_planner) i Użyj [raportu szacowania kosztów](https://aka.ms/asr_DP_costreport).
+Aby uzyskać szczegółowe oszacowanie kosztów, uruchom narzędzie planista wdrażania dla oprogramowania [VMware](./site-recovery-deployment-planner.md) i Użyj [raportu szacowania kosztów](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Czy istnieje różnica w kosztach między replikacją do magazynu a usługą Managed disks bezpośrednio?
 
@@ -114,7 +114,7 @@ Site Recovery replikuje lokalne maszyny wirtualne VMware i serwery fizyczne do d
 
 Nie. Począwszy od marca 2019, w Azure Portal można replikować tylko do usługi Azure Managed Disks.
 
-Replikacja nowych maszyn wirtualnych do konta magazynu jest dostępna tylko przy użyciu programu PowerShell ([AZ. RecoveryServices Module Version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) lub interfejsu API REST (wersja 2018-01-10 lub 2016-08-10). [Dowiedz się, jak](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) skonfigurować replikację za pomocą poleceń programu PowerShell.
+Replikacja nowych maszyn wirtualnych do konta magazynu jest dostępna tylko przy użyciu programu PowerShell ([AZ. RecoveryServices Module Version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) lub interfejsu API REST (wersja 2018-01-10 lub 2016-08-10). [Dowiedz się, jak](./vmware-azure-disaster-recovery-powershell.md) skonfigurować replikację za pomocą poleceń programu PowerShell.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Jakie korzyści wiążą się z replikacją do dysków zarządzanych?
 
@@ -190,7 +190,7 @@ Site Recovery generuje punkty odzyskiwania spójne z awarią co 5 minut.
 
 ### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Moja wersja agenta lub serwera konfiguracji usługi mobilności jest stara, a uaktualnienie nie powiodło się. Co mam zrobić?
 
-Site Recovery jest zgodny z modelem wsparcia N-4. [Dowiedz się więcej](https://aka.ms/asr_support_statement) o tym, jak przeprowadzić uaktualnienie ze starszych wersji.
+Site Recovery jest zgodny z modelem wsparcia N-4. [Dowiedz się więcej](./service-updates-how-to.md#support-statement-for-azure-site-recovery) o tym, jak przeprowadzić uaktualnienie ze starszych wersji.
 
 ### <a name="where-can-i-find-the-release-notes-and-update-rollups-for-azure-site-recovery"></a>Gdzie można znaleźć informacje o wersji i pakiety zbiorcze aktualizacji dla Azure Site Recovery?
 
@@ -198,11 +198,11 @@ Site Recovery jest zgodny z modelem wsparcia N-4. [Dowiedz się więcej](https:/
 
 ### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>Gdzie mogę znaleźć informacje o uaktualnianiu odzyskiwania po awarii na platformie Azure?
 
-[Dowiedz się więcej na temat uaktualniania](https://aka.ms/asr_vmware_upgrades).
+[Dowiedz się więcej na temat uaktualniania](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>Czy należy ponownie uruchomić maszyny źródłowe dla każdego uaktualnienia?
 
-Zaleca się ponowne uruchomienie, ale nie jest to wymagane dla każdego uaktualnienia. [Dowiedz się więcej](https://aka.ms/asr_vmware_upgrades).
+Zaleca się ponowne uruchomienie, ale nie jest to wymagane dla każdego uaktualnienia. [Dowiedz się więcej](./service-updates-how-to.md#reboot-after-mobility-service-upgrade).
 
 ## <a name="configuration-server"></a>Serwer konfiguracji
 
@@ -246,7 +246,7 @@ Chociaż jest to możliwe, maszyna wirtualna platformy Azure, na której działa
 
 - Najnowsze informacje o aktualizacji można znaleźć na [stronie aktualizacji platformy Azure](https://azure.microsoft.com/updates/?product=site-recovery).
 - Najnowszą wersję można pobrać z portalu. Można też pobrać najnowszą wersję serwera konfiguracji bezpośrednio z [Centrum pobierania Microsoft](https://aka.ms/asrconfigurationserver).
-- Jeśli Twoja wersja ma więcej niż cztery wersje starsze niż bieżąca wersja, zapoznaj się z [instrukcjami](https://aka.ms/asr_support_statement) dotyczącymi uaktualniania.
+- Jeśli Twoja wersja ma więcej niż cztery wersje starsze niż bieżąca wersja, zapoznaj się z [instrukcjami](./service-updates-how-to.md#support-statement-for-azure-site-recovery) dotyczącymi uaktualniania.
 
 ### <a name="should-i-back-up-the-configuration-server"></a>Czy należy utworzyć kopię zapasową serwera konfiguracji?
 

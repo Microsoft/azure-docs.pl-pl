@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcd232a3242b0341bfc81fa9785f76b0d3bd90cb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361487"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369458"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii maszyny wirtualnej VMware/serwera fizycznego
 
@@ -169,12 +169,12 @@ Aby zaktualizować serwer konfiguracji, należy uruchomić pakiet zbiorczy aktua
 - Jeśli uruchomisz 9,7, 9,8, 9,9 lub 9,10, możesz przeprowadzić uaktualnienie bezpośrednio do wersji 9,11.
 - Jeśli zostanie uruchomiony system 9,6 lub starszy i chcesz przeprowadzić uaktualnienie do wersji 9,11, musisz najpierw przeprowadzić uaktualnienie na wersję 9,7. przed 9,11.
 
-Aby uzyskać szczegółowe wskazówki dotyczące pomocy technicznej dotyczącej składników Azure Site Recovery, zobacz [tutaj](https://aka.ms/asr_support_statement).
-Linki do pakietów zbiorczych aktualizacji na potrzeby uaktualniania do wszystkich wersji serwera konfiguracji są dostępne [tutaj](https://aka.ms/asr_update_rollups).
+Aby uzyskać szczegółowe wskazówki dotyczące pomocy technicznej dotyczącej składników Azure Site Recovery, zobacz [tutaj](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
+Linki do pakietów zbiorczych aktualizacji na potrzeby uaktualniania do wszystkich wersji serwera konfiguracji są dostępne [tutaj](./service-updates-how-to.md#links-to-currently-supported-update-rollups).
 
 > [!IMPORTANT]
 > W przypadku każdej nowej wersji "N" wydanego składnika Azure Site Recovery wszystkie wersje poniżej "N-4" są uznawane za nieobsługiwane. Zawsze zaleca się przeprowadzenie uaktualnienia do najnowszej wersji.</br>
-> Aby uzyskać szczegółowe wskazówki dotyczące pomocy technicznej dotyczącej składników Azure Site Recovery, zobacz [tutaj](https://aka.ms/asr_support_statement).
+> Aby uzyskać szczegółowe wskazówki dotyczące pomocy technicznej dotyczącej składników Azure Site Recovery, zobacz [tutaj](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
 
 Uaktualnij serwer w następujący sposób:
 
@@ -192,7 +192,7 @@ Uaktualnij serwer w następujący sposób:
     ![Aktualizacja](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Kliknij przycisk **Zakończ** , aby zamknąć Instalatora.
-8. Aby uaktualnić pozostałe składniki Site Recovery, zapoznaj się z naszymi [wskazówkami dotyczącymi uaktualniania](https://aka.ms/asr_vmware_upgrades).
+8. Aby uaktualnić pozostałe składniki Site Recovery, zapoznaj się z naszymi [wskazówkami dotyczącymi uaktualniania](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>Uaktualnianie serwera konfiguracji/serwera przetwarzania z wiersza polecenia
 
@@ -212,7 +212,7 @@ Uruchom plik instalacyjny w następujący sposób:
 
 ### <a name="parameters"></a>Parametry
 
-|Nazwa parametru| Type | Opis| Wartości|
+|Nazwa parametru| Typ | Opis| Wartości|
 |-|-|-|-|
 | /ServerMode|Wymagane|Określa, czy mają zostać zainstalowane oba serwery, konfiguracji i przetwarzania, czy tylko serwer przetwarzania|CS<br>PS|
 |/InstallLocation|Wymagane|Folder, w którym są instalowane składniki| Dowolny folder na komputerze|
