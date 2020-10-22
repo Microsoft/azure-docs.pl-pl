@@ -3,12 +3,12 @@ title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ddfbf0803ea7ab53b1b42b977a9ebdd2354bc5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729104"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369611"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -132,7 +132,7 @@ Bootstrap. servers = {Twoje. EVENTHUBS. FQDN}: 9093 Request. Timeout. ms = 60 00
 
 Przykład:
 
-Bootstrap. servers = dummynamespace. ServiceBus. Windows. NET: 9093 Request. Timeout. ms = 60 000 Security. Protocol = SASL_SSL SASL. mechanizm = zwykła sasl.jaas.config= org. Apache. Kafka. Common. Security. sys. PlainLoginModule wymagana nazwa użytkownika = "$ConnectionString" Password = "Endpoint = SB://dummynamespace.ServiceBus.Windows.NET/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ";
+Bootstrap. servers = dummynamespace. ServiceBus. Windows. NET: 9093 Request. Timeout. ms = 60 000 Security. Protocol = SASL_SSL SASL. mechanizm = zwykła sasl.jaas.config= org. Apache. Kafka. Common. Security. sys. PlainLoginModule wymagana nazwa użytkownika = "$ConnectionString" Password = "Endpoint = SB://dummynamespace.ServiceBus.Windows.NET/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = XXXXXXXXXXXXXXXXXXXXX ";
 
 Uwaga: Jeśli sasl.jaas.config nie jest obsługiwaną konfiguracją w Twojej strukturze, Znajdź konfiguracje, które są używane do ustawiania nazwy użytkownika i hasła SASL, i Użyj zamiast nich. Ustaw nazwę użytkownika na $ConnectionString i hasło do parametrów połączenia Event Hubs.
 

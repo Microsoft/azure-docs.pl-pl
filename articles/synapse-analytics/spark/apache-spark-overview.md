@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3a2ba65fcef2b6481835cb45243449870361c062
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3c269f07c177d99e46dcc343b80979835b429b68
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87498926"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369356"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics"></a>Apache Spark w usłudze Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Pule Spark w usłudze Azure Synapse oferują w pełni zarządzaną usługę Spar
 
 Pule platformy Spark w usłudze Azure Synapse obejmują następujące składniki, które są domyślnie dostępne w pulach.
 
-- [Spark Core](https://spark.apache.org/docs/latest/). Obejmuje platformę Spark Core, Spark SQL, GraphX i MLlib.
+- [Spark Core](https://spark.apache.org/docs/2.4.5/). Obejmuje platformę Spark Core, Spark SQL, GraphX i MLlib.
 - [Anaconda](https://docs.continuum.io/anaconda/)
 - [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 - [Nteract Notes](https://nteract.io/)
@@ -81,7 +81,7 @@ Skorzystaj z poniższych artykułów, aby dowiedzieć się więcej o Apache Spar
 - [Szybki Start: Tworzenie puli platformy Spark w usłudze Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)
 - [Szybki Start: Tworzenie notesu Apache Spark](../quickstart-apache-spark-notebook.md)
 - [Samouczek: Uczenie maszynowe przy użyciu Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
-- [Apache Spark Oficjalna dokumentacja](https://spark.apache.org/docs/latest/)
+- [Apache Spark Oficjalna dokumentacja](https://spark.apache.org/docs/2.4.5/)
 
 > [!NOTE]
 > Niektóre oficjalne dokumenty Apache Spark opierają się na użyciu konsoli platformy Spark, ale nie są dostępne w usłudze Azure Synapse Spark, zamiast tego należy użyć notesu lub środowiska IntelliJ

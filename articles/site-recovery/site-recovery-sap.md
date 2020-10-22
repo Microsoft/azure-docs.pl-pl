@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86133701"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369424"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowego wdrożenia aplikacji SAP NetWeaver
 
@@ -39,11 +39,11 @@ Przed rozpoczęciem upewnij się, że wiesz, jak wykonać następujące zadania:
 
 Za pomocą Site Recovery można zaimplementować rozwiązanie odzyskiwania po awarii w następujących scenariuszach:
 * Istnieją systemy SAP działające w jednym centrum danych platformy Azure i są one replikowane do innego centrum danych platformy Azure (odzyskiwania po awarii z platformy Azure do platformy Azure). 
-   Aby uzyskać więcej informacji, zobacz [Architektura replikacji z platformy Azure do platformy Azure](https://aka.ms/asr-a2a-architecture).
+   Aby uzyskać więcej informacji, zobacz [Architektura replikacji z platformy Azure do platformy Azure](./azure-to-azure-architecture.md).
 * Istnieją systemy SAP działające na serwerach VMware (lub fizycznych) w środowisku lokalnym. Systemy SAP są również replikowane do lokacji odzyskiwania po awarii w centrum danych platformy Azure (odzyskiwanie po awarii oprogramowania VMware na platformę Azure). 
-   W tym scenariuszu wymagane są pewne dodatkowe składniki. Aby uzyskać więcej informacji, zobacz [Architektura replikacji VMware-to-Azure](https://aka.ms/asr-v2a-architecture).
+   W tym scenariuszu wymagane są pewne dodatkowe składniki. Aby uzyskać więcej informacji, zobacz [Architektura replikacji VMware-to-Azure](./vmware-azure-architecture.md).
 * Masz systemy SAP działające w środowisku funkcji Hyper-V lokalnie. Systemy SAP są również replikowane do lokacji odzyskiwania po awarii w centrum danych platformy Azure (odzyskiwanie awaryjne funkcji Hyper-V do platformy Azure).
-   W tym scenariuszu wymagane są pewne dodatkowe składniki. Aby uzyskać więcej informacji, zobacz [Architektura replikacji funkcji Hyper-V do platformy Azure](https://aka.ms/asr-h2a-architecture).
+   W tym scenariuszu wymagane są pewne dodatkowe składniki. Aby uzyskać więcej informacji, zobacz [Architektura replikacji funkcji Hyper-V do platformy Azure](./hyper-v-azure-architecture.md).
 
 W tym artykule opisano scenariusz odzyskiwania po awarii **z platformy Azure do platformy Azure** . W tym scenariuszu przedstawiono możliwości odzyskiwania po awarii oprogramowania SAP Site Recovery. Ponieważ replikacja Site Recovery nie jest specyficzna dla aplikacji, proces, który został opisany, ma zastosowanie również do innych scenariuszy.
 

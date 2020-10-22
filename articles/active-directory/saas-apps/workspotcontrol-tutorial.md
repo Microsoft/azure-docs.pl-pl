@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: bfbecc71638e6feaaf29809f09dda752dd29b2ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "88526589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Samouczek: integracja Azure Active Directory z kontrolką Workspot
@@ -103,20 +103,20 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą kontrolki W
     ![Informacje o rejestracji jednokrotnej w domenie i adresach URL Workspot](common/idp-intiated.png)
 
     1. W polu tekstowym **Identyfikator** wprowadź adres URL w następującym wzorcu:<br/>
-    ***https://<<i></i> INSTANCENAME>-SAML.Workspot.com/SAML/Metadata***
+    **_https://<<i></i> INSTANCENAME>-saml.workspot.com/saml/metadata_*_
 
-    1. W polu tekstowym **adres URL odpowiedzi** wprowadź adres URL w następującym wzorcu:<br/>
-    ***https://<<i></i> INSTANCENAME>-SAML.Workspot.com/SAML/Assertion***
+    1. W _polu tekstowym *adres URL odpowiedzi** wprowadź adres URL w następującym wzorcu: <br/> 
+    * *_https://<<i></i> InstanceName>-SAML.Workspot.com/SAML/Assertion_*_
 
-5. Jeśli chcesz skonfigurować aplikację w trybie zainicjowanym przez program SP, wybierz opcję **Ustaw dodatkowe adresy URL**.
+5. Jeśli chcesz skonfigurować aplikację w trybie zainicjowanym z użyciem programu SP, wybierz pozycję _ * Ustaw dodatkowe adresy URL * *.
 
     ![Informacje o rejestracji jednokrotnej w domenie i adresach URL Workspot](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **adres URL logowania** wprowadź adres URL w następującym wzorcu:<br/>
-    ***https://<<i></i> INSTANCENAME>-SAML.Workspot.com/***
+    **_https://<<i></i> INSTANCENAME>-saml.workspot.com/_*_
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistym identyfikatorem, adresem URL odpowiedzi i adresem URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej Workspot Control Client](mailto:support@workspot.com) . Można również odwołać się do wzorców w sekcji podstawowe informacje o **konfiguracji SAML** Azure Portal.
+    > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistym identyfikatorem, adresem URL odpowiedzi i adresem URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej Workspot Control Client](mailto:support@workspot.com) . Można również odwołać się do wzorców w sekcji _*Podstawowa konfiguracja SAML** w Azure Portal.
 
 6. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **certyfikat (base64)** z dostępnych opcji zgodnie z wymaganiami. Zapisz go na komputerze.
 
@@ -176,7 +176,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal.
 
     1. Zaznacz pole wyboru **Pokaż hasło** . Następnie Zapisz wartość wyświetlaną w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

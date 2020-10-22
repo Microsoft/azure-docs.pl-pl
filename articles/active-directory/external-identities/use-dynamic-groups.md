@@ -11,19 +11,19 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6adf7e6c5abbba3c018f9a03b5167aec7537c704
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b21f14bc6f80445d1119f34d24281d764fff38c8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87908964"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369169"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupy dynamiczne i Azure Active Directory współpracy B2B
 
 ## <a name="what-are-dynamic-groups"></a>Co to są grupy dynamiczne?
 Dynamiczna konfiguracja przynależności do grupy zabezpieczeń dla Azure Active Directory (Azure AD) jest dostępna w [Azure Portal](https://portal.azure.com). Administratorzy mogą ustawiać reguły do wypełniania grup utworzonych w usłudze Azure AD na podstawie atrybutów użytkownika (takich jak UserType, Department lub Country/region). Elementy członkowskie mogą być automatycznie dodawane lub usuwane z grupy zabezpieczeń na podstawie ich atrybutów. Te grupy mogą zapewniać dostęp do aplikacji lub zasobów w chmurze (witryn programu SharePoint, dokumentów) i przypisywać licencje do członków. Przeczytaj więcej na temat grup dynamicznych w [dedykowanych grupach w Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
 
-Do tworzenia grup dynamicznych i korzystania z nich wymagane są [Licencjonowanie w Azure AD — wersja Premium P1 lub P2](https://azure.microsoft.com/pricing/details/active-directory/) . Więcej informacji znajduje się w artykule [Tworzenie reguł opartych na atrybutach dla członkostwa w grupie dynamicznej w Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md).
+Do tworzenia grup dynamicznych i korzystania z nich wymagane są [Licencjonowanie w Azure AD — wersja Premium P1 lub P2](https://azure.microsoft.com/pricing/details/active-directory/) . Więcej informacji znajduje się w artykule [Tworzenie reguł opartych na atrybutach dla członkostwa w grupie dynamicznej w Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 ## <a name="creating-an-all-users-dynamic-group"></a>Tworzenie grupy dynamicznej "Wszyscy użytkownicy"
 Można utworzyć grupę zawierającą wszystkich użytkowników w dzierżawie przy użyciu reguły członkostwa. Gdy użytkownicy są dodawani lub usuwani z dzierżawy w przyszłości, członkostwo w grupie jest dostosowywane automatycznie.

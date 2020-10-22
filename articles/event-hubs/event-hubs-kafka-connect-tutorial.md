@@ -3,12 +3,12 @@ title: Integrowanie narzędzia Apache Kafka Connect z usługą Azure Event Hubs 
 description: Ten artykuł zawiera informacje dotyczące korzystania z programu Kafka Connect with Azure Event Hubs for Kafka.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: b063bb36ec17c22c0f093f1b33f11597eed5ea68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37d2465d9389a0bcfaabdec32bad0c86846cfb2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061669"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369543"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrowanie obsługi narzędzia Apache Kafka Connect w usłudze Azure Event Hubs (wersja zapoznawcza)
 Wraz ze wzrostem ilości danych pozyskiwanych do celów biznesowych zwiększa się poziom wymagań dotyczących pozyskiwania dla różnych ujść i źródeł zewnętrznych. Narzędzie [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) udostępnia platformę do łączenia i importowania/eksportowania danych w dowolnym systemie zewnętrznym, takim jak MySQL, HDFS i system plików za pośrednictwem klastra platformy Kafka. Ten samouczek przeprowadzi Cię przez proces używania programu Kafka Connect Framework z Event Hubs.
@@ -91,13 +91,17 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
 
+> [!IMPORTANT]
+> Zamień na `{YOUR.EVENTHUBS.CONNECTION.STRING}` Parametry połączenia dla przestrzeni nazw Event Hubs. Aby uzyskać instrukcje dotyczące uzyskiwania parametrów połączenia, zobacz [pobieranie parametrów połączenia Event Hubs](event-hubs-get-connection-string.md). Oto Przykładowa konfiguracja: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
+
 ## <a name="run-kafka-connect"></a>Uruchamianie narzędzia Kafka Connect
 
 W tym kroku proces roboczy narzędzia Kafka Connect został uruchomiony lokalnie w trybie rozproszonym przy użyciu usługi Event Hubs w celu zachowania stanu klastra.
 
 1. Zapisz powyższy plik `connect-distributed.properties` lokalnie.  Zamień wszystkie wartości w nawiasach klamrowych.
 2. Przejdź do lokalizacji platformy Kafka w maszynie.
-4. Uruchom polecenie `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`.  Pojawienie się tekstu `'INFO Finished starting connectors and tasks'` oznacza, że interfejs API REST procesu roboczego narzędzia Connect jest gotowy do interakcji. 
+4. Należy uruchomić polecenie `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`.  Pojawienie się tekstu `'INFO Finished starting connectors and tasks'` oznacza, że interfejs API REST procesu roboczego narzędzia Connect jest gotowy do interakcji. 
 
 > [!NOTE]
 > Kafka Connect używa interfejsu API Kafka AdminClient do automatycznego tworzenia tematów z zalecanymi konfiguracjami, w tym kompaktowania. Z szybkiego sprawdzenia przestrzeni nazw w witrynie Azure Portal wynika, że tematy wewnętrzne procesu roboczego narzędzia Connect zostały utworzone automatycznie.

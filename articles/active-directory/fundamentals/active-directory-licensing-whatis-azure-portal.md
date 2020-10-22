@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bb0c1773a08bc934eebc4f110cec43e4b07e49e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0490334c759da6ef7ba7ff2535f5f561cdb7a9bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565059"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369815"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Co to jest Licencjonowanie oparte na grupach w Azure Active Directory?
 
@@ -65,9 +65,9 @@ Jeśli masz opinię lub wnioski dotyczące funkcji, udostępnij je za pomocą [f
 
 Aby dowiedzieć się więcej na temat innych scenariuszy zarządzania licencjami w ramach programu licencjonowania opartego na grupach, zobacz:
 
-* [Przypisywanie licencji do grupy w usłudze Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
-* [Identyfikowanie i rozwiązywanie problemów z licencją dla grupy w usłudze Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
-* [Jak migrować użytkowników z licencjami indywidualnymi do licencji opartych na grupach w usłudze Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
-* [Jak migrować użytkowników między licencjami produktu przy użyciu licencjonowania opartego na grupach w programie Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Dodatkowe scenariusze licencjonowania opartego na grupach w usłudze Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
-* [Przykłady programu PowerShell dla licencjonowania opartego na grupach w Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)
+* [Przypisywanie licencji do grupy w usłudze Azure Active Directory](../enterprise-users/licensing-groups-assign.md)
+* [Identyfikowanie i rozwiązywanie problemów z licencją dla grupy w usłudze Azure Active Directory](../enterprise-users/licensing-groups-resolve-problems.md)
+* [Jak migrować użytkowników z licencjami indywidualnymi do licencji opartych na grupach w usłudze Azure Active Directory](../enterprise-users/licensing-groups-migrate-users.md)
+* [Jak migrować użytkowników między licencjami produktu przy użyciu licencjonowania opartego na grupach w programie Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md)
+* [Dodatkowe scenariusze licencjonowania opartego na grupach w usłudze Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
+* [Przykłady programu PowerShell dla licencjonowania opartego na grupach w Azure Active Directory](../enterprise-users/licensing-ps-examples.md)

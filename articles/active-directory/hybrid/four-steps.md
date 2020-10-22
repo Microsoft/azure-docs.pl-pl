@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600801"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369781"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cztery kroki do silnej wersji programu Identity Foundation z Azure Active Directory
 
@@ -156,7 +156,7 @@ Przypisywanie użytkowników do aplikacji jest najlepszym mapowaniem w przypadku
 * Oparte na atrybutach z przynależnością do grupy dynamicznej
 * Delegowanie do właścicieli aplikacji
 
-Usługa Azure AD umożliwia zarządzanie dostępem do zasobów przy użyciu grup zabezpieczeń i grup Microsoft 365. Tymi grupami można zarządzać za pomocą właściciela grupy, który może zatwierdzać lub odrzucać żądania członkostwa oraz delegować kontrolę członkostwa w grupie. Ta funkcja jest określana jako [Samoobsługowe zarządzanie grupami](../users-groups-roles/groups-self-service-management.md), dzięki czemu właściciele grup nie mają przypisanej roli administracyjnej do tworzenia grup i zarządzania nimi bez konieczności polegania na administratorach do obsługi ich żądań.
+Usługa Azure AD umożliwia zarządzanie dostępem do zasobów przy użyciu grup zabezpieczeń i grup Microsoft 365. Tymi grupami można zarządzać za pomocą właściciela grupy, który może zatwierdzać lub odrzucać żądania członkostwa oraz delegować kontrolę członkostwa w grupie. Ta funkcja jest określana jako [Samoobsługowe zarządzanie grupami](../enterprise-users/groups-self-service-management.md), dzięki czemu właściciele grup nie mają przypisanej roli administracyjnej do tworzenia grup i zarządzania nimi bez konieczności polegania na administratorach do obsługi ich żądań.
 
 ## <a name="step-4---operationalize-your-insights"></a>Krok 4 — operacjonalizować się ze szczegółowymi informacjami
 
@@ -172,9 +172,9 @@ Dzienniki zabezpieczeń i raporty zapewniają elektroniczny rejestr podejrzanych
 
 Ponieważ myślisz o podejściu do operacji, istnieje kilka poziomów administrowania, które należy wziąć pod uwagę. Pierwszy poziom polega na obciążeniu administrowania administratorami globalnymi. Zawsze, gdy jest używana rola administratora globalnego, może być odpowiednia w przypadku mniejszych firm. Jednak w przypadku większych organizacji z personelem działu pomocy technicznej i administratorami odpowiedzialnymi za określone zadania, przypisywanie roli administratora globalnego może stanowić zagrożenie bezpieczeństwa, ponieważ zapewnia to osobom fizycznym możliwość zarządzania zadaniami, które znajdują się powyżej, co powinno być możliwe do wykonania.
 
-W takim przypadku należy wziąć pod uwagę następny poziom administrowania. Korzystając z usługi Azure AD, można wyznaczyć użytkowników końcowych jako "ograniczonych administratorów", którzy mogą zarządzać zadaniami w rolach z niższymi uprawnieniami. Na przykład możesz przypisać personelowi pomocy technicznej rolę [czytnika zabezpieczeń](../users-groups-roles/directory-assign-admin-roles.md#security-reader) , aby zapewnić im możliwość zarządzania funkcjami związanymi z zabezpieczeniami z dostępem tylko do odczytu. Lub być może warto przypisać rolę [administrator uwierzytelniania](../users-groups-roles/directory-assign-admin-roles.md#authentication-administrator) do osób indywidualnych, aby umożliwić im Resetowanie poświadczeń bez hasła lub odczytywanie i Konfigurowanie Azure Service Health.
+W takim przypadku należy wziąć pod uwagę następny poziom administrowania. Korzystając z usługi Azure AD, można wyznaczyć użytkowników końcowych jako "ograniczonych administratorów", którzy mogą zarządzać zadaniami w rolach z niższymi uprawnieniami. Na przykład możesz przypisać personelowi pomocy technicznej rolę [czytnika zabezpieczeń](../roles/permissions-reference.md#security-reader) , aby zapewnić im możliwość zarządzania funkcjami związanymi z zabezpieczeniami z dostępem tylko do odczytu. Lub być może warto przypisać rolę [administrator uwierzytelniania](../roles/permissions-reference.md#authentication-administrator) do osób indywidualnych, aby umożliwić im Resetowanie poświadczeń bez hasła lub odczytywanie i Konfigurowanie Azure Service Health.
 
-Aby dowiedzieć się więcej, zobacz [uprawnienia roli administrator w Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Aby dowiedzieć się więcej, zobacz [uprawnienia roli administrator w Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>Monitoruj składniki hybrydowe (Azure AD Connect Sync AD FS) przy użyciu Azure AD Connect Health
 

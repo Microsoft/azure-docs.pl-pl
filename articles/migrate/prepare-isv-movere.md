@@ -3,12 +3,12 @@ title: Przygotuj Azure Migrate do pracy z narzędziami niezależnego dostawcy op
 description: W tym artykule opisano sposób przygotowania Azure Migrate do pracy z narzędziem niezależnego dostawcy oprogramowania lub przenoszenia, a następnie rozpoczęcia korzystania z narzędzia.
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 885e64536e516e4fd96233c37a68f6e77fb84e33
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103929"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369152"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Przygotowanie do pracy z narzędziem niezależnego dostawcy oprogramowania lub przenoszenia
 
@@ -26,7 +26,7 @@ Twoje konto użytkownika platformy Azure wymaga następujących uprawnień:
 
 1. W usłudze Azure AD Sprawdź rolę konta.
 2. Jeśli masz rolę użytkownika, wybierz pozycję **Ustawienia użytkownika** po lewej stronie i sprawdź, czy użytkownicy mogą rejestrować aplikacje. Jeśli jest ustawiona na **tak**, wszyscy użytkownicy w dzierżawie usługi Azure AD mogą zarejestrować aplikację. Jeśli ustawiono wartość **nie**, tylko użytkownicy administracyjni mogą rejestrować aplikacje.   
-3. Jeśli nie masz uprawnień, administrator może podać konto użytkownika z rolą [administratora aplikacji](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-administrator) , aby można było zarejestrować aplikację.
+3. Jeśli nie masz uprawnień, administrator może podać konto użytkownika z rolą [administratora aplikacji](../active-directory/roles/permissions-reference.md#application-administrator) , aby można było zarejestrować aplikację.
 4. Gdy narzędzie zostanie połączone z Azure Migrate, administrator może usunąć rolę z Twojego konta.
 
 ### <a name="set-permissions-to-assign-a-role-to-an-azure-ad-app"></a>Ustawianie uprawnień do przypisywania roli do aplikacji usługi Azure AD

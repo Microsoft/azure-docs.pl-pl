@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b43b7488f2bb3fec810e8a9de67829a676f6b599
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743526"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369271"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do skalowania automatycznego na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -57,7 +57,7 @@ Teraz przejdźmy do prostego przewodnika krok po kroku, aby utworzyć pierwsze u
 
    Teraz powinno być dostępne ustawienie skalowania, które umożliwia skalowanie w poziomie i skalowanie w zależności od użycia procesora CPU.
    ![Skalowanie w oparciu o procesor CPU][8]
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 Gratulacje! Pomyślnie utworzono pierwsze ustawienie skalowania w celu automatycznego skalowania aplikacji sieci Web na podstawie użycia procesora CPU.
 
@@ -115,13 +115,13 @@ Zawsze możesz wrócić do automatycznego skalowania, klikając pozycję **Włą
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Kierowanie ruchu do wystąpień w dobrej kondycji (App Service)
 
-Po skalowaniu do wielu wystąpień App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu tylko do wystąpień w dobrej kondycji. Aby to zrobić, Otwórz Portal w App Service, a następnie wybierz pozycję **Sprawdzanie kondycji** w obszarze **monitorowanie**. Wybierz pozycję **Włącz** i podaj prawidłową ścieżkę URL w aplikacji, na przykład `/health` lub `/api/health` . Kliknij przycisk **Zapisz**.
+Po skalowaniu do wielu wystąpień App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu tylko do wystąpień w dobrej kondycji. Aby to zrobić, Otwórz Portal w App Service, a następnie wybierz pozycję **Sprawdzanie kondycji** w obszarze **monitorowanie**. Wybierz pozycję **Włącz** i podaj prawidłową ścieżkę URL w aplikacji, na przykład `/health` lub `/api/health` . Kliknij pozycję **Zapisz**.
 
 Aby włączyć funkcję z szablonami ARM, należy ustawić `healthcheckpath` Właściwość `Microsoft.Web/sites` zasobu na ścieżkę kontroli kondycji w lokacji, na przykład: `"/api/health/"` . Aby wyłączyć tę funkcję, należy ustawić właściwość z powrotem na pusty ciąg, `""` .
 
 ### <a name="health-check-path"></a>Ścieżka sprawdzania kondycji
 
-Ścieżka musi odpowiadać w ciągu dwóch minut od kodu stanu z przedziału od 200 do 299 (włącznie). Jeśli ścieżka nie odpowiada w ciągu dwóch minut lub zwraca kod stanu spoza zakresu, wystąpienie jest uznawane za "w złej kondycji". Kontrola kondycji integruje się z funkcjami uwierzytelniania i autoryzacji App Service, system dociera do punktu końcowego, nawet jeśli te funkcje Secuity są włączone. Jeśli używasz własnego systemu uwierzytelniania, ścieżka sprawdzania kondycji musi zezwalać na dostęp anonimowy. Jeśli lokacja ma tylko HTTP**s**, żądanie Healthcheck zostanie wysłane za pośrednictwem protokołu HTTP**S**.
+Ścieżka musi reagować w ciągu jednej minuty o kod stanu z przedziału od 200 do 299 (włącznie). Jeśli ścieżka nie odpowiada w ciągu jednej minuty lub zwraca kod stanu spoza zakresu, wystąpienie jest uznawane za "w złej kondycji". App Service nie obserwuje przekierowań 302 dla ścieżki kontroli kondycji. Kontrola kondycji integruje się z funkcjami uwierzytelniania i autoryzacji App Service, system dociera do punktu końcowego, nawet jeśli te funkcje Secuity są włączone. Jeśli używasz własnego systemu uwierzytelniania, ścieżka sprawdzania kondycji musi zezwalać na dostęp anonimowy. Jeśli lokacja ma tylko HTTP**s**, żądanie Healthcheck zostanie wysłane za pośrednictwem protokołu HTTP**S**.
 
 Ścieżka sprawdzania kondycji powinna sprawdzać krytyczne składniki aplikacji. Na przykład jeśli aplikacja zależy od bazy danych i systemu obsługi komunikatów, punkt końcowy sprawdzania kondycji powinien łączyć się z tymi składnikami. Jeśli aplikacja nie może połączyć się ze składnikiem krytycznym, ścieżka powinna zwrócić kod odpowiedzi 500 na poziomie, aby wskazać, że aplikacja jest w złej kondycji.
 
@@ -133,7 +133,7 @@ Zespoły programistyczne w dużych przedsiębiorstwach często muszą przestrzeg
 
 Gdy zostanie podana ścieżka sprawdzania kondycji, App Service będzie wysyłać polecenie ping do ścieżki we wszystkich wystąpieniach. Jeśli nie otrzymasz pomyślnego kodu odpowiedzi po 5 poleceniach ping, to wystąpienie jest uznawane za "w złej kondycji". Wystąpienia w złej kondycji zostaną wykluczone z obrotu modułu równoważenia obciążenia. Ponadto podczas skalowania w górę lub w dół App Service wyśle polecenie ping do ścieżki sprawdzania kondycji, aby upewnić się, że nowe wystąpienia są gotowe do żądania.
 
-Pozostałe wystąpienia w dobrej kondycji mogą zwiększyć obciążenie. Aby uniknąć przeciążenia pozostałych wystąpień, nie zostaną wykluczone więcej niż połowę wystąpień. Na przykład jeśli plan App Service zostanie przeskalowany do 4 wystąpień i 3 w złej kondycji, co najwyżej 2 zostanie wykluczone z obrotu modułu równoważenia obciążenia. Pozostałe 2 wystąpienia (1 w złej kondycji i 1 w niezdrowych) będą nadal otrzymywać żądania. W scenariuszu najgorszego przypadku, w którym wszystkie wystąpienia są złej kondycji, żaden z nich nie zostanie wykluczony.
+Pozostałe wystąpienia w dobrej kondycji mogą zwiększyć obciążenie. Aby uniknąć przeciążenia pozostałych wystąpień, nie zostaną wykluczone więcej niż połowę wystąpień. Na przykład jeśli plan App Service zostanie przeskalowany do 4 wystąpień i 3 w złej kondycji, co najwyżej 2 zostanie wykluczone z obrotu modułu równoważenia obciążenia. Pozostałe 2 wystąpienia (1 w złej kondycji i 1 w niezdrowych) będą nadal otrzymywać żądania. W scenariuszu najgorszego przypadku, w którym wszystkie wystąpienia są złej kondycji, żaden z nich nie zostanie wykluczony. Jeśli chcesz zastąpić to zachowanie, możesz ustawić `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` dla ustawienia aplikacji wartość między `0` i `100` . Ustawienie tej opcji na wyższą wartość oznacza, że więcej wystąpień w złej kondycji zostanie usuniętych (wartość domyślna to 50).
 
 Jeśli wystąpienie pozostaje w złej kondycji w ciągu godziny, zostanie zastąpione nowym wystąpieniem. Co najwyżej jedno wystąpienie zostanie zastąpione na godzinę, co najwyżej trzy wystąpienia dziennie na App Service plan.
 

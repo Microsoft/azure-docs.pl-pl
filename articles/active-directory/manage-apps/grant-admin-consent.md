@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069581"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369101"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Udzielanie zgody administratora całej dzierżawy dla aplikacji
 
@@ -27,7 +27,7 @@ Aby uzyskać więcej informacji na temat wyrażania zgody na aplikacje, zobacz [
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przyznanie zgody administratora całej dzierżawy wymaga zalogowania się jako [administrator globalny](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [administrator aplikacji](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)lub [administrator aplikacji w chmurze](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+Przyznanie zgody administratora całej dzierżawy wymaga zalogowania się jako [administrator globalny](../roles/permissions-reference.md#global-administrator--company-administrator), [administrator aplikacji](../roles/permissions-reference.md#application-administrator)lub [administrator aplikacji w chmurze](../roles/permissions-reference.md#cloud-application-administrator).
 
 > [!IMPORTANT]
 > Gdy aplikacja otrzymuje zgodę na dostęp do całej dzierżawy, wszyscy użytkownicy będą mogli zalogować się do aplikacji, o ile nie została skonfigurowana tak, aby wymagała przypisania użytkownika. Aby określić, którzy użytkownicy mogą logować się do aplikacji, należy zażądać przypisania użytkownika, a następnie przypisać użytkowników lub grupy do aplikacji. Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](methods-for-assigning-users-and-groups.md).
@@ -47,7 +47,7 @@ Jeśli aplikacja została już zainicjowana w dzierżawie, można udzielić zgod
 
 Aby udzielić zgody administratora na poziomie dzierżawy aplikacji wymienionej w **aplikacjach dla przedsiębiorstw**:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [administrator aplikacji](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)lub [administrator aplikacji w chmurze](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../roles/permissions-reference.md#global-administrator--company-administrator), [administrator aplikacji](../roles/permissions-reference.md#application-administrator)lub [administrator aplikacji w chmurze](../roles/permissions-reference.md#cloud-application-administrator).
 2. Wybierz **Azure Active Directory** następnie **aplikacje dla przedsiębiorstw**.
 3. Wybierz aplikację, do której chcesz udzielić zgody administratora w całej dzierżawie.
 4. Wybierz pozycję **uprawnienia** , a następnie kliknij pozycję **Udziel zgody administratora**.
@@ -63,7 +63,7 @@ W przypadku aplikacji opracowanych przez organizację lub zarejestrowanych bezpo
 
 Aby udzielić zgody administratora na poziomie dzierżawy od **rejestracje aplikacji**:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [administrator aplikacji](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)lub [administrator aplikacji w chmurze](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../roles/permissions-reference.md#global-administrator--company-administrator), [administrator aplikacji](../roles/permissions-reference.md#application-administrator)lub [administrator aplikacji w chmurze](../roles/permissions-reference.md#cloud-application-administrator).
 2. Wybierz **Azure Active Directory** następnie **rejestracje aplikacji**.
 3. Wybierz aplikację, do której chcesz udzielić zgody administratora w całej dzierżawie.
 4. Wybierz pozycję **uprawnienia interfejsu API** , a następnie kliknij pozycję **Udziel zgody administratora**.

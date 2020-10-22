@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cb101e415499150cd3d825fe5f42ce0dbc766fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662522"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369798"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Jak usługa Azure AD zapewnia zarządzanie zarządzane przez chmurę dla obciążeń lokalnych
 
@@ -107,7 +107,7 @@ Organizacje muszą mieć proces zarządzania dostępem, który jest skalowalny. 
 
 Zwykle deleguje decyzje dotyczące zatwierdzenia dostępu do podmiotów podejmujących decyzje biznesowe. Ponadto może to dotyczyć samych użytkowników. Na przykład użytkownicy, którzy uzyskują dostęp do poufnych danych klienta w aplikacji marketingowej firmy w Europie, muszą znać zasady firmy. Użytkownicy-Goście mogą również nie wiedzieć, jakie są wymagania dotyczące obsługi danych w organizacji, do której zostały zaproszone.
 
-Organizacje mogą zautomatyzować proces cyklu życia dostępu za pomocą technologii, takich jak [grupy dynamiczne](../users-groups-roles/groups-dynamic-membership.md), w połączeniu z obsługą użytkowników do [aplikacji SaaS](../saas-apps/tutorial-list.md)lub [aplikacjami zintegrowanymi przy użyciu systemu do zarządzania tożsamościami między domenami (standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md)) standard. Organizacje mogą również kontrolować, którzy [Użytkownicy-Goście mają dostęp do aplikacji lokalnych](../external-identities/hybrid-cloud-to-on-premises.md). Te prawa dostępu można następnie regularnie przeglądać przy użyciu cyklicznych [przeglądów dostępu do usługi Azure AD](../governance/access-reviews-overview.md).
+Organizacje mogą zautomatyzować proces cyklu życia dostępu za pomocą technologii, takich jak [grupy dynamiczne](../enterprise-users/groups-dynamic-membership.md), w połączeniu z obsługą użytkowników do [aplikacji SaaS](../saas-apps/tutorial-list.md)lub [aplikacjami zintegrowanymi przy użyciu systemu do zarządzania tożsamościami między domenami (standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md)) standard. Organizacje mogą również kontrolować, którzy [Użytkownicy-Goście mają dostęp do aplikacji lokalnych](../external-identities/hybrid-cloud-to-on-premises.md). Te prawa dostępu można następnie regularnie przeglądać przy użyciu cyklicznych [przeglądów dostępu do usługi Azure AD](../governance/access-reviews-overview.md).
 
 ## <a name="future-directions"></a>Przyszłe instrukcje
 

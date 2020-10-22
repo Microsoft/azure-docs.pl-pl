@@ -13,16 +13,16 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4d1e0d43758645d43843417eadf0ce21d43cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533846"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369832"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Przypisywanie ról usługi Azure AD w Privileged Identity Management
 
-Za pomocą Azure Active Directory (Azure AD) administrator globalny może tworzyć **trwałe** przypisania roli administratora usługi Azure AD. Te przypisania ról można utworzyć za pomocą [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md) lub za pomocą [poleceń programu PowerShell](/powershell/module/azuread#directory_roles).
+Za pomocą Azure Active Directory (Azure AD) administrator globalny może tworzyć **trwałe** przypisania roli administratora usługi Azure AD. Te przypisania ról można utworzyć za pomocą [Azure Portal](../roles/permissions-reference.md) lub za pomocą [poleceń programu PowerShell](/powershell/module/azuread#directory_roles).
 
 Usługa Azure AD Privileged Identity Management (PIM) umożliwia także administratorom ról uprzywilejowanych Tworzenie trwałych przypisań roli administratora. Ponadto administratorzy ról uprzywilejowanych mogą **wprowadzać użytkowników do** ról administratorów usługi Azure AD. Uprawniony administrator może aktywować rolę, gdy ich potrzebują, a następnie ich uprawnienia wygasną po zakończeniu.
 
@@ -30,7 +30,7 @@ Usługa Azure AD Privileged Identity Management (PIM) umożliwia także administ
 
 Od listopada 2019 część Privileged Identity Management ról usługi Azure AD jest aktualizowana do nowej wersji, która jest zgodna z środowiskami dla ról zasobów platformy Azure. Spowoduje to utworzenie dodatkowych funkcji, a także [zmian w istniejącym interfejsie API](azure-ad-roles-features.md#api-changes). Gdy nowa wersja jest wdrażana, procedury, które należy wykonać w tym artykule, zależą od aktualnie posiadanej wersji Privileged Identity Management. Wykonaj kroki opisane w tej sekcji, aby określić, która wersja Privileged Identity Management masz. Po uzyskaniu informacji o wersji Privileged Identity Management możesz wybrać procedury w tym artykule, które pasują do tej wersji.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który znajduje się w roli [administrator ról uprzywilejowanych](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który znajduje się w roli [administrator ról uprzywilejowanych](../roles/permissions-reference.md#privileged-role-administrator) .
 1. Otwórz **Azure AD Privileged Identity Management**. Jeśli masz baner w górnej części strony przegląd, postępuj zgodnie z instrukcjami wyświetlanymi na karcie **Nowa wersja** tego artykułu. W przeciwnym razie postępuj zgodnie z instrukcjami podanymi w **poprzedniej wersji** karty.
 
   [![Wybierz Privileged Identity Management usługi Azure AD >.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -41,7 +41,7 @@ Od listopada 2019 część Privileged Identity Management ról usługi Azure AD 
 
 Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli administratora usługi Azure AD.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który jest członkiem roli [administrator ról uprzywilejowanych](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który jest członkiem roli [administrator ról uprzywilejowanych](../roles/permissions-reference.md#privileged-role-administrator) .
 
     Aby uzyskać informacje na temat udzielania innym administratorom dostępu do zarządzania Privileged Identity Management, zobacz [udzielanie dostępu innym administratorom w celu zarządzania Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
@@ -77,7 +77,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
 ## <a name="assign-a-role-with-restricted-scope"></a>Przypisywanie roli z ograniczonym zakresem
 
-W przypadku niektórych ról zakres przyznanych uprawnień może być ograniczony do pojedynczej jednostki administracyjnej, nazwy głównej usługi lub aplikacji. Ta procedura jest przykładem, Jeśli przypiszesz rolę, która ma zakres jednostki administracyjnej. Aby uzyskać listę ról, które obsługują zakres za pośrednictwem jednostki administracyjnej, zobacz [Przypisywanie ról objętych zakresem do jednostki administracyjnej](../users-groups-roles/roles-admin-units-assign-roles.md). Ta funkcja jest obecnie wdrażana w organizacjach usługi Azure AD.
+W przypadku niektórych ról zakres przyznanych uprawnień może być ograniczony do pojedynczej jednostki administracyjnej, nazwy głównej usługi lub aplikacji. Ta procedura jest przykładem, Jeśli przypiszesz rolę, która ma zakres jednostki administracyjnej. Aby uzyskać listę ról, które obsługują zakres za pośrednictwem jednostki administracyjnej, zobacz [Przypisywanie ról objętych zakresem do jednostki administracyjnej](../roles/admin-units-assign-roles.md). Ta funkcja jest obecnie wdrażana w organizacjach usługi Azure AD.
 
 1. Zaloguj się do [Centrum administracyjnego Azure Active Directory](https://aad.portal.azure.com) z uprawnieniami administratora ról uprzywilejowanych.
 
@@ -97,7 +97,7 @@ W przypadku niektórych ról zakres przyznanych uprawnień może być ograniczon
    - Wybierz zakres roli (w tym przypadku jednostki administracyjne)
    - Wybierz jednostkę administracyjną dla zakresu
 
-Aby uzyskać więcej informacji na temat tworzenia jednostek administracyjnych, zobacz [Dodawanie i usuwanie jednostek administracyjnych](../users-groups-roles/roles-admin-units-manage.md).
+Aby uzyskać więcej informacji na temat tworzenia jednostek administracyjnych, zobacz [Dodawanie i usuwanie jednostek administracyjnych](../roles/admin-units-manage.md).
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Aktualizowanie lub usuwanie istniejącego przypisania roli
 
