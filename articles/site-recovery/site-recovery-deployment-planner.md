@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
-ms.openlocfilehash: f930fbb9cad893363db2b1a6b9b6ea8acade5a54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a78b0ec53dfce0a1c1478790f404adb78a8c6b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083790"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359853"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informacje o Planiście wdrażania usługi Azure Site Recovery dla środowiska VMware na platformie Azure
 Ten artykuł to podręcznik użytkownika planisty wdrażania usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
@@ -76,7 +76,7 @@ Narzędzie obejmuje dwa główne etapy — profilowanie i generowanie raportu. J
 
 | Wymaganie dotyczące serwera | Opis|
 |---|---|
-|Profilowanie i pomiar przepływności| <ul><li>System operacyjny: Windows Server 2016 lub Windows Server 2012 R2<br>(w idealnej sytuacji spełniający co najmniej [zalecenia dotyczące rozmiaru serwera konfiguracji](https://aka.ms/asr-v2a-on-prem-components))</li><li>Konfiguracja maszyny: 8 wirtualnych procesorów CPU, 16 GB pamięci RAM, dysk twardy o rozmiarze 300 GB</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Pakiet redystrybucyjny Visual C++ dla Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Dostęp przez Internet do platformy Azure (*. blob.core.windows.net) z tego serwera, port 443<br>[To jest opcjonalne. Możesz wybrać opcję udostępnienia przepustowości podczas ręcznego generowania raportu.]</li><li>Konto magazynu Azure</li><li>Dostęp administratora na serwerze</li><li>Minimalnie 100 GB wolnego miejsca na dysku (przy założeniu 1000 maszyn wirtualnych z średnio trzema dyskami na każdej z nich i profilowanych przez 30 dni)</li><li>Ustawienia poziomu statystyk programu VMware vCenter mogą mieć poziom 1 lub wyższy</li><li>Zezwalaj na port vCenter (domyślnie 443): Site Recovery Planista wdrażania używa tego portu do nawiązywania połączenia z serwerem vCenter/hostem ESXi</ul></ul>|
+|Profilowanie i pomiar przepływności| <ul><li>System operacyjny: Windows Server 2016 lub Windows Server 2012 R2<br>(w idealnej sytuacji spełniający co najmniej [zalecenia dotyczące rozmiaru serwera konfiguracji](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server))</li><li>Konfiguracja maszyny: 8 wirtualnych procesorów CPU, 16 GB pamięci RAM, dysk twardy o rozmiarze 300 GB</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Pakiet redystrybucyjny Visual C++ dla Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Dostęp przez Internet do platformy Azure (*. blob.core.windows.net) z tego serwera, port 443<br>[To jest opcjonalne. Możesz wybrać opcję udostępnienia przepustowości podczas ręcznego generowania raportu.]</li><li>Konto magazynu Azure</li><li>Dostęp administratora na serwerze</li><li>Minimalnie 100 GB wolnego miejsca na dysku (przy założeniu 1000 maszyn wirtualnych z średnio trzema dyskami na każdej z nich i profilowanych przez 30 dni)</li><li>Ustawienia poziomu statystyk programu VMware vCenter mogą mieć poziom 1 lub wyższy</li><li>Zezwalaj na port vCenter (domyślnie 443): Site Recovery Planista wdrażania używa tego portu do nawiązywania połączenia z serwerem vCenter/hostem ESXi</ul></ul>|
 | Generowanie raportu | KOMPUTER z systemem Windows lub Windows Server z programem Excel 2013 lub nowszym.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Pakiet redystrybucyjny Visual C++ dla Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6,0 R3](https://aka.ms/download_powercli) jest wymagana tylko w przypadku przekazywania opcji użytkownika w poleceniu generowania raportu w celu pobrania najnowszych informacji o konfiguracji maszyny wirtualnej maszyn wirtualnych. Planista wdrażania nawiązuje połączenie z serwerem vCenter. Zezwalaj portowi vCenter port (domyślnie 443) na połączenie z serwerem vCenter.</li>|
 | Uprawnienia użytkowników | Uprawnienia tylko do odczytu dla konta użytkownika używanego do uzyskiwania dostępu do serwera VMware vCenter/hosta VMware vSphere ESXi podczas profilowania |
 
@@ -90,7 +90,7 @@ Narzędzie obejmuje dwa główne etapy — profilowanie i generowanie raportu. J
 Narzędzie jest spakowane w folderze ZIP. Bieżąca wersja narzędzia obsługuje tylko replikację z oprogramowania VMware na platformę Azure.
 
 2. Skopiuj folder ZIP na serwer z systemem Windows, z którego chcesz uruchomić narzędzie.
-Narzędzie można uruchomić z systemu Windows Server 2012 R2, jeśli serwer ma dostęp do sieci umożliwiający połączenie z serwerem vCenter/hostem vSphere ESXi przechowującym maszyny wirtualne do profilowania. Zalecamy jednak uruchamianie narzędzia na serwerze, którego konfiguracja sprzętowa spełnia [wytyczne dotyczące określania rozmiaru serwera konfiguracji](https://aka.ms/asr-v2a-on-prem-components). Jeśli wdrożono już lokalnie składniki usługi Site Recovery, uruchom narzędzie na serwerze konfiguracji.
+Narzędzie można uruchomić z systemu Windows Server 2012 R2, jeśli serwer ma dostęp do sieci umożliwiający połączenie z serwerem vCenter/hostem vSphere ESXi przechowującym maszyny wirtualne do profilowania. Zalecamy jednak uruchamianie narzędzia na serwerze, którego konfiguracja sprzętowa spełnia [wytyczne dotyczące określania rozmiaru serwera konfiguracji](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server). Jeśli wdrożono już lokalnie składniki usługi Site Recovery, uruchom narzędzie na serwerze konfiguracji.
 
     Na serwerze, na którym uruchamiasz narzędzie, zalecamy korzystanie z takiej samej konfiguracji sprzętu jak serwer konfiguracji (z wbudowanym serwerem przetwarzania). Dzięki takiej konfiguracji masz pewność, że osiągnięta przepływność zgłaszana przez narzędzie jest zgodna z rzeczywistą przepływnością, którą usługa Site Recovery może osiągnąć podczas replikacji. Obliczanie przepływności zależy od dostępnej przepustowości sieci na serwerze i konfiguracji sprzętu (np. procesora i magazynu) serwera. Jeśli uruchamiasz narzędzie z innego serwera, obliczana jest przepływność z tego serwera na platformę Azure. Ponadto ponieważ konfiguracja sprzętu serwera może różnić się od konfiguracji serwera konfiguracji, dane osiągniętej przepływności zgłaszanej przez narzędzie mogą być niedokładne.
 

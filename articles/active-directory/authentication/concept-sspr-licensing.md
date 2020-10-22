@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd17e446766514fa90f8beaaab104bbbd2f389f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 239e49d287ebf6ad98d1a155219f0d59f6469292
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965033"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366517"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Wymagania dotyczące licencjonowania Azure Active Directory samoobsługowego resetowania hasła
 
@@ -49,7 +49,7 @@ Dodatkowe informacje o licencjonowaniu, w tym koszty, można znaleźć na nastę
 
 ## <a name="enable-group-or-user-based-licensing"></a>Włączanie licencjonowania grupowego lub użytkownika
 
-Usługa Azure AD obsługuje Licencjonowanie oparte na grupach. Administratorzy mogą przypisywać licencje zbiorczo do grupy użytkowników, a nie przypisywać ich pojedynczo. Aby uzyskać więcej informacji, zobacz [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Usługa Azure AD obsługuje Licencjonowanie oparte na grupach. Administratorzy mogą przypisywać licencje zbiorczo do grupy użytkowników, a nie przypisywać ich pojedynczo. Aby uzyskać więcej informacji, zobacz [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** dla użytkownika. Przypisanie licencji można wykonać w **User**  >  **Profile**  >  sekcji**ustawień** profilu użytkownika w Azure Portal. *W przypadku korzystania z przypisania licencji grupy Wszyscy użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu.*
 

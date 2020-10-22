@@ -9,12 +9,12 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b004bb4fbca768d782863f73d83ec5443bc66ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 405fa04a3b6af7f0c87888aa48aba9bdffeaf282
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320613"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366959"
 ---
 # <a name="configure-opc-publisher"></a>Konfigurowanie wydawcy OPC
 
@@ -144,7 +144,7 @@ Wydawca OPC implementuje następujące IoT Hub bezpośrednie wywołania metody:
 - ExitApplication
 - GetInfo
 
-Format ładunku JSON żądania metody i odpowiedzi są zdefiniowane w [opcpublisher/HubMethodModel. cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
+Format ładunku JSON żądania metody i odpowiedzi są zdefiniowane w [opcpublisher/HubMethodModel. cs](https://github.com/Azure/iot-edge-opc-publisher/tree/master/opcpublisher).
 
 W przypadku wywołania nieznanej metody w module reaguje na ciąg informujący, że metoda nie jest zaimplementowana. Nieznaną metodę można wywołać w celu wysłania polecenia ping do modułu.
 

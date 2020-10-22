@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97e2be64818888040b7e6ac3bc8861da24ebdbbd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82185595"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359955"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Wywoływanie programów platformy Spark z potoków Azure Data Factory
 
@@ -26,8 +26,8 @@ ms.locfileid: "82185595"
 > * [Działanie MapReduce](data-factory-map-reduce.md)
 > * [Działanie przesyłania strumieniowego Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Działanie platformy Spark](data-factory-spark.md)
-> * [Działanie wykonywania wsadowego Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning aktualizowania działania zasobu](data-factory-azure-ml-update-resource-activity.md)
+> * [Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Działanie aktualizacji zasobów Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-update-resource-activity.md)
 > * [Działanie procedury składowanej](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics działanie U-SQL](data-factory-usql-activity.md)
 > * [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
@@ -78,7 +78,7 @@ Aby utworzyć fabrykę danych, wykonaj następujące kroki:
 
 1. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
    > [!IMPORTANT]
    > Aby utworzyć wystąpienia Data Factory, musisz być członkiem roli [współautor Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) na poziomie subskrypcji/grupy zasobów.
@@ -118,7 +118,7 @@ W tym kroku utworzysz połączoną usługę HDInsight, aby połączyć klaster u
 
 1. Skopiuj i wklej poniższy fragment kodu do okna Wersja robocza-1. W edytorze JSON wykonaj następujące czynności:
 
-    a. Określ identyfikator URI klastra usługi HDInsight Spark. Przykład: `https://<sparkclustername>.azurehdinsight.net/`.
+    a. Określ identyfikator URI klastra usługi HDInsight Spark. Na przykład: `https://<sparkclustername>.azurehdinsight.net/`.
 
     b. Określ nazwę użytkownika, który ma dostęp do klastra Spark.
 

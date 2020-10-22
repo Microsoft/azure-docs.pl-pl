@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: a04f94f5ebc7c1fdaf7b95e71dc8549e19863b39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614166"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359003"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Samouczek: Klasyfikacja, badanie i reagowanie na alerty zabezpieczeń
-Usługa Security Center w sposób ciągły analizuje obciążenia chmury hybrydowej i ostrzega o złośliwych działaniach, używając zaawansowanych funkcji analitycznych oraz funkcji analizy zagrożeń. Możesz także zintegrować alerty z innych produktów i usług zabezpieczeń w Security Center i tworzyć niestandardowe alerty na podstawie własnych wskaźników lub źródeł analizy. Po wygenerowaniu alertu potrzebne jest sprawne działanie w celu zbadania i skorygowania jego przyczyny. 
+Security Center stale analizuje obciążenia chmury hybrydowej dzięki zaawansowanej analizie i analizie zagrożeń, aby otrzymywać alerty o potencjalnie złośliwych działaniach w zasobach w chmurze. Możesz także zintegrować alerty z innych produktów i usług zabezpieczeń w Security Center. Po podniesieniu alertu w celu zbadania i skorygowania potencjalnego problemu z zabezpieczeniami jest wymagana akcja Swift. 
 
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -93,8 +93,8 @@ Po zbadaniu alertu i zrozumieniu jego zakresu można odpowiedzieć na alert zabe
 
     Spowoduje to usunięcie alertu z głównej listy alertów. Możesz użyć filtru na stronie listy alertów, aby wyświetlić wszystkie alerty z **odrzuconym** stanem.
 
-1.  Opcjonalnie Prześlij opinię na temat alertu do firmy Microsoft:
-    1. Oznaczanie alertu jako **przydatnego** lub **nieprzydatnego** i dostarczającego
+1.  Zachęcamy do przekazywania informacji zwrotnych o alercie do firmy Microsoft:
+    1. Oznaczanie alertu jako **przydatnego** lub **nieprzydatnego**.
     1. Wybierz przyczynę i Dodaj komentarz.
 
         :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Strona listy alertów zabezpieczeń":::
@@ -122,5 +122,5 @@ Jeśli nie planujesz kontynuować pracy lub chcesz wyłączyć jedną z następu
 W tym samouczku przedstawiono informacje o Security Center funkcjach, które będą używane podczas odpowiadania na alert zabezpieczeń. W przypadku pokrewnego materiału Zobacz:
 
 - [Reagowanie na alerty usługi Azure Defender dla usługi Key Vault](defender-for-key-vault-usage.md)
-- [Alerty zabezpieczeń — Podręcznik referencyjny](alerts-reference.md)
+- [Alerty zabezpieczeń — przewodnik informacyjny](alerts-reference.md)
 - [Wprowadzenie do usługi Azure Defender](azure-defender.md)

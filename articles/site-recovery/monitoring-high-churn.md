@@ -6,12 +6,12 @@ manager: gaggupta
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: sharrai
-ms.openlocfilehash: 51f45b5c0b8a2729f64eb376e06875719474cbfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb89a9d18e4550fa1d6162920d60507fd50c208
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89664180"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359870"
 ---
 # <a name="monitoring-churn-patterns-on-virtual-machines"></a>Monitorowanie wzorców zmian na maszynach wirtualnych
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera omówienie różnych narzędzi, których można użyć do m
 
 Jeśli maszyna jest hostowana na platformie Azure i korzysta z dysku zarządzanego lub niezarządzanego do przechowywania, możesz łatwo śledzić wydajność, śledząc metryki dysków. Pozwala to na ścisłe monitorowanie i wybór odpowiedniego dysku do wzorca użycia aplikacji. Można go również użyć do tworzenia alertów, diagnostyki i automatyzacji kompilowania. [Dowiedz się więcej](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
-Po włączeniu ochrony maszyn przy użyciu Azure Site Recovery można monitorować maszyny przy użyciu dzienników Azure Monitor i Log Analytics. [Dowiedz się więcej](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics).
+Po włączeniu ochrony maszyn przy użyciu Azure Site Recovery można monitorować maszyny przy użyciu dzienników Azure Monitor i Log Analytics. [Dowiedz się więcej](./monitor-log-analytics.md).
 
 Dostępne są również pewne narzędzia specyficzne dla systemu operacyjnego, których można użyć.
 
@@ -62,7 +62,7 @@ Po zidentyfikowaniu aplikacji powodujących duże zmiany na maszynie można podj
 
     ![Monitor wydajności step3](./media/monitoring-high-churn/perfmon-step3.png)
 
-Więcej informacji na temat monitora wydajności [znajdziesz tutaj](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data).
+Więcej informacji na temat monitora wydajności [znajdziesz tutaj](/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data).
 
 ## <a name="for-linux-machines"></a>Dla maszyn z systemem Linux
 

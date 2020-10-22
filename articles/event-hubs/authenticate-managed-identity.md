@@ -4,12 +4,12 @@ description: Ten artykuł zawiera informacje dotyczące uwierzytelniania tożsam
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b23fc0a59f9accc70c69c1096c1a15f1313ee2e0
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c6b43cc48663be28d12fa788d92286be6f47ef08
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332454"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359887"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs
 Usługa Azure Event Hubs obsługuje uwierzytelnianie Azure Active Directory (Azure AD) z [tożsamościami zarządzanymi dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md). Zarządzane tożsamości dla zasobów platformy Azure mogą autoryzować dostęp do zasobów Event Hubs przy użyciu poświadczeń usługi Azure AD z aplikacji uruchomionych na platformie Azure Virtual Machines (maszyny wirtualne), aplikacji funkcji, Virtual Machine Scale Sets i innych usług. Korzystając z tożsamości zarządzanych dla zasobów platformy Azure wraz z uwierzytelnianiem w usłudze Azure AD, można uniknąć zapisywania poświadczeń z aplikacjami uruchomionymi w chmurze.
@@ -31,7 +31,7 @@ Aby autoryzować żądanie do Event Hubs usługi z tożsamości zarządzanej w a
 Aby uzyskać więcej informacji na temat przypisywania ról platformy Azure, zobacz [uwierzytelnianie za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs](authorize-access-azure-active-directory.md).
 
 ## <a name="use-event-hubs-with-managed-identities"></a>Korzystanie z usługi Event Hubs przy użyciu tożsamości zarządzanych
-Aby użyć Event Hubs z tożsamościami zarządzanymi, należy przypisać tożsamość roli i odpowiedniego zakresu. Procedura opisana w tej sekcji używa prostej aplikacji, która działa w ramach zarządzanej tożsamości i uzyskuje dostęp do zasobów Event Hubs.
+Aby użyć Event Hubs z tożsamościami zarządzanymi, należy przypisać rolę i odpowiedni zakres do tożsamości. Procedura opisana w tej sekcji używa prostej aplikacji, która działa w ramach zarządzanej tożsamości i uzyskuje dostęp do zasobów Event Hubs.
 
 Tutaj korzystamy z przykładowej aplikacji sieci Web hostowanej w [Azure App Service](https://azure.microsoft.com/services/app-service/). Aby uzyskać instrukcje krok po kroku dotyczące tworzenia aplikacji sieci Web, zobacz [Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure](../app-service/quickstart-dotnetcore.md)
 
