@@ -9,17 +9,17 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 32efde2cb2497fb8aab415d09a1063ff07c6b0f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70e1a131daf95a9b0f6ae75c022dec2fdbc394a7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837197"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366665"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Choosing the right number of fault domains for virtual machine scale set (Wybieranie odpowiedniej liczby domen błędów dla zestawu skalowania maszyn wirtualnych)
 Zestawy skalowania maszyn wirtualnych są tworzone z pięcioma domenami błędów domyślnie w regionach platformy Azure bez stref. W przypadku regionów obsługujących wdrożenie strefowe zestawów skalowania maszyn wirtualnych i wybrania tej opcji wartość domyślna liczby domen błędów wynosi 1 dla każdej z tych stref. Demon = 1 w tym przypadku oznacza, że wystąpienia maszyn wirtualnych należące do zestawu skalowania będą rozłożone w wielu stojakach na podstawie najlepszego wysiłku.
 
-Można również rozważyć wyrównanie liczby domen błędów zestawu skalowania z liczbą domen błędów Managed Disks. To wyrównanie może pomóc w zapobieganiu utracie kworum, jeśli cała domena błędów Managed Disks ulegnie awarii. Licznik FD może być ustawiony na wartość mniejszą lub równą liczbie Managed Disks domen błędów dostępnych w poszczególnych regionach. Zapoznaj się z tym [dokumentem](../virtual-machines/windows/manage-availability.md) , aby dowiedzieć się więcej o liczbie Managed disks domen błędów według regionów.
+Można również rozważyć wyrównanie liczby domen błędów zestawu skalowania z liczbą domen błędów Managed Disks. To wyrównanie może pomóc w zapobieganiu utracie kworum, jeśli cała domena błędów Managed Disks ulegnie awarii. Licznik FD może być ustawiony na wartość mniejszą lub równą liczbie Managed Disks domen błędów dostępnych w poszczególnych regionach. Zapoznaj się z tym [dokumentem](../virtual-machines/manage-availability.md) , aby dowiedzieć się więcej o liczbie Managed disks domen błędów według regionów.
 
 ## <a name="rest-api"></a>Interfejs API REST
 Właściwość można ustawić na wartość `properties.platformFaultDomainCount` 1, 2 lub 3 (Domyślnie wartość 3, jeśli nie zostanie określona). Zapoznaj się z dokumentacją interfejsu API REST [tutaj](/rest/api/compute/virtualmachinescalesets/createorupdate).

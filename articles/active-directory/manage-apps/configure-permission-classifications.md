@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: d5016dbff30eb054e413acc66b1b2dfee62a5873
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 448106b1c514762c101991f5f944d521f7ea6f75
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070677"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368523"
 ---
 # <a name="configure-permission-classifications"></a>Konfigurowanie klasyfikacji uprawnień
 
@@ -33,7 +33,7 @@ Obecnie obsługiwana jest tylko Klasyfikacja uprawnień "niska wpływ". Tylko up
 
 Wykonaj następujące kroki, aby sklasyfikować uprawnienia przy użyciu Azure Portal:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator [globalny](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [administrator aplikacji](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)lub [administrator aplikacji w chmurze](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator [globalny](../roles/permissions-reference.md#global-administrator--company-administrator), [administrator aplikacji](../roles/permissions-reference.md#application-administrator)lub [administrator aplikacji w chmurze](../roles/permissions-reference.md#cloud-application-administrator)
 1. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **i**  >  **klasyfikacje uprawnień**.
 1. Wybierz pozycję **Dodaj uprawnienia** , aby sklasyfikować inne uprawnienie jako "niski wpływ".
 1. Wybierz interfejs API, a następnie wybierz delegowane uprawnienia.

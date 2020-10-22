@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331825"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367129"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Wprowadzenie do zainicjowanej przepływności w Azure Cosmos DB
 
@@ -43,9 +43,6 @@ Na poniższej ilustracji przedstawiono, w jaki sposób partycja fizyczna hostuje
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partycja fizyczna, która hostuje co najmniej jedną partycję logiczną kontenera" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Ustawianie przepływności dla bazy danych
-
-> [!NOTE]
-> Przepływność aprowizacji w bazie danych Azure Cosmos nie jest obecnie możliwa w przypadku kont, w których włączono obsługę [kluczy zarządzanych przez klienta](how-to-setup-cmk.md) .
 
 W przypadku aprowizacji przepływności w bazie danych Azure Cosmos przepływność jest udostępniana dla wszystkich kontenerów (nazywanych kontenerami udostępnionej bazy danych) w bazie danych programu. Wyjątkiem jest sytuacja, gdy aprowizowana przepływność zostanie określona dla konkretnych kontenerów w bazie danych. Udostępnianie Przełożonej przepływności na poziomie bazy danych między kontenerami jest analogiczne do hostowania bazy danych w klastrze maszyn. Ze względu na to, że wszystkie kontenery w ramach bazy danych współużytkują zasoby dostępne na komputerze, nie ma możliwości przewidywalnej wydajności w żadnym konkretnym kontenerze. Aby dowiedzieć się, jak skonfigurować zainicjowaną przepływność dla bazy danych, zobacz [Konfigurowanie aprowizacji przepływności w bazie danych Azure Cosmos](how-to-provision-database-throughput.md). Aby dowiedzieć się, jak skonfigurować przepływność automatycznego skalowania dla bazy danych, zobacz temat [udostępnianie przepływności skalowania automatycznego](how-to-provision-autoscale-throughput.md).
 

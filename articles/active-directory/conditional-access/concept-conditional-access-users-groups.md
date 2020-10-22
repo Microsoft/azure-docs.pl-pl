@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145412"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366364"
 ---
 # <a name="conditional-access-users-and-groups"></a>Dostęp warunkowy: Użytkownicy i grupy
 
@@ -46,13 +46,13 @@ Poniższe opcje są dostępne do uwzględnienia podczas tworzenia zasad dostępu
 > Jeśli użytkownicy lub grupy są członkami ponad 2048 grup, ich dostęp może być zablokowany. Ten limit dotyczy zarówno bezpośrednich, jak i zagnieżdżonych członkostwa w grupach.
 
 > [!WARNING]
-> Zasady dostępu warunkowego nie obsługują użytkowników, którym przypisano rolę katalogu [zakresu do jednostki administracyjnej](../users-groups-roles/roles-admin-units-assign-roles.md) lub ról katalogu w zakresie bezpośrednio do obiektu, na przykład za pomocą [ról niestandardowych](../users-groups-roles/roles-create-custom.md).
+> Zasady dostępu warunkowego nie obsługują użytkowników, którym przypisano rolę katalogu [zakresu do jednostki administracyjnej](../roles/admin-units-assign-roles.md) lub ról katalogu w zakresie bezpośrednio do obiektu, na przykład za pomocą [ról niestandardowych](../roles/custom-create.md).
 
 ## <a name="exclude-users"></a>Wyklucz użytkowników
 
 Gdy organizacje obejmują i wykluczają użytkownika lub grupę, użytkownik lub grupa jest wykluczona z zasad, ponieważ akcja wykluczania zastępuje zasady Uwzględnij. Wykluczenia są często używane w przypadku dostępu awaryjnego lub kont ze szkłami do awarii. Więcej informacji o kontach dostępu awaryjnego i o tym, dlaczego są ważne, można znaleźć w następujących artykułach: 
 
-* [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../roles/security-emergency-access.md)
 * [Utwórz odporną strategię zarządzania kontrolą dostępu za pomocą Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 Poniższe opcje są dostępne do wykluczenia podczas tworzenia zasad dostępu warunkowego.

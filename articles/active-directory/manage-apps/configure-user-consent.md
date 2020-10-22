@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: cff2af745e9b79f573aba02e0a9baefe4a5e45a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cfcd758390ff401c786c28d410c4d092a82c37f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819268"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368489"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje
 
@@ -47,7 +47,7 @@ Wybierając zasady zgody aplikacji, które mają zastosowanie do wszystkich uży
 
 Aby skonfigurować ustawienia zgody użytkowników za pomocą Azure Portal:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../roles/permissions-reference.md#global-administrator--company-administrator).
 1. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **i uprawnienia do**  >  **ustawień zgody użytkownika**.
 1. W obszarze **wyrażanie zgody użytkownika na aplikacje**wybierz ustawienie zgody, które chcesz skonfigurować dla wszystkich użytkowników.
 1. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.
@@ -146,7 +146,7 @@ Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, aby wyłączy�
 
     | Ustawienie       | Typ         | Opis  |
     | ------------- | ------------ | ------------ |
-    | _BlockUserConsentForRiskyApps_   | Boolean (wartość logiczna) |  Flaga oznaczająca, czy zgoda użytkownika zostanie zablokowana w przypadku wykrycia ryzykownego żądania. |
+    | _BlockUserConsentForRiskyApps_   | Wartość logiczna |  Flaga oznaczająca, czy zgoda użytkownika zostanie zablokowana w przypadku wykrycia ryzykownego żądania. |
 
 1. Zaktualizuj wartość ustawień dla żądanej konfiguracji:
 

@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528132"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365916"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Tryb udostępnionego urządzenia dla urządzeń z systemem iOS
 
@@ -43,7 +43,7 @@ Aby utworzyć aplikację trybu udostępnionego urządzenia, deweloperzy i Admini
 
 1. **Administratorzy urządzeń** przygotują urządzenie do udostępnienia przy użyciu dostawcy zarządzania urządzeniami przenośnymi (MDM), takiego jak Microsoft Intune, aby zarządzać urządzeniami w swojej organizacji. MDM wysyła do urządzeń Microsoft Authenticator aplikację i włącza "tryb współużytkowany" dla każdego urządzenia za pomocą aktualizacji profilu na urządzeniu. To ustawienie trybu udostępnionego powoduje zmianę zachowania obsługiwanych aplikacji na urządzeniu. Ta konfiguracja od dostawcy MDM ustawia tryb udostępnionego urządzenia dla urządzenia i włącza [wtyczkę logowania JEDNOkrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple](apple-sso-plugin.md) , która jest wymagana do trybu udostępnionego urządzenia.
 
-1. [**Wymagane w publicznej wersji zapoznawczej**] Użytkownik z rolą [administratora urządzenia w chmurze](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) musi uruchomić [aplikację Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) i dołączyć swoje urządzenie do organizacji.
+1. [**Wymagane w publicznej wersji zapoznawczej**] Użytkownik z rolą [administratora urządzenia w chmurze](../roles/permissions-reference.md#cloud-device-administrator) musi uruchomić [aplikację Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) i dołączyć swoje urządzenie do organizacji.
 
     Aby skonfigurować członkostwo ról organizacyjnych w Azure Portal: **Azure Active Directory**  >  **role i Administratorzy**  >  **administrator urządzeń w chmurze**
 
@@ -117,7 +117,7 @@ application.getDeviceInformation(with: nil, completionBlock: { (deviceInformatio
 })
 ```
 
-#### <a name="objective-c"></a>Objective-C
+#### <a name="objective-c"></a>Obiektowy C
 
 ```objective-c
 [application getDeviceInformationWithParameters:nil
@@ -152,7 +152,7 @@ application.getCurrentAccount(with: msalParameters, completionBlock: { (currentA
 })
 ```
 
-#### <a name="objective-c"></a>Objective-C
+#### <a name="objective-c"></a>Obiektowy C
 
 ```objective-c
 MSALParameters *parameters = [MSALParameters new];
@@ -170,7 +170,7 @@ parameters.completionBlockQueue = dispatch_get_main_queue();
 
 Gdy urządzenie jest skonfigurowane jako urządzenie udostępnione, aplikacja może wywołać `acquireTokenWithParameters:completionBlock:` interfejs API w celu zalogowania się do konta. Konto będzie dostępne globalnie dla wszystkich kwalifikujących się aplikacji na urządzeniu po napisaniu pierwszej aplikacji na koncie.
 
-#### <a name="objective-c"></a>Objective-C
+#### <a name="objective-c"></a>Obiektowy C
 
 ```objective-c
 MSALInteractiveTokenParameters *parameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"api://myapi/scope"] webviewParameters:[self msalTestWebViewParameters]];
@@ -210,7 +210,7 @@ application.signout(with: account, signoutParameters: signoutParameters, complet
 })
 ```
 
-#### <a name="objective-c"></a>Objective-C
+#### <a name="objective-c"></a>Obiektowy C
 
 ```objective-c
 MSALAccount *account = ... /* account retrieved above */;

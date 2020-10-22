@@ -4,12 +4,12 @@ description: Informacje na temat włączania i wyświetlania dzienników dla wę
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1089cb4ea52efaa545478ced053a921728a894ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076389"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368455"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service
 
@@ -37,9 +37,11 @@ Dzienniki Azure Monitor są włączone i zarządzane w Azure Portal. Aby włącz
 
 Oprócz wpisów utworzonych przez Kubernetes, dzienniki inspekcji projektu również mają wpisy z AKS.
 
-Dzienniki inspekcji są zapisywane w dwóch kategoriach, *polecenia-Audit-admin* i *polecenia-Audit*. Kategoria *polecenia-Audit* zawiera wszystkie dane dziennika inspekcji dla każdego zdarzenia inspekcji, w tym *Get*, *list*, *Create*, *Update*, *delete*, *patch*i *post*.
+Dzienniki inspekcji są zapisywane w trzech kategoriach: *polecenia-Audit*, *polecenia-Audit-admin*i *Guard*.
 
-Kategoria *polecenia-Audit-admin* jest podzbiorem kategorii dziennika *inspekcji polecenia* . *polecenia-Audit — administrator* znacznie zmniejsza liczbę dzienników, wykluczając zdarzenia *pobierania* *i inspekcji* z dziennika.
+- Kategoria *polecenia-Audit* zawiera wszystkie dane dziennika inspekcji dla każdego zdarzenia inspekcji, w tym *Get*, *list*, *Create*, *Update*, *delete*, *patch*i *post*.
+- Kategoria *polecenia-Audit-admin* jest podzbiorem kategorii dziennika *inspekcji polecenia* . *polecenia-Audit — administrator* znacznie zmniejsza liczbę dzienników, wykluczając zdarzenia *pobierania* *i inspekcji* z dziennika.
+- Kategoria *Guard* jest zarządzana przez usługi Azure AD i inspekcje RBAC platformy Azure. W przypadku zarządzanej usługi Azure AD: token w programie, informacje o użytkowniku. W przypadku usługi Azure RBAC: przeglądy dostępu w i na zewnątrz.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Zaplanuj test pod względem klastra AKS
 
@@ -75,7 +77,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Wyświetlanie zebranych dzienników
 
-Włączenie i wyświetlenie dzienników diagnostycznych może potrwać kilka minut.
+Włączenie i wyświetlenie dzienników diagnostycznych może potrwać do 10 minut.
 
 > [!NOTE]
 > Jeśli potrzebujesz wszystkich danych dziennika inspekcji pod kątem zgodności lub innych celów, Zbierz i Zapisz je w niedrogim magazynie, takim jak BLOB Storage. Kategoria dziennika *polecenia-Audit-admin* służy do zbierania i zapisywania zrozumiałego zestawu danych dziennika inspekcji na potrzeby monitorowania i wysyłania alertów.

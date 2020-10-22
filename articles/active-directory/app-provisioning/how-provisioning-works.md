@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801804"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366687"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
@@ -65,15 +65,15 @@ W przypadku inicjowania obsługi ruchu wychodzącego z usługi Azure AD do aplik
 
 * **Grupowania.** Za pomocą planu licencjonowania Azure AD — wersja Premium można używać grup do przypisywania dostępu do aplikacji SaaS. Następnie, gdy zakres aprowizacji jest ustawiony do **synchronizowania tylko przypisanych użytkowników i grup**, usługa aprowizacji usługi Azure AD będzie inicjować lub cofać obsługę administracyjną użytkowników w zależności od tego, czy są członkami grupy przypisanej do aplikacji. Sam obiekt grupy nie jest inicjowany, chyba że aplikacja obsługuje obiekty grup. Upewnij się, że grupy przypisane do aplikacji mają właściwość "SecurityEnabled" ustawioną na wartość "true".
 
-* **Grupy dynamiczne.** Usługa aprowizacji użytkowników w usłudze Azure AD może odczytywać i inicjować użytkowników w [grupach dynamicznych](../users-groups-roles/groups-create-rule.md). Pamiętaj o następujących zastrzeżeniach i zaleceniach:
+* **Grupy dynamiczne.** Usługa aprowizacji użytkowników w usłudze Azure AD może odczytywać i inicjować użytkowników w [grupach dynamicznych](../enterprise-users/groups-create-rule.md). Pamiętaj o następujących zastrzeżeniach i zaleceniach:
 
   * Dynamiczne grupy mogą mieć wpływ na wydajność kompleksowego udostępniania z usługi Azure AD do aplikacji SaaS.
 
-  * Jak szybki dostęp użytkownika do grupy dynamicznej jest inicjowany lub dezaktywowany w aplikacji SaaS, zależy od tego, jak szybko Grupa dynamiczna może oszacować zmiany członkostwa. Aby uzyskać informacje na temat sprawdzania stanu przetwarzania grupy dynamicznej, zobacz [Sprawdzanie stanu przetwarzania dla reguły członkostwa](../users-groups-roles/groups-create-rule.md).
+  * Jak szybki dostęp użytkownika do grupy dynamicznej jest inicjowany lub dezaktywowany w aplikacji SaaS, zależy od tego, jak szybko Grupa dynamiczna może oszacować zmiany członkostwa. Aby uzyskać informacje na temat sprawdzania stanu przetwarzania grupy dynamicznej, zobacz [Sprawdzanie stanu przetwarzania dla reguły członkostwa](../enterprise-users/groups-create-rule.md).
 
   * Gdy użytkownik utraci członkostwo w grupie dynamicznej, jest traktowany jako zdarzenie anulowania aprowizacji. Ten scenariusz należy wziąć pod uwagę podczas tworzenia reguł dla grup dynamicznych.
 
-* **Grupy zagnieżdżone.** Usługa aprowizacji użytkowników w usłudze Azure AD nie może odczytać ani zainicjować obsługi użytkowników w grupach zagnieżdżonych. Usługa może odczytywać i inicjować tylko użytkowników, którzy są bezpośrednimi członkami jawnie przypisanej grupy. To ograniczenie "przypisań opartych na grupach do aplikacji" wpływa również na logowanie jednokrotne (zobacz [używanie grupy do zarządzania dostępem do aplikacji SaaS](../users-groups-roles/groups-saasapps.md)). Zamiast tego należy bezpośrednio przypisywać lub w inny sposób określić [zakres w](define-conditional-rules-for-provisioning-user-accounts.md) grupach, które zawierają użytkowników, którzy muszą zostać zaobsługiwani.
+* **Grupy zagnieżdżone.** Usługa aprowizacji użytkowników w usłudze Azure AD nie może odczytać ani zainicjować obsługi użytkowników w grupach zagnieżdżonych. Usługa może odczytywać i inicjować tylko użytkowników, którzy są bezpośrednimi członkami jawnie przypisanej grupy. To ograniczenie "przypisań opartych na grupach do aplikacji" wpływa również na logowanie jednokrotne (zobacz [używanie grupy do zarządzania dostępem do aplikacji SaaS](../enterprise-users/groups-saasapps.md)). Zamiast tego należy bezpośrednio przypisywać lub w inny sposób określić [zakres w](define-conditional-rules-for-provisioning-user-accounts.md) grupach, które zawierają użytkowników, którzy muszą zostać zaobsługiwani.
 
 ### <a name="attribute-based-scoping"></a>Określanie zakresu na podstawie atrybutów 
 
@@ -184,12 +184,12 @@ Upewnij się, że masz mapowanie dla aplikacji *aktywnej* . Jeśli używasz apli
 
 Następujące scenariusze spowodują wyzwolenie wyłączenia lub usunięcia: 
 * Użytkownik został usunięty z nietrwałego usunięcia w usłudze Azure AD (wysyłany do właściwości kosz/AccountEnabled ustawiony na wartość false).
-    po upływie 30 dni od usunięcia użytkownika w usłudze Azure AD zostaną one trwale usunięte z dzierżawy. W tym momencie usługa aprowizacji wyśle żądanie usunięcia, aby trwale usunąć użytkownika w aplikacji. W dowolnym momencie w oknie 30-dniowym można [trwale usunąć użytkownika](../fundamentals/active-directory-users-restore.md), co spowoduje wysłanie żądania usunięcia do aplikacji.
+    po upływie 30 dni od usunięcia użytkownika w usłudze Azure AD zostaną one trwale usunięte z dzierżawy. W tym momencie usługa aprowizacji wyśle żądanie usunięcia, aby trwale usunąć użytkownika w aplikacji. W dowolnym momencie w oknie 30-dniowym można [trwale usunąć użytkownika](../fundamentals/active-directory-users-restore.md), co spowoduje wysłanie żądania usunięcia do aplikacji.
 * Użytkownik zostanie trwale usunięty/usunięty z Kosza w usłudze Azure AD.
 * Użytkownik nie jest przypisany do aplikacji.
 * Użytkownik znajduje się w zakresie poza zakresem (nie przekazuje już filtru określania zakresu).
     
-Domyślnie usługa aprowizacji usługi Azure AD nie usuwa lub wyłącza użytkowników, którzy wykraczają poza zakres. Jeśli chcesz zastąpić to zachowanie domyślne, możesz ustawić flagę, aby [pominąć usuwanie poza zakresem.](skip-out-of-scope-deletions.md)
+Domyślnie usługa aprowizacji usługi Azure AD nie usuwa lub wyłącza użytkowników, którzy wykraczają poza zakres. Jeśli chcesz zastąpić to zachowanie domyślne, możesz ustawić flagę, aby [pominąć usuwanie poza zakresem.](skip-out-of-scope-deletions.md)
 
 Jeśli wystąpi jedno z powyższych czterech zdarzeń i aplikacja docelowa nie obsługuje usuwania nietrwałego, usługa aprowizacji wyśle żądanie usunięcia, aby trwale usunąć użytkownika z aplikacji.
 

@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: 453821e99f53a90a076ff13f010f2031a055cbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444169"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367724"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Samouczek: tworzenie użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD
 
@@ -65,7 +65,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     Aby uzyskać więcej informacji, zobacz polecenie [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) .
 
     > [!IMPORTANT]
-    > Jeśli skonfigurowano tożsamość usługi Azure AD dla serwera logicznego usługi Azure SQL, należy przyznać uprawnienia do [**odczytu**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) tożsamości. Niniejszy krok zostanie przeprowadzony w następnej sekcji. **Nie** pomijaj tego kroku, ponieważ uwierzytelnianie usługi Azure AD przestanie działać.
+    > Jeśli skonfigurowano tożsamość usługi Azure AD dla serwera logicznego usługi Azure SQL, należy przyznać uprawnienia do [**odczytu**](../../active-directory/roles/permissions-reference.md#directory-readers) tożsamości. Niniejszy krok zostanie przeprowadzony w następnej sekcji. **Nie** pomijaj tego kroku, ponieważ uwierzytelnianie usługi Azure AD przestanie działać.
 
     - W przypadku użycia polecenia [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) z parametrem `AssignIdentity` dla nowego tworzenia programu SQL Server w przeszłości należy wykonać polecenie [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) jako oddzielne polecenie, aby włączyć tę właściwość w sieci szkieletowej platformy Azure.
 
@@ -287,7 +287,7 @@ Po utworzeniu jednostki usługi w usłudze Azure AD Utwórz użytkownika w SQL D
     GO
     ```
 
-    Powinny być widoczne podobne dane wyjściowe:
+    Powinny zostać wyświetlone następujące dane wyjściowe:
 
     ```output
     name    type    type_desc   appId

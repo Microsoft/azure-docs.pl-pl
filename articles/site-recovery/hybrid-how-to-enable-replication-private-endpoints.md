@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f23efa8d0439422fef685480ed270dce6e78a204
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658807"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366857"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Replikowanie maszyn lokalnych za pomocą prywatnych punktów końcowych
 
@@ -123,7 +123,7 @@ Do usługi Azure Storage można użyć prywatnego punktu końcowego. Tworzenie p
 > [!NOTE]
 > Prywatne punkty końcowe dla magazynu można utworzyć tylko na kontach magazynu Ogólnego przeznaczenia v2. Aby uzyskać informacje o cenach, zobacz [Cennik obiektów blob platformy Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
-Postępuj zgodnie ze [wskazówkami dotyczącymi tworzenia prywatnego magazynu](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint) , aby utworzyć konto magazynu przy użyciu prywatnego punktu końcowego. Upewnij się, że wybrano opcję **tak** w obszarze **integracja z prywatną strefą DNS**. Wybierz istniejącą strefę DNS lub Utwórz nową.
+Postępuj zgodnie ze [wskazówkami dotyczącymi tworzenia prywatnego magazynu](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) , aby utworzyć konto magazynu przy użyciu prywatnego punktu końcowego. Upewnij się, że wybrano opcję **tak** w obszarze **integracja z prywatną strefą DNS**. Wybierz istniejącą strefę DNS lub Utwórz nową.
 
 ### <a name="grant-required-permissions-to-the-vault"></a>Przyznawanie wymaganych uprawnień do magazynu
 

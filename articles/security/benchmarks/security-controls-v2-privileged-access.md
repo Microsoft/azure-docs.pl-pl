@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 68fdff9444286a7f304c3a3361ad33a02e87a282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6676187f87cecb7f876150d1582cde9051dd251
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758374"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367486"
 ---
 # <a name="security-control-v2-privileged-access"></a>Kontrola zabezpieczeń v2: uprzywilejowany dostęp
 
@@ -34,11 +34,11 @@ Uwaga: mogą istnieć inne role krytyczne, które należy zastosować w przypadk
 
 Można włączyć uprzywilejowany dostęp just-in-Time (JIT) do zasobów platformy Azure i usługi Azure AD przy użyciu Azure AD Privileged Identity Management (PIM). Kompilator JIT przyznaje uprawnienia tymczasowe do wykonywania zadań uprzywilejowanych tylko wtedy, gdy użytkownicy ich potrzebują. Usługa PIM może również generować alerty zabezpieczeń w przypadku podejrzanych lub niebezpiecznych działań w organizacji usługi Azure AD.
 
-- [Uprawnienia roli administratora w usłudze Azure AD](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Uprawnienia roli administratora w usłudze Azure AD](../../active-directory/roles/permissions-reference.md)
 
 - [Korzystanie z alertów zabezpieczeń usługi Azure Privileged Identity Management](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+- [Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD](../../active-directory/roles/security-planning.md)
 
 **Odpowiedzialność**: klient
 
@@ -114,7 +114,7 @@ Uwaga: Niektóre usługi platformy Azure obsługują lokalnych użytkowników i 
 Aby zapobiec przypadkowemu zablokowaniu organizacji usługi Azure AD, skonfiguruj konto dostępu awaryjnego w celu uzyskania dostępu, gdy nie można używać normalnych kont administracyjnych. Konta dostępu awaryjnego są zwykle wysoce uprzywilejowane i nie powinny być przypisane do konkretnych osób. Konta dostępu awaryjnego są ograniczone do sytuacji awaryjnych lub "szkła Break", w których normalne konta administracyjne nie mogą być używane.
 Należy upewnić się, że poświadczenia (takie jak hasło, certyfikat lub karta inteligentna) dla kont dostępu awaryjnego są bezpieczne i znane tylko osobom, które są upoważnione do ich używania tylko w sytuacji awaryjnej.
 
-- [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md)
+- [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../../active-directory/roles/security-emergency-access.md)
 
 **Odpowiedzialność**: klient
 

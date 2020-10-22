@@ -9,12 +9,12 @@ ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a74240e3f116121c0aaddd11c186e6e674ea26a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78898587"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368183"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Tworzenie zaawansowanych harmonogramów i cyklów dla zadań w usłudze Azure Scheduler
 
@@ -54,11 +54,11 @@ W tym artykule opisano te scenariusze bardziej szczegółowo.
 
 Aby utworzyć harmonogram podstawowy przy użyciu [interfejsu API REST usługi Azure Scheduler](/rest/api/scheduler), wykonaj następujące kroki:
 
-1. Zarejestruj swoją subskrypcję platformy Azure za pomocą dostawcy zasobów przy użyciu [interfejsu API REST operacji rejestrowania Menedżer zasobów](https://docs.microsoft.com/rest/api/resources/providers). Nazwa dostawcy usługi Azure Scheduler to **Microsoft. Scheduler**. 
+1. Zarejestruj swoją subskrypcję platformy Azure za pomocą dostawcy zasobów przy użyciu [interfejsu API REST operacji rejestrowania Menedżer zasobów](/rest/api/resources/providers). Nazwa dostawcy usługi Azure Scheduler to **Microsoft. Scheduler**. 
 
-1. Utwórz kolekcję zadań przy użyciu [operacji tworzenia lub aktualizacji kolekcji zadań](https://docs.microsoft.com/rest/api/scheduler/jobcollections) w interfejsie API REST usługi Scheduler. 
+1. Utwórz kolekcję zadań przy użyciu [operacji tworzenia lub aktualizacji kolekcji zadań](/rest/api/scheduler/jobcollections) w interfejsie API REST usługi Scheduler. 
 
-1. Utwórz zadanie przy użyciu [operacji tworzenia lub aktualizacji zadań](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
+1. Utwórz zadanie przy użyciu [operacji tworzenia lub aktualizacji zadań](/rest/api/scheduler/jobs/createorupdate). 
 
 ## <a name="job-schema-elements"></a>Elementy schematu zadania
 

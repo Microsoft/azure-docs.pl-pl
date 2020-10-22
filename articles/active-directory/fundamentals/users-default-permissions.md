@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6c2255fcba12b19f375e694a0494011aa09b0e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 019501eef0857c9dc7cd7f63a656eccf61608f1b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101866"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367826"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Jakie są domyślne uprawnienia użytkownika w Azure Active Directory?
 W usłudze Azure Active Directory (Azure AD) wszystkim użytkownikom jest udzielany zestaw uprawnień domyślnych. Dostęp użytkownika składa się z typu użytkownika, ich [przypisań ról](active-directory-users-assign-role-azure-portal.md)i ich własności do poszczególnych obiektów. W tym artykule opisano te uprawnienia domyślne oraz zawarto porównanie uprawnień domyślnych członka i użytkownika gościa. Domyślne uprawnienia użytkownika można zmienić tylko w ustawieniach użytkownika w usłudze Azure AD.
@@ -48,19 +48,18 @@ Uprawnienia domyślne dla użytkowników należących do członków mogą być o
 Uprawnienie | Wyjaśnienie ustawienia
 ---------- | ------------
 Użytkownicy mogą rejestrować aplikację | Ustawienie tej opcji na wartość nie uniemożliwia użytkownikom tworzenie rejestracji aplikacji. Możliwość można następnie udzielić z powrotem do określonych osób przez dodanie ich do roli Deweloper aplikacji.
-Zezwalaj użytkownikom na łączenie konta służbowego z usługą LinkedIn | Ustawienie tej opcji na wartość nie uniemożliwia użytkownikom łączenie konta służbowego z kontem usługi LinkedIn. Aby uzyskać więcej informacji, zobacz [konta usługi LinkedIn — udostępnianie i wyrażanie danych](../users-groups-roles/linkedin-user-consent.md).
-Możliwość tworzenia grup zabezpieczeń | Ustawienie tej opcji na wartość Nie uniemożliwia użytkownikom tworzenie grup zabezpieczeń. Administratorzy globalni i Administratorzy użytkowników nadal mogą tworzyć grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../users-groups-roles/groups-settings-cmdlets.md).
-Możliwość tworzenia grup Microsoft 365 | Ustawienie tej opcji na wartość nie uniemożliwia użytkownikom tworzenie grup Microsoft 365. Ustawienie tej opcji na kilka umożliwia wybranie zestawu użytkowników w celu utworzenia grup Microsoft 365. Administratorzy globalni i Administratorzy użytkowników nadal będą mogli tworzyć grupy Microsoft 365. Aby uzyskać więcej informacji, zobacz [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../users-groups-roles/groups-settings-cmdlets.md).
+Zezwalaj użytkownikom na łączenie konta służbowego z usługą LinkedIn | Ustawienie tej opcji na wartość nie uniemożliwia użytkownikom łączenie konta służbowego z kontem usługi LinkedIn. Aby uzyskać więcej informacji, zobacz [konta usługi LinkedIn — udostępnianie i wyrażanie danych](../enterprise-users/linkedin-user-consent.md).
+Możliwość tworzenia grup zabezpieczeń | Ustawienie tej opcji na wartość Nie uniemożliwia użytkownikom tworzenie grup zabezpieczeń. Administratorzy globalni i Administratorzy użytkowników nadal mogą tworzyć grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../enterprise-users/groups-settings-cmdlets.md).
+Możliwość tworzenia grup Microsoft 365 | Ustawienie tej opcji na wartość nie uniemożliwia użytkownikom tworzenie grup Microsoft 365. Ustawienie tej opcji na kilka umożliwia wybranie zestawu użytkowników w celu utworzenia grup Microsoft 365. Administratorzy globalni i Administratorzy użytkowników nadal będą mogli tworzyć grupy Microsoft 365. Aby uzyskać więcej informacji, zobacz [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../enterprise-users/groups-settings-cmdlets.md).
 Ogranicz dostęp do portalu administracyjnego usługi Azure AD | Ustawienie tej opcji na nie umożliwia innym firmom korzystanie z portalu administracyjnego usługi Azure AD w celu odczytywania zasobów usługi Azure AD i zarządzania nimi. Wartość tak ogranicza dostęp wszystkich innych niż administratorów do danych usługi Azure AD w portalu administracyjnym.<p>**Uwaga**: to ustawienie nie ogranicza dostępu do danych usługi Azure AD przy użyciu programu PowerShell lub innych klientów, takich jak Visual Studio. w przypadku ustawienia wartości tak w celu przyznania konkretnemu użytkownikowi niebędącemu administratorem możliwości korzystania z portalu administracyjnego usługi Azure AD Przypisz dowolną rolę administracyjną, taką jak rola czytelnicy katalogów.<p>Ta rola umożliwia odczytywanie informacji o katalogu podstawowym, które są domyślnie dostępne dla użytkowników (Goście i nazwy główne usługi).
 Możliwość odczytywania innych użytkowników | To ustawienie jest dostępne tylko w programie PowerShell. Ustawienie tej flagi na $false uniemożliwia wszystkim innym niż administratorzy odczytywanie informacji o użytkownikach z katalogu. Ta flaga nie uniemożliwia odczytywania informacji o użytkowniku w innych usługach firmy Microsoft, takich jak Exchange Online. To ustawienie jest przeznaczone dla szczególnych okoliczności i ustawienie tej flagi na $false nie jest zalecane.
-
 
 ## <a name="restrict-guest-users-default-permissions"></a>Ogranicz domyślne uprawnienia gościa
 
 Uprawnienia domyślne dla użytkowników-Gości mogą być ograniczone w następujący sposób:
 
->[!NOTE] 
->Ustawienie **ograniczenia dostępu użytkownika** gościa zastąpiło ustawienie **ograniczone uprawnienia użytkowników-Gości** . Aby uzyskać wskazówki dotyczące korzystania z tej funkcji, zobacz [ograniczanie uprawnień dostępu gościa (wersja zapoznawcza) w Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+>[!NOTE]
+>Ustawienie ograniczenia dostępu użytkownika gościa zastąpiło ustawienie **ograniczone uprawnienia użytkowników-Gości** . Aby uzyskać wskazówki dotyczące korzystania z tej funkcji, zobacz [ograniczanie uprawnień dostępu gościa (wersja zapoznawcza) w Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 
 Uprawnienie | Wyjaśnienie ustawienia
 ---------- | ------------
@@ -143,7 +142,7 @@ Użytkownicy mogą wykonywać następujące działania w grupach będących wła
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat ustawienia ograniczeń dostępu użytkowników Gości, zobacz [ograniczanie uprawnień dostępu gościa (wersja zapoznawcza) w Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+* Aby dowiedzieć się więcej na temat ustawienia ograniczeń dostępu użytkowników Gości, zobacz [ograniczanie uprawnień dostępu gościa (wersja zapoznawcza) w Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 * Aby dowiedzieć się więcej o sposobie przypisywania ról administratora usługi Azure AD, zobacz [Przypisywanie użytkownika do ról administratorów w Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Aby dowiedzieć się więcej o kontrolowaniu dostępu do zasobów na platformie Microsoft Azure, zobacz [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md) (Opis dostępu do zasobów na platformie Azure).
 * Aby uzyskać więcej informacji dotyczących relacji między usługą Azure Active Directory i subskrypcją platformy Azure, zobacz [Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).

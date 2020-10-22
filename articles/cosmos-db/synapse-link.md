@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 97f24537f2fa68f1a9be83e2c9abdc8101edb8d0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 731e23c99a92d8f7d3558ea111d19f179db61da4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014549"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367622"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Co to jest link usługi Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)?
 
@@ -120,8 +120,6 @@ W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko 
 
 * Obecnie magazyn analityczny można włączyć tylko dla nowych kontenerów. Aby używać magazynu analitycznego dla istniejących kontenerów, Migruj dane z istniejących kontenerów do nowych kontenerów za pomocą [narzędzi do migracji Azure Cosmos DB](cosmosdb-migrationchoices.md). Link Synapse można włączyć na nowych i istniejących kontach Azure Cosmos DB.
 
-* Dostęp do magazynu analitycznego Azure Cosmos DB przy użyciu programu Synapse SQL Server jest obecnie objęty testową wersją zapoznawczą. Aby zażądać dostępu, Wyślij wiadomość e-mail do [zespołu linku usługi Azure Synapse](mailto:cosmosdbsynapselink@microsoft.com).
-
 * W przypadku kontenerów z włączonym magazynem analitycznym automatyczne tworzenie kopii zapasowych i przywracanie danych w magazynie analitycznym nie jest obecnie obsługiwane. Gdy łącze Synapse jest włączone na koncie bazy danych, Azure Cosmos DB będzie nadal automatycznie [tworzyć kopie zapasowe](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) danych w magazynie transakcyjnym (tylko) kontenerów z zaplanowanym interwałem tworzenia kopii zapasowych, tak jak zawsze. Należy pamiętać, że gdy kontener z włączonym magazynem analitycznym zostanie przywrócony do nowego konta, kontener zostanie przywrócony tylko z magazynem transakcyjnym i nie włączono magazynu analitycznego. 
 
 * Uzyskiwanie dostępu do Sklepu Azure Cosmos DB Analytics z zainicjowaną obsługą SQL Synapse nie jest obecnie dostępne.
@@ -134,7 +132,7 @@ Model rozliczeń łącza usługi Azure Synapse obejmuje koszty związane z korzy
 
 Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
-* [Omówienie magazynu analitycznego Azure Cosmos DB](analytical-store-introduction.md)
+* [Omówienie magazynu analitycznego usługi Azure Cosmos DB](analytical-store-introduction.md)
 
 * [Rozpoczynanie pracy z usługą Azure Synapse Link dla usługi Azure Cosmos DB](configure-synapse-link.md)
  

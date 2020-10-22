@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 92a6fef3305891b47c4dc2e0f0432e1079df5a69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "71266542"
 ---
 Brama sieci wirtualnej używa specyficznej podsieci nazywanej podsiecią bramy. Podsieć bramy jest częścią zakresu adresów IP sieci wirtualnej, który jest wybierany podczas konfigurowania sieci wirtualnej. Zawiera ona adresy IP używane przez zasoby i usługi bramy sieci wirtualnej. 

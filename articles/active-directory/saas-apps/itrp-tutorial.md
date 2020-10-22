@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "91850391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Samouczek: integracja Azure Active Directory z usługą ITRP
@@ -179,7 +179,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Port
 
     1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość znajdującą się w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

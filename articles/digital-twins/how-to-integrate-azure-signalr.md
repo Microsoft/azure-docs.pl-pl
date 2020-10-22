@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cba67e571370d48a04a4e95198462953acdd4d59
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131551"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367656"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Signal Service
 
@@ -244,12 +244,6 @@ Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia plat
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Jeśli usuniesz wystąpienie usługi Azure Digital bliźniaczych reprezentacji, możesz również usunąć rejestrację aplikacji usługi Azure AD utworzoną dla niej w kompleksowym samouczku za pomocą tego polecenia:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Na koniec Usuń foldery Przykładowe projektu pobrane do komputera lokalnego (*Azure_Digital_Twins_end_to_end_samples.zip* i *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).

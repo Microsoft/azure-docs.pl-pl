@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84982496"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368251"
 ---
 # <a name="list-azure-role-definitions"></a>Wyświetlanie listy definicji ról platformy Azure
 
 Definicja roli to zbiór uprawnień, które mogą być wykonywane, takie jak Odczyt, zapis i usuwanie. Zwykle jest nazywana rolą. [Kontrola dostępu oparta na rolach (Azure RBAC)](overview.md) obejmuje ponad 120 [ról wbudowanych](built-in-roles.md) lub można utworzyć własne role niestandardowe. W tym artykule opisano sposób tworzenia listy ról wbudowanych i niestandardowych, których można użyć w celu udzielenia dostępu do zasobów platformy Azure.
 
-Aby wyświetlić listę ról administratorów dla Azure Active Directory, zobacz [uprawnienia roli administrator w programie Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Aby wyświetlić listę ról administratorów dla Azure Active Directory, zobacz [uprawnienia roli administrator w programie Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -344,7 +344,7 @@ Aby wyświetlić listę definicji ról, użyj interfejsu API REST z [listą ról
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, dla którego chcesz wyświetlić listę definicji ról.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupa zarządzania |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
@@ -356,7 +356,7 @@ Aby wyświetlić listę definicji ról, użyj interfejsu API REST z [listą ról
 1. Zamień *filtr {Filter}* na warunek, który ma zostać zastosowany, aby przefiltrować listę definicji ról.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrowanie | Opis |
+    > | Filtr | Opis |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | Wyświetla definicje ról dla określonego zakresu i wszelkich podzakresów. |
     > | `$filter=type+eq+'{type}'` | Wyświetla definicje ról określonego typu. Typem roli może być `CustomRole` lub `BuiltInRole` . |
@@ -429,7 +429,7 @@ Aby wyświetlić szczegółowe informacje o określonej roli, należy użyć def
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, dla którego chcesz utworzyć listę definicji roli.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Type |
+    > | Zakres | Typ |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupa zarządzania |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |

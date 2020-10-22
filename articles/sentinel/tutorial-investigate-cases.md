@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843111"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367010"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Samouczek: badanie zdarzeń za pomocą platformy Azure — wskaźnik
 
@@ -42,7 +42,7 @@ Zdarzenie może zawierać wiele alertów. Jest to agregacja wszystkich istotnych
 ## <a name="prerequisites"></a>Wymagania wstępne
 - W przypadku korzystania z pól mapowania jednostek można zbadać zdarzenia tylko podczas konfigurowania reguły analizy. Wykres badania wymaga, aby oryginalne zdarzenie obejmowało jednostki.
 
-- Jeśli masz użytkownika-gościa, który musi przypisać incydenty, użytkownik musi mieć przypisaną rolę [czytnika katalogów](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) w dzierżawie usługi Azure AD. Użytkownicy standardowi (nie będący gościem) domyślnie przypisani do tej roli.
+- Jeśli masz użytkownika-gościa, który musi przypisać incydenty, użytkownik musi mieć przypisaną rolę [czytnika katalogów](../active-directory/roles/permissions-reference.md#directory-readers) w dzierżawie usługi Azure AD. Użytkownicy standardowi (nie będący gościem) domyślnie przypisani do tej roli.
 
 ## <a name="how-to-investigate-incidents"></a>Jak badać zdarzenia
 

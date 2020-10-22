@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46781edad6ad9290932216b9e9f23a359d25497a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265905"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366160"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
@@ -45,7 +45,7 @@ Musisz mieć wystarczające uprawnienia, aby zarejestrować aplikację w dzierż
 1. W okienku po lewej stronie wybierz pozycję **Ustawienia użytkownika**.
 1. Sprawdź ustawienie **rejestracje aplikacji** . Tę wartość można ustawić tylko przez administratora. W przypadku wybrania **opcji tak**każdy użytkownik w dzierżawie usługi Azure AD może zarejestrować aplikację.
 
-Jeśli ustawienie rejestracje aplikacji ma wartość **nie**, tylko użytkownicy z rolą administratora mogą rejestrować te typy aplikacji. Zobacz [dostępne role](../users-groups-roles/directory-assign-admin-roles.md#available-roles) i [uprawnienia roli](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) , aby dowiedzieć się więcej na temat dostępnych ról administratorów i określonych uprawnień w usłudze Azure AD, które są nadawane każdej roli. Jeśli Twoje konto ma przypisaną rolę użytkownika, ale ustawienie rejestracji aplikacji jest ograniczone do użytkowników administracyjnych, poproszenie administratora o przypisanie jednej z ról administratora, które mogą tworzyć wszystkie aspekty rejestracji aplikacji i zarządzać nimi, lub umożliwić użytkownikom rejestrowanie aplikacji.
+Jeśli ustawienie rejestracje aplikacji ma wartość **nie**, tylko użytkownicy z rolą administratora mogą rejestrować te typy aplikacji. Zobacz [dostępne role](../roles/permissions-reference.md#available-roles) i [uprawnienia roli](../roles/permissions-reference.md#role-permissions) , aby dowiedzieć się więcej na temat dostępnych ról administratorów i określonych uprawnień w usłudze Azure AD, które są nadawane każdej roli. Jeśli Twoje konto ma przypisaną rolę użytkownika, ale ustawienie rejestracji aplikacji jest ograniczone do użytkowników administracyjnych, poproszenie administratora o przypisanie jednej z ról administratora, które mogą tworzyć wszystkie aspekty rejestracji aplikacji i zarządzać nimi, lub umożliwić użytkownikom rejestrowanie aplikacji.
 
 ### <a name="check-azure-subscription-permissions"></a>Sprawdź uprawnienia subskrypcji platformy Azure
 
@@ -55,7 +55,7 @@ Aby sprawdzić uprawnienia do subskrypcji:
 
 1. Wyszukaj i wybierz pozycję **subskrypcje**lub wybierz pozycję **subskrypcje** na stronie **głównej** .
 
-   ![Wyszukaj](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Wyszukiwanie](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Wybierz subskrypcję, w której chcesz utworzyć nazwę główną usługi.
 
