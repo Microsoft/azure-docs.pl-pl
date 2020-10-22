@@ -1,15 +1,14 @@
 ---
 title: Łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal
 description: W tym artykule dowiesz się, jak zainstalować agenta i połączyć maszyny z platformą Azure przy użyciu serwerów z obsługą usługi Azure ARC z poziomu Azure Portal.
-ms.date: 09/24/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.custom: references_regions
-ms.openlocfilehash: 2ba834d8c55f53792606fffe65d65794e837e9e3
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101736"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370155"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal
 
@@ -17,7 +16,7 @@ Możesz włączyć serwery z obsługą usługi Azure ARC dla jednej lub małej l
 
 Ta metoda wymaga uprawnień administratora na komputerze, aby zainstalować i skonfigurować agenta. W systemie Linux przy użyciu konta głównego i w systemie Windows należysz do lokalnej grupy administratorów.
 
-Przed rozpoczęciem należy zapoznać się z wymaganiami [wstępnymi](agent-overview.md#prerequisites) i upewnić się, że Twoja subskrypcja i zasoby spełniają wymagania.
+Przed rozpoczęciem należy zapoznać się z wymaganiami [wstępnymi](agent-overview.md#prerequisites) i upewnić się, że Twoja subskrypcja i zasoby spełniają wymagania. Aby uzyskać informacje o obsługiwanych regionach i innych powiązanych zagadnieniach, zobacz [Obsługiwane regiony platformy Azure](overview.md#supported-regions).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -25,22 +24,13 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Skrypt służący do automatyzowania pobierania i instalacji oraz do nawiązywania połączenia z usługą Azure Arc jest dostępny w Azure Portal. Aby ukończyć ten proces, wykonaj następujące czynności:
 
-1. W przeglądarce przejdź do [Azure Portal](https://aka.ms/hybridmachineportal).
+1. W przeglądarce przejdź do [Azure Portal](https://portal.azure.com).
 
 1. Na stronie **serwery — usługa Azure Arc** wybierz pozycję **Dodaj** w lewym górnym rogu.
 
 1. Na stronie **Wybierz metodę** wybierz kafelek **Dodawanie serwerów przy użyciu interakcyjnego skryptu** , a następnie wybierz pozycję **Generuj skrypt**.
 
-1. Na stronie **Generowanie skryptu** wybierz subskrypcję i grupę zasobów, w której maszyna ma być zarządzana na platformie Azure. Wybierz lokalizację platformy Azure, w której będą przechowywane metadane maszyny.
-
-    >[!NOTE]
-    >Serwery z obsługą usługi Azure Arc obsługują tylko następujące regiony:
-    >- EastUS
-    >- WestUS2
-    >- WestEurope
-    >- SoutheastAsia
-    >
-    >Zapoznaj się z dodatkowymi zagadnieniami dotyczącymi [wyboru regionu w](overview.md#supported-regions) artykule przegląd.
+1. Na stronie **Generowanie skryptu** wybierz subskrypcję i grupę zasobów, w której maszyna ma być zarządzana na platformie Azure. Wybierz lokalizację platformy Azure, w której będą przechowywane metadane maszyny. Ta lokalizacja może być taka sama lub inna, jak lokalizacja grupy zasobów.
 
 1. Na stronie **wymagania wstępne** Przejrzyj informacje, a następnie wybierz pozycję **Dalej: szczegóły zasobu**.
 
@@ -84,7 +74,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
     ```
 
-    Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. Katalog dziennika to *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
+    Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. Katalog dziennika to *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 2. Jeśli komputer musi komunikować się za pomocą serwera proxy, aby ustawić zmienną środowiskową serwera proxy, uruchom następujące polecenie:
 
@@ -117,7 +107,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
 
 1. Przejdź do folderu lub udziału, do którego skopiowano skrypt, i wykonaj go na serwerze, uruchamiając `./OnboardingScript.ps1` skrypt.
 
-Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. Katalog dziennika to *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
+Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. Katalog dziennika to *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Instalowanie i weryfikowanie agenta w systemie Linux
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310920"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372297"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Utwórz kontroler danych usługi Azure Arc
 
@@ -39,7 +39,7 @@ Obecnie obsługiwana Lista usług Kubernetes Services i dystrybucji jest następ
 > * Minimalna obsługiwana wersja Kubernetes to v 1.14.
 > * Zapoznaj się z [wymaganiami dotyczącymi łączności](connectivity.md) , aby zrozumieć, jakie połączenia są wymagane między środowiskiem i platformą Azure.
 > * Zapoznaj się ze [wskazówkami dotyczącymi konfiguracji magazynu](storage-configuration.md) , aby poznać szczegóły dotyczące konfigurowania magazynu trwałego.
-> * W przypadku korzystania z usługi Azure Kubernetes należy mieć co najmniej **Standard_D8s_v3** i korzystać z **dysków w warstwie Premium.** 
+> * W przypadku korzystania z usługi Azure Kubernetes należy mieć co najmniej **Standard_D8s_v3** i korzystać z **dysków w warstwie Premium.** Klaster nie powinien obejmować wielu stref dostępności. 
 > * Jeśli używasz innej usługi Kubernetes lub dystrybucji, upewnij się, że masz minimalny rozmiar węzła wynoszący 8 GB pamięci RAM i 4 rdzenie oraz łączną pojemność 32 GB pamięci RAM dostępne we wszystkich węzłach Kubernetes. Można na przykład mieć 1 węzeł w 32 GB pamięci RAM i 4 rdzenie lub 2 węzły z 16GB pamięci RAM i 4 rdzenie.
 
 > [!NOTE]

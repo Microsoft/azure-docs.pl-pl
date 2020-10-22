@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 8983923a6ccc3b5462c3e9f00337763b225ed9ac
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5b511eeb99b70fd64a5366b7b54900166f06b4d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330312"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369322"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -65,7 +65,7 @@ Site Recovery obsługuje replikację wszystkich obciążeń uruchomionych na obs
 **Składnik** | **Szczegóły**
 --- | ---
 Ustawienia maszyny | Maszyny, które są replikowane na platformę Azure, muszą spełniać [wymagania dotyczące platformy Azure](#azure-vm-requirements).
-Obciążenie maszyny | Site Recovery obsługuje replikację wszystkich obciążeń uruchomionych na obsługiwanej maszynie. [Dowiedz się więcej](https://aka.ms/asr_workload).
+Obciążenie maszyny | Site Recovery obsługuje replikację wszystkich obciążeń uruchomionych na obsługiwanej maszynie. [Dowiedz się więcej](./site-recovery-workload.md).
 Nazwa maszyny | Upewnij się, że nazwa wyświetlana maszyny nie należy do [nazw zarezerwowanych zasobów platformy Azure](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> W nazwach woluminów logicznych nie jest rozróżniana wielkość liter. Upewnij się, że żadne dwa woluminy na urządzeniu nie mają tej samej nazwy. Przykład: woluminy z nazwami "voLUME1" i "voLUME1" nie mogą być chronione za pomocą Azure Site Recovery.
 
 ### <a name="for-windows"></a>W przypadku systemu Windows
@@ -235,7 +235,7 @@ Gość/serwer — wykluczanie dysku | Tak
 Wielościeżkowa gość/serwer (MPIO) | Nie
 Partycje typu GPT/serwer | Z [pakietem zbiorczym aktualizacji 37](https://support.microsoft.com/help/4508614/) są obsługiwane pięć partycji (wersja 9,25 usługi mobilności). Cztery dawniej były obsługiwane.
 ReFS | System plików jest odporny na błędy w wersji 9,23 lub nowszej
-Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacyjnych Site Recovery w portalu Azure Marketplace](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) z agentem mobilności w wersji 9,30 lub nowszej. <br/> -Bezpieczny typ rozruchu UEFI nie jest obsługiwany. [Dowiedz się więcej.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacyjnych Site Recovery w portalu Azure Marketplace](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) z agentem mobilności w wersji 9,30 lub nowszej. <br/> -Bezpieczny typ rozruchu UEFI nie jest obsługiwany. [Dowiedz się więcej.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Kanały replikacji
 

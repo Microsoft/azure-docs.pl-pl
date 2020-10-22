@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: bbfd00af62f783b0f5122ddb59b921c1ad9e7019
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "92331230"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Tworzenie połączenia typu lokacja-lokacja w witrynie Azure Portal

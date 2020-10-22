@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: a1fafdf1db29917982bbf136de45237459712bcd
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b833b45f5243e446ac507ee913abe256a12ac01d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073465"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368472"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Zabezpieczanie zasobników przy użyciu usługi Azure Policy
 
@@ -76,7 +76,7 @@ Poniższe zalecenie dotyczy tylko AKS i dodatku Azure Policy:
 
 - Użyj puli węzłów systemu z funkcją `CriticalAddonsOnly` zmiany harmonogramu, aby zaplanować zasobniki strażników. Aby uzyskać więcej informacji, zobacz [Korzystanie z pul węzłów systemowych](use-system-pools.md#system-and-user-node-pools).
 - Zabezpiecz ruch wychodzący z klastrów AKS. Aby uzyskać więcej informacji, zobacz [Kontrola ruchu wychodzącego dla węzłów klastra](limit-egress-traffic.md).
-- Jeśli klaster został `aad-pod-identity` włączony, w WĘŹLE NMI (tożsamość zarządzana) są modyfikowane węzły dołączenie iptables do przechwytywania wywołań do punktu końcowego metadanych wystąpienia platformy Azure. Ta konfiguracja oznacza, że wszystkie żądania wysłane do punktu końcowego metadanych są przechwytywane przez NMI, nawet jeśli nie są używane `aad-pod-identity` . AzurePodIdentityException CRD można skonfigurować w taki sposób `aad-pod-identity` , aby informował, że wszelkie żądania kierowane do punktu końcowego metadanych pochodzące z elementu pod, które pasują do etykiet zdefiniowanych w CRD, powinny być przekazywane z serwerem proxy bez żadnego przetwarzania w NMI. Systemowy `kubernetes.azure.com/managedby: aks` wymiarname z etykietą w _polecenia —_ przestrzeń nazw systemu powinna zostać wykluczona w `aad-pod-identity` ramach konfigurowania AzurePodIdentityException CRD. Aby uzyskać więcej informacji, zobacz temat [wyłączanie usługi AAD-pod-Identity dla określonego elementu lub aplikacji](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+- Jeśli klaster został `aad-pod-identity` włączony, w WĘŹLE NMI (tożsamość zarządzana) są modyfikowane węzły dołączenie iptables do przechwytywania wywołań do punktu końcowego metadanych wystąpienia platformy Azure. Ta konfiguracja oznacza, że wszystkie żądania wysłane do punktu końcowego metadanych są przechwytywane przez NMI, nawet jeśli nie są używane `aad-pod-identity` . AzurePodIdentityException CRD można skonfigurować w taki sposób `aad-pod-identity` , aby informował, że wszelkie żądania kierowane do punktu końcowego metadanych pochodzące z elementu pod, które pasują do etykiet zdefiniowanych w CRD, powinny być przekazywane z serwerem proxy bez żadnego przetwarzania w NMI. Systemowy `kubernetes.azure.com/managedby: aks` wymiarname z etykietą w _polecenia —_ przestrzeń nazw systemu powinna zostać wykluczona w `aad-pod-identity` ramach konfigurowania AzurePodIdentityException CRD. Aby uzyskać więcej informacji, zobacz temat [wyłączanie usługi AAD-pod-Identity dla określonego elementu lub aplikacji](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Aby skonfigurować wyjątek, Zainstaluj polecenie [MIC-Exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 Dodatek Azure Policy wymaga zasobów procesora i pamięci do działania. Te wymagania zwiększają się wraz ze wzrostem rozmiaru klastra. Zapoznaj się z [zaleceniami Azure Policy][policy-recommendations] , aby uzyskać ogólne wskazówki dotyczące korzystania z Azure Policy dodatku.
@@ -330,7 +330,7 @@ Aby uzyskać więcej informacji na temat ograniczania ruchu sieciowego, zobacz [
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity
-[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
+[aad-pod-identity-exception]: https://azure.github.io/aad-pod-identity/docs/configure/application_exception
 
 <!-- LINKS - internal -->
 [policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md

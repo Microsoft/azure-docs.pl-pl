@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788386dc3cbfb8b4252e8710d8ee1bfd9dbe4e66
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2847678c78aec4a287427463a9aeeb8bd82c6771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969918"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371940"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Dodawanie lub usuwanie właścicieli grupy w Azure Active Directory
 Grupy Azure Active Directory (Azure AD) należą do właścicieli grup i są przez nich zarządzane. Właściciele grup mogą być użytkownikami lub jednostkami usługi i mogą zarządzać grupą, w tym członkostwem. Tylko istniejący właściciele grup lub Administratorzy grup mogą przypisywać właścicieli grup. Właściciele grupy nie muszą być członkami grupy.
@@ -63,10 +63,10 @@ Usuń właściciela z grupy przy użyciu usługi Azure AD.
 ## <a name="next-steps"></a>Następne kroki
 - [Zarządzanie dostępem do zasobów za pomocą grup Azure Active Directory](active-directory-manage-groups.md)
 
-- [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../users-groups-roles/groups-settings-cmdlets.md)
+- [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../enterprise-users/groups-settings-cmdlets.md)
 
-- [Przypisywanie dostępu do zintegrowanej aplikacji SaaS przy użyciu grup](../users-groups-roles/groups-saasapps.md)
+- [Przypisywanie dostępu do zintegrowanej aplikacji SaaS przy użyciu grup](../enterprise-users/groups-saasapps.md)
 
 - [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 
-- [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../enterprise-users/groups-settings-v2-cmdlets.md)

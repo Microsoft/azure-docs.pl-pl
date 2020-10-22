@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2d7701e215011165ffef33353de7f9372b1142cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b61653fcd9428abe41f61ac89b2a37302983c7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440749"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369249"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działania w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -97,7 +97,7 @@ Przyjrzyjmy się bliżej definicji potoku w formacie JSON. Ogólna struktura pot
 | name |Nazwa potoku. Określ nazwę, która reprezentuje akcję wykonywaną przez potok. <br/><ul><li>Maksymalna liczba znaków: 260</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", " \* ", "%", "&", ":", " \\ "</li></ul> |Tak |
 | description | Wprowadź tekst opisujący przeznaczenie potoku. |Tak |
 | activities | W sekcji **activities** można zdefiniować jedno lub więcej działań. Zobacz następną sekcję, aby uzyskać szczegółowe informacje o elemencie JSON. | Tak |
-| start | Data i godzina rozpoczęcia potoku. Musi być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Przykład: `2016-10-14T16:32:41Z`. <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00` ", czyli 6.<br/><br/>Właściwości Start i End wspólnie określają aktywny okres dla potoku. Wycinki wyjściowe są tworzone tylko w tym aktywnym okresie. |Nie<br/><br/>W przypadku określenia wartości właściwości End należy określić wartość właściwości Start.<br/><br/>Aby można było utworzyć potok, oba czasy rozpoczęcia i zakończenia mogą być puste. Należy określić obie wartości, aby ustawić aktywny okres uruchomienia potoku. Jeśli nie określisz godzin początkowych i końcowych podczas tworzenia potoku, możesz je ustawić przy użyciu polecenia cmdlet Set-AzDataFactoryPipelineActivePeriod w późniejszym czasie. |
+| start | Data i godzina rozpoczęcia potoku. Musi być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: `2016-10-14T16:32:41Z`. <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00` ", czyli 6.<br/><br/>Właściwości Start i End wspólnie określają aktywny okres dla potoku. Wycinki wyjściowe są tworzone tylko w tym aktywnym okresie. |Nie<br/><br/>W przypadku określenia wartości właściwości End należy określić wartość właściwości Start.<br/><br/>Aby można było utworzyć potok, oba czasy rozpoczęcia i zakończenia mogą być puste. Należy określić obie wartości, aby ustawić aktywny okres uruchomienia potoku. Jeśli nie określisz godzin początkowych i końcowych podczas tworzenia potoku, możesz je ustawić przy użyciu polecenia cmdlet Set-AzDataFactoryPipelineActivePeriod w późniejszym czasie. |
 | end | Data i godzina zakończenia potoku. Jeśli ta wartość jest określona, musi być w formacie ISO. Na przykład: `2016-10-14T17:32:41Z` <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00` , czyli 6.<br/><br/>Aby uruchomić potok bezterminowo, określ 9999-09-09 jako wartość właściwości end. <br/><br/> Potok jest aktywny tylko między jego czasem rozpoczęcia i czasem zakończenia. Nie jest wykonywane przed czasem rozpoczęcia lub po zakończeniu. Jeśli potok jest wstrzymany, nie jest wykonywany niezależnie od jego czasu rozpoczęcia i zakończenia. Do uruchomienia potoku nie należy wstrzymywać. Zapoznaj się z tematem [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) , aby zrozumieć, jak planowanie i wykonywanie działa w Azure Data Factory. |Nie <br/><br/>W przypadku określenia wartości właściwości Start należy określić wartość właściwości end.<br/><br/>Zobacz uwagi dotyczące właściwości **Start** . |
 | isPaused | W przypadku ustawienia wartości true potok nie zostanie uruchomiony. Jest w stanie wstrzymania. Wartość domyślna = false. Ta właściwość służy do włączania lub wyłączania potoku. |Nie |
 | potokmode | Metoda planowania przebiegów dla potoku. Dozwolone wartości to: zaplanowane (wartość domyślna), jednorazowej.<br/><br/>Wartość "zaplanowany" wskazuje, że potok jest uruchamiany w określonym przedziale czasu, zgodnie z jego aktywnym okresem (godzina rozpoczęcia i zakończenia). Element "jednorazowej" wskazuje, że potok jest uruchamiany tylko raz. Nie można obecnie modyfikować/aktualizować potoków jednorazowej utworzonych po utworzeniu. Zobacz [potok jednorazowej](#onetime-pipeline) , aby uzyskać szczegółowe informacje na temat ustawienia jednorazowej. |Nie |
@@ -137,7 +137,7 @@ Poniższa tabela zawiera opis właściwości w definicji JSON działania:
 | typ | Typ działania. Zapoznaj się z sekcjami [działania przenoszenia danych](#data-movement-activities) i [działania przekształcania danych](#data-transformation-activities) dla różnych typów działań. |Tak |
 | danych wejściowych |Tabele wejściowe używane przez działanie<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Tak |
 | wydajności |Tabele wyjściowe używane przez działanie.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Tak |
-| linkedServiceName |Nazwa połączonej usługi używana na potrzeby działania. <br/><br/>Działanie może wymagać określenia połączonej usługi, która stanowi łącze do wymaganego środowiska obliczeniowego. |Tak dla działania usługi HDInsight i działania oceniania partii Azure Machine Learning <br/><br/>Nie dla wszystkich innych |
+| linkedServiceName |Nazwa połączonej usługi używana na potrzeby działania. <br/><br/>Działanie może wymagać określenia połączonej usługi, która stanowi łącze do wymaganego środowiska obliczeniowego. |Tak dla działania usługi HDInsight i działania oceniania partii Azure Machine Learning Studio (klasycznej) <br/><br/>Nie dla wszystkich innych |
 | typeProperties |Właściwości w sekcji **typeProperties** zależą od typu działania. Aby wyświetlić właściwości typu dla działania, kliknij linki do działań w poprzedniej sekcji. | Nie |
 | policy |Zasady, które mają wpływ na zachowanie działania w czasie wykonania. Jeśli nie jest określona, używane są zasady domyślne. |Nie |
 | scheduler | Właściwość "Scheduler" służy do definiowania żądanego planowania dla działania. Jego właściwości własne są takie same jak te we [właściwości Availability w zestawie danych](data-factory-create-datasets.md#dataset-availability). |Nie |

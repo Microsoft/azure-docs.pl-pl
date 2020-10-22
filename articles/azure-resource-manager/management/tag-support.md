@@ -2,13 +2,13 @@
 title: Obsługa tagów dla zasobów
 description: Pokazuje, które typy zasobów platformy Azure obsługują Tagi. Zawiera szczegółowe informacje dotyczące wszystkich usług platformy Azure.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 27e25b1048bb759a3b38859788c27c03f1cf0447
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: c3a94ece52e5c5b17a50fed9810303480a9c974a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371545"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370291"
 ---
 # <a name="tag-support-for-azure-resources"></a>Obsługa tagów dla zasobów platformy Azure
 W tym artykule opisano, czy typ zasobu obsługuje [Tagi](tag-resources.md). Kolumna z etykietą **obsługuje znaczniki** wskazuje, czy typ zasobu ma właściwość dla tagu. Kolumna **tag z etykietą w raporcie koszt** wskazuje, czy ten typ zasobu przekazuje tag do raportu kosztów. Możesz wyświetlić koszty według tagów w [Cost Management analiza kosztów](../../cost-management-billing/costs/group-filter.md) oraz [dane dotyczące rozliczeń i dziennego użycia na platformie Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -37,6 +37,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. AzureData](#microsoftazuredata)
 > - [Microsoft. AzureStack](#microsoftazurestack)
 > - [Microsoft. AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft. BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft. rozliczenia](#microsoftbilling)
 > - [Microsoft. BingMaps](#microsoftbingmaps)
@@ -167,6 +168,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft. Services](#microsoftservices)
 > - [Microsoft. SignalRService](#microsoftsignalrservice)
+> - [Microsoft. Singularity](#microsoftsingularity)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft. Solutions](#microsoftsolutions)
 > - [Microsoft. SQL](#microsoftsql)
@@ -361,6 +363,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
 > | privateClouds | Tak | Tak |
+> | privateClouds/Dodatki | Nie | Nie |
 > | privateClouds/autoryzacje | Nie | Nie |
 > | privateClouds/klastry | Nie | Nie |
 > | privateClouds / globalReachConnections | Nie | Nie |
@@ -423,12 +426,21 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ----------- |
 > | oparty | Tak | Tak |
 
+## <a name="microsoftbaremetalinfrastructure"></a>Microsoft. BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
+> | ------------- | ----------- | ----------- |
+> | bareMetalInstances | Tak | Tak |
+
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
 > | batchAccounts | Tak | Tak |
+> | batchAccounts/certyfikaty | Nie | Nie |
+> | batchAccounts/pule | Nie | Nie |
 
 ## <a name="microsoftbilling"></a>Microsoft. rozliczenia
 
@@ -737,7 +749,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | pakiety | Tak | Tak |
+> | pakiety | Tak | Nie |
 > | registeredSubscriptions | Nie | Nie |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft. CognitiveServices
@@ -826,7 +838,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Prognozy | Nie | Nie |
 > | ilości | Nie | Nie |
 > | Platform handlowych | Nie | Nie |
-> | Arkusze cen | Nie | Nie |
+> | Pricesheets | Nie | Nie |
 > | wyrobów | Nie | Nie |
 > | ReservationDetails | Nie | Nie |
 > | ReservationRecommendationDetails | Nie | Nie |
@@ -973,7 +985,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ----------- |
 > | obszary robocze | Tak | Tak |
 > | obszary robocze/dbworkspaces | Nie | Nie |
-> | obszary robocze/storageEncryption | Nie | Nie |
 > | obszary robocze/virtualNetworkPeerings | Nie | Nie |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft. datacatalog
@@ -1132,6 +1143,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | applicationgroups/komputery stacjonarne | Nie | Nie |
 > | applicationgroups / startmenuitems | Nie | Nie |
 > | hostpools | Tak | Tak |
+> | hostpools / msixpackages | Nie | Nie |
 > | hostpools / sessionhosts | Nie | Nie |
 > | hostpools / sessionhosts / usersessions | Nie | Nie |
 > | hostpools / usersessions | Nie | Nie |
@@ -1384,12 +1396,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
 > | devices | Tak | Tak |
+> | networkFunctions | Tak | Tak |
+> | networkFunctionVendors | Nie | Nie |
 > | registeredSubscriptions | Nie | Nie |
 > | dostawców | Nie | Nie |
-> | dostawcy/vendorskus | Nie | Nie |
-> | dostawcy/vendorskus/previewSubscriptions | Nie | Nie |
-> | virtualnetworkfunctions | Tak | Tak |
-> | virtualnetworkfunctionvendors | Nie | Nie |
+> | dostawcy/vendorSkus | Nie | Nie |
+> | dostawcy/vendorSkus/previewSubscriptions | Nie | Nie |
+> | virtualNetworkFunctions | Tak | Tak |
+> | virtualNetworkFunctionVendors | Nie | Nie |
 
 ## <a name="microsofthydra"></a>Microsoft. Hydra
 
@@ -1537,9 +1551,20 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
 > | obszary robocze | Tak | Tak |
+> | obszary robocze/batchEndpoints | Tak | Tak |
+> | obszary robocze/batchEndpoints/wdrożenia | Tak | Tak |
+> | obszary robocze/kody | Nie | Nie |
+> | obszary robocze/kody/wersje | Nie | Nie |
 > | obszary robocze/obliczenia | Nie | Nie |
+> | obszary robocze/magazyny danych | Nie | Nie |
 > | obszary robocze/eventGridFilters | Nie | Nie |
+> | obszary robocze/zadania | Nie | Nie |
+> | obszary robocze/labelingJobs | Nie | Nie |
 > | obszary robocze/linkedServices | Nie | Nie |
+> | obszary robocze/modele | Nie | Nie |
+> | obszary robocze/modele/wersje | Nie | Nie |
+> | obszary robocze/onlineEndpoints | Tak | Tak |
+> | obszary robocze/onlineEndpoints/wdrożenia | Tak | Tak |
 
 ## <a name="microsoftmaintenance"></a>Microsoft. Maintenance
 
@@ -2194,6 +2219,17 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | SignalR | Tak | Tak |
 > | Sygnalizujący/eventGridFilters | Nie | Nie |
 
+## <a name="microsoftsingularity"></a>Microsoft. Singularity
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
+> | ------------- | ----------- | ----------- |
+> | Konta | Tak | Tak |
+> | konta/accountQuotaPolicies | Nie | Nie |
+> | konta/groupPolicies | Nie | Nie |
+> | konta/zadania | Nie | Nie |
+> | konta/storageContainers | Nie | Nie |
+
 ## <a name="microsoftsoftwareplan"></a>Microsoft. SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -2332,6 +2368,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
 > | oparty | Tak | Tak |
+> | klastry/privateEndpoints | Nie | Nie |
 > | streamingjobs | Tak (patrz Uwaga poniżej) | Tak |
 
 > [!NOTE]
@@ -2433,8 +2470,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | Konta | Tak | Tak |
-> | pakiety | Tak | Tak |
+> | Konta | Tak | Nie |
+> | pakiety | Tak | Nie |
 > | registeredSubscriptions | Nie | Nie |
 
 ## <a name="microsoftweb"></a>Microsoft. Web
@@ -2469,6 +2506,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Runtime | Nie | Nie |
 > | Dopuszczalna | Tak | Tak |
 > | Dopuszczalna/eventGridFilters | Nie | Nie |
+> | Dopuszczalna/firstPartyApps | Nie | Nie |
+> | Dopuszczalna/firstPartyApps/keyVaultSettings | Nie | Nie |
 > | lokacje | Tak | Tak |
 > | Lokacje/konfiguracja  | Nie | Nie |
 > | Lokacje/eventGridFilters | Nie | Nie |

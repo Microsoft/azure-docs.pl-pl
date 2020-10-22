@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 68671a98c7703514af11de2f8c505110129fe713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12bec5af95e7da595d5af09fe9020992b1cf839d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398650"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367996"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Usługa Azure ExpressRoute z Azure Site Recovery
 
@@ -37,7 +37,7 @@ Upewnij się, że zostały spełnione także [wymagania dotyczące sieci](vmware
 
 W przypadku korzystania z serwera proxy lokalnie i chcą korzystać z ExpressRoute na potrzeby ruchu związanego z replikacją należy skonfigurować listę pomijania proxy na serwerze konfiguracji i serwerach przetwarzania. Wykonaj następujące czynności:
 
-- Pobierz narzędzie PsExec z tego [miejsca](https://aka.ms/PsExec) , aby uzyskać dostęp do kontekstu użytkownika systemu.
+- Pobierz narzędzie PsExec z tego [miejsca](/sysinternals/downloads/psexec) , aby uzyskać dostęp do kontekstu użytkownika systemu.
 - Otwórz program Internet Explorer w kontekście użytkownika systemu, uruchamiając następujący wiersz polecenia PsExec-s-i "użycie ścieżki%ProgramFiles%\Internet Explorer\iexplore.exe"
 - Dodawanie ustawień serwera proxy w programie IE
 - Na liście obejście Dodaj adres URL usługi Azure Storage *. blob.core.windows.net

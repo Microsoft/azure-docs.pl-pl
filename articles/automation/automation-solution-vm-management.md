@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3210aa5ae2ff94ba2c7dda673fbb60847c4dfd0b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317365"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372161"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
@@ -79,7 +79,7 @@ Aby włączyć maszyny wirtualne dla funkcji Start/Stop VMs during off-hours prz
 Maszyny wirtualne można włączyć dla funkcji Start/Stop VMs during off-hours przy użyciu nowego konta usługi Automation i Log Analytics obszaru roboczego. W takim przypadku wymagane są uprawnienia zdefiniowane w poprzedniej sekcji oraz uprawnienia zdefiniowane w tej sekcji. Wymagane są również następujące role:
 
 - Co-Administrator subskrypcji. Ta rola jest wymagana do utworzenia klasycznego konta Uruchom jako, jeśli zamierzasz zarządzać klasycznymi maszynami wirtualnymi. [Klasyczne konta Uruchom jako](automation-create-standalone-account.md#create-a-classic-run-as-account) nie są już domyślnie tworzone.
-- Członkostwo w roli Deweloper aplikacji [usługi Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) . Aby uzyskać więcej informacji na temat konfigurowania kont Uruchom jako, zobacz [uprawnienia do konfigurowania kont Uruchom jako](manage-runas-account.md#permissions).
+- Członkostwo w roli Deweloper aplikacji [usługi Azure AD](../active-directory/roles/permissions-reference.md) . Aby uzyskać więcej informacji na temat konfigurowania kont Uruchom jako, zobacz [uprawnienia do konfigurowania kont Uruchom jako](manage-runas-account.md#permissions).
 - Współautorem subskrypcji lub następujących uprawnień.
 
 | Uprawnienie |Zakres|
@@ -154,16 +154,16 @@ We wszystkich scenariuszach zmienne `External_Start_ResourceGroupNames` ,  `Exte
 
 ### <a name="schedules"></a>Harmonogramy
 
-Poniższa tabela zawiera listę domyślnych harmonogramów utworzonych w ramach konta usługi Automation.Można je modyfikować lub tworzyć własne harmonogramy niestandardowe.Domyślnie wszystkie harmonogramy są wyłączone z wyjątkiem harmonogramów **Scheduled_StartVM** i **Scheduled_StopVM** .
+Poniższa tabela zawiera listę domyślnych harmonogramów utworzonych w ramach konta usługi Automation. Można je modyfikować lub tworzyć własne harmonogramy niestandardowe. Domyślnie wszystkie harmonogramy są wyłączone z wyjątkiem harmonogramów **Scheduled_StartVM** i **Scheduled_StopVM** .
 
 Nie włączaj wszystkich harmonogramów, ponieważ może to spowodować utworzenie nakładających się akcji harmonogramu. Najlepiej określić optymalizacje, które chcesz wykonać, i odpowiednio je zmodyfikować. Zapoznaj się z przykładowymi scenariuszami w sekcji Przegląd w celu uzyskania dalszych wyjaśnień.
 
 |Nazwa harmonogramu | Częstotliwość | Opis|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Co 8 godzin | Uruchamia **AutoStop_CreateAlert_Parent** elementu Runbook co 8 godzin, co z kolei powoduje zatrzymanie wartości w `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` zmiennych, i `External_ExcludeVMNames` . Alternatywnie można określić rozdzieloną przecinkami listę maszyn wirtualnych przy użyciu `VMList` parametru.|
-|Scheduled_StopVM | Definiowane przez użytkownika, codziennie | Uruchamia **ScheduledStopStart_Parent** elementu Runbook z parametrem `Stop` każdego dnia o określonej godzinie.Automatycznie wstrzymuje wszystkie maszyny wirtualne, które spełniają reguły zdefiniowane przez zasoby zmienne.Włącz powiązany harmonogram **zaplanowany — StartVM**.|
-|Scheduled_StartVM | Definiowane przez użytkownika, codziennie | Uruchamia **ScheduledStopStart_Parent** elementu Runbook z wartością parametru `Start` każdego dnia o określonej godzinie. Automatycznie uruchamia wszystkie maszyny wirtualne, które spełniają reguły zdefiniowane przez zasoby zmienne.Włącz powiązany harmonogram **zaplanowany — StopVM**.|
-|Sequenced-StopVM | 1:00 AM (UTC), każdy piątek | Uruchamia **Sequenced_StopStop_Parent** elementu Runbook z wartością parametru `Stop` każdego piątku o określonej godzinie.Sekwencyjnie (rosnąco) przerywa wszystkie maszyny wirtualne ze znacznikiem **SequenceStop** zdefiniowanym przez odpowiednie zmienne. Aby uzyskać więcej informacji na temat wartości tagów i zmiennych zasobów, zobacz [elementy Runbook](#runbooks).Włącz harmonogram związany z **sekwencją-StartVM**.|
+|Scheduled_StopVM | Definiowane przez użytkownika, codziennie | Uruchamia **ScheduledStopStart_Parent** elementu Runbook z parametrem `Stop` każdego dnia o określonej godzinie. Automatycznie wstrzymuje wszystkie maszyny wirtualne, które spełniają reguły zdefiniowane przez zasoby zmienne. Włącz powiązany harmonogram **zaplanowany — StartVM**.|
+|Scheduled_StartVM | Definiowane przez użytkownika, codziennie | Uruchamia **ScheduledStopStart_Parent** elementu Runbook z wartością parametru `Start` każdego dnia o określonej godzinie. Automatycznie uruchamia wszystkie maszyny wirtualne, które spełniają reguły zdefiniowane przez zasoby zmienne. Włącz powiązany harmonogram **zaplanowany — StopVM**.|
+|Sequenced-StopVM | 1:00 AM (UTC), każdy piątek | Uruchamia **Sequenced_StopStop_Parent** elementu Runbook z wartością parametru `Stop` każdego piątku o określonej godzinie. Sekwencyjnie (rosnąco) przerywa wszystkie maszyny wirtualne ze znacznikiem **SequenceStop** zdefiniowanym przez odpowiednie zmienne. Aby uzyskać więcej informacji na temat wartości tagów i zmiennych zasobów, zobacz [elementy Runbook](#runbooks). Włącz harmonogram związany z **sekwencją-StartVM**.|
 |Sequenced-StartVM | 1:00 PM (UTC), co poniedziałek | Uruchamia **SequencedStopStart_Parent** elementu Runbook z wartością parametru `Start` każdego poniedziałek o określonej godzinie. Sekwencyjnie (malejąco) uruchamia wszystkie maszyny wirtualne z tagiem **SequenceStart** zdefiniowanym przez odpowiednie zmienne. Aby uzyskać więcej informacji na temat wartości tagów i zasobów zmiennych, zobacz [elementy Runbook](#runbooks). Włącz harmonogram związany z **sekwencją-StopVM**.
 
 ## <a name="use-the-feature-with-classic-vms"></a>Korzystanie z funkcji z klasycznymi maszynami wirtualnymi

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705371"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370206"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Szybkie reagowanie na bezpieczne tożsamości za pomocą usługi Azure AD
 
@@ -61,7 +61,7 @@ Istnieją pewne zalecenia, które Azure AD — wersja Bezpłatna, klienci pakiet
 | [Automatyzowanie aprowizacji użytkowników i anulowanie obsługi aplikacji SaaS](../app-provisioning/user-provisioning.md) (jeśli dotyczy) | Automatycznie twórz tożsamości i role użytkowników w aplikacjach w chmurze (SaaS), do których użytkownicy potrzebują dostępu. Oprócz tworzenia tożsamości użytkowników automatyczne Inicjowanie obsługi obejmuje konserwację i usuwanie tożsamości użytkowników jako zmiany stanu lub ról, zwiększając bezpieczeństwo organizacji. |
 | [Włącz bezpieczny dostęp hybrydowy: bezpieczne starsze aplikacje z istniejącymi kontrolerami i sieciami dostarczania aplikacji](../manage-apps/secure-hybrid-access.md) (jeśli dotyczy) | Publikuj i Chroń starsze aplikacje do uwierzytelniania lokalnego i w chmurze, łącząc je z usługą Azure AD przy użyciu istniejącego kontrolera dostarczania aplikacji lub sieci. |
 | Włącz samoobsługowe [Resetowanie hasła](../authentication/tutorial-enable-sspr.md) (dotyczy tylko kont w chmurze) | Ta możliwość zmniejsza liczbę wywołań pomocy technicznej i utratę produktywności, gdy użytkownik nie może zalogować się do swoich urządzeń lub aplikacji. |
-| [W miarę możliwości używaj nieglobalnych ról administracyjnych](../users-groups-roles/directory-assign-admin-roles.md) | Nadaj administratorom tylko dostęp do tych obszarów, do których potrzebują dostępu. Nie wszyscy administratorzy muszą być administratorami globalnymi. |
+| [W miarę możliwości używaj nieglobalnych ról administracyjnych](../roles/permissions-reference.md) | Nadaj administratorom tylko dostęp do tych obszarów, do których potrzebują dostępu. Nie wszyscy administratorzy muszą być administratorami globalnymi. |
 | [Włącz wskazówki dotyczące haseł firmy Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Zatrzymaj wymaganie od użytkowników zmiany hasła zgodnie z ustalonym harmonogramem, wyłącz wymagania dotyczące złożoności, a użytkownicy są bardziej apt, aby zapamiętać swoje hasła i zapewnić, że są one bezpieczne. |
 
 
@@ -90,8 +90,8 @@ Poniższa tabela służy do wyróżniania kluczowych akcji dla następujących s
 | [Automatyzowanie aprowizacji użytkowników i anulowanie obsługi aplikacji SaaS](../app-provisioning/user-provisioning.md) (jeśli dotyczy) | Automatycznie twórz tożsamości i role użytkowników w aplikacjach w chmurze (SaaS), do których użytkownicy potrzebują dostępu. Oprócz tworzenia tożsamości użytkowników automatyczne Inicjowanie obsługi obejmuje konserwację i usuwanie tożsamości użytkowników jako zmiany stanu lub ról, zwiększając bezpieczeństwo organizacji. |
 | [Włączanie dostępu warunkowego — oparte na urządzeniach](../conditional-access/require-managed-devices.md) | Zwiększ bezpieczeństwo i środowisko użytkownika przy użyciu dostępu warunkowego opartego na urządzeniach. Ten krok zapewnia użytkownikom dostęp tylko z urządzeń spełniających Twoje standardy dotyczące zabezpieczeń i zgodności. Te urządzenia są również znane jako urządzenia zarządzane. Urządzeniami zarządzanymi mogą być zgodne z usługą Intune lub hybrydowe urządzenia przyłączone do usługi Azure AD. |
 | [Włącz ochronę hasłem](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Ochrona użytkowników przed użyciem słabych i łatwych do odgadnięcia haseł. |
-| [Wyznacz więcej niż jednego administratora globalnego](../users-groups-roles/directory-emergency-access.md) | Należy przypisać co najmniej dwa stałe konta administratora globalnego tylko w chmurze do użycia w przypadku wystąpienia sytuacji awaryjnej. Te konta nie są używane codziennie i powinny mieć długie i złożone hasła. Konta szkła awaryjnego zapewniają dostęp do usługi w nagłym stanie. |
-| [W miarę możliwości używaj nieglobalnych ról administracyjnych](../users-groups-roles/directory-assign-admin-roles.md) | Nadaj administratorom tylko dostęp do tych obszarów, do których potrzebują dostępu. Nie wszyscy administratorzy muszą być administratorami globalnymi. |
+| [Wyznacz więcej niż jednego administratora globalnego](../roles/security-emergency-access.md) | Należy przypisać co najmniej dwa stałe konta administratora globalnego tylko w chmurze do użycia w przypadku wystąpienia sytuacji awaryjnej. Te konta nie są używane codziennie i powinny mieć długie i złożone hasła. Konta szkła awaryjnego zapewniają dostęp do usługi w nagłym stanie. |
+| [W miarę możliwości używaj nieglobalnych ról administracyjnych](../roles/permissions-reference.md) | Nadaj administratorom tylko dostęp do tych obszarów, do których potrzebują dostępu. Nie wszyscy administratorzy muszą być administratorami globalnymi. |
 | [Włącz wskazówki dotyczące haseł firmy Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Zatrzymaj wymaganie od użytkowników zmiany hasła zgodnie z ustalonym harmonogramem, wyłącz wymagania dotyczące złożoności, a użytkownicy są bardziej apt, aby zapamiętać swoje hasła i zapewnić, że są one bezpieczne. |
 | [Utwórz plan dla dostępu gościa](../external-identities/what-is-b2b.md) | Współpracuj z użytkownikami-Gośćmi, umożliwiając im logowanie do aplikacji i usług przy użyciu własnych tożsamości służbowych i służbowych. |
 
@@ -122,8 +122,8 @@ Poniższa tabela służy do wyróżniania kluczowych akcji dla następujących s
 | [Automatyzowanie aprowizacji użytkowników i anulowanie obsługi aplikacji SaaS](../app-provisioning/user-provisioning.md) (jeśli dotyczy) | Automatycznie twórz tożsamości i role użytkowników w aplikacjach w chmurze (SaaS), do których użytkownicy potrzebują dostępu. Oprócz tworzenia tożsamości użytkowników automatyczne Inicjowanie obsługi obejmuje konserwację i usuwanie tożsamości użytkowników jako zmiany stanu lub ról, zwiększając bezpieczeństwo organizacji. |
 | [Włączanie dostępu warunkowego — oparte na urządzeniach](../conditional-access/require-managed-devices.md) | Zwiększ bezpieczeństwo i środowisko użytkownika przy użyciu dostępu warunkowego opartego na urządzeniach. Ten krok zapewnia użytkownikom dostęp tylko z urządzeń spełniających Twoje standardy dotyczące zabezpieczeń i zgodności. Te urządzenia są również znane jako urządzenia zarządzane. Urządzeniami zarządzanymi mogą być zgodne z usługą Intune lub hybrydowe urządzenia przyłączone do usługi Azure AD. |
 | [Włącz ochronę hasłem](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Ochrona użytkowników przed użyciem słabych i łatwych do odgadnięcia haseł. |
-| [Wyznacz więcej niż jednego administratora globalnego](../users-groups-roles/directory-emergency-access.md) | Należy przypisać co najmniej dwa stałe konta administratora globalnego tylko w chmurze do użycia w przypadku wystąpienia sytuacji awaryjnej. Te konta nie są używane codziennie i powinny mieć długie i złożone hasła. Konta szkła awaryjnego zapewniają dostęp do usługi w nagłym stanie. |
-| [W miarę możliwości używaj nieglobalnych ról administracyjnych](../users-groups-roles/directory-assign-admin-roles.md) | Nadaj administratorom tylko dostęp do tych obszarów, do których potrzebują dostępu. Nie wszyscy administratorzy muszą być administratorami globalnymi. |
+| [Wyznacz więcej niż jednego administratora globalnego](../roles/security-emergency-access.md) | Należy przypisać co najmniej dwa stałe konta administratora globalnego tylko w chmurze do użycia w przypadku wystąpienia sytuacji awaryjnej. Te konta nie są używane codziennie i powinny mieć długie i złożone hasła. Konta szkła awaryjnego zapewniają dostęp do usługi w nagłym stanie. |
+| [W miarę możliwości używaj nieglobalnych ról administracyjnych](../roles/permissions-reference.md) | Nadaj administratorom tylko dostęp do tych obszarów, do których potrzebują dostępu. Nie wszyscy administratorzy muszą być administratorami globalnymi. |
 | [Włącz wskazówki dotyczące haseł firmy Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Zatrzymaj wymaganie od użytkowników zmiany hasła zgodnie z ustalonym harmonogramem, wyłącz wymagania dotyczące złożoności, a użytkownicy są bardziej apt, aby zapamiętać swoje hasła i zapewnić, że są one bezpieczne. |
 | [Utwórz plan dla dostępu gościa](../external-identities/what-is-b2b.md) | Współpracuj z użytkownikami-Gośćmi, umożliwiając im logowanie do aplikacji i usług przy użyciu własnych tożsamości służbowych i służbowych. |
 | [Włącz Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Umożliwia zarządzanie, kontrolowanie i monitorowanie dostępu do ważnych zasobów w organizacji, dzięki czemu administratorzy mają dostęp tylko w razie potrzeby i z zatwierdzeniem |

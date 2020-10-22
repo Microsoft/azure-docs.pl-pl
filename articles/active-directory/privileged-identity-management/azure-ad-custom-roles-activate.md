@@ -16,16 +16,16 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 398db465a6cc383f8869c549761afc0947e7ed03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c0d98641f8e2040de8350b7dd0231c2e7c889c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87421165"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371617"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Aktywuj rolę niestandardową usługi Azure AD w Privileged Identity Management
 
-Privileged Identity Management w usłudze Azure Active Directory (Azure AD) obsługuje teraz przypisanie "just-in-Time" do ról niestandardowych utworzonych na potrzeby zarządzania aplikacjami w środowisku administracyjnym zarządzania tożsamościami i dostępem. Aby uzyskać więcej informacji na temat tworzenia ról niestandardowych w celu delegowania zarządzania aplikacjami w usłudze Azure AD, zobacz [Niestandardowe role administratorów w Azure Active Directory (wersja zapoznawcza)](../users-groups-roles/roles-custom-overview.md).
+Privileged Identity Management w usłudze Azure Active Directory (Azure AD) obsługuje teraz przypisanie "just-in-Time" do ról niestandardowych utworzonych na potrzeby zarządzania aplikacjami w środowisku administracyjnym zarządzania tożsamościami i dostępem. Aby uzyskać więcej informacji na temat tworzenia ról niestandardowych w celu delegowania zarządzania aplikacjami w usłudze Azure AD, zobacz [Niestandardowe role administratorów w Azure Active Directory (wersja zapoznawcza)](../roles/custom-overview.md).
 
 > [!NOTE]
 > Role niestandardowe usługi Azure AD nie są zintegrowane z wbudowanymi rolami katalogu w wersji zapoznawczej. Gdy funkcja jest ogólnie dostępna, zarządzanie rolami będzie odbywać się w interfejsie wbudowanym. Jeśli zobaczysz poniższy transparent, te role powinny być zarządzane [przy użyciu wbudowanej roli środowisko](pim-how-to-activate-role.md) i ten artykuł nie ma zastosowania:
@@ -67,4 +67,4 @@ Jeśli rola wymaga zatwierdzenia do aktywacji, otrzymasz powiadomienie na platfo
 - [Przypisywanie roli niestandardowej usługi Azure AD](azure-ad-custom-roles-assign.md)
 - [Usuń lub zaktualizuj niestandardowe przypisanie roli usługi Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Skonfiguruj niestandardowe przypisanie roli usługi Azure AD](azure-ad-custom-roles-configure.md)
-- [Definicje ról w usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Definicje ról w usłudze Azure AD](../roles/permissions-reference.md)

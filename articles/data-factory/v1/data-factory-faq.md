@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: a019b86adf3dfe950b7d93f50c834d004a2aebf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ae12355dddbae40eb84730549ccebcd004ff6be
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462347"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371770"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory — często zadawane pytania
 > [!NOTE]
@@ -69,8 +69,8 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | Środowisko obliczeniowe | activities |
 | --- | --- |
 | [Klaster HDInsight na żądanie](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) lub [własny klaster usługi HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[Dotnet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [świnie](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), usługa [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
-| [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Działania usługi Machine Learning: wykonywanie wsadowe i aktualizacja zasobów](data-factory-azure-ml-batch-execution-activity.md) |
+| [Usługa Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
+| [Azure Machine Learning Studio (klasyczny)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Działania programu Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics (dawniej SQL Data Warehouse)](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedura składowana](data-factory-stored-proc-activity.md) |
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076445"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370631"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klasyczni administratorzy subskrypcji platformy Azure
 
@@ -71,9 +71,9 @@ Użytkownicy-Goście, którym przypisano rolę Co-Administrator, mogą zobaczyć
 
 Należy się spodziewać, że użytkownik B może zarządzać wszystkimi elementami. Przyczyna tej różnicy polega na tym, że konto Microsoft jest dodawana do subskrypcji jako użytkownik będący gościem, a nie użytkownikiem będącym członkiem. Użytkownicy-Goście mają różne domyślne uprawnienia w usłudze Azure AD w porównaniu z użytkownikami należącymi do członków. Na przykład użytkownicy z członkami mogą odczytywać innych użytkowników w usłudze Azure AD, a użytkownicy-Goście nie mogą. Użytkownicy będący członkami mogą rejestrować nowe jednostki usługi w usłudze Azure AD, a użytkownicy-Goście nie mogą.
 
-Jeśli użytkownik-Gość musi być w stanie wykonać te zadania, możliwe jest przypisanie określonych ról usługi Azure AD, których potrzebuje użytkownik gościa. Na przykład w poprzednim scenariuszu można przypisać rolę [czytelnicy Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) do odczytu innych użytkowników i przypisać rolę [Deweloper aplikacji](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) , aby móc tworzyć jednostki usługi. Aby uzyskać więcej informacji na temat członków i użytkowników-Gości i ich uprawnień, zobacz [co to są domyślne uprawnienia użytkownika w Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). Aby uzyskać więcej informacji na temat udzielania dostępu użytkownikom-Gościom, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure dla użytkowników zewnętrznych Gości przy użyciu Azure Portal](role-assignments-external-users.md).
+Jeśli użytkownik-Gość musi być w stanie wykonać te zadania, możliwe jest przypisanie określonych ról usługi Azure AD, których potrzebuje użytkownik gościa. Na przykład w poprzednim scenariuszu można przypisać rolę [czytelnicy Directory](../active-directory/roles/permissions-reference.md#directory-readers) do odczytu innych użytkowników i przypisać rolę [Deweloper aplikacji](../active-directory/roles/permissions-reference.md#application-developer) , aby móc tworzyć jednostki usługi. Aby uzyskać więcej informacji na temat członków i użytkowników-Gości i ich uprawnień, zobacz [co to są domyślne uprawnienia użytkownika w Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). Aby uzyskać więcej informacji na temat udzielania dostępu użytkownikom-Gościom, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure dla użytkowników zewnętrznych Gości przy użyciu Azure Portal](role-assignments-external-users.md).
 
-Pamiętaj, że [wbudowane role platformy Azure](../role-based-access-control/built-in-roles.md) są inne niż role usługi [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Wbudowane role nie udzielają dostępu do usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Omówienie różnych ról](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Pamiętaj, że [wbudowane role platformy Azure](../role-based-access-control/built-in-roles.md) są inne niż role usługi [Azure AD](../active-directory/roles/permissions-reference.md). Wbudowane role nie udzielają dostępu do usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Omówienie różnych ról](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Aby uzyskać informacje, które porównują użytkowników i użytkowników-Gości, zobacz [co to są domyślne uprawnienia użytkownika w Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 

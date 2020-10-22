@@ -1,5 +1,5 @@
 ---
-title: Co to jest zautomatyzowany ML/AutoML
+title: Co to jest zautomatyzowana ML? AutoML
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, w jaki sposób Azure Machine Learning automatycznie wybierać algorytm i generować z niego model, aby zaoszczędzić czas, korzystając z parametrów i kryteriów, które podajesz, aby wybrać najlepszy algorytm dla modelu.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c3e5602834576e8d3de86ac7d6683f9b6f7b89
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760973"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367520"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -165,8 +165,8 @@ Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lok
 
 |  | Specjaliści (zalety)  |Wady (wady)  |
 |---------|---------|---------|---------|
-|**Lokalne miejsce docelowe obliczeń** |  <li> Brak czasu uruchomienia środowiska   | <li>  Podzbiór funkcji<li>  Nie można zrównoleglanie przebiegów <li> Gorsz w przypadku dużych ilości danych. <li>Brak przesyłania strumieniowego danych podczas uczenia <li>  Brak cechowania opartych na DNN <li> Tylko zestaw SDK języka Python |
-|**Klastry obliczeniowe zdalnej ML**|  <li> Pełny zestaw funkcji <li> Uruchomienia podrzędne zrównoleglanie <li>   Obsługa dużych ilości danych<li>  Cechowania DNN <li>  Dynamiczna skalowalność klastra obliczeniowego na żądanie <li> Dostępne są również środowiska bez kodu (interfejs użytkownika sieci Web)  |  <li> Czas uruchamiania węzłów klastra <li> Uruchom czas dla każdego uruchomienia podrzędnego    |
+|**Lokalne miejsce docelowe obliczeń** |  <li> Brak czasu uruchamiania środowiska   | <li>  Podzbiór funkcji<li>  Nie można zrównoleglanie przebiegów <li> Gorsz w przypadku dużych ilości danych. <li>Brak przesyłania strumieniowego danych podczas uczenia <li>  Brak cechowania opartych na DNN <li> Tylko zestaw SDK języka Python |
+|**Klastry obliczeniowe zdalnej ML**|  <li> Pełny zestaw funkcji <li> Uruchomienia podrzędne zrównoleglanie <li>   Obsługa dużych ilości danych<li>  Cechowania DNN <li>  Dynamiczna skalowalność klastra obliczeniowego na żądanie <li> Dostępne są również środowiska bez kodu (interfejs użytkownika sieci Web)  |  <li> Czas uruchamiania węzłów klastra <li> Czas uruchamiania każdego uruchomienia podrzędnego    |
 
 ### <a name="feature-availability"></a>Dostępność funkcji 
 
@@ -219,7 +219,7 @@ Poniższe ustawienia umożliwiają skonfigurowanie zautomatyzowanego eksperyment
 |**Dzielenie danych na zestawy uczenia/walidacji**| ✓|✓
 |**Obsługuje zadania ML: klasyfikacje, regresje i prognozowanie**| ✓| ✓
 |**Optymalizuje na podstawie metryki podstawowej**| ✓| ✓
-|**Obsługuje obliczenia AML jako element docelowy obliczeń** | ✓|✓
+|**Obsługuje obliczenia z platformy Azure ML jako element docelowy obliczeń** | ✓|✓
 |**Konfigurowanie horyzontu prognoz, Target spowolnienia & przedziału**|✓|✓
 |**Ustawianie kryteriów zakończenia** |✓|✓ 
 |**Ustaw współbieżne iteracje**| ✓|✓

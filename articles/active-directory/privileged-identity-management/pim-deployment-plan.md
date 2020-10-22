@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bfe0fee14ed463e265dc4e7e4177c702b051c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050203"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367809"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Wdróż Azure AD Privileged Identity Management (PIM)
 
@@ -58,7 +58,7 @@ Ta sekcja zawiera przegląd dotyczący planowania odpowiednich części procesu 
 
 ## <a name="roles-that-can-be-managed-by-pim"></a>Role, które mogą być zarządzane przez usługę PIM
 
-Wszystkie **role usługi Azure AD** znajdują się w Azure Active Directory (na przykład administrator globalny, administrator programu Exchange i administrator zabezpieczeń). Więcej informacji na temat ról i ich funkcji można znaleźć w temacie [uprawnienia roli administrator w Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Aby uzyskać pomoc dotyczącą określania ról do przypisania administratorów, zobacz [najmniej uprzywilejowanych ról według zadania](../users-groups-roles/roles-delegate-by-task.md).
+Wszystkie **role usługi Azure AD** znajdują się w Azure Active Directory (na przykład administrator globalny, administrator programu Exchange i administrator zabezpieczeń). Więcej informacji na temat ról i ich funkcji można znaleźć w temacie [uprawnienia roli administrator w Azure Active Directory](../roles/permissions-reference.md). Aby uzyskać pomoc dotyczącą określania ról do przypisania administratorów, zobacz [najmniej uprzywilejowanych ról według zadania](../roles/delegate-by-task.md).
 
 **Role platformy Azure** to role połączone z zasobem platformy Azure, grupą zasobów, subskrypcją lub grupą zarządzania. Możesz użyć PIM, aby zapewnić dostęp just in Time do wbudowanych ról platformy Azure, takich jak właściciel, administrator dostępu użytkowników i współautor, a także do [ról niestandardowych](../../role-based-access-control/custom-roles.md). Aby uzyskać więcej informacji na temat ról platformy Azure, zobacz [Kontrola dostępu oparta na rolach na platformie Azure](../../role-based-access-control/overview.md).
 
@@ -111,7 +111,7 @@ W przypadku ról usługi Azure AD często organizacja ma przypisać rolę admini
 
 Wykonaj następujące kroki, aby zaimplementować zasadę najniższych uprawnień dla ról usługi Azure AD.
 
-1. Zapoznaj się z szczegółowością ról, odczytując i opisując [dostępne role administratorów usługi Azure AD](../users-groups-roles/directory-assign-admin-roles.md#available-roles). Ty i Twój zespół powinien również odwoływać się do [ról administratorów według tożsamości w usłudze Azure AD](../users-groups-roles/roles-delegate-by-task.md), która objaśnia najmniejszą rolę uprzywilejowaną dla konkretnych zadań.
+1. Zapoznaj się z szczegółowością ról, odczytując i opisując [dostępne role administratorów usługi Azure AD](../roles/permissions-reference.md#available-roles). Ty i Twój zespół powinien również odwoływać się do [ról administratorów według tożsamości w usłudze Azure AD](../roles/delegate-by-task.md), która objaśnia najmniejszą rolę uprzywilejowaną dla konkretnych zadań.
 
 1. Lista użytkowników, którzy mają role uprzywilejowane w organizacji. Możesz użyć funkcji [odnajdywania Privileged Identity Management i szczegółowych informacji (wersja zapoznawcza)](pim-security-wizard.md) , aby zmniejszyć ryzyko.
 
@@ -200,11 +200,11 @@ Określa, czy przypisać rolę do grupy, a nie do poszczególnych użytkowników
 
 #### <a name="many-users-are-assigned-to-a-role"></a>Wielu użytkowników jest przypisanych do roli
 
-Śledzenie osoby, która jest przypisana do roli i zarządzanie swoimi przypisaniami, w zależności od tego, kiedy ich potrzebują, może zająć trochę czasu. Aby przypisać grupę do roli, należy najpierw [utworzyć grupę, do której można przypisać rolę](../users-groups-roles/roles-groups-create-eligible.md) , a następnie przypisać grupę jako kwalifikującą się do roli. Ta akcja dotyczy wszystkich użytkowników w grupie w tym samym procesie aktywacji co indywidualni użytkownicy, którzy mają prawo do podniesienia uprawnień do roli. Członkowie grupy aktywują przypisania do grupy indywidualnie przy użyciu żądania aktywacji Privileged Identity Management i procesu zatwierdzania. Grupa nie jest aktywowana, tylko członkostwo w grupie użytkownika.
+Śledzenie osoby, która jest przypisana do roli i zarządzanie swoimi przypisaniami, w zależności od tego, kiedy ich potrzebują, może zająć trochę czasu. Aby przypisać grupę do roli, należy najpierw [utworzyć grupę, do której można przypisać rolę](../roles/groups-create-eligible.md) , a następnie przypisać grupę jako kwalifikującą się do roli. Ta akcja dotyczy wszystkich użytkowników w grupie w tym samym procesie aktywacji co indywidualni użytkownicy, którzy mają prawo do podniesienia uprawnień do roli. Członkowie grupy aktywują przypisania do grupy indywidualnie przy użyciu żądania aktywacji Privileged Identity Management i procesu zatwierdzania. Grupa nie jest aktywowana, tylko członkostwo w grupie użytkownika.
 
 #### <a name="you-want-to-delegate-assigning-the-role"></a>Chcesz delegować przypisanie roli
 
-Właściciel grupy może zarządzać członkostwem w grupie. W przypadku grup, do których można przypisać role usługi Azure AD, tylko administrator ról uprzywilejowanych, Administrator globalny i właściciele grupy mogą zarządzać członkostwem w grupie. Dodając nowych członków do grupy, członek uzyskuje dostęp do ról, do których grupa jest przypisana, niezależnie od tego, czy przypisanie jest uprawnione czy aktywne. Za pomocą właścicieli grup można delegować zarządzanie członkostwem w grupie dla przypisanej roli, aby zmniejszyć zakres wymaganych uprawnień. Aby uzyskać więcej informacji na temat przypisywania właściciela do grupy podczas tworzenia grupy, zobacz [Tworzenie grupy przypisanej do roli w usłudze Azure AD](../users-groups-roles/roles-groups-create-eligible.md).
+Właściciel grupy może zarządzać członkostwem w grupie. W przypadku grup, do których można przypisać role usługi Azure AD, tylko administrator ról uprzywilejowanych, Administrator globalny i właściciele grupy mogą zarządzać członkostwem w grupie. Dodając nowych członków do grupy, członek uzyskuje dostęp do ról, do których grupa jest przypisana, niezależnie od tego, czy przypisanie jest uprawnione czy aktywne. Za pomocą właścicieli grup można delegować zarządzanie członkostwem w grupie dla przypisanej roli, aby zmniejszyć zakres wymaganych uprawnień. Aby uzyskać więcej informacji na temat przypisywania właściciela do grupy podczas tworzenia grupy, zobacz [Tworzenie grupy przypisanej do roli w usłudze Azure AD](../roles/groups-create-eligible.md).
 
 > [!TIP]
 > : heavy_check_mark: **firma Microsoft zaleca** przenoszenie grup usługi Azure AD, które można przypisać do ról w obszarze zarządzanie przez Privileged Identity Management. Po przypisaniu grupy do zarządzania przez program PIM jest ona nazywana grupą dostępu uprzywilejowanego. Użyj programu PIM, aby wymagać od właścicieli grupy aktywacji przypisania roli właściciela, zanim będzie można zarządzać członkostwem w grupie. Aby uzyskać więcej informacji na temat przełączania grup w programie PIM Management, zobacz temat [przenoszenie uprzywilejowanych grup dostępu (wersja zapoznawcza) do Privileged Identity Management](groups-discover-groups.md).
@@ -214,7 +214,7 @@ Właściciel grupy może zarządzać członkostwem w grupie. W przypadku grup, d
 Po określeniu listy ról, które mają być zarządzane przez Privileged Identity Management, należy zdecydować, którzy użytkownicy powinni uzyskać kwalifikującą się rolę i trwale aktywną rolę. Stałe aktywne role są normalnymi rolami przypisanymi za pomocą Azure Active Directory i zasobami platformy Azure, podczas gdy kwalifikujące się role można przypisywać tylko w Privileged Identity Management.
 
 > [!TIP]
-> : heavy_check_mark: **firma Microsoft zaleca** , aby dla ról usługi Azure AD i ról platformy Azure nie było żadnych stałych, które są stale [aktywne, a](../users-groups-roles/directory-emergency-access.md)które mają stałą rolę administratora globalnego.
+> : heavy_check_mark: **firma Microsoft zaleca** , aby dla ról usługi Azure AD i ról platformy Azure nie było żadnych stałych, które są stale [aktywne, a](../roles/security-emergency-access.md)które mają stałą rolę administratora globalnego.
 
 Mimo że firma Microsoft zaleca zero administratorów, czasami trudno jest uzyskać od tych organizacji. Poniżej przedstawiono kwestie, które należy wziąć pod uwagę podczas podejmowania tej decyzji:
 

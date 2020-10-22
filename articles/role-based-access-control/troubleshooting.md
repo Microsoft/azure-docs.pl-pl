@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665995"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368234"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -61,7 +61,7 @@ $ras.Count
 
     Jeśli wystąpi błąd "niewystarczające uprawnienia do ukończenia operacji", prawdopodobnie jest to spowodowane tym, że interfejs wiersza polecenia platformy Azure próbuje odszukać tożsamość osoby przydzielonej w usłudze Azure AD, a jednostka usługi nie może domyślnie odczytać usługi Azure AD.
 
-    Istnieją dwa sposoby, aby potencjalnie rozwiązać ten problem. Pierwszy sposób polega na przypisaniu roli [czytniki katalogów](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) do nazwy głównej usługi, aby mogła ona odczytywać dane w katalogu.
+    Istnieją dwa sposoby, aby potencjalnie rozwiązać ten problem. Pierwszy sposób polega na przypisaniu roli [czytniki katalogów](../active-directory/roles/permissions-reference.md#directory-readers) do nazwy głównej usługi, aby mogła ona odczytywać dane w katalogu.
 
     Drugim sposobem na rozwiązanie tego błędu jest utworzenie przypisania roli przy użyciu `--assignee-object-id` parametru zamiast `--assignee` . Za pomocą `--assignee-object-id` interfejsu wiersza polecenia platformy Azure pominie wyszukiwanie w usłudze Azure AD. Konieczne będzie uzyskanie identyfikatora obiektu użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
 
@@ -184,7 +184,7 @@ Jeśli przyznasz użytkownikowi dostęp tylko do odczytu do pojedynczej aplikacj
 * Polecenia (takie jak uruchamianie, zatrzymywanie itp.)
 * Zmiana ustawień, takich jak Konfiguracja ogólna, ustawienia skalowania, ustawienia kopii zapasowej i ustawienia monitorowania
 * Uzyskiwanie dostępu do poświadczeń publikowania i innych wpisów tajnych, takich jak ustawienia aplikacji i parametry połączenia
-* Dzienniki przesyłania strumieniowego
+* Przesyłanie strumieniowe dzienników
 * Konfiguracja dzienników zasobów
 * Konsola (wiersz polecenia)
 * Aktywne i niedawne wdrożenia (dla lokalnego wdrożenia usługi Git)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287742"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359819"
 ---
 # <a name="deploy-a-configuration-server"></a>Wdrażanie serwera konfiguracji
 
@@ -92,7 +92,7 @@ Użytkownik musi mieć jeden z następujących uprawnień ustawionych w Azure Ac
 Jeśli chcesz dodać dodatkową kartę sieciową do serwera konfiguracji, Dodaj ją przed zarejestrowaniem serwera w magazynie. Po zarejestrowaniu nie można dodawać kart sieciowych.
 
 1. Kliknij prawym przyciskiem myszy maszynę wirtualną na liście w kliencie vSphere, a następnie wybierz pozycję **Edytuj ustawienia**.
-2. Na stronie **Hardware** (Sprzęt) wybierz pozycje **Add** > **Ethernet Adapter** (Dodaj, Karta Ethernet). Następnie wybierz pozycję **Dalej**.
+2. Na stronie **Hardware** (Sprzęt) wybierz pozycje **Add** > **Ethernet Adapter** (Dodaj, Karta Ethernet). Następnie wybierz przycisk **Dalej**.
 3. Wybierz typ karty i sieć.
 4. Aby połączyć wirtualną kartę sieciową po włączeniu maszyny wirtualnej, wybierz pozycję **Połącz przy zasilaniu**. Następnie wybierz pozycję **dalej**  >  **Zakończ**  >  **OK**.
 
@@ -102,7 +102,7 @@ Jeśli chcesz dodać dodatkową kartę sieciową do serwera konfiguracji, Dodaj 
 2. Maszyna wirtualna zostanie uruchomiona do środowiska instalacji systemu Windows Server 2016. Zaakceptuj umowę licencyjną i wprowadź hasło administratora.
 3. Po zakończeniu instalacji zaloguj się na maszynie wirtualnej jako administrator.
 4. Przy pierwszym logowaniu w ciągu kilku sekund zostanie uruchomione narzędzie do konfiguracji Azure Site Recovery.
-5. Wprowadź nazwę używaną do zarejestrowania serwera konfiguracji w usłudze Site Recovery. Następnie wybierz pozycję **Dalej**.
+5. Wprowadź nazwę używaną do zarejestrowania serwera konfiguracji w usłudze Site Recovery. Następnie wybierz przycisk **Dalej**.
 6. Narzędzie sprawdza, czy maszyna wirtualna może połączyć się z platformą Azure. Po nawiązaniu połączenia wybierz pozycję **Zaloguj się**, aby zalogować się do subskrypcji platformy Azure.</br>
     a. Użyte poświadczenia muszą zapewniać dostęp do magazynu, w którym chcesz zarejestrować serwer konfiguracji.</br>
     b. Upewnij się, że wybrane konto użytkownika ma uprawnienia do tworzenia aplikacji na platformie Azure. Aby włączyć wymagane uprawnienia, postępuj zgodnie z zaleceniami w sekcji [Azure Active Directory wymagania dotyczące uprawnień](#azure-active-directory-permission-requirements).
@@ -166,7 +166,7 @@ Zapoznaj się z naszym [artykułem rozwiązywania problemów](vmware-azure-troub
     Aby dowiedzieć się więcej o serwerze konfiguracji i jego funkcjach, zobacz [Architektura replikacji oprogramowania VMware do platformy Azure](vmware-azure-architecture.md).
 * Gdzie mogę znaleźć najnowszą wersję serwera konfiguracji?
 
-    Aby uzyskać instrukcje dotyczące uaktualniania serwera konfiguracji za pomocą portalu, zobacz [uaktualnianie serwera konfiguracji](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Aby uzyskać instrukcje dotyczące uaktualniania wszystkich składników Site Recovery, zobacz [aktualizacje usługi w programie Site Recovery](https://aka.ms/asr_how_to_upgrade).
+    Aby uzyskać instrukcje dotyczące uaktualniania serwera konfiguracji za pomocą portalu, zobacz [uaktualnianie serwera konfiguracji](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Aby uzyskać instrukcje dotyczące uaktualniania wszystkich składników Site Recovery, zobacz [aktualizacje usługi w programie Site Recovery](./service-updates-how-to.md).
 * Gdzie można pobrać hasło dla serwera konfiguracji?
 
     Aby pobrać hasło, zobacz [Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii maszyny wirtualnej VMware](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).

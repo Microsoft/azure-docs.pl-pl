@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc512bf664857129377d2eb928ff025d1c5f659b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321178"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370869"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Dodaj niestandardową nazwę domeny przy użyciu portalu Azure Active Directory
 
 Każda nowa dzierżawa usługi Azure AD zawiera początkową nazwę domeny * \<domainname> . onmicrosoft.com*. Nie można zmienić ani usunąć początkowej nazwy domeny, ale można dodać nazwy swojej organizacji. Dodawanie niestandardowych nazw domen ułatwia tworzenie nazw użytkowników, które są znane użytkownikom, takich jak *alain \@ contoso.com*.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby można było dodać niestandardową nazwę domeny, należy utworzyć nazwę domeny przy użyciu rejestratora domen. W przypadku akredytowanego rejestratora domen zobacz [rejestratory akredytowane przez ICANN](https://www.icann.org/registrar-reports/accredited-list.html).
 
@@ -104,9 +104,9 @@ Jeśli usługa Azure AD nie może zweryfikować niestandardowej nazwy domeny, wy
 
   Jeśli nie możesz zaktualizować rekordu w witrynie rejestratora, Udostępnij wpis osobie, która ma uprawnienia do dodawania wpisu i sprawdź, czy jest poprawna.
 
-- **Upewnij się, że nazwa domeny nie jest już używana w innym katalogu.** Nazwę domeny można zweryfikować tylko w jednym katalogu. Jeśli nazwa domeny jest obecnie weryfikowana w innym katalogu, nie można jej zweryfikować w nowym katalogu. Aby rozwiązać ten problem z duplikowaniem, należy usunąć nazwę domeny ze starego katalogu. Aby uzyskać więcej informacji na temat usuwania nazw domen, zobacz [Zarządzanie niestandardowymi nazwami domen](../users-groups-roles/domains-manage.md).
+- **Upewnij się, że nazwa domeny nie jest już używana w innym katalogu.** Nazwę domeny można zweryfikować tylko w jednym katalogu. Jeśli nazwa domeny jest obecnie weryfikowana w innym katalogu, nie można jej zweryfikować w nowym katalogu. Aby rozwiązać ten problem z duplikowaniem, należy usunąć nazwę domeny ze starego katalogu. Aby uzyskać więcej informacji na temat usuwania nazw domen, zobacz [Zarządzanie niestandardowymi nazwami domen](../enterprise-users/domains-manage.md).
 
-- **Upewnij się, że nie masz żadnych niezarządzanych dzierżawców Power BI.** Jeśli użytkownicy aktywowali Power BI za pomocą rejestracji samoobsługowej i utworzyli niezarządzaną dzierżawę dla organizacji, należy przejąć zarządzanie jako administrator wewnętrzny lub zewnętrzny przy użyciu programu PowerShell. Aby uzyskać więcej informacji, zobacz temat [Take over an unmanaged directory as administrator in Azure Active Directory](../users-groups-roles/domains-admin-takeover.md) (Przejmowanie niezarządzanego katalogu jako administrator w usłudze Azure Active Directory).
+- **Upewnij się, że nie masz żadnych niezarządzanych dzierżawców Power BI.** Jeśli użytkownicy aktywowali Power BI za pomocą rejestracji samoobsługowej i utworzyli niezarządzaną dzierżawę dla organizacji, należy przejąć zarządzanie jako administrator wewnętrzny lub zewnętrzny przy użyciu programu PowerShell. Aby uzyskać więcej informacji, zobacz temat [Take over an unmanaged directory as administrator in Azure Active Directory](../enterprise-users/domains-admin-takeover.md) (Przejmowanie niezarządzanego katalogu jako administrator w usłudze Azure Active Directory).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -114,6 +114,6 @@ Jeśli usługa Azure AD nie może zweryfikować niestandardowej nazwy domeny, wy
 
 - Dodaj użytkowników do domeny. Aby uzyskać więcej informacji, zobacz [jak dodawać i usuwać użytkowników](add-users-azure-active-directory.md).
 
-- Zarządzanie informacjami o nazwie domeny w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Zarządzanie niestandardowymi nazwami domen](../users-groups-roles/domains-manage.md).
+- Zarządzanie informacjami o nazwie domeny w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Zarządzanie niestandardowymi nazwami domen](../enterprise-users/domains-manage.md).
 
 - Jeśli masz lokalne wersje systemu Windows Server, które mają być używane razem z Azure Active Directory, zobacz [integrowanie katalogów lokalnych z Azure Active Directory](../hybrid/whatis-hybrid-identity.md).

@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 6db01531a34e936c59e5aa01a5c37f3a2ccf7345
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277718"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368336"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w niestandardowej domenie usługi Front Door
 
@@ -134,6 +134,11 @@ Przyznaj uprawnienie platformy Azure przed dostępem do certyfikatów na koncie 
     - Konta magazynów kluczy dla Twojego identyfikatora subskrypcji. 
     - Certyfikaty (klucze tajne) dla wybranego magazynu kluczy. 
     - Dostępne wersje certyfikatów. 
+
+> [!NOTE]
+> Pozostawienie wersji certyfikatu jako pustej doprowadziłoby do:
+> - Wybrana jest Najnowsza wersja certyfikatu.
+> - Automatyczne rotacja certyfikatów do najnowszej wersji, gdy w Key Vault jest dostępna nowsza wersja certyfikatu.
  
 5. Jeśli używasz własnego certyfikatu, walidacja domeny nie jest wymagana. Przejdź do sekcji [Oczekiwanie na propagację](#wait-for-propagation).
 

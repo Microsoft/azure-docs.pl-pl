@@ -1,64 +1,70 @@
 ---
-title: Używanie tagów indeksu obiektów BLOB do zarządzania danymi i znajdowania ich w usłudze Azure Blob Storage
+title: Używanie tagów indeksu obiektów BLOB do zarządzania danymi i znajdowania ich na platformie Azure Blob Storage
 description: Zobacz przykłady użycia tagów indeksu obiektów BLOB do kategoryzowania i wykonywania zapytań dotyczących obiektów blob oraz zarządzania nimi.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 10/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.reviewer: hux
+ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 175c9efd02665bf0212d7078a2ec2767ed1be6b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 159252cf850fd59f40d1b59e592153f50d7cb813
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850986"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371974"
 ---
-# <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Korzystanie z tagów indeksu obiektów BLOB (wersja zapoznawcza) w celu zarządzania danymi w usłudze Azure Blob Storage i znajdowania ich
+# <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Użyj tagów indeksu obiektów BLOB (wersja zapoznawcza), aby zarządzać danymi na platformie Azure Blob Storage i znajdować je
 
-Tagi indeksu obiektów BLOB klasyfikują dane na koncie magazynu przy użyciu atrybutów tagów klucz-wartość. Tagi te są automatycznie indeksowane i uwidaczniane jako Queryable indeks wielowymiarowy, aby łatwo znajdować dane. W tym artykule pokazano, jak ustawiać, pobierać i znajdować dane przy użyciu tagów indeksu obiektów BLOB.
-
-Aby dowiedzieć się więcej na temat funkcji indeksu obiektów blob, zobacz temat [Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
+Tagi indeksu obiektów BLOB klasyfikują dane na koncie magazynu przy użyciu atrybutów tagów klucz-wartość. Tagi te są automatycznie indeksowane i uwidaczniane jako wielowymiarowy indeks, który umożliwia łatwe wyszukiwanie danych. W tym artykule pokazano, jak ustawiać, pobierać i znajdować dane przy użyciu tagów indeksu obiektów BLOB.
 
 > [!NOTE]
-> Indeks obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępny w regionach **Kanada środkowa**, **Kanada Wschodnia**, **Francja środkowa** i **Francja Południowa** . Aby dowiedzieć się więcej na temat tej funkcji wraz z znanymi problemami i ograniczeniami, zobacz artykuł [Zarządzanie danymi na platformie Azure Blob Storage przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
+> Indeks obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępny w regionach **Kanada środkowa**, **Kanada Wschodnia**, **Francja środkowa** i **Francja Południowa** . Aby dowiedzieć się więcej na temat tej funkcji wraz ze znanymi problemami i ograniczeniami, zobacz [Zarządzanie danymi obiektów blob platformy Azure za pomocą tagów indeksu obiektów BLOB (wersja zapoznawcza) i znajdowanie](storage-manage-find-blobs.md)ich.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-- Subskrypcja została zarejestrowana i zatwierdzona do uzyskiwania dostępu do podglądu indeksu obiektów BLOB
+
+- Subskrypcja platformy Azure zarejestrowana i zatwierdzona do uzyskiwania dostępu do podglądu indeksu obiektów BLOB
 - Dostęp do [Azure Portal](https://portal.azure.com/)
 
 # <a name="net"></a>[.NET](#tab/net)
-Ponieważ indeks obiektów BLOB jest w publicznej wersji zapoznawczej, pakiet programu .NET Storage jest publikowany w kanale informacyjnym narzędzia NuGet. Ta biblioteka może ulec zmianie między tymi elementami i po jej Urzędowym udostępnieniu. 
 
-1. Skonfiguruj projekt programu Visual Studio, aby rozpocząć pracę z biblioteką klienta usługi Azure Blob Storage V12 dla platformy .NET. Aby dowiedzieć się więcej, zobacz [.NET — szybki start](storage-quickstart-blobs-dotnet.md)
+Ponieważ indeks obiektów BLOB jest w wersji zapoznawczej, pakiet programu .NET Storage jest publikowany w kanale informacyjnym narzędzia NuGet. Ta biblioteka może ulec zmianie w okresie zapoznawczym.
 
-2. W Menedżerze pakietów NuGet Znajdź pakiet **Azure. Storage. blob** i Zainstaluj wersję **12.7.0-Preview. 1** lub nowszą dla projektu. Możesz również uruchomić polecenie ```Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1```
+1. Skonfiguruj projekt programu Visual Studio, aby rozpocząć pracę z biblioteką V12 klienta Blob Storage platformy Azure dla platformy .NET. Aby dowiedzieć się więcej, zobacz [.NET — szybki start](storage-quickstart-blobs-dotnet.md)
+
+2. W Menedżerze pakietów NuGet Znajdź pakiet **Azure. Storage. blob** i Zainstaluj wersję **12.7.0-Preview. 1** lub nowszą dla projektu. Możesz również uruchomić polecenie programu PowerShell: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
    Aby dowiedzieć się, jak to zrobić, zobacz [Znajdowanie i instalowanie pakietu](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 3. Dodaj następujące instrukcje using na początku pliku kodu.
-```csharp
-using Azure;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
-using Azure.Storage.Blobs.Specialized;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-```
+
+    ```csharp
+    using Azure;
+    using Azure.Storage.Blobs;
+    using Azure.Storage.Blobs.Models;
+    using Azure.Storage.Blobs.Specialized;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    ```
+
 ---
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Przekaż nowy obiekt BLOB za pomocą tagów indeksu
+
+Przekazywanie nowego obiektu BLOB za pomocą tagów indeksu może być wykonywane przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Ponadto użytkownicy z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` uprawnieniem [kontroli dostępu opartej na rolach](/azure/role-based-access-control/overview) mogą wykonać tę operację.
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz konto magazynu 
 
 2. Przejdź do opcji **kontenery** w obszarze **BLOB Service**, wybierz kontener
 
-3. Wybierz przycisk **Przekaż** , aby otworzyć blok przekazywanie i przeglądać lokalny system plików, aby znaleźć plik do przekazania jako blokowy obiekt BLOB.
+3. Wybierz przycisk **Przekaż** i Przeglądaj lokalny system plików, aby znaleźć plik do przekazania jako blokowy obiekt BLOB.
 
 4. Rozwiń listę rozwijaną **Zaawansowane** i przejdź do sekcji **Tagi indeksu obiektów BLOB**
 
@@ -66,7 +72,7 @@ using System.Threading.Tasks;
 
 6. Wybierz przycisk **Przekaż** , aby przekazać obiekt BLOB
 
-![Przekazywanie danych za pomocą tagów indeksów obiektów BLOB](media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png)
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak przekazać obiekt BLOB za pomocą tagów indeksu.":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -107,13 +113,18 @@ static async Task BlobIndexTagsOnCreate()
 ---
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Pobieranie, ustawianie i aktualizowanie tagów indeksów obiektów BLOB
+
+Pobieranie tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Ponadto użytkownicy z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` uprawnieniem [kontroli dostępu opartej na rolach](/azure/role-based-access-control/overview) mogą wykonać tę operację.
+
+Ustawianie i aktualizowanie tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Ponadto użytkownicy z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` uprawnieniem [kontroli dostępu opartej na rolach](/azure/role-based-access-control/overview) mogą wykonać tę operację.
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz konto magazynu 
 
 2. Przejdź do opcji **kontenery** w obszarze **BLOB Service**, wybierz kontener
 
-3. Wybierz żądany obiekt BLOB z listy obiektów BLOB w wybranym kontenerze
+3. Wybierz obiekt BLOB z listy obiektów BLOB w wybranym kontenerze
 
 4. Na karcie Przegląd obiektów BLOB zostaną wyświetlone właściwości obiektów blob, w tym wszystkie **Tagi indeksów obiektów BLOB**
 
@@ -121,9 +132,10 @@ static async Task BlobIndexTagsOnCreate()
 
 6. Wybierz przycisk **Zapisz** , aby potwierdzić wszystkie aktualizacje obiektu BLOB
 
-![Pobieranie, Ustawianie, aktualizowanie i usuwanie tagów indeksów obiektów BLOB dla obiektów](media/storage-blob-index-concepts/blob-index-get-set-tags.png)
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak przekazać obiekt BLOB za pomocą tagów indeksu.":::
 
 # <a name="net"></a>[.NET](#tab/net)
+
 ```csharp
 static async Task BlobIndexTagsExample()
    {
@@ -181,6 +193,8 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrowanie i znajdowanie danych przy użyciu tagów indeksów obiektów BLOB
 
+Wyszukiwanie i filtrowanie według tagów indeksów obiektów BLOB może być wykonywane przez [właściciela danych obiektu blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Ponadto użytkownicy z `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` uprawnieniem [kontroli dostępu opartej na rolach](/azure/role-based-access-control/overview) mogą wykonać tę operację.
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 W Azure Portal filtr tagów indeksu obiektów BLOB automatycznie stosuje `@container` parametr w celu określania zakresu wybranego kontenera. Jeśli chcesz filtrować i znajdować oznakowane dane na całym koncie magazynu, użyj naszego interfejsu API REST, zestawów SDK lub narzędzi.
@@ -195,9 +209,10 @@ W Azure Portal filtr tagów indeksu obiektów BLOB automatycznie stosuje `@conta
 
 5. Wybierz przycisk **Filtr tagów indeksu obiektów BLOB** , aby dodać dodatkowe filtry tagów (do 10)
 
-![Filtrowanie i znajdowanie otagowanych obiektów przy użyciu tagów indeksu obiektów BLOB](media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png)
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak przekazać obiekt BLOB za pomocą tagów indeksu.":::
 
 # <a name="net"></a>[.NET](#tab/net)
+
 ```csharp
 static async Task FindBlobsByTagsExample()
    {
@@ -286,18 +301,23 @@ static async Task FindBlobsByTagsExample()
 
 3. Wybierz pozycję *Dodaj regułę* , a następnie wypełnij pola formularza zestawu akcji.
 
-4. Wybierz opcję **Filtr** zestaw, aby dodać opcjonalny filtr dla dopasowania prefiksu i dopasowania indeksu obiektów BLOB ![ Dodaj filtry tagów indeksu obiektów BLOB do zarządzania cyklem życia](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Wybierz zestaw **filtrów** , aby dodać opcjonalny filtr dla dopasowania prefiksu i dopasowania indeksu obiektów BLOB
 
-5. Wybierz kolejno pozycje **Przegląd + Dodaj** , aby przejrzeć ![ regułę zarządzania cyklem życia ustawień reguły z przykładem filtru tagów indeksu obiektów BLOB](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak przekazać obiekt BLOB za pomocą tagów indeksu.":::
+
+5. Wybierz pozycję **Przegląd + Dodaj** , aby przejrzeć ustawienia reguły
+
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Zrzut ekranu przedstawiający Azure Portal pokazujący, jak przekazać obiekt BLOB za pomocą tagów indeksu.":::
 
 6. Wybierz pozycję **Dodaj** , aby zastosować nową regułę do zasad zarządzania cyklem życia
 
 # <a name="net"></a>[.NET](#tab/net)
-Zasady [zarządzania cyklem życia](storage-lifecycle-management-concepts.md) są stosowane dla każdego konta magazynu na poziomie płaszczyzny kontroli. W przypadku platformy .NET zainstaluj [bibliotekę magazynów zarządzania Microsoft Azure w wersji 16.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) lub nowszej, aby skorzystać z filtru dopasowania indeksu obiektów BLOB w ramach reguły zarządzania cyklem życia.
+
+Zasady [zarządzania cyklem życia](storage-lifecycle-management-concepts.md) są stosowane dla każdego konta magazynu na poziomie płaszczyzny kontroli. W przypadku platformy .NET zainstaluj [bibliotekę magazynów zarządzania Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) w wersji 16.0.0 lub nowszej.
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
- - Dowiedz się więcej o indeksie obiektów blob, zobacz artykuł [Zarządzanie i znajdowanie danych na platformie Azure Blob Storage przy użyciu indeksu obiektów BLOB](storage-manage-find-blobs.md )
- - Dowiedz się więcej o zarządzaniu cyklem życia. Zobacz [Zarządzanie cyklem życia usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)
+ - Dowiedz się więcej o tagach indeksu obiektów blob, zobacz artykuł [Zarządzanie danymi obiektów blob platformy Azure i ich wyszukiwanie przy użyciu tagów indeksu obiektów BLOB](storage-manage-find-blobs.md )
+ - Dowiedz się więcej o zarządzaniu cyklem życia, zobacz [Zarządzanie cyklem życia usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)

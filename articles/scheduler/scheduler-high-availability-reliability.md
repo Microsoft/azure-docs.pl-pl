@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98a6672af7e74fdd0732f3ba03264d2f674eb44f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78898559"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368149"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Wysoka dostępność i niezawodność usługi Azure Scheduler
 
@@ -22,7 +22,7 @@ ms.locfileid: "78898559"
 >
 > Usługa Scheduler nie jest już dostępna w Azure Portal, ale polecenia cmdlet programu PowerShell dla [interfejsu API REST](/rest/api/scheduler) i [usługi Azure Scheduler](scheduler-powershell-reference.md) pozostają dostępne w tym momencie, aby można było zarządzać zadaniami i kolekcjami zadań.
 
-Usługa Azure Scheduler zapewnia [wysoką dostępność](https://docs.microsoft.com/azure/architecture/framework/#resiliency) i niezawodność zadań. Aby uzyskać więcej informacji, zobacz [Umowa SLA dla usługi Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
+Usługa Azure Scheduler zapewnia [wysoką dostępność](/azure/architecture/framework/#resiliency) i niezawodność zadań. Aby uzyskać więcej informacji, zobacz [Umowa SLA dla usługi Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
 ## <a name="high-availability"></a>Wysoka dostępność
 

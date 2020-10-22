@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601314"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371005"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Przewodnik dotyczący operacji zarządzania tożsamościami i dostępem Azure Active Directory
 
@@ -45,7 +45,7 @@ Podczas przeglądania listy może być konieczne przypisanie właściciela do za
 
 #### <a name="assigning-owners-recommended-reading"></a>Przypisywanie zalecanych właścicieli
 
-- [Przypisywanie ról administratorów w usłudze Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Przypisywanie ról administratorów w usłudze Azure Active Directory](../roles/permissions-reference.md)
 - [Nadzór na platformie Azure](../../governance/index.yml)
 
 ## <a name="on-premises-identity-synchronization"></a>Lokalna synchronizacja tożsamości
@@ -157,13 +157,13 @@ Poniższe wskazówki ułatwiają Definiowanie planów usługi dla użytkowników
 - Opcjonalnie można zdefiniować atrybut do przechowywania pakietów dla użytkowników.
 
 > [!IMPORTANT]
-> Licencjonowanie oparte na grupach w usłudze Azure AD wprowadza koncepcję użytkowników w stanie błąd licencjonowania. Jeśli zauważysz, że wystąpiły błędy licencjonowania, należy natychmiast [zidentyfikować i rozwiązać](../users-groups-roles/licensing-groups-resolve-problems.md) wszelkie problemy z przypisaniem licencji.
+> Licencjonowanie oparte na grupach w usłudze Azure AD wprowadza koncepcję użytkowników w stanie błąd licencjonowania. Jeśli zauważysz, że wystąpiły błędy licencjonowania, należy natychmiast [zidentyfikować i rozwiązać](../enterprise-users/licensing-groups-resolve-problems.md) wszelkie problemy z przypisaniem licencji.
 
 ![Zrzut ekranu przedstawiający opis ekranu komputera wygenerowany automatycznie](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### <a name="lifecycle-management"></a>Zarządzanie cyklem życia
 
-Jeśli używasz obecnie narzędzia, takiego jak [Microsoft Identity Manager](/microsoft-identity-manager/) lub systemu innej firmy, który jest oparty na infrastrukturze lokalnej, zalecamy odciążenie od istniejącego narzędzia, implementację licencjonowania opartego na grupach i zdefiniowanie zarządzania cyklem życia grupy w oparciu o [grupy](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Podobnie, jeśli istniejący proces nie uwzględnia nowych pracowników ani pracowników, którzy opuszczają organizację, należy wdrożyć Licencjonowanie oparte na grupach na podstawie grup dynamicznych i zdefiniować cykl życia członkostwa w grupie. Na koniec w przypadku wdrożenia licencjonowania opartego na grupach w grupach lokalnych, które nie mają zarządzania cyklem życia, należy rozważyć użycie grup w chmurze w celu włączenia takich funkcji, jak delegowane prawa własności lub członkostwo dynamiczne oparte na atrybutach.
+Jeśli używasz obecnie narzędzia, takiego jak [Microsoft Identity Manager](/microsoft-identity-manager/) lub systemu innej firmy, który jest oparty na infrastrukturze lokalnej, zalecamy odciążenie od istniejącego narzędzia, implementację licencjonowania opartego na grupach i zdefiniowanie zarządzania cyklem życia grupy w oparciu o [grupy](../enterprise-users/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Podobnie, jeśli istniejący proces nie uwzględnia nowych pracowników ani pracowników, którzy opuszczają organizację, należy wdrożyć Licencjonowanie oparte na grupach na podstawie grup dynamicznych i zdefiniować cykl życia członkostwa w grupie. Na koniec w przypadku wdrożenia licencjonowania opartego na grupach w grupach lokalnych, które nie mają zarządzania cyklem życia, należy rozważyć użycie grup w chmurze w celu włączenia takich funkcji, jak delegowane prawa własności lub członkostwo dynamiczne oparte na atrybutach.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>Przypisywanie aplikacji z grupą "Wszyscy użytkownicy"
 

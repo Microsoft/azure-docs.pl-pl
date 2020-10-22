@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146627"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372484"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planowanie wdrożenia Azure Active Directory moje aplikacje
 
@@ -97,7 +97,7 @@ Funkcjonalność moich aplikacji może być włączona stopniowo. Zalecamy wykon
 1. Moje aplikacje
    * Uruchamianie aplikacji
    * Samoobsługowe zarządzanie aplikacjami
-   * Integracja Microsoft 365
+   * Integracja z platformą Microsoft 365
 
 1. Odnajdywanie aplikacji samoobsługowych
    * Samoobsługowe resetowanie haseł
@@ -117,7 +117,7 @@ Od mojej aplikacji wprowadzono użytkowników do portalu jako typowe miejsce na 
 
 W poniższej tabeli wymieniono kilka ważnych konfiguracji aplikacji oraz typowe wartości, których można użyć:
 
-| Konfiguracja| Typowe wartości |
+| Konfigurowanie| Typowe wartości |
 | - | - |
 | Określanie grup pilotażowych| Zidentyfikuj grupę zabezpieczeń usługi Azure AD, która ma zostać użyta, i upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
 | Określ grupę lub grupy, które mają być włączone dla środowiska produkcyjnego.| Określ grupy zabezpieczeń usługi Azure AD lub grupy Active Directory synchronizowane z usługą Azure AD, które mają być używane. Upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
@@ -225,7 +225,7 @@ Przepływy pracy zatwierdzania są dostępne dla jawnej zgody na dostęp do apli
 
 Można umożliwić użytkownikom tworzenie własnych grup zabezpieczeń lub grup Microsoft 365 w usłudze Azure AD oraz zarządzanie nimi. Właściciel grupy może zatwierdzać lub odrzucać żądania członkostwa oraz delegować kontrolę nad członkostwem w grupie. Funkcje samoobsługowego zarządzania grupami nie są dostępne dla grup zabezpieczeń z włączoną obsługą poczty lub list dystrybucyjnych.
 
-Aby zaplanować członkostwo w grupach samoobsługi, ustal, czy zezwolisz wszystkim użytkownikom w organizacji na tworzenie grup i zarządzanie nimi. Jeśli zezwolisz na podzbiór użytkowników, musisz skonfigurować grupę, do której zostaną dodani te osoby. Zobacz [Konfigurowanie samoobsługowego zarządzania grupami w Azure Active Directory](../users-groups-roles/groups-self-service-management.md) , aby uzyskać szczegółowe informacje na temat włączania tych scenariuszy.
+Aby zaplanować członkostwo w grupach samoobsługi, ustal, czy zezwolisz wszystkim użytkownikom w organizacji na tworzenie grup i zarządzanie nimi. Jeśli zezwolisz na podzbiór użytkowników, musisz skonfigurować grupę, do której zostaną dodani te osoby. Zobacz [Konfigurowanie samoobsługowego zarządzania grupami w Azure Active Directory](../enterprise-users/groups-self-service-management.md) , aby uzyskać szczegółowe informacje na temat włączania tych scenariuszy.
 
 ## <a name="plan-reporting-and-auditing"></a>Planowanie raportowania i inspekcji
 
@@ -299,7 +299,7 @@ Ważne jest, aby zaplanować czynności, które należy wykonać, jeśli wdroże
 
 ## <a name="manage-your-implementation"></a>Zarządzanie implementacją
 
-Użyj najmniejszej roli uprzywilejowanej, aby wykonać wymagane zadanie w Azure Active Directory. [Zapoznaj się z różnymi rolami, które są dostępne](../users-groups-roles/directory-assign-admin-roles.md) , a następnie wybierz jedną z nich, aby rozwiązać potrzeby każdej osoby dla tej aplikacji. Niektóre role mogą wymagać tymczasowego zastosowania i usunąć po zakończeniu wdrażania.
+Użyj najmniejszej roli uprzywilejowanej, aby wykonać wymagane zadanie w Azure Active Directory. [Zapoznaj się z różnymi rolami, które są dostępne](../roles/permissions-reference.md) , a następnie wybierz jedną z nich, aby rozwiązać potrzeby każdej osoby dla tej aplikacji. Niektóre role mogą wymagać tymczasowego zastosowania i usunąć po zakończeniu wdrażania.
 
 | Osoby| Role| Rola usługi Azure AD  |
 | - | -| -|

@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cbe32125d957bb1fd53e7cb5a39ae9f745cef4a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0f82314b0a4e16829b4c192a14fae7f24875365d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317020"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359615"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Konfigurowanie alertów zabezpieczeń dla ról usługi Azure AD w Privileged Identity Management
 
@@ -29,7 +29,7 @@ Privileged Identity Management (PIM) generuje alerty w przypadku podejrzenia lub
 
 Od listopada 2019 część Privileged Identity Management ról usługi Azure AD jest aktualizowana do nowej wersji, która jest zgodna z środowiskami dla ról zasobów platformy Azure. Spowoduje to utworzenie dodatkowych funkcji, a także [zmian w istniejącym interfejsie API](azure-ad-roles-features.md#api-changes). Gdy nowa wersja jest wdrażana, procedury, które należy wykonać w tym artykule, zależą od aktualnie zainstalowanej wersji programu Privileged Identity Management. Wykonaj kroki opisane w tej sekcji, aby określić, która wersja Privileged Identity Management masz. Po uzyskaniu informacji o wersji Privileged Identity Management możesz wybrać procedury w tym artykule, które pasują do tej wersji.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który znajduje się w roli [administrator ról uprzywilejowanych](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który znajduje się w roli [administrator ról uprzywilejowanych](../roles/permissions-reference.md#privileged-role-administrator) .
 1. Otwórz **Azure AD Privileged Identity Management**. Jeśli masz baner w górnej części strony przegląd, postępuj zgodnie z instrukcjami wyświetlanymi na karcie **Nowa wersja** tego artykułu. W przeciwnym razie postępuj zgodnie z instrukcjami podanymi w **poprzedniej wersji** karty.
 
   [![Wybierz Privileged Identity Management usługi Azure AD >.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -87,7 +87,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 | **Jak naprawić?** | Przejrzyj konta na liście. Jeśli nie potrzebują już dostępu, usuń je z ról uprzywilejowanych. |
 | **Zapobieganie** | Upewnij się, że konta, które są udostępnione, obracają silne hasła w przypadku zmiany użytkowników, którzy znają hasło. </br>Regularnie Przeglądaj konta z rolami uprzywilejowanymi przy użyciu [przeglądów dostępu](pim-how-to-start-security-review.md) i usuwaj przypisania ról, które nie są już potrzebne. |
 | **Akcja łagodzenia w portalu** | Usuwa konto z roli uprzywilejowanej. |
-| **Najlepsze praktyki** | Konta dostępu współdzielonego, usługi i trybu awaryjnego, które uwierzytelniają się przy użyciu hasła i są przypisane do uprzywilejowanych ról administracyjnych, takich jak Administrator globalny lub administrator zabezpieczeń, powinny być obracane w następujących przypadkach:<ul><li>Po wystąpieniu zdarzenia zabezpieczeń związanego z nieprawidłowym lub naruszeniem praw dostępu administracyjnego</li><li>Po zmianie uprawnień użytkownika, tak aby nie były one już administratorami (na przykład po odejściu pracownika przez administratora lub opuszczenia organizacji)</li><li>W regularnych odstępach czasu (na przykład co kwartał lub co rok) nawet w przypadku braku znanego naruszenia lub zmiany działu IT</li></ul>Ponieważ wielu osób ma dostęp do tych kont, należy je obrócić, aby upewnić się, że osoby, które opuściły swoje role, nie będą miały dostępu do kont. [Dowiedz się więcej o zabezpieczaniu kont](../users-groups-roles/directory-admin-roles-secure.md) |
+| **Najlepsze praktyki** | Konta dostępu współdzielonego, usługi i trybu awaryjnego, które uwierzytelniają się przy użyciu hasła i są przypisane do uprzywilejowanych ról administracyjnych, takich jak Administrator globalny lub administrator zabezpieczeń, powinny być obracane w następujących przypadkach:<ul><li>Po wystąpieniu zdarzenia zabezpieczeń związanego z nieprawidłowym lub naruszeniem praw dostępu administracyjnego</li><li>Po zmianie uprawnień użytkownika, tak aby nie były one już administratorami (na przykład po odejściu pracownika przez administratora lub opuszczenia organizacji)</li><li>W regularnych odstępach czasu (na przykład co kwartał lub co rok) nawet w przypadku braku znanego naruszenia lub zmiany działu IT</li></ul>Ponieważ wielu osób ma dostęp do tych kont, należy je obrócić, aby upewnić się, że osoby, które opuściły swoje role, nie będą miały dostępu do kont. [Dowiedz się więcej o zabezpieczaniu kont](../roles/security-planning.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Role są przypisywane poza Privileged Identity Management
 
