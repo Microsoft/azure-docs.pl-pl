@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Dokumentacja usługi QnA Maker
   description: Usługa QnA Maker to oparta na chmurze usługa interfejsu API, która tworzy warstwę konwersacji w postaci pytań i odpowiedzi nad Twoimi danymi. Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów. Usługa QnA Maker odpowiada na pytania użytkowników zadane w języku naturalnym, dopasowując je do najlepszej możliwej odpowiedzi spośród pytań i odpowiedzi w Twojej bazie wiedzy.
-  ms.openlocfilehash: 09c577368ef6ca9b6bc584601ad018c2a63c7347
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: d82dcd03ce64c76a84811b5789ee5460ba089641
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "84628037"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92372076"
 landingContent:
 - title: Informacje o usłudze QnA Maker
   linkLists:
@@ -122,9 +122,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Opcje wsparcia technicznego i pomocy
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
     - text: Rozwiązywanie problemów
       url: troubleshooting.md
-    - text: Zadawaj pytania na stronie Stack Overflow
-      url: https://stackoverflow.com/questions/tagged/QnAMaker
-    - text: Wpływ platformy UserVoice na usługę
-      url: https://cognitive.uservoice.com/forums/578689-qna-maker-api

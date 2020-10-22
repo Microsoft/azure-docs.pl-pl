@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: active-directory
 author: curtand
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 49d0d3e8665e0e80b1626c180300611149eff23f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 819a897e2a785991378ce4b6cb19194665b569f0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005988"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363406"
 ---
 Oto ograniczenia używania i inne limity usługi dotyczące usługi Azure Active Directory (Azure AD).
 
@@ -21,7 +21,7 @@ Oto ograniczenia używania i inne limity usługi dotyczące usługi Azure Active
 | --- | --- |
 | Dzierżawy | Pojedynczy użytkownik może należeć do maksymalnie 500 dzierżaw usługi Azure AD jako członka lub gościa.<br/>Pojedynczy użytkownik może utworzyć maksymalnie 200 katalogów. |
 | Domains | Możesz dodać maksymalnie 900 nazw domen zarządzanych. Jeśli skonfigurujesz wszystkie domeny dla Federacji z Active Directory lokalnym, możesz dodać nie więcej niż 450 nazw domen w każdej dzierżawie. |
-|Zasoby |<ul><li>Maksymalnie 50 000 zasobów usługi Azure AD można utworzyć w jednej dzierżawie przez użytkowników wersji bezpłatnej Azure Active Directory. Jeśli masz co najmniej jedną zweryfikowaną domenę, domyślny limit przydziału usługi Azure AD dla Twojej organizacji zostanie rozszerzony do 300 000 zasobów usługi Azure AD. Ten limit usług nie jest związany z limitem warstwy cenowej wynoszącym 500 000 zasobów na stronie cennika usługi Azure AD. Aby przejść poza domyślny limit przydziału, musisz skontaktować się z pomoc techniczna firmy Microsoft.</li><li>Użytkownik niebędący administratorem może utworzyć maksymalnie 250 zasobów usługi Azure AD. Aktywne zasoby i usunięte zasoby, które są dostępne do przywrócenia liczby w ramach tego przydziału. Do przywrócenia dostępne są tylko usunięte zasoby usługi Azure AD, które zostały usunięte z mniej niż 30 dni temu. Usunięto zasoby usługi Azure AD, które nie są już dostępne, aby przywrócić liczbę przydziałów w ramach tego przydziału w ciągu 30 dni. Jeśli masz deweloperów, którzy mogą wielokrotnie przekroczyć ten limit przydziału w wyniku zwykłych obowiązków, możesz [utworzyć i przypisać rolę niestandardową](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md) z uprawnieniem do tworzenia nieograniczonej liczby rejestracji aplikacji.</li></ul> |
+|Zasoby |<ul><li>Maksymalnie 50 000 zasobów usługi Azure AD można utworzyć w jednej dzierżawie przez użytkowników wersji bezpłatnej Azure Active Directory. Jeśli masz co najmniej jedną zweryfikowaną domenę, domyślny limit przydziału usługi Azure AD dla Twojej organizacji zostanie rozszerzony do 300 000 zasobów usługi Azure AD. Ten limit usług nie jest związany z limitem warstwy cenowej wynoszącym 500 000 zasobów na stronie cennika usługi Azure AD. Aby przejść poza domyślny limit przydziału, musisz skontaktować się z pomoc techniczna firmy Microsoft.</li><li>Użytkownik niebędący administratorem może utworzyć maksymalnie 250 zasobów usługi Azure AD. Aktywne zasoby i usunięte zasoby, które są dostępne do przywrócenia liczby w ramach tego przydziału. Do przywrócenia dostępne są tylko usunięte zasoby usługi Azure AD, które zostały usunięte z mniej niż 30 dni temu. Usunięto zasoby usługi Azure AD, które nie są już dostępne, aby przywrócić liczbę przydziałów w ramach tego przydziału w ciągu 30 dni. Jeśli masz deweloperów, którzy mogą wielokrotnie przekroczyć ten limit przydziału w wyniku zwykłych obowiązków, możesz [utworzyć i przypisać rolę niestandardową](../articles/active-directory/roles/quickstart-app-registration-limits.md) z uprawnieniem do tworzenia nieograniczonej liczby rejestracji aplikacji.</li></ul> |
 | Rozszerzenia schematu |<ul><li>Rozszerzenia typu string mogą mieć maksymalnie 256 znaków. </li><li>Rozmiar rozszerzeń typu binary jest ograniczony do 256 bajtów.</li><li>Tylko 100 wartości rozszerzeń, między *wszystkimi* typami i *wszystkimi* aplikacjami, można zapisywać do dowolnego zasobu usługi Azure AD.</li><li>Jednostki User, Group, TenantDetail, Device, Application i ServcicePrincipal można rozszerzyć za pomocą jednowartościowych atrybutów typu String lub Binary.</li><li>Rozszerzenia schematu są dostępne tylko w interfejsie API programu Graph w wersji 1.21 — wersja zapoznawcza. Aby zarejestrować rozszerzenie, należy przyznać aplikacji prawa dostępu do zapisu.</li></ul> |
 | Aplikacje |Właścicielami jednej aplikacji może być maksymalnie 100 użytkowników. |
 |Manifest aplikacji |W manifeście aplikacji można dodać maksymalnie 1200 wpisów. |
