@@ -3,16 +3,16 @@ title: Przykłady usługi Azure Storage korzystające z platformy .NET | Microso
 description: Wyświetlanie, pobieranie i uruchamianie przykładowego kodu i aplikacji dla usługi Azure Storage. Odkryj przykłady wprowadzenia dla obiektów blob, kolejek, tabel i plików przy użyciu bibliotek klienckich usługi .NET Storage.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: f02c08e752575dd1f57ce91dfc3145b69e3a2fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760fedd94ef682b183eede1215186de973e9a216
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81010498"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359785"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Przykłady usługi Azure Storage korzystające z bibliotek klienckich V12 .NET
 
@@ -254,7 +254,7 @@ Poniższa tabela zawiera omówienie naszego repozytorium przykładów oraz scena
    :::column-end:::
 :::row-end:::
 
-### <a name="message"></a>Komunikat
+### <a name="message"></a>Wiadomość
 
 :::row:::
    :::column span="":::
@@ -336,4 +336,5 @@ Aby uzyskać informacje na temat przykładów dla innych języków:
 * Java: [przykłady usługi Azure Storage korzystające z języka Java](storage-samples-java.md)
 * Python: [przykłady usługi Azure Storage przy użyciu języka Python](storage-samples-python.md)
 * JavaScript/Node.js: [przykłady usługi Azure Storage korzystające z języka JavaScript](storage-samples-javascript.md)
+* C++: [przykłady usługi Azure Storage przy użyciu języka c++](storage-samples-c-plus-plus.md)
 * Wszystkie inne języki: [przykłady usługi Azure Storage](storage-samples.md)

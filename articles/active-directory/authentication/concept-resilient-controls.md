@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049574"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366568"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Utwórz odporną strategię zarządzania kontrolą dostępu za pomocą Azure Active Directory
 
@@ -282,10 +282,10 @@ Jeśli Twoja organizacja korzysta ze starszych zasad usługi MFA dla użytkownik
 >[!NOTE]
  > Konfigurowanie [zaufanych adresów IP](./howto-mfa-mfasettings.md) dla usługi Azure MFA jest możliwe tylko przy użyciu [licencji Azure AD — wersja Premium](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Dokumentacja uwierzytelniania usługi Azure AD](./howto-mfaserver-iis.md)
-* [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](../roles/security-emergency-access.md)
 * [konfigurowanie nazwanych lokalizacji w usłudze Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Jak skonfigurować dołączone urządzenia hybrydowe Azure Active Directory](../devices/hybrid-azuread-join-plan.md)

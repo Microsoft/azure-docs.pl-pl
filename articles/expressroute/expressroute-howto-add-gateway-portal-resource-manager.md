@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "91761836"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Samouczek: Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute przy użyciu Azure Portal
@@ -74,7 +74,7 @@ Kroki dla tego zadania używają sieci wirtualnej na podstawie wartości z poni�
     | Nazwa | Nadaj nazwę bramie. Ta wartość nie jest taka sama jak nazwa podsieci bramy. Jest to nazwa tworzonego obiektu bramy.|
     | Region | Zmień pole **region** tak, aby wskazywało lokalizację, w której znajduje się Twoja sieć wirtualna. Jeśli lokalizacja nie wskazuje regionu, w którym znajduje się Twoja sieć wirtualna, Sieć wirtualna nie zostanie wyświetlona na liście rozwijanej "Wybierz sieć wirtualną". |
     | Typ bramy | Wybierz **ExpressRoute**|
-    | SKU | Wybierz jednostkę SKU bramy z listy rozwijanej. |
+    | Jednostka SKU | Wybierz jednostkę SKU bramy z listy rozwijanej. |
     | Sieć wirtualna | Wybierz pozycję *TestVNet*. |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**.|
     | Nazwa publicznego adresu IP | Podaj nazwę publicznego adresu IP. |

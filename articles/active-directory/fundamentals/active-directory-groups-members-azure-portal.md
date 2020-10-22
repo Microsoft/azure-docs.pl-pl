@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb7b7da4ed5268e66260e48d6367bbe02f0845a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af5a85bad1e7b2a6bf645084d6b78f77e6c0d8b2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797580"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371838"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Dodawanie lub usuwanie członków grupy przy użyciu Azure Active Directory
 Za pomocą Azure Active Directory można nadal dodawać i usuwać członków grupy.
@@ -61,6 +61,6 @@ Za pomocą Azure Active Directory można nadal dodawać i usuwać członków gru
 
 - [Zarządzanie dostępem do zasobów przy użyciu grup](active-directory-manage-groups.md)
 
-- [Zarządzanie regułami dynamicznymi dla użytkowników w grupie](../users-groups-roles/groups-create-rule.md)
+- [Zarządzanie regułami dynamicznymi dla użytkowników w grupie](../enterprise-users/groups-create-rule.md)
 
 - [Kojarzenie lub dodawanie subskrypcji platformy Azure do usługi Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

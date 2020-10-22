@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7473da6289d4b871ae77f18fab4c00cebcb55d98
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 50e0fe1cf3bb628c40e774423e45ea88d6ab78a5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977018"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359717"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Przypisywanie lub usuwanie licencji w portalu Azure Active Directory
 
@@ -144,10 +144,10 @@ Licencję można usunąć ze strony użytkownika usługi Azure AD użytkownika, 
 
 Po przypisaniu licencji możesz wykonać następujące procesy:
 
-- [Identyfikowanie i rozwiązywanie problemów z przypisaniem licencji](../users-groups-roles/licensing-groups-resolve-problems.md)
+- [Identyfikowanie i rozwiązywanie problemów z przypisaniem licencji](../enterprise-users/licensing-groups-resolve-problems.md)
 
-- [Dodawanie licencjonowanych użytkowników do grupy na potrzeby licencjonowania](../users-groups-roles/licensing-groups-migrate-users.md)
+- [Dodawanie licencjonowanych użytkowników do grupy na potrzeby licencjonowania](../enterprise-users/licensing-groups-migrate-users.md)
 
-- [Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+- [Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
 
 - [Dodawanie lub zmiana informacji o profilu](active-directory-users-profile-azure-portal.md)

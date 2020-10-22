@@ -13,25 +13,25 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7ab83bc9939d2f0b4b0ff0860ea97a0b07f12f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe0c7eec5c023fcba3152ad6329d318210a0c2ab
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321246"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370937"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Przypisywanie ról administratorów i niebędących administratorami do użytkowników z Azure Active Directory
 
 W Azure Active Directory (Azure AD), jeśli jeden z użytkowników potrzebuje uprawnień do zarządzania zasobami usługi Azure AD, należy przypisać je do roli, która udostępnia wymagane uprawnienia. Aby uzyskać informacje na temat ról zarządzania zasobami platformy Azure i ról zarządzania zasobami usługi Azure AD, zobacz [role administratora subskrypcji klasycznej, role platformy Azure i role usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-Aby uzyskać więcej informacji na temat dostępnych ról usługi Azure AD, zobacz [Przypisywanie ról administratorów w Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Aby dodać użytkowników, zobacz [Dodawanie nowych użytkowników do Azure Active Directory](add-users-azure-active-directory.md).
+Aby uzyskać więcej informacji na temat dostępnych ról usługi Azure AD, zobacz [Przypisywanie ról administratorów w Azure Active Directory](../roles/permissions-reference.md). Aby dodać użytkowników, zobacz [Dodawanie nowych użytkowników do Azure Active Directory](add-users-azure-active-directory.md).
 
 ## <a name="assign-roles"></a>Przypisywanie ról
 
 Typowym sposobem przypisywania ról usługi Azure AD do użytkownika jest strona **przypisane role** dla użytkownika. Możesz również skonfigurować uprawnienia użytkownika do podniesienia uprawnień w czasie do roli przy użyciu Privileged Identity Management (PIM). Aby uzyskać więcej informacji na temat korzystania z usługi PIM, zobacz [Privileged Identity Management](../privileged-identity-management/index.yml).
 
 > [!Note]
-> Jeśli masz plan licencji Azure AD — wersja Premium P2 i już korzystasz z programu PIM, wszystkie zadania związane z zarządzaniem rolami są wykonywane w [Privileged Identity Management środowisku](../users-groups-roles/directory-manage-roles-portal.md). Ta funkcja jest obecnie ograniczona do przypisywania tylko jednej roli jednocześnie. Obecnie nie można wybrać wielu ról i przypisać ich do użytkownika jednocześnie.
+> Jeśli masz plan licencji Azure AD — wersja Premium P2 i już korzystasz z programu PIM, wszystkie zadania związane z zarządzaniem rolami są wykonywane w [Privileged Identity Management środowisku](../roles/manage-roles-portal.md). Ta funkcja jest obecnie ograniczona do przypisywania tylko jednej roli jednocześnie. Obecnie nie można wybrać wielu ról i przypisać ich do użytkownika jednocześnie.
 >
 > ![Role usługi Azure AD zarządzane w usłudze PIM dla użytkowników korzystających już z usług PIM i z licencją premium P2](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
@@ -81,4 +81,4 @@ Jeśli musisz usunąć przypisanie roli z użytkownika, możesz to zrobić równ
 
 - [Dodawanie użytkowników-gości z innego katalogu](../external-identities/what-is-b2b.md)
 
-Inne zadania zarządzania użytkownikami, które można wyewidencjonować, są dostępne w dokumentacji dotyczącej [zarządzania użytkownikami Azure Active Directory](../users-groups-roles/index.yml).
+Inne zadania zarządzania użytkownikami, które można wyewidencjonować, są dostępne w dokumentacji dotyczącej [zarządzania użytkownikami Azure Active Directory](../enterprise-users/index.yml).

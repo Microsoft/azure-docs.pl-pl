@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b7e96934c96dd944e17a1ef1ffb51a6ee89bf4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318913"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360006"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory — przykłady
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.locfileid: "85318913"
 | [Przykład działania z kropką NET w wielu domenach](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Ten przykład umożliwia utworzenie niestandardowego działania platformy .NET, które nie jest ograniczone do wersji zestawu używanych przez program do uruchamiania ADF (na przykład WindowsAzure. Storage v 4.3.0, Newtonsoft.Jsw wersji v 6.0. x itd.). |
 | [Uruchamianie skryptu języka R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Ten przykład zawiera Data Factory niestandardowe działanie, które może służyć do wywoływania RScript.exe. Ten przykład działa tylko z własnym klastrem usługi HDInsight (nie na żądanie), na którym jest już zainstalowany język R. |
 | [Wywoływanie zadań platformy Spark w klastrze usługi HDInsight Hadoop](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Ten przykład pokazuje, jak używać działania MapReduce do wywołania programu Spark. Program Spark kopiuje dane z jednego kontenera obiektów blob platformy Azure do innego. |
-| [Analiza usługi Twitter przy użyciu działania oceniania usługi Batch Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Ten przykład pokazuje, jak używać elementu AzureMLBatchScoringActivity do wywołania modelu Azure Machine Learning, który wykonuje analizę tonacji, ocenianie, prognozowanie itp. |
+| [Analiza usługi Twitter przy użyciu Azure Machine Learning Studio (klasycznej) działania oceniania partii](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Ten przykład pokazuje, jak używać elementu AzureMLBatchScoringActivity do wywołania modelu Azure Machine Learning, który wykonuje analizę tonacji, ocenianie, prognozowanie itp. |
 | [Analiza usługi Twitter przy użyciu działania niestandardowego](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Ten przykład pokazuje, jak używać niestandardowego działania platformy .NET do wywołania modelu Azure Machine Learning, który wykonuje analizę tonacji, ocenianie, prognozowanie itp. |
 | [Potoki sparametryzowane dla Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Przykład zawiera kompletny kod w języku C#, który umożliwia wdrożenie N potoków do oceniania i przeszkolenie każdego z parametrów regionu, w którym lista regionów pochodzi z pliku parameters.txt, który jest dołączony do tego przykładu. |
 | [Odświeżanie danych referencyjnych dla zadań Azure Stream Analytics](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |Ten przykład pokazuje, jak używać Azure Data Factory i Azure Stream Analytics razem do uruchamiania zapytań z danymi referencyjnymi i konfigurowania odświeżania dla danych referencyjnych zgodnie z harmonogramem. |

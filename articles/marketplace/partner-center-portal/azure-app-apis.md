@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: fec52caa3cb7565a86a6c50d300fe448b6518457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51de1ab26318a02381ed95f00eadcc4e892f2f57
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320072"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371634"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Interfejs API przekazywania Centrum partnerskiego do dołączania aplikacji platformy Azure w centrum partnerskim
 
@@ -29,7 +29,7 @@ Istnieje kilka zasobów programistycznych, które są potrzebne do korzystania z
 
 Przed rozpoczęciem pisania kodu w celu wywołania interfejsu API przekazywania Centrum partnerskiego upewnij się, że zostały spełnione następujące wymagania wstępne.
 
-- Użytkownik (lub Twoja organizacja) musi mieć katalog usługi Azure AD, a użytkownik musi mieć uprawnienia [administratora globalnego](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) dla katalogu. Jeśli już korzystasz z usługi Microsoft 365 lub innych usług firmy Microsoft, masz już katalog usługi Azure AD. W przeciwnym razie można [utworzyć nową usługę Azure AD w centrum partnerskim](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) bez dodatkowych opłat.
+- Użytkownik (lub Twoja organizacja) musi mieć katalog usługi Azure AD, a użytkownik musi mieć uprawnienia [administratora globalnego](../../active-directory/roles/permissions-reference.md) dla katalogu. Jeśli już korzystasz z usługi Microsoft 365 lub innych usług firmy Microsoft, masz już katalog usługi Azure AD. W przeciwnym razie można [utworzyć nową usługę Azure AD w centrum partnerskim](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) bez dodatkowych opłat.
 
 - Musisz [skojarzyć aplikację usługi Azure AD z kontem Centrum partnerskiego](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) i uzyskać identyfikator dzierżawy, identyfikator klienta i klucz. Te wartości są potrzebne do uzyskania tokenu dostępu usługi Azure AD, który będzie używany w wywołaniach interfejsu API przekazywania Microsoft Store.
 

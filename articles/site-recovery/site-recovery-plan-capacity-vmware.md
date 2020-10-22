@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135450"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368030"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planowanie pojemności i skalowanie na potrzeby odzyskiwania po awarii oprogramowania VMware na platformę Azure
 
@@ -20,7 +20,7 @@ Ten artykuł służy do planowania pojemności i skalowania w przypadku replikow
 
 ## <a name="how-do-i-start-capacity-planning"></a>Jak mogę rozpocząć planowanie pojemności?
 
-Aby dowiedzieć się więcej o wymaganiach dotyczących infrastruktury Azure Site Recovery, Zbierz informacje o środowisku replikacji, uruchamiając [planista wdrażania usługi Azure Site Recovery](https://aka.ms/asr-deployment-planner-doc) na potrzeby replikacji oprogramowania VMware. Aby uzyskać więcej informacji, zobacz [Informacje o Site Recovery planista wdrażania dla oprogramowania VMware na platformie Azure](site-recovery-deployment-planner.md). 
+Aby dowiedzieć się więcej o wymaganiach dotyczących infrastruktury Azure Site Recovery, Zbierz informacje o środowisku replikacji, uruchamiając [planista wdrażania usługi Azure Site Recovery](./site-recovery-deployment-planner.md) na potrzeby replikacji oprogramowania VMware. Aby uzyskać więcej informacji, zobacz [Informacje o Site Recovery planista wdrażania dla oprogramowania VMware na platformie Azure](site-recovery-deployment-planner.md). 
 
 Site Recovery Planista wdrażania zawiera raport, który zawiera pełne informacje o zgodnych i niezgodnych maszynach wirtualnych, dyskach na maszynę wirtualną oraz o postępach danych na dysku. Narzędzie podsumowuje także wymagania dotyczące przepustowości sieci w celu spełnienia docelowego celu punktu odzyskiwania i infrastruktury platformy Azure, która jest wymagana do pomyślnej replikacji i testowego przejścia w tryb failover.
 

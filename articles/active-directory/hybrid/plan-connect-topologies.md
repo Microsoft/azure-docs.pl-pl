@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f8987a8daccc012f9d6da53e46fe7c4e8b43ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146357"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359836"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie obsługiwane w programie Azure AD Connect
 W tym artykule opisano różne topologie lokalne i Azure Active Directory (Azure AD), które używają Azure AD Connect synchronizacji jako rozwiązania integracji z kluczami. Ten artykuł zawiera obsługiwane i nieobsługiwane konfiguracje.
@@ -142,7 +142,7 @@ Możliwe jest posiadanie więcej niż jednego serwera przejściowego, jeśli chc
 
 ## <a name="multiple-azure-ad-tenants"></a>Wiele dzierżawców usługi Azure AD
 Zalecamy korzystanie z jednej dzierżawy w usłudze Azure AD dla organizacji.
-Przed zaplanowaniem korzystania z wielu dzierżaw usługi Azure AD zapoznaj się z artykułem [Zarządzanie jednostkami administracyjnymi w usłudze Azure AD](../users-groups-roles/directory-administrative-units.md). Obejmuje to typowe scenariusze, w których można korzystać z jednej dzierżawy.
+Przed zaplanowaniem korzystania z wielu dzierżaw usługi Azure AD zapoznaj się z artykułem [Zarządzanie jednostkami administracyjnymi w usłudze Azure AD](../roles/administrative-units.md). Obejmuje to typowe scenariusze, w których można korzystać z jednej dzierżawy.
 
 ![Topologia dla wielu lasów i wielu dzierżawców](./media/plan-connect-topologies/multiforestmultidirectory.png)
 
@@ -168,7 +168,7 @@ Ta topologia ma następujące ograniczenia dotyczące scenariuszy obsługiwanych
 * Urządzenia z systemem Windows 10 mogą być skojarzone tylko z jedną dzierżawą usługi Azure AD.
 * Opcja logowania jednokrotnego (SSO) dla synchronizacji skrótów haseł i uwierzytelniania przekazywanego może być używana tylko z jedną dzierżawą usługi Azure AD.
 
-Wymóg dla wzajemnie wykluczających się zestawów obiektów ma zastosowanie również do zapisywania zwrotnego. Niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną. Są one następujące:
+Wymóg dla wzajemnie wykluczających się zestawów obiektów ma zastosowanie również do zapisywania zwrotnego. Niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną. Do tych funkcji należą:
 
 * Grupowanie zapisywania zwrotnego z domyślną konfiguracją.
 * Zapisywanie zwrotne urządzeń.

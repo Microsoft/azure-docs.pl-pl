@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f420f66e1db6efc6a0aa43cb88f26687839f0d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4df373f78a9c74584d0e4046f7532a2190f3a3f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321518"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370971"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Przewodnik dotyczący referencyjnych operacji ładu Azure Active Directory
 
@@ -49,7 +49,7 @@ Podczas przeglądania listy może być konieczne przypisanie właściciela do za
 
 #### <a name="owner-recommended-reading"></a>Odczytywanie zalecanego przez właściciela
 
-- [Przypisywanie ról administratorów w usłudze Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Przypisywanie ról administratorów w usłudze Azure Active Directory](../roles/permissions-reference.md)
 - [Nadzór na platformie Azure](../../governance/index.yml)
 
 ### <a name="configuration-changes-testing"></a>Testowanie zmian konfiguracji
@@ -66,7 +66,7 @@ Istnieją zmiany, które wymagają specjalnych zagadnień podczas testowania, od
 |Wdrażanie nowej funkcji|Jeśli funkcja obsługuje wdrażanie do docelowego zestawu użytkowników, zidentyfikuj użytkowników pilotażowych i skompiluj. Na przykład Samoobsługowe resetowanie hasła i uwierzytelnianie wieloskładnikowe mogą dotyczyć określonych użytkowników lub grup.|
 |Uruchomienie produkcyjne aplikację od lokalnego dostawcy tożsamości (dostawcy tożsamości), na przykład Active Directory, do usługi Azure AD|Jeśli aplikacja obsługuje wiele konfiguracji dostawcy tożsamości, na przykład usługi Salesforce, skonfiguruj jednocześnie i przetestuj usługę Azure AD podczas okna zmiany (Jeśli aplikacja wprowadza stronę HRD). Jeśli aplikacja nie obsługuje wielu dostawców tożsamości, Zaplanuj testowanie podczas okna kontroli zmian i przestoju programu.|
 |Aktualizuj reguły grupy dynamicznej|Utwórz równoległą grupę dynamiczną z nową regułą. Porównaj z obliczonym wynikiem, na przykład Uruchom program PowerShell z tym samym warunkiem.<br>W przypadku przebiegu testu zastępowanie miejsc, w których była używana stara Grupa (jeśli to możliwe).|
-|Migrowanie licencji produktu|Zapoznaj się z tematem [Zmienianie licencji dla pojedynczego użytkownika w grupie licencjonowanej w Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md).|
+|Migrowanie licencji produktu|Zapoznaj się z tematem [Zmienianie licencji dla pojedynczego użytkownika w grupie licencjonowanej w Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md).|
 |Zmień reguły AD FS, takie jak autoryzacja, wystawianie, MFA|Użyj żądania grupy, aby docelowa podzbiór użytkowników.|
 |Zmień środowisko uwierzytelniania AD FS lub podobne zmiany w całej farmie|Utwórz farmę równoległą o tej samej nazwie hosta, Implementuj zmiany konfiguracji, Testuj od klientów przy użyciu pliku HOSTs, reguł routingu NLB lub podobnego routingu.<br>Jeśli platforma docelowa nie obsługuje plików HOSTs (na przykład urządzenia przenośne), Zmień kontrolkę.|
 
@@ -92,9 +92,9 @@ Należy zachować dostęp do tożsamości zewnętrznych ograniczonych tylko do z
 
 ### <a name="privileged-account-usage"></a>Użycie konta uprzywilejowanego
 
-Hakerzy często kierują konta administratora i inne elementy uprzywilejowanego dostępu, aby szybko uzyskać dostęp do poufnych danych i systemów.Ze względu na to, że użytkownicy z rolami uprzywilejowanymi mogą postępować w miarę upływu czasu, ważne jest, aby regularnie przeglądać i zarządzać dostępem administratorów oraz zapewniać uprzywilejowany dostęp do usługi Azure AD i zasobów platformy Azure.
+Hakerzy często kierują konta administratora i inne elementy uprzywilejowanego dostępu, aby szybko uzyskać dostęp do poufnych danych i systemów. Ze względu na to, że użytkownicy z rolami uprzywilejowanymi mogą postępować w miarę upływu czasu, ważne jest, aby regularnie przeglądać i zarządzać dostępem administratorów oraz zapewniać uprzywilejowany dostęp do usługi Azure AD i zasobów platformy Azure.
 
-Jeśli w Twojej organizacji nie istnieje żaden proces zarządzania kontami uprzywilejowanymi lub obecnie Administratorzy, którzy używają zwykłych kont użytkowników do zarządzania usługami i zasobami, należy od razu zacząć używać oddzielnych kont, na przykład na potrzeby zwykłych codziennych działań; druga dla uprzywilejowanego dostępu i skonfigurowana za pomocą usługi MFA. Jeszcze lepiej, jeśli Twoja organizacja ma Azure AD — wersja Premiumą subskrypcję P2, należy natychmiast wdrożyć [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). W tym samym tokenie należy również przejrzeć te konta uprzywilejowane i [przypisać im mniej uprzywilejowanych ról](../users-groups-roles/directory-admin-roles-secure.md) , jeśli ma to zastosowanie.
+Jeśli w Twojej organizacji nie istnieje żaden proces zarządzania kontami uprzywilejowanymi lub obecnie Administratorzy, którzy używają zwykłych kont użytkowników do zarządzania usługami i zasobami, należy od razu zacząć używać oddzielnych kont, na przykład na potrzeby zwykłych codziennych działań; druga dla uprzywilejowanego dostępu i skonfigurowana za pomocą usługi MFA. Jeszcze lepiej, jeśli Twoja organizacja ma Azure AD — wersja Premiumą subskrypcję P2, należy natychmiast wdrożyć [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). W tym samym tokenie należy również przejrzeć te konta uprzywilejowane i [przypisać im mniej uprzywilejowanych ról](../roles/security-planning.md) , jeśli ma to zastosowanie.
 
 Innym aspektem zarządzania kontami uprzywilejowanymi, które należy zaimplementować, jest zdefiniowanie [przeglądu dostępu](../governance/access-reviews-overview.md) dla tych kont ręcznie lub [automatycznie za pomocą usługi PIM](../privileged-identity-management/pim-how-to-perform-security-review.md).
 
@@ -104,12 +104,12 @@ Innym aspektem zarządzania kontami uprzywilejowanymi, które należy zaimplemen
 
 ### <a name="emergency-access-accounts"></a>Konta dostępu awaryjnego
 
-Organizacje muszą utworzyć [konta awaryjne](../users-groups-roles/directory-emergency-access.md) , aby przygotować się do zarządzania usługą Azure AD w taki sposób, jak w przypadku awarii uwierzytelniania:
+Organizacje muszą utworzyć [konta awaryjne](../roles/security-emergency-access.md) , aby przygotować się do zarządzania usługą Azure AD w taki sposób, jak w przypadku awarii uwierzytelniania:
 
 - Składniki dotyczące przestojów infrastruktury uwierzytelniania (AD FS, lokalna usługa AD i usługi MFA)
 - Obrót personelu administracyjnego
 
-Aby zapobiec przypadkowemu zablokowaniu dzierżawy, ponieważ nie można zalogować się lub aktywować konta indywidualnego użytkownika jako administrator, należy utworzyć co najmniej dwa konta awaryjne i upewnić się, że są one zaimplementowane i zgodne z [najlepszymi rozwiązaniami firmy Microsoft](../users-groups-roles/directory-admin-roles-secure.md) i [procedurami awarii](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency).
+Aby zapobiec przypadkowemu zablokowaniu dzierżawy, ponieważ nie można zalogować się lub aktywować konta indywidualnego użytkownika jako administrator, należy utworzyć co najmniej dwa konta awaryjne i upewnić się, że są one zaimplementowane i zgodne z [najlepszymi rozwiązaniami firmy Microsoft](../roles/security-planning.md) i [procedurami awarii](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency).
 
 ### <a name="privileged-access-to-azure-ea-portal"></a>Dostęp uprzywilejowany do portalu Azure EA
 
@@ -119,7 +119,7 @@ Aby wyczyścić, jeśli poziom autoryzacji portalu EA jest obecnie ustawiony na 
 
 #### <a name="privileged-access-recommended-reading"></a>Zalecane odczytywanie uprzywilejowanego dostępu
 
-- [Uprawnienia ról administratorów w usłudze Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Uprawnienia ról administratorów w usłudze Azure Active Directory](../roles/permissions-reference.md)
 
 ## <a name="entitlement-management"></a>Zarządzanie upoważnieniami
 

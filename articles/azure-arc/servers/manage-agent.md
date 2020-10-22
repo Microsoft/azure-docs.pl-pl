@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie agentem serwerów z obsługą usługi Azure Arc
 description: W tym artykule opisano różne zadania zarządzania, które zwykle są wykonywane w cyklu życia serwerów z obsługą usługi Azure Arc połączonej z agentem.
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: af020d0ca586b950b444f2a3149ad207b5696050
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108936"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371430"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
@@ -138,7 +138,7 @@ Akcje polecenia [yum](https://access.redhat.com/articles/yum-cheat-sheet) , taki
     zypper update
     ```
 
-Akcje polecenia [użyciu narzędzia zypper](https://en.opensuse.org/Portal:Zypper) , takie jak instalacja i usuwanie pakietów, są rejestrowane w `/var/log/zypper.log` pliku dziennika. 
+Akcje polecenia [użyciu narzędzia zypper](https://en.opensuse.org/Portal:Zypper) , takie jak instalacja i usuwanie pakietów, są rejestrowane w `/var/log/zypper.log` pliku dziennika.
 
 ## <a name="about-the-azcmagent-tool"></a>Informacje o narzędziu Azcmagent
 
@@ -148,9 +148,11 @@ Narzędzie Azcmagent (Azcmagent.exe) służy do konfigurowania agenta maszyny po
 
 * **Odłącz** , aby rozłączyć maszynę z usługi Azure Arc
 
-* **Połącz ponownie** — aby ponownie połączyć rozłączoną maszynę z usługą Azure Arc
+* **Pokaż** — Wyświetlanie stanu agenta i jego właściwości konfiguracji (nazwa grupy zasobów, Identyfikator subskrypcji, wersja itp.), która może pomóc w rozwiązaniu problemu z agentem. Dołącz `-j` parametr do danych wyjściowych w formacie JSON.
 
-* **Pokaż** — Wyświetlanie stanu agenta i jego właściwości konfiguracji (nazwa grupy zasobów, Identyfikator subskrypcji, wersja itp.), która może pomóc w rozwiązaniu problemu z agentem.
+* **Logs** — tworzy plik zip w bieżącym katalogu zawierającym dzienniki, które ułatwiają rozwiązywanie problemów.
+
+* **Wersja** — wyświetla wersję agenta połączonej maszyny.
 
 * **-h lub--help** -wyświetla dostępne parametry wiersza polecenia
 
@@ -158,12 +160,12 @@ Narzędzie Azcmagent (Azcmagent.exe) służy do konfigurowania agenta maszyny po
 
 * **-v lub--verbose** -Włącz pełne rejestrowanie
 
-Można ręcznie wykonać **połączenie**, **rozłączyć**i **ponownie nawiązać połączenie** , a jednocześnie zalogować się przy użyciu tej samej jednostki usługi, która została użyta w celu dołączenia wielu agentów lub [tokenu dostępu](../../active-directory/develop/access-tokens.md)platformy tożsamości firmy Microsoft. Jeśli nie korzystasz z jednostki usługi w celu zarejestrowania maszyny przy użyciu serwerów z obsługą usługi Azure ARC, zapoznaj się z poniższym [artykułem](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) , aby utworzyć nazwę główną usługi.
+Można **nawiązywać połączenie** i rozłączać ręcznie, podczas logowania interaktywnego, lub zautomatyzować przy użyciu tej samej jednostki usługi, która została użyta do **dołączenia** wielu agentów lub [tokenu dostępu](../../active-directory/develop/access-tokens.md)platformy tożsamości firmy Microsoft. Jeśli nie korzystasz z jednostki usługi w celu zarejestrowania maszyny przy użyciu serwerów z obsługą usługi Azure ARC, zapoznaj się z poniższym [artykułem](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) , aby utworzyć nazwę główną usługi.
 
 >[!NOTE]
 >Aby uruchamiać **azcmagent**, musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
 
-### <a name="connect"></a>Połącz
+### <a name="connect"></a>Connect
 
 Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę utworzoną na platformie Azure. Zasób należy do określonej subskrypcji i grupy zasobów, a dane dotyczące maszyny są przechowywane w regionie świadczenia usługi Azure określonym przez to `--location` ustawienie. Domyślna nazwa zasobu jest nazwą hosta maszyny, jeśli nie została określona.
 
@@ -198,28 +200,7 @@ Aby rozłączyć się przy użyciu tokenu dostępu, uruchom następujące polece
 
 Aby rozłączyć się z poświadczeniami logowania z podniesionymi uprawnieniami (Interactive), uruchom następujące polecenie:
 
-`azcmagent disconnect --tenant-id <tenantID>`
-
-### <a name="reconnect"></a>Ponowne łączenie
-
-> [!WARNING]
-> `reconnect`Polecenie jest przestarzałe i nie powinno być używane. Polecenie zostanie usunięte w przyszłej wersji agenta, a istniejący agenci nie będą mogli zakończyć żądania ponownego połączenia. Zamiast tego [Odłącz](#disconnect) maszynę, a następnie [Podłącz](#connect) ją ponownie.
-
-Ten parametr służy do łączenia już zarejestrowanej lub podłączonej maszyny z serwerami z obsługą usługi Azure Arc. Może to być konieczne, jeśli maszyna została wyłączona, co najmniej 45 dni, aby jej certyfikat wygaśnie. Ten parametr używa podanych opcji uwierzytelniania do pobrania nowych poświadczeń odpowiadających zasobowi Azure Resource Manager reprezentującemu ten komputer.
-
-To polecenie wymaga wyższych uprawnień niż rola [dołączania maszyny połączonej z platformą Azure](agent-overview.md#required-permissions) .
-
-Aby ponownie nawiązać połączenie przy użyciu nazwy głównej usługi, uruchom następujące polecenie:
-
-`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
-
-Aby ponownie nawiązać połączenie przy użyciu tokenu dostępu, uruchom następujące polecenie:
-
-`azcmagent reconnect --access-token <accessToken>`
-
-Aby ponownie nawiązać połączenie z poświadczeniami logowania z podwyższonym poziomem uprawnień (Interactive), uruchom następujące polecenie:
-
-`azcmagent reconnect --tenant-id <tenantID>`
+`azcmagent disconnect`
 
 ## <a name="remove-the-agent"></a>Usuwanie agenta
 

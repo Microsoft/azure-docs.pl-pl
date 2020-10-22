@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d24c824782bdc6530b78450fc55a879a511ddc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88516626"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367690"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure Active Directory jednostki usługi przy użyciu usługi Azure SQL
 
@@ -74,12 +74,12 @@ Aby umożliwić tworzenie obiektów usługi Azure AD w SQL Database i Azure Syna
     > [!NOTE]
     > Tożsamość serwera można przypisać również przy użyciu poleceń interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [AZ SQL Server Create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) i [AZ SQL Server Update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update).
 
-2. Przyznaj [**czytelnikom katalogu**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) usługi Azure AD uprawnienia do tożsamości serwera utworzonej lub przypisanej do serwera.
+2. Przyznaj [**czytelnikom katalogu**](../../active-directory/roles/permissions-reference.md#directory-readers) usługi Azure AD uprawnienia do tożsamości serwera utworzonej lub przypisanej do serwera.
     - Aby udzielić tego uprawnienia, postępuj zgodnie z opisem używanym dla wystąpienia zarządzanego SQL, które jest dostępne w następującym artykule: [Inicjowanie obsługi administracyjnej usługi Azure AD (wystąpienie zarządzane SQL)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
     - Użytkownik usługi Azure AD, który udziela tego uprawnienia, musi należeć do roli administratora **globalnego** lub **ról uprzywilejowanych** usługi Azure AD.
 
 > [!IMPORTANT]
-> Kroki 1 i 2 muszą zostać wykonane w powyższej kolejności. Najpierw utwórz lub Przypisz tożsamość serwera, a następnie przyznaj uprawnienia do [**odczytu katalogów**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) . Pominięcie jednego z tych kroków lub powoduje błąd wykonania podczas tworzenia obiektu usługi Azure AD w usłudze Azure SQL w imieniu aplikacji usługi Azure AD. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia użytkownika usługi Azure AD w imieniu aplikacji usługi Azure AD, zobacz [Samouczek: tworzenie użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD](authentication-aad-service-principal-tutorial.md).
+> Kroki 1 i 2 muszą zostać wykonane w powyższej kolejności. Najpierw utwórz lub Przypisz tożsamość serwera, a następnie przyznaj uprawnienia do [**odczytu katalogów**](../../active-directory/roles/permissions-reference.md#directory-readers) . Pominięcie jednego z tych kroków lub powoduje błąd wykonania podczas tworzenia obiektu usługi Azure AD w usłudze Azure SQL w imieniu aplikacji usługi Azure AD. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia użytkownika usługi Azure AD w imieniu aplikacji usługi Azure AD, zobacz [Samouczek: tworzenie użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD](authentication-aad-service-principal-tutorial.md).
 >
 > W **publicznej wersji zapoznawczej**można przypisać rolę **czytelnicy Directory** do grupy w usłudze Azure AD. Właściciele grupy mogą następnie dodać tożsamość zarządzaną jako członek tej grupy, co spowodowałoby ominięcie potrzeby uprawnienia administratora **globalnego** lub **administratora ról uprzywilejowanych** w celu przyznania roli **czytelnicy katalogów** . Aby uzyskać więcej informacji na temat tej funkcji, zobacz " [czytelnicy Directory role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
