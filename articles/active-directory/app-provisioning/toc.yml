@@ -5,6 +5,8 @@
   items:
     - name: Co to jest aprowizowanie aplikacji?
       href: user-provisioning.md
+    - name: Co nowego w dokumentacji?
+      href: whats-new-docs.md
 - name: Samouczki
   expanded: true
   items:

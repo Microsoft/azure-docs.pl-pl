@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173565"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371755"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -81,9 +81,9 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 | | Synchronizacja danych | Replikacja transakcyjna |
 |---|---|---|
 | **Zalety** | -Aktywne-aktywne wsparcie<br/>-Dwukierunkowe między środowiskiem lokalnym i Azure SQL Database | -Małe opóźnienia<br/>-Spójności transakcyjnej<br/>-Ponowne użycie istniejącej topologii po migracji <br/>— Obsługa wystąpienia zarządzanego usługi Azure SQL |
-| **Wady** | -5 min lub więcej opóźnień<br/>-Brak spójności transakcyjnej<br/>— Wyższy wpływ na wydajność | -Nie można opublikować z Azure SQL Database <br/>— Wysoki koszt konserwacji |
+| **Wady** | -5 min minimalnej częstotliwości między synchronizacją<br/>-Brak spójności transakcyjnej<br/>— Wyższy wpływ na wydajność | -Nie można opublikować z Azure SQL Database <br/>— Wysoki koszt konserwacji |
 
-## <a name="get-started"></a>Wprowadzenie 
+## <a name="get-started"></a>Rozpoczęcie pracy 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Konfigurowanie synchronizacji danych w Azure Portal
 
@@ -135,9 +135,9 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 - Klucz podstawowy nie może mieć następujących typów danych: sql_variant, Binary, varbinary, Image, XML.
 - Należy zachować ostrożność w przypadku używania następujących typów danych jako klucza podstawowego, ponieważ obsługiwana precyzja jest tylko sekundą: Time, DateTime, datetime2, DateTimeOffset.
 - Nazwy obiektów (baz danych, tabel i kolumn) nie mogą zawierać kropki do drukowalnego znaku (.), lewego nawiasu kwadratowego ([) lub prawego nawiasu kwadratowego (]).
+- Nazwa tabeli nie może zawierać znaków drukowalnych:! " # $ % ' ( ) * + -
 - Uwierzytelnianie Azure Active Directory nie jest obsługiwane.
 - Jeśli istnieją tabele o tej samej nazwie, ale różnych schematach (na przykład dbo. Customers i Sales. Customers), można dodać do synchronizacji tylko jedną z tabel.
-- Nazwa tabeli nie może zawierać znaków, które mają wartość ASCII mniejszą lub równą "-".
 - Kolumny z User-Defined typami danych nie są obsługiwane
 - Przeniesienie serwerów między różnymi subskrypcjami nie jest obsługiwane. 
 
@@ -166,7 +166,7 @@ Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub gene
 | Tabele w grupie synchronizacji                                          | 500                    | Tworzenie wielu grup synchronizacji |
 | Kolumny w tabeli w grupie synchronizacji                              | 1000                   |                             |
 | Rozmiar wiersza danych w tabeli                                        | 24 MB                  |                             |
-| Minimalny interwał synchronizacji                                           | 5 minut              |                             |
+| Minimalny interwał częstotliwości synchronizacji                                 | 5 minut              |                             |
 
 > [!NOTE]
 > W jednej grupie synchronizacji może istnieć maksymalnie 30 punktów końcowych, jeśli istnieje tylko jedna grupa synchronizacji. Jeśli istnieje więcej niż jedna grupa synchronizacji, Łączna liczba punktów końcowych we wszystkich grupach synchronizacji nie może przekroczyć 30. Jeśli baza danych należy do wielu grup synchronizacji, jest traktowana jako wiele punktów końcowych, a nie jeden.
