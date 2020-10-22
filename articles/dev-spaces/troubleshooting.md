@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Dowiedz się, jak rozwiązywać typowe problemy podczas włączania i używania Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: 5d8bf69d456bca2a88b8aa2031d5ef0ba20f7c30
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 42551443fb5af1bd3f783c33f708b231eea68907
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979125"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364171"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Rozwiązywanie problemów Azure Dev Spaces
 
@@ -278,7 +278,7 @@ Podczas uruchamiania usługi z Azure Dev Spaces w klastrze AKS z [zarządzaną t
 
 Azure Dev Spaces usługi są uruchamiane w klastrze przy użyciu tożsamości zarządzanej klastra, aby komunikować się z usługami zaplecza Azure Dev Spaces poza klastrem. Gdy jest zainstalowana tożsamość zarządzana, reguły sieci są konfigurowane w węzłach klastra w celu przekierowania wszystkich wywołań poświadczeń tożsamości zarządzanej do [tożsamości zarządzanej przez węzeł (NMI) elementu daemonset zainstalowanej w klastrze](https://github.com/Azure/aad-pod-identity#node-managed-identity). Ten NMI elementu daemonset identyfikuje wywoływanie pod i gwarantuje, że pod etykietą jest odpowiednio etykieta, aby uzyskać dostęp do żądanej tożsamości zarządzanej. Azure Dev Spaces nie może wykryć, czy klaster ma zainstalowaną tożsamość zarządzaną i nie może wykonać niezbędnej konfiguracji, aby umożliwić Azure Dev Spaces usługom dostęp do tożsamości zarządzanej klastra. Ponieważ usługi Azure Dev Spaces nie zostały skonfigurowane do uzyskiwania dostępu do tożsamości zarządzanej klastra, NMI elementu daemonset nie zezwoli im na uzyskanie tokenu usługi Azure AD dla tożsamości zarządzanej i nie będzie mógł komunikować się z usługami zaplecza Azure Dev Spaces.
 
-Aby rozwiązać ten problem, Zastosuj element [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) dla *azds-iniektora-webhook* i updatebinding z instrumentacją Azure dev Spaces, aby uzyskać dostęp do tożsamości zarządzanej.
+Aby rozwiązać ten problem, Zastosuj element [AzurePodIdentityException](https://azure.github.io/aad-pod-identity/docs/configure/application_exception) dla *azds-iniektora-webhook* i updatebinding z instrumentacją Azure dev Spaces, aby uzyskać dostęp do tożsamości zarządzanej.
 
 Utwórz plik o nazwie *webhookexception. YAML* i Skopiuj następującą definicję YAML:
 
@@ -504,7 +504,7 @@ Aby zaktualizować rolę platformy Azure użytkownika dla kontrolera:
     * W obszarze *rola*wybierz opcję *współautor* lub *właściciel*.
     * W obszarze *Przypisywanie dostępu do*wybierz pozycję *użytkownik, Grupa lub nazwa główna usługi Azure AD*.
     * Dla *opcji wybierz*Wyszukaj użytkownika, którym chcesz nadać uprawnienia.
-1. Kliknij przycisk *Zapisz*.
+1. Kliknij pozycję *Zapisz*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Rozpoznawanie nazw DNS nie powiodło się dla publicznego adresu URL skojarzonego z usługą Spaces
 
