@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7fdc367e3db298b60dc9a15453d58a738c13274a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d2eef20b4c5648b1b11f16d8e46b956fc1497181
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108307"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364426"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Tworzenie grupy serwerów PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
 
@@ -138,7 +138,7 @@ Jeśli używasz maszyny wirtualnej platformy Azure do testowania, postępuj zgod
 
 W przypadku korzystania z maszyny wirtualnej platformy Azure adres IP punktu końcowego nie będzie zawierał _publicznego_ adresu IP. Aby zlokalizować publiczny adres IP, użyj następującego polecenia:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -148,7 +148,7 @@ Może być również konieczne uwidocznienie portu grupy serwerów PostgreSQL w 
 
 Aby ustawić regułę, należy znać nazwę sieciowej grupy zabezpieczeń. SIECIOWEJ grupy zabezpieczeń należy określić przy użyciu poniższego polecenia:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -156,7 +156,7 @@ Po utworzeniu nazwy sieciowej grupy zabezpieczeń można dodać regułę zapory 
 
 Zastąp wartość parametru--destination-port-rangi poniżej numerem portu uzyskanym z powyższego polecenia "azdata Arc Postgres Server list".
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
@@ -169,7 +169,7 @@ Otwórz Azure Data Studio i Połącz się z wystąpieniem przy użyciu zewnętrz
 
 Pamiętaj, że jeśli korzystasz z maszyny wirtualnej platformy Azure, będzie potrzebny _publiczny_ adres IP, który jest dostępny za pośrednictwem następującego polecenia:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 

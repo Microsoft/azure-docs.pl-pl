@@ -13,23 +13,23 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22f74d3135597e8627cf7af933f8c6f4fbebc990
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246813"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364052"
 ---
 # <a name="design-secure-applications-on-azure"></a>Projektowanie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas projektowania aplikacji w chmurze. Zasoby szkoleniowe wraz z pytaniami i pojęciami związanymi z bezpieczeństwem, które należy wziąć pod uwagę podczas wymagań i fazy projektowania [cyklu życia Microsoft Security Development (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do zaprojektowania bezpieczniejszej aplikacji.
 
 Następujące fazy SDL zostały omówione w tym artykule:
 
-- Szkolenie
+- Szkolenia
 - Wymagania
 - Projekt
 
-## <a name="training"></a>Szkolenie
+## <a name="training"></a>Szkolenia
 Przed rozpoczęciem opracowywania aplikacji w chmurze należy zapoznać się z tematem bezpieczeństwo i prywatność na platformie Azure. Wykonując ten krok, można zmniejszyć liczbę i ważność luk w zabezpieczeniach w aplikacji. Zostanie przygotowana do odpowiedniej reakcji na stale zmieniający się poziom zagrożenia.
 
 Skorzystaj z następujących zasobów na etapie uczenia, aby zaznajomić się z usługami platformy Azure, które są dostępne dla deweloperów i z najlepszymi rozwiązaniami dotyczącymi zabezpieczeń na platformie Azure:
@@ -226,7 +226,7 @@ Upewnij się, że aplikacja wymusza [najmniejsze uprawnienia](https://docs.micro
 
 #### <a name="implement-just-in-time-access"></a>Implementowanie dostępu just in Time
 
-Zaimplementuj dostęp *just-in-Time* (JIT), aby jeszcze bardziej obniżyć czas ekspozycji na uprawnienia. Użyj [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) , aby:
+Zaimplementuj dostęp *just-in-Time* (JIT), aby jeszcze bardziej obniżyć czas ekspozycji na uprawnienia. Użyj [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity) , aby:
 
 - Nadaj użytkownikom uprawnienia, które potrzebują tylko JIT.
 - Przypisywanie ról w skrócie czasu trwania z zachowaniem pewności, że uprawnienia są automatycznie odwoływane.

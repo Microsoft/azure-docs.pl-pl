@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388684"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363933"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Wdrażanie zasad niestandardowych przy użyciu Azure Pipelines
 
@@ -33,7 +33,7 @@ Aby umożliwić Azure Pipelines Zarządzanie zasadami niestandardowymi w ramach 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Azure AD B2C dzierżawy](tutorial-create-tenant.md)i poświadczenia dla użytkownika w katalogu z rolą [administratora zasad B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Azure AD B2C dzierżawy](tutorial-create-tenant.md)i poświadczenia dla użytkownika w katalogu z rolą [administratora zasad B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Zasady niestandardowe](custom-policy-get-started.md) przekazane do dzierżawy
 * [Aplikacja zarządzania](microsoft-graph-get-started.md) zarejestrowana w dzierżawie przy użyciu zasad uprawnień interfejsu API Microsoft Graph *. ReadWrite. TrustFramework*
 * [Potok platformy Azure](https://azure.microsoft.com/services/devops/pipelines/)i dostęp do [projektu Azure DevOps Services][devops-create-project]
@@ -151,7 +151,7 @@ Następnie Dodaj zadanie, aby wdrożyć plik zasad.
     * **Wersja zadania**: 2. *
     * **Nazwa wyświetlana**: Nazwa zasad, które mają zostać przekazane przez to zadanie. Na przykład *B2C_1A_TrustFrameworkBase*.
     * **Typ**: ścieżka pliku
-    * **Ścieżka skryptu**: wybierz wielokropek (***...***), przejdź do folderu *scripts* (...), a następnie wybierz plik *DeployToB2C.ps1* .
+    * **Ścieżka skryptu**: wybierz wielokropek (**_..._* _) przejdź do folderu _Scripts *, a następnie wybierz plik *DeployToB2C.ps1* .
     * **Argumentu**
 
         Wprowadź następujące wartości dla **argumentów**. Zamień na `{alias-name}` alias określony w poprzedniej sekcji.
