@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3e00c3832f243ec0190023116bbfdeaaad86c94
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825422"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370427"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z platformy Azure do platformy Azure
 
@@ -62,7 +62,7 @@ Zasobami docelowymi można zarządzać w następujący sposób:
 
 Po włączeniu replikacji maszyny wirtualnej platformy Azure domyślnie Site Recovery tworzy nowe zasady replikacji z ustawieniami domyślnymi podsumowywanymi w tabeli.
 
-**Ustawienie zasad** | **Szczegóły** | **Wartooć**
+**Ustawienie zasad** | **Szczegóły** | **Domyślny**
 --- | --- | ---
 **Przechowywanie punktów odzyskiwania** | Określa, jak długo Site Recovery zachowuje punkty odzyskiwania | 24 godziny
 **Częstotliwość migawek spójnych na poziomie aplikacji** | Jak często Site Recovery pobiera migawkę spójną na poziomie aplikacji. | Co cztery godziny
@@ -167,11 +167,11 @@ Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpow
 
 #### <a name="control-access-with-nsg-rules"></a>Kontrola dostępu przy użyciu reguł sieciowej grupy zabezpieczeń
 
-W przypadku kontrolowania łączności maszyn wirtualnych przez filtrowanie ruchu sieciowego do i z sieci lub podsieci platformy Azure przy użyciu [reguł sieciowej grupy zabezpieczeń](../virtual-network/security-overview.md)należy zwrócić uwagę na następujące wymagania:
+W przypadku kontrolowania łączności maszyn wirtualnych przez filtrowanie ruchu sieciowego do i z sieci lub podsieci platformy Azure przy użyciu [reguł sieciowej grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md)należy zwrócić uwagę na następujące wymagania:
 
 - Reguły sieciowej grupy zabezpieczeń dla źródłowego regionu platformy Azure powinny zezwalać na dostęp wychodzący dla ruchu związanego z replikacją.
 - Zalecamy utworzenie reguł w środowisku testowym przed wprowadzeniem ich do środowiska produkcyjnego.
-- Używaj [tagów usługi](../virtual-network/security-overview.md#service-tags) zamiast zezwalać na poszczególne adresy IP.
+- Używaj [tagów usługi](../virtual-network/network-security-groups-overview.md#service-tags) zamiast zezwalać na poszczególne adresy IP.
     - Tagi usług reprezentują grupę prefiksów adresów IP zebranych razem, aby zminimalizować złożoność podczas tworzenia reguł zabezpieczeń.
     - Firma Microsoft automatycznie aktualizuje Tagi usług w czasie. 
  

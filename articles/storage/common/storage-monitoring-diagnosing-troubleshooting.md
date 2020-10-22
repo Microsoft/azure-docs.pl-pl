@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 5f43654b4ff7d0e1f73bd2d83df21d7277c570d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70234c9bf6be8b9c2fbb5750fa1dba718ac2690d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854561"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370478"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -217,7 +217,7 @@ Biblioteka klienta usługi Storage dla platformy .NET umożliwia zbieranie danyc
 Możesz przechwytywać ruch między klientem a serwerem, aby podać szczegółowe informacje o danych, które klient i serwer wymieniają, i podstawowych warunkach sieciowych. Przydatne narzędzia do rejestrowania w sieci obejmują:
 
 * [Programu Fiddler](https://www.telerik.com/fiddler) to bezpłatny serwer proxy debugowania sieci Web, który umożliwia badanie nagłówków i danych ładunku komunikatów i żądań HTTP i https. Aby uzyskać więcej informacji, zobacz [dodatek 1: używanie programu Fiddler do przechwytywania ruchu HTTP i https](#appendix-1).
-* [Microsoft Network Monitor (netmon)](https://cnet-downloads.com/network-monitor) i [Wireshark](https://www.wireshark.org/) to bezpłatne analizatory protokołów sieciowych, które umożliwiają wyświetlanie szczegółowych informacji o pakiecie dla szerokiego zakresu protokołów sieciowych. Aby uzyskać więcej informacji na temat programu Wireshark, zobacz "[dodatek 2: korzystanie z programu Wireshark do przechwytywania ruchu sieciowego](#appendix-2)".
+* [Microsoft Network Monitor (netmon)](https://download.cnet.com/s/network-monitor/) i [Wireshark](https://www.wireshark.org/) to bezpłatne analizatory protokołów sieciowych, które umożliwiają wyświetlanie szczegółowych informacji o pakiecie dla szerokiego zakresu protokołów sieciowych. Aby uzyskać więcej informacji na temat programu Wireshark, zobacz "[dodatek 2: korzystanie z programu Wireshark do przechwytywania ruchu sieciowego](#appendix-2)".
 * Jeśli chcesz przeprowadzić podstawowy test łączności, aby sprawdzić, czy komputer kliencki może połączyć się z usługą Azure Storage za pośrednictwem sieci, nie możesz wykonać tego czynności przy użyciu standardowego narzędzia **ping** na kliencie. Można jednak sprawdzić łączność przy użyciu [narzędzia **tcping** ](https://www.elifulkerson.com/projects/tcping.php) .
 
 W wielu przypadkach dane dziennika z rejestrowania magazynu i biblioteki klienta usługi Storage będą wystarczające do zdiagnozowania problemu, ale w niektórych scenariuszach może być konieczne wprowadzenie bardziej szczegółowych informacji, które mogą być używane przez te narzędzia rejestrowania sieciowego. Na przykład za pomocą programu Fiddler do wyświetlania komunikatów HTTP i HTTPS można wyświetlać dane nagłówka i ładunku wysyłane do i z usług magazynu, co umożliwi sprawdzenie, jak aplikacja kliencka ponawia operacje magazynu. Analizatory protokołu, takie jak program Wireshark, działają na poziomie pakietu, umożliwiając wyświetlanie danych TCP, co umożliwia rozwiązywanie problemów z utraconymi pakietami i problemami z łącznością. 

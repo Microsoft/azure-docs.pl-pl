@@ -3,12 +3,12 @@ title: Wyświetlanie dostawców usług i zarządzanie nimi
 description: Klienci mogą używać strony dostawcy usług w Azure Portal do wyświetlania informacji o dostawcach usług, ofertach dostawcy usług i delegowanych zasobach.
 ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: ecbeb7f5b6fccb7b66043cf57aa5f48674c6fe8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e94a9fd6562a9fa8bc0f2d84cce477e7907a1e48
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974400"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371107"
 ---
 # <a name="view-and-manage-service-providers"></a>Wyświetlanie dostawców usług i zarządzanie nimi
 
@@ -78,7 +78,7 @@ Klienci mogą chcieć uzyskać wgląd w subskrypcje i/lub grupy zasobów, które
 
 Zapewniamy [wbudowaną Azure Policy definicję zasad](../../governance/policy/samples/built-in-policies.md#lighthouse) [służącą do inspekcji delegowania zakresów do dzierżawy zarządzającej](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Te zasady można przypisać do grupy zarządzania zawierającej wszystkie subskrypcje, które mają być poddane inspekcji. Po sprawdzeniu zgodności z tymi zasadami wszystkie delegowane subskrypcje i/lub grupy zasobów (w grupie zarządzania, do których przypisane są zasady) będą wyświetlane w stanie niezgodnym. Następnie możesz przejrzeć wyniki i potwierdzić, że nie ma żadnych nieoczekiwanych delegowania.
 
-Inna [wbudowana definicja zasad](../../governance/policy/samples/built-in-policies.md#lighthouse) umożliwia [ograniczenie delegowania do określonych dzierżaw związanych z zarządzaniem](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json). Te zasady można w podobny sposób zastosować do grupy zarządzania zawierającej wszystkie subskrypcje, dla których chcesz ograniczyć delegowania. Po wdrożeniu zasad wszystkie próby delegowania subskrypcji do dzierżawy poza tymi określonymi przez użytkownika zostaną odrzucone.
+Inna [wbudowana definicja zasad](../../governance/policy/samples/built-in-policies.md#lighthouse) umożliwia [ograniczenie delegowania do określonych dzierżaw związanych z zarządzaniem](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json). Te zasady można w podobny sposób zastosować do grupy zarządzania zawierającej wszystkie subskrypcje, dla których chcesz ograniczyć delegowania. Po wdrożeniu zasad wszystkie próby delegowania subskrypcji do dzierżawy poza tymi określonymi przez użytkownika zostaną odrzucone.
 
 Aby uzyskać więcej informacji na temat sposobu przypisywania zasad i wyświetlania wyników stanu zgodności, zobacz [Szybki Start: Tworzenie przypisania zasad](../../governance/policy/assign-policy-portal.md).
 

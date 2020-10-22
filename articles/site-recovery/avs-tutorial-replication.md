@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: dd9d36e0f51c96a177b8bd310b75f64c948fc034
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62c35ec29ab43cc60a412e5fa54f16f45c09d781
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91814596"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370461"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-azure-vmware-solution-vms"></a>Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych rozwiązań VMware platformy Azure
 
@@ -106,7 +106,7 @@ Wszystkie te składniki są instalowane razem na pojedynczym komputerze z rozwi�
 Jeśli chcesz dodać dodatkową kartę sieciową do serwera konfiguracji, Dodaj ją przed zarejestrowaniem serwera w magazynie. Po zarejestrowaniu nie można dodawać kart sieciowych.
 
 1. Kliknij prawym przyciskiem myszy maszynę wirtualną na liście w kliencie vSphere, a następnie wybierz pozycję **Edytuj ustawienia**.
-2. Na stronie **Hardware** (Sprzęt) wybierz pozycje **Add** > **Ethernet Adapter** (Dodaj, Karta Ethernet). Następnie wybierz pozycję **Dalej**.
+2. Na stronie **Hardware** (Sprzęt) wybierz pozycje **Add** > **Ethernet Adapter** (Dodaj, Karta Ethernet). Następnie wybierz przycisk **Dalej**.
 3. Wybierz typ karty i sieć.
 4. Aby nawiązać połączenie z wirtualną kartą sieciową po włączeniu maszyny wirtualnej, zaznacz pole **Połącz po włączeniu**. Wybierz pozycję **Dalej** > **Zakończ**. Następnie wybierz przycisk **OK**.
 
@@ -119,7 +119,7 @@ Po skonfigurowaniu serwera konfiguracji należy zarejestrować go w magazynie.
 2. Maszyna wirtualna zostanie uruchomiona do środowiska instalacji systemu Windows Server 2016. Zaakceptuj umowę licencyjną i wprowadź hasło administratora.
 3. Po zakończeniu instalacji zaloguj się na maszynie wirtualnej jako administrator.
 4. Po pierwszym zalogowaniu w ciągu kilku sekund zostanie uruchomione narzędzie do konfiguracji usługi Azure Site Recovery.
-5. Wprowadź nazwę używaną do zarejestrowania serwera konfiguracji w usłudze Site Recovery. Następnie wybierz pozycję **Dalej**.
+5. Wprowadź nazwę używaną do zarejestrowania serwera konfiguracji w usłudze Site Recovery. Następnie wybierz przycisk **Dalej**.
 6. Narzędzie sprawdza, czy maszyna wirtualna może połączyć się z platformą Azure. Po nawiązaniu połączenia wybierz pozycję **Zaloguj się**, aby zalogować się do subskrypcji platformy Azure. Użyte poświadczenia muszą zapewniać dostęp do magazynu, w którym chcesz zarejestrować serwer konfiguracji. Upewnij się, że odpowiednie [role](vmware-azure-deploy-configuration-server.md#azure-active-directory-permission-requirements) są przypisane do tego użytkownika.
 7. Narzędzie wykonuje pewne zadania konfiguracyjne, a następnie wywołuje ponowne uruchomienie.
 8. Ponownie zaloguj się do maszyny. W ciągu kilku sekund zostanie automatycznie uruchomiony kreator zarządzania serwerem konfiguracji.
@@ -130,7 +130,7 @@ Po skonfigurowaniu serwera konfiguracji należy zarejestrować go w magazynie.
 Zakończ Konfigurowanie i rejestrowanie serwera konfiguracji. Przed kontynuowaniem upewnij się, że wszystkie [wymagania wstępne](vmware-azure-deploy-configuration-server.md#prerequisites) zostały spełnione, aby można było pomyślnie skonfigurować serwer konfiguracji.
 
 
-1. W Kreatorze zarządzania serwerem konfiguracji wybierz pozycję **Instalacja łączność**. Z listy rozwijanej wybierz najpierw kartę sieciową używaną przez serwer przetwarzania w celu odnajdywania i instalacji wypychanej usługi mobilności na maszynach źródłowych, a następnie wybierz kartę sieciową używaną przez serwer konfiguracji do łączności z platformą Azure. Następnie wybierz przycisk **Zapisz**. Po skonfigurowaniu tego ustawienia nie można go zmienić.
+1. W Kreatorze zarządzania serwerem konfiguracji wybierz pozycję **Instalacja łączność**. Z listy rozwijanej wybierz najpierw kartę sieciową używaną przez serwer przetwarzania w celu odnajdywania i instalacji wypychanej usługi mobilności na maszynach źródłowych, a następnie wybierz kartę sieciową używaną przez serwer konfiguracji do łączności z platformą Azure. Następnie wybierz pozycję **Zapisz**. Po skonfigurowaniu tego ustawienia nie można go zmienić.
 2. W obszarze **Wybierz magazyn Recovery Services**wybierz swoją subskrypcję platformy Azure i odpowiednią grupę zasobów i magazyn.
 3. Na stronie **Instalowanie oprogramowania innych firm** zaakceptuj umowę licencyjną. Wybierz pozycję **Pobierz i zainstaluj**, aby zainstalować program MySQL Server. Jeśli w ścieżce została umieszczona baza danych MySQL, ten krok można pominąć. Dowiedz się [więcej](vmware-azure-deploy-configuration-server.md#configure-settings)
 4. W obszarze **Weryfikowanie konfiguracji urządzenia** zostaną zweryfikowane wymagania wstępne, a następnie będzie można kontynuować.
@@ -146,7 +146,7 @@ Zakończ Konfigurowanie i rejestrowanie serwera konfiguracji. Przed kontynuowani
 Po zarejestrowaniu serwera konfiguracji program Site Recovery nawiązuje połączenie z serwerami VMware przy użyciu określonych ustawień i odnajduje maszyny wirtualne.
 
 > [!NOTE]
-> Zanim nazwa konta pojawi się w portalu, może minąć 15 minut lub więcej. Aby natychmiast zaktualizować, wybierz pozycję **serwery konfiguracji**  >  ***Nazwa serwera***  >  **Odśwież serwer**.
+> Zanim nazwa konta pojawi się w portalu, może minąć 15 minut lub więcej. Aby natychmiast zaktualizować, wybierz pozycję **serwery konfiguracji**  >  **_Nazwa serwera_*_ > _* Odśwież serwer**.
 
 ## <a name="set-up-the-target-environment"></a>Konfigurowanie środowiska docelowego
 
@@ -186,7 +186,7 @@ Włącz replikację dla maszyn wirtualnych w następujący sposób:
 6. W obszarze **Cel** wybierz subskrypcję i grupę zasobów, w której chcesz utworzyć maszyny wirtualne w trybie failover. Stosujemy model wdrażania korzystający z usługi Resource Manager.
 7. Wybierz sieć platformy Azure i podsieć, z którą nawiążą połączenie maszyny wirtualne platformy Azure, gdy zostaną uruchomione po przejściu do trybu failover.
 8. Wybierz opcję **Konfiguruj teraz dla wybranych maszyn**, aby zastosować ustawienia sieci do wszystkich maszyn wirtualnych, na których ma zostać włączona replikacja. Wybierz pozycję **Konfiguruj później** , aby wybrać sieć platformy Azure na maszynę.
-9. W obszarze **Virtual Machines**  >  **Wybierz pozycję Maszyny wirtualne**zaznacz każdą maszynę, którą chcesz replikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz przycisk **OK**. Jeśli nie możesz wyświetlić/wybrać konkretnej maszyny wirtualnej, [Dowiedz się więcej](https://aka.ms/doc-plugin-VM-not-showing) o rozwiązywaniu problemu.
+9. W obszarze **Virtual Machines**  >  **Wybierz pozycję Maszyny wirtualne**zaznacz każdą maszynę, którą chcesz replikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz przycisk **OK**. Jeśli nie możesz wyświetlić/wybrać konkretnej maszyny wirtualnej, [Dowiedz się więcej](./vmware-azure-troubleshoot-replication.md) o rozwiązywaniu problemu.
 10. W obszarze **Właściwości**  >  **Konfigurowanie właściwości**wybierz konto, które ma być używane przez serwer przetwarzania w celu automatycznego zainstalowania usługi mobilności na maszynie.
 11. W obszarze **Ustawienia replikacji**  >  **Skonfiguruj ustawienia replikacji**Sprawdź, czy wybrano odpowiednie zasady replikacji.
 12. Wybierz pozycję **Włącz replikację**. Po włączeniu replikacji maszyny wirtualnej usługa Site Recovery instaluje usługę Mobility.

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 8/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 9bfec8c1da0581fa7f17dd671358218f22c877c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6cbda4067e98c16ea26f3436b5f65e696549462
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708479"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370308"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 
@@ -251,6 +251,18 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
+### <a name="how-python-environments-work-with-pipeline-parameters"></a>Jak działają środowiska Python z parametrami potoku
+
+Jak opisano wcześniej w temacie [Konfigurowanie środowiska szkolenia](#configure-the-training-runs-environment), stan środowiska i zależności biblioteki języka Python są określane przy użyciu `Environment` obiektu. Ogólnie rzecz biorąc, można określić istniejący element, `Environment` odwołując się do jego nazwy i, opcjonalnie, wersji:
+
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.environment.name = 'MyEnvironment'
+aml_run_config.environment.version = '1.0'
+```
+
+Jeśli jednak zdecydujesz się używać `PipelineParameter` obiektów do dynamicznego ustawiania zmiennych w czasie wykonywania dla kroków potoku, nie możesz użyć tej techniki, aby odwoływać się do istniejącej `Environment` . Zamiast tego, jeśli chcesz używać `PipelineParameter` obiektów, musisz ustawić `environment` pole na `RunConfiguration` `Environment` obiekt. Jest odpowiedzialny za zagwarantowanie, że taki element `Environment` ma swoje zależności od poprawnego zestawu zewnętrznych języka Python.
+
 ### <a name="use-a-dataset"></a>Korzystanie z zestawu danych 
 
 Zestawy danych utworzone z usługi Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database i Azure Database for PostgreSQL mogą być używane jako dane wejściowe do dowolnego etapu potoku. Możesz zapisać dane wyjściowe w [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py&preserve-view=true)lub, jeśli chcesz zapisać danych do określonego magazynu datastore, użyj [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true). 
@@ -337,6 +349,8 @@ Podczas pierwszego uruchomienia potoku Azure Machine Learning:
 ![Diagram uruchamiania eksperymentu jako potoku](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 Aby uzyskać więcej informacji, zobacz informacje o [klasie eksperymentów](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) .
+
+## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>Użyj parametrów potoku dla argumentów, które zmieniają się w czasie wnioskowania
 
 ## <a name="view-results-of-a-pipeline"></a>Wyświetlanie wyników potoku
 

@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63b716aa22954af51a9eb53a0d04a8299d348c71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797241"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370920"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Dodawanie lub aktualizowanie informacji w profilu użytkownika przy użyciu usługi Azure Active Directory
 Dodawanie informacji o profilu użytkownika, w tym obrazu profilu, informacji specyficznych dla zadania i niektórych ustawień przy użyciu Azure Active Directory (Azure AD). Aby uzyskać więcej informacji na temat dodawania nowych użytkowników, zobacz [jak dodać lub usunąć użytkowników w Azure Active Directory](add-users-azure-active-directory.md).
@@ -66,4 +66,4 @@ Po zaktualizowaniu profilów użytkowników można wykonać następujące podsta
 
 - [Tworzenie grupy podstawowej i dodawanie członków](active-directory-groups-create-azure-portal.md)
 
-Można też wykonywać inne zadania zarządzania użytkownikami, takie jak przypisywanie delegatów, korzystanie z zasad i udostępnianie kont użytkowników. Aby uzyskać więcej informacji na temat innych dostępnych akcji, zobacz [Azure Active Directory dokumentacja dotycząca zarządzania użytkownikami](../users-groups-roles/index.yml).
+Można też wykonywać inne zadania zarządzania użytkownikami, takie jak przypisywanie delegatów, korzystanie z zasad i udostępnianie kont użytkowników. Aby uzyskać więcej informacji na temat innych dostępnych akcji, zobacz [Azure Active Directory dokumentacja dotycząca zarządzania użytkownikami](../enterprise-users/index.yml).

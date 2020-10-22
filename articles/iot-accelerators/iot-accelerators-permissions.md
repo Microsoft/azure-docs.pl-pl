@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61447458"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370614"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Wdrażanie akceleratora rozwiązań za pomocą witryny azureiotsolutions.com
 
@@ -38,7 +38,7 @@ Aby można było wdrożyć Akcelerator rozwiązania, należy zalogować się pod
 
 Twoje uprawnienia do wdrażania akceleratorów rozwiązań, zarządzania użytkownikami i zarządzania usługami platformy Azure zależą od roli w wybranym katalogu. Typowe role usługi Azure AD skojarzone z akceleratorami rozwiązań obejmują:
 
-* **Administrator globalny**: może istnieć wielu [administratorów globalnych](../active-directory/users-groups-roles/directory-assign-admin-roles.md) na dzierżawę usługi Azure AD:
+* **Administrator globalny**: może istnieć wielu [administratorów globalnych](../active-directory/roles/permissions-reference.md) na dzierżawę usługi Azure AD:
 
   * Podczas tworzenia dzierżawy usługi Azure AD jesteś domyślnie administratorem globalnym tej dzierżawy.
   * Administrator globalny może wdrażać Akceleratory rozwiązań Basic i Standard.

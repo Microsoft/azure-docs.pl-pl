@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332046"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370444"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informacje o sieci w usłudze odzyskiwania po awarii maszyny wirtualnej platformy Azure
 
@@ -62,9 +62,9 @@ login.microsoftonline.com | Wymagany do autoryzacji i uwierzytelniania do adres�
 Korzystając z sieciowej grupy zabezpieczeń do kontrolowania łączności wychodzącej, te Tagi usług muszą być dozwolone.
 
 - Dla kont magazynu w regionie źródłowym:
-    - Utwórz opartą na [znaczniku usługi magazynu](../virtual-network/security-overview.md#service-tags) regułę sieciowej grupy zabezpieczeń dla regionu źródłowego.
+    - Utwórz opartą na [znaczniku usługi magazynu](../virtual-network/network-security-groups-overview.md#service-tags) regułę sieciowej grupy zabezpieczeń dla regionu źródłowego.
     - Zezwalaj na te adresy, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej z poziomu maszyny wirtualnej.
-- Utwórz opartą na [usłudze Azure Active Directory regułę sieciowej grupy zabezpieczeń (AAD)](../virtual-network/security-overview.md#service-tags) , aby umożliwić dostęp do wszystkich adresów IP odpowiadających usłudze AAD
+- Utwórz opartą na [usłudze Azure Active Directory regułę sieciowej grupy zabezpieczeń (AAD)](../virtual-network/network-security-groups-overview.md#service-tags) , aby umożliwić dostęp do wszystkich adresów IP odpowiadających usłudze AAD
 - Utwórz regułę sieciowej grupy zabezpieczeń opartą na znacznikach usługi EventsHub dla regionu docelowego, umożliwiając dostęp do monitorowania Site Recovery.
 - Utwórz regułę sieciowej grupy zabezpieczeń opartą na znacznikach usługi AzureSiteRecovery, aby umożliwić dostęp do usługi Site Recovery w dowolnym regionie.
 - Utwórz regułę sieciowej grupy zabezpieczeń opartą na znacznikach usługi AzureKeyVault. Jest to wymagane tylko w przypadku włączania replikacji maszyn wirtualnych z obsługą ADE za pośrednictwem portalu.

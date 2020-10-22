@@ -2,13 +2,13 @@
 title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385759"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371447"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
@@ -26,7 +26,7 @@ Wszystkie węzły obliczeniowe usługi Batch obejmują również:
 
 - Standardową [strukturę folderów](files-and-directories.md) i skojarzone [zmienne środowiskowe](jobs-and-tasks.md) dostępne do użycia jako odwołania w zadaniach podrzędnych.
 - Ustawienia **Zapory** skonfigurowane do kontroli dostępu.
-- [Dostęp zdalny](error-handling.md#connect-to-compute-nodes) do węzłów systemu Windows (protokół RDP (Remote Desktop)) i Linux (SSH (Secure Shell)).
+- [Dostęp zdalny](error-handling.md#connect-to-compute-nodes) do węzłów systemu Windows (Remote Desktop Protocol (RDP)) i Linux (Secure Shell (SSH)) (o ile nie zostanie [utworzona Pula z wyłączonym dostępem zdalnym](pool-endpoint-configuration.md)).
 
 Domyślnie węzły mogą komunikować się ze sobą, ale nie mogą komunikować się z maszynami wirtualnymi, które nie są częścią tej samej puli. Aby umożliwić węzłom bezpieczne komunikowanie się z innymi maszynami wirtualnymi lub z siecią lokalną, można zainicjować obsługę administracyjną puli [w podsieci sieci wirtualnej platformy Azure](batch-virtual-network.md). Po wykonaniu tej czynności Twoje węzły będą dostępne za poorednictwem publicznych adresów IP. Te publiczne adresy IP są tworzone przez partię i mogą ulec zmianie w okresie istnienia puli. Istnieje również możliwość [utworzenia puli ze statycznymi publicznymi adresami IP](create-pool-public-ip.md) , co gwarantuje, że nie ulegną zmianie.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: b1b93110c3dba38dadf7079fc24ba12e81793c02
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329853"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371498"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurowanie alertów niestandardowych do monitorowania anonsowanych tras
 
@@ -70,7 +70,7 @@ Utwórz konto usługi Automation z uprawnieniami Uruchom jako. Aby uzyskać inst
 
 ### <a name="2-assign-the-run-as-account-a-role"></a><a name="about"></a>2. Przypisz rolę "Uruchom jako"
 
-Domyślnie rola **współautor** jest przypisywana do jednostki usługi, która jest używana przez konto **Uruchom jako** . Można zachować domyślną rolę przypisaną do jednostki usługi lub można ograniczyć uprawnienia, przypisując [wbudowaną rolę](../role-based-access-control/built-in-roles.md) (na przykład czytelnik) lub [rolę niestandardową](../active-directory/users-groups-roles/roles-create-custom.md).
+Domyślnie rola **współautor** jest przypisywana do jednostki usługi, która jest używana przez konto **Uruchom jako** . Można zachować domyślną rolę przypisaną do jednostki usługi lub można ograniczyć uprawnienia, przypisując [wbudowaną rolę](../role-based-access-control/built-in-roles.md) (na przykład czytelnik) lub [rolę niestandardową](../active-directory/roles/custom-create.md).
 
  Wykonaj następujące kroki, aby określić rolę przypisaną do jednostki usługi, która jest używana przez konto Uruchom jako:
 

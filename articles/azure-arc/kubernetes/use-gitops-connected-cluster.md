@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Korzystanie z GitOps dla konfiguracji klastra z obsługą usługi Azure ARC (wersja zapoznawcza)
 keywords: GitOps, Kubernetes, K8s, Azure, ARC, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714192"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371260"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Wdrażanie konfiguracji przy użyciu usługi GitOps w klastrze Kubernetes (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Ten sam wzorzec może służyć do zarządzania większą kolekcją klastrów, k
 
 Ten przewodnik wprowadzający przeprowadzi Cię przez proces stosowania zestawu konfiguracji z zakresem administratora klastra.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule przyjęto założenie, że masz istniejący Kubernetes połączony klaster usługi Azure Arc. Jeśli potrzebny jest podłączony klaster, zobacz temat [łączenie się z klastrem szybki start](./connect-cluster.md).
 
@@ -98,17 +98,16 @@ Oto obsługiwane scenariusze dla wartości parametru--Repository-URL.
 
 | Scenariusz | Format | Opis |
 | ------------- | ------------- | ------------- |
-| Prywatne repozytorium GitHub — SSH | git@github.com:username/repo | Para kluczy SSH wygenerowana przez strumień.  Użytkownik musi dodać klucz publiczny do konta usługi GitHub jako klucz wdrożenia. |
-| Publiczne repozytorium GitHub | `http://github.com/username/repo` lub git://github.com/username/repo   | Publiczne repozytorium git  |
+| Publiczne repozytorium git | http [s]://Server/repo.git lub git://server/repo.git   | Publiczne repozytorium git  |
+| Prywatne repozytorium git — klucze utworzone za pośrednictwem protokołu SSH – strumień | SSH://[user@] serwer/repozytorium. git lub [user@] serwer: repozytorium. git | Klucz publiczny wygenerowany przez strumień musi zostać dodany do konta użytkownika lub repozytorium w ramach dostawcy usługi git. Więcej informacji można znaleźć [tutaj](#apply-configuration-from-a-private-git-repository) |
 
-Te scenariusze są obsługiwane przez strumień, ale nie przez sourceControlConfiguration jeszcze. 
+Te scenariusze są obsługiwane przez strumień, ale jeszcze nie przez sourceControlConfiguration.
 
 | Scenariusz | Format | Opis |
 | ------------- | ------------- | ------------- |
-| Prywatne repozytorium GitHub — HTTPS | `https://github.com/username/repo` | Strumień nie generuje pary kluczy SSH.  [Instrukcje](https://docs.fluxcd.io/en/1.17.0/guides/use-git-https.html) |
-| Prywatny Host git | user@githost:path/to/repo | [Instrukcje](https://docs.fluxcd.io/en/1.18.0/guides/use-private-git-host.html) |
-| Prywatne repozytorium GitHub — SSH (przenoszenie własnego klucza) | git@github.com:username/repo | [Użyj własnej pary kluczy SSH](https://docs.fluxcd.io/en/1.17.0/guides/provide-own-ssh-key.html) |
-
+| Prywatne repozytorium git — HTTPS | https://server/repo.git | Wkrótce (będzie obsługiwać nazwę użytkownika/hasło, nazwę użytkownika/token, certyfikat) |
+| Prywatne repozytorium git — klucze dostarczone przez użytkownika | SSH://[user@] serwer/repozytorium. git lub [user@] serwer: repozytorium. git | Już wkrótce |
+| Prywatny Host git — SSH — niestandardowy known_hosts | SSH://[user@] serwer/repozytorium. git lub [user@] serwer: repozytorium. git | Już wkrótce |
 
 #### <a name="additional-parameters"></a>Dodatkowe parametry
 
@@ -225,7 +224,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 **Dodaj klucz publiczny jako klucz wdrożenia do repozytorium git**
 
-1. Otwórz witrynę GitHub, przejdź do swojego rozwidlenia, wybierz pozycję **Ustawienia**, a następnie pozycję **Wdróż klucze** .
+1. Otwórz witrynę GitHub, przejdź do repozytorium, kliknij pozycję **Ustawienia**, a następnie pozycję **Wdróż klucze** .
 2. Kliknij pozycję  **Dodaj klucz wdrożenia**
 3. Podaj tytuł
 4. Sprawdź **Zezwalanie na dostęp do zapisu**

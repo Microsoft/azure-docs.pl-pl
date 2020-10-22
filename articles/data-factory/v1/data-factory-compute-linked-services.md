@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cf7a3ff478100c892e59e98c91e9605c88bdc667
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f584ba1021e9cc66454e3aebd7f51b34e72885f5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438827"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369186"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory wersji 1
 > [!NOTE]
@@ -29,8 +29,8 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | Środowisko obliczeniowe                      | Działania                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [Klaster usługi Azure HDInsight na żądanie](#azure-hdinsight-on-demand-linked-service) lub [własny klaster HDInsight](#azure-hdinsight-linked-service) | [Dotnet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [świnie](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), usługa [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
-| [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Działania usługi Machine Learning: wykonywanie wsadowe i aktualizacja zasobów](data-factory-azure-ml-batch-execution-activity.md) |
+| [Usługa Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
+| [Azure Machine Learning Studio (klasyczny)](#azure-machine-learning-studio-classic-linked-service) | [Działania programu Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Działania procedur składowanych](data-factory-stored-proc-activity.md) |
 
@@ -229,8 +229,8 @@ Istnieje możliwość zarejestrowania istniejącego środowiska obliczeniowego j
 Ten typ konfiguracji jest obsługiwany dla następujących środowisk obliczeniowych:
 
 * Azure HDInsight
-* Azure Batch
-* Azure Machine Learning
+* Usługa Azure Batch
+* Azure Machine Learning Studio (klasyczny)
 * Azure Data Lake Analytics
 * Azure SQL Database, usługa Azure Synapse Analytics (wcześniej SQL Data Warehouse), SQL Server
 
@@ -311,8 +311,8 @@ Innym rozwiązaniem jest dostarczenie punktu końcowego **batchUri** . Na przyk�
 | poolName          | Nazwa puli maszyn wirtualnych.    | Tak      |
 | linkedServiceName | Nazwa połączonej usługi Storage, która jest skojarzona z tą połączoną usługą Batch. Ta połączona usługa jest używana w przypadku plików tymczasowych wymaganych do uruchomienia działania oraz do przechowywania dzienników wykonywania działania. | Tak      |
 
-## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning połączona usługa
-Możesz utworzyć połączoną usługę Machine Learning, aby zarejestrować punkt końcowy oceniania Machine Learning partii do fabryki danych.
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Połączona usługa Azure Machine Learning Studio (klasyczna)
+Możesz utworzyć połączoną usługę Azure Machine Learning Studio (klasyczną), aby zarejestrować punkt końcowy oceniania usługi Batch (klasyczny) na potrzeby fabryki danych.
 
 ### <a name="example"></a>Przykład
 

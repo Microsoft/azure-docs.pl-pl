@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/06/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: bf4a1feb91a1ac4b0bca0d6afdbac41a8be3aa4f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 35edcfb4bdb0715245f4a3190fb22638b1162429
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049877"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370988"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Utwórz dysk zarządzany na podstawie wersji obrazu
 
@@ -23,10 +23,10 @@ Jeśli zachodzi taka potrzeba, można utworzyć dysk zarządzany na podstawie we
 
 ## <a name="cli"></a>Interfejs wiersza polecenia
 
-Ustaw `source` zmienną na identyfikator wersji obrazu, a następnie użyj polecenie [AZ Disk Create](/cli/azure/disk.md#az_disk_create) w celu utworzenia dysku zarządzanego. 
+Ustaw `source` zmienną na identyfikator wersji obrazu, a następnie użyj polecenie [AZ Disk Create](/cli/azure/disk#az_disk_create) w celu utworzenia dysku zarządzanego. 
 
 
-Możesz wyświetlić listę wersji obrazu przy użyciu polecenia [AZ SIG Image-Version list](/cli/azure/sig/image-version.md#az_sig_image_version_list). W tym przykładzie szukamy wszystkich wersji obrazu, które są częścią definicji obrazu *myImageDefinition* w galerii obrazów w *galerii* .
+Możesz wyświetlić listę wersji obrazu przy użyciu polecenia [AZ SIG Image-Version list](/cli/azure/sig/image-version#az_sig_image_version_list). W tym przykładzie szukamy wszystkich wersji obrazu, które są częścią definicji obrazu *myImageDefinition* w galerii obrazów w *galerii* .
 
 ```azurecli-interactive
 az sig image-version list \

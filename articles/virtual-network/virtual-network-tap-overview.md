@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 7013c8ed338e727dd79a3845ff3b85749c0f5cee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e937f6c79e52aa7a75f6e222f195e1428dd16033
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836092"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371022"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Konta używane do zastosowania konfiguracji TAP w interfejsach sieciowych muszą
 - [LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [VSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
-- [® Platformę monitora RSA](https://www.rsa.com/azure)
+- [® Platformę monitora RSA](https://www.rsa.com/content/dam/en/solution-brief/rsa-netwitness-platform-overview-for-federal-agencies.pdf)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d794716fe1f4717acbabfd90643b72c682e475bc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400693"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370597"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim
 
@@ -111,7 +111,7 @@ Po ustawieniu wypłaty stan Wstrzymaj na **wł**. wszystkie wypłaty zostaną ws
 > [!NOTE]
 > **Wypłata** została wybrana z tytułu stanu ma zastosowanie do **wszystkich** źródeł przychodów, które są płatne za pomocą Centrum partnerskiego firmy Microsoft, w tym Azure Marketplace, AppSource, Microsoft Store, reklamy itp.). Dla każdego źródła przychodu nie można wybrać różnych stanów wstrzymania.
 
-### <a name="devices"></a>Devices
+### <a name="devices"></a>Urządzenia
 
 Ustawienia zarządzania urządzeniami dotyczą tylko publikowania platformy UWP. [Dowiedz się więcej](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
@@ -170,7 +170,7 @@ Aby dodać użytkowników do konta Centrum partnerskiego, które już istnieje n
 
 ### <a name="create-new-users"></a>Utwórz nowych użytkowników
 
-Aby utworzyć nowe konta użytkowników, musisz mieć konto z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) .
+Aby utworzyć nowe konta użytkowników, musisz mieć konto z uprawnieniami [**administratora globalnego**](../../active-directory/roles/permissions-reference.md) .
 
 1. Przejdź do pozycji **Użytkownicy** (w obszarze **Ustawienia konta**), wybierz pozycję **Dodaj użytkowników**, a następnie wybierz pozycję **Utwórz nowych użytkowników**.
 1. Wprowadź imię i nazwisko oraz nazwę użytkownika dla każdego nowego użytkownika. 
@@ -184,7 +184,7 @@ Utworzenie nowego użytkownika w centrum partnerskim spowoduje również utworze
 
 ### <a name="invite-new-users-by-email"></a>Zaproś nowych użytkowników pocztą e-mail
 
-Aby zapraszać użytkowników, którzy nie są obecnie częścią firmowego konta służbowego (Azure AD dzierżawcą) za pośrednictwem poczty e-mail, musisz mieć konto z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) .
+Aby zapraszać użytkowników, którzy nie są obecnie częścią firmowego konta służbowego (Azure AD dzierżawcą) za pośrednictwem poczty e-mail, musisz mieć konto z uprawnieniami [**administratora globalnego**](../../active-directory/roles/permissions-reference.md) .
 
 1. Przejdź do pozycji **Użytkownicy** (w obszarze **Ustawienia konta**), wybierz pozycję **Dodaj użytkowników**, a następnie wybierz opcję **Zapraszanie użytkowników za pośrednictwem poczty e-mail**.
 2. Wprowadź co najmniej jeden adres e-mail (do 10), rozdzielony przecinkami lub średnikami.
@@ -204,7 +204,7 @@ Aby usunąć użytkownika z konta służbowego (dzierżawy usługi Azure AD), pr
 
 ### <a name="change-a-user-password"></a>Zmiana hasła użytkownika
 
-Jeśli jeden z użytkowników musi zmienić hasło, może to zrobić, jeśli podczas tworzenia konta użytkownika podano **wiadomość e-mail z odzyskiwaniem haseł** . Możesz również zaktualizować hasło użytkownika, wykonując poniższe kroki. Aby zmienić hasło użytkownika na koncie służbowym firmy (dzierżawy usługi Azure AD), użytkownik musi być zalogowany na koncie z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) . Spowoduje to zmianę hasła użytkownika w dzierżawie usługi Azure AD wraz z hasłem używanym do uzyskiwania dostępu do Centrum partnerskiego.
+Jeśli jeden z użytkowników musi zmienić hasło, może to zrobić, jeśli podczas tworzenia konta użytkownika podano **wiadomość e-mail z odzyskiwaniem haseł** . Możesz również zaktualizować hasło użytkownika, wykonując poniższe kroki. Aby zmienić hasło użytkownika na koncie służbowym firmy (dzierżawy usługi Azure AD), użytkownik musi być zalogowany na koncie z uprawnieniami [**administratora globalnego**](../../active-directory/roles/permissions-reference.md) . Spowoduje to zmianę hasła użytkownika w dzierżawie usługi Azure AD wraz z hasłem używanym do uzyskiwania dostępu do Centrum partnerskiego.
 
 1. Na stronie **Użytkownicy** (w obszarze **Ustawienia konta**) wybierz nazwę konta użytkownika, które chcesz edytować.
 2. Wybierz przycisk **resetowania hasła** w dolnej części strony.

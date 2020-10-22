@@ -2,13 +2,13 @@
 title: Uwierzytelnianie aplikacji w celu uzyskania dostępu do zasobów usługi Azure Event Hubs
 description: Ten artykuł zawiera informacje o uwierzytelnianiu aplikacji przy użyciu Azure Active Directory dostępu do zasobów Event Hubs platformy Azure
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 50c697e5c430b72f8d5da393e90f1db7ff6d48a1
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.date: 10/21/2020
+ms.openlocfilehash: 6eac2ef362705ecb68212166f8b691ac969a40ff
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332488"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359938"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnianie aplikacji za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs
 Microsoft Azure zapewnia zintegrowane zarządzanie kontrolą dostępu dla zasobów i aplikacji na podstawie Azure Active Directory (Azure AD). Główną zaletą korzystania z usługi Azure AD z usługą Azure Event Hubs jest to, że nie musisz już przechowywać poświadczeń w kodzie. Zamiast tego można zażądać tokenu dostępu OAuth 2,0 z platformy tożsamości firmy Microsoft. Nazwa zasobu do żądania tokenu to `https://eventhubs.azure.net/` (dla klientów Kafka, zasób do żądania tokenu `https://<namespace>.servicebus.windows.net` ). Usługa Azure AD uwierzytelnia podmiot zabezpieczeń (użytkownika, grupę lub nazwę główną usługi), na którym działa aplikacja. W przypadku pomyślnego uwierzytelnienia usługa Azure AD zwraca token dostępu do aplikacji, a następnie może użyć tokenu dostępu do autoryzowania żądania do zasobów usługi Azure Event Hubs.
@@ -29,34 +29,6 @@ Aby uzyskać wbudowane role rejestru schematu, zobacz [role rejestru schematu](s
 
 > [!IMPORTANT]
 > Nasza wersja zapoznawcza obsługuje dodawanie Event Hubs uprawnień dostępu do danych do roli właściciel lub współautor. Jednak uprawnienia dostępu do danych dla roli właściciela i współautora nie są już honorowane. Jeśli używasz roli właściciela lub współautora, przełącz się do korzystania z roli właściciela danych Event Hubs platformy Azure.
-
-## <a name="assign-azure-roles-using-the-azure-portal"></a>Przypisywanie ról platformy Azure przy użyciu Azure Portal  
-Aby dowiedzieć się więcej na temat zarządzania dostępem do zasobów platformy Azure przy użyciu usługi Azure RBAC i Azure Portal, zobacz [ten artykuł](..//role-based-access-control/role-assignments-portal.md). 
-
-Po ustaleniu odpowiedniego zakresu przypisania roli przejdź do tego zasobu w Azure Portal. Wyświetl ustawienia kontroli dostępu (IAM) dla zasobu i postępuj zgodnie z tymi instrukcjami, aby zarządzać przypisaniami ról:
-
-> [!NOTE]
-> Opisane poniżej kroki przypisuje rolę do centrum zdarzeń w przestrzeni nazw Event Hubs, ale można wykonać te same kroki, aby przypisać rolę do dowolnego zasobu Event Hubs.
-
-1. W [Azure Portal](https://portal.azure.com/)przejdź do przestrzeni nazw Event Hubs.
-2. Na stronie **Przegląd** wybierz centrum zdarzeń, do którego chcesz przypisać rolę.
-
-    ![Wybierz centrum zdarzeń](./media/authenticate-application/select-event-hub.png)
-1. Wybierz pozycję **Access Control (IAM)** , aby wyświetlić ustawienia kontroli dostępu dla centrum zdarzeń. 
-1. Wybierz kartę **przypisania ról** , aby wyświetlić listę przypisań ról. Na pasku narzędzi wybierz przycisk **Dodaj** , a następnie wybierz pozycję **Dodaj przypisanie roli**. 
-
-    ![Przycisk Dodaj na pasku narzędzi](./media/authenticate-application/role-assignments-add-button.png)
-1. Na stronie **Dodawanie przypisania roli** wykonaj następujące czynności:
-    1. Wybierz **rolę Event Hubs** , którą chcesz przypisać. 
-    1. Wyszukaj w celu zlokalizowania **podmiotu zabezpieczeń** (użytkownika, grupy, nazwy głównej usługi), do którego ma zostać przypisana rola.
-    1. Wybierz pozycję **Zapisz** , aby zapisać przypisanie roli. 
-
-        ![Przypisywanie roli do użytkownika](./media/authenticate-application/assign-role-to-user.png)
-    4. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji przedstawiono, że użytkownicy platformy Azure znajdują się w roli właściciela danych Event Hubs platformy Azure. 
-        
-        ![Użytkownik na liście](./media/authenticate-application/user-in-list.png)
-
-Możesz wykonać podobne kroki, aby przypisać rolę zakres do Event Hubs przestrzeni nazw, grupy zasobów lub subskrypcji. Po zdefiniowaniu roli i jej zakresu można przetestować to zachowanie z przykładami [w tej lokalizacji usługi GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac).
 
 
 ## <a name="authenticate-from-an-application"></a>Uwierzytelnianie przy użyciu aplikacji
@@ -93,6 +65,30 @@ Aplikacja wymaga klucza tajnego klienta, aby potwierdzić swoją tożsamość po
 1. Natychmiast skopiuj wartość nowego wpisu tajnego do bezpiecznej lokalizacji. Wartość Fill jest wyświetlana tylko raz.
 
     ![Klucz tajny klienta](./media/authenticate-application/client-secret.png)
+
+
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Przypisywanie ról platformy Azure przy użyciu Azure Portal  
+Po zarejestrowaniu aplikacji należy przypisać nazwę główną usługi aplikacji do roli Event Hubs usługi Azure AD opisanej w sekcji [role kompilacji dla platformy Azure Event Hubs](#built-in-roles-for-azure-event-hubs) . 
+
+1. W [Azure Portal](https://portal.azure.com/)przejdź do przestrzeni nazw Event Hubs.
+2. Na stronie **Przegląd** wybierz centrum zdarzeń, do którego chcesz przypisać rolę.
+
+    ![Wybierz centrum zdarzeń](./media/authenticate-application/select-event-hub.png)
+1. Wybierz pozycję **Access Control (IAM)** , aby wyświetlić ustawienia kontroli dostępu dla centrum zdarzeń. 
+1. Wybierz kartę **przypisania ról** , aby wyświetlić listę przypisań ról. Na pasku narzędzi wybierz przycisk **Dodaj** , a następnie wybierz pozycję **Dodaj przypisanie roli**. 
+
+    ![Przycisk Dodaj na pasku narzędzi](./media/authenticate-application/role-assignments-add-button.png)
+1. Na stronie **Dodawanie przypisania roli** wykonaj następujące czynności:
+    1. Wybierz **rolę Event Hubs** , którą chcesz przypisać. 
+    1. Wyszukaj w celu zlokalizowania **podmiotu zabezpieczeń** (użytkownika, grupy, nazwy głównej usługi), do którego ma zostać przypisana rola. Wybierz **zarejestrowaną aplikację** z listy. 
+    1. Wybierz pozycję **Zapisz** , aby zapisać przypisanie roli. 
+
+        ![Przypisywanie roli do użytkownika](./media/authenticate-application/assign-role-to-user.png)
+    4. Przejdź do karty **przypisania ról** i Potwierdź przypisanie roli. Na przykład na poniższej ilustracji przedstawiono, że **mywebapp** znajduje się w roli **nadawcy danych Event Hubs platformy Azure** . 
+        
+        ![Użytkownik na liście](./media/authenticate-application/user-in-list.png)
+
+Możesz wykonać podobne kroki, aby przypisać rolę zakres do Event Hubs przestrzeni nazw, grupy zasobów lub subskrypcji. Po zdefiniowaniu roli i jej zakresu można przetestować to zachowanie z przykładami [w tej lokalizacji usługi GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). Aby dowiedzieć się więcej na temat zarządzania dostępem do zasobów platformy Azure przy użyciu usługi Azure RBAC i Azure Portal, zobacz [ten artykuł](..//role-based-access-control/role-assignments-portal.md). 
 
 
 ### <a name="client-libraries-for-token-acquisition"></a>Biblioteki klienckie do pozyskiwania tokenów  
