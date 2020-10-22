@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 95d892bf7a0c0e395289d4a5535cd9b6b789b055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62f78ed9063d4736e541dda2b1763ffded8eab5d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88565931"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371481"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Uwierzytelnianie dostępu do zasobów platformy Azure przy użyciu tożsamości zarządzanych w programie Azure Logic Apps
 
@@ -35,7 +35,7 @@ W tym artykule przedstawiono sposób konfigurowania obu rodzajów zarządzanych 
 
 * Konto i subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). Zarówno tożsamość zarządzana, jak i docelowy zasób platformy Azure, do którego potrzebujesz dostępu muszą korzystać z tej samej subskrypcji platformy Azure.
 
-* Aby zapewnić zarządzaną tożsamość dostęp do zasobu platformy Azure, należy dodać rolę do zasobu docelowego dla tej tożsamości. Aby dodać role, musisz mieć [uprawnienia administratora usługi Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) , które mogą przypisywać role do tożsamości w odpowiedniej dzierżawie usługi Azure AD.
+* Aby zapewnić zarządzaną tożsamość dostęp do zasobu platformy Azure, należy dodać rolę do zasobu docelowego dla tej tożsamości. Aby dodać role, musisz mieć [uprawnienia administratora usługi Azure AD](../active-directory/roles/permissions-reference.md) , które mogą przypisywać role do tożsamości w odpowiedniej dzierżawie usługi Azure AD.
 
 * Docelowy zasób platformy Azure, do którego chcesz uzyskać dostęp. Na tym zasobie dodasz rolę dla tożsamości zarządzanej, która pomaga aplikacji logiki uwierzytelniać dostęp do zasobu docelowego.
 
@@ -54,7 +54,7 @@ Aby skonfigurować tożsamość zarządzaną, która ma być używana, Użyj lin
 
 W przeciwieństwie do tożsamości przypisanych przez użytkownika nie trzeba ręcznie tworzyć tożsamości przypisanej do systemu. Aby skonfigurować tożsamość przypisaną przez system dla aplikacji logiki, poniżej przedstawiono opcje, których można użyć:
 
-* [Azure Portal](#azure-portal-system-logic-app)
+* [Witryna Azure Portal](#azure-portal-system-logic-app)
 * [Szablony usługi Azure Resource Manager](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
@@ -132,7 +132,7 @@ Gdy platforma Azure utworzy definicję zasobu aplikacji logiki, `identity` obiek
 
 Aby skonfigurować tożsamość zarządzaną przez użytkownika dla aplikacji logiki, należy najpierw utworzyć tę tożsamość jako osobny autonomiczny zasób platformy Azure. Poniżej przedstawiono opcje, których można użyć:
 
-* [Azure Portal](#azure-portal-user-identity)
+* [Witryna Azure Portal](#azure-portal-user-identity)
 * [Szablony usługi Azure Resource Manager](#template-user-identity)
 * Azure PowerShell
   * [Tworzenie tożsamości przypisanej do użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
@@ -284,7 +284,7 @@ Jeśli szablon zawiera również definicję zasobu tożsamości zarządzanej, mo
 
 Aby można było użyć tożsamości zarządzanej aplikacji logiki na potrzeby uwierzytelniania, Skonfiguruj dostęp dla tej tożsamości w zasobie platformy Azure, w którym planujesz używać tożsamości. Aby wykonać to zadanie, przypisz odpowiednią rolę do tej tożsamości w docelowym zasobie platformy Azure. Poniżej przedstawiono opcje, których można użyć:
 
-* [Azure Portal](#azure-portal-assign-access)
+* [Witryna Azure Portal](#azure-portal-assign-access)
 * [Szablon usługi Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) — Aby uzyskać więcej informacji, zobacz [Dodawanie przypisania roli przy użyciu usług Azure RBAC i Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Interfejs wiersza polecenia platformy Azure ([AZ role Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) — Aby uzyskać więcej informacji, zobacz [Dodawanie przypisania roli przy użyciu funkcji Azure RBAC i interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md).
@@ -301,7 +301,7 @@ Aby można było użyć tożsamości zarządzanej aplikacji logiki na potrzeby u
    ![Wybierz pozycję "Dodaj" > "Dodaj przypisanie roli"](./media/create-managed-service-identity/add-role-to-resource.png)
 
    > [!TIP]
-   > Jeśli opcja **Dodaj przypisanie roli** jest wyłączona, prawdopodobnie nie masz uprawnień. Aby uzyskać więcej informacji o uprawnieniach, które umożliwiają zarządzanie rolami dla zasobów, zobacz [uprawnienia roli administrator w Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > Jeśli opcja **Dodaj przypisanie roli** jest wyłączona, prawdopodobnie nie masz uprawnień. Aby uzyskać więcej informacji o uprawnieniach, które umożliwiają zarządzanie rolami dla zasobów, zobacz [uprawnienia roli administrator w Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 1. W obszarze **Dodaj przypisanie roli**wybierz **rolę** , która zapewnia tożsamości wymagane do uzyskania dostępu do zasobu docelowego.
 
@@ -431,7 +431,7 @@ W tych krokach pokazano, jak używać zarządzanej tożsamości z wyzwalaczem lu
 
 Aby zatrzymać korzystanie z tożsamości zarządzanej dla aplikacji logiki, możesz skorzystać z następujących opcji:
 
-* [Azure Portal](#azure-portal-disable)
+* [Witryna Azure Portal](#azure-portal-disable)
 * [Szablony usługi Azure Resource Manager](#template-disable)
 * Azure PowerShell
   * [Usuń przypisanie roli](../role-based-access-control/role-assignments-powershell.md)
@@ -462,7 +462,7 @@ W Azure Portal najpierw usuń dostęp tożsamości do [zasobu docelowego](#disab
 1. Na liście Role wybierz zarządzane tożsamości, które chcesz usunąć. Na pasku narzędzi wybierz pozycję **Usuń**.
 
    > [!TIP]
-   > Jeśli opcja **Usuń** jest wyłączona, prawdopodobnie nie masz uprawnień. Aby uzyskać więcej informacji o uprawnieniach, które umożliwiają zarządzanie rolami dla zasobów, zobacz [uprawnienia roli administrator w Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > Jeśli opcja **Usuń** jest wyłączona, prawdopodobnie nie masz uprawnień. Aby uzyskać więcej informacji o uprawnieniach, które umożliwiają zarządzanie rolami dla zasobów, zobacz [uprawnienia roli administrator w Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 Zarządzana tożsamość została teraz usunięta i nie ma już dostępu do zasobu docelowego.
 

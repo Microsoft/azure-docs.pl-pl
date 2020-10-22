@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: 0831cc40c7d6b25e1db78c84a7adfa644497d486
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f937b03b2f838f69f56a4b132d0ea7a7e298b532
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091444"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372127"
 ---
 # <a name="create-an-azure-support-request"></a>Tworzenie wniosku o pomoc techniczną platformy Azure
 
@@ -41,7 +41,7 @@ Możesz uzyskać **Pomoc techniczną i wsparcie** w Azure Portal. Jest ona dost�
 
 ### <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
-Aby utworzyć żądanie pomocy technicznej, musisz być [właścicielem](../../role-based-access-control/built-in-roles.md#owner), [współautorem](../../role-based-access-control/built-in-roles.md#contributor) lub przypisać do roli [współautor żądania pomocy technicznej](../../role-based-access-control/built-in-roles.md#support-request-contributor) na poziomie subskrypcji. Aby utworzyć żądanie pomocy technicznej bez subskrypcji, na przykład w scenariuszu Azure Active Directory, musisz być [administratorem](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Aby utworzyć żądanie pomocy technicznej, musisz być [właścicielem](../../role-based-access-control/built-in-roles.md#owner), [współautorem](../../role-based-access-control/built-in-roles.md#contributor) lub przypisać do roli [współautor żądania pomocy technicznej](../../role-based-access-control/built-in-roles.md#support-request-contributor) na poziomie subskrypcji. Aby utworzyć żądanie pomocy technicznej bez subskrypcji, na przykład w scenariuszu Azure Active Directory, musisz być [administratorem](../../active-directory/roles/permissions-reference.md).
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Przejdź do pomocy i obsługi technicznej z nagłówka globalnego
 

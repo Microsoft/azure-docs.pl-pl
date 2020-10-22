@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9e20b7a92d054a6664a00064fa7263b1150c3df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35990312658492e1e41b47096a43748c3a4e653e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282582"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359904"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania trzody chlewnej w Azure Data Factory
 > [!div class="op_single_selector" title1="Działania transformacji"]
@@ -26,8 +26,8 @@ ms.locfileid: "91282582"
 > * [Działanie MapReduce](data-factory-map-reduce.md)
 > * [Działanie przesyłania strumieniowego Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Działanie platformy Spark](data-factory-spark.md)
-> * [Działanie wykonywania wsadowego w usłudze Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Działanie aktualizowania zasobów w usłudze Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Działanie aktualizacji zasobów Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-update-resource-activity.md)
 > * [Działania procedur składowanych](data-factory-stored-proc-activity.md)
 > * [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 > * [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)

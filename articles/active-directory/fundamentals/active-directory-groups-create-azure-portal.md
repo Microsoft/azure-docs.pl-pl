@@ -13,15 +13,15 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dcbd8618dc0f2bae2eacc9ced67869d8209286a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e4533334204a3a1cfd46ff27b04ff0c05350dfc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565528"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371855"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Tworzenie grupy podstawowej i dodawanie członków przy użyciu usługi Azure Active Directory
-Grupę podstawową można utworzyć przy użyciu portalu usługi Azure Active Directory (Azure AD). Na potrzeby tego artykułu grupa podstawowa jest dodawana do pojedynczego zasobu przez właściciela zasobu (administratora) i zawiera określonych członków (pracowników), którzy potrzebują dostępu do tego zasobu. Aby uzyskać informacje o bardziej złożonych scenariuszach, w tym dynamicznym członkostwie i tworzeniu reguł, zobacz [dokumentację zarządzania użytkownikami w usłudze Azure Active Directory](../users-groups-roles/index.yml).
+Grupę podstawową można utworzyć przy użyciu portalu usługi Azure Active Directory (Azure AD). Na potrzeby tego artykułu grupa podstawowa jest dodawana do pojedynczego zasobu przez właściciela zasobu (administratora) i zawiera określonych członków (pracowników), którzy potrzebują dostępu do tego zasobu. Aby uzyskać informacje o bardziej złożonych scenariuszach, w tym dynamicznym członkostwie i tworzeniu reguł, zobacz [dokumentację zarządzania użytkownikami w usłudze Azure Active Directory](../enterprise-users/index.yml).
 
 ## <a name="group-and-membership-types"></a>Typy grup i członkostw
 Istnieje kilka typów grup i członkostw. Poniższe informacje wyjaśniają każdą grupę i typ członkostwa oraz ich znaczenie, aby ułatwić podjęcie decyzji o opcjach, które mają być używane podczas tworzenia grupy.
@@ -36,7 +36,7 @@ Istnieje kilka typów grup i członkostw. Poniższe informacje wyjaśniają każ
 - **Urządzenie dynamiczne.** Umożliwia korzystanie z reguł grupy dynamicznej do automatycznego dodawania i usuwania urządzeń. Jeśli atrybuty urządzenia zmienią się, system sprawdzi reguły grupy dynamicznej w katalogu, aby określić, czy urządzenie spełnia wymagania reguły (zostanie dodane), czy też nie spełnia już wymagań reguł (zostanie usunięte).
 
     > [!IMPORTANT]
-    > Grupę dynamiczną można utworzyć dla urządzeń lub użytkowników, ale nie dla obu tych elementów. Ponadto nie można utworzyć grupy urządzeń na podstawie atrybutów właścicieli urządzeń. Reguły członkostwa urządzenia mogą przywoływać tylko atrybuty urządzeń. Aby uzyskać więcej informacji na temat tworzenia grupy dynamicznej dla użytkowników i urządzeń, zobacz [Tworzenie grupy dynamicznej i sprawdzanie stanu](../users-groups-roles/groups-create-rule.md)
+    > Grupę dynamiczną można utworzyć dla urządzeń lub użytkowników, ale nie dla obu tych elementów. Ponadto nie można utworzyć grupy urządzeń na podstawie atrybutów właścicieli urządzeń. Reguły członkostwa urządzenia mogą przywoływać tylko atrybuty urządzeń. Aby uzyskać więcej informacji na temat tworzenia grupy dynamicznej dla użytkowników i urządzeń, zobacz [Tworzenie grupy dynamicznej i sprawdzanie stanu](../enterprise-users/groups-create-rule.md)
 
 ## <a name="create-a-basic-group-and-add-members"></a>Tworzenie grupy podstawowej i dodawanie członków
 Istnieje możliwość jednoczesnego utworzenia grupy podstawowej i dodania członków. Aby utworzyć grupę podstawową i dodać członków, użyj następującej procedury:
@@ -63,7 +63,7 @@ Istnieje możliwość jednoczesnego utworzenia grupy podstawowej i dodania czło
 
 1. Wybierz wstępnie zdefiniowany **Typ członkostwa (wymagane).** Aby uzyskać więcej informacji na temat typów członkostwa, zobacz [typy grup i członkostw](#membership-types).
 
-1. Wybierz przycisk **Utwórz**. Grupa zostanie utworzona i będzie gotowa na dodanie członków.
+1. Wybierz pozycję **Utwórz**. Grupa zostanie utworzona i będzie gotowa na dodanie członków.
 
 1. Wybierz obszar **Elementy członkowskie** na stronie **Grupy**, a następnie rozpocznij wyszukiwanie członków do dodania do tej grupy na stronie **Wybieranie elementów członkowskich**.
 
@@ -81,5 +81,5 @@ Po utworzeniu nowej grupy Microsoft 365, niezależnie od tego, czy jest to dynam
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie dostępem do aplikacji SaaS przy użyciu grup](../users-groups-roles/groups-saasapps.md)
-- [Zarządzanie grupami przy użyciu poleceń programu PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Zarządzanie dostępem do aplikacji SaaS przy użyciu grup](../enterprise-users/groups-saasapps.md)
+- [Zarządzanie grupami przy użyciu poleceń programu PowerShell](../enterprise-users/groups-settings-v2-cmdlets.md)

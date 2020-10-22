@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 681929928e6e6b28c7950c8aeeadc8b181491f46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44a8d82ea2588abad6855fd8eaf7aed34256d87
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804133"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370767"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Tworzenie pulpitu nawigacyjnego w czasie rzeczywistym przy użyciu Azure Cosmos DB i Power BI
 
@@ -46,7 +46,7 @@ Azure Analysis Services udostępnia w pełni zarządzaną platformę jako usług
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Pozyskiwanie danych pogodowych do Azure Cosmos DB
 
-Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catalog.data.gov/dataset/local-weather-archive) do Azure Cosmos DB. Można skonfigurować zadanie [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) , aby okresowo ładować najnowsze dane pogodowe do Azure Cosmos dB przy użyciu źródła http i ujścia Cosmos DB.
+Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) do Azure Cosmos DB. Można skonfigurować zadanie [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) , aby okresowo ładować najnowsze dane pogodowe do Azure Cosmos dB przy użyciu źródła http i ujścia Cosmos DB.
 
 
 ### <a name="connect-power-bi-to-azure-cosmos-db"></a>Połącz Power BI z Azure Cosmos DB
@@ -63,7 +63,7 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
    W zależności od tego, która kolumna i typ danych znajdują się w źródłowym zestawie danych, można odpowiednio zmienić pola RangeStart i RangeEnd
 
    
-   |Właściwość  |Typ danych  |Filtrowanie  |
+   |Właściwość  |Typ danych  |Filtr  |
    |---------|---------|---------|
    |_ts     |   Numeryczne      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) i [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
    |Data (na przykład:-2019-08-19)     |   Ciąg      | [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD")        |
@@ -87,7 +87,7 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Pozyskiwanie danych pogodowych do Azure Cosmos DB 
 
-Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catalog.data.gov/dataset/local-weather-archive) do Azure Cosmos DB. Można skonfigurować zadanie Azure Data Factory (ADF), aby okresowo ładować najnowsze dane pogodowe do Azure Cosmos DB przy użyciu źródła HTTP i ujścia Cosmos DB.
+Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) do Azure Cosmos DB. Można skonfigurować zadanie Azure Data Factory (ADF), aby okresowo ładować najnowsze dane pogodowe do Azure Cosmos DB przy użyciu źródła HTTP i ujścia Cosmos DB.
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Połącz Azure Analysis Services z kontem usługi Azure Cosmos
 

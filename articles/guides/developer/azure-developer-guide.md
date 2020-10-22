@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 770c9f7d677f739781db6290fa0c43e410761d17
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327822"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372212"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -281,7 +281,7 @@ Aby utworzyć subskrypcję platformy Azure lub korzystać z niej, musisz mieć k
 
 Każda subskrypcja platformy Azure jest połączona relacją zaufania z wystąpieniem usługi Azure AD. Oznacza to, że subskrypcja ufa katalogowi na potrzeby uwierzytelniania użytkowników, usług i urządzeń. Wiele subskrypcji może ufać temu samemu katalogowi, ale dana subskrypcja może ufać tylko jednemu katalogowi. Aby dowiedzieć się więcej, zobacz [jak subskrypcje platformy Azure są skojarzone z Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-A także Definiowanie indywidualnych tożsamości konta platformy Azure, nazywanych również *użytkownikami*, można definiować *grupy* w usłudze Azure AD. Tworzenie grup użytkowników jest dobrym sposobem na zarządzanie dostępem do zasobów w ramach subskrypcji przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Aby dowiedzieć się, jak tworzyć grupy, zobacz [Tworzenie grupy w programie Azure Active Directory Preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Można także tworzyć grupy i zarządzać nimi za [pomocą programu PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
+A także Definiowanie indywidualnych tożsamości konta platformy Azure, nazywanych również *użytkownikami*, można definiować *grupy* w usłudze Azure AD. Tworzenie grup użytkowników jest dobrym sposobem na zarządzanie dostępem do zasobów w ramach subskrypcji przy użyciu kontroli dostępu opartej na rolach (RBAC). Aby dowiedzieć się, jak tworzyć grupy, zobacz [Tworzenie grupy w programie Azure Active Directory Preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Można także tworzyć grupy i zarządzać nimi za [pomocą programu PowerShell](../../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Zarządzanie subskrypcjami
 

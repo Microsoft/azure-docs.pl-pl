@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282863"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372280"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego Log Analytics do innej subskrypcji lub grupy zasobów
 
@@ -40,11 +40,20 @@ Rozwiązania, które należy usunąć, aby można było odłączyć konto usług
 
 >[!IMPORTANT]
 > **Klienci z wskaźnikiem na platformę Azure**
-> - Po wdrożeniu w obszarze roboczym centrum kontrolne platformy Azure **nie obsługuje obecnie** przeniesienia tego obszaru roboczego do innych grup zasobów lub subskrypcji. 
-> - Jeśli obszar roboczy został już przeniesiony, wyłącz wszystkie aktywne reguły w obszarze **Analiza** i włącz je ponownie po pięciu minutach. Ta sytuacja powinna być skuteczna w większości przypadków, ale w celu przeprowadzonej iteracji nie jest to obsługiwane i realizowane na własne ryzyko.
+> - Obecnie po wdrożeniu funkcji wskaźnikowej platformy Azure w obszarze roboczym przeniesienie obszaru roboczego do innej grupy zasobów lub subskrypcji nie jest obsługiwane. 
+> - Jeśli obszar roboczy został już przeniesiony, wyłącz wszystkie aktywne reguły w obszarze **Analiza** i włącz je ponownie po pięciu minutach. To rozwiązanie powinno być skutecznym rozwiązaniem w większości przypadków, ale w celu jego przetworzenia nie jest to obsługiwane i realizowane na własne ryzyko.
 > 
-> **Alerty**
-> - Wszystkie alerty muszą zostać ponownie utworzone po przeniesieniu, ponieważ uprawnienia są oparte na IDENTYFIKATORze zasobu platformy Azure obszaru roboczego i są zmieniane za pomocą przenoszenia obszaru roboczego. 
+> **Ponowne tworzenie alertów**
+> - Wszystkie alerty muszą zostać utworzone po przeniesieniu, ponieważ uprawnienia są oparte na IDENTYFIKATORze zasobu platformy Azure obszaru roboczego, który zmienia się podczas przenoszenia obszaru roboczego.
+>
+> **Aktualizowanie ścieżek zasobów**
+> - Po przeniesieniu obszaru roboczego wszystkie zasoby platformy Azure lub zewnętrzne, które wskazują obszar roboczy, muszą zostać zrecenzowane i zaktualizowane, aby wskazywały nową ścieżkę docelową zasobu.
+> 
+>   *Przykłady:*
+>   - [Reguły alertów Azure Monitor](alerts-resource-move.md)
+>   - Aplikacje innych producentów
+>   - Niestandardowe skrypty
+>
 
 ### <a name="delete-solutions-in-azure-portal"></a>Usuwanie rozwiązań w Azure Portal
 Aby usunąć rozwiązania przy użyciu Azure Portal, należy wykonać czynności opisane w poniższej procedurze:

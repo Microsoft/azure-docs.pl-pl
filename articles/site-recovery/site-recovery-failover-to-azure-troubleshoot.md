@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: e2ab52120e2a5db6648caac61f0228cb0be7e67b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355044"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371991"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Rozwiązywanie problemów z błędami w przypadku przejścia w tryb failover maszyny wirtualnej VMware lub komputera fizycznego na platformie Azure
 
@@ -55,7 +55,7 @@ Aby ręcznie zmienić typ uruchamiania sterowników dla **systemu operacyjnego g
     Daje następujący wynik, jeśli jest wymagane odwodnienie:
 
     ```output
-    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
     This system doesn't meet no-hydration requirement.
     ```
@@ -168,7 +168,7 @@ W celu rozwiązania tego problemu:
 
 2. Jeśli dane wyjściowe poprzednich poleceń pokazują, że zdefiniowano http_proxy lub https_proxy ustawienia, użyj jednej z następujących metod, aby odblokować główną komunikację docelową z serwerem konfiguracji:
    
-   - Pobierz [Narzędzie PsExec](https://aka.ms/PsExec).
+   - Pobierz [Narzędzie PsExec](/sysinternals/downloads/psexec).
    - Użyj narzędzia, aby uzyskać dostęp do kontekstu użytkownika systemu i określić, czy adres serwera proxy jest skonfigurowany. 
    - Jeśli skonfigurowano serwer proxy, Otwórz program IE w kontekście użytkownika systemu przy użyciu narzędzia PsExec.
   

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd33845c331f907dbd5720ac92c6b1c627f01873
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64f78dadc0eb1570018320aa77a390f94adf708a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318413"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371906"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Przewodnik wdrażania funkcji usługi Azure Active Directory
 
@@ -43,8 +43,8 @@ W tej fazie Administratorzy mogą włączyć podstawowe funkcje zabezpieczeń, a
 
 | Zadanie | Szczegóły | Wymagana licencja |
 | ---- | ------ | ---------------- |
-| [Wyznacz więcej niż jednego administratora globalnego](../users-groups-roles/directory-emergency-access.md) | Należy przypisać co najmniej dwa stałe konta administratora globalnego tylko w chmurze do użycia w przypadku wystąpienia sytuacji awaryjnej. Te konta nie są używane codziennie i powinny mieć długie i złożone hasła. | Usługa Azure AD — warstwa Bezpłatna |
-| [W miarę możliwości używaj nieglobalnych ról administracyjnych](../users-groups-roles/directory-assign-admin-roles.md) | Nadaj administratorom tylko dostęp do tych obszarów, do których potrzebują dostępu. Nie wszyscy administratorzy muszą być administratorami globalnymi. | Usługa Azure AD — warstwa Bezpłatna |
+| [Wyznacz więcej niż jednego administratora globalnego](../roles/security-emergency-access.md) | Należy przypisać co najmniej dwa stałe konta administratora globalnego tylko w chmurze do użycia w przypadku wystąpienia sytuacji awaryjnej. Te konta nie są używane codziennie i powinny mieć długie i złożone hasła. | Usługa Azure AD — warstwa Bezpłatna |
+| [W miarę możliwości używaj nieglobalnych ról administracyjnych](../roles/permissions-reference.md) | Nadaj administratorom tylko dostęp do tych obszarów, do których potrzebują dostępu. Nie wszyscy administratorzy muszą być administratorami globalnymi. | Usługa Azure AD — warstwa Bezpłatna |
 | [Włącz Privileged Identity Management do śledzenia użycia roli administratora](../privileged-identity-management/pim-getting-started.md) | Włącz Privileged Identity Management, aby rozpocząć śledzenie użycia roli administracyjnej. | Usługa Azure AD — wersja Premium P2 |
 | [Wdrażanie funkcji samoobsługowego resetowania haseł](../authentication/howto-sspr-deployment.md) | Zmniejszenie liczby zgłoszeń pomocy technicznej dotyczącej resetowania haseł przez umożliwienie personelowi resetowania własnych haseł przy użyciu zasad, które kontroluje administrator. | |
 | [Utwórz niestandardową listę wykluczonych haseł dla organizacji](../authentication/tutorial-configure-custom-password-protection.md) | Uniemożliwiaj użytkownikom tworzenie haseł zawierających typowe słowa lub frazy z Twojej organizacji lub obszaru. | |
@@ -69,7 +69,7 @@ Następnie dodamy do podstawy ustalonej w fazie 1 przez zaimportowanie naszych u
 | [Implementowanie synchronizacji skrótów haseł](../hybrid/how-to-connect-password-hash-synchronization.md) | Zsynchronizuj skróty haseł, aby umożliwić Replikowanie zmian haseł, wykrywanie i korygowanie nieprawidłowych haseł oraz zgłaszanie nieujawnionych poświadczeń. | Usługa Azure AD — warstwa Bezpłatna |
 | [Implementuj zapisywanie zwrotne haseł](../authentication/tutorial-enable-sspr-writeback.md) | Zezwalaj na zapisywanie zmian haseł w chmurze z powrotem do lokalnego środowiska Active Directory systemu Windows Server. | Usługa Azure AD — wersja Premium P1 |
 | [Implementowanie Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Włącz monitorowanie statystyk kondycji klucza dla serwerów Azure AD Connect, serwerów AD FS i kontrolerów domeny. | Usługa Azure AD — wersja Premium P1 |
-| [Przypisywanie licencji użytkownikom według członkostwa w grupie w Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Oszczędzaj czas i wysiłku, tworząc grupy licencjonowania, które włączają lub wyłączają funkcje według grup zamiast ustawień dla poszczególnych użytkowników. | |
+| [Przypisywanie licencji użytkownikom według członkostwa w grupie w Azure Active Directory](../enterprise-users/licensing-groups-assign.md) | Oszczędzaj czas i wysiłku, tworząc grupy licencjonowania, które włączają lub wyłączają funkcje według grup zamiast ustawień dla poszczególnych użytkowników. | |
 | [Utwórz plan dla dostępu gościa](../external-identities/what-is-b2b.md) | Współpracuj z użytkownikami-Gośćmi, umożliwiając im logowanie do aplikacji i usług przy użyciu własnych tożsamości służbowych, szkolnych lub społecznościowych. | [Wskazówki dotyczące licencjonowania B2B usługi Azure AD](../external-identities/licensing-guidance.md) |
 | [Decydowanie o strategii zarządzania urządzeniami](../devices/overview.md) | Zdecyduj, co organizacja zezwala na korzystanie z urządzeń. Zarejestrowanie programu vs sprzęgania i przełączenie urządzenia do firmy. | |
 | [Wdróż usługę Windows Hello dla firm w organizacji](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Przygotowywanie do uwierzytelniania bezhaseł przy użyciu funkcji Windows Hello | |
@@ -93,7 +93,7 @@ Faza 4 widzi administratorów egzekwowania najniższych zasad uprawnień do admi
 | ---- | ------ | ---------------- |
 | [Wymuś korzystanie z Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Usuń role administracyjne z kont użytkowników z normalnym dniem. Po pomyślnym sprawdzeniu uwierzytelniania wieloskładnikowego Użytkownicy administracyjni mogą korzystać z ich roli, zapewniając uzasadnienie biznesowe lub żądając zatwierdzenia od wyznaczenia osób zatwierdzających. | Usługa Azure AD — wersja Premium P2 |
 | [Dokończ przegląd dostępu dla ról katalogu usługi Azure AD w usłudze PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Pracuj z zespołami ds. zabezpieczeń i liderów, aby utworzyć zasady przeglądu dostępu w celu sprawdzenia dostępu administracyjnego na podstawie zasad organizacji. | Usługa Azure AD — wersja Premium P2 |
-| [Implementowanie zasad członkostwa w grupie dynamicznej](../users-groups-roles/groups-dynamic-membership.md) | Użyj grup dynamicznych do automatycznego przypisywania użytkowników do grup na podstawie ich atrybutów z HR (lub źródła prawdziwie), takich jak dział, tytuł, region i inne atrybuty. |  |
+| [Implementowanie zasad członkostwa w grupie dynamicznej](../enterprise-users/groups-dynamic-membership.md) | Użyj grup dynamicznych do automatycznego przypisywania użytkowników do grup na podstawie ich atrybutów z HR (lub źródła prawdziwie), takich jak dział, tytuł, region i inne atrybuty. |  |
 | [Implementowanie aprowizacji aplikacji na podstawie grupy](../manage-apps/what-is-access-management.md) | Inicjowanie obsługi zarządzania dostępem oparte na grupach umożliwia automatyczne Inicjowanie obsługi użytkowników w aplikacjach SaaS. |  |
 | [Automatyzowanie aprowizacji użytkowników i cofanie obsługi administracyjnej](../app-provisioning/user-provisioning.md) | Usuń kroki ręcznego z cyklu życia konta pracownika, aby zapobiec nieautoryzowanemu dostępowi. Zsynchronizuj tożsamości ze źródła prawdziwie (system HR) z usługą Azure AD. |  |
 
