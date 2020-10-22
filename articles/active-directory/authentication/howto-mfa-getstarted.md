@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2cbb9876d9e28b2cab8efb9ccdb2aa543fcc4b4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d3d03f46e3948d1134c442f93af2e8f274dcd256
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964472"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366483"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planowanie wdrożenia usługi Azure Multi-Factor Authentication
 
@@ -226,7 +226,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 Aby zaplanować strategię zasad dostępu warunkowego, która określi, kiedy są wymagane usługi MFA i inne kontrolki, zapoznaj się ze [wspólnymi zasadami dostępu warunkowego](../conditional-access/concept-conditional-access-policy-common.md).
 
-Ważne jest, aby zapobiec przypadkowemu zablokowaniu dzierżawy usługi Azure AD. Można ograniczyć wpływ tego nieumyślnego braku dostępu administracyjnego przez [utworzenie dwóch lub więcej kont dostępu awaryjnego w dzierżawie](../users-groups-roles/directory-emergency-access.md) i wykluczenie ich z zasad dostępu warunkowego.
+Ważne jest, aby zapobiec przypadkowemu zablokowaniu dzierżawy usługi Azure AD. Można ograniczyć wpływ tego nieumyślnego braku dostępu administracyjnego przez [utworzenie dwóch lub więcej kont dostępu awaryjnego w dzierżawie](../roles/security-emergency-access.md) i wykluczenie ich z zasad dostępu warunkowego.
 
 ### <a name="create-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
@@ -287,7 +287,7 @@ Jeśli masz już wdrożone wystąpienie usługi NPS i używasz go, wybierz opcj�
 
 Wybierz, co się stanie, gdy użytkownicy, którzy nie są zarejestrowani przy użyciu usługi MFA, spróbują przeprowadzić uwierzytelnianie. Aby kontrolować zachowanie funkcji, użyj ustawienia rejestru `REQUIRE_USER_MATCH` w ścieżce rejestru `HKLM\Software\Microsoft\AzureMFA` . To ustawienie ma jedną opcję konfiguracji.
 
-| Klucz | Wartość | Domyślne |
+| Klucz | Wartość | Domyślny |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 

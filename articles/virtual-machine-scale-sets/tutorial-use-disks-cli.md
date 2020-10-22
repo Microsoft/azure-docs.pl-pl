@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 5dedee5e9ef4d036305a545201afc03d90750189
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7e9e1fa567ae282a4472fa728e53e720bf8ff6f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568322"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367928"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Samouczek: tworzenie dysków i używanie ich z zestawem skalowania maszyn wirtualnych za pośrednictwem interfejsu wiersza polecenia platformy Azure
 Zestawy skalowania maszyn wirtualnych przechowują aplikacje, dane oraz systemy operacyjne wystąpień maszyn wirtualnych na dyskach. Ważne jest, aby podczas tworzenia zestawu skalowania i zarządzania nim wybrać taki rozmiar dysku i konfigurację, które odpowiadają oczekiwanemu obciążeniu. W tym samouczku omówiono tworzenie dysków maszyn wirtualnych i zarządzanie nimi. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -76,7 +76,7 @@ W powyższej tabeli podano maksymalną liczbę operacji wejścia/wyjścia na sek
 ## <a name="create-and-attach-disks"></a>Tworzenie i dołączanie dysków
 Dyski można tworzyć i dołączać podczas tworzenia zestawu skalowania lub w ramach modyfikacji istniejącego zestawu skalowania.
 
-Począwszy od wersji interfejsu API `2019-07-01` , można ustawić rozmiar dysku systemu operacyjnego w zestawie skalowania maszyn wirtualnych za pomocą właściwości [obszarze storageprofile. OsDisk. diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) . Po zainicjowaniu obsługi może być konieczne rozwinięcie lub ponowne partycjonowanie dysku, aby wykorzystać całe miejsce. Dowiedz się więcej [na temat rozszerzania dysku w tym miejscu](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
+Począwszy od wersji interfejsu API `2019-07-01` , można ustawić rozmiar dysku systemu operacyjnego w zestawie skalowania maszyn wirtualnych za pomocą właściwości [obszarze storageprofile. OsDisk. diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) . Po zainicjowaniu obsługi może być konieczne rozwinięcie lub ponowne partycjonowanie dysku, aby wykorzystać całe miejsce. Dowiedz się więcej [na temat rozszerzania dysku w tym miejscu](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Dołączanie dysków podczas tworzenia zestawu skalowania
 Najpierw utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). W tym przykładzie grupa zasobów o nazwie *myResourceGroup* zostanie utworzona w regionie *eastus*.

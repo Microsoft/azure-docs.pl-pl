@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: e590981fabcd20f23f25d12b4176b6730cb0fc3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4203c572ed040b37a377e8d4a6b1bc82c883ebd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804366"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368506"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurowanie zgody właściciela grupy na aplikacje uzyskujące dostęp do danych grupy
 
@@ -30,7 +30,7 @@ Można skonfigurować, którzy użytkownicy mogą wyrazić zgodę na aplikacje u
 
 Wykonaj następujące kroki, aby zarządzać zgodą właściciela grupy na aplikacje uzyskujące dostęp do danych grupy:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako [administrator globalny](../roles/permissions-reference.md#global-administrator--company-administrator).
 2. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **i uprawnienia do**  >  **ustawień zgody użytkownika**.
 3. W obszarze **właściciel grupy wyrażanie zgody na aplikacje uzyskujące dostęp do danych** wybierz opcję, którą chcesz włączyć.
 4. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.
@@ -75,7 +75,7 @@ Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPrevie
 
     | Ustawienie       | Typ         | Opis  |
     | ------------- | ------------ | ------------ |
-    | _EnableGroupSpecificConsent_   | Boolean (wartość logiczna) | Flaga oznaczająca, czy właściciele grup mogą udzielać uprawnień specyficznych dla grupy. |
+    | _EnableGroupSpecificConsent_   | Wartość logiczna | Flaga oznaczająca, czy właściciele grup mogą udzielać uprawnień specyficznych dla grupy. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid (identyfikator GUID) | Jeśli _EnableGroupSpecificConsent_ jest ustawiona na wartość "true", a ta wartość jest ustawiona na identyfikator obiektu grupy, członkowie wskazanej grupy będą uprawnieni do przyznawania uprawnień specyficznych dla grupy do grup, których są właścicielami. |
 
 1. Zaktualizuj wartości ustawień dla żądanej konfiguracji:

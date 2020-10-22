@@ -10,16 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: ec2516010768eded939b0ffa44c197f102c7766b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "89401201"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Dodawanie połączenia lokacja-lokacja do sieci wirtualnej z istniejącym połączeniem bramy sieci VPN
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klasyczny)](vpn-gateway-multi-site.md)
 >
 > 
@@ -35,7 +35,7 @@ Ta tabela jest aktualizowana w miarę jak nowe artykuły i dodatkowe narzędzia 
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
 Sprawdź następujące elementy:
 
 * Nie konfigurujesz nowej ExpressRoute i konfiguracji VPN Gateway.
@@ -62,7 +62,7 @@ Sprawdź następujące elementy:
      ![Strona dodawania połączenia](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Strona dodawania połączenia")<br>
 
 ## <a name="part-2---add-a-local-network-gateway"></a><a name="part2"></a>Część 2 — Dodawanie bramy sieci lokalnej
-1. Kliknij pozycję **Brama sieci lokalnej** ***Wybierz bramę sieci lokalnej***. Spowoduje to otwarcie strony **Wybierz bramę sieci lokalnej** .
+1. Kliknij pozycję **Brama sieci lokalnej** ** _Wybierz bramę sieci lokalnej_*_. Spowoduje to otwarcie strony a*Wybierz bramę sieci lokalnej** .
    
     ![Wybieranie bramy sieci lokalnej](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Wybieranie bramy sieci lokalnej")<br>
 2. Kliknij przycisk **Utwórz nowy** , aby otworzyć stronę **Utwórz bramę sieci lokalnej** .

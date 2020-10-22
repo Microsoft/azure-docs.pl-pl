@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342148"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368093"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
@@ -85,7 +85,7 @@ Po skonfigurowaniu lokalizacji nie można jej zmienić. Jeśli musisz przenieś�
 1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
 1. Wybierz subskrypcję, którą chcesz zmienić.
 1. Wybierz pozycję **wykrywanie zagrożeń**.
-1. Wybierz pozycję **Zezwalaj usłudze Windows Defender ATP na dostęp do moich danych**i wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zezwalaj usłudze Microsoft Defender for Endpoint na dostęp do moich danych**i wybierz pozycję **Zapisz**.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Security Center własne usługi Microsoft Defender dla punktu końcowego":::
 

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249471"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368608"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optymalizowanie Apache Spark zadań (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Starsze wersje platformy Spark używają odporne do danych abstrakcyjnych, Spark
 
 Platforma Spark obsługuje wiele formatów, takich jak CSV, JSON, XML, Parquet, Orc i Avro. Platforma Spark może zostać rozszerzona w celu obsługi wielu formatów z zewnętrznymi źródłami danych — Aby uzyskać więcej informacji, zobacz [Apache Spark Packages](https://spark-packages.org).
 
-Najlepszym formatem wydajności jest Parquet z *kompresją przyciągania*, która jest wartością domyślną w platformie Spark 2. x. Parquet przechowuje dane w formacie kolumnowym i jest wysoce zoptymalizowany w Spark. Ponadto *kompresja przyciągania* może spowodować zwiększenie ilości plików niż w przypadku kompresji gzip. Ze względu na rodzaj podzielenia tych plików, będą one zdekompresować szybciej]
+Najlepszym formatem wydajności jest Parquet z *kompresją przyciągania*, która jest wartością domyślną w platformie Spark 2. x. Parquet przechowuje dane w formacie kolumnowym i jest wysoce zoptymalizowany w Spark. Ponadto *kompresja przyciągania* może spowodować zwiększenie ilości plików niż w przypadku kompresji gzip. Ze względu na rodzaj podziału tych plików, będą one w szybszym dekompresji.
 
 ## <a name="use-the-cache"></a>Korzystanie z pamięci podręcznej
 
@@ -77,7 +77,7 @@ Apache Spark na platformie Azure Synapse korzysta z przędzy [Apache HADOOP](htt
 Aby rozwiązać komunikaty o braku pamięci, spróbuj wykonać następujące działania:
 
 * Przejrzyj DAGe w celu zarządzania nimi. Zredukuj dane źródłowe zmniejszania po stronie mapy (lub dzielenia), Maksymalizuj pojedyncze wartości losowe i Zmniejsz ilość wysyłanych danych.
-* Preferuj `ReduceByKey` ze stałym limitem pamięci na `GroupByKey` , który zapewnia agregacje, okna i inne funkcje, ale ma limit pamięci nieograniczonej Ann.
+* Preferuj `ReduceByKey` swój stały limit pamięci `GroupByKey` , który zapewnia agregacje, okna i inne funkcje, ale ma limit pamięci nieograniczonej.
 * Preferuj `TreeReduce` , która wykonuje więcej pracy na wszystkich wykonawcach lub partycjach, do `Reduce` , które działają na sterowniku.
 * Wykorzystanie ramek danych zamiast obiektów RDD niskiego poziomu.
 * Utwórz ComplexType, które hermetyzują akcje, takie jak "pierwsze N", różne agregacje lub operacje okienkowe.
@@ -178,6 +178,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dostrajanie Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+- [Dostrajanie Apache Spark](https://spark.apache.org/docs/2.4.5/tuning.html)
 - [Jak w rzeczywistości dostroić zadania Apache Spark, aby działały](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 - [Serializacja Kryo](https://github.com/EsotericSoftware/kryo)

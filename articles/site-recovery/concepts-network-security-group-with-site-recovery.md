@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
-ms.openlocfilehash: 904bc63ed2a135cdcadad75e96acd6fe3ca39039
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 367aba09f84da1e227c08721077aa1b2132a62bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069683"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367978"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Sieciowe grupy zabezpieczeń z usługą Azure Site Recovery
 
-Sieciowe grupy zabezpieczeń służą do ograniczania ruchu sieciowego do zasobów w sieci wirtualnej. [Sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń)](../virtual-network/security-overview.md#network-security-groups) zawiera listę reguł zabezpieczeń, które zezwalają na ruch przychodzący lub zablokowany ruchu sieciowego w sieci lub na podstawie źródłowego lub docelowego adresu IP, portu i protokołu.
+Sieciowe grupy zabezpieczeń służą do ograniczania ruchu sieciowego do zasobów w sieci wirtualnej. [Sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń)](../virtual-network/network-security-groups-overview.md#network-security-groups) zawiera listę reguł zabezpieczeń, które zezwalają na ruch przychodzący lub zablokowany ruchu sieciowego w sieci lub na podstawie źródłowego lub docelowego adresu IP, portu i protokołu.
 
 W modelu wdrażania Menedżer zasobów sieciowych grup zabezpieczeń można kojarzyć z podsieciami lub poszczególnymi interfejsami sieciowymi. Jeśli sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, te reguły są stosowane do wszystkich zasobów połączonych z tą podsiecią. Ruch można dodatkowo ograniczyć przez skojarzenie sieciowej grupy zabezpieczeń z poszczególnymi interfejsami sieciowymi w podsieci, która ma już skojarzone sieciowej grupy zabezpieczeń.
 
@@ -37,7 +37,7 @@ W tym przykładzie w przypadku ruchu przychodzącego najpierw sieciowej grupy za
 
 Pozwala to na stosowanie szczegółowych reguł zabezpieczeń. Na przykład możesz chcieć zezwolić na dostęp do przychodzącego Internetu do kilku maszyn wirtualnych aplikacji (takich jak maszyny wirtualne frontonu) w podsieci, ale ograniczyć dostęp do Internetu na innych maszynach wirtualnych (takich jak baza danych i inne maszyny wirtualne zaplecza). W takim przypadku można mieć bardziej lenientą regułę w podsieci sieciowej grupy zabezpieczeń, zezwalająca na ruch internetowy i ograniczyć dostęp do określonych maszyn wirtualnych przez odmowę dostępu do maszyny wirtualnej sieciowej grupy zabezpieczeń. Tę samą wartość można zastosować dla ruchu wychodzącego.
 
-Podczas konfigurowania takich konfiguracji sieciowej grupy zabezpieczeń upewnij się, że odpowiednie priorytety są stosowane do [reguł zabezpieczeń](../virtual-network/security-overview.md#security-rules). Reguły są przetwarzane w kolejności priorytetów. Im niższy numer, tym wyższy priorytet, więc te o niższych numerach są przetwarzane przed tymi o wyższych numerach. Kiedy ruch jest zgodny z regułą, przetwarzanie zostaje zatrzymane. W związku z tym żadne istniejące reguły o niższych priorytetach (wyższych numerach), które mają takie same atrybuty jak reguły o wyższych priorytetach, nie będą przetwarzane.
+Podczas konfigurowania takich konfiguracji sieciowej grupy zabezpieczeń upewnij się, że odpowiednie priorytety są stosowane do [reguł zabezpieczeń](../virtual-network/network-security-groups-overview.md#security-rules). Reguły są przetwarzane w kolejności priorytetów. Im niższy numer, tym wyższy priorytet, więc te o niższych numerach są przetwarzane przed tymi o wyższych numerach. Kiedy ruch jest zgodny z regułą, przetwarzanie zostaje zatrzymane. W związku z tym żadne istniejące reguły o niższych priorytetach (wyższych numerach), które mają takie same atrybuty jak reguły o wyższych priorytetach, nie będą przetwarzane.
 
 Możesz czasami nie wiedzieć, że grupy zabezpieczeń sieci są stosowane do interfejsu sieciowego i podsieci. Aby sprawdzić reguły agregacji zastosowane do interfejsu sieciowego, można wyświetlić [obowiązujące reguły zabezpieczeń](../virtual-network/virtual-network-network-interface.md#view-effective-security-rules) interfejsu sieciowego. Możesz również użyć możliwości [weryfikacji przepływu IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) w [usłudze Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) , aby określić, czy komunikacja może być lub z interfejsu sieciowego. Narzędzie informuje, czy komunikacja jest dozwolona, oraz która reguła zabezpieczeń sieci zezwala lub nie zezwala na ruch.
 
@@ -72,7 +72,7 @@ Rozważamy [Przykładowy scenariusz](concepts-network-security-group-with-site-r
 Po utworzeniu i skonfigurowaniu sieciowych grup zabezpieczeń zalecamy uruchomienie [testowej pracy w trybie failover](azure-to-azure-tutorial-dr-drill.md) w celu zweryfikowania skojarzeń sieciowej grupy zabezpieczeń z skryptami i łączności maszyny wirtualnej po awarii.
 
 ## <a name="next-steps"></a>Następne kroki
--    Dowiedz się więcej na temat [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md#network-security-groups).
--    Dowiedz się więcej o [regułach zabezpieczeń](../virtual-network/security-overview.md#security-rules)sieciowej grupy zabezpieczeń.
+-    Dowiedz się więcej na temat [sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md#network-security-groups).
+-    Dowiedz się więcej o [regułach zabezpieczeń](../virtual-network/network-security-groups-overview.md#security-rules)sieciowej grupy zabezpieczeń.
 -    Dowiedz się więcej o obowiązujących [regułach zabezpieczeń](../virtual-network/diagnose-network-traffic-filter-problem.md) dla sieciowej grupy zabezpieczeń.
 -    Dowiedz się więcej o [planach odzyskiwania](site-recovery-create-recovery-plans.md) w celu zautomatyzowania pracy awaryjnej aplikacji.

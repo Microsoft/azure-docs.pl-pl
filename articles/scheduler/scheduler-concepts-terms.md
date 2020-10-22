@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80878395"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368166"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Pojęcia, terminologia i jednostki w usłudze Azure Scheduler
 
@@ -40,7 +40,7 @@ Na wysokim poziomie interfejs API REST usługi Scheduler uwidacznia te operacje 
 
 ### <a name="job-management"></a>Zarządzanie zadaniami
 
-Obsługuje operacje tworzenia i edytowania zadań. Wszystkie zadania muszą należeć do istniejącej kolekcji zadań, w związku z czym nie ma możliwości niejawnego tworzenia. Aby uzyskać więcej informacji, zobacz [Interfejs API REST usługi Scheduler — zadania](https://docs.microsoft.com/rest/api/scheduler/jobs). Oto adres URI dla następujących operacji:
+Obsługuje operacje tworzenia i edytowania zadań. Wszystkie zadania muszą należeć do istniejącej kolekcji zadań, w związku z czym nie ma możliwości niejawnego tworzenia. Aby uzyskać więcej informacji, zobacz [Interfejs API REST usługi Scheduler — zadania](/rest/api/scheduler/jobs). Oto adres URI dla następujących operacji:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -48,7 +48,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Zarządzanie kolekcją zadań
 
-Obsługuje operacje tworzenia i edytowania zadań i kolekcji zadań, które są mapowane na przydziały i wspólne ustawienia. Przydziały dotyczą na przykład maksymalnej liczby zadań oraz najmniejszego interwału cyklu. Aby uzyskać więcej informacji, zobacz [Interfejs API REST usługi Scheduler — kolekcje zadań](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Oto adres URI dla następujących operacji:
+Obsługuje operacje tworzenia i edytowania zadań i kolekcji zadań, które są mapowane na przydziały i wspólne ustawienia. Przydziały dotyczą na przykład maksymalnej liczby zadań oraz najmniejszego interwału cyklu. Aby uzyskać więcej informacji, zobacz [Interfejs API REST usługi Scheduler — kolekcje zadań](/rest/api/scheduler/jobcollections). Oto adres URI dla następujących operacji:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -56,7 +56,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>Zarządzanie historią zadania
 
-Obsługuje operację GET umożliwiającą pobranie historii wykonywania zadania z 60 dni, obejmującej m.in. informacje o czasie, który upłynął podczas zadania, oraz o wynikach wykonania zadania. Obejmuje obsługę parametru ciągu zapytania służącego do filtrowania na podstawie stanu i statusu. Aby uzyskać więcej informacji, zobacz [Interfejs API REST usługi Scheduler — lista historii zadania](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Oto adres URI dla tej operacji:
+Obsługuje operację GET umożliwiającą pobranie historii wykonywania zadania z 60 dni, obejmującej m.in. informacje o czasie, który upłynął podczas zadania, oraz o wynikach wykonania zadania. Obejmuje obsługę parametru ciągu zapytania służącego do filtrowania na podstawie stanu i statusu. Aby uzyskać więcej informacji, zobacz [Interfejs API REST usługi Scheduler — lista historii zadania](/rest/api/scheduler/jobs/listjobhistory). Oto adres URI dla tej operacji:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -214,7 +214,7 @@ Oto przykład akcji tematu usługi Service Bus:
 },
 ```
 
-Aby uzyskać więcej informacji na temat tokenów sygnatury dostępu współdzielonego (SAS), zobacz [Autoryzacja za pomocą sygnatur dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Aby uzyskać więcej informacji na temat tokenów sygnatury dostępu współdzielonego (SAS), zobacz [Autoryzacja za pomocą sygnatur dostępu współdzielonego](../storage/common/storage-sas-overview.md).
 
 <a name="error-action"></a>
 

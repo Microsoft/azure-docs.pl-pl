@@ -3,12 +3,12 @@ title: Użyj Apache Kafka narzędzia MirrorMaker — Azure Event Hubs | Microsof
 description: Ten artykuł zawiera informacje dotyczące używania Kafka narzędzia MirrorMaker do dublowania klastra Kafka w centrach AzureEvent.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: ab0f78adeeff34334c9800632fc58ab634b4fab6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d1ec20a32ef27856483492212608e20e82725f58
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308353"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369526"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Użyj Kafka narzędzia MirrorMaker z Event Hubs dla Apache Kafka
 
@@ -100,6 +100,9 @@ sasl.mechanism=PLAIN
 security.protocol=SASL_SSL
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
+
+> [!IMPORTANT]
+> Zamień na `{YOUR.EVENTHUBS.CONNECTION.STRING}` Parametry połączenia dla przestrzeni nazw Event Hubs. Aby uzyskać instrukcje dotyczące uzyskiwania parametrów połączenia, zobacz [pobieranie parametrów połączenia Event Hubs](event-hubs-get-connection-string.md). Oto Przykładowa konfiguracja: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 ## <a name="run-kafka-mirrormaker"></a>Uruchom Kafka narzędzia MirrorMaker
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: eff3ff3d8fa2ab3025ca8b8d4f974d6944c88433
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ac90d3cabc179ecd1c1e421fd026a584f7158e3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649647"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368574"
 ---
 # <a name="dv3-and-dsv3-series"></a>Serie Dv3 i Dsv3
 
@@ -22,7 +22,7 @@ Przykładowe przypadki użycia serii D obejmują aplikacje klasy korporacyjnej, 
 
 ## <a name="dv3-series"></a>Seria Dv3
 
-Rozmiary serii Dv3 są uruchamiane na procesorach Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub procesora Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) z technologią Intel Turbo — rozwiązanie 2,0. Rozmiary serii Dv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
+Rozmiary serii Dv3 są uruchamiane na procesorach Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub procesora Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) z [ &reg; technologią Intel Turbo](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html)— rozwiązanie 2,0. Rozmiary serii Dv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
 
 Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny wirtualne. Aby korzystać z dysków magazynu Premium Storage, użyj rozmiarów Dsv3. Liczniki cen i rozliczeń dla rozmiarów Dsv3 są takie same jak dla serii Dv3.
 
@@ -48,7 +48,7 @@ Maszyny wirtualne z serii Dv3 oferują technologię Intel® Hyper-Threading.
 
 ## <a name="dsv3-series"></a>Seria Dsv3
 
-Rozmiary serii Dsv3 są uruchamiane na procesorach Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub procesora Intel® Xeon® E5-v3 2,4 GHz (2673) z technologią Intel Turbo — rozwiązanie 2,0 i korzystanie z magazynu Premium Storage. Rozmiary serii Dsv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
+Rozmiary serii Dsv3 są uruchamiane na procesorach Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub procesora Intel® Xeon® E5-v3 2,4 GHz (2673) z [ &reg; technologią Intel Turbo](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) — rozwiązanie 2,0 i korzystanie z magazynu Premium Storage. Rozmiary serii Dsv3 oferują kombinację procesora wirtualnego vCPU, pamięci i magazynu tymczasowego spełniającą potrzeby większości obciążeń produkcyjnych.
 
 Maszyny wirtualne z serii Dsv3 oferują technologię Intel® Hyper-Threading.
 

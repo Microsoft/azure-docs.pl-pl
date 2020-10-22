@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 667ce8ede9469063e5714470a8e18c218f3c2c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b723c77b193b499286a692bd5145131a904a7f07
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540323"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369339"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Samouczek: Tworzenie aplikacji usługi Machine Learning przy użyciu usług Apache Spark MLlib i Azure Synapse Analytics
 
@@ -286,7 +286,7 @@ Po zakończeniu uruchamiania aplikacji Zamknij Notes, aby zwolnić zasoby, zamyk
 
 - [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Apache Spark Oficjalna dokumentacja](https://spark.apache.org/docs/latest/)
+- [Apache Spark Oficjalna dokumentacja](https://spark.apache.org/docs/2.4.5/)
 
 >[!NOTE]
 > Niektóre oficjalne dokumenty Apache Spark opierają się na użyciu konsoli platformy Spark, która nie jest dostępna w usłudze Azure Synapse Spark. Zamiast tego należy użyć [notesu](../quickstart-apache-spark-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) lub środowiska [IntelliJ](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) .

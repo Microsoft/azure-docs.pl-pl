@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 79475414f6785474596beae208fefae81a673dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842686"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365854"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
@@ -54,13 +54,13 @@ Aplikacja najczęściej żąda tych uprawnień, określając zakresy w żądania
 
 Platforma tożsamości firmy Microsoft obsługuje dwa typy uprawnień: **delegowane uprawnienia** i **uprawnienia do aplikacji**.
 
-* **Delegowane uprawnienia** są używane przez aplikacje, które mają obecny zalogowany użytkownik. W przypadku tych aplikacji użytkownik lub administrator wyraża zgodę na uprawnienia, które aplikacja żąda, a aplikacja jest delegowana do działania jako zalogowany użytkownik podczas wykonywania wywołań do zasobu docelowego. Niektóre uprawnienia delegowane mogą być przydzielone przez użytkowników niebędących administratorami, ale niektóre uprawnienia z wyższymi uprawnieniami wymagają [zgody administratora](#admin-restricted-permissions). Aby dowiedzieć się, które role administratorów mogą wyrazić zgodę na delegowane uprawnienia, zobacz [uprawnienia roli administratora w usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Delegowane uprawnienia** są używane przez aplikacje, które mają obecny zalogowany użytkownik. W przypadku tych aplikacji użytkownik lub administrator wyraża zgodę na uprawnienia, które aplikacja żąda, a aplikacja jest delegowana do działania jako zalogowany użytkownik podczas wykonywania wywołań do zasobu docelowego. Niektóre uprawnienia delegowane mogą być przydzielone przez użytkowników niebędących administratorami, ale niektóre uprawnienia z wyższymi uprawnieniami wymagają [zgody administratora](#admin-restricted-permissions). Aby dowiedzieć się, które role administratorów mogą wyrazić zgodę na delegowane uprawnienia, zobacz [uprawnienia roli administratora w usłudze Azure AD](../roles/permissions-reference.md).
 
 * **Uprawnienia aplikacji** są używane przez aplikacje, które są uruchamiane bez zalogowanego użytkownika. na przykład aplikacje, które działają jako usługi lub demony w tle.  Uprawnienia aplikacji mogą być [wysyłane tylko przez administratora](#requesting-consent-for-an-entire-tenant).
 
 _Czynne uprawnienia_ to uprawnienia, które aplikacja będzie miała podczas wykonywania żądań do zasobu docelowego. Ważne jest, aby zrozumieć różnicę między uprawnieniami delegowanymi i aplikacjami, do których przyznano aplikację, a jej obowiązującymi uprawnieniami podczas wykonywania wywołań do zasobu docelowego.
 
-- W przypadku uprawnień delegowanych _czynne uprawnienia_ aplikacji są najniższymi przyznanymi uprawnieniami delegowanymi (za pośrednictwem zgody) i uprawnieniami aktualnie zalogowanego użytkownika. Aplikacja nigdy nie może mieć większych uprawnień niż zalogowany użytkownik. Uprawnienia zalogowanego użytkownika mogą być określone w organizacji na podstawie zasad lub członkostwa w co najmniej jednej roli administratora. Aby dowiedzieć się, które role administratorów mogą wyrazić zgodę na delegowane uprawnienia, zobacz [uprawnienia roli administratora w usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+- W przypadku uprawnień delegowanych _czynne uprawnienia_ aplikacji są najniższymi przyznanymi uprawnieniami delegowanymi (za pośrednictwem zgody) i uprawnieniami aktualnie zalogowanego użytkownika. Aplikacja nigdy nie może mieć większych uprawnień niż zalogowany użytkownik. Uprawnienia zalogowanego użytkownika mogą być określone w organizacji na podstawie zasad lub członkostwa w co najmniej jednej roli administratora. Aby dowiedzieć się, które role administratorów mogą wyrazić zgodę na delegowane uprawnienia, zobacz [uprawnienia roli administratora w usłudze Azure AD](../roles/permissions-reference.md).
 
    Załóżmy na przykład, że aplikacja ma przyznane uprawnienie _User. ReadWrite. All_ delegowane. Uprawnienie to przyznaje aplikacji nominalne uprawnienia do odczytu i aktualizowania profilu każdego użytkownika w organizacji. Jeśli zalogowany użytkownik jest administratorem globalnym, aplikacja będzie mogła zaktualizować profil każdego użytkownika w organizacji. Jeśli jednak zalogowany użytkownik nie znajduje się w roli administratora, aplikacja będzie mogła aktualizować tylko profil zalogowanego użytkownika. Użytkownik nie będzie mógł zaktualizować profili innych użytkowników w organizacji, ponieważ użytkownik mający uprawnienia do działania w imieniu innych osób nie ma odpowiednich uprawnień.
 

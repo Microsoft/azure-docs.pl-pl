@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b71c6b834a6217007134b3be961a0ffa103e2706
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397967"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368047"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Rozwiązywanie problemów z błędami z replikacją maszyny wirtualnej z platformy Azure do platformy Azure
 
@@ -202,7 +202,7 @@ Nie można nawiązać połączenia w celu Microsoft 365nia punktów końcowych u
 #### <a name="fix-the-problem"></a>Rozwiązywanie problemu
 
 Azure Site Recovery wymagany dostęp do Microsoft 365 zakresów adresów IP na potrzeby uwierzytelniania.
-Jeśli używasz zasad grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń) platformy Azure/serwera proxy zapory do kontrolowania łączności sieciowej wychodzącej na maszynie wirtualnej, upewnij się, że Azure Active Directory używasz [(AAD) tag usługi](../virtual-network/security-overview.md#service-tags) opartej na sieciowej grupy zabezpieczeń reguły, aby umożliwić dostęp do usługi AAD. Nie obsługujemy już reguł sieciowej grupy zabezpieczeń opartych na adresach IP.
+Jeśli używasz zasad grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń) platformy Azure/serwera proxy zapory do kontrolowania łączności sieciowej wychodzącej na maszynie wirtualnej, upewnij się, że Azure Active Directory używasz [(AAD) tag usługi](../virtual-network/network-security-groups-overview.md#service-tags) opartej na sieciowej grupy zabezpieczeń reguły, aby umożliwić dostęp do usługi AAD. Nie obsługujemy już reguł sieciowej grupy zabezpieczeń opartych na adresach IP.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguracja Site Recovery nie powiodła się (151197)
 

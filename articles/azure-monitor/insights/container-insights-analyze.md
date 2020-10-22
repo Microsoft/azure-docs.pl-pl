@@ -3,12 +3,12 @@ title: Kubernetes monitorowanie za pomocą Azure Monitor dla kontenerów | Micro
 description: W tym artykule opisano sposób wyświetlania i analizowania wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994773"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368761"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorowanie wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -290,6 +290,10 @@ Ikony w polu Stan wskazują stan online, zgodnie z opisem w poniższej tabeli.
 | ![Ikona ostatnio zgłoszonego stanu uruchomienia](./media/container-insights-analyze/containers-grey-icon.png) | Ostatnio zgłoszone uruchomione, ale nie udzielono odpowiedzi w ciągu ponad 30 minut|
 | ![Ikona stanu przerwania](./media/container-insights-analyze/containers-terminated-icon.png) | Zatrzymanie zostało zatrzymane lub zakończyło się niepowodzeniem|
 | ![Ikona stanu niepowodzenia](./media/container-insights-analyze/containers-failed-icon.png) | Stan niepowodzenia |
+
+## <a name="monitor-and-visualize-network-configurations"></a>Monitorowanie i wizualizacja konfiguracji sieci
+Menedżer zasad sieciowych platformy Azure zawiera Prometheus metryki, które umożliwiają monitorowanie i lepsze zrozumienie konfiguracji sieci. Udostępnia wbudowane wizualizacje w Azure Portal lub Grafana Labs. Aby uzyskać szczegółowe informacje, zobacz [monitorowanie i wizualizacja konfiguracji sieci za pomocą usługi Azure npm](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
+
 
 ## <a name="workbooks"></a>Skoroszyty
 

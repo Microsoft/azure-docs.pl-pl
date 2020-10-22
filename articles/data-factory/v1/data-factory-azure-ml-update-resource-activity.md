@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: bed66ab8f3dc3db47b94070cbbeb64fb91163f8c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d0dd7f71c21e223203fb0e695ba3139eaea0aa81
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014464"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368829"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Aktualizowanie modeli Azure Machine Learning Studio (klasycznych) za pomocą działania aktualizacji zasobów
 
@@ -44,7 +44,7 @@ W miarę upływu czasu modele predykcyjne w Azure Machine Learning Studio (klasy
 1. Utwórz eksperyment w [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net).
 2. Gdy korzystasz z modelu, użyj Azure Machine Learning Studio (klasyczny), aby opublikować usługi sieci Web zarówno dla **eksperymentu szkoleniowego** , jak i dla**eksperymentu predykcyjnego**.
 
-W poniższej tabeli opisano usługi sieci Web używane w tym przykładzie.  Aby uzyskać szczegółowe informacje, zobacz [modele Machine Learning Studio (klasyczne)](../../machine-learning/studio/retrain-machine-learning-model.md) .
+W poniższej tabeli opisano usługi sieci Web używane w tym przykładzie.  Aby uzyskać szczegółowe informacje, zobacz [modele Azure Machine Learning Studio (klasyczne)](../../machine-learning/studio/retrain-machine-learning-model.md) .
 
 - **Szkolenie usługi sieci Web** — odbiera dane szkoleniowe i produkuje przeszkolone modele. Dane wyjściowe ponownego szkolenia to plik. ilearner w usłudze Azure Blob Storage. **Domyślny punkt końcowy** jest tworzony automatycznie podczas publikowania eksperymentu szkoleniowego jako usługi sieci Web. Można utworzyć więcej punktów końcowych, ale przykład używa tylko domyślnego punktu końcowego.
 - **Ocenianie usługi sieci Web** — odbiera przykłady danych bez etykiet i tworzy przewidywania. Dane wyjściowe przewidywania mogą mieć różne formy, takie jak plik. csv lub wiersze w Azure SQL Database, w zależności od konfiguracji eksperymentu. Domyślny punkt końcowy jest tworzony automatycznie podczas publikowania eksperymentu predykcyjnego jako usługi sieci Web. 

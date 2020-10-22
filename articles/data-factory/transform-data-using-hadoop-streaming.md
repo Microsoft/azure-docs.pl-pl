@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 5acfef94a98f105a7cc09c5b72b65e8c228ed87d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cc8e2e02aef9e323da9859ce6fd0bebea2ce036
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83844631"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368914"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania usługi Hadoop streaming w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -95,5 +95,5 @@ Zapoznaj się z następującymi artykułami, które wyjaśniają sposób przeksz
 * [Działanie MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Działanie platformy Spark](transform-data-using-spark.md)
 * [Niestandardowe działanie platformy .NET](transform-data-using-dotnet-custom-activity.md)
-* [Działanie wykonywania wsadowego Machine Learning](transform-data-using-machine-learning.md)
+* [Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej)](transform-data-using-machine-learning.md)
 * [Działanie procedury składowanej](transform-data-using-stored-procedure.md)

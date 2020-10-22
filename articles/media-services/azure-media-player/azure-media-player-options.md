@@ -7,12 +7,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 392ecff2ab120e713a07d130493a4a8339dae5ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67f1f2fe3f6ac1061f1edcd22532bffaf0a1e815
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296199"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366874"
 ---
 # <a name="options"></a>Opcje #
 
@@ -102,7 +102,7 @@ Ustawienie tej opcji na true elementu wideo spowoduje pełną szerokość konten
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
 
-Inne właściwości `playbackSpeed` Ustawienia są nadawane przez obiekt [PlaybackSpeedOptions](/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) .
+Inne właściwości `playbackSpeed` Ustawienia są nadawane przez obiekt [PlaybackSpeedOptions](/javascript/api/azuremediaplayer/playbackspeedoptions) .
 
 Przykład ustawiania opcji szybkości odtwarzania w języku JavaScript:
 

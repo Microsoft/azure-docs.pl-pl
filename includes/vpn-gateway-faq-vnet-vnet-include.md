@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 12/03/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "67183052"
 ---
 Często zadawane pytania dotyczące połączenia między sieciami wirtualnymi są stosowane do połączeń z usługą VPN Gateway. Informacje o wirtualnych sieciach równorzędnych znajdują się w temacie [Komunikacja równorzędna sieci wirtualnej](../articles/virtual-network/virtual-network-peering-overview.md).

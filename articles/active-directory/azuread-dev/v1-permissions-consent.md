@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b85115d905cb6a7eb7c6aed64a4834425d2f1d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117621"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366398"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym Azure Active Directory v 1.0
 
@@ -38,7 +38,7 @@ W usłudze Azure AD zdefiniowano dwa rodzaje uprawnień:
 
 Czynne uprawnienia to uprawnienia, które aplikacja będzie posiadać podczas wysyłania żądań do interfejsu API. 
 
-* W przypadku uprawnień delegowanych czynne uprawnienia aplikacji będą najmniejszą wspólną częścią delegowanych uprawnień przyznanych aplikacji (poprzez wyrażenie zgody) oraz uprawnień aktualnie zalogowanego użytkownika. Aplikacja nigdy nie może mieć większych uprawnień niż zalogowany użytkownik. Uprawnienia zalogowanego użytkownika mogą być określone w organizacji na podstawie zasad lub członkostwa w co najmniej jednej roli administratora. Aby dowiedzieć się, które role administratorów mogą wyrazić zgodę na delegowane uprawnienia, zobacz [uprawnienia roli administratora w usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* W przypadku uprawnień delegowanych czynne uprawnienia aplikacji będą najmniejszą wspólną częścią delegowanych uprawnień przyznanych aplikacji (poprzez wyrażenie zgody) oraz uprawnień aktualnie zalogowanego użytkownika. Aplikacja nigdy nie może mieć większych uprawnień niż zalogowany użytkownik. Uprawnienia zalogowanego użytkownika mogą być określone w organizacji na podstawie zasad lub członkostwa w co najmniej jednej roli administratora. Aby dowiedzieć się, które role administratorów mogą wyrazić zgodę na delegowane uprawnienia, zobacz [uprawnienia roli administratora w usłudze Azure AD](../roles/permissions-reference.md).
     Załóżmy na przykład, że aplikacja ma przyznane uprawnienie delegowane `User.ReadWrite.All` w programie Microsoft Graph. Uprawnienie to przyznaje aplikacji nominalne uprawnienia do odczytu i aktualizowania profilu każdego użytkownika w organizacji. Jeśli zalogowany użytkownik jest administratorem globalnym, aplikacja będzie mogła zaktualizować profil każdego użytkownika w organizacji. Jednak jeśli zalogowany użytkownik nie ma roli administratora, aplikacja będzie mogła aktualizować tylko profil zalogowanego użytkownika. Użytkownik nie będzie mógł zaktualizować profili innych użytkowników w organizacji, ponieważ użytkownik mający uprawnienia do działania w imieniu innych osób nie ma odpowiednich uprawnień.
 * W przypadku uprawnień aplikacji efektywne uprawnienia aplikacji są na poziomie przywilejów wynikających z uprawnień. Na przykład aplikacja, która ma uprawnienie aplikacji `User.ReadWrite.All`, może aktualizować profile każdego użytkownika w organizacji.
 

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145279"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366330"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planowanie wdrażania dostępu warunkowego
 
@@ -220,7 +220,7 @@ Tworzenie zasad dla każdej aplikacji nie jest wydajne i prowadzi do trudnej adm
 
 ### <a name="set-up-emergency-access-accounts"></a>Konfigurowanie kont dostępu awaryjnego
 
-Jeśli zasady zostały nieprawidłowo skonfigurowane, można zablokować organizacje z Azure Portal. Aby wyeliminować wpływ przypadkowego blokowania administratora, należy utworzyć co najmniej dwa [konta dostępu awaryjnego](../users-groups-roles/directory-emergency-access.md) w organizacji.
+Jeśli zasady zostały nieprawidłowo skonfigurowane, można zablokować organizacje z Azure Portal. Aby wyeliminować wpływ przypadkowego blokowania administratora, należy utworzyć co najmniej dwa [konta dostępu awaryjnego](../roles/security-emergency-access.md) w organizacji.
 
 * Utwórz konto użytkownika przeznaczone do administrowania zasadami i wykluczone ze wszystkich zasad.
 
