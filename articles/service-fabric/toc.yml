@@ -148,8 +148,6 @@
           href: service-fabric-application-and-service-security.md
         - name: Zabezpieczenia klastra usługi Service Fabric
           href: service-fabric-cluster-security.md
-        - name: Wbudowane mechanizmy zabezpieczeń
-          href: service-fabric-security-controls.md
         - name: Uwierzytelnianie oparte na certyfikatach w usłudze Service Fabric
           href: cluster-security-certificates.md
         - name: Zarządzanie certyfikatami w usłudze Service Fabric

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 455cf921cfcd4ac5d0e81fb4e092ec165070a3f1
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 09d5ece0afdd5abe3da5ebdeb6a7ae290e1ccf3d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331570"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372326"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -319,6 +319,12 @@ Aby zagnieździć prace dla tego przewodnika Szybki Start, należy najpierw zako
 Jeśli planujesz kontynuować korzystanie z samouczków Digital bliźniaczych reprezentacji systemu Azure, wystąpienie używane w tym przewodniku Szybki Start może być ponownie używane na potrzeby tych artykułów i nie trzeba go usunąć.
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
+
+Następnie usuń Azure Active Directory rejestrację aplikacji utworzoną dla aplikacji klienckiej przy użyciu tego polecenia:
+
+```azurecli
+az ad app delete --id <your-application-ID>
+```
 
 Na koniec Usuń przykładowe foldery projektu pobrane na maszynę lokalną (_**Azure_Digital_Twins__ADT__explorer**_ i _**Azure_Digital_Twins_end_to_end_samples**_). Może być konieczne usunięcie zarówno wersji spakowanej, jak i rozpakowanej.
 

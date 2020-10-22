@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258153"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363423"
 ---
 # <a name="publisher-verification"></a>Weryfikacja wydawcy
 
@@ -39,7 +39,7 @@ Weryfikacja wydawcy zapewnia następujące korzyści:
 > Począwszy od listopada 2020, użytkownicy końcowi nie będą już mogli przyznawać zgody na większość nowo zarejestrowanych aplikacji wielodostępnych bez zweryfikowanych wydawców. Dotyczy to aplikacji, które są zarejestrowane po 8 listopada 2020, za pomocą protokołu OAuth 2.0 można zażądać uprawnień poza podstawową rejestracją i odczytać profil użytkownika, a następnie poprosić o zgodę użytkowników w różnych dzierżawców niż ta, w której jest zarejestrowana aplikacja. Na ekranie zgody zostanie wyświetlone ostrzeżenie z informacją o tym, że te aplikacje są ryzykowne i pochodzą z niezweryfikowanych wydawców.    
 
 ## <a name="requirements"></a>Wymagania
-Istnieje kilka wymagań wstępnych dotyczących weryfikacji wydawcy, z których część zostanie już ukończona przez wielu partnerów firmy Microsoft. Są to: 
+Istnieje kilka wymagań wstępnych dotyczących weryfikacji wydawcy, z których część zostanie już ukończona przez wielu partnerów firmy Microsoft. Oto one: 
 
 -  IDENTYFIKATOR MPN dla prawidłowego konta [Microsoft Partner Network](https://partner.microsoft.com/membership) , które ukończyło proces [weryfikacji](/partner-center/verification-responses) . To konto MPN musi być [kontem globalnym partnera (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) dla Twojej organizacji. 
 
@@ -49,7 +49,7 @@ Istnieje kilka wymagań wstępnych dotyczących weryfikacji wydawcy, z których 
 
 -  Użytkownik wykonujący weryfikację musi mieć autoryzację, aby wprowadzić zmiany w rejestracji aplikacji w usłudze Azure AD i koncie MPN w centrum partnerskim. 
 
-    -  W usłudze Azure AD ten użytkownik musi być członkiem jednej z następujących [ról](../users-groups-roles/directory-assign-admin-roles.md): Administrator aplikacji, administrator aplikacji w chmurze lub Administrator globalny. 
+    -  W usłudze Azure AD ten użytkownik musi być członkiem jednej z następujących [ról](../roles/permissions-reference.md): Administrator aplikacji, administrator aplikacji w chmurze lub Administrator globalny. 
 
     -  W centrum partnerskim ten użytkownik musi mieć następujące [role](/partner-center/permissions-overview): Administrator MPN, administrator kont lub Administrator globalny (jest to rola udostępniona w usłudze Azure AD).
     

@@ -44,8 +44,6 @@
       href: quickstart-create-workspace-powershell.md
     - name: Wdrażanie za pomocą szablonu
       href: quickstart-deployment-template-workspaces.md
-    - name: Korzystanie z programu Synapse Studio
-      href: quickstart-synapse-studio.md
     - name: Podłączanie obszaru roboczego usługi Power BI
       href: quickstart-power-bi.md
     - name: Tworzenie pul

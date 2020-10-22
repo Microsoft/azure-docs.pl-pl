@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: 114a0d6f97149baad0c9e76fb359c52996820575
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7ce183595ed8e20c4b5cf4afe9ac1174882dc392
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207159"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370325"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Samouczek: korzystanie z platformy Apache HBase w usłudze Azure HDInsight
 
 W tym samouczku pokazano, jak utworzyć klaster Apache HBase w usłudze Azure HDInsight, utworzyć tabele HBase i tabele zapytań przy użyciu Apache Hive.  Aby uzyskać ogólne informacje o bazie danych HBase, zobacz [Omówienie bazy danych HBase w usłudze HDInsight](./apache-hbase-overview.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie klastra Apache HBase
@@ -227,6 +227,31 @@ Z usługi Hive można także wykonywać zapytania dotyczące danych HBase przy u
 ## <a name="use-hbase-rest-apis-using-curl"></a>Korzystanie z interfejsów API REST HBase przy użyciu programu Curl
 
 Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego](https://en.wikipedia.org/wiki/Basic_access_authentication). Należy zawsze tworzyć żądania przy użyciu protokołu HTTPS (HTTP Secure), aby mieć pewność, że poświadczenia są bezpiecznie wysyłane do serwera.
+
+1. Aby włączyć interfejsy API REST usługi HBase w klastrze usługi HDInsight, Dodaj następujący niestandardowy skrypt uruchamiania do sekcji **Akcja skryptu** . Możesz dodać skrypt uruchamiania podczas tworzenia klastra lub po utworzeniu klastra. W **polu Typ węzła**wybierz opcję **serwery regionów** , aby upewnić się, że skrypt jest wykonywany tylko na serwerach regionu HBase.
+
+
+    ```bash
+    #! /bin/bash
+
+    THIS_MACHINE=`hostname`
+
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
+
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "Rest server already running"
+        exit 0
+    fi
+    ```
 
 1. Ustaw zmienną środowiskową, aby ułatwić korzystanie z niej. Edytuj poniższe polecenia, zastępując je `MYPASSWORD` hasłem logowania klastra. Zamień `MYCLUSTERNAME` na nazwę klastra HBase. Następnie wprowadź polecenia.
 

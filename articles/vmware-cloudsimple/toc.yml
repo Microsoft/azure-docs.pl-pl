@@ -1,5 +1,5 @@
 - name: Rozwiązanie VMware Solution by CloudSimple
-  href: /azure/vmware-cloudsimple
+  href: ./index.md
   items:
     - name: Omówienie
       items:

@@ -93,7 +93,7 @@
 - name: Odwołania
   items:
     - name: Dokumentacja interfejsu API REST
-      href: 'https://docs.microsoft.com/rest/api/azure/'
+      href: 'https://docs.microsoft.com/rest/api/communication/'
     - name: Wywoływanie biblioteki (Android/Java)
       href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
     - name: Wywoływanie biblioteki (JS)

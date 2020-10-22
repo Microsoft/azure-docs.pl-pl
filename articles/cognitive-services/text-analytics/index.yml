@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: 06225b0ca6ca1807acc8664c96542c67cbd9dceb
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 2a736f611c4237884b6a482311e47136cbf97e07
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91838980"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92369239"
 landingContent:
 - title: Informacje o interfejsie API analizy tekstu
   linkLists:
@@ -148,3 +148,9 @@ landingContent:
       url: how-tos/text-analytics-how-to-use-container-instances.md
     - text: Wdrażanie kontenera w usłudze Azure Kubernetes Service (AKS)
       url: how-tos/text-analytics-how-to-use-kubernetes-service.md
+- title: Pomoc i opinie
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Opcje wsparcia technicznego i pomocy
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/text-analytics/context/context

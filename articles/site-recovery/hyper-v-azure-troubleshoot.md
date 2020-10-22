@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 9e8a1246a2e48c3c569b82845c713ba25ee2467a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 721e09c2bc0562ba833115361cf33c3daaef380b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426126"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364035"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Rozwiązywanie problemów z replikacją i przełączaniem w tryb failover z funkcji Hyper-V do platformy Azure
 
@@ -29,7 +29,7 @@ Jeśli podczas włączania ochrony maszyn wirtualnych funkcji Hyper-V występuj�
 4. Sprawdź, czy występują problemy, które pojawiają się w Hyper-V-VMMS\Admin Zaloguj się do maszyny wirtualnej. Ten dziennik znajduje się w dziennikach **aplikacji i usług**  >  **Microsoft**  >  **Windows**.
 5. Na maszynie wirtualnej gościa Sprawdź, czy usługa WMI jest włączona i dostępna.
    - [Poznaj](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) podstawowe testy WMI.
-   - [Rozwiązywanie problemów](https://aka.ms/WMiTshooting) WMI.
+   - [Rozwiązywanie problemów](/windows/win32/wmisdk/wmi-troubleshooting) WMI.
    - [Rozwiązywanie](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) problemów z skryptami i usługami WMI.
 6. Upewnij się, że na maszynie wirtualnej gościa jest uruchomiona Najnowsza wersja usług integracji.
     - [Sprawdź](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) , czy masz najnowszą wersję.

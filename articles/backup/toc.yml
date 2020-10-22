@@ -406,8 +406,6 @@
           href: backup-encryption.md
         - name: Szyfrowanie przy użyciu kluczy zarządzanych przez klienta
           href: encryption-at-rest-with-cmk.md
-        - name: Wbudowane mechanizmy zabezpieczeń
-          href: backup-security-controls.md
         - name: Kontrole zabezpieczeń usługi Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

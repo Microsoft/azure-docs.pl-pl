@@ -105,12 +105,22 @@
               href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Tworzenie oferty kontenera platformy Azure
               href: partner-center-portal/create-azure-container-offer.md
-    - name: Oferta maszyny wirtualnej platformy Azure
+    - name: Oferty maszyn wirtualnych platformy Azure
       items:
         - name: Planowanie oferty maszyny wirtualnej
           href: marketplace-virtual-machines.md
         - name: Tworzenie i publikowanie oferty maszyny wirtualnej
           items:
+            - name: Tworzenie oferty maszyny wirtualnej
+              href: azure-vm-create.md
+            - name: Konfigurowanie właściwości oferty maszyny wirtualnej
+              href: azure-vm-create-properties.md
+            - name: Konfigurowanie wpisu oferty maszyny wirtualnej
+              href: azure-vm-create-listing.md
+            - name: Tworzenie planów maszyn wirtualnych
+              href: azure-vm-create-plans.md
+            - name: Dodawanie odbiorców w wersji zapoznawczej
+              href: azure-vm-create-preview.md
             - name: Tworzenie zasobów technicznych maszyny wirtualnej
               items:
                 - name: Tworzenie maszyny wirtualnej na podstawie zatwierdzonej bazy
@@ -127,16 +137,6 @@
                   href: azure-vm-create-faq.md
                 - name: Rozwiązywanie problemów z certyfikacją maszyn wirtualnych
                   href: azure-vm-create-certification-faq.md
-            - name: Tworzenie oferty maszyny wirtualnej
-              href: azure-vm-create.md
-            - name: Konfigurowanie właściwości oferty maszyny wirtualnej
-              href: azure-vm-create-properties.md
-            - name: Konfigurowanie wpisu oferty maszyny wirtualnej
-              href: azure-vm-create-listing.md
-            - name: Tworzenie planów maszyn wirtualnych
-              href: azure-vm-create-plans.md
-            - name: Dodawanie odbiorców w wersji zapoznawczej
-              href: azure-vm-create-preview.md
     - name: Usługi konsultingowe
       items:
         - name: Planowanie oferty usług doradczych
