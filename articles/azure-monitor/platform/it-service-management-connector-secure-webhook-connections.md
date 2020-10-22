@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: bf68963515e1208868efb40c2d3fc56c9ab4e0df
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 447b781ec83a01a58e6af9e9e43f75b3fc56b10f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107763"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370784"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Łączenie platformy Azure z narzędziami narzędzia ITSM przy użyciu funkcji bezpiecznego eksportowania
 
@@ -36,18 +36,18 @@ Architektura bezpiecznego eksportu zawiera następujące nowe możliwości:
 Poniżej przedstawiono kroki przepływu danych bezpiecznego eksportu:
 
 1. Azure Monitor wysyła alert skonfigurowany do korzystania z bezpiecznego eksportu.
-1. Ładunek alertu jest wysyłany przez akcję bezpiecznego elementu webhook do narzędzia Narzędzia ITSM.
-1. Aplikacja narzędzia ITSM sprawdza za pomocą usługi Azure AD, jeśli alert jest autoryzowany do wprowadzania narzędzia Narzędzia ITSM.
-1. Jeśli alert jest autoryzowany, aplikacja:
+2. Ładunek alertu jest wysyłany przez akcję bezpiecznego elementu webhook do narzędzia Narzędzia ITSM.
+3. Aplikacja narzędzia ITSM sprawdza za pomocą usługi Azure AD, jeśli alert jest autoryzowany do wprowadzania narzędzia Narzędzia ITSM.
+4. Jeśli alert jest autoryzowany, aplikacja:
    
    1. Tworzy element roboczy (na przykład zdarzenie) w narzędziu narzędzia ITSM.
-   1. Wiąże identyfikator elementu konfiguracji (CI) z bazą danych zarządzania klientami (CMDB).
+   2. Wiąże identyfikator elementu konfiguracji (CI) z bazą danych zarządzania klientami (CMDB).
 
 ![Diagram pokazujący, jak narzędzie narzędzia ITSM komunikuje się z platformą Azure A D, alertami platformy Azure i grupą akcji.](media/it-service-management-connector-secure-webhook-connections/secure-export-diagram.png)
 
-## <a name="connection-with-bmc-helix"></a>Połączenie z kontrolerem BMC Helix
+## <a name="benefits-of-secure-export"></a>Zalety bezpiecznego eksportu
 
-Bezpieczny eksport obsługuje BMC Helix. Oto niektóre zalety integracji:
+Główne zalety integracji są następujące:
 
 * **Lepsze uwierzytelnianie**: usługa Azure AD zapewnia bezpieczniejsze uwierzytelnianie bez przekroczeń limitu czasu, które często występują w ITSMC.
 * **Alerty zostały rozwiązane w narzędziu narzędzia ITSM**: alerty metryk implementują Stany "uruchomiłne" i "rozwiązany". Gdy warunek jest spełniony, stan alertu to "wyzwolone". Gdy warunek nie zostanie już spełniony, stan alertu to "rozwiązany". W ITSMC nie można automatycznie rozwiązywać alertów. W przypadku bezpiecznego eksportu stan rozwiązanych przepływów do narzędzia Narzędzia ITSM, więc jest automatycznie aktualizowany.
@@ -57,18 +57,18 @@ Rozpocznij korzystanie z narzędzia łącznik ITSM, wykonując następujące czy
 
 1. Zarejestrować aplikację w usłudze Azure AD.
 2. Utwórz grupę akcji bezpiecznego elementu webhook.
-3. Skonfiguruj środowisko partnerskie.
+3. Skonfiguruj środowisko partnerskie. Obecnie obsługujemy jednego dostawcę, który jest kontrolerem BMC Helix.
 
 ## <a name="register-with-azure-active-directory"></a>Zarejestruj się w Azure Active Directory
 
 Wykonaj następujące kroki, aby zarejestrować aplikację w usłudze Azure AD:
 
 1. Wykonaj kroki opisane w temacie [Rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](../../active-directory/develop/quickstart-register-app.md).
-1. W usłudze Azure AD wybierz opcję **Uwidocznij aplikację**.
-1. Wybierz pozycję **Ustaw** dla **identyfikatora aplikacji identyfikator URI**.
+2. W usłudze Azure AD wybierz opcję **Uwidocznij aplikację**.
+3. Wybierz pozycję **Ustaw** dla **identyfikatora aplikacji identyfikator URI**.
 
    [![Zrzut ekranu przedstawiający opcję Ustawienia U R I aplikacji I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
-1. Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **Zapisz**.
 
 ## <a name="create-a-secure-webhook-action-group"></a>Utwórz grupę akcji bezpiecznego elementu webhook
 
@@ -77,31 +77,27 @@ Po zarejestrowaniu aplikacji w usłudze Azure AD można utworzyć elementy roboc
 Grupy akcji umożliwiają modularne i wielokrotne użycie metody wyzwalania akcji dla alertów platformy Azure. Za pomocą grup akcji można korzystać z alertów metryk, alertów dziennika aktywności i alertów usługi Azure Log Analytics w Azure Portal.
 Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](./action-groups.md).
 
-W środowisku BMC Helix należy użyć następującej procedury:
-
-1. Zaloguj się do programu Integration Studio.
-1. Wyszukaj **zdarzenie tworzenia zdarzenia na podstawie alertów platformy Azure** .
-1. Skopiuj adres URL elementu webhook.
-   
-   ![Zrzut ekranu przedstawiający element webhook U R L w programie Integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
-
 Aby dodać element webhook do akcji, wykonaj następujące instrukcje dotyczące bezpiecznego elementu webhook:
 
 1. W [Azure Portal](https://portal.azure.com/)Wyszukaj i wybierz pozycję **monitor**. Okienko **monitorowanie** konsoliduje wszystkie ustawienia monitorowania i dane w jednym widoku.
-1. Wybierz kolejno pozycje **alerty**  >  **Zarządzanie akcje**.
-1. Wybierz pozycję [Dodaj grupę akcji](./action-groups.md#create-an-action-group-by-using-the-azure-portal)i wypełnij pola.
-1. Wprowadź nazwę w polu **Nazwa grupy akcji** , a następnie wprowadź nazwę w polu **krótka nazwa** . Nazwa krótka jest używana zamiast pełnej nazwy grupy akcji podczas przesyłania powiadomień przy użyciu danej grupy.
-1. Wybierz pozycję **bezpieczny element webhook**.
-1. Wybierz następujące szczegóły:
+2. Wybierz kolejno pozycje **alerty**  >  **Zarządzanie akcje**.
+3. Wybierz pozycję [Dodaj grupę akcji](./action-groups.md#create-an-action-group-by-using-the-azure-portal)i wypełnij pola.
+4. Wprowadź nazwę w polu **Nazwa grupy akcji** , a następnie wprowadź nazwę w polu **krótka nazwa** . Nazwa krótka jest używana zamiast pełnej nazwy grupy akcji podczas przesyłania powiadomień przy użyciu danej grupy.
+5. Wybierz pozycję **bezpieczny element webhook**.
+6. Wybierz następujące szczegóły:
    1. Wybierz identyfikator obiektu zarejestrowanego wystąpienia Azure Active Directory.
-   1. W przypadku identyfikatora URI Wklej w adresie URL elementu webhook skopiowanym ze środowiska BMC Helix.
-   1. Ustaw opcję **Włącz wspólny schemat alertów** na **wartość tak**. 
+   2. W przypadku identyfikatora URI Wklej w adresie URL elementu webhook skopiowanym ze środowiska dostawcy.
+   3. Ustaw opcję **Włącz wspólny schemat alertów** na **wartość tak**. 
 
    Na poniższej ilustracji przedstawiono konfigurację przykładowej akcji bezpiecznego elementu webhook:
 
    ![Zrzut ekranu pokazujący bezpieczną akcję elementu webhook.](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
 
 ## <a name="configure-the-partner-environment"></a>Konfigurowanie środowiska partnerskiego
+
+Konfiguracja zawiera dwie czynności:
+1. Pobierz identyfikator URI dla definicji bezpiecznego eksportu.
+2. Definicje zgodnie z przepływem dostawcy.
 
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>Łączenie składnika BMC Helix z Azure Monitor
 
@@ -116,18 +112,26 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 ### <a name="configure-the-bmc-helix-connection"></a>Konfigurowanie połączenia BMC Helix
 
-1. Postępuj zgodnie z instrukcjami accoring do wersji:
+1. Aby uzyskać identyfikator URI dla bezpiecznego eksportu, użyj następującej procedury w środowisku BMC Helix:
+
+   1. Zaloguj się do programu Integration Studio.
+   2. Wyszukaj **zdarzenie tworzenia zdarzenia na podstawie alertów platformy Azure** .
+   3. Skopiuj adres URL elementu webhook.
+   
+   ![Zrzut ekranu przedstawiający element webhook U R L w programie Integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
+   
+2. Postępuj zgodnie z instrukcjami w zależności od wersji:
    * [Włączenie prekompilowanej integracji z Azure monitor w wersji 20,02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
    * [Włączenie prekompilowanej integracji z Azure monitor w wersji 19,11](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html).
 
-1. W ramach konfiguracji połączenia w obszarze BMC Helix przejdź do swojego wystąpienia BMC Integration i postępuj zgodnie z następującymi instrukcjami:
+3. W ramach konfiguracji połączenia w obszarze BMC Helix przejdź do swojego wystąpienia BMC Integration i postępuj zgodnie z następującymi instrukcjami:
 
    1. Wybierz pozycję **katalog**.
-   1. Wybierz pozycję **alerty platformy Azure**.
-   1. Wybierz pozycję **Łączniki**.
-   1. Wybierz pozycję **Konfiguracja**.
-   1. Wybierz pozycję **Dodaj nową konfigurację połączenia** .
-   1. Wypełnij informacje dotyczące sekcji Konfiguracja:
+   2. Wybierz pozycję **alerty platformy Azure**.
+   3. Wybierz pozycję **Łączniki**.
+   4. Wybierz pozycję **Konfiguracja**.
+   5. Wybierz pozycję **Dodaj nową konfigurację połączenia** .
+   6. Wypełnij informacje dotyczące sekcji Konfiguracja:
       - **Nazwa**: Utwórz własne.
       - **Typ autoryzacji**: **Brak**
       - **Opis**: Utwórz własny.

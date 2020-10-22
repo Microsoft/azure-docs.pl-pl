@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601368"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371056"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Przewodnik dotyczący operacji zarządzania uwierzytelnianiem Azure Active Directory
 
@@ -42,13 +42,13 @@ Zarządzanie Azure Active Directory wymaga ciągłego wykonywania kluczowych zad
 | Klasyfikacja i zbadaj użytkowników oflagowanych pod kątem ryzyka i luk w zabezpieczeniach z Azure AD Identity Protection | Zespół ds. operacji InfoSec |
 
 > [!NOTE]
-> Azure AD Identity Protection wymaga licencji na Azure AD — wersja Premium P2. Aby znaleźć odpowiednią licencję dla wymagań, zobacz [porównanie ogólnie dostępnych funkcji wersji Azure AD — wersja bezpłatna i Azure AD — wersja Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+> Azure AD Identity Protection wymaga licencji na Azure AD — wersja Premium P2. Aby znaleźć odpowiednią licencję dla wymagań, zobacz [porównanie ogólnie dostępnych funkcji wersji Azure AD — wersja bezpłatna i Azure AD — wersja Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Podczas przeglądania listy może być konieczne przypisanie właściciela do zadań, w których brakuje właściciela, lub dostosować własność do zadań z właścicielami, które nie są wyrównane do powyższych zaleceń.
 
 #### <a name="owner-recommended-reading"></a>Odczytywanie zalecanego przez właściciela
 
-- [Przypisywanie ról administratorów w usłudze Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Przypisywanie ról administratorów w usłudze Azure Active Directory](../roles/permissions-reference.md)
 - [Nadzór na platformie Azure](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>Zarządzanie poświadczeniami
@@ -119,7 +119,7 @@ Uwierzytelnianie federacyjne ze zintegrowanym uwierzytelnianiem systemu Windows 
 
 ### <a name="device-trust-access-policies"></a>Zasady dostępu zaufania urządzeń
 
-Podobnie jak w przypadku użytkownika w organizacji, urządzenie to podstawowa tożsamość, która ma być chroniona. Możesz użyć tożsamości urządzenia do ochrony zasobów w dowolnym momencie i z dowolnej lokalizacji.Uwierzytelnianie urządzenia i ich typ zaufania zwiększa stan zabezpieczeń i użyteczność dzięki:
+Podobnie jak w przypadku użytkownika w organizacji, urządzenie to podstawowa tożsamość, która ma być chroniona. Możesz użyć tożsamości urządzenia do ochrony zasobów w dowolnym momencie i z dowolnej lokalizacji. Uwierzytelnianie urządzenia i ich typ zaufania zwiększa stan zabezpieczeń i użyteczność dzięki:
 
 - Unikanie tarcia, na przykład z uwierzytelnianiem MFA, gdy urządzenie jest zaufane
 - Blokowanie dostępu z niezaufanych urządzeń
@@ -128,7 +128,7 @@ Podobnie jak w przypadku użytkownika w organizacji, urządzenie to podstawowa t
 W tym celu można przenieść tożsamości urządzeń i zarządzać nimi w usłudze Azure AD za pomocą jednej z następujących metod:
 
 - Organizacje mogą używać [Microsoft Intune](/intune/what-is-intune) do zarządzania urządzeniem i wymuszania zasad zgodności, zaświadczania kondycji urządzenia i ustawienia zasad dostępu warunkowego w zależności od tego, czy urządzenie jest zgodne. Microsoft Intune mogą zarządzać urządzeniami z systemem iOS, komputerami Mac (za pośrednictwem integracji JAMF), komputerami stacjonarnymi z systemem Windows (natywnie przy użyciu zarządzania urządzeniami przenośnymi w systemie Windows 10 i współzarządzaniem z programem Microsoft Endpoint Configuration Manager) oraz urządzeniami przenośnymi z systemem Android.
-- [Hybrydowe dołączanie usługi Azure AD](../devices/hybrid-azuread-join-managed-domains.md) zapewnia zarządzanie za pomocą zasad grupy lub Configuration Manager Microsoft Endpoint w środowisku z Active Directory urządzeniami przyłączonymi do domeny. Organizacje mogą wdrażać środowisko zarządzane za pomocą PHS lub PTA z bezproblemowym logowaniem jednokrotnym. Przełączenie urządzeń do usługi Azure AD maksymalizuje produktywność użytkowników przez logowanie jednokrotne w chmurze i zasobach lokalnych, umożliwiając jednocześnie bezpieczny dostęp do zasobów w chmurze i lokalnych przy użyciu [dostępu warunkowego](../conditional-access/overview.md)   .
+- [Hybrydowe dołączanie usługi Azure AD](../devices/hybrid-azuread-join-managed-domains.md) zapewnia zarządzanie za pomocą zasad grupy lub Configuration Manager Microsoft Endpoint w środowisku z Active Directory urządzeniami przyłączonymi do domeny. Organizacje mogą wdrażać środowisko zarządzane za pomocą PHS lub PTA z bezproblemowym logowaniem jednokrotnym. Przełączenie urządzeń do usługi Azure AD maksymalizuje produktywność użytkowników przez logowanie jednokrotne w chmurze i zasobach lokalnych, umożliwiając jednocześnie bezpieczny dostęp do zasobów w chmurze i lokalnych przy użyciu [dostępu warunkowego](../conditional-access/overview.md) .
 
 W przypadku urządzeń z systemem Windows przyłączonych do domeny, które nie są zarejestrowane w chmurze, lub urządzeń z systemem Windows przyłączonych do domeny, które są zarejestrowane w chmurze, ale bez zasad dostępu warunkowego, należy zarejestrować niezarejestrowane urządzenia i w obu przypadkach [używać sprzężenia hybrydowego usługi Azure AD jako formantu](../conditional-access/require-managed-devices.md) w zasadach dostępu warunkowego.
 
@@ -177,7 +177,7 @@ Jeśli masz galerię aplikacji usługi Azure AD i używasz aplikacji, które obs
 
 ### <a name="assign-users-to-applications"></a>Przypisywanie użytkowników do aplikacji
 
-[Przypisywanie użytkowników do aplikacji](../manage-apps/assign-user-or-group-access-portal.md) najlepiej jest zamapowane przy użyciu grup, ponieważ umożliwiają one większą elastyczność i możliwość zarządzania w odpowiedniej skali. Korzyści wynikające z używania grup obejmują [dynamiczne członkostwo w grupach](../users-groups-roles/groups-dynamic-membership.md) i [delegowanie do właścicieli aplikacji](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). W związku z tym, jeśli już używasz grup i zarządzasz nimi, zalecamy wykonanie następujących czynności w celu usprawnienia zarządzania w odpowiedniej skali:
+[Przypisywanie użytkowników do aplikacji](../manage-apps/assign-user-or-group-access-portal.md) najlepiej jest zamapowane przy użyciu grup, ponieważ umożliwiają one większą elastyczność i możliwość zarządzania w odpowiedniej skali. Korzyści wynikające z używania grup obejmują [dynamiczne członkostwo w grupach](../enterprise-users/groups-dynamic-membership.md) i [delegowanie do właścicieli aplikacji](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). W związku z tym, jeśli już używasz grup i zarządzasz nimi, zalecamy wykonanie następujących czynności w celu usprawnienia zarządzania w odpowiedniej skali:
 
 - Delegowanie zarządzania grupami i nadzoru do właścicieli aplikacji.
 - Zezwalaj na samoobsługowe dostęp do aplikacji.
@@ -189,8 +189,8 @@ Z drugiej strony, jeśli znajdziesz aplikacje, które mają przypisanie do poszc
 #### <a name="assign-users-to-applications-recommended-reading"></a>Przypisywanie użytkowników do zalecanych odczytów
 
 - [Przypisywanie użytkowników i grup do aplikacji w Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
-- [Delegowanie uprawnień rejestracji aplikacji w Azure Active Directory](../users-groups-roles/roles-delegate-app-roles.md)
-- [Reguły członkostwa dynamicznego dla grup w Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+- [Delegowanie uprawnień rejestracji aplikacji w Azure Active Directory](../roles/delegate-app-roles.md)
+- [Reguły członkostwa dynamicznego dla grup w Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>Zasady dostępu
 
@@ -248,7 +248,7 @@ Dostęp warunkowy jest ważnym narzędziem do ulepszania stan zabezpieczeń orga
 - Korzystanie z zasad dostępu warunkowego w celu [zaimplementowania usługi MFA](../conditional-access/plan-conditional-access.md)zamiast korzystania z usługi **MFA dla poszczególnych użytkowników**
 - Mają niewielki zestaw podstawowych zasad, które mogą być stosowane do wielu aplikacji
 - Zdefiniuj puste grupy wyjątków i Dodaj je do zasad, aby uzyskać strategię wyjątku
-- Planowanie kont [szkła z podziałem](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) bez kontroli MFA
+- Planowanie kont [szkła z podziałem](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) bez kontroli MFA
 - Zapewnianie spójnego środowiska Microsoft 365 aplikacji klienckich, na przykład zespołów, OneDrive, Outlook itp.) przez implementację tego samego zestawu formantów dla usług, takich jak Exchange Online i SharePoint Online
 - Przypisanie do zasad powinno być implementowane za poorednictwem grup, a nie użytkowników
 - Wykonaj regularne przeglądy grup wyjątków używanych w zasadach, aby ograniczyć czas, w którym użytkownicy znajdują się w stan zabezpieczeń. Jeśli jesteś właocicielem usługi Azure AD P2, możesz użyć przeglądów dostępu do zautomatyzowania procesu
@@ -347,7 +347,7 @@ Poniżej znajdują się ustawienia użytkownika i grupy, które można zablokowa
 - [Integrowanie aplikacji z Azure Active Directory](../develop/quickstart-register-app.md)
 - [Aplikacje, uprawnienia i zgody w Azure Active Directory.](../develop/quickstart-register-app.md)
 - [Używanie grup do zarządzania dostępem do zasobów w Azure Active Directory](./active-directory-manage-groups.md)
-- [Konfigurowanie samoobsługowego zarządzania dostępem do aplikacji w Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
+- [Konfigurowanie samoobsługowego zarządzania dostępem do aplikacji w Azure Active Directory](../enterprise-users/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>Ruch z nieoczekiwanych lokalizacji
 

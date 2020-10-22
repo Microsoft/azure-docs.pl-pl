@@ -3,17 +3,17 @@ title: Przykłady kodu usługi Azure Storage | Microsoft Docs
 description: Wyświetlanie, pobieranie i uruchamianie przykładowego kodu i aplikacji dla usługi Azure Storage. Odkryj przykłady umożliwiające rozpoczęcie pracy z obiektami BLOB, kolejek, tabel i plików przy użyciu bibliotek klienckich platformy .NET, Java, Python, Node.js, interfejsu wiersza polecenia platformy Azure i języka C++.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/06/2019
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: edf30d628a73c879ce81f68bda7cd2d7daa6cde3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cf1b643caef515411842d6aaf668708e873e96d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503654"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367894"
 ---
 # <a name="azure-storage-samples"></a>Przykłady usługi Azure Storage
 
@@ -49,11 +49,11 @@ Aby zapoznać się z przykładami Node.js, Pobierz [ bibliotekę klienckąNode.j
 
 ## <a name="c-samples"></a>Przykłady języka C++
 
-Aby zapoznać się z przykładami języka C++, Pobierz [bibliotekę kliencką usługi C++ Storage](https://www.nuget.org/packages/wastorage/) z narzędzia NuGet.
+Aby zapoznać się z przykładami języka C++, Pobierz [bibliotekę klienta usługi Azure Storage dla języka c++](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage) z witryny GitHub.
 
-* [Wprowadzenie do obiektów BLOB](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)
-* [Wprowadzenie do tabel](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted.cpp)
-* [Wprowadzenie do kolejek](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted.cpp)
+* [Rozpoczynanie pracy z obiektami blob platformy Azure](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp)
+* [Wprowadzenie do Azure Data Lake](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp)
+* [Wprowadzenie do Azure Files](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp)
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -71,7 +71,7 @@ Aby poznać przykłady interfejsu wiersza polecenia platformy Azure, najpierw [Z
 | Java | [Dokumentacja biblioteki klienta Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Kod źródłowy biblioteki klienta usługi Java Storage](https://github.com/azure/azure-storage-java) |
 | Python | [Dokumentacja biblioteki klienta języka Python](https://azure-storage.readthedocs.io/) | [Kod źródłowy biblioteki klienta usługi Python Storage](https://github.com/Azure/azure-storage-python) |
 | Node.js | [ Dokumentacja biblioteki klientaNode.js](https://azure.github.io/azure-storage-node) | [Kod źródłowy biblioteki klienta Node.js Storage](https://github.com/Azure/azure-storage-node) |
-| C++ | [Dokumentacja biblioteki klienta C++](https://azure.github.io/azure-storage-cpp/) | [Kod źródłowy biblioteki klienta usługi C++ Storage](https://github.com/Azure/azure-storage-cpp)|
+| C++ | [Dokumentacja biblioteki klienta C++](https://azure.github.io/azure-sdk-for-cpp/) | [Kod źródłowy biblioteki klienta usługi C++ Storage](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)|
 | Interfejs wiersza polecenia platformy Azure | [Dokumentacja biblioteki interfejsu wiersza polecenia platformy Azure](/cli/azure/storage) | [Kod źródłowy biblioteki klienta magazynu interfejsu wiersza polecenia platformy Azure](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)
 
 ## <a name="next-steps"></a>Następne kroki
@@ -82,4 +82,5 @@ Poniższe artykuły indeksuje poszczególne przykłady według usługi (BLOB, Fi
 * [Przykłady usługi Azure Storage korzystające z języka Java](storage-samples-java.md)
 * [Przykłady usługi Azure Storage korzystające z języka JavaScript](storage-samples-javascript.md)
 * [Przykłady usługi Azure Storage przy użyciu języka Python](storage-samples-python.md)
+* [Przykłady usługi Azure Storage korzystające z języka C++](storage-samples-c-plus-plus.md)
 * [Przykłady usługi Azure Storage korzystające z interfejsu wiersza polecenia platformy Azure](/azure/storage/blobs/storage-samples-blobs-cli)

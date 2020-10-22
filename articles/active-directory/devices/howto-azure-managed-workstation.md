@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a56cd23494f65b1c74e44868496855c6e4a32bf7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269560"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365820"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Wdrażanie bezpiecznej, zarządzanej na platformie Azure stacji roboczej
 
@@ -51,11 +51,11 @@ Wybierz profil przed wdrożeniem rozwiązania. Można użyć wielu profilów jed
 
 Pojęcia omówione w tym przewodniku założono, że masz Microsoft 365 Enterprise E5 lub równoważną jednostkę SKU. Niektóre zalecenia zawarte w tym przewodniku można zaimplementować przy użyciu mniejszych jednostek SKU. Aby uzyskać więcej informacji, zobacz [Microsoft 365 Enterprise Licencjonowanie](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise).
 
-W celu zautomatyzowania aprowizacji licencji należy rozważyć [Licencjonowanie oparte na grupach](../users-groups-roles/licensing-groups-assign.md) dla użytkowników.
+W celu zautomatyzowania aprowizacji licencji należy rozważyć [Licencjonowanie oparte na grupach](../enterprise-users/licensing-groups-assign.md) dla użytkowników.
 
 ## <a name="azure-active-directory-configuration"></a>Konfiguracja Azure Active Directory
 
-Azure Active Directory (Azure AD) zarządza użytkownikami, grupami i urządzeniami dla stacji roboczych administratora. Włącz usługi tożsamości i funkcje przy użyciu [konta administratora](../users-groups-roles/directory-assign-admin-roles.md).
+Azure Active Directory (Azure AD) zarządza użytkownikami, grupami i urządzeniami dla stacji roboczych administratora. Włącz usługi tożsamości i funkcje przy użyciu [konta administratora](../roles/permissions-reference.md).
 
 Podczas tworzenia konta administratora zabezpieczonej stacji roboczej należy uwidocznić konto na bieżącej stacji roboczej. Upewnij się, że używasz znanego bezpiecznego urządzenia, aby wykonać tę konfigurację początkową i wszystkie konfiguracje globalne. Aby zmniejszyć narażenie na ataki podczas pierwszego środowiska, należy wziąć pod uwagę [wskazówki, aby zapobiec infekcjom złośliwego oprogramowania](/windows/security/threat-protection/intelligence/prevent-malware-infection).
 
@@ -71,13 +71,13 @@ Wymagaj uwierzytelniania wieloskładnikowego, co najmniej dla administratorów. 
    * **Nazwa użytkownika** - `secure-ws-admin@identityitpro.com`
    * **Rola katalogu**  -  **Ograniczony administrator** i wybierz rolę **administratora usługi Intune** .
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Następnie utworzysz dwie grupy: Użytkownicy stacji roboczej i urządzenia stacji roboczej.
 
 W Azure Portal przejdź do **Azure Active Directory**  >  **grup**  >  **Nowa grupa**.
 
-1. W przypadku grupy Użytkownicy stacji roboczej możesz chcieć skonfigurować [Licencjonowanie oparte na grupach](../users-groups-roles/licensing-groups-assign.md) w celu zautomatyzowania aprowizacji licencji dla użytkowników.
+1. W przypadku grupy Użytkownicy stacji roboczej możesz chcieć skonfigurować [Licencjonowanie oparte na grupach](../enterprise-users/licensing-groups-assign.md) w celu zautomatyzowania aprowizacji licencji dla użytkowników.
 1. Dla grupy Użytkownicy stacji roboczej wpisz:
 
    * **Typ grupy** — zabezpieczenia
@@ -86,14 +86,14 @@ W Azure Portal przejdź do **Azure Active Directory**  >  **grup**  >  **Nowa gr
 
 1. Dodaj użytkownika administratora bezpiecznego stacji roboczej: `secure-ws-admin@identityitpro.com`
 1. Można dodać innych użytkowników, którzy będą zarządzać bezpiecznymi stacjami roboczymi.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Dla grupy urządzenia stacji roboczej wpisz:
 
    * **Typ grupy** — zabezpieczenia
    * **Nazwa grupy** — bezpieczne stacje robocze
    * Przypisany **Typ członkostwa**
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="azure-ad-device-configuration"></a>Konfiguracja urządzenia usługi Azure AD
 
@@ -131,7 +131,7 @@ Te kroki umożliwiają zarządzanie dowolnym urządzeniem za pomocą usługi Int
 
 #### <a name="azure-ad-conditional-access"></a>Dostęp warunkowy w usłudze Azure AD
 
-Dostęp warunkowy usługi Azure AD może pomóc w ograniczeniu uprzywilejowanych zadań administracyjnych do zgodnych urządzeń. Wstępnie zdefiniowane elementy członkowskie grupy **bezpiecznych użytkowników stacji roboczej** są wymagane do przeprowadzenia uwierzytelniania wieloskładnikowego podczas logowania do aplikacji w chmurze. Najlepszym rozwiązaniem jest wykluczenie kont dostępu awaryjnego z zasad. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../users-groups-roles/directory-emergency-access.md).
+Dostęp warunkowy usługi Azure AD może pomóc w ograniczeniu uprzywilejowanych zadań administracyjnych do zgodnych urządzeń. Wstępnie zdefiniowane elementy członkowskie grupy **bezpiecznych użytkowników stacji roboczej** są wymagane do przeprowadzenia uwierzytelniania wieloskładnikowego podczas logowania do aplikacji w chmurze. Najlepszym rozwiązaniem jest wykluczenie kont dostępu awaryjnego z zasad. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../roles/security-emergency-access.md).
 
 ## <a name="intune-configuration"></a>Konfiguracja usługi Intune
 
@@ -166,13 +166,13 @@ W usłudze Intune w Azure Portal:
    * Pole **Dołącz do usługi Azure AD jako** powinno zawierać **przyłączone do usługi Azure AD** i być wyszarzone.
    * Wybierz język (region), typ konta użytkownika **Standard**. 
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 
    * Wybierz tag zakresu, jeśli został wstępnie skonfigurowany.
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Wybierz pozycję **przypisania**  >  **Przypisz do**  >  **wybranych grup**. W obszarze **Wybierz grupy do dołączenia**wybierz pozycję **bezpieczne stacje robocze**.
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Wybierz pozycję **Utwórz**, aby utworzyć profil. Profil wdrażania rozwiązania Autopilot jest teraz dostępny do przypisania do urządzeń.
 
 Rejestracja urządzeń w programie autopilotaż zapewnia różne środowisko użytkownika w oparciu o typ i rolę urządzenia. W naszym przykładowym wdrożeniu przedstawiono model, w którym są wdrażane zbiorczo dane zabezpieczone i można je udostępnić, ale gdy jest używany po raz pierwszy, urządzenie jest przypisane do użytkownika. Aby uzyskać więcej informacji, zobacz [rejestracja urządzeń autopilotażowego usługi Intune](/intune/device-enrollment).
@@ -200,7 +200,7 @@ W witrynie Azure Portal:
    * Odłożenie przypomnienia o ponownym uruchomieniu (dni) — **3**
    * Ustaw termin dla oczekujących ponownych uruchomień (w dniach) — **3**
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Na karcie **przypisania** Dodaj grupę **bezpiecznych stacji roboczych** .
 
 Aby uzyskać więcej informacji na temat zasad Windows Update, zobacz [Policy CSP-Update](/windows/client-management/mdm/policy-csp-update).
@@ -308,7 +308,7 @@ Może być konieczne zainstalowanie aplikacji systemu Windows 32-bit lub innych 
 
 ### <a name="conditional-access-only-allowing-secured-workstation-ability-to-access-azure-portal"></a>Dostęp warunkowy umożliwiający dostęp do Azure Portal tylko zabezpieczonej stacji roboczej.
 
-Usługa Azure AD oferuje możliwość zarządzania i ograniczania, kto i co może uzyskać dostęp do portalu zarządzania chmurą platformy Azure. Włączenie [dostępu warunkowego](../conditional-access/overview.md) gwarantuje, że tylko bezpieczna stacja robocza będzie mogła zarządzać zasobami lub zmieniać je. Należy pamiętać, że podczas wdrażania tej funkcji należy wziąć pod uwagę, jeśli funkcja [dostępu awaryjnego](../users-groups-roles/directory-emergency-access.md) może lub powinna być używana tylko w przypadku ekstremalnych przypadków i konta zarządzanego za pomocą zasad.
+Usługa Azure AD oferuje możliwość zarządzania i ograniczania, kto i co może uzyskać dostęp do portalu zarządzania chmurą platformy Azure. Włączenie [dostępu warunkowego](../conditional-access/overview.md) gwarantuje, że tylko bezpieczna stacja robocza będzie mogła zarządzać zasobami lub zmieniać je. Należy pamiętać, że podczas wdrażania tej funkcji należy wziąć pod uwagę, jeśli funkcja [dostępu awaryjnego](../roles/security-emergency-access.md) może lub powinna być używana tylko w przypadku ekstremalnych przypadków i konta zarządzanego za pomocą zasad.
 
 > [!NOTE]
 > Należy utworzyć grupę użytkowników i dołączyć użytkownika awaryjnego, który będzie mógł obejść zasady dostępu warunkowego. Naszym Przykładem mamy grupę zabezpieczeń o nazwie **BreakGlass awaryjne**
@@ -342,7 +342,7 @@ Skrypt [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptce
 1. Wybierz pozycję **Konfiguruj**.
    1. Ustaw opcję **Uruchom ten skrypt przy użyciu poświadczeń zalogowanych** na **wartość tak**.
    1. Wybierz przycisk **OK**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Wybierz pozycję **przypisania**  >  **Wybierz pozycję grupy**.
    1. Dodaj do grupy zabezpieczeń **bezpieczne stacje robocze**.
    1. Wybierz pozycję **Zapisz**.
@@ -429,7 +429,7 @@ Wdrażanie agenta MMA przy użyciu skryptu programu PowerShell usługi Intune
 1. Wybierz pozycję **Konfiguruj**.
    1. Ustaw opcję **Uruchom ten skrypt przy użyciu poświadczeń zalogowanych** na **wartość tak**.
    1. Wybierz przycisk **OK**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Wybierz pozycję **przypisania**  >  **Wybierz pozycję grupy**.
    1. Dodaj do grupy zabezpieczeń **bezpieczne stacje robocze**.
    1. Wybierz pozycję **Zapisz**.

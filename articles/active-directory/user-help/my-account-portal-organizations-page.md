@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005075"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370342"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Zarządzanie organizacjami, do których masz dostęp w portalu My Account
 
@@ -30,7 +30,7 @@ Strona **organizacje** portalu **My Account** ułatwia zarządzanie organizacjam
 - **Inne organizacje.** Inne organizacje to wszystkie grupy, do których użytkownik zalogował się wcześniej przy użyciu konta służbowego. W każdej chwili możesz opuścić każdą z tych organizacji.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o organizacji, do których uzyskuje dostęp za pomocą konta służbowego. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu grupami i użytkownikami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą zarządzania użytkownikami przedsiębiorstwa](../users-groups-roles/index.yml).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o organizacji, do których uzyskuje dostęp za pomocą konta służbowego. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu grupami i użytkownikami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą zarządzania użytkownikami przedsiębiorstwa](../enterprise-users/index.yml).
 
 ## <a name="view-your-organizations"></a>Wyświetlanie organizacji
 

@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361908"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368387"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Dodawanie lub usuwanie przypisań ról platformy Azure dla użytkowników zewnętrznych Gości przy użyciu Azure Portal
 
@@ -183,7 +183,7 @@ Użytkownicy-Goście mają ograniczone uprawnienia do katalogu. Na przykład uż
 
 ![Użytkownik-Gość nie może przeglądać użytkowników w katalogu](./media/role-assignments-external-users/directory-no-users.png)
 
-Jeśli użytkownik-Gość potrzebuje dodatkowych uprawnień w katalogu, można przypisać rolę katalogu do użytkownika-gościa. Jeśli chcesz, aby użytkownik-Gość miał pełny dostęp do odczytu do katalogu, możesz dodać użytkownika-gościa do roli [czytelnicy katalogów](../active-directory/users-groups-roles/directory-assign-admin-roles.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Jeśli użytkownik-Gość potrzebuje dodatkowych uprawnień w katalogu, można przypisać rolę katalogu do użytkownika-gościa. Jeśli chcesz, aby użytkownik-Gość miał pełny dostęp do odczytu do katalogu, możesz dodać użytkownika-gościa do roli [czytelnicy katalogów](../active-directory/roles/permissions-reference.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![Przypisywanie roli czytelnicy Directory](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,11 +193,11 @@ Użytkownicy-Goście mają ograniczone uprawnienia do katalogu. Nawet jeśli uż
 
 ![Użytkownik-Gość nie może przeglądać podmiotów zabezpieczeń w celu przypisania ról](./media/role-assignments-external-users/directory-no-browse.png)
 
-Jeśli użytkownik-Gość wie o dokładnej nazwie logowania w katalogu, może udzielić dostępu. Jeśli chcesz, aby użytkownik-Gość miał pełny dostęp do odczytu do katalogu, możesz dodać użytkownika-gościa do roli [czytelnicy katalogów](../active-directory/users-groups-roles/directory-assign-admin-roles.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Jeśli użytkownik-Gość wie o dokładnej nazwie logowania w katalogu, może udzielić dostępu. Jeśli chcesz, aby użytkownik-Gość miał pełny dostęp do odczytu do katalogu, możesz dodać użytkownika-gościa do roli [czytelnicy katalogów](../active-directory/roles/permissions-reference.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>Użytkownik-Gość nie może zarejestrować aplikacji ani utworzyć jednostek usługi
 
-Użytkownicy-Goście mają ograniczone uprawnienia do katalogu. Jeśli użytkownik-Gość musi mieć możliwość rejestrowania aplikacji lub tworzenia jednostek usługi, można dodać użytkownika-gościa do roli [Deweloper aplikacji](../active-directory/users-groups-roles/directory-assign-admin-roles.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Użytkownicy-Goście mają ograniczone uprawnienia do katalogu. Jeśli użytkownik-Gość musi mieć możliwość rejestrowania aplikacji lub tworzenia jednostek usługi, można dodać użytkownika-gościa do roli [Deweloper aplikacji](../active-directory/roles/permissions-reference.md) w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![Użytkownik-Gość nie może zarejestrować aplikacji](./media/role-assignments-external-users/directory-access-denied.png)
 

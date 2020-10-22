@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: c841c96326f636e16f3b4f86fcb88a0962011c0f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976835"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367605"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Integracja Azure Key Vault z Azure Stack Edge 
 
@@ -22,7 +22,7 @@ Azure Key Vault jest zintegrowana z usługą Azure Stack Edge do zarządzania ta
 
 ## <a name="about-key-vault-and-azure-stack-edge"></a>Informacje o magazynie kluczy i Azure Stack Edge
 
-Usługa Azure Key Vault w chmurze służy do bezpiecznego przechowywania i kontrolowania dostępu do tokenów, haseł, certyfikatów, kluczy interfejsu API i innych wpisów tajnych. Key Vault ułatwia również tworzenie i kontrolowanie kluczy szyfrowania używanych do szyfrowania danych. 
+Usługa Azure Key Vault w chmurze służy do bezpiecznego przechowywania i kontrolowania dostępu do tokenów, haseł, certyfikatów, kluczy interfejsu API i innych wpisów tajnych. Key Vault ułatwia również tworzenie i kontrolowanie kluczy szyfrowania używanych do szyfrowania danych. Aby uzyskać więcej informacji o dozwolonych transakcjach i odpowiednich opłatach, zobacz [Cennik dla Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 W przypadku usługi Azure Stack Edge jeden z użytych kluczy tajnych jest kluczem integralności kanału (CIK). Ten klucz umożliwia zaszyfrowanie wpisów tajnych. W przypadku integracji magazynu kluczy CIK jest bezpiecznie przechowywane w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [bezpieczne przechowywanie wpisów tajnych i kluczy](../key-vault/general/overview.md#securely-store-secrets-and-keys).
 
@@ -44,6 +44,8 @@ Magazyn kluczy jest tworzony dla zasobu brzegowego Azure Stack podczas procesu g
 - Możesz zaakceptować domyślną nazwę klucza lub określić niestandardową nazwę magazynu kluczy. Nazwa magazynu kluczy musi mieć długość od 3 do 24 znaków. Nie można użyć magazynu kluczy, który jest już używany. <!--The MSI is then used to authenticate to key vault to retrieve secrets.--> 
 
     ![Plik MSI utworzony podczas tworzenia zasobów Azure Stack Edge](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+
+- Aby przejść do magazynu kluczy platformy Azure, przejdź do pozycji **Właściwości** w obszarze zasób usługi Azure Stack Edge i wybierz nazwę magazynu kluczy. 
 
 - Aby zapobiec przypadkowemu usunięciu, w magazynie kluczy jest włączona blokada zasobów. W magazynie kluczy jest również włączona funkcja usuwania nietrwałego, która umożliwia przywrócenie magazynu kluczy w ciągu 90 dni w przypadku przypadkowego usunięcia. Aby uzyskać więcej informacji, zobacz [Azure Key Vault Omówienie usuwania nietrwałego](../key-vault/general/soft-delete-overview.md)
 

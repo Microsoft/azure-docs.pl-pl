@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8471305af93194ccae7b0928685e10d4d64726
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135350"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366664"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Rozwiązywanie problemów z błędami odnajdywania vCenter Server
 
@@ -54,7 +54,7 @@ Podczas napotkania tego problemu występują następujące sytuacje:
 
 W celu rozwiązania tego problemu:
 
-Pobierz [Narzędzie PsExec](https://aka.ms/PsExec). 
+Pobierz [Narzędzie PsExec](/sysinternals/downloads/psexec). 
 
 Użyj narzędzia PsExec, aby uzyskać dostęp do kontekstu użytkownika systemu i określić, czy adres serwera proxy jest skonfigurowany. Następnie można dodać program vCenter do listy obejścia przy użyciu poniższych procedur.
 
@@ -81,4 +81,4 @@ W przypadku konfiguracji serwera proxy agenta DRA:
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii maszyny wirtualnej VMware](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 
+[Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii maszyny wirtualnej VMware](./vmware-azure-manage-configuration-server.md#refresh-configuration-server)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.openlocfilehash: a5e53c29c41b3c4a5a2dd1f421e128231aa5eec3
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 74321bc75fa760727e7896f47cdfc5b2929047e5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327553"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366092"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Platforma wyrażania zgody w usłudze Azure Active Directory
 
@@ -49,7 +49,7 @@ Poniższe kroki pokazują, jak środowisko zgody działa zarówno dla deweloper�
 
 1. Po udzieleniu zgody przez użytkownika kod autoryzacji jest zwracany do aplikacji, która jest realizowana w celu uzyskania tokenu dostępu i tokenu odświeżania. Aby uzyskać więcej informacji o tym przepływie, zobacz [przepływ kodu autoryzacji OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
-1. Jako administrator możesz także wyrazić zgodę na uprawnienia delegowane aplikacji w imieniu wszystkich użytkowników w dzierżawie. Zgoda na administrowanie uniemożliwia wyświetlenie okna dialogowego wyrażania zgody dla każdego użytkownika w dzierżawie i może zostać wykonana w [Azure Portal](https://portal.azure.com) przez użytkowników z rolą administratora. Aby dowiedzieć się, które role administratorów mogą wyrazić zgodę na delegowane uprawnienia, zobacz [uprawnienia roli administratora w usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+1. Jako administrator możesz także wyrazić zgodę na uprawnienia delegowane aplikacji w imieniu wszystkich użytkowników w dzierżawie. Zgoda na administrowanie uniemożliwia wyświetlenie okna dialogowego wyrażania zgody dla każdego użytkownika w dzierżawie i może zostać wykonana w [Azure Portal](https://portal.azure.com) przez użytkowników z rolą administratora. Aby dowiedzieć się, które role administratorów mogą wyrazić zgodę na delegowane uprawnienia, zobacz [uprawnienia roli administratora w usłudze Azure AD](../roles/permissions-reference.md).
 
     **Aby wyrazić zgodę na uprawnienia delegowane aplikacji**
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a634743441866c4f1a9f6d634efe0ff9e368b5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dee5a56f309dab8f09a598219f6302c88f4308e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757847"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370716"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)
 
@@ -219,9 +219,6 @@ Skorzystaj z instrukcji w temacie [zapytania Azure Cosmos DB ze sklepu analitycz
 
 Synapse programu SQL Server (funkcja w wersji zapoznawczej, która wcześniej była określana jako **SQL na żądanie**), umożliwia wykonywanie zapytań i analizowanie danych w kontenerach Azure Cosmos DB, które są włączone przy użyciu linku usługi Azure Synapse. Dane można analizować niemal w czasie rzeczywistym bez wpływania na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z magazynu analitycznego i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [magazynu analitycznego w kwerendzie przy użyciu programu Synapse SQL Server](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) .
 
-> [!NOTE]
-> Korzystanie z Azure Cosmos DBego sklepu analitycznego z programem SQL Server w wersji zapoznawczej jest obecnie objęte usługą. Aby zażądać dostępu, skontaktuj się z [zespołem Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
-
 ## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Używaj bezSynapseowego programu SQL Server, aby analizować i wizualizować dane w Power BI
 
 Można utworzyć Synapse bazę danych programu SQL Server i widoki za pośrednictwem linku Synapse dla Azure Cosmos DB. Później możesz wysyłać zapytania o kontenery usługi Azure Cosmos, a następnie utworzyć model z Power BIem w tych widokach w celu odzwierciedlenia tego zapytania. Aby dowiedzieć się więcej, zobacz artykuł jak korzystać z [programu Synapse SQL Server, aby analizować dane Azure Cosmos DB za pomocą linku Synapse](synapse-link-power-bi.md) .
@@ -240,7 +237,7 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Link Synapse platformy Azure dla Azure Cosmos DB.](synapse-link.md)
 
-* [Omówienie magazynu analitycznego usługi Azure Cosmos DB.](analytical-store-introduction.md)
+* [Azure Cosmos DB Omówienie magazynu analitycznego.](analytical-store-introduction.md)
 
 * [Często zadawane pytania dotyczące Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
 
