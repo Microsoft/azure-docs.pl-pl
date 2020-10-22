@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318132"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362703"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
 
@@ -198,7 +198,7 @@ Rola administracyjna wymagana do tworzenia i odczytywania przeglądu dostępu or
 | Pakiet dostępu| Administrator globalny<p>Twórca pakietu dostępu| Tylko administrator globalny |
 
 
-Aby uzyskać więcej informacji, zobacz [uprawnienia roli administrator w Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Aby uzyskać więcej informacji, zobacz [uprawnienia roli administrator w Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>Kto będzie przeglądać dostęp do zasobu?
 
@@ -343,7 +343,7 @@ Za [pomocą przeglądów dostępu usługi Azure AD można zarządzać użytkowni
 
 ### <a name="review-external-users-group-memberships"></a>Przejrzyj członkostwa w grupach użytkowników zewnętrznych
 
-Aby zminimalizować liczbę czynności ręcznych i związanych z nimi potencjalnych błędów, należy rozważyć użycie [grup dynamicznych](../users-groups-roles/groups-create-rule.md) do przypisywania członkostwa w grupach na podstawie atrybutów użytkownika. Można utworzyć co najmniej jedną grupę dynamiczną dla użytkowników zewnętrznych. Wewnętrzny sponsor może działać jako recenzent dla członkostwa w grupie. 
+Aby zminimalizować liczbę czynności ręcznych i związanych z nimi potencjalnych błędów, należy rozważyć użycie [grup dynamicznych](../enterprise-users/groups-create-rule.md) do przypisywania członkostwa w grupach na podstawie atrybutów użytkownika. Można utworzyć co najmniej jedną grupę dynamiczną dla użytkowników zewnętrznych. Wewnętrzny sponsor może działać jako recenzent dla członkostwa w grupie. 
 
 Uwaga: użytkownicy zewnętrzni usunięci z grupy w wyniku przeglądu dostępu nie zostaną usunięci z dzierżawy. 
 
@@ -389,7 +389,7 @@ Przeglądy dostępu mogą dotyczyć członków grupy lub użytkowników, którzy
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Planowanie przeglądu usługi Azure AD i ról zasobów platformy Azure
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) upraszcza zarządzanie dostępem uprzywilejowanym do zasobów w usłudze Azure AD. Dzięki temu można zachować listę ról uprzywilejowanych, zarówno w [usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md) , jak i w przypadku [zasobów platformy Azure](../../role-based-access-control/built-in-roles.md) znacznie mniejszych i zwiększyć ogólne zabezpieczenia katalogu.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) upraszcza zarządzanie dostępem uprzywilejowanym do zasobów w usłudze Azure AD. Dzięki temu można zachować listę ról uprzywilejowanych, zarówno w [usłudze Azure AD](../roles/permissions-reference.md) , jak i w przypadku [zasobów platformy Azure](../../role-based-access-control/built-in-roles.md) znacznie mniejszych i zwiększyć ogólne zabezpieczenia katalogu.
 
 Przeglądy dostępu umożliwiają recenzentom potwierdzenie, czy użytkownicy nadal muszą znajdować się w roli. Podobnie jak przeglądy dostępu dla pakietów dostępu, przeglądy dla ról usługi Azure AD i zasobów platformy Azure są zintegrowane z użytkownikami administracyjnymi PIM. Zalecamy regularne przeglądanie następujących przypisań ról:
 

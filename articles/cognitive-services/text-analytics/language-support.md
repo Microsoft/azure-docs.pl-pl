@@ -10,17 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 4a4058cc6317e863fa20406449e64aa877810a54
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b13d82780a01771c6bb8e87091a7808ea22ca111
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147466"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371189"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
 
-> [!IMPORTANT]
-> Wersja 3. x interfejs API analizy tekstu jest obecnie niedostępna w następujących regionach: Indie Środkowe, Zjednoczone Emiraty Arabskie, Chiny Północne 2, Chiny Wschodnie.
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 
 #### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment-analysis)
@@ -34,12 +33,12 @@ ms.locfileid: "92147466"
 | Angielski               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Fiński               |     `fi`      |     ✓      |            |                            |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Grecki                 |     `el`      |     ✓      |            |                            |                    |
 | Hindi                 |     `hi`      |           |      ✓      |          2020-04-01                  |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | japoński              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
+| Koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |     ✓       |        2020-07-01         |                    |
 | Polski                |     `pl`      |     ✓      |            |                            |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` również zaakceptowane |
@@ -72,12 +71,12 @@ ms.locfileid: "92147466"
 | Angielski                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
 | Fiński               |     `fi`      |     ✓      |            |                                 |                    |
 | Francuski                 |     `fr`      |     ✓      |            |                                 |                    |
-| niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
+| Niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
 | Hebrajski                |     `he`      |     ✓      |            |                                 |                    |
 | Węgierski             |     `hu`      |     ✓      |            |                                 |                    |
 | Włoski               |     `it`      |     ✓      |            |                                 |                    |
 | japoński              |     `ja`      |     ✓      |            |                                 |                    |
-| koreański                |     `ko`      |     ✓      |            |                                 |                    |
+| Koreański                |     `ko`      |     ✓      |            |                                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |            |                                 | `nb` również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |            |                                 |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |            |                                 | `pt` również zaakceptowane |
@@ -98,10 +97,10 @@ ms.locfileid: "92147466"
 | Angielski               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Fiński               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | japoński              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` również zaakceptowane |
@@ -154,7 +153,7 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 |Francuski|`fr`|✓|    |
 |Galicyjski|`gl`|✓|    |
 |Gruziński|`ka`|✓|    |
-|niemiecki|`de`|✓|    |
+|Niemiecki|`de`|✓|    |
 |Grecki|`el`|✓|    |
 |Gudżarati|`gu`|✓|    |
 |Kreolski, Kreolski haitański|`ht`|✓|    |
@@ -170,7 +169,7 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 |japoński|`ja`|✓|    |
 |Kannada|`kn`|✓|    |
 |Kazachski|`kk`|✓|2020-09-01|
-|koreański|`ko`|✓|    |
+|Koreański|`ko`|✓|    |
 |Kurdyjski|`ku`|✓|    |
 |-|`lo`|✓|    |
 |Wielka|`la`|✓|    |

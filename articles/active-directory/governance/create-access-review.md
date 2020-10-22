@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602935"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362777"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Tworzenie przeglądu dostępu do grup i aplikacji w przeglądach dostępu usługi Azure AD
 
@@ -164,6 +164,7 @@ Jeśli przypisano Gości jako recenzentów, którzy nie zaakceptowali zaproszeni
 |Zrecenzowane ponownie | Decyzje zostały zarejestrowane przez system dla wszystkich użytkowników, którzy nie zostali zrecenzowani. Przegląd jest gotowy do **dalszego zastosowania, jeśli włączono** funkcję autoapply. |
 |Stosuje | Dostęp do użytkowników, którzy zostali zatwierdzeni, nie zmieni się. |
 |Zastosowano | Odmowa dostępu użytkowników, jeśli istnieją, zostały usunięte z zasobu lub katalogu. |
+|Niepowodzenie | Przeglądanie nie powiodło się. Ten błąd może być związany z usunięciem dzierżawy, zmianą licencji lub innymi wewnętrznymi zmianami dzierżawy. |
 
 ## <a name="create-reviews-via-apis"></a>Tworzenie przeglądów za pośrednictwem interfejsów API
 

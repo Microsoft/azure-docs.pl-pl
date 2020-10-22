@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c039842a04923bc02aa288576570d51c39156c40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88784015"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371515"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Możliwości zarządzania dla ról usługi Azure AD w Privileged Identity Management
 
@@ -69,4 +69,4 @@ W przypadku klientów, którzy korzystają z modułu Privileged Identity Managem
 - [Przypisywanie roli niestandardowej usługi Azure AD](azure-ad-custom-roles-assign.md)
 - [Usuń lub zaktualizuj niestandardowe przypisanie roli usługi Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Skonfiguruj niestandardowe przypisanie roli usługi Azure AD](azure-ad-custom-roles-configure.md)
-- [Definicje ról w usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Definicje ról w usłudze Azure AD](../roles/permissions-reference.md)

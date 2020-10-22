@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c761be04c7d31567e727e93b84c98a1b3510e3d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75965fc9719c9ba16ee7fe24a23dfd4693f8afe0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979884"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362556"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegowanie i role w zarządzaniu prawami usługi Azure AD
 
@@ -124,20 +124,20 @@ Użytkownik, który nie jest administratorem globalnym lub administratorem użyt
 
 | Rola katalogu usługi Azure AD | Rola zarządzania uprawnieniami | Może dodać grupę zabezpieczeń | Może dodać grupę Microsoft 365 | Można dodać aplikację | Może dodać witrynę usługi SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Administrator globalny](../users-groups-roles/directory-assign-admin-roles.md) | nie dotyczy |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Administrator użytkowników](../users-groups-roles/directory-assign-admin-roles.md) | nie dotyczy |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Administrator usługi Intune](../users-groups-roles/directory-assign-admin-roles.md) | Właściciel katalogu | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| [Administrator programu Exchange](../users-groups-roles/directory-assign-admin-roles.md) | Właściciel katalogu |  | :heavy_check_mark: |  |  |
-| [Administrator usługi Teams](../users-groups-roles/directory-assign-admin-roles.md) | Właściciel katalogu |  | :heavy_check_mark: |  |  |
-| [Administrator programu SharePoint](../users-groups-roles/directory-assign-admin-roles.md) | Właściciel katalogu |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Administrator aplikacji](../users-groups-roles/directory-assign-admin-roles.md) | Właściciel katalogu |  |  | :heavy_check_mark: |  |
-| [Administrator aplikacji w chmurze](../users-groups-roles/directory-assign-admin-roles.md) | Właściciel katalogu |  |  | :heavy_check_mark: |  |
+| [Administrator globalny](../roles/permissions-reference.md) | nie dotyczy |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Administrator użytkowników](../roles/permissions-reference.md) | nie dotyczy |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Administrator usługi Intune](../roles/permissions-reference.md) | Właściciel katalogu | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Administrator programu Exchange](../roles/permissions-reference.md) | Właściciel katalogu |  | :heavy_check_mark: |  |  |
+| [Administrator usługi Teams](../roles/permissions-reference.md) | Właściciel katalogu |  | :heavy_check_mark: |  |  |
+| [Administrator programu SharePoint](../roles/permissions-reference.md) | Właściciel katalogu |  | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Administrator aplikacji](../roles/permissions-reference.md) | Właściciel katalogu |  |  | :heavy_check_mark: |  |
+| [Administrator aplikacji w chmurze](../roles/permissions-reference.md) | Właściciel katalogu |  |  | :heavy_check_mark: |  |
 | Użytkownik | Właściciel katalogu | Tylko wtedy, gdy właściciel grupy | Tylko wtedy, gdy właściciel grupy | Tylko wtedy, gdy właściciel aplikacji |  |
 
 > [!NOTE]
-> Jeśli użytkownik doda grupę zabezpieczeń lub grupę Microsoft 365, Grupa nie może być przypisana do roli. Jeśli użytkownik doda grupę, która jest przypisana do roli podczas tworzenia pakietu dostępu, musi również być właścicielem tej grupy przypisanej do roli. Aby uzyskać więcej informacji, należy utworzyć grupę z możliwością [przypisywania ról w Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
+> Jeśli użytkownik doda grupę zabezpieczeń lub grupę Microsoft 365, Grupa nie może być przypisana do roli. Jeśli użytkownik doda grupę, która jest przypisana do roli podczas tworzenia pakietu dostępu, musi również być właścicielem tej grupy przypisanej do roli. Aby uzyskać więcej informacji, należy utworzyć grupę z możliwością [przypisywania ról w Azure Active Directory](../roles/groups-create-eligible.md).
 
-Aby określić najmniejszą rolę uprzywilejowaną dla zadania, można także odwoływać się do [ról administratorów za pomocą zadania administratora w Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
+Aby określić najmniejszą rolę uprzywilejowaną dla zadania, można także odwoływać się do [ról administratorów za pomocą zadania administratora w Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 
 ## <a name="next-steps"></a>Następne kroki
 

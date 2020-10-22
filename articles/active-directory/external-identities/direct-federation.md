@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b7350d793ea42a46d52d881f1399174a3bb5d0e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909557"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362896"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 
@@ -45,7 +45,7 @@ W przypadku federacji bezpośredniej użytkownicy-Goście logują się do dzier�
 ## <a name="limitations"></a>Ograniczenia
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domeny zweryfikowane przez usługę DNS w usłudze Azure AD
-Domena, której chcesz sfederować, ***nie*** może być zweryfikowana przez system DNS w usłudze Azure AD. Istnieje możliwość skonfigurowania Federacji bezpośredniej z niezarządzanymi (zweryfikowanymi pocztą e-mail lub "wirusami") dzierżaw usługi Azure AD, ponieważ nie są one zweryfikowane przez system DNS.
+Domena, do której chcesz sfederować, musi ***nie**_ być zweryfikowana przez system DNS w usłudze Azure AD. Istnieje możliwość skonfigurowania Federacji bezpośredniej z niezarządzanymi (zweryfikowanymi pocztą e-mail lub "wirusami") dzierżaw usługi Azure AD, ponieważ nie są one zweryfikowane przez system DNS.
 
 ### <a name="authentication-url"></a>Adres URL uwierzytelniania
 Federacja bezpośrednia jest dozwolona tylko w przypadku zasad, w których domena adresu URL uwierzytelniania jest zgodna z domeną docelową lub jeśli adres URL uwierzytelniania jest jednym z tych dozwolonych dostawców tożsamości (Ta lista może ulec zmianie):
@@ -60,7 +60,7 @@ Federacja bezpośrednia jest dozwolona tylko w przypadku zasad, w których domen
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Na przykład podczas konfigurowania Federacji bezpośredniej dla **fabrikam.com**, adres URL uwierzytelniania `https://fabrikam.com/adfs` przekaże weryfikację. Host w tej samej domenie również zostanie przekazany na przykład `https://sts.fabrikam.com/adfs` . Jednak adres URL uwierzytelniania `https://fabrikamconglomerate.com/adfs` lub `https://fabrikam.com.uk/adfs` dla tej samej domeny nie zostanie przekazany.
+Na przykład podczas konfigurowania Federacji bezpośredniej dla _ * fabrikam. com * * adres URL uwierzytelniania `https://fabrikam.com/adfs` przekaże weryfikację. Host w tej samej domenie również zostanie przekazany na przykład `https://sts.fabrikam.com/adfs` . Jednak adres URL uwierzytelniania `https://fabrikamconglomerate.com/adfs` lub `https://fabrikam.com.uk/adfs` dla tej samej domeny nie zostanie przekazany.
 
 ### <a name="signing-certificate-renewal"></a>Odnawianie certyfikatu podpisywania
 Jeśli określisz adres URL metadanych w ustawieniach dostawcy tożsamości, usługa Azure AD automatycznie odnowi certyfikat podpisywania po jego wygaśnięciu. Jeśli jednak certyfikat jest obrócony z dowolnego powodu przed upływem czasu wygaśnięcia lub jeśli nie podano adresu URL metadanych, usługa Azure AD nie będzie mogła go odnowić. W takim przypadku należy ręcznie zaktualizować certyfikat podpisywania.
@@ -73,7 +73,7 @@ Obecnie nie obsługujemy bezpośredniej Federacji z wieloma domenami z tej samej
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Czy można skonfigurować bezpośrednią Federacji z domeną, dla której istnieje niezarządzana dzierżawa (zweryfikowana za pośrednictwem poczty e-mail)? 
-Tak. Jeśli domena nie została zweryfikowana i dzierżawa nie przeszła [przejęcia przez administratora](../users-groups-roles/domains-admin-takeover.md), można skonfigurować bezpośrednią Federacji z tą domeną. Niezarządzane lub zweryfikowane pocztą e-mail dzierżawy są tworzone, gdy użytkownik zrealizuje zaproszenie B2B lub wykonuje samoobsługowe Tworzenie konta w usłudze Azure AD przy użyciu domeny, która obecnie nie istnieje. Można skonfigurować bezpośrednią Federacji z tymi domenami. W przypadku próby skonfigurowania bezpośredniej Federacji z domeną zweryfikowaną przez system DNS w Azure Portal lub za pomocą programu PowerShell zostanie wyświetlony komunikat o błędzie.
+Tak. Jeśli domena nie została zweryfikowana i dzierżawa nie przeszła [przejęcia przez administratora](../enterprise-users/domains-admin-takeover.md), można skonfigurować bezpośrednią Federacji z tą domeną. Niezarządzane lub zweryfikowane pocztą e-mail dzierżawy są tworzone, gdy użytkownik zrealizuje zaproszenie B2B lub wykonuje samoobsługowe Tworzenie konta w usłudze Azure AD przy użyciu domeny, która obecnie nie istnieje. Można skonfigurować bezpośrednią Federacji z tymi domenami. W przypadku próby skonfigurowania bezpośredniej Federacji z domeną zweryfikowaną przez system DNS w Azure Portal lub za pomocą programu PowerShell zostanie wyświetlony komunikat o błędzie.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Jeśli w przypadku federacji bezpośredniej i poczty e-mail jednorazowe uwierzytelnianie kodu dostępu jest włączone, która metoda ma pierwszeństwo?
 W przypadku ustanowienia bezpośredniej Federacji z organizacją partnera ma ona wyższy priorytet niż jednorazowe uwierzytelnianie kodu dostępu do poczty e-mail dla nowych użytkowników-Gości z tej organizacji. Jeśli użytkownik-Gość wykorzystał zaproszenie przy użyciu jednorazowego uwierzytelniania kodu dostępu, przed skonfigurowaniem Federacji bezpośredniej będzie nadal korzystać z uwierzytelniania jednorazowego kodu dostępu. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>Czy bezpośrednie problemy z logowaniem do adresu federacyjnego są spowodowane częściowo zsynchronizowaną dzierżawą?

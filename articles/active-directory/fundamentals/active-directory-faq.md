@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de7395f42021144eab3dd400bf9a953d57b5a6ee
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: db8774d6868d55c7d040b1894c4a14d989cb2702
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312581"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371872"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Często zadawane pytania dotyczące Azure Active Directory
 Azure Active Directory (Azure AD) jest kompleksowym rozwiązaniem typu tożsamość jako usługa (IDaaS, Identity as a Service), które obejmuje wszystkie aspekty tożsamości, zarządzania dostępem i bezpieczeństwa.
@@ -53,7 +53,7 @@ Odp **.:** Domyślnie osoba, która zarejestruje się w celu uzyskania subskrypc
 
 Jeśli inne osoby muszą logować się i uzyskiwać dostęp do usług za pomocą tej samej subskrypcji, możesz przypisać im odpowiednią [rolę wbudowaną](../../role-based-access-control/built-in-roles.md). Aby uzyskać dodatkowe informacje, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
-Domyślnie osoba, która zarejestruje się w celu uzyskania subskrypcji platformy Azure, ma przypisaną rolę administratora globalnego dla katalogu. Administrator globalny ma dostęp do wszystkich funkcji katalogów usługi Azure AD. Usługa Azure AD ma inny zestaw ról administratora do zarządzania katalogiem i funkcjami związanymi z tożsamościami. Ci administratorzy będą mieli dostęp do różnych funkcji w Azure Portal. Rola administratora określa, co można zrobić, jak tworzyć lub edytować użytkowników, przypisywać role administracyjne do innych, resetować hasła użytkowników, zarządzać licencjami użytkowników lub zarządzać domenami.  Aby uzyskać dodatkowe informacje na temat administratorów katalogów usługi Azure AD i ich ról, zobacz [Przypisywanie użytkownika do ról administratorów w Azure Active Directory](active-directory-users-assign-role-azure-portal.md) i [Przypisywanie ról administratorów w programie Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Domyślnie osoba, która zarejestruje się w celu uzyskania subskrypcji platformy Azure, ma przypisaną rolę administratora globalnego dla katalogu. Administrator globalny ma dostęp do wszystkich funkcji katalogów usługi Azure AD. Usługa Azure AD ma inny zestaw ról administratora do zarządzania katalogiem i funkcjami związanymi z tożsamościami. Ci administratorzy będą mieli dostęp do różnych funkcji w Azure Portal. Rola administratora określa, co można zrobić, jak tworzyć lub edytować użytkowników, przypisywać role administracyjne do innych, resetować hasła użytkowników, zarządzać licencjami użytkowników lub zarządzać domenami.  Aby uzyskać dodatkowe informacje na temat administratorów katalogów usługi Azure AD i ich ról, zobacz [Przypisywanie użytkownika do ról administratorów w Azure Active Directory](active-directory-users-assign-role-azure-portal.md) i [Przypisywanie ról administratorów w programie Azure Active Directory](../roles/permissions-reference.md).
 
 Ponadto usługi płatne w usłudze Azure AD, takie jak Enterprise Mobility + Security uzupełniają inne usługi sieci Web, takie jak Microsoft 365 i Microsoft Azure, dzięki kompleksowym rozwiązaniom zarządzania i zabezpieczeń na poziomie przedsiębiorstwa.
 

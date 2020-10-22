@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff683c7c3214be6ae60b5d00d4cd1c2becc32e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dd1234e13f77f1ea95327a0a489e9a97cdc0ffd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447078"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362505"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Zarządzanie dostępem użytkowników zewnętrznych w usłudze Azure AD upoważnienia
 
@@ -109,7 +109,7 @@ Aby zapewnić, że osoby spoza organizacji mogą żądać dostępu do pakietów 
 
 - Jeśli chcesz, aby użytkownicy zewnętrzni mieli dostęp do witryny usługi SharePoint Online i zasobów skojarzonych z grupą Microsoft 365, upewnij się, że włączasz udostępnianie zewnętrzne w usłudze SharePoint Online. Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Aby uzyskać informacje na temat sposobu ustawiania zasad gościa dla grup Microsoft 365 na poziomie katalogu w programie PowerShell, zobacz [przykład: Konfigurowanie zasad gościa dla grup na poziomie katalogu](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Aby uzyskać informacje na temat sposobu ustawiania zasad gościa dla grup Microsoft 365 na poziomie katalogu w programie PowerShell, zobacz [przykład: Konfigurowanie zasad gościa dla grup na poziomie katalogu](../enterprise-users/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Przejrzyj ustawienia udostępniania zespołów
 
@@ -143,7 +143,7 @@ Możesz wybrać, co się stanie, gdy użytkownik zewnętrzny, który został zap
 
 1. Jeśli chcesz usunąć konto użytkownika-gościa w tym katalogu, możesz ustawić liczbę dni, po której ma zostać usunięta. Jeśli chcesz usunąć konto użytkownika-gościa, gdy tylko utracisz swoje ostatnie przypisanie do wszystkich pakietów dostępu, ustaw **liczbę dni przed usunięciem użytkownika zewnętrznego z tego katalogu** do **0**.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

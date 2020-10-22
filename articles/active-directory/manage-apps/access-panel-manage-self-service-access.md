@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99f0021ee53e972dacfdadb3e488498a3fc4ad0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181718"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372467"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Jak korzystać z samoobsługowego dostępu do aplikacji
 
@@ -67,4 +67,4 @@ Te zatwierdzenia obsługują tylko jednorazowe przepływy pracy zatwierdzania, c
 -   Jeśli dostęp do aplikacji samoobsługi został niedawno skonfigurowany, spróbuj zalogować się i ponownie w moich aplikacjach użytkownika po kilku minutach, aby sprawdzić, czy pojawiły się zmiany dostępu samoobsługi.
 
 ## <a name="next-steps"></a>Następne kroki
-[Konfigurowanie usługi Azure Active Directory do samoobsługowego zarządzania grupami](../users-groups-roles/groups-self-service-management.md)
+[Konfigurowanie usługi Azure Active Directory do samoobsługowego zarządzania grupami](../enterprise-users/groups-self-service-management.md)

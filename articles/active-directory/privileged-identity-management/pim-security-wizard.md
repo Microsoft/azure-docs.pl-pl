@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4662e9fb537a93cb87c554e319256e2eca40d2e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534441"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372433"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Odnajdywanie i szczegółowe informacje (wersja zapoznawcza) dla ról usługi Azure AD (dawniej Kreator zabezpieczeń)
 
@@ -29,7 +29,7 @@ Jeśli zaczynasz pracę z usługą Privileged Identity Management (PIM) w organi
 
 Zanim organizacja zacznie korzystać z Privileged Identity Management, wszystkie przypisania ról są trwałe. Użytkownicy zawsze mają przypisane role nawet wtedy, gdy nie potrzebują ich uprawnień. Odnajdywanie i szczegółowe informacje (wersja zapoznawcza), które zastępują poprzedni Kreator zabezpieczeń, pokazują listę ról uprzywilejowanych i liczbę użytkowników, którzy obecnie znajdują się w tych rolach. Możesz wyświetlić listę przypisań dla roli, aby dowiedzieć się więcej na temat przypisanych użytkowników, jeśli co najmniej jedna z nich jest nieznana.
 
-: heavy_check_mark: **firma Microsoft zaleca** , aby zachować dwa konta ze szlifem, które są trwale przypisane do roli administratora globalnego. Upewnij się, że te konta nie wymagają tego samego mechanizmu usługi uwierzytelniania wieloskładnikowego co normalne konta administracyjne, aby się zalogować, zgodnie z opisem w temacie [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../users-groups-roles/directory-emergency-access.md).
+: heavy_check_mark: **firma Microsoft zaleca** , aby zachować dwa konta ze szlifem, które są trwale przypisane do roli administratora globalnego. Upewnij się, że te konta nie wymagają tego samego mechanizmu usługi uwierzytelniania wieloskładnikowego co normalne konta administracyjne, aby się zalogować, zgodnie z opisem w temacie [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../roles/security-emergency-access.md).
 
 Ponadto należy zachować stałe przypisania ról, jeśli użytkownik ma konto Microsoft (innymi słowy, konto używane do logowania się do usług firmy Microsoft, takich jak Skype lub Outlook.com). Jeśli wymagane jest uwierzytelnianie wieloskładnikowe dla użytkownika z konto Microsoft w celu aktywowania przypisania roli, użytkownik zostanie zablokowany.
 

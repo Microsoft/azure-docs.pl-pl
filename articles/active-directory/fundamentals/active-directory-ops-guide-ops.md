@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312607"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370954"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Dokumentacja podręcznika obsługi ogólnej Azure Active Directory
 
@@ -49,7 +49,7 @@ Podczas przeglądania listy może być konieczne przypisanie właściciela do za
 
 #### <a name="owners-recommended-reading"></a>Zalecane odczytywanie przez właścicieli
 
-- [Przypisywanie ról administratorów w usłudze Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Przypisywanie ról administratorów w usłudze Azure Active Directory](../roles/permissions-reference.md)
 - [Nadzór na platformie Azure](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>Zarządzanie hybrydowe
@@ -154,7 +154,7 @@ Zapoznaj się z poniższą tabelą, aby uzyskać informacje o typie wysyłanych 
 
 ### <a name="ad-fs-lockdown"></a>Blokada AD FS
 
-Organizacje, które konfigurują aplikacje do uwierzytelniania bezpośrednio w usłudze Azure AD z poziomu [inteligentnego blokowania usługi Azure AD](../authentication/concept-sspr-howitworks.md). Jeśli używasz AD FS w systemie Windows Server 2012 R2, zaimplementuj AD FS [Ochrona blokowania ekstranetu](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Jeśli używasz AD FS w systemie Windows Server 2016 lub nowszym, zaimplementuj [inteligentne blokowanie ekstranetu](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Zaleca się włączenie blokowania ekstranetu w taki sposób, aby zawierało ryzyko wymuszania ataków na Active Directory lokalnych. Jeśli jednak masz AD FS w systemie Windows 2016 lub nowszym, należy również włączyć blokadę blokowania ekstranetu, która pomoże ograniczyć ataki z wykorzystaniem [hasła](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
+Organizacje, które konfigurują aplikacje do uwierzytelniania bezpośrednio w usłudze Azure AD z poziomu [inteligentnego blokowania usługi Azure AD](../authentication/concept-sspr-howitworks.md). Jeśli używasz AD FS w systemie Windows Server 2012 R2, zaimplementuj AD FS [Ochrona blokowania ekstranetu](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Jeśli używasz AD FS w systemie Windows Server 2016 lub nowszym, zaimplementuj [inteligentne blokowanie ekstranetu](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Zaleca się włączenie blokowania ekstranetu w taki sposób, aby zawierało ryzyko wymuszania ataków na Active Directory lokalnych. Jeśli jednak masz AD FS w systemie Windows 2016 lub nowszym, należy również włączyć blokadę blokowania ekstranetu, która pomoże ograniczyć ataki z wykorzystaniem [hasła](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
 
 Jeśli AD FS jest używany tylko w przypadku federacji usługi Azure AD, niektóre punkty końcowe można wyłączyć, aby zminimalizować obszar narażony na ataki. Na przykład jeśli AD FS jest używany tylko w usłudze Azure AD, należy wyłączyć punkty końcowe WS-Trust inne niż punkty końcowe włączone dla **usernamemixed** i **windowstransport**.
 
@@ -166,9 +166,9 @@ Active Directory model warstwy administracyjnej został zaprojektowany tak, aby 
 
 [Model warstwowy](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) składa się z trzech poziomów i zawiera tylko konta administracyjne, a nie konta użytkowników standardowych.
 
-- **Warstwa 0**   — Bezpośrednią kontrolę nad tożsamościami przedsiębiorstwa w środowisku. Warstwa 0 obejmuje konta, grupy i inne zasoby, które mają bezpośrednią lub pośrednią kontrolę administracyjną nad lasem usługi Active Directory, domenami, kontrolerami domeny i wszystkimi zasobami znajdującymi się w tym lesie. Czułość zabezpieczeń wszystkich zasobów warstwy 0 jest równoważna ich wzajemnej, efektywnej kontroli.
-- **Warstwa 1**   — Kontrola nad serwerami i aplikacjami przedsiębiorstwa. Zasoby warstwy 1 obejmują systemy operacyjne serwerów, usługi w chmurze i aplikacje używane w przedsiębiorstwie. Konta administratorów w warstwie 1 umożliwiają prowadzenie nadzoru nad znaczną częścią elementów generujących wartość biznesową, które są hostowane w tych zasobach. Typowym przykładem takiej roli są administratorzy serwerów, którzy obsługują te systemy operacyjne i mogą zmieniać działanie wszystkich usług w przedsiębiorstwie.
-- **Warstwa 2**   Kontrola nad stacjami roboczymi i urządzeniami użytkowników. Konta administratorów w warstwie 2 umożliwiają prowadzenie nadzoru nad znaczną częścią elementów generujących wartość biznesową, które są hostowane na urządzeniach i stacjach roboczych użytkowników. Przykłady obejmują administratorów pomocy technicznej, którzy mają wpływ na spójność prawie wszystkich danych użytkowników.
+- **Warstwa 0** — bezpośrednia kontrola nad tożsamościami używanymi w środowisku przedsiębiorstwa. Warstwa 0 obejmuje konta, grupy i inne zasoby, które mają bezpośrednią lub pośrednią kontrolę administracyjną nad lasem usługi Active Directory, domenami, kontrolerami domeny i wszystkimi zasobami znajdującymi się w tym lesie. Czułość zabezpieczeń wszystkich zasobów warstwy 0 jest równoważna ich wzajemnej, efektywnej kontroli.
+- **Warstwa 1** — kontrola nad korporacyjnymi serwerami i aplikacjami. Zasoby warstwy 1 obejmują systemy operacyjne serwerów, usługi w chmurze i aplikacje używane w przedsiębiorstwie. Konta administratorów w warstwie 1 umożliwiają prowadzenie nadzoru nad znaczną częścią elementów generujących wartość biznesową, które są hostowane w tych zasobach. Typowym przykładem takiej roli są administratorzy serwerów, którzy obsługują te systemy operacyjne i mogą zmieniać działanie wszystkich usług w przedsiębiorstwie.
+- **Warstwa 2** — kontrola nad urządzeniami i stacjami roboczymi użytkowników. Konta administratorów w warstwie 2 umożliwiają prowadzenie nadzoru nad znaczną częścią elementów generujących wartość biznesową, które są hostowane na urządzeniach i stacjach roboczych użytkowników. Przykłady obejmują administratorów pomocy technicznej, którzy mają wpływ na spójność prawie wszystkich danych użytkowników.
 
 Zablokuj dostęp do lokalnych składników tożsamości, takich jak Azure AD Connect, AD FS i usługi SQL w taki sam sposób, jak w przypadku kontrolerów domeny.
 

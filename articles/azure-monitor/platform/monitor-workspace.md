@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: a4f578ca2e9fc448fb85b803cce46974a8c2e4dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d77b4b5824c4426f106d10ca246c5b0d5e76327a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326055"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372263"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitoruj kondycję obszaru roboczego Log Analytics w Azure Monitor
 Aby zachować wydajność i dostępność obszaru roboczego Log Analytics w Azure Monitor, musisz mieć możliwość aktywnego wykrywania wszelkich powstających problemów. W tym artykule opisano sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli [operacje](/azure-monitor/reference/tables/operation) . Ta tabela jest uwzględniona w każdym obszarze roboczym Log Analytics i zawiera błędy i ostrzeżenia, które występują w obszarze roboczym. Należy regularnie przeglądać te dane i tworzyć alerty w celu ich aktywnego powiadamiania o wszelkich ważnych zdarzeniach w obszarze roboczym.
@@ -55,19 +55,19 @@ Operacje pozyskiwania to problemy, które wystąpiły podczas przyjmowania danyc
 |:---|:---|:---|:---|
 | Dziennik niestandardowy | Błąd   | Osiągnięto limit kolumn pól niestandardowych. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Dziennik niestandardowy | Błąd   | Pozyskiwanie dzienników niestandardowych nie powiodło się. | |
-| Dziennik niestandardowy | Błąd   | Metadane. | |
-| Dane | Błąd   | Dane zostały usunięte, ponieważ żądanie zostało utworzone wcześniej niż określona liczba dni. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
+| Metadane. | Błąd | Wykryto błąd konfiguracji. | |
+| Zbieranie danych | Błąd   | Dane zostały usunięte, ponieważ żądanie zostało utworzone wcześniej niż określona liczba dni. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Zbieranie danych | Info    | Wykryto konfigurację maszyny kolekcji.| |
 | Zbieranie danych | Info    | Zbieranie danych zostało uruchomione z powodu nowego dnia. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Zbieranie danych | Ostrzeżenie | Zbieranie danych zostało zatrzymane z powodu osiągnięcia dziennego limitu.| [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Przetwarzanie danych | Błąd   | Nieprawidłowy format JSON. | [Wysyłanie danych dziennika do Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)](data-collector-api.md#request-body) | 
+| Przetwarzanie danych | Ostrzeżenie | Wartość została przycięta do maksymalnego dozwolonego rozmiaru. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
+| Przetwarzanie danych | Ostrzeżenie | Osiągnięto limit rozmiaru wartości pola. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
 | Szybkość pozyskiwania | Info | Limit szybkości pozyskiwania zbliżający się do 70%. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Szybkość pozyskiwania | Ostrzeżenie | Limit szybkości pozyskiwania zbliżający się do limitu. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Szybkość pozyskiwania | Błąd   | Osiągnięto limit szybkości. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Analiza JSON | Błąd   | Nieprawidłowy format JSON. | [Wysyłanie danych dziennika do Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)](data-collector-api.md#request-body) | 
-| Analiza JSON | Ostrzeżenie | Wartość została przycięta do maksymalnego dozwolonego rozmiaru. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Maksymalny limit rozmiaru kolumny | Ostrzeżenie | Osiągnięto limit rozmiaru wartości pola. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
 | Magazyn | Błąd   | Nie można uzyskać dostępu do konta magazynu, ponieważ użyte poświadczenia są nieprawidłowe.  |
-| Tabela   | Błąd   | Osiągnięto maksymalny limit pól niestandardowych. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces)|
+
 
 
    
@@ -91,21 +91,32 @@ Aby utworzyć regułę alertu dla określonej operacji, należy użyć zapytania
 
 Poniższy przykład tworzy Alert ostrzegawczy, gdy współczynnik wolumenu pozyskiwania osiągnął 80% limitu.
 
-```kusto
-_LogsOperation
-| where Category == "Ingestion"
-| where Operation == "Ingestion rate"
-| where Level == "Warning"
-```
+- Obiekt docelowy: Wybierz obszar roboczy Log Analytics
+- Określonych
+  - Nazwa sygnału: niestandardowe wyszukiwanie w dzienniku
+  - Zapytanie wyszukiwania: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
+  - Na podstawie: liczba wyników
+  - Warunek: większe niż
+  - Próg: 0
+  - Okres: 5 (minuty)
+  - Częstotliwość: 5 (minuty)
+- Nazwa reguły alertu: osiągnięto dzienny limit danych
+- Ważność: ostrzeżenie (ważność 1)
+
 
 Poniższy przykład powoduje utworzenie alertu ostrzegawczego, gdy zbieranie danych osiągnie limit dzienny. 
-```kusto
-Operation 
-| where OperationCategory == "Ingestion" 
-|where OperationKey == "Data Collection" 
-| where OperationStatus == "Warning"
-```
 
+- Obiekt docelowy: Wybierz obszar roboczy Log Analytics
+- Określonych
+  - Nazwa sygnału: niestandardowe wyszukiwanie w dzienniku
+  - Zapytanie wyszukiwania: `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
+  - Na podstawie: liczba wyników
+  - Warunek: większe niż
+  - Próg: 0
+  - Okres: 5 (minuty)
+  - Częstotliwość: 5 (minuty)
+- Nazwa reguły alertu: osiągnięto dzienny limit danych
+- Ważność: ostrzeżenie (ważność 1)
 
 
 

@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c578d9df8c008d73460801547e6b9361e60baa8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b4030dedfb0d7308bb5a0f7a86bc49ee168e6d0c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318014"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362811"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Samouczek: Tworzenie pierwszego pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -118,10 +118,10 @@ Katalog zasobów zawiera co najmniej jeden zasób do udostępnienia. W tym kroku
 
     ![Nowy pakiet dostępu — karta role zasobów](./media/entitlement-management-access-package-first/resource-roles.png)
     >[!IMPORTANT]
-    >Grupy przypisane do ról dodane do pakietu dostępu będą wskazywane przy użyciu podtypu, który można **przypisać do ról**. Aby uzyskać więcej informacji na temat grup, które można przypisać do ról usługi Azure AD, zapoznaj się z tematem [Tworzenie grupy umożliwiającej przypisanie roli](../users-groups-roles/roles-groups-create-eligible.md) w Azure Active Directory. Jeśli nie widzisz grupy, którą można przypisać, którą chcesz dodać, lub nie możesz jej dodać, upewnij się, że masz wymaganą rolę usługi Azure AD i rolę zarządzania uprawnieniami, aby wykonać tę operację. Może być konieczne poproszenie kogoś o wymagane role Dodaj zasób do katalogu. Aby uzyskać więcej informacji, zobacz [wymagane role do dodawania zasobów do wykazu](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >Grupy przypisane do ról dodane do pakietu dostępu będą wskazywane przy użyciu podtypu, który można **przypisać do ról**. Aby uzyskać więcej informacji na temat grup, które można przypisać do ról usługi Azure AD, zapoznaj się z tematem [Tworzenie grupy umożliwiającej przypisanie roli](../roles/groups-create-eligible.md) w Azure Active Directory. Jeśli nie widzisz grupy, którą można przypisać, którą chcesz dodać, lub nie możesz jej dodać, upewnij się, że masz wymaganą rolę usługi Azure AD i rolę zarządzania uprawnieniami, aby wykonać tę operację. Może być konieczne poproszenie kogoś o wymagane role Dodaj zasób do katalogu. Aby uzyskać więcej informacji, zobacz [wymagane role do dodawania zasobów do wykazu](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
-    > W przypadku korzystania z [grup dynamicznych](../users-groups-roles/groups-create-rule.md) nie będą widoczne żadne inne role, które nie są dostępne poza właścicielem. Jest to celowe.
+    > W przypadku korzystania z [grup dynamicznych](../enterprise-users/groups-create-rule.md) nie będą widoczne żadne inne role, które nie są dostępne poza właścicielem. Jest to celowe.
     > ![Omówienie scenariusza](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
     
 

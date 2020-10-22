@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4a18ad04064ef8356e21d106843d6c946f50741
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783692"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362726"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Korzystanie z przeglądów dostępu usługi Azure AD do zarządzania użytkownikami wykluczonymi z zasad dostępu warunkowego
 
@@ -38,7 +38,7 @@ Innym przykładem może być użycie [nazwanych lokalizacji](../conditional-acce
 
 ![Nazwane lokalizacje w dostępie warunkowym](./media/conditional-access-exclusion/named-locations.png)
 
-Niestety niektórzy użytkownicy mogą nadal mieć ważną przyczynę zalogowania się z tych zablokowanych krajów/regionów. Na przykład użytkownicy mogą Podróżujący do pracy i muszą uzyskiwać dostęp do zasobów firmy. W takim przypadku zasady dostępu warunkowego do blokowania tych krajów/regionów mogą korzystać z grupy zabezpieczeń chmury dla wykluczonych użytkowników z zasad. Użytkownicy, którzy potrzebują dostępu w podróży, mogą dodać siebie do grupy przy użyciu samoobsługowego [zarządzania grupami w usłudze Azure AD](../users-groups-roles/groups-self-service-management.md).
+Niestety niektórzy użytkownicy mogą nadal mieć ważną przyczynę zalogowania się z tych zablokowanych krajów/regionów. Na przykład użytkownicy mogą Podróżujący do pracy i muszą uzyskiwać dostęp do zasobów firmy. W takim przypadku zasady dostępu warunkowego do blokowania tych krajów/regionów mogą korzystać z grupy zabezpieczeń chmury dla wykluczonych użytkowników z zasad. Użytkownicy, którzy potrzebują dostępu w podróży, mogą dodać siebie do grupy przy użyciu samoobsługowego [zarządzania grupami w usłudze Azure AD](../enterprise-users/groups-self-service-management.md).
 
 Innym przykładem mogą być zasady dostępu warunkowego [blokujące starsze uwierzytelnianie dla większości użytkowników](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Jednak w przypadku niektórych użytkowników, którzy muszą używać starszych metod uwierzytelniania w celu uzyskania dostępu do zasobów za pośrednictwem klientów pakietu Office 2010 lub protokołu IMAP/wyskakujących okienek, można wykluczyć tych użytkowników z zasad, które blokują starsze metody uwierzytelniania.
 

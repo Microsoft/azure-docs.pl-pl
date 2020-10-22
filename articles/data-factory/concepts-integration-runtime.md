@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f3dd5898518a9788a7079ab903b6f88b9f82989
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827535"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371209"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory 
 
@@ -56,7 +56,7 @@ Azure-SSIS | Wykonanie pakietu SSIS | Wykonanie pakietu SSIS
 
 - Uruchamianie przepływów danych na platformie Azure 
 - Uruchamianie działania kopiowania między magazynami danych w chmurze
-- Wysyłaj następujące działania przekształcania w sieci publicznej: działania notesu/jar/Python, działanie Hive usługi HDInsight, działanie usługi HDInsight, działanie dotyczące usługi HDInsight, działanie usługi HDInsight Spark, działanie usługi HDInsight Streaming Machine Learning, działanie tworzenia Data Lake Analytics Machine Learning wsadowego programu .NET, aktywność sieci Web, działanie wyszukiwania i działanie Get Metadata.
+- Wyślij następujące działania przekształcania w sieci publicznej: operacje dotyczące notesu/jar/Python, działania programu Hive w usłudze HDInsight, działania dotyczącego usługi HDInsight, działania MapReduce, działania usługi HDInsight Spark, działania dotyczącego przesyłania strumieniowego usługi HDInsight, działania dotyczącego wykonywania Azure Machine Learning Studio wsadowego (klasycznego) partii, Data Lake Analytics Azure Machine Learning Studio działania w sieci Web, działania dotyczącego wyszukiwania oraz działania pobierania metadanych.
 
 ### <a name="azure-ir-network-environment"></a>Środowisko sieciowe IR Azure
 
@@ -79,7 +79,7 @@ Aby uzyskać informacje na temat tworzenia i konfigurowania Azure IR, zobacz [ja
 Infrastruktura IR (Self-hosted) oferuje następujące możliwości:
 
 - Uruchamianie działania kopiowania między magazynami danych w chmurze i magazynem danych w sieci prywatnej.
-- Wysyłanie następujących działań transformacji do zasobów obliczeniowych w środowisku lokalnym lub Virtual Network platformy Azure: działanie Hive usługi HDInsight (BYOC — Tworzenie własnego klastra), działania w usłudze HDInsight (BYOC), działanie HDInsight MapReduce (BYOC), działanie usługi HDInsight Spark (BYOC), działanie usługi HDInsight streaming (BYOC), działanie Machine Learning Batch, działanie Machine Learning Update, działania dotyczące procedury składowanej, Data Lake Analytics działanie U-SQL Azure Batch , Działanie Lookup i Pobieranie metadanych.
+- Wysyłanie następujących działań transformacji do zasobów obliczeniowych w środowisku lokalnym lub Virtual Network platformy Azure: działanie programu Hive w usłudze HDInsight (BYOC — Tworzenie własnego klastra), działanie usługi HDInsight (BYOC), Usługa HDInsight MapReduce (BYOC), działanie usługi HDInsight Spark (BYOC), działanie usługi HDInsight streaming (BYOC), działanie przetwarzania wsadowego usługi (klasyczny), działanie Azure Machine Learning Studio (klasyczne) Azure Machine Learning Studio aktualizowanie działań zasobów, działanie procedury składowanej, Data Lake Analytics działania U-SQL , Działanie niestandardowe (działa w Azure Batch), działanie Lookup i działanie Get Metadata.
 
 > [!NOTE] 
 > Korzystaj z własnego środowiska Integration Runtime, aby obsługiwać magazyny danych, które wymagają sterownika przystosowanego do oprogramowania, takiego jak SAP HANA, MySQL itp.  Aby uzyskać więcej informacji, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

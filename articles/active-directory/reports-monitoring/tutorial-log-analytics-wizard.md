@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa9fa036f86fc822a4bb2175f404cdff1ca81d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361912"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362573"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Samouczek: Konfigurowanie Kreatora usługi log Analytics
 
@@ -45,7 +45,7 @@ Zapoznaj się z następującymi artykułami:
 
 - [Jak zintegrować dzienniki aktywności z Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Zarządzanie kontem dostępu awaryjnego w usłudze Azure AD](../users-groups-roles/directory-emergency-access.md)
+- [Zarządzanie kontem dostępu awaryjnego w usłudze Azure AD](../roles/security-emergency-access.md)
 
 - [Krótki przewodnik dla języka KQL](/azure/data-explorer/kql-quick-reference)
 
@@ -96,11 +96,11 @@ Konfigurowanie obszaru roboczego usługi log Analytics składa się z dwóch gł
 
 7. Wyszukaj usługę **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Usługa Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. W sekcji **monitorowanie** kliknij pozycję **ustawienie diagnostyczne**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![Usługa Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
 9. Na stronie **Ustawienia diagnostyczne** kliknij pozycję **Dodaj ustawienie diagnostyczne**.
 
@@ -114,7 +114,7 @@ Konfigurowanie obszaru roboczego usługi log Analytics składa się z dwóch gł
 
     2. W obszarze **szczegóły miejsca docelowego**wybierz pozycję **Wyślij do log Analytics**a następnie wybierz nowy obszar roboczy usługi log Analytics. 
    
-    3. Kliknij przycisk **Zapisz**. 
+    3. Kliknij pozycję **Zapisz**. 
 
 ## <a name="run-queries"></a>Uruchamianie zapytań  
 
@@ -128,7 +128,7 @@ Ta procedura pokazuje, jak uruchamiać zapytania przy użyciu **języka zapytań
 
 2. Wyszukaj usługę **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Usługa Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. W sekcji **monitorowanie** kliknij pozycję **dzienniki**.
 
@@ -210,7 +210,7 @@ Ta procedura pokazuje, jak wysyłać alerty w przypadku używania konta breakgla
 
 2. Wyszukaj usługę **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Usługa Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. W sekcji **monitorowanie** kliknij pozycję **dzienniki**.
 
@@ -268,7 +268,7 @@ Ta procedura pokazuje, jak wysyłać alerty w przypadku używania konta breakgla
 
     3. Kliknij pozycję **Przejrzyj i utwórz**. 
 
-    4. Kliknij przycisk **Utwórz**.
+    4. Kliknij pozycję **Utwórz**.
 
 
 15. W obszarze **Dostosowywanie akcji**wykonaj następujące czynności:
@@ -301,7 +301,7 @@ Ta procedura pokazuje, jak utworzyć nowy skoroszyt przy użyciu szablonu szybki
 
 2. Wyszukaj usługę **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Usługa Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. W sekcji **monitorowanie** kliknij pozycję **skoroszyty**.
 
@@ -353,7 +353,7 @@ Ta procedura pokazuje, jak dodać zapytanie do istniejącego szablonu skoroszytu
 
 2. Wyszukaj usługę **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Usługa Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. W sekcji **monitorowanie** kliknij pozycję **skoroszyty**.
 
