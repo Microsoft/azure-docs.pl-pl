@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92b9d3c51a9240b7dfc0f8e815735f0e1ecd4dd3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c6aa31d0b8c68f38d2b4fc41a6bbaaeab8a3ffac
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968314"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363610"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opcje raportowania dotyczące zarządzania hasłami w usłudze Azure AD)
 
@@ -27,7 +27,7 @@ Po wdrożeniu wiele organizacji chce wiedzieć, jak i w przypadku użycia funkcj
 Raporty, które istnieją w [Azure Portal](https://portal.azure.com/)mogą uzyskać odpowiedzi na następujące pytania:
 
 > [!NOTE]
-> Musisz być [administratorem globalnym](../users-groups-roles/directory-assign-admin-roles.md), aby te dane były zbierane w imieniu organizacji. Aby zrezygnować z programu, należy odwiedzić kartę **raportowanie** lub dzienniki inspekcji co najmniej raz. Do tego momentu dane nie będą zbierane dla Twojej organizacji.
+> Musisz być [administratorem globalnym](../roles/permissions-reference.md), aby te dane były zbierane w imieniu organizacji. Aby zrezygnować z programu, należy odwiedzić kartę **raportowanie** lub dzienniki inspekcji co najmniej raz. Do tego momentu dane nie będą zbierane dla Twojej organizacji.
 >
 
 * Ile osób zostało zarejestrowanych do resetowania haseł?

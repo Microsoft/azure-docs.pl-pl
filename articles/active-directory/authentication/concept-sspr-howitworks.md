@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a4e540ff6a81be8afa769d93b0649e0fce49882
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965101"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363678"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowania hasła usługi Azure AD
 
@@ -227,7 +227,7 @@ SSPR wykonuje odpowiednik resetowania hasła zainicjowane przez administratora w
 Resetowanie i zmiana hasła są w pełni obsługiwane we wszystkich konfiguracjach między firmami (B2B). Resetowanie hasła użytkownika B2B jest obsługiwane w następujących trzech przypadkach:
 
 * **Użytkownicy z organizacji partnerskiej z istniejącą dzierżawą usługi Azure AD**: Jeśli organizacja, której jesteś partnerem, ma istniejącą dzierżawę usługi Azure AD, wszystkie zasady resetowania hasła są włączone dla tej dzierżawy. Aby Resetowanie hasła działało, organizacja partnerska musi upewnić się, że usługa Azure AD SSPR jest włączona. Nie ma dodatkowych opłat za Microsoft 365 klientów.
-* **Użytkownicy, którzy zarejestrują** się w ramach rejestracji samoobsługowej: Jeśli organizacja, której jesteś partnerem, użyła funkcji [rejestracji samoobsługowej](../users-groups-roles/directory-self-service-signup.md) w celu uzyskania dzierżawy, zezwolimy im na zresetowanie hasła przy użyciu zarejestrowanej wiadomości e-mail.
+* **Użytkownicy, którzy zarejestrują** się w ramach rejestracji samoobsługowej: Jeśli organizacja, której jesteś partnerem, użyła funkcji [rejestracji samoobsługowej](../enterprise-users/directory-self-service-signup.md) w celu uzyskania dzierżawy, zezwolimy im na zresetowanie hasła przy użyciu zarejestrowanej wiadomości e-mail.
 * **Użytkownicy B2B**: Wszyscy nowi użytkownicy B2B utworzeni przy użyciu nowych [możliwości B2B usługi Azure AD](../external-identities/what-is-b2b.md) mogą również resetować swoje hasła przy użyciu wiadomości e-mail zarejestrowanych podczas procesu zapraszania.
 
 Aby przetestować ten scenariusz, przejdź do https://passwordreset.microsoftonline.com jednego z tych użytkowników partnerskich. Jeśli zdefiniowano alternatywną wiadomość e-mail lub adres e-mail uwierzytelniania, Resetowanie hasła działa zgodnie z oczekiwaniami.

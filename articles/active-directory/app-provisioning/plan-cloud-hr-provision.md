@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070388"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363661"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
 
@@ -81,8 +81,8 @@ Potrzebna jest również ważna licencja subskrypcyjna na Azure AD — wersja Pr
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- [Administrator tożsamości hybrydowej](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) usługi Azure AD w celu skonfigurowania agenta aprowizacji Azure AD Connect.
-- Rola [administratora aplikacji](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) usługi Azure AD w celu skonfigurowania aplikacji do aprowizacji w Azure Portal
+- [Administrator tożsamości hybrydowej](../roles/permissions-reference.md#hybrid-identity-administrator) usługi Azure AD w celu skonfigurowania agenta aprowizacji Azure AD Connect.
+- Rola [administratora aplikacji](../roles/permissions-reference.md#application-administrator) usługi Azure AD w celu skonfigurowania aplikacji do aprowizacji w Azure Portal
 - Wystąpienie testowe i produkcyjne aplikacji w chmurze.
 - Uprawnienia administratora w aplikacji KADRowej w chmurze umożliwiającej tworzenie użytkownika integracji systemu i wprowadzanie zmian w celu przetestowania danych pracownika na potrzeby testowania.
 - W celu aprowizacji użytkowników do Active Directory, na serwerze z systemem Windows Server 2012 lub nowszym z programem .NET 4.7.1 + Runtime wymagany jest hostowanie agenta aprowizacji Azure AD Connect
@@ -110,7 +110,7 @@ Poniższy przykład opisuje kompleksową architekturę rozwiązania obsługi uż
 
 #### <a name="description-of-workflow"></a>Opis przepływu pracy
 
-Na diagramie przedstawiono następujące podstawowe kroki:  
+Na diagramie przedstawiono następujące podstawowe kroki:  
 
 1. **Zespół kadr** wykonuje transakcje w dzierżawie aplikacji kadrowej w chmurze.
 2. **Usługa Azure AD Provisioning** uruchamia zaplanowane cykle z dzierżawy aplikacji kadr w chmurze i identyfikuje zmiany, które muszą zostać przetworzone w celu synchronizacji z Active Directory.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070371"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363695"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planowanie wdrożenia automatycznego aprowizowania użytkowników
 
@@ -139,13 +139,13 @@ Komunikacja jest niezwykle ważna dla sukcesu każdej nowej usługi. Proaktywnie
 
 Zaleca się, aby początkowa konfiguracja automatycznego aprowizacji użytkowników była w środowisku testowym z małym podzbiorem użytkowników przed ich przeskalowaniem do wszystkich użytkowników w produkcji. Zobacz [najlepsze rozwiązania](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) dotyczące uruchamiania programu pilotażowego.
 
-#### <a name="best-practices-for-a-pilot"></a>Najlepsze rozwiązania dla pilotażu  
+#### <a name="best-practices-for-a-pilot"></a>Najlepsze rozwiązania dla pilotażu  
 
 Pilotaż umożliwia testowanie z małą grupą przed wdrożeniem możliwości dla wszystkich użytkowników. Upewnij się, że w ramach testowania każdy przypadek użycia w organizacji zostanie dokładnie przetestowany.
 
 W pierwszej fazie, kierowanie do nich, użyteczność i innych odpowiednich użytkowników, którzy mogą testować i dostarczać Opinie. Skorzystaj z tej opinii, aby dodatkowo opracować komunikację i instrukcje wysyłane do użytkowników oraz uzyskać wgląd w typy problemów, które pracownicy pomocy technicznej mogą zobaczyć.
 
-Poszerzanie wdrożenia do większych grup użytkowników przez zwiększenie zakresu grup przeznaczonych do użycia. Można to zrobić za pomocą [dynamicznej przynależności do grupy](../users-groups-roles/groups-dynamic-membership.md)lub ręcznie dodając użytkowników do grup przeznaczonych do grupy.
+Poszerzanie wdrożenia do większych grup użytkowników przez zwiększenie zakresu grup przeznaczonych do użycia. Można to zrobić za pomocą [dynamicznej przynależności do grupy](../enterprise-users/groups-dynamic-membership.md)lub ręcznie dodając użytkowników do grup przeznaczonych do grupy.
 
 ## <a name="plan-application-connections-and-administration"></a>Planowanie połączeń i administrowania aplikacjami
 

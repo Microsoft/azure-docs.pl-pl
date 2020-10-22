@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a0a11cf3bfac7d1e8fd2d117e13532e2ce49caa0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107814"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364120"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości
 
@@ -135,7 +135,7 @@ Innym wpływem "założono naruszenie" jest konieczność zminimalizowania prawd
 
 Włącz usługę Azure AD PIM, a następnie Wyświetl użytkowników, którym przypisano role administracyjne, i Usuń niepotrzebne konta z tych ról. W przypadku pozostałych uprzywilejowanych użytkowników Przenieś je na stałe, aby kwalifikować się do nich. Na koniec Ustanów odpowiednie zasady, aby upewnić się, że muszą oni uzyskać dostęp do ról uprzywilejowanych, dzięki czemu mogą oni bezpiecznie wykonać te czynności z wymaganą kontrolą zmian.
 
-W ramach wdrażania procesu uprzywilejowanego konta postępuj zgodnie z najlepszymi rozwiązaniami, aby [utworzyć co najmniej dwa konta awaryjne](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) , aby upewnić się, że nadal masz dostęp do usługi Azure AD, jeśli zablokujesz swoją działalność.
+W ramach wdrażania procesu uprzywilejowanego konta postępuj zgodnie z najlepszymi rozwiązaniami, aby [utworzyć co najmniej dwa konta awaryjne](../../active-directory/roles/security-planning.md) , aby upewnić się, że nadal masz dostęp do usługi Azure AD, jeśli zablokujesz swoją działalność.
 
 ## <a name="step-3---automate-threat-response"></a>Krok 3 — Automatyzowanie odpowiedzi na zagrożenia
 
@@ -193,7 +193,7 @@ Funkcja samoobsługowego resetowania haseł w usłudze Azure AD [(SSPR)](../../a
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementowanie dostępu do grup i aplikacji samoobsługowej
 
-Usługa Azure AD zapewnia innym użytkownikom możliwość zarządzania dostępem do zasobów przy użyciu grup zabezpieczeń, grup Microsoft 365, ról aplikacji i wykazów pakietów dostępu.  [Samoobsługowe zarządzanie grupami](../../active-directory/users-groups-roles/groups-self-service-management.md) pozwala właścicielom grup zarządzać własnymi grupami bez konieczności przypisywania roli administracyjnej. Użytkownicy mogą również tworzyć grupy Microsoft 365 i zarządzać nimi bez polegania na administratorach do obsługi swoich żądań, a nieużywane grupy wygasną automatycznie.  [Zarządzanie prawami w usłudze Azure AD](../../active-directory/governance/entitlement-management-overview.md) umożliwia dalsze delegowanie i widoczność przy użyciu kompleksowych przepływów pracy żądań dostępu oraz automatyczne wygaśnięcie.  Można delegować do użytkowników niebędących administratorami możliwość konfigurowania własnych pakietów dostępu dla grup, zespołów, aplikacji i witryn usługi SharePoint Online, które są właścicielami, za pomocą zasad niestandardowych dla osób, które są wymagane do zatwierdzania dostępu, w tym konfigurowania menedżerów pracowników i partnerów firmy jako osób zatwierdzających.
+Usługa Azure AD zapewnia innym użytkownikom możliwość zarządzania dostępem do zasobów przy użyciu grup zabezpieczeń, grup Microsoft 365, ról aplikacji i wykazów pakietów dostępu.  [Samoobsługowe zarządzanie grupami](../../active-directory/enterprise-users/groups-self-service-management.md) pozwala właścicielom grup zarządzać własnymi grupami bez konieczności przypisywania roli administracyjnej. Użytkownicy mogą również tworzyć grupy Microsoft 365 i zarządzać nimi bez polegania na administratorach do obsługi swoich żądań, a nieużywane grupy wygasną automatycznie.  [Zarządzanie prawami w usłudze Azure AD](../../active-directory/governance/entitlement-management-overview.md) umożliwia dalsze delegowanie i widoczność przy użyciu kompleksowych przepływów pracy żądań dostępu oraz automatyczne wygaśnięcie.  Można delegować do użytkowników niebędących administratorami możliwość konfigurowania własnych pakietów dostępu dla grup, zespołów, aplikacji i witryn usługi SharePoint Online, które są właścicielami, za pomocą zasad niestandardowych dla osób, które są wymagane do zatwierdzania dostępu, w tym konfigurowania menedżerów pracowników i partnerów firmy jako osób zatwierdzających.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Zaimplementuj przeglądy dostępu usługi Azure AD
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef46cf0947f1ea31c74a6d189b5bdf00fea44fc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963826"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363542"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Rozwiązywanie problemów z samoobsługowym resetowaniem haseł w Azure Active Directory
 
@@ -32,7 +32,7 @@ Jeśli masz problemy z wyświetlaniem lub konfiguracją opcji SSPR w Azure Porta
 
 Jeśli nie masz licencji usługi Azure AD przypisanej do administratora wykonującego operację, nie zostanie wyświetlona opcja menu **resetowania hasła** .
 
-Aby przypisać licencję do konta administratora, postępuj zgodnie z instrukcjami [dotyczącymi przypisywania, weryfikowania i rozwiązywania problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Aby przypisać licencję do konta administratora, postępuj zgodnie z instrukcjami [dotyczącymi przypisywania, weryfikowania i rozwiązywania problemów z licencjami](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="i-dont-see-a-particular-configuration-option"></a>Nie widzę określonej opcji konfiguracji.
 
@@ -52,7 +52,7 @@ Jeśli masz problemy z raportowaniem SSPR w Azure Portal, zapoznaj się z nastę
 
 Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do administratora wykonującego operację.
 
-Aby przypisać licencję do konta administratora, postępuj zgodnie z instrukcjami [dotyczącymi przypisywania, weryfikowania i rozwiązywania problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Aby przypisać licencję do konta administratora, postępuj zgodnie z instrukcjami [dotyczącymi przypisywania, weryfikowania i rozwiązywania problemów z licencjami](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="user-registrations-show-multiple-times"></a>Rejestracje użytkowników są wyświetlane wiele razy.
 
@@ -74,7 +74,7 @@ W Azure Portal Zmień konfigurację z włączoną funkcją samoobsługowego **re
 
 Obecnie można włączyć tylko jedną grupę usługi Azure AD dla SSPR przy użyciu Azure Portal. W ramach szerszego wdrożenia SSPR są obsługiwane zagnieżdżone grupy. Upewnij się, że użytkownicy w wybranych grupach mają przypisane odpowiednie licencje. Przejrzyj poprzedni krok rozwiązywania problemów, aby włączyć SSPR zgodnie z wymaganiami.
 
-Należy również zapoznać się z krokami rozwiązywania problemów, aby upewnić się, że administrator wykonujący opcje konfiguracji ma przypisaną licencję. Aby przypisać licencję do konta administratora, postępuj zgodnie z instrukcjami [dotyczącymi przypisywania, weryfikowania i rozwiązywania problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Należy również zapoznać się z krokami rozwiązywania problemów, aby upewnić się, że administrator wykonujący opcje konfiguracji ma przypisaną licencję. Aby przypisać licencję do konta administratora, postępuj zgodnie z instrukcjami [dotyczącymi przypisywania, weryfikowania i rozwiązywania problemów z licencjami](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="theres-an-error-processing-the-request"></a>Wystąpił błąd podczas przetwarzania żądania.
 
@@ -84,10 +84,10 @@ Błędy rejestracji ogólnej SSPR mogą być spowodowane przez wiele problemów,
 
 Jeśli ty lub użytkownicy mają problemy z używaniem SSPR, zapoznaj się z następującymi scenariuszami rozwiązywania problemów i krokami rozwiązania:
 
-| Error | Rozwiązanie |
+| Błąd | Rozwiązanie |
 | --- | --- |
 | W katalogu nie włączono obsługi resetowania hasła. | W Azure Portal Zmień konfigurację z włączoną funkcją samoobsługowego **resetowania hasła** na *wybraną* lub *wszystkie* , a następnie wybierz pozycję **Zapisz**. |
-| Użytkownik nie ma przypisanej licencji usługi Azure AD. | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do żądanego użytkownika. Aby przypisać licencję do konta administratora, postępuj zgodnie z instrukcjami [dotyczącymi przypisywania, weryfikowania i rozwiązywania problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
+| Użytkownik nie ma przypisanej licencji usługi Azure AD. | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do żądanego użytkownika. Aby przypisać licencję do konta administratora, postępuj zgodnie z instrukcjami [dotyczącymi przypisywania, weryfikowania i rozwiązywania problemów z licencjami](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | Katalog jest włączony do resetowania hasła, ale użytkownik nie ma lub ma nieprawidłowo sformułowane informacje o uwierzytelnianiu. | Upewnij się, że użytkownik ma poprawnie sformułowane dane kontaktowe w pliku w katalogu. Aby uzyskać więcej informacji, zobacz dane używane przez funkcję samoobsługowego [resetowania hasła w usłudze Azure AD](howto-sspr-authenticationdata.md). |
 | Katalog jest włączony do resetowania haseł, ale użytkownik ma tylko jedną część danych kontaktowych w pliku, gdy zasady są ustawione tak, aby wymagały dwóch metod weryfikacji. | Upewnij się, że użytkownik ma co najmniej dwie prawidłowo skonfigurowane metody kontaktu. Przykładem jest numer telefonu komórkowego *i* numer telefonu biurowego. |
 | Katalog jest włączony do resetowania hasła i użytkownik jest prawidłowo skonfigurowany, ale nie można skontaktować się z użytkownikiem. | Może to być wynikiem tymczasowego błędu usługi lub w przypadku nieprawidłowych danych kontaktowych, których nie można poprawnie wykryć. <br> <br> Jeśli użytkownik odczeka 10 sekund, zostanie wyświetlony link "Spróbuj ponownie" i "Skontaktuj się z administratorem". Jeśli użytkownik wybierze opcję "Spróbuj ponownie", ponawia próbę wywołania. Jeśli użytkownik wybierze opcję "Skontaktuj się z administratorem", wyśle wiadomość e-mail do administratorów żądających zresetowania hasła dla tego konta użytkownika. |
@@ -106,7 +106,7 @@ Użytkownik może wyświetlić następujące błędy i szczegóły techniczne w 
 
 Skorzystaj z poniższych informacji, aby zrozumieć problem i co należy poprawić w ramach dzierżawy usługi Azure AD lub indywidualnego konta użytkownika.
 
-| Error | Szczegóły | Szczegóły techniczne |
+| Błąd | Szczegóły | Szczegóły techniczne |
 | --- | --- | --- |
 | TenantSSPRFlagDisabled = 9 | Niestety, nie można teraz zresetować hasła, ponieważ administrator wyłączył Resetowanie hasła dla organizacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o włączenie tej funkcji.<br /><br />Aby dowiedzieć się więcej, zobacz [Pomoc I nie pamiętam hasła usługi Azure AD](../user-help/active-directory-passwords-update-your-own-password.md#common-problems-and-their-solutions). | SSPR_0009: wykryliśmy, że Resetowanie hasła nie zostało włączone przez administratora. Skontaktuj się z administratorem i poproś o włączenie resetowania hasła dla organizacji. |
 | WritebackNotEnabled = 10 |Niestety, nie można teraz zresetować hasła, ponieważ administrator nie włączył niezbędnej usługi dla Twojej organizacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o sprawdzenie konfiguracji swojej organizacji.<br /><br />Aby dowiedzieć się więcej na temat tej niezbędnej usługi, zobacz [Konfigurowanie zapisywania zwrotnego haseł](./tutorial-enable-sspr-writeback.md). | SSPR_0010: wykryto, że funkcja zapisywania zwrotnego haseł nie została włączona. Skontaktuj się z administratorem i poproś o włączenie funkcji zapisywania zwrotnego haseł. |

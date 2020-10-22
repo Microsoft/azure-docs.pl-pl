@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657223"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363729"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planowanie Azure Active Directory samoobsługowego resetowania hasła
 
@@ -75,7 +75,7 @@ Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Azure Activ
 
 | Zasoby| Link i opis |
 | - | - |
-| Wideo| [ZAPEWNIAnie użytkownikom lepszej skalowalności](https://youtu.be/g9RpRnylxS8) 
+| Filmy wideo| [ZAPEWNIAnie użytkownikom lepszej skalowalności](https://youtu.be/g9RpRnylxS8) 
 | |[Co to jest samoobsługowe resetowanie hasła?](https://youtu.be/hc97Yx5PJiM)|
 | |[Wdrażanie samoobsługowego resetowania hasła](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
 | |[Jak skonfigurować Samoobsługowe resetowanie haseł dla użytkowników w usłudze Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
@@ -86,7 +86,7 @@ Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Azure Activ
 |Samouczki |[przeprowadzanie pilotażowego wdrożenia samoobsługowego resetowania hasła usługi Azure AD](./tutorial-enable-sspr.md) |
 | |[włączanie zapisywania zwrotnego haseł](./tutorial-enable-sspr-writeback.md) |
 | |[Resetowanie hasła usługi Azure AD na ekranie logowania dla systemu Windows 10](./howto-sspr-windows.md) |
-| Najczęściej zadawane pytania|[Często zadawane pytania dotyczące zarządzania hasłami](./active-directory-passwords-faq.md) |
+| Często zadawane pytania|[Często zadawane pytania dotyczące zarządzania hasłami](./active-directory-passwords-faq.md) |
 
 
 ### <a name="solution-architecture"></a>Architektura rozwiązania
@@ -313,7 +313,7 @@ Usługa Azure AD może zapewnić dodatkowe informacje na temat wydajności SSPR 
 Do mierzenia wydajności SSPR można użyć wstępnie utworzonych raportów na Azure Portal. Jeśli masz odpowiednie licencje, możesz również utworzyć niestandardowe zapytania. Aby uzyskać więcej informacji, zobacz [Opcje raportowania dotyczące zarządzania hasłami w usłudze Azure AD](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  Musisz być [administratorem globalnym](../users-groups-roles/directory-assign-admin-roles.md)i musisz wybrać, aby te dane były zbierane dla organizacji. Aby zrezygnować z programu, należy odwiedzić kartę Raportowanie lub dzienniki inspekcji w witrynie Azure Portal co najmniej raz. Do tego momentu dane nie są zbierane dla Twojej organizacji.
+>  Musisz być [administratorem globalnym](../roles/permissions-reference.md)i musisz wybrać, aby te dane były zbierane dla organizacji. Aby zrezygnować z programu, należy odwiedzić kartę Raportowanie lub dzienniki inspekcji w witrynie Azure Portal co najmniej raz. Do tego momentu dane nie są zbierane dla Twojej organizacji.
 
 Dzienniki inspekcji na potrzeby rejestracji i resetowania haseł są dostępne przez 30 dni. Jeśli Inspekcja zabezpieczeń w ramach firmy wymaga dłuższego przechowywania, dzienniki muszą zostać wyeksportowane i zużyte do narzędzia SIEM, takiego jak [Azure](../../sentinel/connect-azure-active-directory.md), Splunk lub ArcSight.
 

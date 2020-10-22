@@ -51,8 +51,6 @@
               href: ./database/security-controls-policy.md
             - name: Punkt odniesienia zabezpieczeń
               href: database/security-baseline.md
-            - name: Atrybuty zabezpieczeń
-              href: database/security-controls.md
             - name: Azure Defender for SQL
               href: database/azure-defender-for-sql.md
             - name: Zaawansowana ochrona przed zagrożeniami

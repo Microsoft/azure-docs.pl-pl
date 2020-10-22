@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258340"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363457"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Oznaczanie aplikacji jako zweryfikowanej przez wydawcę
 
@@ -42,7 +42,7 @@ Upewnij się, że spełniono [wymagania wstępne](publisher-verification-overvie
 
 1. Upewnij się, że zalogowano się przy użyciu [uwierzytelniania wieloskładnikowego](../fundamentals/concept-fundamentals-mfa-get-started.md) na koncie organizacji (Azure AD) autoryzowanym do wprowadzania zmian w aplikacjach, które chcesz oznaczyć jako zweryfikowane przez wydawcę, a na koncie MPN w centrum partnerskim.
 
-    - W usłudze Azure AD ten użytkownik musi być członkiem jednej z następujących [ról](../users-groups-roles/directory-assign-admin-roles.md): Administrator aplikacji, administrator aplikacji w chmurze, Administrator globalny. 
+    - W usłudze Azure AD ten użytkownik musi być członkiem jednej z następujących [ról](../roles/permissions-reference.md): Administrator aplikacji, administrator aplikacji w chmurze, Administrator globalny. 
 
     - W centrum partnerskim ten użytkownik musi mieć następujące [role](/partner-center/permissions-overview): Administrator MPN, administrator kont lub Administrator globalny (jest to rola udostępniona w usłudze Azure AD). 
 

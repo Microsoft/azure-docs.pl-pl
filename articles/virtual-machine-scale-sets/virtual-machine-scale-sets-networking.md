@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c93f8e50b0437f9ac1569b8abe19bd0b5174ea8d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783726"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363967"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -43,7 +43,7 @@ Usługa Azure Accelerated Networking zwiększa wydajność sieci, umożliwiając
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Zestawy skalowania maszyn wirtualnych platformy Azure z Azure Load Balancer
-Zobacz [Azure Load Balancer i Virtual Machine Scale Sets](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets) , aby dowiedzieć się więcej o konfigurowaniu usługa Load Balancer w warstwie Standardowa z Virtual Machine Scale Sets w oparciu o twój scenariusz.
+Zobacz [Azure Load Balancer i Virtual Machine Scale Sets](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) , aby dowiedzieć się więcej o konfigurowaniu usługa Load Balancer w warstwie Standardowa z Virtual Machine Scale Sets w oparciu o twój scenariusz.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Tworzenie zestawu skalowania, który odwołuje się do usługi Application Gateway
 Aby utworzyć zestaw skalowania, który używa bramy aplikacji, należy odwołać się do puli adresów zaplecza bramy aplikacji w sekcji ipConfiguration zestawu skalowania, tak jak w tej konfiguracji szablonu usługi ARM:
@@ -299,7 +299,7 @@ Poniższej przedstawiono przykład profilu sieciowego zestawu skalowania z wielo
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>Sieciowa grupa zabezpieczeń i grupa zabezpieczeń aplikacji dla zestawu skalowania
-[Sieciowa grupa zabezpieczeń](../virtual-network/security-overview.md) umożliwia filtrowanie ruchu przychodzącego do zasobów platformy Azure i wychodzącego z nich w sieci wirtualnej platformy Azure za pomocą reguł zabezpieczeń. [Grupy zabezpieczeń aplikacji](../virtual-network/security-overview.md#application-security-groups) umożliwiają obsługę zabezpieczeń sieci zasobów platformy Azure i pogrupowanie ich jako rozszerzenia struktury aplikacji.
+[Sieciowa grupa zabezpieczeń](../virtual-network/network-security-groups-overview.md) umożliwia filtrowanie ruchu przychodzącego do zasobów platformy Azure i wychodzącego z nich w sieci wirtualnej platformy Azure za pomocą reguł zabezpieczeń. [Grupy zabezpieczeń aplikacji](../virtual-network/network-security-groups-overview.md#application-security-groups) umożliwiają obsługę zabezpieczeń sieci zasobów platformy Azure i pogrupowanie ich jako rozszerzenia struktury aplikacji.
 
 Grupy zabezpieczeń sieci można stosować bezpośrednio do zestawu skalowania przez dodanie odwołania w sekcji konfiguracji interfejsu sieciowego we właściwościach maszyn wirtualnych zestawu skalowania.
 
