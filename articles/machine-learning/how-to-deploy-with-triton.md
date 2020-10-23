@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 9a6e2de07921d05e123154f604c3d1b369b3b89d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998763"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92428340"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Obsługa wysokiej wydajności przy użyciu serwera wnioskowania Triton (wersja zapoznawcza) 
 
@@ -30,7 +30,7 @@ Triton to struktura, która jest *zoptymalizowana pod kątem wnioskowania*. Zape
 > Korzystanie z programu Triton do wdrażania z Azure Machine Learning jest obecnie dostępne w __wersji zapoznawczej__. Funkcja wersji zapoznawczej może nie być objęta wsparciem klienta. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure
 
 > [!TIP]
-> Fragmenty kodu w tym dokumencie są przeznaczone do celów ilustracyjnych i mogą nie wyświetlać kompletnego rozwiązania. Aby zapoznać się z przykładowym kodem, zobacz [kompleksowe przykłady Triton w Azure Machine Learning](https://aka.ms/aml-triton-sample).
+> Fragmenty kodu w tym dokumencie są przeznaczone do celów ilustracyjnych i mogą nie wyświetlać kompletnego rozwiązania. Aby zapoznać się z przykładowym kodem, zobacz [kompleksowe przykłady Triton w Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/tutorials).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

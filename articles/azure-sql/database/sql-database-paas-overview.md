@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617234"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428306"
 ---
 # <a name="what-is-azure-sql-database"></a>Co to jest usługa Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Za pomocą usługi Azure SQL Database można utworzyć warstwę magazynów danyc
 
 Azure SQL Database jest oparta na najnowszej stabilnej wersji [aparatu bazy danych Microsoft SQL Server Database](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Można korzystać z zaawansowanych funkcji przetwarzania zapytań, takich jak [technologie w pamięci o wysokiej wydajności](../in-memory-oltp-overview.md) i [inteligentne przetwarzanie zapytań](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). W rzeczywistości najnowsze możliwości programu SQL Server są najpierw udostępniane w usłudze SQL Database, a dopiero potem w programie SQL Server. Uzyskasz najnowsze możliwości programu SQL Server bez wysiłków związanych z instalacją poprawek lub uaktualnianiem, po przetestowaniu ich na milionach baz danych. 
 
-SQL Database umożliwia łatwe definiowanie i skalowanie wydajności w ramach dwóch różnych modeli zakupów: [modelu zakupu opartego na rdzeń wirtualny](service-tiers-vcore.md) i [modelu zakupu opartego](service-tiers-dtu.md)na jednostkach DTU. SQL Database to w pełni zarządzana usługa, która ma wbudowaną wysoką dostępność, tworzenie kopii zapasowych i inne typowe operacje konserwacyjne. Firma Microsoft obsługuje wszystkie poprawki i aktualizacje kodu SQL i systemu operacyjnego. Nie trzeba zarządzać podstawową infrastrukturą.
+SQL Database umożliwia łatwe definiowanie i skalowanie wydajności w ramach dwóch różnych modeli zakupów: [modelu zakupu opartego na rdzeń wirtualny](service-tiers-vcore.md) i [modelu zakupu opartego](service-tiers-dtu.md)na jednostkach DTU. SQL Database to w pełni zarządzana usługa, która ma wbudowaną wysoką dostępność, tworzenie kopii zapasowych i inne typowe operacje konserwacyjne. Firma Microsoft obsługuje wszystkie poprawki i aktualizacje kodu SQL i systemu operacyjnego. Nie musisz zarządzać podstawową infrastrukturą.
 
 Jeśli dopiero zaczynasz Azure SQL Database, zapoznaj się z *omówieniem Azure SQL Database* filmów wideo z naszej szczegółowej [serii wideo usługi Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
@@ -108,7 +108,7 @@ Azure SQL Database pozwala firmie na kontynuowanie pracy w trakcie przerw w dzia
 
 Odzyskiwanie awaryjne polega na tym, że krytyczne zdarzenie jest wystarczająco geograficznie lokalizowane, aby można było korzystać z innej maszyny lub zestawu maszyn z kopią danych. W SQL Server można używać zawsze włączonych grup dostępności działających w trybie Async, aby uzyskać tę możliwość. Osoby często nie chcą czekać na odczekanie na replikację przed zatwierdzeniem transakcji, dzięki czemu istnieje możliwość utraty danych w przypadku nieplanowanego przejścia w tryb failover.
 
-Bazy danych w warstwach usług premium i Krytyczne dla działania firmy [są już podobne](high-availability-sla.md#premium-and-business-critical-service-tier-availability) do synchronizacji grupy dostępności. Bazy danych w mniejszych warstwach usług zapewniają nadmiarowość za pośrednictwem magazynu przy użyciu [innego, ale równoważnego mechanizmu](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability). Wbudowana logika pomaga chronić przed awarią pojedynczej maszyny. Aktywna funkcja replikacji geograficznej zapewnia możliwość ochrony przed awarią, w której cały region jest niszczony.
+Bazy danych w warstwach usług premium i Krytyczne dla działania firmy [są już podobne](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) do synchronizacji grupy dostępności. Bazy danych w mniejszych warstwach usług zapewniają nadmiarowość za pośrednictwem magazynu przy użyciu [innego, ale równoważnego mechanizmu](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability). Wbudowana logika pomaga chronić przed awarią pojedynczej maszyny. Aktywna funkcja replikacji geograficznej zapewnia możliwość ochrony przed awarią, w której cały region jest niszczony.
 
 Strefy dostępności platformy Azure próbuje chronić przed awarią pojedynczego budynku centrum danych w jednym regionie. Pomaga chronić przed utratą mocy lub sieci do budynku. W SQL Database należy umieścić różne repliki w różnych strefach dostępności (różne budynki, efektywnie).
 

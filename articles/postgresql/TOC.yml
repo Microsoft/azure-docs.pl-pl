@@ -157,6 +157,8 @@
             - name: Łącze prywatne
               href: concepts-data-access-and-security-private-link.md
               displayName: 'security, private link, private endpoint'
+        - name: Planowana konserwacja
+          href: concepts-planned-maintenance-notification.md
         - name: Ciągłość działalności biznesowej
           items:
             - name: Wprowadzenie do ciągłości działalności biznesowej

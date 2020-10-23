@@ -8,9 +8,11 @@
   expanded: true
   items:
     - name: Tworzenie bramy VPN Gateway i zarządzanie nią
-      href: vpn-gateway-tutorial-create-gateway-powershell.md
-    - name: Tworzenie połączeń sieci VPN typu S2S i zarządzanie nimi
-      href: vpn-gateway-tutorial-vpnconnection-powershell.md
+      items:
+        - name: Azure Portal
+          href: tutorial-create-gateway-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-tutorial-create-gateway-powershell.md
 - name: Samples
   items:
     - name: Azure PowerShell
@@ -64,7 +66,7 @@
         - name: Tworzenie bramy sieci VPN opartej na trasie
           items:
             - name: Azure Portal
-              href: create-routebased-vpn-gateway-portal.md
+              href: tutorial-create-gateway-portal.md
             - name: Azure PowerShell
               href: create-routebased-vpn-gateway-powershell.md
             - name: Interfejs wiersza polecenia platformy Azure
@@ -72,7 +74,7 @@
         - name: Weryfikowanie połączenia z bramą VPN Gateway
           href: vpn-gateway-verify-connection-resource-manager.md
         - name: Resetowanie bramy VPN Gateway
-          href: vpn-gateway-resetgw-classic.md
+          href: reset-gateway.md
         - name: Usuwanie bramy VPN Gateway
           items:
             - name: Azure Portal
