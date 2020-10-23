@@ -14,6 +14,8 @@
   items:
     - name: Zabezpieczanie wirtualnego koncentratora — portal
       href: secure-cloud-network.md
+    - name: Zabezpieczanie koncentratora wirtualnego — PowerShell
+      href: secure-cloud-network-powershell.md
     - name: Zabezpieczanie sieci wirtualnej koncentratora — portal
       href: secure-hybrid-network.md
 - name: Pojęcia

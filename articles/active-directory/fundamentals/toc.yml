@@ -69,6 +69,8 @@
               href: auth-remote-desktop-gateway.md
             - name: Uwierzytelnianie SAML
               href: auth-saml.md
+            - name: Uwierzytelnianie SSH
+              href: auth-ssh.md
             - name: Uwierzytelnianie systemu Windows — KCD
               href: auth-kcd.md
             - name: Synchronizacja katalogów

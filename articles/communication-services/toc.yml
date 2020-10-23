@@ -90,6 +90,8 @@
       href: samples/calling-hero-sample.md
     - name: Czat grupowy — przykład dużego obrazu
       href: samples/chat-hero-sample.md
+    - name: Przykład połączeń internetowych
+      href: samples/web-calling-sample.md
 - name: Odwołania
   items:
     - name: Dokumentacja interfejsu API REST

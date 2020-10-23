@@ -45,7 +45,7 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: Widok sieciowych grup zabezpieczeń
       href: network-watcher-security-group-view-overview.md
-    - name: Uprawnienia w kontroli dostępu opartej na rolach
+    - name: Uprawnienia kontroli dostępu opartej na rolach na platformie Azure
       href: required-rbac-permissions.md
     - name: Zabezpieczenia
       items:

@@ -18,6 +18,8 @@
   items:
     - name: Tworzenie prywatnego klastra usługi Azure Red Hat OpenShift 4
       href: howto-create-private-cluster-4x.md
+    - name: Tworzenie klasy Azure Files StorageClass w usłudze Azure Red Hat OpenShift 4
+      href: howto-create-a-storageclass.md
     - name: Aktualizacja wpisu tajnego ściągania dla klastra usługi Azure Red Hat OpenShift 4
       href: howto-add-update-pull-secret.md
     - name: Konfigurowanie przekazywania DNS dla klastra usługi Azure Red Hat OpenShift 4

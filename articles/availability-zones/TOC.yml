@@ -61,8 +61,10 @@
           href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: Baza danych SQL
           items:
-            - name: Strefy dostępności z usługą SQL Database
-              href: ../azure-sql/database/high-availability-sla.md#zone-redundant-configuration
+            - name: Strefy dostępności z usługą SQL Database w warstwie Ogólnego przeznaczenia
+              href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview
+            - name: Strefy dostępności z usługą SQL Database w warstwach Premium i Krytyczne dla działania firmy
+              href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
         - name: Magazyn
           items:
             - name: Magazyn strefowo nadmiarowy
