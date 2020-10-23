@@ -3,12 +3,12 @@ title: Dowiedz się więcej o usłudze Azure Service Fabric
 description: Zapoznaj się z podstawowymi pojęciami i Głównymi obszarami Service Fabric platformy Azure. Zawiera dodatkowe Omówienie Service Fabric i sposobu tworzenia mikrousług.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 0f4e0ea03b631773f96ca4645d44b9fe28d89da9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6cbc99b56df18448add47a70b42742aa8dabbeb5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319807"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461502"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Czy chcesz dowiedzieć się więcej o Service Fabric?
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi.  Service Fabric ma jednak duże powierzchnie, ale istnieje wiele informacji.  Ten artykuł zawiera streszczenie Service Fabric i zawiera opis podstawowych pojęć, modeli programowania, cyklu życia aplikacji, testowania, klastrów i monitorowania kondycji. Zapoznaj się z [omówieniem](service-fabric-overview.md) i [co to są mikrousługi?](service-fabric-overview-microservices.md) , aby zapoznać się z wprowadzeniem i jak Service Fabric może służyć do tworzenia mikrousług. Ten artykuł nie zawiera obszernej listy zawartości, ale łączy się z artykułami dotyczącymi przeglądu i uruchamiania dla każdego obszaru Service Fabric. 
@@ -51,7 +51,7 @@ Na poniższym diagramie przedstawiono relację między aplikacjami i wystąpieni
 
 Repliki każdej partycji są rozmieszczane w węzłach klastra, co pozwala na [skalowanie](service-fabric-concepts-scalability.md)stanu nazwanej usługi. W miarę wzrostu ilości danych partycje rosną i Service Fabric zrównoważą partycje w różnych węzłach w celu efektywnego wykorzystania zasobów sprzętowych. W przypadku dodania nowych węzłów do klastra program Service Fabric będzie ponownie zrównoważyć repliki partycji w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.
 
-W ramach partycji usługi bezstanowe mają wystąpienia, podczas gdy stanowe nazwy usług mają repliki. Zwykle usługi bezstanowe mają tylko jedną partycję, ponieważ nie mają wewnętrznego stanu. Wystąpienia partycji zapewniają [dostępność](service-fabric-availability-services.md). Jeśli jedno wystąpienie nie powiedzie się, inne wystąpienia nadal działają normalnie, a następnie Service Fabric tworzy nowe wystąpienie. Stanowe nazwy usług utrzymują swój stan w replikach, a każda partycja ma swój własny zestaw replik. Operacje odczytu i zapisu są wykonywane w jednej replice (nazywanej głównym). Zmiany stanu z operacji zapisu są replikowane do wielu innych replik (nazywanych Active pomocniczymi). Jeśli replika nie powiedzie się, Service Fabric kompiluje nową replikę z istniejących replik.
+W ramach partycji usługi bezstanowe mają wystąpienia, podczas gdy stanowe nazwy usług mają repliki. Zwykle usługi bezstanowe mają już jedną partycję, ponieważ nie mają wewnętrznego stanu, chociaż [istnieją wyjątki](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-partitioning#partition-service-fabric-stateless-services). Wystąpienia partycji zapewniają [dostępność](service-fabric-availability-services.md). Jeśli jedno wystąpienie nie powiedzie się, inne wystąpienia nadal działają normalnie, a następnie Service Fabric tworzy nowe wystąpienie. Stanowe nazwy usług utrzymują swój stan w replikach, a każda partycja ma swój własny zestaw replik. Operacje odczytu i zapisu są wykonywane w jednej replice (nazywanej głównym). Zmiany stanu z operacji zapisu są replikowane do wielu innych replik (nazywanych Active pomocniczymi). Jeśli replika nie powiedzie się, Service Fabric kompiluje nową replikę z istniejących replik.
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Mikrousługi stanowe i bezstanowe dla usługi Service Fabric
 Usługa Service Fabric umożliwia tworzenie aplikacji składających się z mikrousług lub kontenerów. Mikrousługi bezstanowe (na przykład bramy protokołów i internetowe serwery proxy) nie utrzymują modyfikowalnego stanu poza żądaniem i odpowiedzią serwera. Przykładem usługi bezstanowej są procesy robocze usług Azure Cloud Services. Mikrousługi stanowe (na przykład konta użytkowników, bazy danych, urządzenia, koszyki zakupów i kolejki) utrzymują modyfikowalny, autorytatywny stan poza żądaniem i odpowiedzią. Współczesne aplikacje internetowe łączą w sobie mikrousługi stanowe i bezstanowe. 

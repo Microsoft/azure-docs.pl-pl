@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da54917d21d468f96b8e72ac362e030570fabaee
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836483"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426009"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Tworzenie prywatnego linku do Azure Database for MariaDB przy użyciu portalu i zarządzanie nim
 
@@ -62,7 +62,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
     | Region | Wybierz pozycję **Europa Zachodnia**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
     | Rozmiar | Pozostaw domyślną wartość **Standard DS1 v2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
@@ -251,7 +251,7 @@ Gdy skończysz korzystać z prywatnego punktu końcowego, serwera MariaDB i masz
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym instruktażu utworzono MASZYNę wirtualną w sieci wirtualnej, Azure Database for MariaDB i prywatny punkt końcowy na potrzeby prywatnego dostępu. Nawiązano połączenie z jedną maszyną wirtualną z Internetu i bezpiecznie komunikuje się z serwerem MariaDB za pomocą linku prywatnego. Aby dowiedzieć się więcej o prywatnych punktach końcowych, zobacz [co to jest prywatny punkt końcowy platformy Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+W tym instruktażu utworzono MASZYNę wirtualną w sieci wirtualnej, Azure Database for MariaDB i prywatny punkt końcowy na potrzeby prywatnego dostępu. Nawiązano połączenie z jedną maszyną wirtualną z Internetu i bezpiecznie komunikuje się z serwerem MariaDB za pomocą linku prywatnego. Aby dowiedzieć się więcej o prywatnych punktach końcowych, zobacz [co to jest prywatny punkt końcowy platformy Azure](../private-link/private-endpoint-overview.md).
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

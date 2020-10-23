@@ -1,25 +1,28 @@
 ---
-title: Zbieranie i analizowanie dzienników zdarzeń systemu Windows w Azure Monitor | Microsoft Docs
+title: Zbierz źródła danych dziennika zdarzeń systemu Windows za pomocą agenta Log Analytics w Azure Monitor
 description: Opisuje sposób konfigurowania kolekcji dzienników zdarzeń systemu Windows przez Azure Monitor i szczegóły tworzonych przez nie rekordów.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 109e96f862ec2f3ddf879bccba114c44aecfe3c8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075260"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440607"
 ---
-# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Źródła danych dziennika zdarzeń systemu Windows w Azure Monitor
-Dzienniki zdarzeń systemu Windows to jedno z najpopularniejszych [źródeł danych](agent-data-sources.md) do zbierania danych przy użyciu agentów systemu Windows, ponieważ wiele aplikacji zapisuje w dzienniku zdarzeń systemu Windows.  Można zbierać zdarzenia z dzienników standardowych, takich jak system i aplikacja, oprócz określania dzienników niestandardowych utworzonych przez aplikacje, które mają być monitorowane.
+# <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Zbieranie źródeł danych dziennika zdarzeń systemu Windows za pomocą agenta Log Analytics
+Dzienniki zdarzeń systemu Windows to jedno z najpopularniejszych [źródeł danych](agent-data-sources.md) dla agentów log Analytics na maszynach wirtualnych z systemem Windows, ponieważ wiele aplikacji zapisuje je w dzienniku zdarzeń systemu Windows.  Można zbierać zdarzenia z dzienników standardowych, takich jak system i aplikacja, oprócz określania dzienników niestandardowych utworzonych przez aplikacje, które mają być monitorowane.
+
+> [!IMPORTANT]
+> W tym artykule opisano zbieranie zdarzeń systemu Windows za pomocą [agenta log Analytics](log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
 
 ![Zdarzenia systemu Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Konfigurowanie dzienników zdarzeń systemu Windows
-Skonfiguruj dzienniki zdarzeń systemu Windows z [menu dane w oknie Ustawienia zaawansowane](agent-data-sources.md#configuring-data-sources).
+Skonfiguruj dzienniki zdarzeń systemu Windows z [menu dane w obszarze Ustawienia zaawansowane](agent-data-sources.md#configuring-data-sources) dla obszaru roboczego log Analytics.
 
 Azure Monitor zbiera tylko zdarzenia z dzienników zdarzeń systemu Windows, które są określone w ustawieniach.  Możesz dodać dziennik zdarzeń, wpisując nazwę dziennika, a następnie klikając pozycję **+** .  Dla każdego dziennika zbierane są tylko zdarzenia z wybranymi serwerami.  Sprawdź informacje o wykorzystaniu poszczególnych dzienników, które chcesz zebrać.  Nie można podać żadnych dodatkowych kryteriów filtrowania zdarzeń.
 

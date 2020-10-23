@@ -1,7 +1,7 @@
 ---
 title: Zarządzanie rolami w obszarze roboczym
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak uzyskać dostęp do obszaru roboczego Azure Machine Learning przy użyciu kontroli dostępu opartej na rolach (RBAC).
+description: Dowiedz się, jak uzyskać dostęp do obszaru roboczego Azure Machine Learning przy użyciu kontroli dostępu opartej na rolach (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966410"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425648"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
 
@@ -34,9 +34,9 @@ Obszar roboczy usługi Azure Machine Learning to zasób platformy Azure. Tak jak
 | **Rola niestandardowa** | Umożliwia dostosowanie dostępu do określonych operacji kontroli lub płaszczyzny danych w obszarze roboczym. Na przykład przesyłanie przebiegu, tworzenie obliczeń, Wdrażanie modelu lub rejestrowanie zestawu danych. |
 
 > [!IMPORTANT]
-> Dostęp do roli można ograniczyć do wielu poziomów na platformie Azure. Na przykład ktoś z dostępem właściciela do obszaru roboczego może nie mieć dostępu właściciela do grupy zasobów, która zawiera obszar roboczy. Aby uzyskać więcej informacji, zobacz [jak działa RBAC](/azure/role-based-access-control/overview#how-rbac-works).
+> Dostęp do roli można ograniczyć do wielu poziomów na platformie Azure. Na przykład ktoś z dostępem właściciela do obszaru roboczego może nie mieć dostępu właściciela do grupy zasobów, która zawiera obszar roboczy. Aby uzyskać więcej informacji, zobacz [jak działa usługa Azure RBAC](/azure/role-based-access-control/overview#how-azure-rbac-works).
 
-Aby uzyskać więcej informacji na temat określonych ról wbudowanych, zobacz [role wbudowane dla platformy Azure](/azure/role-based-access-control/built-in-roles).
+Aby uzyskać więcej informacji na temat określonych ról wbudowanych, zobacz [role wbudowane platformy Azure](/azure/role-based-access-control/built-in-roles).
 
 ## <a name="manage-workspace-access"></a>Zarządzanie dostępem do obszaru roboczego
 
@@ -432,13 +432,13 @@ Poniżej przedstawiono kilka kwestii, z którymi należy się zapoznać w przypa
     - "Microsoft. Network/virtualNetworks/Join/Action" w zasobie sieci wirtualnej.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" w zasobie podsieci.
     
-    Aby uzyskać więcej informacji na temat RBAC w sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking).
+    Aby uzyskać więcej informacji na temat usługi Azure RBAC z obsługą sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking).
 
 - Wykonanie nowych przypisań ról w ramach stosu może czasami zająć maksymalnie 1 godzinę.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>PYTANIE: Jakie uprawnienia są potrzebne do użycia tożsamości zarządzanej przez użytkownika z moimi klastrami Amlcompute?
 
-Aby przypisać tożsamość przypisaną do użytkownika w klastrach Amlcompute, jeden musi mieć uprawnienia do zapisu do tworzenia obliczeń i mieć [rolę operatora tożsamości zarządzanej](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Aby uzyskać więcej informacji na temat RBAC z tożsamościami zarządzanymi, przeczytaj artykuł [jak zarządzać tożsamością przypisaną przez użytkownika](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+Aby przypisać tożsamość przypisaną do użytkownika w klastrach Amlcompute, jeden musi mieć uprawnienia do zapisu do tworzenia obliczeń i mieć [rolę operatora tożsamości zarządzanej](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Aby uzyskać więcej informacji na temat kontroli RBAC platformy Azure z tożsamościami zarządzanymi, przeczytaj artykuł [jak zarządzać tożsamością przypisaną przez użytkownika](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>PYTANIE: Czy obsługujemy kontrolę dostępu opartą na rolach w portalu Studio?

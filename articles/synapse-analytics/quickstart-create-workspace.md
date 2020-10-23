@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9780a2adb60c690abda6880157252aaa0c562f18
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: d06d1b0553161523708f4bb142f1c715a77eb2dd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171787"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461111"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Szybki Start: Tworzenie obszaru roboczego Synapse
 W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi Azure Synapse za pomocą Azure Portal.
@@ -23,13 +23,8 @@ W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi
 
 1. Otwórz [Azure Portal](https://portal.azure.com)i w górnej części Szukaj **Synapse**.
 1. W wynikach wyszukiwania w obszarze **usługi**wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.
-1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy przy użyciu tych ustawień:
-
-    |Tab|Ustawienie | Sugerowana wartość | Opis |
-    |---|---|---|---|
-    |Podstawy|**Nazwa obszaru roboczego**|Możesz nadać mu nazwę.| W tym dokumencie będziemy używać funkcji My **Workspace**.|
-    |Podstawy|**Region**|Dopasuj region konta magazynu.|
-
+1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
+1. Na karcie **podstawy** nadaj obszarowi nazw unikatową nazwę. Będziemy używać **mysworkspace** w tym dokumencie
 1. Do utworzenia obszaru roboczego jest potrzebne konto ADLSGEN2. Najprostszą opcją jest utworzenie nowej. Jeśli chcesz ponownie użyć istniejącego, musisz wykonać dodatkową konfigurację. 
 1. Opcja 1 — Tworzenie nowego konta ADLSGEN2 
     1. W obszarze **wybierz Data Lake Storage Gen 2**kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.

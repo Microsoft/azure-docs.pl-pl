@@ -8,22 +8,25 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2069d56b6bc0507478714eda575ab38fec41b8a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: edcdce25cf49a96fa1581c87781bf21f8ac72bc5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92207634"
+ms.locfileid: "92425759"
 ---
-1. Z menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Utwórz zasób**.
+1. W [Azure Portal](https://portal.azure.com)w polu **Wyszukaj zasoby, usługi i dokumenty (G +/)** * Brama sieci wirtualnej * *. Znajdź **bramę sieci wirtualnej** w wynikach wyszukiwania i wybierz ją.
 
-   ![Tworzenie zasobu w witrynie Azure Portal](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
-1. W polu **Wyszukaj w witrynie Marketplace** wpisz "Virtual Network Gateway". Znajdź **bramę sieci wirtualnej** w zwracanym wyszukiwaniu i wybierz wpis. Na stronie **Brama sieci wirtualnej** wybierz pozycję **Utwórz**. Spowoduje to otwarcie strony **Tworzenie bramy sieci wirtualnej**.
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Pole wyszukiwania" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
+
+1. Na stronie **Brama sieci wirtualnej** wybierz pozycję **+ Dodaj**. Spowoduje to otwarcie strony **Tworzenie bramy sieci wirtualnej**.
+
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="Pole wyszukiwania":::
 1. Na karcie **podstawowe** wprowadź wartości dla bramy sieci wirtualnej.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Pola bramy":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Pole wyszukiwania":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Pola bramy":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Pole wyszukiwania":::
 
    **Szczegóły projektu**
 
@@ -48,10 +51,8 @@ ms.locfileid: "92207634"
      * **Publiczny adres IP**: pozostaw opcję **Utwórz nowe** .
      * **Nazwa publicznego adresu IP**: w polu tekstowym wpisz nazwę dla wystąpienia publicznego adresu IP.
      * **Przypisanie**: Brama sieci VPN obsługuje tylko dynamiczne.
-
-   **Tryb aktywny-aktywny**: wybierz opcję **Włącz tryb aktywny-aktywny** tylko w przypadku tworzenia konfiguracji bramy Active-Active. W przeciwnym razie pozostaw to ustawienie **wyłączone**.
-
-   Pozostaw pozycję **Skonfiguruj ASN BGP** jako **wyłączony**, chyba że konfiguracja wymaga tego ustawienia. Jeśli to ustawienie jest wymagane, domyślny numer ASN to 65515, ale można go zmienić.
+     * **Włącz tryb aktywny-aktywny**: wybierz opcję **Włącz tryb aktywny-aktywny** tylko w przypadku tworzenia konfiguracji bramy Active-Active. W przeciwnym razie pozostaw to ustawienie **wyłączone**.
+     * Pozostaw opcję **Skonfiguruj protokół BGP** jako **wyłączony**, chyba że konfiguracja wymaga tego ustawienia. Jeśli to ustawienie jest wymagane, domyślny numer ASN to 65515, ale można go zmienić.
 1. Wybierz pozycję **Przegląd + Utwórz** , aby uruchomić walidację.
 1. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby wdrożyć bramę sieci VPN. Aby w pełni utworzyć i wdrożyć bramę, może upłynąć do 45 minut. Stan wdrożenia można sprawdzić na stronie Przegląd dla bramy.
 

@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab072fa53d3ecc3f856b6765acfb8c19da3ff298
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119794"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442256"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Użyj biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript do pracy z Azure AD B2C
 
@@ -56,16 +56,22 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>Krok 3. Konfigurowanie uwierzytelniania
 
-1. Otwórz plik `config.js` w przykładowej aplikacji.
+1. Otwórz plik `config.json` w przykładowej aplikacji.
 
-2. Skonfiguruj przykład za pomocą poświadczeń aplikacji, które zostały uzyskane wcześniej podczas rejestrowania aplikacji. Zmień następujące wiersze kodu, zastępując wartości nazwami clientID, hosta, tenantId i zasad.
+2. Skonfiguruj przykład za pomocą poświadczeń aplikacji, które zostały uzyskane wcześniej podczas rejestrowania aplikacji. Zmień następujące wiersze kodu, zastępując wartości nazwą dzierżawy, IDENTYFIKATORem klienta i nazwą zasad.
 
-```JavaScript
-const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
-const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
-const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
-const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
-```
+    ```json
+         "credentials": {
+             "tenantName": "<your-tenant-name>",
+             "clientID": "<your-webapi-application-ID>"
+         },
+         "policies": {
+             "policyName": "B2C_1_signupsignin1"
+         },
+         "resource": {
+             "scope": ["demo.read"] 
+         },
+    ```
 
 Aby uzyskać więcej informacji, zapoznaj się z tym [Node.js przykładowym interfejsem API sieci Web B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
@@ -209,6 +215,6 @@ Gdy użytkownik wybierze **zapomniane hasło**, aplikacja zgłosi błąd, który
 
 Dowiedz się więcej na temat tych Azure AD B2C pojęć:
 
-- [Przepływy użytkowników](../../active-directory-b2c/tutorial-create-user-flows.md)
+- [Przepływy użytkownika](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Zasady niestandardowe](../../active-directory-b2c/custom-policy-get-started.md)
 - [Dostosowywanie interfejsu użytkownika](../../active-directory-b2c/custom-policy-configure-user-input.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5be746b73cef37826be36b13c6f491b8ef6ad809
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fe56a8173a4cfe8836a078a62c7bc9015c83324
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359020"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461264"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -42,10 +42,10 @@ Możesz również wykonywać interfejsy API płaszczyzny kontroli, współpracuj
 ## <a name="overview-data-plane-apis"></a>Przegląd: interfejsy API płaszczyzny danych
 
 Interfejsy API płaszczyzny danych to interfejsy API Digital bliźniaczych reprezentacji platformy Azure służące do zarządzania elementami w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Obejmują one operacje, takie jak tworzenie tras, przekazywanie modeli, tworzenie relacji i zarządzanie bliźniaczych reprezentacji. Mogą być szeroko podzielone na następujące kategorie:
-* **DigitalTwinsModels** — Kategoria DigitalTwinsModels zawiera interfejsy API służące do zarządzania [modelami](concepts-models.md) w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Działania związane z zarządzaniem obejmują przekazywanie, sprawdzanie poprawności, pobieranie i usuwanie modeli utworzonych w DTDL.
+* **DigitalTwinModels** — Kategoria DigitalTwinModels zawiera interfejsy API służące do zarządzania [modelami](concepts-models.md) w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Działania związane z zarządzaniem obejmują przekazywanie, sprawdzanie poprawności, pobieranie i usuwanie modeli utworzonych w DTDL.
 * **DigitalTwins** — Kategoria DigitalTwins zawiera interfejsy API, które umożliwiają deweloperom tworzenie, modyfikowanie i usuwanie [cyfrowych bliźniaczych reprezentacji](concepts-twins-graph.md) oraz ich relacji w wystąpieniu Digital bliźniaczych reprezentacji platformy Azure.
 * **Zapytanie** — Kategoria zapytania umożliwia deweloperom [znalezienie zestawów bliźniaczych reprezentacji cyfrowych w grafie bliźniaczym](how-to-query-graph.md) między relacjami.
-* **EventRoutes** — Kategoria EventRoutes zawiera interfejsy API służące do [przesyłania danych](concepts-route-events.md)za pomocą systemu i usług podrzędnych.
+* **Trasy zdarzeń** — Kategoria trasy zdarzeń zawiera interfejsy API do [przesyłania danych](concepts-route-events.md)za pomocą systemu i usług podrzędnych.
 
 Najbardziej aktualna wersja interfejsu API płaszczyzny danych dla publicznej wersji zapoznawczej to _**2020-10-31**_.
 
@@ -56,7 +56,7 @@ Aby używać interfejsów API płaszczyzny danych:
 * Możesz użyć zestawu SDK **platformy .NET (C#)** . Aby użyć zestawu SDK platformy .NET...
    - Możesz wyświetlić i dodać pakiet z programu NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
    - Źródło zestawu SDK, w tym folder przykładów, można znaleźć w witrynie GitHub: [Biblioteka klienta usługi Azure IoT Digital bliźniaczych reprezentacji dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - można wyświetlić [dokumentację referencyjną zestawu SDK](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview).
+   - można wyświetlić [dokumentację referencyjną zestawu SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview).
    - Aby wyświetlić szczegółowe informacje i przykłady użycia, można kontynuować sekcję [zestawu SDK platformy .NET (C#)](#net-c-sdk-data-plane) w tym artykule.
 * Możesz użyć zestawu SDK **języka Java** . Aby użyć zestawu Java SDK...
    - Możesz wyświetlić i zainstalować pakiet z Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)

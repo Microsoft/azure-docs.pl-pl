@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 10/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 14b3857211eca39ebe09a3a0752ca1d8eee17bc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ac5645ccbb9c926bc5ff70605dd1e5de14e823
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529997"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427621"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Kopiowanie danych z Xero za pomocą Azure Data Factory
 
@@ -55,13 +55,13 @@ Dla połączonej usługi Xero są obsługiwane następujące właściwości:
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość: **Xero** | Tak |
 | connectionProperties | Grupa właściwości, która definiuje sposób nawiązywania połączenia z Xero. | Tak |
-| ***W obszarze `connectionProperties` :*** | | |
+| **_W obszarze `connectionProperties` :_*_ | | |
 | host | Punkt końcowy serwera Xero ( `api.xero.com` ).  | Tak |
 | authenticationType | Dozwolone wartości to `OAuth_2.0` i `OAuth_1.0` . | Tak |
 | consumerKey | Klucz klienta skojarzony z aplikacją Xero. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
-| privateKey | Klucz prywatny z pliku PEM, który został wygenerowany dla aplikacji prywatnej Xero, zobacz [Tworzenie pary kluczy publicznych/prywatnych](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Uwaga Aby **wygenerować PrivateKey. pem z numbitsem 512** przy użyciu `openssl genrsa -out privatekey.pem 512` , 1024 nie jest obsługiwane. Dołącz cały tekst z pliku PEM włącznie z zakończeniami wierszy systemu UNIX (\n), zobacz przykład poniżej.<br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
+| privateKey | Klucz prywatny z pliku PEM, który został wygenerowany dla aplikacji prywatnej Xero, zobacz [Tworzenie pary kluczy publicznych/prywatnych](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Uwaga do*wygenerowania PrivateKey. pem z numbitsem 512** using `openssl genrsa -out privatekey.pem 512` , 1024 nie jest obsługiwana. Dołącz cały tekst z pliku PEM włącznie z zakończeniami wierszy systemu UNIX (\n), zobacz przykład poniżej.<br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | tenantId | Identyfikator dzierżawy skojarzony z aplikacją Xero. Dotyczy uwierzytelniania OAuth 2,0.<br>Dowiedz się, jak uzyskać identyfikator dzierżawy od [sprawdzenia dzierżawców, do których](https://developer.xero.com/documentation/oauth2/auth-flow)masz uprawnienia dostępu. | Tak dla uwierzytelniania OAuth 2,0 |
-| refreshToken | Token odświeżenia OAuth 2,0 skojarzony z aplikacją Xero, używany do odświeżania tokenu dostępu po wygaśnięciu tokenu dostępu. Dotyczy uwierzytelniania OAuth 2,0. Dowiedz się, jak uzyskać token odświeżania z [tego artykułu](https://developer.xero.com/documentation/oauth2/auth-flow).<br>Token odświeżania nigdy nie wygasł. Aby uzyskać token odświeżania, należy zażądać [zakresu offline_access](https://developer.xero.com/documentation/oauth2/scopes).<br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak dla uwierzytelniania OAuth 2,0 |
+| refreshToken | Dotyczy uwierzytelniania OAuth 2,0.<br/>Token odświeżania OAuth 2,0 jest skojarzony z aplikacją Xero i używany do odświeżania tokenu dostępu. token dostępu wygasa po 30 minutach. Dowiedz się więcej o tym, jak działa przepływ autoryzacji Xero oraz jak uzyskać token odświeżania z [tego artykułu](https://developer.xero.com/documentation/oauth2/auth-flow). Aby uzyskać token odświeżania, należy zażądać [zakresu offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>Informacje o **ograniczeniu**: Uwaga Xero resetuje token odświeżania, gdy jest używany do odświeżania tokenu dostępu. W przypadku obciążenia operacyjnego przed każdym uruchomieniem działania kopiowania należy ustawić prawidłowy token odświeżania na potrzeby funkcji ADF.<br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak dla uwierzytelniania OAuth 2,0 |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartością domyślną jest true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta jest wymagana w certyfikacie serwera, aby odpowiadała nazwie hosta serwera podczas nawiązywania połączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 | usePeerVerification | Określa, czy należy zweryfikować tożsamość serwera podczas łączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
@@ -174,7 +174,7 @@ Aby skopiować dane z Xero, ustaw typ źródła w działaniu Copy na **XeroSourc
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **XeroSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM Contacts"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Contacts"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 

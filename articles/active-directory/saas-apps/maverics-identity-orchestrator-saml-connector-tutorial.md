@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: fbab2bbaa47090ff4bd7fb99495912bd1f645b61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d5988f25b833480c4809ba116c48022566b7a0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758144"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458187"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Samouczek: integracja logowania jednokrotnego usługi Azure AD za pomocą łącznika SAML Maverics Identity Orchestrator
 
@@ -158,14 +158,14 @@ Magazyn kluczy platformy Azure można skonfigurować przy użyciu Azure Portal l
 
 **Korzystanie z witryny Azure Portal**
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. [Utwórz nowy magazyn kluczy](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault).
-1. [Dodaj wpisy tajne do magazynu kluczy](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
-1. [Zarejestruj aplikację w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
-1. [Autoryzuj aplikację do korzystania z klucza tajnego](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
+1. [Utwórz nowy magazyn kluczy](../../key-vault/secrets/quick-create-portal.md#create-a-vault).
+1. [Dodaj wpisy tajne do magazynu kluczy](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+1. [Zarejestruj aplikację w usłudze Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. [Autoryzuj aplikację do korzystania z klucza tajnego](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 **Korzystanie z interfejsu wiersza polecenia platformy Azure**
 
-1. Otwórz [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), a następnie wprowadź następujące polecenie:
+1. Otwórz [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), a następnie wprowadź następujące polecenie:
 
     ```shell
     az login

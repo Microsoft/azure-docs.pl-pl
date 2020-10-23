@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124399"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460958"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiuj spójnie transakcyjną kopię bazy danych w Azure SQL Database
 
@@ -82,7 +82,7 @@ Kopia bazy danych jest operacją asynchroniczną, ale docelowa baza danych jest 
 
 Zaloguj się do bazy danych Master przy użyciu identyfikatora logowania administratora serwera lub nazwy logowania, która utworzyła bazę danych, którą chcesz skopiować. Aby Kopiowanie bazy danych zakończyło się pomyślnie, logowania, które nie są administratora serwera, muszą należeć do `dbmanager` roli. Aby uzyskać więcej informacji na temat nazw logowania i łączenia się z serwerem, zobacz Zarządzanie nazwami [logowania](logins-create-manage.md).
 
-Rozpocznij kopiowanie źródłowej bazy danych za pomocą programu [CREATE DATABASE... JAKO kopia](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) instrukcji. Instrukcja T-SQL kontynuuje działanie do momentu ukończenia operacji kopiowania bazy danych.
+Rozpocznij kopiowanie źródłowej bazy danych za pomocą programu [CREATE DATABASE... JAKO kopia](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) instrukcji. Instrukcja T-SQL kontynuuje działanie do momentu ukończenia operacji kopiowania bazy danych.
 
 > [!NOTE]
 > Zakończenie instrukcji języka T-SQL nie kończy operacji kopiowania bazy danych. Aby zakończyć operację, Porzuć docelową bazę danych.
@@ -100,6 +100,21 @@ To polecenie kopiuje database1 do nowej bazy danych o nazwie Database2 na tym sa
    ```sql
    -- execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
+   ```
+
+### <a name="copy-to-an-elastic-pool"></a>Kopiuj do puli elastycznej
+
+Zaloguj się do bazy danych Master przy użyciu identyfikatora logowania administratora serwera lub nazwy logowania, która utworzyła bazę danych, którą chcesz skopiować. Aby Kopiowanie bazy danych zakończyło się pomyślnie, nazwy logowania, które nie są administratora serwera, muszą należeć do `dbmanager` roli.
+
+To polecenie kopiuje database1 do nowej bazy danych o nazwie Database2 w puli elastycznej o nazwie pool1. W zależności od rozmiaru bazy danych operacja kopiowania może zająć trochę czasu.
+
+Database1 może być pojedynczą lub pulą baz danych, ale pool1 musi być tą samą warstwą usługi co database1. 
+
+   ```sql
+   -- execute on the master database to start copying
+   CREATE DATABASE "Database2"
+   AS COPY OF "Database1"
+   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) ) ;
    ```
 
 ### <a name="copy-to-a-different-server"></a>Kopiuj na inny serwer
@@ -167,7 +182,7 @@ Jeśli chcesz zobaczyć operacje w obszarze wdrożenia w grupie zasobów portalu
 
 ## <a name="resolve-logins"></a>Rozwiązywanie logowań
 
-Gdy nowa baza danych jest w trybie online na serwerze docelowym, użyj instrukcji [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current) , aby ponownie zamapować użytkowników z nowej bazy danych na nazwy logowania na serwerze docelowym. Aby rozwiązać użytkowników oddzielonych, zobacz [Rozwiązywanie problemów z użytkownikami](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server)oddzielonymi. Zobacz również [jak zarządzać zabezpieczeniami Azure SQL Database po odzyskaniu po awarii](active-geo-replication-security-configure.md).
+Gdy nowa baza danych jest w trybie online na serwerze docelowym, użyj instrukcji [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) , aby ponownie zamapować użytkowników z nowej bazy danych na nazwy logowania na serwerze docelowym. Aby rozwiązać użytkowników oddzielonych, zobacz [Rozwiązywanie problemów z użytkownikami](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server)oddzielonymi. Zobacz również [jak zarządzać zabezpieczeniami Azure SQL Database po odzyskaniu po awarii](active-geo-replication-security-configure.md).
 
 Wszyscy użytkownicy w nowej bazie danych zachowują uprawnienia, które miały w źródłowej bazie danych. Użytkownik, który zainicjował kopię bazy danych, zostaje właścicielem bazy danych nowej bazy danych. Po pomyślnym zakończeniu kopiowania i wcześniejszym zamapowaniu użytkowników tylko właściciel bazy danych może zalogować się do nowej bazy danych.
 

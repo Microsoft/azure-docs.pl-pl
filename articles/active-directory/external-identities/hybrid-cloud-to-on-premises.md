@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eeafe41888163c27f583529bed1998f067e107f
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 84169daa28fc394254ddce211a96d4a462f78cbd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107627"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441865"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
 
@@ -29,7 +29,7 @@ Jeśli aplikacja lokalna korzysta z uwierzytelniania opartego na protokole SAML,
 Należy wykonać obie następujące czynności:
 
 - Zintegruj aplikację przy użyciu protokołu SAML zgodnie z opisem w temacie Konfigurowanie logowania jednokrotnego [opartego na protokole SAML](../manage-apps/configure-saml-single-sign-on.md). Zwróć uwagę na to, co jest używane dla wartości **adresu URL logowania** .
--  Użyj usługi Azure serwer proxy aplikacji usługi Azure AD, aby opublikować aplikację lokalną z **Azure Active Directory** skonfigurowanym jako źródło uwierzytelniania. Aby uzyskać instrukcje, zobacz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-publish-azure-portal.md). 
+-  Użyj usługi Azure serwer proxy aplikacji usługi Azure AD, aby opublikować aplikację lokalną z **Azure Active Directory** skonfigurowanym jako źródło uwierzytelniania. Aby uzyskać instrukcje, zobacz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-add-on-premises-application.md). 
 
    Podczas konfigurowania ustawienia **wewnętrznego adresu URL** należy użyć adresu URL logowania określonego w szablonie aplikacji spoza galerii. Dzięki temu użytkownicy będą mogli uzyskać dostęp do aplikacji spoza granicy organizacji. Serwer proxy aplikacji wykonuje Logowanie jednokrotne SAML dla aplikacji lokalnej.
  
@@ -39,7 +39,7 @@ Należy wykonać obie następujące czynności:
 
 Aby zapewnić użytkownikom B2B dostęp do aplikacji lokalnych zabezpieczonych przy użyciu zintegrowanego uwierzytelniania systemu Windows i ograniczonego delegowania protokołu Kerberos, potrzebne są następujące składniki:
 
-- **Uwierzytelnianie za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD**. Użytkownicy B2B muszą mieć możliwość uwierzytelnienia w aplikacji lokalnej. W tym celu należy opublikować aplikację lokalną za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z serwerem proxy aplikacji i Instalowanie łącznika](../manage-apps/application-proxy-enable.md) oraz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-publish-azure-portal.md).
+- **Uwierzytelnianie za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD**. Użytkownicy B2B muszą mieć możliwość uwierzytelnienia w aplikacji lokalnej. W tym celu należy opublikować aplikację lokalną za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z serwerem proxy aplikacji i Instalowanie łącznika](../manage-apps/application-proxy-add-on-premises-application.md) oraz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-add-on-premises-application.md).
 - **Autoryzacja za pośrednictwem obiektu użytkownika B2B w katalogu lokalnym**. Aplikacja musi być w stanie wykonywać sprawdzenia dostępu użytkowników i udzielić dostępu do odpowiednich zasobów. IWA i KCD wymagają obiektu użytkownika w lokalnym systemie Windows Server Active Directory, aby ukończyć tę autoryzację. Zgodnie z opisem w temacie [jak działa Logowanie jednokrotne za pomocą KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), serwer proxy aplikacji potrzebuje tego obiektu użytkownika, aby personifikować użytkownika i uzyskać token Kerberos do aplikacji. 
 
    > [!NOTE]
@@ -71,7 +71,7 @@ Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarząd
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>Tworzenie obiektów użytkownika gościa B2B za poorednictwem programu MIM
 
-Informacje o sposobach korzystania z programu MIM 2016 z dodatkiem Service Pack 1 i agenta zarządzania programu MIM dla Microsoft Graph tworzenia obiektów użytkowników Gości w katalogu lokalnym można znaleźć w temacie [współpraca między firmami (B2B) w usłudze Azure AD z programem Microsoft Identity Manager (MIM) 2016 z dodatkiem SP1 przy użyciu serwera proxy aplikacji platformy Azure](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+Informacje o sposobach korzystania z programu MIM 2016 z dodatkiem Service Pack 1 i agenta zarządzania programu MIM dla Microsoft Graph tworzenia obiektów użytkowników Gości w katalogu lokalnym można znaleźć w temacie [współpraca między firmami (B2B) w usłudze Azure AD z programem Microsoft Identity Manager (MIM) 2016 z dodatkiem SP1 przy użyciu serwera proxy aplikacji platformy Azure](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Tworzenie obiektów użytkownika gościa B2B za pomocą skryptu (wersja zapoznawcza)
 
@@ -90,4 +90,3 @@ Upewnij się, że masz odpowiednie licencje dostępu klienta (CAL) dla użytkown
 - [Azure Active Directory współpracy B2B z organizacjami hybrydowymi](hybrid-organizations.md)
 
 - Aby zapoznać się z omówieniem Azure AD Connect, zobacz [integrowanie katalogów lokalnych z Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
-

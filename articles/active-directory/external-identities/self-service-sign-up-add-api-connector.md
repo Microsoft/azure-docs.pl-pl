@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613989"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441678"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -44,7 +44,7 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
 > Wcześniej trzeba było skonfigurować atrybuty użytkownika do wysłania do interfejsu API ("oświadczenia do wysłania") oraz atrybuty użytkownika akceptowane z interfejsu API ("oświadczenia do odebrania"). Teraz wszystkie atrybuty użytkownika są domyślnie wysyłane, jeśli mają wartość i dowolny atrybut użytkownika może być zwracany przez interfejs API w odpowiedzi "kontynuacja".
 
 ## <a name="the-request-sent-to-your-api"></a>Żądanie wysłane do interfejsu API
-Łącznik interfejsu API materializuje jako żądanie **http post** , wysyłając atrybuty użytkownika ("oświadczenia") jako pary klucz-wartość w treści JSON. Atrybuty są serializowane w sposób podobny do [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) właściwości użytkownika. 
+Łącznik interfejsu API materializuje jako żądanie **http post** , wysyłając atrybuty użytkownika ("oświadczenia") jako pary klucz-wartość w treści JSON. Atrybuty są serializowane w sposób podobny do [Microsoft Graph](/graph/api/resources/user#properties) właściwości użytkownika. 
 
 **Przykładowe żądanie**
 ```http
@@ -85,7 +85,7 @@ Ponadto w przypadku wszystkich żądań jest domyślnie wysyłane żądanie **us
 > Jeśli nie ma wartości w momencie wywołania punktu końcowego interfejsu API, nie zostanie ono wysłane do interfejsu API. Interfejs API powinien zostać zaprojektowany w celu jawnego sprawdzenia dla oczekiwanej wartości.
 
 > [!TIP] 
-> [**tożsamości ("tożsamości")**](https://docs.microsoft.com/graph/api/resources/objectidentity) oraz oświadczenia **adresu e-mail ("e-mail")** mogą być używane przez interfejs API do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. To zdarzenie jest wysyłane, gdy użytkownik uwierzytelnia się za pomocą dostawcy tożsamości, takiego jak Google lub Facebook. wiadomość e-mail jest zawsze wysyłana.
+> [**tożsamości ("tożsamości")**](/graph/api/resources/objectidentity) oraz oświadczenia **adresu e-mail ("e-mail")** mogą być używane przez interfejs API do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. To zdarzenie jest wysyłane, gdy użytkownik uwierzytelnia się za pomocą dostawcy tożsamości, takiego jak Google lub Facebook. wiadomość e-mail jest zawsze wysyłana.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Włączanie łącznika interfejsu API w przepływie użytkownika
 
@@ -106,7 +106,7 @@ Wykonaj następujące kroki, aby dodać łącznik interfejsu API do samoobsługo
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Po zalogowaniu się za pomocą dostawcy tożsamości
 
-Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (Google, Facebook, Azure AD). Ten krok poprzedza ***stronę kolekcji atrybutów***, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. 
+Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (Google, Facebook, Azure AD). Ten krok poprzedza*_stronę kolekcji atrybutów_** _, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -248,7 +248,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Wersja                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
 | akcja                                             | Ciąg            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli zostały wybrane jako takie, **które mają zostać odebrane** w ramach konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli wybrano jako rolę _,*Aby otrzymać** w konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie musi zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
 
 ### <a name="example-of-a-blocking-response"></a>Przykład odpowiedzi blokującej

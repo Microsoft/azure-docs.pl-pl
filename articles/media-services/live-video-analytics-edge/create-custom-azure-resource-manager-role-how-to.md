@@ -3,12 +3,12 @@ title: Utwórz niestandardową rolę Azure Resource Manager i przypisz ją do je
 description: Ten artykuł zawiera wskazówki dotyczące tworzenia niestandardowej roli Azure Resource Manager i przypisywania jej do jednostki usługi na potrzeby analizy filmów wideo na żywo na IoT Edge przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526582"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425730"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Utwórz niestandardową rolę Azure Resource Manager i przypisz ją do nazwy głównej usługi
 
@@ -230,7 +230,7 @@ Poszukaj elementu "roleDefinitionName" i sprawdź, czy jego wartość jest równ
 
 Jest to potwierdzenie, że niestandardowa rola użytkownika jest połączona z jednostką usługi używaną dla naszej aplikacji.
 
-### <a name="test-the-service-principal-rbac"></a>Testowanie kontroli RBAC jednostki usługi  
+### <a name="test-the-service-principal-access-control"></a>Testowanie kontroli dostępu jednostki usługi
 
 1. Zaloguj się przy użyciu nazwy głównej usługi. W takim przypadku będziemy potrzebować 3 fragmentów informacji dla Azure Active Directory, aby udzielić nam odpowiedniego tokenu dostępu, który możemy pobrać z danych wyjściowych etapu [tworzenia głównej usługi](#create-service-principal) :
     1. AadClientID 

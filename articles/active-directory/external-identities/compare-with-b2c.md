@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08623e6d69ac4db1790c1e9b46089f0c72c0526d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf57e60fc05d579365d459e4a5d5288c2ca52bb0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87906078"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442154"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Co to są tożsamości zewnętrzne w Azure Active Directory?
 
@@ -31,7 +31,7 @@ Tożsamości zewnętrzne usługi Azure AD koncentrują się mniej na relacji uż
 
 - **Opracowywanie aplikacji przeznaczonych dla innych dzierżawców usługi Azure AD (pojedyncza dzierżawa lub wiele dzierżawców)**. Podczas tworzenia aplikacji dla usługi Azure AD można kierować użytkowników z jednej organizacji (pojedynczej dzierżawy) lub użytkowników z dowolnej organizacji, która ma już dzierżawę usługi Azure AD (nazywaną aplikacjami wielodostępnymi). Te aplikacje z wieloma dzierżawami są rejestrowane raz przez siebie we własnej usłudze Azure AD, ale mogą być używane przez dowolnego użytkownika usługi Azure AD z dowolnej organizacji bez konieczności wykonywania dodatkowych czynności.
 
-- **Opracowywanie aplikacji o białych etykietach dla odbiorców i klientów (Azure AD B2C)**. Jeśli jesteś biznesem lub deweloperem tworzącym aplikacje dla klientów, możesz skalować do klientów, klientów lub obywateli przy użyciu Azure AD B2C. Deweloperzy mogą korzystać z usługi Azure AD jako w pełni funkcjonalnego systemu tożsamości dla swojej aplikacji, jednocześnie umożliwiając klientom logowanie się przy użyciu tożsamości, która już została ustanowiona (na przykład Facebook lub Gmail). Dzięki Azure AD B2C można w pełni dostosowywać i kontrolować sposób tworzenia kont i logowania klientów oraz zarządzania ich profilami podczas korzystania z aplikacji. Aby uzyskać więcej informacji, zobacz [dokumentację Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/).
+- **Opracowywanie aplikacji o białych etykietach dla odbiorców i klientów (Azure AD B2C)**. Jeśli jesteś biznesem lub deweloperem tworzącym aplikacje dla klientów, możesz skalować do klientów, klientów lub obywateli przy użyciu Azure AD B2C. Deweloperzy mogą korzystać z usługi Azure AD jako w pełni funkcjonalnego systemu tożsamości dla swojej aplikacji, jednocześnie umożliwiając klientom logowanie się przy użyciu tożsamości, która już została ustanowiona (na przykład Facebook lub Gmail). Dzięki Azure AD B2C można w pełni dostosowywać i kontrolować sposób tworzenia kont i logowania klientów oraz zarządzania ich profilami podczas korzystania z aplikacji. Aby uzyskać więcej informacji, zobacz [dokumentację Azure AD B2C](../../active-directory-b2c/index.yml).
 
 ## <a name="compare-external-identities-solutions"></a>Porównanie rozwiązań dla tożsamości zewnętrznych
 
@@ -45,13 +45,13 @@ Poniższa tabela zawiera szczegółowe porównanie różnych scenariuszy, które
 | Użytkownicy zewnętrzni są zarządzani w ich własnym katalogu, odizolowany od katalogu, w którym zarejestrowano aplikację.    | Użytkownicy zewnętrzni są zarządzani w tym samym katalogu co pracownicy, ale mają specjalne adnotacje. Mogą być zarządzane w taki sam sposób jak pracownicy, ale mogą być dodawane do tych samych grup i tak dalej.    | Użytkownicy zewnętrzni są zarządzani w katalogu aplikacji. Są one zarządzane oddzielnie od pracownika organizacji i katalogu partnera (jeśli istnieją).  |
 | Logowanie jednokrotne: obsługiwane jest logowanie jednokrotne do wszystkich aplikacji połączonych z usługą Azure AD.          | Logowanie jednokrotne: obsługiwane jest logowanie jednokrotne do wszystkich aplikacji połączonych z usługą Azure AD. Na przykład możesz zapewnić dostęp do Microsoft 365 lub aplikacji lokalnych oraz innych aplikacji SaaS, takich jak Salesforce lub Workday.    | Logowanie jednokrotne: obsługiwane jest logowanie jednokrotne do aplikacji należących do klienta w ramach dzierżawców Azure AD B2C. Logowanie jednokrotne do Microsoft 365 lub innych aplikacji Microsoft SaaS nie jest obsługiwane.    |
 | Cykl życia klientów: zarządzane przez organizację główną użytkownika.      | Cykl życia partnera: zarządzany przez hosta/organizację zapraszającą.    | Cykl życia klienta: samoobsługowy lub zarządzany przez aplikację.      |
-| Zasady zabezpieczeń i zgodność: zarządzane przez hosta/zapraszanie organizacji (na przykład z [zasadami dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).           | Zasady zabezpieczeń i zgodność: zarządzane przez hosta/zapraszanie organizacji (na przykład z [zasadami dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)). | Zasady zabezpieczeń i zgodność: zarządzane przez aplikację.        |
+| Zasady zabezpieczeń i zgodność: zarządzane przez hosta/zapraszanie organizacji (na przykład z [zasadami dostępu warunkowego](./conditional-access.md)).           | Zasady zabezpieczeń i zgodność: zarządzane przez hosta/zapraszanie organizacji (na przykład z [zasadami dostępu warunkowego](./conditional-access.md)). | Zasady zabezpieczeń i zgodność: zarządzane przez aplikację.        |
 | Znakowanie: używana jest marka Host/zapraszanie do organizacji.   | Znakowanie: używana jest marka Host/zapraszanie do organizacji.    | Znakowanie: zarządzane przez aplikację. Zazwyczaj jest używana marka produktu z danymi organizacji w tle.   |
-| Więcej informacji: [Zarządzanie tożsamościami w aplikacjach wielodostępnych](https://docs.microsoft.com/azure/architecture/multitenant-identity/), [przewodniku krok po kroku](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) | Więcej informacji: [wpis w blogu](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [dokumentacja](what-is-b2b.md)                   | Więcej informacji: [strona produktu](https://azure.microsoft.com/services/active-directory-b2c/), [dokumentacja](https://docs.microsoft.com/azure/active-directory-b2c/)       |
+| Więcej informacji: [Zarządzanie tożsamościami w aplikacjach wielodostępnych](/azure/architecture/multitenant-identity/), [przewodniku krok po kroku](../develop/howto-convert-app-to-be-multi-tenant.md) | Więcej informacji: [wpis w blogu](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [dokumentacja](what-is-b2b.md)                   | Więcej informacji: [strona produktu](https://azure.microsoft.com/services/active-directory-b2c/), [dokumentacja](../../active-directory-b2c/index.yml)       |
 
 Zabezpiecz klientów i partnerów poza granicami organizacyjnymi przy użyciu tożsamości zewnętrznych usługi Azure AD i zarządzaj nimi.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
-- [Informacje na temat usługi Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview)
+- [Informacje na temat usługi Azure AD B2C](../../active-directory-b2c/overview.md)

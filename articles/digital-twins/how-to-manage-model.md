@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dbe1c368a730fcd09cf5e5f6435ca247150b5c3c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102497"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426203"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
-Można zarządzać [modelami](concepts-models.md) , dla których wystąpienie usługi Azure Digital bliźniaczych reprezentacji wie o korzystaniu z [**interfejsów API DigitalTwinsModels**](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia platformy Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). 
+Można zarządzać [modelami](concepts-models.md) , dla których wystąpienie usługi Azure Digital bliźniaczych reprezentacji wie o korzystaniu z [**interfejsów API DigitalTwinsModels**](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia platformy Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). 
 
 Operacje zarządzania obejmują przekazywanie, sprawdzanie poprawności, pobieranie i usuwanie modeli. 
 

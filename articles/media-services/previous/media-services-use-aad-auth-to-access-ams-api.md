@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: c0d3ece75d15ae07091f613348389f845ec74ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dae3b1adc1f7fecf6a34fc51d2a35bf4c98ea65
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262519"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425913"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Uzyskiwanie dostępu do interfejsu API usługi Azure Media Services przy użyciu uwierzytelniania usługi Azure AD. 
 
@@ -29,7 +29,7 @@ ms.locfileid: "89262519"
 
 Interfejs API Azure Media Services jest interfejsem API RESTful. Można jej używać do wykonywania operacji na zasobach multimedialnych przy użyciu interfejsu API REST lub z dostępnych zestawów SDK klienta. Azure Media Services oferuje zestaw SDK klienta Media Services dla Microsoft .NET. Aby uzyskać prawa dostępu do zasobów usługi Media Services i do interfejsu API usługi Media Services, należy się najpierw uwierzytelnić. 
 
-Media Services obsługuje [uwierzytelnianie oparte na Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Usługa Azure Media REST wymaga, aby użytkownik lub aplikacja, która wykonuje żądania interfejsu API REST, miała rolę **współautor** lub **właściciela** , aby uzyskać dostęp do zasobów. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z Role-Based Access Control w Azure Portal](../../role-based-access-control/overview.md).  
+Media Services obsługuje [uwierzytelnianie oparte na Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Usługa Azure Media REST wymaga, aby użytkownik lub aplikacja, która wykonuje żądania interfejsu API REST, miała rolę **współautor** lub **właściciela** , aby uzyskać dostęp do zasobów. Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md).  
 
 Ten dokument zawiera omówienie sposobu uzyskiwania dostępu do interfejsu API Media Services przy użyciu interfejsów API REST lub .NET.
 
@@ -153,7 +153,7 @@ Poniższe artykuły zawierają omówienia pojęć związanych z uwierzytelnianie
 
 - [Scenariusze uwierzytelniania rozwiązywane przez usługę Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
 - [Dodawanie, aktualizowanie lub usuwanie aplikacji w usłudze Azure AD](../../active-directory/develop/quickstart-register-app.md)
-- [Konfigurowanie Access Control Role-Based i zarządzanie nimi przy użyciu programu PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu programu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

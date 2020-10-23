@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892980"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426521"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning z niezależną międzychmurową parzystością
 
@@ -34,7 +34,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 
 ## <a name="azure-government"></a>Azure Government 
 
-| Cecha | Stan chmury publicznej  | US-Virginia | US-Arizona| 
+| Promowanie | Stan chmury publicznej  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | **Zautomatyzowane uczenie maszynowe** | | | |
 | Twórz i uruchamiaj eksperymenty w notesach                                    | Ogólna dostępność                   | TAK                | TAK         |
@@ -96,7 +96,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 | niestandardowe znaczniki w Azure Machine Learning do implementowania arkuszy danych              | Ogólna dostępność                   | NO                 | NO          |
 | Integracja z programem Azure                                               | Publiczna wersja zapoznawcza       | NO                 | NO          |
 | Zestaw SDK do interpretacji                                                      | Ogólna dostępność                   | TAK                | TAK         |
-| **Szkolenie** |   | | |
+| **Szkolenia** |   | | |
 | Przesyłanie strumieniowe dzienników eksperymentów                                              | Ogólna dostępność                   | TAK                | TAK         |
 | Uczenie wzmacniające                                                     | Publiczna wersja zapoznawcza       | NO                 | NO          |
 | Interfejs użytkownika eksperymentowania                                                         | Ogólna dostępność                   | TAK                | TAK         |
@@ -122,7 +122,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 | Dostęp do zasobów obliczeniowych w katalogu głównym i SSH.                                          | TAK | TAK |  |
 | Zapewnienie bezpieczeństwa wdrożonych systemów (wystąpień, punktów końcowych itp.), w tym programu Endpoint Protection, poprawek i rejestrowania |  UWZGLĘDNIENI|  UWZGLĘDNIENI |ACI za sieć wirtualną i prywatny punkt końcowy jest obecnie niedostępny |                                  
 | Kontrolka (Wyłącz/Ogranicz/Ogranicz) użycie integracji ACI/AKS                    | UWZGLĘDNIENI| UWZGLĘDNIENI |ACI za sieć wirtualną i prywatny punkt końcowy jest obecnie niedostępny|
-| Role-Based Access Control (RBAC) — Tworzenie ról niestandardowych                           | TAK | TAK |  |
+| Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure — tworzenie ról niestandardowych                           | TAK | TAK |  |
 | Kontrolowanie dostępu do obrazów ACR używanych przez usługę ML (udostępnione/obsługiwane przez platformę Azure zamiast niestandardowych)  |UWZGLĘDNIENI|  UWZGLĘDNIENI | ACR za prywatny punkt końcowy i Sieć wirtualna nie jest obsługiwana w Azure Government |
 | **Ogólne użycie usługi Machine Learning** |  | | |
 | Możliwość tworzenia modelu przez środowisko programistyczne, uczenie tego modelu, hostowania go jako punktu końcowego i korzystania z niego za pośrednictwem webapp     | TAK | TAK |  |
@@ -147,7 +147,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 
 ## <a name="azure-china-21vianet"></a>Azure w Chinach — 21Vianet 
 
-| Cecha                                       | Stan chmury publicznej | CH-wschód-2 | CH — północ-3 |
+| Promowanie                                       | Stan chmury publicznej | CH-wschód-2 | CH — północ-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | **Zautomatyzowane uczenie maszynowe** |    | | |
 | Twórz i uruchamiaj eksperymenty w notesach                                    | Ogólna dostępność               | TAK       | Nie dotyczy        |
@@ -209,7 +209,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 | niestandardowe znaczniki w Azure Machine Learning do implementowania arkuszy danych              | Ogólna dostępność               | NO        | Nie dotyczy        |
 | Integracja z programem Azure                                               | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
 | Zestaw SDK do interpretacji                                                      | Ogólna dostępność               | TAK       | Nie dotyczy        |
-| **Szkolenie** |    | | |
+| **Szkolenia** |    | | |
 | Przesyłanie strumieniowe dzienników eksperymentów                                              | Ogólna dostępność               | TAK       | Nie dotyczy        |
 | Uczenie wzmacniające                                                     | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
 | Interfejs użytkownika eksperymentowania                                                         | Ogólna dostępność               | TAK       | Nie dotyczy        |

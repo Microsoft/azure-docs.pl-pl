@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: ef1e3c886cfd30db4c6a550d0ecabe7d41fab55c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425003"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461003"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
@@ -281,6 +281,13 @@ Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure C
     ]
     }
     ```
+
+    Ten szablon służy do tworzenia _prywatnego punktu końcowego_ dla dostępu do sieci z obszaru roboczego do ACR. Poniższy zrzut ekranu przedstawia przykład tego prywatnego punktu końcowego.
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Azure Container Registry obszaru roboczego":::
+
+    > [!IMPORTANT]
+    > Nie usuwaj tego punktu końcowego! Jeśli przypadkowo usuniesz ten szablon, możesz go ponownie zastosować w tym kroku, aby utworzyć nowy.
 
 ## <a name="next-steps"></a>Następne kroki
 

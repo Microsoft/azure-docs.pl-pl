@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267486"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461468"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenariusz: kierowanie do usług udostępnionych sieci wirtualnych
 
@@ -24,17 +24,19 @@ Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, z
 
 ## <a name="design"></a><a name="design"></a>Projekt
 
-W celu podsumowania wymagań tego scenariusza możemy użyć macierzy łączności. W macierzy każda komórka zawiera informacje o tym, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy w tabeli) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu. "X" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN:
+W celu podsumowania wymagań tego scenariusza możemy użyć macierzy łączności:
 
 **Macierz łączności**
 
 | Źródło             | Do:   |*Izolowany sieci wirtualnych*|*Udostępniona Sieć wirtualna*|*Gałęzie*|
 |---|---|---|---|---|
-|**Izolowany sieci wirtualnych**|&#8594;|                |        X        |       X      |
-|**Udostępnione sieci wirtualnych**  |&#8594;|       X        |        X        |       X      |
-|**Gałęzie**      |&#8594;|       X        |        X        |       X      |
+|**Izolowany sieci wirtualnych**|&#8594;|        | Direct | Direct |
+|**Udostępnione sieci wirtualnych**  |&#8594;| Direct | Direct | Direct |
+|**Gałęzie**      |&#8594;| Direct | Direct | Direct |
 
-Podobnie jak w przypadku [scenariusza izolowanej sieci wirtualnej](scenario-isolate-vnets.md), ta macierz łączności daje nam dwa różne wzorce wierszy, które przekładają się na dwie tabele tras (sieci wirtualnych usługi udostępnione i gałęzie mają te same wymagania dotyczące łączności). Wirtualna sieć WAN ma już domyślną tabelę tras, dlatego będziemy potrzebować innej niestandardowej tabeli tras, która będzie wywoływała **RT_SHARED** w tym przykładzie.
+Każda z komórek w poprzedniej tabeli zawiera opis, czy wirtualne połączenie sieci WAN ("od", po stronie przepływu, nagłówki wierszy) komunikuje się z miejscem docelowym (po stronie "do" przepływu, nagłówki kolumn w kursywie). W tym scenariuszu nie ma zapór ani sieciowych urządzeń wirtualnych, dlatego komunikacja odbywa się bezpośrednio za pośrednictwem wirtualnej sieci WAN (w związku z tym wyraz "Direct" w tabeli).
+
+Podobnie jak w przypadku [scenariusza izolowanej sieci wirtualnej](scenario-isolate-vnets.md), ta macierz łączności daje nam dwa różne wzorce wierszy, które tłumaczą na dwie tabele tras (sieci wirtualnych usługi udostępnione i gałęzie mają te same wymagania dotyczące łączności). Wirtualna sieć WAN ma już domyślną tabelę tras, dlatego będziemy potrzebować innej niestandardowej tabeli tras, która będzie wywoływała **RT_SHARED** w tym przykładzie.
 
 Sieci wirtualnych zostanie skojarzona z tabelą tras **RT_SHARED** . Ponieważ potrzebują łączności z oddziałami i sieci wirtualnych usługi udostępnionej, Sieć wirtualna i gałęzie udostępnionej usługi muszą zostać propagowane do **RT_SHARED** (w przeciwnym razie sieci wirtualnych nie będzie uczyć się gałęzi i udostępnionych prefiksów sieci wirtualnej). Ze względu na to, że gałęzie są zawsze skojarzone z domyślną tabelą tras, a wymagania dotyczące łączności są takie same dla usług udostępnionych sieci wirtualnych, zostanie ona skojarzona z domyślną tabelą tras.
 

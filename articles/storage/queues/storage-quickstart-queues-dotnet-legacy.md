@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e782dc632fe4100194015c3e0adb4ceb1ac30a6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d73f225f0e6f230509c856af0d15bc02e80fcd98
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89011467"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425886"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Szybki Start: korzystanie z usługi Azure Storage SDK v11 for .NET do zarządzania kolejką
 
@@ -34,7 +34,7 @@ Następnie pobierz i zainstaluj program .NET Core 2.0 dla swojego systemu operac
 - Zainstaluj program[.NET Core dla systemu Windows](https://www.microsoft.com/net/download/windows) lub program [.NET Framework](https://www.microsoft.com/net/download/windows) (dołączony do programu Visual Studio dla systemu Windows)
 - Zainstaluj program [Visual Studio dla systemu Windows](https://www.visualstudio.com/). Jeśli używasz programu .NET Core, instalacja programu Visual Studio jest opcjonalna.  
 
-Aby uzyskać informacje dotyczące wyboru między programem.NET Core i programem.NET Framework, zobacz [Choose between .NET Core and .NET Framework for server apps (Wybieranie między programami .NET Core i .NET Framework w przypadku aplikacji serwera)](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
+Aby uzyskać informacje dotyczące wyboru między programem.NET Core i programem.NET Framework, zobacz [Choose between .NET Core and .NET Framework for server apps (Wybieranie między programami .NET Core i .NET Framework w przypadku aplikacji serwera)](/dotnet/standard/choosing-core-framework-server).
 
 ### <a name="linux"></a>Linux
 
@@ -266,14 +266,14 @@ Zobacz dodatkowe zasoby używane podczas tworzenia aplikacji .NET przy użyciu k
 
 ### <a name="binaries-and-source-code"></a>Pliki binarne i kod źródłowy
 
-- Pobierz pakiety NuGet dla najnowszej wersji [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+- Pobierz pakiety NuGet dla najnowszej wersji [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage)
     - [Wspólne](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [Kolejki](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Wyświetl [kod źródłowy biblioteki klienta .NET](https://github.com/Azure/azure-storage-net) w usłudze GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Dokumentacja i przykłady dotyczące biblioteka klienta
 
-- Aby uzyskać więcej informacji na temat biblioteki klienta .NET, zobacz [dokumentację interfejsu API platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
+- Aby uzyskać więcej informacji na temat biblioteki klienta .NET, zobacz [dokumentację interfejsu API platformy .NET](/dotnet/api/overview/azure/storage).
 - Zapoznaj się z [przykładami magazynu Queue Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) napisanymi przy użyciu biblioteki klienta .NET.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -281,6 +281,6 @@ Zobacz dodatkowe zasoby używane podczas tworzenia aplikacji .NET przy użyciu k
 W tym przewodniku Szybki start przedstawiono sposób dodawania komunikatów do kolejki, uzyskiwania wglądu w komunikaty w kolejce oraz usuwania komunikatów z kolejki i przetwarzania ich przy użyciu platformy .NET. 
 
 > [!div class="nextstepaction"]
-> [Komunikacja między aplikacjami za pomocą usługi Azure Queue Storage](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Komunikacja między aplikacjami za pomocą usługi Azure Queue Storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - Aby dowiedzieć się więcej na temat platformy .NET Core, zobacz [Get started with .NET in 10 minutes (Rozpoczynanie pracy z platformą .NET w 10 minut)](https://www.microsoft.com/net/learn/get-started/).
