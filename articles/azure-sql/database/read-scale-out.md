@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbde77de0ad8698ff82b80b440ae1d4bdcae1f36
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319431"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426983"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Korzystanie z replik tylko do odczytu w celu odciążenia obciążeń zapytań tylko do odczytu
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-W ramach [architektury wysokiej dostępności](high-availability-sla.md#premium-and-business-critical-service-tier-availability)każda pojedyncza baza danych, baza danych elastycznej puli i wystąpienie zarządzane w warstwie Premium i krytyczne dla działania firmy są automatycznie inicjowane przy użyciu podstawowej repliki odczytu i zapisu oraz kilku replik pomocniczych tylko do odczytu. Pomocnicze repliki są obsługiwane z tym samym rozmiarem obliczeniowym co replika podstawowa. Funkcja *Odczyt skalowalny* w poziomie umożliwia odciążanie obciążeń tylko do odczytu przy użyciu pojemności obliczeniowej jednej z replik tylko do odczytu, zamiast uruchamiania ich w replice do odczytu i zapisu. W ten sposób niektóre obciążenia tylko do odczytu mogą być odizolowane od obciążeń odczytu i zapisu i nie wpłyną na ich wydajność. Ta funkcja jest przeznaczona dla aplikacji, które zawierają logicznie oddzielone, tylko do odczytu obciążenia, takie jak analiza. W warstwach usług premium i Krytyczne dla działania firmy aplikacje mogą uzyskać korzyści z wydajności przy użyciu tej dodatkowej pojemności bez dodatkowych kosztów.
+W ramach [architektury wysokiej dostępności](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)każda pojedyncza baza danych, baza danych elastycznej puli i wystąpienie zarządzane w warstwie Premium i krytyczne dla działania firmy są automatycznie inicjowane przy użyciu podstawowej repliki odczytu i zapisu oraz kilku replik pomocniczych tylko do odczytu. Pomocnicze repliki są obsługiwane z tym samym rozmiarem obliczeniowym co replika podstawowa. Funkcja *Odczyt skalowalny* w poziomie umożliwia odciążanie obciążeń tylko do odczytu przy użyciu pojemności obliczeniowej jednej z replik tylko do odczytu, zamiast uruchamiania ich w replice do odczytu i zapisu. W ten sposób niektóre obciążenia tylko do odczytu mogą być odizolowane od obciążeń odczytu i zapisu i nie wpłyną na ich wydajność. Ta funkcja jest przeznaczona dla aplikacji, które zawierają logicznie oddzielone, tylko do odczytu obciążenia, takie jak analiza. W warstwach usług premium i Krytyczne dla działania firmy aplikacje mogą uzyskać korzyści z wydajności przy użyciu tej dodatkowej pojemności bez dodatkowych kosztów.
 
 Funkcja *Odczytaj skalowalny* w poziomie jest również dostępna w warstwie usługi w ramach skalowania po utworzeniu co najmniej jednej repliki pomocniczej. Wiele replik pomocniczych może służyć do równoważenia obciążenia obciążeń przeznaczonych tylko do odczytu, które wymagają więcej zasobów niż dostępne w jednej replice pomocniczej.
 

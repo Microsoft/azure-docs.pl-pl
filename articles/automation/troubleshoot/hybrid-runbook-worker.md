@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400421"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428391"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Rozwiązywanie problemów z hybrydowym procesem roboczym elementu runbook
 
@@ -46,7 +46,7 @@ Możliwe są następujące przyczyny:
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Sprawdź, czy komputer ma dostęp wychodzący do ***. Azure-Automation.NET** na porcie 443.
+Sprawdź, czy komputer ma dostęp wychodzący do ** \* . Azure-Automation.NET** na porcie 443.
 
 Komputery z uruchomionym hybrydowym procesem roboczym elementu Runbook powinny spełniać minimalne wymagania sprzętowe, zanim proces roboczy zostanie skonfigurowany do obsługi tej funkcji. Elementy Runbook i proces w tle, których używają, mogą spowodować nadużycie systemu i spowodować opóźnienia zadań elementu Runbook lub przekroczenia limitu czasu.
 
@@ -226,7 +226,7 @@ W dzienniku zdarzeń programu **Application and Services Logs\Operations Manager
 
 #### <a name="cause"></a>Przyczyna
 
-Przyczyną tego problemu może być Microsoft Azure przez serwer proxy lub zaporę sieciową. Sprawdź, czy komputer ma dostęp wychodzący do ***. Azure-Automation.NET** na porcie 443.
+Przyczyną tego problemu może być Microsoft Azure przez serwer proxy lub zaporę sieciową. Sprawdź, czy komputer ma dostęp wychodzący do ** \* . Azure-Automation.NET** na porcie 443.
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -293,7 +293,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenariusz: nie można dodać hybrydowego procesu roboczego elementu Runbook
+### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenariusz: nie można dodać hybrydowego procesu roboczego elementu Runbook systemu Windows
 
 #### <a name="issue"></a>Problem
 
@@ -312,6 +312,46 @@ Ten problem może być spowodowany tym, że maszyna jest już zarejestrowana prz
 Aby rozwiązać ten problem, usuń następujący klucz rejestru, uruchom ponownie `HealthService` , a następnie spróbuj `Add-HybridRunbookWorker` ponownie wykonać polecenie cmdlet.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
+
+### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenariusz: nie można dodać hybrydowego procesu roboczego elementu Runbook systemu Linux
+
+#### <a name="issue"></a>Problem
+
+Podczas próby dodania hybrydowego procesu roboczego elementu Runbook przy użyciu skryptu języka Python zostanie wyświetlony następujący komunikat `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` :
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+Ponadto próba wyrejestrowania hybrydowego procesu roboczego elementu Runbook przy użyciu skryptu języka `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` Python:
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### <a name="cause"></a>Przyczyna
+
+Ten problem może wystąpić, jeśli maszyna jest już zarejestrowana przy użyciu innego konta usługi Automation, jeśli usunięto grupę hybrydowych procesów roboczych platformy Azure lub jeśli spróbujesz ponownie dodać hybrydowy proces roboczy elementu Runbook po usunięciu go z komputera.
+
+#### <a name="resolution"></a>Rozwiązanie
+
+Aby rozwiązać ten problem:
+
+1. Usuń agenta `sudo sh onboard_agent.sh --purge` .
+
+1. Uruchom te polecenia:
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. Przełączenie agenta `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` .
+
+1. Poczekaj na `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` wypełnienie folderu.
+
+1. Spróbuj `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` ponownie wykonać skrypt języka Python.
 
 ## <a name="next-steps"></a>Następne kroki
 

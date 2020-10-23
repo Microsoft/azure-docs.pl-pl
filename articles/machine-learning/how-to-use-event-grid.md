@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: e033f00f7657f7f4e5e63509672e924979ce03e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d2f600a651f44abddf4a77f2a01486fa0259f2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362520"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428432"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Wyzwalaj aplikacje, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania w oparciu o zdarzenia Azure Machine Learning (wersja zapoznawcza)
 
@@ -62,7 +62,7 @@ Te zdarzenia są publikowane za poorednictwem Azure Event Grid. Korzystając z A
 
 Podczas konfigurowania zdarzeń można zastosować filtry tylko do wyzwalania tylko dla określonych danych zdarzeń. W poniższym przykładzie dla zdarzeń zmiany stanu uruchomienia można filtrować według typów uruchomienia. Zdarzenie jest wyzwalane tylko wtedy, gdy kryteria są spełnione. Zapoznaj się z [schematem siatki zdarzeń Azure Machine Learning](/azure/event-grid/event-schema-machine-learning) , aby dowiedzieć się więcej o danych zdarzeń, które można filtrować według. 
 
-Subskrypcje dla zdarzeń Azure Machine Learning są chronione za pomocą kontroli dostępu opartej na rolach (RBAC). Tylko [współautor lub właściciel](how-to-assign-roles.md#default-roles) obszaru roboczego może tworzyć, aktualizować i usuwać subskrypcje zdarzeń.  Filtry mogą być stosowane do subskrypcji zdarzeń podczas [tworzenia](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) subskrypcji zdarzeń lub w późniejszym czasie. 
+Subskrypcje dla zdarzeń Azure Machine Learning są chronione za pomocą kontroli dostępu opartej na rolach (Azure RBAC). Tylko [współautor lub właściciel](how-to-assign-roles.md#default-roles) obszaru roboczego może tworzyć, aktualizować i usuwać subskrypcje zdarzeń.  Filtry mogą być stosowane do subskrypcji zdarzeń podczas [tworzenia](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) subskrypcji zdarzeń lub w późniejszym czasie. 
 
 
 1. Przejdź do Azure Portal, wybierz nową subskrypcję lub istniejącą. 

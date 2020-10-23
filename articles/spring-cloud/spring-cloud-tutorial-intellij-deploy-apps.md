@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa56eeab59dee3f080895d5f15285a2b2d41591
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 91edbbda43365b17b8276572804ba788dbee9f13
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088775"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426724"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Wdrażanie aplikacji Azure Spring Cloud za pomocą środowiska IntelliJ
 
@@ -25,10 +25,10 @@ Przed uruchomieniem tego przykładu możesz skorzystać z [podstawowego przewodn
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0 +](https://maven.apache.org/download.cgi)
-* [IntelliJ pomysł, Community/Ultimate Edition, wersja 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ pomysł, Community/Ultimate Edition, wersja 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Instalowanie wtyczki
-Można dodać Azure Toolkit for IntelliJ pomysł 3.35.0 z interfejsu użytkownika **wtyczek** IntelliJ.
+Można dodać Azure Toolkit for IntelliJ pomysł 3.43.0 z interfejsu użytkownika **wtyczek** IntelliJ.
 
 1. Uruchom IntelliJ.  Jeśli wcześniej otwarto projekt, Zamknij projekt, aby wyświetlić okno dialogowe powitalne. Wybierz pozycję **Konfiguruj** z link dolny prawy, a następnie kliknij pozycję **wtyczki** , aby otworzyć okno dialogowe Konfiguracja wtyczki, a następnie wybierz pozycję **Zainstaluj wtyczki z dysku**.
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124762"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426318"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Tworzenie i używanie aktywnej replikacji geograficznej — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -83,7 +83,7 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
 > Odtwarzanie dziennika jest opóźnione w pomocniczej bazie danych, jeśli istnieją aktualizacje schematu na serwerze podstawowym. Ten ostatni wymaga blokady schematu w pomocniczej bazie danych.
 
 > [!IMPORTANT]
-> Możesz użyć replikacji geograficznej, aby utworzyć pomocniczą bazę danych w tym samym regionie co podstawowy. Tej dodatkowej można użyć do równoważenia obciążenia obciążeń tylko do odczytu w tym samym regionie. Jednak pomocnicza baza danych w tym samym regionie nie zapewnia dodatkowej odporności na uszkodzenia i dlatego nie jest odpowiednim miejscem docelowym trybu failover na potrzeby odzyskiwania po awarii. Nie gwarantuje to również izolacji strefy dostępności. Aby uzyskać izolację strefy dostępności, użyj warstwy usługi krytycznej lub Premium firmy z [konfiguracją nadmiarową stref](high-availability-sla.md#zone-redundant-configuration) .
+> Możesz użyć replikacji geograficznej, aby utworzyć pomocniczą bazę danych w tym samym regionie co podstawowy. Tej dodatkowej można użyć do równoważenia obciążenia obciążeń tylko do odczytu w tym samym regionie. Jednak pomocnicza baza danych w tym samym regionie nie zapewnia dodatkowej odporności na uszkodzenia i dlatego nie jest odpowiednim miejscem docelowym trybu failover na potrzeby odzyskiwania po awarii. Nie gwarantuje to również izolacji strefy dostępności. Użyj warstwy usługi krytycznej lub Premium z [konfiguracją nadmiarową stref](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) lub ogólnego przeznaczenia strefę usługi warstwy usług [nadmiarowa konfiguracja](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) , aby osiągnąć izolację strefy dostępności.
 >
 
 - **Planowana praca w trybie failover**

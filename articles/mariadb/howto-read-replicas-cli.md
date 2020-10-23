@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f6b53efdf49538476821ddeaed9bbf4278af0728
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e48d14fae4f62b92b5a8d08f83fea6d2e2ed3fe
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542414"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424949"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Jak tworzyć repliki odczytu i zarządzać nimi w Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure i API REST
 
@@ -23,7 +23,7 @@ Można tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- [Instalowanie interfejsu wiersza polecenia platformy Azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Instalowanie interfejsu wiersza polecenia platformy Azure 2,0](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) , który będzie używany jako serwer źródłowy. 
 
 > [!IMPORTANT]
@@ -42,9 +42,9 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 `az mariadb server replica create`Polecenie wymaga następujących parametrów:
 
-| Ustawienie | Przykładowa wartość | Opis  |
+| Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
+| resource-group |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
 | name | mydemoreplicaserver | Nazwa nowego serwera repliki, który został utworzony. |
 | source-server | mydemoserver | Nazwa lub identyfikator istniejącego serwera źródłowego do replikacji. |
 
@@ -72,9 +72,9 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 `az mariadb server replica list`Polecenie wymaga następujących parametrów:
 
-| Ustawienie | Przykładowa wartość | Opis  |
+| Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
+| resource-group |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
 | nazwa-serwera | mydemoserver | Nazwa lub identyfikator serwera źródłowego. |
 
 ### <a name="stop-replication-to-a-replica-server"></a>Zatrzymaj replikację do serwera repliki
@@ -90,9 +90,9 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 `az mariadb server replica stop`Polecenie wymaga następujących parametrów:
 
-| Ustawienie | Przykładowa wartość | Opis  |
+| Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Grupa zasobów, w której istnieje serwer repliki.  |
+| resource-group |  myresourcegroup |  Grupa zasobów, w której istnieje serwer repliki.  |
 | name | mydemoreplicaserver | Nazwa serwera repliki, na którym ma zostać zatrzymana replikacja. |
 
 ### <a name="delete-a-replica-server"></a>Usuwanie serwera repliki

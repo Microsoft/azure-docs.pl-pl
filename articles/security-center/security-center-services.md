@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342301"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425149"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -30,7 +30,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 
 |**Funkcja**|**Azure Virtual Machines**|**Zestawy skalowania maszyn wirtualnych platformy Azure**|**Maszyny z obsługą usługi Azure Arc**|**Usługa Azure Defender jest wymagana**
 |----|:----:|:----:|:----:|:----:|
-|[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Tak|
+|[Integracja usługi Microsoft Defender for Endpoint](security-center-wdatp.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Tak|
 |[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](alerts-reference.md)|✔|✔|✔|Tak|
 |[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|✔|✔|✔|Tak|
 |[Alerty zabezpieczeń oparte na sieci](other-threat-protections.md#network-layer)|✔|✔|-|Tak|
@@ -54,7 +54,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 
 |**Funkcja**|**Azure Virtual Machines**|**Zestawy skalowania maszyn wirtualnych platformy Azure**|**Maszyny z obsługą usługi Azure Arc**|**Usługa Azure Defender jest wymagana**
 |----|:----:|:----:|:----:|:----:|
-|[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Tak|
+|[Integracja usługi Microsoft Defender for Endpoint](security-center-wdatp.md)|-|-|-|Tak|
 |[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](./azure-defender.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Tak|
 |[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|-|-|-|Tak|
 |[Alerty zabezpieczeń oparte na sieci](other-threat-protections.md#network-layer)|✔|✔|-|Tak|

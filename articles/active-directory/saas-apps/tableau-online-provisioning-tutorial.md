@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71d9af57ab85d694cc08f30c19f6ac87796b2c4e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613932"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425555"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Tableau online w celu automatycznego aprowizacji użytkowników
 
@@ -98,7 +98,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    * W polu **domena** Wypełnij poddomenę w oparciu o krok 6.
 
-   * W polu **Nazwa użytkownika administratora** wprowadź nazwę użytkownika konta administratora w dzierżawie Clarizen. Może to być na przykład admin@contoso.com.
+   * W polu **Nazwa użytkownika administratora** wprowadź nazwę użytkownika konta administratora w dzierżawie usługi Tableau online. Może to być na przykład admin@contoso.com.
 
    * W polu **hasło administratora** wprowadź hasło konta administratora, które odnosi się do nazwy użytkownika administratora.
 
@@ -166,7 +166,7 @@ Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji us
 ## <a name="change-log"></a>Dziennik zmian
 * 09/30/2020 — dodano obsługę atrybutu "authSetting" dla użytkowników.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

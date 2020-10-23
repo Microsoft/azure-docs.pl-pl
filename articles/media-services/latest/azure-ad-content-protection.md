@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839541"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427201"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Samouczek: Kompleksowa ochrona zawartości przy użyciu usługi Azure AD
 
@@ -161,7 +161,7 @@ Wybierz dzierżawę usługi Azure AD, która ma być używana na potrzeby komple
 1. Z menu wybierz pozycję **manifest** . Zostanie wyświetlony widok manifestu.
 1. Zmień wartość na `accessTokenAcceptedVersion` *2* (brak cudzysłowów).
 1. Zmień wartość `groupMembershipClaims` na *"Security* " (z cudzysłowami).
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 1. Wybierz opcję **Uwidacznianie interfejsu API** z menu. Zostanie wyświetlony widok Dodaj zakres. (Platforma Azure udostępnia identyfikator URI aplikacji, ale jeśli chcesz ją zmienić, możesz edytować w polu Identyfikator URI aplikacji).
 1. Kliknij przycisk **Zapisz i Kontynuuj**. Widok zostanie zmieniony. Dla każdego ustawienia w kolumnie ustawienia w poniższej tabeli wprowadź wartość w kolumnie wartość, a następnie kliknij pozycję **Dodaj zakres**.
 
@@ -173,7 +173,7 @@ Wybierz dzierżawę usługi Azure AD, która ma być używana na potrzeby komple
 | Opis zgody administratora * * | *Zakres zasobów zaplecza dostarczania licencji DRM* | Szczegółowy opis zakresu, który jest wyświetlany, gdy administratorzy dzierżawy rozszerzają zakres na ekranie wyrażania zgody. |
 | Nazwa wyświetlana na potrzeby wyrażenia zgody przez użytkownika | *Zastosowanie. License. Delivery* | Zakres, który zostanie wywołany na ekranie wyrażania zgody, gdy użytkownicy wyrażają zgodę na ten zakres. |
 | Opis na potrzeby wyrażenia zgody przez użytkownika | *Zakres zasobów zaplecza dostarczania licencji DRM* | Jest to szczegółowy opis zakresu, który jest wyświetlany, gdy użytkownicy rozszerzają zakres na ekranie wyrażania zgody. |
-| State | *Włączone* | Określa, czy ten zakres jest dostępny dla klientów do żądania. Ustaw na wartość "wyłączone" dla zakresów, które nie mają być widoczne dla klientów. Można usuwać tylko wyłączone zakresy, a firma Microsoft zaleca oczekiwanie co najmniej tygodnia od momentu wyłączenia zakresu przed jego usunięciem, aby upewnić się, że żaden klient nadal go używa. |
+| Stan | *Włączone* | Określa, czy ten zakres jest dostępny dla klientów do żądania. Ustaw na wartość "wyłączone" dla zakresów, które nie mają być widoczne dla klientów. Można usuwać tylko wyłączone zakresy, a firma Microsoft zaleca oczekiwanie co najmniej tygodnia od momentu wyłączenia zakresu przed jego usunięciem, aby upewnić się, że żaden klient nadal go używa. |
 
 ## <a name="register-the-client-app"></a>Rejestrowanie aplikacji klienckiej
 
@@ -209,7 +209,7 @@ Wybierz dzierżawę usługi Azure AD, która ma być używana na potrzeby komple
     > [!NOTE]
     > W tym momencie nie masz jeszcze adresu URL aplikacji odtwarzacza.  Jeśli aplikacja jest uruchamiana z poziomu serwera sieci weblocalhost, można użyć tylko pary wartość localhost. Po wdrożeniu aplikacji odtwarzacza możesz dodać tutaj wpis przy użyciu wdrożonego adresu URL.  Jeśli zapomnisz to zrobić, zobaczysz komunikat o błędzie w temacie Logowanie do usługi Azure AD.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 1. Na koniec upewnij się, że konfiguracja jest poprawna, a następnie wybierz pozycję **uwierzytelnianie**.  Zostanie wyświetlony widok uwierzytelnianie. Aplikacja kliencka zostanie wyświetlona jako aplikacja jednostronicowa (SPA), zostanie wyświetlony identyfikator URI przekierowania, a typ dotacji będzie przepływem kodu autoryzacji z PKCE.
 
 ### <a name="set-up-the-media-services-account-content-key-policy-and-streaming-policies"></a>Konfigurowanie zasad klucza zawartości konta Media Services i zasad przesyłania strumieniowego
@@ -313,7 +313,7 @@ Jeśli planujesz użyć innej platformy IDE/sieci Web i/lub serwera Web, takiego
 
 Po ukończeniu samouczka i podsystemu działającego można spróbować zmodyfikować go w następujących scenariuszach klientów:
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Role-Based Access Control (RBAC) do dostarczania licencji za pośrednictwem członkostwa w grupie usługi Azure AD
+### <a name="azure-role-based-access-control-azure-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Kontrola dostępu oparta na rolach (Azure RBAC) na potrzeby dostarczania licencji za pośrednictwem członkostwa w grupie usługi Azure AD
 
 Do tej pory system zezwoli każdemu użytkownikowi, który może się zalogować, aby uzyskać prawidłową licencję i odtworzyć chronioną zawartość.
 

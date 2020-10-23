@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 20add4859b272b6d121666cde9c56296119d41e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80bc77de30073b2872412f907251b1aad7e334d3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836534"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425620"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Prywatny link do Azure Database for MariaDB
 
 Link prywatny umożliwia tworzenie prywatnych punktów końcowych dla Azure Database for MariaDB, co umożliwia korzystanie z usług platformy Azure w ramach prywatnego Virtual Network (VNet). Prywatny punkt końcowy uwidacznia prywatny adres IP, którego można użyć do nawiązania połączenia z serwerem bazy danych Azure Database for MariaDB tak samo jak w przypadku każdego innego zasobu w sieci wirtualnej.
 
-Aby uzyskać listę PaaS usług, które obsługują funkcję linku prywatnego, zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/private-link/index)linku prywatnego. Prywatny punkt końcowy to prywatny adres IP w obrębie określonej sieci [wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) i podsieci.
+Aby uzyskać listę PaaS usług, które obsługują funkcję linku prywatnego, zapoznaj się z [dokumentacją](../private-link/index.yml)linku prywatnego. Prywatny punkt końcowy to prywatny adres IP w obrębie określonej sieci [wirtualnej](../virtual-network/virtual-networks-overview.md) i podsieci.
 
 > [!NOTE]
 > Funkcja Link prywatny jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer bazy danych znajduje się w jednej z tych warstw cenowych.
@@ -28,7 +28,7 @@ Filtrowanie danych w Azure Database for MariaDB jest możliwe, gdy autoryzowany 
 
 Rozważmy scenariusz z użytkownikiem z systemem MariaDB Workbench wewnątrz maszyny wirtualnej platformy Azure łączącej się z wystąpieniem Azure Database for MariaDB. To wystąpienie MariaDB znajduje się w centrum danych w zachodnich stanach USA. W poniższym przykładzie pokazano, jak ograniczyć dostęp za pomocą publicznych punktów końcowych w Azure Database for MariaDB przy użyciu funkcji kontroli dostępu do sieci.
 
-* Wyłącz cały ruch usługi platformy Azure do Azure Database for MariaDB za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na wyłączanie usług platformy Azure. Upewnij się, że żadne adresy IP lub zakresy nie mogą uzyskać dostępu do serwera za pośrednictwem [reguł zapory](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) lub [punktów końcowych usługi sieci wirtualnej](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
+* Wyłącz cały ruch usługi platformy Azure do Azure Database for MariaDB za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na wyłączanie usług platformy Azure. Upewnij się, że żadne adresy IP lub zakresy nie mogą uzyskać dostępu do serwera za pośrednictwem [reguł zapory](concepts-firewall-rules.md) lub [punktów końcowych usługi sieci wirtualnej](concepts-data-access-security-vnet.md).
 
 * Zezwalaj tylko na ruch do Azure Database for MariaDB przy użyciu prywatnego adresu IP maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz artykuły na temat [punktów końcowych usługi](concepts-data-access-security-vnet.md) i [reguł zapory sieci wirtualnej](howto-manage-vnet-portal.md).
 
@@ -45,7 +45,7 @@ Za pomocą linku prywatnego można teraz skonfigurować mechanizmy kontroli dost
 
 Po nawiązaniu połączenia z publicznym punktem końcowym z maszyn lokalnych należy dodać adres IP do zapory opartej na protokole IP przy użyciu reguły zapory na poziomie serwera. Chociaż ten model działa dobrze, aby umożliwić dostęp do poszczególnych maszyn na potrzeby obciążeń deweloperskich lub testowych, trudno jest zarządzać w środowisku produkcyjnym.
 
-Za pomocą linku prywatnego można włączyć dostęp między lokalizacjami do prywatnego punktu końcowego za pomocą usługi [Express Route](https://azure.microsoft.com/services/expressroute/) (er), prywatnej komunikacji równorzędnej lub [tunelu VPN](https://docs.microsoft.com/azure/vpn-gateway/). Mogą oni następnie wyłączyć dostęp za pośrednictwem publicznego punktu końcowego i nie używać zapory opartej na protokole IP.
+Za pomocą linku prywatnego można włączyć dostęp między lokalizacjami do prywatnego punktu końcowego za pomocą usługi [Express Route](https://azure.microsoft.com/services/expressroute/) (er), prywatnej komunikacji równorzędnej lub [tunelu VPN](../vpn-gateway/index.yml). Mogą oni następnie wyłączyć dostęp za pośrednictwem publicznego punktu końcowego i nie używać zapory opartej na protokole IP.
 
 > [!NOTE]
 > W niektórych przypadkach Azure Database for MariaDB i podsieć wirtualna znajdują się w różnych subskrypcjach. W takich przypadkach należy zapewnić następujące konfiguracje:
@@ -57,8 +57,8 @@ Za pomocą linku prywatnego można włączyć dostęp między lokalizacjami do p
 
 Prywatne punkty końcowe są wymagane do włączenia prywatnego linku. Można to zrobić, korzystając z poniższych przewodników.
 
-* [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
-* [Interfejs wiersza polecenia](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-cli)
+* [Witryna Azure Portal](howto-configure-privatelink-portal.md)
+* [Interfejs wiersza polecenia](howto-configure-privatelink-cli.md)
 
 ### <a name="approval-process"></a>Proces zatwierdzania
 
@@ -90,17 +90,17 @@ Klienci mogą łączyć się z prywatnym punktem końcowym z tej samej sieci wir
 ![Wybieranie prywatnego punktu końcowego — Omówienie](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Łączenie z maszyny wirtualnej platformy Azure w Virtual Network komunikacji równorzędnej (VNet)
-Skonfiguruj [komunikację równorzędną sieci](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) wirtualnych w celu nawiązania połączenia z Azure Database for MariaDB z maszyny wirtualnej platformy Azure w równorzędnej sieci wirtualnej.
+Skonfiguruj [komunikację równorzędną sieci](../virtual-network/tutorial-connect-virtual-networks-powershell.md) wirtualnych w celu nawiązania połączenia z Azure Database for MariaDB z maszyny wirtualnej platformy Azure w równorzędnej sieci wirtualnej.
 
 ### <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Nawiązywanie połączenia z maszyny wirtualnej platformy Azure w środowisku sieci wirtualnej między sieciami wirtualnymi
-Skonfiguruj [połączenie z bramą VPN między sieciami wirtualnymi](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) w celu nawiązania połączenia z Azure Database for MariaDBą z maszyny wirtualnej platformy Azure w innym regionie lub w ramach subskrypcji.
+Skonfiguruj [połączenie z bramą VPN między sieciami wirtualnymi](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) w celu nawiązania połączenia z Azure Database for MariaDBą z maszyny wirtualnej platformy Azure w innym regionie lub w ramach subskrypcji.
 
 ### <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Łączenie ze środowiska lokalnego za pośrednictwem sieci VPN
 Aby nawiązać połączenie ze środowiskiem lokalnym z Azure Database for MariaDB, wybierz i zaimplementuj jedną z opcji:
 
-* [Połączenie punkt-lokacja](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
-* [Połączenie sieci VPN typu lokacja-lokacja](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
-* [Obwód usługi ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+* [Połączenie punkt-lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Połączenie sieci VPN typu lokacja-lokacja](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Obwód usługi ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Link prywatny połączony z regułami zapory
 
@@ -129,11 +129,11 @@ Aby dowiedzieć się, jak ustawić opcję **Odmów dostępu do sieci publicznej*
 
 Aby dowiedzieć się więcej na temat funkcji zabezpieczeń Azure Database for MariaDB, zobacz następujące artykuły:
 
-* Aby skonfigurować zaporę dla Azure Database for MariaDB, zobacz [Obsługa zapory](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules).
+* Aby skonfigurować zaporę dla Azure Database for MariaDB, zobacz [Obsługa zapory](concepts-firewall-rules.md).
 
-* Aby dowiedzieć się, jak skonfigurować punkt końcowy usługi sieci wirtualnej dla Azure Database for MariaDB, zobacz [Konfigurowanie dostępu z sieci wirtualnych](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
+* Aby dowiedzieć się, jak skonfigurować punkt końcowy usługi sieci wirtualnej dla Azure Database for MariaDB, zobacz [Konfigurowanie dostępu z sieci wirtualnych](concepts-data-access-security-vnet.md).
 
-* Aby zapoznać się z omówieniem Azure Database for MariaDB łączności, zobacz [Azure Database for MariaDB architektura łączności](https://docs.microsoft.com/azure/MariaDB/concepts-connectivity-architecture)
+* Aby zapoznać się z omówieniem Azure Database for MariaDB łączności, zobacz [Azure Database for MariaDB architektura łączności](concepts-connectivity-architecture.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

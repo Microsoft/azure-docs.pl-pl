@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 170d5eaa4c14c6de54825bc08f3aef0fd0dfa0c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37b2414252a7011444617ecc08c9dd7d081b7441
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708003"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425505"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Używanie punktów końcowych usługi Virtual Network i reguł dla Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -82,7 +82,7 @@ Istnieje separacja ról zabezpieczeń w administrowaniu punktami końcowymi usł
 - **Administrator sieci:** &nbsp; Włącz punkt końcowy.
 - **Administrator bazy danych:** &nbsp; Zaktualizuj listę kontroli dostępu (ACL), aby dodać daną podsieć do serwera Azure Database for PostgreSQL.
 
-*Alternatywa RBAC:*
+*Alternatywa dla usługi Azure RBAC:*
 
 Role administratora sieci i administratora bazy danych mają więcej możliwości niż jest to konieczne do zarządzania regułami sieci wirtualnej. Wymagany jest tylko podzestaw ich możliwości.
 
@@ -147,7 +147,7 @@ Artykuły dotyczące tworzenia reguł sieci wirtualnej można znaleźć w temaci
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]: ../role-based-access-control/overview.md
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 

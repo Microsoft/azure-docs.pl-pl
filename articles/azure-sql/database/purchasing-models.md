@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5760d3daaa13a5ed16230e1ffb7fe3691455e09
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319456"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427043"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Wybór między modelami zakupów rdzeń wirtualny i DTU — Azure SQL Database i wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Aby uzyskać więcej informacji o cenach magazynu, zobacz stronę z [cennikiem](
 
 Rdzeń wirtualny (rdzeń wirtualny) reprezentuje logiczny procesor CPU i oferuje możliwość wyboru między generacjami sprzętu i fizycznymi cechami sprzętu (na przykład liczby rdzeni, pamięci i rozmiaru magazynu). Model zakupu oparty na rdzeń wirtualny zapewnia elastyczność, kontrolę, przejrzystość poszczególnych zasobów oraz prostą metodę tłumaczenia lokalnych wymagań obciążeń do chmury. Ten model umożliwia wybranie zasobów obliczeniowych, pamięci i magazynu w zależności od potrzeb związanych z obciążeniem.
 
-W modelu zakupu opartego na rdzeń wirtualny można wybrać [ogólnego przeznaczenia](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) i [krytyczne dla działania firmy](high-availability-sla.md#premium-and-business-critical-service-tier-availability) warstwy usług dla SQL Database i wystąpienia zarządzanego SQL.  W przypadku pojedynczych baz danych można również wybrać [warstwę usługi na potrzeby skalowania](service-tier-hyperscale.md).
+W modelu zakupu opartego na rdzeń wirtualny można wybrać [ogólnego przeznaczenia](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) i [krytyczne dla działania firmy](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) warstwy usług dla SQL Database i wystąpienia zarządzanego SQL.  W przypadku pojedynczych baz danych można również wybrać [warstwę usługi na potrzeby skalowania](service-tier-hyperscale.md).
 
 Model zakupu oparty na rdzeń wirtualny umożliwia niezależne wybieranie zasobów obliczeniowych i magazynowych, dopasowanie wydajności lokalnej i optymalizację cen. W modelu zakupu opartego na rdzeń wirtualny płacisz za:
 

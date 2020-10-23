@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb883b70d1ae9f2894c7679633a586586922aa18
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525045"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419932"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Tworzenie kopii zapasowych maszyn wirtualnych obciążeń w chmurze prywatnej CloudSimple przy użyciu Veeam B&R
 
@@ -56,7 +56,7 @@ W przypadku środowisk o pojemności poniżej 30 TB do utworzenia kopii zapasowe
 * Główne repozytorium kopii zapasowej oparte na systemie Linux na platformie Azure skonfigurowane jako element docelowy dla zadań tworzenia kopii zapasowych.
 * `azcopy` służy do kopiowania danych z głównego repozytorium kopii zapasowej do kontenera obiektów blob platformy Azure, który jest replikowany do innego regionu.
 
-![Podstawowe scenariusze wdrażania](media/veeam-basicdeployment.png)
+![Diagram przedstawiający podstawowe scenariusze wdrażania Veeam.](media/veeam-basicdeployment.png)
 
 **Wdrożenie zaawansowane**
 
@@ -260,7 +260,7 @@ Utwórz regułę zapory za pomocą programu, aby umożliwić serwerowi Veeam kop
 
 Aby cofnąć eskalację uprawnień, zobacz Cofanie [eskalacji uprawnień](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 ### <a name="cloudsimple-references"></a>Odwołania CloudSimple
 

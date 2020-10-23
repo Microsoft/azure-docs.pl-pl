@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0efb2c26a63418835dd2b7561a1fb9d3a9d5fee8
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f3fb31dc7db4808db83f33abdf14179265d147f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945565"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425188"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure 
 W tym temacie wyjaśniono, jak wyświetlać i zrozumieć zalecenia w Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.
@@ -75,7 +75,10 @@ Przykład zalecenia dotyczącego wersji zapoznawczej:
  
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie wprowadzono zalecenia dotyczące zabezpieczeń w Security Center. Aby dowiedzieć się, jak skorygować zalecenia:
+W tym dokumencie wprowadzono zalecenia dotyczące zabezpieczeń w Security Center. Aby uzyskać informacje pokrewne:
 
 - [Skoryguj zalecenia](security-center-remediate-recommendations.md) — Dowiedz się, jak skonfigurować zasady zabezpieczeń dla subskrypcji i grup zasobów platformy Azure.
 - [Zapobiegaj błędom konfiguracji z zaleceń Wymuszaj/Odmów](prevent-misconfigurations.md).
+- [Automatyzowanie odpowiedzi na rekomendacje](workflow-automation.md)
+- [Wykluczanie zasobu z rekomendacji](exempt-resource.md)
+- [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](recommendations-reference.md)

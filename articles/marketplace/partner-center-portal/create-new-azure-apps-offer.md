@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710723"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428217"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule opisano kroki i zagadnienia dotyczące tworzenia nowej oferty apl
 
 Przed opublikowaniem nowej oferty aplikacji platformy Azure [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Projektowanie, kompilowanie i testowanie ofert aplikacji platformy Azure wymaga znajomości technicznej platformy Azure i technologii używanych do tworzenia oferty. Zespół inżynieryjny powinien znać następujące technologie firmy Microsoft:
 
@@ -265,7 +265,7 @@ Te logo są używane w różnych miejscach na liście:
 
 Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja oferta. Każdy zrzut ekranu musi mieć 1280 x 720 pikseli w rozmiarze i formacie PNG. Każdy zrzut ekranu musi zawierać podpis.
 
-#### <a name="videos"></a>Wideo
+#### <a name="videos"></a>Filmy wideo
 
 Dodaj do pięciu filmów wideo, które przedstawiają Twoją ofertę. Powinny one być hostowane w zewnętrznej usłudze wideo. Wprowadź nazwę, adres sieci Web i obraz miniatury PNG wideo o godzinie 1280 x 720 pikseli.
 
@@ -328,16 +328,16 @@ Po utworzeniu zobaczysz nazwy planu, identyfikatory, typ planu, dostępność (P
 
 ### <a name="create-new-plan"></a>Utwórz nowy plan
 
-***Identyfikator planu*** — Utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie URL produktu.  Używaj tylko małych liter, znaków alfanumerycznych, łączników lub podkreśleń. Dla tego identyfikatora planu można używać maksymalnie 50 znaków. Tego identyfikatora nie można zmienić po wybraniu pozycji Utwórz.
+**_Identyfikator planu_*_ — Utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie URL produktu.  Używaj tylko małych liter, znaków alfanumerycznych, łączników lub podkreśleń. Dla tego identyfikatora planu można używać maksymalnie 50 znaków. Tego identyfikatora nie można zmienić po wybraniu pozycji Utwórz.
 
-***Nazwa planu*** — klienci będą widzieli tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę oferty dla każdego planu w tej ofercie. Nazwa planu służy do rozróżniania planów oprogramowania, które mogą być częścią tej samej oferty (na przykład nazwa oferty: system Windows Server; plany: Windows Server 2016, Windows Server 2019).
+_*_Nazwa planu_*_ — klienci będą widzieli tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę oferty dla każdego planu w tej ofercie. Nazwa planu służy do rozróżniania planów oprogramowania, które mogą być częścią tej samej oferty (na przykład nazwa oferty: system Windows Server; plany: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 
 Na tej karcie można ustawić konfigurację wysokiego poziomu dla typu planu, bez względu na to, czy będzie ona używać pakietów z innego planu, a także jakie chmure ma być dostępny w programie. Odpowiedzi na tej karcie wpłyną na to, które pola są wyświetlane na innych kartach dla tego samego planu.
 
 #### <a name="plan-type"></a>Typ planu
-Wybierz typ planu dla oferty. Plan **szablonu rozwiązania** jest zarządzany całkowicie przez klienta. Plan **aplikacji zarządzanej** umożliwia wydawcom zarządzanie aplikacją w imieniu klienta. Aby uzyskać szczegółowe informacje, zobacz [typy planów aplikacji platformy Azure](#types-of-azure-application-plans).
+Wybierz typ planu dla oferty. *Szablon rozwiązania*A * plan jest zarządzany całkowicie przez klienta. Plan **aplikacji zarządzanej** umożliwia wydawcom zarządzanie aplikacją w imieniu klienta. Aby uzyskać szczegółowe informacje, zobacz [typy planów aplikacji platformy Azure](#types-of-azure-application-plans).
 
 #### <a name="re-use-technical-configuration"></a>Ponowne używanie konfiguracji technicznej
 
@@ -508,7 +508,7 @@ Określ punkt końcowy elementu webhook HTTPS, aby otrzymywać powiadomienia o w
 
 Wybierz tę opcję, aby określić akcje, które klienci mogą wykonywać na zarządzanych zasobach oprócz akcji " `*/read` ", które są dostępne domyślnie.
 
-Utwórz listę dodatkowych akcji, które chcesz umożliwić klientowi wykonywanie w tym miejscu, oddzielając je średnikami.  Aby uzyskać więcej informacji, zobacz [Omówienie przypisań Odmów dla zasobów platformy Azure](../../role-based-access-control/deny-assignments.md). Aby uzyskać dostępne akcje, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, Dodaj `Microsoft.Compute/virtualMachines/restart/action` do dozwolonych akcji.
+Utwórz listę dodatkowych akcji, które chcesz umożliwić klientowi wykonywanie w tym miejscu, oddzielając je średnikami.  Aby uzyskać więcej informacji, zobacz [Omówienie przypisań Odmów dla zasobów platformy Azure](../../role-based-access-control/deny-assignments.md). Aby uzyskać dostępne akcje, zobacz operacje związane z [dostawcą zasobów platformy Azure](../../role-based-access-control/resource-provider-operations.md). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, Dodaj `Microsoft.Compute/virtualMachines/restart/action` do dozwolonych akcji.
 
 #### <a name="global-azure--azure-government-cloud"></a>Globalna Chmura platformy Azure/Azure Government
 
@@ -518,7 +518,7 @@ Wskaż, kto powinien mieć dostęp do aplikacji zarządzanej w każdej obsługiw
 
 **Autoryzacje** — Dodaj identyfikator obiektu Azure Active Directory użytkownika, grupy lub aplikacji, którym chcesz nadać uprawnienia do zarządzanej grupy zasobów. Zidentyfikuj użytkownika według identyfikatora podmiotu zabezpieczeń, który można znaleźć w [bloku Azure Active Directory użytkownicy na Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Dla każdego podmiotu zabezpieczeń wybierz jedną z wbudowanych ról usługi Azure AD z listy (właściciela lub współautora). Wybrana rola zostanie opisywana przez podmiot zabezpieczeń do zasobów w ramach subskrypcji klienta. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md). Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (RBAC), zobacz [Rozpoczynanie pracy z funkcją RBAC w Azure Portal](../../role-based-access-control/overview.md).
+Dla każdego podmiotu zabezpieczeń wybierz jedną z wbudowanych ról usługi Azure AD z listy (właściciela lub współautora). Wybrana rola zostanie opisywana przez podmiot zabezpieczeń do zasobów w ramach subskrypcji klienta. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md). Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, zobacz [co to jest funkcja RBAC platformy Azure](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Mimo że użytkownik może dodać do 100 autoryzacji na chmurę, łatwiej jest utworzyć Active Directory grupę użytkowników i określić jej identyfikator w "Identyfikator podmiotu zabezpieczeń". Pozwoli to na dodanie większej liczby użytkowników do grupy zarządzania po wdrożeniu planu i zmniejszenie potrzeb aktualizacji planu tylko w celu dodania większej liczby autoryzacji.

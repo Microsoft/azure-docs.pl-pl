@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: 0fe9d59e97ebbc9aba17fea14aed43756300d56e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8b87d9d487257504a438cf13a5b94e3ca4f9233d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90528600"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426368"
 ---
 # <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Szybki Start: Inicjowanie obsługi urządzenia w języku Python przy użyciu kluczy symetrycznych
 
-W tym przewodniku szybki start dowiesz się, jak zainicjować obsługę maszyny deweloperskiej systemu Windows jako urządzenia w usłudze IoT Hub przy użyciu języka Python. To urządzenie będzie używać klucza symetrycznego do uwierzytelniania za pomocą wystąpienia usługi Device Provisioning Service (DPS) w celu przypisania go do centrum IoT Hub. Uwierzytelnione urządzenie zostanie rozpoznane przez usługę DPS w oparciu o rejestrację indywidualną i przypisane do centrum IoT Hub. Przykładowy kod z [zestawu SDK usługi Azure IoT Python](https://github.com/Azure/azure-iot-sdk-python) zostanie użyty do udostępnienia urządzenia. 
+W tym przewodniku szybki start dowiesz się, jak zainicjować obsługę maszyny deweloperskiej systemu Windows jako urządzenia w usłudze IoT Hub przy użyciu języka Python. To urządzenie użyje klucza symetrycznego i rejestracji indywidualnej w celu uwierzytelnienia w wystąpieniu usługi Device Provisioning Service (DPS) w celu przypisania do centrum IoT Hub. Przykładowy kod z [zestawu SDK usługi Azure IoT Python](https://github.com/Azure/azure-iot-sdk-python) zostanie użyty do udostępnienia urządzenia. 
 
 Chociaż w tym artykule przedstawiono Inicjowanie obsługi przy użyciu rejestracji indywidualnej, można również użyć grup rejestracji. W przypadku korzystania z grup rejestracji istnieją pewne różnice. Na przykład należy użyć pochodnego klucza urządzenia z unikatowym IDENTYFIKATORem rejestracji dla urządzenia. Mimo że grupy rejestracji klucza symetrycznego nie są ograniczone do starszych urządzeń, artykuł [Aprowizowanie starszych urządzeń za pomocą zaświadczenia klucza symetrycznego](how-to-legacy-device-symm-key.md) zawiera przykład grupy rejestracji. Aby uzyskać więcej informacji, zobacz [Rejestrowanie grupy dla zaświadczania klucza symetrycznego](concepts-symmetric-key-attestation.md#group-enrollments).
 

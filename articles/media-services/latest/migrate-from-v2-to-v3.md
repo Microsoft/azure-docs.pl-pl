@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cdf4699f5dc00087845ee6ca0d24ad6493c320b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017747"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426863"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3
 
@@ -59,7 +59,7 @@ Jeśli masz już zainstalowaną usługę wideo na [starszej wersji interfejsów 
 * Użycie danych wyjściowych na żywo jest łatwiejsze niż w przypadku jednostki programu w interfejsach API v2. 
 * Ulepszona obsługa protokołu RTMP (Zwiększona stabilność i więcej obsługa kodera-źródła).
 * Bezpieczne pozyskiwanie RTMP.<br/>Gdy tworzysz wydarzenie na żywo, otrzymujesz 4 adresy URL pozyskiwania. 4 adresy URL pozyskiwania są prawie identyczne, mają ten sam token przesyłania strumieniowego (AppId), tylko część numeru portu. Dwa z adresów URL to podstawowy i zapasowy dla RTMP.   
-* Kontrola dostępu oparta na rolach (RBAC) jest dostępna dla jednostek. 
+* Masz kontrolę dostępu opartą na rolach na platformie Azure (RBAC). 
 
 ## <a name="known-issues"></a>Znane problemy
 

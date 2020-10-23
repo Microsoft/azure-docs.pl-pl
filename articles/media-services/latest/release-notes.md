@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 87d26e18ff97416ff8cb0eda08f7beb81005c627
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d18962e097358b8e80ac93b4d8419f7cd4f77ee0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015706"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426821"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -335,9 +335,9 @@ Wprowadzono następujące ulepszenia:
 
 Nowy obiekt **transformacji** upraszcza model kodowania. Nowy obiekt ułatwia tworzenie i udostępnianie kodowań Menedżer zasobów szablonów i ustawień wstępnych. 
 
-#### <a name="azure-active-directory-authentication-and-rbac"></a>Uwierzytelnianie Azure Active Directory i kontrola RBAC
+#### <a name="azure-active-directory-authentication-and-azure-rbac"></a>Uwierzytelnianie Azure Active Directory i kontrola RBAC na platformie Azure
 
-Uwierzytelnianie usługi Azure AD i Access Control Role-Based (RBAC) umożliwiają włączenie bezpiecznych przekształceń, LiveEvents, zasad kluczy zawartości lub zasobów według roli lub użytkowników w usłudze Azure AD.
+Uwierzytelnianie usługi Azure AD i kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC) umożliwiają bezpieczne transformacje, LiveEvents, Zasady kluczy zawartości lub zasoby według roli lub użytkowników w usłudze Azure AD.
 
 #### <a name="client-sdks"></a>Zestawy SDK klienta  
 
@@ -366,7 +366,7 @@ Można wyświetlić następujące ulepszenia Event Grid wsparcia:
 
 Obsługa szyfrowania CMAF i "cbcs" dla odtwarzaczy Apple HLS (iOS 11 +) i MPEG-PAUZ, które obsługują CMAF.
 
-### <a name="video-indexer"></a>Video Indexer
+### <a name="video-indexer"></a>Indeksator wideo
 
 Video Indexer wersja GA została ogłoszona w sierpniu. Aby uzyskać nowe informacje o aktualnie obsługiwanych funkcjach, zobacz [co to jest Video Indexer](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
 

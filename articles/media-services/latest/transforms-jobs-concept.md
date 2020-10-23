@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: inhenkel
-ms.openlocfilehash: a9e34c4aaeb6fc2c151233b05ed5584e0e624148
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297981"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426790"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformacje i zadania w Media Services
 
@@ -62,7 +62,7 @@ W Media Services v3, ustawienia wstępne są jednoznacznie określonymi jednostk
 
 ### <a name="creating-transforms"></a>Tworzenie transformacji
 
-Przekształcenia można tworzyć przy użyciu REST, interfejsu wiersza polecenia lub dowolnego z opublikowanych zestawów SDK. Interfejs API programu Media Services V3 jest oparty na Azure Resource Manager, dzięki czemu można także tworzyć i wdrażać transformacje na koncie Media Services przy użyciu szablonów Menedżer zasobów. Kontrola dostępu oparta na rolach może służyć do blokowania dostępu do transformacji.
+Przekształcenia można tworzyć przy użyciu REST, interfejsu wiersza polecenia lub dowolnego z opublikowanych zestawów SDK. Interfejs API programu Media Services V3 jest oparty na Azure Resource Manager, dzięki czemu można także tworzyć i wdrażać transformacje na koncie Media Services przy użyciu szablonów Menedżer zasobów. Za pomocą kontroli dostępu opartej na rolach na platformie Azure można blokować dostęp do transformacji.
 
 ### <a name="updating-transforms"></a>Aktualizowanie przekształceń
 

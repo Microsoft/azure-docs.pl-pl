@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: d3dc63106e1ca5d9db2b14392ca1fb97e3a68289
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9085ccd272c6634e4be518872cb7e279da6b803c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88191529"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425412"
 ---
 # <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Używanie witryny Azure Portal do tworzenia tematu usługi Service Bus i subskrybowania tematu
 W tym przewodniku szybki start użyjesz Azure Portal do utworzenia tematu Service Bus, a następnie tworzenia subskrypcji w tym temacie. 
@@ -32,7 +32,11 @@ Tematy Service Bus i subskrypcje umożliwiają skalowanie do przetwarzania duże
 > Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się, jak wysyłać komunikaty do tematu i odbierać je za pośrednictwem subskrypcji, zobacz następujący artykuł: Wybierz język programowania w spisie treści. 
+W tym artykule utworzono Service Bus przestrzeń nazw, temat w przestrzeni nazw oraz trzy subskrypcje w temacie. Aby dowiedzieć się, jak publikować komunikaty w temacie i subskrybować wiadomości z subskrypcji, zobacz jeden z następujących przewodników szybki start w sekcji **Publikowanie i subskrybowanie komunikatów** . 
 
-> [!div class="nextstepaction"]
-> [Publikowanie i subskrybowanie komunikatów](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+- [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
+- [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+- [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
+- [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)

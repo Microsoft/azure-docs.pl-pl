@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629730"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425093"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Zabezpiecz środowisko szkoleniowe Azure Machine Learning z sieciami wirtualnymi
 
@@ -42,12 +42,12 @@ W tym artykule opisano sposób zabezpieczania następujących zasobów obliczeni
 
 + Istniejąca sieć wirtualna i podsieć do użycia z zasobami obliczeniowymi.
 
-+ Aby można było wdrożyć zasoby w sieci wirtualnej lub podsieci, konto użytkownika musi mieć uprawnienia do następujących akcji w kontroli dostępu opartej na rolach (RBAC) na platformie Azure:
++ Aby można było wdrożyć zasoby w sieci wirtualnej lub podsieci, konto użytkownika musi mieć uprawnienia do następujących akcji w kontroli dostępu opartej na rolach (Azure RBAC):
 
     - "Microsoft. Network/virtualNetworks/Join/Action" w zasobie sieci wirtualnej.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" w zasobie podsieci.
 
-    Aby uzyskać więcej informacji na temat RBAC w sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking) .
+    Aby uzyskać więcej informacji na temat usługi Azure RBAC z obsługą sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking) .
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Wystąpienia klastrów obliczeniowych & 
@@ -276,7 +276,7 @@ W tej sekcji dowiesz się, jak używać maszyny wirtualnej lub klastra usługi A
 
 ### <a name="create-the-vm-or-hdinsight-cluster"></a>Tworzenie maszyny wirtualnej lub klastra usługi HDInsight
 
-Utwórz maszynę wirtualną lub klaster usługi HDInsight przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure i umieść klaster w sieci wirtualnej platformy Azure. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Utwórz maszynę wirtualną lub klaster usługi HDInsight przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure i umieść klaster w sieci wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 * [Tworzenie sieci wirtualnych platformy Azure dla maszyn wirtualnych z systemem Linux i zarządzanie nimi](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
 * [Zwiększanie usługi HDInsight przy użyciu sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)

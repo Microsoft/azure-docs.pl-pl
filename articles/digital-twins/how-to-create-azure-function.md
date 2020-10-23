@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d81d26c4cf975a20f31b4b4546c1477ed1a630e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: acbccd09fc8bc765083fea7b3a8d6ad749003ae9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048325"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428000"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Łączenie Azure Functions aplikacji do przetwarzania danych
 
@@ -50,7 +50,7 @@ Po utworzeniu aplikacji funkcji program Visual Studio będzie miał automatyczni
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Napisz funkcję platformy Azure z wyzwalaczem Event Grid
 
-Możesz napisać funkcję platformy Azure, dodając zestaw SDK do aplikacji funkcji. Aplikacja funkcji współdziała z usługą Azure Digital bliźniaczych reprezentacji za pomocą [biblioteki klienta usługi Azure IoT Digital bliźniaczych dla platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
+Możesz napisać funkcję platformy Azure, dodając zestaw SDK do aplikacji funkcji. Aplikacja funkcji współdziała z usługą Azure Digital bliźniaczych reprezentacji przy użyciu [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
 
 Aby można było korzystać z zestawu SDK, należy dołączyć następujące pakiety do projektu. Możesz zainstalować pakiety przy użyciu Menedżera pakietów NuGet programu Visual Studio lub dodać pakiety za pomocą `dotnet` narzędzia wiersza polecenia. Wybierz jedną z następujących metod: 
 

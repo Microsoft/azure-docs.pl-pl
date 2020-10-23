@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 027a816e846996aa7c61a1747327128f9a0feed0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 01126a1ca8590d02d0cd0aa1c8554b34161dbac5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079211"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426270"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Należy wziąć pod uwagę, że jest to trwające prace, a nie każdy artykuł z
 Ta tabela zawiera krótkie porównanie zmian w terminologii: 
 
 
-|**Nowy termin**  | **Poprzedni termin**  |**Objaśnienie** |
+|**Nowy termin**  | **Poprzedni termin**  |**Wyjaśnienie** |
 |---------|---------|---------|
 |**Wystąpienie zarządzane Azure SQL** | Azure SQL Database *wystąpienie zarządzane*| Wystąpienie zarządzane Azure SQL to własny produkt należący do rodziny Azure SQL, a nie tylko opcja wdrażania w ramach Azure SQL Database. | 
 |**Baza danych SQL Azure**|Azure SQL Database *pojedynczą bazę danych*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej. |
@@ -48,7 +48,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 ### <a name="azure-sql-database"></a>[Baza danych SQL Azure](#tab/single-database)
 
-| Cecha | Szczegóły |
+| Promowanie | Szczegóły |
 | ---| --- |
 | Szybsze odzyskiwanie bazy danych przy użyciu pojedynczych baz danych i pul elastycznych | Aby uzyskać więcej informacji, zobacz [przyspieszone odzyskiwanie bazy danych](../accelerated-database-recovery.md).|
 | Odnajdywanie i klasyfikacja danych  |Aby uzyskać więcej informacji, zobacz [Azure SQL Database i Synapse Analytics Data discovery & Klasyfikacja](data-discovery-and-classification-overview.md).|
@@ -62,7 +62,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 ### <a name="azure-sql-managed-instance"></a>[Wystąpienie zarządzane Azure SQL](#tab/managed-instance)
 
-| Cecha | Szczegóły |
+| Promowanie | Szczegóły |
 | ---| --- |
 | <a href="/azure/azure-sql/database/elastic-transactions-overview">Transakcje rozproszone</a> | Transakcje rozproszone między wystąpieniami zarządzanymi. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pule wystąpień</a> | Wygodny i ekonomiczny sposób migracji mniejszych wystąpień SQL do chmury. |
@@ -100,7 +100,7 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 |---------|---------|---------|---------|
 |[Transakcje rozproszone można wykonać po usunięciu wystąpienia zarządzanego z grupy zaufania serwera](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020 października|Ma obejście||
 |[Nie można wykonać transakcji rozproszonych po operacji skalowania wystąpienia zarządzanego](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020 października|Ma obejście||
-|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) w usłudze Azure SQL i `BACKUP` / `RESTORE` instrukcji w wystąpieniu zarządzanym nie można używać tożsamości zarządzania usługą Azure AD do uwierzytelniania w usłudze Azure Storage|Wrz 2020|Ma obejście||
+|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) / Funkcja [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) w usłudze Azure SQL i `BACKUP` / `RESTORE` instrukcja w wystąpieniu zarządzanym nie mogą używać tożsamości zarządzania usługą Azure AD do uwierzytelniania w usłudze Azure Storage|Wrz 2020|Ma obejście||
 |[Nazwa główna usługi nie może uzyskać dostępu do usługi Azure AD i AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 sie|Ma obejście||
 |[Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
 |[Agent przestaje odpowiadać po zmodyfikowaniu, wyłączeniu lub włączeniu istniejących zadań](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
@@ -139,7 +139,7 @@ Operacje skalowania wystąpienia zarządzanego, które obejmują zmianę warstwy
 
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>Instrukcje BULK INSERT i tworzenia kopii zapasowej/przywracania nie mogą używać tożsamości zarządzanej do uzyskiwania dostępu do usługi Azure Storage
 
-Instrukcja BULK INSERT nie może być używana `DATABASE SCOPED CREDENTIAL` z tożsamością zarządzaną do uwierzytelniania w usłudze Azure Storage. Aby obejść ten sposób, przełącz się na uwierzytelnianie SYGNATURy dostępu współdzielonego. Poniższy przykład nie będzie działał w przypadku usługi Azure SQL (bazy danych i wystąpienia zarządzanego):
+Instrukcje wstawiania zbiorczego, tworzenia kopii zapasowych i przywracania oraz funkcji OPENROWSET nie mogą być używane `DATABASE SCOPED CREDENTIAL` z tożsamością zarządzaną do uwierzytelniania w usłudze Azure Storage. Aby obejść ten sposób, przełącz się na uwierzytelnianie SYGNATURy dostępu współdzielonego. Poniższy przykład nie będzie działał w przypadku usługi Azure SQL (bazy danych i wystąpienia zarządzanego):
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';

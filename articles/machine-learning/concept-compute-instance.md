@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f32783b18b5454164567910aa369739d025b8be0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826898"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425684"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -59,7 +59,7 @@ Następujące narzędzia i środowiska są już zainstalowane w wystąpieniu obl
 |Biblioteka Intel MPI||
 |Interfejs wiersza polecenia platformy Azure ||
 |Przykłady Azure Machine Learning ||
-|Docker||
+|Platforma Docker||
 |Nginx||
 |NCCL 2,0 ||
 |Protobuf|| 
@@ -118,9 +118,9 @@ Dla każdego wystąpienia obliczeniowego w obszarze roboczym, którego możesz u
 * Użyj protokołu SSH do wystąpienia obliczeniowego. Dostęp SSH jest domyślnie wyłączony, ale można go włączyć podczas tworzenia wystąpienia obliczeniowego. Dostęp SSH odbywa się za pośrednictwem mechanizmu publicznego/prywatnego klucza. Karta przekaże szczegóły dotyczące połączenia SSH, takie jak adres IP, nazwa użytkownika i numer portu.
 * Pobierz szczegóły dotyczące określonego wystąpienia obliczeniowego, takiego jak adres IP i region.
 
-[RBAC](/azure/role-based-access-control/overview) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie miało Logowanie jednokrotne, a wszystkie akcje będą używać tożsamości tego użytkownika do kontroli RBAC i naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
+[Usługa Azure RBAC](/azure/role-based-access-control/overview) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie zawierać Logowanie jednokrotne, a wszystkie akcje będą korzystały z tożsamości tego użytkownika dla usługi Azure RBAC oraz do naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
 
-Te akcje można kontrolować za pomocą RBAC:
+Te akcje mogą być kontrolowane przez funkcję RBAC platformy Azure:
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/zapis*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/usuwanie*
@@ -148,7 +148,7 @@ Jako administrator możesz utworzyć wystąpienie obliczeniowe w imieniu Anality
 * [Szablon Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Aby uzyskać szczegółowe informacje na temat sposobu wyszukiwania TenantID i ObjectID wymaganych w tym szablonie, zobacz [Znajdowanie identyfikatorów obiektów tożsamości dla konfiguracji uwierzytelniania](../healthcare-apis/find-identity-object-ids.md).  Te wartości można również znaleźć w portalu Azure Active Directory.
 * Interfejs API REST
 
-Analityk danych tworzy wystąpienie obliczeniowe wymagające następujących uprawnień RBAC: 
+Analityk danych tworzy wystąpienie obliczeniowe wymagające następujących uprawnień RBAC platformy Azure: 
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*

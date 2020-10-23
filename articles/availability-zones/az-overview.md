@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 5178bf6955203c6a5625b941dd0102f2f4458abc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 771635baa3c49c07d0d796cf6ef3be7b870de3e1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078378"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425432"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiony i strefy dostępności na platformie Azure
 
@@ -94,7 +94,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Magazyn kont | API Management | Interfejs API platformy Azure dla standardu FHIR |
 > | Application Gateway | Konfiguracja aplikacji | Azure Analysis Services |
 > | Azure Backup | App Service | Usługa Azure Blockchain |
-> | Azure Cosmos DB | Automation | Azure Blueprints |
+> | Usługa Azure Cosmos DB | Automatyzacja | Azure Blueprints |
 > | Usługa Azure Data Lake Storage 2. generacji | Azure Active Directory Domain Services | Azure Database for MariaDB |
 > | Azure ExpressRoute | Azure Bastion | Dedykowany moduł HSM platformy Azure |
 > | Azure SQL Database | Azure Cache for Redis | Azure Dev Spaces |
@@ -107,7 +107,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Cloud Services: Zastrzeżony adres IP | Azure Databricks | Azure VMware Solution by CloudSimple |
 > | Disk Storage | Azure DDoS Protection | Cloud Services: Seria G |
 > | Event Hubs | Azure DevTest Labs | Cloud Services: Seria H |
-> | Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
+> | Usługa Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
 > | Moduł równoważenia obciążenia | Azure Firewall Manager | Cognitive Services: rozpoznawanie osoby mówiącej |
 > | Service Bus | Azure Functions | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Data Catalog |
@@ -118,7 +118,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Virtual Machines: DSv2-Series | Azure Red Hat OpenShift | Remote Rendering |
 > | Virtual Machines: DSv3-Series | Azure SignalR Service | Spatial Anchors |
 > | Virtual Machines: Dv2-Series | Azure Site Recovery | StorSimple |
-> | Virtual Machines: Dv3-Series | Azure Stack Hub | Video Indexer |
+> | Virtual Machines: Dv3-Series | Azure Stack Hub | Indeksator wideo |
 > | Virtual Machines: ESv3-Series | Usługa Azure Stream Analytics | Virtual Machines: DASv4-Series |
 > | Virtual Machines: Ev3-Series | Azure Synapse Analytics | Virtual Machines: DAv4-Series |
 > | Virtual Machines: Seria F | Batch | Virtual Machines: Seria DCsv2 |
@@ -133,7 +133,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > |  | Cognitive Services: usługi mowy | Virtual Machines: LS-Series |
 > |  | Container Instances | Virtual Machines: LSv2-Series |
 > |  | Container Registry | Virtual Machines: Mv2-Series |
-> |  | Data Factory | Virtual Machines: NC-Series |
+> |  | Fabryka danych | Virtual Machines: NC-Series |
 > |  | Event Grid | Virtual Machines: NCv2-Series |
 > |  | HDInsight | Virtual Machines: NCv3-Series |
 > |  | Logic Apps | Virtual Machines: NDs-Series |
@@ -170,10 +170,10 @@ Nie ma dodatkowych opłat za maszyny wirtualne wdrożone w strefie dostępności
 - [Tworzenie maszyny wirtualnej](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Dodawanie dysku zarządzanego przy użyciu programu PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Utwórz strefowo nadmiarowy zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Równoważenie obciążenia maszyn wirtualnych między strefami przy użyciu usługa Load Balancer w warstwie Standardowa ze strefowo nadmiarowy fronton](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
-- [Równoważenie obciążenia maszyn wirtualnych w strefie przy użyciu usługa Load Balancer w warstwie Standardowa z strefą frontonu](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
-- [Magazyn strefowo nadmiarowy](../storage/common/storage-redundancy.md)
-- [SQL Database](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
+- [Równoważenie obciążenia maszyn wirtualnych między strefami przy użyciu usługa Load Balancer w warstwie Standardowa ze strefowo nadmiarowy fronton](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Równoważenie obciążenia maszyn wirtualnych w strefie przy użyciu usługa Load Balancer w warstwie Standardowa z strefą frontonu](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Magazyn strefowo nadmiarowy](../storage/common/storage-redundancy-zrs.md)
+- [SQL Database warstwa ogólnego przeznaczenia](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - [Geograficzne odzyskiwanie po awarii w usłudze Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Geograficzne odzyskiwanie po awarii w usłudze Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Tworzenie strefowo nadmiarowej bramy sieci wirtualnej](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

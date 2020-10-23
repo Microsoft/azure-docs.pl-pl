@@ -2,13 +2,13 @@
 title: Co nowego w Azure Site Recovery
 description: Zawiera podsumowanie nowych funkcji i najnowszych aktualizacji usługi Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 1bf051afaeb61c80e3708a72a4a0605b68533977
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 0c35c8e041e47f02d53c680b5812b10d25d75a67
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90527347"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425714"
 ---
 # <a name="whats-new-in-site-recovery"></a>Co nowego w usłudze Site Recovery
 
@@ -22,14 +22,24 @@ W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to n
 
 **Aktualizowanie** |  **Ujednolicona konfiguracja** | **Komórki jajowe serwera konfiguracji** | **Agent usługi mobilności** | **Dostawca Site Recovery** | **Agent Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Pakiet zbiorczy 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
 [Pakiet zbiorczy 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [Pakiet zbiorczy 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [Pakiet zbiorczy 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [Pakiet zbiorczy 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | Maszyny z funkcją Hyper-v — 2.0.9183.0 <br> Maszyny VMware — 2.0.9177.0
-[Pakiet zbiorczy 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 
 
 [Dowiedz się więcej](service-updates-how-to.md) na temat instalacji i obsługi aktualizacji.
+
+
+### <a name="update-rollup-51"></a>Pakiet zbiorczy aktualizacji 51
+
+[Pakiet zbiorczy aktualizacji 51](https://support.microsoft.com/help/4590304/update-rollup-51-for-azure-site-recovery) udostępnia następujące aktualizacje:
+
+**Aktualizowanie** | **Szczegóły**
+--- | ---
+**Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców zgodnie z opisem w zestawie zbiorczym.
+**Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń, które są szczegółowo opisane w pakiecie zbiorczym, w tym o nowej obsłudze systemu Linux dla usługi mobilności.
 
 ## <a name="update-september-2020"></a>Aktualizacja (2020 września)
 

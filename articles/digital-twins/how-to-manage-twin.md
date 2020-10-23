@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Zobacz, jak pobierać, aktualizować i usuwać poszczególne bliźniaczych reprezentacji i relacje.
 author: baanders
 ms.author: baanders
-ms.date: 4/10/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c522ac9e1aedbcdfdb4564d17b506b1b490da0c3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 58ee064d4946442bff70e97d56a68080333e2197
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150403"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426158"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
-Jednostki w Twoim środowisku są reprezentowane przez [Digital bliźniaczych reprezentacji](concepts-twins-graph.md). Zarządzanie cyfrowym bliźniaczych reprezentacji może obejmować tworzenie, modyfikowanie i usuwanie. Aby wykonać te operacje, można użyć [**interfejsów API DigitalTwins**](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+Jednostki w Twoim środowisku są reprezentowane przez [Digital bliźniaczych reprezentacji](concepts-twins-graph.md). Zarządzanie cyfrowym bliźniaczych reprezentacji może obejmować tworzenie, modyfikowanie i usuwanie. Aby wykonać te operacje, można użyć [**interfejsów API DigitalTwins**](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
 Ten artykuł koncentruje się na zarządzaniu cyfrowym bliźniaczych reprezentacji; aby współpracować z relacjami i [wykresem bliźniaczym](concepts-twins-graph.md) jako całość, zobacz [*How to: Manage The bliźniaczy Graph with Relationships*](how-to-manage-graph.md).
 
@@ -25,29 +25,32 @@ Ten artykuł koncentruje się na zarządzaniu cyfrowym bliźniaczych reprezentac
 
 ## <a name="create-a-digital-twin"></a>Tworzenie dwucyfrowej dwuosiowej
 
-Aby utworzyć dwuosiowy, należy użyć `CreateDigitalTwin` metody na kliencie usługi w następujący sposób:
+Aby utworzyć dwuosiowy, należy użyć `CreateDigitalTwin()` metody na kliencie usługi w następujący sposób:
 
 ```csharp
-await client.CreateDigitalTwinAsync("myNewTwinID", initData);
+await client.CreateDigitalTwinAsync("myTwinId", initData);
 ```
 
 Aby utworzyć dwucyfrowe sznurki, należy podać:
 * Żądany identyfikator dwuosiowego
-* [Model](concepts-models.md) , który ma być używany 
+* [Model](concepts-models.md) , który ma być używany
 
 Opcjonalnie można podać wartości początkowe dla wszystkich właściwości dwucyfrowej dwuosiowej. 
 
 Wartości właściwości model i Initial są podawane za pomocą `initData` parametru, który jest CIĄGIEM JSON zawierającym odpowiednie dane. Aby uzyskać więcej informacji na temat tworzenia struktury tego obiektu, przejdź do następnej sekcji.
 
 > [!TIP]
-> Po utworzeniu lub zaktualizowaniu sznurka może wystąpić opóźnienie do 10 sekund, po upływie którego zmiany zostaną odzwierciedlone w [zapytaniach](how-to-query-graph.md). `GetDigitalTwin`Interfejs API (opisany [w dalszej części tego artykułu](#get-data-for-a-digital-twin)) nie występuje w tym opóźnieniu, dlatego użyj wywołania interfejsu API zamiast zapytania, aby zobaczyć nowo utworzone bliźniaczych reprezentacji, jeśli potrzebujesz natychmiastowej odpowiedzi. 
+> Po utworzeniu lub zaktualizowaniu sznurka może wystąpić opóźnienie do 10 sekund, po upływie którego zmiany zostaną odzwierciedlone w [zapytaniach](how-to-query-graph.md). `GetDigitalTwin`Interfejs API (opisany [w dalszej części tego artykułu](#get-data-for-a-digital-twin)) nie występuje w tym opóźnieniu, dlatego jeśli potrzebujesz natychmiastowej odpowiedzi, użyj wywołania interfejsu API zamiast zapytania, aby zobaczyć nowo utworzone bliźniaczych reprezentacji. 
 
 ### <a name="initialize-model-and-properties"></a>Zainicjuj model i właściwości
 
 Interfejs API tworzenia przędzy akceptuje obiekt, który jest serializowany do prawidłowego opisu JSON właściwości przędzy. Zobacz [*pojęcia: Digital bliźniaczych reprezentacji i wykres bliźniaczy*](concepts-twins-graph.md) dla opisu formatu JSON dla sznurka. 
 
-Najpierw utworzysz obiekt danych do reprezentowania sznurka i jego danych właściwości. Następnie można użyć, `JsonSerializer` Aby przekazać serializowaną wersję tego elementu do wywołania interfejsu API dla `initdata` parametru.
+Najpierw można utworzyć obiekt danych do reprezentowania sznurka i jego danych właściwości. Następnie można użyć, `JsonSerializer` Aby przekazać serializowaną wersję tego obiektu do wywołania interfejsu API dla `initdata` parametru, tak jak to:
 
+```csharp
+await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+```
 Można utworzyć obiekt parametru ręcznie lub przy użyciu dostarczonej klasy pomocnika. Oto przykład każdego z nich.
 
 #### <a name="create-twins-using-manually-created-data"></a>Tworzenie bliźniaczych reprezentacji przy użyciu ręcznie utworzonych danych
@@ -58,7 +61,7 @@ Bez użycia żadnych niestandardowych klas pomocniczych, można reprezentować w
 
 #### <a name="create-twins-with-the-helper-class"></a>Utwórz bliźniaczych reprezentacji z klasą pomocnika
 
-Klasa pomocnika `BasicDigitalTwin` umożliwia bezpośrednie przechowywanie pól właściwości w obiekcie "splotu". Możesz nadal chcieć utworzyć listę właściwości przy użyciu `Dictionary<string, object>` , które można następnie dodać do obiektu przędzy jako jego `CustomProperties` bezpośredniego.
+Klasa pomocnika `BasicDigitalTwin` pozwala na bezpośrednie przechowywanie pól właściwości w obiekcie "bliźniaczy". Możesz nadal chcieć utworzyć listę właściwości przy użyciu `Dictionary<string, object>` , które można następnie dodać do obiektu przędzy jako jego `CustomProperties` bezpośredniego.
 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
@@ -70,27 +73,37 @@ props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
 twin.CustomProperties = props;
 
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateDigitalTwinAsync("myRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` obiekty są dołączone do `Id` pola. To pole można pozostawić puste, ale jeśli dodasz wartość identyfikatora, musi ona odpowiadać parametrowi identyfikatora przesłanemu do `CreateDigitalTwin` wywołania. W powyższym przykładzie będzie wyglądać następująco:
+> `BasicDigitalTwin` obiekty są dołączone do `Id` pola. To pole można pozostawić puste, ale jeśli dodasz wartość identyfikatora, musi ona odpowiadać parametrowi identyfikatora przesłanemu do `CreateDigitalTwin()` wywołania. Na przykład:
 >
 >```csharp
->twin.Id = "myNewRoomID";
+>twin.Id = "myRoomId";
 >```
 
 ## <a name="get-data-for-a-digital-twin"></a>Pobieranie danych dla dwuosiowej sieci
 
-Możesz uzyskać dostęp do pełnych danych z dowolnych cyfrowych sznurów, wywołując:
+Możesz uzyskać dostęp do szczegółów dowolnych cyfr cyfrowych poprzez wywołanie `GetDigitalTwin()` metody podobnej do:
 
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
+To wywołanie zwraca dane z sznurka jako ciąg JSON. Oto przykład sposobu użycia tego do wyświetlania szczegółów bliźniaczych:
 
-To wywołanie zwraca dane z sznurka jako ciąg JSON. 
-
-Tylko właściwości, które zostały ustawione co najmniej raz, są zwracane po pobraniu sznurka za pomocą `GetDigitalTwin` .
+```csharp
+Response<string> res = client.GetDigitalTwin("myRoomId");
+twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+foreach (string prop in twin.CustomProperties.Keys)
+{
+  if (twin.CustomProperties.TryGetValue(prop, out object value))
+  Console.WriteLine($"Property '{prop}': {value}");
+}
+```
+Podczas pobierania sznurka przy użyciu metody są zwracane tylko właściwości, które zostały ustawione co najmniej raz `GetDigitalTwin()` .
 
 >[!TIP]
 >`displayName`Dla sznurka jest częścią metadanych modelu, więc nie będzie pokazywana podczas pobierania danych dla wystąpienia z przędzą. Aby wyświetlić tę wartość, można [pobrać ją z modelu](how-to-manage-model.md#retrieve-models).
@@ -101,7 +114,7 @@ Rozważmy następujący model (zapisany w [języku Digital bliźniaczych repreze
 
 ```json
 {
-    "@id": " dtmi:com:contoso:Moon;1",
+    "@id": "dtmi:example:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
     "contents": [
@@ -120,8 +133,7 @@ Rozważmy następujący model (zapisany w [języku Digital bliźniaczych repreze
     ]
 }
 ```
-
-Wynik wywołania `object result = await client.DigitalTwins.GetByIdAsync("my-moon");` na sznurze typu *księżyca*może wyglądać następująco:
+Wynik wywołania `object result = await client.GetDigitalTwinAsync("my-moon");` na sznurze typu *księżyca*może wyglądać następująco:
 
 ```json
 {
@@ -130,7 +142,7 @@ Wynik wywołania `object result = await client.DigitalTwins.GetByIdAsync("my-moo
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
-    "$model": "dtmi:com:contoso:Moon;1",
+    "$model": "dtmi:example:Moon;1",
     "radius": {
       "desiredValue": 1737.1,
       "desiredVersion": 5,
@@ -151,7 +163,7 @@ Wynik wywołania `object result = await client.DigitalTwins.GetByIdAsync("my-moo
 
 Zdefiniowane właściwości dwucyfrowej dwuosiowej są zwracane jako właściwości najwyższego poziomu na dwuosiowej cyfrowej. Metadane lub informacje o systemie, które nie są częścią definicji DTDL, są zwracane z `$` prefiksem. Właściwości metadanych obejmują:
 * Identyfikator wielocyfrowej dwuosiowej w tym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji `$dtId` .
-* `$etag`Standardowe pole HTTP przypisane przez serwer sieci Web
+* `$etag`Standardowe pole HTTP przypisane przez serwer sieci Web.
 * Inne właściwości w `$metadata` sekcji. Należą do nich:
     - DTMI modelu dwuosiowy cyfrowo.
     - Stan synchronizacji dla każdej właściwości zapisywalnej. Jest to najbardziej przydatne w przypadku urządzeń, w których możliwe jest, że usługa i urządzenie mają rozbieżność stanu (na przykład gdy urządzenie jest w trybie offline). Obecnie ta właściwość dotyczy tylko urządzeń fizycznych podłączonych do IoT Hub. Za pomocą danych w sekcji metadanych można zrozumieć pełny stan właściwości, a także sygnaturę czasową ostatniej modyfikacji. Aby uzyskać więcej informacji na temat stanu synchronizacji, zobacz [ten IoT Hub samouczek](../iot-hub/tutorial-device-twins.md) dotyczący synchronizowania stanu urządzenia.
@@ -162,7 +174,7 @@ Można przeanalizować zwracany kod JSON dla sznurka przy użyciu wybranej bibli
 Można również użyć klasy pomocnika serializacji, `BasicDigitalTwin` która jest dołączona do zestawu SDK, która zwróci podstawowe metadane i właściwości w formie wstępnie przeanalizowanej. Oto przykład:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
+Response<string> res = client.GetDigitalTwin(twin_Id);
 BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
 foreach (string prop in twin.CustomProperties.Keys)
@@ -176,7 +188,7 @@ Więcej informacji na temat klas pomocnika serializacji można znaleźć w temac
 
 ## <a name="update-a-digital-twin"></a>Aktualizowanie wieloosiowej cyfrowej
 
-Aby zaktualizować właściwości cyfrowego sznurka, należy napisać informacje, które mają zostać zamienione w formacie [poprawek JSON](http://jsonpatch.com/) . W ten sposób można zastąpić wiele właściwości jednocześnie. Następnie można przekazać dokument poprawki JSON do `Update` metody:
+Aby zaktualizować właściwości dwucyfrowego sznurka, należy napisać informacje, które mają zostać zamienione w formacie [poprawek JSON](http://jsonpatch.com/) . W ten sposób można zastąpić wiele właściwości jednocześnie. Następnie można przekazać dokument poprawki JSON do `UpdateDigitalTwin()` metody:
 
 ```csharp
 await client.UpdateDigitalTwin(id, patch);
@@ -203,7 +215,6 @@ Oto przykład kodu poprawki JSON. Ten dokument zastępuje wartości właściwoś
   }
 ]
 ```
-
 Poprawki można tworzyć ręcznie lub za pomocą klasy pomocnika serializacji w [zestawie SDK](how-to-use-apis-sdks.md). Oto przykład każdego z nich.
 
 #### <a name="create-patches-manually"></a>Ręczne tworzenie poprawek
@@ -216,7 +227,10 @@ twinData.Add(new Dictionary<string, object>() {
     { "value", 25.0}
 });
 
-await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData));
+await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+Console.WriteLine("Updated twin properties");
+FetchAndPrintTwin(twin_Id, client);
+}
 ```
 
 #### <a name="create-patches-using-the-helper-class"></a>Tworzenie poprawek przy użyciu klasy pomocnika
@@ -224,14 +238,14 @@ await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData
 ```csharp
 UpdateOperationsUtility uou = new UpdateOperationsUtility();
 uou.AppendAddOp("/Temperature", 25.0);
-await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
+await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
 ```
 
 ### <a name="update-properties-in-digital-twin-components"></a>Aktualizowanie właściwości w składnikach Digital bliźniaczy
 
 Odwołaj, że model może zawierać składniki, umożliwiając jego składanie z innych modeli. 
 
-Aby można było zastosować poprawki do właściwości w składnikach cyfrowej przędzy, użyj składni ścieżki w poprawek JSON:
+Aby zastosować poprawki do właściwości w składnikach Digital bliźniaczy, można użyć składni ścieżki w ramach poprawki JSON:
 
 ```json
 [
@@ -245,7 +259,7 @@ Aby można było zastosować poprawki do właściwości w składnikach cyfrowej 
 
 ### <a name="update-a-digital-twins-model"></a>Aktualizowanie modelu przędzy cyfrowej
 
-`Update`Funkcja może również służyć do migrowania dwucyfrowego przędzy do innego modelu. 
+`UpdateDigitalTwin()`Funkcja może również służyć do migrowania dwucyfrowego przędzy do innego modelu. 
 
 Rozważmy na przykład następujący dokument poprawki JSON, który zastępuje pole metadanych cyfrowej przędzy `$model` :
 
@@ -254,7 +268,7 @@ Rozważmy na przykład następujący dokument poprawki JSON, który zastępuje p
   {
     "op": "replace",
     "path": "/$metadata/$model",
-    "value": "dtmi:com:contoso:foo;1"
+    "value": "dtmi:example:foo;1"
   }
 ]
 ```
@@ -273,7 +287,7 @@ W tej sytuacji poprawka musi zaktualizować zarówno model, jak i Właściwość
   {
     "op": "replace",
     "path": "$metadata.$model",
-    "value": "dtmi:com:contoso:foo_new"
+    "value": "dtmi:example:foo_new"
   },
   {
     "op": "add",
@@ -298,9 +312,9 @@ Dwa wywołania, które modyfikują *Twin1* są wykonywane jeden po drugim, a dla
 
 ## <a name="delete-a-digital-twin"></a>Usuń dwuosiową cyfrę
 
-Możesz usunąć bliźniaczych reprezentacji za pomocą `DeleteDigitalTwin(ID)` . Można jednak usunąć sznurek tylko wtedy, gdy nie ma więcej relacji. Musisz najpierw usunąć wszystkie relacje. 
+Bliźniaczych reprezentacji można usunąć za pomocą `DeleteDigitalTwin()` metody. Można jednak usunąć sznurek tylko wtedy, gdy nie ma więcej relacji. Należy więc najpierw usunąć relacje przychodzące i wychodzące.
 
-Oto przykład kodu dla tego elementu:
+Oto przykład kodu do usunięcia bliźniaczych reprezentacji i ich relacji:
 
 ```csharp
 static async Task DeleteTwin(string id)
@@ -334,7 +348,7 @@ public async Task FindAndDeleteOutgoingRelationshipsAsync(string dtId)
     }
     catch (RequestFailedException ex)
     {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
+        Log.Error($"**_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
     }
 }
 
@@ -344,7 +358,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
     try
     {
-        // GetRelationshipssAsync will throw an error if a problem occurs
+        // GetRelationshipsAsync will throw an error if a problem occurs
         AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
 
         await foreach (IncomingRelationship incomingRel in incomingRels)
@@ -355,18 +369,162 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
     }
     catch (RequestFailedException ex)
     {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
+        Log.Error($"_*_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
     }
 }
 ```
-
 ### <a name="delete-all-digital-twins"></a>Usuń wszystkie bliźniaczych reprezentacji cyfrowe
 
-Aby zapoznać się z przykładem sposobu usuwania wszystkich bliźniaczych reprezentacji jednocześnie, należy pobrać przykładową aplikację używaną w [*samouczku: Poznaj podstawy za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md). Plik *CommandLoop.cs* wykonuje tę `CommandDeleteAllTwins` funkcję w funkcji.
+Aby zapoznać się z przykładem sposobu usuwania wszystkich bliźniaczych reprezentacji jednocześnie, należy pobrać przykładową aplikację używaną w [_Tutorial: Poznaj podstawy z przykładową aplikacją kliencką *](tutorial-command-line-app.md). Plik *CommandLoop.cs* wykonuje tę `CommandDeleteAllTwins()` funkcję w funkcji.
+
+## <a name="manage-twins-using-runnable-code-sample"></a>Zarządzanie bliźniaczych reprezentacji za pomocą przykładu kodu możliwy do uruchomienia
+
+Możesz użyć poniższego przykładu kodu możliwy do uruchomienia, aby utworzyć dwuosiowy, zaktualizować jego szczegóły i usunąć sznurek. 
+
+Fragment kodu używa [Room.jsw](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) definicji modelu z [*samouczka: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md). Możesz użyć tego linku, aby przejść bezpośrednio do pliku lub pobrać go w ramach pełnego przykładowego [projektu.](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)
+
+Zastąp symbol zastępczy `<your-instance-hostname>` szczegółowymi informacjami o wystąpieniu usługi Azure Digital bliźniaczych reprezentacji i uruchom przykład.
+
+```csharp
+using System;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+using System.Threading.Tasks;
+using System.IO;
+using System.Collections.Generic;
+using Azure;
+using Azure.DigitalTwins.Core.Serialization;
+using System.Text.Json;
+
+namespace minimal
+{
+    class Program
+    {
+
+        static async Task Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new DefaultAzureCredential();
+            Console.WriteLine();
+            Console.WriteLine($"Upload a model");
+            BasicDigitalTwin twin = new BasicDigitalTwin();
+            var typeList = new List<string>();
+            string twin_Id = "myRoomId";
+            string dtdl = File.ReadAllText("Room.json");
+            typeList.Add(dtdl);
+            // Upload the model to the service
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            Console.WriteLine($"Service client created – ready to go");
+            await client.CreateModelsAsync(typeList);
+            twin.Metadata = new DigitalTwinMetadata();
+            twin.Metadata.ModelId = "dtmi:example:Room;1";
+            // Initialize properties
+            Dictionary<string, object> props = new Dictionary<string, object>();
+            props.Add("Temperature", 35.0);
+            props.Add("Humidity", 55.0);
+            twin.CustomProperties = props;
+            await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            Console.WriteLine("Twin created successfully");
+            twin = FetchAndPrintTwin(twin_Id, client);
+            List<object> twinData = new List<object>();
+            twinData.Add(new Dictionary<string, object>() 
+            {
+                { "op", "add"},
+                { "path", "/Temperature"},
+                { "value", 25.0}
+            });
+
+            await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+            Console.WriteLine("Updated Twin Properties");
+            FetchAndPrintTwin(twin_Id, client);
+            await DeleteTwin(client, twin_Id);
+        }
+
+        private static BasicDigitalTwin FetchAndPrintTwin(string twin_Id, DigitalTwinsClient client)
+        {
+            BasicDigitalTwin twin;
+            Response<string> res = client.GetDigitalTwin(twin_Id);
+            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+            foreach (string prop in twin.CustomProperties.Keys)
+            {
+                if (twin.CustomProperties.TryGetValue(prop, out object value))
+                    Console.WriteLine($"Property '{prop}': {value}");
+            }
+
+            return twin;
+        }
+        static async Task DeleteTwin(DigitalTwinsClient client, string id)
+        {
+            await FindAndDeleteOutgoingRelationshipsAsync(client, id);
+            await FindAndDeleteIncomingRelationshipsAsync(client, id);
+            try
+            {
+                await client.DeleteDigitalTwinAsync(id);
+                Console.WriteLine("Twin deleted successfully");
+                FetchAndPrintTwin(id, client);
+            }
+            catch (RequestFailedException exc)
+            {
+                Console.WriteLine($"*** Error:{exc.Message}");
+            }
+        }
+
+        public static async Task FindAndDeleteOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+
+                await foreach (string relJson in relsJson)
+                {
+                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
+                    await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
+                    Console.WriteLine($"Deleted relationship {rel.Id} from {dtId}");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"**_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
+            }
+        }
+
+       static async Task FindAndDeleteIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
+
+                await foreach (IncomingRelationship incomingRel in incomingRels)
+                {
+                    await client.DeleteRelationshipAsync(incomingRel.SourceId, incomingRel.RelationshipId).ConfigureAwait(false);
+                    Console.WriteLine($"Deleted incoming relationship {incomingRel.RelationshipId} from {dtId}");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"_*_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
+            }
+        }
+
+    }
+}
+
+```
+Oto dane wyjściowe konsoli powyższego programu: 
+
+:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Dane wyjściowe konsoli pokazujące, że dwuosiowa została utworzona, zaktualizowana i usunięta" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
 ## <a name="manage-twins-with-cli"></a>Zarządzanie bliźniaczych reprezentacji przy użyciu interfejsu wiersza polecenia
 
-Bliźniaczych reprezentacji można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [*opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md).
+Bliźniaczych reprezentacji można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [_How do: Użyj interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji *](how-to-use-cli.md).
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 

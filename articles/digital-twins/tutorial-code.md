@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 19ce74046dd86885a01ad5e8dcc4bfda950dd884
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 40484521ecdc32e2e279ddf1b68ddcd4b1d7bc9b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201356"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427584"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
-W przypadku deweloperów pracujących z usługą Azure Digital bliźniaczych reprezentacji można napisać aplikację kliencką do współdziałania z ich wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Ten samouczek ukierunkowany na dewelopera zawiera wprowadzenie do programowania w usłudze Azure Digital bliźniaczych reprezentacji, przy użyciu [biblioteki klienckiej Digital bliźniaczyej usługi Azure IoT dla platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Przeprowadzi Cię przez proces pisania aplikacji klienckiej w języku C# krok po kroku, rozpoczynając od podstaw.
+W przypadku deweloperów pracujących z usługą Azure Digital bliźniaczych reprezentacji można napisać aplikację kliencką do współdziałania z ich wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Ten samouczek ukierunkowany na dewelopera zawiera wprowadzenie do programowania w usłudze Azure Digital bliźniaczych reprezentacji Service przy użyciu [zestawu Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Przeprowadzi Cię przez proces pisania aplikacji klienckiej w języku C# krok po kroku, rozpoczynając od podstaw.
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu
@@ -58,7 +58,7 @@ dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
-Pierwsza zależność to [Biblioteka kliencka Digital bliźniaczy usługi Azure IoT dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Druga zależność zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
+Pierwsza zależność to [usługa Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Druga zależność zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
 
 Pozostaw otwarte okno polecenia, ponieważ będziesz nadal korzystać z niego w całym samouczku.
 
@@ -266,12 +266,18 @@ Od tego momentu samouczek umieści wszystkie wywołania metod usługi w obsłudz
 
 Po przekazaniu modelu do usługi Azure Digital bliźniaczych reprezentacji można użyć tej definicji modelu do utworzenia **cyfrowego bliźniaczych reprezentacji**. [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) to wystąpienia modelu i reprezentujące jednostki w środowisku biznesowym — takie jak czujniki w farmie, pokoje w budynku lub lampy w kabinie. Ta sekcja tworzy kilka bliźniaczych reprezentacji cyfrowych na podstawie przekazanego wcześniej modelu.
 
-Dodaj nową `using` instrukcję u góry, ponieważ będzie potrzebny wbudowany serializator JSON programu .NET w programie `System.Text.Json` :
+Dodaj te nowe `using` instrukcje u góry, ponieważ przykład kodu używa wbudowanego serializatora JSON programu .NET w systemie `System.Text.Json` i `Serialization` przestrzeni nazw z [zestawu Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [link zmodyfikowany dla wersji zapoznawczej]:
 
 ```csharp
 using System.Text.Json;
 using Azure.DigitalTwins.Core.Serialization;
 ```
+
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` nie jest wymagana do pracy z bliźniaczych reprezentacjiami cyfrowymi i relacjami. jest to opcjonalna przestrzeń nazw, która może pomóc w uzyskaniu danych w odpowiednim formacie. Niektóre alternatywy do użycia obejmują:
+>* Łączenie ciągów w celu utworzenia obiektu JSON
+>* Korzystanie z analizatora JSON, takiego jak `System.Text.Json` do dynamicznego kompilowania obiektu JSON
+>* Modelowanie niestandardowych typów w języku C#, tworzenie wystąpienia ich i Serializowanie do ciągów
 
 Następnie Dodaj następujący kod na końcu `Main` metody, aby utworzyć i zainicjować trzy bliźniaczych reprezentacji cyfrowe w oparciu o ten model.
 
@@ -301,17 +307,7 @@ Należy zauważyć, że żaden błąd nie jest zgłaszany, gdy bliźniaczych rep
 
 Następnie można utworzyć **relacje** między utworzonym bliźniaczych reprezentacji, aby połączyć je z **wykresem bliźniaczym**. [Wykresy bliźniaczy](concepts-twins-graph.md) są używane do reprezentowania całego środowiska.
 
-Aby ułatwić tworzenie relacji, Ten przykładowy kod używa `Azure.DigitalTwins.Core.Serialization` przestrzeni nazw. Został dodany do projektu wcześniej z tą `using` instrukcją:
-
-```csharp
-using Azure.DigitalTwins.Core.Serialization;
-```
-
->[!NOTE]
->`Azure.DigitalTwins.Core.Serialization` nie jest wymagana do pracy z bliźniaczych reprezentacjiami cyfrowymi i relacjami. jest to opcjonalna przestrzeń nazw, która może pomóc w uzyskaniu danych w odpowiednim formacie. Niektóre alternatywy do użycia obejmują:
->* Łączenie ciągów w celu utworzenia obiektu JSON
->* Korzystanie z analizatora JSON, takiego jak `System.Text.Json` do dynamicznego kompilowania obiektu JSON
->* Modelowanie niestandardowych typów w języku C#, tworzenie wystąpienia ich i Serializowanie do ciągów
+Aby ułatwić tworzenie relacji, Ten przykładowy kod używa `Azure.DigitalTwins.Core.Serialization` przestrzeni nazw. Dodano ten projekt do projektu wcześniej w sekcji [*Create Digital bliźniaczych reprezentacji*](#create-digital-twins) .
 
 Dodaj nową metodę statyczną do `Program` klasy poniżej `Main` metody:
 

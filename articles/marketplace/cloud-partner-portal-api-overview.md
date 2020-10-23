@@ -7,19 +7,19 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bfb6e9cb510f5fe887f108dfdea5932406aafe0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292930"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425777"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Dokumentacja interfejsu API portalu Cloud Partner
 
 > [!NOTE]
 > Interfejsy API portal Cloud Partner są zintegrowane z usługą i będą nadal działać w centrum partnerskim. Przejście wprowadza niewielkie zmiany. Przejrzyj [zmiany w interfejsie API programu CPP](#changes-to-cpp-apis-after-the-migration-to-partner-center) wymienione w tym dokumencie, aby upewnić się, że kod będzie kontynuował pracę po przejściu do Centrum partnerskiego. Interfejsy API CPP powinny być używane tylko dla istniejących produktów, które zostały już zintegrowane przed przejściem do Centrum partnerskiego; nowe produkty powinny używać interfejsów API przekazywania Centrum partnerskiego.
 
-Interfejsy API REST portal Cloud Partner umożliwiają pobieranie programistyczne i manipulowanie obciążeniami, ofertami i profilami wydawcy. Interfejsy API używają kontroli dostępu opartej na rolach (RBAC) do wymuszania prawidłowych uprawnień w czasie przetwarzania.
+Interfejsy API REST portal Cloud Partner umożliwiają pobieranie programistyczne i manipulowanie obciążeniami, ofertami i profilami wydawcy. Interfejsy API używają kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure w celu wymuszenia prawidłowych uprawnień w czasie przetwarzania.
 
 Ta dokumentacja zawiera szczegółowe informacje techniczne dotyczące portal Cloud Partner interfejsów API REST. Próbki ładunku w tym dokumencie są przeznaczone tylko do celów informacyjnych i mogą ulec zmianie po dodaniu nowych funkcji.
 
@@ -33,7 +33,7 @@ Przed użyciem interfejsów API należy zapoznać się z tematem:
 
 ## <a name="changes-to-cpp-apis-after-the-migration-to-partner-center"></a>Zmiany w interfejsach API programu CPP po migracji do Centrum partnerskiego
 
-| **Interfejs API** | **Zmień opis** | **Wpływ** |
+| **INTERFEJS API** | **Zmień opis** | **Wpływ** |
 | ------- | ---------------------- | ---------- |
 | Publikuj publikowanie, GoLive, Anuluj | W przypadku zmigrowanych ofert nagłówek odpowiedzi będzie miał inny format, ale będzie nadal działał w taki sam sposób, co oznacza ścieżkę względną do pobrania stanu operacji. | Podczas wysyłania dowolnego z odpowiednich żądań POST dla oferty nagłówek lokalizacji będzie miał jeden z dwóch formatów w zależności od stanu migracji oferty:<ul><li>Oferty niemigrowane<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Zmigrowane oferty<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
 | Pobierz operację | W przypadku typów ofert, które wcześniej obsługiwały pole "notification-email" w odpowiedzi, to pole będzie przestarzałe i nie będzie już zwracane dla zmigrowanych ofert. | W przypadku zmigrowanych ofert nie będą już wysyłane powiadomienia do listy wiadomości e-mail określonych w żądaniach. Zamiast tego usługa API zostanie wyrównuje z procesem powiadomień e-mail w centrum partnerskim w celu wysyłania wiadomości e-mail. W każdym przypadku powiadomienia będą wysyłane na adres e-mail ustawiony w sekcji informacje kontaktowe sprzedawcy ustawień konta w centrum partnerskim w celu powiadomienia o postępie operacji.<br><br>Zapoznaj się z informacjami o adresie e-mail w sekcji informacje kontaktowe sprzedawcy [ustawień konta](https://partner.microsoft.com/dashboard/account/management) w centrum partnerskim, aby upewnić się, że dla powiadomień została podana poprawna wiadomość e-mail.  |

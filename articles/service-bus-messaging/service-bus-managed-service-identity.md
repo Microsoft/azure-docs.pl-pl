@@ -2,13 +2,13 @@
 title: Zarządzane tożsamości dla zasobów platformy Azure z Service Bus
 description: W tym artykule opisano sposób używania tożsamości zarządzanych do uzyskiwania dostępu do Azure Service Bus jednostek (kolejek, tematów i subskrypcji).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 1deb3bdf823f1554e302bb35baabe444223f9008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 1efcd3c48e7e4a431a0c72c4b3b84531b44e973e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079862"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425524"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Azure Service Bus
 [Zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) to funkcja obejmująca wiele platform Azure, która umożliwia tworzenie bezpiecznej tożsamości skojarzonej z wdrożeniem, w ramach którego działa kod aplikacji. Następnie można powiązać tę tożsamość z rolami kontroli dostępu, które przyznają niestandardowe uprawnienia dostępu do określonych zasobów platformy Azure wymaganych przez aplikację.
@@ -45,7 +45,7 @@ Przed przypisaniem roli platformy Azure do podmiotu zabezpieczeń należy okreś
 
 Na poniższej liście opisano poziomy, w których można określić zakres dostępu do zasobów Service Bus, rozpoczynając od najwęższego zakresu:
 
-- **Kolejka**, **temat**lub **subskrypcja**: przypisanie roli dotyczy konkretnej jednostki Service Bus. Obecnie Azure Portal nie obsługuje przypisywania użytkowników/grup/tożsamości zarządzanych do Service Bus ról platformy Azure na poziomie subskrypcji. Oto przykład użycia interfejsu wiersza polecenia platformy Azure: [AZ-role-Assign-Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) w celu przypisania tożsamości do Service Bus roli platformy Azure: 
+- **Kolejka**, **temat**lub **subskrypcja**: przypisanie roli dotyczy konkretnej jednostki Service Bus. Obecnie Azure Portal nie obsługuje przypisywania użytkowników/grup/tożsamości zarządzanych do Service Bus ról platformy Azure na poziomie subskrypcji. Oto przykład użycia interfejsu wiersza polecenia platformy Azure: [AZ-role-Assign-Create](/cli/azure/role/assignment?#az-role-assignment-create) w celu przypisania tożsamości do Service Bus roli platformy Azure: 
 
     ```azurecli
     az role assignment create \
@@ -91,6 +91,9 @@ Po utworzeniu aplikacji wykonaj następujące kroki:
 
 Po włączeniu tego ustawienia zostanie utworzona nowa tożsamość usługi w Azure Active Directory (Azure AD) i skonfigurowana na hoście App Service.
 
+> [!NOTE]
+> W przypadku korzystania z tożsamości zarządzanej parametry połączenia powinny mieć format: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=Managed Identity` .
+
 Teraz Przypisz tę tożsamość usługi do roli w wymaganym zakresie w zasobach Service Bus.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Aby przypisać role platformy Azure przy użyciu Azure Portal
@@ -114,8 +117,10 @@ Aby przypisać rolę do przestrzeni nazw Service Bus, przejdź do przestrzeni na
 
 Po przypisaniu roli aplikacja sieci Web będzie miała dostęp do Service Bus jednostek w ramach zdefiniowanego zakresu. 
 
-### <a name="run-the-app"></a>Uruchamianie aplikacji
 
+
+
+### <a name="run-the-app"></a>Uruchamianie aplikacji
 Teraz Zmodyfikuj domyślną stronę utworzonej aplikacji ASP.NET. Możesz użyć kodu aplikacji sieci Web z [tego repozytorium GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 Domyślna strona. aspx to strona docelowa. Kod można znaleźć w pliku Default.aspx.cs. Wynikiem jest minimalna aplikacja sieci Web z kilkoma polami wprowadzania oraz za pomocą przycisków **Wyślij** i **Odbierz** łączących się z Service Bus wysyłania lub odbierania wiadomości.

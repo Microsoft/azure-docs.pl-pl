@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: da8dc11212d33627a165dc5e11acc64087fb6c43
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131823"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426102"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure
 
@@ -89,7 +89,7 @@ Azure Machine Learning używa [magazynów](concept-data.md#datastores) danych do
 1. W ustawieniach magazynu danych wybierz opcję __tak__ , aby  __umożliwić usłudze Azure Machine Learning dostęp do magazynu przy użyciu tożsamości zarządzanej przez obszar roboczy__.
 
 
-Te kroki umożliwiają dodanie tożsamości zarządzanej przez obszar roboczy jako __czytnika__ do usługi magazynu przy użyciu kontroli dostępu opartej na zasobach (RBAC) platformy Azure. Dostęp __czytnika__ umożliwia pobranie ustawień zapory przez obszar roboczy i upewnienie się, że dane nie opuszczają sieci wirtualnej.
+Te kroki umożliwiają dodanie tożsamości zarządzanej przez obszar roboczy jako __czytnika__ do usługi magazynu przy użyciu funkcji kontroli dostępu opartej na zasobach platformy Azure (Azure RBAC). Dostęp __czytnika__ umożliwia pobranie ustawień zapory przez obszar roboczy i upewnienie się, że dane nie opuszczają sieci wirtualnej.
 
 > [!NOTE]
 > Wprowadzenie zmian może potrwać do 10 minut.
@@ -98,15 +98,15 @@ Te kroki umożliwiają dodanie tożsamości zarządzanej przez obszar roboczy ja
 
 Korzystanie z tożsamości zarządzanej w celu uzyskiwania dostępu do usług magazynu wpływa na niektóre zagadnienia dotyczące zabezpieczeń. Te zagadnienia są unikatowe dla typu konta magazynu, do którego uzyskujesz dostęp. W tej sekcji opisano zmiany dotyczące poszczególnych typów kont magazynu.
 
-### <a name="azure-blob-storage"></a>Azure Blob Storage
+### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
 
 W przypadku __usługi Azure Blob Storage__tożsamość zarządzana przez obszar roboczy jest również dodawana jako [czytnik danych obiektów BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) , dzięki czemu może odczytywać dane z magazynu obiektów BLOB.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 kontroli dostępu
 
-Do kontrolowania dostępu do danych wewnątrz sieci wirtualnej można użyć list kontroli dostępu (ACL) typu RBAC i POSIX.
+Aby kontrolować dostęp do danych wewnątrz sieci wirtualnej, można użyć list kontroli dostępu (ACL) na platformie Azure oraz do sterowania dostępem do nich.
 
-Aby użyć RBAC, należy dodać tożsamość zarządzaną przez obszar roboczy do roli [czytnika danych obiektów BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach na platformie Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+Aby użyć kontroli RBAC platformy Azure, Dodaj tożsamość zarządzaną przez obszar roboczy do roli [czytnika danych obiektów BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach na platformie Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 Aby można było używać list kontroli dostępu, tożsamość zarządzana przez obszar roboczy może zostać przypisana podobnie jak jakakolwiek inna zasada zabezpieczeń. Aby uzyskać więcej informacji, zobacz [listy kontroli dostępu do plików i katalogów](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

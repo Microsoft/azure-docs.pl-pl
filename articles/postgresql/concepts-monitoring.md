@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 4fd16e9dcf9f0b75b48311adf3e9282adbce2a25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 9424a56eeda5750afc00dd996be957e67850c30c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708717"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426675"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorowanie i dostrajanie Azure Database for PostgreSQL-pojedynczego serwera
 Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i optymalizację w obciążeniu. Azure Database for PostgreSQL oferuje różne opcje monitorowania w celu zapewnienia wglądu w zachowanie serwera programu.
@@ -55,28 +55,12 @@ Funkcja [zalecenia dotyczące wydajności](concepts-performance-recommendations.
 
 ## <a name="planned-maintenance-notification"></a>Powiadomienie o planowanej konserwacji
 
-**Powiadomienia o planowanej konserwacji** umożliwiają otrzymywanie alertów dotyczących nadchodzącej planowanej konserwacji na serwer Azure Database for PostgreSQL-pojedynczy. Te powiadomienia są zintegrowane z zaplanowaną konserwacją [Service Health](../service-health/overview.md) i umożliwiają wyświetlanie całej zaplanowanej konserwacji subskrypcji w jednym miejscu. Pomaga również skalować powiadomienie do odpowiednich odbiorców dla różnych grup zasobów, ponieważ użytkownik może mieć różne kontakty odpowiedzialne za różne zasoby. Otrzymasz powiadomienie o nadchodzącej konserwacji 72 godzin przed wydarzeniem.
+[Powiadomienia o planowanej konserwacji](./concepts-planned-maintenance-notification.md) umożliwiają otrzymywanie alertów dotyczących nadchodzącej planowanej konserwacji na serwer Azure Database for PostgreSQL-pojedynczy. Te powiadomienia są zintegrowane z zaplanowaną konserwacją [Service Health](../service-health/overview.md) i umożliwiają wyświetlanie całej zaplanowanej konserwacji subskrypcji w jednym miejscu. Pomaga również skalować powiadomienie do odpowiednich odbiorców dla różnych grup zasobów, ponieważ użytkownik może mieć różne kontakty odpowiedzialne za różne zasoby. Otrzymasz powiadomienie o nadchodzącej konserwacji 72 godzin przed wydarzeniem.
 
-> [!Note]
-> Firma Microsoft podejmie próbę udostępnienia **powiadomienia o planowanej konserwacji** 72 godzin dla wszystkich zdarzeń. Jednak w przypadku poprawek krytycznych lub zabezpieczeń powiadomienia mogą być wysyłane bliżej zdarzenia lub zostać pominięte.
-
-### <a name="to-receive-planned-maintenance-notification"></a>Aby odebrać powiadomienie o planowanej konserwacji
-
-1. W [portalu](https://portal.azure.com)wybierz pozycję **Service Health**.
-2. W sekcji **alerty** wybierz pozycję **alerty dotyczące kondycji**.
-3. Wybierz pozycję **+ Dodaj alert kondycji usługi** i wypełnij pola.
-4. Wypełnij pola wymagane. 
-5. Wybierz **Typ zdarzenia**, wybierz pozycję **Planowana konserwacja** lub **Zaznacz wszystko**
-6. W obszarze **grupy akcji** Określ, w jaki sposób chcesz otrzymywać alert (Otrzymuj wiadomość e-mail, wyzwól aplikację logiki itp.).  
-7. Upewnij się, że w momencie utworzenia reguły włączania zostanie ustawiona wartość tak.
-8. Wybierz pozycję **Utwórz regułę alertu** , aby zakończyć alert
-
-Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi**można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications.md).
-
-> [!IMPORTANT]
-> Powiadomienia o planowanej konserwacji są obecnie dostępne w wersji zapoznawczej we wszystkich regionach **z wyjątkiem** zachodnich Stanów Zjednoczonych
+Dowiedz się więcej na temat sposobu konfigurowania powiadomień w dokumencie [planowane powiadomienia o konserwacji](./concepts-planned-maintenance-notification.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 - Zobacz [jak skonfigurować alerty](howto-alert-on-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.
-- Aby uzyskać więcej informacji na temat uzyskiwania dostępu do metryk i eksportowania ich przy użyciu Azure Portal, interfejsu API REST, lub interfejsu wiersza polecenia, zobacz [Omówienie usługi Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Aby uzyskać więcej informacji na temat sposobu uzyskiwania dostępu do metryk i eksportowania ich przy użyciu Azure Portal, interfejsu API REST, lub interfejsu wiersza polecenia, zobacz [Omówienie usługi Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - Przeczytaj nasz blog, aby zapoznać się z [najlepszymi rozwiązaniami dotyczącymi monitorowania serwera](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
+- Dowiedz się więcej o [zaplanowanych powiadomieniach konserwacyjnych](./concepts-planned-maintenance-notification.md) w Azure Database for PostgreSQL-pojedynczym serwerze.

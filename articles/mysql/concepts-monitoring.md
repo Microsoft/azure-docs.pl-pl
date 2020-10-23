@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 8/13/2020
-ms.openlocfilehash: 9e1bd3f555873503aa1f6ed9c804aced3620fb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 4589687593abbe5667aa4b21b1361b68e4bed07f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627520"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428125"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorowanie w Azure Database for MySQL
 Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i optymalizację w obciążeniu. Azure Database for MySQL oferuje różne metryki, które dają wgląd w zachowanie serwera.
@@ -42,7 +42,7 @@ Te metryki są dostępne dla Azure Database for MySQL:
 |backup_storage_used|Używany magazyn kopii zapasowych|Bajty|Ilość używanego magazynu kopii zapasowych. Ta Metryka przedstawia sumę magazynu zużywanego przez wszystkie pełne kopie zapasowe bazy danych, różnicowe kopie zapasowe i kopie zapasowe dzienników przechowywane na podstawie okresu przechowywania kopii zapasowej ustawionego dla serwera. Częstotliwość wykonywania kopii zapasowych to usługa zarządzana i opisana w [artykule pojęcia](concepts-backup.md). W przypadku magazynu geograficznie nadmiarowego użycie magazynu kopii zapasowych jest dwa razy większe niż magazyn lokalnie nadmiarowy.|
 
 ## <a name="server-logs"></a>Dzienniki serwera
-Na serwerze można włączyć opcję wolnego zapytania i rejestrowania inspekcji. Te dzienniki są również dostępne za pomocą dzienników diagnostycznych platformy Azure w Azure Monitor dziennikach, Event Hubs i koncie magazynu. Aby dowiedzieć się więcej o rejestrowaniu, odwiedź artykuły [dzienniki inspekcji](concepts-audit-logs.md) i [dzienniki wolnych zapytań](concepts-server-logs.md) .
+Na serwerze można włączyć opcję wolnego zapytania i rejestrowania inspekcji. Te dzienniki są również dostępne za pomocą dzienników diagnostycznych platformy Azure w Azure Monitor dziennikach, Event Hubs i koncie magazynu. Aby dowiedzieć się więcej o rejestrowaniu, odwiedź artykuły [dzienniki inspekcji](concepts-audit-logs.md) i [dzienniki wolnych zapytań](concepts-server-logs.md) .
 
 ## <a name="query-store"></a>Magazyn zapytań
 [Magazyn zapytań](concepts-query-store.md) to funkcja, która śledzi wydajność zapytań w miarę upływu czasu, w tym statystyki środowiska uruchomieniowego zapytań i zdarzenia oczekiwania. Ta funkcja utrzymuje informacje o wydajności środowiska uruchomieniowego zapytań w schemacie **MySQL** . Można kontrolować zbieranie i przechowywanie danych za pośrednictwem różnych pokręteł konfiguracyjnych.
@@ -55,30 +55,12 @@ Funkcja [zalecenia dotyczące wydajności](concepts-performance-recommendations.
 
 ## <a name="planned-maintenance-notification"></a>Powiadomienie o planowanej konserwacji
 
-**Powiadomienia o planowanej konserwacji** umożliwiają otrzymywanie alertów dotyczących nadchodzącej planowanej konserwacji do Azure Database for MySQL. Te powiadomienia są zintegrowane z zaplanowaną konserwacją [Service Health](../service-health/overview.md) i umożliwiają wyświetlanie całej zaplanowanej konserwacji subskrypcji w jednym miejscu. Pomaga również skalować powiadomienie do odpowiednich odbiorców dla różnych grup zasobów, ponieważ użytkownik może mieć różne kontakty odpowiedzialne za różne zasoby. Otrzymasz powiadomienie o nadchodzącej konserwacji 72 godzin przed wydarzeniem.
+[Powiadomienia o planowanej konserwacji](./concepts-planned-maintenance-notification.md) umożliwiają otrzymywanie alertów dotyczących nadchodzącej planowanej konserwacji do Azure Database for MySQL. Te powiadomienia są zintegrowane z zaplanowaną konserwacją [Service Health](../service-health/overview.md) i umożliwiają wyświetlanie całej zaplanowanej konserwacji subskrypcji w jednym miejscu. Pomaga również skalować powiadomienie do odpowiednich odbiorców dla różnych grup zasobów, ponieważ użytkownik może mieć różne kontakty odpowiedzialne za różne zasoby. Otrzymasz powiadomienie o nadchodzącej konserwacji 72 godzin przed wydarzeniem.
 
-Podczas planowanej konserwacji można oczekiwać, że serwer zostanie ponownie uruchomiony, a [Błędy przejściowe](concepts-connectivity.md#transient-errors) mogą wystąpić. Większość z tych zdarzeń jest automatycznie zmniejszana przez system w mniej niż 60 sekund.
-
-> [!IMPORTANT]
-> Powiadomienia o planowanej konserwacji są obecnie dostępne w publicznej wersji zapoznawczej we wszystkich regionach **z wyjątkiem** zachodnich Stanów Zjednoczonych
-
-### <a name="to-receive-planned-maintenance-notification"></a>Aby odebrać powiadomienie o planowanej konserwacji
-
-1. W [portalu](https://portal.azure.com)wybierz pozycję **Service Health**.
-2. W sekcji **alerty** wybierz pozycję **alerty dotyczące kondycji**.
-3. Wybierz pozycję **+ Dodaj alert kondycji usługi** i wypełnij pola.
-4. Wypełnij pola wymagane. 
-5. Wybierz **Typ zdarzenia**, wybierz pozycję **Planowana konserwacja** lub **Zaznacz wszystko**
-6. W obszarze **grupy akcji** Określ, w jaki sposób chcesz otrzymywać alert (Otrzymuj wiadomość e-mail, wyzwól aplikację logiki itp.).  
-7. Upewnij się, że w momencie utworzenia reguły włączania zostanie ustawiona wartość tak.
-8. Wybierz pozycję **Utwórz regułę alertu** , aby zakończyć alert
-
-Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi**można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications.md).
-
-> [!Note]
-> Firma Microsoft podejmie próbę udostępnienia **powiadomienia o planowanej konserwacji** 72 godzin dla wszystkich zdarzeń. Jednak w przypadku poprawek krytycznych lub zabezpieczeń powiadomienia mogą być wysyłane bliżej zdarzenia lub zostać pominięte.
+Dowiedz się więcej na temat sposobu konfigurowania powiadomień w dokumencie [planowane powiadomienia o konserwacji](./concepts-planned-maintenance-notification.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 - Zobacz [jak skonfigurować alerty](howto-alert-on-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.
 - Aby uzyskać więcej informacji na temat uzyskiwania dostępu do metryk i eksportowania ich przy użyciu Azure Portal, interfejsu API REST, lub interfejsu wiersza polecenia, zobacz [Omówienie usługi Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 - Przeczytaj nasz blog, aby zapoznać się z [najlepszymi rozwiązaniami dotyczącymi monitorowania serwera](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).
+- Dowiedz się więcej o [planowanych powiadomieniach konserwacyjnych](./concepts-planned-maintenance-notification.md) w Azure Database for MySQL-pojedynczym serwerze

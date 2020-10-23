@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074842"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426718"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integracja z wdrażaniem Kubernetes przy użyciu usługi Helm
 
@@ -231,7 +231,7 @@ Sprawdź, czy konfiguracje i wpisy tajne zostały pomyślnie ustawione, uzyskuj�
 
 Jeden wpis tajny, **hasło**, sklepy jako odwołanie Key Vault w konfiguracji aplikacji został również dodany do wpisów tajnych Kubernetes. 
 
-![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/kubernetes-dashboard-secrets.png)
+![Zrzut ekranu, który podświetla hasło w sekcji danych.](./media/kubernetes-dashboard-secrets.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -3,12 +3,12 @@ title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 926e9bc5302403063d536e31fe304d837bca8ec5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109072"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426344"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
@@ -62,7 +62,7 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definiowanie ról i uprawnień
 
-Jako dostawca usług możesz chcieć wykonać wiele zadań dla pojedynczego klienta, wymagając innego dostępu dla różnych zakresów. Można zdefiniować dowolną liczbę autoryzacji w celu przypisania do użytkowników w dzierżawie odpowiednich [ról wbudowanej kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/built-in-roles.md) .
+Jako dostawca usług możesz chcieć wykonać wiele zadań dla pojedynczego klienta, wymagając innego dostępu dla różnych zakresów. Możesz zdefiniować tyle autoryzacji, ile potrzebujesz, aby przypisać do użytkowników w dzierżawie odpowiednie [wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md) .
 
 Aby ułatwić zarządzanie, zalecamy korzystanie z grup użytkowników usługi Azure AD dla każdej roli. Zapewnia to elastyczność dodawania lub usuwania poszczególnych użytkowników do grupy mającej dostęp, dzięki czemu nie trzeba powtarzać procesu dołączania w celu wprowadzenia zmian przez użytkownika. Role można przypisywać do jednostki usługi, co może być przydatne w scenariuszach automatyzacji.
 

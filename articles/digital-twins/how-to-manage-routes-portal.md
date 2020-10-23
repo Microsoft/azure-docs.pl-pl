@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ec23252883f928cfa6c1651afbfe88e413d55571
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: a2164afef3807a345819a18274eb01f2116de9fd
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339598"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427953"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -22,7 +22,7 @@ W usłudze Azure Digital bliźniaczych reprezentacji można kierować [powiadomi
 
 Ten artykuł przeprowadzi Cię przez proces tworzenia punktów końcowych i tras przy użyciu [Azure Portal](https://portal.azure.com).
 
-Punkty końcowe i trasy można także zarządzać za pomocą [interfejsów API EventRoutes](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Aby uzyskać wersję tego artykułu, która używa tych mechanizmów zamiast portalu, zobacz [*How to: Manage Endpoints and Routes (interfejsy API i CLI)*](how-to-manage-routes-apis-cli.md).
+Punkty końcowe i trasy można także zarządzać za pomocą [interfejsów API EventRoutes](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Aby uzyskać wersję tego artykułu, która używa tych mechanizmów zamiast portalu, zobacz [*How to: Manage Endpoints and Routes (interfejsy API i CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

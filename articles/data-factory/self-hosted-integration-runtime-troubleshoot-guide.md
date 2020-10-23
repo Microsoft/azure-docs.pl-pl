@@ -2,17 +2,17 @@
 title: Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime w Azure Data Factory
 description: Dowiedz się, jak rozwiązywać problemy z nieobsługiwanym środowiskiem Integration Runtime w Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/16/2020
-ms.author: abnarain
-ms.openlocfilehash: f0957b74bf13acfcc80e38cccaec389fbbd19fa0
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/22/2020
+ms.author: lle
+ms.openlocfilehash: d35dd94c8aa264c9b4dd679d3b50f3783acb2fde
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131320"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427216"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -618,34 +618,37 @@ Poniższy przykład pokazuje, jak wygląda dobry scenariusz.
 
 ### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>Otrzymywanie wiadomości e-mail w celu zaktualizowania konfiguracji sieci w celu umożliwienia komunikacji z nowymi adresami IP
 
-#### <a name="symptoms"></a>Objawy
+#### <a name="email-notification-from-microsoft"></a>Powiadomienie e-mail od firmy Microsoft
 
 Może zostać wyświetlony poniższy komunikat z powiadomieniem e-mail, który zaleca zaktualizowanie konfiguracji sieci w celu umożliwienia komunikacji z nowymi adresami IP dla Azure Data Factory do 8 listopada 2020:
 
    ![Powiadomienie e-mail](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
 
-#### <a name="resolution"></a>Rozwiązanie
+#### <a name="how-to-determine-if-you-are-impacted-by-this-notification"></a>Jak ustalić, czy ma to wpływ na to powiadomienie
 
-To powiadomienie dotyczy **komunikacji wychodzącej** z **Integration Runtime** działającego **lokalnie** lub wewnątrz **wirtualnej sieci prywatnej platformy Azure** w usłudze ADF. Na przykład jeśli w sieci wirtualnej platformy Azure jest używany własny program IR lub Azure-SQL Server Integration Services (SSIS), który musi mieć dostęp do usługi ADF, należy sprawdzić, czy trzeba dodać ten nowy zakres adresów IP w regułach **sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)** . Jeśli wychodząca reguła sieciowej grupy zabezpieczeń używa znacznika usługi, nie będzie to miało wpływu.
+To powiadomienie ma wpływ na następujące scenariusze:
+##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>Scenariusz 1: komunikacja wychodząca z samoobsługowego Integration Runtime działającego w środowisku lokalnym za zaporą firmową
+Jak ustalić, czy ma to wpływ:
+- Jeśli definiujesz reguły zapory na podstawie nazw FQDN przy użyciu metody opisanej w tym dokumencie, nie ma to wpływu na [Ustawienia zapory: Konfiguracja i lista dozwolonych adresów IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- Ma to wpływ na to, że użytkownik jawnie listy dozwolonych wychodzące adresy IP w zaporze firmowej.
 
-#### <a name="more-details"></a>Więcej szczegółów
+Akcja, która ma zostać podjęta, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizować konfigurację sieci tak, aby korzystała z najnowszych Data Factory adresów IP do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
-Te nowe zakresy adresów IP **mają wpływ na reguły komunikacji wychodzącej** z **lokalnej zapory** lub **wirtualnej sieci prywatnej platformy Azure** do usługi ADF (zobacz [Konfiguracja zapory i lista dozwolonych adresów IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) dla celów referencyjnych), w przypadku scenariuszy, w których masz własne środowisko IR IR lub SSIS w sieci lokalnej lub Azure Virtual Network, które muszą komunikować się z usługą ADF.
+##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>Scenariusz 2: komunikacja wychodząca z samoobsługowego Integration Runtime uruchomionego na maszynie wirtualnej platformy Azure w sieci wirtualnej platformy Azure zarządzanej przez klienta
+Jak ustalić, czy ma to wpływ:
+- Sprawdź, czy masz jakiekolwiek reguły sieciowej grupy zabezpieczeń ruchu wychodzącego w sieci prywatnej, które zawierają Integration Runtime samoobsługowe. W przypadku braku ograniczeń wychodzących nie ma to żadnego wpływu.
+- Jeśli istnieją ograniczenia reguły ruchu wychodzącego, należy sprawdzić, czy jest używany tag usługi. Jeśli używasz znacznika usługi, nie trzeba zmieniać ani dodawać żadnych elementów, ponieważ nowe zakresy adresów IP są objęte istniejącym tagiem usługi. 
+ ![Sprawdzenie lokalizacji docelowej](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+- Ma to wpływ na to, że jednak jawnie listy dozwolonych wychodzące adresy IP w ustawieniach reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure.
 
-Dla istniejących użytkowników korzystających z **sieci VPN platformy Azure**:
+Akcja do wykonania, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizował reguły sieciowej grupy ZABEZPIECZEŃymi w konfiguracji sieci wirtualnej platformy Azure, aby używać najnowszych adresów IP Data Factory do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
-1. Sprawdź wszystkie wychodzące reguły sieciowej grupy zabezpieczeń w sieci prywatnej, na których skonfigurowano SSIS lub Azure SSIS. Jeśli nie występują żadne ograniczenia wychodzące, nie ma to wpływu na te elementy.
-1. Jeśli istnieją ograniczenia reguły ruchu wychodzącego, należy sprawdzić, czy jest używany tag usługi. Jeśli używasz znacznika usługi, nie trzeba zmieniać ani dodawać żadnych elementów, ponieważ nowe zakresy adresów IP są objęte istniejącym tagiem usługi. 
-  
-    ![Sprawdzenie lokalizacji docelowej](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Scenariusz 3: komunikacja wychodząca z usług SSIS Integration Runtime w sieci wirtualnej platformy Azure zarządzanej przez klienta
+- Sprawdź, czy masz jakiekolwiek reguły sieciowej grupy zabezpieczeń ruchu wychodzącego w sieci prywatnej, która zawiera Integration Runtime SSIS. W przypadku braku ograniczeń wychodzących nie ma to żadnego wpływu.
+- Jeśli istnieją ograniczenia reguły ruchu wychodzącego, należy sprawdzić, czy jest używany tag usługi. Jeśli używasz znacznika usługi, nie trzeba zmieniać ani dodawać żadnych elementów, ponieważ nowe zakresy adresów IP są objęte istniejącym tagiem usługi.
+- Ma to wpływ na to, że jednak jawnie listy dozwolonych wychodzący adres IP w ustawieniach reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure.
 
-1. Jeśli używasz adresów IP bezpośrednio w ustawieniu reguły, sprawdź, czy dodasz wszystkie zakresy adresów IP w [linku pobierania zakresu adresów IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Nowe zakresy adresów IP zostały już umieszczone w tym pliku. W przypadku nowych użytkowników należy wykonać czynności opisane w dokumencie, aby skonfigurować reguły sieciowej grupy zabezpieczeń z zastosowaniem samodzielnej konfiguracji środowiska IR lub usług SSIS w naszym środowisku.
-
-W przypadku istniejących użytkowników **z systemem**SSIS IR lub własnym lokalnym systemem IR:
-
-- Sprawdź poprawność od zespołu infrastruktury sieciowej i sprawdź, czy muszą zawierać nowe adresy zakresu adresów IP komunikacji dla reguł ruchu wychodzącego.
-- W przypadku reguł zapory opartych na nazwach FQDN nie są wymagane żadne aktualizacje w przypadku korzystania z ustawień opisanych w obszarze [Konfiguracja zapory i listy dozwolonych adresów IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
-- Niektóre zapory lokalne obsługują Tagi usług, jeśli jest używany zaktualizowany plik konfiguracji tagów usługi platformy Azure, nie są potrzebne żadne inne zmiany.
+Akcja do wykonania, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizował reguły sieciowej grupy ZABEZPIECZEŃymi w konfiguracji sieci wirtualnej platformy Azure, aby używać najnowszych adresów IP Data Factory do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="self-hosted-ir-sharing"></a>Udostępnianie własnego środowiska IR
 

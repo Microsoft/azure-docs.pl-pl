@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: fb321aeeae1f0ef5aaadce22e228024895176143
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8169b277dfae918e86ac493259325ff84d0b6a4e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202654"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427479"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Tworzenie konta usługi Azure Remote Rendering
 
@@ -101,7 +101,7 @@ Inne listy rozwijane są wybierane jako pierwszy krok.
 
 Jeśli dodano wszystkie trzy role, konto renderowania zdalnego platformy Azure ma dostęp do konta magazynu przy użyciu tożsamości usługi zarządzanej przypisanej przez system.
 > [!IMPORTANT]
-> Przypisania ról platformy Azure są przechowywane w pamięci podręcznej przez usługę Azure Storage, co może wiązać się z opóźnieniem do 30 minut między przypisaniem zdalnego konta renderowania i użyciem go w celu uzyskania dostępu do konta magazynu. Szczegółowe informacje znajdują się w [dokumentacji podstawowej kontroli dostępu](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) .
+> Przypisania ról platformy Azure są przechowywane w pamięci podręcznej przez usługę Azure Storage, co może wiązać się z opóźnieniem do 30 minut między przypisaniem zdalnego konta renderowania i użyciem go w celu uzyskania dostępu do konta magazynu. Szczegółowe informacje znajdują się w [dokumentacji kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) .
 
 ## <a name="next-steps"></a>Następne kroki
 

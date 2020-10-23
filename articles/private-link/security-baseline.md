@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 654fc453f0b4167ae91afcab811de321925c6bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9e4fd2f7f55f916743074b57f89788c0d32f7d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89614672"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427496"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Azure Security Baseline dla prywatnego linku platformy Azure
 
@@ -268,7 +268,7 @@ Pozyskiwanie danych na platformie Azure — Wskaźnikowanie do dalszej analizy.
 
 Ogranicz poziom dostępu do zasobów platformy Azure za pomocą aplikacji i środowisk korporacyjnych na podstawie wymagań firmy. 
 
-Kontrola dostępu do zasobów platformy Azure za pośrednictwem Azure Active Directory kontroli dostępu opartej na rolach.
+Kontroluj dostęp do zasobów platformy Azure za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC).
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
 
@@ -292,7 +292,7 @@ Postępuj zgodnie z zaleceniami Security Center na potrzeby szyfrowania w czasie
 
 **Odpowiedzialność**: udostępnione
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
 **Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby kontroli dostępu do danych i zasobów, w przeciwnym razie użyj metod kontroli dostępu specyficznych dla usługi.
 
@@ -456,7 +456,7 @@ Zaimplementuj zalecenia z Security Center jako bezpieczną konfigurację odniesi
 
 - [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](../security-center/recommendations-reference.md)
+- [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](../security-center/recommendations-reference.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

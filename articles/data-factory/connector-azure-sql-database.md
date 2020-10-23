@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 7072adfcfd276d6420d8ffd7331c59ead7edd288
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: fa994525285ffe363f734e9b706252105b05ff26
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952050"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428452"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -112,12 +112,12 @@ W przypadku różnych typów uwierzytelniania zapoznaj się z poniższymi sekcja
         "typeProperties": {
             "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
             "password": {
-                "type": "AzureKeyVaultSecret",
+                "type": "AzureKeyVaultSecret",
                 "store": {
-                    "referenceName": "<Azure Key Vault linked service name>",
-                    "type": "LinkedServiceReference"
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
                 },
-                "secretName": "<secretName>"
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {
@@ -228,7 +228,7 @@ Następujące właściwości są obsługiwane dla Azure SQL Database zestawu dan
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **wartość azuresqltable**. | Tak |
 | schema | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
-| tabela | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
+| table (stolik) | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
 | tableName | Nazwa tabeli/widoku ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table` . | Nie dla źródła, tak dla ujścia |
 
 ### <a name="dataset-properties-example"></a>Przykład właściwości zestawu danych
@@ -272,8 +272,8 @@ Aby skopiować dane z Azure SQL Database, w sekcji **Źródło** działania kopi
 | isolationLevel | Określa zachowanie blokowania transakcji dla źródła SQL. Dozwolone wartości to: **READCOMMITTED**, **READUNCOMMITTED**, **REPEATABLEREAD**, **Serializable**, **migawka**. Jeśli nie zostanie określony, używany jest domyślny poziom izolacji bazy danych. Aby uzyskać więcej informacji, zapoznaj się z [tym dokumentem](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | Nie |
 | partitionOptions | Określa opcje partycjonowania danych używane do ładowania danych z Azure SQL Database. <br>Dozwolone wartości to **none** (wartość domyślna), **PhysicalPartitionsOfTable**i **DynamicRange**.<br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z Azure SQL Database jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Nie |
 | partitionSettings | Określ grupę ustawień partycjonowania danych. <br>Zastosuj, gdy opcja partycji nie jest `None` . | Nie |
-| ***W obszarze `partitionSettings` :*** | | |
-| partitionColumnName | Określ nazwę kolumny źródłowej **w postaci typu Integer lub Data/DateTime** , która będzie używana przez partycjonowanie zakresu do kopiowania równoległego. Jeśli nie zostanie określony, indeks lub klucz podstawowy tabeli są wykrywane i używane jako kolumny partycji.<br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak  `?AdfDynamicRangePartitionCondition ` w klauzuli WHERE. Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) . | Nie |
+| **_W obszarze `partitionSettings` :_*_ | | |
+| partitionColumnName | Określ nazwę kolumny źródłowej _*w postaci typu Integer lub Data/DateTime**, która będzie używana przez partycjonowanie zakresu na potrzeby kopiowania równoległego. Jeśli nie zostanie określony, indeks lub klucz podstawowy tabeli są wykrywane i używane jako kolumny partycji.<br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak  `?AdfDynamicRangePartitionCondition ` w klauzuli WHERE. Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) . | Nie |
 | partitionUpperBound | Maksymalna wartość kolumny partycji dla dzielenia zakresu partycji. Ta wartość jest używana do określenia krok partycji, a nie do filtrowania wierszy w tabeli. Wszystkie wiersze w tabeli lub wyniku zapytania zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.  <br>Zastosuj, gdy opcja partycji to `DynamicRange` . Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) . | Nie |
 | partitionLowerBound | Minimalna wartość kolumny partycji dla dzielenia zakresu partycji. Ta wartość jest używana do określenia krok partycji, a nie do filtrowania wierszy w tabeli. Wszystkie wiersze w tabeli lub wyniku zapytania zostaną podzielone na partycje i skopiowane. Jeśli nie zostanie określona, działanie Copy automatycznie wykryje wartość.<br>Zastosuj, gdy opcja partycji to `DynamicRange` . Przykład można znaleźć w sekcji [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) . | Nie |
 
@@ -671,6 +671,8 @@ Ustawienia specyficzne dla Azure SQL Database są dostępne na karcie **Ustawien
 
 Nazwa kolumny, która jest wybierana jako klucz, będzie używana przez ADF w ramach kolejnej aktualizacji, Upsert, Usuń. W związku z tym należy wybrać kolumnę, która istnieje w mapowaniu ujścia. Jeśli chcesz, aby nie zapisywać wartości w tej kolumnie klucza, kliknij przycisk "Pomiń zapisywanie kolumn kluczy".
 
+Możesz Sparametryzuj kolumnę klucza użytą tutaj, aby zaktualizować docelową tabelę Azure SQL Database. Jeśli masz wiele kolumn dla klucza złożonego, kliknij pozycję "wyrażenie niestandardowe" i będzie możliwe dodanie zawartości dynamicznej przy użyciu języka wyrażeń przepływu danych ADF, który może zawierać tablicę ciągów z nazwami kolumn dla klucza złożonego.
+
 **Akcja tabeli:** Określa, czy należy ponownie utworzyć lub usunąć wszystkie wiersze z tabeli docelowej przed zapisem.
 
 - Brak: w tabeli nie zostanie wykonana żadna akcja.
@@ -691,9 +693,9 @@ Gdy dane są kopiowane z lub do Azure SQL Database, następujące mapowania są 
 |:--- |:--- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Boolean (wartość logiczna) |
+| bit |Wartość logiczna |
 | char |String, Char [] |
-| data |DateTime |
+| date |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
@@ -720,7 +722,7 @@ Gdy dane są kopiowane z lub do Azure SQL Database, następujące mapowania są 
 | uniqueidentifier |Guid (identyfikator GUID) |
 | varbinary |Byte [] |
 | varchar |String, Char [] |
-| xml |String |
+| xml |Ciąg |
 
 >[!NOTE]
 > W przypadku typów danych, które są mapowane na typ pośredni dziesiętnego, obecnie działanie kopiowania obsługuje dokładność do 28. Jeśli masz dane o dokładności większej niż 28, Rozważ przekonwertowanie na ciąg w kwerendzie SQL.
