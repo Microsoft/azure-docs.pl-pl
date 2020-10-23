@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 974b6a1e980119582d4fedb5f8b4e73685290de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e6cac09ff304e02e24b482dc834d8199329c1c0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80063814"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424883"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Samouczek: projektowanie bazy danych usługi Azure Database for MariaDB za pomocą witryny Azure Portal
 
@@ -37,7 +37,7 @@ W przeglądarce przejdź do witryny [Azure Portal](https://portal.azure.com/). W
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Tworzenie serwera usługi Azure Database for MariaDB
 
-Serwer usługi Azure Database for MariaDB jest tworzony za pomocą zdefiniowanego zestawu [zasobów obliczeniowych i przestrzeni dyskowej](concepts-pricing-tiers.md). Serwer jest tworzony w ramach [grupy zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+Serwer usługi Azure Database for MariaDB jest tworzony za pomocą zdefiniowanego zestawu [zasobów obliczeniowych i przestrzeni dyskowej](concepts-pricing-tiers.md). Serwer jest tworzony w ramach [grupy zasobów platformy Azure](../azure-resource-manager/management/overview.md).
 
 1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu.
 
@@ -194,4 +194,4 @@ W tym samouczku opisano, jak wykonywać następujące czynności, używając wit
 > * Przywracanie danych
 
 > [!div class="nextstepaction"]
-> [Jak połączyć aplikacje z usługą Azure Database for MariaDB](./howto-connection-string.md)
+> [Jak połączyć aplikacje z usługą Azure Database for MariaDB](howto-connection-string.md)

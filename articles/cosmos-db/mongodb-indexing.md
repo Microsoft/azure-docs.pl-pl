@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6f7114188a7a996ee80346ec48a51f0cce8bba54
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282366"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425024"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB
 
@@ -40,7 +40,10 @@ Jedno zapytanie używa wielu indeksów pojedynczego pola, jeśli są dostępne. 
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Indeksy złożone (MongoDB Server wersja 3,6)
 
-Interfejs API Azure Cosmos DB dla MongoDB obsługuje indeksy złożone dla kont, które korzystają z protokołu sieci w wersji 3,6. Można uwzględnić maksymalnie osiem pól w indeksie złożonym. **W przeciwieństwie do programu w MongoDB, należy utworzyć indeks złożony tylko wtedy, gdy zapytanie musi efektywnie sortować w wielu polach jednocześnie.** W przypadku zapytań z wieloma filtrami, które nie muszą sortować, należy utworzyć wiele indeksów jednego pola zamiast pojedynczego indeksu złożonego.
+Interfejs API Azure Cosmos DB dla MongoDB obsługuje indeksy złożone dla kont, które korzystają z protokołu sieci w wersji 3,6. Można uwzględnić maksymalnie osiem pól w indeksie złożonym. W przeciwieństwie do programu w MongoDB, należy utworzyć indeks złożony tylko wtedy, gdy zapytanie musi efektywnie sortować w wielu polach jednocześnie. W przypadku zapytań z wieloma filtrami, które nie muszą sortować, należy utworzyć wiele indeksów jednego pola zamiast pojedynczego indeksu złożonego. 
+
+> [!NOTE]
+> Nie można tworzyć indeksów złożonych dla zagnieżdżonych właściwości lub tablic.
 
 Następujące polecenie tworzy indeks złożony dla pól `name` i `age` :
 
@@ -59,7 +62,7 @@ Jednak sekwencja ścieżek w indeksie złożonym musi dokładnie pasować do zap
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> Nie można tworzyć indeksów złożonych dla zagnieżdżonych właściwości lub tablic.
+> Indeksy złożone są używane tylko w zapytaniach, które sortują wyniki. W przypadku zapytań, które mają wiele filtrów, które nie muszą sortować, Utwórz Multipe indeksy pojedynczego pola.
 
 ### <a name="multikey-indexes"></a>Indeksy MultiKey
 
@@ -75,7 +78,7 @@ Oto przykład tworzenia indeksu geoprzestrzennego w `location` polu:
 
 ### <a name="text-indexes"></a>Indeksy tekstu
 
-Interfejs API Azure Cosmos DB dla MongoDB nie obsługuje obecnie indeksów tekstowych. W przypadku zapytań wyszukiwania tekstu w ciągach należy używać integracji z [usługą Azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) z Azure Cosmos DB.
+Interfejs API Azure Cosmos DB dla MongoDB nie obsługuje obecnie indeksów tekstowych. W przypadku zapytań wyszukiwania tekstu w ciągach należy używać integracji z [usługą Azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) z Azure Cosmos DB. 
 
 ## <a name="wildcard-indexes"></a>Indeksy wieloznaczne
 
@@ -131,7 +134,10 @@ Oto jak można utworzyć indeks wieloznaczny we wszystkich polach:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-Podczas rozpoczynania opracowywania warto utworzyć indeks wieloznaczny dla wszystkich pól. Tak jak wiele właściwości jest indeksowanych w dokumencie, opłata za zapisanie i zaktualizowanie dokumentu zostanie zwiększona. W związku z tym, jeśli używasz dużego obciążenia, należy wybrać pojedyncze ścieżki indeksu zamiast używać symboli wieloznacznych.
+> [!NOTE]
+> Jeśli dopiero zaczynasz opracowywanie, **zdecydowanie** zalecamy wyłączenie z wieloznacznym indeksem dla wszystkich pól. Upraszcza to programowanie i ułatwia optymalizację zapytań.
+
+Dokumenty z wieloma polami mogą zawierać opłaty za operacje zapisu i aktualizacji o wysokim poziomie żądania (RU). W związku z tym, jeśli używasz dużego obciążenia, należy wybrać pojedyncze ścieżki indeksu zamiast używać symboli wieloznacznych.
 
 ### <a name="limitations"></a>Ograniczenia
 
@@ -335,7 +341,7 @@ Obecnie można tworzyć unikatowe indeksy tylko wtedy, gdy kolekcja nie zawiera 
 
 ## <a name="indexing-for-mongodb-version-32"></a>Indeksowanie dla MongoDB w wersji 3,2
 
-Dostępne funkcje indeksowania i ustawienia domyślne są inne dla kont usługi Azure Cosmos, które są zgodne z wersją 3,2 protokołu telekomunikacyjnych MongoDB. Możesz [sprawdzić wersję swojego konta](mongodb-feature-support-36.md#protocol-support). Możesz przeprowadzić uaktualnienie do wersji 3,6, zgłaszając [żądanie pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Dostępne funkcje indeksowania i ustawienia domyślne są inne dla kont usługi Azure Cosmos, które są zgodne z wersją 3,2 protokołu telekomunikacyjnych MongoDB. Możesz [sprawdzić wersję konta](mongodb-feature-support-36.md#protocol-support) i [uaktualnić ją do wersji 3,6](mongodb-version-upgrade.md).
 
 Jeśli używasz wersji 3,2, w tej sekcji przedstawiono kluczowe różnice w wersji 3,6.
 
@@ -352,11 +358,11 @@ Po porzucenie indeksów domyślnych można dodać więcej indeksów, tak jak w w
 
 ### <a name="compound-indexes-version-32"></a>Indeksy złożone (wersja 3,2)
 
-Indeksy złożone przechowują odwołania do wielu pól dokumentu. Jeśli chcesz utworzyć indeks złożony, Uaktualnij go do wersji 3,6 przez zgłoszenie [żądania pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Indeksy złożone przechowują odwołania do wielu pól dokumentu. Jeśli chcesz utworzyć indeks złożony, [Uaktualnij go do wersji 3,6](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Indeksy wieloznaczne (wersja 3,2)
 
-Jeśli chcesz utworzyć indeks symboli wieloznacznych, Uaktualnij do wersji 3,6, zgłaszając [żądanie pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Jeśli chcesz utworzyć indeks symboli wieloznacznych, [Uaktualnij do wersji 3,6](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

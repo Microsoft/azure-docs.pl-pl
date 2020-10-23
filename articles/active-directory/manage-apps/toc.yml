@@ -220,6 +220,8 @@
           href: troubleshoot-password-based-sso.md
         - name: Rozwiązywanie problemów z logowaniem jednokrotnym opartym na języku SAML
           href: troubleshoot-saml-based-sso.md
+        - name: Debugowanie logowania jednokrotnego opartego na protokole SAML
+          href: debug-saml-sso-issues.md
         - name: Rozwiązywanie problemów z logowaniem się użytkownika
           items:
             - name: Nieoczekiwany monit o wyrażenie zgody

@@ -11,49 +11,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
+ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 24e10dad6a4b9a6232ce74b5365d9a9df7860079
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339938"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425375"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Wskaźnik bezpieczeństwa w usłudze Azure Security Center
 
 ## <a name="introduction-to-secure-score"></a>Wprowadzenie do zabezpieczenia oceny
 
-Azure Security Center ma dwa główne cele: aby pomóc Ci zrozumieć bieżącą sytuację bezpieczeństwa i pomóc efektywnie i efektywnie ulepszyć zabezpieczenia. Centralny aspekt Security Center, który umożliwia osiągnięcie tych celów, jest bezpiecznym wynikiem.
+Azure Security Center ma dwa główne cele: 
+
+- Aby ułatwić zapoznanie się z bieżącą sytuacją bezpieczeństwa
+- Aby ułatwić wydajne i efektywne ulepszanie zabezpieczeń
+
+Centralna funkcja w Security Center, która umożliwia osiąganie tych celów, jest **bezpieczną oceną**.
 
 Security Center stale ocenia zasoby, subskrypcje i organizację pod kątem problemów z zabezpieczeniami. Następnie agreguje wszystkie wyniki w postaci pojedynczego wyniku, dzięki czemu można szybko powiedzieć, że aktualna sytuacja zabezpieczeń: wyższy wynik, tym niższy poziom ryzyka.
 
-Na stronie "zabezpieczenia oceny" Security Center należą:
+Na Azure Portal stronach jest pokazywany wynik z wartością procentową, ale podstawowe wartości są również jasno podane:
 
-- **Wynik** — wynik zabezpieczony jest pokazywany jako wartość procentowa, ale wartości bazowe są również jasne:
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Ogólny bezpieczny wynik, jak pokazano w portalu":::
 
-    [![W przypadku wartości procentowej z liczbami, które są czyste](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
+Aby zwiększyć bezpieczeństwo, zapoznaj się z tematem zalecenia dotyczące Security Centerych akcji niezbędnych do podniesienia wyniku. Każde zalecenie zawiera instrukcje, które ułatwiają skorygowanie konkretnego problemu.
 
-- **Kontrolki zabezpieczeń** — każda kontrolka jest logiczną grupą powiązanych zaleceń dotyczących zabezpieczeń i odzwierciedla zagrożone powierzchnie ataków. Kontrolka jest zestawem zaleceń dotyczących zabezpieczeń, z instrukcjami, które ułatwiają zaimplementowanie tych zaleceń. Wynik jest ulepszany tylko wtedy, gdy koryguje *wszystkie* zalecenia dotyczące pojedynczego zasobu w formancie.
+Zalecenia są pogrupowane w **zabezpieczeniach**. Każda kontrolka jest logiczną grupą powiązanych zaleceń dotyczących zabezpieczeń i odzwierciedla zagrożone powierzchnie ataków. Wynik jest ulepszany tylko wtedy, gdy koryguje *wszystkie* zalecenia dotyczące pojedynczego zasobu w formancie. Aby dowiedzieć się, jak dobrze organizacja zabezpiecza poszczególne osoby atakujące, zapoznaj się z wynikami każdej kontroli zabezpieczeń.
 
-    Aby od razu sprawdzić, jak dobrze organizacja zabezpiecza poszczególne osoby atakujące, zapoznaj się z wynikami każdej kontroli zabezpieczeń.
-
-    Aby uzyskać więcej informacji, zobacz [jak poniżej jest obliczany bezpieczny wynik](secure-score-security-controls.md#how-your-secure-score-is-calculated) . 
-
-
->[!TIP]
-> Wcześniejsze wersje Security Center przyznanych punktów na poziomie zalecenia: po skorygowaniu zalecenia dotyczącego pojedynczego zasobu Ulepszono bezpieczny wynik. Dzisiaj wynik poprawia się tylko wtedy, gdy korygujesz *wszystkie* zalecenia dotyczące pojedynczego zasobu w formancie. Dzięki temu wynik jest ulepszany tylko wtedy, gdy Ulepszono zabezpieczenia zasobu.
+Aby uzyskać więcej informacji, zobacz [jak poniżej jest obliczany bezpieczny wynik](secure-score-security-controls.md#how-your-secure-score-is-calculated) . 
 
 
 ## <a name="access-your-secure-score"></a>Uzyskaj dostęp do swojego bezpiecznego wyniku
 
-Możesz znaleźć ogólny, bezpieczny wynik, a także ocenę dla każdej subskrypcji, za pomocą Azure Portal lub programowo za pomocą interfejsu API REST Azure Security Center.
+Możesz znaleźć ogólny, bezpieczny wynik, a także wynik na subskrypcję za pomocą Azure Portal lub programowo zgodnie z opisem w poniższych sekcjach:
+
+- [Pobierz swój Bezpieczny wynik z portalu](#get-your-secure-score-from-the-portal)
+- [Uzyskiwanie bezpiecznego wyniku z interfejsu API REST](#get-your-secure-score-from-the-rest-api)
+- [Pobierz bezpieczny wynik z grafu zasobów platformy Azure (ARG)](#get-your-secure-score-from-azure-resource-graph-arg)
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Pobierz swój Bezpieczny wynik z portalu
 
-Security Center wyświetla wyniki w portalu w widocznym miejscu: jest to pierwsza czynność wyświetlana na stronie Przegląd. Jeśli klikniesz pozycję przez użytkownika na stronie dedykowany zabezpieczony wskaźnik, zobaczysz wynik podzielony przez subskrypcję. Kliknij jedną subskrypcję, aby wyświetlić szczegółową listę zaleceń z priorytetami i potencjalny wpływ, który korygowaniem ich na ocenę subskrypcji.
+Security Center wyświetla wyniki w portalu w widocznym miejscu: jest to pierwszy główny kafelek na stronie Przegląd Security Center. Wybranie tego kafelka spowoduje przejście na stronę dedykowanego, bezpiecznego oceny, w której zobaczysz wynik podzielony przez subskrypcję. Wybierz jedną subskrypcję, aby wyświetlić szczegółową listę zaleceń z priorytetami i potencjalny wpływ, który korygowaniem ich na ocenę subskrypcji.
 
-![Ogólny bezpieczny wynik, jak pokazano w portalu](media/secure-score-security-controls/single-secure-score-via-ui.png)
+Aby podsumowanie, Twój bezpieczny wynik jest wyświetlany w następujących lokalizacjach na stronach portalu Security Center.
+
+- Na kafelku na Security Center **Przegląd** (główny pulpit nawigacyjny):
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Ogólny bezpieczny wynik, jak pokazano w portalu":::
+
+- Na stronie dedykowany **wynik bezpiecznego** :
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Ogólny bezpieczny wynik, jak pokazano w portalu":::
+
+- W górnej części strony **zalecenia** :
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Ogólny bezpieczny wynik, jak pokazano w portalu":::
+
+
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Uzyskiwanie bezpiecznego wyniku z interfejsu API REST
 
@@ -62,6 +79,40 @@ Możesz uzyskać dostęp do oceny za pośrednictwem interfejsu API bezpiecznego 
 ![Pobieranie pojedynczego, bezpiecznego wyniku za pośrednictwem interfejsu API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Przykłady narzędzi wbudowanych w interfejsie API oceny zabezpieczeń znajdują się w obszarze "bezpieczeństwo" w [naszej społeczności usługi GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
+
+
+
+### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Pobierz bezpieczny wynik z grafu zasobów platformy Azure (ARG)
+
+Usługa Azure Resource Graph zapewnia błyskawiczny dostęp do informacji o zasobach w środowiskach chmury z niezawodnymi możliwościami filtrowania, grupowania i sortowania. Jest to szybki i wydajny sposób wykonywania zapytań dotyczących informacji w ramach subskrypcji platformy Azure programowo lub z poziomu Azure Portal. [Dowiedz się więcej o usłudze Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/).
+
+Aby uzyskać dostęp do bezpiecznego wyniku dla wielu subskrypcji z ARGUMENTem:
+
+1. W Azure Portal Otwórz **Eksploratora Azure Resource Graph**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Ogólny bezpieczny wynik, jak pokazano w portalu" :::
+
+1. Wprowadź zapytanie Kusto (korzystając z przykładów poniżej, aby uzyskać wskazówki).
+
+    - To zapytanie zwraca identyfikator subskrypcji, bieżący wynik w punktach i jako wartość procentową oraz maksymalny wynik dla subskrypcji. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores' 
+        | extend current = properties.score.current, max = todouble(properties.score.max)
+        | project subscriptionId, current, max, percentage = ((current / max)*100)
+        ```
+
+    - To zapytanie zwraca stan wszystkich formantów zabezpieczeń. Dla każdej kontrolki uzyskasz liczbę zasobów w złej kondycji, bieżącą ocenę i maksymalny wynik. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores/securescorecontrols'
+        | extend SecureControl = properties.displayName, unhealthy = properties.unhealthyResourceCount, currentscore = properties.score.current, maxscore = properties.score.max
+        | project SecureControl , unhealthy, currentscore, maxscore
+        ```
+
+1. Wybierz pozycję **Uruchom zapytanie**.
 
 ## <a name="how-your-secure-score-is-calculated"></a>Jak jest obliczany bezpieczny wynik 
 
@@ -99,7 +150,7 @@ Zalecenia oflagowane jako **wersja zapoznawcza** nie są uwzględniane w oblicze
 
 Przykład zalecenia dotyczącego wersji zapoznawczej:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Zalecenie z flagą wersji zapoznawczej":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Ogólny bezpieczny wynik, jak pokazano w portalu":::
 
 ## <a name="improve-your-secure-score"></a>Poprawianie oceny bezpieczeństwa
 

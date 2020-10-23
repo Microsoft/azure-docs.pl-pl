@@ -3,12 +3,12 @@ title: Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą s
 description: Dowiedz się, jak efektywnie zarządzać wskaźnikami platformy Azure na delegowanych zasobach klientów.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596937"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424090"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 
@@ -39,7 +39,7 @@ Ten scentralizowany model wdrożenia ma następujące zalety:
 > [!NOTE]
 > Można zarządzać delegowanymi zasobami, które znajdują się w różnych [regionach](../../availability-zones/az-overview.md#regions). Jednak delegowanie subskrypcji w [chmurze krajowej](../../active-directory/develop/authentication-national-cloud.md) oraz w chmurze publicznej platformy Azure lub w dwóch oddzielnych chmurach narodowych nie jest obsługiwane.
 
-## <a name="granular-role-based-access-control-rbac"></a>Szczegółowa kontrola dostępu oparta na rolach (RBAC)
+## <a name="granular-azure-role-based-access-control-azure-rbac"></a>Szczegółowa kontrola dostępu oparta na rolach (Azure RBAC)
 
 Każdą subskrypcję klienta, którą będzie zarządzać MSSP, należy [dołączyć do usługi Azure Lighthouse](onboard-customer.md). Umożliwia to Wyznaczeni użytkownikom w dzierżawie zarządzającej dostęp i wykonywanie operacji zarządzania w obszarach roboczych usługi Azure wskaźnikowych wdrożonych w dzierżawach klientów.
 

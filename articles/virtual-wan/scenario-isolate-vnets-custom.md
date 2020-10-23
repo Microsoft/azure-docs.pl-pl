@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 12bc99d24472780f87a6b2a83befdbbf12944860
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267724"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461825"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenariusz: niestandardowa izolacja dla sieci wirtualnych
 
@@ -25,11 +25,11 @@ Aby ustalić, ile tabel tras będzie potrzebnych, można utworzyć macierz łąc
 
 | Źródło | Do:| *Niebieska sieci wirtualnych* | *Red sieci wirtualnych* | *Gałęzie*|
 |---|---|---|---|---|
-| **Niebieska sieci wirtualnych** |   &#8594;|      X        |               |       X      |
-| **Red sieci wirtualnych**  |   &#8594;|              |       X       |       X      |
-| **Gałęzie**   |   &#8594;|     X        |       X       |       X      |
+| **Niebieska sieci wirtualnych** |   &#8594;|   Direct     |           |  Direct |
+| **Red sieci wirtualnych**  |   &#8594;|              |   Direct  |  Direct |
+| **Gałęzie**   |   &#8594;|   Direct     |   Direct  |  Direct |
 
-Każda z komórek w powyższej tabeli opisuje, czy wirtualne połączenie sieci WAN ("od" po stronie przepływu, nagłówki wierszy w tabeli) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu, gdzie "X" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN.
+Każda z komórek w poprzedniej tabeli zawiera opis, czy wirtualne połączenie sieci WAN ("od", po stronie przepływu, nagłówki wierszy) komunikuje się z miejscem docelowym (po stronie "do" przepływu, nagłówki kolumn w kursywie). W tym scenariuszu nie ma zapór ani sieciowych urządzeń wirtualnych, dlatego komunikacja odbywa się bezpośrednio za pośrednictwem wirtualnej sieci WAN (w związku z tym wyraz "Direct" w tabeli).
 
 Liczba różnych wzorców wierszy będzie wymagana w tym scenariuszu. W takim przypadku trzy tabele tras trasy, które będą wywoływać **RT_BLUE** i **RT_RED** dla sieci wirtualnych, i **domyślne** dla gałęzi. Należy pamiętać, że gałęzie zawsze muszą być skojarzone z domyślną tabelą routingu.
 

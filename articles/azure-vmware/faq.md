@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: bdc0bdb5966445fe98b2f65bce552fe6dca493ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368982"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461655"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -61,14 +61,14 @@ Korzystając z nowego rozwiązania VMware platformy Azure, firma Microsoft i opr
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Czy rozwiązania firmy Red Hat są obsługiwane na platformie Azure VMware?
 
-Firma Microsoft i Red Hat współdzielą zintegrowany, współpracujący zespół pomocy technicznej, który zapewnia ujednolicony punkt kontaktowy dla ekosystemów firmy Red Hat działających na platformie Azure.  Podobnie jak w przypadku innych usług platformy Azure, które współpracują z Red Hat Enterprise Linux, rozwiązanie platformy Azure VMware jest objęte dostępem do chmury i zintegrowanym parasolem pomocy technicznej, a Red Hat Enterprise Linux jest obsługiwane na potrzeby uruchamiania na platformie Azure VMware.
+Firma Microsoft i Red Hat współdzielą zintegrowany, współpracujący zespół pomocy technicznej, który zapewnia ujednolicony punkt kontaktowy dla ekosystemów Red Hat działających na platformie Azure.  Podobnie jak w przypadku innych usług platformy Azure, które współpracują z Red Hat Enterprise Linux, rozwiązanie platformy Azure VMware jest objęte dostępem do chmury i zintegrowanym parasolem pomocy technicznej, a Red Hat Enterprise Linux jest obsługiwane na potrzeby uruchamiania na platformie Azure VMware.
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>Czy jest dostępny program VMware HCX Enterprise Edition, a jeśli tak, ile to kosztuje?
 
-Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w wersji zapoznawczej, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Dostępna jest również opcja przełączania/rezygnacji z usługi.
+Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w wersji zapoznawczej, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Możesz wyłączyć lub zrezygnować z usługi.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Czy maszyny wirtualne rozwiązań VMware platformy Azure mogą być zarządzane przez funkcję autosterowania?
-Tak, pod warunkiem, że system, w którym jest zainstalowany, może uzyskać dostęp do programu vCenter w chmurze prywatnej i że korzysta on z publicznej usługi DNS (aby można było rozpoznać nazwy hostów ESXi).
+Tak, pod warunkiem, że system, w którym jest zainstalowany, może uzyskać dostęp do prywatnej chmury vCenter i korzysta z publicznej usługi DNS (aby można było rozpoznać nazwy hostów ESXi).
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Czy istnieją specjalne instrukcje dotyczące instalowania i używania funkcji niedostępności z maszynami wirtualnymi rozwiązań VMware platformy Azure?
 Nie, należy użyć [instrukcji dostarczonych przez oprogramowanie VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) i spełnić wymagania wstępne dotyczące maszyn wirtualnych określone w tych instrukcjach. 
@@ -116,7 +116,7 @@ O ile wiemy, każde rozwiązanie do tworzenia kopii zapasowych, które korzysta 
 
 Ponieważ te rozwiązania do tworzenia kopii zapasowych są instalowane i zarządzane przez klientów, mogą skontaktować się z odpowiednim dostawcą oprogramowania, aby uzyskać pomoc techniczną. 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Jakie są poprawne zasady magazynu dla konfiguracji deduplikacji?
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>Jakie są poprawne zasady magazynu dla konfiguracji deduplikacji?
 
 Użyj zasad magazynu *thin_provision* dla szablonu maszyny wirtualnej.  Wartość domyślna to *thick_provision*.
 
@@ -239,7 +239,7 @@ Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
 * Będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
 * Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
 
-Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić węzły. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.
+Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Potwierdzenie żądania i przydzielenia węzłów trwa do pięciu dni roboczych. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.
 
 
 1. W Azure Portal w obszarze **Pomoc i obsługa techniczna**Utwórz **[nowe żądanie pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support)** i podaj następujące informacje dotyczące biletu:

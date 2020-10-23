@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f438fadb73f7e3bd25cd7ab9aef0bc46285e30e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135751"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424832"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replikowanie maszyn wirtualnych platformy Azure z systemem Bezpośrednie miejsca do magazynowania do innego regionu
 
@@ -49,12 +49,12 @@ Poniższy diagram przedstawia klaster trybu failover maszyny wirtualnej platform
 1. Wybierz zasady replikacji z zachowaniem spójności aplikacji * (dostępna jest tylko Obsługa spójności awarii)
 1. Włącz replikację
 
-   ![Ochrona storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
+   ![Zrzut ekranu pokazujący lokalizację konfigurowania ustawień replikacji.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
 2. Przejdź do pozycji zreplikowane elementy i zobaczysz stan maszyny wirtualnej.
 3. Obie maszyny wirtualne są chronione i są również wyświetlane jako część grupy spójności z obsługą kilku maszyn wirtualnych.
 
-   ![Ochrona storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
+   ![Zrzut ekranu przedstawiający maszyny wirtualne są chronione i częścią grupy spójności obejmującej wiele maszyn wirtualnych.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
 ## <a name="creating-a-recovery-plan"></a>Tworzenie planu odzyskiwania
 Plan odzyskiwania obsługuje sekwencjonowanie różnych warstw w aplikacji wielowarstwowej podczas pracy w trybie failover. Sekwencjonowanie pomaga zachować spójność aplikacji. Po utworzeniu planu odzyskiwania dla wielowarstwowej aplikacji sieci Web wykonaj kroki opisane w temacie [Tworzenie planu odzyskiwania przy użyciu Site Recovery](site-recovery-create-recovery-plans.md).

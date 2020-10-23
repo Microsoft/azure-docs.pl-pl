@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 09d5ece0afdd5abe3da5ebdeb6a7ae290e1ccf3d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bec4e831b3f7af0ef551617ba8a8253925226e05
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372326"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461842"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -37,9 +37,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz mieć subskrypcję platformy 
 
 Na maszynie będzie również potrzebne **Node.js** . Najnowszą wersję można uzyskać, korzystając z tego linku: [Node.js](https://nodejs.org/).
 
-Na koniec należy również pobrać dwa przykłady do użycia podczas przewodnika Szybki Start:
-* Przykładowa aplikacja **Eksploratora ADT** . Ten przykład zawiera główną aplikację używaną w szybkim samouczku do ładowania i eksplorowania scenariusza bliźniaczych reprezentacji Digital na platformie Azure. Aby uzyskać dostęp do aplikacji, przejdź tutaj: [Eksplorator usługi Azure Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_. Rozpakuj folder i Wyodrębnij pliki.
-* **Przykładowy scenariusz usługi Azure Digital bliźniaczych reprezentacji**. Obejmuje to wstępnie utworzony Graf usługi Azure Digital bliźniaczych reprezentacji, który zostanie załadowany do Eksploratora ADT w celu pracy z programem. Aby zapoznać się z tym scenariuszem, przejdź tutaj: [przykładowe kompleksowe usługi Azure Digital bliźniaczych reprezentacji](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins_end_to_end_samples.zip**_. Rozpakuj folder i Wyodrębnij pliki.
+Na koniec należy również pobrać przykład do użycia podczas szybkiego startu: przykładowa aplikacja **ADT Explorer** . Ten przykład zawiera aplikację używaną w przewodniku szybki start do ładowania i eksplorowania scenariusza bliźniaczych reprezentacji Digital na platformie Azure oraz przykładowych plików scenariusza. Aby uzyskać przykład, przejdź tutaj: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_. Rozpakuj folder i Wyodrębnij pliki.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Konfigurowanie usługi Azure Digital bliźniaczych reprezentacji i Eksploratora ADT
 
@@ -115,9 +113,7 @@ Jeśli zobaczysz *wymagane uprawnienia* do okna podręcznego od firmy Microsoft,
 
 ## <a name="add-the-sample-data"></a>Dodawanie przykładowych danych
 
-Następnie zaimportujemy przykładowy scenariusz i wykres do Eksploratora ADT.
-
-Przykładowy scenariusz znajduje się w folderze pobranym i rozpakowanym  _**Azure_Digital_Twins_end_to_end_samples**_ , dlatego należy teraz przejść do folderu.
+Następnie zaimportujemy przykładowy scenariusz i wykres do Eksploratora ADT. Przykładowy scenariusz znajduje się również w folderze **Azure_Digital_Twins__ADT__explorer** pobranym wcześniej.
 
 ### <a name="models"></a>Modele
 
@@ -140,8 +136,8 @@ W polu *Widok modelu* kliknij ikonę *Przekaż model* .
 
 :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
-1. W wyświetlonym oknie dialogowym Wybieranie pliku przejdź do folderu *Azure_Digital_Twins_end_to_end_samples/adtsampleapp/sampleclientapp/models* w pobranym repozytorium.
-2. Wybierz pozycję *Room.js* i *Floor.jsna*, a następnie kliknij przycisk OK. (Możesz przekazać inne modele, jeśli chcesz, ale nie będą używane w tym przewodniku Szybki Start).
+1. W wyświetlonym oknie dialogowym Wybieranie pliku przejdź do folderu *Azure_Digital_Twins__ADT__explorer/Client/examples* w pobranym repozytorium.
+2. Wybierz pozycję *Room.js* i *Floor.jsna*, a następnie kliknij przycisk OK. (Możesz przekazać dodatkowe modele, jeśli chcesz, ale nie będą używane w tym przewodniku Szybki Start).
 3. Postępuj zgodnie z wyskakującym oknem dialogowym z prośbą o zalogowanie się do konta platformy Azure.
 
 >[!NOTE]
@@ -178,7 +174,7 @@ W polu *Widok wykresu* kliknij ikonę *Importuj wykres* .
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-W polu Selektor plików przejdź do folderu *Azure_Digital_Twins_end_to_end_samples/adtsampleapp/sampleclientapp* i wybierz _**buildingScenario.xlsx**_ plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Naciśnij przycisk OK.
+W polu Selektor plików przejdź do folderu*Azure_Digital_Twins__ADT__explorer/Client/examples* i wybierz _**buildingScenario.xlsx**_ plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Naciśnij przycisk OK.
 
 Po kilku sekundach Eksplorator ADT otworzy widok *importu* z podglądem wykresu, który zostanie załadowany.
 
@@ -326,7 +322,7 @@ Następnie usuń Azure Active Directory rejestrację aplikacji utworzoną dla ap
 az ad app delete --id <your-application-ID>
 ```
 
-Na koniec Usuń przykładowe foldery projektu pobrane na maszynę lokalną (_**Azure_Digital_Twins__ADT__explorer**_ i _**Azure_Digital_Twins_end_to_end_samples**_). Może być konieczne usunięcie zarówno wersji spakowanej, jak i rozpakowanej.
+Na koniec Usuń folder przykładowego projektu pobrany do komputera lokalnego (_**Azure_Digital_Twins__ADT__explorer**_). Może być konieczne usunięcie zarówno wersji spakowanej, jak i rozpakowanej.
 
 ## <a name="next-steps"></a>Następne kroki 
 

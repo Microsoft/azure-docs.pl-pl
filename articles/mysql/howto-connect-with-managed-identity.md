@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7733148777cde2a487e5c93d7750eb7a24ff531c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b656ff670d4ab4d50f4b6dfbd1c60bfe3db22dd
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88999397"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425245"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Nawiązywanie połączenia za pomocą tożsamości zarządzanej z usługą Azure Database for MySQL
 
@@ -31,7 +31,7 @@ Omawiane kwestie:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Jeśli nie znasz funkcji tożsamości zarządzanych dla zasobów platformy Azure, zobacz to [omówienie](../../articles/active-directory/managed-identities-azure-resources/overview.md). Jeśli nie masz jeszcze konta platformy Azure, przed kontynuowaniem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
-- Aby móc wykonywać wymagane operacje tworzenia zasobów i zarządzania rolami, Twoje konto musi mieć uprawnienia "właściciel" w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy dotyczącej przypisania roli, zobacz [Korzystanie z kontroli dostępu opartej na rolach do zarządzania dostępem do zasobów subskrypcji platformy Azure](../../articles/role-based-access-control/role-assignments-portal.md).
+- Aby móc wykonywać wymagane operacje tworzenia zasobów i zarządzania rolami, Twoje konto musi mieć uprawnienia "właściciel" w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy z przypisaniem roli, zobacz temat [Używanie kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby zarządzania dostępem do zasobów subskrypcji platformy Azure](../../articles/role-based-access-control/role-assignments-portal.md).
 - Wymagana jest maszyna wirtualna platformy Azure (na przykład uruchomienie Ubuntu Linux), która ma być używana do uzyskiwania dostępu do bazy danych przy użyciu tożsamości zarządzanej
 - Potrzebujesz serwera bazy danych Azure Database for MySQL, na którym skonfigurowano [uwierzytelnianie usługi Azure AD](howto-configure-sign-in-azure-ad-authentication.md)
 - Aby postępować zgodnie z przykładem w języku C#, najpierw Wypełnij Przewodnik dotyczący sposobu [nawiązywania połączenia przy użyciu języka c#](connect-csharp.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/25/2020
+ms.date: 10/19/2020
 ms.author: aahi
-ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 172e684c6edbab4d7d47c8cf78e35ae38de3a0af
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85412587"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461791"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Przeprowadź migrację do wersji 3. x interfejs API analizy tekstu
 
@@ -33,7 +33,12 @@ Analiza tonacji w wersji 2,1 zwraca wyniki tonacji z zakresu od 0 do 1 dla każd
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy żądania do punktu końcowego v3 dla analizy tonacji. Na przykład: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . Należy również zaktualizować aplikację tak, aby korzystała z etykiet tonacji zwracanych w [odpowiedzi JSON](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy żądania do punktu końcowego v3 dla analizy tonacji. Na przykład: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . Należy również zaktualizować aplikację tak, aby korzystała z etykiet tonacji zwracanych w [odpowiedzi interfejsu API](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+
+Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
+* [Wersja 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
+* [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
+* [Wersja 3,1-Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
 
 ### <a name="client-libraries"></a>Biblioteki klienta
 
@@ -60,7 +65,12 @@ Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy ż
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-Należy również zaktualizować aplikację tak, aby korzystała z [kategorii jednostek](named-entity-types.md) zwracanych w [odpowiedzi JSON](how-tos/text-analytics-how-to-entity-linking.md#view-results).
+Należy również zaktualizować aplikację tak, aby korzystała z [kategorii jednostek](named-entity-types.md) zwracanych w [odpowiedzi interfejsu API](how-tos/text-analytics-how-to-entity-linking.md#view-results).
+
+Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
+* [Wersja 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+* [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
+* [Wersja 3,1-Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>Biblioteki klienta
 
@@ -77,7 +87,12 @@ Funkcja wykrywania języka nie została zmieniona w wersji 3 poza wersją punktu
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy żądania do punktu końcowego v3 na potrzeby wykrywania języka. Na przykład: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . Należy również zaktualizować aplikację do użycia `ConfidenceScore` zamiast `score` w [odpowiedzi JSON](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy żądania do punktu końcowego v3 na potrzeby wykrywania języka. Na przykład: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . Należy również zaktualizować aplikację do użycia `ConfidenceScore` zamiast `score` w [odpowiedzi interfejsu API](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+
+Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
+* [Wersja 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
+* [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
+* [Wersja 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
 
 ### <a name="client-libraries"></a>Biblioteki klienta
 
@@ -96,6 +111,11 @@ Funkcja wyodrębniania frazy klucza nie została zmieniona w wersji 3 poza wersj
 
 Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy żądania do punktu końcowego V3 w celu wyodrębnienia frazy kluczowej. Na przykład: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
+Przykłady odpowiedzi JSON można znaleźć w dokumentacji referencyjnej.
+* [Wersja 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
+* [Wersja 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
+* [Wersja 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/KeyPhrases)
+
 ### <a name="client-libraries"></a>Biblioteki klienta
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
@@ -105,7 +125,6 @@ Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy ż
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Dokumentacja interfejs API analizy tekstu v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
 * [Co to jest interfejs API analizy tekstu](overview.md)
 * [Obsługa języków](language-support.md)
 * [Wersje modelu danych](concepts/model-versioning.md)

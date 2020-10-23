@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: df7c27fb0aca6a9b903d29ea4414832fb677b3eb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 086f680a0674d5d79d9d039d9ad47e542856ac5d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705266"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92420081"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -27,7 +27,7 @@ W tym przewodniku szybki start pokazano, jak za pomocą poleceń [interfejsu wie
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby sprawdzić zainstalowaną wersję, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-Musisz zalogować się do konta za pomocą polecenia [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) . Zanotuj Właściwość **ID** , która odwołuje się do **identyfikatora subskrypcji** dla Twojego konta platformy Azure. 
+Musisz zalogować się do konta za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) . Zanotuj Właściwość **ID** , która odwołuje się do **identyfikatora subskrypcji** dla Twojego konta platformy Azure. 
 
 ```azurecli-interactive
 az login
@@ -39,11 +39,11 @@ Wybierz określony identyfikator subskrypcji na koncie przy użyciu polecenia  [
 az account set --subscription <subscription id>
 ```
 
-Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Aby uzyskać wszystkie subskrypcje, użyj [AZ Account List](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Aby uzyskać wszystkie subskrypcje, użyj [AZ Account List](/cli/azure/account#az-account-list).
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Tworzenie serwera usługi Azure Database for PostgreSQL
 
-Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) za pomocą polecenia [AZ Group Create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) , a następnie utwórz serwer PostgreSQL w ramach tej grupy zasobów. Należy podać unikatową nazwę. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `westus`.
+Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) za pomocą polecenia [AZ Group Create](/cli/azure/group#az-group-create) , a następnie utwórz serwer PostgreSQL w ramach tej grupy zasobów. Należy podać unikatową nazwę. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -58,7 +58,7 @@ Poniżej znajdują się szczegółowe informacje dotyczące powyższych argument
 
 **Ustawienie** | **Wartość przykładowa** | **Opis**
 ---|---|---
-name | mydemoserver | Unikatowa nazwa identyfikująca serwer Azure Database for PostgreSQL. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
+name | mydemoserver | Unikatowa nazwa identyfikująca serwer Azure Database for PostgreSQL. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków. Aby uzyskać więcej informacji, zobacz [Azure Database for PostgreSQL regułami nazewnictwa](/azure/azure-resource-manager/management/resource-name-rules#microsoftdbforpostgresql).
 resource-group | myresourcegroup | Nazwa grupy zasobów platformy Azure.
 location | westus | Lokalizacja platformy Azure dla serwera.
 admin-user | myadmin | Nazwa użytkownika dla logowania administratora. Nie może to być **azure_superuser**, **admin**, **administrator**, **root**, **Guest**ani **Public**.
@@ -67,7 +67,7 @@ sku-name|GP_Gen5_2| Nazwa warstwy cenowej i konfiguracji obliczeniowej. Postępu
 
 >[!IMPORTANT] 
 >- Domyślna wersja PostgreSQL na serwerze to 9,6. Aby wyświetlić wszystkie obsługiwane wersje, zobacz [obsługiwane wersje główne PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
->- Aby wyświetlić wszystkie argumenty dla polecenia **AZ Postgres Server Create** , zobacz [ten dokument referencyjny](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create).
+>- Aby wyświetlić wszystkie argumenty dla polecenia **AZ Postgres Server Create** , zobacz [ten dokument referencyjny](/cli/azure/postgres/server#az-postgres-server-create).
 >- Protokół SSL jest domyślnie włączony na serwerze. Aby uzyskać więcej informacji na temat protokołu SSL, zobacz [Konfigurowanie łączności SSL](./concepts-ssl-connection-security.md).
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurowanie reguły zapory na poziomie serwera 

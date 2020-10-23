@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 031cbb48a7e0c572866dc591d26fb1e6b6b12dba
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267503"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424733"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenariusz: kierowanie ruchu przez urządzeń WUS — niestandardowy (wersja zapoznawcza)
 
@@ -24,25 +24,24 @@ Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka
 
 W tym scenariuszu będziemy używać konwencji nazewnictwa:
 
-* "Sieć wirtualna usług" dla sieci wirtualnych, w których użytkownicy wdrażają urządzenie WUS (Sieć wirtualna 4 na **rysunku 1**) w celu sprawdzenia ruchu niepochodzącego od Internetu.
+* "Szprych" dla sieci wirtualnych podłączonych do koncentratora wirtualnego (Sieć wirtualna 1, Sieć wirtualna 2 i Sieć wirtualna 3 na **rysunku 1**).
+* "Sieć wirtualna usług" dla sieci wirtualnych, w których użytkownicy wdrożyły urządzenie WUS (Sieć wirtualna 4 na **rysunku 1**) w celu sprawdzenia ruchu niepochodzącego z Internetu i prawdopodobnie z typowymi usługami dostępnymi przez szprychy.
 * "Sieć wirtualna strefy DMZ" dla sieci wirtualnych, w których użytkownicy wdrażają urządzenie WUS do użycia w celu sprawdzenia ruchu powiązanego z Internetem (Sieć wirtualna 5 na **rysunku 1**).
-* "Urządzenie WUS szprych" dla sieci wirtualnych połączonych z siecią wirtualną urządzenie WUS (Sieć wirtualna 1, Sieć wirtualna 2 i Sieć wirtualna 3 na **rysunku 1**).
 * "Centra" dla wirtualnych centrów sieci WAN zarządzanych przez firmę Microsoft.
 
 Następująca macierz łączności podsumowuje przepływy obsługiwane w tym scenariuszu:
 
 **Macierz łączności**
 
-| Źródło          | Do:|*URZĄDZENIE WUS szprychy*|*Sieć wirtualna usługi*|*Sieć wirtualna strefy DMZ*|*Statyczne gałęzie*|
-|---|---|---|---|---|---|
-| **URZĄDZENIE WUS szprychy**| &#8594;|      X |            X |   Komunikacja równorzędna |    Static    |
-| **Sieć wirtualna usługi**| &#8594;|    X |            X |      X    |      X       |
-| **Sieć wirtualna strefy DMZ** | &#8594;|       X |            X |      X    |      X       |
-| **Gałęzie** | &#8594;|  Static |            X |      X    |      X       |
+| Źródło          | Do:|*Szprychy*|*Sieć wirtualna usługi*|*Gałęzie*|*Internet*|
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Szprychy**| &#8594;| Bezpośrednio |Bezpośrednio | Za poorednictwem sieci wirtualnej usługi |Za poorednictwem sieci wirtualnej DMZ |
+| **Sieć wirtualna usługi**| &#8594;| Bezpośrednio |nie dotyczy| Bezpośrednio | |
+| **Gałęzie** | &#8594;| Za poorednictwem sieci wirtualnej usługi |Bezpośrednio| Bezpośrednio |  |
 
-Każda komórka w macierzy łączności zawiera opis, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w kursywie) dla określonego przepływu ruchu. "X" oznacza, że łączność jest zapewniana natywnie przez wirtualną sieć WAN, a "static" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN przy użyciu tras statycznych. Przejdźmy szczegółowo do różnych wierszy:
+Każda z komórek w macierzy łączności zawiera opis, czy połączenie odbywa się bezpośrednio za pośrednictwem wirtualnej sieci WAN, czy za pośrednictwem jednego z sieci wirtualnych z urządzenie WUS. Przejdźmy szczegółowo do różnych wierszy:
 
-* URZĄDZENIE WUS szprych:
+* Szprychy
   * Szprychy docierają do innych szprych bezpośrednio za pośrednictwem wirtualnych centrów sieci WAN.
   * Szprychy będą łączyć się z gałęziami za pośrednictwem trasy statycznej wskazującej na sieć wirtualną usługi. Nie powinny uczyć się określonych prefiksów z gałęzi (w przeciwnym razie byłyby bardziej szczegółowe i zastąpią podsumowanie).
   * Szprychy będą wysyłać ruch internetowy do sieci obwodowej DMZ za pośrednictwem bezpośredniej sieci równorzędnej.
@@ -51,12 +50,12 @@ Każda komórka w macierzy łączności zawiera opis, czy połączenie wirtualne
 * Sieć wirtualna usługi będzie podobna do sieci wirtualnej usług udostępnionych, która musi być osiągalna z każdej sieci wirtualnej i każdej gałęzi.
 * Sieć wirtualna strefy DMZ nie musi mieć łączności za pośrednictwem wirtualnej sieci WAN, ponieważ jedyny ruch, który będzie obsługiwał, będzie przekroczyć bezpośrednie połączenia równorzędne sieci wirtualnej. Jednak użyjemy tego samego modelu łączności dla sieci wirtualnej DMZ, aby uprościć konfigurację.
 
-Dlatego nasza macierz łączności daje nam trzy odrębne wzorce łączności, które tłumaczy na trzy tabele tras. Skojarzenia z różnymi sieci wirtualnychami będą następujące:
+Nasza macierz łączności daje nam trzy różne wzorce łączności, które tłumaczą na trzy tabele tras. Skojarzenia z różnymi sieci wirtualnychami będą następujące:
 
-* URZĄDZENIE WUS szprych:
+* Szprychy
   * Skojarzona tabela tras: **RT_V2B**
   * Propagowanie do tabel tras: **RT_V2B** i **RT_SHARED**
-* URZĄDZENIE WUS sieci wirtualnych (wewnętrzny i internetowy):
+* URZĄDZENIE WUS sieci wirtualnych (Sieć wirtualna sieci VNET i Strefa DMZ):
   * Skojarzona tabela tras: **RT_SHARED**
   * Propagowanie do tabel tras: **RT_SHARED**
 * Gałęzi
@@ -68,7 +67,7 @@ Potrzebujemy tych tras statycznych, aby upewnić się, że ruch między sieciami
 | Opis | Tabela tras | Trasa statyczna              |
 | ----------- | ----------- | ------------------------- |
 | Gałęzie    | RT_V2B      | 10.2.0.0/16 — > vnet4conn  |
-| URZĄDZENIE WUS szprychy  | Domyślne     | 10.1.0.0/16 — > vnet4conn  |
+| URZĄDZENIE WUS szprychy  | Domyślny     | 10.1.0.0/16 — > vnet4conn  |
 
 Teraz wirtualna sieć WAN wie, z którym połączeniem należy wysyłać pakiety, ale połączenie musi wiedzieć, co należy zrobić podczas otrzymywania tych pakietów: jest to miejsce, w którym są używane tabele tras połączeń.
 

@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef1e3c886cfd30db4c6a550d0ecabe7d41fab55c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776050"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425003"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
@@ -43,12 +43,12 @@ W tym artykule dowiesz się, jak włączyć następujące zasoby obszarów roboc
 
 + Istniejąca sieć wirtualna i podsieć do użycia z zasobami obliczeniowymi.
 
-+ Aby można było wdrożyć zasoby w sieci wirtualnej lub podsieci, konto użytkownika musi mieć uprawnienia do następujących akcji w kontroli dostępu opartej na rolach (RBAC) na platformie Azure:
++ Aby można było wdrożyć zasoby w sieci wirtualnej lub podsieci, konto użytkownika musi mieć uprawnienia do następujących akcji w kontroli dostępu opartej na rolach (Azure RBAC):
 
     - "Microsoft. Network/virtualNetworks/Join/Action" w zasobie sieci wirtualnej.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" w zasobie podsieci.
 
-    Aby uzyskać więcej informacji na temat RBAC w sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking) .
+    Aby uzyskać więcej informacji na temat usługi Azure RBAC z obsługą sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking) .
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Zabezpieczanie obszaru roboczego za pomocą prywatnego punktu końcowego
@@ -120,7 +120,7 @@ Domyślnie Azure Machine Learning sprawdza ważność danych i sprawdzanie pośw
 
  Azure Data Lake Store Gen1 i Azure Data Lake Store Gen2 Pomijaj walidację domyślnie, więc nie są wymagane żadne dalsze działania. Jednak dla następujących usług można użyć podobnej składni, aby pominąć walidację magazynu danych:
 
-- Azure Blob Storage
+- Usługa Azure Blob Storage
 - Udział plików platformy Azure
 - PostgreSQL
 - Azure SQL Database
@@ -197,7 +197,7 @@ Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure C
 
 1. Znajdź nazwę Azure Container Registry w obszarze roboczym, korzystając z jednej z następujących metod:
 
-    __Azure Portal__
+    __Witryna Azure Portal__
 
     W sekcji przegląd obszaru roboczego wartość __rejestru__ łączy się z Azure Container Registry.
 

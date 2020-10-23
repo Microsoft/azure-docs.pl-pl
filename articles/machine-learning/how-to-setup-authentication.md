@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d89def944529235a0141d7e700049f15d1d0a7
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729036"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424984"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy
 
@@ -28,7 +28,7 @@ Ogólnie rzecz biorąc, istnieją dwa typy uwierzytelniania, których można uż
 * __Interaktywny__: konto jest używane w Azure Active Directory do bezpośredniego uwierzytelniania lub do uzyskania tokenu używanego do uwierzytelniania. Uwierzytelnianie interakcyjne jest używane podczas eksperymentowania i iteracyjnego programowania. Lub, gdzie chcesz kontrolować dostęp do zasobów (takich jak usługa sieci Web) dla poszczególnych użytkowników.
 * Nazwa __główna usługi__: Utwórz konto jednostki usługi w Azure Active Directory i użyj go do uwierzytelnienia lub pobrania tokenu. Nazwa główna usługi jest używana, gdy potrzebny jest zautomatyzowany proces do uwierzytelniania w usłudze, bez konieczności interakcji z użytkownikiem. Na przykład ciągły skrypt integracji i wdrażania, który pociąga i testuje model przy każdym zmianie kodu szkoleniowego. Możesz również użyć jednostki usługi, aby pobrać token do uwierzytelniania w usłudze sieci Web, jeśli nie chcesz wymagać uwierzytelniania użytkownika końcowego usługi. Lub w przypadku, gdy uwierzytelnianie użytkownika końcowego nie jest wykonywane bezpośrednio przy użyciu Azure Active Directory.
 
-Niezależnie od używanego typu uwierzytelniania kontrola dostępu oparta na rolach (RBAC) służy do określania zakresu dostępu do zasobów. Na przykład konto, które jest używane w celu uzyskania tokenu dostępu dla wdrożonego modelu, wymaga tylko dostępu do odczytu w obszarze roboczym. Aby uzyskać więcej informacji na temat RBAC, zobacz [Zarządzanie dostępem do Azure Machine Learning obszaru roboczego](how-to-assign-roles.md).
+Niezależnie od używanego typu uwierzytelniania kontrola dostępu oparta na rolach na platformie Azure (RBAC) służy do określania zakresu dostępu do zasobów. Na przykład konto, które jest używane w celu uzyskania tokenu dostępu dla wdrożonego modelu, wymaga tylko dostępu do odczytu w obszarze roboczym. Aby uzyskać więcej informacji na temat usługi Azure RBAC, zobacz [Zarządzanie dostępem do Azure Machine Learning obszaru roboczego](how-to-assign-roles.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

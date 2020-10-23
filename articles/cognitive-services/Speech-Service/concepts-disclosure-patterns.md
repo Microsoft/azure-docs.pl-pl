@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: fe4f0cdcdb863582560b0eba3a22e95b93ff858b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150935"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425116"
 ---
 # <a name="disclosure-design-patterns"></a>Wzorce projektowania ujawniania
 Teraz, gdy&#39;ve ustaliły odpowiedni [poziom ujawniania](concepts-disclosure-guidelines.md#disclosure-assessment) w przypadku głosu syntetycznego,&#39;s jest dobrym czasem, aby poznać potencjalne wzorce projektowe.
@@ -184,7 +184,7 @@ Należy wziąć pod uwagę różne tryby interakcji środowiska podczas uwzględ
 
 Ujawnienie można uzyskać niejawnie, ustawiając dokładne oczekiwania na to, co może być możliwe. Podaj przykładowe polecenia, aby użytkownicy mogli dowiedzieć się, jak korzystać z Asystenta cyfrowego i oferować pomoc kontekstową, aby dowiedzieć się więcej o głosowaniu syntetycznym na wczesnych etapach tego środowiska.
 
-![Wizualne podpowiedzi i opinie](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![Przykład domyślnych odpowiedzi na konwersację, którą można połączyć.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### <a name="conversational-transparency"></a>Przezroczystość konwersacji
 

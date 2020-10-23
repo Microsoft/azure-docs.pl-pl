@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: contperfq2
+ms.openlocfilehash: 38bff38ebe44d9018299444b89d7743c4cc92b72
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104567"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424198"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -48,7 +49,7 @@ Nie, ten scenariusz nie jest obsługiwany. Ustawienia domyślne to:
 
 Nie, obecnie nie jest to możliwe. Próba rejestracji jest zawsze podejmowana w dzierżawie głównej użytkownika.
 
-### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>Moja aplikacja zaplecza jest hostowana na wielu serwerach sieci Web i wymaga trwałości sesji użytkownika (lepkość). Jak można osiągnąć trwałość sesji? 
+### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>Moja aplikacja zaplecza jest hostowana na wielu serwerach sieci Web i wymaga trwałości sesji użytkownika (lepkość). Jak można osiągnąć trwałość sesji? 
 
 Zalecenia można znaleźć w temacie [wysoka dostępność i równoważenie obciążenia łączników i aplikacji serwera proxy aplikacji](application-proxy-high-availability-load-balancing.md).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267639"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424744"
 ---
 # <a name="scenario-isolating-vnets"></a>Scenariusz: izolowanie sieci wirtualnych
 
@@ -26,10 +26,10 @@ W tym scenariuszu obciążenie w ramach określonej sieci wirtualnej pozostaje i
 
 | Źródło |   Działanie |  *Sieci wirtualnych* | *Gałęzie* |
 | -------------- | -------- | ---------- | ---|
-| Sieci wirtualnych     | &#8594;|           |     X    |
-| Gałęzie   | &#8594;|    X     |     X    |
+| Sieci wirtualnych     | &#8594;| Direct |   Direct    |
+| Gałęzie   | &#8594;|  Direct  |   Direct    |
 
-Każda z komórek w poprzedniej tabeli zawiera opis, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy) odnosi się do prefiksu docelowego (po stronie "do" przepływu, nagłówków kolumn w kursywie) dla określonego przepływu ruchu, gdzie "X" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN.
+Każda z komórek w poprzedniej tabeli opisuje, czy wirtualne połączenie sieci WAN ("od", po stronie przepływu, nagłówki wierszy) komunikuje się z prefiksem lokalizacji docelowej (po stronie "do" przepływu, nagłówki kolumn w kursywie). W tym scenariuszu nie ma zapór ani sieciowych urządzeń wirtualnych, dlatego komunikacja odbywa się bezpośrednio za pośrednictwem wirtualnej sieci WAN (w związku z tym wyraz "Direct" w tabeli).
 
 Ta macierz łączności daje nam dwa różne wzorce wierszy, które przekładają się na dwie tabele tras. Wirtualna sieć WAN ma już domyślną tabelę tras, dlatego potrzebna jest inna tabela tras. W tym przykładzie zmienimy nazwę tabeli tras **RT_VNET**.
 

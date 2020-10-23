@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe5feed4bb6f9b84a3f161692310922f7a6d2f00
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135782"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424786"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikowanie maszyn wirtualnych platformy Azure do innego regionu platformy Azure
 
@@ -36,10 +36,10 @@ Włącz replikację. W tej procedurze przyjęto założenie, że podstawowy regi
    - **Subskrypcja źródłowa**: subskrypcja, do której należą źródłowe maszyny wirtualne. Może to być dowolna subskrypcja w obrębie tej samej dzierżawy usługi Azure Active Directory, w której znajduje się magazyn usługi Recovery Services.
    - **Grupa zasobów**: Grupa zasobów, do której należą źródłowe maszyny wirtualne. W następnym kroku zostaną wyświetlone wszystkie maszyny wirtualne należące do wybranej grupy zasobów.
 
-     ![Włączanie replikacji](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
+     ![Zrzut ekranu, który wyróżnia pola, które są konieczne do skonfigurowania replikacji.](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
 3. W **Virtual Machines > wybierz pozycję Maszyny wirtualne**, kliknij i zaznacz każdą maszynę wirtualną, którą chcesz replikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie kliknij przycisk **OK**.
-    ![Włączanie replikacji](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
+    ![Zrzut ekranu, który pokazuje, gdzie wybierasz maszyny wirtualne.](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 4. W obszarze **Ustawienia**można opcjonalnie skonfigurować ustawienia lokacji docelowej:
 
@@ -101,7 +101,7 @@ Można modyfikować domyślne ustawienia docelowe używane przez Site Recovery.
     - W obszarze **zestaw dostępności**można dodać ustawienia zestawu dostępności do maszyny wirtualnej, jeśli są one częścią zestawu dostępności w regionie źródłowym.
     - W obszarze **docelowe konta magazynu**wybierz konto, którego chcesz użyć.
 
-        ![Włączanie replikacji](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
+        ![Zrzut ekranu pokazujący sposób dostosowywania ustawień subskrypcji docelowej.](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 3. Kliknij przycisk **Dostosuj:** aby zmodyfikować ustawienia replikacji.
 4. W obszarze **spójność z obsługą wiele maszyn wirtualnych**Wybierz Maszyny wirtualne, które mają być replikowane ze sobą.
     - W przypadku przejścia w tryb failover wszystkie maszyny w grupie replikacji będą korzystać ze współdzielonych punktów odzyskiwania, spójnych na poziomie awarii i aplikacji.
@@ -111,7 +111,7 @@ Można modyfikować domyślne ustawienia docelowe używane przez Site Recovery.
     - Jeśli włączono spójność między wieloma maszynami wirtualnymi, maszyny z grupy replikacji komunikują się między sobą przez port 20004.
     - Upewnij się, że urządzenie zapory nie blokuje komunikacji wewnętrznej między maszynami wirtualnymi przez port 20004.
     - Jeśli chcesz, aby maszyny wirtualne z systemem Linux były częścią grupy replikacji, upewnij się, że ruch wychodzący na porcie 20004 został ręcznie otwarty zgodnie ze wskazówkami dotyczącymi konkretnej wersji systemu Linux.
-![Włączanie replikacji](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+![Zrzut ekranu pokazujący ustawienia spójności dotyczącej wiele maszyn wirtualnych.](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
 5. Kliknij pozycję **Utwórz zasób docelowy**  >  **Włącz replikację**.
 6. Po włączeniu maszyn wirtualnych do replikacji można sprawdzić stan kondycji maszyny wirtualnej w obszarze **zreplikowane elementy**

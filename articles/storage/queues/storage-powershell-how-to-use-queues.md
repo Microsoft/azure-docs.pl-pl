@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f45a4de2e13f936556f8dd99aa107110edc6e91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1f758390a270f072bc08e13d1d542e08e4df553
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077929"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425537"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Wykonywanie operacji usługi Azure Queue Storage przy użyciu programu Azure PowerShell
 
@@ -104,7 +104,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## <a name="add-a-message-to-a-queue"></a>Dodawanie komunikatu do kolejki
 
-Operacje, które mają wpływ na rzeczywiste komunikaty w kolejce, korzystają z biblioteki klienta programu .NET Storage jako uwidocznionej w programie PowerShell. Aby dodać komunikat do kolejki, Utwórz nowe wystąpienie obiektu Message, [Microsoft. Azure. Storage. Queue. CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) . Następnie wywołaj metodę [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage). Klasę CloudQueueMessage można utworzyć przy użyciu ciągu (w formacie UTF-8) lub tablicy bajtów.
+Operacje, które mają wpływ na rzeczywiste komunikaty w kolejce, korzystają z biblioteki klienta programu .NET Storage jako uwidocznionej w programie PowerShell. Aby dodać komunikat do kolejki, Utwórz nowe wystąpienie obiektu Message, [Microsoft. Azure. Storage. Queue. CloudQueueMessage](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) . Następnie wywołaj metodę [AddMessage](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage). Klasę CloudQueueMessage można utworzyć przy użyciu ciągu (w formacie UTF-8) lub tablicy bajtów.
 
 Poniższy przykład pokazuje, jak dodać komunikat do kolejki.
 

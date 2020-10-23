@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940331"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425287"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Podstawa zabezpieczeń platformy Azure dla Azure Load Balancer
 
@@ -104,7 +104,7 @@ Aby zalecać konfiguracje grup zabezpieczeń sieci, które ograniczają porty i 
 
 - [Ochrona przed zagrożeniami w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
 
-- [Zabezpieczanie portów zarządzania przy użyciu dostępu just in Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Zabezpieczanie portów zarządzania przy użyciu dostępu just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 
 - [Adaptacyjne Zabezpieczanie sieci w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
 
@@ -402,7 +402,7 @@ Wstępnie zdefiniowane i wbudowane role dla niektórych zasobów przy użyciu na
 
 **Wskazówki**: Użyj usługi Azure RBAC, aby kontrolować dostęp do zasobów Load Balancer.
 
-- [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Jak skonfigurować usługę Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -544,7 +544,7 @@ Zaimplementuj zalecenia z Security Center jako bezpieczną konfigurację odniesi
 
 - [Eksport jednego i kilku zasobów do szablonu w Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
 
-- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

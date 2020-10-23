@@ -10,22 +10,22 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: f2859ddb6ddf7d1041509c47adfe7bf3a1ce99b8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377049"
+ms.locfileid: "92424549"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory aprowizacji aplikacji: co nowego
 
-Zapoznaj się z nowościami w dokumentacji dotyczącej udostępniania aplikacji Azure Active Directory. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy.
+Zapoznaj się z nowościami w dokumentacji dotyczącej udostępniania aplikacji Azure Active Directory. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze aprowizacji, zobacz [co nowego w programie Azure Active Directory](../fundamentals/whats-new.md).
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
 ### <a name="new-articles"></a>Nowe artykuły
 
-- [Co nowego?](whats-new-docs.md)
+- [Co nowego w dokumentacji?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 - [Inicjowanie obsługi aplikacji w stanie kwarantanny](application-provisioning-quarantine-status.md)
