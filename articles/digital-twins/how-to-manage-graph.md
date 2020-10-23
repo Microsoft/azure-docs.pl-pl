@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6d197c8853521e0fb0c6e247ad05a046da559454
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a3c37143154a6e701c4308903c46f4e68ac1b604
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427932"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458113"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
 Bliźniaczych reprezentacji na platformie Azure Digital to [Wykres dwuosiowy](concepts-twins-graph.md) reprezentujący całe środowisko. Wykres dwuosiowy jest wykonany z pojedynczej bliźniaczych reprezentacji cyfrowej połączonej za pośrednictwem **relacji**. 
 
-Gdy korzystasz z działającego [wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-portal.md) i ustawisz kod [uwierzytelniania](how-to-authenticate-client.md) w aplikacji klienckiej, możesz użyć [**interfejsów API DigitalTwins**](how-to-use-apis-sdks.md) , aby tworzyć, modyfikować i usuwać bliźniaczych reprezentacji cyfrowe oraz ich relacje w wystąpieniu bliźniaczych reprezentacji cyfrowych platformy Azure. Można również użyć [zestawu SDK platformy .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+Gdy korzystasz z działającego [wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-portal.md) i ustawisz kod [uwierzytelniania](how-to-authenticate-client.md) w aplikacji klienckiej, możesz użyć [**interfejsów API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) , aby tworzyć, modyfikować i usuwać bliźniaczych reprezentacji cyfrowe oraz ich relacje w wystąpieniu bliźniaczych reprezentacji cyfrowych platformy Azure. Można również użyć [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
 Ten artykuł koncentruje się na zarządzaniu relacjami i wykresem jako całościowym; Aby korzystać z pojedynczych bliźniaczych reprezentacji cyfrowych, zobacz [*How to: Manage Digital bliźniaczych reprezentacji*](how-to-manage-twin.md).
 
@@ -215,15 +215,24 @@ private static async Task DeleteRelationship(DigitalTwinsClient client, string s
 Teraz można wywołać tę metodę, aby usunąć relację podobną do tej:
 
 ```csharp
-await DeleteRelationship(client, srcId, $"{targetId}-contains->{srcId}");
+await DeleteRelationship(client, srcId, relId);
 ```
 ## <a name="create-a-twin-graph"></a>Tworzenie wykresu dwuosiowego 
 
 Poniższy fragment kodu możliwy do uruchomienia używa operacji relacji z tego artykułu, aby utworzyć wykres Wieloosiowy z bliźniaczych reprezentacjiami i relacjami cyfrowymi.
 
-Fragment kodu używa [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) i [Floor.jsw](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) definicjach modelu z [*samouczka: Poznaj usługę Azure Digital bliźniaczych reprezentacji z przykładową aplikacją kliencką*](tutorial-command-line-app.md). Możesz użyć tych linków, aby przejść bezpośrednio do plików lub pobrać je jako część pełnego, kompleksowego [projektu](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)przykładu.
+Fragment kodu używa [*Room.json*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) i [*Floor.jsw*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) definicjach modelu z [*samouczka: Poznaj usługę Azure Digital bliźniaczych reprezentacji z przykładową aplikacją kliencką*](tutorial-command-line-app.md). Możesz użyć tych linków, aby przejść bezpośrednio do plików lub pobrać je jako część pełnego, kompleksowego [projektu](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)przykładu. 
 
-Zastąp symbol zastępczy `<your-instance-hostname>` szczegółowymi informacjami o wystąpieniu usługi Azure Digital bliźniaczych reprezentacji i uruchom przykład.
+Przed uruchomieniem przykładu należy wykonać następujące czynności:
+1. Pobierz pliki modelu, umieść je w projekcie i Zastąp `<path-to>` symbole zastępcze w poniższym kodzie, aby poinformować program, gdzie go znaleźć.
+2. Zastąp symbol zastępczy `<your-instance-hostname>` nazwą hosta usługi Azure Digital bliźniaczych reprezentacji.
+3. Dodaj te pakiety do projektu:
+    ```cmd/sh
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
+    dotnet add package Azure.identity
+    ```
+
+Następnie uruchom przykład.
 
 ```csharp 
 using System;
@@ -241,67 +250,77 @@ namespace minimal
     class Program
     {
 
-        static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            //Create the Azure Digital Twins client for API calls
             DigitalTwinsClient client = createDTClient();
             Console.WriteLine($"Service client created – ready to go");
+            Console.WriteLine();
 
-            Console.WriteLine($"Upload a model");
-            BasicDigitalTwin twin = new BasicDigitalTwin();
+            //Upload models
+            Console.WriteLine($"Upload models");
+            Console.WriteLine();
+            string dtdl = File.ReadAllText("<path-to>/Room.json");
+            string dtdl1 = File.ReadAllText("<path-to>/Floor.json");
             var typeList = new List<string>();
-            string srcId = "myRoomID";
-            string targetId = "myFloorID";
-            string dtdl = File.ReadAllText("Room.json");
-            string dtdl1 = File.ReadAllText("Floor.json");
             typeList.Add(dtdl);
             typeList.Add(dtdl1);
-            // Upload the model to the service
-
+            // Upload the models to the service
             await client.CreateModelsAsync(typeList);
 
-            twin.Metadata = new DigitalTwinMetadata();
-            twin.Metadata.ModelId = "dtmi:example:Room;1";
+            //Create new (Floor) digital twin
+            BasicDigitalTwin floorTwin = new BasicDigitalTwin();
+            string srcId = "myFloorID";
+            floorTwin.Metadata = new DigitalTwinMetadata();
+            floorTwin.Metadata.ModelId = "dtmi:example:Floor;1";
+            //Floor twins have no properties, so nothing to initialize
+            //Create the twin
+            await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(floorTwin));
+            Console.WriteLine("Twin created successfully");
+
+            //Create second (Room) digital twin
+            BasicDigitalTwin roomTwin = new BasicDigitalTwin();
+            string targetId = "myRoomID";
+            roomTwin.Metadata = new DigitalTwinMetadata();
+            roomTwin.Metadata.ModelId = "dtmi:example:Room;1";
             // Initialize properties
             Dictionary<string, object> props = new Dictionary<string, object>();
             props.Add("Temperature", 35.0);
             props.Add("Humidity", 55.0);
-            twin.CustomProperties = props;
-
-            await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
-            // Creating twin data for second twin
-            twin.Metadata = new DigitalTwinMetadata();
-            twin.Metadata.ModelId = "dtmi:example:Floor;1";
-            // Initialize properties
-            Dictionary<string, object> props1 = new Dictionary<string, object>();
-            props1.Add("Capacity", 5.0);
-            twin.CustomProperties = props1;
-            await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
-            Console.WriteLine();
-            Console.WriteLine("Deleting existing relationships to the twin");
-            Console.WriteLine();
-            await DeleteRelationship(client, srcId);
-            Console.WriteLine("Twin created successfully");
+            roomTwin.CustomProperties = props;
+            //Create the twin
+            await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(roomTwin));
+            
+            //Create relationship between them
             await CreateRelationship(client, srcId, targetId, "contains");
-            await CreateRelationship(client, srcId, targetId, "has");
             Console.WriteLine();
-            Console.WriteLine("Printing srcId - Outgoing relationships");
-            Console.WriteLine();
+
+            //Print twins and their relationships
+            Console.WriteLine("--- Printing details:");
+            Console.WriteLine("Outgoing relationships from source twin:");
             await FetchAndPrintTwinAsync(srcId, client);
             Console.WriteLine();
-            Console.WriteLine("Printing targetId - Incoming relationships");
-            Console.WriteLine();
+            Console.WriteLine("Incoming relationships to target twin:");
             await FetchAndPrintTwinAsync(targetId, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
 
-        }
+            //Delete the relationship
+            Console.WriteLine("Deleting the relationship");
+            await DeleteRelationship(client, srcId, $"{srcId}-contains->{targetId}");
+            Console.WriteLine();
 
-        private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId)
-        {
-            List<BasicRelationship> lists = await FindOutgoingRelationshipsAsync(client, srcId);
-            foreach(BasicRelationship rel in lists) {
-                await client.DeleteRelationshipAsync(srcId, rel.Id);
-            }
-            
+            //Print twins and their relationships again
+            Console.WriteLine("--- Printing details:");
+            Console.WriteLine("Outgoing relationships from source twin:");
+            await FetchAndPrintTwinAsync(srcId, client);
+            Console.WriteLine();
+            Console.WriteLine("Incoming relationships to target twin:");
+            await FetchAndPrintTwinAsync(targetId, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
         }
 
         private static DigitalTwinsClient createDTClient()
@@ -311,7 +330,7 @@ namespace minimal
             DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
             return client;
         }
-        public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId, string relName)
+        private async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId, string relName)
         {
             // Create relationship between twins
             var relationship = new BasicRelationship
@@ -322,7 +341,7 @@ namespace minimal
 
             try
             {
-                string relId = $"{targetId}-{relName}->{srcId}";
+                string relId = $"{srcId}-{relName}->{targetId}";
                 await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
@@ -344,7 +363,7 @@ namespace minimal
             return;
         }
 
-        public static async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        private static async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
         {
             // Find the relationships for the twin
             
@@ -369,7 +388,7 @@ namespace minimal
             }
         }
 
-        public static async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        private static async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
         {
             // Find the relationships for the twin
             
@@ -394,6 +413,19 @@ namespace minimal
             }
         }
 
+        private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId, string relId)
+        {
+            try
+            {
+                Response response = await client.DeleteRelationshipAsync(srcId, relId);
+                await FetchAndPrintTwinAsync(srcId, client);
+                Console.WriteLine("Deleted relationship successfully");
+            }
+            catch (RequestFailedException Ex)
+            {
+                Console.WriteLine($"Error {Ex.ErrorCode}");
+            }
+        }
     }
 }
 ```

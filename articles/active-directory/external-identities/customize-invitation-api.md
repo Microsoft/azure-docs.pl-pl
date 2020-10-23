@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cc959d23aebea082d873e9474998e7f17b1b320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295162"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442052"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory interfejs API współpracy B2B i dostosowywanie
 
-Mamy wielu klientów, którzy chcą dostosować proces zaproszenia w sposób, który najlepiej sprawdza się w swoich organizacjach. Korzystając z naszego interfejsu API, możesz to zrobić. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Mamy wielu klientów, którzy chcą dostosować proces zaproszenia w sposób, który najlepiej sprawdza się w swoich organizacjach. Korzystając z naszego interfejsu API, możesz to zrobić. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Możliwości interfejsu API zaproszenia
 
@@ -117,7 +117,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 
 ## <a name="see-also"></a>Zobacz też
 
-Zapoznaj się z dokumentacją interfejsu API zaproszenia w temacie [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) .
+Zapoznaj się z dokumentacją interfejsu API zaproszenia w temacie [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation) .
 
 ## <a name="next-steps"></a>Następne kroki
 

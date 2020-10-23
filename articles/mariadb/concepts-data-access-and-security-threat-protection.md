@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8485907eba75f80c8f0ed4fd0cc7368c6147b9fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad35c36e497e4719729c00a90eb8919b75ef0fd
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79532182"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425663"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Azure Database for MariaDB zaawansowaną ochronę przed zagrożeniami
 
@@ -42,6 +42,6 @@ Zaawansowana ochrona przed zagrożeniami dla Azure Database for MariaDB wykrywa 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Dowiedz się więcej o [Azure Security Center](../security-center/security-center-introduction.md)
 * Aby uzyskać więcej informacji na temat cen, zobacz [stronę z cennikiem Azure Database for MariaDB](https://azure.microsoft.com/pricing/details/mariadb/) . 
-* Konfigurowanie [Azure Database for MariaDB zaawansowanej ochrony przed zagrożeniami](howto-database-threat-protection-portal.md) przy użyciu Azure Portal  
+* Konfigurowanie [Azure Database for MariaDB zaawansowanej ochrony przed zagrożeniami](howto-database-threat-protection-portal.md) przy użyciu Azure Portal

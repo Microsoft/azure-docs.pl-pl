@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 741f1ba60a5824654737558d9d977333d3911f45
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 78231fa5cc6e5061ab3e2b26faf97da76da83b32
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201685"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427911"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows
 
@@ -26,6 +26,8 @@ Rozszerzenie maszyny wirtualnej Key Vault obsługuje poniższe wersje systemu Wi
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012
+
+Key Vault VM Extensio jest również obsługiwana na niestandardowej lokalnej maszynie wirtualnej, która została przekazana i przekonwertowana na wyspecjalizowany obraz do użycia na platformie Azure przy użyciu instalacji podstawowej systemu Windows Server 2019.
 
 ### <a name="supported-certificate-content-types"></a>Obsługiwane typy zawartości certyfikatów
 
@@ -59,7 +61,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
         "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
-          "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
@@ -87,7 +89,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | data |
+| apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
 | typ | KeyVaultForWindows | ciąg |
 | typeHandlerVersion | 1.0 | int |
@@ -194,9 +196,9 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
     
     ```azurecli
        # Start the deployment
-         az vm extension set -n "KeyVaultForWindows" `
+         az vm extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -g "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```

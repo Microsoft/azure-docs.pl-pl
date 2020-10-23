@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87881ad5533724f08de3b2f348d1487f763ab04
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909687"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442171"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Active Directory najlepszych rozwiązań B2B
 Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące współpracy między firmami (B2B, Business-to-Business) w Azure Active Directory (Azure AD).
@@ -31,7 +31,7 @@ Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące współpracy 
 | Aby zapewnić optymalne środowisko logowania, sfederować się z dostawcami tożsamości | Zawsze, gdy to możliwe, sfederować bezpośrednio z dostawcami tożsamości, aby umożliwić zaproszonym użytkownikom zalogowanie się do udostępnionych aplikacji i zasobów bez konieczności tworzenia kont Microsoft (kont MSA) lub kont usługi Azure AD. Za pomocą [funkcji Google Federation](google-federation.md) można zezwolić użytkownikom gościa B2B na logowanie się przy użyciu konta Google. Można też użyć [funkcji bezpośredniego Federacji (wersja zapoznawcza)](direct-federation.md) , aby skonfigurować bezpośrednie Federacji z każdą organizacją, której dostawca tożsamości (dostawcy tożsamości) obsługuje protokół SAML 2,0 lub WS-Fed. |
 | Użyj wiadomości E-mail jednorazowego kodu dostępu (wersja zapoznawcza) dla Gości B2B, którzy nie mogą uwierzytelniać się w inny sposób | Funkcja [jednorazowy kod dostępu wiadomości e-mail (wersja zapoznawcza)](one-time-passcode.md) umożliwia uwierzytelnianie użytkowników gościa B2B, gdy nie mogą być uwierzytelniane za pośrednictwem innych metod, takich jak Azure AD, konto Microsoft (MSA) lub Google Federation. Gdy użytkownik-Gość zrealizuje zaproszenie lub uzyskuje dostęp do zasobu udostępnionego, może zażądać kodu tymczasowego, który jest wysyłany na adres e-mail. Następnie wprowadzają ten kod, aby kontynuować logowanie. |
 | Dodawanie znakowania firmowego do strony logowania | Możesz dostosować swoją stronę logowania, aby była bardziej intuicyjna dla użytkowników gościa B2B. Zobacz temat jak [dodać znakowanie firmowe, aby się zalogować i panelu dostępu](../fundamentals/customize-branding.md). |
-| Dodawanie zasad zachowania poufności informacji do środowiska wykupu przez Gościa B2B | Adres URL zasad zachowania poufności informacji organizacji można dodać do procesu wykupu po raz pierwszy, aby zaproszony użytkownik musiał wyrazić zgodę na warunki zachowania poufności informacji, aby kontynuować. Zobacz [instrukcje: Dodawanie informacji o ochronie prywatności organizacji w Azure Active Directory](https://aka.ms/adprivacystatement). |
+| Dodawanie zasad zachowania poufności informacji do środowiska wykupu przez Gościa B2B | Adres URL zasad zachowania poufności informacji organizacji można dodać do procesu wykupu po raz pierwszy, aby zaproszony użytkownik musiał wyrazić zgodę na warunki zachowania poufności informacji, aby kontynuować. Zobacz [instrukcje: Dodawanie informacji o ochronie prywatności organizacji w Azure Active Directory](../fundamentals/active-directory-properties-area.md). |
 | Korzystanie z funkcji zaproszeń zbiorczych (wersja zapoznawcza) do zapraszania wielu użytkowników-Gości w tym samym czasie | Zapraszaj wielu użytkowników-Gości w organizacji w tym samym czasie, używając funkcji Zaproś w wersji zapoznawczej w Azure Portal. Ta funkcja umożliwia przekazanie pliku CSV w celu utworzenia użytkowników gościa B2B i wysłania zaproszeń zbiorczo. Zapoznaj się z [samouczkiem dotyczącym zbiorczego zapraszania użytkowników B2B](tutorial-bulk-invite.md). |
 | Wymuś zasady dostępu warunkowego dla Multi-Factor Authentication (MFA) | Zalecamy wymuszenie stosowania zasad MFA dla aplikacji, które mają być udostępniane partnerom z użytkownikami B2B. W ten sposób uwierzytelnianie wieloskładnikowe będzie stale wymuszane w aplikacjach w dzierżawie, niezależnie od tego, czy organizacja partnera korzysta z usługi MFA. Zobacz [dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md). |
 | W przypadku wymuszania zasad dostępu warunkowego opartego na urządzeniach Użyj list wykluczeń, aby zezwolić na dostęp do użytkowników B2B | Jeśli zasady dostępu warunkowego opartego na urządzeniach są włączone w organizacji, urządzenia użytkownika-gościa B2B będą blokowane, ponieważ nie są zarządzane przez organizację. Można utworzyć listę wykluczeń zawierającą określonych użytkowników partnerskich, aby wykluczyć ich z zasad dostępu warunkowego opartego na urządzeniach. Zobacz [dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md). |

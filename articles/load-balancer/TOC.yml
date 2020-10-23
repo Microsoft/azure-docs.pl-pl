@@ -65,7 +65,6 @@
       href: load-balancer-multivip-overview.md
     - name: Wychodzący serwer proxy
       href: load-balancer-outbound-connections.md
-    - name: Limit czasu bezczynności protokołu TCP i resetowania protokołu TCP
     - name: Reguły ruchu wychodzącego
       href: outbound-rules.md
     - name: Resetowanie protokołu TCP w wyniku upływu limitu czasu bezczynności

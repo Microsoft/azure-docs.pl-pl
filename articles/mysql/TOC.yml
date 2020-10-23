@@ -155,6 +155,8 @@
               href: concepts-infrastructure-double-encryption.md
             - name: Punkt odniesienia zabezpieczeń
               href: security-baseline.md
+        - name: Planowana konserwacja
+          href: concepts-planned-maintenance-notification.md
         - name: Ciągłość działalności biznesowej
           items:
             - name: Wprowadzenie do ciągłości działalności biznesowej

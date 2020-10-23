@@ -7,18 +7,18 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ba19b7255be5ae24b3c4475f4195b84441b6c777
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0123a89c4ec1c2c70326de1a2f685b08278333ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131500"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461553"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Pozyskiwanie danych telemetrycznych IoT Hub na platformie Azure Digital bliźniaczych reprezentacji
 
 Usługa Azure Digital bliźniaczych reprezentacji jest oparta na danych z urządzeń IoT i innych źródeł. Typowym źródłem danych urządzenia do użycia w usłudze Azure Digital bliźniaczych reprezentacji jest [IoT Hub](../iot-hub/about-iot-hub.md).
 
-Proces pozyskiwania danych w usłudze Azure Digital bliźniaczych reprezentacji polega na skonfigurowaniu zewnętrznego zasobu obliczeniowego, takiego jak [Funkcja platformy Azure](../azure-functions/functions-overview.md), która odbiera dane, i używa [interfejsów API DigitalTwins](how-to-use-apis-sdks.md) do ustawiania właściwości lub zdarzeń telemetrii na potrzeby [bliźniaczych reprezentacji w cyfrowych](concepts-twins-graph.md) . 
+Proces pozyskiwania danych w usłudze Azure Digital bliźniaczych reprezentacji polega na skonfigurowaniu zewnętrznego zasobu obliczeniowego, takiego jak [Funkcja platformy Azure](../azure-functions/functions-overview.md), która odbiera dane, i używa [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do ustawiania właściwości lub zdarzeń telemetrii na potrzeby [bliźniaczych reprezentacji w cyfrowych](concepts-twins-graph.md) . 
 
 Ten dokument zawiera instrukcje dotyczące tworzenia funkcji platformy Azure, która może pozyskać dane telemetryczne z IoT Hub.
 
@@ -228,7 +228,7 @@ Na stronie **Tworzenie subskrypcji zdarzeń** Wypełnij pola w następujący spo
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji.":::
 
 Na stronie _Wybierz funkcję platformy Azure_ , która zostanie otwarta, sprawdź poniższe szczegóły.
- 1. **Subskrypcja**: Twoja subskrypcja platformy Azure
+ 1. **Subskrypcja**: Subskrypcja platformy Azure
  2. **Grupa zasobów**: Grupa zasobów
  3. **Aplikacja funkcji**: Nazwa aplikacji funkcji
  4. **Gniazdo**: _produkcja_

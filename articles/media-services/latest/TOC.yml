@@ -215,7 +215,7 @@
           displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name'
         - name: 'Stronicowanie, filtrowanie i określanie kolejności jednostek'
           href: entities-overview.md
-        - name: Kontrola dostępu oparta na rolach
+        - name: Kontrola dostępu na podstawie ról platformy Azure
           href: rbac-overview.md
         - name: Kody błędów
           items:
@@ -389,7 +389,7 @@
           href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Go
+        - name: Przejdź
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.media/allversions

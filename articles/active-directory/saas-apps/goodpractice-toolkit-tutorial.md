@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 10773a2a379291fa861dbb2adfdda2ba3f63117f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57598ea22874cfba772f6cf0e6b2ba779ef7c482
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550643"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Samouczek: integracja Azure Active Directory z zestawem narzędzi do obsługi myśli
 
@@ -28,7 +28,7 @@ Dzięki tej integracji można:
 * Zezwól użytkownikom na automatyczne logowanie się do zestawu narzędzi (Logowanie jednokrotne) za pomocą kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,7 +43,7 @@ W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azu
 
 * Zestaw narzędzi do tworzenia myśli obsługuje logowanie jednokrotne zainicjowane przez usługę SP.
 * Zestaw narzędzi do obsługi myśli obsługuje funkcję aprowizacji użytkowników just in Time.
-* Po skonfigurowaniu zestawu narzędzi do sprawdzania myśli można wymusić kontrolę sesji. Ta kontrolka chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu zestawu narzędzi do sprawdzania myśli można wymusić kontrolę sesji. Ta kontrolka chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-mind-tools-toolkit-from-the-gallery"></a>Dodaj zestaw narzędzi do przypominania z galerii
 
@@ -114,7 +114,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal:
    1. W polu **Nazwa** wpisz **B. Simon**.  
    1. W polu **Nazwa użytkownika** wprowadź **B.Simon@**_formacie_**.** _rozszerzenie_. Na przykład B.Simon@contoso.com.
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -148,18 +148,18 @@ Zestaw narzędzi do zamyślinia obsługuje obsługę just-in-Time, która jest d
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu My Apps.
 
-Po wybraniu kafelka zestawu narzędzi myśli w portalu Moje aplikacje użytkownik zostanie automatycznie zalogowany do zestawu narzędzi do zdania, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [wprowadzenie do portalu My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka zestawu narzędzi myśli w portalu Moje aplikacje użytkownik zostanie automatycznie zalogowany do zestawu narzędzi do zdania, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [wprowadzenie do portalu My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Tutorials for integrating SaaS apps with Azure Active Directory (Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS apps with Azure Active Directory (Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory)](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj zestaw narzędzi do namyślinia przy użyciu usługi Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić zestaw narzędzi do tworzenia myśli z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić zestaw narzędzi do tworzenia myśli z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)

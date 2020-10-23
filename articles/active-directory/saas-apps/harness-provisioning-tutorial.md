@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305658"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445704"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu dla automatycznej aprowizacji użytkowników
 
@@ -99,7 +99,7 @@ Przed skonfigurowaniem programu do automatycznej aprowizacji użytkowników przy
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników lub grup w ramach programu obsługi na podstawie przypisań użytkowników lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla programu obsługi, postępując zgodnie z instrukcjami w [samouczku logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial)jednokrotne w programie. Można skonfigurować Logowanie jednokrotne niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
+> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla programu obsługi, postępując zgodnie z instrukcjami w [samouczku logowanie](./harness-tutorial.md)jednokrotne w programie. Można skonfigurować Logowanie jednokrotne niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
 
 > [!NOTE]
 > Aby dowiedzieć się więcej o punkcie końcowym programu Standard scim, zobacz artykuł [klucze interfejsu API](https://docs.harness.io/article/smloyragsm-api-keys) usługi.
@@ -170,7 +170,7 @@ Ta operacja uruchamia początkową synchronizację użytkowników lub grup, któ
 
 Aby uzyskać więcej informacji o sposobie odczytywania dzienników aprowizacji usługi Azure AD, zobacz [raport dotyczący automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -4,18 +4,18 @@ description: Artykuł zawiera powiadomienie dla użytkowników o migracji adres�
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004276"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427112"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Klienci będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal ró
 ## <a name="status-updates"></a>Aktualizacje stanu
 
 # <a name="in-progress"></a>[W toku](#tab/in-progress-ip)
-### <a name="october-2020"></a>Październik 2020
+### <a name="october-2020"></a>Październik 2020 r.
 
 Nowe bramy SQL są dodawane do następujących regionów:
 
@@ -70,7 +70,7 @@ Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynaj�
 Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach. Te bramy SQL zaczynają akceptować ruch klienta **1 września 2020** :
 - Japonia Wschodnia: 40.79.184.8, 40.79.192.5
 
-# <a name="completed"></a>[Zakończone](#tab/completed-ip)
+# <a name="completed"></a>[Ukończone](#tab/completed-ip)
 
 Następujące migracje bramy zostały ukończone: 
 
@@ -108,7 +108,8 @@ Może mieć to wpływ na następujące działania:
 
 - Sztywno zakodowany adres IP dla każdej konkretnej bramy w zaporze lokalnej
 - Istnieją podsieci używające programu Microsoft. SQL jako punktu końcowego usługi, ale nie mogą komunikować się z adresami IP bramy
-- Używanie [nadmiarowej konfiguracji strefy](high-availability-sla.md#zone-redundant-configuration) dla bazy danych
+- Użyj [konfiguracji nadmiarowej strefy dla warstwy ogólnego przeznaczenia](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Użyj [konfiguracji nadmiarowej strefy dla & warstwy krytyczne dla firm](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 Nie będzie to miało wpływu na następujące warunki:
  

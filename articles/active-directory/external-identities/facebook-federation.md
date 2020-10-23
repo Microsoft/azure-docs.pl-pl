@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b5e1db2c86f6118c3cd333974c9cfd64f747128
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 547b455dc776b7304e413b3b6f1330e7cedcf2a2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909487"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442001"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Dodawanie usługi Facebook jako dostawcy tożsamości dla tożsamości zewnętrznych
 
@@ -78,7 +78,7 @@ Teraz ustawisz identyfikator klienta i klucz tajny klienta w serwisie Facebook, 
    `New-AzureADMSIdentityProvider -Type Facebook -Name Facebook -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Użyj identyfikatora klienta i klucza tajnego klienta z utworzonej wcześniej aplikacji w konsoli dewelopera serwisu Facebook. Aby uzyskać więcej informacji, zobacz artykuł [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) . 
+   > Użyj identyfikatora klienta i klucza tajnego klienta z utworzonej wcześniej aplikacji w konsoli dewelopera serwisu Facebook. Aby uzyskać więcej informacji, zobacz artykuł [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) . 
 
 ## <a name="how-do-i-remove-facebook-federation"></a>Jak mogę usunąć Federacji Facebook?
 Możesz usunąć konfigurację Federacji w serwisie Facebook. Jeśli to zrobisz, wszyscy użytkownicy, którzy zarejestrowali się w przepływach użytkowników przy użyciu ich kont w serwisie Facebook, nie będą już mogli się zalogować. 
@@ -92,14 +92,14 @@ Możesz usunąć konfigurację Federacji w serwisie Facebook. Jeśli to zrobisz,
 
 ### <a name="to-delete-facebook-federation-by-using-powershell"></a>Aby usunąć Federacji Facebook przy użyciu programu PowerShell: 
 1. Zainstaluj najnowszą wersję modułu PowerShell usługi Azure AD dla programu Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. Uruchom polecenie `Connect-AzureAD`.  
+2. Należy uruchomić polecenie `Connect-AzureAD`.  
 4. W wierszu logowania zaloguj się przy użyciu zarządzanego konta administratora globalnego.  
 5. Wprowadź następujące polecenie:
 
     `Remove-AzureADMSIdentityProvider -Id Facebook-OAUTH`
 
    > [!NOTE]
-   > Aby uzyskać więcej informacji, zobacz [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > Aby uzyskać więcej informacji, zobacz [Remove-AzureADMSIdentityProvider](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
 
 ## <a name="next-steps"></a>Następne kroki
 

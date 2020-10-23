@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208009"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426453"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
 
@@ -121,7 +122,7 @@ Jeśli zapora lub serwer proxy umożliwia skonfigurowanie list dozwolonych DNS, 
 Jeśli nie możesz zezwolić na połączenie przy użyciu nazwy FQDN i należy określić zakresy adresów IP, użyj następujących opcji:
 
 * Zezwalaj na dostęp wychodzący łącznika do wszystkich miejsc docelowych.
-* Zezwalaj na dostęp wychodzący łącznika do wszystkich zakresów adresów IP centrum danych platformy Azure. Wezwanie do korzystania z listy zakresów adresów IP centrum danych platformy Azure jest aktualizowane co tydzień. Należy umieścić proces, aby upewnić się, że reguły dostępu są odpowiednio zaktualizowane. Tylko podzbiór adresów IP może spowodować przerwanie konfiguracji. Aby pobrać najnowsze zakresy adresów IP centrum danych platformy Azure, przejdź do obszaru [https://download.microsoft.com](https://download.microsoft.com) i wyszukaj ciąg "zakresy adresów IP platformy Azure i Tagi usług". Upewnij się, że wybrano odpowiednią chmurę. Na przykład zakresy adresów IP chmury publicznej można znaleźć w obszarze "zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna". Chmurę rządu w Stanach Zjednoczonych można znaleźć, wyszukując frazę "zakresy adresów IP platformy Azure i Tagi usług — US rządu Cloud".
+* Zezwalaj na dostęp wychodzący łącznika do wszystkich zakresów adresów IP centrum danych platformy Azure. Wezwanie do korzystania z listy zakresów adresów IP centrum danych platformy Azure jest aktualizowane co tydzień. Należy umieścić proces, aby upewnić się, że reguły dostępu są odpowiednio zaktualizowane. Tylko podzbiór adresów IP może spowodować przerwanie konfiguracji. Aby pobrać najnowsze zakresy adresów IP centrum danych platformy Azure, przejdź do obszaru [https://download.microsoft.com](https://download.microsoft.com) i wyszukaj ciąg "zakresy adresów IP platformy Azure i Tagi usług". Upewnij się, że wybrano odpowiednią chmurę. Na przykład zakresy adresów IP chmury publicznej można znaleźć w obszarze "zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna". Chmurę dla instytucji rządowych Stanów Zjednoczonych można znaleźć, wyszukując frazę "zakresy adresów IP platformy Azure i Tagi usług — chmura dla instytucji rządowych USA".
 
 #### <a name="proxy-authentication"></a>Uwierzytelnianie serwera proxy
 

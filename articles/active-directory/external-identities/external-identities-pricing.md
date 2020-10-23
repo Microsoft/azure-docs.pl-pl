@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265797"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442069"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Model rozliczeń dla tożsamości zewnętrznych usługi Azure AD
 
-Cennik usług Azure Active Directory (Azure AD) dotyczący tożsamości zewnętrznych jest oparty na miesięcznych aktywnych użytkowników (MAU), czyli liczbie unikatowych użytkowników z aktywnością uwierzytelniania w ciągu miesiąca kalendarzowego. Ten model rozliczeń dotyczy zarówno funkcji współpracy użytkownika gościa usługi Azure AD, jak i [dzierżawców Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/billing). Rozliczanie MAU pomaga obniżyć koszty, oferując bezpłatną warstwę i elastyczne, przewidywalne ceny. W tym artykule dowiesz się więcej na temat rozliczeń MAU i powiązania dzierżaw usługi Azure AD z subskrypcją.
+Cennik usług Azure Active Directory (Azure AD) dotyczący tożsamości zewnętrznych jest oparty na miesięcznych aktywnych użytkowników (MAU), czyli liczbie unikatowych użytkowników z aktywnością uwierzytelniania w ciągu miesiąca kalendarzowego. Ten model rozliczeń dotyczy zarówno funkcji współpracy użytkownika gościa usługi Azure AD, jak i [dzierżawców Azure AD B2C](../../active-directory-b2c/billing.md). Rozliczanie MAU pomaga obniżyć koszty, oferując bezpłatną warstwę i elastyczne, przewidywalne ceny. W tym artykule dowiesz się więcej na temat rozliczeń MAU i powiązania dzierżaw usługi Azure AD z subskrypcją.
 
 > [!IMPORTANT]
 > Ten artykuł nie zawiera szczegółów cennika. Aby uzyskać najnowsze informacje dotyczące rozliczeń i cen użytkowania, zobacz [Cennik usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -45,7 +45,7 @@ Warstwa cenowa stosowana dla użytkowników-Gości korzysta z najwyższej warstw
 
 Dzierżawa usługi Azure AD musi być połączona z subskrypcją platformy Azure w celu uzyskania odpowiednich rozliczeń i dostępu do funkcji. Jeśli katalog nie ma już subskrypcji, z którą możesz się połączyć, możesz dodać ją w trakcie tego procesu.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure, do którego przypisano co najmniej rolę [współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) w ramach subskrypcji lub grupy zasobów w ramach subskrypcji.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure, do którego przypisano co najmniej rolę [współautor](../../role-based-access-control/built-in-roles.md) w ramach subskrypcji lub grupy zasobów w ramach subskrypcji.
 
 2. Wybierz katalog, który chcesz połączyć: na pasku narzędzi Azure Portal wybierz ikonę katalog i **subskrypcja** , a następnie wybierz katalog.
 

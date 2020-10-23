@@ -3,13 +3,13 @@ title: Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak uaktualnić klaster usługi Azure Kubernetes Service (AKS), aby uzyskać najnowsze funkcje i aktualizacje zabezpieczeń.
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050611"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461451"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ W ramach cyklu życia klastra AKS często konieczne jest uaktualnienie do najnow
 
 W przypadku klastrów AKS, które korzystają z wielu pul węzłów lub węzłów systemu Windows Server, zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
@@ -107,7 +107,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Uaktualnianie klastra AKS
 
-Mając listę dostępnych wersji klastra AKS, użyj polecenia [AZ AKS upgrade][az-aks-upgrade] , aby przeprowadzić uaktualnienie. W trakcie procesu uaktualniania program AKS dodaje nowy węzeł do klastra, na którym działa określona wersja Kubernetes, a następnie uważnie [Cordon i opróżnia][kubernetes-drain] jeden ze starych węzłów w celu zminimalizowania przerw w działaniu aplikacji. Gdy nowy węzeł zostanie potwierdzony jako uruchomiony program ApplicationManager, stary węzeł zostanie usunięty. Ten proces jest powtarzany do momentu uaktualnienia wszystkich węzłów w klastrze.
+Mając listę dostępnych wersji klastra AKS, użyj polecenia [AZ AKS upgrade][az-aks-upgrade] , aby przeprowadzić uaktualnienie. W trakcie procesu uaktualniania AKS dodaje nowy węzeł buforu (lub tyle węzłów skonfigurowanych w [maksymalnym przeskoku](#customize-node-surge-upgrade-preview)) do klastra, na którym działa określona wersja Kubernetes. Następnie [Cordon i opróżnienie][kubernetes-drain] jednego ze starych węzłów w celu zminimalizowania przerw w działaniu aplikacji (Jeśli używasz maksymalnego przepięcia, będzie [Cordon i opróżniać][kubernetes-drain] tyle węzłów w tym samym czasie co liczba określonych węzłów buforu). Gdy stary węzeł jest całkowicie opróżniany, zostanie odłączony do nowej wersji i będzie węzłem buforu dla następującego węzła do uaktualnienia. Ten proces jest powtarzany do momentu uaktualnienia wszystkich węzłów w klastrze. Po zakończeniu procesu ostatni opróżniany węzeł zostanie usunięty i będzie utrzymywać istniejącą liczbę węzłów agenta.
 
 ```azurecli-interactive
 az aks upgrade \

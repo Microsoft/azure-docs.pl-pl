@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
 ms.openlocfilehash: a1098088a38b23ec1074434e5424e261e60bcd55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "91779140"
 ---
 | Nazwa filtru | Opis | Filtruj schemat tekstu | Obsługiwane wartości | 
 | --- | --- | --- | --- |
 | PRAWDA/FAŁSZ | Umożliwia tworzenie trasy bez filtrowania lub wyłączanie trasy, tak aby żadne zdarzenia nie były wysyłane | `<true/false>` | `true` = Trasa jest włączona bez filtrowania <br> `false` = Trasa jest wyłączona |
-| Type | [Typ zdarzenia](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) przepływającego przez swoje cyfrowe wystąpienie sieci dwuosiowej | `type = '<eventType>'` | Oto możliwe wartości typów zdarzeń: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Typ | [Typ zdarzenia](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) przepływającego przez swoje cyfrowe wystąpienie sieci dwuosiowej | `type = '<eventType>'` | Oto możliwe wartości typów zdarzeń: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Element źródłowy | Nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji | `source = '<hostname>'`| Oto możliwe wartości nazwy hosta: <br> **Powiadomienia**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Dla telemetrii**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
 | Temat | Opis zdarzenia w kontekście źródła zdarzeń powyżej | `subject = '<subject>'` | Oto możliwe wartości tematu: <br>**Powiadomienia**: podmiot jest `<twinid>` <br> lub format identyfikatora URI dla tematów, które są jednoznacznie identyfikowane przez wiele części lub identyfikatorów:<br>`<twinid>/relationships/<relationshipid>`<br> **W przypadku telemetrii**: podmiot jest ścieżką składnika (Jeśli dane telemetryczne są emitowane z składnika przędzy), np `comp1.comp2` .. Jeśli dane telemetryczne nie są emitowane ze składnika, jego pole podmiotu jest puste. |
 | Schemat danych | Identyfikator modelu DTDL | `dataschema = '<model-dtmi-ID>'` | **W przypadku telemetrii**: schemat danych jest identyfikatorem modelu dwuosiowego lub składnikiem, który emituje dane telemetryczne. Na przykład `dtmi:example:com:floor4;2` <br>W **przypadku powiadomień**: dostęp do schematu danych można uzyskać w treści powiadomienia pod adresem`$body.$metadata.$model`|
