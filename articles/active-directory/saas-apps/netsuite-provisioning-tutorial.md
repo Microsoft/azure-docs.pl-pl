@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b428ffc0122f13ef15f870ce734b54fe6707f582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdee884990dfadec444fae919a715c7dc3428f77
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983949"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428409"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie pakietu dla automatycznej aprowizacji użytkowników
 
@@ -28,6 +28,7 @@ W scenariuszu opisanym w tym samouczku założono, że masz już następujące e
 *   Dzierżawa usługi Azure Active Directory.
 *   Subskrypcja OneWorld pakietu. Należy pamiętać, że automatyczne Inicjowanie obsługi użytkowników jest obecnie obsługiwane tylko z pakietem OneWorld.
 *   Konto użytkownika w pakiecie z uprawnieniami administratora.
+*   Integracja z usługą Azure AD wymaga wykluczenia funkcji 2FA. Aby uzyskać ten wyjątek, skontaktuj się z zespołem pomocy technicznej dla pakietu.
 
 ## <a name="assigning-users-to-netsuite-oneworld"></a>Przypisywanie użytkowników do pakietu OneWorld
 
@@ -88,7 +89,7 @@ Rozpocznie się początkową synchronizację wszystkich użytkowników i/lub gru
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

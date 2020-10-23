@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 6b179dd2662bf6fa545ea44b723671f1499b9e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589014"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427025"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorowanie i zgłaszanie alertów dla Azure Key Vault
 
@@ -53,7 +53,7 @@ Po rozpoczęciu korzystania z magazynu kluczy do przechowywania własnych wpisó
 3. Wybierz **metryki** w obszarze **monitorowanie** 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-1.png)
+> ![Zrzut ekranu, który podświetla opcję metryki w sekcji monitorowanie.](../media/alert-1.png)
 
 4. Zaktualizuj tytuł wykresu, który ma być widoczny na pulpicie nawigacyjnym. 
 5. Wybierz zakres. W tym przykładzie wybierzemy pojedynczy magazyn kluczy. 
@@ -61,7 +61,7 @@ Po rozpoczęciu korzystania z magazynu kluczy do przechowywania własnych wpisó
 7. Zaktualizuj zakres czasu do ostatnich 24 godzin i zaktualizuj poziom szczegółowości czasu do 1 minuty. 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-2.png)
+> ![Zrzut ekranu przedstawiający ogólną metrykę dostępności magazynu.](../media/alert-2.png)
 
 8. Powtórz powyższe kroki w celu uzyskania nasycenia magazynu i metryk opóźnienia interfejsu API usługi. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** , aby zapisać metryki na pulpicie nawigacyjnym. 
 
@@ -71,19 +71,19 @@ Po rozpoczęciu korzystania z magazynu kluczy do przechowywania własnych wpisó
 9. Aby monitorować wszystkie typy operacji w magazynie kluczy, użyj metryki **łącznej liczby trafień interfejsu API usługi** i wybierz pozycję **Zastosuj podział według typu działania**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-3.png)
+> ![Zrzut ekranu pokazujący przycisk Zastosuj podział.](../media/alert-3.png)
 
 10. Aby monitorować kody błędów w magazynie kluczy, użyj metryki **łącznej liczby wyników interfejsu API usługi** i wybierz pozycję **Zastosuj podział według typu działania**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-4.png)
+> ![Zrzut ekranu przedstawiający wybraną metrykę łącznej liczby wyników interfejsu API usługi.](../media/alert-4.png)
 
 Teraz masz pulpit nawigacyjny, który będzie wyglądać następująco. Możesz kliknąć trzy kropki w prawym górnym rogu każdego kafelka i można zmienić ich rozmiar i rozmiary, gdy jest to potrzebne. 
 
 Po zapisaniu i opublikowaniu pulpitu nawigacyjnego zostanie utworzony nowy zasób w ramach subskrypcji platformy Azure. Zobaczysz ją w dowolnym momencie, wyszukując "udostępniony pulpit nawigacyjny". 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-5.png)
+> ![Zrzut ekranu przedstawiający opublikowany pulpit nawigacyjny.](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Jak skonfigurować alerty na Key Vault 
 
@@ -101,20 +101,20 @@ Grupa akcji to konfigurowalna lista powiadomień i właściwości.
 3. Wybierz pozycję **Zarządzaj akcjami**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-6.png)
+> ![Zrzut ekranu, który podświetla przycisk Zarządzaj akcjami.](../media/alert-6.png)
 
 4. Wybierz pozycję **+ Dodaj grupę akcji**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-7.png)
+> ![Zrzut ekranu, który wyróżnia przycisk + Dodaj grupę akcji.](../media/alert-7.png)
 
 5. Wybierz **Typ akcji** dla grupy akcji. W tym przykładzie utworzymy alert e-mail.
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-8.png)
+> ![Zrzut ekranu, który wyróżnia pola niezbędne do dodania grupy akcji.](../media/alert-8.png)
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-9.png)
+> ![Zrzut ekranu pokazujący, co jest potrzebne do dodania alertu e-mail lub wiadomości SMS.](../media/alert-9.png)
 
 6. Kliknij przycisk **OK** w dolnej części strony. Grupa akcji została pomyślnie utworzona. 
 
@@ -125,12 +125,12 @@ Teraz, po skonfigurowaniu grupy akcji, skonfigurujemy progi alertów magazynu kl
 1. Wybierz zasób magazynu kluczy w Azure Portal i wybierz pozycję **alerty** w obszarze **monitorowanie**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-10.png)
+> ![Zrzut ekranu przedstawiający opcję menu alerty w sekcji monitorowanie.](../media/alert-10.png)
 
 2. Wybierz **nową regułę alertu**
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-11.png)
+> ![Zrzut ekranu, na którym jest wyświetlany przycisk + Nowa reguła alertu.](../media/alert-11.png)
 
 3. Wybierz zakres reguły alertu. Można wybrać pojedynczy magazyn lub wiele. 
 
@@ -138,7 +138,7 @@ Teraz, po skonfigurowaniu grupy akcji, skonfigurujemy progi alertów magazynu kl
 > Należy pamiętać, że w przypadku wybrania wielu magazynów dla zakresu alertów wszystkie wybrane magazyny muszą znajdować się w tym samym regionie. Konieczne będzie skonfigurowanie osobnych reguł alertów dla magazynów w różnych regionach. 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-12.png)
+> ![Zrzut ekranu pokazujący, jak można wybrać magazyn.](../media/alert-12.png)
 
 4. Wybierz warunki dla alertów. Można wybrać dowolny z następujących sygnałów i zdefiniować logikę do tworzenia alertów. Zespół Key Vault zaleca skonfigurowanie następujących progów alertów. 
 
@@ -149,13 +149,13 @@ Teraz, po skonfigurowaniu grupy akcji, skonfigurujemy progi alertów magazynu kl
     + Łączna liczba kodów błędów wyższa niż średnia (próg dynamiczny) 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-13.png)
+> ![Zrzut ekranu pokazujący, gdzie wybierasz warunki dla alertów.](../media/alert-13.png)
 
 ### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Przykład 1: Konfigurowanie progu alertu statycznego dla opóźnienia
 
 Wybierz **Ogólne opóźnienie interfejsu API usługi** jako nazwę sygnału
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-14.png)
+> ![Zrzut ekranu przedstawiający ogólną nazwę sygnału opóźnienia interfejsu API usługi.](../media/alert-14.png)
 
 Sprawdź następujące parametry konfiguracji.
 
@@ -168,14 +168,14 @@ Sprawdź następujące parametry konfiguracji.
 + Wybierz pozycję **gotowe**  
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-15.png)
+> ![Zrzut ekranu, który wyróżnia skonfigurowaną logikę alertów.](../media/alert-15.png)
 
 ### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>Przykład 2: Konfigurowanie dynamicznego progu alertu dla nasycenia magazynu 
 
 Gdy używasz alertu dynamicznego, będziesz mieć możliwość wyświetlenia danych historycznych wybranego magazynu kluczy. Niebieski obszar reprezentuje średnie użycie magazynu kluczy. Czerwony obszar pokazuje skoki, które wywołały alert, pod warunkiem, że są spełnione inne kryteria konfiguracji alertów. Czerwona kropki pokazują wystąpienia naruszeń, w przypadku których kryteria alertu zostały spełnione w przedziale czasu. Można ustawić alert, aby uruchomić po określonej liczbie naruszeń w określonym czasie. Jeśli nie chcesz uwzględniać przeszłych danych, istnieje możliwość wykluczenia starych danych poniżej w ustawieniach zaawansowanych. 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-16.png)
+> ![Zrzut ekranu przedstawiający wykres całkowitego nasycenia magazynu.](../media/alert-16.png)
 
 Sprawdź następujące parametry konfiguracji.
 
@@ -194,12 +194,12 @@ Sprawdź następujące parametry konfiguracji.
 5. Dodaj skonfigurowaną grupę akcji
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-18.png)
+> ![Zrzut ekranu pokazujący sposób dodawania grupy akcji.](../media/alert-18.png)
 
 6. Włączanie alertu i przypisywanie ważności
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-19.png)
+> ![Zrzut ekranu pokazujący, gdzie włączyć alert i przypisać ważność.](../media/alert-19.png)
 
 7. Tworzenie alertu 
 
@@ -211,4 +211,4 @@ Gratulacje, pomyślnie utworzono pulpit nawigacyjny monitorowania i skonfigurowa
 ### <a name="example-email-alert"></a>Przykładowy alert e-mail 
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający Azure Portal](../media/alert-20.png)
+> ![Zrzut ekranu, który wyróżnia informacje konieczne do skonfigurowania alertu e-mail.](../media/alert-20.png)

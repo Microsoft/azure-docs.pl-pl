@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
+ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 63cdb27663cb1a2d8de1a97a2f352b05ff57a3f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489888"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460703"
 ---
-# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Samouczek: wdrażanie sprzętowych modułów zabezpieczeń w istniejącej sieci wirtualnej przy użyciu interfejsu wiersza polecenia
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Samouczek: wdrażanie sprzętowych modułów zabezpieczeń w istniejącej sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Dedykowany moduł HSM platformy Azure udostępnia urządzenie fizyczne do wyłącznego użytku przez klienta. Daje on pełną kontrolę administracyjną, ale przenosi na klienta pełną odpowiedzialność za zarządzanie. Używanie urządzeń fizycznych powoduje konieczność kontrolowania przez firmę Microsoft przydzielania urządzeń w celu zapewnienia efektywnego zarządzania pojemnością. W związku z tym w ramach subskrypcji platformy Azure usługa dedykowanego modułu HSM nie będzie normalnie widoczna na potrzeby aprowizowania zasobów. Każdy klient platformy Azure, który potrzebuje dostępu do usługi dedykowanego modułu HSM, musi najpierw skontaktować się z pracownikiem odpowiedzialnym za kontakty z klientami w firmie Microsoft w celu zażądania rejestracji w ramach usługi dedykowanego modułu HSM. Aprowizacja będzie możliwa tylko po pomyślnym zakończeniu tego procesu. 
 
@@ -38,7 +38,7 @@ Ten samouczek koncentruje się na dwóch modułach HSM i wymaganej bramie usług
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Dedykowany moduł HSM platformy Azure nie jest obecnie dostępny w witrynie Azure Portal. Wszystkie interakcje z usługą będą miały miejsce za pośrednictwem wiersza polecenia lub programu PowerShell. W tym samouczku będzie używany interfejs wiersza polecenia w usłudze Azure Cloud Shell. Jeśli jesteś nowym użytkownikiem interfejsu wiersza polecenia platformy Azure, wykonaj instrukcje wprowadzające znajdujące się w sekcji dotyczącej [rozpoczynania pracy z interfejsem wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+Dedykowany moduł HSM platformy Azure nie jest obecnie dostępny w witrynie Azure Portal. Wszystkie interakcje z usługą będą miały miejsce za pośrednictwem wiersza polecenia lub programu PowerShell. W tym samouczku będzie używany interfejs wiersza polecenia w usłudze Azure Cloud Shell. Jeśli jesteś nowym użytkownikiem interfejsu wiersza polecenia platformy Azure, wykonaj instrukcje wprowadzające znajdujące się w sekcji dotyczącej [rozpoczynania pracy z interfejsem wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 Założenia:
 
@@ -51,11 +51,11 @@ W poniższych instrukcjach przyjęto założenie, że użytkownik już przeszed�
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Aprowizowanie dedykowanego modułu HSM
 
-Aprowizowanie modułów HSM i integrowanie ich w ramach istniejącej sieci wirtualnej za pośrednictwem bramy usługi ExpressRoute zostanie zweryfikowane przy użyciu narzędzia SSH. Taka weryfikacja pomaga zapewnić osiągalność i podstawową dostępność urządzenia HSM dla wszelkich dalszych działań konfiguracyjnych. Następujące polecenia użyją szablonu usługi Azure Resource Manager do tworzenia zasobów modułu HSM i skojarzonych zasobów sieciowych.
+Aprowizowanie modułów HSM i integrowanie ich w ramach istniejącej sieci wirtualnej za pośrednictwem bramy usługi ExpressRoute zostanie zweryfikowane przy użyciu narzędzia SSH. Taka weryfikacja pomaga zapewnić osiągalność i podstawową dostępność urządzenia HSM dla wszelkich dalszych działań konfiguracyjnych.
 
 ### <a name="validating-feature-registration"></a>Weryfikowanie rejestracji funkcji
 
-Jak wspomniano powyżej, wszelkie działania związane z aprowizacją wymagają, aby usługa dedykowanego modułu HSM była zarejestrowana dla Twojej subskrypcji. Aby to zweryfikować, uruchom następujące polecenia w usłudze Cloud Shell w witrynie Azure Portal.
+Jak wspomniano powyżej, wszelkie działania związane z aprowizacją wymagają, aby usługa dedykowanego modułu HSM była zarejestrowana dla Twojej subskrypcji. Aby to sprawdzić, uruchom następujące polecenia w Cloud Shell Azure Portal.
 
 ```azurecli
 az feature show \
@@ -69,69 +69,14 @@ Polecenia powinny zwracać stan "zarejestrowane" (jak pokazano poniżej). Jeśli
 
 ### <a name="creating-hsm-resources"></a>Tworzenie zasobów modułu HSM
 
-Moduł HSM jest inicjowany w sieci wirtualnej klientów, więc wymagana jest sieć wirtualna i podsieć. Zależność dla modułu HSM w celu umożliwienia komunikacji między siecią wirtualną i urządzeniem fizycznym stanowi brama usługi ExpressRoute. Wymagana jest również maszyna wirtualna służąca do uzyskania dostępu do urządzenia HSM za pomocą oprogramowania klienckiego firmy Gemalto. W celu ułatwienia użycia te zasoby zostały zebrane w pliku szablonu z odpowiadającym im plikiem parametrów. Te pliki zostaną udostępnione po skontaktowaniu się z firmą Microsoft bezpośrednio pod adresem HSMrequest@Microsoft.com.
-
-Po uzyskaniu tych plików należy zmodyfikować plik parametrów i wstawić preferowane nazwy zasobów. Edytuj wiersze o wartości "value": "".
-
-- `namingInfix` Prefiks nazw zasobów modułu HSM
-- `ExistingVirtualNetworkName` Nazwa sieci wirtualnej używanej dla modułów HSM
-- `DedicatedHsmResourceName1` Nazwa zasobu modułu HSM w zasobach sprzętowych 1 centrum danych
-- `DedicatedHsmResourceName2` Nazwa zasobu modułu HSM w zasobach sprzętowych 2 centrum danych
-- `hsmSubnetRange` Zakres adresów IP podsieci dla modułów HSM
-- `ERSubnetRange` Zakres adresów IP podsieci dla bramy sieci wirtualnej
-
-Przykład tych zmian jest następujący:
-
-```json
-{
-"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "namingInfix": {
-      "value": "MyHSM"
-    },
-    "ExistingVirtualNetworkName": {
-      "value": "MyHSM-vnet"
-    },
-    "DedicatedHsmResourceName1": {
-      "value": "HSM1"
-    },
-    "DedicatedHsmResourceName2": {
-      "value": "HSM2"
-    },
-    "hsmSubnetRange": {
-      "value": "10.0.2.0/24"
-    },
-    "ERSubnetRange": {
-      "value": "10.0.255.0/26"
-    },
-  }
-}
-```
-
-Skojarzony plik szablonu usługi Azure Resource Manager utworzy sześć zasobów z następującymi informacjami:
-
-- Podsieć dla modułów HSM w określonej sieci wirtualnej
-- Podsieć dla bramy sieci wirtualnej
-- Brama sieci wirtualnej łącząca sieć wirtualną z urządzeniami HSM
-- Publiczny adres IP bramy
-- Moduł HSM w zasobach sprzętowych 1
-- Moduł HSM w zasobach sprzętowych 2
-
-Po ustawieniu wartości parametrów należy przekazać pliki do udziału plików usługi Cloud Shell w witrynie Azure Portal w celu ich użycia. W Azure Portal kliknij " \> \_ " symbol powłoki chmurowej w prawym górnym rogu, co spowoduje, że Dolna część ekranu jest środowiskiem poleceń. Opcje są następujące: powłoka BASH i program PowerShell. Należy wybrać powłokę BASH, jeśli nie zostało to wcześniej ustawione.
-
-Powłoka poleceń ma opcję przekazywania/pobierania na pasku narzędzi, którą należy wybrać, aby przekazać pliki szablonów i parametrów do udziału plików:
-
-![udział plików](media/tutorial-deploy-hsm-cli/file-share.png)
-
-Po przekazaniu plików można przystąpić do tworzenia zasobów. Przed utworzeniem nowych zasobów modułu HSM należy sprawdzić, czy istnieją pewne wymagane wstępnie zasoby. Należy mieć sieć wirtualną z zakresami adresów na potrzeby obliczeń, modułów HSM i bramy. Następujące polecenia przedstawiają przykładowy sposób tworzenia takiej sieci wirtualnej.
+Przed utworzeniem zasobów modułu HSM wymagane są pewne wymagane zasoby. Należy mieć sieć wirtualną z zakresami adresów na potrzeby obliczeń, modułów HSM i bramy. Następujące polecenia przedstawiają przykładowy sposób tworzenia takiej sieci wirtualnej.
 
 ```azurecli
 az network vnet create \
   --name myHSM-vnet \
   --resource-group myRG \
-  --address-prefix 10.2.0.0/16
-  --subnet-name compute
+  --address-prefix 10.2.0.0/16 \
+  --subnet-name compute \
   --subnet-prefix 10.2.0.0/24
 ```
 
@@ -155,22 +100,47 @@ az network vnet subnet create \
 >[!NOTE]
 >Najważniejszymi konfiguracjami, które należy zwrócić do sieci wirtualnej, jest to, że podsieć dla urządzenia HSM musi mieć ustawioną delegację "Microsoft. HardwareSecurityModules/modułów dedicatedhsms".  Aprowizacja modułu HSM nie będzie możliwa bez ustawienia tej opcji.
 
-Gdy wszystkie wymagania wstępne zostaną spełnione, uruchom następujące polecenie, aby użyć szablonu usługi Azure Resource Manager zapewniającego, że wartości zostały zaktualizowane za pomocą unikatowych nazw (a przynajmniej nazwy grupy zasobów):
+Po skonfigurowaniu sieci Użyj tych poleceń interfejsu wiersza polecenia platformy Azure, aby udostępnić sprzętowych modułów zabezpieczeń.
+
+1. Użyj polecenia [AZ dedykowanego modułu HSM Create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) , aby zainicjować obsługę pierwszego modułu HSM. Moduł HSM ma nazwę hsm1. Zastąp subskrypcję:
+
+   ```azurecli
+   az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
+        /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
+   ```
+
+   To wdrożenie powinno potrwać około 25 do 30 minut, a tym samym czasie są urządzenia HSM.
+
+1. Aby wyświetlić bieżący moduł HSM, uruchom polecenie [AZ dedykowanego modułu HSM show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) :
+
+   ```azurecli
+   az dedicated-hsm show --resource group myRG --name hsm1
+   ```
+
+1. Zainicjuj obsługę drugiego modułu HSM przy użyciu tego polecenia:
+
+   ```azurecli
+   az dedicated-hsm create --location westus --name hsm2 --resource-group myRG --network-profile-network-interfaces \
+        /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
+   ```
+
+1. Uruchom polecenie [AZ dedykowanego modułu HSM](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) , aby wyświetlić szczegółowe informacje o bieżącym sprzętowych modułów zabezpieczeń:
+
+   ```azurecli
+   az dedicated-hsm list --resource-group myRG
+   ```
+
+Istnieją inne polecenia, które mogą być przydatne. Użyj polecenia [AZ dedykowanego-HSM Update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) , aby zaktualizować moduł HSM:
 
 ```azurecli
-az group deployment create \
-   --resource-group myRG  \
-   --template-file ./Deploy-2HSM-toVNET-Template.json \
-   --parameters ./Deploy-2HSM-toVNET-Params.json \
-   --name HSMdeploy \
-   --verbose
+az dedicated-hsm update --resource-group myRG –name hsm1
 ```
 
-Wykonanie tego wdrożenia powinno zająć od 25 do 30 minut, przy czym większość tego czasu jest przeznaczona na urządzenia HSM
+Aby usunąć moduł HSM, użyj polecenia [AZ dedykowanego modułu HSM Delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete) :
 
-![stan aprowizacji](media/tutorial-deploy-hsm-cli/progress-status.png)
-
-Po pomyślnym zakończeniu wdrożenia zostanie wyświetlona wartość "provisioningState" ("powodzenie"). Możesz nawiązać połączenie z istniejącą maszyną wirtualną i skorzystać z narzędzia SSH w celu zapewnienia dostępności urządzenia HSM.
+```azurecli
+az dedicated-hsm delete --resource-group myRG –name hsm1
+```
 
 ## <a name="verifying-the-deployment"></a>Weryfikowanie wdrożenia
 
@@ -184,7 +154,49 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![dane wyjściowe aprowizacji](media/tutorial-deploy-hsm-cli/progress-status2.png)
+Dane wyjściowe wyglądają podobnie jak następujące dane wyjściowe:
+
+```json
+{
+    "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSMl",
+    "identity": null,
+    "kind": null,
+    "location": "westus",
+    "managedBy": null,
+    "name": "HSM1",
+    "plan": null,
+    "properties": {
+        "networkProfile": {
+            "networkInterfaces": [
+            {
+            "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.Network/networkInterfaces/HSMl_HSMnic", "privatelpAddress": "10.0.2.5",
+            "resourceGroup": "HSM-RG"
+            }
+            L
+            "subnet": {
+                "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.Network/virtualNetworks/demo-vnet/subnets/hsmsubnet", "resourceGroup": "HSM-RG"
+            }
+        },
+        "provisioningState": "Succeeded",
+        "stampld": "stampl",
+        "statusMessage": "The Dedicated HSM device is provisioned successfully and ready to use."
+    },
+    "resourceGroup": "HSM-RG",
+    "sku": {
+        "capacity": null,
+        "family": null,
+        "model": null,
+        "name": "SafeNet Luna Network HSM A790",
+        "size": null,
+        "tier": null
+    },
+    "tags": {
+        "Environment": "prod",
+        "resourceType": "Hsm"
+    },
+    "type": "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+}
+```
 
 Teraz będzie można również wyświetlić zasoby za pomocą [eksploratora zasobów platformy Azure](https://resources.azure.com/).   W Eksploratorze rozwiń pozycję "subskrypcje" po lewej stronie, rozwiń swoją konkretną subskrypcję dla dedykowanego modułu HSM, rozwiń pozycję "grupy zasobów", rozwiń grupę zasobów, której użyto, i wybierz pozycję "zasoby".
 
@@ -219,7 +231,7 @@ Po nawiązaniu połączenia z modułem HSM przy użyciu protokołu SSH uruchom n
 
 Dane wyjściowe powinny wyglądać jak te na poniższym obrazie:
 
-![lista składników](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
+![Zrzut ekranu przedstawia dane wyjściowe w oknie programu PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
 Do tego momentu przydzielono wszystkie zasoby na potrzeby wdrożenia o wysokiej dostępności z dwoma modułami HSM oraz zweryfikowano dostęp i stan operacyjny. Dalsze czynności związane z konfiguracją lub testowaniem obejmują dodatkową pracę z samym modułem HSM. W tym celu należy postępować zgodnie z instrukcjami znajdującymi się w rozdziale 7 przewodnika administratora urządzenia Luna Network HSM 7 firmy Gemalto, które dotyczą inicjowania modułu HSM i tworzenia partycji. Całość dokumentacji i oprogramowania jest dostępna bezpośrednio od firmy Gemalto do pobrania po zarejestrowaniu się w portalu pomocy technicznej firmy Gemalto i uzyskaniu identyfikatora klienta. Pobierz oprogramowanie klienckie w wersji 7.2, aby uzyskać wszystkie wymagane składniki.
 
@@ -230,21 +242,19 @@ Jeśli zakończono pracę z urządzeniem HSM, to można je usunąć jako zasób 
 > [!NOTE]
 > Jeśli masz problemy z jakimikolwiek czynnościami konfiguracyjnymi dotyczącymi urządzeń firmy Gemalto, skontaktuj się [z pomocą techniczną firmy Gemalto](https://safenet.gemalto.com/technical-support/).
 
-
 Jeśli wszystkie zasoby w tej grupie zasobów zostały zakończone, można je usunąć za pomocą następującego polecenia:
 
 ```azurecli
-az group deployment delete \
+az group delete \
    --resource-group myRG \
    --name HSMdeploy \
    --verbose
-
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
 Po wykonaniu kroków w tym samouczku zasoby dedykowanego modułu HSM będą zaaprowizowane i dostępna będzie sieć wirtualną z wymaganymi modułami HSM i innymi składnikami sieciowymi umożliwiającymi komunikację z modułem HSM.  Jesteś teraz w stanie uzupełnić to wdrożenie dodatkowymi zasobami zgodnie z wymaganiami Twojej preferowanej architektury wdrożenia. Więcej informacji na temat ułatwiania planowania wdrożenia możesz znaleźć w dokumentach z pojęciami.
-Zalecany jest projekt z dwoma modułami HSM w regionie podstawowym służącym do zapewnienia dostępności na poziomie regału sprzętowego i dwoma modułami HSM w regionie pomocniczym służącym do zapewnienia dostępności regionalnej. Plik szablonu użyty w tym samouczku może zostać w łatwy sposób użyty jako podstawa dla wdrożenia z dwoma modułami HSM, ale konieczne jest zmodyfikowanie jego parametrów w celu spełnienia wymagań.
+Zalecany jest projekt z dwoma modułami HSM w regionie podstawowym służącym do zapewnienia dostępności na poziomie regału sprzętowego i dwoma modułami HSM w regionie pomocniczym służącym do zapewnienia dostępności regionalnej. 
 
 * [Wysoka dostępność](high-availability.md)
 * [Zabezpieczenia fizyczne](physical-security.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285591"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427979"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Samouczek: Włączanie dodatku usługi transferu danych przychodzących (wersja zapoznawcza) dla nowego klastra AKS z nowym wystąpieniem Application Gateway
 
@@ -22,7 +22,7 @@ W tym samouczku utworzysz klaster AKS z włączonym dodatkiem AGIC. Utworzenie k
 
 Dodatek zapewnia znacznie szybszy sposób wdrażania AGIC dla klastra AKS niż [poprzednio za pomocą Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). Oferuje również w pełni zarządzane środowisko.    
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz grupę zasobów. 
@@ -87,7 +87,7 @@ W poniższym przykładzie zostanie wdrożony nowy klaster AKS o nazwie "Moja *kl
 Wdrożenie nowego klastra AKS z włączonym dodatkiem AGIC bez określania istniejącego wystąpienia Application Gateway oznacza automatyczne utworzenie wystąpienia Standard_v2 jednostki SKU Application Gateway. W związku z tym należy również określić nazwę i przestrzeń adresową podsieci wystąpienia Application Gateway. Nazwa wystąpienia Application Gateway będzie *myApplicationGateway*, a używana przestrzeń adresowa podsieci to 10.2.0.0/16. Upewnij się, że dodano lub Zaktualizowano rozszerzenie AKS-Preview na początku tego samouczka. 
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
 Aby skonfigurować dodatkowe parametry dla `az aks create` polecenia, zobacz [te odwołania](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 

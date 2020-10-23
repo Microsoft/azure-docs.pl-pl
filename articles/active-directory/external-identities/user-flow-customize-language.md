@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b2b5538df894e17449e173baa3e402d6c59654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354993"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441440"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Dostosowanie języka w Azure Active Directory (wersja zapoznawcza)
 
@@ -146,7 +146,7 @@ Programy Chrome i Firefox żądają swojego języka zestawu. Jeśli jest to obs�
 
 ## <a name="supported-languages"></a>Obsługiwane języki
 
-Usługa Azure AD obejmuje obsługę następujących języków. Języki przepływu użytkownika są udostępniane przez usługę Azure AD. Języki powiadomień usługi uwierzytelniania wieloskładnikowego (MFA) są udostępniane przez [usługę Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+Usługa Azure AD obejmuje obsługę następujących języków. Języki przepływu użytkownika są udostępniane przez usługę Azure AD. Języki powiadomień usługi uwierzytelniania wieloskładnikowego (MFA) są udostępniane przez [usługę Azure MFA](../authentication/concept-mfa-howitworks.md).
 
 | Język              | Kod języka | Przepływy użytkowników         | Powiadomienia usługi MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

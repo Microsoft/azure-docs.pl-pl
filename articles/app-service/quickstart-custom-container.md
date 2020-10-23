@@ -3,16 +3,16 @@ title: 'Szybki Start: uruchamianie niestandardowego kontenera na App Service'
 description: Rozpocznij pracę z kontenerami na Azure App Service przez wdrożenie pierwszego kontenera niestandardowego.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 08/28/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 3191552421091bc0a2c4e6855c0271c142af1882
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1411491906e763a52ee1b6a66df1dea183b91973
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152363"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425862"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Uruchamianie niestandardowego kontenera na platformie Azure
 
@@ -187,7 +187,7 @@ App Service w systemie Linux udostępnia wstępnie zdefiniowane stosy aplikacji 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Konto platformy Azure](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-* [Docker](https://www.docker.com/community-edition)
+* [Platforma Docker](https://www.docker.com/community-edition)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure App Service rozszerzenie vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). To rozszerzenie służy do tworzenia i wdrażania Web Apps systemu Linux na platformie Azure jako usługi (PaaS) oraz zarządzania nimi.
 * [Rozszerzenie platformy Docker dla vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). To rozszerzenie służy do uproszczenia zarządzania lokalnymi obrazami i poleceniami platformy Docker oraz do wdrażania wbudowanych obrazów aplikacji na platformie Azure.
@@ -199,7 +199,7 @@ Aby ukończyć ten przewodnik Szybki Start, potrzebny będzie odpowiedni obraz a
 > [!IMPORTANT]
 > Należy pamiętać o ustawieniu opcji **użytkownik administrator** , aby **włączyć** ją podczas tworzenia rejestru kontenerów. Można również ustawić ją z sekcji **klucze dostępu** na stronie rejestru w Azure Portal. To ustawienie jest wymagane do App Service dostępu.
 
-## <a name="sign-in"></a>Logowanie
+## <a name="sign-in"></a>Zaloguj
 
 Następnie uruchom VS Code i zaloguj się do konta platformy Azure przy użyciu rozszerzenia App Service. W tym celu wybierz logo platformy Azure na pasku działania, przejdź do Eksploratora **usługi App Service** , a następnie wybierz pozycję **Zaloguj się do platformy Azure** i postępuj zgodnie z instrukcjami.
 

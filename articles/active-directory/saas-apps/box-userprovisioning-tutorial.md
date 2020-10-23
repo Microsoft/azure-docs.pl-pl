@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde22fe9997e41d6d17fba94e6b9523d82c7b910
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312910"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456827"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie pola do automatycznej aprowizacji użytkowników
 
@@ -48,7 +48,7 @@ Azure Active Directory używa koncepcji o nazwie "przydziały", aby określić, 
 
 Przed skonfigurowaniem i włączeniem usługi aprowizacji należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji usługi Box. Po ustaleniu tych użytkowników możesz przypisać je do aplikacji Box, postępując zgodnie z poniższymi instrukcjami:
 
-[Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="assign-users-and-groups"></a>Przypisywanie użytkowników i grup
 Karta **> Użytkownicy i grupy** w Azure Portal umożliwia określenie użytkowników i grup, do których należy udzielić dostępu do pola. Przypisanie użytkownika lub grupy powoduje wystąpienie następujących rzeczy:
@@ -128,7 +128,7 @@ W dzierżawie w usłudze Box zsynchronizowani użytkownicy są wyświetlani w ob
 ![Stan integracji](./media/box-userprovisioning-tutorial/IC769556.png "Stan integracji")
 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

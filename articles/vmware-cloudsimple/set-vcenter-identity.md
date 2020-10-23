@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212255"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425752"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Skonfiguruj źródła tożsamości vCenter do użycia Active Directory
 
@@ -61,9 +61,9 @@ Podczas konfigurowania domeny Active Directory należy skorzystać z informacji 
 | **Nazwa domeny** | Nazwa FQDN domeny, na przykład example.com. W tym polu tekstowym nie należy podawać adresu IP. |
 | **Alias domeny** | Nazwa NetBIOS domeny. Dodaj nazwę NetBIOS domeny Active Directory jako alias źródła tożsamości, jeśli używasz uwierzytelniania SSPI. |
 | **Podstawowa nazwa wyróżniająca dla grup** | Podstawowa nazwa wyróżniająca dla grup. |
-| **Podstawowy adres URL serwera** | Serwer LDAP podstawowego kontrolera domeny dla domeny.<br><br>Użyj formatu  `ldap://hostname:port`   lub  `ldaps://hostname:port` . Port jest zazwyczaj 389 dla połączeń LDAP i 636 dla połączeń LDAPs. W przypadku Active Directory wdrożeń wielodomenowych, port jest zwykle 3268 dla LDAP i 3269 dla LDAPs.<br><br>Certyfikat, który ustanawia zaufanie dla punktu końcowego LDAPs serwera Active Directory, jest wymagany w przypadku użycia  `ldaps://`   w podstawowym lub pomocniczym adresie URL LDAP. |
+| **Podstawowy adres URL serwera** | Serwer LDAP podstawowego kontrolera domeny dla domeny.<br><br>Użyj formatu `ldap://hostname:port` lub `ldaps://hostname:port` . Port jest zazwyczaj 389 dla połączeń LDAP i 636 dla połączeń LDAPs. W przypadku Active Directory wdrożeń wielodomenowych, port jest zwykle 3268 dla LDAP i 3269 dla LDAPs.<br><br>Certyfikat, który ustanawia zaufanie dla punktu końcowego LDAPs serwera Active Directory, jest wymagany w przypadku użycia `ldaps://` w podstawowym lub pomocniczym adresie URL LDAP. |
 | **Adres URL serwera pomocniczego** | Adres serwera LDAP pomocniczego kontrolera domeny, który jest używany do pracy w trybie failover. |
-| **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu  `ldaps://`   w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
+| **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu `ldaps://` w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
 | **Nazwa użytkownika** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
 | **Hasło** | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
 
@@ -127,10 +127,10 @@ Po nawiązaniu połączenia sieciowego wykonaj kroki opisane w sekcji [Dodawanie
 
 6. Wybierz **Active Directory jako serwer LDAP** , a następnie kliknij przycisk **dalej**.
 
-    ![Active Directory](media/OnPremAD04.png)
+    ![Zrzut ekranu, który podświetla Active Directory jako opcję serwera LDAP.](media/OnPremAD04.png)
 
 7. Określ parametry źródła tożsamości dla danego środowiska, a następnie kliknij przycisk **dalej**.
 
-    ![Active Directory](media/OnPremAD05.png)
+    ![Usługa Active Directory](media/OnPremAD05.png)
 
 8. Przejrzyj ustawienia i kliknij przycisk **Zakończ**.

@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: d0b9e2301a8bb9990f88db8d4d55ef7f97946174
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072173"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426446"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure
 
@@ -41,6 +41,16 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 - [Szablon usługi Azure Resource Manager](../../api-management/api-management-howto-use-managed-service-identity.md)
 
+### <a name="azure-app-configuration"></a>Azure App Configuration
+
+| Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Przypisana przez system | ![Udostępnione][check] | ![Udostępnione][check] | Niedostępny | Niedostępny |
+| Przypisana przez użytkownika | ![Udostępnione][check] | ![Udostępnione][check]  | Niedostępny  | Niedostępny |
+
+Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla konfiguracji aplikacji platformy Azure (w regionach, w których są dostępne):
+
+- [Interfejs wiersza polecenia platformy Azure](../../azure-app-configuration/overview-managed-identity.md)
 
 ### <a name="azure-app-service"></a>Azure App Service
 
@@ -284,7 +294,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 
 
-### <a name="azure-virtual-machines"></a>Azure Virtual Machines
+### <a name="azure-virtual-machines"></a>Maszyny wirtualne platformy Azure
 
 | Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |

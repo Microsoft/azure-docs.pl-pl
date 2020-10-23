@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 16dab7897fc41a97a8607df5a03281582377e1e4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 05881791d495770167b271e20de173e6679f39d9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424075"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440658"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -48,7 +48,7 @@ Poniżej przedstawiono limity dla pojedynczego uruchomienia aplikacji logiki:
 | Nazwa | Limit wielu dzierżawców | Limit środowiska usługi integracji | Uwagi |
 |------|--------------------|---------------------------------------|-------|
 | Czas trwania przebiegu | 90 dni | 366 dni | Czas trwania przebiegu jest obliczany przy użyciu czasu rozpoczęcia uruchomienia. |
-| Uruchom przechowywanie historii w magazynie | 90 dni | 366 dni | Po zakończeniu lub przekroczeniu limitu czasu przebiegu historia uruchamiania jest zawsze obliczana przy użyciu czasu rozpoczęcia i limitu określonego w *bieżącym czasie* według ustawienia przepływu pracy. [**w ciągu dni należy przeprowadzić przechowywanie historii**](#change-retention). Jeśli zmienisz to ustawienie, *bieżący* limit jest zawsze używany do obliczania przechowywania, niezależnie od poprzedniego limitu. Gdy czas trwania uruchomienia przekracza bieżący limit, przebieg zostanie usunięty z historii uruchamiania. <p><p>Załóżmy na przykład, że zmniejszasz limit przechowywania od 90 do 30 dni. W historii uruchamiania zostanie usunięte 60-dniowe uruchomienie. Jeśli okres przechowywania zostanie zwiększony z 30 dni do 60 dni, zostanie uruchomione 20-dniowe w historii przebiegów przez kolejne 40 dni. <p><p>Aby zmienić domyślny limit, który jest 90 dni, zobacz temat [zmiana zachowania historii przebiegów w magazynie](#change-retention). |
+| Uruchom przechowywanie historii w magazynie | 90 dni | 366 dni | Jeśli czas trwania uruchomienia przekracza limit przechowywania bieżącej historii przebiegów, przebieg zostanie usunięty z historii uruchamiania w magazynie. Bez względu na to, czy uruchomienie przebiegu lub przekroczenie limitu czasu, przechowywanie historii przebiegów jest zawsze obliczane przy użyciu czasu rozpoczęcia i bieżącego limitu określonego w ustawieniu przepływu pracy. [**przechowywanie historii przebiega w dniach**](#change-retention). Niezależnie od poprzedniego limitu bieżący limit jest zawsze używany do obliczania przechowywania. <p><p>Aby zmienić domyślny limit i aby uzyskać więcej informacji, zobacz [zmiana zachowania historii przebiegów w magazynie](#change-retention). Aby zwiększyć maksymalny limit, [skontaktuj się z zespołem Logic Apps](mailto://logicappsemail@microsoft.com) , aby uzyskać pomoc dotyczącą Twoich wymagań. |
 | Minimalny interwał cyklu | 1 sekunda | 1 sekunda ||
 | Maksymalny interwał cyklu | 500 dni | 500 dni ||
 |||||
@@ -57,11 +57,17 @@ Poniżej przedstawiono limity dla pojedynczego uruchomienia aplikacji logiki:
 
 ### <a name="change-run-history-retention-in-storage"></a>Przechowywanie historii przebiegów zmian w magazynie
 
-Aby zmienić domyślny limit przechowywania historii przebiegów w magazynie, wykonaj następujące czynności. Aby zwiększyć maksymalny limit, [skontaktuj się z zespołem Logic Apps](mailto://logicappsemail@microsoft.com) , aby uzyskać pomoc dotyczącą Twoich wymagań.
+Aby zmienić domyślny limit przechowywania historii przebiegów w magazynie, wykonaj następujące czynności.
 
-> [!NOTE]
-> W przypadku aplikacji logiki na platformie Azure z wieloma dzierżawcami domyślny limit 90 dni jest taki sam, jak maksymalny limit. Tę wartość można zmniejszyć tylko.
-> W przypadku aplikacji logiki w środowisku usługi integracji można obniżyć lub zwiększyć 90-dniowy limit.
+* W przypadku aplikacji logiki na platformie Azure z wieloma dzierżawcami domyślny limit 90 dni jest taki sam, jak maksymalny limit. Tę wartość można zmniejszyć tylko.
+
+* W przypadku aplikacji logiki w środowisku usługi integracji można obniżyć lub zwiększyć 90-dniowy limit.
+
+Załóżmy na przykład, że zmniejszasz limit przechowywania od 90 do 30 dni. W historii uruchamiania zostanie usunięte 60-dniowe uruchomienie. Jeśli okres przechowywania zostanie zwiększony z 30 dni do 60 dni, zostanie uruchomione 20-dniowe w historii przebiegów przez kolejne 40 dni. 
+
+
+> [!IMPORTANT]
+> Aby uniknąć utraty historii przebiegów, upewnij się, że limit przechowywania jest *zawsze* większy niż najdłuższy możliwy czas trwania. W przeciwnym razie historia przebiegu zostanie utracona.
 
 1. W polu wyszukiwania [Azure Portal](https://portal.azure.com) Znajdź i wybierz pozycję **Aplikacje logiki**.
 

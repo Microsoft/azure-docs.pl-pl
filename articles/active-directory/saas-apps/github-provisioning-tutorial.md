@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5f48cd0056d40ed7dc5c99c4260621533c1f71f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b9b7a82d611743f2ba76e20f47670771e2e38904
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369084"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448966"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi GitHub na potrzeby automatycznego aprowizacji użytkowników
 
@@ -28,7 +28,7 @@ W scenariuszu opisanym w tym samouczku założono, że masz już następujące e
 * Dzierżawa usługi Azure Active Directory
 * Organizacja usługi GitHub utworzona w [chmurze usługi GitHub dla przedsiębiorstw](https://help.github.com/articles/github-s-products/#github-enterprise), która wymaga [planu rozliczeniowego usługi GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * Konto użytkownika w usłudze GitHub z uprawnieniami administratora do organizacji
-* [Protokół SAML skonfigurowany dla organizacji chmury w chmurze dla przedsiębiorstw](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
+* [Protokół SAML skonfigurowany dla organizacji chmury w chmurze dla przedsiębiorstw](./github-tutorial.md)
 * Upewnij się, że dostęp OAuth został podany dla Twojej organizacji, zgodnie z opisem w [tym miejscu](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 * Inicjowanie obsługi administracyjnej Standard scim w pojedynczej organizacji jest obsługiwane tylko wtedy, gdy Logowanie jednokrotne jest włączone na poziomie organizacji
 
@@ -91,7 +91,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

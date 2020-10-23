@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585937"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440522"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault kopia zapasowa
 
@@ -30,6 +30,9 @@ Key Vault utrzymuje dostępność w scenariuszach awarii i automatycznie przejdz
 Jeśli chcesz chronić przed przypadkowym lub złośliwym usunięciem kluczy tajnych, skonfiguruj funkcje ochrony przed usuwaniem i przeczyszczaniem w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [Azure Key Vault Omówienie usuwania nietrwałego](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## <a name="limitations"></a>Ograniczenia
+
+> [!IMPORTANT]
+> Key Vault nie obsługuje wykonywania kopii zapasowych więcej niż 500 poprzednich wersji obiektu Key, Secret lub Certificate. Próba utworzenia kopii zapasowej obiektu Key, Secret lub Certificate może spowodować wystąpienie błędu. Nie można usunąć poprzednich wersji klucza, wpisu tajnego ani certyfikatu.
 
 Key Vault nie udostępnia obecnie metody tworzenia kopii zapasowej całego magazynu kluczy w ramach jednej operacji. Każda próba użycia poleceń wymienionych w tym dokumencie do wykonania zautomatyzowanej kopii zapasowej magazynu kluczy może spowodować błędy i nie będzie obsługiwana przez firmę Microsoft lub Azure Key Vault zespół. 
 

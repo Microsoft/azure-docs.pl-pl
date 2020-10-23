@@ -8,60 +8,62 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
-ms.openlocfilehash: 841484a647d2737d621c75ebe63f65f2de829a26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c630cdd66fa4f8e609524feb9c3f0bcad9711a0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666504"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458170"
 ---
-# <a name="dedupe-rows-and-find-nulls-using-data-flow-snippets"></a>Deduplikowanie wierszy i znajdowanie wartości null przy użyciu fragmentów danych przepływu
+# <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Deduplikowanie wierszy i znajdowanie wartości null przy użyciu fragmentów danych przepływu
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE [appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Za pomocą fragmentów kodu w mapowaniu przepływów danych, można bardzo łatwo wykonywać typowe zadania, takie jak deduplikacja danych i filtrowanie wartości null. W tym przewodniku zawarto wyjaśnienie, jak dodać te funkcje do potoków bardzo łatwo przy użyciu fragmentów skryptów przepływu danych.
-
+Korzystając z fragmentów kodu w mapowaniu przepływów danych, można łatwo wykonywać typowe zadania, takie jak deduplikacja danych i filtrowanie wartości null. W tym artykule wyjaśniono, jak łatwo dodawać te funkcje do potoków przy użyciu fragmentów skryptów przepływu danych.
+<br>
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GnhH]
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 
-1. Wybierz pozycję **+ Nowy potok** , aby utworzyć nowy potok.
+1. Wybierz pozycję **Nowy potok**.
 
-2. Dodaj działanie przepływu danych.
+1. Dodaj działanie przepływu danych.
 
-3. Dodaj transformację źródłową i połącz ją z jednym z zestawów danych
+1. Wybierz kartę **Ustawienia źródła** , Dodaj transformację źródłową, a następnie połącz ją z jednym z zestawów danych.
 
-    ![Fragment kodu źródłowego 2](media/data-flow/snippet-adf-2.png)
+    ![Zrzut ekranu przedstawiający okienko "ustawienia źródła" służące do dodawania typu źródła.](media/data-flow/snippet-adf-2.png)
 
-4. Fragmenty kodu deduplikowane i puste używają wzorców ogólnych wykorzystujących dryfowanie schematu przepływu danych, dzięki czemu będą współpracować z dowolnym schematem z zestawu danych lub zestawami danych, które nie mają żadnego wstępnie zdefiniowanego schematu.
+    Fragmenty kodu deduplikowane i puste używają wzorców ogólnych, które wykorzystują dryfowanie schematu przepływu danych. Fragmenty kodu działają ze wszystkimi schematami z zestawu danych lub zestawami danych, które nie mają wstępnie zdefiniowanego schematu.
 
-5. [Przejdź do strony dokumentacji skryptu przepływu danych i skopiuj fragment kodu dotyczący odrębnych wierszy.](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns)
+1. W sekcji "DISTINCT wiersz using wszystkie kolumny" [skryptu przepływu danych (DFS)](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns)skopiuj fragment kodu dotyczący DistinctRows.
 
-6. W interfejsie użytkownika projektanta przepływu danych kliknij przycisk skryptu w prawym górnym rogu, aby otworzyć Edytor skryptów za wykresem przepływu danych.
+1. W interfejsie użytkownika projektanta przepływu danych wybierz przycisk **skryptu** w prawym górnym rogu, aby otworzyć Edytor skryptów za wykresem przepływu danych.
 
-    ![Fragment kodu źródłowego 3](media/data-flow/snippet-adf-3.png)
+    ![Zrzut ekranu przedstawiający fragment kodu źródła.](media/data-flow/snippet-adf-3.png)
 
-7. Po definicji dla ```source1``` skryptu naciśnij klawisz ENTER, a następnie wklej w fragmencie kodu.
+1. W skrypcie, po definicji `source1` , naciśnij klawisz ENTER, a następnie wklej fragment kodu.
 
-8. Ten wklejony fragment kodu zostanie połączony z poprzednią transformację źródłową utworzoną w grafie, wpisując ciąg "source1" przed wklejanym kodem.
+1. Wykonaj jedną z następujących czynności:
 
-9. Alternatywnie można połączyć nową transformację w projektancie, wybierając strumień przychodzący z nowego węzła przekształcenia w grafie.
+   * Połącz ten wklejony fragment kodu do przekształcenia źródłowego utworzonego wcześniej na grafie, wpisując **source1** przed wklejanym kodem.
 
-    ![Fragment kodu źródłowego 4](media/data-flow/snippet-adf-4.png)
+   * Alternatywnie można połączyć nową transformację w projektancie, wybierając strumień przychodzący z nowego węzła przekształcenia w grafie.
 
-10. Teraz przepływ danych spowoduje usunięcie zduplikowanych wierszy ze źródła przy użyciu transformacji agregacji, która grupuje wszystkie wiersze przy użyciu ogólnego skrótu dla wszystkich wartości kolumn.
+     ![Zrzut ekranu przedstawiający okienko "ustawienia podziału warunkowego".](media/data-flow/snippet-adf-4.png)
+
+   Teraz przepływ danych spowoduje usunięcie zduplikowanych wierszy ze źródła przy użyciu transformacji agregacji, która grupuje wszystkie wiersze przy użyciu ogólnego skrótu dla wszystkich wartości kolumn.
     
-11. Następnie dodamy fragment kodu dotyczący dzielenia danych na strumień zawierający wiersze z wartościami NULL i strumień, który nie ma żadnych wartości NULL.
+1. Dodaj fragment kodu dotyczący dzielenia danych na jeden strumień zawierający wiersze z wartościami null i inny strumień bez wartości null. W tym celu:
 
-12. [Wróć do biblioteki fragmentów i ten czas kopiuje kod dla testów o wartości NULL.](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns)
+   a. Wróć do [biblioteki fragmentów](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns), a następnie skopiuj kod dla testów o wartości null.
 
-13. W Projektancie przepływu danych ponownie kliknij pozycję skrypt i wklej ten nowy kod przekształcenia u dołu, łącząc go z poprzednią transformację, wpisując nazwę tego przekształcenia przed wklejonym fragmentem kodu.
+   b. W Projektancie przepływu danych wybierz pozycję **skrypt** ponownie, a następnie wklej nowy kod przekształcenia u dołu. Ta akcja łączy skrypt z poprzednią transformację przez umieszczenie nazwy tego przekształcenia przed wklejonym fragmentem kodu.
 
-14. Wykres przepływu danych powinien teraz wyglądać podobnie do tego:
+   Wykres przepływu danych powinien teraz wyglądać podobnie do tego:
 
-    ![Fragment kodu źródłowego 1](media/data-flow/snippet-adf-1.png)
+    ![Zrzut ekranu przedstawiający wykres przepływu danych.](media/data-flow/snippet-adf-1.png)
 
-  Masz teraz działający przepływ danych z ogólnymi sprawdzeniami deduping i NULL, pobierając istniejące fragmenty kodu z biblioteki skryptów przepływu danych i dodając je do istniejącego projektu.
+  Utworzono przepływ danych roboczych z ogólnymi sprawdzeniami deduping i null, pobierając istniejące fragmenty kodu z biblioteki skryptów przepływu danych i dodając je do istniejącego projektu.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274048"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441848"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory często zadawane pytania dotyczące współpracy B2B
 
@@ -51,7 +51,7 @@ Ta funkcja nie jest obecnie obsługiwana. Jeśli dostęp do zasobów organizacji
 Organizacja może chcieć dodać użytkowników współpracy B2B, udostępnić aplikacje w razie potrzeby, a następnie wysłać zaproszenia. Możesz użyć interfejsu API zaproszenia do współpracy B2B, aby dostosować przepływ pracy do dołączania.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Czy można sprawić, aby użytkownicy-Goście widoczni na globalnej liście adresów programu Exchange?
-Tak. Obiekty gościa nie są domyślnie widoczne na globalnej liście adresowej organizacji, ale można użyć programu Azure Active Directory PowerShell, aby je wyświetlić. Zobacz [, czy obiekty gościa są widoczne na globalnej liście adresów?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
+Tak. Obiekty gościa nie są domyślnie widoczne na globalnej liście adresowej organizacji, ale można użyć programu Azure Active Directory PowerShell, aby je wyświetlić. Zobacz [, czy obiekty gościa są widoczne na globalnej liście adresów?](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Czy mogę utworzyć użytkownika-gościa z ograniczonym administratorem?
 Oczywiście. Aby uzyskać więcej informacji, zobacz [Dodawanie użytkowników-Gości do roli](add-guest-to-role.md).
@@ -80,16 +80,16 @@ Tak! Można utworzyć zasady dostępu warunkowego, które blokują dostęp do Az
 Tak. Usługa Azure AD B2B obsługuje funkcje uwierzytelniania wieloskładnikowego i konsumenckiej poczty e-mail.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Czy jest obsługiwane resetowanie haseł dla użytkowników współpracy B2B usługi Azure AD?
-Jeśli Twoja dzierżawa usługi Azure AD jest katalogiem macierzystym dla użytkownika, możesz [zresetować hasło użytkownika](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) z Azure Portal. Ale nie można bezpośrednio zresetować hasła dla użytkownika-gościa, który loguje się przy użyciu konta, które jest zarządzane przez innego katalogu usługi Azure AD lub zewnętrzny dostawca tożsamości. Hasło może zresetować tylko użytkownik-Gość lub administrator w katalogu macierzystym użytkownika. Poniżej przedstawiono kilka przykładów działania resetowania haseł dla użytkowników-Gości:
+Jeśli Twoja dzierżawa usługi Azure AD jest katalogiem macierzystym dla użytkownika, możesz [zresetować hasło użytkownika](../fundamentals/active-directory-users-reset-password-azure-portal.md) z Azure Portal. Ale nie można bezpośrednio zresetować hasła dla użytkownika-gościa, który loguje się przy użyciu konta, które jest zarządzane przez innego katalogu usługi Azure AD lub zewnętrzny dostawca tożsamości. Hasło może zresetować tylko użytkownik-Gość lub administrator w katalogu macierzystym użytkownika. Poniżej przedstawiono kilka przykładów działania resetowania haseł dla użytkowników-Gości:
  
 * Użytkownicy-Goście, którzy logują się za pomocą konto Microsoft (na przykład guestuser@live.com ) mogą zresetować swoje hasła przy użyciu funkcji konto Microsoft samoobsługowego resetowania hasła (SSPR). Zobacz [jak zresetować hasło konto Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Użytkownicy-Goście, którzy logują się za pomocą konta Google lub innego dostawcy tożsamości zewnętrznych, mogą resetować swoje hasła przy użyciu metody SSPR dostawcy tożsamości. Na przykład użytkownik-Gość z kontem Google guestuser@gmail.com może zresetować swoje hasło, postępując zgodnie z instrukcjami w temacie [zmiana lub Resetowanie hasła](https://support.google.com/accounts/answer/41078).
-* Jeśli dzierżawa tożsamości jest dzierżawą just-in-Time (JIT) lub "wirusowym" (co oznacza, że jest to oddzielna, niezarządzana dzierżawa platformy Azure), tylko użytkownik-Gość może zresetować swoje hasło. Czasami organizacja zajmie się [zarządzaniem wirusami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) , które są tworzone, gdy pracownicy używają służbowych adresów e-mail do rejestracji w usłudze. Gdy organizacja zajmie się wirusową dzierżawą, tylko administrator w tej organizacji może zresetować hasło użytkownika lub włączyć SSPR. Jeśli to konieczne, jako zapraszana organizacja możesz usunąć konto użytkownika-gościa z katalogu i ponownie wysłać zaproszenie.
+* Jeśli dzierżawa tożsamości jest dzierżawą just-in-Time (JIT) lub "wirusowym" (co oznacza, że jest to oddzielna, niezarządzana dzierżawa platformy Azure), tylko użytkownik-Gość może zresetować swoje hasło. Czasami organizacja zajmie się [zarządzaniem wirusami](../users-groups-roles/domains-admin-takeover.md) , które są tworzone, gdy pracownicy używają służbowych adresów e-mail do rejestracji w usłudze. Gdy organizacja zajmie się wirusową dzierżawą, tylko administrator w tej organizacji może zresetować hasło użytkownika lub włączyć SSPR. Jeśli to konieczne, jako zapraszana organizacja możesz usunąć konto użytkownika-gościa z katalogu i ponownie wysłać zaproszenie.
 
 * Jeśli katalog macierzysty użytkownika gościa jest dzierżawą usługi Azure AD, możesz zresetować hasło użytkownika. Można na przykład utworzyć użytkownika lub zsynchronizować użytkownika z lokalnej Active Directory i ustawić dla nich wartość UserType na gość. Ponieważ ten użytkownik znajduje się w katalogu, możesz zresetować swoje hasło z Azure Portal.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Czy firma Microsoft Dynamics 365 zapewnia pomoc techniczną online dla współpracy B2B usługi Azure AD?
-Tak, Dynamics 365 (online) obsługuje funkcję współpracy B2B usługi Azure AD. Aby uzyskać więcej informacji, zobacz artykuł Dynamics 365 [Zapraszanie użytkowników za pomocą funkcji współpracy B2B usługi Azure AD](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Tak, Dynamics 365 (online) obsługuje funkcję współpracy B2B usługi Azure AD. Aby uzyskać więcej informacji, zobacz artykuł Dynamics 365 [Zapraszanie użytkowników za pomocą funkcji współpracy B2B usługi Azure AD](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Jaki jest okres istnienia początkowego hasła dla nowo utworzonego użytkownika współpracy B2B?
 Usługa Azure AD ma stały zestaw znaków, siłę hasła i wymagania dotyczące blokady konta, które są stosowane jednocześnie do wszystkich kont użytkowników w chmurze usługi Azure AD. Konta użytkowników w chmurze to konta, które nie są federacyjne przy użyciu innego dostawcy tożsamości, takie jak 
@@ -135,4 +135,3 @@ Aby uzyskać informacje o licencjach wymaganych przez organizację do korzystani
 ### <a name="next-steps"></a>Następne kroki
 
 - [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
-

@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee8c7cf2b34d5923f84bf9b9ba3cf5b10034e3e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652078"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458055"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementowanie synchronizacji skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
 Ten artykuł zawiera informacje potrzebne do synchronizacji haseł użytkowników z wystąpienia lokalnego Active Directory do wystąpienia Azure Active Directory opartego na chmurze (Azure AD).
@@ -109,7 +109,7 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-Po włączeniu usługa Azure AD nie przechodzi do każdego synchronizowanego użytkownika w celu usunięcia `DisablePasswordExpiration` wartości z atrybutu PasswordPolicies. Zamiast tego wartość jest ustawiana na `None` podczas następnej synchronizacji haseł dla każdego użytkownika po kolejnym zmianie hasła w lokalnej usłudze AD.  
+Po włączeniu usługa Azure AD nie przechodzi do każdego synchronizowanego użytkownika w celu usunięcia `DisablePasswordExpiration` wartości z atrybutu PasswordPolicies. Zamiast tego `DisablePasswordExpiration` wartość jest usuwana z PasswordPolicies podczas następnej synchronizacji skrótów haseł dla każdego użytkownika, przy następnej zmianie hasła w lokalnej usłudze AD.
 
 Zaleca się włączenie EnforceCloudPasswordPolicyForPasswordSyncedUsers przed włączeniem synchronizacji skrótów haseł, dzięki czemu początkowa synchronizacja skrótów haseł nie dodaje `DisablePasswordExpiration` wartości do atrybutu PasswordPolicies dla użytkowników.
 

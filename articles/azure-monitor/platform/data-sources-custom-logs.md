@@ -1,21 +1,24 @@
 ---
-title: Zbieranie niestandardowych dzienników w Azure Monitor | Microsoft Docs
+title: Zbierz dzienniki niestandardowe z agentem Log Analytics w programie Azure Monitor
 description: Azure Monitor może zbierać zdarzenia z plików tekstowych zarówno na komputerach z systemem Windows, jak i Linux.  W tym artykule opisano sposób definiowania nowego dziennika niestandardowego i szczegółów rekordów tworzonych w Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/26/2019
-ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269492"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461570"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Dzienniki niestandardowe w usłudze Azure Monitor
+# <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Zbierz dzienniki niestandardowe z agentem Log Analytics w programie Azure Monitor
 
-Źródło danych dzienników niestandardowych w Azure Monitor umożliwia zbieranie zdarzeń z plików tekstowych na komputerach z systemem Windows i Linux. Wiele aplikacji rejestruje informacje w plikach tekstowych zamiast standardowych usługach rejestrowania, takich jak dziennik zdarzeń systemu Windows lub system plików dziennika. Po zebraniu można przeanalizować dane do poszczególnych pól w zapytaniach lub wyodrębnić dane podczas zbierania do poszczególnych pól.
+Źródło danych dzienników niestandardowych dla agenta Log Analytics w programie Azure Monitor umożliwia zbieranie zdarzeń z plików tekstowych na komputerach z systemem Windows i Linux. Wiele aplikacji rejestruje informacje w plikach tekstowych zamiast standardowych usługach rejestrowania, takich jak dziennik zdarzeń systemu Windows lub system plików dziennika. Po zebraniu można przeanalizować dane do poszczególnych pól w zapytaniach lub wyodrębnić dane podczas zbierania do poszczególnych pól.
+
+> [!IMPORTANT]
+> W tym artykule opisano zbieranie niestandardowych dzienników z [agentem log Analytics](log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
 
 ![Niestandardowa kolekcja dzienników](media/data-sources-custom-logs/overview.png)
 

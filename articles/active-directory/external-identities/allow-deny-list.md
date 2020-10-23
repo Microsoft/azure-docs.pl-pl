@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa2ac203f92d401095194bb3f1b5f3ef3c52093b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87650f364f8ccfd3a531d710bfbdc4715f0ac5a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909727"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442188"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Zezwalanie na zaproszenia dla użytkowników B2B z określonych organizacji i blokowanie ich
 
@@ -126,7 +126,7 @@ Jeśli moduł nie jest zainstalowany lub nie masz wymaganej wersji, wykonaj jedn
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Aby skonfigurować zasady, Użyj poleceń cmdlet AzureADPolicy
 
-Aby utworzyć listę dozwolonych lub zablokowanych, użyj polecenia cmdlet [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) . Poniższy przykład pokazuje, jak ustawić listę Odmów, która blokuje domenę "live.com".
+Aby utworzyć listę dozwolonych lub zablokowanych, użyj polecenia cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) . Poniższy przykład pokazuje, jak ustawić listę Odmów, która blokuje domenę "live.com".
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -140,19 +140,19 @@ Poniżej pokazano ten sam przykład, ale z definicją zasad w tekście.
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Aby ustawić zasady listy dozwolonych lub zablokowanych, należy użyć polecenia cmdlet [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
+Aby ustawić zasady listy dozwolonych lub zablokowanych, należy użyć polecenia cmdlet [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Aby uzyskać zasady, należy użyć polecenia cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
+Aby uzyskać zasady, należy użyć polecenia cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Aby usunąć zasady, należy użyć polecenia cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
+Aby usunąć zasady, należy użyć polecenia cmdlet [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
@@ -162,6 +162,3 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 
 - Aby zapoznać się z omówieniem usługi Azure AD B2B, zobacz [co to jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
 - Informacje o dostępie warunkowym i współpracy B2B można znaleźć w temacie [dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md).
-
-
-

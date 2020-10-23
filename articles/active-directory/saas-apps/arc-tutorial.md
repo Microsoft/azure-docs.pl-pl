@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: a28e81a0631db75107405576507fba36bdbfd11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8227ea4df6ccce6a0e287e861ed9dc8efade1086
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88540562"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457762"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-publishing---sso"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z publikowaniem Arc — Logowanie jednokrotne
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować publikowanie Arc — Logowanie je
 * Zezwól użytkownikom na automatyczne logowanie do usługi Arc Publishing — Logowanie jednokrotne przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -108,7 +108,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | grupy | user.assignedroles |
 
     > [!NOTE]
-    > W tym miejscu atrybut **groups** jest zamapowany na atrybut **user.assignedroles**. Są to role niestandardowe utworzone w usłudze Azure AD do mapowania nazw grup w aplikacji. Więcej wskazówek znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) na temat tworzenia ról niestandardowych w usłudze Azure AD
+    > W tym miejscu atrybut **groups** jest zamapowany na atrybut **user.assignedroles**. Są to role niestandardowe utworzone w usłudze Azure AD do mapowania nazw grup w aplikacji. Więcej wskazówek znajdziesz [tutaj](../develop/active-directory-enterprise-app-role-management.md) na temat tworzenia ról niestandardowych w usłudze Azure AD
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -128,7 +128,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -163,15 +163,14 @@ W tej sekcji w aplikacji Arc Publishing — SSO jest tworzony użytkownik o nazw
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Arc Publishing — SSO w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Arc Publishing — SSO, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Arc Publishing — SSO w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Arc Publishing — SSO, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj publikowanie Arc — Logowanie jednokrotne za pomocą usługi Azure AD](https://aad.portal.azure.com/)
-

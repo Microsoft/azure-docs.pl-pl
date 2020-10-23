@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: fd470180e17bd64990c1e657a6614fc2e0ef71d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93e9ad28b14a51432fd9ccd32d1a155eaff2e190
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335028"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427135"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Istnieją dwa modele architektoniczne wysokiej dostępności:
 
 SQL Database i wystąpienie zarządzane SQL są uruchamiane w najnowszej stabilnej wersji aparatu bazy danych SQL Server i systemu operacyjnego Windows, a większość użytkowników nie zauważy, że uaktualnienia są wykonywane w sposób ciągły.
 
-## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Dostępność warstwy usługi Basic, standard i Ogólnego przeznaczenia
+## <a name="basic-standard-and-general-purpose-service-tier-locally-redundant-availability"></a>Warstwa usługi podstawowa, standardowa i Ogólnego przeznaczenia lokalnie nadmiarowa dostępność
 
 Warstwy usługi Basic, standard i Ogólnego przeznaczenia korzystają ze standardowej architektury dostępności zarówno dla obliczeń bezserwerowych, jak i zasobów. Poniższy rysunek przedstawia cztery różne węzły z oddzielnymi warstwami obliczeniowymi i magazynowymi.
 
@@ -46,7 +46,26 @@ Standardowy model dostępności obejmuje dwie warstwy:
 
 Za każdym razem, gdy aparat bazy danych lub system operacyjny zostanie uaktualniony lub zostanie wykryta awaria, usługa Azure Service Fabric przeniesie proces bezstanowy `sqlservr.exe` do innego bezstanowego węzła obliczeniowego z wystarczającą ilością wolnego miejsca. Przeniesienie nie ma wpływ na dane w usłudze Azure Blob Storage, a pliki danych/dziennika są dołączone do nowo zainicjowanego `sqlservr.exe` procesu. Ten proces gwarantuje dostępność na 99,99%, ale duże obciążenie może spowodować spadek wydajności podczas przejścia, ponieważ nowy proces rozpoczyna się od `sqlservr.exe` zimnej pamięci podręcznej.
 
-## <a name="premium-and-business-critical-service-tier-availability"></a>Dostępność warstwy usług premium i Krytyczne dla działania firmy
+## <a name="general-purpose-service-tier-zone-redundant-availability-preview"></a>Ogólnego przeznaczenia nadmiarowa dostępność strefy warstwy usług (wersja zapoznawcza)
+
+Konfiguracja nadmiarowa strefy dla warstwy usług ogólnego przeznaczenia wykorzystuje [strefy dostępności platformy Azure](../../availability-zones/az-overview.md)   do replikowania baz danych w wielu lokalizacjach fizycznych w regionie świadczenia usługi Azure.Wybranie nadmiarowości strefy pozwala utworzyć nowe i istniejące pojedyncze bazy danych ogólnego przeznaczenia, które są odporne na znacznie większy zestaw błędów, w tym katastrofalne przestoje w centrum, bez wprowadzania żadnych zmian w logice aplikacji.
+
+Konfiguracja nadmiarowa strefy dla warstwy ogólnego zastosowania ma dwie warstwy:  
+
+- Warstwa danych stanowych z plikami bazy danych (. mdf/. ldf), które są przechowywane w ZRS PFS ( [udział plików magazynu](../../storage/files/storage-how-to-create-premium-fileshare.md)Strefowo nadmiarowego w warstwie Premium. Korzystanie z [magazynu Strefowo nadmiarowego](../../storage/common/storage-redundancy.md) pliki danych i dziennika są synchronicznie kopiowane w ramach trzech fizycznie odizolowanych stref dostępności platformy Azure.
+- Warstwa obliczeń bezstanowych, która uruchamia proces sqlservr.exe i zawiera tylko dane przejściowe i buforowane, takie jak TempDB, modeluje bazy danych na dołączonym dysku SSD, oraz pamięć podręczną planu, pulę buforów i pulę magazynu kolumn w pamięci. Ten bezstanowy węzeł jest obsługiwany przez usługę Azure Service Fabric, która inicjuje sqlservr.exe, steruje kondycją węzła i wykonuje przejście w tryb failover do innego węzła w razie potrzeby. W przypadku strefowo nadmiarowych baz danych ogólnego przeznaczenia węzły o pojemności zapasowej są łatwo dostępne w innych Strefy dostępności do pracy w trybie failover.
+
+Strefa z nadmiarową wersją architektury wysokiej dostępności dla warstwy usług ogólnego przeznaczenia przedstawiono na poniższym diagramie:
+
+![Konfiguracja nadmiarowa strefy dla ogólnego przeznaczenia](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
+
+> [!IMPORTANT]
+> Aby uzyskać aktualne informacje o regionach, które obsługują nadmiarowe bazy danych strefy, zobacz temat [Obsługa usług według regionów](../../availability-zones/az-region.md). Konfiguracja nadmiarowa strefy jest dostępna tylko wtedy, gdy wybrano sprzęt obliczeniowy 5 rdzeń. Ta funkcja jest niedostępna w wystąpieniu zarządzanym SQL.
+
+> [!NOTE]
+> Ogólnego przeznaczenia bazy danych o rozmiarze 80 rdzeń wirtualny mogą powodować spadek wydajności dzięki konfiguracji nadmiarowej strefy. Operacje, takie jak tworzenie kopii zapasowej, przywracanie, Kopiowanie bazy danych i Konfigurowanie relacji Geo-DR mogą mieć mniejszą wydajność dla pojedynczych baz danych większych niż 1 TB. 
+
+## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>Warstwa usług premium i Krytyczne dla działania firmy lokalnie nadmiarowa dostępność
 
 Warstwy usług premium i Krytyczne dla działania firmy wykorzystują model dostępności Premium, który integruje zasoby obliczeniowe ( `sqlservr.exe` procesy) i magazyn (lokalnie dołączony dysk SSD) w jednym węźle. Wysoka dostępność jest osiągana przez replikowanie zarówno zasobów obliczeniowych, jak i magazynu do dodatkowych węzłów tworzących klaster z trzema czterema węzłami.
 
@@ -55,6 +74,23 @@ Warstwy usług premium i Krytyczne dla działania firmy wykorzystują model dost
 Bazowe pliki bazy danych (. mdf/. ldf) są umieszczane w podłączonym magazynie SSD w celu zapewnienia bardzo małych opóźnień we/wy dla obciążenia. Wysoka dostępność jest implementowana przy użyciu technologii podobnego do SQL Server [zawsze włączonymi grupami dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klaster zawiera jedną replikę podstawową, która jest dostępna do obsługi obciążeń klientów odczytu i zapisu, oraz do trzech replik pomocniczych (obliczeniowych i magazynowych) zawierających kopie danych. Węzeł podstawowy ciągle przekazuje zmiany do węzłów pomocniczych w kolejności i gwarantuje, że dane są synchronizowane z co najmniej jedną repliką pomocniczą przed zatwierdzeniem każdej transakcji. Ten proces gwarantuje, że jeśli węzeł podstawowy ulegnie awarii z jakiegokolwiek powodu, zawsze jest w pełni zsynchronizowany węzeł w celu przełączenia w tryb failover. Przełączenie w tryb failover jest inicjowane przez Service Fabric platformy Azure. Gdy replika pomocnicza zostanie nowym węzłem podstawowym, zostanie utworzona inna replika pomocnicza, aby upewnić się, że klaster ma wystarczającą liczbę węzłów (zestaw kworum). Po zakończeniu pracy w trybie failover połączenia SQL platformy Azure są automatycznie przekierowywane do nowego węzła podstawowego.
 
 W ramach dodatkowych korzyści model dostępności Premium obejmuje możliwość przekierowania połączeń usługi Azure SQL tylko do odczytu do jednej z replik pomocniczych. Ta funkcja jest nazywana [skalowaniem do odczytu](read-scale-out.md). Zapewnia 100% dodatkowej pojemności obliczeniowej bez dodatkowej opłaty za magazyn operacji tylko do odczytu, na przykład obciążenia analityczne, z repliki podstawowej.
+
+## <a name="premium-and-business-critical-service-tier-zone-redundant-availability"></a>Strefa usług w warstwie Premium i Krytyczne dla działania firmy nadmiarowa dostępność 
+
+Domyślnie klaster węzłów dla modelu dostępności Premium jest tworzony w tym samym centrum danych. Wprowadzając [strefy dostępności platformy Azure](../../availability-zones/az-overview.md), SQL Database mogą umieścić różne repliki bazy danych krytyczne dla działania firmy w różnych strefach dostępności w tym samym regionie. Aby wyeliminować single point of failure, pierścień kontrolny jest również duplikowany w wielu strefach jako trzy pierścienie bramy (GW). Routing do określonego pierścienia bramy jest kontrolowany przez [usługę Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Ponieważ konfiguracja nadmiarowa strefy w warstwach usług premium lub Krytyczne dla działania firmy nie powoduje utworzenia dodatkowej nadmiarowości bazy danych, możesz ją włączyć bez dodatkowych kosztów. Wybierając strefowo nadmiarową konfigurację, można sprawić, aby bazy danych Premium lub Krytyczne dla działania firmy odporne na znacznie większy zestaw błędów, w tym katastrofalne przerwy w działaniu, bez wprowadzania żadnych zmian w logice aplikacji. Istnieje również możliwość przekonwertowania wszelkich istniejących baz danych lub pul w warstwie Premium lub Krytyczne dla działania firmy na strefę nadmiarową.
+
+Ze względu na to, że nadmiarowe bazy danych strefy mają repliki w różnych centrach, z odległości między nimi, zwiększone opóźnienie sieci może wydłużyć czas zatwierdzania i w ten sposób mieć wpływ na wydajność niektórych obciążeń OLTP. Zawsze możesz wrócić do konfiguracji pojedynczej strefy, wyłączając ustawienie nadmiarowości strefy. Ten proces jest operacją online podobną do zwykłego uaktualnienia warstwy usług. Na końcu procesu baza danych lub Pula jest migrowana ze strefy nadmiarowego pierścień do pojedynczego pierścienia strefy lub odwrotnie.
+
+> [!IMPORTANT]
+> Nadmiarowe bazy danych stref i pule elastyczne są obecnie obsługiwane tylko w warstwach usług premium i Krytyczne dla działania firmy w wybranych regionach. W przypadku korzystania z warstwy Krytyczne dla działania firmy konfiguracja nadmiarowa strefy jest dostępna tylko po wybraniu sprzętu obliczeniowego 5 rdzeń. Aby uzyskać aktualne informacje o regionach, które obsługują nadmiarowe bazy danych strefy, zobacz temat [Obsługa usług według regionów](../../availability-zones/az-region.md).
+
+> [!NOTE]
+> Ta funkcja jest niedostępna w wystąpieniu zarządzanym SQL.
+
+Strefa o wysokiej dostępności nadmiarowa jest zilustrowana na poniższym diagramie:
+
+![Strefa architektury wysokiej dostępności nadmiarowa](./media/high-availability-sla/zone-redundant-business-critical-service-tier.png)
+
 
 ## <a name="hyperscale-service-tier-availability"></a>Dostępność warstwy usługi w ramach skalowania
 
@@ -73,21 +109,6 @@ Węzły obliczeniowe we wszystkich warstwach skalowania są uruchamiane na platf
 
 Aby uzyskać więcej informacji na temat wysokiej dostępności w ramach skalowania, zobacz [wysoka dostępność bazy danych w ramach skalowania](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
 
-## <a name="zone-redundant-configuration"></a>Konfiguracja nadmiarowa stref
-
-Domyślnie klaster węzłów dla modelu dostępności Premium jest tworzony w tym samym centrum danych. Wprowadzając [strefy dostępności platformy Azure](../../availability-zones/az-overview.md), SQL Database mogą umieścić różne repliki bazy danych krytyczne dla działania firmy w różnych strefach dostępności w tym samym regionie. Aby wyeliminować single point of failure, pierścień kontrolny jest również duplikowany w wielu strefach jako trzy pierścienie bramy (GW). Routing do określonego pierścienia bramy jest kontrolowany przez [usługę Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Ponieważ konfiguracja nadmiarowa strefy w warstwach usług premium lub Krytyczne dla działania firmy nie powoduje utworzenia dodatkowej nadmiarowości bazy danych, możesz ją włączyć bez dodatkowych kosztów. Wybierając strefowo nadmiarową konfigurację, można sprawić, aby bazy danych Premium lub Krytyczne dla działania firmy odporne na znacznie większy zestaw błędów, w tym katastrofalne przerwy w działaniu, bez wprowadzania żadnych zmian w logice aplikacji. Istnieje również możliwość przekonwertowania wszelkich istniejących baz danych lub pul w warstwie Premium lub Krytyczne dla działania firmy na strefę nadmiarową.
-
-Ze względu na to, że nadmiarowe bazy danych strefy mają repliki w różnych centrach, z odległości między nimi, zwiększone opóźnienie sieci może wydłużyć czas zatwierdzania i w ten sposób mieć wpływ na wydajność niektórych obciążeń OLTP. Zawsze możesz wrócić do konfiguracji pojedynczej strefy, wyłączając ustawienie nadmiarowości strefy. Ten proces jest operacją online podobną do zwykłego uaktualnienia warstwy usług. Na końcu procesu baza danych lub Pula jest migrowana ze strefy nadmiarowego pierścień do pojedynczego pierścienia strefy lub odwrotnie.
-
-> [!IMPORTANT]
-> Nadmiarowe bazy danych stref i pule elastyczne są obecnie obsługiwane tylko w warstwach usług premium i Krytyczne dla działania firmy w wybranych regionach. W przypadku korzystania z warstwy Krytyczne dla działania firmy konfiguracja nadmiarowa strefy jest dostępna tylko po wybraniu sprzętu obliczeniowego 5 rdzeń. Aby uzyskać aktualne informacje o regionach, które obsługują nadmiarowe bazy danych strefy, zobacz temat [Obsługa usług według regionów](../../availability-zones/az-region.md).
-
-> [!NOTE]
-> Ta funkcja jest niedostępna w wystąpieniu zarządzanym SQL.
-
-Strefa o wysokiej dostępności nadmiarowa jest zilustrowana na poniższym diagramie:
-
-![Strefa architektury wysokiej dostępności nadmiarowa](./media/high-availability-sla/zone-redundant-business-critical-service-tier.png)
 
 ## <a name="accelerated-database-recovery-adr"></a>Szybsze odzyskiwanie bazy danych (ADR)
 

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 9320abb46c45b4bd151839eda40b03b445a2675f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7e63f770763d1960148dfdfa184d0b4e2b76754c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152008"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427096"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji sieci Web do rozruchu ze sprężyną Java za pomocą Azure App Service w systemie Linux i Azure Cosmos DB
 
@@ -238,7 +238,7 @@ Otwórz `pom.xml` plik w `initial/spring-boot-todo` katalogu i Dodaj następują
 
 ## <a name="deploy-to-app-service-on-linux"></a>Wdrażanie w usłudze App Service w systemie Linux
 
-Użyj celu `azure-webapp:deploy` narzędzia Maven, aby wdrożyć aplikację TODO w usłudze Azure App Service w systemie Linux.
+Użyj celu `mvn azure-webapp:deploy` narzędzia Maven, aby wdrożyć aplikację TODO w usłudze Azure App Service w systemie Linux.
 
 ```bash
 
@@ -275,7 +275,7 @@ bash-3.2$ mvn azure-webapp:deploy
 Dane wyjściowe zawierają adres URL wdrożonej aplikacji (w tym przykładzie: `https://spring-todo-app.azurewebsites.net`). Możesz skopiować ten adres URL do przeglądarki internetowej lub uruchomić następujące polecenie w oknie terminalu, aby załadować aplikację.
 
 ```bash
-open https://spring-todo-app.azurewebsites.net
+curl https://spring-todo-app.azurewebsites.net
 ```
 
 Powinna zostać wyświetlona aplikacja działająca ze zdalnym adresem URL na pasku adresu:
@@ -299,8 +299,8 @@ az appservice plan update --number-of-workers 2 \
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli nie potrzebujesz tych zasobów w innym samouczku (zobacz [Następne kroki](#next)), możesz je usunąć, uruchamiając następujące polecenie w usłudze Cloud Shell: 
-  
+Jeśli nie potrzebujesz tych zasobów w innym samouczku (zobacz [Następne kroki](#next)), możesz je usunąć, uruchamiając następujące polecenie w usłudze Cloud Shell: 
+  
 ```bash
 az group delete --name <your-azure-group-name>
 ```

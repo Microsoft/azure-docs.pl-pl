@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 7e6b4524523d0659126bcd6cbe1294d700e79ed9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5cb1e589481bb424507d08879da8cc1b14ff1c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707819"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448201"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu łącznika usługi Google Cloud (G Suite)
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować łącznik usługi Google Cloud (G
 * Zezwól użytkownikom na automatyczne logowanie do łącznika Google Cloud (G Suite) przy użyciu swoich kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -64,7 +64,7 @@ Aby przetestować czynności opisane w tym samouczku, należy postępować zgodn
 
 5. **P: Jeśli użytkownik jest zalogowany za pomocą systemu Windows, czy jest automatycznie uwierzytelniany do łącznika Google Cloud (G Suite) bez monitowania o hasło?**
 
-    Odp.: dostępne są dwie opcje umożliwiające włączenie tego scenariusza. Pierwsza opcja: użytkownicy mogą logować się do urządzeń z systemem Windows 10 za pośrednictwem [dołączania do usługi Azure Active Directory](../device-management-introduction.md). Druga opcja: użytkownicy mogą logować się do urządzeń z systemem Windows przyłączonych do domeny lokalnej usługi Active Directory, dla której włączono obsługę logowania jednokrotnego do usługi Azure AD za pośrednictwem wdrożenia usług [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md). Obie opcje wymagają wykonania czynności opisanych w poniższym samouczku, aby włączyć logowanie jednokrotne między usługą Azure AD i łącznikiem usługi Google Cloud (G Suite).
+    Odp.: dostępne są dwie opcje umożliwiające włączenie tego scenariusza. Pierwsza opcja: użytkownicy mogą logować się do urządzeń z systemem Windows 10 za pośrednictwem [dołączania do usługi Azure Active Directory](../devices/overview.md). Druga opcja: użytkownicy mogą logować się do urządzeń z systemem Windows przyłączonych do domeny lokalnej usługi Active Directory, dla której włączono obsługę logowania jednokrotnego do usługi Azure AD za pośrednictwem wdrożenia usług [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md). Obie opcje wymagają wykonania czynności opisanych w poniższym samouczku, aby włączyć logowanie jednokrotne między usługą Azure AD i łącznikiem usługi Google Cloud (G Suite).
 
 6. **P: co należy zrobić, gdy otrzymuję komunikat o błędzie "nieprawidłowy adres e-mail"?**
 
@@ -82,8 +82,8 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Łącznik Google Cloud (G Suite) obsługuje zainicjowanie rejestracji jednokrotnej w programie **SP**
 
-* Łącznik Google Cloud (G Suite) obsługuje [ **Automatyczne** Inicjowanie obsługi użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
-* Po skonfigurowaniu łącznika usługi Google Cloud (G Suite) można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Łącznik Google Cloud (G Suite) obsługuje [ **Automatyczne** Inicjowanie obsługi użytkowników](./google-apps-provisioning-tutorial.md)
+* Po skonfigurowaniu łącznika usługi Google Cloud (G Suite) można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-google-cloud-g-suite-connector-from-the-gallery"></a>Dodawanie łącznika usługi Google Cloud (G Suite) z galerii
 
@@ -185,7 +185,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -236,13 +236,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. W polu **Zmień hasło URL** w usłudze Google Cloud (G Suite) Wklej wartość **adresu URL zmiany hasła** skopiowanego z Azure Portal.
 
-    przykład Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Utwórz użytkownika testowego łącznika usługi Google Cloud (G Suite)
 
 Celem tej sekcji jest [utworzenie użytkownika w łączniku Google Cloud (G Suite)](https://support.google.com/a/answer/33310?hl=en) o nazwie B. Simon. Po ręcznym utworzeniu użytkownika w łączniku usługi Google Cloud (G Suite) użytkownik będzie mógł zalogować się przy użyciu poświadczeń logowania Microsoft 365.
 
-Łącznik Google Cloud (G Suite) obsługuje również automatyczne Inicjowanie obsługi użytkowników. Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników, należy najpierw [skonfigurować łącznik usługi Google Cloud (G Suite) do automatycznego aprowizacji użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
+Łącznik Google Cloud (G Suite) obsługuje również automatyczne Inicjowanie obsługi użytkowników. Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników, należy najpierw [skonfigurować łącznik usługi Google Cloud (G Suite) do automatycznego aprowizacji użytkowników](./google-apps-provisioning-tutorial.md).
 
 > [!NOTE]
 > Upewnij się, że użytkownik już istnieje w łączniku Google Cloud (G Suite), jeśli nie włączono obsługi administracyjnej w usłudze Azure AD przed przetestowaniem rejestracji jednokrotnej.
@@ -254,23 +254,23 @@ Celem tej sekcji jest [utworzenie użytkownika w łączniku Google Cloud (G Suit
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka łącznika Google Cloud (G Suite) w panelu dostępu należy automatycznie zalogować się do łącznika Google Cloud (G Suite), dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka łącznika Google Cloud (G Suite) w panelu dostępu należy automatycznie zalogować się do łącznika Google Cloud (G Suite), dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
-- [Konfigurowanie aprowizacji użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+- [Konfigurowanie aprowizacji użytkowników](./google-apps-provisioning-tutorial.md)
 
 - [Wypróbuj Łącznik Google Cloud (G Suite) z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić łącznik usługi Google Cloud (G Suite) z zaawansowanymi możliwościami widoczności i kontroli](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
+- [Jak chronić łącznik usługi Google Cloud (G Suite) z zaawansowanymi możliwościami widoczności i kontroli](/cloud-app-security/protect-gsuite)
 
 <!--Image references-->
 

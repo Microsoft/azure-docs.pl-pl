@@ -1,25 +1,28 @@
 ---
-title: Zbieranie i analizowanie liczników wydajności w Azure Monitor | Microsoft Docs
+title: Zbieranie źródeł danych wydajności systemów Windows i Linux za pomocą agenta Log Analytics w programie Azure Monitor
 description: Liczniki wydajności są zbierane przez Azure Monitor w celu przeanalizowania wydajności agentów systemu Windows i Linux.  W tym artykule opisano sposób konfigurowania kolekcji liczników wydajności dla agentów systemu Windows i Linux. szczegóły są przechowywane w obszarze roboczym i sposób analizowania ich w Azure Portal.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/21/2020
+ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131194"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461366"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Źródła danych wydajności systemów Windows i Linux w Azure Monitor
-Liczniki wydajności w systemach Windows i Linux zapewniają wgląd w wydajność składników sprzętowych, systemów operacyjnych i aplikacji.  Azure Monitor może zbierać liczniki wydajności w częstych odstępach czasu dla analizy prawie w czasie rzeczywistym (NRT), a także do agregowania danych dotyczących wydajności na potrzeby analizy i raportowania w dłuższym okresie.
+# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Zbieranie źródeł danych wydajności systemów Windows i Linux za pomocą agenta Log Analytics
+Liczniki wydajności w systemach Windows i Linux zapewniają wgląd w wydajność składników sprzętowych, systemów operacyjnych i aplikacji.  Azure Monitor może zbierać liczniki wydajności z agentów Log Analytics w częstych odstępach czasu dla analizy niemal w czasie rzeczywistym (NRT), a także do agregowania danych wydajności na potrzeby analizy i raportowania w dłuższym okresie.
+
+> [!IMPORTANT]
+> W tym artykule opisano zbieranie danych wydajności za pomocą [agenta log Analytics](log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
 
 ![Liczniki wydajności](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Konfigurowanie liczników wydajności
-Skonfiguruj liczniki wydajności z [menu dane w oknie Ustawienia zaawansowane](agent-data-sources.md#configuring-data-sources).
+Skonfiguruj liczniki wydajności z [menu dane w obszarze Ustawienia zaawansowane](agent-data-sources.md#configuring-data-sources) dla obszaru roboczego log Analytics.
 
 Podczas pierwszej konfiguracji liczników wydajności systemu Windows lub Linux dla nowego obszaru roboczego można szybko utworzyć kilka typowych liczników.  Na liście obok każdego z nich znajduje się pole wyboru.  Upewnij się, że wszystkie liczniki, które chcesz utworzyć, są zaznaczone, a następnie kliknij przycisk **Dodaj wybrane liczniki wydajności**.
 
