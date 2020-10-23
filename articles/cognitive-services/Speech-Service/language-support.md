@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 7d5dd7d2d0aa3d10f439b5cf3604e2d595456f86
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 6f484277ee940c63888fff068739598dd553b515
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172256"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440897"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -141,8 +141,8 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 | `ar-EG` | Arabski (Egipt) | Kobiety | `ar-EG-SalmaNeural` | Ogólne |
 | `ar-SA` | Arabski (Arabia Saudyjska) | Kobiety | `ar-SA-ZariyahNeural` | Ogólne |
 | `bg-BG` <sup>Nowe</sup> | Bułgarski (Bulgary) | Kobiety | `bg-BG-KalinaNeural` | Ogólne |
-| `ca-ES` | Kataloński (Hiszpania) | Kobiety | `ca-ES-AlbaNeural` | Ogólne |
-| `cs-CZ` <sup>Nowe</sup> | Czeski (czeski)  | Kobiety | `cs-CZ-VlastaNeural` | Ogólne |
+| `ca-ES` | Kataloński | Kobiety | `ca-ES-AlbaNeural` | Ogólne |
+| `cs-CZ` <sup>Nowe</sup> | Czeski (czeski) | Kobiety | `cs-CZ-VlastaNeural` | Ogólne |
 | `da-DK` | Duński (Dania) | Kobiety | `da-DK-ChristelNeural` | Ogólne |
 | `de-AT` <sup>Nowe</sup> | Niemiecki (Austria) | Kobiety | `de-AT-IngridNeural` | Ogólne |
 | `de-CH` <sup>Nowe</sup> | Niemiecki (Szwajcaria) | Kobiety | `de-CH-LeniNeural` | Ogólne |
@@ -150,22 +150,22 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 | `de-DE` <sup>Nowe</sup> | Niemiecki (Niemcy) | Mężczyźni | `de-DE-ConradNeural` | Ogólne |
 | `el-GR` <sup>Nowe</sup> | Grecki (Grecja) | Kobiety | `el-GR-AthinaNeural` | Ogólne |
 | `en-AU` | Angielski (Australia) | Kobiety | `en-AU-NatashaNeural` | Ogólne |
-| `en-AU` <sup>Nowe</sup> | Australia (Australia) | Mężczyźni | `en-AU-WilliamNeural` | Ogólne |
+| `en-AU` <sup>Nowe</sup> | Angielski (Australia) | Mężczyźni | `en-AU-WilliamNeural` | Ogólne |
 | `en-CA` | Angielski (Kanada) | Kobiety | `en-CA-ClaraNeural` | Ogólne |
 | `en-GB` | Angielski (Zjednoczone Królestwo) | Kobiety | `en-GB-LibbyNeural` | Ogólne |
 | `en-GB` | Angielski (Zjednoczone Królestwo) | Kobiety | `en-GB-MiaNeural` | Ogólne |
 | `en-GB` <sup>Nowe</sup> | Angielski (Zjednoczone Królestwo) | Mężczyźni | `en-GB-RyanNeural` | Ogólne |
-| `en-IE` <sup>Nowe</sup> | Irlandzki (Irlandia) | Kobiety | `en-IE-EmilyNeural` | Ogólne |
+| `en-IE` <sup>Nowe</sup> | Angielski (Irlandia) | Kobiety | `en-IE-EmilyNeural` | Ogólne |
 | `en-IN` | Angielski (Indie) | Kobiety | `en-IN-NeerjaNeural` | Ogólne |
 | `en-US` | Angielski (Stany Zjednoczone) | Kobiety | `en-US-AriaNeural` | Ogólne, dostępne są wiele stylów głosowych |
 | `en-US` | Angielski (Stany Zjednoczone) | Mężczyźni | `en-US-GuyNeural` | Ogólne |
 | `en-US` <sup>Nowe</sup> | Angielski (Stany Zjednoczone) | Kobiety | `en-US-JennyNeural` | Ogólne, dostępne są wiele stylów głosowych |
-| `es-ES` | Hiszpański (Hiszpania) | Kobiety | `es-ES-ElviraNeural` | Ogólne |
-| `es-ES` <sup>Nowe</sup> | Hiszpański (Hiszpania) | Mężczyźni | `es-ES-AlvaroNeural` | Ogólne |
+| `es-ES` | hiszpański (Hiszpania) | Kobiety | `es-ES-ElviraNeural` | Ogólne |
+| `es-ES` <sup>Nowe</sup> | hiszpański (Hiszpania) | Mężczyźni | `es-ES-AlvaroNeural` | Ogólne |
 | `es-MX` | Hiszpański (Meksyk) | Kobiety | `es-MX-DaliaNeural` | Ogólne |
 | `es-MX` <sup>Nowe</sup> | Hiszpański (Meksyk) | Mężczyźni | `es-MX-JorgeNeural` | Ogólne |
 | `fi-FI` | Fiński (Finlandia) | Kobiety | `fi-FI-NooraNeural` | Ogólne |
-| `fr-CA` | Francuski (Kanada) | Kobiety | `fr-CA-SylvieNeural` | Ogólne |
+| `fr-CA` | francuski (Kanada) | Kobiety | `fr-CA-SylvieNeural` | Ogólne |
 | `fr-CA` <sup>Nowe</sup> | francuski (Kanada) | Mężczyźni | `fr-CA-JeanNeural` | Ogólne |
 | `fr-CH` <sup>Nowe</sup> | Francuski (Szwajcaria) | Kobiety | `fr-CH-ArianeNeural` | Ogólne |
 | `fr-FR` | Francuski (Francja) | Kobiety | `fr-FR-DeniseNeural` | Ogólne |
@@ -174,7 +174,7 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 | `hi-IN` | Hindi (Indie) | Kobiety | `hi-IN-SwaraNeural` | Ogólne |
 | `hr-HR` <sup>Nowe</sup> | Chorwacki (Chorwacja) | Kobiety | `hr-HR-GabrijelaNeural` | Ogólne |
 | `hu-HU` <sup>Nowe</sup> | Węgierski (Węgry) | Kobiety | `hu-HU-NoemiNeural` | Ogólne |
-| `id-ID` <sup>Nowe</sup> | Bahasa (Indonezja) | Mężczyźni | `id-ID-ArdiNeural` | Ogólne |
+| `id-ID` <sup>Nowe</sup> | Indonezyjski (Indonezja) | Mężczyźni | `id-ID-ArdiNeural` | Ogólne |
 | `it-IT` | Włoski (Włochy) | Kobiety | `it-IT-ElsaNeural` | Ogólne |
 | `it-IT` <sup>Nowe</sup> | Włoski (Włochy) | Kobiety | `it-IT-IsabellaNeural` | Ogólne |
 | `it-IT` <sup>Nowe</sup> | Włoski (Włochy) | Mężczyźni | `it-IT-DiegoNeural` | Ogólne |
@@ -184,7 +184,7 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 | `ko-KR` <sup>Nowe</sup> | Koreański (Korea) | Mężczyźni | `ko-KR-InJoonNeural` | Ogólne |
 | `ms-MY` <sup>Nowe</sup> | Malajski (Malezja) | Kobiety | `ms-MY-YasminNeural` | Ogólne |
 | `nb-NO` | Norweski, Bokmål (Norwegia) | Kobiety | `nb-NO-IselinNeural` | Ogólne |
-| `nl-NL` | Holenderski (Holandia) | Kobiety | `nl-NL-ColetteNeural` | Ogólne |
+| `nl-NL` | Niderlandzki (Holandia) | Kobiety | `nl-NL-ColetteNeural` | Ogólne |
 | `pl-PL` | Polski (Polska) | Kobiety | `pl-PL-ZofiaNeural` | Ogólne |
 | `pt-BR` | Portugalski (Brazylia) | Kobiety | `pt-BR-FranciscaNeural` | Ogólne, dostępne są wiele stylów głosowych |
 | `pt-BR` <sup>Nowe</sup> | Portugalski (Brazylia) | Mężczyźni | `pt-BR-AntonioNeural` | Ogólne |
@@ -206,7 +206,6 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 | `zh-CN` | Mandarynki (chiński uproszczony, Chiny) | Mężczyźni | `zh-CN-YunyeNeural` | Optymalizacja pod kątem narracji w wątku |
 | `zh-HK` | Kantoński (chiński tradycyjny, Hongkong SAR) | Kobiety | `zh-HK-HiuGaaiNeural` | Ogólne |
 | `zh-TW` | Mandarynki (chiński tradycyjny, Tajwan) | Kobiety | `zh-TW-HsiaoYuNeural` | Ogólne |
-
 
 > [!IMPORTANT]
 > `en-US-JessaNeural`Głos został zmieniony na `en-US-AriaNeural` . Jeśli wcześniej używasz "Jessa", przekonwertuj wartość na "Aria".
@@ -356,7 +355,7 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 | Kiswahili               | `sw`          |
 | Klingon                 | `tlh-Latn`    |
 | Klingon (plqaD)         | `tlh-Piqd`    |
-| koreański                  | `ko`          |
+| Koreański                  | `ko`          |
 | Łotewski                 | `lv`          |
 | Litewski              | `lt`          |
 | Madagaskaru                | `mg`          |

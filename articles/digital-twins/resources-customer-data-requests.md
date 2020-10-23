@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047696"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461763"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Funkcje żądania danych klienta Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -25,7 +25,7 @@ Reprezentacje cyfrowe o nazwie *Digital bliźniaczych reprezentacji* w usłudze 
 
 Wiele bliźniaczych reprezentacji cyfrowych w usłudze Azure Digital bliźniaczych reprezentacji nie reprezentuje bezpośrednio jednostek osobistych — typowe reprezentowane obiekty mogą być pokoju spotkań biurowych lub fabryki fabryk. Jednak użytkownicy mogą rozważyć pewne jednostki, które mają być identyfikowalne, i według ich uznania mogą zachować własne metody śledzenia zasobów lub spisu, które wiążą cyfrowy bliźniaczych reprezentacji z użytkownikami. Usługa Azure Digital bliźniaczych reprezentacji zarządza i przechowuje wszystkie dane skojarzone z cyfrowym bliźniaczych reprezentacji, tak jakby były danymi osobistymi.
 
-Aby wyświetlać, eksportować i usuwać dane osobowe, do których można się odwołać w żądaniu podmiotu danych, administrator Digital bliźniaczych reprezentacji może używać [**Azure Portal**](https://portal.azure.com/) dla użytkowników i ról lub [**interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji**](how-to-use-apis-sdks.md) dla cyfrowych bliźniaczych reprezentacji. Azure Portal i interfejsy API REST zapewniają różne metody obsługi takich żądań podmiotu danych.
+Aby wyświetlać, eksportować i usuwać dane osobowe, do których można się odwołać w żądaniu podmiotu danych, administrator Digital bliźniaczych reprezentacji może używać [**Azure Portal**](https://portal.azure.com/) dla użytkowników i ról lub [**interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji**](/rest/api/azure-digitaltwins/) dla cyfrowych bliźniaczych reprezentacji. Azure Portal i interfejsy API REST zapewniają różne metody obsługi takich żądań podmiotu danych.
 
 ## <a name="identifying-customer-data"></a>Identyfikowanie danych klienta
 

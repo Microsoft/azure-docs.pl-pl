@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 2a50d7b037cec2c10f83fdbbd875f80513c00a6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a47a3ae27fd1a18b7e9acd7d8b25748f6274c3e9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88517070"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456997"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blogin"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą blogu
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować blog z usługą Azure Active Dire
 * Zezwól użytkownikom na automatyczne logowanie do blogu przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +41,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Blog obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
 * Blog obsługuje funkcję aprowizacji użytkowników **just in Time**
-* Po skonfigurowaniu blogu można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu blogu można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-blogin-from-the-gallery"></a>Dodawanie blogu z galerii
 
@@ -99,7 +99,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     
     | Nazwa | Atrybut źródłowy |
     | ------ | --------- |
-    | title |user.jobtitle |
+    | tytuł |user.jobtitle |
     
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
@@ -116,7 +116,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -143,7 +143,7 @@ Aby skonfigurować Logowanie jednokrotne na stronie **blogu** na koncie blogu i 
 1. Przejdź do pozycji **Ustawienia**  >  **uwierzytelnianie użytkowników**  >  **Skonfiguruj Logowanie jednokrotne & Inicjowanie obsługi użytkowników**.
 2. Na następnym ekranie Zmień stan Sign-On na **włączone** , a następnie wybierz niestandardową nazwę przycisku logowania jednokrotnego, który będzie wyświetlany na ekranie logowania.
 
-3. Jeśli **adres URL metadanych federacji aplikacji** został zapisany w ostatnim kroku poprzedniej sekcji, wybierz **adres URL metadanych** metody konfiguracji i wklej **adres URL metadanych federacji aplikacji** do pola adres URL metadanych. W przeciwnym razie zmień metodę konfiguracji na **ręcznie, ręcznie**Wypełnij **adres URL logowania jednokrotnego dostawcy tożsamości (adres URL rejestracji)** i **wystawcę dostawcy tożsamości (identyfikator jednostki)**, a następnie Przekaż **certyfikat (base64)**   uzyskany z usługi Azure AD.
+3. Jeśli **adres URL metadanych federacji aplikacji** został zapisany w ostatnim kroku poprzedniej sekcji, wybierz **adres URL metadanych** metody konfiguracji i wklej **adres URL metadanych federacji aplikacji** do pola adres URL metadanych. W przeciwnym razie zmień metodę konfiguracji na **ręcznie, ręcznie**Wypełnij **adres URL logowania jednokrotnego dostawcy tożsamości (adres URL rejestracji)** i **wystawcę dostawcy tożsamości (identyfikator jednostki)**, a następnie Przekaż **certyfikat (base64)** uzyskany z usługi Azure AD.
 
 4. Wybierz domyślną rolę użytkownika, aby uzyskać dostęp do blogu przy użyciu logowania jednokrotnego.
 
@@ -159,18 +159,18 @@ W tej sekcji użytkownik o nazwie B. Simon został utworzony w blogu. Blog obsł
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka bloga w panelu dostępu należy automatycznie zalogować się do blogu, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka bloga w panelu dostępu należy automatycznie zalogować się do blogu, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj blog w usłudze Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić blog przy użyciu zaawansowanej widoczności i kontrolek](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić blog przy użyciu zaawansowanej widoczności i kontrolek](/cloud-app-security/proxy-intro-aad)

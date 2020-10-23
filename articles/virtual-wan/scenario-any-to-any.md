@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6115ca375c3e5bf2be3335fe2231628ec7bf309f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267741"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440488"
 ---
 # <a name="scenario-any-to-any"></a>Scenariusz: dowolne
 
@@ -22,14 +22,14 @@ Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka
 
 ## <a name="design"></a><a name="design"></a>Projekt
 
-Aby ustalić, ile tabel tras będzie potrzebnych w wirtualnym scenariuszu sieci WAN, można utworzyć macierz łączności, w której każda komórka reprezentuje, czy źródło (wiersz) może komunikować się z miejscem docelowym (kolumna). Macierz łączności w tym scenariuszu jest prosta, ale dodaliśmy ją w celu zapewnienia spójności z innymi scenariuszami.
+Aby ustalić, ile tabel tras będzie potrzebnych w wirtualnym scenariuszu sieci WAN, można utworzyć macierz łączności, w której każda komórka reprezentuje, czy źródło (wiersz) może komunikować się z miejscem docelowym (kolumna).
 
 | Źródło |   Działanie |  *Sieci wirtualnych* | *Gałęzie* |
 | -------------- | -------- | ---------- | ---|
-| Sieci wirtualnych     | &#8594;|      X     |     X    |
-| Gałęzie   | &#8594;|    X     |     X    |
+| Sieci wirtualnych     | &#8594;| Direct | Direct |
+| Gałęzie   | &#8594;| Direct  | Direct |
 
-Każda z komórek w powyższej tabeli opisuje, czy wirtualne połączenie sieci WAN ("od" po stronie przepływu, nagłówki wierszy w tabeli) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu, gdzie "X" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN.
+Każda z komórek w poprzedniej tabeli opisuje, czy wirtualne połączenie sieci WAN ("od", po stronie przepływu, nagłówki wierszy) komunikuje się z prefiksem lokalizacji docelowej (po stronie "do" przepływu, nagłówki kolumn w kursywie). W tym scenariuszu nie ma zapór ani sieciowych urządzeń wirtualnych, dlatego komunikacja odbywa się bezpośrednio za pośrednictwem wirtualnej sieci WAN (w związku z tym wyraz "Direct" w tabeli).
 
 Ponieważ wszystkie połączenia zarówno z sieci wirtualnych, jak i gałęzi (VPN, ExpressRoute i VPN użytkownika) mają takie same wymagania dotyczące łączności, wymagana jest pojedyncza tabela tras. W związku z tym wszystkie połączenia będą skojarzone i propagowane do tej samej tabeli tras, domyślnej tabeli tras:
 

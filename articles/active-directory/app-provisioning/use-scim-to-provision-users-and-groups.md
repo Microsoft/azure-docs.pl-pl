@@ -11,12 +11,13 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: bfd9e08387a4de2220ef56afdd0ef79bd837ed4c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: contperfq2
+ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070201"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424597"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -335,7 +336,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *POBRAĆ wartość/users? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
-##### <a name="response"></a><a name="response-2"></a>Reakcji
+##### <a name="response"></a><a name="response-2"></a>Reakcja
 
 *HTTP/1.1 200 OK*
 ```json
@@ -376,7 +377,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *POBRAĆ wartość/users? Filter = userName EQ "nieistniejącego użytkownika"*
 
-##### <a name="response"></a><a name="response-3"></a>Reakcji
+##### <a name="response"></a><a name="response-3"></a>Reakcja
 
 *HTTP/1.1 200 OK*
 ```json
@@ -413,7 +414,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-4"></a>Reakcji
+##### <a name="response"></a><a name="response-4"></a>Reakcja
 
 *HTTP/1.1 200 OK*
 ```json
@@ -457,7 +458,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-5"></a>Reakcji
+##### <a name="response"></a><a name="response-5"></a>Reakcja
 
 *HTTP/1.1 200 OK*
 ```json
@@ -506,7 +507,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-14"></a>Reakcji
+##### <a name="response"></a><a name="response-14"></a>Reakcja
 
 ```json
 {
@@ -546,7 +547,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *Usuń/users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-6"></a>Reakcji
+##### <a name="response"></a><a name="response-6"></a>Reakcja
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -573,7 +574,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-7"></a>Reakcji
+##### <a name="response"></a><a name="response-7"></a>Reakcja
 
 *Utworzono protokół HTTP/1.1 201*
 ```json
@@ -598,7 +599,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = Members HTTP/1.1*
 
-##### <a name="response"></a><a name="response-8"></a>Reakcji
+##### <a name="response"></a><a name="response-8"></a>Reakcja
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -619,7 +620,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ##### <a name="request"></a><a name="request-9"></a>Żądanie
 *GET/Groups? excludedAttributes = memberss&Filter = displayName EQ "displayName" HTTP/1.1*
 
-##### <a name="response"></a><a name="response-9"></a>Reakcji
+##### <a name="response"></a><a name="response-9"></a>Reakcja
 
 *HTTP/1.1 200 OK*
 ```json
@@ -659,7 +660,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-10"></a>Reakcji
+##### <a name="response"></a><a name="response-10"></a>Reakcja
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -682,7 +683,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-11"></a>Reakcji
+##### <a name="response"></a><a name="response-11"></a>Reakcja
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -705,7 +706,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-12"></a>Reakcji
+##### <a name="response"></a><a name="response-12"></a>Reakcja
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -715,7 +716,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *Usuń/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-13"></a>Reakcji
+##### <a name="response"></a><a name="response-13"></a>Reakcja
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -915,7 +916,7 @@ Wyślij żądanie GET do kontrolera tokenu w celu uzyskania prawidłowego tokenu
 
 ### <a name="handling-provisioning-and-deprovisioning-of-users"></a>Obsługa obsługi administracyjnej i cofanie aprowizacji użytkowników
 
-***Przykład 1. Wysyłanie zapytań do usługi pod kątem pasującego użytkownika***
+***Przykład 1. Wysyłanie zapytań do usługi pod kątem pasującego użytkownika**_
 
 Azure Active Directory wysyła zapytanie do usługi dla użytkownika o `externalId` wartości atrybutu pasującej do wartości atrybutu mailNickName użytkownika w usłudze Azure AD. Zapytanie jest wyrażone jako żądanie protokołu HTTP (Hypertext Transfer Protocol), takie jak ten przykład, w którym jyoung jest próbka mailNickname użytkownika w Azure Active Directory.
 
@@ -943,12 +944,12 @@ W przykładowym kodzie żądanie jest tłumaczone na wywołanie metody QueryAsyn
 
 W zapytaniu przykładowym dla użytkownika mającego daną wartość `externalId` atrybutu wartości argumentów przekazane do metody QueryAsync są następujące:
 
-* wejściowe. AlternateFilters. Count: 1
+wejściowe. AlternateFilters. Count: 1
 * wejściowe. AlternateFilters. ElementAt (0). AttributePath: "externalId"
 * wejściowe. AlternateFilters. ElementAt (0). Operatorporównania: operatorporównania. Equals
 * wejściowe. AlternateFilter. ElementAt (0). ComparisonValue: "jyoung"
 
-***Przykład 2. Inicjowanie obsługi administracyjnej użytkownika***
+***Przykład 2. Inicjowanie obsługi administracyjnej użytkownika**_
 
 Jeśli odpowiedź na zapytanie do usługi sieci Web dla użytkownika o `externalId` wartości atrybutu, która pasuje do wartości atrybutu mailNickName użytkownika, nie zwróci żadnych użytkowników, a następnie Azure Active Directory żądania zainicjowania usługi przez użytkownika odpowiadającego danemu w Azure Active Directory.  Oto przykład tego żądania: 
 
@@ -997,7 +998,7 @@ W przykładowym kodzie żądanie jest tłumaczone na wywołanie metody onasync d
 
 W żądaniu do aprowizacji użytkownika wartość argumentu zasobu jest wystąpieniem klasy Microsoft. Standard scim. Core2EnterpriseUser, zdefiniowanej w bibliotece Microsoft. Standard scim. Schematys.  Jeśli żądanie zainicjowania obsługi użytkownika zakończyło się pomyślnie, implementacja metody zwróci wystąpienie klasy Microsoft. Standard scim. Core2EnterpriseUser, a wartość właściwości identyfikator jest ustawiona na unikatowy identyfikator nowo zainicjowanego użytkownika.  
 
-***Przykład 3. Zbadaj bieżący stan użytkownika*** 
+_*_Przykład 3. Zbadaj bieżący stan użytkownika_*_ 
 
 Aby zaktualizować użytkownika znanego w magazynie tożsamości, z którego korzysta Standard scim, Azure Active Directory kontynuować, żądając bieżącego stanu tego użytkownika od usługi przy użyciu żądania takiego jak: 
 
@@ -1021,14 +1022,14 @@ W przykładowym kodzie żądanie jest tłumaczone na wywołanie metody RetrieveA
 
 W przykładzie żądania pozyskania bieżącego stanu użytkownika wartości właściwości obiektu dostarczonego jako wartość argumentu Parameters są następujące w następujących przypadkach: 
   
-* Identyfikator: "54D382A4-2050-4C03-94D1-E769F1D15682"
+_ Identyfikator: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User"
 
-***Przykład 4. Zbadaj wartość atrybutu odwołania do zaktualizowania*** 
+***Przykład 4. Zbadaj wartość atrybutu odwołania, który ma zostać zaktualizowany**_ 
 
 Jeśli atrybut odwołania ma zostać zaktualizowany, Azure Active Directory wysyła zapytanie do usługi w celu ustalenia, czy bieżąca wartość atrybutu odwołania w magazynie tożsamości przedniego przez usługę już pasuje do wartości tego atrybutu w Azure Active Directory. W przypadku użytkowników jedynym atrybutem, którego bieżącą wartością jest zapytanie w ten sposób, jest atrybut Manager. Oto przykład żądania, aby określić, czy atrybut Menedżera obiektu użytkownika ma obecnie określoną wartość: w przykładowym kodzie żądanie jest tłumaczone na wywołanie metody QueryAsync dostawcy usługi. Wartość właściwości obiektu dostarczonego jako wartość argumentu Parameters są następujące: 
   
-* wejściowe. AlternateFilters. Count: 2
+wejściowe. AlternateFilters. Count: 2
 * wejściowe. AlternateFilters. ElementAt (x). AttributePath: "ID"
 * wejściowe. AlternateFilters. ElementAt (x). Operatorporównania: operatorporównania. Equals
 * wejściowe. AlternateFilter. ElementAt (x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
@@ -1040,7 +1041,7 @@ Jeśli atrybut odwołania ma zostać zaktualizowany, Azure Active Directory wysy
 
 W tym miejscu wartość indeksu x może być równa 0, a wartość indeksu y może wynosić 1 lub wartość x może wynosić 1, a wartość y może być równa 0, w zależności od kolejności wyrażeń parametru kwerendy filtru.   
 
-***Przykład 5. Zażądaj od usługi Azure AD, aby zaktualizować użytkownika*** 
+***Przykład 5. Żądanie od usługi Azure AD do Standard SCIMej aktualizacji użytkownika**_ 
 
 Oto przykład żądania od Azure Active Directory do usługi Standard scim w celu zaktualizowania użytkownika: 
 
@@ -1079,7 +1080,7 @@ W przykładowym kodzie żądanie jest tłumaczone na wywołanie metody UpdateAsy
 
 W przykładzie żądania zaktualizowania użytkownika obiekt dostarczony jako wartość argumentu patch ma następujące wartości właściwości: 
   
-* ResourceIdentifier. Identyfikator: "54D382A4-2050-4C03-94D1-E769F1D15682"
+_ ResourceIdentifier. Identyfikator: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier. SchemaIdentifier: "urn: IETF: params: Standard scim: schematy: Extension: Enterprise: 2.0: User"
 * (PatchRequest jako PatchRequest2). Operations. Count: 1
 * (PatchRequest jako PatchRequest2). Operations. ElementAt (0). OperationName: OperationName. Add
@@ -1088,7 +1089,7 @@ W przykładzie żądania zaktualizowania użytkownika obiekt dostarczony jako wa
 * (PatchRequest jako PatchRequest2). Operations. ElementAt (0). Value. ElementAt (0). Odwołanie: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest jako PatchRequest2). Operations. ElementAt (0). Value. ElementAt (0). Value: 2819c223-7f76-453A-919d-413861904646
 
-***Przykład 6. Anulowanie aprowizacji użytkownika***
+***Przykład 6. **Anulowanie aprowizacji użytkownika _
 
 Aby anulować obsługę administracyjną użytkownika z magazynu tożsamości przedniego przez usługę Standard scim, usługa Azure AD wysyła żądanie, takie jak:
 
@@ -1111,7 +1112,7 @@ W przykładowym kodzie żądanie jest tłumaczone na wywołanie metody DeleteAsy
 
 Obiekt dostarczony jako wartość argumentu resourceIdentifier ma te wartości właściwości w przykładzie żądania anulowania aprowizacji użytkownika: 
 
-* ResourceIdentifier. Identyfikator: "54D382A4-2050-4C03-94D1-E769F1D15682"
+_ ResourceIdentifier. Identyfikator: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier. SchemaIdentifier: "urn: IETF: params: Standard scim: schematy: Extension: Enterprise: 2.0: User"
 
 ## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>Krok 4. Integracja punktu końcowego Standard scim z klientem usługi Azure AD Standard scim
@@ -1146,8 +1147,8 @@ Aplikacje obsługujące profil Standard scim opisany w tym artykule mogą być p
 7. W polu **adres URL dzierżawy** wprowadź adres URL punktu końcowego Standard scim aplikacji. Przykład: `https://api.contoso.com/scim/`
 8. Jeśli punkt końcowy Standard scim wymaga tokenu okaziciela OAuth od wystawcy innego niż usługa Azure AD, a następnie skopiuj wymagany token okaziciela OAuth do pola opcjonalnego **tokenu tajnego** . Jeśli to pole pozostanie puste, usługa Azure AD zawiera token okaziciela OAuth wystawiony przez usługę Azure AD za pomocą każdego żądania. Aplikacje korzystające z usługi Azure AD jako dostawca tożsamości mogą sprawdzić poprawność tego tokenu wystawionego przez usługę Azure AD. 
    > [!NOTE]
-   > ***Nie*** zaleca się pozostawienia tego pola pustego i polegania na tokenie wygenerowanym przez usługę Azure AD. Ta opcja jest dostępna głównie do celów testowych.
-9. Wybierz pozycję **Testuj połączenie** , aby uzyskać Azure Active Directory próbę nawiązania połączenia z punktem końcowym Standard scim. Jeśli próba nie powiedzie się, zostanie wyświetlony komunikat o błędzie.  
+   > *_Nie_* jest zalecane, aby pozostawić to pole puste i polegać na tokenie wygenerowanym przez usługę Azure AD. Ta opcja jest dostępna głównie do celów testowych.
+9. Wybierz _*Testuj połączenie**, aby Azure Active Directory próbę nawiązania połączenia z punktem końcowym Standard scim. Jeśli próba nie powiedzie się, zostanie wyświetlony komunikat o błędzie.  
 
     > [!NOTE]
     > **Test connection** wysyła zapytanie do punktu końcowego Standard scim dla użytkownika, który nie istnieje, przy użyciu losowego identyfikatora GUID jako pasującej właściwości wybranej w konfiguracji usługi Azure AD. Oczekiwana prawidłowa odpowiedź to HTTP 200 OK z pustym komunikatem Standard scim ListResponse.

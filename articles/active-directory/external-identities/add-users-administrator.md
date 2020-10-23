@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b503c7494d1b5e1821718fab5577bca88be65169
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909777"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442290"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal
 
@@ -25,9 +25,9 @@ Jako użytkownik, któremu przypisano dowolne role katalogu administratora z ogr
 Po dodaniu użytkownika-gościa do katalogu można wysłać użytkownikowi gość bezpośredni link do udostępnionej aplikacji lub kliknąć adres URL wykupu w wiadomości e-mail z zaproszeniem. Aby uzyskać więcej informacji na temat procesu wykupu, zobacz Tworzenie [zaproszeń do współpracy B2B](redemption-experience.md).
 
 > [!IMPORTANT]
-> Należy postępować zgodnie z instrukcjami w temacie [: Dodawanie informacji o ochronie prywatności organizacji w Azure Active Directory](https://aka.ms/adprivacystatement) , aby dodać adres URL zasad zachowania poufności informacji organizacji. W ramach procesu wykupu po raz pierwszy zaproszony użytkownik musi wyrazić zgodę na warunki zachowania poufności, aby kontynuować. 
+> Należy postępować zgodnie z instrukcjami w temacie [: Dodawanie informacji o ochronie prywatności organizacji w Azure Active Directory](../fundamentals/active-directory-properties-area.md) , aby dodać adres URL zasad zachowania poufności informacji organizacji. W ramach procesu wykupu po raz pierwszy zaproszony użytkownik musi wyrazić zgodę na warunki zachowania poufności, aby kontynuować. 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Upewnij się, że ustawienia współpracy zewnętrznej Twojej organizacji zostały skonfigurowane tak, aby można było zapraszać Gości. Domyślnie wszyscy użytkownicy i Administratorzy mogą zapraszać Gości. Jednak zasady współpracy zewnętrznej w organizacji mogą być skonfigurowane tak, aby uniemożliwić określonym użytkownikom lub administratorom zapraszanie Gości. Aby dowiedzieć się, jak wyświetlać i ustawiać te zasady, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać Gości](delegate-invitations.md).
 
@@ -124,4 +124,3 @@ Jeśli użytkownik-Gość nie zakończył jeszcze zaproszenia, możesz ponownie 
 
 - Aby dowiedzieć się, jak Administratorzy usługi Azure AD mogą dodawać użytkowników z gościa B2B, zobacz [jak Pracownicy przetwarzający informacje dodają użytkowników współpracy B2B?](add-users-information-worker.md)
 - Aby uzyskać informacje na temat wiadomości e-mail z zaproszeniem, zobacz [elementy wiadomości e-mail z zaproszeniem do współpracy B2B](invitation-email-elements.md).
-

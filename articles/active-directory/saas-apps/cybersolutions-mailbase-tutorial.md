@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: aa45494e9870daee079eed4fe92867f64c3c791e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a1bed217f12646687654f37145a4a796d0487a1
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90057383"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455004"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cybersolutions-mailbasecmss"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą CyberSolutions MAILBASEΣ \ CMS
 
@@ -105,7 +105,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -125,7 +125,7 @@ Aby skonfigurować Logowanie jednokrotne na **CYBERSOLUTIONS MAILBASEΣ \ CMS** 
 
 ### <a name="create-cybersolutions-mailbase-test-user"></a>Utwórz użytkownika testowego CyberSolutions MAILBASE
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w CyberSolutions MAILBASEΣ \ CMS. Aby dodać użytkowników na platformie CyberSolutions MAILBASEΣ \ CMS, Pracuj z [zespołem pomocy technicznej CYBERSOLUTIONS MAILBASEΣ \ CMS](mailto:tech@cybersolutions.co.jp) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w CyberSolutions MAILBASEΣ \ CMS. Aby dodać użytkowników na platformie CyberSolutions MAILBASEΣ \ CMS, Pracuj z [zespołem pomocy technicznej CYBERSOLUTIONS MAILBASEΣ \ CMS](mailto:tech@cybersolutions.co.jp) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -141,9 +141,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do CyberSolutions MAILBASEΣ \ CMS, dla którego skonfigurowano Logowanie jednokrotne. 
 
-Możesz również użyć panelu dostępu programu Microsoft, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka CyberSolutions MAILBASEΣ \ CMS w panelu dostępu, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do CyberSolutions MAILBASEΣ \ CMS, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Możesz również użyć panelu dostępu programu Microsoft, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka CyberSolutions MAILBASEΣ \ CMS w panelu dostępu, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do CyberSolutions MAILBASEΣ \ CMS, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu CyberSolutions MAILBASEΣ \ CMS można wymusić kontrolę sesji, co chroni w czasie rzeczywistym eksfiltracji i filtrowanie danych poufnych w organizacji. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
+Po skonfigurowaniu CyberSolutions MAILBASEΣ \ CMS można wymusić kontrolę sesji, co chroni w czasie rzeczywistym eksfiltracji i filtrowanie danych poufnych w organizacji. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
