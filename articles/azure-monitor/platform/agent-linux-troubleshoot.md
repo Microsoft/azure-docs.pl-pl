@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531194"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460873"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Linux 
 
@@ -23,7 +23,37 @@ Jeśli żadna z tych kroków nie zadziałała, dostępne są również następuj
 * Klienci z umowami pomocy technicznej systemu Azure mogą otworzyć żądanie pomocy technicznej [w Azure Portal](https://manage.windowsazure.com/?getsupport=true).
 * Diagnozuj problemy z OMI, korzystając z [przewodnika rozwiązywania problemów z OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Zaplikowanie problemu z usługą [GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Odwiedź stronę Log Analytics opinię, aby przejrzeć przesłane pomysły i usterki [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) albo plik nowy.  
+* Odwiedź stronę Log Analytics opinię, aby przejrzeć przesłane pomysły i usterki [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) albo plik nowy. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Narzędzie do rozwiązywania problemów Log Analytics
+
+Narzędzie do rozwiązywania problemów z agentem Log Analytics w systemie Linux jest narzędziem ułatwiającym znalezienie i zdiagnozowanie problemów z agentem Log Analytics. Jest on automatycznie dołączany do agenta podczas instalacji. Uruchomienie narzędzia powinno być pierwszym krokiem w diagnozowaniu problemu.
+
+### <a name="how-to-use"></a>Jak używać
+Narzędzie do rozwiązywania problemów można uruchomić, wklejając następujące polecenie do okna terminalu na komputerze z agentem Log Analytics: `sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### <a name="manual-installation"></a>Instalacja ręczna
+Narzędzie do rozwiązywania problemów jest automatycznie dołączane podczas instalacji agenta Log Analytics. Jeśli jednak instalacja nie powiedzie się w jakikolwiek sposób, można ją także zainstalować ręcznie, wykonując poniższe kroki.
+
+1. Skopiuj pakiet narzędzia do rozwiązywania problemów na swoją maszynę: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. Rozpakuj pakiet: `tar -xzvf omsagent_tst.tar.gz`
+3. Uruchom instalację ręczną: `sudo ./install_tst`
+
+### <a name="scenarios-covered"></a>Omówione scenariusze
+Poniżej znajduje się lista scenariuszy sprawdzanych przez narzędzie do rozwiązywania problemów:
+
+1. Agent jest w złej kondycji, puls nie działa prawidłowo
+2. Nie uruchomiono agenta, nie można nawiązać połączenia z usługami log Analytics
+3. Dziennik systemowy agenta nie działa
+4. Agent ma duże użycie procesora CPU/pamięci
+5. Agent z problemami z instalacją
+6. Dzienniki niestandardowe agenta nie działają
+7. Zbierz dzienniki agentów
+
+Aby uzyskać więcej informacji, zapoznaj się z naszą [dokumentacją usługi GitHub](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
+
+ >[!NOTE]
+ >Uruchom narzędzie zbierające dzienniki w przypadku wystąpienia problemu. Zarejestrowanie dzienników na początku znacznie ułatwi zespołowi pomocy technicznej Rozwiązywanie problemów.
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Ważne lokalizacje dzienników i narzędzie do modułu zbierającego dzienniki
 

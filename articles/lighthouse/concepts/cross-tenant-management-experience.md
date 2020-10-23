@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 10/20/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9b47dd720271fe782ce9562d2216eca881756ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424147"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460669"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -81,6 +81,10 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 [Usługa Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
 - Zarządzanie hostowanymi środowiskami Kubernetes oraz wdrażanie aplikacji kontenerowych i zarządzanie nimi w ramach dzierżawców klientów
+
+[Azure Migrate](../../migrate/index.yml):
+
+- Tworzenie projektów migracji w dzierżawie klienta i migrowanie maszyn wirtualnych
 
 [Azure monitor](../../azure-monitor/index.yml):
 

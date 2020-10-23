@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 1bb523c1b5aa595a714930962bbbe4e7e04de517
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e6c00a0d2b6ff8bbb4ba9e51110e995e93d6b558
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131398"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426965"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Sparametryzuj połączone usługi w Azure Data Factory
 
@@ -32,16 +32,18 @@ Aby zapoznać się z wprowadzeniem do siedmiu minut i demonstracją tej funkcji,
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
-## <a name="supported-data-stores"></a>Obsługiwane magazyny danych
+## <a name="supported-linked-service-types"></a>Obsługiwane typy połączonych usług
 
 Możesz Sparametryzuj dowolny typ połączonej usługi.
-Podczas tworzenia połączonej usługi w interfejsie użytkownika Data Factory zapewnia wbudowane środowisko parametryzacja dla następujących typów łączników. W bloku Tworzenie/edytowanie połączonej usługi można znaleźć opcje nowych parametrów i dodać zawartość dynamiczną.
+Podczas tworzenia połączonej usługi w interfejsie użytkownika Data Factory udostępnia wbudowane środowisko parametryzacja dla następujących typów połączonych usług. W bloku Tworzenie/edytowanie połączonej usługi można znaleźć opcje nowych parametrów i dodać zawartość dynamiczną.
 
 - Amazon Redshift
 - Amazon S3
 - Azure Cosmos DB (interfejs API SQL)
 - Azure Database for MySQL
+- Azure Databricks
 - Azure SQL Database
+- Wystąpienie zarządzane Azure SQL
 - Azure Synapse Analytics (dawniej SQL DW)
 - MySQL
 - Oracle
@@ -49,7 +51,7 @@ Podczas tworzenia połączonej usługi w interfejsie użytkownika Data Factory z
 - Ogólne HTTP
 - Ogólne REST
 
-W przypadku innych typów można Sparametryzuj połączoną usługę, edytując kod JSON w interfejsie użytkownika:
+W przypadku innych typów połączonych usług, które nie znajdują się na liście, możesz Sparametryzuj połączoną usługę, edytując kod JSON w interfejsie użytkownika:
 
 - W obszarze Tworzenie/edytowanie połączonej usługi — > rozwiń pozycję "Zaawansowane" w > polu wyboru "Określ zawartość dynamiczną w formacie JSON"-> Określ ładunek JSON połączonej usługi. 
 - Lub po utworzeniu połączonej usługi bez parametryzacja w [centrum zarządzania](author-visually.md#management-hub) — > połączone usługi — > znaleźć określoną połączoną usługę-> kliknij "kod" (przycisk " {} "), aby edytować plik JSON. 

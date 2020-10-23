@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c8ead035b9ac47325b2237ebd4d248f09d2d22f5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: a4fa1a690c6607b70774be67048fcad7db378b8b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047747"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461604"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
@@ -56,7 +56,7 @@ Podczas tworzenia publicznego modułu równoważenia obciążenia tworzony jest 
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | Wybierz pozycję **Publiczna**.                                        |
-    | SKU           | Wybierz pozycję **standardowa** |
+    | Jednostka SKU           | Wybierz pozycję **standardowa** |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. Jeśli masz istniejący publiczny adres IP, którego chcesz użyć, wybierz pozycję **Użyj istniejącej**. |
     | Nazwa publicznego adresu IP | Wpisz **myPublicIP** w polu tekstowym.|
     | Strefa dostępności | Wybierz opcję **strefa nadmiarowa** , aby utworzyć odporny moduł równoważenia obciążenia. Aby utworzyć strefowy moduł równoważenia obciążenia, wybierz określoną strefę z 1, 2 lub 3 |
@@ -138,7 +138,9 @@ W tej sekcji utworzysz regułę modułu równoważenia obciążenia:
     | Port zaplecza | Wprowadź **80**. |
     | Pula zaplecza | Wybierz pozycję **myBackendPool**.|
     | Sonda kondycji | Wybierz pozycję **myHealthProbe**. |
-    | Utwórz niejawne reguły wychodzące | Wybierz pozycję **Nie**.
+    | Limit czasu bezczynności (minuty) | Przesuń suwak do **15** minut. |
+    | Resetowanie protokołu TCP | Wybierz pozycję **Włączone**. |
+    | Translacja adresów sieciowych dla ruchu wychodzącego (Resources) | Wybierz **(zalecane) Użyj reguł ruchu wychodzącego, aby zapewnić członkom puli zaplecza dostęp do Internetu.** |
 
 4. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **OK**.
 
@@ -162,7 +164,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     |------------------|-----------------------------------------------------------------|
     | **Szczegóły projektu**  |                                                                 |
     | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
-    | Resource Group   | Wybierz **myResourceGroupLB** |
+    | Grupa zasobów   | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
     | Region           | Wybierz **Europa Zachodnia** |
@@ -215,7 +217,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Resource Group | Wybierz **myResourceGroupLB** |
+    | Grupa zasobów | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM1** |
     | Region | Wybierz **Europa Zachodnia** |
@@ -335,7 +337,7 @@ Podczas tworzenia publicznego modułu równoważenia obciążenia tworzony jest 
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | Wybierz pozycję **Publiczna**.                                        |
-    | SKU           | Wybierz pozycję **podstawowa** |
+    | Jednostka SKU           | Wybierz pozycję **podstawowa** |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. Jeśli masz istniejący publiczny adres IP, którego chcesz użyć, wybierz pozycję **Użyj istniejącej**. |
     | Nazwa publicznego adresu IP | Wpisz **myPublicIP** w polu tekstowym.|
     | Przypisanie | Wybierz **dynamiczny** |
@@ -368,7 +370,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     |------------------|-----------------------------------------------------------------|
     | **Szczegóły projektu**  |                                                                 |
     | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
-    | Resource Group   | Wybierz **myResourceGroupLB** |
+    | Grupa zasobów   | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
     | Region           | Wybierz **Europa Zachodnia** |
@@ -501,7 +503,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Resource Group | Wybierz **myResourceGroupLB** |
+    | Grupa zasobów | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM1** |
     | Region | Wybierz **Europa Zachodnia** |
@@ -626,6 +628,6 @@ W ramach tego przewodnika Szybki start wykonasz następujące czynności:
 * Dołączono 3 maszyny wirtualne do modułu równoważenia obciążenia.
 * Skonfigurowano regułę ruchu modułu równoważenia obciążenia, sondę kondycji, a następnie przetestowano moduł równoważenia obciążenia. 
 
-Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do..
+Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do:
 > [!div class="nextstepaction"]
 > [Co to jest usługa Azure Load Balancer?](load-balancer-overview.md)

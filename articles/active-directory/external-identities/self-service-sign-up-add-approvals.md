@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d2ff176d7569f6f67c8f0dd37e0073314a07289
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165252"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441627"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Dodawanie niestandardowego przepływu pracy zatwierdzenia do rejestracji samoobsługowej
 
@@ -29,7 +29,7 @@ Ten artykuł zawiera przykład integracji z systemem zatwierdzania. W tym przyk�
 
 ## <a name="register-an-application-for-your-approval-system"></a>Rejestrowanie aplikacji dla systemu zatwierdzania
 
-Musisz zarejestrować system zatwierdzania jako aplikację w dzierżawie usługi Azure AD, aby można było uwierzytelnić się w usłudze Azure AD i mieć uprawnienia do tworzenia użytkowników. Dowiedz się więcej [na temat podstawy uwierzytelniania i autoryzacji dla Microsoft Graph](https://docs.microsoft.com/graph/auth/auth-concepts).
+Musisz zarejestrować system zatwierdzania jako aplikację w dzierżawie usługi Azure AD, aby można było uwierzytelnić się w usłudze Azure AD i mieć uprawnienia do tworzenia użytkowników. Dowiedz się więcej [na temat podstawy uwierzytelniania i autoryzacji dla Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD.
 2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure Active Directory**.
@@ -263,14 +263,14 @@ Content-type: application/json
 
 ## <a name="user-account-creation-after-manual-approval"></a>Tworzenie konta użytkownika po zatwierdzeniu ręcznym
 
-Po uzyskaniu zatwierdzenia ręcznego system zatwierdzania niestandardowego tworzy konto [użytkownika](https://docs.microsoft.com/graph/azuread-users-concept-overview) przy użyciu [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). Sposób, w jaki system zatwierdzania, zależy od dostawcy tożsamości, który był używany przez użytkownika.
+Po uzyskaniu zatwierdzenia ręcznego system zatwierdzania niestandardowego tworzy konto [użytkownika](/graph/azuread-users-concept-overview) przy użyciu [Microsoft Graph](/graph/use-the-api). Sposób, w jaki system zatwierdzania, zależy od dostawcy tożsamości, który był używany przez użytkownika.
 
 ### <a name="for-a-federated-google-or-facebook-user"></a>Dla federacyjnego użytkownika usługi Google lub Facebook
 
 > [!IMPORTANT]
 > System zatwierdzania powinien jawnie sprawdzić `identities` , czy `identities[0]` `identities[0].issuer` istnieją i czy ma `identities[0].issuer` wartość "Facebook" lub "Google", aby użyć tej metody.
 
-Jeśli użytkownik zalogował się przy użyciu konta Google lub Facebook, można użyć [interfejsu API tworzenia użytkownika](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
+Jeśli użytkownik zalogował się przy użyciu konta Google lub Facebook, można użyć [interfejsu API tworzenia użytkownika](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0).
 
 1. System zatwierdzania używa odbierania żądania HTTP z przepływu użytkownika.
 
@@ -330,7 +330,7 @@ Content-type: application/json
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Dla użytkownika federacyjnego Azure Active Directory
 
-Jeśli użytkownik zaloguje się za pomocą konta Azure Active Directory federacyjnego, należy użyć [interfejsu API zaproszenia](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) do utworzenia użytkownika, a następnie opcjonalnie [zaktualizować interfejs API aktualizacji użytkownika](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) , aby przypisać więcej atrybutów do użytkownika.
+Jeśli użytkownik zaloguje się za pomocą konta Azure Active Directory federacyjnego, należy użyć [interfejsu API zaproszenia](/graph/api/invitation-post?view=graph-rest-1.0) do utworzenia użytkownika, a następnie opcjonalnie [zaktualizować interfejs API aktualizacji użytkownika](/graph/api/user-update?view=graph-rest-1.0) , aby przypisać więcej atrybutów do użytkownika.
 
 1. System zatwierdzania odbiera żądanie HTTP z przepływu użytkownika.
 
@@ -389,4 +389,4 @@ Content-type: application/json
 ## <a name="next-steps"></a>Następne kroki
 
 - Rozpocznij pracę z naszymi [przykładami szybkiego startu usługi Azure Functions](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-- Zapoznaj [się z przykładem samoobsługowego rejestrowania się dla użytkowników-Gości przy użyciu ręcznego zatwierdzania](code-samples-self-service-sign-up.md#custom-approval-workflows). 
+- Zapoznaj [się z przykładem samoobsługowego rejestrowania się dla użytkowników-Gości przy użyciu ręcznego zatwierdzania](code-samples-self-service-sign-up.md#custom-approval-workflows).

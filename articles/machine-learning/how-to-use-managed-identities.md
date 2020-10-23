@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 6bcc4ac5561a8bdb721018aa05bf2376579b627b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/22/2020
+ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079674"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440454"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Korzystanie z tożsamości zarządzanych z Azure Machine Learning (wersja zapoznawcza)
 
@@ -29,7 +29,6 @@ W tym artykule dowiesz się, jak używać tożsamości zarządzanych do:
 
  * Skonfiguruj i używaj ACR dla obszaru roboczego Azure Machine Learning bez konieczności włączania dostępu administratora do ACR.
  * Uzyskaj dostęp do prywatnego ACR zewnętrznego dla obszaru roboczego, aby ściągnąć podstawowe obrazy na potrzeby szkoleń lub wnioskowania.
- * Dostęp do zestawów danych w celu szkolenia przy użyciu tożsamości zarządzanych zamiast kluczy dostępu do magazynu.
 
 > [!IMPORTANT]
 > Korzystanie z tożsamości zarządzanych do kontrolowania dostępu do zasobów za pomocą Azure Machine Learning jest obecnie w wersji zapoznawczej. Funkcje w wersji zapoznawczej są udostępniane "w takiej postaci, w jakiej są" bez gwarancji pomocy technicznej ani umowy dotyczącej poziomu usług. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych programu Microsoft Azure.
@@ -222,31 +221,6 @@ identity.client_id="<UAI client ID>”
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
-
-## <a name="access-training-data"></a>Dostęp do danych szkoleniowych
-
-Po utworzeniu klastra obliczeniowego uczenia maszynowego z tożsamością zarządzaną zgodnie z wcześniejszym opisem można użyć tej tożsamości w celu uzyskania dostępu do danych szkoleniowych bez kluczy konta magazynu. W tym scenariuszu można użyć zarządzanej tożsamości przypisanej do systemu lub użytkownika.
-
-### <a name="grant-compute-managed-identity-access-to-storage-account"></a>Przyznaj dostęp do tożsamości zarządzanej przez obliczenia do konta magazynu
-
-[Nadaj zarządzanej tożsamości rolę czytelnik](https://docs.microsoft.com/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) na koncie magazynu, w którym przechowywane są dane szkoleniowe.
-
-### <a name="register-data-store-with-workspace"></a>Rejestrowanie magazynu danych za pomocą obszaru roboczego
-
-Po przypisaniu tożsamości zarządzanej można utworzyć magazyn danych bez konieczności określania poświadczeń magazynu.
-
-```python
-from azureml.core import Datastore
-
-blob_dstore = Datastore.register_azure_blob_container(workspace=workspace,
-                                                      datastore_name='my-datastore',
-                                                      container_name='my-container',
-                                                      account_name='my-storage-account')
-```
-
-### <a name="submit-training-run"></a>Przesyłanie przebiegu trenowania
-
-Po przesłaniu szkolenia przy użyciu magazynu danych w ramach usługi obliczeniowej Uczenie maszynowe do uzyskiwania dostępu do danych wykorzystuje swoją zarządzaną tożsamość.
 
 ## <a name="use-docker-images-for-inference"></a>Używanie obrazów platformy Docker do wnioskowania
 

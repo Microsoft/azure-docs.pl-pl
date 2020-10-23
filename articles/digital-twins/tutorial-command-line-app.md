@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048495"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460788"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -119,7 +119,7 @@ Sprawdź, czy modele zostały utworzone przez uruchomienie polecenia `GetModels 
 
 :::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
-#### <a name="errors"></a>Errors
+#### <a name="errors"></a>błędy
 
 Przykładowa aplikacja obsługuje także błędy usługi. 
 
@@ -242,7 +242,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
     >[!NOTE]
-    >W przykładowym projekcie polecenie `Query` bez żadnych dodatkowych argumentów jest równoważne `Query SELECT * FROM DIGITALTWINS` . Aby wykonać zapytanie dotyczące wszystkich bliźniaczych reprezentacji w wystąpieniu przy użyciu [interfejsów API zapytań](how-to-use-apis-sdks.md) lub [poleceń interfejsu wiersza polecenia](how-to-use-cli.md), użyj dłuższego (kompletnego) zapytania.
+    >W przykładowym projekcie polecenie `Query` bez żadnych dodatkowych argumentów jest równoważne `Query SELECT * FROM DIGITALTWINS` . Aby wykonać zapytanie dotyczące wszystkich bliźniaczych reprezentacji w wystąpieniu przy użyciu [interfejsów API zapytań](/rest/api/digital-twins/dataplane/query) lub [poleceń interfejsu wiersza polecenia](how-to-use-cli.md), użyj dłuższego (kompletnego) zapytania.
 
 * **Jakie są wszystkie pokoje w moim środowisku?** (zapytanie według modelu)
 

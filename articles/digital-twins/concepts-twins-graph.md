@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 73028c10c7e7308ee16bd8fb27ca6c3a6661c411
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145928"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440840"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Informacje na temat bliźniaczych reprezentacji cyfrowych i ich bliźniaczych wykresów
 
@@ -39,11 +39,11 @@ Wynikiem tego procesu jest zestaw węzłów (Digital bliźniaczych reprezentacji
 
 ## <a name="create-with-the-apis"></a>Tworzenie za pomocą interfejsów API
 
-W tej sekcji pokazano, jak wygląda sposób tworzenia cyfrowych bliźniaczych reprezentacji i relacji z aplikacji klienckiej. Zawiera przykłady kodu platformy .NET, które wykorzystują [interfejsy API DigitalTwins](how-to-use-apis-sdks.md), aby zapewnić dodatkowy kontekst dotyczący tego, co się znajduje w ramach każdego z tych koncepcji.
+W tej sekcji pokazano, jak wygląda sposób tworzenia cyfrowych bliźniaczych reprezentacji i relacji z aplikacji klienckiej. Zawiera przykłady kodu platformy .NET, które wykorzystują [interfejsy API DigitalTwins](/rest/api/digital-twins/dataplane/twins), aby zapewnić dodatkowy kontekst dotyczący tego, co się znajduje w ramach każdego z tych koncepcji.
 
 ### <a name="create-digital-twins"></a>Utwórz cyfrowy bliźniaczych reprezentacji
 
-Poniżej znajduje się fragment kodu klienta, który używa [interfejsów API DigitalTwins](how-to-use-apis-sdks.md) do tworzenia wycinków typu *pokoju*.
+Poniżej znajduje się fragment kodu klienta, który używa [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do tworzenia wycinków typu *pokoju*.
 
 W bieżącej wersji zapoznawczej usługi Azure Digital bliźniaczych reprezentacji wszystkie właściwości sznurka muszą zostać zainicjowane przed utworzeniem sznurka. Jest to realizowane przez utworzenie dokumentu JSON, który zawiera wymagane wartości inicjalizacji.
 
@@ -53,7 +53,7 @@ Można również użyć klasy pomocnika `BasicDigitalTwin` do przechowywania pó
 
 ### <a name="create-relationships"></a>Utwórz relacje
 
-Poniżej przedstawiono przykładowy kod klienta korzystający z [interfejsów API DigitalTwins](how-to-use-apis-sdks.md) do tworzenia relacji między cyframi cyfrowymi typu *podłogi*o nazwie *GroundFloor* i sznurem cyfrowym typu *Room*o nazwie *Cafe*.
+Poniżej przedstawiono przykładowy kod klienta korzystający z [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do tworzenia relacji między cyframi cyfrowymi typu *podłogi*o nazwie *GroundFloor* i sznurem cyfrowym typu *Room*o nazwie *Cafe*.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample

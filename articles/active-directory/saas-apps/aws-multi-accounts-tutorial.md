@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: a9c1eb8816246c66803eca71677bc6ee835a9b29
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425590"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Samouczek: integracja Azure Active Directory z Amazon Web Services (AWS) (starszy samouczek)
 
@@ -31,7 +31,7 @@ Integracja usług Amazon Web Services (AWS) z usługą Azure AD daje następują
 ![Usługi Amazon Web Services (AWS) na liście wyników](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Należy pamiętać, że połączenie jednej aplikacji AWS ze wszystkimi kontami AWS nie jest rozwiązaniem zalecanym. Zamiast tego zalecamy użycie [tej](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metody w celu skonfigurowania wielu wystąpień konta AWS na wielu wystąpieniach aplikacji AWS w usłudze Azure AD. Tego podejścia należy używać tylko w przypadku, gdy istnieje kilka AWS kont i ról, ten model nie jest skalowalny, ponieważ konta AWS i role wewnątrz tych kont rosną. Takie podejście nie korzysta z funkcji importowania ról AWS przy użyciu aprowizacji użytkowników usługi Azure AD, dlatego należy ręcznie dodać/zaktualizować/usunąć role. Inne ograniczenia dotyczące tego podejścia można znaleźć poniżej.
+> Należy pamiętać, że połączenie jednej aplikacji AWS ze wszystkimi kontami AWS nie jest rozwiązaniem zalecanym. Zamiast tego zalecamy użycie [tej](./amazon-web-service-tutorial.md) metody w celu skonfigurowania wielu wystąpień konta AWS na wielu wystąpieniach aplikacji AWS w usłudze Azure AD. Tego podejścia należy używać tylko w przypadku, gdy istnieje kilka AWS kont i ról, ten model nie jest skalowalny, ponieważ konta AWS i role wewnątrz tych kont rosną. Takie podejście nie korzysta z funkcji importowania ról AWS przy użyciu aprowizacji użytkowników usługi Azure AD, dlatego należy ręcznie dodać/zaktualizować/usunąć role. Inne ograniczenia dotyczące tego podejścia można znaleźć poniżej.
 
 **Należy pamiętać, że nie zaleca się używania tego podejścia z następujących powodów:**
 
@@ -363,11 +363,11 @@ Możesz również zweryfikować odpowiedź SAML, aby zobaczyć role przekazywane
 
 ![Testuj jednokrotne — On2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../active-directory-saas-access-panel-introduction.md).
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu Amazon Web Services (AWS) można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Po skonfigurowaniu Amazon Web Services (AWS) można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147918"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426389"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Zabezpiecz i Izoluj klastry usługi Azure HDInsight za pomocą prywatnego linku (wersja zapoznawcza)
 
@@ -59,6 +59,8 @@ Gdy `privateLink` jest ustawiona na wartość *enable*, są tworzone wewnętrzne
 Usługi równoważenia obciążenia w warstwie Standardowa nie zapewniają automatycznie [wychodzącego NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) , takiego jak podstawowe usługi równoważenia obciążenia. Należy podać własne rozwiązanie NAT, takie jak [Virtual Network NAT](../virtual-network/nat-overview.md) lub [Zapora](./hdinsight-restrict-outbound-traffic.md), dla zależności wychodzących. Klaster usługi HDInsight nadal potrzebuje dostępu do jego zależności wychodzących. Jeśli te zależności wychodzące nie są dozwolone, tworzenie klastra może się nie powieść.
 
 ### <a name="prepare-your-environment"></a>Przygotowywanie środowiska
+
+Aby successgfull tworzenie usług łączy prywatnych, należy jawnie [wyłączyć zasady sieci dla usługi łącza prywatnego](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy).
 
 Na poniższym diagramie przedstawiono przykład konfiguracji sieci wymaganej przed utworzeniem klastra. W tym przykładzie cały ruch wychodzący jest [wymuszany](../firewall/forced-tunneling.md) w zaporze platformy Azure przy użyciu programu UDR, a przed utworzeniem klastra wymagane są "dozwolone" w zaporze. W przypadku klastrów pakiet Enterprise Security połączenie sieciowe z Azure Active Directory Domain Services może być zapewnione przez komunikację równorzędną sieci wirtualnych.
 

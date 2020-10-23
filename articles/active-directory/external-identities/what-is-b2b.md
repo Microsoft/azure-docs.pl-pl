@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfce0031d912b1611b6810310e56241857821579
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7104040e73679b6563b02aba47698b8eac2b7a56
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87926726"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441389"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Co to jest dostęp użytkowników-gości w usłudze Azure Active Directory B2B?
 
@@ -74,8 +74,8 @@ Zarządzanie użytkownikami-gośćmi można delegować do właścicieli aplikacj
 
 Przenieś partnerów zewnętrznych na tablicę w sposób dostosowany do potrzeb organizacji.
 
-- [Zarządzanie prawami](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) dostępu w usłudze Azure AD umożliwia konfigurowanie zasad służących do [zarządzania dostępem użytkowników zewnętrznych](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
-- Użyj [interfejsów API zaproszenia współpracy B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) , aby dostosować środowiska dołączania.
+- [Zarządzanie prawami](../governance/entitlement-management-overview.md) dostępu w usłudze Azure AD umożliwia konfigurowanie zasad służących do [zarządzania dostępem użytkowników zewnętrznych](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
+- Użyj [interfejsów API zaproszenia współpracy B2B](/graph/api/resources/invitation) , aby dostosować środowiska dołączania.
 
 ## <a name="integrate-with-identity-providers"></a>Integracja z dostawcami tożsamości
 

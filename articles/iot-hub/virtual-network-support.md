@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149096"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427860"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -170,7 +170,7 @@ Funkcja wyjątków zaufanych usług pierwszej firmy Microsoft jest bezpłatna. O
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Ruch wychodzący z punktów końcowych konta magazynu dla routingu
 
-IoT Hub może kierować komunikaty do konta magazynu należącego do klienta. Aby umożliwić funkcji routingu dostęp do konta magazynu w trakcie ograniczeń zapory, IoT Hub musi mieć [zarządzaną tożsamość](#turn-on-managed-identity-for-iot-hub). Gdy zarządzana tożsamość zostanie zainicjowana, wykonaj poniższe kroki, aby udzielić kontroli RBAC tożsamości zasobu centrum w celu uzyskania dostępu do konta magazynu.
+IoT Hub może kierować komunikaty do konta magazynu należącego do klienta. Aby umożliwić funkcji routingu dostęp do konta magazynu w trakcie ograniczeń zapory, IoT Hub musi mieć [zarządzaną tożsamość](#turn-on-managed-identity-for-iot-hub). Po aprowizacji zarządzanej tożsamości wykonaj poniższe kroki, aby przyznać usłudze Azure RBAC uprawnienia do tożsamości zasobu centrum, aby uzyskać dostęp do konta magazynu.
 
 1. W Azure Portal przejdź do karty **kontroli dostępu konta magazynu (IAM)** , a następnie kliknij przycisk **Dodaj** w sekcji **Dodawanie przypisania roli** .
 
@@ -188,7 +188,7 @@ Teraz niestandardowy punkt końcowy magazynu jest skonfigurowany do korzystania 
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Ruch wychodzący z punktów końcowych centrów zdarzeń dla routingu
 
-IoT Hub można skonfigurować w celu kierowania komunikatów do przestrzeni nazw centrów zdarzeń należących do klienta. Aby umożliwić funkcji routingu dostęp do zasobu centrów zdarzeń podczas ograniczeń zapory, IoT Hub musi mieć zarządzaną tożsamość. Po utworzeniu tożsamości zarządzanej wykonaj poniższe kroki, aby udzielić kontroli RBAC tożsamości zasobu centrum w celu uzyskania dostępu do centrów zdarzeń.
+IoT Hub można skonfigurować w celu kierowania komunikatów do przestrzeni nazw centrów zdarzeń należących do klienta. Aby umożliwić funkcji routingu dostęp do zasobu centrów zdarzeń podczas ograniczeń zapory, IoT Hub musi mieć zarządzaną tożsamość. Po utworzeniu tożsamości zarządzanej wykonaj poniższe kroki, aby przyznać usłudze Azure RBAC uprawnienia do tożsamości zasobu centrum danych w celu uzyskania dostępu do centrów zdarzeń.
 
 1. W Azure Portal przejdź do karty kontroli dostępu do centrów zdarzeń **(IAM)** , a następnie kliknij przycisk **Dodaj** w sekcji **Dodawanie przypisania roli** .
 
@@ -206,7 +206,7 @@ Teraz Twój punkt końcowy centrów zdarzeń jest skonfigurowany do korzystania 
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Ruch wychodzący z punktów końcowych usługi Service Bus na potrzeby routingu
 
-IoT Hub można skonfigurować w celu kierowania komunikatów do przestrzeni nazw usługi Service Bus należącej do klienta. Aby umożliwić funkcji routingu dostęp do zasobu usługi Service Bus podczas ograniczeń zapory, IoT Hub musi mieć zarządzaną tożsamość. Gdy zarządzana tożsamość zostanie zainicjowana, wykonaj poniższe kroki, aby udzielić kontroli RBAC tożsamości zasobu centrum w celu uzyskania dostępu do usługi Service Bus.
+IoT Hub można skonfigurować w celu kierowania komunikatów do przestrzeni nazw usługi Service Bus należącej do klienta. Aby umożliwić funkcji routingu dostęp do zasobu usługi Service Bus podczas ograniczeń zapory, IoT Hub musi mieć zarządzaną tożsamość. Po aprowizacji zarządzanej tożsamości wykonaj poniższe kroki, aby przyznać usłudze Azure RBAC uprawnienia do tożsamości zasobu centrum, aby uzyskać dostęp do usługi Service Bus.
 
 1. W Azure Portal przejdź do karty kontrola dostępu usługi Service Bus **(IAM)** , a następnie kliknij przycisk **Dodaj** w sekcji **Dodawanie przypisania roli** .
 
@@ -224,7 +224,7 @@ Teraz niestandardowy punkt końcowy usługi Service Bus jest skonfigurowany do k
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Wyjście z łączności z kontami magazynu na potrzeby przekazywania plików
 
-Funkcja przekazywania plików IoT Hub umożliwia urządzeniom przekazywanie plików do konta magazynu należącego do klienta. Aby umożliwić przekazywanie plików do funkcji, oba urządzenia i IoT Hub muszą mieć łączność z kontem magazynu. Jeśli ograniczenia dotyczące zapory są stosowane na koncie magazynu, urządzenia muszą używać dowolnego mechanizmu obsługiwanego konta magazynu (w tym [prywatnych punktów końcowych](../private-link/tutorial-private-endpoint-storage-portal.md), [punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md)lub [bezpośredniej konfiguracji zapory](../storage/common/storage-network-security.md)) w celu uzyskania łączności. Analogicznie, jeśli istnieją ograniczenia dotyczące zapory na koncie magazynu, IoT Hub należy skonfigurować w celu uzyskania dostępu do zasobu magazynu za pomocą zaufanego wyjątku usług firmy Microsoft. W tym celu IoT Hub musi mieć zarządzaną tożsamość. Gdy zarządzana tożsamość zostanie zainicjowana, wykonaj poniższe kroki, aby udzielić kontroli RBAC tożsamości zasobu centrum w celu uzyskania dostępu do konta magazynu.
+Funkcja przekazywania plików IoT Hub umożliwia urządzeniom przekazywanie plików do konta magazynu należącego do klienta. Aby umożliwić przekazywanie plików do funkcji, oba urządzenia i IoT Hub muszą mieć łączność z kontem magazynu. Jeśli ograniczenia dotyczące zapory są stosowane na koncie magazynu, urządzenia muszą używać dowolnego mechanizmu obsługiwanego konta magazynu (w tym [prywatnych punktów końcowych](../private-link/tutorial-private-endpoint-storage-portal.md), [punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md)lub [bezpośredniej konfiguracji zapory](../storage/common/storage-network-security.md)) w celu uzyskania łączności. Analogicznie, jeśli istnieją ograniczenia dotyczące zapory na koncie magazynu, IoT Hub należy skonfigurować w celu uzyskania dostępu do zasobu magazynu za pomocą zaufanego wyjątku usług firmy Microsoft. W tym celu IoT Hub musi mieć zarządzaną tożsamość. Po aprowizacji zarządzanej tożsamości wykonaj poniższe kroki, aby przyznać usłudze Azure RBAC uprawnienia do tożsamości zasobu centrum, aby uzyskać dostęp do konta magazynu.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -244,7 +244,7 @@ Teraz punkt końcowy magazynu dla przekazywania plików jest skonfigurowany do k
 
 IoT Hub obsługuje funkcje do [importowania/eksportowania](./iot-hub-bulk-identity-mgmt.md) informacji o urządzeniach zbiorczo z/do magazynu obiektów BLOB dostarczonych przez klienta. Aby umożliwić korzystanie z funkcji importu/eksportu zbiorczego, oba urządzenia i IoT Hub muszą mieć łączność z kontem magazynu.
 
-Ta funkcja wymaga łączności IoT Hub z kontem magazynu. Aby uzyskać dostęp do zasobu usługi Service Bus podczas ograniczeń zapory, IoT Hub musi mieć zarządzaną tożsamość. Gdy zarządzana tożsamość zostanie zainicjowana, wykonaj poniższe kroki, aby udzielić kontroli RBAC tożsamości zasobu centrum w celu uzyskania dostępu do usługi Service Bus.
+Ta funkcja wymaga łączności IoT Hub z kontem magazynu. Aby uzyskać dostęp do zasobu usługi Service Bus podczas ograniczeń zapory, IoT Hub musi mieć zarządzaną tożsamość. Po aprowizacji zarządzanej tożsamości wykonaj poniższe kroki, aby przyznać usłudze Azure RBAC uprawnienia do tożsamości zasobu centrum, aby uzyskać dostęp do usługi Service Bus.
 
 1. W Azure Portal przejdź do karty **kontroli dostępu konta magazynu (IAM)** , a następnie kliknij przycisk **Dodaj** w sekcji **Dodawanie przypisania roli** .
 

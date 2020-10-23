@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a530a6f656f37657a198af85d93d5404ac88d0e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f524bf6af66d44bc13b7c0957de7977968cbef28
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83651024"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427261"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrowanie obciążeń przy użyciu rozciągniętych sieci warstwy 2
 
@@ -57,10 +57,10 @@ W poniższej tabeli wymieniono obsługiwane wersje vSphere i typy adapterów sie
 
 | wersja vSphere | Typ źródłowego przełącznika vSwitch | Sterownik wirtualnej karty sieciowej | Docelowy typ przełącznika vSwitch | Obsługiwane? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| Wszystkie | Usługa | Wszystkie | Usługa | Tak |
+| Wszystko | Usługa | Wszystko | Usługa | Tak |
 | vSphere 6,7 UI lub nowszy, 6.5 P03 lub nowszy | Usługa | VMXNET3 | N-VDS | Tak |
 | vSphere 6,7 UI lub nowszy, 6.5 P03 lub nowszy | Usługa | E1000 | N-VDS | [Nieobsługiwane na VWware](https://kb.vmware.com/s/article/56991) |
-| vSphere 6,7 UI lub 6.5 P03, NSX-V lub wersje poniżej NSX-T 2.2, 6.5 P03 lub nowszy | Wszystkie | Wszystkie | N-VDS | [Nieobsługiwane na VWware](https://kb.vmware.com/s/article/56991) |
+| vSphere 6,7 UI lub 6.5 P03, NSX-V lub wersje poniżej NSX-T 2.2, 6.5 P03 lub nowszy | Wszystko | Wszystko | N-VDS | [Nieobsługiwane na VWware](https://kb.vmware.com/s/article/56991) |
 
 Od wersji programu VMware NSX-T 2,3:
 
@@ -118,7 +118,7 @@ Poniższe kroki pokazują, jak pobrać identyfikator routera logicznego usługi 
 
 3. Otwórz sesję SSH na adres IP zarządzania dla maszyny wirtualnej brzegowej. Uruchom ```get logical-router``` polecenie z nazwą użytkownika **admin** i hasłem **CloudSimple 123!**.
 
-    ![Pobieranie danych wyjściowych routera logicznego](media/l2vpn-fetch03.png)
+    ![Zrzut ekranu pokazujący otwartą sesję SSH.](media/l2vpn-fetch03.png)
 
 4. Jeśli nie widzisz wpisu "DR-Provider-LR", wykonaj następujące czynności.
 
@@ -132,7 +132,7 @@ Poniższe kroki pokazują, jak pobrać identyfikator routera logicznego usługi 
 
 7. Ponownie uruchom `get logical-router` polecenie w sesji SSH maszyny wirtualnej brzegowej. Zostanie wyświetlony identyfikator UUID routera logicznego "DR-Provider-LR". Zanotuj identyfikator UUID, który jest wymagany podczas konfigurowania L2VPN.
 
-    ![Pobieranie danych wyjściowych routera logicznego](media/l2vpn-fetch06.png)
+    ![Zrzut ekranu pokazujący identyfikator UUID dla routera logicznego.](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Pobieranie identyfikatora przełącznika logicznego wymaganego przez L2VPN
 
@@ -163,7 +163,7 @@ Aby nawiązać połączenie sieci VPN opartej na trasach IPsec między routerem 
 
     ![Utwórz listę prefiksów IP](media/l2vpn-routing-security02.png)
 
-4. Zaloguj się do Menedżera NSX-T i wybierz pozycję **Sieć**  >  **Routing**  >  **routers**  >  **Provider-LR**  >  **Routing**  >  **BGP**  >  **Neighbors**. Wybierz pierwszy sąsiada. Kliknij pozycję **Edytuj**  >  **rodziny adresów**. W przypadku rodziny IPv4 należy edytować kolumnę **out Filter** i wybrać utworzoną przez siebie listę prefiksów IP. Kliknij przycisk **Zapisz**. Powtórz ten krok dla drugiego sąsiada.
+4. Zaloguj się do Menedżera NSX-T i wybierz pozycję **Sieć**  >  **Routing**  >  **routers**  >  **Provider-LR**  >  **Routing**  >  **BGP**  >  **Neighbors**. Wybierz pierwszy sąsiada. Kliknij pozycję **Edytuj**  >  **rodziny adresów**. W przypadku rodziny IPv4 należy edytować kolumnę **out Filter** i wybrać utworzoną przez siebie listę prefiksów IP. Kliknij pozycję **Zapisz**. Powtórz ten krok dla drugiego sąsiada.
 
     ![Dołącz prefiks IP lista 1 ](media/l2vpn-routing-security03.png) ![ dołączanie prefiksu IP lista 2](media/l2vpn-routing-security04.png)
 
@@ -430,7 +430,7 @@ Przed wdrożeniem upewnij się, że lokalne reguły zapory zezwalają na ruch pr
 
 2. Przejdź do folderu zawierającego wszystkie wyodrębnione pliki. Wybierz wszystkie VMDK (NSX-l2t-Client-Large. MF i NSX-l2t-client-large. OVF dla dużego rozmiaru urządzenia lub NSX-l2t-Client-xlarge. MF i NSX-l2t-client-Xlarge. OVF dla dodatkowego rozmiaru urządzenia o dużym rozmiarze). Kliknij przycisk **Dalej**.
 
-    ![Wybierz szablon ](media/l2vpn-deploy-client02.png) ![ Wybierz szablon](media/l2vpn-deploy-client03.png)
+    ![Wybierz ](media/l2vpn-deploy-client02.png) ![ zrzut ekranu szablonu, który pokazuje wybrane pliki VMDK.](media/l2vpn-deploy-client03.png)
 
 3. Wprowadź nazwę klienta autonomicznego NSX-T i kliknij przycisk **dalej**.
 

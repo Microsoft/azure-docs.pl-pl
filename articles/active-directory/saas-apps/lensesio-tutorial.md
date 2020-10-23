@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 48a1e50d451abb429e9bc33308909b368283644f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181d58baf128c4848a538e776aea0e43213994dc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661456"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458612"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z portalem Lenses.io DataOps
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować Portal [lenses.IO](https://lenses
 * Zezwól użytkownikom na automatyczne logowanie do soczewek z kontami usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne w usłudze Azure AD](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,7 +42,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Lenses.io obsługuje logowanie jednokrotne przez dostawcę usług (SP).
 
-* Po skonfigurowaniu Lenses.io można wymusić kontrolę sesji. Kontrola sesji chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu Lenses.io można wymusić kontrolę sesji. Kontrola sesji chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-lensesio-from-the-gallery"></a>Dodaj Lenses.io z galerii
 
@@ -109,7 +109,7 @@ Aby dowiedzieć się, jak soczewki korzysta z mapowania członkostwa w grupie na
    1. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    1. W polu **Nazwa użytkownika** wprowadź username@companydomain.extension . Na przykład B.Simon@contoso.com.
    1. Zaznacz pole wyboru **Pokaż hasło** . Zapisz hasło, które jest wyświetlane w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 **Aby utworzyć grupę:**
 
@@ -118,7 +118,7 @@ Aby dowiedzieć się, jak soczewki korzysta z mapowania członkostwa w grupie na
 1. We **właściwościach grupy**wykonaj następujące kroki:
    1. W polu **Typ grupy** wybierz pozycję **zabezpieczenia**.
    1. W polu **Nazwa grupy** wpisz **LensesUsers**.
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 1. Wybierz grupę **LensesUsers** i skopiuj **Identyfikator obiektu** (na przykład f8b5c1ec-45de-4abd-af5c-e874091fb5f7). Ten identyfikator zostanie użyty w soczewek, aby zamapować użytkowników grupy na odpowiednie [uprawnienia](https://docs.lenses.io/install_setup/configuration/security.html#id3).  
 
 **Aby przypisać grupę do użytkownika testowego:**
@@ -164,20 +164,20 @@ Aby uzyskać więcej informacji, zobacz [Mapowanie grup na platformie Azure](htt
 
 W tej sekcji Przetestuj konfigurację rejestracji jednokrotnej usługi Azure AD za pomocą panelu dostępu.
 
-Po wybraniu kafelka Lenses.io w panelu dostępu należy automatycznie zalogować się do portalu Lenses.io. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka Lenses.io w panelu dostępu należy automatycznie zalogować się do portalu Lenses.io. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Konfigurowanie logowania jednokrotnego w wystąpieniu programu Lenses.io](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure AD](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne w usłudze Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne w usłudze Azure AD?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure AD?](../conditional-access/overview.md)
 
 - [Wypróbuj Lenses.io z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić Lenses.io z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić Lenses.io z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)

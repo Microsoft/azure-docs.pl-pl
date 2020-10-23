@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587637"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461026"
 ---
 # <a name="understand-event-data"></a>Informacje o zdarzeniach
 
@@ -202,7 +202,7 @@ Poniżej przedstawiono pola w treści powiadomienia o zmianie krawędzi.
 
 #### <a name="body-details"></a>Szczegóły treści
 
-Treść jest ładunkiem relacji, również w formacie JSON. Używa tego samego formatu co `GET` żądanie dla relacji za pośrednictwem [interfejsu API DigitalTwins](how-to-use-apis-sdks.md). 
+Treść jest ładunkiem relacji, również w formacie JSON. Używa tego samego formatu co `GET` żądanie dla relacji za pośrednictwem [interfejsu API DigitalTwins](/rest/api/digital-twins/dataplane/twins). 
 
 "Aktualizacja relacji" oznacza, że właściwości relacji zostały zmienione. 
 

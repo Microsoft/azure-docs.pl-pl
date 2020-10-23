@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: aee886e4e5ccaa3e07851ba839532f47c0a46ef8
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: fa7d252246ed37160ba2a5cfcd90557df1375bc3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342046"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461536"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Usługa Azure Defender dla serwerów SQL na maszynach 
 
@@ -49,7 +49,7 @@ Oba te elementy zostały opisane poniżej.
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Krok 1. Zainicjuj obsługę agenta Log Analytics na hoście programu SQL Server:
 
 - **SQL Server na maszynie wirtualnej platformy Azure** — Jeśli maszyna SQL jest hostowana na maszynie wirtualnej platformy Azure, można [zainicjować obsługę administracyjną log Analytics agenta](security-center-enable-data-collection.md#workspace-configuration). Alternatywnie można wykonać procedurę ręczną, aby [dołączyć Azure Stack maszyn wirtualnych](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
-- **SQL Server w usłudze Azure Arc** — Jeśli SQL Server jest hostowana na maszynie [usługi Azure Arc](../azure-arc/index.yml) , można wdrożyć agenta Log Analytics przy użyciu zalecenia Security Center "log Analytics Agent należy zainstalować na maszynach usługi Azure Arc opartych na systemie Windows (wersja zapoznawcza)". Alternatywnie można wykonać procedurę ręczną w [dokumentacji usługi Azure Arc](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
+- **SQL Server w usłudze Azure Arc** — Jeśli SQL Server jest zarządzany przez serwery z obsługą [usługi Azure Arc](../azure-arc/index.yml) , można wdrożyć agenta Log Analytics przy użyciu zalecenia Security Center "log Analytics Agent należy zainstalować na maszynach usługi Azure Arc opartych na systemie Windows (wersja zapoznawcza)". Alternatywnie możesz skorzystać z metod instalacji opisanych w [dokumentacji usługi Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
 
 - **SQL Server Premium** — Jeśli SQL Server jest hostowana na lokalnym komputerze z systemem Windows bez usługi Azure ARC, dostępne są dwie opcje połączenia z platformą Azure:
     
