@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd08ce938a25e3311358892c9afa9eefd6c6dbf
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77087130"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424677"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Skonfiguruj połączenie sieci VPN z chmurą prywatną CloudSimple
 
@@ -63,7 +63,7 @@ W poniższym przykładzie pokazano Importowanie połączenia za pomocą **klient
 
 4. Wybierz plik konfiguracji OpenVPN (. ovpn) dla protokołu, którego chcesz użyć, a następnie kliknij przycisk **Otwórz**.
 
-    ![VPN](media/import-p2s-vpn-config-choose-ovpn.png)
+    ![Zrzut ekranu, który podświetla pliki konfiguracyjne OpenVPN, które można wybrać.](media/import-p2s-vpn-config-choose-ovpn.png)
 
 Połączenie zostanie wyświetlone w menu lepkość.
 
@@ -71,7 +71,7 @@ Połączenie zostanie wyświetlone w menu lepkość.
 
 Aby nawiązać połączenie z siecią VPN za pomocą OpenVPNego, wybierz połączenie z menu. Ikona menu jest aktualizowana w celu wskazania, że połączenie zostało nawiązane.
 
-![VPN](media/vis03.png)
+![Zrzut ekranu przedstawiający stan łączności sieci VPN CloudSimple.](media/vis03.png)
 
 ### <a name="connecting-to-multiple-private-clouds"></a>Łączenie z wieloma chmurami prywatnymi
 

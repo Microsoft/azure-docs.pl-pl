@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: c98e377ec216bea6c1d4a96b15b3741aa52672e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e515df0ff8c7cd3794efb4db567ef7146ccb7a03
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618159"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424240"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Co to jest wystąpienie zarządzane Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -96,7 +96,7 @@ Poniższa lista zawiera opis kluczowych właściwości warstwy usługi Ogólnego
 
 - Zaprojektowana dla większości aplikacji branżowych z typowymi wymaganiami dotyczącymi wydajności
 - Wysoce wydajny magazyn obiektów blob platformy Azure (8 TB)
-- Wbudowana [wysoka dostępność](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) na podstawie niezawodnego magazynu obiektów blob platformy Azure i [usługi Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
+- Wbudowana [wysoka dostępność](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) na podstawie niezawodnego magazynu obiektów blob platformy Azure i [usługi Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 
 Aby uzyskać więcej informacji, zobacz temat [warstwa magazynowania w warstwach ogólnego przeznaczenia](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) i [najlepszych rozwiązaniach dotyczących wydajności magazynu oraz zagadnieniach związanych z wystąpieniem zarządzanym SQL (ogólnego przeznaczenia)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -110,7 +110,7 @@ Na poniższej liście przedstawiono kluczowe cechy warstwy usługi Krytyczne dla
 
 - Przeznaczone dla aplikacji firmowych o najwyższej wydajności i wymaganiach dotyczących wysokiej dostępności
 - Jest dostarczany z bardzo szybkim lokalnym magazynem SSD (do 1 TB w systemie obliczenia i do 4 TB na 5 rdzeń)
-- Wbudowana [wysoka dostępność](../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) na podstawie [zawsze dostępnych grup dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) i [platformy Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
+- Wbudowana [wysoka dostępność](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) na podstawie [zawsze dostępnych grup dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) i [platformy Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 - Wbudowana dodatkowa [replika bazy danych tylko do odczytu](../database/read-scale-out.md) , która może być używana do raportowania i innych obciążeń tylko do odczytu
 - [OLTP w pamięci](../in-memory-oltp-overview.md) , który może być używany do obciążeń z wymaganiami o wysokiej wydajności  
 
@@ -164,7 +164,7 @@ Wprowadzono nową składnię do tworzenia podmiotów zabezpieczeń serwera usłu
 
 Wystąpienie zarządzane SQL umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft z [integracją Azure Active Directory](../database/authentication-aad-overview.md). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Azure Active Directory obsługuje [uwierzytelnianie wieloskładnikowe](../database/authentication-mfa-ssms-configure.md) w celu zwiększenia bezpieczeństwa danych i aplikacji podczas obsługi logowania jednokrotnego.
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Uwierzytelnianie wystąpienia zarządzanego SQL dotyczy sposobu, w jaki użytkownicy udowadniają swoją tożsamość podczas łączenia się z bazą danych. Wystąpienie zarządzane SQL obsługuje dwa typy uwierzytelniania:  
 

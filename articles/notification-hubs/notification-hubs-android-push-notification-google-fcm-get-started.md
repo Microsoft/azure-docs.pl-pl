@@ -16,12 +16,12 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7e68e93e8a103ccf92c949df779d929ac4095d92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5485dacc4d9e3210ad69819caf4e36f96c626da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268829"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428387"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Samouczek: wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu zestawu Firebase SDK w wersji 0,6
 
@@ -411,7 +411,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
     android:id="@+id/text_hello"
     ```
 
-    ![Azure Notification Hubs — Wysyłanie testowe](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
+    ![Zrzut ekranu pokazujący identyfikator Android: ID = "@ + ID/text_hello" zastosowany do formantu TextView.](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
 10. Następnie Dodaj podklasę dla odbiorcy zdefiniowanego w AndroidManifest.xml. Dodaj kolejną nową klasę o nazwie `FirebaseService` do projektu.
 
@@ -573,4 +573,4 @@ W tym samouczku użyto usługi Firebase Cloud Messaging do rozgłaszania powiado
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

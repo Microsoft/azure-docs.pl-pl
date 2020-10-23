@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976216"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424354"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informacje o ustawieniach konfiguracji VPN Gateway
 
@@ -53,11 +53,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Konfigurowanie jednostki SKU bramy
 
-#### <a name="azure-portal"></a>Azure Portal
+**Witryna Azure Portal**
 
 Jeśli używasz Azure Portal do utworzenia bramy sieci wirtualnej Menedżer zasobów, możesz wybrać jednostkę SKU bramy przy użyciu listy rozwijanej. Wyświetlane opcje odpowiadają wybranemu typowi bramy i typowi sieci VPN.
 
-#### <a name="powershell"></a>Program PowerShell
+**Program PowerShell**
 
 Poniższy przykład programu PowerShell określa `-GatewaySku` jako VpnGw1. W przypadku tworzenia bramy przy użyciu programu PowerShell należy najpierw utworzyć konfigurację adresu IP, a następnie użyć zmiennej, aby odwołać się do niej. W tym przykładzie zmienna konfiguracyjna jest $gwipconfig.
 
@@ -67,7 +67,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+**Interfejs wiersza polecenia platformy Azure**
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
@@ -82,6 +82,12 @@ Jeśli masz bramę sieci VPN i chcesz korzystać z innej jednostki SKU bramy, op
 3. **Nie można** zmienić rozmiaru jednostek SKU Basic/Standard/HighPerformance na jednostki SKU VpnGw. Zamiast tego należy [zmienić](#change) na nowe jednostki SKU.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Aby zmienić rozmiar bramy
+
+**Witryna Azure Portal**
+
+[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+
+**Program PowerShell**
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 
@@ -167,7 +173,7 @@ Czasami trzeba zmodyfikować ustawienia bramy sieci lokalnej. Na przykład po do
 
 Aby uzyskać dodatkowe zasoby techniczne i wymagania dotyczące składni w przypadku używania interfejsów API REST, poleceń cmdlet programu PowerShell lub interfejsu wiersza polecenia platformy Azure dla konfiguracji VPN Gateway, zobacz następujące strony:
 
-| **Motyw** | **Resource Manager** |
+| **Klasyczny** | **Resource Manager** |
 | --- | --- |
 | [Program PowerShell](/powershell/module/az.network/#networking) |[Program PowerShell](/powershell/module/az.network#vpn) |
 | [Interfejs API REST](https://msdn.microsoft.com/library/jj154113) |[Interfejs API REST](/rest/api/network/virtualnetworkgateways) |

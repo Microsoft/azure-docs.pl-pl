@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965152"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424575"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Rejestracja informacji o zabezpieczeniach dla Azure Active Directory przegląd
 
@@ -34,7 +34,7 @@ W tym artykule przedstawiono łączną rejestrację zabezpieczeń. Aby rozpoczą
 
 Przed włączeniem nowego środowiska zapoznaj się z dokumentacją zorientowaną na administratora i dokumentacją zorientowaną na użytkownika, aby upewnić się, że rozumiesz funkcjonalność i wpływ tej funkcji. Zapoznaj się z [dokumentacją użytkownika](../user-help/security-info-setup-signin.md) w celu przygotowania użytkowników do nowego środowiska i zapewnienia pomyślnego wdrożenia.
 
-Rejestracja informacji o zabezpieczeniach połączonej usługi Azure AD nie jest obecnie dostępna dla chmur narodowych, takich jak Azure USA, Azure (Niemcy) i Azure (Chiny).
+Rejestracja informacji o zabezpieczeniach połączonej usługi Azure AD nie jest obecnie dostępna dla chmur narodowych, takich jak Azure (Niemcy) lub Azure Chiny. Jest ona dostępna dla instytucji rządowych USA platformy Azure.
 
 > [!IMPORTANT]
 > Użytkownicy, którzy są włączeni do zarówno oryginalnej wersji zapoznawczej, jak i udoskonalonego, połączonego środowiska rejestracji, zobaczą nowe zachowanie. Użytkownicy, którzy są włączeni do obu środowisk, zobaczą tylko nowe środowisko my profile. Nowy *mój profil* jest wyrównany do wyglądu i sposobu działania złożonej rejestracji oraz zapewnia bezproblemowe środowisko dla użytkowników. Użytkownicy mogą zobaczyć mój profil, przechodząc do [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .

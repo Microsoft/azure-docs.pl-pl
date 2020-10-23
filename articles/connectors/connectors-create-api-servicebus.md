@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996350"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426643"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Wymiana komunikatów w chmurze przy użyciu Azure Logic Apps i Azure Service Bus
 
@@ -60,7 +60,7 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
       ![Kopiuj parametry połączenia Service Bus przestrzeni nazw](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Aby sprawdzić, czy parametry połączenia są skojarzone z przestrzenią nazw Service Bus, czy z jednostką obsługi komunikatów, taką jak kolejka, Wyszukaj parametry połączenia dla `EntityPath`   parametru. Jeśli ten parametr zostanie znaleziony, ciąg połączenia jest przeznaczony dla określonej jednostki i nie jest poprawnym ciągiem używanym z aplikacją logiki.
+   > Aby sprawdzić, czy parametry połączenia są skojarzone z przestrzenią nazw Service Bus, czy z jednostką obsługi komunikatów, taką jak kolejka, Wyszukaj parametry połączenia dla `EntityPath` parametru. Jeśli ten parametr zostanie znaleziony, ciąg połączenia jest przeznaczony dla określonej jednostki i nie jest poprawnym ciągiem używanym z aplikacją logiki.
 
 ## <a name="add-service-bus-trigger"></a>Dodaj wyzwalacz Service Bus
 
@@ -68,18 +68,22 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com)i Otwórz pustą aplikację logiki w Projektancie aplikacji logiki.
 
-1. W polu wyszukiwania wprowadź ciąg "Azure Service Bus" jako filtr. Z listy Wyzwalacze wybierz wyzwalacz, który chcesz.
+1. W polu wyszukiwania portalu wprowadź wartość `azure service bus` . Z wyświetlonej listy Wyzwalacze wybierz wyzwalacz, który chcesz.
 
    Na przykład, aby wyzwolić aplikację logiki, gdy nowy element zostanie wysłany do kolejki Service Bus, wybierz opcję **po odebraniu komunikatu w kolejce (Autouzupełnianie)** .
 
    ![Wybierz wyzwalacz Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   Wszystkie wyzwalacze Service Bus są wyzwalaczami *długiego sondowania* . Ten opis oznacza, że podczas uruchamiania wyzwalacza, wyzwalacz przetwarza wszystkie komunikaty, a następnie czeka 30 sekund, aby więcej komunikatów pojawiło się w ramach subskrypcji kolejki lub tematu. Jeśli w ciągu 30 sekund nie pojawią się żadne komunikaty, uruchomienie wyzwalacza zostanie pominięte. W przeciwnym razie wyzwalacz będzie kontynuował odczytywanie wiadomości do momentu, gdy subskrypcja kolejki lub tematu nie jest pusta. Sonda następnego wyzwalacza zależy od interwału cyklu określonego we właściwościach wyzwalacza.
+   Poniżej przedstawiono niektóre zagadnienia dotyczące korzystania z wyzwalacza Service Bus:
 
-   Niektóre wyzwalacze, takie jak **po nadejściu co najmniej jednego komunikatu w kolejce (AutoComplete)** , mogą zwrócić jeden lub więcej komunikatów. Kiedy te wyzwalacze są wyzwalane, zwracają między jedną i liczbę komunikatów, które są określone przez wartość właściwości **Maksymalna liczba komunikatów** wyzwalacza.
+   * Wszystkie wyzwalacze Service Bus są wyzwalaczami *długiego sondowania* . Ten opis oznacza, że podczas uruchamiania wyzwalacza, wyzwalacz przetwarza wszystkie komunikaty, a następnie czeka 30 sekund, aby więcej komunikatów pojawiło się w ramach subskrypcji kolejki lub tematu. Jeśli w ciągu 30 sekund nie pojawią się żadne komunikaty, uruchomienie wyzwalacza zostanie pominięte. W przeciwnym razie wyzwalacz będzie kontynuował odczytywanie wiadomości do momentu, gdy subskrypcja kolejki lub tematu nie jest pusta. Sonda następnego wyzwalacza zależy od interwału cyklu określonego we właściwościach wyzwalacza.
 
-    > [!NOTE]
-    > Wyzwalacz autouzupełniania automatycznie kończy komunikat, ale uzupełnianie odbywa się tylko przy następnym wywołaniu do Service Bus. Takie zachowanie może mieć wpływ na projekt aplikacji logiki. Na przykład Unikaj zmiany współbieżności w wyzwalaczu autouzupełniania, ponieważ ta zmiana może spowodować zduplikowane komunikaty, jeśli aplikacja logiki przejdzie do stanu ograniczenia. Zmiana kontroli współbieżności powoduje utworzenie następujących warunków: wyzwalacze ograniczające są pomijane przy użyciu `WorkflowRunInProgress` kodu, operacja ukończenia nie zostanie wykonana, a następne uruchomienie wyzwalacza następuje po interwale sondowania. Musisz ustawić czas trwania blokady usługi Service Bus na wartość dłuższą niż interwał sondowania. Jednak pomimo tego ustawienia komunikat nadal może nie zostać ukończony, jeśli aplikacja logiki pozostanie w stanie ograniczenia w kolejnym interwale sondowania.
+   * Niektóre wyzwalacze, takie jak **po nadejściu co najmniej jednego komunikatu w kolejce (AutoComplete)** , mogą zwrócić jeden lub więcej komunikatów. Kiedy te wyzwalacze są wyzwalane, zwracają między jedną i liczbę komunikatów, które są określone przez wartość właściwości **Maksymalna liczba komunikatów** wyzwalacza.
+
+     > [!NOTE]
+     > Wyzwalacz autouzupełniania automatycznie kończy komunikat, ale uzupełnianie odbywa się tylko przy następnym wywołaniu do Service Bus. Takie zachowanie może mieć wpływ na projekt aplikacji logiki. Na przykład Unikaj zmiany współbieżności w wyzwalaczu autouzupełniania, ponieważ ta zmiana może spowodować zduplikowane komunikaty, jeśli aplikacja logiki przejdzie do stanu ograniczenia. Zmiana kontroli współbieżności powoduje utworzenie następujących warunków: wyzwalacze ograniczające są pomijane przy użyciu `WorkflowRunInProgress` kodu, operacja ukończenia nie zostanie wykonana, a następne uruchomienie wyzwalacza następuje po interwale sondowania. Musisz ustawić czas trwania blokady usługi Service Bus na wartość dłuższą niż interwał sondowania. Jednak pomimo tego ustawienia komunikat nadal może nie zostać ukończony, jeśli aplikacja logiki pozostanie w stanie ograniczenia w kolejnym interwale sondowania.
+
+   * W przypadku [włączenia ustawienia współbieżności](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) dla wyzwalacza Service Bus wartość domyślna dla `maximumWaitingRuns` Właściwości to 10. Na podstawie ustawienia czasu trwania blokady jednostki Service Bus i czasu trwania uruchomienia dla wystąpienia aplikacji logiki ta wartość domyślna może być zbyt duża i może spowodować wyjątek "blokada utraconych". Aby znaleźć optymalną wartość dla danego scenariusza, Rozpocznij testowanie z wartością 1 lub 2 dla `maximumWaitingRuns` właściwości. Aby zmienić maksymalną wartość oczekujących uruchomień, zobacz [Limit uruchamiania oczekujących zmian](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 1. Jeśli wyzwalacz nawiązuje połączenie z przestrzenią nazw Service Bus po raz pierwszy, wykonaj następujące kroki, gdy projektant aplikacji logiki monituje o informacje o połączeniu.
 
@@ -113,13 +117,13 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)i Otwórz aplikację logiki w Projektancie aplikacji logiki.
+1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
 1. W kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**.
 
    Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między tymi krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
-1. W obszarze **Wybierz akcję**w polu wyszukiwania wprowadź ciąg "Azure Service Bus" jako filtr. Z listy Akcje wybierz żądaną akcję. 
+1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `azure service bus` . Z wyświetlonej listy Akcje wybierz żądaną akcję. 
 
    Na potrzeby tego przykładu wybierz akcję **Wyślij wiadomość** .
 

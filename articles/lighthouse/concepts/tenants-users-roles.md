@@ -3,12 +3,12 @@ title: Dzierżawy, role i użytkownicy w scenariuszach usługi Azure Lighthouse
 description: Zapoznaj się z pojęciami Azure Active Directory dzierżawców, użytkowników i ról, a także, jak mogą one być używane w scenariuszach usługi Azure Lighthouse.
 ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: c409b45d18504d071ffed3185de20ec5e1147bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399248"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424111"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Dzierżawy, role i użytkownicy w scenariuszach usługi Azure Lighthouse
 
@@ -22,7 +22,7 @@ Niezależnie od wybranej metody dołączania należy zdefiniować *autoryzacje*.
 
 ## <a name="role-support-for-azure-lighthouse"></a>Obsługa ról w usłudze Azure Lighthouse
 
-Podczas definiowania autoryzacji każde konto użytkownika musi mieć przypisaną jedną z [wbudowanych ról kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/built-in-roles.md). Role niestandardowe i [role administratora klasycznej subskrypcji](../../role-based-access-control/classic-administrators.md) nie są obsługiwane.
+Podczas definiowania autoryzacji każde konto użytkownika musi mieć przypisaną jedną z [wbudowanych ról platformy Azure](../../role-based-access-control/built-in-roles.md). Role niestandardowe i [role administratora klasycznej subskrypcji](../../role-based-access-control/classic-administrators.md) nie są obsługiwane.
 
 Wszystkie [wbudowane role](../../role-based-access-control/built-in-roles.md) są obecnie obsługiwane przez usługę Azure Lighthouse z następującymi wyjątkami:
 

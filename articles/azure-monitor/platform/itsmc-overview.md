@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41aabeeeb151a6e2cf3c52dbfa2075c55f86989f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613768"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427312"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
 
@@ -65,7 +65,7 @@ Aby można było utworzyć połączenie, należy dodać rozwiązanie łącznik I
    >[!NOTE]
    >W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako Log Analytics obszary robocze.
 
-5. Kliknij przycisk **Utwórz**.
+5. Kliknij pozycję **Utwórz**.
 
 Gdy zasób rozwiązania zostanie wdrożony, w prawym górnym rogu okna pojawi się powiadomienie.
 
@@ -106,6 +106,11 @@ Po jego narzędzi Narzędzia ITSM wykonaj następujące kroki, aby utworzyć po�
 ## <a name="using-the-solution"></a>Użycie rozwiązania
    Korzystając z rozwiązania łącznik ITSM, można tworzyć elementy robocze na podstawie alertów platformy Azure, alertów Log Analytics i rekordów dziennika Log Analytics.
 
+## <a name="template-definitions"></a>Definicje szablonów
+   Istnieją typy **elementów roboczych** , które mogą używać szablonów, które są zdefiniowane przez narzędzie narzędzia ITSM.
+Przy użyciu szablonów umożliwiają klientowi zdefiniowanie pól, które będą wypełniane automatycznie, zgodnie z ustalonymi wartościami, które są zdefiniowane jako część grupy akcji. Ta definicja jest wykonywana w narzędziu narzędzia ITSM.
+W tych przypadkach pole wyboru "Użyj szablonu niestandardowego" umożliwia klientowi wypełnianie pól pola, które będą wypełniane automatycznie, zgodnie z ustalonymi wartościami, które są zdefiniowane jako część grupy akcji.
+   
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure
 
 Po utworzeniu połączenia z usługą narzędzia ITSM można tworzyć elementy robocze w narzędziu narzędzia ITSM na podstawie alertów platformy Azure za pomocą **akcji narzędzia ITSM** w **grupach akcji**.
@@ -133,8 +138,10 @@ Postępuj zgodnie z następującą procedurą:
     ![Szczegóły akcji narzędzia ITSM](media/itsmc-overview/itsm-action-details.png)
 
 6. Z menu rozwijanego wybierz pozycję typ **elementu pracy** .
-   Wybierz opcję użycia istniejącego szablonu lub wypełnij pola wymagane przez produkt narzędzia ITSM.
-7. Kliknij przycisk **OK**.
+
+7. Wybierz opcję użycia istniejącego szablonu lub użyj wspólnego szablonu i wypełnij pola wymagane przez produkt narzędzia ITSM.
+
+8. Kliknij przycisk **OK**.
 
 Podczas tworzenia/edytowania reguły alertu platformy Azure Użyj grupy akcji, która ma akcję narzędzia ITSM. Gdy wyzwalacze alertów, element roboczy jest tworzony/aktualizowany w narzędziu narzędzia ITSM.
 
@@ -186,7 +193,7 @@ ServiceDeskWorkItemType_s = "zdarzenie"
 
 - ServiceDeskConnectionName
 - Identyfikator działu obsługi
-- State
+- Stan
 - Pilność
 - Wpływ
 - Priorytet
@@ -218,9 +225,9 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Element źródłowy
 - Przypisano do
 - Tytuł
-- Type
+- Typ
 - Kategoria
-- State
+- Stan
 - Eskalacja
 - Stan konfliktu
 - Pilność
@@ -244,7 +251,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | Pole Log Analytics | Pole usługi ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Liczba |
-| IncidentState_s | State |
+| IncidentState_s | Stan |
 | Urgency_s |Pilność |
 | Impact_s |Wpływ|
 | Priority_s | Priorytet |
@@ -263,16 +270,16 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Dane wyjściowe żądania zmiany usługi ServiceNow
 
-| Usługa Log Analytics | Pole usługi ServiceNow |
+| Log Analytics | Pole usługi ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Liczba |
 | CreatedBy_s | Żądane przez |
 | ClosedBy_s | Zamknięte przez |
 | AssignedTo_s | Przypisano do  |
 | Title_s|  Krótki opis |
-| Type_s|  Type |
+| Type_s|  Typ |
 | Category_s|  Kategoria |
-| CRState_s|  State|
+| CRState_s|  Stan|
 | Urgency_s|  Pilność |
 | Priority_s| Priorytet|
 | Risk_s| Ryzyko|

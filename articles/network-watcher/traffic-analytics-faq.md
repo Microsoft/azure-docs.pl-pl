@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87479850"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426544"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Analiza ruchu często zadawane pytania
 
@@ -58,7 +58,7 @@ Aby sprawdzić role przypisane do użytkownika w ramach subskrypcji:
 
 3. Aby wyświetlić listę wszystkich ról przypisanych do określonego użytkownika, użyj polecenie  **Get-AzRoleAssignment-SignInName [User email]-IncludeClassicAdministrators**. 
 
-Jeśli nie widzisz żadnych danych wyjściowych, skontaktuj się z administratorem subskrypcji, aby uzyskać dostęp do uruchamiania poleceń. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontrolą dostępu opartą na rolach przy użyciu Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Jeśli nie widzisz żadnych danych wyjściowych, skontaktuj się z administratorem subskrypcji, aby uzyskać dostęp do uruchamiania poleceń. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>W jakich regionach świadczenia usługi Azure Analiza ruchu dostępne?

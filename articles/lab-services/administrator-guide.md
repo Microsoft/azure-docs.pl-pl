@@ -3,12 +3,12 @@ title: Podręcznik administratora Azure Lab Services | Microsoft Docs
 description: Ten przewodnik pomaga administratorom, którzy tworzą konta laboratorium i zarządzają nimi przy użyciu Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 380676b22fc27b5f62c40112457c42a04b4bf955
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a39ee2cc57c8fc1497c3798759bd40d1ed2976e3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371413"
+ms.locfileid: "92425305"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services — Podręcznik administratora
 Administratorzy IT, którzy zarządzają zasobami w chmurze University, są zwykle odpowiedzialni za skonfigurowanie konta laboratorium dla swojej szkoły. Po skonfigurowaniu konta Laboratorium Administratorzy lub wykładowcy tworzą laboratoria klas, które są zawarte w ramach konta laboratorium. Ten artykuł zawiera ogólne omówienie związanych zasobów platformy Azure oraz wskazówki dotyczące ich tworzenia.
@@ -178,7 +178,7 @@ Gdy Administratorzy lub twórcy laboratorium tworzą laboratorium zajęć, mogą
 
 ## <a name="manage-identity"></a>Zarządzanie tożsamością
 
-Za pomocą [kontroli dostępu opartej na rolach platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)można przypisać następujące role, aby zapewnić dostęp do kont laboratorium i laboratoriów zajęć:
+Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)można przypisać następujące role, aby zapewnić dostęp do kont laboratorium i laboratoriów zajęć:
 
 - **Właściciel konta laboratorium**
 

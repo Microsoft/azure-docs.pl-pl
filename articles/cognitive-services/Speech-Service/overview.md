@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 29289166dca2ee87055c8bcd4e453fc02966c0e5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630206"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427177"
 ---
 # <a name="what-is-the-speech-service"></a>Czym jest usługa rozpoznawania mowy?
 
 Usługa mowy to zjednoczenie zamiany mowy na tekst, tekstu na mowę i tłumaczenia mowy na jedną subskrypcję platformy Azure. Można łatwo włączyć obsługę mowy dla aplikacji, narzędzi i urządzeń za pomocą [interfejsu wiersza polecenia mowy](spx-overview.md), [zestawu Speech SDK](speech-sdk-reference.md), [zestawu Speech Devices SDK](https://aka.ms/sdsdk-quickstart), [mowy Studio](https://speech.microsoft.com/)lub [interfejsów API REST](rest-apis.md).
 
 > [!IMPORTANT]
-> Usługa mowy została zastąpiona interfejs API rozpoznawania mowy Bing i tłumaczenie mowy w usłudze Translator. Aby uzyskać instrukcje dotyczące migracji _, zobacz przewodniki dotyczące > migracji_ .
+> Usługa mowy została zastąpiona interfejs API rozpoznawania mowy Bing i tłumaczenie mowy w usłudze Translator. Zapoznaj się z sekcją _migracja_ , aby uzyskać instrukcje dotyczące migracji.
 
 Poniższe funkcje są częścią usługi mowy. Skorzystaj z łączy w tej tabeli, aby dowiedzieć się więcej na temat typowych przypadków użycia dla każdej funkcji, lub przejrzyj odwołanie do interfejsu API.
 
@@ -76,7 +76,7 @@ Aby dodać zasób usługi mowy (warstwa Bezpłatna lub płatna) do konta platfor
    - Wybierz [region](regions.md) , w którym będzie używany zasób.
    - Wybierz opcję bezpłatna (F0) lub płatna (S0). Aby uzyskać pełne informacje na temat cen i przydziałów użycia dla każdej warstwy, wybierz pozycję **Wyświetl pełne szczegóły cennika**. Aby uzyskać ograniczenia dotyczące zasobów, które można utworzyć dla każdej subskrypcji, zobacz [limity Cognitive Services platformy Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Utwórz nową grupę zasobów dla tej subskrypcji mowy lub Przypisz subskrypcję do istniejącej grupy zasobów. Grupy zasobów ułatwiają zachowanie różnych subskrypcji platformy Azure.
-   - Wybierz przycisk **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.
+   - Wybierz pozycję **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.

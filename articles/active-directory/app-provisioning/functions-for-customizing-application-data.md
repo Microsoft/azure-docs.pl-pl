@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 14e3b23b4246f26e1ac59e0b12b043341546d0a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperfq2
+ms.openlocfilehash: fc480ab025a0e0de7cccde8818ddbd85ce6c8529
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018247"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424600"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Odwołanie do pisania wyrażeń dla mapowań atrybutów w usłudze Azure AD
 
@@ -50,8 +51,8 @@ Składnia wyrażeń dla mapowań atrybutów to Reminiscent of Visual Basic for A
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu w obiekcie źródłowym. |
-| **przedrostk** |Wymagane |String |Ciąg, który ma zostać dołączony do końca wartości źródłowej. |
+| **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu w obiekcie źródłowym. |
+| **przedrostk** |Wymagane |Ciąg |Ciąg, który ma zostać dołączony do końca wartości źródłowej. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -104,8 +105,8 @@ Zwraca wartość true, jeśli oba atrybuty mają tę samą wartość.
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **source1 ... sourceN** | Wymagane | String |Wymagana, zmienna liczba razy. Zwykle nazwa atrybutu w obiekcie źródłowym. |
-| **defaultValue** | Opcjonalne | String | Wartość domyślna, która ma być używana, jeśli wszystkie wartości źródłowe mają wartość NULL. Może być pustym ciągiem ("").
+| **source1 ... sourceN** | Wymagane | Ciąg |Wymagana, zmienna liczba razy. Zwykle nazwa atrybutu w obiekcie źródłowym. |
+| **defaultValue** | Opcjonalne | Ciąg | Wartość domyślna, która ma być używana, jeśli wszystkie wartości źródłowe mają wartość NULL. Może być pustym ciągiem ("").
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -117,7 +118,7 @@ Zwraca wartość true, jeśli oba atrybuty mają tę samą wartość.
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |Ciąg do przekonwertowania na podstawowy 64|
+| **zewnętrz** |Wymagane |Ciąg |Ciąg do przekonwertowania na podstawowy 64|
 
 **Przyklad**
 `ConvertToBase64("Hello world!")`
@@ -134,7 +135,7 @@ Zwraca wartość "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |Ciąg, który ma zostać przekonwertowany na kodowanie szesnastkowe|
+| **zewnętrz** |Wymagane |Ciąg |Ciąg, który ma zostać przekonwertowany na kodowanie szesnastkowe|
 
 **Przyklad**
 `ConvertToUTF8Hex("Hello world!")`
@@ -142,7 +143,7 @@ Zwraca wartość "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 Zwraca 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>Licznik
+### <a name="count"></a>Liczba
 **Funkcja:** Count (atrybut)
 
 **Opis:** Funkcja count zwraca liczbę elementów w atrybucie wielowartościowym
@@ -180,7 +181,7 @@ Zwraca wartość "CN = Jan, DC = contoso, DC = com"
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **wartość** |Wymagane | Data | Data usługi AD do przekonwertowania na typ DateTime |
+| **wartość** |Wymagane | Date | Data usługi AD do przekonwertowania na typ DateTime |
 
 **Przyklad**
 `DateFromNum([lastLogonTimestamp])`
@@ -199,9 +200,9 @@ Zwraca datę i godzinę reprezentującą 1 stycznia 2012 o wartości 11:13:00.
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu w obiekcie źródłowym. |
-| **inputFormat** |Wymagane |String |Oczekiwany format wartości źródłowej. Obsługiwane formaty można znaleźć w temacie [/dotnet/Standard/Base-Types/Custom-Date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-| **outputFormat** |Wymagane |String |Format daty wyjściowej. |
+| **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu w obiekcie źródłowym. |
+| **inputFormat** |Wymagane |Ciąg |Oczekiwany format wartości źródłowej. Obsługiwane formaty można znaleźć w temacie [/dotnet/Standard/Base-Types/Custom-Date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| **outputFormat** |Wymagane |Ciąg |Format daty wyjściowej. |
 
 ---
 ### <a name="guid"></a>Guid (identyfikator GUID)
@@ -236,8 +237,8 @@ Zwraca datę i godzinę reprezentującą 1 stycznia 2012 o wartości 11:13:00.
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **sekwencj** |Wymagane |String |Ciąg do przeszukania |
-| **wartość2** |Wymagane |String |Ciąg, który ma zostać znaleziony |
+| **sekwencj** |Wymagane |Ciąg |Ciąg do przeszukania |
+| **wartość2** |Wymagane |Ciąg |Ciąg, który ma zostać znaleziony |
 | **Start** |Opcjonalne |Liczba całkowita |Pozycja początkowa do znalezienia podciągu|
 | **comparetype** |Opcjonalne |Wyliczenie |Może być vbTextCompare lub vbBinaryCompare |
 
@@ -340,8 +341,8 @@ Jeśli jedna z wartości źródłowych jest atrybutem wielowartościowym, każda
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **rozdzielając** |Wymagane |String |Ciąg używany do oddzielania wartości źródłowych, gdy są one łączone w jeden ciąg. Może to być "", jeśli nie jest wymagany żaden separator. |
-| **source1 ... sourceN** |Wymagana, zmienna liczba razy |String |Wartości ciągu, które mają być połączone ze sobą. |
+| **rozdzielając** |Wymagane |Ciąg |Ciąg używany do oddzielania wartości źródłowych, gdy są one łączone w jeden ciąg. Może to być "", jeśli nie jest wymagany żaden separator. |
+| **source1 ... sourceN** |Wymagana, zmienna liczba razy |Ciąg |Wartości ciągu, które mają być połączone ze sobą. |
 
 ---
 ### <a name="left"></a>Lewe
@@ -374,7 +375,7 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu. |
+| **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu. |
 | **Start** |Wymagane |liczba całkowita |Indeks w ciągu **źródłowym** , w którym powinien zostać uruchomiony podciąg. Pierwszy znak w ciągu będzie miał indeks 1, drugi znak będzie miał indeks 2 itd. |
 | **length** |Wymagane |liczba całkowita |Długość podciągu. Jeśli długość kończy się poza ciągiem **źródłowym** , funkcja zwróci podciąg z **początkowego** indeksu do końca ciągu **źródłowego** . |
 
@@ -388,7 +389,7 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String | Zwykle jest to atrybut imię i nazwisko. |
+| **zewnętrz** |Wymagane |Ciąg | Zwykle jest to atrybut imię i nazwisko. |
 
 ---
 ### <a name="not"></a>Not
@@ -412,7 +413,7 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **wartość** |Wymagane | String | Ciąg daty i godziny w obsługiwanym formacie. Obsługiwane formaty można znaleźć w temacie https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx . |
+| **wartość** |Wymagane | Ciąg | Ciąg daty i godziny w obsługiwanym formacie. Obsługiwane formaty można znaleźć w temacie https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx . |
 
 **Przykład:**
 * Przykładem produktu Workday przy założeniu, że chcesz zmapować atrybut *ContractEndDate* z produktu Workday, który znajduje się w formacie *2020-12-31-08:00* do *accountExpires* w usłudze AD, poniżej przedstawiono sposób użycia tej funkcji i zmiany przesunięcia strefy czasowej na zgodność z ustawieniami regionalnymi. 
@@ -464,13 +465,13 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu w obiekcie **źródłowym** . |
-| **oldValue** |Opcjonalne |String |Wartość, która ma zostać zastąpiona w **źródle** lub **szablonie**. |
-| **regexPattern** |Opcjonalne |String |Wzorzec wyrażenia regularnego dla wartości, która ma zostać zastąpiona w **źródle**. Lub, gdy **replacementPropertyName** jest używany, wzorzec wyodrębniania wartości z **replacementPropertyName**. |
-| **regexGroupName** |Opcjonalne |String |Nazwa grupy w **regexPattern**. Tylko wtedy, gdy  **replacementPropertyName** jest używany, wyodrębnimy wartość tej grupy jako **replacementValue** z **replacementPropertyName**. |
-| **replacementValue** |Opcjonalne |String |Nowa wartość, aby zastąpić starą. |
-| **replacementAttributeName** |Opcjonalne |String |Nazwa atrybutu, który ma być używany na potrzeby wartości zamiennej |
-| **formularza** |Opcjonalne |String |Gdy zostanie podana wartość **szablonu** , poszukamy wartości **OldValue** wewnątrz szablonu i Zastąp ją wartością **Source** . |
+| **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu w obiekcie **źródłowym** . |
+| **oldValue** |Opcjonalne |Ciąg |Wartość, która ma zostać zastąpiona w **źródle** lub **szablonie**. |
+| **regexPattern** |Opcjonalne |Ciąg |Wzorzec wyrażenia regularnego dla wartości, która ma zostać zastąpiona w **źródle**. Lub, gdy **replacementPropertyName** jest używany, wzorzec wyodrębniania wartości z **replacementPropertyName**. |
+| **regexGroupName** |Opcjonalne |Ciąg |Nazwa grupy w **regexPattern**. Tylko wtedy, gdy  **replacementPropertyName** jest używany, wyodrębnimy wartość tej grupy jako **replacementValue** z **replacementPropertyName**. |
+| **replacementValue** |Opcjonalne |Ciąg |Nowa wartość, aby zastąpić starą. |
+| **replacementAttributeName** |Opcjonalne |Ciąg |Nazwa atrybutu, który ma być używany na potrzeby wartości zamiennej |
+| **formularza** |Opcjonalne |Ciąg |Gdy zostanie podana wartość **szablonu** , poszukamy wartości **OldValue** wewnątrz szablonu i Zastąp ją wartością **Source** . |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -489,7 +490,7 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **uniqueValueRule1 ... uniqueValueRuleN** |Wymagane są co najmniej 2, brak górnej granicy |String | Lista unikatowych reguł generowania wartości do obliczenia. |
+| **uniqueValueRule1 ... uniqueValueRuleN** |Wymagane są co najmniej 2, brak górnej granicy |Ciąg | Lista unikatowych reguł generowania wartości do obliczenia. |
 
 
 ---
@@ -502,7 +503,7 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **AppRoleAssignments** |Wymagane |String |**[appRoleAssignments]** obiekt. |
+| **AppRoleAssignments** |Wymagane |Ciąg |**[appRoleAssignments]** obiekt. |
 
 ---
 ### <a name="split"></a>Podział
@@ -514,8 +515,8 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |wartość **źródłowa** do zaktualizowania. |
-| **ogranicznik** |Wymagane |String |Określa znak, który będzie używany do dzielenia ciągu (przykład: ",") |
+| **zewnętrz** |Wymagane |Ciąg |wartość **źródłowa** do zaktualizowania. |
+| **ogranicznik** |Wymagane |Ciąg |Określa znak, który będzie używany do dzielenia ciągu (przykład: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -527,7 +528,7 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |wartość **źródłowa** do zaktualizowania. |
+| **zewnętrz** |Wymagane |Ciąg |wartość **źródłowa** do zaktualizowania. |
 
 ---
 ### <a name="switch"></a>Przełącznik
@@ -539,10 +540,10 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |Wartość **źródłowa** do zaktualizowania. |
-| **defaultValue** |Opcjonalne |String |Wartość domyślna, która ma być używana, jeśli źródło nie jest zgodne z żadnymi kluczami. Może być pustym ciągiem (""). |
-| **głównych** |Wymagane |String |**Klucz** do porównywania wartości **źródłowej** z. |
-| **wartość** |Wymagane |String |Wartość zastępcza dla **źródła** pasującego do klucza. |
+| **zewnętrz** |Wymagane |Ciąg |Wartość **źródłowa** do zaktualizowania. |
+| **defaultValue** |Opcjonalne |Ciąg |Wartość domyślna, która ma być używana, jeśli źródło nie jest zgodne z żadnymi kluczami. Może być pustym ciągiem (""). |
+| **głównych** |Wymagane |Ciąg |**Klucz** do porównywania wartości **źródłowej** z. |
+| **wartość** |Wymagane |Ciąg |Wartość zastępcza dla **źródła** pasującego do klucza. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -554,8 +555,8 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu z obiektu źródłowego |
-| **dziedzinie** |Opcjonalne |String |Format nazwy kultury opartej na dokumencie RFC 4646 to *languagecode2-Country/regioncode2*, gdzie *languagecode2* to kod języka dwuliterowego i *kraj/regioncode2* to kod podkultury dwuliterowej. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i EN-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy kod języka dwuliterowego nie jest dostępny, używany jest trzyliterowy kod pochodzący z normy ISO 639-2.|
+| **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu z obiektu źródłowego |
+| **dziedzinie** |Opcjonalne |Ciąg |Format nazwy kultury opartej na dokumencie RFC 4646 to *languagecode2-Country/regioncode2*, gdzie *languagecode2* to kod języka dwuliterowego i *kraj/regioncode2* to kod podkultury dwuliterowej. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i EN-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy kod języka dwuliterowego nie jest dostępny, używany jest trzyliterowy kod pochodzący z normy ISO 639-2.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -567,8 +568,8 @@ Zwraca wartość "Joh".
 
 | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu w obiekcie źródłowym. |
-| **dziedzinie** |Opcjonalne |String |Format nazwy kultury opartej na dokumencie RFC 4646 to *languagecode2-Country/regioncode2*, gdzie *languagecode2* to kod języka dwuliterowego i *kraj/regioncode2* to kod podkultury dwuliterowej. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i EN-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy kod języka dwuliterowego nie jest dostępny, używany jest trzyliterowy kod pochodzący z normy ISO 639-2.|
+| **zewnętrz** |Wymagane |Ciąg |Zwykle nazwa atrybutu w obiekcie źródłowym. |
+| **dziedzinie** |Opcjonalne |Ciąg |Format nazwy kultury opartej na dokumencie RFC 4646 to *languagecode2-Country/regioncode2*, gdzie *languagecode2* to kod języka dwuliterowego i *kraj/regioncode2* to kod podkultury dwuliterowej. Przykłady obejmują ja-JP dla języka japońskiego (Japonia) i EN-US dla języka angielskiego (Stany Zjednoczone). W przypadkach, gdy kod języka dwuliterowego nie jest dostępny, używany jest trzyliterowy kod pochodzący z normy ISO 639-2.|
 
 ---
 ### <a name="word"></a>Word
@@ -586,7 +587,7 @@ Jeśli ciąg zawiera mniej niż liczbowe słowa lub ciąg nie zawiera słów ide
 | --- | --- | --- | --- |
 | **Ciąg** |Wymagane |Wielowartościowy atrybut |Ciąg, z którego ma zostać zwrócony wyraz.|
 | **WordNumber** |Wymagane | Liczba całkowita | Numer identyfikacyjny, który ma zwracać numer wyrazu|
-| **Ograniczniki** |Wymagane |String| Ciąg reprezentujący ograniczniki, które powinny być używane do identyfikowania wyrazów|
+| **Ograniczniki** |Wymagane |Ciąg| Ciąg reprezentujący ograniczniki, które powinny być używane do identyfikowania wyrazów|
 
 **Przyklad**
 `Word("The quick brown fox",3," ")`

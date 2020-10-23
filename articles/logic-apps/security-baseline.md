@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315837"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424060"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Podstawa zabezpieczeń platformy Azure dla Logic Apps
 
@@ -182,7 +182,7 @@ Wdrażaj wybrane rozwiązanie zapory w każdej z granic sieci organizacji, aby w
 
 - Należy włączyć Standard DDoS Protection
 
-Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
+Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach na platformie Azure (RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
 
 - [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
@@ -578,7 +578,7 @@ W przypadku aplikacji logiki, które wymagają bezpośredniego dostępu do zasob
 
 Po utworzeniu ISE można użyć wewnętrznych lub zewnętrznych punktów końcowych dostępu. Wybór określa, czy wyzwalacze żądania lub elementu webhook w usłudze Logic Apps w ISE mogą odbierać wywołania spoza sieci wirtualnej.
 
-Ponadto należy wdrożyć izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem Azure Active Directory kontroli dostępu opartej na rolach.
+Ponadto należy wdrożyć izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC).
 
 - [Omówienie łączników dla Logic Apps](../connectors/apis-list.md)
 
@@ -644,9 +644,9 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Logic Apps i ma 
 
 **Odpowiedzialność**: udostępnione
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: można zezwolić tylko określonym użytkownikom lub grupom na uruchamianie określonych zadań, takich jak zarządzanie, edytowanie i wyświetlanie aplikacji logiki. Aby kontrolować ich uprawnienia, Użyj usługi Azure Role-Based Access Control (RBAC), aby móc przypisywać niestandardowe lub wbudowane role do członków w ramach subskrypcji platformy Azure:
+**Wskazówki**: można zezwolić tylko określonym użytkownikom lub grupom na uruchamianie określonych zadań, takich jak zarządzanie, edytowanie i wyświetlanie aplikacji logiki. Aby kontrolować ich uprawnienia, użyj funkcji kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby można było przypisywać niestandardowe lub wbudowane role do członków w ramach subskrypcji platformy Azure:
 
 - Współautor aplikacji logiki: umożliwia zarządzanie aplikacjami logiki, ale nie pozwala na zmianę dostępu do nich.
 - Operator aplikacji logiki: umożliwia odczytywanie, Włączanie i wyłączanie aplikacji logiki, ale nie można ich edytować ani aktualizować.
@@ -883,7 +883,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: zasoby związane z Logic Appsami, które są wymagane do działania biznesowego, ale mogą powodować większe ryzyko dla organizacji, powinny być izolowane w ramach własnej maszyny wirtualnej i/lub sieci wirtualnej i dostatecznie zabezpieczone za pomocą zapory platformy Azure lub sieciowej grupy zabezpieczeń.
 
-Logic Apps, które są wymagane do działania biznesowego, ale mogą ponosić większe ryzyko dla organizacji, powinny być izolowane wszędzie tam, gdzie jest to możliwe za pośrednictwem odrębnych grup zasobów z określonymi uprawnieniami i granicami RBAC.
+Logic Apps, które są wymagane do działania biznesowego, ale mogą powodować większe ryzyko dla organizacji, powinny być izolowane wszędzie tam, gdzie jest to możliwe za pośrednictwem odrębnych grup zasobów z określonymi uprawnieniami i granicami RBAC platformy Azure.
 
 - [Jak utworzyć sieć wirtualną](../virtual-network/quick-create-portal.md) 
 
@@ -891,7 +891,7 @@ Logic Apps, które są wymagane do działania biznesowego, ale mogą ponosić wi
 
 - [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md) 
 
-- [Jak zabezpieczyć dostęp do Logic Apps za pośrednictwem RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [Jak zabezpieczyć dostęp do Logic Apps za pośrednictwem usługi Azure RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

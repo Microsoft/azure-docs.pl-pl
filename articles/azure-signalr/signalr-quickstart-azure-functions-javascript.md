@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: c210096c1765015378f12f8c5e01fc9f8f97e10b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 02bcbf0b4f6f6021c157a8ba3c5d2783fc94f1aa
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327684"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425322"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Szybki Start: używanie języka JavaScript do tworzenia pokoju rozmów z usługą Azure Functions i usługi sygnalizującej
 
@@ -58,7 +58,7 @@ Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> prz
 
 1. Zaznacz i skopiuj podstawowe parametry połączenia.
 
-    ![Tworzenie usługi SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    ![Zrzut ekranu, który wyróżnia podstawowe parametry połączenia.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
 1. W edytorze kodu Otwórz folder *src/Chat/JavaScript* w sklonowanym repozytorium.
 

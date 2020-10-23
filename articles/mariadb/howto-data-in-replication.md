@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598205"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425998"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurowanie replikacja typu data-in w Azure Database for MariaDB
 
@@ -56,7 +56,7 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
 
 2. Upewnij się, że serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306 oraz że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN). 
    
-   Przetestuj łączność z serwerem źródłowym, próbując nawiązać połączenie za pomocą narzędzia, takiego jak wiersz polecenia MySQL hostowany na innym komputerze lub z [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) dostępnego w Azure Portal.
+   Przetestuj łączność z serwerem źródłowym, próbując nawiązać połączenie za pomocą narzędzia, takiego jak wiersz polecenia MySQL hostowany na innym komputerze lub z [Azure Cloud Shell](../cloud-shell/overview.md) dostępnego w Azure Portal.
 
    Jeśli Twoja organizacja ma rygorystyczne zasady zabezpieczeń i nie zezwoli na wszystkie adresy IP na serwerze źródłowym, aby umożliwić komunikację z platformą Azure z serwerem źródłowym, możesz użyć poniższego polecenia, aby określić adres IP serwera Azure Database for MariaDB.
     
@@ -212,7 +212,7 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
 
 1. Ustaw serwer źródłowy.
 
-   Wszystkie funkcje replikacja typu data-in są wykonywane przez procedury składowane. Wszystkie procedury można znaleźć w [replikacja typu Data-in procedurach składowanych](reference-data-in-stored-procedures.md). Procedury składowane można uruchamiać w programie MySQL Shell lub MySQL Workbench.
+   Wszystkie funkcje replikacja typu data-in są wykonywane przez procedury składowane. Wszystkie procedury można znaleźć w [replikacja typu Data-in procedurach składowanych](reference-stored-procedures.md). Procedury składowane można uruchamiać w programie MySQL Shell lub MySQL Workbench.
 
    Aby połączyć dwa serwery i rozpocząć replikację, zaloguj się do docelowego serwera repliki w usłudze Azure DB dla MariaDB. Następnie ustaw wystąpienie zewnętrzne jako serwer źródłowy przy użyciu `mysql.az_replication_change_master` `mysql.az_replication_change_master_with_gtid` procedury składowanej lub na serwerze usługi Azure DB dla MariaDB.
 

@@ -1,6 +1,6 @@
 ---
-title: Kontrola dostępu oparta na rolach dla kont Media Services — platforma Azure | Microsoft Docs
-description: W tym artykule omówiono kontrolę dostępu opartą na rolach (RBAC) dla kont Azure Media Services.
+title: Kontrola dostępu oparta na rolach na platformie Azure dla kont Media Services — platforma Azure | Microsoft Docs
+description: W tym artykule omówiono kontrolę dostępu opartą na rolach (Azure RBAC) dla kont Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d6bc37a8aaddfb48e6d06eb46d9c1648e815b5ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fba3db14c2a950dd230a4721841b4baa9f64636
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289260"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426799"
 ---
-# <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Kontrola dostępu oparta na rolach (RBAC) dla kont Media Services
+# <a name="azure-role-based-access-control-azure-rbac-for-media-services-accounts"></a>Kontrola dostępu oparta na rolach (Azure RBAC) dla kont Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -27,7 +27,7 @@ Obecnie Azure Media Services nie definiuje żadnych ról niestandardowych specyf
 
 ## <a name="design-principles"></a>Zasady projektowania
 
-Jedną z najważniejszych zasad projektowania interfejsów API w wersji 3 jest lepsze zabezpieczenie interfejsu API. Interfejsy API V3 nie zwracają wpisów tajnych ani poświadczeń dla operacji **Get** lub **list** . Klucze mają zawsze wartość null, są puste lub oczyszczone z odpowiedzi. Użytkownik musi wywołać oddzielną metodę akcji, aby uzyskać wpisy tajne lub poświadczenia. Rola **czytnika** nie może wywoływać operacji takich jak Asset. ListContainerSas, StreamingLocator. ListContentKeys, ContentKeyPolicies. GetPolicyPropertiesWithSecrets. Posiadanie oddzielnych akcji umożliwia ustawienie bardziej szczegółowych uprawnień zabezpieczeń RBAC w roli niestandardowej w razie potrzeby.
+Jedną z najważniejszych zasad projektowania interfejsów API w wersji 3 jest lepsze zabezpieczenie interfejsu API. Interfejsy API V3 nie zwracają wpisów tajnych ani poświadczeń dla operacji **Get** lub **list** . Klucze mają zawsze wartość null, są puste lub oczyszczone z odpowiedzi. Użytkownik musi wywołać oddzielną metodę akcji, aby uzyskać wpisy tajne lub poświadczenia. Rola **czytnika** nie może wywoływać operacji takich jak Asset. ListContainerSas, StreamingLocator. ListContentKeys, ContentKeyPolicies. GetPolicyPropertiesWithSecrets. Jeśli zachodzi taka potrzeba, istnieją osobne działania, które umożliwiają ustawianie bardziej szczegółowych uprawnień zabezpieczeń usługi Azure RBAC w roli niestandardowej.
 
 Aby wyświetlić listę obsługiwanych Media Services operacji, wykonaj następujące czynności:
 
@@ -42,9 +42,9 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-- [Role administratora klasycznej subskrypcji, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Role administratora klasycznej subskrypcji, role platformy Azure i role usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 - [Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
-- [Zarządzanie dostępem przy użyciu RBAC](../../role-based-access-control/role-assignments-rest.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](../../role-based-access-control/role-assignments-rest.md)
 - [Operacje dostawcy zasobów Media Services](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
 ## <a name="next-steps"></a>Następne kroki

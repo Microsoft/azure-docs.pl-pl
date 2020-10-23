@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 460d1c33dcd5284067d14d5d6efa9da9b5b182ae
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 02cf175fc0a29795428ce1b3651469532ff3867c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779458"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92438161"
 ---
 W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu biblioteki klienta wywołującej usługi Azure Communications Services dla systemu Android.
 
@@ -321,4 +321,4 @@ Wybierz szablon projektu &quot;puste działanie":::
 
 ## <a name="sample-code"></a>Przykładowy kod
 
-Możesz pobrać przykładową aplikację z usługi [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)
+Możesz pobrać przykładową aplikację z usługi [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)

@@ -3,12 +3,12 @@ title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c9b47dd720271fe782ce9562d2216eca881756ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315930"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424147"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -160,7 +160,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 We wszystkich scenariuszach należy pamiętać o następujących bieżących ograniczeniach:
 
 - Żądania obsługiwane przez Azure Resource Manager mogą być wykonywane przy użyciu usługi Azure Lighthouse. Identyfikatory URI operacji dla tych żądań zaczynają się od `https://management.azure.com` . Jednak żądania, które są obsługiwane przez wystąpienie typu zasobu (takie jak Key Vault dostęp do danych tajnych lub dostęp do magazynu), nie są obsługiwane przez usługę Azure Lighthouse. Identyfikatory URI operacji dla tych żądań zwykle zaczynają się od adresu, który jest unikatowy dla Twojego wystąpienia, takiego jak `https://myaccount.blob.core.windows.net` lub `https://mykeyvault.vault.azure.net/` . Te ostatnie również są zazwyczaj operacjami na danych, a nie operacjami zarządzania.
-- Przypisania ról muszą używać [wbudowanych ról](../../role-based-access-control/built-in-roles.md)kontroli dostępu opartej na ROLACH (RBAC). Wszystkie wbudowane role są obecnie obsługiwane przez delegowane zarządzanie zasobami platformy Azure z wyjątkiem właściciela lub wszelkich wbudowanych ról z [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) uprawnieniem. Rola Administrator dostępu użytkowników jest obsługiwana tylko w przypadku ograniczonego użycia w [przypisywaniu ról do zarządzanych tożsamości](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Role niestandardowe i [role administratora klasycznej subskrypcji](../../role-based-access-control/classic-administrators.md) nie są obsługiwane.
+- Przypisania ról muszą używać [wbudowanych ról platformy Azure](../../role-based-access-control/built-in-roles.md). Wszystkie wbudowane role są obecnie obsługiwane przez delegowane zarządzanie zasobami platformy Azure z wyjątkiem właściciela lub wszelkich wbudowanych ról z [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) uprawnieniem. Rola Administrator dostępu użytkowników jest obsługiwana tylko w przypadku ograniczonego użycia w [przypisywaniu ról do zarządzanych tożsamości](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Role niestandardowe i [role administratora klasycznej subskrypcji](../../role-based-access-control/classic-administrators.md) nie są obsługiwane.
 - W tej chwili można dołączać subskrypcje korzystające z Azure Databricks. Użytkownicy w dzierżawie zarządzającej nie mogą teraz uruchamiać Azure Databricks obszarów roboczych w delegowanej subskrypcji.
 - Mimo że można dołączać subskrypcje i grupy zasobów z blokadami zasobów, te blokady nie uniemożliwią wykonywania akcji przez użytkowników w dzierżawie zarządzającej. [Odmów przypisań](../../role-based-access-control/deny-assignments.md) , które chronią zasoby zarządzane przez system, takie jak te utworzone przez aplikacje zarządzane przez platformę Azure lub plany platformy Azure (przypisań odmowy przypisanych do systemu), uniemożliwiają użytkownikom z dzierżawy zarządzającej wykonywanie tych zasobów. Jednak w tej chwili użytkownicy w dzierżawie klienta nie mogą tworzyć własnych przypisań Odmów (przypisań Odmów przez użytkownika).
 

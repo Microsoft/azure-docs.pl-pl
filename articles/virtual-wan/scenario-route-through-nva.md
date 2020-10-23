@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976252"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424766"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenariusz: kierowanie ruchu przez urządzenie WUS
 
@@ -41,16 +41,16 @@ Następująca macierz łączności podsumowuje przepływy obsługiwane w tym sce
 
 | Źródło             | Do:|   *URZĄDZENIE WUS szprychy*|*URZĄDZENIE WUS sieci wirtualnych*|*URZĄDZENIE WUS sieci wirtualnych*|*Gałęzie*|
 |---|---|---|---|---|---|
-| **URZĄDZENIE WUS szprychy**   | &#8594; | 0/0 UDR  |  Komunikacja równorzędna |   0/0 UDR    |  0/0 UDR  |
-| **URZĄDZENIE WUS sieci wirtualnych**    | &#8594; |   Static |      X   |        X     |      X    |
-| **URZĄDZENIE WUS sieci wirtualnych**| &#8594; |   Static |      X   |        X     |      X    |
-| **Gałęzie**     | &#8594; |   Static |      X   |        X     |      X    |
+| **URZĄDZENIE WUS szprychy**   | &#8594; | Za pośrednictwem sieci wirtualnej urządzenie WUS | Komunikacja równorzędna | Za pośrednictwem sieci wirtualnej urządzenie WUS | Za pośrednictwem sieci wirtualnej urządzenie WUS |
+| **URZĄDZENIE WUS sieci wirtualnych**    | &#8594; | Komunikacja równorzędna | Direct | Direct | Direct |
+| **URZĄDZENIE WUS sieci wirtualnych**| &#8594; | Za pośrednictwem sieci wirtualnej urządzenie WUS | Direct | Direct | Direct |
+| **Gałęzie**     | &#8594; | Za pośrednictwem sieci wirtualnej urządzenie WUS | Direct | Direct | Direct |
 
-Każda z komórek w macierzy łączności zawiera opis, czy wirtualne połączenie sieci WAN ("od" po stronie przepływu, nagłówki wierszy w tabeli) uzyskuje informacje o prefiksie lokalizacji docelowej (po stronie "do" przepływu, nagłówkach kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu. "X" oznacza, że łączność jest zapewniana natywnie przez wirtualną sieć WAN, a "static" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN przy użyciu tras statycznych. Rozważ następujące źródła:
+Każda komórka w macierzy łączności opisuje, jak sieć wirtualna lub gałąź ("od") przepływu, nagłówki wierszy w tabeli) komunikują się z docelową siecią wirtualną lub gałęzią (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli). "Direct" oznacza, że łączność jest zapewniana natywnie przez wirtualną sieć WAN, "Komunikacja równorzędna" oznacza, że łączność jest zapewniana przez trasę User-Defined w sieci wirtualnej, "ponad Sieć wirtualna urządzenie WUS" oznacza, że połączenie przechodzi przez urządzenie WUS wdrożone w sieci wirtualnej urządzenie WUS. Rozważ następujące źródła:
 
 * URZĄDZENIE WUS szprych nie są zarządzane przez wirtualną sieć WAN. W efekcie mechanizmy, z którymi będą komunikować się z innymi sieci wirtualnychami lub gałęziami, są obsługiwane przez użytkownika. Łączność z siecią wirtualną urządzenie WUS jest zapewniana przez komunikację równorzędną sieci wirtualnych, a domyślna trasa do 0.0.0.0/0 wskazuje, że urządzenie WUS jako następny przeskok powinien obejmować łączność z Internetem, z innymi szprychami i gałęziami
 * URZĄDZENIE WUS sieci wirtualnych będzie wiedzieć o swoich własnych urządzenie WUS szprych, ale nie o urządzenie WUS szprych podłączonych do innych urządzenie WUS sieci wirtualnych. Na przykład w tabeli 1 Sieć wirtualna 2 wie o sieci VNet 5 i sieci wirtualnej 6, ale nie na temat innych szprych, takich jak sieć wirtualna 7 i Sieć wirtualna 8. Trasa statyczna jest wymagana do wprowadzenia prefiksów innych szprych do urządzenie WUS sieci wirtualnych
-* Podobnie gałęzie i urządzenie WUS sieci wirtualnych nie wiedzą o żadnej urządzenie WUS szprychy, ponieważ urządzenie WUS szprych nie są połączone z koncentratorami VWAN. W związku z tym w tym miejscu będą również musiały istnieć trasy statyczne.
+* Podobnie gałęzie i urządzenie WUS sieci wirtualnych nie wiedzą o żadnej urządzenie WUS szprychy, ponieważ urządzenie WUS szprych nie są połączone z koncentratorami wirtualnych sieci WAN. W związku z tym w tym miejscu będą również musiały istnieć trasy statyczne.
 
 Biorąc pod uwagę, że urządzenie WUS szprych nie są zarządzane przez wirtualną sieć WAN, wszystkie pozostałe wiersze pokazują ten sam wzorzec łączności. W efekcie jedna tabela tras (domyślnie jedna) wykona następujące czynności:
 
@@ -71,8 +71,8 @@ Dzięki temu trasy statyczne, które są potrzebne w tabeli domyślnej do wysył
 
 | Opis | Tabela tras | Trasa statyczna              |
 | ----------- | ----------- | ------------------------- |
-| Sieć wirtualna 2       | Domyślne     | 10.2.0.0/16 — > eastusconn |
-| Sieć wirtualna 4       | Domyślne     | 10.4.0.0/16 — > weconn     |
+| Sieć wirtualna 2       | Domyślny     | 10.2.0.0/16 — > eastusconn |
+| Sieć wirtualna 4       | Domyślny     | 10.4.0.0/16 — > weconn     |
 
 Teraz wirtualna sieć WAN wie, z którym połączeniem należy wysyłać pakiety, ale połączenie musi wiedzieć, co należy zrobić podczas otrzymywania tych pakietów: jest to miejsce, w którym są używane tabele tras połączeń. W tym miejscu będziemy używać krótszych prefiksów (/24 zamiast dłużej/16), aby upewnić się, że te trasy mają preferencję dotyczącą tras importowanych z urządzenie WUS sieci wirtualnych (Sieć wirtualna 2 i Sieć wirtualna 4):
 

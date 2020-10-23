@@ -7,22 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4d0405df1863ee47374242ba4fba5b845711d3a1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102935"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424515"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Usługi wysokiej dostępności obsługiwane przez usługę Azure HDInsight
 
 W celu zapewnienia optymalnego poziomu dostępności dla składników analitycznych Usługa HDInsight została opracowana przy użyciu unikatowej architektury zapewniającej wysoką dostępność (HA) krytycznych usług. Niektóre składniki tej architektury zostały opracowane przez firmę Microsoft w celu zapewnienia automatycznego przejścia w tryb failover. Inne składniki to standardowe składniki Apache wdrożone w celu obsługi określonych usług. W tym artykule wyjaśniono architekturę modelu usług HA w usłudze HDInsight, jak Usługa HDInsight obsługuje tryb failover dla usług HA oraz najlepsze rozwiązania w zakresie odzyskiwania z innych przerw w działaniu usługi.
- 
+
 > [!NOTE]
-> Komunikacja bezpłatna bez opłat
->
-> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
->
+> Ten artykuł zawiera odwołania do warunku *podrzędnego*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ## <a name="high-availability-infrastructure"></a>Infrastruktura wysokiej dostępności
 

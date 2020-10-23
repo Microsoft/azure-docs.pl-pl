@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 371afbd9380ed1ecf28d0b26e2b4c5cd16ae6317
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044075"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425695"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Działanie Lookup w Azure Data Factory
 
@@ -72,7 +72,7 @@ firstRowOnly | Wskazuje, czy zwrócić tylko pierwszy wiersz, czy wszystkie wier
 
 Wynik wyszukiwania jest zwracany w `output` sekcji wyniku uruchomienia działania.
 
-* **Gdy `firstRowOnly` jest ustawiona na `true` (domyślnie)**, format danych wyjściowych jest tak jak pokazano w poniższym kodzie. Wynik wyszukiwania jest pod stałym `firstRow` kluczem. Aby użyć wyniku w kolejnych działaniach, użyj wzorca  `@{activity('LookupActivity').output.firstRow.table` .
+* **Gdy `firstRowOnly` jest ustawiona na `true` (domyślnie)**, format danych wyjściowych jest tak jak pokazano w poniższym kodzie. Wynik wyszukiwania jest pod stałym `firstRow` kluczem. Aby użyć wyniku w kolejnych działaniach, użyj wzorca  `@{activity('LookupActivity').output.firstRow.table}` .
 
     ```json
     {

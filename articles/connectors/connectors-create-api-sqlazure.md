@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 534b9fedc6649d3174ea65caf51b28004de7bda2
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 674d496485f89bee1904e3588a0fb81c6140945b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169391"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426608"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatyzowanie przepływów pracy dla bazy danych SQL przy użyciu Azure Logic Apps
 
@@ -77,7 +77,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
    | Authentication | Opis |
    |----------------|-------------|
    | [**Integracja z usługą Azure AD**](../azure-sql/database/authentication-aad-overview.md) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej tożsamości w usłudze Azure Active Directory (Azure AD), która ma dostęp do bazy danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL — uwierzytelnianie zintegrowane z usługą Azure AD](../azure-sql/database/authentication-aad-overview.md) |
-   | [**Uwierzytelnianie SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w bazie danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**Uwierzytelnianie programu SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w bazie danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    Ten przykład jest kontynuowany z **integracją z usługą Azure AD**:
@@ -91,8 +91,8 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
    | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa serwera** | Yes | Adres serwera SQL, na przykład `Fabrikam-Azure-SQL.database.windows.net` |
-   | **Nazwa bazy danych** | Yes | Nazwa bazy danych SQL, na przykład `Fabrikam-Azure-SQL-DB` |
-   | **Nazwa tabeli** | Yes | Tabela, której chcesz użyć, na przykład `SalesLT.Customer` |
+   | **Nazwa bazy danych** | Tak | Nazwa bazy danych SQL, na przykład `Fabrikam-Azure-SQL-DB` |
+   | **Nazwa tabeli** | Tak | Tabela, której chcesz użyć, na przykład `SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -121,7 +121,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
    | Authentication | Opis |
    |----------------|-------------|
    | [**Uwierzytelnianie systemu Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Obsługuje tylko ISE łącznik SQL Server, który wymaga zasobu bramy danych, który został wcześniej utworzony na platformie Azure dla połączenia, niezależnie od tego, czy używasz wielodostępnej platformy Azure, czy ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i hasła systemu Windows w celu potwierdzenia tożsamości za pomocą konta systemu Windows. <p>Aby uzyskać więcej informacji, zobacz [uwierzytelnianie systemu Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
-   | [**Uwierzytelnianie SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w SQL Server. <p>Aby uzyskać więcej informacji, zobacz [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**Uwierzytelnianie programu SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w SQL Server. <p>Aby uzyskać więcej informacji, zobacz [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
    Ten przykład jest kontynuowany z **uwierzytelnianiem systemu Windows**:
@@ -132,10 +132,10 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 
    | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
-   | **Nazwa serwera SQL** | Yes | Adres serwera SQL, na przykład `Fabrikam-Azure-SQL.database.windows.net` |
-   | **SQL database name** (nazwa bazy danych SQL) | Yes | Nazwa bazy danych SQL Server, na przykład `Fabrikam-Azure-SQL-DB` |
-   | **Nazwa użytkownika** | Yes | Nazwa użytkownika serwera SQL i bazy danych |
-   | **Password** (Hasło) | Yes | Hasło do programu SQL Server i bazy danych |
+   | **Nazwa serwera SQL** | Tak | Adres serwera SQL, na przykład `Fabrikam-Azure-SQL.database.windows.net` |
+   | **SQL database name** (nazwa bazy danych SQL) | Tak | Nazwa bazy danych SQL Server, na przykład `Fabrikam-Azure-SQL-DB` |
+   | **Nazwa użytkownika** | Tak | Nazwa użytkownika serwera SQL i bazy danych |
+   | **Hasło** | Tak | Hasło do programu SQL Server i bazy danych |
    | **Subskrypcja** |  Tak, na potrzeby uwierzytelniania systemu Windows | Subskrypcja platformy Azure dla zasobu bramy danych, który został wcześniej utworzony na platformie Azure |
    | **Brama połączenia** | Tak, na potrzeby uwierzytelniania systemu Windows | Nazwa zasobu bramy danych, który został wcześniej utworzony na platformie Azure <p><p>**Porada**: Jeśli Brama nie pojawia się na liście, sprawdź poprawność [konfiguracji bramy](../logic-apps/logic-apps-gateway-connection.md). |
    |||
@@ -214,19 +214,16 @@ W tym przykładzie aplikacja logiki rozpoczyna się od [wyzwalacza cykl](../conn
 
 Czasami musisz współpracować z zestawami wyników tak długo, że łącznik nie zwróci wszystkich wyników w tym samym czasie lub chcesz mieć lepszą kontrolę nad rozmiarem i strukturą zestawów wyników. Oto kilka sposobów obsługi takich dużych zestawów wyników:
 
-* Aby ułatwić zarządzanie wynikami w postaci mniejszych zestawów, Włącz *podział na strony*. Aby uzyskać więcej informacji, zobacz [pobieranie danych zbiorczych, rekordów i elementów za pomocą dzielenia na strony](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+* Aby ułatwić zarządzanie wynikami w postaci mniejszych zestawów, Włącz *podział na strony*. Aby uzyskać więcej informacji, zobacz [pobieranie danych zbiorczych, rekordów i elementów za pomocą dzielenia na strony](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). Aby uzyskać więcej informacji, zobacz [podział na strony SQL na potrzeby zbiorczego transferu danych za pomocą Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
 
-* Utwórz procedurę przechowywaną, która organizuje wyniki w odpowiedni sposób.
+* Utwórz [*procedurę przechowywaną*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) , która organizuje wyniki w odpowiedni sposób. Łącznik SQL udostępnia wiele funkcji zaplecza, do których można uzyskać dostęp za pomocą Azure Logic Apps, dzięki czemu można łatwiej zautomatyzować zadania biznesowe, które współpracują z tabelami usługi SQL Database.
 
   Podczas pobierania lub wstawiania wielu wierszy aplikacja logiki może wykonać iterację tych wierszy przy użyciu [*pętli until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) w ramach tych [limitów](../logic-apps/logic-apps-limits-and-config.md). Jeśli jednak aplikacja logiki musi współpracować z zestawami rekordów tak duże, na przykład tysięcy lub milionów wierszy, można zminimalizować koszty związane z wywołaniami bazy danych.
 
-  Aby zorganizować wyniki w odpowiedni sposób, można utworzyć [*procedurę składowaną*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) , która jest uruchamiana w wystąpieniu SQL, i używa instrukcji **SELECT-order by** . To rozwiązanie zapewnia większą kontrolę nad rozmiarem i strukturą wyników. Aplikacja logiki wywołuje procedurę składowaną za pomocą akcji **procedury składowanej wykonaj** SQL Server łącznika.
+  Aby zorganizować wyniki w odpowiedni sposób, można utworzyć procedurę składowaną, która jest uruchamiana w wystąpieniu SQL, i używa instrukcji **SELECT-order by** . To rozwiązanie zapewnia większą kontrolę nad rozmiarem i strukturą wyników. Aplikacja logiki wywołuje procedurę składowaną za pomocą akcji **procedury składowanej wykonaj** SQL Server łącznika. Aby uzyskać więcej informacji, zobacz [klauzula SELECT-order by](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
-  Aby uzyskać więcej informacji o rozwiązaniach, zobacz następujące artykuły:
-
-  * [Podział na strony SQL na potrzeby transferu danych zbiorczych za pomocą Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
-
-  * [SELECT-ORDER BY — klauzula](/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  > [!NOTE]
+  > W przypadku tego łącznika wykonywanie procedury składowanej jest ograniczone do [limitu czasu krótszego niż 2 minuty](/connectors/sql/#known-issues-and-limitations). Niektóre procedury składowane mogą trwać dłużej niż ten limit, co spowoduje wygenerowanie `504 TIMEOUT` błędu. W rzeczywistości niektóre długotrwałe procesy są kodowane jako procedury składowane jawnie do tego celu. Wywołania tych procedur z Azure Logic Apps mogą powodować problemy spowodowane tym limitem czasu. Chociaż łącznik SQL nie obsługuje natywnie trybu asynchronicznego, można symulować ten tryb przy użyciu wyzwalacza ukończenia SQL, natywnego zapytania przekazującego SQL, tabeli stanu i zadań po stronie serwera przy użyciu [agenta elastycznego zadania platformy Azure](../azure-sql/database/elastic-jobs-overview.md).
 
 ### <a name="handle-dynamic-bulk-data"></a>Obsługa dynamicznych danych zbiorczych
 
@@ -253,13 +250,13 @@ Po wywołaniu procedury składowanej przy użyciu łącznika SQL Server, zwracan
 
 ## <a name="troubleshoot-problems"></a>Rozwiązywanie problemów
 
-Problemy z połączeniem mogą być często wykonywane, dlatego w celu rozwiązywania problemów i rozwiązywania tych problemów sprawdź [Błędy łączności, aby SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Oto kilka przykładów:
+* Problemy z połączeniem mogą być często wykonywane, dlatego w celu rozwiązywania problemów i rozwiązywania tych problemów sprawdź [Błędy łączności, aby SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Oto kilka przykładów:
 
-* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
 
-* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
 
-* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 

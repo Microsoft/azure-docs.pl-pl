@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: ceb01c97ec50f4e2a7aa146448c3da662d4314ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d6beac446f8a15a41daf0dfe8ca1783c95c775
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89258354"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427238"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure w celu utworzenia aplikacji usługi Azure AD i skonfigurowania jej w celu uzyskania dostępu do interfejsu API Media Services
 
@@ -67,7 +67,7 @@ Na przykład może to być jeden z następujących poziomów:
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie jednostki usługi platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Zobacz też temat [zarządzanie Role-Based Access Control za pomocą interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md). 
+Zobacz także [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Następne kroki
 

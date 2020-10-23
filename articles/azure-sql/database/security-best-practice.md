@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1ebbbfed3b3a39e43986a385be87d65d70b175
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885178"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427270"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -62,7 +62,7 @@ O ile nie określono inaczej, zalecamy zapoznanie się z najlepszymi rozwiązani
 
 Planujemy kontynuowanie aktualizowania zaleceń i najlepszych rozwiązań wymienionych w tym miejscu. Podaj dane wejściowe lub korekty dla tego dokumentu, korzystając z linku **opinii** znajdującego się w dolnej części tego artykułu.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Database i wystąpienie zarządzane SQL obsługują dwa typy uwierzytelniania:
 
@@ -791,12 +791,14 @@ Większość standardów zabezpieczeń zapewnia dostępność danych w kontekśc
 
 - Platforma Azure oferuje wbudowaną wysoką dostępność: [wysoką dostępność z użyciem SQL Database i wystąpienia zarządzanego SQL](high-availability-sla.md)
 
-- Warstwa Krytyczne dla działania firmy obejmuje grupy trybu failover, strefy wielodostępne, pełne i różnicowe kopie zapasowe dziennika oraz kopie zapasowe dostępne w czasie, które są domyślnie włączone:  
-  - [Konfiguracja nadmiarowa stref o wysokiej dostępności](high-availability-sla.md#zone-redundant-configuration)
+- Warstwa Krytyczne dla działania firmy obejmuje grupy trybu failover, pełne i różnicowe kopie zapasowe dzienników oraz kopie zapasowe dostępne w momencie przywracania:  
   - [Automatyczne kopie zapasowe](automated-backups-overview.md)
   - [Odzyskiwanie bazy danych przy użyciu zautomatyzowanych kopii zapasowych bazy danych — Przywracanie do punktu w czasie](recovery-using-backups.md#point-in-time-restore)
 
-- Dodatkowe funkcje zapewniania ciągłości biznesowej, takie jak grupy autotrybu failover w różnych georegionyach platformy Azure, można skonfigurować zgodnie z opisem w tym miejscu: [Omówienie ciągłości działania firmy](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- Można skonfigurować dodatkowe funkcje zapewniania ciągłości biznesowej, takie jak strefa konfiguracji nadmiarowej i automatycznej pracy awaryjnej w różnych georegionyach platformy Azure: 
+    - [Konfiguracja nadmiarowa stref o wysokiej dostępności dla warstw usług Krytyczne dla działania firmy & Premium](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
+    - [Nadmiarowa Konfiguracja stref o wysokiej dostępności dla Ogólnego przeznaczenia warstwy usług](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+    - [Przegląd ciągłości biznesowej](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d1f4c04bf4a26e67a905679db23e303c2762d90c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369707"
+ms.locfileid: "92426405"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Jak wdrażać aktualizacje i przeglądać wyniki
 
@@ -111,7 +111,7 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
     > [!NOTE]
     > Po zakończeniu konfigurowania harmonogramu wdrażania dla wybranego serwera z włączonym Łukem wybierz pozycję **Przegląd + Utwórz**.
 
-15. Nastąpi powrót do pulpitu nawigacyjnego stanu. Wybierz pozycję **harmonogramy wdrażania** , aby wyświetlić utworzony harmonogram wdrożenia. Wyświetlane są maksymalnie 500 harmonogramów. Jeśli masz więcej niż 500 harmonogramów i chcesz zapoznać się z pełną listą, zobacz metodę interfejsu API REST [konfiguracje aktualizacji oprogramowania](/rest/api/automation/softwareupdateconfigurations/list) przy użyciu wersji 2019-06-01 lub nowszej.
+15. Nastąpi powrót do pulpitu nawigacyjnego stanu. Wybierz pozycję **harmonogramy wdrażania** , aby wyświetlić utworzony harmonogram wdrożenia. Wyświetlane są maksymalnie 500 harmonogramów. Jeśli masz więcej niż 500 harmonogramów i chcesz zapoznać się z pełną listą, zobacz metodę API REST [konfiguracje aktualizacji oprogramowania](/rest/api/automation/softwareupdateconfigurations/list) . Określ interfejs API w wersji 2019-06-01 lub nowszej.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Programowe Planowanie wdrożenia aktualizacji
 

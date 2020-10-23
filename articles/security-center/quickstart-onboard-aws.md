@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449039"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428111"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Połącz konta AWS z Azure Security Center
 
@@ -81,7 +81,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
     - **Wymagaj zewnętrznego identyfikatora** — należy wybrać
     - **Identyfikator zewnętrzny** — wprowadź identyfikator subskrypcji, jak pokazano na stronie łącznika AWS w Security Center 
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. W sekcji **Dołącz zasady uprawnień** wybierz następujące zasady:
 
     - SecurityAudit
@@ -89,7 +89,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
     - AWSSecurityHubReadOnlyAccess
 
 1. Opcjonalnie dodaj Tagi. Dodawanie tagów do użytkownika nie ma wpływu na połączenie.
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 
 1. Na liście role Wybierz utworzoną rolę
 
@@ -118,9 +118,12 @@ Menedżer systemów AWS jest wymagany do automatyzowania zadań w ramach zasobó
 - [Instalowanie i Konfigurowanie agenta program SSM w wystąpieniach Amazon EC2 Linux](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
 
 
-### <a name="step-4-create-a-service-principal-for-onboarding-at-scale"></a>Krok 4. Tworzenie jednostki usługi na potrzeby dołączania na dużą skalę
+### <a name="step-4-complete-azure-arc-prerequisites"></a>Krok 4. Ukończ wymagania wstępne usługi Azure Arc
+1. Upewnij się, że odpowiednie [dostawcy zasobów platformy Azure](../azure-arc/servers/agent-overview.md#register-azure-resource-providers) są zarejestrowani:
+    - Microsoft. HybridCompute
+    - Microsoft. GuestConfiguration
 
-Jako **właściciel** subskrypcji, której chcesz użyć na potrzeby dołączania, Utwórz jednostkę usługi na potrzeby dołączania do usługi Azure ARC, zgodnie z opisem w temacie [Tworzenie jednostki usługi na potrzeby](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) dołączania na dużą skalę
+1. Utwórz nazwę główną usługi do dołączania w odpowiedniej skali. Jako **właściciel** subskrypcji, której chcesz użyć na potrzeby dołączania, Utwórz jednostkę usługi na potrzeby dołączania w usłudze Azure ARC, zgodnie z opisem w temacie [Tworzenie jednostki usługi na potrzeby](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)dołączania w odpowiedniej skali.
 
 
 ### <a name="step-5-connect-aws-to-security-center"></a>Krok 5. Połącz AWS z Security Center
@@ -132,23 +135,24 @@ Jako **właściciel** subskrypcji, której chcesz użyć na potrzeby dołączani
     1. Wprowadź **nazwę wyświetlaną** dla łącznika.
     1. Upewnij się, że subskrypcja jest poprawna. Jest to subskrypcja obejmująca łącznik i AWS zalecenia dotyczące usługi Centrum zabezpieczeń.
     1. W zależności od opcji uwierzytelniania wybranej w [kroku 2. Skonfiguruj uwierzytelnianie dla Security Center w AWS](#step-2-set-up-authentication-for-security-center-in-aws):
-        - Wybierz pozycję  **przyjmij rolę** i wklej ARN z obszaru [Tworzenie roli usługi IAM dla Security Center](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
+        - Wybierz pozycję  **przyjmij rolę** i wklej ARN z elementu [Utwórz rolę usługi IAM dla Security Center](#create-an-iam-role-for-security-center).
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
 
             LUB
 
         - Wybierz pozycję **poświadczenia** i wklej **klucz dostępu** i **klucz tajny** z pliku CSV zapisanego w temacie [Create a AWS User for Security Center](#create-an-aws-user-for-security-center).
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Skonfiguruj opcje na karcie **Konfiguracja usługi Azure Arc** :
 
     Security Center odnajduje wystąpienia EC2 na połączonym koncie AWS i używa program SSM, aby dołączyć je do usługi Azure Arc. 
 
     > [!TIP]
-    > Lista obsługiwanych systemów operacyjnych znajduje się w sekcji często zadawane pytania poniżej.
+    > Aby uzyskać listę obsługiwanych systemów operacyjnych, zobacz, [które systemy operacyjne dla wystąpień EC2 są obsługiwane?](#what-operating-systems-for-my-ec2-instances-are-supported) w często zadawanych pytaniach.
 
     1. Wybierz **grupę zasobów** i **region platformy Azure** , w ramach której zostaną dołączone odnalezione AWS EC2s w ramach wybranej subskrypcji.
     1. Wprowadź **Identyfikator jednostki usługi** i **klucz tajny klienta jednostki usługi** dla usługi Azure ARC, zgodnie z opisem w tym miejscu Utwórz jednostkę [usługi na potrzeby](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) dołączania na dużą skalę
     1. Jeśli komputer nawiązuje połączenie z Internetem za pośrednictwem serwera proxy, określ adres IP serwera proxy lub nazwę i numer portu używanego przez maszynę do komunikacji z serwerem proxy. Wprowadź wartość w formacie ```http://<proxyURL>:<proxyport>```
-    1. Wybierz pozycję **Przeglądanie + tworzenie**.
+    1. Wybierz pozycję **Przejrzyj i utwórz**.
 
         Przejrzyj informacje podsumowujące
 

@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002180"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428055"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Przewodnik projektowania tabel usługi Azure Table Storage: Skalowalne i wydajne tabele
 
@@ -52,7 +52,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Nie</td>
@@ -72,7 +72,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Cze</td>
@@ -109,7 +109,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Krzysztof</td>
@@ -204,10 +204,10 @@ W poniższych przykładach założono, że magazyn tabel przechowuje jednostki p
 
 Poniżej przedstawiono niektóre ogólne wytyczne dotyczące projektowania zapytań usługi Table Storage. Składnia filtru użyta w poniższych przykładach pochodzi z interfejsu API REST usługi Table Storage. Aby uzyskać więcej informacji, zobacz [jednostki zapytań](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
-* *Zapytanie punktowe* jest najbardziej wydajnym wyszukiwaniem do użycia i jest zalecane w przypadku wyszukiwania lub wyszukiwania wysokiego poziomu, które wymaga najmniejszego opóźnienia. Takie zapytanie może służyć do wydajnego lokalizowania pojedynczej jednostki przez określenie `PartitionKey` `RowKey` wartości i. Przykład: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
-* Druga Najlepsza to *zapytanie zakresowe*. Używa `PartitionKey` i filtrów dla zakresu `RowKey` wartości, aby zwrócić więcej niż jedną jednostkę. `PartitionKey`Wartość identyfikuje konkretną partycję, a `RowKey` wartości identyfikują podzestaw jednostek w tej partycji. Przykład: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
-* Trzecia Najlepsza to *skanowanie partycji*. Używa on `PartitionKey` i filtruje dla innej właściwości niebędącej kluczem i może zwrócić więcej niż jedną jednostkę. `PartitionKey`Wartość identyfikuje konkretną partycję, a wartości właściwości wybierają podzbiór jednostek w tej partycji. Przykład: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
-* *Skanowanie tabeli* nie obejmuje `PartitionKey` i jest niewydajne, ponieważ przeszukuje wszystkie partycje wchodzące w skład tabeli pod kątem pasujących jednostek. Wykonuje skanowanie tabeli niezależnie od tego, czy filtr używa `RowKey` . Przykład: `$filter=LastName eq 'Jones'`.  
+* *Zapytanie punktowe* jest najbardziej wydajnym wyszukiwaniem do użycia i jest zalecane w przypadku wyszukiwania lub wyszukiwania wysokiego poziomu, które wymaga najmniejszego opóźnienia. Takie zapytanie może służyć do wydajnego lokalizowania pojedynczej jednostki przez określenie `PartitionKey` `RowKey` wartości i. Na przykład: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
+* Druga Najlepsza to *zapytanie zakresowe*. Używa `PartitionKey` i filtrów dla zakresu `RowKey` wartości, aby zwrócić więcej niż jedną jednostkę. `PartitionKey`Wartość identyfikuje konkretną partycję, a `RowKey` wartości identyfikują podzestaw jednostek w tej partycji. Na przykład: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
+* Trzecia Najlepsza to *skanowanie partycji*. Używa on `PartitionKey` i filtruje dla innej właściwości niebędącej kluczem i może zwrócić więcej niż jedną jednostkę. `PartitionKey`Wartość identyfikuje konkretną partycję, a wartości właściwości wybierają podzbiór jednostek w tej partycji. Na przykład: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
+* *Skanowanie tabeli* nie obejmuje `PartitionKey` i jest niewydajne, ponieważ przeszukuje wszystkie partycje wchodzące w skład tabeli pod kątem pasujących jednostek. Wykonuje skanowanie tabeli niezależnie od tego, czy filtr używa `RowKey` . Na przykład: `$filter=LastName eq 'Jones'`.  
 * Zapytania usługi Azure Table Storage zwracające wiele jednostek sortują je w `PartitionKey` `RowKey` kolejności i. Aby uniknąć tworzenia obiektów w kliencie, należy wybrać `RowKey` , który definiuje najbardziej typowy porządek sortowania. Wyniki zapytania zwrócone przez interfejs API tabel platformy Azure w Azure Cosmos DB nie są posortowane według klucza partycji lub klucza wiersza. Aby uzyskać szczegółową listę różnic między funkcjami, zobacz [różnice między interfejs API tabel w Azure Cosmos DB i Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
 Użycie "**or**" do określenia filtru na podstawie `RowKey` wartości powoduje skanowanie partycji i nie jest traktowane jako zapytanie zakresu. W związku z tym Unikaj zapytań używających filtrów, takich jak: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
@@ -492,7 +492,7 @@ Magazyn tabel automatycznie indeksuje jednostki przy użyciu `PartitionKey` `Row
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Ilustracja przedstawiająca jednostkę działu i jednostkę pracownika&quot;:::
 
-Ten przykład pokazuje niejawną relację &quot;jeden do wielu":::[9]
+Ten przykład pokazuje niejawną relację &quot;jeden do wielu"::: 9
 
 Jeśli chcesz również znaleźć jednostkę pracownika na podstawie wartości innej właściwości, takiej jak adres e-mail, musisz użyć mniej wydajnego skanowania partycji, aby znaleźć dopasowanie. Wynika to z faktu, że magazyn tabel nie udostępnia indeksów pomocniczych. Ponadto nie ma możliwości zażądania listy pracowników posortowanych w innej kolejności niż `RowKey` kolejność.  
 
@@ -1180,7 +1180,7 @@ Magazyn tabel jest magazynem tabel bez *schematu* . Oznacza to, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1200,7 +1200,7 @@ Magazyn tabel jest magazynem tabel bez *schematu* . Oznacza to, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1237,7 +1237,7 @@ Magazyn tabel jest magazynem tabel bez *schematu* . Oznacza to, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1273,7 +1273,7 @@ Każda jednostka musi nadal mieć `PartitionKey` `RowKey` wartości,, i `Timesta
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -1295,7 +1295,7 @@ Każda jednostka musi nadal mieć `PartitionKey` `RowKey` wartości,, i `Timesta
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -1336,7 +1336,7 @@ Każda jednostka musi nadal mieć `PartitionKey` `RowKey` wartości,, i `Timesta
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>

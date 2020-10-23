@@ -11,12 +11,13 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperfq2
+ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366687"
+ms.locfileid: "92424641"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
@@ -179,6 +180,8 @@ Upewnij się, że zaznaczono pole wyboru dla aktualizacji.
 
 Upewnij się, że masz mapowanie dla aplikacji *aktywnej* . Jeśli używasz aplikacji z galerii aplikacji, mapowanie może być nieco inne. Upewnij się, że używasz domyślnego/wyjściowego mapowania pól dla aplikacji galerii.
 
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Wyłącz użytkownika" lightbox="./media/how-provisioning-works/disable-user.png":::
+
 
 **Konfigurowanie aplikacji do usuwania użytkownika**
 
@@ -188,7 +191,9 @@ Następujące scenariusze spowodują wyzwolenie wyłączenia lub usunięcia:
 * Użytkownik zostanie trwale usunięty/usunięty z Kosza w usłudze Azure AD.
 * Użytkownik nie jest przypisany do aplikacji.
 * Użytkownik znajduje się w zakresie poza zakresem (nie przekazuje już filtru określania zakresu).
-    
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Wyłącz użytkownika" lightbox="./media/how-provisioning-works/delete-user.png":::
+
 Domyślnie usługa aprowizacji usługi Azure AD nie usuwa lub wyłącza użytkowników, którzy wykraczają poza zakres. Jeśli chcesz zastąpić to zachowanie domyślne, możesz ustawić flagę, aby [pominąć usuwanie poza zakresem.](skip-out-of-scope-deletions.md)
 
 Jeśli wystąpi jedno z powyższych czterech zdarzeń i aplikacja docelowa nie obsługuje usuwania nietrwałego, usługa aprowizacji wyśle żądanie usunięcia, aby trwale usunąć użytkownika z aplikacji.

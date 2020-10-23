@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79246112"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424715"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurowanie systemu DNS do rozpoznawania nazw dla prywatnego dostępu vCenter w chmurze z lokalnych stacji roboczych
 
@@ -58,19 +58,19 @@ zone "az.cloudsimple.io"
 
 1. Kliknij prawym przyciskiem myszy serwer DNS i wybierz pozycję **Nowa strefa**. 
   
-    ![Nowa strefa](media/DNS01.png)
+    ![Zrzut ekranu, który podświetla opcję menu Nowa strefa.](media/DNS01.png)
 2. Wybierz pozycję **strefa zastępcza** i kliknij przycisk **dalej**.
 
-    ![Nowa strefa](media/DNS02.png)
+    ![Zrzut ekranu, który podświetla opcję strefy zastępczej.](media/DNS02.png)
 3. Wybierz odpowiednią opcję w zależności od środowiska, a następnie kliknij przycisk **dalej**.
 
-    ![Nowa strefa](media/DNS03.png)
+    ![Zrzut ekranu przedstawiający opcje replikacji danych strefy.](media/DNS03.png)
 4. Wybierz pozycję **Strefa wyszukiwania do przodu** , a następnie kliknij przycisk **dalej**.
 
-    ![Nowa strefa](media/DNS01.png)
+    ![Zrzut ekranu, który podświetla opcję strefy wyszukiwania do przodu.](media/DNS01.png)
 5. Wprowadź nazwę strefy, a następnie kliknij przycisk **dalej**.
 
-    ![Nowa strefa](media/DNS05.png)
+    ![Zrzut ekranu pokazujący, gdzie wprowadzić nazwę strefy.](media/DNS05.png)
 6. Wprowadź adresy IP serwerów DNS dla chmury prywatnej uzyskanej z portalu CloudSimple.
 
     ![Nowa strefa](media/DNS06.png)

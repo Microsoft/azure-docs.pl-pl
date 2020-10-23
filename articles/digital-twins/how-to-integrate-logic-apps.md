@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 292305c3f899ac4156fd84e8edcb0d6e9a3c0b34
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280852"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427986"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integracja z usługą Logic Apps przy użyciu łącznika niestandardowego
 
@@ -66,7 +66,7 @@ Teraz sprawdź, czy klucz tajny klienta jest widoczny na stronie _certyfikaty & 
 
 W tym artykule jest używane Logic Apps do aktualizowania sznurka w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Aby można było wykonać operację, należy dodać co najmniej jedną dwuosiową w wystąpieniu. 
 
-Możesz dodać bliźniaczych reprezentacji za pomocą [interfejsów API DigitalTwins](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia platformy Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Aby uzyskać szczegółowe instrukcje dotyczące sposobu tworzenia bliźniaczych reprezentacji przy użyciu tych metod, zobacz [*How to: Manage Digital bliźniaczych reprezentacji*](how-to-manage-twin.md).
+Możesz dodać bliźniaczych reprezentacji za pomocą [interfejsów API DigitalTwins](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia platformy Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Aby uzyskać szczegółowe instrukcje dotyczące sposobu tworzenia bliźniaczych reprezentacji przy użyciu tych metod, zobacz [*How to: Manage Digital bliźniaczych reprezentacji*](how-to-manage-twin.md).
 
 Będziesz potrzebować **_identyfikatora sznurka_** w utworzonym wystąpieniu.
 

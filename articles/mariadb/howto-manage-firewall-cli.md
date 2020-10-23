@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3edf6248d42878bb79115fad925ef38e3353c979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ffbacd9167f6c73fb2815f76f56bfe2ae08eca9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502275"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425943"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Tworzenie reguł zapory Azure Database for MariaDB i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do serwera Azure Database for MariaDB z określonego adresu IP lub zakresu adresów IP. Korzystając z wygodnych poleceń interfejsu wiersza polecenia platformy Azure, można tworzyć, aktualizować, usuwać i wyświetlać reguły zapory w celu zarządzania serwerem. Aby zapoznać się z omówieniem zapór Azure Database for MariaDB, zobacz [reguły zapory Azure Database for MariaDB Server](./concepts-firewall-rules.md).
@@ -21,7 +21,7 @@ Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do 
 Reguły Virtual Network (VNet) mogą również służyć do zabezpieczania dostępu do serwera. Dowiedz się więcej o [tworzeniu i zarządzaniu Virtual Network punktów końcowych usługi i reguł przy użyciu interfejsu wiersza polecenia platformy Azure](howto-manage-vnet-cli.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * [Serwer Azure Database for MariaDB i baza danych](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Polecenia reguły zapory:

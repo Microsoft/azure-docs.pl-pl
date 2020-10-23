@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f23512bfd85c520c36cd98843db37371b84af293
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 3ea413c3879f61f735290717d06a132048169971
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939206"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426700"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla platformy .NET
 
@@ -34,12 +34,12 @@ Dodatkowe zasoby:
 * [Dokumentacja referencyjna interfejsu API](/dotnet/api/azure.storage.queues)
 * [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Samples](/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-* Konto magazynu platformy Azure — [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Konto magazynu platformy Azure — [Tworzenie konta magazynu](/azure/storage/common/storage-quickstart-create-account)
 * Bieżąca [zestaw .NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) dla danego systemu operacyjnego. Pamiętaj, aby pobrać zestaw SDK, a nie środowisko uruchomieniowe.
 
 ## <a name="setting-up"></a>Konfigurowanie
@@ -77,7 +77,7 @@ Z katalogu projektu:
 1. Otwórz plik *program.cs* w edytorze
 1. Usuń `Console.WriteLine("Hello World!");` instrukcję
 1. Dodaj `using` dyrektywy
-1. Aktualizowanie `Main` deklaracji metody do [obsługi kodu asynchronicznego](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main)
+1. Aktualizowanie `Main` deklaracji metody do [obsługi kodu asynchronicznego](/dotnet/csharp/whats-new/csharp-7#async-main)
 
 
 
@@ -334,7 +334,7 @@ W tym przewodniku szybki start pokazano, jak utworzyć kolejkę i dodać do niej
 Samouczki, przykłady, szybki start i inne dokumenty można znaleźć w temacie:
 
 > [!div class="nextstepaction"]
-> [Platforma Azure dla deweloperów .NET i .NET Core](https://docs.microsoft.com/dotnet/azure/)
+> [Platforma Azure dla deweloperów .NET i .NET Core](/dotnet/azure/)
 
 * Aby dowiedzieć się więcej, zobacz [biblioteki usługi Azure Storage dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
 * Aby wyświetlić więcej przykładowych aplikacji usługi Azure queue storage, przejdź do [przykładów biblioteki klienta usługi Azure queue storage V12](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).

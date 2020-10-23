@@ -7,12 +7,13 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: device-developer
+ms.openlocfilehash: 9e5288bb177d5827f05003e4561bc79240a71b59
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291611"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427868"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Ładunki telemetrii, właściwości i polecenia
 
@@ -770,7 +771,7 @@ IoT Central oczekuje odpowiedzi z urządzenia na zapisywalne aktualizacje właś
 
 | Wartość | Etykieta | Opis |
 | ----- | ----- | ----------- |
-| `'ac': 200` | Zakończone | Operacja zmiany właściwości została pomyślnie ukończona. |
+| `'ac': 200` | Ukończone | Operacja zmiany właściwości została pomyślnie ukończona. |
 | `'ac': 202`  oraz `'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku |
 | `'ac': 4xx` | Błąd | Żądana zmiana właściwości jest nieprawidłowa lub wystąpił błąd |
 | `'ac': 5xx` | Błąd | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |

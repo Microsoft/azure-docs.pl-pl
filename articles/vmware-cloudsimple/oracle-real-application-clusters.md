@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507676"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424691"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Zoptymalizuj chmurę prywatną CloudSimple na potrzeby instalacji programu Oracle RAC
 
@@ -79,7 +79,7 @@ Każda maszyna wirtualna Oracle jest skonfigurowana z wieloma dyskami dla system
 * Udostępnianie jest ustawione na **Brak udostępniania**.
 * Nadmiarowość jest definiowana w magazynie przy użyciu zasad sieci vsanymi.  
 
-![Konfiguracja grupy dysków danych programu Oracle RAC](media/oracle-vm-os-disks.png)
+![Diagram przedstawiający konfigurację fizyczną dysku systemu operacyjnego Oracle z CERTYFIKATem.](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>Konfiguracja dysku danych
 
@@ -148,7 +148,7 @@ Szybki odzyskiwanie obszaru (FRA) to system plików zarządzany przez grupę dys
 * Dyski muszą być skonfigurowane jako Grupa dysków ASM.  
 * Nadmiarowość ASM jest ustawiona na nadmiarowość **zewnętrzną** .
 
-![Konfiguracja grupy dysków głosowania programu Oracle z certyfikatem RAC](media/oracle-vm-fra-disks.png)
+![Diagram przedstawiający konfigurację grupy dysków do głosowania z certyfikatem certyfikatu Oracle.](media/oracle-vm-fra-disks.png)
 
 ## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>Wdróż klaster vSphere chmury prywatnej CloudSimple
 
@@ -220,7 +220,7 @@ Firma Oracle używa udostępnionego dysku do przechowywania danych, dzienników 
 9. W obszarze Udostępnianie Określ **wiele modułów zapisujących**.
 10. W węźle urządzenie wirtualne wybierz nowy kontroler SCSI, który został utworzony w kroku 2.
 
-    ![Utwórz dyski na pierwszej maszynie wirtualnej](media/oracle-rac-new-hard-disk.png)
+    ![Zrzut ekranu, który wyróżnia pola, które są konieczne do utworzenia dysków na pierwszej maszynie wirtualnej.](media/oracle-rac-new-hard-disk.png)
 
 Powtórz kroki od 2 do 10 dla wszystkich nowych dysków wymaganych dla plików bazy danych Oracle, dzienników i powtórzeń.
 
@@ -259,7 +259,7 @@ Reguły koligacji z MASZYNami wirtualnymi zapewniają, że maszyna wirtualna jes
 13. Wybierz utworzoną grupę hostów.
 14. Kliknij przycisk **OK**, aby utworzyć regułę.
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 * [Informacje o zasadach sieci vSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-08911FD3-2462-4C1C-AE81-0D4DBC8F7990.html)
 * [Atrybut wieloskładnikowego programu VMware dla udostępnionych dysków VMDK](https://docs.vmware.com/en/VMware-Cloud-on-AWS/solutions/VMware-Cloud-on-AWS.df6735f8b729fee463802083d46fdc75/GUID-A7642A82B3D6C5F7806DB40A3F2766D9.html)

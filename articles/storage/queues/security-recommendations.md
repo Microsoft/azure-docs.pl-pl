@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 44dac73f4e51214dbc41e8663dd44550dc9549f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e97f5bd1718c7612ce330ee27ee64f9ad885591b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715385"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425833"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Zalecenia dotyczące zabezpieczeń usługi queue storage
 
@@ -45,7 +45,7 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 | Zaplanuj odwołanie dla dowolnego sygnatury dostępu współdzielonego, które wystawiasz klientom | W przypadku naruszenia zabezpieczeń sygnatury dostępu współdzielonego należy odwołać te sygnatury dostępu współdzielonego tak szybko, jak to możliwe. Aby odwołać sygnaturę dostępu współdzielonego delegowania użytkownika, odwołaj klucz delegowania użytkownika, aby szybko unieważniać wszystkie podpisy skojarzone z tym kluczem. Aby odwołać sygnaturę dostępu współdzielonego usługi, która jest skojarzona z przechowywanymi zasadami dostępu, można usunąć zachowane zasady, zmienić nazwę zasad lub zmienić jej czas wygaśnięcia na czas w przeszłości. Aby uzyskać więcej informacji, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../common/storage-sas-overview.md).  | - |
 | Jeśli sygnatura dostępu współdzielonego usługi nie jest skojarzona z przechowywanymi zasadami, ustaw czas wygaśnięcia na jedną godzinę lub mniejszą | Nie można odwołać skojarzenia zabezpieczeń usługi, która nie jest skojarzona z przechowywanymi zasadami dostępu. Z tego powodu ograniczenie czasu wygaśnięcia w taki sposób, aby sygnatura dostępu współdzielonego była ważna przez jedną godzinę lub mniej. | - |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Obsługa sieci
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
@@ -65,5 +65,5 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dokumentacja zabezpieczeń platformy Azure](https://docs.microsoft.com//azure/security/)
-- [Bezpieczna dokumentacja dotycząca opracowywania](https://docs.microsoft.com/azure/security/develop/)oprogramowania.
+- [Dokumentacja zabezpieczeń platformy Azure](/azure/security/)
+- [Bezpieczna dokumentacja dotycząca opracowywania](/azure/security/develop/)oprogramowania.

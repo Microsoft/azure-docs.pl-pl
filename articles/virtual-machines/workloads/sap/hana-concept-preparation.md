@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89da6935d85628b5ce4ff762ad31d3f280682921
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70101259"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424246"
 ---
 # <a name="disaster-recovery-principles"></a>Zasady odzyskiwania po awarii
 
@@ -68,7 +68,7 @@ Następnym krokiem jest zainstalowanie drugiego wystąpienia SAP HANA w jednostc
 - Zatrzymaj nowo zainstalowane wystąpienie SAP HANA w jednostce usługi HANA duże wystąpienie w regionie odzyskiwania po awarii.
 - Odinstaluj te woluminy PRD i skontaktuj się SAP HANA w usłudze Azure Service Management. Woluminy nie mogą pozostać zainstalowane w jednostce, ponieważ nie mogą być dostępne podczas działania jako cel replikacji magazynu.  
 
-![Krok instalacji DR przed ustanowieniem replikacji](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
+![Diagram przedstawiający relację replikacji między woluminami PRD w regionie produkcyjnym platformy Azure i woluminami PRD w regionie odzyskiwania po awarii.](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
 Zespół operacyjny ustanawia relację replikacji między woluminami PRD w regionie produkcyjnym platformy Azure i woluminami PRD w regionie odzyskiwania po awarii.
 

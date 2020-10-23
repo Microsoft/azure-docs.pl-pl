@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46c5271c8ded970442d1ae4022573473997d98af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743276"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426990"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Samouczek: przygotowanie do wdrożenia Azure Stack EDGE Pro z procesorem GPU 
 
@@ -22,13 +22,13 @@ Jest to pierwszy samouczek z serii samouczków wdrażania, które są wymagane d
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie nowego zasobu
 > * Uzyskiwanie klucza aktywacji
 
-### <a name="get-started"></a>Rozpoczęcie pracy
+### <a name="get-started"></a>Wprowadzenie
 
 W przypadku wdrożenia programu Azure Stack EDGE Pro należy najpierw przygotować swoje środowisko. Gdy środowisko będzie gotowe, wykonaj wymagane kroki i w razie potrzeby opcjonalne kroki i procedury, aby całkowicie wdrożyć urządzenie. Instrukcje krok po kroku wskazują, kiedy należy wykonać każdy z tych wymaganych i opcjonalnych kroków.
 
@@ -107,7 +107,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
 1. Użyj poświadczeń Microsoft Azure, aby zalogować się do Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com) .
 
-2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz przycisk **Utwórz**. 
+2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz pozycję **Utwórz**. 
 
 3. Wybierz subskrypcję, która ma być używana na potrzeby urządzenia z Azure Stack EDGE Pro. Wybierz kraj, w którym chcesz wysłać to urządzenie fizyczne. Wybierz pozycję **Pokaż urządzenia**.
 
@@ -137,7 +137,6 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     ![Tworzenie zasobu 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
-
 8. Wybierz pozycję **Dalej: adres wysyłkowy**.
 
     - Jeśli masz już urządzenie, zaznacz pole kombi dla **urządzenia z Azure Stack EDGE Pro**.
@@ -156,7 +155,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     Użytkownik otrzymuje również powiadomienie, że podczas tworzenia zasobu jest włączony tożsamość usługi zarządzanej (MSI), który umożliwia uwierzytelnianie w usługach w chmurze. Ta tożsamość istnieje pod warunkiem, że istnieje zasób.
 
-11. Wybierz przycisk **Utwórz**.
+11. Wybierz pozycję **Utwórz**.
 
 Tworzenie zasobu trwa kilka minut. Tworzony jest również plik MSI, który umożliwia Azure Stack urządzeniu brzegowego komunikowanie się z dostawcą zasobów na platformie Azure.
 
@@ -167,6 +166,9 @@ Po pomyślnym utworzeniu i wdrożeniu zasobu zostanie wyświetlone powiadomienie
 Po złożeniu zamówienia firma Microsoft przegląda zamówienie i dotrze do Ciebie (za pośrednictwem poczty e-mail), podając szczegóły dotyczące wysyłki.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+
+> [!NOTE]
+>Jeśli chcesz utworzyć wiele zamówień w tym samym czasie lub sklonować istniejące zamówienie, możesz użyć [skryptów w przykładach platformy Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Aby uzyskać więcej informacji, zobacz plik Readme.
 
 W przypadku wystąpienia problemów występujących w procesie zamówienia zobacz [Rozwiązywanie problemów z kolejnością](azure-stack-edge-troubleshoot-ordering.md).
 

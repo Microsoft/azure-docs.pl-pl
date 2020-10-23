@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd67a5a7f1bf665333e06c66f73c7f18727a3e12
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88140857"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427760"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Tworzenie maszyn wirtualnych VMware w chmurze prywatnej
 
@@ -58,37 +58,37 @@ Aby uzyskać dostęp do programu vCenter, Zacznij od portalu CloudSimple. Na str
 1. W programie vCenter kliknij ikonę **hosty i klastry** .
 
 2. Kliknij prawym przyciskiem myszy pozycję **obciążenie** i wybierz pozycję **Nowa maszyna wirtualna**.
-    ![Nowa maszyna wirtualna](media/vcvm01.png)
+    ![Zrzut ekranu, który podświetla opcję menu Nowa maszyna wirtualna.](media/vcvm01.png)
 
 3. Wybierz pozycję **Utwórz nową maszynę wirtualną** , a następnie kliknij przycisk **dalej**.
-    ![Nowa maszyna wirtualna](media/vcvm02.png)
+    ![Zrzut ekranu, który podświetla opcję Utwórz nową maszynę wirtualną.](media/vcvm02.png)
 
 4. Nazwij maszynę, wybierz lokalizację **maszyny wirtualnej obciążenia** , a następnie kliknij przycisk **dalej**.
-    ![Nowa maszyna wirtualna](media/vcvm03.png)
+    ![Zrzut ekranu, który podświetla opcję maszyny wirtualne obciążenia.](media/vcvm03.png)
 
 5. Wybierz zasób obliczeniowy **obciążenia** , a następnie kliknij przycisk **dalej**.
-    ![Nowa maszyna wirtualna](media/vcvm04.png)
+    ![Zrzut ekranu, który wyróżnia zasób obliczeniowy obciążenia.](media/vcvm04.png)
 
 6. Wybierz pozycję **vsanDatastore** , a następnie kliknij przycisk **dalej**.
-    ![Nowa maszyna wirtualna](media/vcvm05.png)
+    ![Zrzut ekranu, który podświetla opcję vsanDatastore.](media/vcvm05.png)
 
 7. Zachowaj domyślny wybór zgodności z ESXi 6,5 i kliknij przycisk **dalej**.
-    ![Nowa maszyna wirtualna](media/vcvm06.png)
+    ![Zrzut ekranu przedstawiający wybraną opcję zgodności z systemem ESXi 6,5.](media/vcvm06.png)
 
 8. Wybierz system operacyjny gościa w formacie ISO dla tworzonej maszyny wirtualnej, a następnie kliknij przycisk **dalej**.
-    ![Nowa maszyna wirtualna](media/vcvm07.png)
+    ![Zrzut ekranu pokazujący sposób wybierania systemu operacyjnego guese dla maszyny wirtualnej.](media/vcvm07.png)
 
 9. Wybierz opcje dysk twardy i sieć. W przypadku nowej stacji dysków CD/DVD wybierz pozycję **plik ISO magazynu**danych.  Jeśli chcesz zezwolić na ruch z publicznego adresu IP do tej maszyny wirtualnej, wybierz sieć jako **maszynę wirtualną-1**.
-    ![Nowa maszyna wirtualna](media/vcvm08.png)
+    ![Zrzut ekranu, który podświetla, gdzie wybierasz plik ISO magazynu danych.](media/vcvm08.png)
 
 10. Zostanie otwarte okno wyboru. Wybierz plik, który został wcześniej przekazany do folderu obrazów ISO i templates, a następnie kliknij przycisk **OK**.
     ![Nowa maszyna wirtualna](media/vcvm10.png)
 
 11. Przejrzyj ustawienia, a następnie kliknij przycisk **OK** , aby utworzyć maszynę wirtualną.
-    ![Nowa maszyna wirtualna](media/vcvm11.png)
+    ![Zrzut ekranu pokazujący, gdzie przeglądać ustawienia.](media/vcvm11.png)
 
 Maszyna wirtualna jest teraz dodawana do zasobów obliczeniowych obciążenia i jest gotowa do użycia. 
-![Nowa maszyna wirtualna](media/vcvm12.png)
+![Zrzut ekranu pokazujący maszynę wirtualną, która została dodana do zasobów obliczeniowych obciążeń.](media/vcvm12.png)
 
 Konfiguracja podstawowa została ukończona. Możesz zacząć korzystać z chmury prywatnej podobnej do sposobu korzystania z lokalnej infrastruktury maszyn wirtualnych.
 

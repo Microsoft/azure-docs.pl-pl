@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 278fbdf7010fe7b14488bb021ab8a366393ad512
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4a2be6719fdaaa9dc859df21cc030478e474210
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087366"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428247"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Replikowanie tematów platformy Apache Kafka przy użyciu platformy Kafka w usłudze HDInsight za pomocą narzędzia MirrorMaker
 
 Dowiedz się, jak za pomocą funkcji dublowania Apache Kafka replikować tematy do klastra pomocniczego. Dublowanie może być uruchamiane jako ciągły proces lub używany sporadycznie jako metoda migrowania danych z jednego klastra do drugiego.
+
+> [!NOTE]
+> Ten artykuł zawiera odwołania do warunku *dozwolonych*, termin, przez który firma Microsoft już nie używa. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 W tym przykładzie dublowanie jest używane do replikowania tematów między dwoma klastrami usługi HDInsight. Oba klastry znajdują się w różnych sieciach wirtualnych w różnych centrach danych.
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 66e280f20109967f029a14e368fdb0aeea269aad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db85892115f345039353cd90eeedbe809eb6ae67
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536617"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425575"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replikowanie danych do Azure Database for MariaDB
 
@@ -34,8 +34,8 @@ Główne scenariusze, które należy wziąć pod uwagę przy użyciu replikacja 
 - Każda tabela musi mieć klucz podstawowy.
 - Serwer źródłowy powinien używać aparatu InnoDB.
 - Użytkownik musi mieć uprawnienia do konfigurowania rejestrowania plików binarnych i tworzenia nowych użytkowników na serwerze źródłowym.
-- Jeśli na serwerze źródłowym jest włączony protokół SSL, upewnij się, że certyfikat urzędu certyfikacji SSL podany dla domeny został uwzględniony w `mariadb.az_replication_change_master` procedurze składowanej. Zapoznaj się z poniższymi [przykładami](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) i `master_ssl_ca` parametrem.
-- Upewnij się, że adres IP serwera źródłowego został dodany do reguł zapory serwera repliki Azure Database for MariaDB. Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
+- Jeśli na serwerze źródłowym jest włączony protokół SSL, upewnij się, że certyfikat urzędu certyfikacji SSL podany dla domeny został uwzględniony w `mariadb.az_replication_change_master` procedurze składowanej. Zapoznaj się z poniższymi [przykładami](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication) i `master_ssl_ca` parametrem.
+- Upewnij się, że adres IP serwera źródłowego został dodany do reguł zapory serwera repliki Azure Database for MariaDB. Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](howto-manage-firewall-portal.md) lub [interfejsu wiersza polecenia platformy Azure](howto-manage-firewall-cli.md).
 - Upewnij się, że komputer obsługujący serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306.
 - Upewnij się, że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN).
 

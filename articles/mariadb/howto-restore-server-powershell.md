@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833253"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424502"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Jak utworzyć kopię zapasową i przywrócić serwer Azure Database for MariaDB przy użyciu programu PowerShell
 
@@ -23,14 +23,14 @@ Kopie zapasowe serwerów Azure Database for MariaDB są podejmowane okresowo w c
 
 Aby ukończyć ten przewodnik, musisz:
 
-- [Moduł AZ PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) zainstalowany lokalnie lub [Azure Cloud Shell](https://shell.azure.com/) w przeglądarce
+- [Moduł AZ PowerShell](/powershell/azure/install-az-ps) zainstalowany lokalnie lub [Azure Cloud Shell](https://shell.azure.com/) w przeglądarce
 - [Serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Mimo że moduł AZ. MariaDb PowerShell jest w wersji zapoznawczej, należy go zainstalować niezależnie od modułu AZ PowerShell przy użyciu następującego polecenia: `Install-Module -Name Az.MariaDb -AllowPrerelease` .
 > Po ogólnym udostępnieniu modułu AZ. MariaDb PowerShell jest on częścią przyszłych wersji modułu AZ PowerShell i dostępne natywnie z poziomu Azure Cloud Shell.
 
-Jeśli zdecydujesz się używać programu PowerShell lokalnie, Połącz się z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Jeśli zdecydujesz się używać programu PowerShell lokalnie, Połącz się z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -75,9 +75,9 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Zestaw parametrów **PointInTimeRestore** `Restore-AzMariaDbServer` polecenia cmdlet wymaga następujących parametrów:
 
-| Ustawienie | Sugerowana wartość | Opis  |
+| Ustawienie | Sugerowana wartość | Opis  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Grupa zasobów, w której znajduje się serwer źródłowy.  |
+| ResourceGroupName |  myresourcegroup |  Grupa zasobów, w której znajduje się serwer źródłowy.  |
 | Nazwa | mydemoserver-restored | Nazwa nowego serwera utworzonego za pomocą polecenie przywracania. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Wybierz punkt w czasie do przywrócenia. Ta data i godzina musi przypadać w okresie przechowywania kopii zapasowej serwera źródłowego. Użyj formatu daty i godziny ISO8601. Na przykład możesz użyć własnej lokalnej strefy czasowej, takiej jak **2020-03-13T05:59:00-08:00**. Można również użyć formatu UTC Zulu, na przykład **2018 r-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Użyj trybu Wskaż w czasie, aby przywrócić. |
@@ -117,7 +117,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Zestaw parametrów **Geoprzywracania** dla `Restore-AzMariaDbServer` polecenia cmdlet wymaga następujących parametrów:
 
-| Ustawienie | Sugerowana wartość | Opis  |
+| Ustawienie | Sugerowana wartość | Opis  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Nazwa grupy zasobów, do której należy nowy serwer.|
 |Nazwa | mydemoserver-georestore | Nazwa nowego serwera. |

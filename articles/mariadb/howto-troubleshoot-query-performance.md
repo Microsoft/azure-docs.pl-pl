@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: ca9a74763715c5c68526ff3213a14d2148f5ad30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3637eb5e9f6f70d0f53d7b1cb97bd348c114bc
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83834309"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424418"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Jak użyć WYJAŚNIj, aby uzyskać informacje o wydajności zapytań dotyczących profilów w Azure Database for MariaDB
 **Wyjaśnienie** to przydatne narzędzie do optymalizowania zapytań. Instrukcji WYJAŚNIj można użyć do uzyskania informacji o sposobie wykonywania instrukcji SQL. Poniższe dane wyjściowe przedstawiają przykład wykonania instrukcji WYJAŚNIeń.
@@ -54,10 +54,10 @@ possible_keys: id
 ```
 
 Nowe wyjaśnienie pokazuje, że MariaDB teraz używa indeksu, aby ograniczyć liczbę wierszy do 1, co z kolei znacznie skraca czas wyszukiwania.
- 
+ 
 ## <a name="covering-index"></a>Indeks obejmujący
 Indeks obejmujący zawiera wszystkie kolumny zapytania w indeksie, aby zmniejszyć liczbę pobieranych wartości z tabel danych. Oto ilustracja w następującej instrukcji **Group by** .
- 
+ 
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -76,10 +76,10 @@ possible_keys: NULL
 ```
 
 Jak widać na podstawie danych wyjściowych, MariaDB nie używa żadnych indeksów, ponieważ nie są dostępne żadne prawidłowe indeksy. Pokazuje także *czas użycia tymczasowego; Użycie sortowania plików*, co oznacza, że MariaDB tworzy tabelę tymczasową w celu spełnienia klauzuli **Group by** .
- 
+ 
 Utworzenie indeksu dla samego kolumny **C2** nie powoduje żadnych różnic, a MariaDB nadal musi utworzyć tabelę tymczasową:
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY (c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -99,7 +99,7 @@ possible_keys: NULL
 
 W takim przypadku można utworzyć **pokryty indeks** zarówno **C1** , jak i **C2** , dodając wartość **C2**"bezpośrednio w indeksie, aby wyeliminować dalsze wyszukiwanie danych.
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -120,7 +120,7 @@ possible_keys: covered
 Zgodnie z powyższym WYJAŚNIENIEm, MariaDB używa teraz indeksu pokrytego i nie należy tworzyć tabeli tymczasowej. 
 
 ## <a name="combined-index"></a>Połączony indeks
-Połączony indeks zawiera wartości z wielu kolumn i może być traktowany jako tablica wierszy, które są posortowane przez konkatenację wartości indeksowanych kolumn.Ta metoda może być przydatna w instrukcji **Group by** .
+Połączony indeks zawiera wartości z wielu kolumn i może być traktowany jako tablica wierszy, które są posortowane przez konkatenację wartości indeksowanych kolumn. Ta metoda może być przydatna w instrukcji **Group by** .
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -141,7 +141,7 @@ possible_keys: NULL
 
 MariaDB wykonuje operację *sortowania plików* , która jest stosunkowo niska, zwłaszcza gdy musi sortować wiele wierszy. Aby zoptymalizować to zapytanie, połączony indeks można utworzyć dla obu kolumn, które są sortowane.
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
 *************************** 1. row ***************************
@@ -160,10 +160,10 @@ possible_keys: NULL
 ```
 
 W WYJAŚNIeniu są teraz widoczne, że MariaDB jest w stanie użyć połączonego indeksu, aby uniknąć dodatkowego sortowania, ponieważ indeks jest już posortowany.
- 
+ 
 ## <a name="conclusion"></a>Podsumowanie
- 
+ 
 Użycie WYJAŚNIeń i różnych typów indeksów może znacząco zwiększyć wydajność. Indeks tabeli nie musi oznaczać, że MariaDB będzie mógł użyć jej do wykonywania zapytań. Zawsze Weryfikuj założenia przy użyciu WYJAŚNIeń i Optymalizuj zapytania przy użyciu indeksów.
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby znaleźć odpowiedzi na najczęściej zadawane pytania lub opublikować nowe pytanie/odpowiedź, odwiedź stronę pytania lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb)w [witrynie Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-database-mariadb.html) .
+- Aby znaleźć odpowiedzi na najczęściej zadawane pytania lub opublikować nowe pytanie/odpowiedź, odwiedź stronę pytania lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb)w [witrynie Microsoft Q&](/answers/topics/azure-database-mariadb.html) .

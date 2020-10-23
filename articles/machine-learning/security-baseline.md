@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cb403e2d1b11391ca3917478955dc282a174ae88
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204337"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426313"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Podstawa zabezpieczeń platformy Azure dla Azure Machine Learning
 
@@ -303,13 +303,13 @@ Azure Machine Learning ma różne wsparcie dla różnych zasobów obliczeniowych
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
-**Wskazówki**: możesz użyć karty Zarządzanie tożsamościami i dostępem dla zasobu w Azure Portal, aby skonfigurować kontrolę dostępu opartą na ROLACH (RBAC) i zachować spis zasobów Azure Machine Learning. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup.
+**Wskazówki**: możesz użyć karty Zarządzanie tożsamościami i dostępem dla zasobu w Azure Portal, aby skonfigurować kontrolę dostępu opartą na rolach (Azure RBAC) i zachować spis zasobów Azure Machine Learning. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup.
 
-Azure Machine Learning zapewnia wbudowaną kontrolę RBAC dla typowych scenariuszy zarządzania w programie Azure Machine Learning. Osoba mająca profil w usłudze Azure Active Directory (Azure AD) może przypisywać te role kontroli dostępu do użytkowników, grup, podmiotów usługi lub tożsamości zarządzanych w celu udzielenia lub odmowy dostęp do zasobów i operacji na zasobach Azure Machine Learning.
+Azure Machine Learning udostępnia wbudowane role dla typowych scenariuszy zarządzania w programie Azure Machine Learning. Osoba mająca profil w usłudze Azure Active Directory (Azure AD) może przypisywać te role do użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych w celu udzielania lub odmawiania dostępu do zasobów i operacji na zasobach Azure Machine Learning.
 
 Przy użyciu modułu Azure AD PowerShell można również wykonywać zapytania ad hoc w celu odnajdywania kont, które są członkami grup administracyjnych.
 
-- [Informacje na temat kontroli dostępu opartej na rolach w Azure Machine Learning](how-to-assign-roles.md)
+- [Informacje na temat kontroli dostępu opartej na rolach na platformie Azure w Azure Machine Learning](how-to-assign-roles.md)
 
 - [Jak uzyskać rolę katalogu w Azure Active Directory przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -902,13 +902,13 @@ Azure Machine Learning w pełni obsługuje repozytoria Git na potrzeby śledzeni
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
 
-**Wskazówki**: Azure Machine Learning ma różne wsparcie dla różnych zasobów obliczeniowych, a nawet własnych zasobów obliczeniowych. W przypadku zasobów obliczeniowych należących do organizacji Użyj kontroli dostępu opartej na rolach (RBAC) na platformie Azure, aby mieć pewność, że dostęp do obrazów niestandardowych mają tylko autoryzowani użytkownicy. Użyj galerii obrazów udostępnionych platformy Azure, możesz udostępnić swoje obrazy innym użytkownikom, podmiotom usług lub grupom usługi Azure AD w organizacji. Przechowuj obrazy kontenerów w Azure Container Registry i używaj RBAC, aby mieć pewność, że dostęp mają tylko autoryzowani użytkownicy.
+**Wskazówki**: Azure Machine Learning ma różne wsparcie dla różnych zasobów obliczeniowych, a nawet własnych zasobów obliczeniowych. W przypadku zasobów obliczeniowych należących do organizacji Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby umożliwić dostęp do obrazów niestandardowych tylko autoryzowanym użytkownikom. Użyj galerii obrazów udostępnionych platformy Azure, możesz udostępnić swoje obrazy innym użytkownikom, podmiotom usług lub grupom usługi Azure AD w organizacji. Przechowuj obrazy kontenerów w Azure Container Registry i korzystaj z usługi Azure RBAC, aby upewnić się, że tylko autoryzowani użytkownicy mają dostęp.
 
-- [Zrozumienie RBAC na platformie Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Opis kontroli RBAC platformy Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Opis RBAC dla Container Registry](../container-registry/container-registry-roles.md)
+- [Informacje na temat usługi Azure RBAC dla Container Registry](../container-registry/container-registry-roles.md)
 
-- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Omówienie galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md)
 
@@ -1088,7 +1088,7 @@ Azure Machine Learning ma różne wsparcie dla różnych zasobów obliczeniowych
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
-**Wskazówki**: dla lokalnej kopii zapasowej szyfrowanie w spoczynku jest dostarczane przy użyciu hasła podanego podczas tworzenia kopii zapasowej na platformie Azure. Za pomocą kontroli dostępu opartej na rolach można chronić kopie zapasowe i klucze zarządzane przez klienta. 
+**Wskazówki**: dla lokalnej kopii zapasowej szyfrowanie w spoczynku jest dostarczane przy użyciu hasła podanego podczas tworzenia kopii zapasowej na platformie Azure. Za pomocą kontroli dostępu opartej na rolach platformy Azure można chronić kopie zapasowe i klucze zarządzane przez klienta. 
 
 Włącz trwałe usuwanie i przeczyszczanie ochrony w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem. Jeśli usługa Azure Storage jest używana do przechowywania kopii zapasowych, należy włączyć funkcję usuwania nietrwałego w celu zapisywania i odzyskiwania danych po usunięciu obiektów blob lub migawek obiektów BLOB.
  

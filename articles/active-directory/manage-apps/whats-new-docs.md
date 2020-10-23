@@ -10,23 +10,23 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 14e4cd141094763d37a1309572bb4da4efb3f7ce
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378108"
+ms.locfileid: "92428026"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory Zarządzanie aplikacjami: co nowego
 
-Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami Azure Active Directory. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy.
+Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami Azure Active Directory. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze zarządzania aplikacjami, zobacz [co nowego w programie Azure Active Directory](../fundamentals/whats-new.md).
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
 ### <a name="new-articles"></a>Nowe artykuły
 - [Szybki Start: Konfigurowanie logowania jednokrotnego opartego na usłudze OIDC (SSO) dla aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)](add-application-portal-setup-oidc-sso.md)
 - [Szybki Start: przypisywanie użytkowników do aplikacji używającej usługi Azure AD jako dostawcy tożsamości](add-application-portal-assign-users.md)
-- [Co nowego?](whats-new-docs.md)
+- [Co nowego w dokumentacji?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły

@@ -3,12 +3,12 @@ title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 94ddfbf0803ea7ab53b1b42b977a9ebdd2354bc5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2c58f67fed880b8aad60ff1a46a587dcf514102e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369611"
+ms.locfileid: "92424185"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -206,7 +206,7 @@ Tworzenie dedykowanego klastra Event Hubs przez przesłanie [żądania zwiększe
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
 ### <a name="how-many-partitions-do-i-need"></a>Ile partycji potrzebuję?
-Liczba partycji jest określana podczas tworzenia i musi należeć do zakresu od 2 do 32. Liczba partycji nie jest zmieniana, dlatego należy rozważyć długoterminową skalę podczas ustawiania liczby partycji. Partycje stanowią mechanizm organizacji danych powiązany z równoległością podrzędną wymaganą w aplikacjach korzystających z tych danych. Liczba partycji w centrum zdarzeń jest bezpośrednio związana z oczekiwaną liczbą jednoczesnych czytników. Aby uzyskać więcej informacji o partycjach, zobacz [partycje](event-hubs-features.md#partitions).
+Liczba partycji jest określana podczas tworzenia i musi należeć do zakresu od 1 do 32. Liczba partycji nie jest zmieniana, dlatego należy rozważyć długoterminową skalę podczas ustawiania liczby partycji. Partycje stanowią mechanizm organizacji danych powiązany z równoległością podrzędną wymaganą w aplikacjach korzystających z tych danych. Liczba partycji w centrum zdarzeń jest bezpośrednio związana z oczekiwaną liczbą jednoczesnych czytników. Aby uzyskać więcej informacji o partycjach, zobacz [partycje](event-hubs-features.md#partitions).
 
 Może być konieczne ustawienie najwyższej możliwej wartości, która jest 32 w momencie tworzenia. Należy pamiętać, że z więcej niż jedną partycją będzie można wysyłać zdarzenia do wielu partycji bez zachowywania kolejności, chyba że skonfigurowano nadawców tylko do jednej partycji z 32, pozostawiając pozostałe 31 partycji. W poprzednim przypadku trzeba będzie odczytywać zdarzenia ze wszystkich partycji 32. W tym drugim przypadku nie ma żadnych oczywistych dodatkowych kosztów poza dodatkową konfiguracją, którą należy wykonać na hoście procesora zdarzeń.
 

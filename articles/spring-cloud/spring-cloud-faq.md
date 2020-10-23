@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 48a2f7f6587d22c34e240fb3e784eb980c81b6b3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094011"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419860"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -106,7 +106,7 @@ Ustawienia diagnostyczne chmury wiosennej można usunąć za pomocą interfejsu 
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Które wersje środowiska uruchomieniowego Java są obsługiwane w chmurze Azure wiosennej?
 
-Chmura sprężynowa platformy Azure obsługuje wersje języka Java LTS z najnowszymi kompilacjami, obecnie 2020 czerwca, Java 8 kompilacja 252 i Java 11 Build 7. Zobacz [Instalowanie JDK dla platformy Azure i Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
+Chmura sprężynowa platformy Azure obsługuje wersje języka Java LTS z najnowszymi kompilacjami, obecnie 2020 czerwiec 8 i Java 11. Zobacz [Instalowanie JDK dla platformy Azure i Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### <a name="who-built-these-java-runtimes"></a>Kto utworzył te środowiska uruchomieniowe Java?
 
