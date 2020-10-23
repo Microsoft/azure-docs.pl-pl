@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340629"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441882"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementy wiadomości e-mail z zaproszeniem do współpracy B2B — Azure Active Directory
 
@@ -63,7 +63,7 @@ W następnej sekcji wiadomości e-mail znajdują się informacje o tym, gdzie za
 
 ### <a name="footer-section"></a>Sekcja Stopka
 
-Stopka zawiera więcej informacji na temat wysyłanego zaproszenia. Zawsze istnieje opcja zapraszania do blokowania przyszłych zaproszeń. Jeśli organizacja [ustawi zasady zachowania poufności informacji](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), w tym miejscu zostanie wyświetlony link do instrukcji.  W przeciwnym razie Uwaga wskazuje, że organizacja nie ustawił zasad zachowania poufności informacji.
+Stopka zawiera więcej informacji na temat wysyłanego zaproszenia. Zawsze istnieje opcja zapraszania do blokowania przyszłych zaproszeń. Jeśli organizacja [ustawi zasady zachowania poufności informacji](../fundamentals/active-directory-properties-area.md), w tym miejscu zostanie wyświetlony link do instrukcji.  W przeciwnym razie Uwaga wskazuje, że organizacja nie ustawił zasad zachowania poufności informacji.
 
 ![Obraz sekcji stopki w wiadomości e-mail](media/invitation-email-elements/footer-section.png)
 
@@ -85,8 +85,8 @@ Użytkownik-gość może wykonać następujące kroki, aby wyświetlić lub wyek
 
 Język prezentowany użytkownikowi gość w wiadomości e-mail z zaproszeniem jest określany na podstawie następujących ustawień. Te ustawienia są wymienione w kolejności pierwszeństwa. Jeśli ustawienie nie zostanie skonfigurowane, następne ustawienie na liście określi język.
 
-- Właściwość **messageLanguage** obiektu [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) , jeśli jest używany interfejs API tworzenia zaproszenia
--   Właściwość **preferredLanguage** określona w [obiekcie użytkownika](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) gościa
+- Właściwość **messageLanguage** obiektu [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) , jeśli jest używany interfejs API tworzenia zaproszenia
+-   Właściwość **preferredLanguage** określona w [obiekcie użytkownika](/graph/api/resources/user?view=graph-rest-1.0) gościa
 -   **Język powiadomień** ustawiony we właściwościach dzierżawy głównej użytkownika-gościa (tylko dla dzierżawców usługi Azure AD)
 -   **Język powiadomień** ustawiony we właściwościach dzierżawy zasobu
 

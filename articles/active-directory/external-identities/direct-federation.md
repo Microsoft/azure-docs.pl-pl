@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b7350d793ea42a46d52d881f1399174a3bb5d0e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362896"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442086"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 
@@ -66,7 +66,7 @@ Na przykład podczas konfigurowania Federacji bezpośredniej dla _ * fabrikam. c
 Jeśli określisz adres URL metadanych w ustawieniach dostawcy tożsamości, usługa Azure AD automatycznie odnowi certyfikat podpisywania po jego wygaśnięciu. Jeśli jednak certyfikat jest obrócony z dowolnego powodu przed upływem czasu wygaśnięcia lub jeśli nie podano adresu URL metadanych, usługa Azure AD nie będzie mogła go odnowić. W takim przypadku należy ręcznie zaktualizować certyfikat podpisywania.
 
 ### <a name="limit-on-federation-relationships"></a>Limit relacji federacyjnych
-Obecnie obsługiwane są maksymalnie 1 000 relacje federacyjne. Ten limit obejmuje [wewnętrzne Federacji](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) i bezpośrednie Federacji.
+Obecnie obsługiwane są maksymalnie 1 000 relacje federacyjne. Ten limit obejmuje [wewnętrzne Federacji](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) i bezpośrednie Federacji.
 
 ### <a name="limit-on-multiple-domains"></a>Ogranicz dla wielu domen
 Obecnie nie obsługujemy bezpośredniej Federacji z wieloma domenami z tej samej dzierżawy.
@@ -87,7 +87,7 @@ Najpierw organizacja partnera musi skonfigurować swojego dostawcę tożsamości
 
 ### <a name="saml-20-configuration"></a>Konfiguracja protokołu SAML 2,0
 
-Usługę Azure AD B2B można skonfigurować tak, aby sfederować się z dostawcami tożsamości, którzy korzystają z protokołu SAML z określonymi wymaganiami wymienionymi poniżej. Aby uzyskać więcej informacji na temat konfigurowania zaufania między dostawcą tożsamości SAML i usługą Azure AD, zobacz  [Używanie dostawcy tożsamości saml 2,0 (dostawcy tożsamości) na potrzeby logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+Usługę Azure AD B2B można skonfigurować tak, aby sfederować się z dostawcami tożsamości, którzy korzystają z protokołu SAML z określonymi wymaganiami wymienionymi poniżej. Aby uzyskać więcej informacji na temat konfigurowania zaufania między dostawcą tożsamości SAML i usługą Azure AD, zobacz  [Używanie dostawcy tożsamości saml 2,0 (dostawcy tożsamości) na potrzeby logowania jednokrotnego](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
 > Domena docelowa dla Federacji bezpośredniej nie może być zweryfikowana przez system DNS w usłudze Azure AD. Domena adresu URL uwierzytelniania musi być zgodna z domeną docelową lub musi być domeną dozwolonego dostawcy tożsamości. Szczegółowe informacje znajdują się w sekcji [ograniczenia](#limitations) . 

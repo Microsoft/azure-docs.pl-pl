@@ -11,17 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21f14bc6f80445d1119f34d24281d764fff38c8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369169"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441559"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupy dynamiczne i Azure Active Directory współpracy B2B
 
 ## <a name="what-are-dynamic-groups"></a>Co to są grupy dynamiczne?
-Dynamiczna konfiguracja przynależności do grupy zabezpieczeń dla Azure Active Directory (Azure AD) jest dostępna w [Azure Portal](https://portal.azure.com). Administratorzy mogą ustawiać reguły do wypełniania grup utworzonych w usłudze Azure AD na podstawie atrybutów użytkownika (takich jak UserType, Department lub Country/region). Elementy członkowskie mogą być automatycznie dodawane lub usuwane z grupy zabezpieczeń na podstawie ich atrybutów. Te grupy mogą zapewniać dostęp do aplikacji lub zasobów w chmurze (witryn programu SharePoint, dokumentów) i przypisywać licencje do członków. Przeczytaj więcej na temat grup dynamicznych w [dedykowanych grupach w Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
+Dynamiczna konfiguracja przynależności do grupy zabezpieczeń dla Azure Active Directory (Azure AD) jest dostępna w [Azure Portal](https://portal.azure.com). Administratorzy mogą ustawiać reguły do wypełniania grup utworzonych w usłudze Azure AD na podstawie atrybutów użytkownika (takich jak UserType, Department lub Country/region). Elementy członkowskie mogą być automatycznie dodawane lub usuwane z grupy zabezpieczeń na podstawie ich atrybutów. Te grupy mogą zapewniać dostęp do aplikacji lub zasobów w chmurze (witryn programu SharePoint, dokumentów) i przypisywać licencje do członków. Przeczytaj więcej na temat grup dynamicznych w [dedykowanych grupach w Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 Do tworzenia grup dynamicznych i korzystania z nich wymagane są [Licencjonowanie w Azure AD — wersja Premium P1 lub P2](https://azure.microsoft.com/pricing/details/active-directory/) . Więcej informacji znajduje się w artykule [Tworzenie reguł opartych na atrybutach dla członkostwa w grupie dynamicznej w Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
@@ -76,4 +76,3 @@ Na poniższej ilustracji przedstawiono składnię reguły dla grupy dynamicznej 
 - [B2B collaboration user properties (Właściwości użytkowników współpracy B2B)](user-properties.md)
 - [Dodawanie użytkownika współpracy B2B do roli](add-guest-to-role.md)
 - [Dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md)
-

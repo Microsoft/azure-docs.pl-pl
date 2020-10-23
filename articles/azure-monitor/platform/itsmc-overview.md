@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 41aabeeeb151a6e2cf3c52dbfa2075c55f86989f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c163b7325cb4e039ddcfee95a39b82b4cb258b3c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427312"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461298"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
 
@@ -107,10 +107,9 @@ Po jego narzędzi Narzędzia ITSM wykonaj następujące kroki, aby utworzyć po�
    Korzystając z rozwiązania łącznik ITSM, można tworzyć elementy robocze na podstawie alertów platformy Azure, alertów Log Analytics i rekordów dziennika Log Analytics.
 
 ## <a name="template-definitions"></a>Definicje szablonów
-   Istnieją typy **elementów roboczych** , które mogą używać szablonów, które są zdefiniowane przez narzędzie narzędzia ITSM.
-Przy użyciu szablonów umożliwiają klientowi zdefiniowanie pól, które będą wypełniane automatycznie, zgodnie z ustalonymi wartościami, które są zdefiniowane jako część grupy akcji. Ta definicja jest wykonywana w narzędziu narzędzia ITSM.
-W tych przypadkach pole wyboru "Użyj szablonu niestandardowego" umożliwia klientowi wypełnianie pól pola, które będą wypełniane automatycznie, zgodnie z ustalonymi wartościami, które są zdefiniowane jako część grupy akcji.
-   
+   Istnieją typy elementów roboczych, które mogą używać szablonów, które są zdefiniowane przez narzędzie narzędzia ITSM.
+Przy użyciu szablonów umożliwiają klientowi zdefiniowanie pól, które będą wypełniane automatycznie, zgodnie z ustalonymi wartościami, które są zdefiniowane jako część grupy akcji. Definicja szablonów jest wykonywana w narzędziu narzędzia ITSM.
+      
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure
 
 Po utworzeniu połączenia z usługą narzędzia ITSM można tworzyć elementy robocze w narzędziu narzędzia ITSM na podstawie alertów platformy Azure za pomocą **akcji narzędzia ITSM** w **grupach akcji**.
@@ -139,7 +138,7 @@ Postępuj zgodnie z następującą procedurą:
 
 6. Z menu rozwijanego wybierz pozycję typ **elementu pracy** .
 
-7. Wybierz opcję użycia istniejącego szablonu lub użyj wspólnego szablonu i wypełnij pola wymagane przez produkt narzędzia ITSM.
+7. Jeśli chcesz wypełnić pola pola wartościami stałymi, należy zaznaczyć pole wyboru "Użyj szablonu niestandardowego", w przeciwnym razie wybierz opcję Użyj istniejącego [szablonu](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) z listy rozwijanej i wypełnij pola szablonu wartościami stałymi.
 
 8. Kliknij przycisk **OK**.
 

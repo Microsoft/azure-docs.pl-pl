@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319983"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457966"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronizacja programu Azure AD Connect: konfigurowanie filtrowania
 Korzystając z funkcji filtrowania, można kontrolować, które obiekty są wyświetlane w Azure Active Directory (Azure AD) z katalogu lokalnego. Konfiguracja domyślna pobiera wszystkie obiekty we wszystkich domenach w skonfigurowanych lasach. Ogólnie rzecz biorąc jest to zalecana konfiguracja. Użytkownicy korzystający z obciążeń Microsoft 365, takich jak Exchange Online i Skype dla firm, korzystają z kompletnej globalnej listy adresów, aby mogli wysyłać wiadomości e-mail i wywoływać wszystkich użytkowników. W przypadku konfiguracji domyślnej mogą one korzystać z tego samego środowiska z lokalną implementacją programu Exchange lub Lync.
@@ -127,7 +127,7 @@ Aby ustawić filtr domeny, wykonaj następujące czynności:
 3.  Wybierz pozycję **Dostosuj opcje synchronizacji** , a następnie kliknij przycisk **dalej**.
 4.  Wprowadzanie poświadczeń usługi Azure AD
 5.  Na ekranie **podłączone katalogi** kliknij przycisk **dalej**.
-6.  Na **stronie filtrowanie domen i jednostek organizacyjnych** kliknij przycisk **Odśwież**.  Nowe domeny źle pojawiły się, a usunięte domeny znikną.
+6.  Na **stronie filtrowanie domen i jednostek organizacyjnych** kliknij przycisk **Odśwież**.  Zostaną wyświetlone nowe domeny, a usunięte domeny znikną.
    ![Partycje](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Aktualizowanie profilów uruchamiania
@@ -279,7 +279,7 @@ W tym przykładzie zmienisz filtrowanie tak, aby były synchronizowane tylko uż
 5. W oknie podręcznym odpowiedź **tak** , aby utworzyć kopię reguły.
 6. Na stronie **Opis** Zmień **pierwszeństwo** na nieużywaną wartość, na przykład 50.
 7. Kliknij pozycję **Filtr zakresu** w obszarze nawigacji po lewej stronie, a następnie kliknij pozycję **Dodaj klauzulę**. W polu **atrybut**wybierz opcję **poczta**. W **operatorze**wybierz pozycję **ENDSWITH**. W **wartość**, wpisz ** \@ contoso.com**, a następnie kliknij przycisk **Dodaj klauzulę**. W polu **atrybut**wybierz element **userPrincipalName**. W **operatorze**wybierz pozycję **ENDSWITH**. W polu **wartość**wpisz ** \@ contoso.com**.
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
 9. Aby ukończyć konfigurację, należy przeprowadzić **pełną synchronizację**. Kontynuuj odczytywanie sekcji [stosowanie i weryfikowanie zmian](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Zastosuj i Weryfikuj zmiany
@@ -299,9 +299,9 @@ Wykonaj następujące czynności:
 Po synchronizacji wszystkie zmiany zostaną przygotowane do wyeksportowania. Przed faktycznym wprowadzeniem zmian w usłudze Azure AD należy sprawdzić, czy wszystkie te zmiany są poprawne.
 
 1. Uruchom wiersz polecenia i przejdź do `%ProgramFiles%\Microsoft Azure AD Sync\bin` .
-2. Uruchom polecenie `csexport "Name of Connector" %temp%\export.xml /f:x`.  
+2. Należy uruchomić polecenie `csexport "Name of Connector" %temp%\export.xml /f:x`.  
    Nazwa łącznika znajduje się w usłudze synchronizacji. Ma nazwę podobną do "contoso.com – Azure AD" dla usługi Azure AD.
-3. Uruchom polecenie `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
+3. Należy uruchomić polecenie `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. Masz teraz plik w katalogu% Temp% o nazwie export.csv, który można sprawdzić w programie Microsoft Excel. Ten plik zawiera wszystkie zmiany, które mają zostać wyeksportowane.
 5. Wprowadź niezbędne zmiany w danych lub konfiguracji, a następnie ponownie wykonaj te kroki (zaimportuj, zsynchronizuj i sprawdź), aż zmiany, które mają zostać wyeksportowane, są oczekiwane.
 

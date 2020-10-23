@@ -1,20 +1,23 @@
 ---
-title: Dzienniki usług IIS w Azure Monitor | Microsoft Docs
+title: Zbierz dzienniki usług IIS z agentem Log Analytics w programie Azure Monitor
 description: Internet Information Services (IIS) przechowuje aktywność użytkownika w plikach dziennika, które mogą być zbierane przez Azure Monitor.  W tym artykule opisano sposób konfigurowania kolekcji dzienników usług IIS i szczegółów dotyczących rekordów tworzonych w Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87008187"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461196"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Zbieranie dzienników usług IIS w Azure Monitor
-Internet Information Services (IIS) przechowuje aktywność użytkownika w plikach dziennika, które mogą być zbierane przez Azure Monitor i przechowywane jako [dane dziennika](data-platform.md).
+# <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Zbierz dzienniki usług IIS z agentem Log Analytics w programie Azure Monitor
+Internet Information Services (IIS) przechowuje aktywność użytkownika w plikach dziennika, które mogą być zbierane przez agenta Log Analytics i przechowywane w [dziennikach Azure monitor](data-platform.md).
+
+> [!IMPORTANT]
+> W tym artykule opisano zbieranie dzienników usług IIS za pomocą [agenta log Analytics](log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
 
 ![Dzienniki usług IIS](media/data-sources-iis-logs/overview.png)
 
@@ -23,7 +26,7 @@ Azure Monitor zbiera wpisy z plików dziennika utworzonych przez usługi IIS, dl
 
 Azure Monitor obsługuje tylko pliki dzienników usług IIS przechowywane w formacie W3C i nie obsługuje pól niestandardowych ani zaawansowanego rejestrowania usług IIS. Nie zbiera dzienników w formacie NCSA lub IIS.
 
-Skonfiguruj dzienniki usług IIS w Azure Monitor z poziomu [menu Ustawienia zaawansowane](agent-data-sources.md#configuring-data-sources).  Nie jest wymagana żadna konfiguracja, a nie opcja **zbierania plików dziennika usług IIS w formacie W3C**.
+Skonfiguruj dzienniki usług IIS w Azure Monitor z poziomu [menu Ustawienia zaawansowane](agent-data-sources.md#configuring-data-sources) dla agenta log Analytics.  Nie jest wymagana żadna konfiguracja, a nie opcja **zbierania plików dziennika usług IIS w formacie W3C**.
 
 
 ## <a name="data-collection"></a>Zbieranie danych

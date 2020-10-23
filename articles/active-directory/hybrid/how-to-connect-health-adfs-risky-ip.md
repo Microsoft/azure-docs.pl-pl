@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306399"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458036"
 ---
 # <a name="risky-ip-report-public-preview"></a>Raport dotyczący ryzykownych adresów IP (publiczna wersja zapoznawcza)
 AD FS klienci mogą uwidaczniać punkty końcowe uwierzytelniania hasła w Internecie w celu zapewnienia usług uwierzytelniania dla użytkowników końcowych w celu uzyskania dostępu do aplikacji SaaS, takich jak Microsoft 365. W takim przypadku możliwe są nieuprawnione próby logowania przy użyciu systemu AD FS w celu odgadnięcia hasła użytkownika końcowego i uzyskania dostępu do zasobów aplikacji. Od wersji 2012 R2 systemu Windows Server usługi AD FS udostępniają funkcję blokady konta na ekstranecie, która uniemożliwia przeprowadzenie takich ataków. Jeśli korzystasz ze starszej wersji, zdecydowanie zalecamy uaktualnienie systemu AD FS do wersji 2016 systemu Windows Server. <br />
@@ -35,7 +35,7 @@ Ponadto możliwe jest podejmowanie szeregu prób logowania z jednego adresu IP p
 
 > [!NOTE]
 > Aby móc korzystać z tego raportu, należy się upewnić, że inspekcja usług AD FS jest włączona. Aby uzyskać więcej informacji, zobacz [Włączanie inspekcji dla usług AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> W celu uzyskania dostępu do wersji zapoznawczej wymagane są uprawnienia administratora globalnego lub [czytelnika zabezpieczeń](../../role-based-access-control/built-in-roles.md#security-reader).  
+> W celu uzyskania dostępu do wersji zapoznawczej wymagane są uprawnienia administratora globalnego lub [czytelnika zabezpieczeń](../../role-based-access-control/built-in-roles.md#security-reader).  
 > 
 
 ## <a name="what-is-in-the-report"></a>Co znajduje się w raporcie?
@@ -79,16 +79,16 @@ Przy użyciu funkcji **pobierania** całą listę ryzykownych adresów IP z osta
 Zawarte w raporcie dane kontaktowe administratorów można zaktualizować za pośrednictwem **ustawień powiadomień**. Domyślnie powiadomienia e-mail z alertem o ryzykownych adresach IP są wyłączone. Można je włączyć za pomocą przełącznika w obszarze „Otrzymuj powiadomienia e-mail dotyczące raportu adresów IP przekraczających próg nieudanych działań”. Podobnie jak w przypadku ogólnych ustawień powiadomień z alertami w programie Connect Health, można tu dostosować listę adresatów powiadomień o raporcie o ryzykownych adresach IP. Wprowadzając zmiany, można również powiadomić wszystkich administratorów globalnych. 
 
 ## <a name="configure-threshold-settings"></a>Skonfiguruj ustawienia progu
-Próg alertu można zaktualizować za pomocą ustawień progowych. W systemie jest ustawiony domyślny próg. Ustawienia progowe raportu o ryzykownych adresach IP zawierają cztery kategorie:
+Próg alertu można zaktualizować za pomocą ustawień progowych. W systemie jest ustawiony domyślny próg. Wartości domyślne są podane poniżej. Ustawienia progowe raportu o ryzykownych adresach IP zawierają cztery kategorie:
 
 ![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
 | Element progu | Opis |
 | --- | --- |
-| Nieprawidłowy użytkownik/hasło + blokada ekstranetu — dzień  | Ustawienie progowe sterujące raportowaniem działania i wyzwoleniem powiadomienia o alercie w przypadku przekroczenia liczby zdarzeń związanych z podaniem nieprawidłowego hasła oraz blokadą ekstranetu na **dzień**. |
-| Nieprawidłowy użytkownik/hasło + blokada ekstranetu — godzina | Ustawienie progowe sterujące raportowaniem działania i wyzwoleniem powiadomienia o alercie w przypadku przekroczenia liczby zdarzeń związanych z podaniem nieprawidłowego hasła oraz blokadą ekstranetu na **godzinę**. |
-| Blokada ekstranetu — dzień | Ustawienie progowe sterujące raportowaniem działania i wyzwoleniem powiadomienia o alercie w przypadku przekroczenia liczby zdarzeń związanych z blokadą ekstranetu na **dzień**. |
-| Blokada ekstranetu — godzina| Ustawienie progowe sterujące raportowaniem działania i wyzwoleniem powiadomienia o alercie w przypadku przekroczenia liczby zdarzeń związanych z blokadą ekstranetu na **godzinę**. |
+| Nieprawidłowy użytkownik/hasło + blokada ekstranetu — dzień  | Ustawienie progowe sterujące raportowaniem działania i wyzwoleniem powiadomienia o alercie w przypadku przekroczenia liczby zdarzeń związanych z podaniem nieprawidłowego hasła oraz blokadą ekstranetu na **dzień**. Wartość domyślna to 100.|
+| Nieprawidłowy użytkownik/hasło + blokada ekstranetu — godzina | Ustawienie progowe sterujące raportowaniem działania i wyzwoleniem powiadomienia o alercie w przypadku przekroczenia liczby zdarzeń związanych z podaniem nieprawidłowego hasła oraz blokadą ekstranetu na **godzinę**. Wartość domyślna to 50.|
+| Blokada ekstranetu — dzień | Ustawienie progowe sterujące raportowaniem działania i wyzwoleniem powiadomienia o alercie w przypadku przekroczenia liczby zdarzeń związanych z blokadą ekstranetu na **dzień**. Wartość domyślna to 50.|
+| Blokada ekstranetu — godzina| Ustawienie progowe sterujące raportowaniem działania i wyzwoleniem powiadomienia o alercie w przypadku przekroczenia liczby zdarzeń związanych z blokadą ekstranetu na **godzinę**. Wartość domyślna to 25|
 
 > [!NOTE]
 > - Zmiana progu raportu zostanie zastosowana po godzinie od zmiany ustawień. 
@@ -97,7 +97,7 @@ Próg alertu można zaktualizować za pomocą ustawień progowych. W systemie je
 >
 >
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 **Dlaczego w raporcie są widoczne zakresy prywatnych adresów IP?**  <br />
 Prywatne adresy IP (<i>10. x. x. x, 172. x. x. x & 192.168. x. x</i>) i adresy IP programu Exchange są filtrowane i oznaczone jako prawdziwe na liście zatwierdzonych adresów IP. Jeśli zakresy prywatnych adresów IP są widoczne, prawdopodobnie zewnętrzny moduł równoważenia obciążenia nie wysyła adresu IP klienta podczas przekazywania żądania do serwera proxy aplikacji internetowych.
 

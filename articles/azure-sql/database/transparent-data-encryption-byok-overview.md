@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602673"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441134"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ W przypadku Azure SQL Database i usługi Azure Synapse Analytics funkcja ochrony
 > W przypadku korzystania z usługi TDE zarządzanej przez usługę, która chce zacząć korzystać z TDE zarządzanych przez klienta, dane pozostają zaszyfrowane podczas procesu przełączania i nie ma żadnych przestojów ani ponownego szyfrowania plików bazy danych. Przełączenie z klucza zarządzanego przez usługę do klucza zarządzanego przez klienta wymaga ponownego włączenia szyfrowania danych, które jest szybką i online operacją.
 
 > [!NOTE]
-> Aby zapewnić klientom SQL platformy Azure dwie warstwy szyfrowania danych w stanie spoczynku, szyfrowanie infrastruktury (przy użyciu algorytmu szyfrowania AES-256) z kluczami zarządzanymi platformy jest wdrażana. Zapewnia to dodatkową warstwę szyfrowania w stanie spoczynku wraz z TDE z kluczami zarządzanymi przez klienta, które są już dostępne. W tej chwili klienci muszą zażądać dostępu do tej funkcji. Jeśli interesuje Cię tę możliwość, skontaktuj się z firmą AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> Aby zapewnić klientom SQL platformy Azure dwie warstwy szyfrowania danych w stanie spoczynku, szyfrowanie infrastruktury (przy użyciu algorytmu szyfrowania AES-256) z kluczami zarządzanymi platformy jest wdrażana. Zapewnia to dodatkową warstwę szyfrowania w stanie spoczynku wraz z TDE z kluczami zarządzanymi przez klienta, które są już dostępne. W przypadku Azure SQL Database i wystąpienia zarządzanego wszystkie bazy danych, w tym baza danych Master i inne systemowe bazy danych, zostaną zaszyfrowane po włączeniu szyfrowania infrastruktury. W tej chwili klienci muszą zażądać dostępu do tej funkcji. Jeśli interesuje Cię tę możliwość, skontaktuj się z firmą AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Zalety TDE zarządzanych przez klienta
 

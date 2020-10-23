@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 0513b12c7ec9174c9a458400cd5682904d9ffb3b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 85b42c6a3c3c59bd8c22bcdc8954b8dd3399c454
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313145"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460975"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Samouczek: Migrowanie usługi Azure DB for PostgreSQL — pojedynczy serwer do usługi Azure DB dla PostgreSQL — pojedynczy serwer online przy użyciu systemu DMS za pośrednictwem Azure Portal
+# <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Samouczek: Migrowanie/uaktualnianie usługi Azure DB dla PostgreSQL — jeden serwer do usługi Azure DB dla PostgreSQL — pojedynczy serwer online przy użyciu systemu DMS za pośrednictwem Azure Portal
 
 Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia [jednego serwera Azure Database for PostgreSQLgo](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) do tej samej lub innej wersji Azure Database for PostgreSQL-pojedynczego wystąpienia serwera lub Azure Database for PostgreSQL-elastycznego serwera o minimalnym przestoju. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **najmu dysku DVD** z Azure Database for PostgreSQL v10 do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu działania migracji online w Azure Database Migration Service.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 >
 > * Migruj Przykładowy schemat przy użyciu narzędzia pg_dump.
@@ -47,7 +47,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Sprawdź [stan scenariuszy migracji obsługiwanych przez Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status) dla obsługiwanych migracji i kombinacji wersji. 
-* Istniejące [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) w wersji 10 i nowszych przy użyciu bazy danych **wynajmu DVD** . Azure Database Migration Service nie obsługuje migracji z usługi Azure DB dla PostgreSQL 9,5 lub 9,6.
+* Istniejące [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) w wersji 10 i nowszych przy użyciu bazy danych **wynajmu DVD** . 
 
     Należy również pamiętać, że wersja Azure Database for PostgreSQL docelowej musi być równa lub późniejsza niż lokalna wersja PostgreSQL. Na przykład PostgreSQL 10 można migrować do Azure Database for PostgreSQL 10 lub 11, ale nie do Azure Database for PostgreSQL 9,6.
 

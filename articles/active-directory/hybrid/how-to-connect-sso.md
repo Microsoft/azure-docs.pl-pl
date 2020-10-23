@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658355"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457995"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On (Bezproblemowe logowanie jednokrotne w usłudze Azure Active Directory)
 
@@ -64,18 +64,20 @@ Bezproblemowe logowanie jednokrotne może być łączone z [synchronizacją skr�
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Tak\*|Tak|Tak|Tak\*\*\*|Nie dotyczy
-|Windows 8.1|Opcję\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
+|Windows 8.1|Opcję\*|Opcję\*\*\*|Tak|Tak\*\*\*|Nie dotyczy
 |Windows 8|Opcję\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
 |Windows 7|Tak\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
 |System Windows Server 2012 R2 lub nowszy|Opcję\*\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
 |Mac OS X|NIE DOTYCZY|NIE DOTYCZY|Tak\*\*\*|Tak\*\*\*|Tak\*\*\*
 
 
-\*Wymaga programu Internet Explorer w wersji 10 lub nowszej
+\*Program wymaga programu Internet Explorer w wersji 10 lub nowszej.
 
-\*\*Wymaga programu Internet Explorer w wersji 10 lub nowszej. Wyłącz rozszerzony tryb chroniony
+\*\*Program wymaga programu Internet Explorer w wersji 10 lub nowszej. Wyłącz rozszerzony tryb chroniony.
 
-\*\*\*Wymaga [dodatkowej konfiguracji](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Wymaga [dodatkowej konfiguracji](how-to-connect-sso-quick-start.md#browser-considerations).
+
+\*\*\*\*Wymaga przeglądarki Microsoft Edge w wersji 77 lub nowszej.
 
 >[!NOTE]
 >W przypadku systemu Windows 10 zaleceniem jest użycie funkcji [Dołącz do usługi Azure AD](../devices/concept-azure-ad-join.md) w celu zapewnienia optymalnego logowania jednokrotnego w usłudze Azure AD.

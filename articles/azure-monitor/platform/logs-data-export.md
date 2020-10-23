@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055940"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441112"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -36,7 +36,7 @@ Log Analytics eksport danych obszaru roboczego ciągle eksportuje dane z Log Ana
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
 - Konfigurację można obecnie wykonać tylko przy użyciu interfejsu wiersza polecenia lub żądania REST. Nie można użyć Azure Portal ani programu PowerShell.
-- Obsługiwane tabele są obecnie ograniczone do określonych w poniższej sekcji (#supported-tabes). Jeśli reguła eksportu danych zawiera nieobsługiwaną tabelę, operacja zakończy się pomyślnie, ale żadne dane nie zostaną wyeksportowane dla tej tabeli. Jeśli reguła eksportu danych zawiera tabelę, która nie istnieje, nie powiedzie się, a tabela błędów nie * <tableName> istnieje w obszarze roboczym.*
+- Obsługiwane tabele są obecnie ograniczone do określonych w poniższej sekcji [obsługiwane tabele](#supported-tables) . Jeśli reguła eksportu danych zawiera nieobsługiwaną tabelę, operacja zakończy się pomyślnie, ale żadne dane nie zostaną wyeksportowane dla tej tabeli. Jeśli reguła eksportu danych zawiera tabelę, która nie istnieje, zostanie zakończona niepowodzeniem z powodu błędu ```Table <tableName> does not exist in the workspace.```
 - Obszar roboczy Log Analytics może znajdować się w dowolnym regionie, z wyjątkiem następujących:
   - Szwajcaria Północna
   - Szwajcaria Zachodnia
@@ -57,7 +57,7 @@ Log Analytics eksport danych obszaru roboczego ciągle eksportuje dane z Log Ana
 ## <a name="data-completeness"></a>Kompletność danych
 Eksport danych będzie nadal ponawiać próbę wysłania danych przez maksymalnie 30 minut w przypadku, gdy miejsce docelowe jest niedostępne. Jeśli nadal nie jest dostępna po 30 minutach, dane zostaną odrzucone do momentu udostępnienia lokalizacji docelowej.
 
-## <a name="cost"></a>Cost (Koszt)
+## <a name="cost"></a>Koszt
 Nie są obecnie naliczane dodatkowe opłaty za funkcję eksportowania danych. Cennik dotyczący eksportu danych zostanie ogłoszony w przyszłości oraz powiadomienie podane przed rozpoczęciem rozliczania. Jeśli zdecydujesz się na kontynuowanie korzystania z eksportu danych po upływie okresu wypowiedzenia, zostanie naliczona stawka ze stosowną stawką.
 
 ## <a name="export-destinations"></a>Eksportuj miejsca docelowe
@@ -239,7 +239,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>Nieobsługiwane tabele
 Jeśli reguła eksportu danych zawiera nieobsługiwaną tabelę, konfiguracja zakończy się pomyślnie, ale żadne dane nie zostaną wyeksportowane dla tej tabeli. Jeśli tabela jest później obsługiwana, wówczas jej dane zostaną wyeksportowane w tym czasie.
 
-Jeśli reguła eksportu danych zawiera tabelę, która nie istnieje, nie powiedzie się, a tabela błędów nie * <tableName> istnieje w obszarze roboczym*.
+Jeśli reguła eksportu danych zawiera tabelę, która nie istnieje, zostanie zakończona niepowodzeniem z powodu błędu ```Table <tableName> does not exist in the workspace.```
 
 
 ## <a name="supported-tables"></a>Obsługiwane tabele
@@ -318,7 +318,7 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Zdarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
+| Wydarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
 | ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |

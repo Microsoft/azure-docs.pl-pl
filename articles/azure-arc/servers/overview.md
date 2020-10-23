@@ -2,14 +2,14 @@
 title: Omówienie serwerów z obsługą usługi Azure Arc
 description: Dowiedz się, jak używać serwerów z obsługą usługi Azure Arc do zarządzania serwerami hostowanymi poza platformą Azure, takimi jak zasób platformy Azure.
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.topic: overview
-ms.openlocfilehash: b2875cfdeb80aa17b19cee462dc35eaa7a3de665
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 01de579d2e1ea84c0e9da4ceafbd33dbad4c6e27
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200971"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460856"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Co to są serwery z obsługą usługi Azure Arc?
 
@@ -29,7 +29,7 @@ Po połączeniu maszyny z serwerami z obsługą usługi Azure Arc umożliwia ona
 
 - Uprość wdrażanie za pomocą innych usług platformy Azure, takich jak [Konfiguracja stanu](../../automation/automation-dsc-overview.md) Azure Automation i Azure monitor obszar roboczy log Analytics, korzystając z obsługiwanych [rozszerzeń maszyny wirtualnej platformy Azure](manage-vm-extensions.md) dla maszyny z systemem Windows lub Linux. Obejmuje to przeprowadzanie konfiguracji po wdrożeniu lub instalację oprogramowania przy użyciu niestandardowego rozszerzenia skryptu.
 
-- [Update Management](../../automation/update-management/update-mgmt-overview.md) w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego dla serwerów z systemami Windows i Linux. Najpierw Wdróż rolę [hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md) , a następnie postępuj zgodnie z instrukcjami, aby [włączyć Update Management](../../automation/update-management/update-mgmt-enable-portal.md) na komputerze z systemem Windows lub Linux.
+- [Update Management](../../automation/update-management/update-mgmt-overview.md) w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego dla serwerów z systemami Windows i Linux.
 
 - Uwzględnij serwery spoza platformy Azure, aby wykrywać zagrożenia i aktywnie monitorować potencjalne zagrożenia bezpieczeństwa przy użyciu [Azure Security Center](../../security-center/security-center-introduction.md).
 
