@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 203ba2988d817e3e396fd8aec3db00eba9832041
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92322059"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470711"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -107,7 +107,8 @@ Na przykład w systemie Windows to polecenie ustawia klucz:
 
 ## <a name="create-subscription-config"></a>Utwórz konfigurację subskrypcji
 
-Aby rozpocząć korzystanie z interfejsu wiersza polecenia mowy, musisz najpierw wprowadzić informacje o kluczu subskrypcji mowy i regionie. Aby znaleźć identyfikator regionu, zobacz stronę [Obsługa regionów](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) . Gdy masz klucz subskrypcji i Identyfikator regionu (np. `eastus`, `westus` Uruchom następujące polecenia.
+Aby rozpocząć korzystanie z interfejsu wiersza polecenia mowy, należy wprowadzić klucz subskrypcji mowy i Identyfikator regionu. Pobierz te poświadczenia, wykonując czynności opisane w sekcji [Wypróbuj bezpłatnie usługę Speech](../overview.md#try-the-speech-service-for-free).
+Gdy masz klucz subskrypcji i Identyfikator regionu (np. `eastus`, `westus` Uruchom następujące polecenia.
 
 ```shell
 spx config @key --set SUBSCRIPTION-KEY

@@ -66,8 +66,16 @@
       items:
         - name: Monitorowanie za pomocą pulpitów nawigacyjnych Grafana i Kibana
           href: monitor-grafana-kibana.md
-        - name: Przekazywanie metryk i dzienników
-          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: Przekazywanie do usługi Azure Monitor
+          items:
+            - name: Przekazywanie wymagań wstępnych
+              href: upload-metrics-and-logs-to-azure-monitor.md
+            - name: Przekazywanie dzienników
+              href: upload-logs.md
+            - name: Przekazywanie metryk
+              href: upload-metrics.md
+            - name: Przekazywanie danych dotyczących użycia
+              href: upload-usage-data.md
         - name: Wystąpienia bazy danych spisu
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Pobieranie nazwy użytkownika i hasła kontrolera danych

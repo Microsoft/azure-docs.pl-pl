@@ -1,35 +1,37 @@
 ### YamlMime:Landing
-title: Dokumentacja usługi Azure DevOps Starter
-summary: Usługa Azure DevOps Starter stanowi uproszczone środowisko, w którym możesz umieścić istniejący kod i repozytorium Git albo wybrać jedną z przykładowych aplikacji, aby utworzyć potok ciągłej integracji i ciągłego wdrażania na platformie Azure.
+title: DevOps Starter — dokumentacja dotycząca wdrażania na platformie Azure
+summary: Usługa DevOps Starter stanowi uproszczone środowisko, w którym możesz umieścić istniejący kod i repozytorium Git albo wybrać jedną z przykładowych aplikacji, aby utworzyć potok ciągłej integracji i ciągłego wdrażania lub przepływ pracy na platformie Azure. Usługa DevOps Starter obsługuje teraz tworzenie przepływów pracy akcji serwisu GitHub.
 metadata:
-  title: Dokumentacja usługi Azure DevOps Starter
+  title: Dokumentacja usługi DevOps Starter
   description: Przenieś istniejący kod i repozytorium Git lub wybierz aplikację przykładową, aby utworzyć potok ciągłej integracji i ciągłego wdrażania na platformie Azure.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
   ms.date: 03/24/2020
-  ms.openlocfilehash: 62e95192f25487be60ed0334054f200447fc64cb
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 7521a5a57b6dd1c090fbc880033fc5fc0707419b
+  ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91855943"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92330686"
 landingContent:
-- title: Informacje o usłudze Azure DevOps Starter
+- title: Informacje o usłudze DevOps Starter
   linkLists:
   - linkListType: overview
     links:
-    - text: Co to jest usługa Azure DevOps Starter?
+    - text: Co to jest DevOps Starter?
       url: overview.md
   - linkListType: video
     links:
-    - text: Film wideo dotyczący tworzenia ciągłej integracji/ciągłego wdrażania za pomocą usługi DevOps Starter (8:53)
+    - text: Tworzenie ciągłej integracji/ciągłego wdrażania za pomocą usługi DevOps Starter przy użyciu usługi Azure DevOps (8:53)
       url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
-- title: Tworzenie potoku ciągłej integracji/ciągłego wdrażania
+- title: Konfigurowanie ciągłej integracji/ciągłego wdrażania
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Środowisko Node.js korzystające z akcji serwisu GitHub
+      url: /azure/devops-project/devops-starter-gh-nodejs
     - text: .NET
       url: ./azure-devops-project-aspnet-core.md
     - text: Node.js
@@ -44,10 +46,12 @@ landingContent:
       url: ./azure-devops-project-ruby.md
     - text: Przejdź
       url: ./azure-devops-project-go.md
-- title: Tworzenie potoków wydania
+- title: Wdróż na platformie Azure
   linkLists:
   - linkListType: tutorial
     links:
+    - text: Wdrażanie aplikacji w aplikacji internetowej platformy Azure przy użyciu akcji serwisu GitHub
+      url: devops-starter-gh-web-app.md
     - text: Dostarczanie własnego kodu za pomocą serwisu GitHub
       url: azure-devops-project-vms.md
     - text: Wdrażanie aplikacji platformy ASP.NET w usłudze Azure Virtual Machines

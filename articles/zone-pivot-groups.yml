@@ -834,6 +834,16 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Strony portalu Security Center
+- id: client-operating-system-macos-and-linux-windows-powershell
+  title: System operacyjny/konsola
+  prompt: Wybierz system operacyjny i konsolę
+  pivots:
+  - id: client-operating-system-macos-and-linux
+    title: macOS i Linux
+  - id: client-operating-system-windows-command
+    title: Powłoka poleceń systemu Windows
+  - id: client-operating-system-powershell
+    title: PowerShell
 - id: ad-quickstart-one
   title: Języki programowania
   prompt: Wybierz język programowania
@@ -845,9 +855,9 @@ groups:
   - id: programming-language-python
     title: Python
 metadata:
-  ms.openlocfilehash: a2d3fcbd47e5eb0691c8b5df4a50fc69d774f302
-  ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+  ms.openlocfilehash: 3f1202aacc0b73aec013fcee98948695aecbcb9a
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/18/2020
-  ms.locfileid: "92165863"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92368778"

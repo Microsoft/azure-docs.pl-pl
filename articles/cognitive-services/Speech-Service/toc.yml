@@ -401,6 +401,8 @@
                       href: how-to-custom-commands-send-activity-to-client.md
                     - name: Konfigurowanie internetowych punktów końcowych
                       href: how-to-custom-commands-setup-web-endpoints.md
+                    - name: Eksportowanie aplikacji z poleceniami niestandardowymi jako umiejętności
+                      href: how-to-custom-commands-integrate-remote-skills.md
                 - name: Wdrażanie
                   items:
                     - name: Ciągłe wdrażanie za pomocą usługi Azure DevOps

@@ -1,53 +1,63 @@
-- name: Dokumentacja usługi Azure DevOps Starter
+- name: Dokumentacja usługi DevOps Starter
   href: index.yml
 - name: Omówienie
   items:
-    - name: Co to jest usługa Azure DevOps Starter?
+    - name: Co to jest DevOps Starter?
       href: overview.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: .NET
-      href: ./azure-devops-project-aspnet-core.md
-      maintainContext: true
-    - name: Node.js
-      href: ./azure-devops-project-nodejs.md
-      maintainContext: true
-    - name: Java
-      href: ./azure-devops-project-java.md
-      maintainContext: true
-    - name: Python
-      href: ./azure-devops-project-python.md
-      maintainContext: true
-    - name: PHP
-      href: ./azure-devops-project-php.md
-      maintainContext: true
-    - name: Ruby
-      href: ./azure-devops-project-ruby.md
-      maintainContext: true
-    - name: Przejdź
-      href: ./azure-devops-project-go.md
-      maintainContext: true
+    - name: Funkcja GitHub Actions
+      items:
+        - name: Node.js
+          href: ./devops-starter-gh-nodejs.md
+          maintainContext: true
+    - name: Azure DevOps
+      items:
+        - name: .NET
+          href: ./azure-devops-project-aspnet-core.md
+          maintainContext: true
+        - name: Node.js
+          href: ./azure-devops-project-nodejs.md
+          maintainContext: true
+        - name: Java
+          href: ./azure-devops-project-java.md
+          maintainContext: true
+        - name: Python
+          href: ./azure-devops-project-python.md
+          maintainContext: true
+        - name: PHP
+          href: ./azure-devops-project-php.md
+          maintainContext: true
+        - name: Ruby
+          href: ./azure-devops-project-ruby.md
+          maintainContext: true
+        - name: Przejdź
+          href: ./azure-devops-project-go.md
+          maintainContext: true
 - name: Samouczki
   items:
-    - name: 1 — Usługi GitHub i DevOps Starter
+    - name: Wdrażanie w aplikacji internetowej platformy Azure za pomocą akcji serwisu GitHub
+      href: devops-starter-gh-web-app.md
+      maintainContext: true
+    - name: BYOC z serwisem GitHub
       href: azure-devops-project-github.md
       maintainContext: true
-    - name: 2 — Wdrażanie na maszynach wirtualnych
+    - name: Wdrażanie na maszynach wirtualnych za pomocą usługi Azure DevOps
       href: azure-devops-project-vms.md
       maintainContext: true
-    - name: 3 — Wdrażanie w usłudze Azure SQL Database
+    - name: Wdrażanie w usłudze Azure SQL Database za pomocą usługi Azure DevOps
       href: azure-devops-project-sql-database.md
       maintainContext: true
-    - name: 4 — Wdrażanie w usłudze AKS
+    - name: Wdrażanie w usłudze AKS za pomocą usługi Azure DevOps
       href: azure-devops-project-aks.md
       maintainContext: true
-    - name: 5 — Wdrażanie w usłudze Azure Service Fabric
+    - name: Wdrażanie w usłudze Azure Service Fabric za pomocą usługi Azure DevOps
       href: azure-devops-project-service-fabric.md
       maintainContext: true
-    - name: 6 — Wdrażanie w usłudze Azure Cosmos DB
+    - name: Wdrażanie w usłudze Azure Cosmos DB za pomocą usługi Azure DevOps
       href: azure-devops-project-cosmos-db.md
       maintainContext: true
-    - name: 7 — Wdrażanie w usłudze Azure Functions
+    - name: Wdrażanie w usłudze Azure Functions za pomocą usługi Azure DevOps
       href: azure-devops-project-functions.md
       maintainContext: true

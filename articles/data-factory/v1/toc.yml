@@ -139,9 +139,9 @@
           href: data-factory-hadoop-streaming-activity.md
         - name: Działania platformy Spark w usłudze HDInsight
           href: data-factory-spark.md
-        - name: Działanie wykonywania wsadowego w usłudze Machine Learning
+        - name: Działanie wykonywania wsadowego w usłudze Azure Machine Learning Studio (wersja klasyczna)
           href: data-factory-azure-ml-batch-execution-activity.md
-        - name: Działanie aktualizowania zasobów w usłudze Machine Learning
+        - name: Działanie aktualizacji zasobów w usłudze Azure Machine Learning Studio (wersja klasyczna)
           href: data-factory-azure-ml-update-resource-activity.md
         - name: Działania procedur składowanych
           href: data-factory-stored-proc-activity.md

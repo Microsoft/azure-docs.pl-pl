@@ -53,6 +53,8 @@
                   href: quickstart-blobs-javascript-browser.md
                 - name: JavaScript (wersja 10 zestawu SDK dla przeglądarki)
                   href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
+            - name: C++ (wersja 12 zestawu SDK)
+              href: quickstart-blobs-c-plus-plus.md
             - name: Przejdź
               href: storage-quickstart-blobs-go.md
             - name: PHP
@@ -105,6 +107,8 @@
           href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: JavaScript
           href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: C++
+          href: ../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Inne języki
           href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
@@ -145,8 +149,6 @@
                   href: encryption-scope-overview.md
             - name: Niezmienne obiekty blob
               href: storage-blob-immutable-storage.md
-            - name: Wbudowane mechanizmy zabezpieczeń
-              href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Używanie prywatnych punktów końcowych platformy Azure
               href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Konfigurowanie preferencji routingu sieciowego
@@ -207,7 +209,7 @@
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Znajdowanie, wyszukiwanie i analizowanie danych obiektów blob'
           items:
-            - name: Znajdowanie danych obiektów blob i zarządzanie nimi za pomocą indeksu obiektów blob
+            - name: Znajdowanie danych obiektów blob i zarządzanie nimi za pomocą tagów indeksu obiektów blob
               href: storage-manage-find-blobs.md
             - name: Korzystanie z AI w celu zrozumienia danych obiektów blob
               href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -316,7 +318,7 @@
               href: storage-blob-properties-metadata.md
             - name: Kopiowanie obiektu blob (SDK)
               href: storage-blob-copy.md
-            - name: Korzystanie z indeksu obiektów blob
+            - name: Używanie tagów indeksu obiektów blob
               href: storage-blob-index-how-to.md
         - name: Autoryzowanie dostępu do danych obiektów blob
           items:

@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 15814264f69ee29de8e71602cc7c0fb5754fa386
-  ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+  ms.openlocfilehash: 8dd08112bbfd56ddccb14cef1123b10ed7907a95
+  ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/18/2020
-  ms.locfileid: "92164384"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92329217"
 highlightedContent:
   items:
   - title: Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -219,6 +219,12 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: genomics/index.yml
+  - title: Metrics Advisor (wersja zapoznawcza)
+    summary: Usługa sztucznej inteligencji monitorująca metryki i diagnozująca problemy
+    imageSrc: ./media/index/metrics-advisor.svg
+    azureCategories:
+    - ai-machine-learning
+    url: cognitive-services/metrics-advisor/index.yml
   - title: Personalizacja
     summary: Usługa sztucznej inteligencji udostępniająca spersonalizowane środowisko użytkownika
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg

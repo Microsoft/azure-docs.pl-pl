@@ -111,7 +111,7 @@
           href: azure-netapp-files-develop-with-rest-api.md
         - name: Interfejs API REST korzystający z programu PowerShell
           href: develop-rest-api-powershell.md
-        - name: Narzędzia interfejsu wiersza polecenia i zestawy SDK usługi Azure NetApp Files
+        - name: 'Zestawy SDK, narzędzia interfejsu wiersza polecenia i szablony usługi ARM'
           href: azure-netapp-files-sdk-cli.md
         - name: Rozwiązywanie problemów związanych z błędami dostawcy zasobów usługi Azure NetApp Files
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
