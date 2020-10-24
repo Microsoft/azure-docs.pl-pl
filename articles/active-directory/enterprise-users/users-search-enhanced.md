@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 10/02/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcef70d821c7148cb926bd9357bbe656ceae35fe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377064"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517179"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Ulepszenia zarządzania użytkownikami (wersja zapoznawcza) w Azure Active Directory
 
@@ -29,7 +29,7 @@ W tym artykule opisano sposób używania ulepszeń zarządzania użytkownikami w
 Zmiany w wersji zapoznawczej obejmują:
 
 - Bardziej widoczne właściwości użytkownika, w tym identyfikator obiektu, stan synchronizacji katalogu, typ tworzenia i wystawca tożsamości
-- Search umożliwia teraz połączone wyszukiwanie nazw, wiadomości e-mail i identyfikatorów obiektów
+- Search umożliwia teraz wyszukiwanie podciągów i połączone wyszukiwanie nazw, wiadomości e-mail i identyfikatorów obiektów
 - Ulepszone filtrowanie według typu użytkownika (elementu członkowskiego, gościa, brak), stanu synchronizacji katalogu, typu tworzenia, nazwy firmy i nazwy domeny
 - Nowe możliwości sortowania dotyczące właściwości, takich jak nazwa i główna nazwa użytkownika
 - Nowa łączna liczba użytkowników, którzy aktualizujeją wyszukiwania lub filtry
@@ -59,7 +59,7 @@ Na stronie **Wszyscy użytkownicy** są wyświetlane następujące właściwośc
 
 - Nazwa: Nazwa wyświetlana użytkownika.
 - Główna nazwa użytkownika: główna nazwa użytkownika (UPN) użytkownika.
-- Typ użytkownika: typ użytkownika, element członkowski lub gość.
+- Typ użytkownika: członek, gość, brak.
 - Katalog synchronizowany: wskazuje, czy użytkownik jest synchronizowany z katalogu lokalnego.
 - Wystawca tożsamości: wystawcy tożsamości użyta do zalogowania się do konta użytkownika.
 - Identyfikator obiektu: identyfikator obiektu użytkownika.
@@ -67,6 +67,7 @@ Na stronie **Wszyscy użytkownicy** są wyświetlane następujące właściwośc
 - Nazwa firmy: Nazwa firmy, która jest skojarzona z użytkownikiem.
 - Stan zaproszenia: stan zaproszenia dla użytkownika-gościa.
 - Poczta: wiadomość e-mail użytkownika.
+- Ostatnie Logowanie: Data ostatniego logowania użytkownika. Ta właściwość jest widoczna tylko dla użytkowników z uprawnieniami do odczytu dzienników inspekcji (Reporting_ApplicationAuditLogs_Read)
 
 ![nowe właściwości użytkownika wyświetlane na stronach wszyscy użytkownicy i usunięci użytkownicy](./media/users-search-enhanced/user-properties.png)
 
@@ -75,7 +76,10 @@ Na stronie **Wszyscy użytkownicy** są wyświetlane następujące właściwośc
 Strona **usunięci użytkownicy** zawiera wszystkie kolumny, które są dostępne na stronie **Wszyscy użytkownicy** , oraz kilka dodatkowych kolumn:
 
 - Data usunięcia: Data pierwszego usunięcia użytkownika z organizacji (użytkownik jest dostępnych).
-- Data trwałego usunięcia: Data trwałego usunięcia użytkownika z organizacji.
+- Data trwałego usunięcia: Data, kiedy proces trwałego usuwania użytkownika z organizacji rozpoczyna się automatycznie. 
+
+> [!NOTE]
+> Daty usunięcia są wyświetlane w uniwersalnym czasie koordynowanym (UTC).
 
 Niektóre kolumny są domyślnie wyświetlane. Aby dodać inne kolumny, wybierz **kolumny** na stronie, wybierz nazwy kolumn, które chcesz dodać, a następnie wybierz **przycisk OK** , aby zapisać swoje preferencje.
 
@@ -88,7 +92,7 @@ Wybierz wpis w kolumnie **wystawca tożsamości** dla dowolnego użytkownika, ab
 
 ## <a name="user-list-search"></a>Wyszukiwanie listy użytkowników
 
-Gdy wprowadzisz ciąg wyszukiwania, wyszukiwanie używa "zaczyna się od" wyszukiwania, które może teraz dopasować nazwy, wiadomości e-mail lub identyfikatory obiektów w ramach jednego wyszukiwania. Możesz wprowadzić dowolny z tych atrybutów do pola wyszukiwania, a wyszukiwanie będzie automatycznie przeglądać wszystkie te właściwości, aby zwracały wszelkie pasujące wyniki. To samo wyszukiwanie można wykonać na stronach **Wszyscy użytkownicy** i **usunięci użytkownicy** .
+Gdy wprowadzisz ciąg wyszukiwania, funkcja wyszukiwania używa teraz "rozpoczyna się od" i wyszukiwania podciągu w celu dopasowania nazw, wiadomości e-mail lub identyfikatorów obiektów w ramach jednego wyszukiwania. Możesz wprowadzić dowolny z tych atrybutów do pola wyszukiwania, a wyszukiwanie automatycznie przeszukuje wszystkie te właściwości, aby zwracały wszelkie pasujące wyniki. Wyszukiwanie podciągów jest wykonywane tylko dla całych wyrazów. To samo wyszukiwanie można wykonać na stronach **Wszyscy użytkownicy** i **usunięci użytkownicy** .
 
 ## <a name="user-list-filtering"></a>Filtrowanie listy użytkowników
 
@@ -133,10 +137,10 @@ Możesz wyświetlić łączną liczbę użytkowników na stronach **Wszyscy uży
 
 Pytanie | Odpowiedź
 -------- | ------
+Dlaczego usunięty użytkownik jest nadal wyświetlany po upływie daty trwałego usunięcia? | Data trwałego usunięcia jest wyświetlana w strefie czasowej UTC, więc może być niezgodna z bieżącą strefą czasową. Ponadto ta data to Najwcześniejsza data, po upływie którego użytkownik zostanie trwale usunięty z organizacji, więc może nadal być przetwarzany. Trwale usunięci użytkownicy zostaną automatycznie usunięci z listy.
 Co dzieje się z możliwościami zbiorczymi dla użytkowników i Gości? | Operacje zbiorcze są nadal dostępne dla użytkowników i Gości, w tym zbiorcze tworzenie, zapraszanie zbiorcze, zbiorcze usuwanie i pobieranie użytkowników. Właśnie zostały one scalone w menu o nazwie **operacje zbiorcze**. Możesz znaleźć opcje **operacji zbiorczych** w górnej części strony **Wszyscy użytkownicy** .
 Co się stało z kolumną źródłową? | Kolumna **źródłowa** została zastąpiona innymi kolumnami, które zawierają podobne informacje, a jednocześnie umożliwiają filtrowanie tych wartości niezależnie. Przykłady obejmują **Typ tworzenia**, **zsynchronizowany katalog** i **wystawcę tożsamości**.
 Co się stało z kolumną Nazwa użytkownika? | Kolumna **Nazwa użytkownika** nadal istnieje, ale została zmieniona na **nazwę główną użytkownika**. Lepiej odzwierciedla informacje zawarte w tej kolumnie. Zauważ również, że pełna główna nazwa użytkownika jest teraz wyświetlana dla Gości B2B. Jest to zgodne z tym, co uzyskasz w programie MS Graph.  
-Dlaczego można wykonać tylko wyszukiwanie "zaczyna się od", a nie "zawiera"? | Istnieją pewne ograniczenia, które uniemożliwiają nam przeprowadzenie wyszukiwania "zawiera". Wysłaliśmy swoją opinię, więc poczekaj.
 
 ## <a name="next-steps"></a>Następne kroki
 

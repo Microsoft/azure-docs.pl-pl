@@ -1024,8 +1024,6 @@
               href: disks-benchmarks.md
             - name: Optymalizacja wydajności
               href: optimization.md
-            - name: Konfigurowanie programowej macierzy RAID
-              href: configure-raid.md
             - name: Konfigurowanie maszyny wirtualnej z systemem Linux
               href: configure-lvm.md
         - name: Znajdowanie niedołączonych dysków — interfejs wiersza polecenia

@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 79a4fc048b8301d67206bf28b571f88f9e5ad024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58da5c73ea2674bbbd1536a163e163aa0ff31d96
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597675"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521292"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Samouczek: Konfigurowanie środowiska Azure Time Series Insights Gen2
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia Azure Time Series Insights Gen2 *w trybie płatność zgodnie z rzeczywistym* użyciem.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -38,7 +38,7 @@ Utwórz konto [bezpłatnej subskrypcji platformy Azure](https://azure.microsoft.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Co najmniej musisz mieć rolę **współautor** dla subskrypcji platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z tematem [Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach i Azure Portal](../role-based-access-control/role-assignments-portal.md).
+* Co najmniej musisz mieć rolę **współautor** dla subskrypcji platformy Azure. Aby uzyskać więcej informacji, przeczytaj temat [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Tworzenie symulacji urządzeń
 
@@ -91,8 +91,8 @@ W tej sekcji opisano sposób tworzenia środowiska Azure Time Series Insights Ge
     | **Grupa zasobów** | Wybierz istniejącą grupę zasobów lub Utwórz nową grupę zasobów dla zasobu środowiska Azure Time Series Insights Gen2. Grupa zasobów jest kontenerem zasobów platformy Azure. Najlepszym rozwiązaniem jest użycie tej samej grupy zasobów co inne zasoby IoT, które są tworzone przez symulatora urządzeń. |
     | **Lokalizacja** | Wybierz region centrum danych dla środowiska Azure Time Series Insights Gen2. Aby uniknąć dodatkowego opóźnienia, najlepszym rozwiązaniem jest utworzenie środowiska Azure Time Series Insights Gen2 w tym samym regionie, w którym znajduje się centrum IoT utworzone w symulatorze urządzeń. |
     | **Warstwa** |  Wybierz pozycję **Gen2 (L1)**. Jest to jednostka SKU dla produktu Azure Time Series Insights Gen2. |
-    | **Nazwa właściwości identyfikatora szeregów czasowych** | Wprowadź nazwę właściwości, która zawiera wartości, które jednoznacznie identyfikują wystąpienia szeregów czasowych. Nie można później zmienić wartości wprowadzonej w polu **Nazwa właściwości** jako identyfikatora szeregów czasowych. Na potrzeby tego samouczka wprowadź ***iothub-Connection-Device-ID***. Aby dowiedzieć się więcej na temat identyfikatora szeregów czasowych, w tym złożonego identyfikatora szeregów czasowych, zobacz [najlepsze rozwiązania dotyczące wybierania identyfikatora szeregów czasowych](./time-series-insights-update-how-to-id.md). |
-    | **Nazwa konta magazynu** | Wprowadź globalnie unikatową nazwę nowego konta magazynu.|
+    | **Nazwa właściwości identyfikatora szeregów czasowych** | Wprowadź nazwę właściwości, która zawiera wartości, które jednoznacznie identyfikują wystąpienia szeregów czasowych. Nie można później zmienić wartości wprowadzonej w polu **Nazwa właściwości** jako identyfikatora szeregów czasowych. W tym samouczku wpisz **_iothub-Connection-Device-ID_*_. Aby dowiedzieć się więcej na temat identyfikatora szeregów czasowych, w tym złożonego identyfikatora szeregów czasowych, zobacz [najlepsze rozwiązania dotyczące wybierania identyfikatora szeregów czasowych](./time-series-insights-update-how-to-id.md). |
+    | _*Nazwa konta magazynu** | Wprowadź globalnie unikatową nazwę nowego konta magazynu.|
     | **Rodzaj konta magazynu** | Wybierz rodzaj magazynu dla nowego konta magazynu. Zalecamy StorageV2|
     | **Replikacja konta magazynu** | Wybierz rodzaj magazynu dla nowego konta magazynu. W zależności od wybranej lokalizacji można wybrać jedną z LRS, GRS i ZRS. Na potrzeby tego samouczka można wybrać LRS|
     | **Hierarchiczna przestrzeń nazw** |Ta opcja jest zaznaczona, po wybraniu rodzaju magazynu, który ma zostać StorageV2. Domyślnie jest on wyłączony. W tym samouczku można pozostawić go w domyślnym stanie *Disabled*|
@@ -287,7 +287,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
         | Parametr | Akcja |
         | --- | --- |
         | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-        | **Kraj** | Wprowadź **Stan USA** |
+        | **Country (Kraj)** | Wprowadź **Stan USA** |
         | **City (Miasto)** | Wprowadź **Seattle** |
         | **Budowaniu** | Wprowadź **wskazówkę miejsca** |
 
@@ -303,7 +303,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Nazwa** | Wprowadź **windę 2**|
     | **Opis** | Wprowadź **wystąpienie dla wind 2** |
     | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-    | **Kraj** | Wprowadź **Stan USA** |
+    | **Country (Kraj)** | Wprowadź **Stan USA** |
     | **City (Miasto)** | Wprowadź **Seattle** |
     | **Budowaniu** | Wprowadź **centrum nauki Pacyfiku** |
 
@@ -315,7 +315,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Nazwa** | Wprowadź **windę 3**|
     | **Opis** | Wprowadź **wystąpienie dla wind 3** |
     | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-    | **Kraj** | Wprowadź **Stan USA** |
+    | **Country (Kraj)** | Wprowadź **Stan USA** |
     | **City (Miasto)** | Wprowadź **Nowy Jork** |
     | **Budowaniu** | Wprowadź **kompilację stanu Empire** |
 

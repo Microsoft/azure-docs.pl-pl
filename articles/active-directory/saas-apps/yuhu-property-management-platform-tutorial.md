@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.openlocfilehash: b2427d474f4a36dc518680518a10cace290c0136
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5e852e3a32c4fb40dbe7ebc50a00302b4b82b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546130"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519101"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-yuhu-property-management-platform"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z platformą zarządzania właściwościami yuhu
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować platformę zarządzania właściw
 * Zezwól użytkownikom na automatyczne logowanie do platformy zarządzania właściwościami yuhu przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -140,20 +140,20 @@ Aby skonfigurować Logowanie jednokrotne na stronie **platformy zarządzania wł
 
 ### <a name="create-yuhu-property-management-platform-test-user"></a>Utwórz użytkownika testowego platformy zarządzania właściwościami yuhu
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon na platformie zarządzania właściwościami yuhu. Współpracuj z [zespołem pomocy technicznej platformy zarządzania właściwościami yuhu](mailto:hello@yuhu.io) , aby dodać użytkowników do platformy platformy zarządzania właściwościami yuhu. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon na platformie zarządzania właściwościami yuhu. Współpracuj z [zespołem pomocy technicznej platformy zarządzania właściwościami yuhu](mailto:hello@yuhu.io) , aby dodać użytkowników do platformy platformy zarządzania właściwościami yuhu. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Platforma zarządzania właściwościami yuhu w panelu dostępu należy automatycznie zalogować się do platformy zarządzania właściwościami yuhu, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Platforma zarządzania właściwościami yuhu w panelu dostępu należy automatycznie zalogować się do platformy zarządzania właściwościami yuhu, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj platformę zarządzania właściwościami yuhu z usługą Azure AD](https://aad.portal.azure.com/)

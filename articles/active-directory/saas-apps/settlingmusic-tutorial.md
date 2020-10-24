@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: d8c1f8c9d3ecdd7cda33e358c2b0de99123be5ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eafbc1543db1681b58ed499f4f29659e14a06e9f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88539967"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518478"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Samouczek: integracja Azure Active Directory z rozliczeniem muzyki
 
@@ -27,7 +27,7 @@ Integracja rozliczania muzyki z usługą Azure AD zapewnia następujące korzyś
 * Możesz włączyć automatyczne logowanie użytkowników, aby rozliczyć muzykę (Logowanie jednokrotne) z kontami usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -204,18 +204,18 @@ Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logow
 
 ### <a name="create-settling-music-test-user"></a>Utwórz użytkownika testowego rozliczania muzyki
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w rozliczeniu muzyki. Pracuj z [rozwiązanym zespołem pomocy technicznej dla klientów muzycznych](https://rakurakuseisan.jp/) , aby dodać użytkowników na platformie rozliczania muzyki. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w rozliczeniu muzyki. Pracuj z [rozwiązanym zespołem pomocy technicznej dla klientów muzycznych](https://rakurakuseisan.jp/) , aby dodać użytkowników na platformie rozliczania muzyki. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Rozlicz muzykę w panelu dostępu należy automatycznie zalogować się do rozliczanej muzyki, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Rozlicz muzykę w panelu dostępu należy automatycznie zalogować się do rozliczanej muzyki, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

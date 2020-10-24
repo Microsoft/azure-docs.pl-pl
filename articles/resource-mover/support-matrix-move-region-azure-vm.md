@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945917"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521309"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Obsługa przemieszczania maszyn wirtualnych platformy Azure między regionami platformy Azure
 
@@ -107,7 +107,7 @@ Obrazy galerii platformy Azure (opublikowane przez firmę Microsoft) | Obsługiw
 Obrazy galerii platformy Azure (opublikowane przez inną firmę)  | Obsługiwane | Obsługiwane, jeśli maszyna wirtualna jest uruchamiana w obsługiwanym systemie operacyjnym.
 Obrazy niestandardowe (opublikowane przez inną firmę)| Obsługiwane | Obsługiwane, jeśli maszyna wirtualna jest uruchamiana w obsługiwanym systemie operacyjnym.
 Maszyny wirtualne używające Site Recovery | Nieobsługiwane | Przenoszenie zasobów między regionami dla maszyn wirtualnych przy użyciu Site Recovery w zapleczu. Jeśli używasz już Site Recovery, wyłącz replikację, a następnie uruchom proces przygotowywania.
-Zasady RBAC | Nieobsługiwane | Zasady kontroli dostępu opartej na rolach (RBAC) na maszynach wirtualnych nie są kopiowane do maszyny wirtualnej w regionie docelowym.
+Zasady kontroli RBAC platformy Azure | Nieobsługiwane | Zasady kontroli dostępu opartej na rolach (Azure RBAC) na maszynach wirtualnych nie są kopiowane do maszyny wirtualnej w regionie docelowym.
 Rozszerzenia | Nieobsługiwane | Rozszerzenia nie są kopiowane do maszyny wirtualnej w regionie docelowym. Zainstaluj je ręcznie po zakończeniu przenoszenia.
 
 
@@ -172,8 +172,8 @@ Maszyny wirtualne platformy Azure, które chcesz przenieść, wymagają dostępu
 
 **Nazwa** | **Chmura publiczna Azure** | **Szczegóły** 
 --- | --- | --- 
-Storage | `*.blob.core.windows.net`  | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. 
-Azure Active Directory | `login.microsoftonline.com`  | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. 
+Magazyn | `*.blob.core.windows.net`  | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. 
+Usługa Azure Active Directory | `login.microsoftonline.com`  | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. 
 Replikacja | `*.hypervrecoverymanager.windowsazure.com` | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. 
 Service Bus | `*.servicebus.windows.net` | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. 
 

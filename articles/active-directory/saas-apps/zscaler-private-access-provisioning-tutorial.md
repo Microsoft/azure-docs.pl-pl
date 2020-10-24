@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 19767503769fe1a1e64d6ab137b811899adb29c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ecb4d249c8c2167ec61740eb9515fd1937230b0
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312341"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519745"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie prywatnego dostępu rozwiązania Zscaler (ZPA) w celu automatycznego aprowizacji użytkowników
 
@@ -114,7 +114,7 @@ Przed skonfigurowaniem prywatnego dostępu rozwiązania Zscaler (ZPA) w celu aut
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w usłudze rozwiązania Zscaler Private Access (ZPA) na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML na potrzeby rozwiązania Zscaler prywatnego dostępu (ZPA), postępując zgodnie z instrukcjami podanymi w [samouczku Logowanie jednokrotne (rozwiązania Zscaler Private Access) (ZPA)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
+> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML na potrzeby rozwiązania Zscaler prywatnego dostępu (ZPA), postępując zgodnie z instrukcjami podanymi w [samouczku Logowanie jednokrotne (rozwiązania Zscaler Private Access) (ZPA)](./zscalerprivateaccess-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
 
 > [!NOTE]
 > Aby dowiedzieć się więcej na temat Standard scim punktu końcowego dostępu prywatnego rozwiązania Zscaler, zapoznaj się z [tym](https://www.zscaler.com/partners/microsoft)tematem.
@@ -145,7 +145,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby rozwiązania Zscaler dostęp prywatny (ZPA)**.
 
@@ -189,4 +189,3 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
-

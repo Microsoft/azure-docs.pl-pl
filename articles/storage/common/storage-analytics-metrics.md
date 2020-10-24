@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2f3fa755f61d398ce7f0965fba86262c3e3ec863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef38e36ce1d2c7968e3eb7079270626629523334
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021157"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518739"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metryki analityka magazynu platformy Azure (klasyczne)
 
@@ -176,7 +176,10 @@ Rozważ skonfigurowanie alertów w [Azure Portal](https://portal.azure.com) , ab
 >
 
 ## <a name="access-metrics-data-programmatically"></a>Programowe uzyskiwanie dostępu do danych metryk  
-Na poniższej liście przedstawiono przykładowy kod w języku C#, który uzyskuje dostęp do metryk minut dla zakresu minut i wyświetla wyniki w oknie konsoli. Przykładowy kod używa biblioteki klienta usługi Azure Storage w wersji 4. x lub nowszej, która obejmuje klasę **CloudAnalyticsClient** , która upraszcza dostęp do tabel metryk w magazynie.  
+Na poniższej liście przedstawiono przykładowy kod w języku C#, który uzyskuje dostęp do metryk minut dla zakresu minut i wyświetla wyniki w oknie konsoli. Przykładowy kod używa biblioteki klienta usługi Azure Storage w wersji 4. x lub nowszej, która obejmuje klasę **CloudAnalyticsClient** , która upraszcza dostęp do tabel metryk w magazynie. 
+
+> [!NOTE]
+> Klasa **CloudAnalyticsClient** nie jest uwzględniona w bibliotece klienta usługi Azure Blob Storage V12 dla platformy .NET. W dniu **31 sierpnia 2023** metryki analityka magazynu, nazywane również *metrykami klasycznymi* , zostaną wycofane. Więcej informacji znajdziesz w [oficjalnym ogłoszeniu](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Jeśli używasz klasycznych metryk, zalecamy przechodzenie do metryk w Azure Monitor przed tą datą. 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  

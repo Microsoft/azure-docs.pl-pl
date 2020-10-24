@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207715"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520997"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -75,11 +75,13 @@ Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonu
  
 1. Przekaż informacje kontaktowe sprzedaży w sekcji **kontakty** . Sprzedawcy firmy Microsoft mogą skontaktować się z tymi kontaktami, aby zażądać dodatkowych informacji o ofercie. (*Wymagane: kontakt dla każdej lokalizacji geograficznej, w której oferta jest*udostępniona).
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft." w obszarze rozwijanym "żądane usługi CED Services":
+<ul><ul>
 
-1. Zapisz wersję roboczą przed kontynuowaniem.
-1. Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji. W prawym górnym rogu wybierz pozycję **Przejrzyj i Opublikuj**. Przejrzyj szczegóły oferty, a następnie wybierz pozycję **Publikuj**.
-1. Będziemy przeglądać przekazane materiały i określać, czy oferta kwalifikuje się do programu współsprzedaży.
+:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::
+
+CED skontaktuje się z Tobą, aby ukończyć proces.
+</ul></ul>
 
 ## <a name="next-steps"></a>Następne kroki
 

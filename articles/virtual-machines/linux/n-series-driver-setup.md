@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: c0f05bd9ebd100956cfb7b2b6188e18616368dd0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 9b6e752f8352db565239aba4a990752b1c397f5f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168481"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517263"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii N z systemem Linux
 
@@ -161,6 +161,23 @@ Wdrażaj maszyny wirtualne z serii N obsługujące RDMA przy użyciu jednego z o
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
 * **CentOS 7,4 HPC** — sterowniki RDMA i Intel MPI 5,1 są zainstalowane na maszynie wirtualnej.
+
+* **CentOS HPC** -CentOS-HPC 7,6 i nowsze (dla jednostek SKU, na których jest obsługiwana funkcja SR-IOV). Te obrazy mają wstępnie zainstalowane biblioteki Mellanox OFED i MPI.
+
+> [!NOTE]
+> Karty CX3-Pro są obsługiwane tylko przez LTS wersje Mellanox OFED. Użyj LTS Mellanox OFED (4.9-0.1.7.0) na maszynach wirtualnych serii N z kartami ConnectX3-Pro. Aby uzyskać więcej informacji, zobacz [sterowniki systemu Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
+>
+> Ponadto niektóre najnowsze obrazy HPC platformy Azure Marketplace mają Mellanox OFED 5,1 i nowsze, które nie obsługują kart ConnectX3-Pro. Sprawdź wersję Mellanox OFED w obrazie HPC przed użyciem jej na maszynach wirtualnych z kartami ConnectX3-Pro.
+>
+> Poniżej przedstawiono najnowsze obrazy CentOS-HPC, które obsługują karty ConnectX3-Pro:
+>
+> - OpenLogic: CentOS-HPC: 7.6:7.6.2020062900
+> - OpenLogic: CentOS-HPC: 7_6gen2:7.6.2020062901
+> - OpenLogic: CentOS-HPC: 7.7:7.7.2020062600
+> - OpenLogic: CentOS-HPC: 7_7-Gen2:7.7.2020062601
+> - OpenLogic: CentOS-HPC: 8_1:8.1.2020062400
+> - OpenLogic: CentOS-HPC: 8_1-Gen2:8.1.2020062401
+>
 
 ## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Instalowanie sterowników siatki na maszynach wirtualnych z serii NV lub NVv3
 

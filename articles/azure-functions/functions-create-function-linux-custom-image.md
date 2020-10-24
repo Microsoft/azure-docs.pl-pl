@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de4f52dae236502a087116aa72424641220c628
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758986"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517088"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
@@ -20,7 +20,7 @@ Wdrożenie kodu funkcji w niestandardowym kontenerze systemu Linux wymaga [planu
 
 Można również użyć domyślnego kontenera Azure App Service, zgodnie z opisem w temacie [Tworzenie pierwszej funkcji hostowanej w systemie Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Obsługiwane obrazy podstawowe dla Azure Functions są dostępne w [repozytorium Azure Functions obrazów podstawowych](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz aplikację funkcji i pliku dockerfile przy użyciu Azure Functions Core Tools.
@@ -95,7 +95,10 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-`-DjavaVersion`Parametr informuje środowisko uruchomieniowe funkcji, którego wersja języka Java ma używać. Użyj, `-DjavaVersion=11` Jeśli chcesz, aby działały na platformie Java 11, która jest w wersji zapoznawczej. Jeśli nie określisz `-DjavaVersion` , Maven domyślnie Java 8. Aby uzyskać więcej informacji, zobacz [wersje Java](functions-reference-java.md#java-versions).
+`-DjavaVersion`Parametr informuje środowisko uruchomieniowe funkcji, którego wersja języka Java ma używać. Użyj `-DjavaVersion=11` , jeśli chcesz, aby funkcje działały w języku Java 11. Jeśli nie określisz `-DjavaVersion` , Maven domyślnie Java 8. Aby uzyskać więcej informacji, zobacz [wersje Java](functions-reference-java.md#java-versions).
+
+> [!IMPORTANT]
+> `JAVA_HOME`Aby można było ukończyć ten artykuł, zmienna środowiskowa musi być ustawiona na lokalizację instalacji poprawnej wersji JDK.
 
 Maven prosi o podanie wartości, które są potrzebne, aby zakończyć Generowanie projektu przy wdrożeniu.   
 Po wyświetleniu monitu podaj następujące wartości:

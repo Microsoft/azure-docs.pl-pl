@@ -3,12 +3,12 @@ title: Azure Service Bus często zadawanych pytań (FAQ) | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec79b6988fdbc78dc4f45e504f84179e617589cc
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894528"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518759"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
 
@@ -83,7 +83,7 @@ Jeśli używasz **nadmiarowości strefy** dla przestrzeni nazw, musisz wykonać 
     > Adres IP zwrócony przez `nslookup` polecenie nie jest statycznym adresem IP. Jednak pozostaje stałą do momentu usunięcia lub przeniesienia bazowego wdrożenia do innego klastra.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Gdzie mogę znaleźć adres IP klienta wysyłającego/otrzymującego komunikaty do/z przestrzeni nazw? 
-Nie rejestrujemy adresów IP klientów wysyłających lub otrzymujących komunikaty do/z przestrzeni nazw. Wygeneruj ponownie klucze, aby uniemożliwić wszystkim istniejącym klientom uwierzytelnianie i przeglądanie ustawień kontroli dostępu opartej na rolach ([RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)), aby upewnić się, że tylko użytkownicy lub aplikacje mają dostęp do przestrzeni nazw. 
+Nie rejestrujemy adresów IP klientów wysyłających lub otrzymujących komunikaty do/z przestrzeni nazw. Wygeneruj ponownie klucze, aby uniemożliwić wszystkim istniejącym klientom uwierzytelnianie i przeglądanie ustawień [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)w celu zapewnienia, że tylko użytkownicy lub aplikacje mają dostęp do przestrzeni nazw. 
 
 Jeśli używasz przestrzeni nazw **Premium** , użyj funkcji [filtrowania adresów IP](service-bus-ip-filtering.md), [punktów końcowych usługi sieci wirtualnej](service-bus-service-endpoints.md)i [prywatnych punktów końcowych](private-link-service.md) , aby ograniczyć dostęp do przestrzeni nazw. 
 
@@ -148,7 +148,7 @@ Możesz przenieść przestrzeń nazw z jednej subskrypcji platformy Azure do inn
 
 Aby użyć Azure Portal do migracji przestrzeni nazw Service Bus do innej subskrypcji, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
-#### <a name="powershell"></a>Program PowerShell
+#### <a name="powershell"></a>PowerShell
 
 Poniższa sekwencja poleceń programu PowerShell przenosi przestrzeń nazw z jednej subskrypcji platformy Azure do innej. Aby wykonać tę operację, przestrzeń nazw musi być już aktywna, a użytkownik uruchamiający polecenia programu PowerShell musi być administratorem zarówno dla subskrypcji źródłowej, jak i docelowej.
 

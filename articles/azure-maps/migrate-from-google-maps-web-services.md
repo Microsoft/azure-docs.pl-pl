@@ -9,22 +9,38 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5da42ebd31e4b09eb8bc223560aec976584c47e9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3e80ff90e47f45655761abd4c7e8fa9ed04b61ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874462"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518895"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Samouczek — Migrowanie usługi sieci Web ze sklepu Google Maps
 
 Zarówno platforma Azure, jak i usługa Google Maps zapewniają dostęp do przestrzennych interfejsów API za pomocą usług sieci Web REST. Interfejsy interfejsu API tych platform wykonują podobne funkcje. Ale każdy z nich używa różnych konwencji nazewnictwa i obiektów odpowiedzi.
 
+Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+
+> * Przekazanie i odwrócenie geokodowania
+> * Wyszukiwanie punktów orientacyjnych
+> * Obliczanie tras i wskazówek
+> * Pobieranie obrazu mapy
+> * Obliczanie macierzy odległości
+> * Pobierz szczegóły strefy czasowej
+
+Dowiesz się również: 
+
+> [!div class="checklist"]
+> * Która Azure Maps usługi REST podczas migracji z usługi sieci Web Google Maps
+> * Porady dotyczące optymalnego wykorzystania usług Azure Maps
+> * Wgląd w inne powiązane usługi Azure Maps
+
 W tabeli przedstawiono interfejsy API usługi Azure Maps, które mają podobną funkcjonalność do listy interfejsów API usługi Mapy Google.
 
 | Interfejs API usługi Mapy Google | Interfejs API usługi Azure Maps                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Wskazówki              | [Trasa](https://docs.microsoft.com/rest/api/maps/route)                                     |
+| Wskazówki              | [Szlak](https://docs.microsoft.com/rest/api/maps/route)                                     |
 | Macierz odległości         | [Macierz trasy](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)       |
 | Geokodowanie               | [Wyszukiwanie](https://docs.microsoft.com/rest/api/maps/search)                                   |
 | Wyszukiwanie miejsc           | [Wyszukiwanie](https://docs.microsoft.com/rest/api/maps/search)                                   |
@@ -48,6 +64,12 @@ Azure Maps ma kilka dodatkowych usług sieci Web REST, które mogą być interes
 
 - [Operacje przestrzenne](https://docs.microsoft.com/rest/api/maps/spatial): odciążać złożone obliczenia przestrzenne i operacje, takie jak geoogrodzenia, do usługi.
 - [Ruch](https://docs.microsoft.com/rest/api/maps/traffic): dostęp do przepływu ruchu i danych zdarzeń w czasie rzeczywistym.
+
+## <a name="prerequisites"></a>Wymagania wstępne 
+
+1. Zaloguj się do [portalu Azure](https://portal.azure.com). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+2. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="geocoding-addresses"></a>Adresy geokodowania
 
@@ -315,7 +337,7 @@ W Azure Maps lokalizacja numeru PIN musi być w formacie "Długość geograficzn
 - `custom` — Określa niestandardową ikonę, która ma być używana. Adres URL wskazujący ikonę obrazu można dodać na końcu `pins` parametru po informacjach o lokalizacji numeru PIN.
 - `{udid}` — Unikatowy identyfikator danych (UDID) dla ikony przechowywanej na platformie magazynu danych Azure Maps.
 
-Dodaj style kodu PIN w `optionNameValue` formacie. Oddziel wiele stylów znakami potoku ( \| ). Przykład: `iconType|optionName1Value1|optionName2Value2`. Nazwy i wartości opcji nie są oddzielone. Użyj następujących nazw opcji stylu do znaczników stylu:
+Dodaj style kodu PIN w `optionNameValue` formacie. Oddziel wiele stylów znakami potoku ( \| ). Na przykład: `iconType|optionName1Value1|optionName2Value2`. Nazwy i wartości opcji nie są oddzielone. Użyj następujących nazw opcji stylu do znaczników stylu:
 
 - `al` — Określa nieprzezroczystość (alfa) znacznika. Wybierz liczbę z zakresu od 0 do 1.
 - `an` — Określa kotwicę numeru PIN. Określ wartości X i y pikseli w formacie "X y".
@@ -334,7 +356,6 @@ Dodajmy domyślną ikonę czerwoną ( `FF0000` ) z etykietą "obszar etykietka",
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-
 ![Znacznik Azure Maps](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Dodaj trzy numery PIN z wartościami etykiet "1", "2" i "3":
@@ -342,8 +363,6 @@ Dodaj trzy numery PIN z wartościami etykiet "1", "2" i "3":
 ```
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
-
-
 
 ![Azure Maps wiele znaczników](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
@@ -468,13 +487,24 @@ Te biblioteki klienckie typu "open source" są przeznaczone dla innych języków
 
 - .NET Standard 2,0 — [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [pakiet NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/) projektu GitHub
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="next-steps"></a>Następne kroki
 
-Poniżej znajdują się dodatkowe dokumenty i zasoby dotyczące Azure Maps usług REST.
+Dowiedz się więcej o Azure Maps usługach REST:
 
-- [Najlepsze rozwiązania dotyczące wyszukiwania](how-to-use-best-practices-for-search.md)
-- [Wyszukiwanie adresu](how-to-search-for-address.md)
-- [Najlepsze rozwiązania dotyczące routingu](how-to-use-best-practices-for-routing.md)
-- [Dokumentacja interfejsu API usługi REST Azure Maps](https://docs.microsoft.com/rest/api/maps/)
-- [Przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-- [Jak używać modułu usług (Web SDK)](how-to-use-best-practices-for-routing.md)
+> [!div class="nextstepaction"]
+> [Najlepsze rozwiązania dotyczące wyszukiwania](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [Wyszukiwanie adresu](how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Najlepsze rozwiązania dotyczące routingu](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Dokumentacja interfejsu API usługi REST Azure Maps](https://docs.microsoft.com/rest/api/maps/)
+
+> [!div class="nextstepaction"]
+> [Przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+> [!div class="nextstepaction"]
+> [Jak używać modułu usług (Web SDK)](how-to-use-best-practices-for-routing.md)

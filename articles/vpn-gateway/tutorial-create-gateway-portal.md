@@ -5,13 +5,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/21/2020
-ms.openlocfilehash: 41bb69d675f3aa45061dab3236eae5c869bc346b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 10/23/2020
+ms.openlocfilehash: 74000322372652b90e0d0db07d687f8e57c4f88e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460771"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518249"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Samouczek: Tworzenie bramy VPN Gateway i zarządzanie nią przy użyciu Azure Portal
 
@@ -100,7 +100,10 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji lub przejdź do następnego s
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak:
+Po skonfigurowaniu bramy sieci VPN można skonfigurować połączenia. Poniższe artykuły pomogą Ci utworzyć kilka typowych konfiguracji:
 
 > [!div class="nextstepaction"]
-> [Tworzenie połączeń sieci VPN typu lokacja-lokacja i zarządzanie nimi](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> [Połączenia sieci VPN typu lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+
+> [!div class="nextstepaction"]
+> [Połączenia sieci VPN typu punkt-lokacja](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

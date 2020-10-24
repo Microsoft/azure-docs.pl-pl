@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 86336ddb557613d42117480a5793e8b0ecbc7bae
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495836"
+ms.locfileid: "92518011"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -326,7 +326,7 @@ Aby zabezpieczyć zasób usługi platformy Azure za pomocą punktów końcowych 
 1. Włącz punkty końcowe usługi dla usługi platformy Azure.
 2. Skonfiguruj listy ACL sieci wirtualnej w usłudze platformy Azure.
 
-Pierwszym krokiem jest operacja po stronie sieci, a drugi krok to operacja po stronie zasobów usługi. Obie kroki mogą być wykonywane przez tego samego administratora lub różnych administratorów na podstawie uprawnień RBAC przyznanych roli administratora. Zalecamy najpierw włączyć punkty końcowe usługi dla sieci wirtualnej przed skonfigurowaniem list kontroli dostępu wirtualnej w ramach usługi platformy Azure. W związku z tym kroki muszą być wykonywane w sekwencji wymienionej powyżej w celu skonfigurowania punktów końcowych usługi sieci wirtualnej.
+Pierwszym krokiem jest operacja po stronie sieci, a drugi krok to operacja po stronie zasobów usługi. Obie kroki mogą być wykonywane przez tego samego administratora lub różnych administratorów w oparciu o uprawnienia kontroli RBAC platformy Azure przyznane roli administratora. Zalecamy najpierw włączyć punkty końcowe usługi dla sieci wirtualnej przed skonfigurowaniem list kontroli dostępu wirtualnej w ramach usługi platformy Azure. W związku z tym kroki muszą być wykonywane w sekwencji wymienionej powyżej w celu skonfigurowania punktów końcowych usługi sieci wirtualnej.
 
 >[!NOTE]
 > Obie operacje opisane powyżej muszą zostać wykonane, aby można było ograniczyć dostęp usługi platformy Azure do dozwolonej sieci wirtualnej i podsieci. Włączenie punktów końcowych usługi dla usługi platformy Azure po stronie sieci nie zapewnia ograniczonego dostępu. Ponadto należy również skonfigurować listy ACL sieci wirtualnej na stronie usługi platformy Azure.

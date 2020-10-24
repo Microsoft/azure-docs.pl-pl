@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, usługa translator, tłumaczenie tekstu, zatransliteracja tekstu, wykrywanie języka
-ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ca86ce1dc015c8d7ee3bc83a6d7e3279a146f195
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318844"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517042"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Szybki Start: Rozpoczynanie pracy z usługą translator
 
@@ -58,7 +58,7 @@ W tym przewodniku szybki start nauczysz się używać usługi translatora za po�
 
 # <a name="java"></a>[Java](#tab/java)
 
-* Utwórz katalog roboczy dla projektu. Przykład: `mkdir sample-project`.
+* Utwórz katalog roboczy dla projektu. Na przykład: `mkdir sample-project`.
 * Zainicjuj projekt przy użyciu Gradle: `gradle init --type basic` . Po wyświetleniu monitu wybierz pozycję **Język DSL**, a następnie **Kotlin**.
 * Aktualizacja `build.gradle.kts` . Pamiętaj, że musisz zaktualizować w `mainClassName` zależności od przykładu.
   ```java
@@ -85,14 +85,14 @@ W tym przewodniku szybki start nauczysz się używać usługi translatora za po�
 * Utwórz nowy projekt w ulubionym środowisku IDE lub edytorze.
 * Skopiuj kod z jednego z przykładów do projektu.
 * Ustaw klucz subskrypcji.
-* Uruchomisz program. Przykład: `node Translate.js`.
+* Uruchomisz program. Na przykład: `node Translate.js`.
 
 # <a name="python"></a>[Python](#tab/python)
 
 * Utwórz nowy projekt w ulubionym środowisku IDE lub edytorze.
 * Skopiuj kod z jednego z przykładów do projektu.
 * Ustaw klucz subskrypcji.
-* Uruchomisz program. Przykład: `python translate.py`.
+* Uruchomisz program. Na przykład: `python translate.py`.
 
 ---
 
@@ -2440,6 +2440,12 @@ Po pomyślnym wywołaniu powinna zostać wyświetlona następująca odpowiedź. 
     }
 ]
 ```
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+### <a name="java-users"></a>Użytkownicy języka Java
+
+Jeśli występują problemy z połączeniem, być może certyfikat SSL wygasł. Aby rozwiązać ten problem, zainstaluj [DigiCertGlobalRootG2. CRT](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) do prywatnego magazynu. 
 
 ## <a name="next-steps"></a>Następne kroki
 

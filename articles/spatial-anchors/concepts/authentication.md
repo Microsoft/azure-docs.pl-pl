@@ -9,16 +9,16 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715e09eaf6ca379261d619fe02ad81a69a519d3e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5f59f626d9edbf30f61935c026ac965dbbe946f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328542"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516923"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Uwierzytelnianie i autoryzacja w kotwicach przestrzennych platformy Azure
 
-W tym artykule przedstawiono różne sposoby uwierzytelniania w zakotwiczeniach przestrzennych platformy Azure z poziomu aplikacji lub usługi sieci Web. Dowiesz się również, jak korzystać z kontroli dostępu opartej na rolach w usłudze Azure Active Directory (Azure AD) w celu kontrolowania dostępu do kont zakotwiczeń przestrzennych.
+W tym artykule przedstawiono różne sposoby uwierzytelniania w zakotwiczeniach przestrzennych platformy Azure z poziomu aplikacji lub usługi sieci Web. Dowiesz się również, jak korzystać z kontroli dostępu opartej na rolach (Azure RBAC) w usłudze Azure Active Directory (Azure AD) w celu kontrolowania dostępu do kont zakotwiczeń przestrzennych.
 
 ## <a name="overview"></a>Omówienie
 
@@ -108,7 +108,7 @@ W przypadku aplikacji przeznaczonych dla użytkowników Azure Active Directory u
    1.    Przejdź do zasobu zakotwiczeń przestrzennych w Azure Portal.
    2.    Przejdź do karty **Kontrola dostępu (IAM)** .
    3.    Wybierz pozycję **Dodaj przypisanie roli**.
-   1.    [Wybierz rolę](#role-based-access-control).
+   1.    [Wybierz rolę](#azure-role-based-access-control).
    2.    W polu **Wybierz** wprowadź nazwy użytkowników, grup i/lub aplikacji, do których chcesz przypisać dostęp.
    3.    Wybierz pozycję **Zapisz**.
 
@@ -176,13 +176,13 @@ Token dostępu usługi Azure AD jest pobierany za pośrednictwem [MSAL](../../ac
 1.    Zarejestruj swoją aplikację w usłudze Azure AD:
         1.    W Azure Portal wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **rejestracje aplikacji**.
         2.    Wybierz pozycję **Nowa rejestracja**.
-        3.    Wprowadź nazwę aplikacji, wybierz pozycję **Web App/API** jako typ aplikacji, a następnie wprowadź adres URL uwierzytelniania dla usługi. Wybierz pozycję **Utwórz**.
+        3.    Wprowadź nazwę aplikacji, wybierz pozycję **Web App/API** jako typ aplikacji, a następnie wprowadź adres URL uwierzytelniania dla usługi. Wybierz przycisk **Utwórz**.
 4.    W aplikacji wybierz pozycję **Ustawienia**, a następnie wybierz kartę **Certyfikaty i wpisy tajne** . Utwórz nowy klucz tajny klienta, wybierz czas trwania, a następnie wybierz pozycję **Dodaj**. Pamiętaj, aby zapisać wartość klucza tajnego. Musisz dołączyć go do kodu usługi sieci Web.
 2.    Przyznaj aplikacji i/lub użytkownikom dostęp do zasobu:
         1.    Przejdź do zasobu zakotwiczeń przestrzennych w Azure Portal.
         2.    Przejdź do karty **Kontrola dostępu (IAM)** .
         3.    Wybierz pozycję **Dodaj przypisanie roli**.
-        1.    [Wybierz rolę](#role-based-access-control).
+        1.    [Wybierz rolę](#azure-role-based-access-control).
         2.    W polu **Wybierz** wprowadź nazwę lub nazwy aplikacji, do których chcesz przypisać dostęp. Jeśli chcesz, aby użytkownicy Twojej aplikacji mieli różne role względem konta zakotwiczeń przestrzennych, zarejestruj wiele aplikacji w usłudze Azure AD i przypisz osobną rolę do każdej z nich. Następnie Zaimplementuj logikę autoryzacji, aby korzystać z odpowiedniej roli dla użytkowników.
         
               > [!NOTE] 
@@ -262,7 +262,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
 Aby ułatwić kontrolę poziomu dostępu udzielonego aplikacjom, usługom lub użytkownikom usługi Azure AD w usłudze, możesz przypisać te istniejące role zgodnie z potrzebami dotyczącymi kont zakotwiczeń przestrzennych platformy Azure:
 
