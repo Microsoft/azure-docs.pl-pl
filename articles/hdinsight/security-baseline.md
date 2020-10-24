@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34b4a7395102549dfea6f9d51ef8d1216bacddba
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ebc0398eeb7679ffd57e0aa5aae642f6303aaa35
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327709"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484614"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Podstawa zabezpieczeń platformy Azure dla usługi HDInsight
 
@@ -146,9 +146,7 @@ Możesz również użyć planów platformy Azure, aby uprościć duże wdrożeni
 
 Jak wyświetlić dostępne aliasy Azure Policy:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Jak skonfigurować Azure Policy i zarządzać nimi:
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias Jak skonfigurować Azure Policy i zarządzać nimi:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -346,11 +344,11 @@ Ponadto możesz użyć zaleceń dotyczących zarządzania tożsamościami i dost
 
 Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 Jak monitorować tożsamość i uzyskać dostęp za pomocą Azure Security Center:
 
@@ -780,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Jak wyświetlić subskrypcje platformy Azure:
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Opis kontroli RBAC platformy Azure:
 
@@ -942,7 +940,7 @@ Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resourc
 
 Jak wyświetlić dostępne aliasy Azure Policy:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Jak skonfigurować Azure Policy i zarządzać nimi:
 
@@ -990,13 +988,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy, Użyj usługi Azure DevOps lub Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-Jak przechowywać kod w usłudze Azure DevOps:
+[Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Dokumentacja Azure Repos:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Dokumentacja Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -1034,13 +1028,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. HDInsight", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji klastra usługi HDInsight.
 
-Jak wyświetlić dostępne aliasy Azure Policy:
+[Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Jak skonfigurować Azure Policy i zarządzać nimi:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+[Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -1174,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 Jak utworzyć kopię zapasową kluczy Key Vault na platformie Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -1190,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 Jak przywrócić klucze magazynu kluczy na platformie Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/23/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokalna, Docker, kontener
-ms.openlocfilehash: c26c69a0f6cbf0f9f658d3b7a32cce99319767b4
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 6f04e40b0b2baa496faf8001684304c5df78ec20
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930445"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496144"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsów API usługi mowy 
 
@@ -316,7 +316,7 @@ To polecenie:
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analizuj tonacji w danych wyjściowych zamiany mowy na tekst 
 
-Począwszy od 2.2.0 kontenera zamiany mowy na tekst, można wywołać [interfejs API analizy tonacji](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) w wersji 3 w danych wyjściowych. Aby wywołać analizę tonacji, wymagany jest punkt końcowy zasobów interfejs API analizy tekstu. Na przykład: 
+Począwszy od 2.2.0 kontenera zamiany mowy na tekst, można wywołać [interfejs API analizy tonacji](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) w wersji 3 w danych wyjściowych. Aby wywołać analizę tonacji, wymagany jest punkt końcowy zasobów interfejs API analizy tekstu. Przykład: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -492,6 +492,16 @@ To polecenie:
 * Udostępnia port TCP 5003 i przydziela pseudo-TTY dla kontenera.
 * Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście.
 
+Jeśli wysyłasz tylko żądania wykrywanie języka mowy, musisz ustawić wartość w polu klient mowy `phraseDetection` `None` .  
+
+```python
+speech_config.set_service_property(
+      name='speechcontext-phraseDetection.Mode',
+      value='None',
+      channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+   )
+```
+
 Jeśli chcesz uruchomić ten kontener za pomocą kontenera zamiany mowy na tekst, możesz użyć tego [obrazu platformy Docker](https://hub.docker.com/r/antsu/on-prem-client). Po uruchomieniu obu kontenerów Użyj tego polecenia Docker Run, aby wykonać operację `speech-to-text-with-languagedetection-client` .
 
 ```Docker
@@ -511,7 +521,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 > [!NOTE]
 > Użyj unikatowego numeru portu, jeśli korzystasz z wielu kontenerów.
 
-| Containers | Adres URL hosta zestawu SDK | Protokół |
+| Kontenery | Adres URL hosta zestawu SDK | Protokół |
 |--|--|--|
 | Standardowe Zamiana mowy na tekst i Custom Speech do tekstu | `ws://localhost:5000` | WS |
 | Zamiana tekstu na mowę (w tym standardowych, niestandardowych i neuronowych), wykrywanie języka mowy | `http://localhost:5000` | HTTP |

@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/12/2020
+ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 0eb4f8a7994e7c1d04013e9c9cf92e604ef6a1a7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424456"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496019"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska Azure Machine Learning inferencing z sieciami wirtualnymi
 
@@ -123,7 +123,7 @@ Istnieją dwa podejścia do izolowania ruchu do i z klastra AKS do sieci wirtual
 * __Wewnętrzny moduł równoważenia obciążenia AKS__: to podejście służy do konfigurowania punktu końcowego dla wdrożeń do AKS w celu korzystania z prywatnego adresu IP w ramach sieci wirtualnej.
 
 > [!WARNING]
-> **Użyj AKS prywatnego lub wewnętrznego modułu równoważenia obciążenia, ale nie obu**.
+> Wewnętrzny moduł równoważenia obciążenia nie działa z klastrem AKS, który korzysta z korzystającą wtyczki kubenet. Jeśli chcesz użyć wewnętrznego modułu równoważenia obciążenia i prywatnego klastra AKS w tym samym czasie, skonfiguruj prywatny klaster AKS za pomocą interfejsu Azure Container Network Interface (CNI). Aby uzyskać więcej informacji, zobacz [Konfigurowanie sieci Azure CNI w usłudze Azure Kubernetes Service](../aks/configure-azure-cni.md).
 
 ### <a name="private-aks-cluster"></a>Prywatny klaster AKS
 
@@ -134,7 +134,7 @@ Po utworzeniu prywatnego klastra AKS [Dołącz klaster do sieci wirtualnej](how-
 > [!IMPORTANT]
 > Przed użyciem linku prywatnego z włączonym klastrem AKS z Azure Machine Learning należy otworzyć zdarzenie obsługi, aby włączyć tę funkcję. Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-## <a name="internal-aks-load-balancer"></a>Wewnętrzny moduł równoważenia obciążenia AKS
+### <a name="internal-aks-load-balancer"></a>Wewnętrzny moduł równoważenia obciążenia AKS
 
 Domyślnie wdrożenia AKS używają [publicznego modułu równoważenia obciążenia](../aks/load-balancer-standard.md). W tej sekcji dowiesz się, jak skonfigurować AKS do korzystania z wewnętrznego modułu równoważenia obciążenia. Używany jest wewnętrzny (lub prywatny) moduł równoważenia obciążenia, w przypadku którego jako frontonu można używać tylko prywatnych adresów IP. Wewnętrzne moduły równoważenia obciążenia są używane do równoważenia obciążenia ruchu w sieci wirtualnej
 

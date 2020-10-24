@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 673480d1b5171e03b701cd2102c7a640aae58ad0
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 3b9a94f7f9f64426374a5ea349b3653d837fc1ac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893751"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494439"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemy z migracją w trybie online & ograniczenia dotyczące usługi Azure DB dla programu MySQL z Azure Database Migration Service
 
@@ -32,7 +32,7 @@ Znane problemy i ograniczenia związane z migracją w trybie online z programu M
 - Azure Database for MySQL obsługuje:
   - MySQL Community Edition
   - Aparat InnoDB
-- Migracja tej samej wersji. Migrowanie MySQL 5,6 do Azure Database for MySQL 5,7 nie jest obsługiwane.
+- Migracja tej samej wersji. Migrowanie MySQL 5,6 do Azure Database for MySQL 5,7 nie jest obsługiwane. Migracja do lub z MySQL 8,0 nie jest obsługiwana.
 - Włączanie rejestrowania binarnego w my.ini (Windows) lub My. cnf (UNIX)
   - Ustaw wartość Server_id na wartość większą lub równą 1, na przykład Server_id = 1 (tylko w przypadku programu MySQL 5,6)
   - Set log-bin = \<path> (tylko dla MySQL 5,6)

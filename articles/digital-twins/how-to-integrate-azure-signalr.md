@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4b0e0bd38c8bb9ea1d2331a65fc891e157971eef
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367656"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495851"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Signal Service
 
@@ -147,7 +147,7 @@ Następnie opublikuj funkcję na platformie Azure, korzystając z procedury opis
 
 1. Na koniec Dodaj **Parametry połączenia** usługi Azure Signal from wcześniej do ustawień aplikacji funkcji, korzystając z następującego polecenia interfejsu CLI platformy Azure. Polecenie można uruchomić w [Azure Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)interfejs wiersza polecenia platformy Azure:
  
-    ```azurecli
+    ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
@@ -242,7 +242,7 @@ Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia plat
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 8d98c9a7e58f08d9ad63183805cd6cd0d2ab3b3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047e2855949b800a88ca87bcc50e0df06f420aa8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570195"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475502"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów korzystania z wielu regionów w usłudze Azure Cosmos DB
 
@@ -58,5 +58,4 @@ Następnie możesz dowiedzieć się więcej o optymalizacji kosztów w Azure Cos
 * Dowiedz się więcej na temat [optymalizowania kosztu przepływności](optimize-cost-throughput.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów magazynu](optimize-cost-storage.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów operacji odczytu i zapisu](optimize-cost-reads-writes.md)
-* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](optimize-cost-queries.md)
-
+* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](./optimize-cost-reads-writes.md)

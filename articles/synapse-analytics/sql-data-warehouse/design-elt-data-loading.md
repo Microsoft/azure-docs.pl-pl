@@ -11,18 +11,18 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fecdd65ae0dbf9faeb0e74e6446a9deaf8273106
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2f3433075a1fddf116aae28666feb62473c6dbfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075029"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476097"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie ładowania danych w puli Synapse SQL
 
-Tradycyjne pule SQL SMP używają procesu wyodrębniania, transformacji i ładowania (ETL) do ładowania danych. Synapse Pool SQL, w ramach usługi Azure Synapse Analytics, oferuje architekturę masowego przetwarzania równoległego (MPP), która korzysta z skalowalności i elastyczności zasobów obliczeniowych i magazynu.
+Tradycyjne pule SQL SMP używają procesu wyodrębniania, transformacji i ładowania (ETL) do ładowania danych. Synapse SQL w ramach usługi Azure Synapse Analytics używa architektury przetwarzania zapytań rozproszonych, która korzysta z skalowalności i elastyczności zasobów obliczeniowych i magazynu.
 
-Użycie procesu wyodrębniania, ładowania i przekształcania (ELT) wykorzystuje MPP i eliminuje zasoby konieczne do przekształcenia danych przed załadowaniem.
+Użycie procesu wyodrębniania, ładowania i przekształcania (ELT) wykorzystuje wbudowane funkcje przetwarzania zapytań rozproszonych i eliminuje zasoby wymagające przekształcenia danych przed załadowaniem.
 
 Chociaż Pula SQL obsługuje wiele metod ładowania, w tym popularnych opcji SQL Server, takich jak [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i [interfejsu API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), najszybszym i najbardziej skalowalnym sposobem ładowania danych jest użycie podstawowych tabel zewnętrznych i [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -107,7 +107,7 @@ Podczas ładowania plików Parquet Użyj następującego mapowania typu danych S
 |                            ELEMENTEM                             |            INT (8, FAŁSZ)            |     tinyint      |
 |                            ELEMENTEM                             |            INT (16, FAŁSZ)             |       int        |
 |                            ELEMENTEM                             |           INT (32, false)            |      bigint      |
-|                            ELEMENTEM                             |                 DATE                  |       data       |
+|                            ELEMENTEM                             |                 DATE                  |       date       |
 |                            ELEMENTEM                             |                DOKŁADNOŚCI                |     decimal      |
 |                            ELEMENTEM                             |            CZAS (MŁYNER)             |       time       |
 |                            INT64                             |            INT (64, true)            |      bigint      |

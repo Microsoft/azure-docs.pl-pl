@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8735bf721ec85dcd556582f7fd887dd82b55a35d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369985"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475230"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Porady dotyczące wydajności zestawu Java SDK usługi Azure Cosmos DB w wersji 4
 
@@ -85,13 +85,13 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
 * **Włącz przyspieszone sieci na maszynie wirtualnej platformy Azure w celu uzyskania małych opóźnień.**
 
-Zaleca się wykonanie instrukcji w celu włączenia przyspieszonej sieci w [systemie Windows (kliknij w celu uzyskania instrukcji)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) lub [Linux (kliknij, aby uzyskać instrukcje)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) maszyna wirtualna platformy Azure w celu zmaksymalizowania wydajności.
+Zaleca się wykonanie instrukcji w celu włączenia przyspieszonej sieci w [systemie Windows (kliknij w celu uzyskania instrukcji)](../virtual-network/create-vm-accelerated-networking-powershell.md) lub [Linux (kliknij, aby uzyskać instrukcje)](../virtual-network/create-vm-accelerated-networking-cli.md) maszyna wirtualna platformy Azure w celu zmaksymalizowania wydajności.
 
 Bez przyspieszonej sieci operacje we/wy, które przesyłają między maszyną wirtualną platformy Azure i innymi zasobami platformy Azure, mogą być niepotrzebnie kierowane za pomocą hosta i przełącznika wirtualnego znajdującego się między maszyną wirtualną a jej kartą sieciową. Posiadanie hosta i przełącznika wirtualnego w ścieżce datapath nie tylko zwiększa opóźnienia i wahania w kanale komunikacji, a także zmniejsza cykle procesora z maszyny wirtualnej. W przypadku przyspieszonej sieci interfejsy maszyn wirtualnych są bezpośrednio z karty sieciowej bez pośredników; wszystkie szczegóły zasad sieciowych, które były obsługiwane przez hosta i przełącznik wirtualny, są teraz obsługiwane sprzętowo na karcie sieciowej. Host i przełącznik wirtualny są pomijane. Ogólnie można oczekiwać mniejszego opóźnienia i większej przepływności, a także bardziej *spójnego* opóźnienia i obniżenia użycia procesora po włączeniu przyspieszonej sieci.
 
 Ograniczenia: przyspieszone sieci muszą być obsługiwane w systemie operacyjnym maszyny wirtualnej i można je włączyć tylko wtedy, gdy maszyna wirtualna została zatrzymana i cofnięta alokacja. Nie można wdrożyć maszyny wirtualnej przy użyciu Azure Resource Manager.
 
-Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) i [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) .
+Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) i [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) .
 
 ## <a name="sdk-usage"></a>SDK usage (Użycie zestawu SDK)
 * **Zainstaluj najnowszy zestaw SDK**
@@ -162,7 +162,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
         Pierwszym krokiem jest użycie poniższych zalecanych ustawień konfiguracji. Te opcje *DirectConnectionConfig* są zaawansowane ustawienia konfiguracji, które mogą wpływać na wydajność zestawu SDK w nieoczekiwany sposób. Zalecamy, aby użytkownicy nie mogli ich modyfikować, chyba że obawiają się one w zrozumieniu kompromisów i są absolutnie niezbędne. Skontaktuj się z [zespołem Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com) , jeśli wystąpią problemy z tym konkretnym tematem.
 
-        | Opcja konfiguracji       | Domyślny   |
+        | Opcja konfiguracji       | Domyślne   |
         | :------------------:       | :-----:   |
         | idleConnectionTimeout      | "PT0"     |
         | maxConnectionsPerEndpoint  | "130"     |
@@ -311,7 +311,7 @@ _ **Skalowanie obciążenia klienta**
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    Aby uzyskać więcej informacji, zobacz [Azure Cosmos DB zasad indeksowania](indexing-policies.md).
+    Aby uzyskać więcej informacji, zobacz [Azure Cosmos DB zasad indeksowania](index-policy.md).
 
 ## <a name="throughput"></a>Przepływność
 <a id="measure-rus"></a>

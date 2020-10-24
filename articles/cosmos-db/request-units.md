@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 556b3915336d0ca9cec8ac67a34778cfb2523cbe
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282054"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475077"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Jednostki żądania w usłudze Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Podczas szacowania liczby jednostek ru zużywanych przez obciążenie należy wz
 
   Te same zapytania dotyczące tych samych danych będą zawsze kosztować tę samą liczbę jednostek ru przy powtarzanych wykonaniach.
 
-- **Użycie skryptu**: podobnie jak w przypadku kwerend, procedury składowane i wyzwalacze wykorzystują jednostek RU w oparciu o złożoność wykonywanych operacji. Podczas opracowywania aplikacji sprawdź [nagłówek opłaty za żądanie](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query), aby lepiej zrozumieć, ile jednostek RU używa każda operacja.
+- **Użycie skryptu**: podobnie jak w przypadku kwerend, procedury składowane i wyzwalacze wykorzystują jednostek RU w oparciu o złożoność wykonywanych operacji. Podczas opracowywania aplikacji sprawdź [nagłówek opłaty za żądanie](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request), aby lepiej zrozumieć, ile jednostek RU używa każda operacja.
 
 ## <a name="request-units-and-multiple-regions"></a>Jednostki żądań i wiele regionów
 
@@ -76,12 +76,12 @@ Wybór [modelu spójności](consistency-levels.md) wpływa również na przepły
 
 - Dowiedz się więcej o [tym, jak zainicjować przepływność w kontenerach i bazach danych usługi Azure Cosmos](set-throughput.md).
 - Dowiedz się więcej o [Azure Cosmos DB](serverless.md).
-- Dowiedz się więcej na temat [partycji logicznych](partition-data.md).
-- Dowiedz się więcej o tym, jak [globalnie skalować zainicjowaną przepływność](scaling-throughput.md).
+- Dowiedz się więcej na temat [partycji logicznych](./partitioning-overview.md).
+- Dowiedz się więcej o tym, jak [globalnie skalować zainicjowaną przepływność]().
 - Dowiedz się, jak [zainicjować przepływność na kontenerze usługi Azure Cosmos](how-to-provision-container-throughput.md).
 - Dowiedz się, jak [udostępnić przepływność w bazie danych Azure Cosmos](how-to-provision-database-throughput.md).
 - Dowiedz się [, jak znaleźć opłatę jednostkową żądania dla operacji](find-request-unit-charge.md).
 - Informacje na temat [optymalizowania alokowanego kosztu przepływności w Azure Cosmos DB](optimize-cost-throughput.md).
 - Dowiedz się [, jak zoptymalizować operacje odczytu i zapisu w Azure Cosmos DB](optimize-cost-reads-writes.md).
-- Dowiedz się, jak [zoptymalizować koszt zapytań w Azure Cosmos DB](optimize-cost-queries.md).
+- Dowiedz się, jak [zoptymalizować koszt zapytań w Azure Cosmos DB](./optimize-cost-reads-writes.md).
 - Dowiedz się [, jak używać metryk do monitorowania przepływności](use-metrics.md).

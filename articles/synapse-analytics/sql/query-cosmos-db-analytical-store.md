@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 99fcdd0232e2991acaceb6838bff0b00c6824dfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122725"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474907"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB za pomocą puli SQL bezserwerowej w usłudze Azure Synapse link (wersja zapoznawcza)
 
@@ -244,10 +244,10 @@ Konta Azure Cosmos DB interfejsu API języka SQL (rdzeń) obsługują typy wła�
 
 | Typ właściwości Azure Cosmos DB | Typ kolumny SQL |
 | --- | --- |
-| Wartość logiczna | bit |
+| Boolean | bit |
 | Liczba całkowita | bigint |
 | Liczba dziesiętna | float |
-| Ciąg | varchar (sortowanie bazy danych UTF8) |
+| String | varchar (sortowanie bazy danych UTF8) |
 | Data i godzina (ciąg w formacie ISO) | varchar (30) |
 | Data i godzina (Sygnatura czasowa systemu UNIX) | bigint |
 | Zero | `any SQL type` 
@@ -277,5 +277,6 @@ Sugestie i problemy można zgłaszać na [stronie opinii o usłudze Azure Synaps
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
+- [Użyj Power BI i bezserwerowej puli SQL Synapse z linkiem usługi Azure Synapse](../../cosmos-db/synapse-link-power-bi.md)
 - [Jak tworzyć widoki i używać ich w programie SQL na żądanie](create-use-views.md) 
 - [Samouczek dotyczący tworzenia widoków na żądanie SQL dla Azure Cosmos DB i łączenia ich z modelami Power BI za pośrednictwem zapytania bezpośredniego](./tutorial-data-analyst.md)

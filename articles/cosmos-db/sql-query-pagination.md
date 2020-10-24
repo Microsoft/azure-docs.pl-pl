@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 4de3ec79b94969e45553857f1179a1104e090347
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276106"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485039"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Stronicowanie w Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Jeśli zapytanie zwraca token kontynuacji, istnieją dodatkowe wyniki zapytania.
 
 W interfejsie API REST Azure Cosmos DB można zarządzać tokenami kontynuacji z `x-ms-continuation` nagłówkiem. Podobnie jak w przypadku zapytań z zestawem SDK .NET lub Java, jeśli `x-ms-continuation` Nagłówek odpowiedzi nie jest pusty, oznacza to, że zapytanie ma dodatkowe wyniki.
 
-O ile korzystasz z tej samej wersji zestawu SDK, tokeny kontynuacji nigdy nie wygasną. Opcjonalnie możesz [ograniczyć rozmiar tokenu kontynuacji](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Niezależnie od ilości danych lub liczby partycji fizycznych w kontenerze, zapytania zwracają jeden token kontynuacji.
+O ile korzystasz z tej samej wersji zestawu SDK, tokeny kontynuacji nigdy nie wygasną. Opcjonalnie możesz [ograniczyć rozmiar tokenu kontynuacji](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Niezależnie od ilości danych lub liczby partycji fizycznych w kontenerze, zapytania zwracają jeden token kontynuacji.
 
 Nie można używać tokenów kontynuacji dla zapytań z [grupą](sql-query-group-by.md) lub [odrębnie](sql-query-keywords.md#distinct) , ponieważ te zapytania wymagają przechowywania znacznej ilości stanu. W przypadku zapytań z `DISTINCT` , można użyć tokenów kontynuacji w przypadku dodania `ORDER BY` do zapytania.
 

@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3d35940a445b73ecb9285355f36b141c3a151b8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80066547"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475060"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Instalowanie programu Elastic Stack na maszynie wirtualnej platformy Azure
 
@@ -228,7 +228,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 Otwórz konsolę Kibana i wybierz pozycję **Utwórz** w celu wygenerowania domyślnego indeksu na podstawie danych dziennika systemu wysłanych wcześniej do programu Elasticsearch. 
 
-![Przeglądanie zdarzeń dziennika systemu w programie w Kibana](media/elasticsearch-install/kibana-index.png)
+![Zrzut ekranu pokazujący konsolę Kibana i wyróżniony przycisk Utwórz.](media/elasticsearch-install/kibana-index.png)
 
 Wybierz pozycję **Discover** (Odnajdywanie) w konsoli Kibana, aby wyszukiwać, przeglądać i filtrować zdarzenia z dziennika systemu.
 

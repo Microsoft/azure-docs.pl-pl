@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb6869aa8bc7ede7d2047abf8eddc98b01f567fa
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2a7645950fd7a239376f07d6c6f4689c1a3f3da5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280813"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476318"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB
 
-Usługa Azure Cosmos DB udostępnia metryki dotyczące przepływności, magazynu, spójności, dostępności i opóźnienia. Witryna Azure Portal oferuje zagregowany widok tych metryk. Możesz również wyświetlić metryki usługi Azure Cosmos DB z poziomu interfejsu API usługi Azure Monitor. W wartościach wymiarów dla metryk, takich jak nazwa kontenera, nie jest rozróżniana wielkość liter. Dlatego należy użyć porównania bez uwzględniania wielkości liter podczas porównywania ciągów dla tych wartości wymiarów. Aby dowiedzieć się, jak wyświetlać metryki z usługi Azure monitor, zobacz artykuł [Uzyskiwanie metryk z Azure monitor](cosmos-db-azure-monitor-metrics.md) .
+Usługa Azure Cosmos DB udostępnia metryki dotyczące przepływności, magazynu, spójności, dostępności i opóźnienia. Witryna Azure Portal oferuje zagregowany widok tych metryk. Możesz również wyświetlić metryki usługi Azure Cosmos DB z poziomu interfejsu API usługi Azure Monitor. W wartościach wymiarów dla metryk, takich jak nazwa kontenera, nie jest rozróżniana wielkość liter. Dlatego należy użyć porównania bez uwzględniania wielkości liter podczas porównywania ciągów dla tych wartości wymiarów. Aby dowiedzieć się, jak wyświetlać metryki z usługi Azure monitor, zobacz artykuł [Uzyskiwanie metryk z Azure monitor](./monitor-cosmos-db.md) .
 
 W tym artykule przedstawiono typowe przypadki użycia oraz sposób, w jaki metryki usługi Azure Cosmos DB mogą być używane do analizowania i debugowania tych problemów. Metryki są zbierane co pięć minut i są przechowywane przez siedem dni.
 
@@ -112,6 +112,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Teraz wiesz już, jak monitorować i debugować problemy przy użyciu metryk podanych w Azure Portal. Warto dowiedzieć się więcej o ulepszaniu wydajności bazy danych, czytając następujące artykuły:
 
-* Aby dowiedzieć się, jak wyświetlać metryki z usługi Azure monitor, zobacz artykuł [Uzyskiwanie metryk z Azure monitor](cosmos-db-azure-monitor-metrics.md) . 
+* Aby dowiedzieć się, jak wyświetlać metryki z usługi Azure monitor, zobacz artykuł [Uzyskiwanie metryk z Azure monitor](./monitor-cosmos-db.md) . 
 * [Testowanie wydajności i skalowania przy użyciu Azure Cosmos DB](performance-testing.md)
 * [Porady dotyczące wydajności usługi Azure Cosmos DB](performance-tips.md)

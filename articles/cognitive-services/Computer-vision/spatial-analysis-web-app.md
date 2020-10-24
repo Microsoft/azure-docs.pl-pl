@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8032c3607dd74cddbaa5fd6690a95ebdf218809a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628198"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496076"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Instrukcje: wdrażanie aplikacji sieci Web zliczanie osób
 
@@ -63,14 +63,14 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Wdróż kontener na Azure IoT Edge na komputerze hosta
 
-Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze hosta przy użyciu interfejsu wiersza polecenia platformy Azure. Proces wdrażania wymaga pliku manifestu wdrożenia, który zawiera opis wymaganych kontenerów, zmiennych i konfiguracji dla danego wdrożenia. Przykładowy [manifest wdrażania](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) można znaleźć w witrynie GitHub, który obejmuje podstawową konfigurację wdrożenia dla kontenera *analizy przestrzennej* . 
+Wdróż kontener analizy przestrzennej jako moduł IoT na komputerze hosta przy użyciu interfejsu wiersza polecenia platformy Azure. Proces wdrażania wymaga pliku manifestu wdrożenia, który zawiera opis wymaganych kontenerów, zmiennych i konfiguracji dla danego wdrożenia. Można znaleźć przykładowy [Azure Stack krawędź określonego manifestu wdrożenia](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) , a także [nieAzure Stacky manifest wdrożenia określony](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) w witrynie GitHub, który obejmuje podstawową konfigurację wdrożenia dla kontenera *analizy przestrzennej* . 
 
 > [!NOTE] 
-> Kontenery diagnostyki *telegraf* i *analizy przestrzennej* są opcjonalne. Możesz zdecydować się na ich usunięcie z *DeploymentManifest.js* pliku. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [telemetrii i rozwiązywania problemów](./spatial-analysis-logging.md) . Przykładowe *DeploymentManifest.jsw* pliku można znaleźć [w witrynie GitHub](https://go.microsoft.com/fwlink/?linkid=2142179) 
+> Kontenery diagnostyki *telegraf* i *analizy przestrzennej* są opcjonalne. Możesz zdecydować się na ich usunięcie z *DeploymentManifest.js* pliku. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [telemetrii i rozwiązywania problemów](./spatial-analysis-logging.md) . Dwie przykładowe *DeploymentManifest.jsw* plikach w usłudze GitHub można znaleźć dla [Azure Stack urządzeń brzegowych](https://go.microsoft.com/fwlink/?linkid=2142179) lub innej [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
 
 ### <a name="set-environment-variables"></a>Ustawianie zmiennych środowiskowych
 
-Większość **zmiennych środowiskowych** modułu IoT Edge jest już ustawiona w przykładowym *DeploymentManifest.jsw* pliku powiązanym powyżej. W pliku Wyszukaj `BILLING_ENDPOINT` `API_KEY` zmienne środowiskowe i poniżej. Zastąp wartości identyfikatorem URI punktu końcowego i utworzonym wcześniej kluczem interfejsu API. Upewnij się, że wartość EULA jest ustawiona na "Akceptuj". 
+Większość **zmiennych środowiskowych** modułu IoT Edge jest już ustawiona w przykładowym *DeploymentManifest.jsw* plikach podanych powyżej. W pliku Wyszukaj `BILLING_ENDPOINT` `API_KEY` zmienne środowiskowe i poniżej. Zastąp wartości identyfikatorem URI punktu końcowego i utworzonym wcześniej kluczem interfejsu API. Upewnij się, że wartość EULA jest ustawiona na "Akceptuj". 
 
 ```json
 "EULA": { 
@@ -89,7 +89,7 @@ Większość **zmiennych środowiskowych** modułu IoT Edge jest już ustawiona 
 
 Teraz, gdy początkowa konfiguracja kontenera do *analizy przestrzennej* została ukończona, następnym krokiem jest skonfigurowanie parametrów operacji i dodanie ich do wdrożenia. 
 
-Pierwszym krokiem jest aktualizacja przykładowego [manifestu wdrażania](https://go.microsoft.com/fwlink/?linkid=2142179) i skonfigurowanie OperationID w `cognitiveservices.vision.spatialanalysis-personcount` sposób przedstawiony poniżej:
+Pierwszym krokiem jest aktualizacja przykładowego manifestu wdrażania połączonego powyżej i skonfigurowanie operationId dla programu `cognitiveservices.vision.spatialanalysis-personcount` , jak pokazano poniżej:
 
 
 ```json
@@ -107,7 +107,7 @@ Pierwszym krokiem jest aktualizacja przykładowego [manifestu wdrażania](https:
 },
 ```
 
-Po zaktualizowaniu [manifestu wdrożenia](https://go.microsoft.com/fwlink/?linkid=2142179) postępuj zgodnie z instrukcjami producenta aparatu fotograficznego, aby zainstalować aparat, skonfigurować adres URL aparatu i skonfigurować nazwę użytkownika i hasło. 
+Po zaktualizowaniu manifestu wdrożenia postępuj zgodnie z instrukcjami producenta aparatu fotograficznego, aby zainstalować aparat, skonfigurować adres URL aparatu i skonfigurować nazwę użytkownika i hasło. 
 
 Następnie ustaw wartość `VIDEO_URL` na adres URL RTSP aparatu, a następnie poświadczenia dotyczące łączenia się z kamerą.
 
@@ -122,7 +122,7 @@ Można również wybrać próg ufności dla wykrytych osób i generować zdarzen
 
 ### <a name="execute-the-deployment"></a>Wykonanie wdrożenia
 
-Teraz, gdy [manifest wdrożenia](https://go.microsoft.com/fwlink/?linkid=2142179) został ukończony, użyj tego polecenia w wierszu poleceń platformy Azure, aby wdrożyć kontener na komputerze hosta jako moduł IoT Edge.
+Teraz, gdy manifest wdrożenia został ukończony, użyj tego polecenia w wierszu poleceń platformy Azure, aby wdrożyć kontener na komputerze hosta jako moduł IoT Edge.
 
 ```azurecli
 az login
@@ -145,7 +145,7 @@ Znajdź *stan środowiska uruchomieniowego* w IoT Edge ustawienia modułu dla mo
 
 ![Przykładowa weryfikacja wdrożenia](./media/spatial-analysis/deployment-verification.png)
 
-W tym momencie kontener analizy przestrzennej uruchamia operację. Emituje on usługę AI Insights dla `cognitiveservices.vision.spatialanalysis-personcount` operacji i kieruje te informacje jako dane telemetryczne do wystąpienia usługi Azure IoT Hub. Aby skonfigurować dodatkowe aparaty fotograficzne, można zaktualizować plik [manifestu wdrożenia](https://go.microsoft.com/fwlink/?linkid=2142179) i ponownie wykonać wdrożenie.
+W tym momencie kontener analizy przestrzennej uruchamia operację. Emituje on usługę AI Insights dla `cognitiveservices.vision.spatialanalysis-personcount` operacji i kieruje te informacje jako dane telemetryczne do wystąpienia usługi Azure IoT Hub. Aby skonfigurować dodatkowe aparaty fotograficzne, można zaktualizować plik manifestu wdrożenia i ponownie wykonać wdrożenie.
 
 ## <a name="person-counting-web-application"></a>Aplikacja sieci Web do zliczania osób
 
@@ -156,7 +156,7 @@ Ta osoba zlicza aplikację sieci Web umożliwia szybkie konfigurowanie przykład
 Formularz kontenera tej aplikacji dostępny na Azure Container Registry. Aby pobrać plik, użyj następującego polecenia docker pull. Skontaktuj się z firmą Microsoft pod projectarchon@microsoft.com kątem tokenu dostępu.
 
 ```bash
-docker login rtvsofficial.azurecr.io -u <token name> -p <password>
+docker login rtvsofficial.azurecr.io -u <token name> -p <password>
 docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
 ```
 

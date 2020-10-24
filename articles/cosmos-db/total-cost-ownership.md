@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1e6d0343a68d502fb567f6010b8c8b3043e282a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569488"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476998"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Łączny koszt posiadania (TCO) z Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Model aprowizacji bezserwerowej Azure Cosmos DB eliminuje konieczność przekroc
 
 * **Płacisz za godzinę:** W przypadku obciążeń o dużej skali, które muszą być skalowane w dowolnym momencie, opłaty są naliczane tylko za godzinę. Obciążenia w aplikacji zwykle różnią się w różnych godzinach roku oraz przez dane, które są wysyłane do zapytania. Dzięki Azure Cosmos DB można skalować w górę lub w dół w miarę potrzeb i płacisz tylko za to, czego potrzebujesz. W systemach hostowanych lokalnie lub IaaS nie można dopasować tego modelu, ponieważ nie ma możliwości zlikwidowania sprzętu co godzinę. W takich przypadkach można potencjalnie zaoszczędzić od 10 do 14 razy na średnim Azure Cosmos DB.
 
-* **Bezpłatnie otrzymujesz wiele funkcji:** W Azure Cosmos DB obciążenia zapisu są znacznie tańsze w porównaniu z alternatywnymi usługami baz danych. Ponadto Azure Cosmos DB oferuje funkcje takie jak [Automatyczne indeksowanie](indexing-policies.md), [czas wygaśnięcia (TTL)](time-to-live.md), [Źródło zmian](change-feed.md) i inne osoby bez dodatkowych opłat, co oznacza, że inne usługi bazy danych zazwyczaj naliczają opłaty.
+* **Bezpłatnie otrzymujesz wiele funkcji:** W Azure Cosmos DB obciążenia zapisu są znacznie tańsze w porównaniu z alternatywnymi usługami baz danych. Ponadto Azure Cosmos DB oferuje funkcje takie jak [Automatyczne indeksowanie](index-policy.md), [czas wygaśnięcia (TTL)](time-to-live.md), [Źródło zmian](change-feed.md) i inne osoby bez dodatkowych opłat, co oznacza, że inne usługi bazy danych zazwyczaj naliczają opłaty.
 
 * **Używa ujednoliconej waluty dla różnorodnych obciążeń:** W przeciwieństwie do alternatywnych ofert, w Azure Cosmos DB nie ma potrzeby segmentacji obciążeń, na przykład do odczytu i zapisu. Lub zainicjuj przepływność dla każdego typu obciążenia, który ma przepływność odczytu a przepływność zapisu. W Azure Cosmos DB, zainicjowana przepływność jest zarezerwowana przy użyciu ujednoliconej i znormalizowanej waluty w warunkach jednostek żądań lub RU/s. Azure Cosmos DB nie zmusza do przypisywania priorytetów do obciążeń, wykonywania operacji planowania wydajności lub płacenia dla każdego typu pojemności osobno. Takie podejście pozwala łatwo rozróżnić te same RU/s między różnymi operacjami i typami obciążeń.
 
@@ -63,6 +63,6 @@ Model aprowizacji bezserwerowej Azure Cosmos DB eliminuje konieczność przekroc
 * Dowiedz się więcej na temat [optymalizowania kosztu przepływności](optimize-cost-throughput.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów magazynu](optimize-cost-storage.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów operacji odczytu i zapisu](optimize-cost-reads-writes.md)
-* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](optimize-cost-queries.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](./optimize-cost-reads-writes.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów wieloregionowych kont Cosmos](optimize-cost-regions.md)
 * Dowiedz się więcej o [łącznym koszcie (nie) własności usługi NoSQL Database w chmurze](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)

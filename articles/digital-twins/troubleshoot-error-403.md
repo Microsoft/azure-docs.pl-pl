@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331502"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495901"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Żądanie usługi nie powiodło się. Stan: 403 (dostęp zabroniony)
 
@@ -25,7 +25,9 @@ Ten błąd może wystąpić w przypadku wielu typów żądań obsługi, które w
 
 ### <a name="cause-1"></a>Przyczyna #1
 
-Najczęściej ten błąd oznacza, że uprawnienia kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure nie są poprawnie skonfigurowane. Wiele akcji wystąpienia usługi Azure Digital bliźniaczych reprezentacji wymaga posiadania roli *właściciela Digital bliźniaczych reprezentacji (wersja zapoznawcza)* **w wystąpieniu, które chcesz zarządzać**. 
+Najczęściej ten błąd oznacza, że uprawnienia kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure nie są poprawnie skonfigurowane. Wiele akcji wystąpienia usługi Azure Digital bliźniaczych reprezentacji wymaga posiadania roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* **w wystąpieniu, które próbujesz zarządzać**. 
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 ### <a name="cause-2"></a>Przyczyna #2
 
@@ -37,11 +39,12 @@ Rejestracja aplikacji musi mieć skonfigurowane uprawnienia dostępu dla interfe
 
 ### <a name="solution-1"></a>#1 rozwiązania
 
-Pierwsze rozwiązanie polega na sprawdzeniu, czy użytkownik platformy Azure ma rolę _**właściciela cyfrowego bliźniaczych reprezentacji (wersja zapoznawcza)**_ na wystąpieniu, które próbujesz zarządzać. Jeśli nie masz tej roli, skonfiguruj ją.
+Pierwsze rozwiązanie polega na sprawdzeniu, czy użytkownik platformy Azure ma rolę _**właściciela danych Digital bliźniaczych reprezentacji systemu Azure**_ w wystąpieniu, które próbujesz zarządzać. Jeśli nie masz tej roli, skonfiguruj ją.
 
 Należy zauważyć, że ta rola różni się od...
-* rola *właściciela* w całej subskrypcji platformy Azure. *Usługa Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)* jest rolą w ramach usługi Azure Digital bliźniaczych reprezentacji i jest objęta zakresem tego indywidualnego wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
-* rola *właściciela* w usłudze Azure Digital bliźniaczych reprezentacji. Są to dwie różne role usługi Azure Digital bliźniaczych reprezentacji Management, a *usługa Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)* to rola, która powinna być używana do zarządzania w ramach wersji zapoznawczej.
+* Imię i nazwisko dla tej roli w trakcie okresu zapoznawczego — *właściciel Digital bliźniaczych reprezentacji systemu Azure (wersja zapoznawcza)* (rola jest taka sama, ale zmieniono nazwę).
+* rola *właściciela* w całej subskrypcji platformy Azure. *Właściciel danych Digital bliźniaczych reprezentacji systemu Azure* jest rolą w ramach usługi Azure Digital bliźniaczych reprezentacji i jest objęty zakresem tego indywidualnego wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
+* rola *właściciela* w usłudze Azure Digital bliźniaczych reprezentacji. Są to dwie odrębne role usługi Azure Digital bliźniaczych reprezentacji Management, a *właściciel danych Digital bliźniaczych reprezentacji platformy Azure* to rola, która powinna być używana do zarządzania w ramach wersji zapoznawczej.
 
 #### <a name="check-current-setup"></a>Sprawdź bieżącą konfigurację
 
@@ -49,12 +52,12 @@ Należy zauważyć, że ta rola różni się od...
 
 #### <a name="fix-issues"></a>Rozwiązywanie problemów 
 
-Jeśli nie masz tego przypisania roli, ktoś z rolą właściciela w **subskrypcji platformy Azure** powinien uruchomić następujące polecenie, aby udzielić użytkownikowi platformy Azure roli *właściciela Digital bliźniaczych reprezentacji (wersja zapoznawcza)* w **wystąpieniu usługi Azure Digital bliźniaczych reprezentacji**. 
+Jeśli nie masz tego przypisania roli, ktoś mający rolę właściciela w **subskrypcji platformy Azure** powinien uruchomić następujące polecenie, aby udzielić użytkownikowi platformy Azure roli *właściciela danych Digital bliźniaczych reprezentacji* w **wystąpieniu usługi Azure Digital bliźniaczych reprezentacji**. 
 
 Jeśli jesteś właścicielem subskrypcji, możesz uruchomić to polecenie samodzielnie. Jeśli nie, skontaktuj się z właścicielem, aby uruchomić to polecenie w Twoim imieniu.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
 Aby uzyskać więcej informacji na temat tego wymagania roli i procesu przypisywania, zobacz [sekcję *Konfigurowanie uprawnień dostępu użytkownika* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) w temacie *How to: Konfigurowanie wystąpienia i uwierzytelniania (CLI lub portal)*.

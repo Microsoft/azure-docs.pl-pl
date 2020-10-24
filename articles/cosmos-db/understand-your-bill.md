@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567863"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476403"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informacje o rachunku za korzystanie z usługi Azure Cosmos DB
 
@@ -285,7 +285,7 @@ Azure Cosmos DB zarezerwowana pojemność umożliwia zakupienie alokowanej przep
 |**Region**| **Cena godzinowa za 100 RU/s**|**Jednostki (RU/s)**|**Kwota rozliczana (co godzinę)**| **Kwota rozliczana (miesięcznie)**|
 |----|----|----|----|----|
 |East US|$0,008 |50 K|$4|$2 880 |
-|Japan East|$0,009 |50 K| $4,50 |$3 240 |
+|Japonia Wschodnia|$0,009 |50 K| $4,50 |$3 240 |
 |Łącznie|||$8,50|$6 120 |
 
 Rozważmy, że zamiast tego zakupiono zastrzeżoną pojemność. Możesz kupić zarezerwowaną pojemność dla 100 – K RU/s w cenie $56 064 przez jeden rok (za 20% rabatu) lub $6,40 na godzinę. Zobacz cennik pojemności zarezerwowanych na [stronie cennika](https://azure.microsoft.com/pricing/details/cosmos-db/)).  
@@ -299,7 +299,7 @@ Rzeczywiste zakupione dane to kredyt z $8 USD za godzinę dla 100 K/s, przy uży
 |**Region**| **Cena godzinowa za 100 RU/s**|**Jednostki (RU/s)**| **Kwota rozliczana (co godzinę)**| **Kwota rozliczana (miesięcznie)**|
 |----|----|----|----|----|
 |East US|$0,008 |50 K|$4|$2 880 |
-|Japan East|$0,009 |50 K| $4,50 |$3 240 |
+|Japonia Wschodnia|$0,009 |50 K| $4,50 |$3 240 |
 |||Płatność zgodnie z rzeczywistym użyciem|$8,50|$6120|
 |Zarezerwowana pojemność zakupiona|$0,0064 (20% rabatu) |100 jednostki RU/s lub $8 pojemności wstępnie kupione |-$8|-$5 760 |
 |Rachunek netto|||(0,50 USD) |$360 |
@@ -313,5 +313,5 @@ Następnie możesz dowiedzieć się więcej o optymalizacji kosztów w Azure Cos
 * Dowiedz się więcej na temat [optymalizowania kosztu przepływności](optimize-cost-throughput.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów magazynu](optimize-cost-storage.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów operacji odczytu i zapisu](optimize-cost-reads-writes.md)
-* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](optimize-cost-queries.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](./optimize-cost-reads-writes.md)
 * Dowiedz się więcej [na temat optymalizowania kosztów kont usługi Azure Cosmos w wielu regionach](optimize-cost-regions.md)

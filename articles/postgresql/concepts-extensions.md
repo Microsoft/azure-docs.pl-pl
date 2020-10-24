@@ -6,18 +6,18 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: f6c73362d554ada6c4845ab8dca2093d3dcbf173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707952"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485464"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Rozszerzenia PostgreSQL w usłudze Azure Database for PostgreSQL — pojedynczy serwer
 PostgreSQL zapewnia możliwość rozszerzenia funkcjonalności bazy danych przy użyciu rozszerzeń. Rozszerzenia zapewniają wiele powiązanych obiektów SQL razem w jednym pakiecie, który można załadować lub usunąć z bazy danych za pomocą jednego polecenia. Po załadowaniu do bazy danych rozszerzenia działają jak wbudowane funkcje.
 
 ## <a name="how-to-use-postgresql-extensions"></a>Jak używać rozszerzeń PostgreSQL
-Rozszerzenia PostgreSQL muszą być zainstalowane w bazie danych, zanim będzie można z nich korzystać. Aby zainstalować określone rozszerzenie, uruchom polecenie [Utwórz rozszerzenie](https://www.postgresql.org/docs/current/sql-createextension.html)   z narzędzia PSQL w celu załadowania spakowanych obiektów do bazy danych.
+Rozszerzenia PostgreSQL muszą być zainstalowane w bazie danych, zanim będzie można z nich korzystać. Aby zainstalować określone rozszerzenie, uruchom polecenie [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) (Utwórz rozszerzenie) z poziomu narzędzia psql w celu załadowania spakowanych obiektów do bazy danych.
 
 Azure Database for PostgreSQL obsługuje podzestaw rozszerzeń kluczy, jak pokazano poniżej. Te informacje są również dostępne po uruchomieniu programu `SELECT * FROM pg_available_extensions;` . Rozszerzenia poza wymienionymi listami nie są obsługiwane. Nie można utworzyć własnego rozszerzenia w Azure Database for PostgreSQL.
 
@@ -205,7 +205,7 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 [Pg_stat_statements rozszerzenie](https://www.postgresql.org/docs/current/pgstatstatements.html) jest wstępnie załadowane na każdym serwerze Azure Database for PostgreSQL, aby zapewnić możliwość śledzenia statystyk wykonywania instrukcji SQL.
-Ustawienie `pg_stat_statements.track` , które kontroluje, jakie instrukcje są zliczane przez rozszerzenie, domyślnie to `top` , oznacza, że wszystkie instrukcje wydawane bezpośrednio przez klientów są śledzone. Dwa inne poziomy śledzenia to `none` i `all` . To ustawienie można skonfigurować jako parametr serwera za pomocą [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+Ustawienie `pg_stat_statements.track` , które kontroluje, jakie instrukcje są zliczane przez rozszerzenie, domyślnie to `top` , oznacza, że wszystkie instrukcje wydawane bezpośrednio przez klientów są śledzone. Dwa inne poziomy śledzenia to `none` i `all` . To ustawienie można skonfigurować jako parametr serwera za pomocą [Azure Portal](./howto-configure-server-parameters-using-portal.md) lub [interfejsu wiersza polecenia platformy Azure](./howto-configure-server-parameters-using-cli.md).
 
 Istnieje kompromis między informacjami o wykonywaniu zapytania pg_stat_statements zapewnia i wpływ na wydajność serwera podczas rejestrowania każdej instrukcji SQL. Jeśli nie korzystasz aktywnie z rozszerzenia pg_stat_statements, zalecamy ustawienie wartości `pg_stat_statements.track` `none` . Zwróć uwagę na to, że niektóre usługi monitorowania innych firm mogą polegać na pg_stat_statements w celu dostarczenia szczegółowych informacji o wydajności zapytań, więc Potwierdź, czy tak się dzieje.
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320901"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482234"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Używanie Azure Policy do implementowania ładu i kontroli dla zasobów Azure Cosmos DB
 
@@ -134,4 +134,4 @@ Aby skorygować niezgodne zasoby, zobacz [jak skorygować zasoby przy użyciu Az
 
 - [Przejrzyj przykładowe definicje zasad niestandardowych dla Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), w tym dla wielu lokalizacji zapisu i zasad filtrowania sieci wirtualnej pokazanych powyżej.
 - [Utwórz przypisanie zasad w Azure Portal](../governance/policy/assign-policy-portal.md)
-- [Przejrzyj Azure Policy wbudowane definicje zasad dla Azure Cosmos DB](./policy-samples.md)
+- [Przejrzyj Azure Policy wbudowane definicje zasad dla Azure Cosmos DB](./policy-reference.md)

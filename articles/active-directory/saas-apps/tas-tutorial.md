@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 4aaf4f059976635f32c1a4e6b7130f8835598f98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f69c0460fe3e2d2570f79e842963f75bab792d9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552139"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483577"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Samouczek: integracja Azure Active Directory z ZADANIAmi
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu zadania, 
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje logowania jednokrotnego domen i adresów URL zadania](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://taseu.combtas.com/<DOMAIN>`
 
@@ -107,7 +107,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu zadania, 
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje logowania jednokrotnego domen i adresów URL zadania](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://taseu.combtas.com/<DOMAIN>`
 
@@ -134,11 +134,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu zadania, 
 
 2. Po lewej stronie menu kliknij pozycję **Ustawienia** i przejdź do strony **administrator** , a następnie kliknij pozycję **Zarządzaj logowaniem jednokrotnym**.
 
-    ![Konfiguracja zadania](./media/tas-tutorial/configure01.png)
+    ![Zrzut ekranu pokazuje, że wybrano zarządzanie logowaniem jednokrotnym.](./media/tas-tutorial/configure01.png)
 
 3. Na stronie **Zarządzanie logowaniem jednokrotnym** wykonaj następujące czynności:
 
-    ![Konfiguracja zadania](./media/tas-tutorial/configure02.png)
+    ![Zrzut ekranu przedstawia stronę Zarządzaj logowaniem jednokrotnym, na której można wprowadzić podane wartości.](./media/tas-tutorial/configure02.png)
 
     a. W polu tekstowym **Nazwa** wpisz nazwę środowiska.
     

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: d3caeea88bcbcc1f7db111158d6900d02dd3ade7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 05fc215d6283c6d839b01a7247518a84d9b89a38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470700"
+ms.locfileid: "92499203"
 ---
 Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
 
@@ -37,7 +37,7 @@ Jeśli pracujesz w programie macOS i masz problemy z instalacją, może być kon
 python3 -m pip install --upgrade pip
 ```
 
-Po zainstalowaniu zestawu Speech SDK zaimportuj go do projektu języka Python za pomocą tej instrukcji.
+Po zainstalowaniu zestawu Speech SDK zaimportuj go do projektu języka Python.
 
 ```Python
 import azure.cognitiveservices.speech as speechsdk
@@ -45,81 +45,61 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## <a name="create-a-speech-configuration"></a>Tworzenie konfiguracji mowy
 
-Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true) . Ta klasa zawiera informacje o subskrypcji, takie jak klucz i skojarzony region, punkt końcowy, Host lub Token autoryzacji.
-
-> [!NOTE]
-> Bez względu na to, czy wykonujesz rozpoznawanie mowy, synteza mowy, tłumaczenie czy rozpoznawanie intencji, zawsze utworzysz konfigurację.
-
-Istnieje kilka sposobów na zainicjowanie [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true) :
-
-* Z subskrypcją: Przekaż klucz i skojarzony region.
-* Z punktem końcowym: Pass w punkcie końcowym usługi mowy. Klucz lub Token autoryzacji jest opcjonalny.
-* Z hostem: Przekaż adres hosta. Klucz lub Token autoryzacji jest opcjonalny.
-* Z tokenem autoryzacji: Przekaż Token autoryzacji i skojarzony region.
-
-Przyjrzyjmy się w jaki sposób [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true) jest tworzony przy użyciu klucza i regionu. Pobierz te poświadczenia, wykonując czynności opisane w sekcji [Wypróbuj bezpłatnie usługę Speech](../../../overview.md#try-the-speech-service-for-free).
+Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) . Ta klasa zawiera informacje o subskrypcji, takie jak klucz i skojarzony region, punkt końcowy, Host lub Token autoryzacji. Utwórz [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) klucz przy użyciu klucza i regionu. Aby znaleźć identyfikator regionu, zobacz stronę [Obsługa regionów](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) .
 
 ```Python
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 ```
 
-## <a name="initialize-a-recognizer"></a>Inicjowanie aparatu rozpoznawania
+Istnieje kilka innych sposobów na zainicjowanie [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) :
 
-Po utworzeniu [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true) , następnym krokiem jest zainicjowanie [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python&preserve-view=true) . Po zainicjowaniu elementu [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python&preserve-view=true) należy przekazać go `speech_config` . Zapewnia to poświadczenia wymagane przez usługę mowy do zweryfikowania Twojego żądania.
+* Z punktem końcowym: Pass w punkcie końcowym usługi mowy. Klucz lub Token autoryzacji jest opcjonalny.
+* Z hostem: Przekaż adres hosta. Klucz lub Token autoryzacji jest opcjonalny.
+* Z tokenem autoryzacji: Przekaż Token autoryzacji i skojarzony region.
+
+> [!NOTE]
+> Bez względu na to, czy wykonujesz rozpoznawanie mowy, synteza mowy, tłumaczenie czy rozpoznawanie intencji, zawsze utworzysz konfigurację.
+
+## <a name="recognize-from-microphone"></a>Rozpoznawanie z mikrofonu
+
+Aby rozpoznać mowę przy użyciu mikrofonu urządzenia, wystarczy utworzyć a `SpeechRecognizer` bez przekazywania `AudioConfig` i przekazać `speech_config` .
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
+
+print("Speak into your microphone.")
+result = speech_recognizer.recognize_once_async().get()
+print(result.text)
 ```
 
-## <a name="recognize-from-microphone-or-file"></a>Rozpoznawanie z mikrofonu lub pliku
+Jeśli chcesz użyć *konkretnego* urządzenia wejściowego audio, musisz określić identyfikator urządzenia w `AudioConfig` i przekazać go do `SpeechRecognizer` `audio_config` parametru param konstruktora. Dowiedz się [, jak uzyskać identyfikator urządzenia](../../../how-to-select-audio-input-devices.md) dla wejściowego urządzenia audio.
 
-Jeśli chcesz określić urządzenie wejściowe audio, musisz utworzyć [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python&preserve-view=true) i przekazać go jako parametr podczas inicjowania [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python&preserve-view=true) .
-
-Aby rozpoznać mowę przy użyciu mikrofonu urządzenia, wystarczy utworzyć a `SpeechRecognizer` bez przekazywania `AudioConfig`
-
-```Python
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
-```
-
-> [!TIP]
-> Jeśli chcesz odwołać się do urządzenia według identyfikatora, Utwórz polecenie `AudioConfig` , `AudioConfig(device_name="<device id>")` 
->  [Aby dowiedzieć się, jak uzyskać identyfikator urządzenia dla wejściowego urządzenia audio](../../../how-to-select-audio-input-devices.md).
+## <a name="recognize-from-file"></a>Rozpoznaj z pliku
 
 Jeśli chcesz rozpoznać mowę z pliku audio zamiast używać mikrofonu, Utwórz [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python&preserve-view=true) i Użyj `filename` parametru.
 
 ```Python
 audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
+
+result = speech_recognizer.recognize_once_async().get()
+print(result.text)
 ```
 
 ## <a name="recognize-speech"></a>Rozpoznawanie mowy
 
 [Klasa aparatu rozpoznawania](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python&preserve-view=true) dla zestawu Speech SDK dla języka Python udostępnia kilka metod, których można użyć do rozpoznawania mowy.
 
-* Rozpoznawanie pojedynczego zrzutu (synchronizacja) — wykonuje rozpoznawanie w trybie blokowania (synchronicznym). Zwraca po rozpoznaniu jednego wypowiedźu. Koniec pojedynczej wypowiedź jest określany przez nasłuchiwanie na końcu lub do czasu przetworzenia maksymalnie 15 sekund. Zadanie zwraca tekst rozpoznawania jako wynik.
-* Rozpoznawanie pojedynczego zrzutu (Async) — wykonuje rozpoznawanie w trybie nieblokującym (asynchronicznym). Spowoduje to rozpoznanie pojedynczego wypowiedź. Koniec pojedynczej wypowiedź jest określany przez nasłuchiwanie na końcu lub do czasu przetworzenia maksymalnie 15 sekund.
-* Ciągłe rozpoznawanie (synchronizacja) — synchronicznie inicjuje ciągłe rozpoznawanie. Klient musi połączyć się z, `EventSignal` Aby otrzymać wyniki rozpoznawania. Aby zatrzymać rozpoznawanie, wywołaj [stop_continuous_recognition ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--).
-* Stałe rozpoznawanie (asynchroniczne) — asynchronicznie Inicjuje operację ciągłego rozpoznawania. Użytkownik musi nawiązać połączenie z usługą EventSignal, aby otrzymywać wyniki rozpoznawania. Aby zatrzymać asynchroniczne rozpoznawanie ciągłe, wywołaj [stop_continuous_recognition ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--).
-
-> [!NOTE]
-> Dowiedz się więcej na temat [wybierania trybu rozpoznawania mowy](../../../how-to-choose-recognition-mode.md).
-
 ### <a name="single-shot-recognition"></a>Rozpoznawanie pojedynczego zrzutu
 
-Oto przykład synchronicznego rozpoznawania pojedynczego zrzutu przy użyciu [`recognize_once()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once) :
+Rozpoznawanie pojedynczego zrzutu asynchronicznie rozpoznaje pojedynczy wypowiedź. Koniec pojedynczej wypowiedź jest określany przez nasłuchiwanie na końcu lub do czasu przetworzenia maksymalnie 15 sekund. Oto przykład asynchronicznego rozpoznawania pojedynczego zrzutu przy użyciu [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture) :
 
 ```Python
-result = speech_recognizer.recognize_once()
+result = speech_recognizer.recognize_once_async().get()
 ```
 
-Oto przykład asynchronicznego rozpoznawania pojedynczego zrzutu przy użyciu [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture) :
-
-```Python
-result = speech_recognizer.recognize_once_async()
-```
-
-Bez względu na to, czy użyto metody synchronicznej, czy asynchronicznej, należy napisać kod, aby wykonać iterację w wyniku. Ten przykład szacuje [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python&preserve-view=true) :
+Musisz napisać kod, aby wykonać iterację w wyniku. Ten przykład szacuje [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python) :
 
 * Drukuje wynik rozpoznawania: `speechsdk.ResultReason.RecognizedSpeech`
 * Jeśli nie ma dopasowania do rozpoznawania, należy poinformować użytkownika: `speechsdk.ResultReason.NoMatch `

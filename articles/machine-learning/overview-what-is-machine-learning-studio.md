@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667439"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495990"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Co to jest usługa Azure Machine Learning Studio?
 
@@ -61,7 +61,7 @@ Zarządzaj zasobami uczenia maszynowego bezpośrednio w przeglądarce. Zasoby s�
 - Notebooks
 - Eksperymenty
 - Uruchamianie dzienników
-- Potoki 
+- Pipelines 
 - Punkty końcowe potoku
 
 Nawet jeśli jesteś doświadczonym deweloperem, program Studio może uprościć zarządzanie zasobami obszaru roboczego.
@@ -80,7 +80,7 @@ Zalecamy, aby nowi użytkownicy wybierali **Azure Machine Learning**, a nie ml S
 
 Poniższa tabela zawiera podsumowanie podstawowych różnic między ML Studio (klasyczne) i Azure Machine Learning.
 
-| Cecha | ML Studio (klasyczny) | Azure Machine Learning |
+| Promowanie | ML Studio (klasyczny) | Azure Machine Learning |
 |---| --- | --- |
 | Przeciąganie i upuszczanie interfejsu | Środowisko klasyczne | Zaktualizowane środowisko — [projektant Azure Machine Learning](concept-designer.md)| 
 | Zestawy SDK kodu | Nieobsługiwane | W pełni zintegrowane z [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) i [języka R](tutorial-1st-r-experiment.md) SDK |
@@ -98,7 +98,9 @@ Poniższa tabela zawiera podsumowanie podstawowych różnic między ML Studio (k
 ## <a name="next-steps"></a>Następne kroki
 
 Odwiedź [Studio](https://ml.azure.com)lub zapoznaj się z różnymi opcjami tworzenia, korzystając z następujących samouczków:  
-  + [Korzystanie z notesów Python do uczenia & wdrażania modeli](tutorial-1st-experiment-sdk-setup.md)
+
+- + [Rozpocznij pracę we własnym środowisku programistycznym](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Korzystanie z notesów Jupyter w wystąpieniu obliczeniowym do uczenia & wdrażania modeli](tutorial-1st-experiment-sdk-setup.md)
   + [Używanie automatycznego uczenia maszynowego do uczenia & wdrażania modeli](tutorial-first-experiment-automated-ml.md)  
   + [Korzystanie z projektanta do uczenia & wdrażania modeli](tutorial-designer-automobile-price-train-score.md)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 97f6817a02b7adf4d2d3e12dee6d1e3445e09a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88053f2c7b1218a15315f2c616231d9356b65540
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552211"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-stormboard"></a>Samouczek: integracja Azure Active Directory z usługą Stormboard
 
@@ -102,13 +102,13 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Stormboard
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjowanym przez **dostawcę tożsamości**, w sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następującą czynność:
 
-    ![Informacje o domenie i adresach URL aplikacji Stormboard na potrzeby logowania jednokrotnego](common/both-replyurl.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić odpowiedź U R L i wybrać pozycję Zapisz.](common/both-replyurl.png)
 
     W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:  `https://<SUBDOMAIN>.stormboard.com/saml2/ad/acs/<TEAMID>`
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie i adresach URL aplikacji Stormboard na potrzeby logowania jednokrotnego](common/both-signonurl.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/both-signonurl.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.stormboard.com/saml2/ad/login/<TEAMID>`
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10e3f420a187d67e19392dd3647692b54a817fa5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ffa8e473fb084b2d5f0e7f59a07b3de50e04752e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090305"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475863"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji Xamarin. Forms przy użyciu zestawu .NET SDK i interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -184,7 +184,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 2. Kliknij polecenie **Przywróć wszystkie pakiety NuGet**.
 3. Kliknij prawym przyciskiem myszy projekt **TaskList.Android** i wybierz polecenie **Ustaw jako projekt startowy**.
 4. Naciśnij klawisz F5, aby rozpocząć debugowanie aplikacji.
-5. Jeśli chcesz uruchamiać aplikację w systemie iOS, najpierw konieczne będzie połączenie maszyny z komputerem Mac (tutaj znajdziesz [instrukcje](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)).
+5. Jeśli chcesz uruchamiać aplikację w systemie iOS, najpierw konieczne będzie połączenie maszyny z komputerem Mac (tutaj znajdziesz [instrukcje](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)).
 6. Kliknij prawym przyciskiem myszy projekt **TaskList.iOS** i wybierz polecenie **Ustaw jako projekt startowy**.
 7. Naciśnij klawisz F5, aby rozpocząć debugowanie aplikacji.
 
@@ -206,4 +206,4 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB i uruchamiania aplikacji Xamarin.Forms za pomocą interfejsu API dla usługi MongoDB. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Import danych do usługi Azure Cosmos DB skonfigurowanej za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB](mongodb-migrate.md)
+> [Import danych do usługi Azure Cosmos DB skonfigurowanej za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

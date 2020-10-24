@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1b7cfa03aeb705ea7e7caf3254bc39d9fff722ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d50434ce3cca4e6f5082334bb91c3d569e2b1e1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546538"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483254"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Samouczek: integracja usługi Azure Active Directory z aplikacją Talent Palette
 
@@ -100,13 +100,13 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Talent Pal
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie aplikacji Talent Palette i logowaniu jednokrotnym](common/both_replyurl.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić odpowiedź U R L.](common/both_replyurl.png)
 
     W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:  `https://talent-p.net/saml/acs/<tenantID>`
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie aplikacji Talent Palette i logowaniu jednokrotnym](common/both_signonurl.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/both_signonurl.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://talent-p.net/saml/sso/<tenantID>`
 
@@ -184,7 +184,7 @@ W tej sekcji włączysz użytkownikowi Britta Simon możliwość korzystania z l
 
 ### <a name="create-talent-palette-test-user"></a>Tworzenie użytkownika testowego aplikacji Talent Palette
 
-W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Talent Palette. Użytkowników możesz dodać na platformie Talent Palette,  [współpracując z zespołem pomocy technicznej aplikacji Talent Palette](mailto:talent-support@pa-consul.co.jp). Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika Britta Simon w aplikacji Talent Palette. Współpracuj z [zespołem pomocy technicznej talent palety](mailto:talent-support@pa-consul.co.jp) , aby dodać użytkowników na platformie palety talent. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

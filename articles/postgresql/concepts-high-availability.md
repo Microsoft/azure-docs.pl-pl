@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 075f5fde272d4ee2e932e5f6c1f0e34324c38837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa9f38b2cefa60a0c3341c1317cf45fbcb735301
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707935"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485447"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Wysoka dostępność w Azure Database for PostgreSQL — pojedynczy serwer
 Azure Database for PostgreSQL — usługa pojedynczego serwera zapewnia gwarantowany wysoki poziom dostępności dzięki finansowej umowie dotyczącej poziomu usług (SLA) wynoszącej [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) czasu. Azure Database for PostgreSQL zapewnia wysoką dostępność podczas planowanych zdarzeń, takich jak operacja obliczeniowa initated przez użytkownika, a także w przypadku nieplanowanych zdarzeń, takich jak podstawowy sprzęt, oprogramowanie lub awarie sieci. Azure Database for PostgreSQL możliwość szybkiego odzyskania sprawności od najbardziej krytycznych okoliczności, co gwarantuje praktycznie brak aplikacji podczas korzystania z tej usługi.
@@ -40,8 +40,8 @@ Poniżej przedstawiono niektóre planowane scenariusze konserwacji:
 | ------------ | ----------- |
 | <b>Skalowanie w górę/w dół | Gdy użytkownik wykonuje operację skalowania w górę/w dół, nowy serwer bazy danych jest inicjowany przy użyciu skalowanej konfiguracji obliczeniowej. W starym serwerze bazy danych można zakończyć aktywne punkty kontrolne, połączenia klientów są opróżniane, wszystkie niezatwierdzone transakcje są anulowane, a następnie wyłączone. Magazyn zostanie odłączony od starego serwera bazy danych i dołączony do nowego serwera bazy danych. Gdy aplikacja kliencka ponawia próbę połączenia lub próbuje utworzyć nowe połączenie, Brama kieruje żądanie połączenia do nowego serwera bazy danych.|
 | <b>Skalowanie w górę magazynu | Skalowanie w górę magazynu jest operacją online i nie przerywa serwera bazy danych.|
-| <b>Nowe wdrożenie oprogramowania (Azure) | Nowe funkcje wdrażania lub rozwiązywania błędów są automatycznie wykonywane w ramach planowanej konserwacji usługi. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification), a także sprawdź [Portal](https://aka.ms/servicehealthpm).|
-| <b>Uaktualnienia wersji pomocniczej | Azure Database for PostgreSQL automatycznie poprawek serwerów baz danych do wersji pomocniczej ustalonej przez platformę Azure. Odbywa się to w ramach planowanej konserwacji usługi. Może to spowodować skrócenie przestoju w ciągu kilku sekund, a serwer bazy danych zostanie automatycznie uruchomiony ponownie z nową wersją pomocniczą. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification), a także sprawdź [Portal](https://aka.ms/servicehealthpm).|
+| <b>Nowe wdrożenie oprogramowania (Azure) | Nowe funkcje wdrażania lub rozwiązywania błędów są automatycznie wykonywane w ramach planowanej konserwacji usługi. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](./concepts-monitoring.md#planned-maintenance-notification), a także sprawdź [Portal](https://aka.ms/servicehealthpm).|
+| <b>Uaktualnienia wersji pomocniczej | Azure Database for PostgreSQL automatycznie poprawek serwerów baz danych do wersji pomocniczej ustalonej przez platformę Azure. Odbywa się to w ramach planowanej konserwacji usługi. Może to spowodować skrócenie przestoju w ciągu kilku sekund, a serwer bazy danych zostanie automatycznie uruchomiony ponownie z nową wersją pomocniczą. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](./concepts-monitoring.md#planned-maintenance-notification), a także sprawdź [Portal](https://aka.ms/servicehealthpm).|
 
 
 ##  <a name="unplanned-downtime-mitigation"></a>Nieplanowane ograniczenie przestoju
@@ -68,8 +68,8 @@ Poniżej przedstawiono niektóre scenariusze niepowodzeń, które wymagają wyko
 
 | **Scenariusz** | **Plan odzyskiwania** |
 | ---------- | ---------- |
-| <b> Awaria regionu | Awaria regionu jest zdarzeniem rzadkim. Jeśli jednak potrzebujesz ochrony przed awarią regionu, możesz skonfigurować co najmniej jedną replikę odczytu w innych regionach na potrzeby odzyskiwania po awarii (DR). (Zobacz [ten artykuł](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) dotyczący tworzenia replik odczytu i zarządzania nimi w celu uzyskania szczegółowych informacji). W przypadku awarii poziomu regionu można ręcznie podwyższyć poziom repliki odczytu skonfigurowany w innym regionie jako produkcyjny serwer bazy danych. |
-| <b> Błędy logiczne/użytkownika | Odzyskiwanie z błędów użytkowników, takich jak przypadkowo porzucane tabele lub nieprawidłowo aktualizowane dane, polega na przeprowadzeniu [odzyskiwania do punktu w czasie](https://docs.microsoft.com/azure/postgresql/concepts-backup) (kopie) przez przywrócenie i odzyskanie danych do czasu, gdy wystąpi błąd.<br> <br>  Aby przywrócić tylko podzestaw baz danych lub określonych tabel, a nie wszystkich baz danych na serwerze bazy danych, można przywrócić serwer bazy danych w nowym wystąpieniu, wyeksportować tabele za pośrednictwem [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), a następnie użyć [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) do przywrócenia tych tabel do bazy danych programu. |
+| <b> Awaria regionu | Awaria regionu jest zdarzeniem rzadkim. Jeśli jednak potrzebujesz ochrony przed awarią regionu, możesz skonfigurować co najmniej jedną replikę odczytu w innych regionach na potrzeby odzyskiwania po awarii (DR). (Zobacz [ten artykuł](./howto-read-replicas-portal.md) dotyczący tworzenia replik odczytu i zarządzania nimi w celu uzyskania szczegółowych informacji). W przypadku awarii poziomu regionu można ręcznie podwyższyć poziom repliki odczytu skonfigurowany w innym regionie jako produkcyjny serwer bazy danych. |
+| <b> Błędy logiczne/użytkownika | Odzyskiwanie z błędów użytkowników, takich jak przypadkowo porzucane tabele lub nieprawidłowo aktualizowane dane, polega na przeprowadzeniu [odzyskiwania do punktu w czasie](./concepts-backup.md) (kopie) przez przywrócenie i odzyskanie danych do czasu, gdy wystąpi błąd.<br> <br>  Aby przywrócić tylko podzestaw baz danych lub określonych tabel, a nie wszystkich baz danych na serwerze bazy danych, można przywrócić serwer bazy danych w nowym wystąpieniu, wyeksportować tabele za pośrednictwem [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), a następnie użyć [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) do przywrócenia tych tabel do bazy danych programu. |
 
 
 

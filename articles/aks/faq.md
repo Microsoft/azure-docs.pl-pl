@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 8f50475d7ba9117fd32951b401b24b63d192fcd8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c68810e0fd9ee3593aa014243c3f75fb8a63a7fd
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372382"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494531"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -193,7 +193,7 @@ Chociaż AKS ma mechanizmy odporności, aby wytrzymać takie konfiguracje i odzy
 
 ## <a name="can-i-use-custom-vm-extensions"></a>Czy mogę używać niestandardowych rozszerzeń maszyn wirtualnych?
 
-Nie, AKS jest usługą zarządzaną i manipulowanie zasobami IaaS nie jest obsługiwane. Aby zainstalować składniki niestandardowe itd. Skorzystaj z interfejsów API i mechanizmów Kubernetes. Na przykład aby zainstalować wymagane składniki, Skorzystaj z DaemonSets.
+Agent Log Analytics jest obsługiwany, ponieważ jest rozszerzeniem zarządzanym przez firmę Microsoft. W przeciwnym razie AKS jest usługą zarządzaną i manipulowanie zasobami IaaS nie jest obsługiwane. Aby zainstalować składniki niestandardowe itp., Użyj interfejsów API i mechanizmów Kubernetes. Na przykład aby zainstalować wymagane składniki, należy użyć DaemonSets.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>Czy AKS przechowuje dane klienta poza regionem klastra?
 

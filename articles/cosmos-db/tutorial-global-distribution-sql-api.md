@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ebb6bdf6e5072d1024ba7abcd1db1cf7bebfcd3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9594e8cf3e16e9e7e9a009b8edb7dbbd5a6ca92
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334382"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476573"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Samouczek: Konfigurowanie globalnej dystrybucji Azure Cosmos DB przy użyciu interfejsu API SQL
 
@@ -23,7 +23,7 @@ W tym artykule opisano następujące zadania:
 
 > [!div class="checklist"]
 > * Konfigurowanie dystrybucji globalnej przy użyciu witryny Azure Portal
-> * Konfigurowanie dystrybucji globalnej przy użyciu [interfejsów API SQL](sql-api-introduction.md)
+> * Konfigurowanie dystrybucji globalnej przy użyciu [interfejsów API SQL](./introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
@@ -163,7 +163,7 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 Poniższy kod przedstawia sposób ustawiania preferowanych lokalizacji za pomocą zestawu SDK języka Java:
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
    [Java SDK v4](sql-api-sdk-java-v4.md) (Maven [com. Azure:: Azure-Cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
@@ -240,4 +240,3 @@ Teraz możesz przejść do następnego samouczka, aby dowiedzieć się, jak prog
 > [Programowanie lokalnie za pomocą emulatora](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-

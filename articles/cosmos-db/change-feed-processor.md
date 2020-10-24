@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277035"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475808"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesor zestawienia zmian w usłudze Azure Cosmos DB
 
@@ -125,14 +125,14 @@ Procesor kanału informacyjnego zmian zostanie zainicjowany i rozpocznie się od
 
 Procesor kanału informacyjnego zmian może być hostowany na dowolnej platformie, która obsługuje długotrwałe procesy lub zadania:
 
-* Ciągłe uruchamianie [Zadania WebJob platformy Azure](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/).
-* Proces na [maszynie wirtualnej platformy Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
-* Zadanie w tle w [usłudze Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
-* [Hostowana usługa ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
+* Ciągłe uruchamianie [Zadania WebJob platformy Azure](/learn/modules/run-web-app-background-task-with-webjobs/).
+* Proces na [maszynie wirtualnej platformy Azure](/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* Zadanie w tle w [usłudze Azure Kubernetes Service](/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
+* [Hostowana usługa ASP.NET](/aspnet/core/fundamentals/host/hosted-services).
 
 Podczas gdy procesor kanału informacyjnego zmiany można uruchomić w środowiskach krótkich, ponieważ kontener dzierżawy utrzymuje stan, cykl uruchamiania tych środowisk doda opóźnienie do otrzymania powiadomień (ze względu na obciążenie związane z uruchamianiem procesora przy każdym uruchomieniu środowiska).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zestaw SDK Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [Ukończ przykładową aplikację w witrynie GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
@@ -147,4 +147,4 @@ Teraz można dowiedzieć się więcej o procesorze źródła zmian w następują
 * [Model ściągania zestawienia zmian](change-feed-pull-model.md)
 * [Jak przeprowadzić migrację z biblioteki procesora źródła zmian](how-to-migrate-from-change-feed-library.md)
 * [Korzystanie z estymatora zestawienia zmian](how-to-use-change-feed-estimator.md)
-* [Czas rozpoczęcia procesora zestawienia zmian](how-to-configure-change-feed-start-time.md)
+* [Czas rozpoczęcia procesora zestawienia zmian](#starting-time)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289773"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474856"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Konfigurowanie usługi Azure Defender dla magazynu
 
@@ -37,7 +37,7 @@ Poniższa lista zawiera podsumowanie dostępności usługi Azure Defender dla ma
 
 - Stan wydania:
   - [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/) (ogólna dostępność)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (ogólna dostępność)
+  - [Azure Files](/azure/storage/files/storage-files-introduction) (ogólna dostępność)
   - Azure Data Lake Storage Gen2 (ogólna dostępność)
 - Połączeń<br>
     ✔ Chmury komercyjne<br>
@@ -98,16 +98,16 @@ Użyj Azure Policy, aby włączyć usługę Azure Defender na kontach magazynu w
 
 Użyj poleceń interfejsu API REST, aby utworzyć, zaktualizować lub pobrać ustawienie usługi Azure Defender dla określonego konta magazynu.
 
-- [Zaawansowana ochrona przed zagrożeniami — tworzenie](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-- [Zaawansowana ochrona przed zagrożeniami — Pobierz](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+- [Zaawansowana ochrona przed zagrożeniami — tworzenie](/rest/api/securitycenter/advancedthreatprotection/create)
+- [Zaawansowana ochrona przed zagrożeniami — Pobierz](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Użyj następujących poleceń cmdlet programu PowerShell:
 
-- [Włącz zaawansowaną ochronę przed zagrożeniami](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Uzyskaj zaawansowaną ochronę przed zagrożeniami](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Wyłącz zaawansowaną ochronę przed zagrożeniami](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+- [Włącz zaawansowaną ochronę przed zagrożeniami](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+- [Uzyskaj zaawansowaną ochronę przed zagrożeniami](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+- [Wyłącz zaawansowaną ochronę przed zagrożeniami](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 

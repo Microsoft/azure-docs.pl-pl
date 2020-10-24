@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 82e2a484e23d55b91ff0c7820302b2cc83537cb8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: b6c6d15b553e8b19fff2c464dfb856550f7bcbf0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057709"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494917"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Korzystanie z zautomatyzowanej tablicy w potoku Azure Machine Learning w języku Python
 
@@ -49,7 +49,7 @@ Preferowanym sposobem na wstępne przeniesienie danych _do_ potoku jest z `Datas
 
 W celu utworzenia konkretnych elementów ten artykuł tworzy prosty potok dla zadania klasyfikacji. Zadanie jest przewidywane przewidywalność Titanic, ale nie będziemy omawiać danych ani zadań poza przekazywaniem.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 ### <a name="retrieve-initial-dataset"></a>Pobierz początkowy zestaw danych
 
@@ -73,7 +73,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-Kod najpierw loguje się do obszaru roboczego Azure Machine Learning zdefiniowanego w **config.jsna** (Aby uzyskać wyjaśnienie, zobacz [Samouczek: Rozpoczynanie tworzenia pierwszego dodatku ml przy użyciu zestawu SDK języka Python](tutorial-1st-experiment-sdk-setup.md)). Jeśli nie istnieje jeszcze zestaw danych o nazwie `'titanic_ds'` zarejestrowane, zostanie on utworzony. Kod pobiera dane CSV z sieci Web, używa ich do tworzenia wystąpienia a `TabularDataset` , a następnie rejestruje zestaw danych z obszarem roboczym. Na koniec funkcja `Dataset.get_by_name()` przypisuje `Dataset` do `titanic_ds` . 
+Kod najpierw loguje się do obszaru roboczego Azure Machine Learning zdefiniowanego w **config.jsna** (Aby uzyskać wyjaśnienie, zobacz [Tworzenie pliku konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace). Jeśli nie istnieje jeszcze zestaw danych o nazwie `'titanic_ds'` zarejestrowane, zostanie on utworzony. Kod pobiera dane CSV z sieci Web, używa ich do tworzenia wystąpienia a `TabularDataset` , a następnie rejestruje zestaw danych z obszarem roboczym. Na koniec funkcja `Dataset.get_by_name()` przypisuje `Dataset` do `titanic_ds` . 
 
 ### <a name="configure-your-storage-and-compute-target"></a>Konfigurowanie magazynu i celu obliczeń
 

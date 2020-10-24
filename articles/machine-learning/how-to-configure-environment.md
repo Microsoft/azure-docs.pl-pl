@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 98bc108af22491c6ea0b64bc2e278b6b32f43a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203096"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495238"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning
 
@@ -139,10 +139,10 @@ Nie ma nic do zainstalowania lub skonfigurowania wystąpienia obliczeniowego.
 
 Utwórz ją w dowolnym momencie w obszarze roboczym Azure Machine Learning. Podaj tylko nazwę i określ typ maszyny wirtualnej platformy Azure. Wypróbuj teraz ten [Samouczek: Konfigurowanie środowiska i obszaru roboczego](tutorial-1st-experiment-sdk-setup.md).
 
-Aby dowiedzieć się więcej o wystąpieniach obliczeniowych, w tym o sposobie instalowania pakietów, zobacz [wystąpienia obliczeniowe](concept-compute-instance.md).
+Aby dowiedzieć się więcej o wystąpieniach obliczeniowych, w tym o sposobie instalowania pakietów, zobacz [Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie](how-to-create-manage-compute-instance.md)nim.
 
 > [!TIP]
-> Aby uniknąć naliczania opłat za nieużywane wystąpienie obliczeniowe, [Zatrzymaj wystąpienie obliczeniowe](tutorial-1st-experiment-bring-data.md#clean-up-resources).
+> Aby uniknąć naliczania opłat za nieużywane wystąpienie obliczeniowe, [Zatrzymaj wystąpienie obliczeniowe](how-to-create-manage-compute-instance.md#manage).
 
 Oprócz Jupyter Notebook Server i JupyterLab, można używać wystąpień obliczeniowych w [zintegrowanej funkcji notesu w programie Azure Machine Learning Studio](how-to-run-jupyter-notebooks.md).
 

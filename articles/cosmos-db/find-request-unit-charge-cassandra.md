@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: a0451e76ad8ce65486534bfbc68ae1b71adc9098
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 38027f651623b16fed259cbf099bc274457723eb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284969"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482557"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-cassandra-api"></a>Znajdź opłatę za jednostkę żądania dla operacji wykonywanych w Azure Cosmos DB interfejs API Cassandra
 
@@ -53,4 +53,4 @@ Aby dowiedzieć się więcej na temat optymalizowania użycia RU, zobacz następ
 
 * [Jednostki żądania i przepływności w usłudze Azure Cosmos DB](request-units.md)
 * [Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optymalizacja kosztów zapytania w usłudze Azure Cosmos DB](optimize-cost-queries.md)
+* [Optymalizacja kosztów zapytania w usłudze Azure Cosmos DB](./optimize-cost-reads-writes.md)

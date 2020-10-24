@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483732"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474669"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Projektowanie strategii ładowania danych podstawowych dla puli SQL Synapse platformy Azure
 
-Tradycyjne magazyny danych SMP używają procesu wyodrębniania, transformacji i ładowania (ETL) do ładowania danych. Usługa Azure SQL Pool to architektura wysoce równoległego przetwarzania (MPP), która korzysta z skalowalności i elastyczności zasobów obliczeniowych i magazynu. Korzystanie z procesu wyodrębniania, ładowania i przekształcania (ELT) może korzystać z funkcji MPP i wyeliminować zasoby konieczne do przekształcenia danych przed ich załadowaniem.
+Tradycyjne magazyny danych SMP używają procesu wyodrębniania, transformacji i ładowania (ETL) do ładowania danych. Usługa Azure SQL Pool to architektura wysoce równoległego przetwarzania (MPP), która korzysta z skalowalności i elastyczności zasobów obliczeniowych i magazynu. Korzystanie z procesu wyodrębniania, ładowania i przekształcania (ELT) może korzystać z wbudowanych funkcji przetwarzania zapytań rozproszonych i eliminowania zasobów wymaganych do przekształcenia danych przed ich załadowaniem.
 
 Chociaż Pula SQL obsługuje wiele metod ładowania, w tym opcje inne niż podstawowe, takie jak BCP i SQL docelowa elementu BulkCopy API, najszybszym i najbardziej skalowalnym sposobem ładowania danych jest użycie bazy.  Baza kodu jest technologią, która uzyskuje dostęp do danych zewnętrznych przechowywanych w usłudze Azure Blob Storage lub Azure Data Lake Store za pośrednictwem języka T-SQL.
 
@@ -112,7 +112,7 @@ Aby sformatować pliki tekstowe:
 
 ## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Załaduj dane do tabel przemieszczania puli SQL przy użyciu bazy danych
 
-Najlepszym rozwiązaniem jest załadowanie danych do tabeli przejściowej. Tabele przemieszczania umożliwiają obsługę błędów bez zakłócania pracy z tabelami produkcyjnymi. Tabela przemieszczania daje również możliwość użycia funkcji MPP puli SQL na potrzeby przekształceń danych przed wstawieniem danych do tabel produkcyjnych.
+Najlepszym rozwiązaniem jest załadowanie danych do tabeli przejściowej. Tabele przemieszczania umożliwiają obsługę błędów bez zakłócania pracy z tabelami produkcyjnymi. Tabela przemieszczania daje również możliwość użycia wbudowanych funkcji przetwarzania zapytań w puli SQL na potrzeby przekształceń danych przed wstawieniem danych do tabel produkcyjnych.
 
 ### <a name="options-for-loading-with-polybase"></a>Opcje ładowania z bazą
 

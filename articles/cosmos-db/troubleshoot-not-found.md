@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b28c562dca0c20b6f78058f1c7f7def60416ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802400"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496084"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnozowanie i rozwiązywanie problemów z nieznalezionymi wyjątkami Azure Cosmos DB
 Kod stanu HTTP 404 oznacza, że zasób już nie istnieje.
@@ -28,7 +28,7 @@ Istnieje wiele wystąpień klienta SDK i odczytywanie zaszło przed zapisem.
 
 #### <a name="solution"></a>Rozwiązanie:
 1. Domyślna spójność konta Azure Cosmos DB jest spójna z sesją. Gdy element zostanie utworzony lub zaktualizowany, odpowiedź zwróci token sesji, który można przekazywać między wystąpieniami zestawu SDK w celu zagwarantowania, że żądanie odczytu odczytuje z repliki z tą zmianą.
-1. Zmień [poziom spójności](consistency-levels-choosing.md) na [silniejszy poziom](consistency-levels-tradeoffs.md).
+1. Zmień [poziom spójności](./consistency-levels.md) na [silniejszy poziom](./consistency-levels.md).
 
 ### <a name="invalid-partition-key-and-id-combination"></a>Nieprawidłowa kombinacja klucza partycji i identyfikatora
 Kombinacja klucza partycji i identyfikatora jest nieprawidłowa.
@@ -37,7 +37,7 @@ Kombinacja klucza partycji i identyfikatora jest nieprawidłowa.
 Popraw logikę aplikacji powodującą niepoprawną kombinację. 
 
 ### <a name="invalid-character-in-an-item-id"></a>Nieprawidłowy znak w IDENTYFIKATORze elementu
-Element zostanie wstawiony do Azure Cosmos DB z [nieprawidłowym znakiem](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks) w identyfikatorze elementu.
+Element zostanie wstawiony do Azure Cosmos DB z [nieprawidłowym znakiem](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) w identyfikatorze elementu.
 
 #### <a name="solution"></a>Rozwiązanie:
 Zmień identyfikator na inną wartość, która nie zawiera znaków specjalnych. Jeśli zmiana identyfikatora nie jest opcją, można zakodować w formacie base64 identyfikator do ucieczki znaków specjalnych.
@@ -79,7 +79,7 @@ while (invalidItemsIterator.HasMoreResults)
 ```
 
 ### <a name="time-to-live-purge"></a>Czas do przeczyszczenia na żywo
-Element miał ustawioną właściwość [Time to Live (TTL)](https://docs.microsoft.com/azure/cosmos-db/time-to-live) . Element został przeczyszczony, ponieważ właściwość TTL wygasła.
+Element miał ustawioną właściwość [Time to Live (TTL)](./time-to-live.md) . Element został przeczyszczony, ponieważ właściwość TTL wygasła.
 
 #### <a name="solution"></a>Rozwiązanie:
 Zmień właściwość TTL, aby uniemożliwić przeczyszczenie elementu.
@@ -94,11 +94,11 @@ Poczekaj na przechwycenie lub zmianę zasad indeksowania przez indeksowanie.
 Baza danych lub kontener, w którym znajduje się element, został usunięty.
 
 #### <a name="solution"></a>Rozwiązanie:
-1. [Przywróć](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) zasób nadrzędny lub ponownie utwórz zasoby.
+1. [Przywróć](./online-backup-and-restore.md#request-data-restore-from-a-backup) zasób nadrzędny lub ponownie utwórz zasoby.
 1. Utwórz nowy zasób, aby zastąpić usunięty zasób.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. nazwy kontenerów/kolekcji są rozróżniane wielkości liter
-Nazwy kontenerów/kolekcji to Case-sesnsitive w Cosmos DB.
+Nazwy kontenerów/kolekcji w Cosmos DB są rozróżniane wielkości liter.
 
 #### <a name="solution"></a>Rozwiązanie:
 Upewnij się, że używasz dokładnej nazwy podczas nawiązywania połączenia z Cosmos DB.

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: dac2ed3888dcf1d38fc5e2c21611edf8008a07f6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280993"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476369"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Ograniczenia unikatowego klucza w Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Klucze unikatowe można definiować tylko podczas tworzenia kontenera usługi Az
 
 * Nie można zaktualizować istniejącego kontenera, aby użyć innego unikatowego klucza. Innymi słowy po utworzeniu kontenera przy użyciu unikatowych zasad kluczy nie można zmienić zasad.
 
-* Aby ustawić unikatowy klucz dla istniejącego kontenera, Utwórz nowy kontener z ograniczeniem Unique Key. Użyj odpowiedniego narzędzia do migracji danych, aby przenieść dane z istniejącego kontenera do nowego kontenera. W przypadku kontenerów SQL Użyj [Narzędzia do migracji danych](import-data.md) , aby przenieść dane. W przypadku kontenerów MongoDB Użyj [mongoimport.exe lub mongorestore.exe](mongodb-migrate.md) do przenoszenia danych.
+* Aby ustawić unikatowy klucz dla istniejącego kontenera, Utwórz nowy kontener z ograniczeniem Unique Key. Użyj odpowiedniego narzędzia do migracji danych, aby przenieść dane z istniejącego kontenera do nowego kontenera. W przypadku kontenerów SQL Użyj [Narzędzia do migracji danych](import-data.md) , aby przenieść dane. W przypadku kontenerów MongoDB Użyj [mongoimport.exe lub mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) do przenoszenia danych.
 
 * Unikatowe Zasady kluczy mogą zawierać maksymalnie 16 wartości ścieżki. Na przykład wartości mogą być `/firstName` , `/lastName` , i `/address/zipCode` . Każda unikatowa zasada klucza może mieć maksymalnie 10 unikatowych ograniczeń klucza lub kombinacji. Ścieżki połączone dla każdego unikatowego ograniczenia indeksu nie mogą przekraczać 60 bajtów. W poprzednim przykładzie pierwsze imię, nazwisko i adres e-mail są jednym ograniczeniem. To ograniczenie powoduje użycie 3 z 16 możliwych ścieżek.
 
