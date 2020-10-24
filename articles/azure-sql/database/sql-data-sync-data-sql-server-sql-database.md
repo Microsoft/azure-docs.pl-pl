@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371755"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503338"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -83,7 +83,7 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 | **Zalety** | -Aktywne-aktywne wsparcie<br/>-Dwukierunkowe między środowiskiem lokalnym i Azure SQL Database | -Małe opóźnienia<br/>-Spójności transakcyjnej<br/>-Ponowne użycie istniejącej topologii po migracji <br/>— Obsługa wystąpienia zarządzanego usługi Azure SQL |
 | **Wady** | -5 min minimalnej częstotliwości między synchronizacją<br/>-Brak spójności transakcyjnej<br/>— Wyższy wpływ na wydajność | -Nie można opublikować z Azure SQL Database <br/>— Wysoki koszt konserwacji |
 
-## <a name="get-started"></a>Rozpoczęcie pracy 
+## <a name="get-started"></a>Wprowadzenie 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Konfigurowanie synchronizacji danych w Azure Portal
 
@@ -135,7 +135,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 - Klucz podstawowy nie może mieć następujących typów danych: sql_variant, Binary, varbinary, Image, XML.
 - Należy zachować ostrożność w przypadku używania następujących typów danych jako klucza podstawowego, ponieważ obsługiwana precyzja jest tylko sekundą: Time, DateTime, datetime2, DateTimeOffset.
 - Nazwy obiektów (baz danych, tabel i kolumn) nie mogą zawierać kropki do drukowalnego znaku (.), lewego nawiasu kwadratowego ([) lub prawego nawiasu kwadratowego (]).
-- Nazwa tabeli nie może zawierać znaków drukowalnych:! " # $ % ' ( ) * + -
+- Nazwa tabeli nie może zawierać znaków drukowalnych:! "# $% ' () * +-spacja
 - Uwierzytelnianie Azure Active Directory nie jest obsługiwane.
 - Jeśli istnieją tabele o tej samej nazwie, ale różnych schematach (na przykład dbo. Customers i Sales. Customers), można dodać do synchronizacji tylko jedną z tabel.
 - Kolumny z User-Defined typami danych nie są obsługiwane
@@ -150,7 +150,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 
 #### <a name="unsupported-column-types"></a>Nieobsługiwane typy kolumn
 
-Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Na przykład:
+Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Przykład:
 
 - Kolumny obliczane.
 - Kolumny danych czasowych generowane przez system.

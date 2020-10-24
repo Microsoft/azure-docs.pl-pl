@@ -1,6 +1,6 @@
 ---
 title: Uprawnienia na platformie Azure — wskaźnik | Microsoft Docs
-description: W tym artykule wyjaśniono, w jaki sposób wskaźnik platformy Azure używa kontroli dostępu opartej na rolach do przypisywania uprawnień użytkownikom i identyfikuje dozwolone akcje dla każdej roli.
+description: W tym artykule wyjaśniono, w jaki sposób wskaźnik platformy Azure używa kontroli dostępu opartej na rolach, aby przypisywać uprawnienia użytkownikom i identyfikować dozwolone akcje dla każdej roli.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 3b680dbaead6e94aa955ebc0e0e720281a40389d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0704f076ef7c5d1a39af67d3ec6ec2baece1fda5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369900"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517305"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia w usłudze Azure Sentinel
 
 W przypadku korzystania z funkcji [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) na platformie Azure wskaźnik na platformie Azure obejmuje [wbudowane role](../role-based-access-control/built-in-roles.md) , które można przypisać do użytkowników, grup i usług w systemie.
 
-Za pomocą funkcji RBAC można tworzyć i przypisywać role w zespole operacji zabezpieczeń, aby udzielać odpowiedniego dostępu do platformy Azure. Różne role zapewniają szczegółową kontrolę nad tym, co widzą Użytkownicy platformy Azure. Role platformy Azure można przypisywać bezpośrednio w obszarze roboczym Azure wskaźnikowym (patrz Uwaga poniżej) lub w subskrypcji lub grupie zasobów, do której należy ten obszar roboczy, który będzie dziedziczyć na platformie Azure.
+Za pomocą funkcji RBAC platformy Azure można tworzyć i przypisywać role w zespole operacji zabezpieczeń, aby udzielać odpowiedniego dostępu do platformy Azure. Różne role zapewniają szczegółową kontrolę nad tym, co widzą Użytkownicy platformy Azure. Role platformy Azure można przypisywać bezpośrednio w obszarze roboczym Azure wskaźnikowym (patrz Uwaga poniżej) lub w subskrypcji lub grupie zasobów, do której należy ten obszar roboczy, który będzie dziedziczyć na platformie Azure.
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Role do pracy na platformie Azure — wskaźnik
 
@@ -62,7 +62,7 @@ Użytkownikom z określonymi wymaganiami dotyczącymi zadań może być konieczn
 
 - Użytkownicy-Goście przypisujący zdarzenia
 
-    Jeśli użytkownik-Gość musi mieć możliwość przypisania zdarzeń, a nie roli obiektu odpowiadającego wskaźnikowi usługi Azure, należy również przypisać rolę [czytnika katalogów](../active-directory/roles/permissions-reference.md#directory-readers). Należy pamiętać, że ta rola *nie* jest rolą RBAC platformy Azure, ale ma rolę **Azure Active Directory** , a użytkownicy w zwykłych (nie Gości) mają domyślnie przypisaną tę rolę. 
+    Jeśli użytkownik-Gość musi mieć możliwość przypisania zdarzeń, a nie roli obiektu odpowiadającego wskaźnikowi usługi Azure, należy również przypisać rolę [czytnika katalogów](../active-directory/roles/permissions-reference.md#directory-readers). Należy pamiętać, że ta rola *nie* jest rolą platformy Azure, ale rolą **Azure Active Directory** , a użytkownicy regularnie nie mają tej roli przypisanej domyślnie. 
 
 Aby zapoznać się z porównaniem równoległym, zobacz [poniższą tabelę](#roles-and-allowed-actions).
 
@@ -80,18 +80,18 @@ Na przykład użytkownik, któremu przypisano rolę **czytnika** punktów kontro
 
 W poniższej tabeli podsumowano role i dozwolone działania w usłudze Azure Sentinel. 
 
-| Rola | Tworzenie i uruchamianie podręczników| Tworzenie i edytowanie skoroszytów, reguł analizy i innych zasobów usługi Azure Sentinel | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
+| Role | Tworzenie i uruchamianie podręczników| Tworzenie i edytowanie skoroszytów, reguł analizy i innych zasobów usługi Azure Sentinel | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
 |---|---|---|---|---|
 | Czytelnik usługi Azure Sentinel | -- | -- | -- | &#10003; |
 | Obiekt odpowiadający usługi Azure Sentinel | -- | -- | &#10003; | &#10003; |
 | Współautor usługi Azure Sentinel | -- | &#10003; | &#10003; | &#10003; |
 | Współautor Azure wskaźnikowego i współautor aplikacji logiki | &#10003; | &#10003; | &#10003; | &#10003; |
 
-## <a name="custom-roles-and-advanced-rbac"></a>Role niestandardowe i Zaawansowana kontrola RBAC
+## <a name="custom-roles-and-advanced-azure-rbac"></a>Niestandardowe i zaawansowane role RBAC platformy Azure
 
-- Oprócz, lub zamiast, przy użyciu wbudowanych ról platformy Azure, można utworzyć role niestandardowe platformy Azure dla platformy Azure. Role niestandardowe platformy Azure na potrzeby kontroli dostępu platformy Azure są tworzone w taki sam sposób, jak w przypadku innych [niestandardowych ról RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) platformy Azure, na podstawie [określonych uprawnień do platformy Azure](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) — [zasoby i usługi Azure log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
+- Oprócz, lub zamiast, przy użyciu wbudowanych ról platformy Azure, można utworzyć role niestandardowe platformy Azure dla platformy Azure. Role niestandardowe platformy Azure dla usługi Azure wskaźnikowej są tworzone w taki sam sposób, jak w przypadku tworzenia innych [ról niestandardowych platformy](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)Azure, na podstawie [określonych uprawnień do usługi Azure wskaźnikowego](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) i do [zasobów platformy Azure log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Możesz użyć zaawansowanej kontroli dostępu opartej na rolach Log Analytics w danych w obszarze roboczym wskaźnikowego platformy Azure. Dotyczy to zarówno RBAC opartego na typie danych, jak i opartego na zasobach RBAC. Aby uzyskać więcej informacji na temat ról Log Analytics, zobacz [Zarządzanie danymi dzienników i obszarami roboczymi w programie Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Możesz użyć zaawansowanej kontroli dostępu opartej na rolach Log Analytics w danych w obszarze roboczym wskaźnikowego platformy Azure. Dotyczy to zarówno opartego na typie danych kontroli RBAC, jak i skoncentrowanej na zasobach platformy Azure. Aby uzyskać więcej informacji na temat ról Log Analytics, zobacz [Zarządzanie danymi dzienników i obszarami roboczymi w programie Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Następne kroki
 

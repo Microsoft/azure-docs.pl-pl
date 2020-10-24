@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 543085eaea993f6e464a501ffc93befd7589a009
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554139"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92513833"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Samouczek: integracja Azure Active Directory z usługą PageDNA
 
@@ -28,7 +28,7 @@ Integracja PageDNA z usługą Azure AD zapewnia następujące korzyści:
 * Możesz umożliwić użytkownikom automatyczne logowanie się do usługi PageDNA (Logowanie jednokrotne) przy użyciu kont w usłudze Azure AD.
 * Kontami można zarządzać w jednej centralnej lokalizacji: Azure Portal.
 
-Aby uzyskać szczegółowe informacje na temat integracji aplikacji typu "oprogramowanie jako usługa" (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby uzyskać szczegółowe informacje na temat integracji aplikacji typu "oprogramowanie jako usługa" (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -51,7 +51,7 @@ Program PageDNA obsługuje następujące funkcje:
 
 Aby skonfigurować integrację programu PageDNA z usługą Azure AD, musisz dodać PageDNA z portalu Azure Marketplace do listy zarządzanych aplikacji SaaS:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com?azure-portal=true).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com?azure-portal=true).
 1. W lewym okienku wybierz pozycję **Azure Active Directory**.
 
     ![Opcja Azure Active Directory](common/select-azuread.png)
@@ -196,13 +196,12 @@ Użytkownik o nazwie Britta Simon jest teraz tworzony w PageDNA. Nie trzeba wyko
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu My Apps.
 
-Po wybraniu opcji **PageDNA** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi PageDNA, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu opcji **PageDNA** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi PageDNA, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](./tutorial-list.md)
 
-* [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](../manage-apps/what-is-single-sign-on.md)
 
-* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

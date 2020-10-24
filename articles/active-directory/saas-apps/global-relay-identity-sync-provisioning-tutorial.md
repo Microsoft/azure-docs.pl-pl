@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: f0e34c8a331c475b103922789a9d1983f1c84cac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c1e2d64bb30b6451e232c85a5892771157d32928
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492198"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514405"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie globalnej synchronizacji tożsamości przekaźnika dla automatycznej aprowizacji użytkowników
 
@@ -52,7 +52,7 @@ Skontaktuj się z przedstawicielem swojej firmy w celu uzyskania adresu URL dzie
 
 ## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie synchronicznej synchronizacji tożsamości przekaźnika z galerii aplikacji usługi Azure AD
 
-Dodaj synchroniczną synchronizację tożsamości przekaźnika z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie obsługą administracyjną do synchronizacji tożsamości w usłudze Global Relay. Jeśli wcześniej skonfigurowano synchronizację tożsamości usługi Global Identity dla logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Dodaj synchroniczną synchronizację tożsamości przekaźnika z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie obsługą administracyjną do synchronizacji tożsamości w usłudze Global Relay. Dowiedz się więcej o dodawaniu aplikacji z galerii [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Określenie, kto znajdzie się w zakresie aprowizacji 
 
@@ -63,7 +63,7 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>Krok 5. Skonfiguruj automatyczne Inicjowanie obsługi administracyjnej użytkowników w usłudze globalne przekazywanie tożsamości 
 
-Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie TestApp na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w aplikacji synchronicznej synchronizacji tożsamości przekaźnikowej na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Aby skonfigurować automatyczną obsługę administracyjną dla synchronicznej synchronizacji tożsamości przekaźnika w usłudze Azure AD:
 

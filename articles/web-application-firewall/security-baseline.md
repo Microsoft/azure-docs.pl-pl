@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: edb184fa286eb6212f714c18830540e105ea3305
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5ecfd5e5ff29b2eade4391976947062d6e8f186f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92021184"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516158"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Podstawowa usługa Azure Security dla zapory aplikacji sieci Web platformy Azure
 
@@ -355,7 +355,7 @@ Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników 
 
 **Wskazówki**: Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych, na przykład programowanie, testowanie i środowiska produkcyjne. 
 
-Kontroluj dostęp do zasobów platformy Azure za pomocą usługi Azure Active Directory (Azure AD) kontroli dostępu opartej na rolach (RBAC na platformie Azure).
+Kontroluj dostęp do zasobów platformy Azure za pomocą kontroli dostępu opartej na rolach (Azure RBAC).
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
 
@@ -379,10 +379,10 @@ Postępuj zgodnie z zaleceniami Security Center na potrzeby szyfrowania w czasie
 
 **Odpowiedzialność**: udostępnione
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Kontrola dostępu do zasobów platformy Azure za pomocą usługi Azure Active Directory (Azure AD) kontroli dostępu opartej na ROLACH (RBAC na platformie Azure).
-- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
+**Wskazówki**: Kontrola dostępu do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (Azure RBAC).
+- [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

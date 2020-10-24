@@ -9,23 +9,45 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948627"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503780"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
 Możesz określić okres istnienia tokenu wystawionego przez platformę tożsamości firmy Microsoft. Okresy istnienia tokenów można ustawić dla wszystkich aplikacji w organizacji, dla aplikacji wielodostępnych (dla wielu organizacji) lub dla określonej jednostki usługi w organizacji. Obecnie nie obsługujemy konfigurowania okresów istnienia tokenu dla [podmiotów usługi zarządzania tożsamościami zarządzanymi](../managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Po przesłuchaniu od klientów w wersji zapoznawczej wdrożono [funkcje zarządzania sesjami uwierzytelniania](../conditional-access/howto-conditional-access-session-lifetime.md) w usłudze Azure AD dostęp warunkowy. Ta nowa funkcja służy do konfigurowania okresów istnienia tokenu odświeżania przez ustawienie częstotliwości logowania. Po 30 maja 2020 żadna Nowa dzierżawa nie będzie mogła korzystać z konfigurowalnych zasad okresu istnienia tokenu do konfigurowania tokenów sesji i odświeżania. Wycofanie zostanie wykonane w ciągu kilku miesięcy od tego momentu, co oznacza, że zaprzestanie przestrzegania istniejącej sesji i zasad odświeżania tokenów. Nadal można skonfigurować okresy istnienia tokenu dostępu po zakończeniu działania.
+> Po 30 stycznia 2021 dzierżawcy nie będą już w stanie konfigurować okresów istnienia tokenów odświeżania i sesji, a Azure Active Directory nie będą przestrzegać istniejących konfiguracji odświeżania i tokenu sesji w zasadach po tej dacie. Nadal możesz skonfigurować okresy istnienia tokenu dostępu po wycofaniu.
+> Zaimplementowano [funkcje zarządzania sesjami uwierzytelniania](../conditional-access/howto-conditional-access-session-lifetime.md)   w dostępie warunkowym usługi Azure AD. Ta nowa funkcja służy do konfigurowania okresów istnienia tokenu odświeżania przez ustawienie częstotliwości logowania. Dostęp warunkowy jest funkcją Azure AD — wersja Premium P1 i możesz sprawdzić, czy Premium jest odpowiednia dla organzation na stronie z [cennikiem Premium](https://azure.microsoft.com/en-us/pricing/details/active-directory/). 
+> 
+> W przypadku dzierżawców, którzy nie używają zarządzania sesjami uwierzytelniania w dostępie warunkowym po dacie wycofania, mogą oczekiwać, że usługa Azure AD będzie przestrzegać konfiguracji domyślnej podanej w następnej sekcji.
+
+## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Konfigurowalne właściwości okresu istnienia tokenu po wycofaniu
+Na konfigurację odświeżania i tokenu sesji mają wpływ następujące właściwości i ich odpowiednio ustawione wartości. Po wycofaniu konfiguracji odświeżania i tokenu sesji usługa Azure AD będzie przestrzegać tylko wartości domyślnej opisanej poniżej, niezależnie od tego, czy zasady mają skonfigurowane wartości niestandardowe skonfigurowanych wartości niestandardowych.  
+
+|Właściwość   |Ciąg właściwości zasad    |Mową |Domyślne |
+|----------|-----------|------------|------------|
+|Maksymalny czas nieaktywności tokenu odświeżania |MaxInactiveTime  |Odśwież tokeny |90 dni  |
+|Maksymalny wiek tokenu odświeżania Single-Factor  |MaxAgeSingleFactor  |Odśwież tokeny (dla wszystkich użytkowników)  |Do odwołania  |
+|Maksymalny wiek tokenu wieloskładnikowego odświeżania  |MaxAgeMultiFactor  |Odśwież tokeny (dla wszystkich użytkowników) |180 dni  |
+|Maksymalny wiek tokenu sesji Single-Factor  |MaxAgeSessionSingleFactor |Tokeny sesji (trwałe i nietrwałe)  |Do odwołania |
+|Maksymalny wiek tokenu sesji wieloskładnikowe  |MaxAgeSessionMultiFactor  |Tokeny sesji (trwałe i nietrwałe)  |180 dni |
+
+Można użyć polecenia cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) , aby zidentyfikować zasady okresu istnienia tokenu, których wartości właściwości różnią się od ustawień domyślnych usługi Azure AD.
+
+Aby lepiej zrozumieć, jak zasady są używane w dzierżawie, możesz użyć polecenia cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) , aby zidentyfikować aplikacje i jednostki usługi, które są połączone z zasadami. 
+
+Jeśli dzierżawa zawiera zasady, które definiują wartości niestandardowe właściwości konfiguracji odświeżania i tokenu sesji, firma Microsoft zaleca aktualizację tych zasad w zakresie do wartości, które odzwierciedlają ustawienia domyślne opisane powyżej. Jeśli nie zostaną wprowadzone żadne zmiany, usługa Azure AD będzie automatycznie przestrzegać wartości domyślnych.  
+
+## <a name="overview"></a>Omówienie
 
 W usłudze Azure AD obiekt zasad reprezentuje zestaw reguł, które są wymuszane dla poszczególnych aplikacji lub we wszystkich aplikacjach w organizacji. Każdy typ zasad ma unikatową strukturę z zestawem właściwości, które są stosowane do obiektów, do których są przypisane.
 

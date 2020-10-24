@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
-ms.openlocfilehash: c46565f7eaa060a060183cf321bb1df1903b945c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d38ff5c8f33bda5b12f6267e7a8cdf477db6c7d7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91000902"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92511447"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-pcs"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu programu Pulse Secure PC
 
@@ -174,7 +174,7 @@ Wykonaj następujące czynności na poniższej stronie:
 
 ### <a name="create-pulse-secure-pcs-test-user"></a>Utwórz użytkownika testowego pulsu Secure PC
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w programie Pulse Secure komputery. Powspółpracuje z [zespołem pomocy technicznej bezpiecznego komputerów](mailto:support@pulsesecure.net) , aby dodać użytkowników na platformie Pulse Secure PC. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w programie Pulse Secure komputery. Powspółpracuje z [zespołem pomocy technicznej bezpiecznego komputerów](mailto:support@pulsesecure.net) , aby dodać użytkowników na platformie Pulse Secure PC. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -184,10 +184,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 2. Przejdź bezpośrednio do pozycji Pulse bezpieczne logowanie do adresu URL na komputerze.
 
-3. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka Zabezpiecz komputery w panelu dostępu zostanie on przekierowany do adresu URL logowania za pomocą bezpiecznego komputerów. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka Zabezpiecz komputery w panelu dostępu zostanie on przekierowany do adresu URL logowania za pomocą bezpiecznego komputerów. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu pulsu Secure komputery można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu pulsu Secure komputery można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

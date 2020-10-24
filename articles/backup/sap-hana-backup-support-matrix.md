@@ -4,12 +4,12 @@ description: W tym artykule omówiono obsługiwane scenariusze i ograniczenia do
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: a3ad68fcaaa820daca842d567ecd40f011df729f
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 641bba6b947731e0f55bc79828101f84d5b780fd
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946369"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515784"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Macierz obsługi dla kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -24,7 +24,7 @@ Azure Backup obsługuje tworzenie kopii zapasowych baz danych SAP HANA na platfo
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologia**               | SAP HANA działa tylko na maszynach wirtualnych z systemem Linux Azure                    | Duże wystąpienia HANA (HLI)                                   |
 | **Regiony**                   | **POWSZECHNE**<br> **Ameryki** — środkowe stany USA, Wschodnie stany USA 2, Wschodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2, zachodnie stany USA, Europa Zachodnia, Kanada środkowa, Kanada Wschodnia, Brazylia Południowa <br> **Azja i Pacyfik** — Australia Środkowa, Australia Środkowa 2, Australia Wschodnia, Australia Południowo-Wschodnia, Japonia Zachodnia, Japonia zachodni, Korea środkowa, Korea Południowa, Republika Azja Wschodnia Południowej południowo-wschodnia, Chiny Północne Chiny Północne Chiny Wschodnie Indie Południowe <br> **Europa** — Europa Zachodnia, Europa Północna, Francja środkowa, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Niemcy Północne, Niemcy Środkowo-Zachodnie, Szwajcaria Północna, Szwajcaria Zachodnia, środkowe Szwajcaria Północna, Norwegia Wschodnia, Norwegia Zachodnia <br> **Afryka/Me** -Północna Republika Południowej Afryki, Zachodnia Republika Południowej Afryki, Zjednoczone Emiraty Arabskie, środkowe Zjednoczone Emiraty Arabskie  <BR>  **Regiony Azure Government** | Francja Południowa, Niemcy środkowe, Niemcy północny, US Gov IOWA |
-| **Wersje systemu operacyjnego**            | SLES 12 z dodatkiem SP2, SP3 i SP4; SLES 15 z SP0 i SP1 <br><br>  Od 1 sierpnia 2020 SAP HANA kopia zapasowa RHEL (7,4, 7,6, 7,7 & 8,1) jest ogólnie dostępna.                |                                             |
+| **Wersje systemu operacyjnego**            | SLES 12 z dodatkiem SP2, SP3, SP4 i SP5; SLES 15 z SP0 i SP1 <br><br>  Od 1 sierpnia 2020 SAP HANA kopia zapasowa RHEL (7,4, 7,6, 7,7 & 8,1) jest ogólnie dostępna.                |                                             |
 | **Wersje platformy HANA**          | SDC na platformie HANA 1. x, MDC w systemie HANA 2. x <= SPS04 Rev 48, SPS05 (jeszcze nie można sprawdzić poprawności scenariuszy z włączoną obsługą szyfrowania)      |                                                            |
 | **Wdrożenia HANA**       | SAP HANA pojedynczą maszynę wirtualną platformy Azure — skalowanie w górę. <br><br> W przypadku wdrożeń o wysokiej dostępności oba węzły są traktowane jako pojedyncze węzły z osobnymi łańcuchami danych.               | Skalowanie w poziomie <br><br> W przypadku wdrożeń o wysokiej dostępności kopia zapasowa nie jest automatycznie przełączena w tryb failover do węzła pomocniczego. Konfigurowanie kopii zapasowej należy wykonać oddzielnie dla każdego węzła.                                           |
 | **Wystąpienia HANA**         | Pojedyncze wystąpienie SAP HANA na pojedynczej maszynie wirtualnej platformy Azure — skalowanie w górę | Wiele wystąpień SAP HANA na jednej maszynie wirtualnej                  |

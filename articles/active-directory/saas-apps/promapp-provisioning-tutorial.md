@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: Zhchia
-ms.openlocfilehash: b3677b16921c6954f5f99e55af9afeae9c337cce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00adf8f1559d01d6ba17692e1166c93c93fcbf8f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255826"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516651"
 ---
 # <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Promapp na potrzeby automatycznego aprowizacji użytkowników
 
@@ -93,7 +93,7 @@ Przed skonfigurowaniem usługi Promapp do automatycznego aprowizacji użytkownik
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie Promapp na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla Promapp, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/promapp-tutorial)jednokrotne w Promapp. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
+> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla Promapp, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](./promapp-tutorial.md)jednokrotne w Promapp. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
 
 ### <a name="to-configure-automatic-user-provisioning-for-promapp-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Promapp w usłudze Azure AD:
 
@@ -121,7 +121,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Promapp**.
 
@@ -157,4 +157,3 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
-

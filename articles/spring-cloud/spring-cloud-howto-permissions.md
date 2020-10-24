@@ -7,21 +7,21 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 635f1e03596d55101b6158353ed8cdc278212ceb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92155486"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516192"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Jak używać uprawnień w chmurze Azure wiosennej
-W tym artykule opisano sposób tworzenia ról niestandardowych delegowania uprawnień do zasobów chmurowych z platformy Azure. Role niestandardowe zwiększają [wbudowaną rolę platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) z różnymi uprawnieniami magazynowymi.
+W tym artykule opisano sposób tworzenia ról niestandardowych delegowania uprawnień do zasobów chmurowych z platformy Azure. Role niestandardowe zwiększają [wbudowane role platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) z różnymi uprawnieniami magazynowymi.
 
 Zostaną zaimplementowane następujące role niestandardowe:
 
 * **Rola dewelopera**: 
-    * Wdrażanie
-    * Test
+    * Wdróż
+    * Testowanie
     * Ponowne uruchamianie aplikacji
     * Można stosować i wprowadzać zmiany w konfiguracjach aplikacji w repozytorium git
     * Może pobrać strumień dziennika

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 2db64a950569e4a96a9a87bb86a5397a17b4f2ba
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b52bfc14906d8e47c804ae15ee898f6ca00784af
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214944"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503848"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Przykłady kodu usługi Azure Active Directory B2C
 
@@ -60,10 +60,23 @@ Poniższe tabele zawierają linki do przykładów dla aplikacji systemu iOS i An
 
 W poniższych tabelach przedstawiono linki do przykładów kodu służących do używania interfejsów API sieci Web w przepływach [interfejsu API](api-connectors-overview.md).
 
-## <a name="api-connector-azure-function-quickstarts"></a>Łącznik interfejsu API — Przewodniki Szybki Start
+### <a name="azure-function-quickstarts"></a>Przewodniki Szybki Start dla usługi Azure Functions
 
 | Sample                                                                                                                          | Opis                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | Ten przykład funkcji platformy .NET Core Azure demonstruje, jak ograniczyć logowanie do określonych domen poczty e-mail i sprawdzać poprawność informacji podawanych przez użytkownika. |
 | [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | Ten Node.js przykład funkcji platformy Azure pokazuje, jak ograniczyć logowanie do określonych domen poczty e-mail i sprawdzić poprawność informacji podanych przez użytkownika.  |
 | [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | Ten przykład funkcji platformy Azure w języku Python pokazuje, jak ograniczyć logowanie do określonych domen poczty e-mail i sprawdzić poprawność informacji podanych przez użytkownika.    |
+
+### <a name="identity-verification-with-api-connectors"></a>Weryfikacja tożsamości przy użyciu łączników interfejsu API
+
+| Sample                                                                                                            | Opis                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | Ten przykład pokazuje, jak zweryfikować tożsamość użytkownika w ramach rejestracji samoobsługowej przy użyciu łącznika interfejsu API w celu zintegrowania z usługą IDology. |
+| [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | Ten przykład pokazuje, jak zweryfikować tożsamość użytkownika w ramach rejestracji samoobsługowej przy użyciu łącznika interfejsu API w celu zintegrowania z usługą Experian. |
+
+### <a name="community-samples"></a>Przykłady dla społeczności
+
+| Sample                                                                                                            | Opis                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [Przykłady społeczności łącznika interfejsu API](https://github.com/azure-ad-b2c/api-connector-samples) | To repozytorium zawiera przykłady scenariuszy obsługiwanych przez łączniki interfejsu API dla społeczności.|

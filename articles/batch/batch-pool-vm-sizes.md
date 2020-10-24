@@ -2,14 +2,14 @@
 title: Wybierz rozmiary maszyn wirtualnych dla pul
 description: Jak wybierać dostępne rozmiary maszyn wirtualnych dla węzłów obliczeniowych w pulach Azure Batch
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/23/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fd093006a9eb0c9746a19cb5f91b280145ddfb7e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107508"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517059"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Wybieranie rozmiaru maszyny wirtualnej dla węzłów obliczeniowych w puli Azure Batch
 
@@ -31,17 +31,19 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie rozm
 | Podstawowa A | Wszystkie rozmiary *z wyjątkiem* Basic_A0 (a0) |
 | A | Wszystkie rozmiary *z wyjątkiem* Standard_A0 |
 | Av2 | Wszystkie rozmiary |
-| B | Brak |
-| DC | Brak |
+| B | Nieobsługiwane |
+| DC | Nieobsługiwane |
 | Dv2, DSv2 | Wszystkie rozmiary |
 | Dv3, Dsv3 | Wszystkie rozmiary |
 | Dav4<sup>1</sup> | Wszystkie rozmiary |
 | Dasv4<sup>1</sup> | Wszystkie rozmiary |
 | Ddv4, Ddsv4 |  Wszystkie rozmiary |
+| Dv4, Dsv4 | Nieobsługiwane |
 | EV3, Esv3 | Wszystkie rozmiary, z wyjątkiem E64is_v3 |
 | Eav4<sup>1</sup> | Wszystkie rozmiary |
 | Easv4<sup>1</sup> | Wszystkie rozmiary |
 | Edv4, Edsv4 |  Wszystkie rozmiary |
+| Ev4, Esv4 | Nieobsługiwane |
 | F, FS | Wszystkie rozmiary |
 | Fsv2 | Wszystkie rozmiary |
 | G, GS | Wszystkie rozmiary |
@@ -56,12 +58,13 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie rozm
 | NC | Wszystkie rozmiary |
 | NCv2<sup>1</sup> | Wszystkie rozmiary |
 | Seria NCV3<sup>1</sup> | Wszystkie rozmiary |
+| NCasT4_v3 | Brak — nie jest jeszcze dostępna |
 | ND<sup>1</sup> | Wszystkie rozmiary |
 | NDv2<sup>1</sup> | Brak — nie jest jeszcze dostępna |
 | NV | Wszystkie rozmiary |
 | NVv3<sup>1</sup> | Wszystkie rozmiary |
-| NVv4 | Brak — nie jest jeszcze dostępna |
-| SAP HANA | Brak |
+| NVv4<sup>1</sup> | Wszystkie rozmiary |
+| SAP HANA | Nieobsługiwane |
 
 <sup>1</sup> te serie maszyn wirtualnych można przydzielyć w pulach wsadowym w konfiguracji maszyny wirtualnej, ale należy utworzyć nowe konto w usłudze Batch i zażądać [zwiększenia limitu przydziału](batch-quota-limit.md#increase-a-quota). To ograniczenie zostanie usunięte, gdy przydział vCPU na serię maszyn wirtualnych jest w pełni obsługiwany dla kont usługi Batch.
 

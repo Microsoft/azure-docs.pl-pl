@@ -11,12 +11,12 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 9eb1006bdba6c69136c972359bb13420a04f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048028"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515733"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Monitorowanie obciążenia puli SQL usługi Azure Synapse Analytics przy użyciu widoków DMV
 
@@ -139,7 +139,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Sprawdź kolumnę *total_elapsed_time* , aby sprawdzić, czy dana dystrybucja trwa znacznie dłużej niż inne do przenoszenia danych.
-* W przypadku długotrwałej dystrybucji Sprawdź kolumnę *rows_processed* , aby sprawdzić, czy liczba wierszy przenoszonych z tej dystrybucji jest znacznie większa niż w przypadku innych. Jeśli tak, to znalezienie może wskazywać pochylenie danych źródłowych.
+* W przypadku długotrwałej dystrybucji Sprawdź kolumnę *rows_processed* , aby sprawdzić, czy liczba wierszy przenoszonych z tej dystrybucji jest znacznie większa niż w przypadku innych. Jeśli tak, to znalezienie może wskazywać pochylenie danych źródłowych. Jedną z przyczyn pochylania danych jest dystrybucja w kolumnie z wieloma wartościami NULL (w których wszystkie wiersze będą w tej samej dystrybucji). Zapobiegaj powolnym kwerendom, unikając dystrybucji dla tych typów kolumn lub filtrowania zapytania, aby wyeliminować wartości NULL, jeśli jest to możliwe. 
 
 Jeśli zapytanie jest uruchomione, można użyć [polecenia DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) do pobrania SQL Server szacowanego planu z pamięci podręcznej planu SQL Server dla aktualnie uruchomionego kroku SQL w ramach określonej dystrybucji.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/23/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145264"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503814"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
 
@@ -37,7 +37,7 @@ Częstotliwość logowania określa czas, po którym użytkownik zostanie popros
 
 Domyślna konfiguracja Azure Active Directory (Azure AD) dla częstotliwości logowania użytkownika jest oknem kroczącym 90 dni. Monitowanie użytkowników o poświadczenia często wygląda na to, że jest to rozsądne działanie, ale może się to wiązać z atakami: Użytkownicy, którzy są przeszkoleni, aby wprowadzić swoje poświadczenia bez względu na to, że mogą przypadkowo dostarczyć je do złośliwego monitu o poświadczenia.
 
-Może to spowodować, że dźwięk nie zostanie poproszony o ponowne zalogowanie się użytkownika, w rzeczywistości wszystkie zasady IT odwołują sesję. Niektóre przykłady obejmują (ale nie ograniczone do) zmianę hasła, niezgodne urządzenie lub wyłączone konto. Możesz również jawnie [odwołać sesje użytkowników przy użyciu programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Domyślna konfiguracja usługi Azure AD to "nie Monituj użytkowników o podanie swoich poświadczeń, jeśli zabezpieczenia stan ich sesji nie zostały zmienione".
+Może to spowodować, że dźwięk nie zostanie poproszony o ponowne zalogowanie się użytkownika, w rzeczywistości wszystkie zasady IT odwołują sesję. Niektóre przykłady obejmują (ale nie ograniczone do) zmianę hasła, niezgodne urządzenie lub wyłączone konto. Możesz również jawnie [odwołać sesje użytkowników przy użyciu programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true). Domyślna konfiguracja usługi Azure AD to "nie Monituj użytkowników o podanie swoich poświadczeń, jeśli zabezpieczenia stan ich sesji nie zostały zmienione".
 
 Ustawienie częstotliwości logowania działa z aplikacjami, które mają wdrożone protokoły OAUTH2 lub OIDC zgodnie ze standardami. Większość aplikacji natywnych firmy Microsoft dla systemów Windows, Mac i Mobile, w tym z uwzględnieniem następujących aplikacji sieci Web, jest zgodnych z tym ustawieniem.
 
@@ -88,7 +88,7 @@ Wartość domyślna usługi Azure AD na potrzeby trwałości sesji przeglądarki
 Dostęp warunkowy jest możliwością Azure AD — wersja Premium i wymaga licencji Premium. Jeśli chcesz dowiedzieć się więcej na temat dostępu warunkowego, zobacz [co to jest dostęp warunkowy w Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Jeśli używasz funkcji [okresowego istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md) , który jest obecnie w publicznej wersji zapoznawczej, pamiętaj, że nie obsługujemy tworzenia dwóch różnych zasad dla tej samej kombinacji użytkownika lub aplikacji: jeden z tą funkcją i inną z konfigurowalną funkcją okresu istnienia tokenu. Firma Microsoft planuje wycofać funkcję konfigurowalnego okresu istnienia tokenu 1 maja 2020 i zamienić ją na funkcję zarządzania sesjami uwierzytelniania dostępu warunkowego.  
+> Jeśli używasz funkcji [okresowego istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md) , który jest obecnie w publicznej wersji zapoznawczej, pamiętaj, że nie obsługujemy tworzenia dwóch różnych zasad dla tej samej kombinacji użytkownika lub aplikacji: jeden z tą funkcją i inną z konfigurowalną funkcją okresu istnienia tokenu. Firma Microsoft planuje wycofać konfigurowalną funkcję okresu istnienia tokenu dla odświeżania i okresu istnienia tokenu sesji w dniu 30 stycznia 2021 i zamienić ją na funkcję zarządzania sesjami uwierzytelniania dostępu warunkowego.  
 >
 > Przed włączeniem częstotliwości logowania upewnij się, że inne ustawienia ponownego uwierzytelniania są wyłączone w dzierżawie. Jeśli jest włączona funkcja "Pamiętaj MFA na zaufanych urządzeniach", pamiętaj, aby ją wyłączyć przed użyciem częstotliwości logowania, ponieważ te dwa ustawienia mogą prowadzić do nieoczekiwanego monitowania użytkowników. Aby dowiedzieć się więcej o ponownym uwierzytelnianiu i okresach istnienia sesji, zobacz artykuł, [Optymalizacja ponownych prób uwierzytelniania i opis okresu istnienia sesji dla Multi-Factor Authentication platformy Azure](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 

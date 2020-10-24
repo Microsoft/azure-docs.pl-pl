@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: cd1e9431d7125b405f31cb1ed329e6e264cd247e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 135b780f547ddd8e979899898b9971c4dcf89cee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285934"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514711"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie SpaceIQ na potrzeby automatycznego aprowizacji użytkowników
 
@@ -95,7 +95,7 @@ Przed skonfigurowaniem usługi SpaceIQ do automatycznego aprowizacji użytkownik
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie SpaceIQ na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla SpaceIQ, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/spaceiq-tutorial)jednokrotne w SpaceIQ. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem
+> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla SpaceIQ, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](./spaceiq-tutorial.md)jednokrotne w SpaceIQ. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem
 
 ### <a name="to-configure-automatic-user-provisioning-for-spaceiq-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla SpaceIQ w usłudze Azure AD:
 
@@ -123,7 +123,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do SpaceIQ**.
 

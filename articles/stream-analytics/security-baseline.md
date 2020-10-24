@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 72a2b24ad8e05943f975f0819d8b2a872b0ab829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a7f27ff20a4770caea44e73d91001d9785c015
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229008"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517229"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Podstawa zabezpieczeń platformy Azure dla Stream Analytics
 
@@ -248,7 +248,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: Zmień domyślne hasła, jeśli ma to zastosowanie
 
-**Wskazówki**: Stream Analytics nie ma koncepcji domyślnych haseł, ponieważ uwierzytelnianie jest dostarczane z Azure Active Directory i zabezpieczone przez kontrolę dostępu opartą na ROLACH (RBAC) do zarządzania usługą. W zależności od usług strumienia iniekcji i usług wyjściowych należy obrócić poświadczenia skonfigurowane w zadaniach.
+**Wskazówki**: Stream Analytics nie ma koncepcji domyślnych haseł, ponieważ uwierzytelnianie jest udostępniane Azure Active Directory i zabezpieczone przez kontrolę dostępu opartą na rolach (Azure RBAC) do zarządzania usługą. W zależności od usług strumienia iniekcji i usług wyjściowych należy obrócić poświadczenia skonfigurowane w zadaniach.
 
 * [Obróć poświadczenia logowania dla danych wejściowych i wyjściowych zadania Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -324,7 +324,7 @@ Wskazówki: Tworzenie planu zabezpieczeń **dotyczącego**zarządzania tożsamo�
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
-**Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD zapewnia kontrolę dostępu opartą na rolach (RBAC) na potrzeby precyzyjnej kontroli dostępu klienta do zasobów Stream Analytics.
+**Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD zapewnia kontrolę dostępu opartą na rolach (Azure RBAC), aby uzyskać szczegółową kontrolę nad dostępem klienta do zasobów Stream Analytics.
 
 * [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

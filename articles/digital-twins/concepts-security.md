@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485753"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503321"
 ---
 # <a name="secure-azure-digital-twins"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji
 
@@ -20,7 +20,7 @@ W celu zapewnienia bezpieczeństwa usługa Azure Digital bliźniaczych reprezent
 
 Usługa Azure Digital bliźniaczych reprezentacji obsługuje również szyfrowanie przechowywanych danych.
 
-## <a name="granting-permissions-with-azure-rbac"></a>Przyznawanie uprawnień za pomocą usługi Azure RBAC
+## <a name="roles-and-permissions-with-azure-rbac"></a>Role i uprawnienia za pomocą funkcji RBAC platformy Azure
 
 Usługa Azure RBAC jest świadczona do usługi Azure Digital bliźniaczych reprezentacji za pośrednictwem integracji z usługą [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
@@ -47,22 +47,32 @@ Przy użyciu tożsamości zarządzanych platforma Azure zarządza tą tożsamoś
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autoryzacja: role platformy Azure dla usługi Azure Digital bliźniaczych reprezentacji
 
-Platforma Azure oferuje następujące wbudowane role platformy Azure umożliwiające autoryzowanie dostępu do zasobu Digital bliźniaczych reprezentacji platformy Azure:
-* *Właściciel danych Digital bliźniaczych reprezentacji systemu Azure* — ta rola umożliwia pełny dostęp do zasobów usługi Azure Digital bliźniaczych reprezentacji.
-* *Czytnik danych Digital bliźniaczych reprezentacji systemu Azure* — ta rola umożliwia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji.
+Platforma Azure udostępnia **dwie wbudowane role platformy Azure** umożliwiające autoryzowanie dostępu do [interfejsów API płaszczyzny danych](how-to-use-apis-sdks.md#overview-data-plane-apis)Digital bliźniaczych reprezentacji na platformie Azure. Można odwołać się do ról według nazwy lub identyfikatora:
+
+| Wbudowana rola | Opis | ID (Identyfikator) | 
+| --- | --- | --- |
+| Właściciel danych Digital bliźniaczych reprezentacji systemu Azure | Zapewnia pełen dostęp za pośrednictwem zasobów usługi Azure Digital bliźniaczych reprezentacji | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Czytnik danych Digital bliźniaczych reprezentacji systemu Azure | Zapewnia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 >[!NOTE]
 > Nazwy tych ról zostały ostatnio zmienione przed nazwami w wersji zapoznawczej:
 > * *Właściciel danych Digital bliźniaczych reprezentacji platformy Azure* był wcześniej *właścicielem usługi Azure Digital bliźniaczych reprezentacji (wersja zapoznawcza)*.
 > * *Usługa Azure Digital bliźniaczych reprezentacji Data Reader* była wcześniej *usługą Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza)*.
 
-Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, zobacz [*Omówienie definicji ról*](../role-based-access-control/role-definitions.md) w dokumentacji usługi Azure RBAC. Aby uzyskać informacje na temat tworzenia ról niestandardowych platformy Azure, zobacz [*role niestandardowe platformy Azure*](../role-based-access-control/custom-roles.md).
-
 Role można przypisywać na dwa sposoby:
 * za pośrednictwem okienka kontroli dostępu (IAM) dla usługi Azure Digital bliźniaczych reprezentacji w Azure Portal (zobacz [*Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * za pomocą poleceń interfejsu wiersza polecenia w celu dodania lub usunięcia roli
 
 Aby uzyskać bardziej szczegółowe instrukcje, jak to zrobić, wypróbuj w samouczku Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md).
+
+Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, zobacz [*Omówienie definicji ról*](../role-based-access-control/role-definitions.md) w dokumentacji usługi Azure RBAC. Aby uzyskać informacje na temat tworzenia ról niestandardowych platformy Azure, zobacz [*role niestandardowe platformy Azure*](../role-based-access-control/custom-roles.md).
+
+##### <a name="automating-roles"></a>Automatyzowanie ról
+
+W przypadku odwoływania się do ról w zautomatyzowanych scenariuszach zalecamy odwoływanie się do nich za pomocą ich **identyfikatorów** zamiast nazw. Nazwy mogą ulec zmianie między wersjami, ale identyfikatory nie będą, dzięki czemu mają bardziej stabilne odwołanie w automatyzacji.
+
+> [!TIP]
+> Jeśli assiging role z poleceniem cmdlet, takim jak `New-AzRoleAssignment` ([odwołanie](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), możesz użyć `-RoleDefinitionId` PARAMETRU zamiast `-RoleDefinitionName` do przekazywania identyfikatora zamiast nazwy roli.
 
 ### <a name="permission-scopes"></a>Zakresy uprawnień
 

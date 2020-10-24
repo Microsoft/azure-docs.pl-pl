@@ -3,18 +3,18 @@ title: Planowanie wdrożenia rozwiązań VMware na platformie Azure
 description: W tym artykule opisano przepływ pracy wdrażania rozwiązań VMware platformy Azure.  Wynik końcowy to środowisko gotowe do tworzenia i migracji maszyn wirtualnych.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147983"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517365"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planowanie wdrożenia rozwiązań VMware na platformie Azure
 
-W tym artykule udostępniamy proces planowania służący do identyfikowania i zbierania danych używanych podczas wdrażania. Podczas planowania wdrożenia, pamiętaj o udokumentowaniu zbieranych informacji w celu łatwego odwoływania się podczas wdrażania.
+Ten artykuł zawiera informacje o procesie planowania w celu identyfikowania i zbierania danych używanych podczas wdrażania. Podczas planowania wdrożenia, pamiętaj o udokumentowaniu zbieranych informacji w celu łatwego odwoływania się podczas wdrażania.
 
-Procesy tego przewodnika Szybki Start umożliwiają tworzenie maszyn wirtualnych i migracji w środowisku gotowym do produkcji. 
+Procesy tego szybkiego startu powodują tworzenie maszyn wirtualnych i migracji w środowisku gotowym do produkcji. 
 
 >[!IMPORTANT]
 >Przed utworzeniem zasobu rozwiązania VMware platformy Azure należy wykonać artykuł [jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md) , aby przesłać bilet pomocy technicznej mający przydzieloną liczbę węzłów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić węzły. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu. 
@@ -73,7 +73,7 @@ Aby uzyskać więcej informacji, zobacz [Lista kontrolna planowania sieci](tutor
 
 Zidentyfikuj segment IP, aby utworzyć pierwszą sieć (segment NSX) w chmurze prywatnej.  Innymi słowy, chcesz utworzyć segment sieci w rozwiązaniu VMware platformy Azure, aby można było wdrożyć maszyny wirtualne w rozwiązaniu VMware platformy Azure.   
 
-Nawet jeśli planujesz tylko rozszerzanie sieci L2, Utwórz segment sieci, który będzie przydatny do sprawdzania poprawności środowiska.
+Nawet jeśli planujesz tylko rozszerzanie sieci L2, Utwórz segment sieci, który będzie sprawdzać poprawność środowiska.
 
 Należy pamiętać, że wszystkie tworzone segmenty IP muszą być unikatowe na platformie Azure i lokalnie.  
 
@@ -92,7 +92,7 @@ Należy pamiętać, że:
 
 ## <a name="expressroute-global-reach-peering-network"></a>ExpressRoute Global Reach sieci równorzędnej
 
-Zidentyfikuj `/29` blok adresów sieciowych CIDR, który jest wymagany do ExpressRoute Global REACH komunikacji równorzędnej. Należy pamiętać, że wszystkie tworzone segmenty IP muszą być unikatowe w ramach rozwiązania VMware platformy Azure i lokalnego. Adresy IP w tym segmencie są używane na każdym końcu ExpressRoute Global Reach połączenia w celu połączenia usługi Azure VMware ExpressRoute obwód z lokalnym obwodem ExpressRoute. 
+Określ `/29` blok adresów sieciowych CIDR wymagany dla komunikacji równorzędnej ExpressRoute Global REACH. Należy pamiętać, że wszystkie tworzone segmenty IP muszą być unikatowe w ramach rozwiązania VMware platformy Azure i lokalnego. Adresy IP w tym segmencie są używane na każdym końcu ExpressRoute Global Reach połączenia w celu połączenia usługi Azure VMware ExpressRoute obwód z lokalnym obwodem ExpressRoute. 
 
 **Przykład:** 10.1.0.0/29
 
@@ -128,7 +128,7 @@ VMware HCX to technologia dostosowana do rozwiązań VMware platformy Azure. Pod
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, po zebraniu i udokumentowaniu wymaganych informacji, przejdź do następnej sekcji, aby utworzyć chmurę prywatną rozwiązania Azure VMware.
+Teraz, po zebraniu i udokumentowaniu potrzebnych informacji, przejdź do następnej sekcji, aby utworzyć chmurę prywatną rozwiązania Azure VMware.
 
 > [!div class="nextstepaction"]
 > [Wdrażanie usługi Azure VMware Solution](deploy-azure-vmware-solution.md)
