@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cd1be43bd8984df8fef690e595ec99f4b112c3c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ddcbfd9c069fa3d50cf694087600bfc3030b1c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533706"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484155"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą programu cukier CRM
 
@@ -142,11 +142,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W sekcji **Administracja** kliknij pozycję **Zarządzanie hasłami**.
 
-    ![Administracja](./media/sugarcrm-tutorial/ic795889.png "Administracja")
+    ![Zrzut ekranu przedstawia sekcję Administracja, w której można wybrać pozycję Zarządzanie hasłami.](./media/sugarcrm-tutorial/ic795889.png "Administracja")
 
 1. Wybierz pozycję **Włącz uwierzytelnianie SAML**.
 
-    ![Administracja](./media/sugarcrm-tutorial/ic795890.png "Administracja")
+    ![Zrzut ekranu przedstawia opcję wyboru uwierzytelniania SAML.](./media/sugarcrm-tutorial/ic795890.png "Administracja")
 
 1. W sekcji **SAML Authentication** (Uwierzytelnianie SAML) wykonaj następujące kroki:
 
@@ -158,7 +158,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
   
     c. Otwórz certyfikat zakodowany w formacie Base-64 w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej cały certyfikat do pola tekstowego **certyfikatu X. 509** .
   
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-sugar-crm-test-user"></a>Utwórz użytkownika testowego CRM
 
@@ -174,7 +174,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do programu cukier
 
 1. W sekcji **Administracja** kliknij pozycję **Zarządzanie użytkownikami**.
 
-    ![Administracja](./media/sugarcrm-tutorial/ic795893.png "Administracja")
+    ![Zrzut ekranu przedstawia sekcję Administracja, w której można wybrać pozycję Zarządzanie użytkownikami.](./media/sugarcrm-tutorial/ic795893.png "Administracja")
 
 1. Przejdź do pozycji **Użytkownicy \> Utwórz nowego użytkownika**.
 
@@ -182,7 +182,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do programu cukier
 
 1. Na karcie **profil użytkownika** wykonaj następujące czynności:
 
-    ![Nowy użytkownik](./media/sugarcrm-tutorial/ic795895.png "Nowy użytkownik")
+    ![Zrzut ekranu przedstawia kartę profil użytkownika, na której można wprowadzić podane wartości.](./media/sugarcrm-tutorial/ic795895.png "Nowy użytkownik")
 
     * Wpisz **nazwę użytkownika** **, nazwisko i** **adres e-mail** prawidłowego użytkownika Azure Active Directory w powiązanych polach tekstowych.
   
@@ -190,11 +190,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do programu cukier
 
 1. Na karcie hasło wykonaj następujące czynności:
 
-    ![Nowy użytkownik](./media/sugarcrm-tutorial/ic795896.png "Nowy użytkownik")
+    ![Zrzut ekranu przedstawia kartę hasło, na której można wprowadzić podane wartości.](./media/sugarcrm-tutorial/ic795896.png "Nowy użytkownik")
 
     a. Wpisz hasło w powiązanym polu tekstowym.
 
-    b. Kliknij przycisk **Zapisz**.
+    b. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
 > Do aprowizacji kont użytkowników usługi Azure AD można używać dowolnego innego narzędzia do tworzenia kont użytkowników i interfejsów API programu CRM dostarczonych przez program cukier CRM.

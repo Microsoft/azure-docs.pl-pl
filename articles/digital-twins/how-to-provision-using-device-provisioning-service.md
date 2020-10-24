@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f9dd69c147dff1bf0bd10ca070e023bb6f7692a5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368438"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494743"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Autozarządzanie urządzeniami w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning Service (DPS)
 
@@ -71,7 +71,7 @@ Utwórz wystąpienie usługi Device Provisioning, które będzie używane do udo
 
 Następujące polecenie interfejsu wiersza polecenia platformy Azure utworzy usługę Device Provisioning. Należy określić nazwę, grupę zasobów i region. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)interfejs wiersza polecenia platformy Azure.
 
-```azurecli
+```azurecli-interactive
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
 ```
 
@@ -237,7 +237,7 @@ Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześnie
 
 Dodaj ustawienie za pomocą tego polecenia platformy Azure:
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -246,7 +246,7 @@ Upewnij się, że uprawnienia i zarządzane przypisanie roli tożsamości są po
 <!-- 
 * Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
 ``` -->
 
@@ -293,7 +293,7 @@ Powinno zostać wyświetlone urządzenie zarejestrowane i połączone z IoT Hub,
 
 W wyniku przepływu, który został skonfigurowany w tym artykule, urządzenie zostanie automatycznie zarejestrowane w usłudze Azure Digital bliźniaczych reprezentacji. Aby znaleźć sznurki urządzenia w utworzonym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, użyj następującego polecenia [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md) .
 
-```azurecli
+```azurecli-interactive
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -449,13 +449,13 @@ Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześnie
 
 Dodaj ustawienie za pomocą tego polecenia platformy Azure. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)interfejs wiersza polecenia platformy Azure.
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
 Następnie należy skonfigurować zmienną środowiskową funkcji do nawiązywania połączenia z nowo utworzonym centrum zdarzeń.
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -486,7 +486,7 @@ Urządzenie zostanie automatycznie usunięte z usługi Azure Digital bliźniaczy
 
 Aby sprawdzić, czy usunięto dwuosiową urządzenie w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, użyj następującego polecenia [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md) .
 
-```azurecli
+```azurecli-interactive
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -502,7 +502,7 @@ Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia plat
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

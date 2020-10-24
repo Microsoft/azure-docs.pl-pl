@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/19/2020
+ms.date: 10/22/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b481a1ccf36120a30bf7c923e2d59c5782433567
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0ea5995dbd6397c37f88c302754bc7ac1e5ef089
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282507"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478273"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -79,6 +79,7 @@ W tej sekcji znajdziesz dokumenty dotyczące integracji usługi PowerBI ze źró
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 10/22/2020: zmiana [wysokiej dostępności dla oprogramowania SAP NW na maszynach wirtualnych platformy Azure w systemie SLES for SAP Applications](./high-availability-guide-suse.md), [ha for SAP NW na maszynach wirtualnych platformy Azure na platformie SLES z ANF](./high-availability-guide-suse-netapp-files.md), ha for SAP [NW](./high-availability-guide-rhel-netapp-files.md) na maszynach wirtualnych platformy Azure na temat [RHEL for net.IPv4.tcp_keepalive_time SAP](./high-availability-guide-rhel.md)  
 - 10/16/2020: zmiana [wysokiej dostępności programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na platformie SLES z Pacemaker](./dbms-guide-ha-ibm.md), [ha for SAP NW na maszynach wirtualnych platformy Azure w witrynie RHEL for SAP Applications](./high-availability-guide-rhel.md), [ha of IBM DB2 LUW na maszynach](./high-availability-guide-rhel-ibm-db2-luw.md)wirtualnych platformy Azure w RHEL, [ha](./high-availability-guide-rhel-multi-sid.md)for SAP NW na maszynach wirtualnych platformy Azure na RHEL [z RHEL](./high-availability-guide-rhel-netapp-files.md), [ha dla SAP NW na maszynach wirtualnych platformy Azure w systemie SLES for SAP Applications,](./high-availability-guide-suse.md)ha for [SAP NNW na maszynach wirtualnych platformy Azure w przypadku SLES z przewodnikiem z obsługą wielosid, ha](./high-availability-guide-suse-multi-sid.md)for SAP [NW na maszynach wirtualnych platformy Azure w witrynie SLES z ANF dla aplikacji SAP, ha](./high-availability-guide-suse-netapp-files.md)dla [systemu plików NFS na maszynach](./high-availability-guide-suse-nfs.md)wirtualnych Azure na SLES SAP HANA SAP HANA [HA of SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) , [HA SAP HANA na maszynach wirtualnych platformy Azure w systemie RHEL](./sap-hana-high-availability-rhel.md), [SAP HANA skalowanie w poziomie HSR z Pacemaker na maszynach wirtualnych platformy Azure na platformie RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [Przygotowanie infrastruktury platformy Azure dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i dysku udostępnionego](./sap-high-availability-infrastructure-wsfc-shared-disk.md), [przewodnika o wysokiej dostępności dla](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) oprogramowania SAP ASCS/SCS z usługą WSFC i dysku udostępnionego na platformie Azure, a ponadto w scenariuszach równoważenia [obciążenia dla](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) pomocniczych adresów IP 
 - 10/16/2020: Dodawanie dokumentacji w celu kontrolowania migawek magazynu dużych wystąpień platformy HANA w [przypadku tworzenia kopii zapasowych i przywracania SAP HANA w dużych wystąpieniach platformy Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)
 - 10/15/2020: wydanie programu SAP BusinessObjects BI platform w dokumentacji platformy Azure, przewodnik dotyczący [planowania i implementacji platformy SAP BUSINESSOBJECTS BI na platformie Azure](businessobjects-deployment-guide.md) i [SAP BusinessObjects BI — Przewodnik wdrażania dla systemu Linux na platformie Azure](businessobjects-deployment-guide-linux.md)

@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 301bedc75d243f427120c955bda539508ff43200
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a831921ec3b3fa755496c08c02665b1c0fe99557
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87323642"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475961"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji konsolowej przy użyciu języka Java i interfejsu API MongoDB w Azure Cosmos DB
 
@@ -136,4 +136,4 @@ Teraz można używać [Korzystanie narzędzia robomongo](mongodb-robomongo.md)  
 W tym przewodniku szybki start przedstawiono sposób tworzenia Azure Cosmos DB interfejsu API dla konta usługi Mongo DB, dodawania bazy danych i kontenera przy użyciu Eksplorator danych i dodawania danych przy użyciu aplikacji konsolowej Java. Teraz możesz zaimportować dodatkowe dane do swojej bazy danych usługi Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importowanie danych z bazy danych MongoDB do usługi Azure Cosmos DB](mongodb-migrate.md)
+> [Importowanie danych z bazy danych MongoDB do usługi Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

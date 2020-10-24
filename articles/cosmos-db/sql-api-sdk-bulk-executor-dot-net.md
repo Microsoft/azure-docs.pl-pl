@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5203223f8468a4dfa0faf2df92e826a62f7bbfcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fa0b32d21c9a2172fa6093f2f7f57ccacf5e5d6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802756"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477763"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteka modułu wykonawczego platformy .NET: informacje o pobieraniu 
 
@@ -21,27 +21,27 @@ ms.locfileid: "91802756"
 > * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
 > * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
-> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
+> * [Zestaw SDK zestawienia zmian platformy .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
-> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 | **Opis**| Biblioteka modułu wykonawczego platformy .NET umożliwia aplikacjom klienckim wykonywanie operacji zbiorczych na kontach Azure Cosmos DB. Ta biblioteka zawiera przestrzenie nazw BulkImport, BulkUpdate i BulkDelete. Moduł BulkImport umożliwia zbiorcze pozyskiwanie dokumentów w sposób zoptymalizowany w taki sposób, że przepływność obsługiwana dla kolekcji jest używana w maksymalnym zakresie. Moduł BulkUpdate można zbiorczo aktualizować istniejące dane w kontenerach usługi Azure Cosmos jako poprawki. Moduł BulkDelete umożliwia zbiorcze usuwanie dokumentów w sposób zoptymalizowany w taki sposób, że przepływność obsługiwana dla kolekcji jest używana w maksymalnym zakresie.|
-|**Pobieranie zestawu SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
+|**Zestaw SDK do pobrania**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Biblioteka modułu wykonującego zbiorczo w serwisie GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet&preserve-view=true)|
+|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API platformy .NET](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?preserve-view=true&view=azure-dotnet)|
 |**Wprowadzenie**|[Wprowadzenie do zestawu .NET SDK biblioteki wykonawczej zbiorczego](bulk-executor-dot-net.md)|
 | **Bieżąca obsługiwana platforma**| Microsoft .NET Framework 4.5.2, 4.6.1 i .NET Standard 2,0 |
 
@@ -140,7 +140,7 @@ ms.locfileid: "91802756"
 
 * Niezależność od zestawu SDK platformy .NET DocumentDB do wersji 2.1.3.
 
-### <a name="111"></a><a name="1.1.1"></a>ppkt
+### <a name="111"></a><a name="1.1.1"></a>1.1.1
 
 * Rozwiązano problem, który spowodował wygenerowanie zbiorczego błędu JSRT podczas importowania do stałych kolekcji.
 

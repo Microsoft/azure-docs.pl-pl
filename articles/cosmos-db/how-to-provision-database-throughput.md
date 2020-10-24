@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a67a062c06950294ec9e49e2ec69552edc4ee77a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 347da75d8e3f58d3875b02000d74533b36a9b18c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278606"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486110"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Udostępnianie standardowej (ręcznej) przepływności dla bazy danych w interfejsie API Azure Cosmos DB-SQL
 
@@ -22,7 +22,7 @@ Jeśli używasz innego interfejsu API, zobacz artykuł [API for MongoDB](how-to-
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprowizowanie przepływności przy użyciu witryny Azure Portal
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-sql-api-dotnet.md#create-account)lub Wybierz istniejące konto usługi Azure Cosmos.
 
@@ -72,7 +72,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 Zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o aprowizacji przepływności w Azure Cosmos DB:
 
-* [Globalne skalowanie aprowizowanej przepływności](scaling-throughput.md)
+* [Globalne skalowanie aprowizowanej przepływności](./request-units.md)
 * [Aprowizacja przepływności kontenerów i baz danych](set-throughput.md)
 * [Jak zapewnić przepustowość standardową (ręczną) dla kontenera](how-to-provision-container-throughput.md)
 * [Jak udostępnić przepływność automatycznego skalowania dla kontenera](how-to-provision-autoscale-throughput.md)

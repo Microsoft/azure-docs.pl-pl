@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bd6c504970d4991ee7d5c44b091a5d91c9d0a166
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461400"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494820"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
@@ -48,19 +48,19 @@ Poniższy przykład pokazuje, jak utworzyć punkt końcowy typu usługi Event Gr
 
 Najpierw utwórz temat z siatką zdarzeń. Możesz użyć poniższego polecenia lub wyświetlić kroki bardziej szczegółowo, odwiedzając [sekcję *Tworzenie niestandardowego tematu w temacie* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) Event Grid *zdarzenia niestandardowe* — Szybki Start.
 
-```azurecli
+```azurecli-interactive
 az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
 ```
 
 > [!TIP]
 > Aby uzyskać listę nazw regionów platformy Azure, które mogą być przekazywane do poleceń w interfejsie wiersza polecenia platformy Azure, uruchom następujące polecenie:
-> ```azurecli
+> ```azurecli-interactive
 > az account list-locations -o table
 > ```
 
 Po utworzeniu tematu można połączyć go z usługą Azure Digital bliźniaczych reprezentacji, korzystając z następującego [polecenia interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md):
 
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -77,12 +77,12 @@ Najpierw utwórz zasoby, które będą używane jako punkt końcowy. Oto co jest
 Następnie użyj następujących poleceń, aby utworzyć punkty końcowe w usłudze Azure Digital bliźniaczych reprezentacji: 
 
 * Dodaj punkt końcowy tematu Service Bus (wymaga wstępnie utworzonego zasobu Service Bus)
-```azurecli 
+```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 * Dodaj punkt końcowy Event Hubs (wymaga wstępnie utworzonego zasobu Event Hubs)
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -242,8 +242,6 @@ Poniżej przedstawiono obsługiwane filtry tras. Użyj szczegółów w kolumnie 
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Zarządzanie punktami końcowymi i trasami przy użyciu interfejsu wiersza polecenia
 
 Punkty końcowe i trasy można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Aby uzyskać więcej informacji o korzystaniu z interfejsu wiersza polecenia i dostępnych poleceń, zobacz [*How to: Use the Azure Digital bliźniaczych reprezentacji CLI*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

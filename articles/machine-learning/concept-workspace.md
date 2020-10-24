@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: dccdbcb99b32a922d76b29e5896cdf99290758d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302455"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495721"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>Co to jest obszar roboczy Azure Machine Learning?
+# <a name="what-is-an-azure-machine-learning-workspace"></a>Co to jest obszar roboczy usługi Azure Machine Learning?
 
 Obszar roboczy jest zasobem najwyższego poziomu dla Azure Machine Learning, co zapewnia scentralizowane miejsce do pracy ze wszystkimi artefaktami tworzonymi podczas korzystania z Azure Machine Learning.  Obszar roboczy zachowuje historię wszystkich przebiegów szkoleniowych, w tym dzienników, metryk, danych wyjściowych i migawek skryptów. Te informacje służą do określenia, które uruchomienie szkoleniowe produkuje najlepszy model.  
 
@@ -88,8 +88,8 @@ Można również wykonać następujące zadania zarządzania obszarem roboczym:
 
 Istnieje wiele sposobów tworzenia obszaru roboczego:  
 
-* Użyj [Azure Portal](how-to-manage-workspace.md) dla interfejsu typu punkt-i-kliknięcie, aby przeprowadzić Cię przez każdy krok.
-* Użyj [zestawu SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true#&preserve-view=trueworkspace) , aby utworzyć obszar roboczy na bieżąco ze skryptów języka Python lub notesów Jupiter
+* Użyj [Azure Portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) dla interfejsu typu punkt-i-kliknięcie, aby przeprowadzić Cię przez każdy krok.
+* Użyj [zestawu SDK Azure Machine Learning dla języka Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) , aby utworzyć obszar roboczy na bieżąco ze skryptów języka Python lub notesów Jupiter
 * Użyj [szablonu Azure Resource Manager](how-to-create-workspace-template.md) lub [interfejsu wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md) , gdy zachodzi potrzeba automatyzacji lub dostosowania tworzenia przy użyciu firmowych standardów zabezpieczeń.
 * Jeśli pracujesz w Visual Studio Code, użyj [rozszerzenia vs Code](how-to-manage-resources-vscode.md#create-a-workspace).
 
@@ -114,7 +114,7 @@ Podczas tworzenia nowego obszaru roboczego program automatycznie tworzy kilka za
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): przechowuje wpisy tajne, które są używane przez cele obliczeniowe i inne poufne informacje, które są zbędne w obszarze roboczym.
 
 > [!NOTE]
-> Oprócz tworzenia nowych wersji, można również korzystać z istniejących usług platformy Azure.
+> Możesz zamiast tego używać istniejących wystąpień zasobów platformy Azure podczas tworzenia obszaru roboczego za pomocą [zestawu SDK języka Python](how-to-manage-workspace.md?tabs=python#create-a-workspace), [zestawu SDK](https://azure.github.io/azureml-sdk-for-r/reference/create_workspace.html)w języku R lub interfejsu wiersza polecenia Azure Machine Learning [przy użyciu szablonu ARM](how-to-create-workspace-template.md).
 
 <a name="wheres-enterprise"></a>
 
@@ -131,9 +131,9 @@ W obu wersjach klienci są odpowiedzialni za koszty zużywanych zasobów platfor
 Aby rozpocząć pracę z Azure Machine Learning, zobacz:
 
 + [Przegląd Azure Machine Learning](overview-what-is-azure-ml.md)
-+ [Tworzenie obszaru roboczego](how-to-manage-workspace.md)
-+ [Zarządzanie obszarem roboczym](how-to-manage-workspace.md)
-+ [Samouczek: wprowadzenie do tworzenia pierwszego eksperymentu z użyciem zestawu SDK języka Python](tutorial-1st-experiment-sdk-setup.md)
++ [Tworzenie obszaru roboczego i zarządzanie nim](how-to-manage-workspace.md)
++ [Samouczek: wprowadzenie do Azure Machine Learning w środowisku deweloperskim](tutorial-1st-experiment-sdk-setup-local.md)
++ [Samouczek: wprowadzenie do tworzenia pierwszego eksperymentu w ramach wystąpienia obliczeniowego](tutorial-1st-experiment-sdk-setup.md)
 + [Samouczek: wprowadzenie do Azure Machine Learning za pomocą zestawu SDK języka R](tutorial-1st-r-experiment.md)
-+ [Samouczek: Tworzenie pierwszego modelu klasyfikacji przy użyciu automatycznej uczenia maszynowego](tutorial-first-experiment-automated-ml.md) 
++ [Samouczek: Tworzenie pierwszego modelu klasyfikacji za pomocą zautomatyzowanego uczenia maszynowego](tutorial-first-experiment-automated-ml.md) 
 + [Samouczek: przewidywanie ceny za samochód przy użyciu narzędzia Projektant](tutorial-designer-automobile-price-train-score.md)

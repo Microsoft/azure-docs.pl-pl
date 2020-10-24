@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2defeb2c417e94109721d32d8d4b611e2e46569
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01e61abacac63d698456c3ab25826f9799d2837e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003222"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482285"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrowanie kontenerów bez partycjonowania do kontenerów partycjonowanych
 
@@ -132,6 +132,6 @@ Jeśli nowe elementy są wstawiane z różnymi wartościami klucza partycji, wyk
 * [Partitioning in Azure Cosmos DB (Partycjonowanie w usłudze Azure Cosmos DB)](partitioning-overview.md)
 * [Jednostki żądania w usłudze Azure Cosmos DB](request-units.md)
 * [Aprowizacja przepływności kontenerów i baz danych](set-throughput.md)
-* [Praca z kontem usługi Azure Cosmos](account-overview.md)
+* [Praca z kontem usługi Azure Cosmos](./account-databases-containers-items.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

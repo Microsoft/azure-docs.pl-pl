@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277675"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482523"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Elastyczne skalowanie Azure Cosmos DB interfejs API Cassandra konta
 
 Istnieje wiele opcji umożliwiających Eksplorowanie elastycznego charakteru interfejsu API Azure Cosmos DB Cassandra. Aby zrozumieć, jak efektywnie skalować w Azure Cosmos DB, ważne jest, aby zrozumieć, jak zapewnić odpowiednią ilość jednostek żądań (RU/s) w celu uwzględnienia wymagań dotyczących wydajności w systemie. Aby dowiedzieć się więcej na temat jednostek żądania, zobacz artykuł dotyczący [jednostek](request-units.md) żądania. 
 
-Dla interfejs API Cassandra można pobrać opłaty jednostkowe żądania dla poszczególnych zapytań przy użyciu [zestawów SDK dla platformy .NET i języka Java](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). Jest to pomocne w ustaleniu ilości jednostek RU/s, które należy udostępnić w usłudze.
+Dla interfejs API Cassandra można pobrać opłaty jednostkowe żądania dla poszczególnych zapytań przy użyciu [zestawów SDK dla platformy .NET i języka Java](./find-request-unit-charge-cassandra.md). Jest to pomocne w ustaleniu ilości jednostek RU/s, które należy udostępnić w usłudze.
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="Operacje bazy danych zużywają jednostki żądań" border="false":::
 
@@ -38,7 +38,7 @@ Jeśli zachodzi potrzeba zminimalizowania opóźnień, istnieje szeroki zakres o
 
 W poniższych sekcjach wyjaśniono zalety i wady poszczególnych rozwiązań. Następnie można określić najlepszą strategię, aby zrównoważyć wymagania dotyczące skalowania systemu, łączny koszt oraz potrzeby związane z wydajnością rozwiązania.
 
-## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Użyj Azure Portal
+## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Możesz skalować zasoby w Azure Cosmos DB interfejs API Cassandra koncie przy użyciu Azure Portal. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [obsługi przepływności na kontenerach i bazach danych](set-throughput.md). W tym artykule wyjaśniono względne zalety ustawiania przepływności na poziomie [bazy danych](set-throughput.md#set-throughput-on-a-database) lub [kontenera](set-throughput.md#set-throughput-on-a-container) w Azure Portal. Warunki "Database" i "Container" wymienione w tych artykułach są mapowane na "przestrzeń kluczy" i "Tabela" odpowiednio dla interfejs API Cassandra.
 
@@ -46,7 +46,7 @@ Zaletą tej metody jest to, że jest to prosty gotowe sposób zarządzania wydaj
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>Korzystanie z płaszczyzny kontroli
 
-Interfejs API Azure Cosmos DB dla Cassandra umożliwia programistyczne Dostosowywanie przepływności przy użyciu różnych funkcji płaszczyzny kontroli. Zobacz artykuły dotyczące [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [programu PowerShell](powershell-samples.md)i [interfejsu wiersza polecenia platformy Azure](cli-samples.md) , aby uzyskać wskazówki i przykłady.
+Interfejs API Azure Cosmos DB dla Cassandra umożliwia programistyczne Dostosowywanie przepływności przy użyciu różnych funkcji płaszczyzny kontroli. Zobacz artykuły dotyczące [Azure Resource Manager](./templates-samples-cassandra.md), [programu PowerShell](powershell-samples.md)i [interfejsu wiersza polecenia platformy Azure](cli-samples.md) , aby uzyskać wskazówki i przykłady.
 
 Zaletą tej metody jest Automatyzacja skalowania w górę lub w dół zasobów na podstawie czasomierza w celu uwzględnienia aktywności szczytowej lub okresów niskiej aktywności. Zapoznaj się z naszym przykładem, aby dowiesz się, jak to [zrobić za pomocą](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) Azure Functions i programu PowerShell.
 

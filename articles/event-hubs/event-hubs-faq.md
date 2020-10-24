@@ -2,13 +2,13 @@
 title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: 2c58f67fed880b8aad60ff1a46a587dcf514102e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.date: 10/23/2020
+ms.openlocfilehash: 511706e0de2737feb259c0ff9529373ab8b6d026
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424185"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495222"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -181,27 +181,12 @@ W przypadku oferty z wieloma dzierżawcami jednostki przepływności mogą wzros
 ### <a name="what-are-event-hubs-dedicated-clusters"></a>Co to są klastry usługi Event Hubs — warstwa Dedykowana?
 Klastry Event Hubs — warstwa Dedykowana oferują wdrożenia z jedną dzierżawą dla klientów z najbardziej wymaganymi wymaganiami. Ta oferta kompiluje klaster oparty na pojemności, który nie jest powiązany z jednostkami przepływności. Oznacza to, że można użyć klastra do pozyskiwania i przesyłania strumieniowego danych zgodnie z obciążeniem procesora i pamięci klastra. Aby uzyskać więcej informacji, zobacz [Event Hubs — warstwa dedykowana klastrów](event-hubs-dedicated-overview.md).
 
-### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>Jaka jest efektywność pojedynczej jednostki wydajności?
-W przypadku dedykowanego klastra ilość danych do pozyskania i przesyłania strumieniowego zależy od różnych czynników, takich jak producenci, konsumenci, szybkość pozyskiwania i przetwarzania oraz wiele innych. 
-
-W poniższej tabeli przedstawiono wyniki testów porównawczych, które zostały osiągnięte podczas testowania:
-
-| Kształt ładunku | Odbiorników | Przepustowość ruchu przychodzącego| Komunikaty dotyczące transferu danych przychodzących | Przepustowość ruchu wychodzącego | Komunikaty wychodzące | Łącznie TUs | TUs na CU |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Partie 100x1KB | 2 | 400 MB/s | komunikaty 400 000/s | 800 MB/s | komunikaty 800k/s | 400 TUs | 100 TUs | 
-| Partie 10x10KB | 2 | 666 MB/s | 66.6 k komunikatów/s | 1,33 GB/s | komunikaty 133k/s | 666 TUs | 166 TUs |
-| Partie 6x32KB | 1 | 1,05 GB/s | komunikaty 34k/s | 1,05 GB/s | komunikaty 34k/s | 1000 TUs | 250 TUs |
-
-Podczas testowania użyto następujących kryteriów:
-
-- Użyto dedykowanego klastra Event Hubs z czterema jednostkami pojemności (CUs). 
-- Centrum zdarzeń używane na potrzeby pozyskiwania ma 200 partycji. 
-- Dane, które zostały odebrane, są odbierane przez dwie aplikacje odbiornika odbierane ze wszystkich partycji.
-
-Wyniki przedstawiają informacje o tym, co można osiągnąć za pomocą dedykowanego klastra Event Hubs. Ponadto dedykowany klaster zawiera Event Hubs przechwytywania z włączonym scenariuszem dla mikropartii i długoterminowego przechowywania.
-
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Jak mogę utworzyć klaster Event Hubs — warstwa Dedykowana?
-Tworzenie dedykowanego klastra Event Hubs przez przesłanie [żądania zwiększenia obsługi przydziału](https://portal.azure.com/#create/Microsoft.Support) lub skontaktowanie się z [zespołem Event Hubs](mailto:askeventhubs@microsoft.com). Przeważnie pobieranie klastra i przekazanie go do użycia przez użytkownika trwa od dwóch tygodni. Ten proces jest tymczasowy do momentu udostępnienia kompletnego samodzielnego dostępu za pomocą Azure Portal.
+Aby uzyskać instrukcje krok po kroku i więcej informacji na temat konfigurowania dedykowanego klastra Event Hubs, zobacz [Przewodnik Szybki Start: tworzenie dedykowanego Event Hubs klastra przy użyciu Azure Portal](event-hubs-dedicated-cluster-create-portal.md). 
+
+
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c869f80eba5a6bdff4b952c62b0d964401f904d2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 05fe22ed0dc7d03148f66fd02aa648e1b63ab319
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277313"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475332"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 
@@ -39,7 +39,7 @@ W przypadku systemu Linux i innych nieobsługiwanych platform, w których Servic
 
 Cztery typy aplikacji wymienione tutaj używają domyślnie 32-bitowego przetwarzania hosta. Aby zmienić przetwarzanie hosta na 64-bitowe dla typu aplikacji, wykonaj następujące czynności:
 
-- W **przypadku aplikacji wykonywalnych**: w oknie **właściwości projektu** w okienku **kompilacja** ustaw wartość [docelowy platformy](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) na **x64**.
+- W **przypadku aplikacji wykonywalnych**: w oknie **właściwości projektu** w okienku **kompilacja** ustaw wartość [docelowy platformy](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) na **x64**.
 
 - W **przypadku projektów testowych opartych na VSTest**: w menu **test** programu Visual Studio wybierz kolejno pozycje **Testuj**  >  **Ustawienia testu**, a następnie ustaw **domyślną architekturę procesora** na **x64**.
 
@@ -53,7 +53,7 @@ Cztery typy aplikacji wymienione tutaj używają domyślnie 32-bitowego przetwar
     
 **Włącz odzyskiwanie pamięci po stronie serwera**
 
-Zmniejszenie częstotliwości wyrzucania elementów bezużytecznych może pomóc w niektórych przypadkach. W programie .NET ustaw wartość [gcServer](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) na `true` .
+Zmniejszenie częstotliwości wyrzucania elementów bezużytecznych może pomóc w niektórych przypadkach. W programie .NET ustaw wartość [gcServer](/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) na `true` .
 
 **Skalowanie obciążenia klienta**
 
@@ -62,7 +62,7 @@ W przypadku testowania o wysokiej przepływności lub stawek, które są większ
 > [!NOTE] 
 > Duże użycie procesora CPU może spowodować zwiększone opóźnienia i wyjątki limitu czasu żądania.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 <a id="direct-connection"></a>
 
 **Zasady połączenia: Użyj trybu połączenia bezpośredniego**
@@ -86,8 +86,8 @@ Gdy jest uruchomiona w protokole TCP, klient optymalizuje się pod kątem opóź
 
 W scenariuszach, w których masz dostęp rozrzedzony, a jeśli zauważysz wyższą liczbę połączeń w porównaniu z dostępem do trybu bramy, możesz:
 
-* Skonfiguruj Właściwość [CosmosClientOptions. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) na wartość `PrivatePortPool` (obowiązującą w Framework w wersji 4.6.1 lub nowszej oraz .NET Core w wersji 2,0 lub nowszej). Ta właściwość umożliwia zestawowi SDK użycie małej puli tymczasowych portów dla różnych Azure Cosmos DB docelowych punktów końcowych.
-* Skonfiguruj Właściwość [CosmosClientOptions. IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) o wartości większej lub równej 10 minut. Zalecane wartości to od 20 minut do 24 godzin.
+* Skonfiguruj Właściwość [CosmosClientOptions. PortReuseMode](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) na wartość `PrivatePortPool` (obowiązującą w Framework w wersji 4.6.1 lub nowszej oraz .NET Core w wersji 2,0 lub nowszej). Ta właściwość umożliwia zestawowi SDK użycie małej puli tymczasowych portów dla różnych Azure Cosmos DB docelowych punktów końcowych.
+* Skonfiguruj Właściwość [CosmosClientOptions. IdleConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) o wartości większej lub równej 10 minut. Zalecane wartości to od 20 minut do 24 godzin.
 
 <a id="same-region"></a>
 
@@ -103,7 +103,7 @@ Najniższe możliwe opóźnienie można uzyskać, upewniając się, że aplikacj
 
 **Zwiększenie liczby wątków/zadań**
 
-Ponieważ wywołania Azure Cosmos DB są realizowane za pośrednictwem sieci, może być konieczne zróżnicowanie stopnia współbieżności żądań, aby aplikacja kliencka spędza minimalny czas oczekiwania między żądaniami. Na przykład, jeśli używasz [biblioteki równoległej zadania](https://msdn.microsoft.com//library/dd460717.aspx).NET, Utwórz w kolejności setek zadań odczytywanych z lub zapisu do Azure Cosmos DB.
+Ponieważ wywołania Azure Cosmos DB są realizowane za pośrednictwem sieci, może być konieczne zróżnicowanie stopnia współbieżności żądań, aby aplikacja kliencka spędza minimalny czas oczekiwania między żądaniami. Na przykład, jeśli używasz [biblioteki równoległej zadania](/dotnet/standard/parallel-programming/task-parallel-library-tpl).NET, Utwórz w kolejności setek zadań odczytywanych z lub zapisu do Azure Cosmos DB.
 
 **Włącz przyspieszone sieci**
  
@@ -146,7 +146,7 @@ Włącz *zbiorczo* dla scenariuszy, w których obciążenie wymaga dużej ilośc
 
 **Zwiększ System.Net MaxConnections na hosta, gdy używasz trybu bramy**
 
-Żądania Azure Cosmos DB są wykonywane za pośrednictwem protokołu HTTPS/REST w przypadku korzystania z trybu bramy. Są one przedmiotem domyślnego limitu połączeń dla nazwy hosta lub adresu IP. Może być konieczne ustawienie `MaxConnections` wyższej wartości (od 100 do 1 000), aby Biblioteka klienta mogła używać wielu jednoczesnych połączeń do Azure Cosmos DB. W zestawie .NET SDK 1.8.0 i nowszych wartość domyślna dla [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) to 50. Aby zmienić wartość, można ustawić [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) wyższą wartość.
+Żądania Azure Cosmos DB są wykonywane za pośrednictwem protokołu HTTPS/REST w przypadku korzystania z trybu bramy. Są one przedmiotem domyślnego limitu połączeń dla nazwy hosta lub adresu IP. Może być konieczne ustawienie `MaxConnections` wyższej wartości (od 100 do 1 000), aby Biblioteka klienta mogła używać wielu jednoczesnych połączeń do Azure Cosmos DB. W zestawie .NET SDK 1.8.0 i nowszych wartość domyślna dla [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) to 50. Aby zmienić wartość, można ustawić [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit) wyższą wartość.
 
 **Dostrajaj równoległe zapytania dla kolekcji partycjonowanych**
 
@@ -170,7 +170,7 @@ Zapytania równoległe zawierają dwa parametry, które można dostosować w cel
 
 Podczas testowania wydajności należy zwiększyć obciążenie do momentu ograniczenia niewielkiej liczby żądań. Jeśli żądania są ograniczone, aplikacja kliencka powinna cofnąć ograniczenie przepustowości dla interwału ponawiania prób określonego serwera. Poszanowanie wycofywania gwarantuje, że poświęcisz minimalny czas oczekiwania między ponownymi próbami. 
 
-Aby uzyskać więcej informacji, zobacz [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+Aby uzyskać więcej informacji, zobacz [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 Istnieje mechanizm rejestrowania dodatkowych informacji diagnostycznych i rozwiązywania problemów z opóźnieniami, jak pokazano w poniższym przykładzie. Można rejestrować ciąg diagnostyczny dla żądań o wyższym opóźnieniu odczytu. Przechwycony ciąg diagnostyczny pomoże zrozumieć, ile razy otrzymano błąd *429* dla danego żądania.
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b3d01445eb5624addb5edec3ccb9cd8e4a9b6d9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85299198"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476029"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: łączenie aplikacji go z interfejsem API Azure Cosmos DB dla MongoDB
 
@@ -28,7 +28,7 @@ ms.locfileid: "85299198"
 
 Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie. W tym przewodniku szybki start utworzysz konto Azure Cosmos DB i zarządzasz nim przy użyciu Azure Cloud Shell, Sklonuj istniejącą przykładową aplikację z usługi GitHub i skonfigurujesz ją do pracy z Azure Cosmos DBami. 
 
-Przykładowa aplikacja jest narzędziem do zarządzania opartym na wierszu polecenia, które zostało `todo` zapisaniem. Interfejs API Azure Cosmos DB dla MongoDB jest [zgodny z protokołem telekomunikacyjnym MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility), dzięki czemu można połączyć się z nim przy użyciu dowolnego sterownika klienta MongoDB. Ta aplikacja korzysta ze [sterownika go dla MongoDB](https://github.com/mongodb/mongo-go-driver) w sposób niewidoczny dla aplikacji, w której dane są przechowywane w bazie danych Azure Cosmos DB.
+Przykładowa aplikacja jest narzędziem do zarządzania opartym na wierszu polecenia, które zostało `todo` zapisaniem. Interfejs API Azure Cosmos DB dla MongoDB jest [zgodny z protokołem telekomunikacyjnym MongoDB](./mongodb-introduction.md#wire-protocol-compatibility), dzięki czemu można połączyć się z nim przy użyciu dowolnego sterownika klienta MongoDB. Ta aplikacja korzysta ze [sterownika go dla MongoDB](https://github.com/mongodb/mongo-go-driver) w sposób niewidoczny dla aplikacji, w której dane są przechowywane w bazie danych Azure Cosmos DB.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z parametrami połączenia `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` .
@@ -236,7 +236,7 @@ Aby upewnić się, że aplikacja została skompilowana prawidłowo.
 
 ## <a name="setup-azure-cosmos-db"></a>Azure Cosmos DB Instalatora
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz zainstalować lub uaktualnić program, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]. 
 
@@ -279,7 +279,7 @@ Parametr `--kind MongoDB` umożliwia tworzenie połączeń klienckich MongoDB.
 Po utworzeniu konta usługi Azure Cosmos DB w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących. 
 
 > [!NOTE]
-> W tym przykładzie format JSON jest używany jako format wyjściowy interfejsu wiersza polecenia platformy Azure. Jest to ustawienie domyślne. Aby użyć innego formatu wyjściowego, zobacz [Formaty danych wyjściowych dla poleceń interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+> W tym przykładzie format JSON jest używany jako format wyjściowy interfejsu wiersza polecenia platformy Azure. Jest to ustawienie domyślne. Aby użyć innego formatu wyjściowego, zobacz [Formaty danych wyjściowych dla poleceń interfejsu wiersza polecenia platformy Azure](/cli/azure/format-output-azure-cli).
 
 ```json
 {
@@ -457,4 +457,4 @@ Wyświetl listę `todo` s do potwierdzenia
 W tym przewodniku szybki start przedstawiono sposób tworzenia konta interfejsu API usługi Azure Cosmos DB MongoDB przy użyciu Azure Cloud Shell i tworzenia i uruchamiania aplikacji w wierszu polecenia programu go w celu zarządzania usługą `todo` . Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importowanie danych z bazy danych MongoDB do usługi Azure Cosmos DB](mongodb-migrate.md)
+> [Importowanie danych z bazy danych MongoDB do usługi Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

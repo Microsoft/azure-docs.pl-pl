@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 081eb10166ff681990af15110829030176efa3fa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207788"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494990"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (CLI)
 
@@ -36,7 +36,7 @@ W tej wersji tego artykułu przechodzą te kroki ręcznie, po jednym z nich przy
 
 W tej sekcji utworzysz **nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji** przy użyciu polecenia Cloud Shell. Musisz podać:
 * Grupa zasobów, w której ma zostać wdrożona. Jeśli nie masz jeszcze istniejącej grupy zasobów, możesz utworzyć ją teraz za pomocą tego polecenia:
-    ```azurecli
+    ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Region wdrożenia. Aby zobaczyć, które regiony obsługują usługę Azure Digital bliźniaczych reprezentacji, odwiedź stronę [*usługi Azure dostępne według regionów*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -44,7 +44,7 @@ W tej sekcji utworzysz **nowe wystąpienie usługi Azure Digital bliźniaczych r
 
 Użyj tych wartości w poniższym poleceniu, aby utworzyć wystąpienie:
 
-```azurecli
+```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
@@ -67,8 +67,8 @@ Masz teraz już gotowe do użycia wystąpienie usługi Azure Digital bliźniaczy
 
 Użyj następującego polecenia, aby przypisać rolę (musi być uruchamiana przez użytkownika z [odpowiednimi uprawnieniami](#prerequisites-permission-requirements) w ramach subskrypcji platformy Azure). Polecenie wymaga przekazania *nazwy głównej użytkownika* na koncie usługi Azure AD dla użytkownika, do którego ma zostać przypisana rola. W większości przypadków będzie to zgodne z wiadomościami e-mail użytkownika na koncie usługi Azure AD.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"
 ```
 
 Wynikiem tego polecenia jest informacje o utworzonym przypisaniu roli.

@@ -2,13 +2,13 @@
 title: Omówienie dedykowanych centrów zdarzeń — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera omówienie dedykowanych Event Hubs platformy Azure, które oferują wdrożenia z jedną dzierżawą centrów zdarzeń.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/23/2020
+ms.openlocfilehash: e6208a8d50e21766969dbe9d9739d5003958126a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322449"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495101"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Omówienie Event Hubs — warstwa Dedykowana
 
@@ -38,10 +38,10 @@ W przypadku dużych ilości danych wejściowych (>100 TUs) klaster jest kosztem 
 
 W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena miesięczna, a co najmniej 4 godziny użytkowania. Warstwa dedykowana oferuje wszystkie funkcje planu Standard, ale z możliwością skalowania w przedsiębiorstwie i limitami dla klientów wymagających obciążeń. 
 
-| Cecha | Standardowa | Dedykowane |
+| Promowanie | Standardowa | Dedykowane |
 | --- |:---:|:---:|
 | Przepustowość | 20 TUs (do 40 TUs) | 20 jednostek |
-| Namespaces |  1 | 50 na CU |
+| Przestrzenie nazw |  1 | 50 na CU |
 | Event Hubs |  10 na przestrzeń nazw | 1000 na przestrzeń nazw |
 | Zdarzenia związane z transferem danych przychodzących | Płatność za milion zdarzeń | Dołączono |
 | Rozmiar komunikatu | 1 000 000 bajtów | 1 000 000 bajtów |
@@ -53,43 +53,16 @@ W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena 
 
 ## <a name="how-to-onboard"></a>Jak dołączyć
 
-Samoobsługowe środowisko [tworzenia klastra Event Hubs](event-hubs-dedicated-cluster-create-portal.md) za pomocą witryny [Azure Portal](https://aka.ms/eventhubsclusterquickstart) jest teraz w wersji zapoznawczej. Jeśli masz jakieś pytania lub potrzebujesz pomocy przy dołączaniu do Event Hubs — warstwa Dedykowana, skontaktuj się z [zespołem Event Hubs](mailto:askeventhubs@microsoft.com).
+Samoobsługowe środowisko [tworzenia klastra Event Hubs](event-hubs-dedicated-cluster-create-portal.md) za pomocą [Azure Portal](https://aka.ms/eventhubsclusterquickstart) jest teraz w wersji zapoznawczej. Jeśli masz jakieś pytania lub potrzebujesz pomocy przy dołączaniu do Event Hubs — warstwa Dedykowana, skontaktuj się z [zespołem Event Hubs](mailto:askeventhubs@microsoft.com).
 
 ## <a name="faqs"></a>Często zadawane pytania
 
-#### <a name="what-can-i-achieve-with-a-cluster"></a>Co można osiągnąć przy użyciu klastra?
-
-W przypadku klastra Event Hubs, jak dużo możliwości pozyskiwania i przesyłania strumieniowego zależy od różnych czynników, takich jak producenci, konsumenci, szybkość pozyskiwania i przetwarzania oraz wiele innych. 
-
-W poniższej tabeli przedstawiono wyniki testów porównawczych, które zostały osiągnięte podczas testowania:
-
-| Kształt ładunku | Odbiorników | Przepustowość ruchu przychodzącego| Komunikaty dotyczące transferu danych przychodzących | Przepustowość ruchu wychodzącego | Komunikaty wychodzące | Łącznie TUs | TUs na CU |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Partie 100x1KB | 2 | 400 MB/s | komunikaty 400 000/s | 800 MB/s | komunikaty 800k/s | 400 TUs | 100 TUs | 
-| Partie 10x10KB | 2 | 666 MB/s | 66.6 k komunikatów/s | 1,33 GB/s | komunikaty 133k/s | 666 TUs | 166 TUs |
-| Partie 6x32KB | 1 | 1,05 GB/s | komunikaty 34k/s | 1,05 GB/s | komunikaty 34k/s | 1000 TUs | 250 TUs |
-
-Podczas testowania użyto następujących kryteriów:
-
-- Użyto dedykowanego klastra Event Hubs z czterema jednostkami pojemności (CUs). 
-- Centrum zdarzeń używane na potrzeby pozyskiwania ma 200 partycji. 
-- Dane, które zostały odebrane, są odbierane przez dwie aplikacje odbiornika odbierane ze wszystkich partycji.
-
-#### <a name="can-i-scale-updown-my-cluster"></a>Czy mogę skalować w górę i w dół mój klaster?
-
-Po utworzeniu opłaty za klastry są naliczane co najmniej 4 godziny użytkowania. W wersji zapoznawczej środowiska samoobsługowego można przesłać [żądanie pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) do zespołu Event Hubs w obszarze *przydziały > technicznych > żądania skalowania* klastra w górę lub w dół w celu skalowania klastra w górę lub w dół. Ukończenie żądania skalowania klastra może potrwać do 7 dni. 
-
-#### <a name="how-will-geo-dr-work-with-my-cluster"></a>Jak będzie współdziałać z moim klastrem za pomocą programu Geo-DR?
-
-Można sparować geograficznie przestrzeń nazw w klastrze dedykowanym z inną przestrzenią nazw w klastrze dedykowanym. Nie zachęcamy do kojarzenia przestrzeni nazw dedykowanej warstwy z przestrzenią nazw w naszej ofercie standardowej, ponieważ ograniczenie przepływności będzie niezgodne, co spowoduje błędy. 
-
-#### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Czy mogę migrować moje standardowe przestrzenie nazw, które mają należeć do klastra warstwy dedykowanej?
-Obecnie nie obsługujemy zautomatyzowanego procesu migracji danych centrów zdarzeń z standardowej przestrzeni nazw do dedykowanej. 
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
 Skontaktuj się z przedstawicielem handlowym firmy Microsoft lub pomoc techniczna firmy Microsoft, aby uzyskać dodatkowe informacje dotyczące Event Hubs — warstwa Dedykowana. Możesz również utworzyć klaster lub dowiedzieć się więcej na temat Event Hubs warstw cenowych, odwiedzając następujące linki:
 
-- [Tworzenie klastra Event Hubs za pomocą witryny Azure Portal](https://aka.ms/eventhubsclusterquickstart) 
+- [Tworzenie klastra Event Hubs za pomocą Azure Portal](https://aka.ms/eventhubsclusterquickstart) 
 - [Cennik Event Hubs — warstwa dedykowana](https://azure.microsoft.com/pricing/details/event-hubs/). Możesz również skontaktować się z przedstawicielem handlowym firmy Microsoft lub pomoc techniczna firmy Microsoft, aby uzyskać dodatkowe informacje dotyczące Event Hubs — warstwa Dedykowana pojemności.
 - [Event Hubs często zadawane pytania](event-hubs-faq.md) zawierają informacje o cenach i odpowiedzi na kilka często zadawanych pytań dotyczących Event Hubs.

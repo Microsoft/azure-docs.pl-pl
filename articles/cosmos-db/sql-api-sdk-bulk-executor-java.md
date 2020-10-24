@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 72a224d4ad1807d095baa8db819878bf2e22e133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b487ca5301aebf642c27b78489309d5def9128b7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802722"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477627"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteka wykonawców zbiorczych języka Java: informacje o pobieraniu
 
@@ -22,27 +22,27 @@ ms.locfileid: "91802722"
 > * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
 > * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
-> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
+> * [Zestaw SDK zestawienia zmian platformy .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
-> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Opis**|Biblioteka wykonawców zbiorczych umożliwia aplikacjom klienckim wykonywanie operacji zbiorczych w ramach kont Azure Cosmos DB. Biblioteka wykonawców zbiorczych udostępnia przestrzenie nazw BulkImport i BulkUpdate. Moduł BulkImport umożliwia zbiorcze pozyskiwanie dokumentów w sposób zoptymalizowany w taki sposób, że przepływność obsługiwana dla kolekcji jest używana w maksymalnym zakresie. Moduł BulkUpdate można zbiorczo aktualizować istniejące dane w kontenerach usługi Azure Cosmos jako poprawki.|
-|**Pobieranie zestawu SDK**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
+|**Zestaw SDK do pobrania**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**Biblioteka modułu wykonującego zbiorczo w serwisie GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
-| **Dokumentacja interfejsu API**| [Dokumentacja interfejsu API języka Java](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+| **Dokumentacja interfejsu API**| [Dokumentacja interfejsu API języka Java](/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Wprowadzenie**|[Wprowadzenie do zestawu SDK języka Java dla biblioteki wykonawczej](bulk-executor-java.md)|
 |**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
@@ -67,5 +67,3 @@ ms.locfileid: "91802722"
 ### <a name="291"></a><a name="2.9.1"></a>2.9.1
 
 * Zaktualizuj początkowy stopień współbieżności do 1 i dodano Dzienniki debugowania dla minibatch.
-
-

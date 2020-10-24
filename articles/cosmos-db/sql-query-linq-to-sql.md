@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: f2a7570b7ebed26a06e1bd075c2904bc29061c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f5e88e7201c4097e2f8d654b8780ea12816b15d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498858"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485107"
 ---
 # <a name="linq-to-sql-translation"></a>Tłumaczenie składni LINQ na język SQL
 
-Dostawca zapytań Azure Cosmos DB wykonuje Mapowanie najlepszego nakładu pracy z zapytania LINQ do Cosmos DB zapytania SQL. Jeśli chcesz uzyskać zapytanie SQL tłumaczone z LINQ, użyj `ToString()` metody dla wygenerowanego `IQueryable` obiektu. W poniższym opisie założono podstawową znajomość programu [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
+Dostawca zapytań Azure Cosmos DB wykonuje Mapowanie najlepszego nakładu pracy z zapytania LINQ do Cosmos DB zapytania SQL. Jeśli chcesz uzyskać zapytanie SQL tłumaczone z LINQ, użyj `ToString()` metody dla wygenerowanego `IQueryable` obiektu. W poniższym opisie założono podstawową znajomość programu [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
 System typu dostawcy zapytań obsługuje tylko typy pierwotne JSON: numeric, Boolean, String i null.
 
@@ -23,7 +23,7 @@ Dostawca zapytań obsługuje następujące wyrażenia skalarne:
 
 - Stałe wartości, w tym stałe wartości typów danych pierwotnych w czasie oceny zapytania.
   
-- Wyrażenia indeksu właściwości/tablicy odwołujące się do właściwości obiektu lub elementu tablicy. Na przykład:
+- Wyrażenia indeksu właściwości/tablicy odwołujące się do właściwości obiektu lub elementu tablicy. Przykład:
   
   ```
     family.Id;

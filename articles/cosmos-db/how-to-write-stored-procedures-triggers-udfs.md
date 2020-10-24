@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: bc7bc677fb44600721b580ac9efc42feea4d98da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87d33308932ecd7c523c6fbe287648d4afc21ef0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252956"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485804"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Jak pisać procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika w usłudze Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Aby wywołać procedurę składowaną, wyzwalacz i funkcję zdefiniowaną przez 
 > [!NOTE]
 > W przypadku kontenerów podzielonych na partycje podczas wykonywania procedury składowanej w opcjach żądania należy podać wartość klucza partycji. Procedury składowane są zawsze ograniczone do klucza partycji. Elementy, które mają inną wartość klucza partycji, nie będą widoczne dla procedury składowanej. Ma to również zastosowanie do wyzwalaczy.
 > [!Tip]
-> Program Cosmos obsługuje wdrażanie kontenerów za pomocą procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytkownika. Aby uzyskać więcej informacji [, zobacz Tworzenie kontenera Azure Cosmos dB przy użyciu funkcji po stronie serwera.](manage-sql-with-resource-manager.md#create-sproc)
+> Program Cosmos obsługuje wdrażanie kontenerów za pomocą procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytkownika. Aby uzyskać więcej informacji [, zobacz Tworzenie kontenera Azure Cosmos dB przy użyciu funkcji po stronie serwera.](./manage-with-templates.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Jak pisać procedury składowane
 

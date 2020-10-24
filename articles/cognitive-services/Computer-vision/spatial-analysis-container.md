@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277295"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496123"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalowanie i uruchamianie kontenera analizy przestrzennej (wersja zapoznawcza)
 
@@ -107,7 +107,7 @@ Analiza przestrzenna korzysta z funkcji obliczeniowych Azure Stack Edge, aby uru
 
 W [Azure Portal](https://portal.azure.com/)przejdź do zasobu Azure Stack Edge. Na stronie **Przegląd** lub na liście nawigacji kliknij przycisk **wprowadzenie** do obliczeń krawędzi. Na kafelku **konfigurowania obliczeń brzegowych**   kliknij przycisk **Konfiguruj**. 
 
-![Łącze](media/spatial-analysis/configure-edge-compute-tile.png)
+![Link](media/spatial-analysis/configure-edge-compute-tile.png)
 
 Na stronie **Konfigurowanie obliczeń krawędzi**   Wybierz istniejący IoT Hub lub wybierz opcję utworzenia nowego. Domyślnie warstwa cenowa standardowa (S1) jest używana do tworzenia zasobów IoT Hub. Aby użyć zasobu warstwy Bezpłatna IoT Hub, utwórz go, a następnie wybierz. Zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge 
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Jeśli komputer hosta nie jest Azure Stack urządzeniem brzegowym, należy zainstalować program [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Version 1.0.8. Wykonaj następujące kroki, aby pobrać poprawną wersję:
+Jeśli komputer hosta nie jest Azure Stack urządzeniem brzegowym, należy zainstalować program [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Version 1.0.9. Wykonaj następujące kroki, aby pobrać poprawną wersję:
 
 Ubuntu Server 18,04:
 ```bash
@@ -286,10 +286,10 @@ Aktualizowanie list pakietów na urządzeniu.
 sudo apt-get update
 ```
 
-Zainstaluj wersję 1.0.8:
+Zainstaluj wersję 1.0.9:
 
 ```bash
-sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
 ```
 
 Następnie zarejestruj komputer hosta jako urządzenie IoT Edge w wystąpieniu IoT Hub, używając [parametrów połączenia](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
@@ -314,7 +314,7 @@ Wykonaj poniższe kroki, aby wdrożyć kontener przy użyciu interfejsu wiersza 
 
 ### <a name="iot-deployment-manifest"></a>Manifest wdrożenia IoT
 
-Aby usprawnić wdrażanie kontenerów na wielu komputerach hostów, można utworzyć plik manifestu wdrożenia w celu określenia opcji tworzenia kontenera i zmiennych środowiskowych. Przykład [manifestu wdrożenia można znaleźć w witrynie GitHub](https://go.microsoft.com/fwlink/?linkid=2142179).
+Aby usprawnić wdrażanie kontenerów na wielu komputerach hostów, można utworzyć plik manifestu wdrożenia w celu określenia opcji tworzenia kontenera i zmiennych środowiskowych. Przykład manifestu wdrażania [dla Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) i  [innych komputerów stacjonarnych](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) w serwisie GitHub.
 
 W poniższej tabeli przedstawiono różne zmienne środowiskowe używane przez moduł IoT Edge. Można je również ustawić w manifeście wdrożenia połączonym powyżej, używając `env` atrybutu w `spatialanalysis` :
 
@@ -335,17 +335,16 @@ W poniższej tabeli przedstawiono różne zmienne środowiskowe używane przez m
 > [!IMPORTANT]
 > `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
 
-Po zaktualizowaniu przykładowej [DeploymentManifest.jsw](https://go.microsoft.com/fwlink/?linkid=2142179) pliku przy użyciu własnych ustawień i wyboru operacji można użyć poniższego polecenia [platformy Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) , aby wdrożyć kontener na komputerze hosta jako moduł IoT Edge.
+Po zaktualizowaniu manifestu wdrażania dla [Azure Stack urządzenia brzegowe](https://go.microsoft.com/fwlink/?linkid=2142179) lub [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) z własnymi ustawieniami i wyborem operacji można użyć poniższego polecenia [interfejsu wiersza poleceń platformy Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) , aby wdrożyć kontener na komputerze hosta jako moduł IoT Edge.
 
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
 ```
 
 |Parametr  |Opis  |
 |---------|---------|
-| `--deployment-id` | Nowa nazwa wdrożenia. |
 | `--hub-name` | Nazwa IoT Hub platformy Azure. |
 | `--content` | Nazwa pliku wdrożenia. |
 | `--target-condition` | Nazwa urządzenia IoT Edgego dla komputera hosta. |
@@ -386,7 +385,7 @@ Przejdź do sekcji **kontenera** , a następnie utwórz nowy kontener lub Użyj 
 
 Kliknij pozycję **Generuj token SAS i adres URL** , a następnie skopiuj adres URL sygnatury dostępu współdzielonego obiektu BLOB. Zastąp ciąg rozpoczynający `https` się od `http` i Przetestuj adres URL w przeglądarce, która obsługuje odtwarzanie wideo.
 
-Zastąp `VIDEO_URL` w [manifeście wdrożenia](https://go.microsoft.com/fwlink/?linkid=2142179) utworzonym adresem URL dla wszystkich wykresów. Ustaw wartość `VIDEO_IS_LIVE` na `false` i Wdróż ponownie kontener analizy przestrzennej z zaktualizowanym manifestem. Zobacz przykład poniżej.
+Zastąp `VIDEO_URL` w manifeście wdrożenia dla [Azure Stack urządzenia brzegowego](https://go.microsoft.com/fwlink/?linkid=2142179) lub innej [maszyny stacjonarnej](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) z utworzonym adresem URL dla wszystkich wykresów. Ustaw wartość `VIDEO_IS_LIVE` na `false` i Wdróż ponownie kontener analizy przestrzennej z zaktualizowanym manifestem. Zobacz przykład poniżej.
 
 Moduł analizy przestrzennej zacznie zużywać plik wideo i ciągle powtarzać się.
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/27/2020
-ms.openlocfilehash: 6e43d00722dd86934c8f95e06a3b8b590b263d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2c340f9e7d2c44082adc67eeb816276449602035
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705164"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484495"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL przy użyciu Azure Portal
 
@@ -68,7 +68,7 @@ Aby utworzyć serwer Azure Database for PostgreSQL:
 Zostanie utworzona pusta baza danych, **Postgres**. Znajduje się również **azure_maintenance** baza danych służąca do oddzielania procesów usługi zarządzanej od akcji użytkownika. Nie możesz uzyskać dostępu do bazy danych **azure_maintenance** .
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurowanie reguły zapory na poziomie serwera
-Domyślnie tworzony serwer nie jest publicznie dostępny. Musisz nadać uprawnienia na adres IP. Przejdź do zasobu serwera w Azure Portal i wybierz pozycję **zabezpieczenia połączeń** z menu po lewej stronie dla zasobu serwera. Jeśli nie masz pewności, jak znaleźć zasób, zobacz [otwarte zasoby](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+Domyślnie tworzony serwer nie jest publicznie dostępny. Musisz nadać uprawnienia na adres IP. Przejdź do zasobu serwera w Azure Portal i wybierz pozycję **zabezpieczenia połączeń** z menu po lewej stronie dla zasobu serwera. Jeśli nie masz pewności, jak znaleźć zasób, zobacz [otwarte zasoby](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Zrzut ekranu przedstawiający Azure Database for PostgreSQL w menu.":::
@@ -80,7 +80,7 @@ Wybierz pozycję **Dodaj bieżący adres IP klienta**, a następnie wybierz pozy
 
 ## <a name="connect-to-azure-database-for-postgresql-server-by-using-psql"></a>Nawiązywanie połączenia z serwerem Azure Database for PostgreSQL przy użyciu PSQL
 
-Można używać [PSQL](http://postgresguide.com/utilities/psql.html) lub [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html), które są popularnymi klientami PostgreSQL. W ramach tego przewodnika Szybki Start będziemy łączyć się za pomocą PSQL w [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) w Azure Portal.
+Można używać [PSQL](http://postgresguide.com/utilities/psql.html) lub [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html), które są popularnymi klientami PostgreSQL. W ramach tego przewodnika Szybki Start będziemy łączyć się za pomocą PSQL w [Azure Cloud Shell](../cloud-shell/overview.md) w Azure Portal.
 
 1. Zanotuj nazwę serwera, nazwę logowania administratora serwera, hasło i Identyfikator subskrypcji nowo utworzonego serwera z sekcji **Przegląd** serwera.
 

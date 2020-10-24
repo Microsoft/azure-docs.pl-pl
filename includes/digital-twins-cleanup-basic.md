@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
-ms.openlocfilehash: 2e095a7b286a8860535d6b58fa93098735b30c87
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 29a07ffa917153c0cb062d34e2807d43d039a373
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92372325"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494665"
 ---
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć.
 
@@ -21,6 +21,6 @@ Za pomocą [Azure Cloud Shell](https://shell.azure.com)można usunąć wszystkie
 
 Otwórz Azure Cloud Shell i uruchom następujące polecenie, aby usunąć grupę zasobów i wszystkie elementy, które zawiera.
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47b3706d1fb46ab7e115d79c2f06f6264c8b423e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9001d9982a26875f814b635533bebd7579339fa5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666518"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476726"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Rozpoczynanie pracy z interfejsem API tabel usługi Azure Cosmos DB oraz usługą Azure Table Storage przy użyciu zestawu SDK platformy .NET
 
@@ -98,7 +98,7 @@ Aby uzyskać pakiet NuGet, wykonaj następujące kroki:
 
 ## <a name="create-a-table"></a>Tworzenie tabeli 
 
-Klasa [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) umożliwia pobieranie tabel i jednostek przechowywanych w usłudze Table Storage. Ponieważ nie mamy żadnych tabel na koncie Cosmos DB interfejs API tabel, dodajmy `CreateTableAsync` metodę do klasy **Common.cs** , aby utworzyć tabelę:
+Klasa [CloudTableClient](/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) umożliwia pobieranie tabel i jednostek przechowywanych w usłudze Table Storage. Ponieważ nie mamy żadnych tabel na koncie Cosmos DB interfejs API tabel, dodajmy `CreateTableAsync` metodę do klasy **Common.cs** , aby utworzyć tabelę:
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
 
@@ -110,17 +110,17 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 ## <a name="define-the-entity"></a>Zdefiniuj jednostkę 
 
-Jednostki mapują obiekty do obiektów C# przy użyciu klasy niestandardowej pochodnej od [klasy tableentity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Aby dodać jednostkę do tabeli, należy utworzyć klasę, która definiuje właściwości jednostki.
+Jednostki mapują obiekty do obiektów C# przy użyciu klasy niestandardowej pochodnej od [klasy tableentity](/dotnet/api/microsoft.azure.cosmos.table.tableentity). Aby dodać jednostkę do tabeli, należy utworzyć klasę, która definiuje właściwości jednostki.
 
 Kliknij prawym przyciskiem myszy projekt **CosmosTableSamples**. Wybierz pozycję **Dodaj**, **Nowy folder** i nadaj jej nazwę **model**. W folderze model Dodaj klasę o nazwie **CustomerEntity.cs** i Dodaj do niej następujący kod.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Model/CustomerEntity.cs":::
 
-Ten kod definiuje klasę jednostki używającą imienia klienta jako klucza wiersza i nazwisko jako klucz partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, ale użycie różnych kluczy partycji umożliwia większą skalowalność operacji równoległych. Jednostki, które mają być przechowywane w tabelach, muszą być obsługiwanego typu, na przykład muszą pochodzić od klasy [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Właściwości jednostki, które zamierzasz przechowywać w tabeli, muszą być publicznymi właściwościami typu i obsługiwać zarówno pobieranie, jak i ustawianie wartości. Ponadto typ jednostki musi ujawniać konstruktor bez parametrów.
+Ten kod definiuje klasę jednostki używającą imienia klienta jako klucza wiersza i nazwisko jako klucz partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki o różnych kluczach partycji, ale użycie różnych kluczy partycji umożliwia większą skalowalność operacji równoległych. Jednostki, które mają być przechowywane w tabelach, muszą być obsługiwanego typu, na przykład muszą pochodzić od klasy [TableEntity](/dotnet/api/microsoft.azure.cosmos.table.tableentity). Właściwości jednostki, które zamierzasz przechowywać w tabeli, muszą być publicznymi właściwościami typu i obsługiwać zarówno pobieranie, jak i ustawianie wartości. Ponadto typ jednostki musi ujawniać konstruktor bez parametrów.
 
 ## <a name="insert-or-merge-an-entity"></a>Wstawianie lub scalanie jednostki
 
-Poniższy przykład kodu tworzy obiekt Entity i dodaje go do tabeli. Metoda InsertOrMerge w klasie [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) służy do wstawiania lub scalania jednostki. Metoda [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet&preserve-view=true) jest wywoływana, aby wykonać operację. 
+Poniższy przykład kodu tworzy obiekt Entity i dodaje go do tabeli. Metoda InsertOrMerge w klasie [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) służy do wstawiania lub scalania jednostki. Metoda [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) jest wywoływana, aby wykonać operację. 
 
 Kliknij prawym przyciskiem myszy projekt **CosmosTableSamples**. Wybierz pozycję **Dodaj**, **nowy element** i dodaj klasę o nazwie **SamplesUtils.cs**. Ta klasa przechowuje wszystkie kody wymagane do wykonywania operacji CRUD na jednostkach. 
 
@@ -128,7 +128,7 @@ Kliknij prawym przyciskiem myszy projekt **CosmosTableSamples**. Wybierz pozycj�
 
 ## <a name="get-an-entity-from-a-partition"></a>Pobieranie jednostki z partycji
 
-Jednostkę można pobrać z partycji za pomocą metody get w klasie [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) . Poniższy przykład kodu Pobiera klucz wiersza klucza partycji, adres e-mail i numer telefonu jednostki klienta. Ten przykład drukuje również jednostki żądań zużyte do zapytania dla jednostki. Aby wykonać zapytanie dotyczące jednostki, Dołącz następujący kod do pliku **SamplesUtils.cs** :
+Jednostkę można pobrać z partycji za pomocą metody get w klasie [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) . Poniższy przykład kodu Pobiera klucz wiersza klucza partycji, adres e-mail i numer telefonu jednostki klienta. Ten przykład drukuje również jednostki żądań zużyte do zapytania dla jednostki. Aby wykonać zapytanie dotyczące jednostki, Dołącz następujący kod do pliku **SamplesUtils.cs** :
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
 

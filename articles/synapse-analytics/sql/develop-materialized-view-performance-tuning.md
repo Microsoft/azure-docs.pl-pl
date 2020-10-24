@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289042"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474771"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Strojenie wydajności za pomocą zmaterializowanych widoków
 
@@ -38,7 +38,7 @@ Większość standardowych wymagań widoku nadal ma zastosowanie do widoku z mat
 |Odświeżanie danych                    | Zawsze aktualizowane                               | Zawsze aktualizowane
 |Szybkość pobierania danych widoku z złożonych zapytań     | Mała                                         | Duża  
 |Dodatkowy magazyn                   | Nie                                           | Tak
-|Składnia                          | UTWÓRZ WIDOK                                  | UTWÓRZ WIDOK Z MATERIAŁAMI JAKO WYBRANY
+|Składnia                          | CREATE VIEW                                  | UTWÓRZ WIDOK Z MATERIAŁAMI JAKO WYBRANY
 
 ## <a name="benefits-of-materialized-views"></a>Zalety widoków z materiałami
 
@@ -79,7 +79,9 @@ W porównaniu z innymi opcjami dostrajania, takimi jak skalowanie i Zarządzanie
 
 **Potrzebna inna strategia dystrybucji danych w celu przyspieszenia wykonywania zapytań**
 
-Usługa Azure Data Warehouse to system dystrybuowany i wysoce Parallel Processing (MPP).   Dane w tabeli magazynu danych są dystrybuowane między 60 węzłami przy użyciu jednej z trzech [strategii dystrybucji](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (mieszanie, round_robin lub zreplikowane).  
+Usługa Azure Data Warehouse to system dystrybuowany i wysoce Parallel Processing (MPP).  
+
+Synapse SQL to rozproszony system zapytań, który umożliwia przedsiębiorstwom wdrażanie scenariuszy magazynowania danych i wirtualizacji danych przy użyciu standardowych środowisk T-SQL, które są znane dla inżynierów danych. Rozszerza również możliwości programu SQL na potrzeby obsługi przesyłania strumieniowego i scenariuszy uczenia maszynowego. Dane w tabeli magazynu danych są dystrybuowane między 60 węzłami przy użyciu jednej z trzech [strategii dystrybucji](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (mieszanie, round_robin lub zreplikowane).  
 
 Dystrybucja danych jest określana w czasie tworzenia tabeli i pozostaje niezmieniona, dopóki tabela nie zostanie porzucona. Widok z materiałami jest tabelą wirtualną na dysku obsługującym dystrybucję danych i round_robin.  Użytkownicy mogą wybrać dystrybucję danych inną niż tabele podstawowe, ale optymalną dla wydajności zapytań, które często korzystają z widoków.  
 
@@ -117,7 +119,7 @@ Opcje zmniejszania liczby widoków z materiałami:
 
 - Porzuć widoki z materiałami, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materiałowy nie jest obsługiwany, ale nadal wiąże się z nim koszt magazynu.  
 
-- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Na przykład:
+- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Przykład:
 
 ```sql
 -- Query 1 would benefit from having a materialized view created with this SELECT statement

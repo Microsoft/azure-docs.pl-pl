@@ -8,16 +8,16 @@ ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 1e8e1aa9d8e582644d1d625fc8a97cc0e0c790df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f16498f0661ba918acd42b7964b649d0bbdf5841
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334399"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495894"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Interfejs API zapytań JavaScript w Azure Cosmos DB
 
-Oprócz wydawania zapytań przy użyciu interfejsu API SQL w Azure Cosmos DB, [zestaw SDK po stronie serwera Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/) udostępnia interfejs JavaScript do wykonywania zoptymalizowanych zapytań w Cosmos DB procedurach składowanych i wyzwalaczach. Nie trzeba znać języka SQL, aby używać tego interfejsu JavaScript. Interfejs API zapytań języka JavaScript umożliwia Programistyczne tworzenie zapytań przez przekazywanie funkcji predykatów do sekwencji wywołań funkcji, z składnią ECMAScript5's wbudowane i popularne biblioteki języka JavaScript, takie jak Lodash. Zapytania są analizowane przez środowisko uruchomieniowe JavaScript i efektywnie wykonywane przy użyciu Azure Cosmos DB indeksów.
+Oprócz wydawania zapytań przy użyciu interfejsu API SQL w Azure Cosmos DB, [zestaw SDK po stronie serwera Cosmos DB](https://github.com/Azure/azure-cosmosdb-js-server/) udostępnia interfejs JavaScript do wykonywania zoptymalizowanych zapytań w Cosmos DB procedurach składowanych i wyzwalaczach. Nie trzeba znać języka SQL, aby używać tego interfejsu JavaScript. Interfejs API zapytań języka JavaScript umożliwia Programistyczne tworzenie zapytań przez przekazywanie funkcji predykatów do sekwencji wywołań funkcji, z składnią ECMAScript5's wbudowane i popularne biblioteki języka JavaScript, takie jak Lodash. Zapytania są analizowane przez środowisko uruchomieniowe JavaScript i efektywnie wykonywane przy użyciu Azure Cosmos DB indeksów.
 
 ## <a name="supported-javascript-functions"></a>Obsługiwane funkcje języka JavaScript
 
@@ -43,7 +43,7 @@ Następujące konstrukcje JavaScript nie są zoptymalizowane pod kątem Azure Co
 - Przepływ sterowania (na przykład jeśli, w przypadku, while)
 - Wywołania funkcji
 
-Aby uzyskać więcej informacji, zobacz [dokumentację języka JavaScript po stronie serwera Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).
+Aby uzyskać więcej informacji, zobacz [dokumentację języka JavaScript po stronie serwera Cosmos DB](https://github.com/Azure/azure-cosmosdb-js-server/).
 
 ## <a name="sql-to-javascript-cheat-sheet"></a>Arkusz Ściągawka SQL do JavaScript
 

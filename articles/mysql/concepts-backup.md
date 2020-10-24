@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 51c177af10713dfb35857097b267638156f0cc5d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 9514d0fb6c9cbc95b82f13ffb576703893f303f2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057539"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484563"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL
 
@@ -38,7 +38,7 @@ Kopie zapasowe dziennika transakcji są wykonywane co pięć minut.
 Magazyn ogólnego przeznaczenia to magazyn zaplecza obsługujący [ogólnego przeznaczenia](concepts-pricing-tiers.md) i serwer [warstwy zoptymalizowanej pod kątem pamięci](concepts-pricing-tiers.md) . W przypadku serwerów z magazynem ogólnego przeznaczenia do 4 TB kopie zapasowe są wykonywane co tydzień. Różnicowe kopie zapasowe są wykonywane dwa razy dziennie. Kopie zapasowe dziennika transakcji są wykonywane co pięć minut. Kopie zapasowe w magazynie ogólnego przeznaczenia o pojemności do 4 TB nie są oparte na migawce i zużywają przepustowość we/wy w momencie tworzenia kopii zapasowych. W przypadku dużych baz danych (> 1 TB) dla magazynu 4 TB Zalecamy rozważenie 
 
 - Inicjowanie obsługi większej liczby IOPs na potrzeby tworzenia kopii zapasowych systemu IOs lub
-- Alternatywnie można przeprowadzić migrację do magazynu ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB magazynu, jeśli podstawowy infrastrukturą magazynu jest dostępny w preferowanych [regionach platformy Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Nie ma dodatkowych kosztów związanych z magazynem ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB pamięci masowej. Aby uzyskać pomoc dotyczącą migracji do magazynu o pojemności 16 TB, należy otworzyć bilet pomocy technicznej z Azure Portal. 
+- Alternatywnie można przeprowadzić migrację do magazynu ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB magazynu, jeśli podstawowa infrastruktura magazynu jest dostępna w preferowanych [regionach platformy Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Nie ma dodatkowych kosztów związanych z magazynem ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB pamięci masowej. Aby uzyskać pomoc dotyczącą migracji do magazynu o pojemności 16 TB, należy otworzyć bilet pomocy technicznej z Azure Portal. 
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Serwery magazynu ogólnego przeznaczenia z magazynem do 16 TB
 W podzestawie [regionów świadczenia usługi Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać magazyn ogólnego przeznaczenia o pojemności do 16 TB. Innymi słowy, magazyn do 16 TB magazynu jest domyślnym magazynem ogólnego przeznaczenia dla wszystkich [regionów](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) , w których jest obsługiwany. Kopie zapasowe na tych serwerach magazynu 16 TB są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi. 
@@ -55,12 +55,16 @@ Okres przechowywania kopii zapasowej decyduje o tym, jak daleko w czasie można 
 - Serwery z magazynem o pojemności do 4 TB przechowują do 2 kopii zapasowych pełnych baz danych, wszystkie różnicowe kopie zapasowe i kopie zapasowe dziennika transakcji wykonane od najwcześniejszej pełnej kopii zapasowej bazy danych.
 -   Serwery z magazynem do 16 TB będą zachować pełną migawkę bazy danych, wszystkie migawki różnicowe i kopie zapasowe dziennika transakcji w ciągu ostatnich 8 dni.
 
+#### <a name="long-term-retention"></a>Długoterminowe przechowywanie
+Długoterminowe przechowywanie kopii zapasowych poza 35 dni nie jest obecnie obsługiwane w sposób natywny przez usługę. Możesz użyć mysqldump, aby tworzyć kopie zapasowe i przechowywać je do długoterminowego przechowywania. Nasz zespół pomocy technicznej Blogged [krok po kroku,](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) aby udostępnić, jak można to osiągnąć. 
+
+
 ### <a name="backup-redundancy-options"></a>Opcje nadmiarowości kopii zapasowej
 
 Azure Database for MySQL zapewnia elastyczność wyboru między lokalnie nadmiarowym lub geograficznie nadmiarowym magazynem kopii zapasowych w warstwach Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci. Gdy kopie zapasowe są przechowywane w magazynie geograficznie nadmiarowym, nie są przechowywane tylko w regionie, w którym znajduje się serwer, ale są również replikowane do [sparowanego centrum danych](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Zapewnia to lepszą ochronę i możliwość przywracania serwera w innym regionie w przypadku awarii. Warstwa Podstawowa oferuje tylko lokalnie nadmiarowy magazyn kopii zapasowych.
 
-> [!IMPORTANT]
-> Konfiguracja lokalnie nadmiarowego lub geograficznie nadmiarowego magazynu dla kopii zapasowej jest dozwolona tylko podczas tworzenia serwera. Po aprowizacji serwera nie można zmienić opcji nadmiarowości magazynu kopii zapasowej.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Przechodzenie z lokalnie nadmiarowego do magazynu kopii zapasowej nadmiarowej geograficznie
+Konfiguracja lokalnie nadmiarowego lub geograficznie nadmiarowego magazynu dla kopii zapasowej jest dozwolona tylko podczas tworzenia serwera. Po aprowizacji serwera nie można zmienić opcji nadmiarowości magazynu kopii zapasowej. W celu przeniesienia magazynu kopii zapasowych z magazynu lokalnie nadmiarowego do magazynu geograficznie nadmiarowego, utworzenie nowego serwera i Migrowanie danych przy użyciu [zrzutów i przywracania](concepts-migrate-dump-restore.md) jest jedyną obsługiwaną opcją.
 
 ### <a name="backup-storage-cost"></a>Koszt magazynu kopii zapasowych
 

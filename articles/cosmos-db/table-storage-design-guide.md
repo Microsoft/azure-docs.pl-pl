@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428055"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477593"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Przewodnik projektowania tabel usługi Azure Table Storage: Skalowalne i wydajne tabele
 
@@ -24,7 +24,7 @@ Aby zaprojektować skalowalne i wydajne tabele, należy wziąć pod uwagę róż
 Usługa Table Storage została zaprojektowana do obsługi aplikacji w skali chmury, które mogą zawierać miliardy jednostek ("wiersze" w terminologii relacyjnej bazy danych) lub zestawy danych, które muszą obsługiwać duże ilości transakcji. W związku z tym należy myśleć o sposobie przechowywania danych i zrozumieć, jak działa magazyn tabel. Dobrze zaprojektowany magazyn danych NoSQL może pozwalać na skalowanie rozwiązań znacznie bardziej wydajnych (i niższych kosztów) niż rozwiązanie korzystające z relacyjnej bazy danych. Ten przewodnik pomoże Ci w zapewnieniu tego tematu.  
 
 ## <a name="about-azure-table-storage"></a>Informacje o usłudze Azure Table Storage
-Ta sekcja zawiera najważniejsze funkcje usługi Table Storage, które są szczególnie przydatne do projektowania pod kątem wydajności i skalowalności. Jeśli dopiero zaczynasz korzystać z usługi Azure Storage i magazynu tabel, zobacz [wprowadzenie do Microsoft Azure Storage](../storage/common/storage-introduction.md) i [Zacznij korzystać z usługi Azure Table Storage przy użyciu platformy .NET](table-storage-how-to-use-dotnet.md) przed przeczytaniem pozostałej części tego artykułu. Mimo że ten przewodnik dotyczy magazynu tabel, zawiera on kilka dyskusji na temat usługi Azure queue storage i usługi Azure Blob Storage oraz jak można ich używać razem z magazynem tabel w rozwiązaniu.  
+Ta sekcja zawiera najważniejsze funkcje usługi Table Storage, które są szczególnie przydatne do projektowania pod kątem wydajności i skalowalności. Jeśli dopiero zaczynasz korzystać z usługi Azure Storage i magazynu tabel, zobacz [wprowadzenie do Microsoft Azure Storage](../storage/common/storage-introduction.md) i [Zacznij korzystać z usługi Azure Table Storage przy użyciu platformy .NET](./tutorial-develop-table-dotnet.md) przed przeczytaniem pozostałej części tego artykułu. Mimo że ten przewodnik dotyczy magazynu tabel, zawiera on kilka dyskusji na temat usługi Azure queue storage i usługi Azure Blob Storage oraz jak można ich używać razem z magazynem tabel w rozwiązaniu.  
 
 Magazyn tabel używa formatu tabelarycznego do przechowywania danych. W standardowej terminologii każdy wiersz tabeli reprezentuje jednostkę, a kolumny przechowują różne właściwości tej jednostki. Każda jednostka ma parę kluczy do unikatowego identyfikowania, a kolumna sygnatur czasowych używanej przez magazyn tabel do śledzenia czasu ostatniej aktualizacji jednostki. Pole sygnatury czasowej jest dodawane automatycznie i nie można ręcznie nadpisać sygnatury czasowej z dowolną wartością. W usłudze Table Storage jest używany ostatnio modyfikowany znacznik czasu (LMT) w celu zarządzania optymistyczną współbieżnością.  
 
@@ -123,7 +123,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 </table>
 
 
-Do tej pory ten projekt wygląda podobnie do tabeli w relacyjnej bazie danych. Kluczowe różnice to obowiązkowe kolumny i możliwość przechowywania wielu typów jednostek w tej samej tabeli. Ponadto każda Właściwość zdefiniowana przez użytkownika, taka jak **FirstName** lub **Age**, ma typ danych, na przykład liczba całkowita lub ciąg, podobnie jak kolumna w relacyjnej bazie danych. W przeciwieństwie do relacyjnej bazy danych, jednak bez schematu natura magazynu tabel oznacza, że właściwość nie musi mieć tego samego typu danych dla każdej jednostki. Aby przechowywać złożone typy danych w pojedynczej właściwości, należy użyć serializowanego formatu, takiego jak JSON lub XML. Aby uzyskać więcej informacji, zobacz [Omówienie modelu danych usługi Table Storage](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Do tej pory ten projekt wygląda podobnie do tabeli w relacyjnej bazie danych. Kluczowe różnice to obowiązkowe kolumny i możliwość przechowywania wielu typów jednostek w tej samej tabeli. Ponadto każda Właściwość zdefiniowana przez użytkownika, taka jak **FirstName** lub **Age**, ma typ danych, na przykład liczba całkowita lub ciąg, podobnie jak kolumna w relacyjnej bazie danych. W przeciwieństwie do relacyjnej bazy danych, jednak bez schematu natura magazynu tabel oznacza, że właściwość nie musi mieć tego samego typu danych dla każdej jednostki. Aby przechowywać złożone typy danych w pojedynczej właściwości, należy użyć serializowanego formatu, takiego jak JSON lub XML. Aby uzyskać więcej informacji, zobacz [Omówienie modelu danych usługi Table Storage](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Wybór `PartitionKey` i `RowKey` ma podstawowe znaczenie dla dobrego projektu tabeli. Każda jednostka przechowywana w tabeli musi mieć unikatową kombinację `PartitionKey` i `RowKey` . Podobnie jak w przypadku kluczy w tabeli relacyjnej bazy danych, `PartitionKey` `RowKey` wartości i są indeksowane, aby utworzyć klastrowany indeks, który umożliwia szybkie wyszukiwanie. W usłudze Table Storage nie są jednak tworzone żadne indeksy pomocnicze, więc są to jedyne dwie właściwości indeksowane (Niektóre wzorce opisane w dalszej części pokazują, jak można obejść to oczywiste ograniczenie).  
 
@@ -134,7 +134,7 @@ Nazwa konta, nazwa tabeli i `PartitionKey` razem identyfikują partycję w ramac
 
 W usłudze Table Storage pojedyncze usługi węzłów mają jedną lub większą liczbę kompletnych partycji, a usługa jest skalowana przez dynamiczne Równoważenie obciążenia partycji między węzłami. Jeśli węzeł jest w obciążeniu, usługa Table Storage może podzielić zakres partycji objętych przez ten węzeł na różne węzły. Po nawrocie ruchu magazyn tabel może scalać zakresy partycji z cichych węzłów z powrotem do jednego węzła.  
 
-Aby uzyskać więcej informacji na temat wewnętrznych szczegółów magazynu tabel, a zwłaszcza sposobu zarządzania partycjami, zobacz [Microsoft Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z silną spójnością](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
+Aby uzyskać więcej informacji na temat wewnętrznych szczegółów magazynu tabel, a zwłaszcza sposobu zarządzania partycjami, zobacz [Microsoft Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z silną spójnością](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transakcje grupy jednostek
 W usłudze Table Storage transakcje grupy jednostek (EGTs) są jedynym wbudowanym mechanizmem do wykonywania niepodzielnych aktualizacji w wielu jednostkach. EGTs są również nazywane *transakcjami wsadowymi*. EGTs może działać tylko na jednostkach przechowywanych w tej samej partycji (udostępniając ten sam klucz partycji w określonej tabeli), dlatego w dowolnym momencie potrzebna jest niepodzielna zachowań transakcyjnych w wielu jednostkach, upewnij się, że te jednostki znajdują się w tej samej partycji. Jest to często powód, aby zachować wiele typów jednostek w tej samej tabeli (i partycji), a nie używać wielu tabel dla różnych typów jednostek. Pojedynczy EGT może działać na maksymalnie 100 jednostkach.  Jeśli przesyłasz wiele współbieżnych EGTs do przetwarzania, należy upewnić się, że te EGTs nie działają na jednostkach, które są wspólne dla EGTs. W przeciwnym razie ryzyko opóźnienia przetwarzania.
@@ -156,7 +156,7 @@ Poniższa tabela zawiera kilka najważniejszych wartości, które należy znać 
 | Rozmiar `RowKey` |Ciąg o rozmiarze do 1 KB. |
 | Rozmiar transakcji grupy jednostek |Transakcja może obejmować maksymalnie 100 jednostek, a ładunek musi mieć rozmiar mniejszy niż 4 MB. Element EGT może aktualizować tylko raz jednostkę. |
 
-Aby uzyskać więcej informacji, zobacz [Omówienie modelu danych Table Service](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Aby uzyskać więcej informacji, zobacz [Omówienie modelu danych Table Service](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).  
 
 ### <a name="cost-considerations"></a>Kwestie związane z kosztami
 Magazyn tabel jest stosunkowo niedrogi, ale należy uwzględnić oszacowania kosztów zarówno w przypadku użycia pojemności, jak i liczby transakcji w ramach oceny dowolnego rozwiązania korzystającego z usługi Table Storage. Jednak w wielu scenariuszach przechowywanie nieznormalizowanych lub zduplikowanych danych w celu poprawy wydajności lub skalowalności rozwiązania jest prawidłowym podejściem. Aby uzyskać więcej informacji o cenach, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
@@ -195,14 +195,14 @@ W poniższych przykładach założono, że magazyn tabel przechowuje jednostki p
 
 | Nazwa kolumny | Typ danych |
 | --- | --- |
-| `PartitionKey` (Nazwa działu) |Ciąg |
+| `PartitionKey` (Nazwa działu) |String |
 | `RowKey` (Identyfikator pracownika) |String (ciąg) |
 | `FirstName` |String (ciąg) |
 | `LastName` |String (ciąg) |
 | `Age` |Liczba całkowita |
-| `EmailAddress` |Ciąg |
+| `EmailAddress` |String |
 
-Poniżej przedstawiono niektóre ogólne wytyczne dotyczące projektowania zapytań usługi Table Storage. Składnia filtru użyta w poniższych przykładach pochodzi z interfejsu API REST usługi Table Storage. Aby uzyskać więcej informacji, zobacz [jednostki zapytań](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Poniżej przedstawiono niektóre ogólne wytyczne dotyczące projektowania zapytań usługi Table Storage. Składnia filtru użyta w poniższych przykładach pochodzi z interfejsu API REST usługi Table Storage. Aby uzyskać więcej informacji, zobacz [jednostki zapytań](/rest/api/storageservices/Query-Entities).  
 
 * *Zapytanie punktowe* jest najbardziej wydajnym wyszukiwaniem do użycia i jest zalecane w przypadku wyszukiwania lub wyszukiwania wysokiego poziomu, które wymaga najmniejszego opóźnienia. Takie zapytanie może służyć do wydajnego lokalizowania pojedynczej jednostki przez określenie `PartitionKey` `RowKey` wartości i. Na przykład: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
 * Druga Najlepsza to *zapytanie zakresowe*. Używa `PartitionKey` i filtrów dla zakresu `RowKey` wartości, aby zwrócić więcej niż jedną jednostkę. `PartitionKey`Wartość identyfikuje konkretną partycję, a `RowKey` wartości identyfikują podzestaw jednostek w tej partycji. Na przykład: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
@@ -418,7 +418,7 @@ W poprzednich sekcjach zawarto informacje na temat optymalizowania projektu tabe
 
 Ten przykład pokazuje niejawną relację &quot;jeden do wielu":::
 
-Mapa wzorca wyróżnia pewne relacje między wzorcami (Blue) i antywzorców (pomarańczowy), które są opisane w tym przewodniku. Istnieją oczywiście wiele innych wzorców, które warto wziąć pod uwagę. Na przykład jeden z kluczowych scenariuszy dotyczących usługi Table Storage polega na użyciu [wzorca widoku materiałowego](https://msdn.microsoft.com/library/azure/dn589782.aspx) ze wzorca [segregowania odpowiedzialności z poleceniami](https://msdn.microsoft.com/library/azure/jj554200.aspx) .  
+Mapa wzorca wyróżnia pewne relacje między wzorcami (Blue) i antywzorców (pomarańczowy), które są opisane w tym przewodniku. Istnieją oczywiście wiele innych wzorców, które warto wziąć pod uwagę. Na przykład jeden z kluczowych scenariuszy dotyczących usługi Table Storage polega na użyciu [wzorca widoku materiałowego](/previous-versions/msp-n-p/dn589782(v=pandp.10)) ze wzorca [segregowania odpowiedzialności z poleceniami](/previous-versions/msp-n-p/jj554200(v=pandp.10)) .  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>Wzorzec indeksu pomocniczego wewnątrz partycji
 Przechowywanie wielu kopii każdej jednostki przy użyciu różnych `RowKey` wartości (w tej samej partycji). Pozwala to na szybkie i wydajne wyszukiwanie oraz alternatywne zamówienia sortowania przy użyciu różnych `RowKey` wartości. Aktualizacje między kopiami można zachować spójność za pomocą EGTs.  
@@ -449,7 +449,7 @@ W przypadku wykonywania zapytań dotyczących zakresu jednostek pracowników mo�
 * Aby znaleźć wszystkich pracowników działu sprzedaży z IDENTYFIKATORem pracownika z zakresu od 000100 do 000199, użyj: $filter = (PartitionKey EQ "Sales") i (RowKey GE "empid_000100") i (RowKey Le "empid_000199")  
 * Aby znaleźć wszystkich pracowników działu sprzedaży przy użyciu adresu e-mail rozpoczynającego się od litery "a", należy użyć: $filter = (PartitionKey EQ "Sales") i (RowKey GE "email_a") i (RowKey lt "email_b")  
   
-Składnia filtru użyta w powyższych przykładach pochodzi z interfejsu API REST usługi Table Storage. Aby uzyskać więcej informacji, zobacz [jednostki zapytań](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Składnia filtru użyta w powyższych przykładach pochodzi z interfejsu API REST usługi Table Storage. Aby uzyskać więcej informacji, zobacz [jednostki zapytań](/rest/api/storageservices/Query-Entities).  
 
 #### <a name="issues-and-considerations"></a>Problemy i kwestie do rozważenia
 Podczas podejmowania decyzji o sposobie wdrożenia tego wzorca należy rozważyć następujące punkty:  
@@ -515,7 +515,7 @@ W przypadku wykonywania zapytań dotyczących zakresu jednostek pracowników mo�
 * Aby znaleźć wszystkich pracowników działu sprzedaży z IDENTYFIKATORem pracownika z zakresu od **000100** do **000199**, posortowanych w kolejności identyfikatorów pracowników, użyj: $Filter = (PartitionKey EQ "empid_Sales") i (RowKey GE "000100") i (RowKey Le "000199")  
 * Aby znaleźć wszystkich pracowników działu sprzedaży przy użyciu adresu e-mail, który rozpoczyna się od "a", posortowanych w kolejności adresów e-mail, użyj: $filter = (PartitionKey EQ "email_Sales") i (RowKey GE "a") i (RowKey lt "b")  
 
-Należy zauważyć, że składnia filtru użyta w powyższych przykładach pochodzi z interfejsu API REST usługi Table Storage. Aby uzyskać więcej informacji, zobacz [jednostki zapytań](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Należy zauważyć, że składnia filtru użyta w powyższych przykładach pochodzi z interfejsu API REST usługi Table Storage. Aby uzyskać więcej informacji, zobacz [jednostki zapytań](/rest/api/storageservices/Query-Entities).  
 
 #### <a name="issues-and-considerations"></a>Problemy i kwestie do rozważenia
 Podczas podejmowania decyzji o sposobie wdrożenia tego wzorca należy rozważyć następujące punkty:  
@@ -579,7 +579,7 @@ W tym przykładzie krok 4 na diagramie wstawia pracownika do tabeli **archiwum**
 #### <a name="recover-from-failures"></a>Odzyskiwanie po awarii
 Należy pamiętać, że operacje wykonywane w ramach kroków 4-5 na diagramie *idempotentne* się na wypadek, gdyby rola procesu roboczego mogła ponownie uruchomić operację archiwizowania. W przypadku korzystania z usługi Table Storage w kroku 4 należy użyć operacji INSERT lub Replace. w kroku 5 należy użyć operacji "Usuń Jeśli istnieje" w używanej bibliotece klienta. Jeśli używasz innego systemu magazynu, musisz użyć odpowiedniej operacji idempotentne.  
 
-Jeśli rola proces roboczy nigdy nie ukończy kroku 6 na diagramie, wówczas po upływie limitu czasu komunikat zostanie wyświetlony ponownie w kolejce gotowej do przetworzenia przez rolę procesu roboczego. Rola proces roboczy może sprawdzić, ile razy wiadomość w kolejce została odczytana i, w razie potrzeby, oflagować ją jako komunikat "Trująca" w celu zbadania przez wysłanie go do oddzielnej kolejki. Aby uzyskać więcej informacji o odczytywaniu komunikatów w kolejce i sprawdzaniu liczby odgałęzień, zobacz [pobieranie komunikatów](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+Jeśli rola proces roboczy nigdy nie ukończy kroku 6 na diagramie, wówczas po upływie limitu czasu komunikat zostanie wyświetlony ponownie w kolejce gotowej do przetworzenia przez rolę procesu roboczego. Rola proces roboczy może sprawdzić, ile razy wiadomość w kolejce została odczytana i, w razie potrzeby, oflagować ją jako komunikat "Trująca" w celu zbadania przez wysłanie go do oddzielnej kolejki. Aby uzyskać więcej informacji o odczytywaniu komunikatów w kolejce i sprawdzaniu liczby odgałęzień, zobacz [pobieranie komunikatów](/rest/api/storageservices/Get-Messages).  
 
 Niektóre błędy z magazynu tabel i magazynu kolejek są błędami przejściowymi, a aplikacja kliencka powinna zawierać odpowiednią logikę ponawiania, aby je obsłużyć.  
 
@@ -678,7 +678,7 @@ W relacyjnej bazie danych zazwyczaj normalizuje dane w celu usunięcia duplikat�
 Ten przykład pokazuje niejawną relację &quot;jeden do wielu":::
 
 #### <a name="solution"></a>Rozwiązanie
-Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Na przykład:  
+Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Przykład:  
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE17.png" alt-text="Ilustracja przedstawiająca jednostkę działu i jednostkę pracownika&quot;:::
 
@@ -1065,7 +1065,7 @@ Zapytanie dotyczące magazynu tabel może zwrócić maksymalnie 1 000 jednostek 
 - Zapytanie nie zostało ukończone w ciągu pięciu sekund.
 - Zapytanie przecina granicę partycji. 
 
-Aby uzyskać więcej informacji na temat działania tokenów kontynuacji, zobacz [limit czasu zapytania i podział na strony](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Aby uzyskać więcej informacji na temat działania tokenów kontynuacji, zobacz [limit czasu zapytania i podział na strony](/rest/api/storageservices/Query-Timeout-and-Pagination).  
 
 Jeśli używasz biblioteki klienta usługi Storage, może ona automatycznie obsługiwać tokeny kontynuacji, ponieważ zwraca jednostki z magazynu tabel. Na przykład następujący przykładowy kod w języku C# automatycznie obsługuje tokeny kontynuacji, jeśli magazyn tabeli zwróci je w odpowiedzi:  
 
@@ -1471,7 +1471,7 @@ Tokeny sygnatury dostępu współdzielonego (SAS) mogą być używane do włącz
 * Można odciążyć część pracy, którą wykonują role sieci Web i procesu roboczego w zarządzaniu jednostkami. Można odciążyć urządzenia klienckie, takie jak komputery użytkowników końcowych i urządzenia przenośne.  
 * Do klienta można przypisywać ograniczone i czasochłonne zbiory uprawnień (np. Zezwalanie na dostęp tylko do odczytu do określonych zasobów).  
 
-Aby uzyskać więcej informacji na temat używania tokenów SAS z magazynem tabel, zobacz [using Shared Access Signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+Aby uzyskać więcej informacji na temat używania tokenów SAS z magazynem tabel, zobacz [using Shared Access Signatures (SAS)](../storage/common/storage-sas-overview.md).  
 
 Należy jednak nadal generować tokeny sygnatury dostępu współdzielonego, które przyznają aplikacji klienckiej jednostki w usłudze Table Storage. Zrób to w środowisku, które ma bezpieczny dostęp do kluczy konta magazynu. Zwykle w celu wygenerowania tokenów SAS i dostarczenia ich do aplikacji klienckich, które wymagają dostępu do jednostek, należy użyć roli sieci Web lub procesu roboczego. Ze względu na to, że nadal występują obciążenia związane z generowaniem i dostarczaniem tokenów SAS klientom, należy wziąć pod uwagę, jak najlepiej zredukować ten koszt, szczególnie w scenariuszach o dużej pojemności.  
 
@@ -1568,5 +1568,4 @@ W tym przykładzie asynchronicznym można zobaczyć następujące zmiany w wersj
 * Podpis metody zawiera teraz `async` modyfikator i zwraca `Task` wystąpienie.  
 * Zamiast wywoływania `Execute` metody w celu zaktualizowania jednostki metoda wywołuje teraz metodę `ExecuteAsync` . Metoda używa `await` modyfikatora do pobierania wyników asynchronicznie.  
 
-Aplikacja kliencka może wywoływać wiele metod asynchronicznych, takich jak ta, i każde wywołanie metody jest uruchamiane w osobnym wątku.  
-
+Aplikacja kliencka może wywoływać wiele metod asynchronicznych, takich jak ta, i każde wywołanie metody jest uruchamiane w osobnym wątku.

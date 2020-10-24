@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: a14235cb4fc20147accc8eb8a0e421cbc4df90f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c604a3edcee0c34df2817c7bbebf0f3ad4fada67
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533642"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483560"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sumologic"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SumoLogic
 
@@ -168,11 +168,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Z listy **wybierz konfigurację lub Utwórz nową** wybierz pozycję **Azure AD**, a następnie kliknij pozycję **Konfiguruj**.
 
-    ![Konfigurowanie protokołu SAML 2,0](./media/sumologic-tutorial/ic778558.png "Konfigurowanie protokołu SAML 2,0")
+    ![Zrzut ekranu przedstawia konfigurację SAML 2,0, w której można wybrać platformę Azure A D.](./media/sumologic-tutorial/ic778558.png "Konfigurowanie protokołu SAML 2,0")
 
 1. W oknie dialogowym **Konfigurowanie protokołu SAML 2,0** wykonaj następujące czynności:
 
-    ![Konfigurowanie protokołu SAML 2,0](./media/sumologic-tutorial/ic778559.png "Konfigurowanie protokołu SAML 2,0")
+    ![Zrzut ekranu przedstawia okno dialogowe Konfigurowanie protokołu SAML 2,0, w którym można wprowadzić podane wartości.](./media/sumologic-tutorial/ic778559.png "Konfigurowanie protokołu SAML 2,0")
 
     a. W polu tekstowym **nazwa konfiguracji** wpisz **Azure AD**.
 
@@ -200,11 +200,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze SumoLog
 
 1. Przejdź do pozycji **Manage \> Users** (Zarządzaj > Użytkownicy).
 
-    ![Użytkownicy](./media/sumologic-tutorial/ic778561.png "Użytkownicy")
+    ![Zrzut ekranu przedstawia użytkowników wybranych z menu Zarządzaj.](./media/sumologic-tutorial/ic778561.png "Użytkownicy")
 
 1. Kliknij pozycję **Dodaj**.
 
-    ![Użytkownicy](./media/sumologic-tutorial/ic778562.png "Użytkownicy")
+    ![Zrzut ekranu przedstawia przycisk Dodaj dla użytkowników.](./media/sumologic-tutorial/ic778562.png "Użytkownicy")
 
 1. W oknie dialogowym **nowy użytkownik** wykonaj następujące czynności:
 
@@ -216,7 +216,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze SumoLog
   
     c. Jako **stan**wybierz pozycję **aktywny**.
   
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
 > Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników SumoLogic i interfejsów API udostępnionych przez usługę SumoLogic.

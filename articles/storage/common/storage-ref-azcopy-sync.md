@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13d2633576454ea6445deb4d2b0b11c2bbb1514e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869443"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478375"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -151,15 +151,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--ciąg na poziomie dziennika** definiuje szczegółowość dziennika dla pliku dziennika, dostępne poziomy: `INFO` (wszystkie żądania i odpowiedzi), `WARNING` (wolne odpowiedzi), `ERROR` (tylko Nieudane żądania) i `NONE` (bez dzienników wyjściowych). (wartość domyślna `INFO` ). 
 
-**--Preserve-SMB-info**     Domyślnie wartość false.Zachowuje informacje o właściwościach protokołu SMB (czas ostatniego zapisu, czas utworzenia, bity atrybutów) między zasobami opartymi na protokole SMB (Windows i Azure Files).Ta flaga ma zastosowanie do plików i folderów, chyba że określony jest filtr tylko dla plików (na przykład include-Pattern).Informacje przesyłane do folderów są takie same jak dla plików, z wyjątkiem czasu ostatniego zapisu, który nie jest zachowywany dla folderów.
+**--Preserve-SMB-info**   Domyślnie wartość false. Zachowuje informacje o właściwościach protokołu SMB (czas ostatniego zapisu, czas utworzenia, bity atrybutów) między zasobami opartymi na protokole SMB (Windows i Azure Files). Ta flaga ma zastosowanie do plików i folderów, chyba że określony jest filtr tylko dla plików (na przykład include-Pattern). Informacje przesyłane do folderów są takie same jak dla plików, z wyjątkiem czasu ostatniego zapisu, który nie jest zachowywany dla folderów.
 
-**--Preserve-SMB-uprawnienia**     Domyślnie wartość false.Zachowuje listy ACL protokołu SMB między zasobami zależnymi (Windows i Azure Files).Ta flaga ma zastosowanie do plików i folderów, chyba że określony jest filtr tylko dla plików (na przykład  `include-pattern` ).
+**--Preserve-SMB-uprawnienia**   Domyślnie wartość false. Zachowuje listy ACL protokołu SMB między zasobami zależnymi (Windows i Azure Files). Ta flaga ma zastosowanie do plików i folderów, chyba że określony jest filtr tylko dla plików (na przykład `include-pattern` ).
 
 **--Put-MD5**     Utwórz skrót MD5 każdego pliku i Zapisz skrót jako właściwość Content-MD5 docelowego obiektu BLOB lub pliku. (Domyślnie skrót nie jest tworzony). Dostępne tylko podczas przekazywania.
 
 **--rekursywnie** `True` Domyślnie poszukaj podkatalogów cyklicznie podczas synchronizacji między katalogami.     (wartość domyślna `True` ). 
 
-**--S2S-Preserve-dostęp-warstwa**  Zachowaj warstwę dostępu podczas kopiowania usługi do usługi. Zapoznaj się z [usługą Azure Blob Storage: warstwami dostępu gorąca, chłodna i archiwalna](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) , aby upewnić się, że docelowe konto magazynu obsługuje ustawienie Warstwa dostępu. W przypadkach, gdy ustawienie warstwy dostępu nie jest obsługiwane, użyj s2sPreserveAccessTier = false, aby obejść kopiowanie warstwy dostępu. (wartość domyślna `true` ). 
+**--S2S-Preserve-dostęp-warstwa**  Zachowaj warstwę dostępu podczas kopiowania usługi do usługi. Zapoznaj się z [usługą Azure Blob Storage: warstwami dostępu gorąca, chłodna i archiwalna](/azure/storage/blobs/storage-blob-storage-tiers) , aby upewnić się, że docelowe konto magazynu obsługuje ustawienie Warstwa dostępu. W przypadkach, gdy ustawienie warstwy dostępu nie jest obsługiwane, użyj s2sPreserveAccessTier = false, aby obejść kopiowanie warstwy dostępu. (wartość domyślna `true` ). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opcje dziedziczone z poleceń nadrzędnych
 

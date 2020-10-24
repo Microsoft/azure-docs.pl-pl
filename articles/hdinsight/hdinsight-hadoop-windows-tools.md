@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 3ec50acc693452fe73d929effcea98b12fc5ff8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75933934"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484767"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Pracuj w ekosystemie Apache Hadoop w usłudze HDInsight z komputera z systemem Windows
 
@@ -58,7 +58,7 @@ Przykłady zadań, które można wykonać za pomocą programu Visual Studio i na
 Możesz użyć programu Visual Studio z zestawem SDK platformy .NET do zarządzania klastrami i opracowywania aplikacji do obsługi danych Big Data. W przypadku następujących zadań można użyć innych środowisk IDE, ale przykłady są wyświetlane w programie Visual Studio.
 
 Przykłady zadań, które można wykonać za pomocą zestawu .NET SDK w programie Visual Studio:
-* [Zestaw SDK usługi Azure HDInsight dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+* [Zestaw SDK usługi Azure HDInsight dla platformy .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true).
 * [Uruchamianie Apache Hive zapytań przy użyciu zestawu .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Korzystanie z funkcji zdefiniowanych przez użytkownika w języku C# z Apache Hive i Apache wieprz streaming na Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
@@ -90,7 +90,7 @@ Jeśli pracujesz w sytuacji, w której musisz użyć narzędzia lub technologii,
 
 ## <a name="cross-platform-tools"></a>Narzędzia dla wielu platform
 
-Interfejs wiersza polecenia platformy Azure to wieloplatformowe środowisko wiersza polecenia do zarządzania zasobami platformy Azure.  Aby uzyskać więcej informacji, zobacz [interfejs Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Interfejs wiersza polecenia platformy Azure to wieloplatformowe środowisko wiersza polecenia do zarządzania zasobami platformy Azure.  Aby uzyskać więcej informacji, zobacz [interfejs Azure Command-Line Interface (CLI)](/cli/azure/).
 
 ## <a name="next-steps"></a>Następne kroki
 

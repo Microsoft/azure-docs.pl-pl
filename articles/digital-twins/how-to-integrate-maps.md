@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045129"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496041"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Użyj usługi Azure Digital bliźniaczych reprezentacji, aby zaktualizować mapę pomieszczeń Azure Maps
 
@@ -50,12 +50,12 @@ Usługa Azure Digital bliźniaczych reprezentacji Instances może emitować wiel
 Ten wzorzec odczytuje ze źródła salonu bezpośrednio, a nie urządzenia IoT, co zapewnia elastyczność zmiany bazowego Yródła danych dla temperatury bez konieczności aktualizowania logiki mapowania. Na przykład można dodać wiele termometrów lub ustawić ten pokój, aby udostępnić termometr w innym pokoju, bez konieczności aktualizowania logiki mapy.
 
 1. Utwórz temat usługi Event Grid, który będzie odbierać zdarzenia z wystąpienia bliźniaczych reprezentacji cyfrowych platformy Azure.
-    ```azurecli
+    ```azurecli-interactive
     az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
     ```
 
 2. Utwórz punkt końcowy, aby połączyć swój temat z siatką zdarzeń z usługą Azure Digital bliźniaczych reprezentacji.
-    ```azurecli
+    ```azurecli-interactive
     az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
     ```
 
@@ -64,9 +64,9 @@ Ten wzorzec odczytuje ze źródła salonu bezpośrednio, a nie urządzenia IoT, 
     >[!NOTE]
     >Obecnie występuje **znany problem** w Cloud Shell wpływu na te grupy poleceń: `az dt route` , `az dt model` , `az dt twin` .
     >
-    >Aby rozwiązać ten problem, należy uruchomić `az login` polecenie w Cloud Shell przed uruchomieniem polecenia lub użyć [lokalnego interfejsu wiersza](/cli/azure/install-azure-cli?view=azure-cli-latest) polecenia, a nie Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Aby rozwiązać ten problem, należy uruchomić `az login` polecenie w Cloud Shell przed uruchomieniem polecenia lub użyć [lokalnego interfejsu wiersza](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) polecenia, a nie Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
-    ```azurecli
+    ```azurecli-interactive
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
@@ -135,7 +135,7 @@ namespace SampleFunctionsApp
 
 Musisz ustawić dwie zmienne środowiskowe w aplikacji funkcji. Jednym z nich jest [Azure Maps podstawowy klucz subskrypcji](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account), a drugi to [Azure Maps identyfikator stateset](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```

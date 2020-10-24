@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 1b2e94bfe1bef9ecdeaa4b2b84224967bb1c7741
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 16110c8f48330d60d4d0b6a2affb870ffa5e349c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281584"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482676"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Źródło zmian w interfejsie API Azure Cosmos DB dla Cassandra
 
 Obsługa [kanału informacyjnego zmian](change-feed.md) w interfejsie API Azure Cosmos DB dla Cassandra jest dostępna za pomocą predykatów zapytań w języku zapytań CASSANDRA (CQL). Za pomocą tych warunków predykatu można wysyłać zapytania do interfejsu API źródła zmian. Aplikacje mogą pobrać zmiany wprowadzone do tabeli przy użyciu klucza podstawowego (zwanego również kluczem partycji), jak jest to wymagane w CQL. Następnie można wykonać dalsze czynności na podstawie wyników. Zmiany w wierszach w tabeli są przechwytywane w kolejności ich modyfikacji i kolejności sortowania na klucz partycji.
 
-Poniższy przykład pokazuje, jak uzyskać Źródło zmian dla wszystkich wierszy w interfejs API Cassandra tabeli przestrzeni kluczy przy użyciu platformy .NET. Predykat COSMOS_CHANGEFEED_START_TIME () jest używany bezpośrednio w CQL do wykonywania zapytań o elementy ze źródła zmian od określonego czasu rozpoczęcia (w tym przypadku Current DateTime). Możesz pobrać pełny przykład dla języka C# [tutaj](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) i dla środowiska Java [tutaj](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
+Poniższy przykład pokazuje, jak uzyskać Źródło zmian dla wszystkich wierszy w interfejs API Cassandra tabeli przestrzeni kluczy przy użyciu platformy .NET. Predykat COSMOS_CHANGEFEED_START_TIME () jest używany bezpośrednio w CQL do wykonywania zapytań o elementy ze źródła zmian od określonego czasu rozpoczęcia (w tym przypadku Current DateTime). Możesz pobrać pełny przykład dla języka C# [tutaj](/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) i dla środowiska Java [tutaj](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
 W każdej iteracji zapytanie zostaje wznowione w ostatnim momencie odczytu, przy użyciu stanu stronicowania. W obszarze kluczy można zobaczyć ciągły strumień nowych zmian w tabeli. Zobaczymy zmiany w wierszach, które są wstawiane lub aktualizowane. Obserwowanie operacji usuwania przy użyciu źródła zmian w interfejs API Cassandra nie jest obecnie obsługiwane.
 
@@ -146,4 +146,4 @@ Następujące kody błędów i komunikaty są obsługiwane w przypadku używania
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie zasobami interfejs API Cassandra Azure Cosmos DB przy użyciu szablonów Azure Resource Manager](manage-cassandra-with-resource-manager.md)
+* [Zarządzanie zasobami interfejs API Cassandra Azure Cosmos DB przy użyciu szablonów Azure Resource Manager](./templates-samples-cassandra.md)

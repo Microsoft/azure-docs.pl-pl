@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: ef0f542a27f378b6132d8ef19b55f386d4102d53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2939b3b3beac55b537c1dcf844f702a0ad73f06e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90895254"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478613"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Samouczek: Projektowanie bazy danych z wieloma dzierżawami przy użyciu Azure Database for PostgreSQL — Citus
 
@@ -275,5 +275,5 @@ W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwer�
 
 W tym samouczku pokazano, jak zainicjować obsługę administracyjną grupy serwerów Citus. Nawiązano połączenie z usługą PSQL, utworzono schemat i dane rozproszone. Nauczysz się wysyłać zapytania dotyczące danych zarówno w dzierżawach, jak i między nimi, a następnie dostosować schemat na dzierżawcę.
 
-- Informacje o [typach węzłów](https://aka.ms/hyperscale-concepts) grupy serwerów
+- Informacje o [typach węzłów](./concepts-hyperscale-nodes.md) grupy serwerów
 - Określ najlepszy [początkowy rozmiar](howto-hyperscale-scaling.md#picking-initial-size) grupy serwerów

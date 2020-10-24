@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78addb76e2ce7a2679358e241650cc5cc827791f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461621"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495917"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Łączenie Azure Functions aplikacji do przetwarzania danych
 
@@ -186,26 +186,28 @@ Dostęp zabezpieczeń do aplikacji funkcji platformy Azure można skonfigurować
 
 Szkielet funkcji platformy Azure z wcześniejszych przykładów wymaga, aby token okaziciela został przesłany do niego, aby można było uwierzytelnić się za pomocą usługi Azure Digital bliźniaczych reprezentacji. Aby upewnić się, że ten token okaziciela jest zakończony, musisz skonfigurować [tożsamość usługi zarządzanej (msi)](../active-directory/managed-identities-azure-resources/overview.md) dla aplikacji funkcji. Należy to zrobić tylko raz dla każdej aplikacji funkcji.
 
-Można utworzyć tożsamość zarządzaną przez system i przypisać tożsamość aplikacji funkcji do roli _właściciela Digital bliźniaczych reprezentacji (wersja zapoznawcza)_ dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Spowoduje to nadanie uprawnienia aplikacji funkcji w wystąpieniu do wykonywania działań płaszczyzny danych. Następnie Udostępnij adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej.
+Można utworzyć tożsamość zarządzaną przez system i przypisać tożsamość aplikacji funkcji do roli _**właściciela danych Digital bliźniaczych reprezentacji**_ platformy Azure dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Spowoduje to nadanie uprawnienia aplikacji funkcji w wystąpieniu do wykonywania działań płaszczyzny danych. Następnie Udostępnij adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej.
 
- Użyj [Azure Cloud Shell](https://shell.azure.com) , aby uruchomić polecenia.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+Użyj [Azure Cloud Shell](https://shell.azure.com) , aby uruchomić polecenia.
 
 Użyj następującego polecenia, aby utworzyć tożsamość zarządzaną przez system. Zwróć uwagę na pole _principalId_ w danych wyjściowych.
 
-```azurecli 
+```azurecli-interactive 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-Użyj wartości _principalId_ w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli _właściciela usługi Azure Digital bliźniaczych reprezentacji (wersja zapoznawcza)_ dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
+Użyj wartości _principalId_ w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli _właściciela danych Digital bliźniaczych reprezentacji platformy_ Azure dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-```azurecli 
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive 
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 Na koniec możesz wprowadzić adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej. Aby uzyskać więcej informacji na temat ustawiania zmiennych środowiskowych, zobacz [*zmienne środowiskowe*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
 > Adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji jest tworzony przez dodanie *https://* do początku *nazwy hosta*cyfrowego wystąpienia bliźniaczych reprezentacji platformy Azure. Aby wyświetlić nazwę hosta wraz ze wszystkimi właściwościami wystąpienia, można uruchomić polecenie `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
-```azurecli 
+```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 ### <a name="option-2-set-up-security-access-for-the-azure-function-app-using-azure-portal"></a>Opcja 2: Konfigurowanie dostępu zabezpieczeń dla aplikacji funkcji platformy Azure przy użyciu Azure Portal
@@ -241,7 +243,7 @@ Na stronie _Dodaj przypisanie roli (wersja zapoznawcza)_ , która zostanie otwar
 * _Zakres_: grupa zasobów
 * _Subskrypcja_: wybierz subskrypcję platformy Azure
 * _Grupa zasobów_: Wybierz grupę zasobów z listy rozwijanej
-* _Rola_: wybierz pozycję _Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)_ z listy rozwijanej
+* _Rola_: Wybierz _właściciela danych Digital bliźniaczych reprezentacji platformy Azure_ z listy rozwijanej
 
 Następnie Zapisz szczegóły, naciskając przycisk _Zapisz_ .
 

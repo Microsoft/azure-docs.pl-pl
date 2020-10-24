@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: ead5ab6f914db951027406e43437ac30a4f85247
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: afc9633c32174cbe1d94535d68e4c8f85f3d137b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279268"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478070"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API: przykłady dla języka Java SDK v4
 
@@ -124,7 +124,7 @@ Plik [przykładów CRUD kolekcji](https://github.com/Azure/azure-documentdb-java
 
 ## <a name="autoscale-collection-examples"></a>Przykłady kolekcji automatycznego skalowania
 
-Aby dowiedzieć się więcej na temat automatycznego skalowania przed uruchomieniem tych przykładów, zapoznaj się z instrukcjami dotyczącymi włączania automatycznego skalowania na [koncie](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) i w [bazach danych i kontenerach](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autoscale).
+Aby dowiedzieć się więcej na temat automatycznego skalowania przed uruchomieniem tych przykładów, zapoznaj się z instrukcjami dotyczącymi włączania automatycznego skalowania na [koncie](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) i w [bazach danych i kontenerach](./provision-throughput-autoscale.md).
 
 Plik [przykładów CRUD bazy danych skalowania automatycznego](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/autoscaledatabasecrud/sync/AutoscaleDatabaseCRUDQuickstart.java) przedstawia sposób wykonywania następujących zadań.
 
@@ -163,7 +163,7 @@ Plik [przykłady dokumentu CRUD](https://github.com/Azure/azure-documentdb-java/
 | [Odczytywanie dokumentu tylko wtedy, gdy został zmieniony](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AccessCondition. SetType<br>AccessCondition. setcondition |
 
 ## <a name="indexing-examples"></a>Przykłady dotyczące indeksowania
-Plik [przykładów CRUD kolekcji](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat indeksowania Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksowania](index-policy.md), [typy indeksowania](index-types.md)i [ścieżki indeksowania](index-paths.md) artykuły koncepcyjne. 
+Plik [przykładów CRUD kolekcji](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat indeksowania Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksowania](index-policy.md), [typy indeksowania](index-overview.md#index-kinds)i [ścieżki indeksowania](index-policy.md#include-exclude-paths) artykuły koncepcyjne. 
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |
@@ -180,7 +180,7 @@ Plik [przykładów CRUD kolekcji](https://github.com/Azure/azure-documentdb-java
 Aby uzyskać więcej informacji na temat indeksowania, zobacz [Zasady indeksowania w usłudze Azure Cosmos DB](index-policy.md).
 
 ## <a name="query-examples"></a>Przykłady zapytań
-Plik [przykładów zapytania](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) przedstawia sposób wykonywania następujących zadań przy użyciu gramatyki zapytań SQL. Aby dowiedzieć się więcej na temat odwołania do zapytań SQL w Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [przykłady zapytań SQL dotyczących Azure Cosmos DB](how-to-sql-query.md). 
+Plik [przykładów zapytania](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) przedstawia sposób wykonywania następujących zadań przy użyciu gramatyki zapytań SQL. Aby dowiedzieć się więcej na temat odwołania do zapytań SQL w Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [przykłady zapytań SQL dotyczących Azure Cosmos DB](./sql-query-getting-started.md). 
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |

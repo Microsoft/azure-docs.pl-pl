@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: fc3ca5fdde464ba63671512a6ebecd2c314cb192
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7e5443869efd7f37153b47e4d9c3eaa39f9c41d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570837"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475281"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Wizualizowanie danych usługi Azure Cosmos DB przy użyciu łącznika usługi Power BI
 
@@ -32,7 +32,7 @@ Przed wykonaniem instrukcji przedstawionych w tym samouczku Power BI upewnij si�
 
 * Pobierz [przykładowe dane Volcano](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) z usługi GitHub.
 
-* [Utwórz konto bazy danych usługi Azure Cosmos](https://azure.microsoft.com/documentation/articles/create-account/) i zaimportuj dane Volcano za pomocą [Narzędzia do migracji danych Azure Cosmos DB](import-data.md). Podczas importowania danych należy wziąć pod uwagę następujące ustawienia źródłowe i docelowe w narzędziu migracja danych:
+* [Utwórz konto bazy danych usługi Azure Cosmos](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) i zaimportuj dane Volcano za pomocą [Narzędzia do migracji danych Azure Cosmos DB](import-data.md). Podczas importowania danych należy wziąć pod uwagę następujące ustawienia źródłowe i docelowe w narzędziu migracja danych:
 
    * **Parametry źródła** 
 
@@ -133,9 +133,9 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
 
 1. Podaj nazwę nowej kolumny, np. LatLong.
 
-1. Następnie określ formułę niestandardową dla nowej kolumny.  W naszym przykładzie będziemy łączyć wartości szerokości i długości geograficznej oddzielone przecinkami, jak pokazano poniżej, przy użyciu następującej formuły: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Kliknij przycisk **OK**.
+1. Następnie określ formułę niestandardową dla nowej kolumny.  W naszym przykładzie będziemy łączyć wartości szerokości i długości geograficznej oddzielone przecinkami, jak pokazano poniżej, przy użyciu następującej formuły: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Kliknij pozycję **OK**.
    
-   Aby uzyskać więcej informacji na temat wyrażeń analizy danych (DAX), w tym funkcji języka DAX, zobacz [podstawy języka DAX w Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
+   Aby uzyskać więcej informacji na temat wyrażeń analizy danych (DAX), w tym funkcji języka DAX, zobacz [podstawy języka DAX w Power BI Desktop](/power-bi/desktop-quickstart-learn-dax-basics).
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
@@ -226,4 +226,3 @@ For a scheduled refresh, do the following.
 ## <a name="next-steps"></a>Następne kroki
 * Aby dowiedzieć się więcej na temat Power BI, zobacz Rozpoczynanie [pracy z Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Aby dowiedzieć się więcej na temat Azure Cosmos DB, zapoznaj się ze stroną docelową [Azure Cosmos DB dokumentacji](https://azure.microsoft.com/documentation/services/cosmos-db/).
-

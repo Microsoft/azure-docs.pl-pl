@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e3d6771f841d3a1d403c1c825da3b504b6896d9e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0fb783a6ad65ce17bff14b72e8d94d284769779f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277214"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475162"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i zestawu .NET SDK w wersji 2
 
@@ -42,7 +42,7 @@ Tak więc, jeśli próbujesz poprawić wydajność bazy danych, weź pod uwagę 
 
 Zalecamy przetwarzanie hosta systemu Windows 64-bitowego w celu zwiększenia wydajności. Zestaw SDK SQL zawiera natywną ServiceInterop.dll do analizy i optymalizowania zapytań lokalnie. ServiceInterop.dll jest obsługiwana tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiwanych platform, w których ServiceInterop.dll nie jest dostępna, do bramy jest nawiązywane dodatkowe połączenie sieciowe w celu uzyskania zoptymalizowanego zapytania. Następujące typy aplikacji domyślnie korzystają z 32-bitowego przetwarzania hosta. Aby zmienić przetwarzanie hosta na 64-bitowe, wykonaj następujące kroki na podstawie typu aplikacji:
 
-- W przypadku aplikacji wykonywalnych można zmienić przetwarzanie hosta, ustawiając wartość [docelowy platformy](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) na **x64**  w oknie **właściwości projektu** na karcie **kompilacja** .
+- W przypadku aplikacji wykonywalnych można zmienić przetwarzanie hosta, ustawiając wartość [docelowy platformy](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) na **x64**  w oknie **właściwości projektu** na karcie **kompilacja** .
 
 - W przypadku projektów testowych opartych na VSTest można zmienić przetwarzanie hosta **, wybierając opcję Testuj**  >  **Ustawienia testu**  >  **domyślne architektura procesora jako x64** w menu **test** programu Visual Studio.
 
@@ -56,7 +56,7 @@ Zalecamy przetwarzanie hosta systemu Windows 64-bitowego w celu zwiększenia wyd
     
 **Włącz odzyskiwanie pamięci po stronie serwera (GC)**
 
-Zmniejszenie częstotliwości wyrzucania elementów bezużytecznych może pomóc w niektórych przypadkach. W programie .NET ustaw wartość [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) na `true` .
+Zmniejszenie częstotliwości wyrzucania elementów bezużytecznych może pomóc w niektórych przypadkach. W programie .NET ustaw wartość [gcServer](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element) na `true` .
 
 **Skalowanie obciążenia klienta**
 
@@ -90,8 +90,8 @@ W przypadku uruchamiania w protokole TCP klient optymalizuje się pod kątem op�
 
 W scenariuszach, w których masz dostęp rozrzedzony i jeśli zauważysz wyższą liczbę połączeń w porównaniu z dostępem do trybu bramy, możesz:
 
-* Skonfiguruj Właściwość [ConnectionPolicy. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) na wartość `PrivatePortPool` (efektywna w przypadku wersji Framework>= 4.6.1 i .net core w wersji >= 2,0): Ta właściwość umożliwia zestawowi SDK użycie niewielkiej puli tymczasowych portów dla różnych Azure Cosmos DB docelowych punktów końcowych.
-* Należy skonfigurować właściwość [ConnectionPolicy. IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) , która nie może być większa niż 10 minut. Zalecane wartości są z zakresu od 20 minut do 24 godzin.
+* Skonfiguruj Właściwość [ConnectionPolicy. PortReuseMode](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) na wartość `PrivatePortPool` (efektywna w przypadku wersji Framework>= 4.6.1 i .net core w wersji >= 2,0): Ta właściwość umożliwia zestawowi SDK użycie niewielkiej puli tymczasowych portów dla różnych Azure Cosmos DB docelowych punktów końcowych.
+* Należy skonfigurować właściwość [ConnectionPolicy. IdleConnectionTimeout](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) , która nie może być większa niż 10 minut. Zalecane wartości są z zakresu od 20 minut do 24 godzin.
 
 **Wywołaj OpenAsync, aby uniknąć opóźnień uruchamiania przy pierwszym żądaniu**
 
@@ -109,7 +109,7 @@ Jeśli to możliwe, należy umieścić wszystkie aplikacje, które wywołują Az
 **Zwiększenie liczby wątków/zadań**
 <a id="increase-threads"></a>
 
-Ponieważ wywołania Azure Cosmos DB są realizowane za pośrednictwem sieci, może być konieczne zróżnicowanie stopnia równoległości żądań, aby aplikacja kliencka poświęca minimalny czas oczekiwania na żądania. Na przykład, jeśli używasz [biblioteki równoległej zadania](https://msdn.microsoft.com//library/dd460717.aspx).NET, Utwórz w kolejności setek zadań odczytywanych z lub zapisu do Azure Cosmos DB.
+Ponieważ wywołania Azure Cosmos DB są realizowane za pośrednictwem sieci, może być konieczne zróżnicowanie stopnia równoległości żądań, aby aplikacja kliencka poświęca minimalny czas oczekiwania na żądania. Na przykład, jeśli używasz [biblioteki równoległej zadania](/dotnet/standard/parallel-programming/task-parallel-library-tpl).NET, Utwórz w kolejności setek zadań odczytywanych z lub zapisu do Azure Cosmos DB.
 
 **Włącz przyspieszone sieci**
  
@@ -127,7 +127,7 @@ Każde `DocumentClient` wystąpienie jest bezpieczne dla wątków i wykonuje wyd
 
 **Zwiększ System.Net MaxConnections na hosta podczas korzystania z trybu bramy**
 
-Żądania Azure Cosmos DB są wykonywane za pośrednictwem protokołu HTTPS/REST w przypadku korzystania z trybu bramy. Są one uzależnione od domyślnego limitu połączeń na nazwę hosta lub adres IP. Może być konieczne ustawienie `MaxConnections` wyższej wartości (od 100 do 1 000), aby Biblioteka klienta mogła używać wielu jednoczesnych połączeń do Azure Cosmos DB. W zestawie .NET SDK 1.8.0 i nowszych wartość domyślna dla [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) to 50. Aby zmienić wartość, można ustawić opcję [Documents. Client. ConnectionPolicy. MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) na wyższą wartość.
+Żądania Azure Cosmos DB są wykonywane za pośrednictwem protokołu HTTPS/REST w przypadku korzystania z trybu bramy. Są one uzależnione od domyślnego limitu połączeń na nazwę hosta lub adres IP. Może być konieczne ustawienie `MaxConnections` wyższej wartości (od 100 do 1 000), aby Biblioteka klienta mogła używać wielu jednoczesnych połączeń do Azure Cosmos DB. W zestawie .NET SDK 1.8.0 i nowszych wartość domyślna dla [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) to 50. Aby zmienić wartość, można ustawić opcję [Documents. Client. ConnectionPolicy. MaxConnectionLimit](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit) na wyższą wartość.
 
 **Dostrajaj równoległe zapytania dla kolekcji partycjonowanych**
 
@@ -135,19 +135,19 @@ Zestaw SDK programu SQL 1.9.0 i nowsze obsługują zapytania równoległe, któr
 - `MaxDegreeOfParallelism` Określa maksymalną liczbę partycji, które mogą być wykonywane równolegle. 
 - `MaxBufferedItemCount` Określa liczbę wstępnie pobranych wyników.
 
-***Dostrajanie stopnia równoległości***
+**_Stopień strojenia równoległości_*_
 
 Równoległe zapytanie działa przez wykonywanie zapytań na wielu partycjach równolegle. Ale dane z pojedynczej partycji są pobierane sekwencyjnie w odniesieniu do zapytania. Ustawienie `MaxDegreeOfParallelism` w [zestawie SDK V2](sql-api-sdk-dotnet.md) na liczbę partycji ma najlepszą szansę osiągnięcia najbardziej wydajnego zapytania, pod warunkiem, że wszystkie inne warunki systemu pozostają takie same. Jeśli nie znasz liczby partycji, możesz ustawić stopień równoległości na wysoki. System wybierze minimalną (liczbę partycji, dane wejściowe podane przez użytkownika) jako stopień równoległości.
 
 Zapytania równoległe dają najwięcej korzyści, jeśli dane są równomiernie dystrybuowane we wszystkich partycjach w odniesieniu do zapytania. Jeśli partycjonowana kolekcja jest podzielona na partycje, tak aby wszystkie lub większość danych zwróconych przez zapytanie było skoncentrowane na kilku partycjach (jedna partycja jest najgorszą wielkością), te partycje spowodują wąskie gardła wydajności zapytania.
 
-***Dostrajanie MaxBufferedItemCount***
+_*_Dostrajanie MaxBufferedItemCount_*_
     
 Zapytanie równoległe zostało zaprojektowane w celu wstępnego pobrania wyników, podczas gdy bieżąca partia wyników jest przetwarzana przez klienta. To wstępne pobranie ułatwia zwiększenie ogólnego opóźnienia zapytania. `MaxBufferedItemCount`Parametr ogranicza liczbę wstępnie pobranych wyników. Ustaw `MaxBufferedItemCount` na oczekiwaną liczbę zwracanych wyników (lub wyższą liczbę), aby zezwolić na zapytanie, aby otrzymać maksymalną korzyść z wstępnego pobierania.
 
 Przed pobraniem działa w taki sam sposób, niezależnie od stopnia równoległości, i istnieje pojedynczy bufor dla danych ze wszystkich partycji.  
 
-**Implementowanie wycofywania w interwałach RetryAfter**
+_*Implementuj wycofywania w interwałach RetryAfter**
 
 Podczas testowania wydajności należy zwiększyć obciążenie do momentu ograniczenia niewielkiej liczby żądań. Jeśli żądania są ograniczone, aplikacja kliencka powinna wykonać wycofywanie z ograniczeniami dla interwału ponawiania prób określonego serwera. Poszanowanie wycofywania gwarantuje, że spędzasz minimalny czas oczekiwania między ponownymi próbami. 
 
@@ -156,7 +156,7 @@ W tych zestawach SDK uwzględniono obsługę zasad ponawiania prób:
 - Wersja 1.9.0 i nowsza [ zestawuNode.js SDK dla SQL](sql-api-sdk-node.md) i [zestawu Python SDK dla SQL](sql-api-sdk-python.md)
 - Wszystkie obsługiwane wersje zestawów SDK [platformy .NET Core](sql-api-sdk-dotnet-core.md) 
 
-Aby uzyskać więcej informacji, zobacz [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+Aby uzyskać więcej informacji, zobacz [RetryAfter](/dotnet/api/microsoft.azure.documents.documentclientexception.retryafter).
     
 W wersji 1,19 i nowszych zestawu .NET SDK istnieje mechanizm rejestrowania dodatkowych informacji diagnostycznych i rozwiązywania problemów z opóźnieniami, jak pokazano w poniższym przykładzie. Można rejestrować ciąg diagnostyczny dla żądań, które mają wyższy czas oczekiwania na odczyt. Przechwycony ciąg diagnostyczny pomoże zrozumieć, ile razy otrzymujesz 429 błędów dla danego żądania.
 
@@ -178,7 +178,7 @@ Aby zmniejszyć liczbę podróży sieci wymaganych do pobrania wszystkich stosow
 > [!NOTE] 
 > `maxItemCount`Właściwość nie powinna być używana tylko do dzielenia na strony. Jego głównym zastosowaniem jest poprawa wydajności zapytań przez zmniejszenie maksymalnej liczby elementów zwracanych na jednej stronie.  
 
-Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Na przykład:
+Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Przykład:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278192"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482608"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API Cassandra w programie Azure Cosmos DB
 
@@ -75,7 +75,7 @@ Istotne jest, aby zobaczyć, jakie operacje (i ich woluminy) powodują ten probl
 
 Dostępne są metryki pokazujące, jak przepływność jest używana w godzinach, w dniach i na siedem dni, między partycjami lub agregacją. Aby uzyskać więcej informacji, zobacz [monitorowanie i debugowanie za pomocą metryk w Azure Cosmos DB](use-metrics.md).
 
-Dzienniki diagnostyczne zostały omówione w artykule [rejestrowanie diagnostyczne Azure Cosmos DB](logging.md) .
+Dzienniki diagnostyczne zostały omówione w artykule [rejestrowanie diagnostyczne Azure Cosmos DB](./monitor-cosmos-db.md) .
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>Czy klucz podstawowy jest mapowany na klucz partycji koncepcji Azure Cosmos DB?
 
@@ -135,9 +135,9 @@ Tak, wartość czasu wygaśnięcia jest obsługiwana.
 
 Azure Cosmos DB to usługa platformy, która pozwala zwiększyć produktywność i nie martwić się o zarządzanie i monitorowanie infrastruktury. Na przykład nie trzeba monitorować stanu węzła, stanu repliki, GC i parametrów systemu operacyjnego wcześniej przy użyciu różnych narzędzi. Wystarczy zadbać o przepływność, która jest dostępna w metrykach portalu, aby zobaczyć, czy masz ograniczenie przepustowości, a następnie zwiększyć lub zmniejszyć tę przepływność. Można:
 
-- Monitorowanie [umowy SLA](monitor-accounts.md)
+- Monitorowanie [umowy SLA](./monitor-cosmos-db.md)
 - Korzystanie z [metryk](use-metrics.md)
-- Korzystanie z [dzienników diagnostycznych](logging.md)
+- Korzystanie z [dzienników diagnostycznych](./monitor-cosmos-db.md)
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>Które zestawy SDK klienta mogą współpracowały z interfejs API Cassandra?
 
@@ -187,7 +187,7 @@ Informacje o opcjach migracji można znaleźć w samouczku [Migrowanie danych do
 Prześlij opinię za pośrednictwem [opinii użytkownika](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Następne kroki
 

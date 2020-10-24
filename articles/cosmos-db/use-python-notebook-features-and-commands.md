@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 596d34ef0544f4160c18210f05f68b488ec114d3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801855"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476284"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Korzystanie z wbudowanych poleceń i funkcji notesu w Azure Cosmos DB notesach Python (wersja zapoznawcza)
 
@@ -42,7 +42,7 @@ Możesz użyć ``%%sql`` polecenia Magic, aby uruchomić [zapytanie SQL](sql-que
 - Zamień ``{database_id}`` i ``{container_id}`` na nazwę bazy danych i kontenera na koncie Cosmos. Jeśli ``--database`` argumenty i ``--container`` nie zostaną podane, zapytanie zostanie wykonane w [domyślnej bazie danych i kontenerze](#set-default-database-for-queries).
 - Można uruchomić dowolne zapytanie SQL, które jest prawidłowe w Azure Cosmos DB. Tekst zapytania musi znajdować się w nowym wierszu.
 
-Na przykład: 
+Przykład: 
 ```python
 %%sql --database RetailDemo --container WebsiteData
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
@@ -61,7 +61,7 @@ Wyniki zapytania można wyprowadzać ``%%sql`` w [Pandas Dataframe](https://pand
 - Zamień ``{outputDataFrameVar}`` na nazwę zmiennej Dataframe, która będzie zawierać wyniki.
 - Można uruchomić dowolne zapytanie SQL, które jest prawidłowe w Azure Cosmos DB. Tekst zapytania musi znajdować się w nowym wierszu. 
 
-Na przykład:
+Przykład:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -108,7 +108,7 @@ Możesz użyć ``%%upload`` polecenia Magic, aby przekazać dane z pliku JSON do
 - Zastąp wartości ``{database_id}`` i ``{container_id}`` nazwą bazy danych i kontenera na koncie usługi Azure Cosmos. Jeśli ``--database`` argumenty i ``--container`` nie zostaną podane, zapytanie zostanie wykonane w [domyślnej bazie danych i kontenerze](#set-default-database-for-queries).
 - Zamień ``{url_location_of_file}`` na lokalizację pliku JSON. Plik musi być tablicą prawidłowych obiektów JSON i powinien być dostępny za pośrednictwem publicznego Internetu.
 
-Na przykład:
+Przykład:
 
 ```python
 %%upload --database databaseName --container containerName --url 
@@ -147,7 +147,7 @@ Wersja 4 [Azure Cosmos DB zestawu SDK języka Python dla interfejsu API SQL](htt
 
 Użyj wbudowanego ``cosmos_client`` wystąpienia do uruchomienia dowolnej operacji zestawu SDK. 
 
-Na przykład:
+Przykład:
 
 ```python
 ## Import modules as needed
@@ -167,7 +167,7 @@ Zobacz [przykłady zestawu SDK języka Python](https://github.com/Azure/azure-sd
 ## <a name="create-a-custom-instance-of-cosmos_client"></a>Utwórz wystąpienie niestandardowe ``cosmos_client``
 Aby uzyskać większą elastyczność, można utworzyć wystąpienie niestandardowe programu ``cosmos_client`` w celu:
 
-- Dostosowywanie [zasad połączenia](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true)
+- Dostosowywanie [zasad połączenia](/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?preserve-view=true&view=azure-python-preview)
 - Wykonywanie operacji na innym koncie usługi Azure Cosmos niż to, w którym znajduje się użytkownik
 
 Możesz uzyskać dostęp do parametrów połączenia i klucza podstawowego bieżącego konta za pomocą [zmiennych środowiskowych](#access-the-account-endpoint-and-primary-key-env-variables). 

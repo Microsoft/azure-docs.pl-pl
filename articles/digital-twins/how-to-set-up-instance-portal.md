@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0dfc93987fb2ca25b9e397e4aa91adcaaafd8a38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205500"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478862"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -75,7 +75,7 @@ Najpierw otwórz stronę wystąpienia usługi Azure Digital bliźniaczych reprez
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Na poniższej stronie *Dodawanie przypisania roli* Wypełnij wartości (musi zostać wykonane przez użytkownika z [odpowiednimi uprawnieniami](#prerequisites-permission-requirements) w ramach subskrypcji platformy Azure):
-* **Rola**: wybierz pozycję *Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)* z menu rozwijanego
+* **Rola**: Wybierz *właściciela danych Digital bliźniaczych reprezentacji systemu Azure* z menu rozwijanego
 * **Przypisz dostęp do**: Wybierz *użytkownika, grupę lub jednostkę usługi Azure AD* z menu rozwijanego
 * **Wybierz**: Wyszukaj nazwę lub adres e-mail użytkownika do przypisania. Po wybraniu wyniku użytkownik zostanie wyświetlony w sekcji *wybrane elementy członkowskie* .
 
@@ -91,7 +91,7 @@ Po zakończeniu wprowadzania szczegółów naciśnij przycisk *Zapisz* .
 
 ### <a name="verify-success"></a>Weryfikowanie sukcesu
 
-Można wyświetlić przypisaną rolę, która została skonfigurowana w obszarze *Kontrola dostępu (IAM) > przypisań ról*. Użytkownik powinien zostać wyświetlony na liście z rolą *właściciela Digital bliźniaczych reprezentacji (wersja zapoznawcza)*. 
+Można wyświetlić przypisaną rolę, która została skonfigurowana w obszarze *Kontrola dostępu (IAM) > przypisań ról*. Użytkownik powinien zostać wyświetlony na liście z rolą *właściciela danych cyfrowych bliźniaczych reprezentacji systemu Azure*. 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 

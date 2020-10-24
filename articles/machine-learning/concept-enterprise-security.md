@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207941"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495999"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -44,7 +44,7 @@ Azure Machine Learning obsługuje dwie formy uwierzytelniania dla usług sieci W
 
 |Metoda uwierzytelniania|Opis|Azure Container Instances|AKS|
 |---|---|---|---|
-|Key|Klucze są statyczne i nie trzeba ich odświeżyć. Klucze można generować ponownie ręcznie.|Domyślnie wyłączone| Domyślnie włączone|
+|Klucz|Klucze są statyczne i nie trzeba ich odświeżyć. Klucze można generować ponownie ręcznie.|Domyślnie wyłączone| Domyślnie włączone|
 |Token|Tokeny wygasają po upływie określonego czasu i wymagają odświeżenia.| Niedostępne| Domyślnie wyłączone |
 
 Aby zapoznać się z przykładami kodu, zobacz [sekcję uwierzytelnianie usługi sieci Web](how-to-setup-authentication.md#web-service-authentication).
@@ -115,7 +115,7 @@ Możesz również włączyć prywatne łącze platformy Azure dla Twojego obszar
 >
 > Wystąpienie obliczeniowe Azure Machine Learning jest środowiskiem deweloperskim/testowym. W przypadku korzystania z tego programu zalecamy przechowywanie plików, takich jak Notesy i skrypty, w udziale plików. Dane powinny być przechowywane w magazynie danych.
 
-### <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
+### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
 > [!IMPORTANT]
 > Jeśli obszar roboczy zawiera dane poufne, zalecamy ustawienie [flagi hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) podczas tworzenia obszaru roboczego. `hbi_workspace`Flagę można ustawić tylko podczas tworzenia obszaru roboczego. Nie można go zmienić dla istniejącego obszaru roboczego.
@@ -127,7 +127,7 @@ Możesz również włączyć prywatne łącze platformy Azure dla Twojego obszar
 * Bezpieczne przekazanie poświadczeń dla konta magazynu, rejestru kontenerów i konta SSH z warstwy wykonywania do klastrów obliczeniowych przy użyciu magazynu kluczy
 * Włącza filtrowanie adresów IP, aby upewnić się, że źródłowe pule usługi Batch nie mogą być wywoływane przez żadną zewnętrzną usługę inną niż AzureMachineLearningService
 
-#### <a name="azure-blob-storage"></a>Azure Blob Storage
+#### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
 
 Azure Machine Learning przechowuje migawki, dane wyjściowe i dzienniki na koncie usługi Azure Blob Storage, które jest powiązane z obszarem roboczym Azure Machine Learning i subskrypcją. Wszystkie dane przechowywane w usłudze Azure Blob Storage są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez firmę Microsoft.
 
@@ -183,6 +183,7 @@ Aby użyć własnych kluczy (zarządzanych przez klienta) do zaszyfrowania Azure
 Przykład tworzenia obszaru roboczego przy użyciu istniejącego Azure Container Registry można znaleźć w następujących artykułach:
 
 * [Utwórz obszar roboczy dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure](how-to-manage-workspace-cli.md).
+* [Utwórz obszar roboczy z zestawem SDK języka Python](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning](how-to-create-workspace-template.md)
 
 #### <a name="azure-container-instance"></a>Wystąpienie kontenera platformy Azure

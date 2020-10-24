@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 633baafa7f6cb1bc134f07ce64ba98ebd4cb626c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50884a45e60826f09fffcc9f86992563e473424d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603054"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478052"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Przyspieszenie analizy danych Big Data przy użyciu Apache Spark do Azure Cosmos DB łącznika
 
@@ -33,8 +33,8 @@ Możesz użyć łącznika z usługą [Azure Databricks](https://azure.microsoft.
 
 ## <a name="quickstart"></a>Szybki start
 
-* Wykonaj kroki opisane w sekcji [wprowadzenie do zestawu Java SDK](sql-api-async-java-get-started.md) , aby skonfigurować konto Cosmos DB i wypełnić pewne dane.
-* Wykonaj kroki opisane w [Azure Databricks wprowadzenie](/azure/azure-databricks/quickstart-create-databricks-workspace-portal) do konfiguracji Azure Databricks obszaru roboczego i klastra.
+* Wykonaj kroki opisane w sekcji [wprowadzenie do zestawu Java SDK](./create-sql-api-java.md) , aby skonfigurować konto Cosmos DB i wypełnić pewne dane.
+* Wykonaj kroki opisane w [Azure Databricks wprowadzenie](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) do konfiguracji Azure Databricks obszaru roboczego i klastra.
 * Teraz można tworzyć nowe Notesy i importować biblioteki łączników Cosmos DB. Przejdź do [łącznika Cosmos DB,](#bk_working_with_connector) Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania obszaru roboczego.
 * W poniższej sekcji znajdują się fragmenty ułatwiające odczytywanie i zapisywanie za pomocą łącznika.
 

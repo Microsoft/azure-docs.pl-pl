@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10d4d07a61bc4ebec789d53e4271a3bcdc7ba76b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205590"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495021"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
 
@@ -43,7 +43,7 @@ W tym artykule używamy przykładowego kodu usługi Azure Digital bliźniaczych 
 
 Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
 1. Przejdź do okna [Azure Cloud Shell](https://shell.azure.com/) w przeglądarce. Zaloguj się przy użyciu tego polecenia:
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, spowoduje to załadowanie strony logowania platformy Azure. W przeciwnym razie Otwórz stronę przeglądarki pod adresem *https://aka.ms/devicelogin* i wprowadź kod autoryzacji wyświetlany w terminalu.
@@ -62,11 +62,11 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
 
 4. Uruchom skrypt, wysyłając `./deploy.ps1` polecenie w oknie Cloud Shell. Możesz skopiować poniższe polecenie (odwołaj się do Cloud Shell, możesz użyć **klawiszy Ctrl + Shift + v** w systemach Windows i Linux lub **cmd + Shift + v** w macOS. Możesz również użyć menu po kliknięciu prawym przyciskiem myszy.
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 
-    Skrypt utworzy wystąpienie usługi Azure Digital bliźniaczych reprezentacji i przypisze rolę użytkownika Azure *Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)* na tym wystąpieniu.
+    Skrypt utworzy wystąpienie usługi Azure Digital bliźniaczych reprezentacji i przypisze rolę *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* w wystąpieniu.
 
     Gdy skrypt jest uruchamiany w ramach kroków instalacji zautomatyzowanej, zostanie wyświetlony monit o podanie następujących wartości:
     * Dla wystąpienia: *Identyfikator subskrypcji* subskrypcji platformy Azure do użycia
@@ -83,10 +83,10 @@ Poniżej znajduje się fragment dziennika danych wyjściowych ze skryptu:
 Jeśli skrypt zakończy się pomyślnie, zostanie wyświetlony końcowy wydruk `Deployment completed successfully` . W przeciwnym razie należy rozwiązać ten problem, a następnie uruchomić skrypt. Spowoduje to pominięcie czynności, które zostały już wykonane, i ponowne zażądanie danych wejściowych w miejscu, w którym zostało przerwane.
 
 > [!NOTE]
-> Skrypt aktualnie przypisuje wymaganą rolę zarządzania w ramach usługi Azure Digital bliźniaczych reprezentacji (*wersja zapoznawcza usługi Azure Digital bliźniaczych reprezentacji*) do tego samego użytkownika, który uruchamia skrypt z Cloud Shell. Jeśli musisz przypisać tę rolę osobie, która będzie zarządzać wystąpieniem, możesz to zrobić teraz za pomocą Azure Portal ([instrukcje](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) lub interfejsu wiersza polecenia ([instrukcje](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> Skrypt aktualnie przypisuje wymaganą rolę zarządzania w usłudze Azure Digital bliźniaczych reprezentacji (*właściciel danych Digital bliźniaczych reprezentacji platformy Azure*) do tego samego użytkownika, który uruchamia skrypt z Cloud Shell. Jeśli musisz przypisać tę rolę osobie, która będzie zarządzać wystąpieniem, możesz to zrobić teraz za pomocą Azure Portal ([instrukcje](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) lub interfejsu wiersza polecenia ([instrukcje](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
->Istnieje obecnie **znany problem** z konfiguracją inicjowaną przez skrypty, w której niektórzy użytkownicy (zwłaszcza użytkownicy korzystający z osobistych [kont Microsoft (kont MSA)](https://account.microsoft.com/account)) mogą znaleźć **przypisanie roli do _usługi Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)_ nie została utworzona**.
+>Obecnie występuje **znany problem** z konfiguracją inicjowaną przez skrypty, w której niektórzy użytkownicy (zwłaszcza użytkownicy korzystający z osobistych [kont Microsoft (kont MSA)](https://account.microsoft.com/account)) mogą znaleźć **przypisanie roli do _właściciela danych Digital bliźniaczych reprezentacji platformy Azure_ **.
 >
 >Możesz sprawdzić przypisanie roli za pomocą sekcji [*Weryfikuj przypisanie roli użytkownika*](#verify-user-role-assignment) w dalszej części tego artykułu i — w razie konieczności — Skonfiguruj przypisanie roli ręcznie przy użyciu [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) lub [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >

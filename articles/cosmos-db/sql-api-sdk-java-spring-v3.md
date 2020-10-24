@@ -9,32 +9,32 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: f0cb3d5f9184bacef42a0258add6dd2461a71dd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1695fb04872e505842318d21e856a9a01b1b1f3a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326664"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477372"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Dane wiosenne Azure Cosmos DB v3 for Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
 > * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
 > * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
-> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
+> * [Zestaw SDK zestawienia zmian platformy .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
-> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
 Dane wiosenne Azure Cosmos DB wersja 3 dla rdzenia (SQL) umożliwiają deweloperom korzystanie z Azure Cosmos DB w aplikacjach wiosennych. Dane wiosenne Azure Cosmos DB uwidaczniają interfejs danych sprężyny do manipulowania bazami plików i kolekcjami, pracy z dokumentami i wystawiania zapytań. W tym samym artefaktie Maven są obsługiwane zarówno interfejsy API synchronizacji, jak i asynchroniczne (reaktywne). 
 
@@ -50,9 +50,9 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 > Dane sprężynowe Azure Cosmos DB obsługują tylko interfejs API SQL.
 >
 > Zobacz następujące artykuły, aby uzyskać informacje na temat sprężyny danych na innych Azure Cosmos DB interfejsów API:
-> * [Sprężynowe dane dla Apache Cassandra z Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [MongoDB danych wiosennych z Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Gremlin danych wiosennych z Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Sprężynowe dane dla Apache Cassandra z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [MongoDB danych wiosennych z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Gremlin danych wiosennych z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## <a name="start-here"></a>Zacznij tutaj
@@ -106,7 +106,7 @@ cosmos.queryMetricsEnabled=true
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

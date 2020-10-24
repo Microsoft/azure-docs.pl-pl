@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95337f88133c9493250e9197654288dc0af59ed1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570673"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486144"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Skonfiguruj operacje zapisu obejmujące wiele regionów w aplikacjach korzystających z Azure Cosmos DB
 
@@ -60,7 +60,7 @@ CosmosClient client = cosmosClientBuilder.Build();
 
 Aby włączyć operacje zapisu w wielu regionach w aplikacji, wywołaj `.multipleWriteRegionsEnabled(true)` i `.preferredRegions(preferredRegions)` w konstruktorze klienta, gdzie `preferredRegions` jest `List` zawierający jeden element, czyli region, w którym aplikacja jest wdrażana i gdzie Cosmos DB jest replikowana:
 
-# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Async](#tab/api-async)
 
    [Java SDK v4](sql-api-sdk-java-v4.md) (Maven [com. Azure:: Azure-Cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
@@ -129,8 +129,8 @@ Przeczytaj następujące artykuły:
 * [Conflict types and resolution policies in Azure Cosmos DB (Typy konfliktów i zasady ich rozwiązywania w usłudze Azure Cosmos DB)](conflict-resolution-policies.md)
 * [High availability in Azure Cosmos DB (Wysoka dostępność w usłudze Azure Cosmos DB)](high-availability.md)
 * [Poziomy spójności w usłudze Azure Cosmos DB](consistency-levels.md)
-* [Wybierz odpowiedni poziom spójności w Azure Cosmos DB](consistency-levels-choosing.md)
-* [Wady dotyczące spójności, dostępności i wydajności w Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Wady dostępności i wydajności dla różnych poziomów spójności](consistency-levels-tradeoffs.md)
-* [Globalne skalowanie aprowizowanej przepływności](scaling-throughput.md)
+* [Wybierz odpowiedni poziom spójności w Azure Cosmos DB](./consistency-levels.md)
+* [Wady dotyczące spójności, dostępności i wydajności w Azure Cosmos DB](./consistency-levels.md)
+* [Wady dostępności i wydajności dla różnych poziomów spójności](./consistency-levels.md)
+* [Globalne skalowanie aprowizowanej przepływności](./request-units.md)
 * [Dystrybucja globalna: pod okapem](global-dist-under-the-hood.md)

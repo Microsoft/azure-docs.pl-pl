@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: 48265856e5e745e05f6625766f9cd0c9b15c90a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eaccd0559439ce228325205f5845151f0e76bcae
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708666"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484529"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Pojęcia dotyczące łączności i sieci dla Azure Database for MySQL-elastyczny serwer (wersja zapoznawcza)
 
@@ -73,6 +73,8 @@ Poniżej przedstawiono kilka koncepcji, które należy znać w przypadku używan
 
 Dowiedz się, jak włączyć dostęp prywatny (Integracja z siecią wirtualną) za pomocą [Azure Portal](how-to-manage-virtual-network-portal.md) lub [interfejsu wiersza polecenia platformy Azure](how-to-manage-virtual-network-cli.md).
 
+> [!NOTE]
+> W przypadku korzystania z niestandardowego serwera DNS należy użyć usługi przesyłania dalej DNS w celu rozpoznania nazwy FQDN serwera Azure Database for MySQL-elastyczny. Aby dowiedzieć się więcej [, zobacz Rozpoznawanie nazw, które używa własnego serwera DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) .
 
 ## <a name="public-access-allowed-ip-addresses"></a>Dostęp publiczny (dozwolone adresy IP)
 Właściwości metody dostępu publicznego obejmują:

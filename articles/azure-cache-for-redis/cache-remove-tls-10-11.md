@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84423925"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496053"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Usuń protokoły TLS 1,0 i 1,1 z używania z usługą Azure cache for Redis
 
@@ -19,10 +19,14 @@ Na wyłączne korzystanie z Transport Layer Security (TLS) w wersji 1,2 lub nows
 
 W ramach tego wysiłku wprowadzamy następujące zmiany w usłudze Azure cache dla Redis:
 
-* **Faza 1:** Skonfigurujemy domyślną minimalną wersję protokołu TLS do 1,2 dla nowo utworzonych wystąpień pamięci podręcznej (poprzednio TLS 1,0).  Istniejące wystąpienia pamięci podręcznej nie zostaną zaktualizowane w tym momencie. W razie potrzeby będziesz mieć możliwość [zmiany minimalnej wersji protokołu TLS](cache-configure.md#access-ports) z powrotem do 1,0 lub 1,1 w celu zapewnienia zgodności z poprzednimi wersjami. Tę zmianę można wykonać za pomocą Azure Portal lub innych interfejsów API zarządzania.
-* **Faza 2:** Zatrzymamy obsługę protokołu TLS w wersji 1,0 i 1,1. Po tej zmianie aplikacja będzie musiała korzystać z protokołu TLS 1,2 lub nowszego do komunikowania się z pamięcią podręczną.
+* **Faza 1:** Skonfigurujemy domyślną minimalną wersję protokołu TLS do 1,2 dla nowo utworzonych wystąpień pamięci podręcznej (wcześniej była to protokół TLS 1,0). Istniejące wystąpienia pamięci podręcznej nie zostaną zaktualizowane w tym momencie. Można nadal używać Azure Portal lub innych interfejsów API zarządzania, aby [zmienić minimalną wersję protokołu TLS](cache-configure.md#access-ports) na 1,0 lub 1,1 w celu zapewnienia zgodności z poprzednimi wersjami, jeśli zachodzi taka potrzeba.
+* **Faza 2:** Zatrzymamy obsługę protokołów TLS 1,1 i TLS 1,0. Po tej zmianie aplikacja musi korzystać z protokołu TLS 1,2 lub nowszego, aby komunikować się z pamięcią podręczną. Oczekuje się, że usługa Azure cache for Redis jest dostępna podczas migracji do obsługi tylko protokołu TLS 1,2 lub nowszego.
 
-Ponadto w ramach tej zmiany zostanie usunięta pomoc techniczna dla starszych, niezabezpieczonych pakietów szyfr.  Nasze obsługiwane pakiety szyfr zostaną ograniczone do następujących, gdy pamięć podręczna zostanie skonfigurowana z minimalną wersją protokołu TLS 1,2.
+  > [!NOTE]
+  > Faza 2 jest wstępnie zaplanowana do rozpoczęcia nie wcześniejszą niż 31 grudnia 2020. Zdecydowanie zaleca się jednak, aby od razu rozpocząć planowanie tej zmiany i zaktualizować klientów do obsługi protokołu TLS 1,2 lub nowszego. 
+  >
+
+W ramach tej zmiany zostanie również usunięta obsługa starszych zestawów szyfr, które nie są bezpieczne. Nasze obsługiwane pakiety szyfr zostaną ograniczone do następujących zestawów, gdy pamięć podręczna zostanie skonfigurowana z użyciem co najmniej protokołu TLS 1,2:
 
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
@@ -33,12 +37,14 @@ Daty wprowadzenia tych zmian są następujące:
 
 | Chmura                | Data rozpoczęcia fazy 1 | Data rozpoczęcia fazy 2         |
 |----------------------|--------------------|----------------------------|
-| Azure (globalny)       |  13 stycznia 2020  | Odroczone ze względu na COVID 19  |
-| Azure Government     |  13 marca 2020    | Odroczone ze względu na COVID 19  |
-| Azure (Niemcy)        |  13 marca 2020    | Odroczone ze względu na COVID 19  |
-| Azure w Chinach — 21Vianet |  13 marca 2020    | Odroczone ze względu na COVID 19  |
+| Azure (globalny)       |  13 stycznia 2020  | Odroczone ze względu na COVID-19  |
+| Azure Government     |  13 marca 2020    | Odroczone ze względu na COVID-19  |
+| Azure (Niemcy)        |  13 marca 2020    | Odroczone ze względu na COVID-19  |
+| Azure w Chinach — 21Vianet |  13 marca 2020    | Odroczone ze względu na COVID-19  |
 
-Uwaga: nowa data dla fazy 2 jeszcze nie została określona
+> [!NOTE]
+> Faza 2 jest wstępnie zaplanowana do rozpoczęcia nie wcześniejszą niż 31 grudnia 2020. Ten artykuł zostanie zaktualizowany po ustawieniu określonych dat.
+>
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Sprawdź, czy aplikacja jest już zgodna
 

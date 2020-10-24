@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85850703"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478154"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Przechodzenie do społeczności Azure Cosmos DB
 
@@ -216,9 +216,9 @@ Ponieważ używasz Azure Cosmos DB, możesz łatwo zaimplementować aparat wyszu
 
 Dlaczego ten proces jest łatwy?
 
-Usługa Azure Wyszukiwanie poznawcze implementuje działania [indeksatorów](https://msdn.microsoft.com/library/azure/dn946891.aspx), procesy w tle, które znajdują się w repozytoriach danych i umożliwiają autododawanie, aktualizowanie lub usuwanie obiektów w indeksach. Obsługują Indeksatory [Azure SQL Database](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), indeksatorów [obiektów blob platformy Azure](../search/search-howto-indexing-azure-blob-storage.md) i Thankfully, [Azure Cosmos DB indeksatorów](../search/search-howto-index-documentdb.md). Przejście informacji z Cosmos DB do usługi Azure Wyszukiwanie poznawcze jest proste. Obie technologie przechowują informacje w formacie JSON, więc wystarczy [utworzyć indeks](../search/search-create-index-portal.md) i zmapować atrybuty z dokumentów, które mają być indeksowane. Gotowe. W zależności od rozmiaru danych cała zawartość będzie dostępna do przeszukania w ciągu kilku minut przez najlepsze rozwiązanie typu "wyszukiwanie jako usługa" w infrastrukturze chmurowej.
+Usługa Azure Wyszukiwanie poznawcze implementuje działania [indeksatorów](/rest/api/searchservice/Indexer-operations), procesy w tle, które znajdują się w repozytoriach danych i umożliwiają autododawanie, aktualizowanie lub usuwanie obiektów w indeksach. Obsługują Indeksatory [Azure SQL Database](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), indeksatorów [obiektów blob platformy Azure](../search/search-howto-indexing-azure-blob-storage.md) i Thankfully, [Azure Cosmos DB indeksatorów](../search/search-howto-index-cosmosdb.md). Przejście informacji z Cosmos DB do usługi Azure Wyszukiwanie poznawcze jest proste. Obie technologie przechowują informacje w formacie JSON, więc wystarczy [utworzyć indeks](../search/search-what-is-an-index.md) i zmapować atrybuty z dokumentów, które mają być indeksowane. Gotowe. W zależności od rozmiaru danych cała zawartość będzie dostępna do przeszukania w ciągu kilku minut przez najlepsze rozwiązanie typu "wyszukiwanie jako usługa" w infrastrukturze chmurowej.
 
-Więcej informacji o usłudze Azure Wyszukiwanie poznawcze można znaleźć w [przewodniku hitchhiker](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Więcej informacji o usłudze Azure Wyszukiwanie poznawcze można znaleźć w [przewodniku hitchhiker](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search).
 
 ## <a name="the-underlying-knowledge"></a>Podstawowa baza wiedzy
 

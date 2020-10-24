@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
-ms.openlocfilehash: cb052f4ce962b1757f47f64e3f26fa5db2a731fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61321af538ee117828914a209523a1138e74c20
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88999686"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483458"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z serwerem Tableau
 
@@ -131,11 +131,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Na karcie **Konfiguracja** wybierz pozycję **tożsamość użytkownika & dostęp**, a następnie wybierz kartę Metoda **uwierzytelniania** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+    ![Zrzut ekranu przedstawia uwierzytelnianie wybrane z tożsamości użytkownika & dostępu.](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
 
 3. Na stronie **Konfiguracja** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+    ![Zrzut ekranu przedstawia stronę konfiguracji, na której można wprowadzić podane wartości.](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
 
     a. W obszarze **Metoda uwierzytelniania**wybierz pozycję SAML.
 
