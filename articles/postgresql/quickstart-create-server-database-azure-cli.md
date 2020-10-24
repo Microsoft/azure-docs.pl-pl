@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 086f680a0674d5d79d9d039d9ad47e542856ac5d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8a9661f7f5cdd66dc0aab6d937701cda48048219
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92420081"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488031"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym przewodniku szybki start pokazano, jak za pomocą poleceń [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) w [Azure Cloud Shell](https://shell.azure.com) utworzyć pojedynczy serwer Azure Database for PostgreSQL w ciągu pięciu minut. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+W tym przewodniku szybki start pokazano, jak za pomocą poleceń [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) w [Azure Cloud Shell](https://shell.azure.com) utworzyć pojedynczy serwer Azure Database for PostgreSQL w ciągu pięciu minut. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -58,7 +58,7 @@ Poniżej znajdują się szczegółowe informacje dotyczące powyższych argument
 
 **Ustawienie** | **Wartość przykładowa** | **Opis**
 ---|---|---
-name | mydemoserver | Unikatowa nazwa identyfikująca serwer Azure Database for PostgreSQL. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków. Aby uzyskać więcej informacji, zobacz [Azure Database for PostgreSQL regułami nazewnictwa](/azure/azure-resource-manager/management/resource-name-rules#microsoftdbforpostgresql).
+name | mydemoserver | Unikatowa nazwa identyfikująca serwer Azure Database for PostgreSQL. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków. Aby uzyskać więcej informacji, zobacz [Azure Database for PostgreSQL regułami nazewnictwa](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
 resource-group | myresourcegroup | Nazwa grupy zasobów platformy Azure.
 location | westus | Lokalizacja platformy Azure dla serwera.
 admin-user | myadmin | Nazwa użytkownika dla logowania administratora. Nie może to być **azure_superuser**, **admin**, **administrator**, **root**, **Guest**ani **Public**.
@@ -66,7 +66,7 @@ admin-password | *bezpieczne hasło* | Hasło administratora. Musi zawierać od 
 sku-name|GP_Gen5_2| Nazwa warstwy cenowej i konfiguracji obliczeniowej. Postępuj zgodnie z Konwencją {warstwa cenowa}_{Generation COMPUTE}_{rdzeni wirtualnych} w postaci skróconej. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT] 
->- Domyślna wersja PostgreSQL na serwerze to 9,6. Aby wyświetlić wszystkie obsługiwane wersje, zobacz [obsługiwane wersje główne PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+>- Domyślna wersja PostgreSQL na serwerze to 9,6. Aby wyświetlić wszystkie obsługiwane wersje, zobacz [obsługiwane wersje główne PostgreSQL](./concepts-supported-versions.md).
 >- Aby wyświetlić wszystkie argumenty dla polecenia **AZ Postgres Server Create** , zobacz [ten dokument referencyjny](/cli/azure/postgres/server#az-postgres-server-create).
 >- Protokół SSL jest domyślnie włączony na serwerze. Aby uzyskać więcej informacji na temat protokołu SSL, zobacz [Konfigurowanie łączności SSL](./concepts-ssl-connection-security.md).
 
@@ -154,7 +154,6 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 > [!div class="nextstepaction"]
 > [Migrowanie bazy danych przy użyciu funkcji eksportowania i importowania](./howto-migrate-using-export-and-import.md)
 > 
-> [Wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md)
+> [Wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL](../app-service/tutorial-python-postgresql-app.md)
 >
 > [Nawiązywanie połączenia z aplikacją Node.JS](./connect-nodejs.md)
-

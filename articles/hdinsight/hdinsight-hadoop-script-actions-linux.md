@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa0ae0137064cc14d6d8f2adfe085ca255da73af
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082254"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486314"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Tworzenie akcji skryptu za pomocą usługi HDInsight
 
@@ -161,13 +161,13 @@ Usługa HDInsight rejestruje dane wyjściowe skryptu zapisane w strumieniach STD
 > [!NOTE]  
 > Apache Ambari jest dostępny tylko wtedy, gdy klaster został utworzony pomyślnie. Jeśli podczas tworzenia klastra używasz akcji skryptu, a tworzenie nie powiedzie się, zobacz [Rozwiązywanie problemów z skryptami](./troubleshoot-script-action.md) w celu uzyskania innych sposobów uzyskiwania dostępu do zarejestrowanych informacji.
 
-Większość narzędzi i pakietów instalacyjnych już zapisują informacje w strumieniach STDOUT i STDERR, jednak możesz chcieć dodać dodatkowe rejestrowanie. Aby wysłać tekst do STDOUT, użyj `echo` . Na przykład:
+Większość narzędzi i pakietów instalacyjnych już zapisują informacje w strumieniach STDOUT i STDERR, jednak możesz chcieć dodać dodatkowe rejestrowanie. Aby wysłać tekst do STDOUT, użyj `echo` . Przykład:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Domyślnie program `echo` wysyła ciąg do stdout. Aby skierować go do STDERR, Dodaj `>&2` przed `echo` . Na przykład:
+Domyślnie program `echo` wysyła ciąg do stdout. Aby skierować go do STDERR, Dodaj `>&2` przed `echo` . Przykład:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -365,5 +365,5 @@ Zamień na `INFILE` plik zawierający BOM. `OUTFILE` powinna być nową nazwą p
 ## <a name="next-steps"></a><a name="seeAlso"></a>Następne kroki
 
 * Dowiedz się, jak [dostosować klastry usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md)
-* Aby dowiedzieć się więcej o tworzeniu aplikacji platformy .NET, które zarządzają usługą HDInsight, Skorzystaj z [dokumentacji usługi HDINSIGHT SDK dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* Aby dowiedzieć się więcej o tworzeniu aplikacji platformy .NET, które zarządzają usługą HDInsight, Skorzystaj z [dokumentacji usługi HDINSIGHT SDK dla platformy .NET](/dotnet/api/overview/azure/hdinsight)
 * Użyj [interfejsu API REST usługi HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) , aby dowiedzieć się, jak używać funkcji REST do wykonywania akcji zarządzania w klastrach usługi HDInsight.

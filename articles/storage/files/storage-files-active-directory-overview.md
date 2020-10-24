@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716065"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486393"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Azure Files Omówienie opcji uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -104,7 +104,7 @@ W przypadku lokalnego uwierzytelniania AD DS należy skonfigurować kontrolery d
 
 Na poniższym diagramie przedstawiono lokalne uwierzytelnianie AD DS do udziałów plików platformy Azure za pośrednictwem protokołu SMB. AD DS Premium musi być zsynchronizowany z usługą Azure AD przy użyciu funkcji Azure AD Connect Sync. Tylko użytkownicy hybrydowi, którzy istnieją zarówno w lokalnych AD DS, jak i w usłudze Azure AD, mogą być uwierzytelniani i autoryzowani dla dostępu do udziału plików platformy Azure. Wynika to z faktu, że uprawnienie na poziomie udziału jest skonfigurowane pod kątem tożsamości reprezentowanej w usłudze Azure AD, w której jest wymuszane uprawnienie poziomu katalogu/pliku przy użyciu tego w AD DS. Upewnij się, że uprawnienia są prawidłowo skonfigurowane dla tego samego hybrydowego użytkownika.
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="4b":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagram przedstawiający lokalne uwierzytelnianie AD DS do udziałów plików platformy Azure za pośrednictwem protokołu SMB.":::
 
 ### <a name="azure-ad-ds"></a>Azure AD DS
 
@@ -116,7 +116,7 @@ Poniższy diagram przedstawia przepływ pracy na potrzeby uwierzytelniania usłu
 
 - Po drugie, wszyscy użytkownicy, którzy istnieją w usłudze Azure AD, mogą być uwierzytelniani i autoryzowani. Użytkownik może być tylko w chmurze lub hybrydowym. Synchronizacja z usługi Azure AD do platformy Azure AD DS jest zarządzana przez platformę bez konieczności konfigurowania użytkownika. Jednak klient musi być przyłączony do domeny w usłudze Azure AD DS, nie może być przyłączony lub zarejestrowany w usłudze Azure AD. 
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="4b":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagram przedstawiający lokalne uwierzytelnianie AD DS do udziałów plików platformy Azure za pośrednictwem protokołu SMB.":::
 
 ### <a name="enable-identity-based-authentication"></a>Włączanie uwierzytelniania opartego na tożsamościach
 

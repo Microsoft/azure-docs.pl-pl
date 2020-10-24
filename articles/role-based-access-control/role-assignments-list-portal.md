@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151701"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479922"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal
 
@@ -126,7 +126,7 @@ Można wyświetlić listę przypisań ról dla tożsamości zarządzanych przez 
 
     Zostanie wyświetlona lista ról przypisanych do wybranej tożsamości zarządzanej przypisanej przez użytkownika w różnych zakresach, takich jak grupa zarządzania, subskrypcja, Grupa zasobów lub zasób. Ta lista zawiera wszystkie przypisania ról, do których masz uprawnienia do odczytu.
 
-    ![Przypisania ról dla tożsamości zarządzanej przypisanej do systemu](./media/shared/role-assignments-user-assigned.png)
+    ![Zrzut ekranu pokazujący przypisania ról dla tożsamości zarządzanej przypisanej przez użytkownika.](./media/shared/role-assignments-user-assigned.png)
 
 1. Aby zmienić subskrypcję, kliknij listę **subskrypcji** .
 
@@ -178,7 +178,7 @@ Wykonaj następujące kroki, aby pobrać przypisania ról w zakresie.
 
     ![Pobieranie przypisań ról jako woluminów CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![Pobieranie przypisań ról jako woluminów CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![Zrzut ekranu przedstawiający pobrane przypisania ról w formacie JSON.](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

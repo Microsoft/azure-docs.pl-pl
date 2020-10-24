@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 128e80572275924655e1da534553265407353fff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa23f6d5d7b81e93145fd7db3fb5b45e46918d21
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319014"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487589"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Szybki Start: Tworzenie aplikacji w języku Python przy użyciu Azure Cosmos DB konta interfejsu API SQL
 
@@ -26,7 +26,7 @@ ms.locfileid: "91319014"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK 4](create-sql-api-java.md)
-> * [Wiosenne dane v3](create-sql-api-spring-data.md)
+> * [Spring Data 3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -39,7 +39,7 @@ W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejsu API SQ
     * W ramach aktywnej subskrypcji platformy Azure:
         * [Utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free) lub Użyj istniejącej subskrypcji 
         * [Kredyty miesięczne programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB warstwy Bezpłatna](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Azure Cosmos DB warstwy Bezpłatna](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Bez aktywnej subskrypcji platformy Azure:
         * [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)w środowisku testowym trwającym przez 30 dni.
         * [Emulator usługi Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
@@ -237,5 +237,3 @@ W tym przewodniku szybki start przedstawiono sposób tworzenia konta Azure Cosmo
 
 > [!div class="nextstepaction"]
 > [Importuj dane do usługi Azure Cosmos DB na potrzeby interfejsu API SQL](import-data.md)
-
-

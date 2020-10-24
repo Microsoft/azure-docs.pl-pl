@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325389"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479089"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database i architektura łączności usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ W tym artykule opisano architekturę różnych składników, które kierują ruc
 
 Poniższy diagram zawiera ogólne omówienie architektury łączności.
 
-![Przegląd architektury](./media/connectivity-architecture/connectivity-overview.png)
+![Diagram przedstawiający ogólne omówienie architektury łączności.](./media/connectivity-architecture/connectivity-overview.png)
 
 Poniższe kroki opisują, jak nawiązywane jest połączenie Azure SQL Database:
 
@@ -63,7 +63,7 @@ W przypadku łączenia się z poziomu platformy Azure połączenia mają domyśl
 
 Jeśli łączysz się z spoza systemu Azure, połączenia mają domyślnie zasady połączeń `Proxy` . Zasady `Proxy` oznacza, że sesja protokołu TCP jest ustanawiana za pośrednictwem bramy Azure SQL Database i wszystkie kolejne pakiety będą przepływać przez bramę. Na poniższym diagramie przedstawiono ten przepływ ruchu.
 
-![Przegląd architektury](./media/connectivity-architecture/connectivity-onprem.png)
+![Diagram przedstawiający sposób ustanawiania sesji protokołu TCP za pośrednictwem bramy Azure SQL Database i wszystkie kolejne pakiety są przesyłane przez bramę.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
 > Dodatkowo Otwórz porty TCP 1434 i 14000-14999, aby włączyć [łączenie z programem DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
@@ -98,7 +98,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Indie Środkowe        | 104.211.96.159     |
 | Indie Południowe          | 104.211.224.146    |
 | Indie Zachodnie           | 104.211.160.80     |
-| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
+| Japonia Wschodnia           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Japonia Zachodnia           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
 | Korea Środkowa        | 52.231.32.42       |
 | Korea Południowa          | 52.231.200.86      |

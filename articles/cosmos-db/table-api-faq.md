@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167593"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485005"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API tabel w programie Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Istnieją pewne różnice w zachowaniu, które użytkownicy pochodzą z usługi 
 
 * W przypadku interfejsu API REST istnieje kilka punktów końcowych/opcji zapytania, które nie są obsługiwane przez Azure Cosmos DB interfejs API tabel:
 
-  | Metody REST | Punkt końcowy REST/opcja zapytania | Adresy URL doc | Objaśnienie |
+  | Metody REST | Punkt końcowy REST/opcja zapytania | Adresy URL doc | Wyjaśnienie |
   | ------------| ------------- | ---------- | ----------- |
   | GET, PUT | `/?restype=service@comp=properties`| [Ustawianie właściwości usługi Table Service](/rest/api/storageservices/set-table-service-properties) i [pobieranie właściwości usługi Table Service](/rest/api/storageservices/get-table-service-properties) | Ten punkt końcowy służy do ustawiania reguł CORS, konfiguracji analizy magazynu i ustawień rejestrowania. Mechanizm CORS nie jest obecnie obsługiwany, a analiza i rejestrowanie są obsługiwane inaczej w Azure Cosmos DB niż tabele usługi Azure Storage |
   | Opcje | `/<table-resource-name>` | [Żądanie tabeli CORS przed lotem](/rest/api/storageservices/preflight-table-request) | Jest to część mechanizmu CORS, który Azure Cosmos DB obecnie nie jest obsługiwany. |
@@ -97,7 +97,7 @@ Możesz użyć Azure Portal, aby przeglądać dane. Możesz również użyć kod
 
 ### <a name="which-tools-work-with-the-table-api"></a>Które narzędzia współpracują z interfejs API tabel?
 
-Możesz użyć [Eksplorator usługi Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Możesz użyć [Eksplorator usługi Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Narzędzia z elastycznością do łączenia parametrów połączenia w określonym wcześniej formacie mogą obsługiwać nowe interfejs API tabel. Lista narzędzi tabel jest dostępna na stronie [narzędzia klienta usługi Azure Storage](../storage/common/storage-explorers.md) .
 
@@ -115,7 +115,7 @@ Tak, możesz nawiązać połączenie, tworząc dwa oddzielne wystąpienia CloudT
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Jak mogę przeprowadzić migrację istniejącej aplikacji usługi Azure Table Storage do tej oferty?
 
-[AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) i [Narzędzie do migracji danych Azure Cosmos DB](import-data.md) są obsługiwane.
+[AzCopy](../storage/common/storage-use-azcopy-v10.md) i [Narzędzie do migracji danych Azure Cosmos DB](import-data.md) są obsługiwane.
 
 ### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Jak można zwiększyć rozmiar magazynu dla tej usługi, jeśli na przykład zaczynam się od *n* GB danych, a moje dane zostaną rozbudowane na 1 TB w czasie?
 
@@ -231,7 +231,7 @@ Z zestawu SDK platformy .NET można przesłać plik app.config:
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos DB jako platforma prawdopodobnie ma wiele możliwości, takich jak sortowanie, agregacje, hierarchia i inne funkcje. Czy te funkcje zostaną dodane do interfejs API tabel?
 
-Interfejs API tabel zapewnia te same funkcje zapytań co usługa Azure Table Storage. Usługa Azure Cosmos DB obsługuje także sortowanie, agregaty, zapytania geoprzestrzenne, hierarchię i szeroki zakres funkcji wbudowanych. Aby uzyskać więcej informacji, zobacz [zapytania SQL](how-to-sql-query.md).
+Interfejs API tabel zapewnia te same funkcje zapytań co usługa Azure Table Storage. Usługa Azure Cosmos DB obsługuje także sortowanie, agregaty, zapytania geoprzestrzenne, hierarchię i szeroki zakres funkcji wbudowanych. Aby uzyskać więcej informacji, zobacz [zapytania SQL](./sql-query-getting-started.md).
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Kiedy należy zmienić TableThroughput dla interfejs API tabel?
 
@@ -293,7 +293,7 @@ Azure Cosmos DB to system oparty na umowie SLA, który zapewnia opóźnienia, pr
 Swoją opinię można podzielić na następujące sposoby:
 
 * [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Strona pytania&pytań i odpowiedzi](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow jest Najlepsza w przypadku pytań związanych z programowaniem. Upewnij się, że pytanie jest [w temacie](https://stackoverflow.com/help/on-topic) i [Podaj jak najwięcej szczegółów, dzięki czemu pytanie jest jasne i możliwe do odpowiedzi](https://stackoverflow.com/help/how-to-ask).
 
 ## <a name="next-steps"></a>Następne kroki

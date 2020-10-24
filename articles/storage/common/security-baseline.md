@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746deae725e9e1ca4274b2132f7c09e2548a6629
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715147"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488881"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Podstawa zabezpieczeń Azure dla usługi Azure Storage
 
 Podstawowa baza danych zabezpieczeń Azure dla usługi Azure Storage zawiera zalecenia, które pomogą ulepszyć stan bezpieczeństwa wdrożenia.
 
-Punkt odniesienia dla tej usługi jest rysowany w [wersji 1,0 usługi Azure Security test](https://docs.microsoft.com/azure/security/benchmarks/overview), która zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure z naszymi najlepszymi wskazówkami.
+Punkt odniesienia dla tej usługi jest rysowany w [wersji 1,0 usługi Azure Security test](/azure/security/benchmarks/overview), która zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure z naszymi najlepszymi wskazówkami.
 
-Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure — omówienie](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure — omówienie](/azure/security/benchmarks/security-baselines-overview).
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: zabezpieczenia sieci](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: zabezpieczenia sieci](/azure/security/benchmarks/security-control-network-security).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1,1: Ochrona zasobów przy użyciu sieciowych grup zabezpieczeń lub zapory platformy Azure na Virtual Network
 
@@ -32,9 +32,9 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 Uwaga: klasyczne konta magazynu nie obsługują zapór i sieci wirtualnych.
 
-- [Jak skonfigurować zaporę usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#change-the-default-network-access-rule)
+- [Jak skonfigurować zaporę usługi Azure Storage](/azure/storage/common/storage-network-security#change-the-default-network-access-rule)
 
-- [Jak skonfigurować prywatne punkty końcowe dla usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints)
+- [Jak skonfigurować prywatne punkty końcowe dla usługi Azure Storage](/azure/storage/common/storage-private-endpoints)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -46,13 +46,13 @@ Uwaga: klasyczne konta magazynu nie obsługują zapór i sieci wirtualnych.
 
 Należy pamiętać, że jeśli masz prywatne punkty końcowe dołączone do konta magazynu, nie można skonfigurować zasad sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) dla podsieci. 
 
-- [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+- [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](/azure/storage/common/storage-network-security)
 
-- [Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń](/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
-- [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](/azure/security-center/security-center-network-recommendations)
 
-- [Informacje o prywatnych punktach końcowych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints#known-issues)
+- [Informacje o prywatnych punktach końcowych usługi Azure Storage](/azure/storage/common/storage-private-endpoints#known-issues)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -70,9 +70,9 @@ Należy pamiętać, że jeśli masz prywatne punkty końcowe dołączone do kont
 
 **Wskazówki**: Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azure Storage. Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Azure Security Center zintegrowane alerty są oparte na działaniach, dla których komunikacja sieciowa była skojarzona z adresem IP, który został pomyślnie rozwiązany, niezależnie od tego, czy adres IP jest znanym ryzykownym adresem IP (na przykład znanym cryptominer) czy adresem IP, który nie został wcześniej rozpoznany jako ryzykowny. Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. 
 
-- [Jak włączyć zaawansowaną ochronę przed zagrożeniami](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Jak włączyć zaawansowaną ochronę przed zagrożeniami](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
-- [Opis Azure Security Center zintegrowanej analizy zagrożeń](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Opis Azure Security Center zintegrowanej analizy zagrożeń](/azure/security-center/security-center-alerts-service-layer)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -82,7 +82,7 @@ Należy pamiętać, że jeśli masz prywatne punkty końcowe dołączone do kont
 
 **Wskazówki**: Network Watcher przechwytywanie pakietów umożliwia tworzenie sesji przechwytywania w celu śledzenia ruchu między kontem magazynu a maszyną wirtualną. Filtry są udostępniane dla sesji przechwytywania, aby upewnić się, że przechwytywany jest tylko żądany ruch. Przechwytywanie pakietów pomaga zdiagnozować anomalie w sieci, zarówno w sposób aktywny, jak i aktywnie. Inne zastosowania obejmują gromadzenie statystyk sieci, uzyskiwanie informacji o atakach w sieci, debugowanie komunikacji klient-serwer i wiele innych. Możliwe jest zdalne wyzwalanie przechwytywania pakietów, co ułatwia nawiązanie ręcznego uruchamiania przechwycenia pakietu na odpowiedniej maszynie wirtualnej, co pozwala zaoszczędzić cenny czas. 
 
-- [Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher przy użyciu portalu](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher przy użyciu portalu](/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -92,7 +92,7 @@ Należy pamiętać, że jeśli masz prywatne punkty końcowe dołączone do kont
 
 **Wskazówki**: Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty zabezpieczeń są zintegrowane z usługą Azure Security Center i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń. 
 
-- [Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
+- [Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage](/azure/storage/common/storage-advanced-threat-protection)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -112,9 +112,9 @@ Należy pamiętać, że jeśli masz prywatne punkty końcowe dołączone do kont
 
 Jeśli dostęp do sieci należy do zakresu określonych kont magazynu, należy użyć zasad punktu końcowego usługi Virtual Network.
 
-- [Aby uzyskać więcej informacji na temat używania tagów usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Aby uzyskać więcej informacji na temat używania tagów usługi](/azure/virtual-network/service-tags-overview)
 
-- [Aby uzyskać więcej informacji na temat zasad punktu końcowego usługi sieci wirtualnej dla usługi Azure Storage](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Aby uzyskać więcej informacji na temat zasad punktu końcowego usługi sieci wirtualnej dla usługi Azure Storage](/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -126,13 +126,13 @@ Jeśli dostęp do sieci należy do zakresu określonych kont magazynu, należy u
 
 Możesz również używać wbudowanych definicji zasad związanych z kontem magazynu, na przykład: konta magazynu powinny używać punktu końcowego usługi sieci wirtualnej 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Przykłady Azure Policy dla magazynu](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#storage)
+- [Przykłady Azure Policy dla magazynu](/azure/governance/policy/samples/built-in-policies#storage)
 
-- [Przykłady Azure Policy dla sieci](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Przykłady Azure Policy dla sieci](/azure/governance/policy/samples/built-in-policies#network)
 
-- [Jak utworzyć Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Jak utworzyć Azure Blueprint](/azure/governance/blueprints/create-blueprint-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -142,11 +142,11 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 **Wskazówki**: używanie tagów dla sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) i innych zasobów związanych z zabezpieczeniami sieci i przepływem ruchu. W przypadku poszczególnych reguł sieciowej grupy zabezpieczeń Użyj pola "Description", aby określić potrzeby biznesowe i/lub czas trwania (itp.) dla reguł zezwalających na ruch do/z sieci. Użyj dowolnych wbudowanych definicji Azure Policy związanych ze znakiem, takich jak "Wymagaj tagu i jego wartości", aby upewnić się, że wszystkie zasoby są tworzone przy użyciu tagów i powiadomienia o istniejących nieoznakowanych zasobach. Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby wyszukiwać lub wykonywać akcje na zasobach na podstawie ich tagów. 
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Jak utworzyć Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Jak utworzyć Virtual Network](/azure/virtual-network/quick-create-portal)
 
-- [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](/azure/virtual-network/tutorial-filter-network-traffic)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -156,9 +156,9 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 **Wskazówki**: Użyj Azure Policy, aby rejestrować zmiany konfiguracji zasobów sieciowych. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych. 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Jak utworzyć alerty w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty w Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -166,7 +166,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: rejestrowanie i monitorowanie](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: rejestrowanie i monitorowanie](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### <a name="21-use-approved-time-synchronization-resource"></a>2,1: Użyj zaakceptowanego zasobu synchronizacji czasu
 
@@ -180,7 +180,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 **Wskazówki**: pobieranie dzienników za pośrednictwem Azure monitor do agregowania danych zabezpieczeń wygenerowanych przez urządzenia punktów końcowych, zasoby sieciowe i inne systemy zabezpieczeń. W ramach Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont usługi Azure Storage do przechowywania długoterminowego/archiwizowania, opcjonalnie z funkcjami zabezpieczeń, takimi jak niezmienny magazyn i wymuszonymi blokadami przechowywania.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -190,7 +190,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 **Wskazówki**: analityka magazynu platformy Azure zawiera dzienniki dla obiektów blob, kolejek i tabel. Za pomocą Azure Portal można skonfigurować dzienniki, które są rejestrowane dla Twojego konta. 
 
-- [Jak skonfigurować monitorowanie dla konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-monitoring-for-a-storage-account)
+- [Jak skonfigurować monitorowanie dla konta usługi Azure Storage](/azure/storage/common/storage-monitor-storage-account#configure-monitoring-for-a-storage-account)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -208,9 +208,9 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 **Wskazówki**: podczas przechowywania dzienników zdarzeń zabezpieczeń na koncie usługi Azure Storage lub w obszarze roboczym log Analytics można ustawić zasady przechowywania zgodnie z wymaganiami organizacji. 
 
-- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](/azure/storage/common/storage-monitor-storage-account#configure-logging)
 
-- [Zmień okres przechowywania danych w Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Zmień okres przechowywania danych w Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -222,9 +222,9 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azure Storage. Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty zabezpieczeń są zintegrowane z usługą Azure Security Center i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń. 
 
-- [Rejestruj i Przejrzyj dane](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#how-logs-are-stored)
+- [Rejestruj i Przejrzyj dane](/azure/storage/common/storage-analytics-logging#how-logs-are-stored)
 
-- [Jak włączyć zaawansowaną ochronę przed zagrożeniami](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Jak włączyć zaawansowaną ochronę przed zagrożeniami](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -234,13 +234,13 @@ Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azu
 
 **Wskazówki**: w Azure Security Center Włącz zaawansowaną ochronę przed zagrożeniami dla konta magazynu. Włącz ustawienia diagnostyczne dla konta magazynu i Wyślij dzienniki do obszaru roboczego Log Analytics. Dołącz obszar roboczy Log Analytics do usługi Azure o, ponieważ zapewnia ona rozwiązanie do automatycznej reakcji aranżacji zabezpieczeń (). Pozwala to na tworzenie i używanie automatycznych rozwiązań elementy PlayBook w celu korygowania problemów z zabezpieczeniami. 
 
-- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](/azure/sentinel/quickstart-onboard)
 
-- [Jak zarządzać alertami w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Jak zarządzać alertami w Azure Security Center](/azure/security-center/security-center-managing-and-responding-alerts)
 
-- [Jak ostrzec dane dziennika usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Jak ostrzec dane dziennika usługi log Analytics](/azure/azure-monitor/learn/tutorial-response)
 
-- [Rejestrowanie analityki magazynu platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Rejestrowanie analityki magazynu platformy Azure](/azure/storage/common/storage-analytics-logging)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -250,7 +250,7 @@ Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azu
 
 **Wskazówki**: Użyj usługi Azure Security Center i Włącz ochronę przed zagrożeniami dla usługi Azure Storage, aby wykrywać operacje przekazywania złośliwego oprogramowania do usługi Azure Storage przy użyciu analizy reputacji i podejrzanego dostępu z aktywnego węzła zakończenia sieci Tor (anonymizing proxy). 
 
-- [Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -260,7 +260,7 @@ Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azu
 
 **Wskazówki**: rozwiązanie Azure DNS Analytics (wersja zapoznawcza) w Azure monitor zbiera szczegółowe informacje o INFRASTRUKTURze DNS w zakresie zabezpieczeń, wydajności i operacji. Obecnie to nie obsługuje kont usługi Azure Storage, jednak można użyć rozwiązania do rejestrowania w systemie DNS innej firmy. 
 
-- [Zbierz informacje o infrastrukturze DNS przy użyciu rozwiązania DNS Analytics w wersji zapoznawczej](https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics)
+- [Zbierz informacje o infrastrukturze DNS przy użyciu rozwiązania DNS Analytics w wersji zapoznawczej](/azure/azure-monitor/insights/dns-analytics)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -276,15 +276,15 @@ Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azu
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: tożsamość i Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: tożsamość i Access Control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-inventory-of-administrative-accounts"></a>3,1: przechowywanie spisu kont administracyjnych
 
 **Wskazówki**: usługa Azure AD ma wbudowane role, które muszą być jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych. 
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -294,9 +294,9 @@ Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azu
 
 **Wskazówki**: konta usługi Azure Storage i Azure Active Directory mają koncepcję domyślnych lub pustych haseł. Usługa Azure Storage implementuje model kontroli dostępu obsługujący funkcję kontroli dostępu opartej na rolach (RBAC) na platformie Azure oraz klucz współużytkowany i sygnatury dostępu współdzielonego (SAS). Charakterystyka klucza współużytkowanego i uwierzytelniania SAS polega na tym, że żadna tożsamość nie jest skojarzona z obiektem wywołującym i dlatego nie można wykonać autoryzacji podmiotu zabezpieczeń na podstawie uprawnień. 
 
-- [Autoryzowanie dostępu do danych w usłudze Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Autoryzowanie dostępu do danych w usłudze Azure Storage](/azure/storage/common/storage-auth)
 
-- [Informacje o podmiotach zabezpieczeń i kontroli dostępu dla konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)
+- [Informacje o podmiotach zabezpieczeń i kontroli dostępu dla konta usługi Azure Storage](/azure/storage/common/storage-introduction)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -308,9 +308,9 @@ Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azu
 
 Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, korzystając z ról uprzywilejowanych Azure AD Privileged Identity Management usług firmy Microsoft i Azure ARM. 
 
-- [Informacje o tożsamości i dostępie Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Informacje o tożsamości i dostępie Azure Security Center](/azure/security-center/security-center-identity-access)
 
-- [Przegląd Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+- [Przegląd Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -320,11 +320,11 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, kor
 
 **Wskazówki**: wszędzie tam, gdzie to możliwe, użyj Azure Active Directory rejestracji jednokrotnej zamiast konfigurować indywidualne poświadczenia autonomiczne dla poszczególnych usług. Użyj Azure Security Center zalecenia dotyczące zarządzania tożsamościami i dostępem. 
 
-- [Informacje logowania jednokrotnego w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Informacje logowania jednokrotnego w usłudze Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Autoryzowanie dostępu do danych w usłudze Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Autoryzowanie dostępu do danych w usłudze Azure Storage](/azure/storage/common/storage-auth)
 
-- [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
+- [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory](/azure/storage/common/storage-auth-aad)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -334,9 +334,9 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, kor
 
 **Wskazówki**: Włącz Azure Active Directory uwierzytelnianie wieloskładnikowe i postępuj zgodnie z zaleceniami Azure Security Center dotyczące zarządzania tożsamościami i dostępem, aby pomóc w ochronie zasobów konta magazynu. 
 
-- [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Jak włączyć usługę MFA na platformie Azure](/azure/active-directory/authentication/howto-mfa-getstarted)
 
-- [Jak monitorować tożsamość i dostęp w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Jak monitorować tożsamość i dostęp w Azure Security Center](/azure/security-center/security-center-identity-access)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -346,9 +346,9 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, kor
 
 **Wskazówki**: Użyj dostępem uprzywilejowanym (uprzywilejowanych stacji roboczych dostępu) z uwierzytelnianiem MFA skonfigurowanym do logowania się i konfigurowania zasobów konta magazynu. 
 
-- [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Jak włączyć usługę MFA na platformie Azure](/azure/active-directory/authentication/howto-mfa-getstarted)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -358,11 +358,11 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, kor
 
 **Wskazówki**: wysyłanie alertów wykrywania ryzyka Azure Security Center do Azure monitor i konfigurowania niestandardowych alertów/powiadomień przy użyciu grup akcji. Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azure Storage, aby generować alerty dla podejrzanych działań. Ponadto można używać funkcji wykrywania ryzyka usługi Azure AD do wyświetlania alertów i raportów na temat ryzykownego zachowania użytkowników. 
 
-- [Jak skonfigurować zaawansowaną ochronę przed zagrożeniami dla konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
+- [Jak skonfigurować zaawansowaną ochronę przed zagrożeniami dla konta usługi Azure Storage](/azure/storage/common/storage-advanced-threat-protection)
 
-- [Omówienie wykrywania ryzyka usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Omówienie wykrywania ryzyka usługi Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
 
-- [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+- [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](/azure/azure-monitor/platform/action-groups)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -372,7 +372,7 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, kor
 
 **Wskazówki**: Użyj dostępu warunkowego o nazwie Locations, aby zezwolić na dostęp tylko do określonych logicznych grup zakresów adresów IP lub krajów/regionów. 
 
-- [Jak skonfigurować nazwane lokalizacje na platformie Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Jak skonfigurować nazwane lokalizacje na platformie Azure](/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -382,15 +382,15 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, kor
 
 **Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Platforma Azure zapewnia kontrolę dostępu opartą na rolach (Azure RBAC), aby uzyskać szczegółową kontrolę nad dostępem klientów do zasobów na koncie magazynu.  Użyj poświadczeń usługi Azure AD, jeśli to możliwe, jako najlepszych rozwiązań w zakresie bezpieczeństwa zamiast korzystać z klucza konta, co może być bardziej łatwe. Gdy projekt aplikacji wymaga sygnatur dostępu współdzielonego w celu uzyskania dostępu do usługi BLOB Storage, Użyj poświadczeń usługi Azure AD, aby utworzyć sygnatury dostępu współdzielonego (SAS) delegowania użytkowników, jeśli jest to możliwe dla wyższego poziomu zabezpieczeń.
 
-- [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
-- [Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
+- [Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania](/azure/storage/common/authorization-resource-provider)
 
-- [Jak skonfigurować dostęp do danych obiektów blob platformy Azure i kolejkować dane za pomocą usługi Azure RBAC w Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Jak skonfigurować dostęp do danych obiektów blob platformy Azure i kolejkować dane za pomocą usługi Azure RBAC w Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal)
 
-- [Autoryzowanie dostępu do danych w usłudze Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Autoryzowanie dostępu do danych w usłudze Azure Storage](/azure/storage/common/storage-auth)
 
-- [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+- [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](/azure/storage/common/storage-sas-overview)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -406,17 +406,17 @@ Sprawdź także anonimowy dostęp do odczytu do kontenerów i obiektów BLOB. Do
 
 Jednym z efektywnych sposobów zmniejszenia ryzyka niepodejrzanego dostępu do konta użytkownika jest ograniczenie czasu trwania dostępu udzielanego użytkownikom. Ograniczone czasowo identyfikatory URI SYGNATURy dostępu współdzielonego są jedynym skutecznym sposobem, aby automatycznie wygasać dostęp użytkownika do konta magazynu. Ponadto rotacja kluczy konta magazynu często jest sposobem zapewnienia, że nieoczekiwany dostęp za pośrednictwem kluczy konta magazynu jest ograniczony.
 
-- [Informacje o raportowaniu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/)
 
-- [Jak wyświetlać i zmieniać dostęp na poziomie konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Jak wyświetlać i zmieniać dostęp na poziomie konta usługi Azure Storage](/azure/storage/common/storage-auth-aad-rbac-portal)
 
-- [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+- [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](/azure/storage/common/storage-sas-overview)
 
-- [Zarządzanie dostępem anonimowym w trybie odczytu do kontenerów i obiektów blob](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources)
+- [Zarządzanie dostępem anonimowym w trybie odczytu do kontenerów i obiektów blob](/azure/storage/blobs/storage-manage-access-to-resources)
 
-- [Monitorowanie konta magazynu w witrynie Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
+- [Monitorowanie konta magazynu w witrynie Azure Portal](/azure/storage/common/storage-monitor-storage-account)
 
-- [Zarządzanie kluczami dostępu do konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Zarządzanie kluczami dostępu do konta magazynu](/azure/storage/common/storage-account-keys-manage)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -428,11 +428,11 @@ Jednym z efektywnych sposobów zmniejszenia ryzyka niepodejrzanego dostępu do k
 
 Tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkowników, wysyłanie dzienników inspekcji i dzienników logowania do Log Analytics obszaru roboczego. Żądane alerty można skonfigurować w obszarze roboczym Log Analytics. Aby monitorować błędy uwierzytelniania na kontach usługi Azure Storage, można utworzyć alerty powiadamiające o osiągnięciu określonych progów dla metryk zasobów magazynu. Ponadto należy użyć Azure Monitor do alertu dotyczącego dostępu anonimowego dla kont magazynu przy użyciu warunku uwierzytelniania anonimowego.
 
-- [Rejestrowanie analityki magazynu platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Rejestrowanie analityki magazynu platformy Azure](/azure/storage/common/storage-analytics-logging)
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-- [Jak skonfigurować alerty metryk dla kont usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
+- [Jak skonfigurować alerty metryk dla kont usługi Azure Storage](/azure/storage/common/storage-monitor-storage-account)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -442,11 +442,11 @@ Tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkownik�
 
 **Wskazówki**: Użyj funkcji ochrony przed ryzykiem i tożsamością Azure Active Directory, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania dotyczące zasobów konta magazynu. Aby zaimplementować odpowiedzi na zabezpieczenia organizacji, należy włączyć automatyczne odpowiedzi za pomocą wskaźnikowego platformy Azure. 
 
-- [Jak wyświetlić ryzykowne logowania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Jak wyświetlić ryzykowne logowania usługi Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
 
-- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](/azure/sentinel/quickstart-onboard)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -456,7 +456,7 @@ Tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkownik�
 
 **Wskazówki**: w scenariuszach pomocy technicznej, w których firma Microsoft potrzebuje dostępu do danych klienta, skrytka klienta (wersja zapoznawcza dla konta magazynu) udostępnia interfejs dla klientów, który umożliwia przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych klienta. Firma Microsoft nie będzie potrzebować ani nie zażądać dostępu do wpisów tajnych organizacji przechowywanych w ramach konta magazynu.
 
-- [Opis Skrytka klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+- [Opis Skrytka klienta](/azure/security/fundamentals/customer-lockbox-overview)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -464,13 +464,13 @@ Tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkownik�
 
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
 
 **Wskazówki**: Użyj tagów, aby pomóc w śledzeniu zasobów konta magazynu, które przechowują lub przetwarzają informacje poufne. 
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -480,15 +480,15 @@ Tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkownik�
 
 **Wskazówki**: implementowanie izolacji przy użyciu oddzielnych subskrypcji, grup zarządzania i kont magazynu dla poszczególnych domen zabezpieczeń, takich jak środowisko, czułość danych.  Możesz ograniczyć swoje konto magazynu, aby kontrolować poziom dostępu do kont magazynu, które są używane przez aplikacje i środowiska korporacyjne na podstawie typu i podzestawu używanych sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta magazynu. Dostęp do usługi Azure Storage można kontrolować za pośrednictwem usługi Azure RBAC. Możesz również skonfigurować prywatne punkty końcowe, aby zwiększyć bezpieczeństwo ruchu sieciowego między siecią wirtualną a usługą przechodzącą przez sieć szkieletową firmy Microsoft, eliminując ekspozycję z publicznego Internetu. 
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
 
-- [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create)
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+- [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](/azure/storage/common/storage-network-security)
 
-- [Punkty końcowe usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Punkty końcowe usługi Virtual Network](/azure/virtual-network/virtual-network-service-endpoints-overview)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -500,11 +500,11 @@ Tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkownik�
 
 Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtrować ruch sieciowy w sieci wirtualnej do kont usługi Azure Storage za pośrednictwem punktu końcowego usługi i zezwalać na eksfiltracji danych tylko na określone konta usługi Azure Storage.
 
-- [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
-- [Zasady punktu końcowego usługi dla sieci wirtualnej dla usługi Azure Storage](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
+- [Zasady punktu końcowego usługi dla sieci wirtualnej dla usługi Azure Storage](/azure/private-link/create-private-endpoint-storage-portal)
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Zrozumienie ochrony danych klientów na platformie Azure](/azure/security/fundamentals/protection-customer-data)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -514,9 +514,9 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 **Wskazówki**: można wymusić użycie protokołu HTTPS przez włączenie bezpiecznego transferu wymaganego dla konta magazynu. Gdy ta opcja jest włączona, połączenia korzystające z protokołu HTTP będą odrzucane. Ponadto Użyj Azure Security Center i Azure Policy, aby wymusić bezpieczny transfer dla konta magazynu.
 
-- [Jak wymagać bezpiecznego transferu w usłudze Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)
+- [Jak wymagać bezpiecznego transferu w usłudze Azure Storage](/azure/storage/common/storage-require-secure-transfer)
 
-- [Zasady zabezpieczeń platformy Azure monitorowane przez Security Center](https://docs.microsoft.com/azure/security-center/security-center-policy-definitions)
+- [Zasady zabezpieczeń platformy Azure monitorowane przez Security Center](/azure/security-center/security-center-policy-definitions)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -526,7 +526,7 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 **Wskazówki**: funkcje identyfikacji danych nie są jeszcze dostępne dla konta usługi Azure Storage i powiązanych zasobów. Zaimplementuj rozwiązanie innych firm, jeśli jest wymagane na potrzeby zgodności. 
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Zrozumienie ochrony danych klientów na platformie Azure](/azure/security/fundamentals/protection-customer-data)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -536,15 +536,15 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 **Wskazówki**: Azure Active Directory (Azure AD) autoryzują prawa dostępu do zabezpieczonych zasobów za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Usługa Azure Storage definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do danych obiektu BLOB lub kolejki. 
 
-- [Jak przypisać role platformy Azure dla konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
+- [Jak przypisać role platformy Azure dla konta usługi Azure Storage](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
-- [Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
+- [Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania](/azure/storage/common/authorization-resource-provider)
 
-- [Jak skonfigurować dostęp do danych obiektów blob platformy Azure i kolejkować dane za pomocą usługi Azure RBAC w Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Jak skonfigurować dostęp do danych obiektów blob platformy Azure i kolejkować dane za pomocą usługi Azure RBAC w Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal)
 
-- [Jak utworzyć i skonfigurować wystąpienie usługi AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Jak utworzyć i skonfigurować wystąpienie usługi AAD](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
-- [Autoryzowanie dostępu do danych w usłudze Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Autoryzowanie dostępu do danych w usłudze Azure Storage](/azure/storage/common/storage-auth)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -562,7 +562,7 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 **Wskazówki**: szyfrowanie usługi Azure Storage jest włączone dla wszystkich kont magazynu i nie można go wyłączyć. Usługa Azure Storage automatycznie szyfruje dane, gdy zostaną utrwalone w chmurze. Dane odczytywane z usługi Azure Storage są odszyfrowywane przed zwróceniem. Szyfrowanie usługi Azure Storage umożliwia Zabezpieczanie danych bez konieczności modyfikowania kodu ani dodawania kodu do dowolnych aplikacji. 
 
-- [Informacje o szyfrowaniu usługi Azure Storage w spoczynku](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Informacje o szyfrowaniu usługi Azure Storage w spoczynku](/azure/storage/common/storage-service-encryption)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -572,11 +572,11 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące wprowadzania zmian do zasobów konta magazynu. Możesz również włączyć rejestrowanie usługi Azure Storage, aby śledzić, w jaki sposób każde żądanie skierowane do usługi Azure Storage zostało autoryzowane. Dzienniki wskazują, czy żądanie zostało wykonane anonimowo, przy użyciu tokenu OAuth 2,0 przy użyciu klucza współużytkowanego lub przy użyciu sygnatury dostępu współdzielonego (SAS). Ponadto należy użyć Azure Monitor do alertu dotyczącego dostępu anonimowego dla kont magazynu przy użyciu warunku uwierzytelniania anonimowego.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Rejestrowanie analityki magazynu platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Rejestrowanie analityki magazynu platformy Azure](/azure/storage/common/storage-analytics-logging)
 
-- [Jak skonfigurować alerty metryk dla kont usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
+- [Jak skonfigurować alerty metryk dla kont usługi Azure Storage](/azure/storage/common/storage-monitor-storage-account)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -584,13 +584,13 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Zarządzanie lukami w zabezpieczeniach](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: uruchamianie narzędzi do skanowania automatycznych luk w zabezpieczeniach
 
 **Wskazówki**: Postępuj zgodnie z zaleceniami Azure Security Center, aby stale przeprowadzać inspekcję i monitorować konfigurację kont magazynu. 
 
-- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](/azure/security-center/recommendations-reference)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -624,7 +624,7 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 **Wskazówki**: Użyj domyślnych ocen ryzyka ("Secure Score") dostarczonych przez Azure Security Center. 
 
-- [Informacje na temat Azure Security Center zabezpieczeń](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+- [Informacje na temat Azure Security Center zabezpieczeń](/azure/security-center/security-center-secure-score)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -632,17 +632,17 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Spis i zarządzanie zasobami](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Spis i zarządzanie zasobami](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6,1: Użyj odnajdywania zasobów platformy Azure
 
 **Wskazówki**: Użyj grafu zasobów platformy Azure do wykonywania zapytań i odnajdywania wszystkich zasobów (w tym kont magazynu) w ramach subskrypcji. Upewnij się, że masz odpowiednie uprawnienia (odczyt) w dzierżawie i że można wyliczyć wszystkie subskrypcje platformy Azure oraz zasoby w ramach subskrypcji. 
 
-- [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Jak tworzyć zapytania za pomocą usługi Azure Graph](/azure/governance/resource-graph/first-query-portal)
 
-- [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription)
 
-- [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Opis kontroli RBAC platformy Azure](/azure/role-based-access-control/overview)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -652,7 +652,7 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 **Wskazówki**: stosowanie tagów do zasobów konta magazynu, dzięki czemu metadane są logicznie zorganizowane w taksonomię. 
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -664,13 +664,13 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 Ponadto należy użyć zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage w celu wykrywania nieautoryzowanych zasobów platformy Azure. 
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
 
-- [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create)
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -694,9 +694,9 @@ Ponadto należy użyć zaawansowanej ochrony przed zagrożeniami dla usługi Azu
 
 Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasobów w ramach subskrypcji. Może to pomóc w środowiskach opartych na wysokich zabezpieczeniach, takich jak te z kontami magazynu. 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Jak tworzyć zapytania za pomocą usługi Azure Graph](/azure/governance/resource-graph/first-query-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -714,7 +714,7 @@ Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywani
 
 **Wskazówki**: Klient może uniemożliwić tworzenie zasobów lub użycie Azure Policy zgodnie z wymaganiami firmy klienta. 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](/azure/governance/policy/tutorials/create-and-manage)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -735,9 +735,9 @@ Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywani
 - Niedozwolone typy zasobów 
 - Dozwolone typy zasobów 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -755,7 +755,7 @@ Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywani
 
 **Wskazówki**: Użyj dostępu warunkowego platformy Azure, aby ograniczyć możliwość współpracy użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management". Może to uniemożliwić tworzenie i wprowadzanie zmian w zasobach w środowisku wysokiego poziomu zabezpieczeń, takich jak te z kontami magazynu. 
 
-- [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do ARM](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do ARM](/azure/role-based-access-control/conditional-access-azure-management)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -779,7 +779,7 @@ Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywani
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: bezpieczna konfiguracja](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: bezpieczna konfiguracja](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
@@ -792,9 +792,9 @@ Należy włączyć bezpieczny transfer na konta magazynu
 
 Użyj zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia dla kont magazynu. 
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](/azure/governance/policy/tutorials/create-and-manage)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -812,9 +812,9 @@ Użyj zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia
 
 **Wskazówki**: Użyj Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów konta magazynu. 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Zrozumienie Azure Policy efektów](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Zrozumienie Azure Policy efektów](/azure/governance/policy/concepts/effects)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -832,9 +832,9 @@ Użyj zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia
 
 **Wskazówki**: Użyj Azure Repos, aby bezpiecznie przechowywać kod, taki jak niestandardowe zasady platformy Azure, szablony Azure Resource Manager, skrypty konfiguracji żądanego stanu itp. Aby uzyskać dostęp do zasobów zarządzanych w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Informacje o uprawnieniach i grupach na platformie Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -852,7 +852,7 @@ Użyj zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia
 
 **Wskazówki**: wykorzystanie Azure Policy do alertów, inspekcji i wymuszania konfiguracji systemu dla konta magazynu. Dodatkowo opracowuj proces i potok na potrzeby zarządzania wyjątkami zasad. 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](/azure/governance/policy/tutorials/create-and-manage)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -870,7 +870,7 @@ Użyj zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia
 
 **Wskazówki**: skorzystaj z Azure Security Center, aby przeprowadzić skanowanie linii bazowej dla zasobów konta usługi Azure Storage. 
 
-- [Jak skorygować zalecenia w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [Jak skorygować zalecenia w Azure Security Center](/azure/security-center/security-center-remediate-recommendations)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -890,9 +890,9 @@ Użyj zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia
 
 Ponadto należy często obrócić klucze konta magazynu, aby ograniczyć wpływ utraty lub ujawnienia kluczy konta magazynu.
 
-- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](/azure/storage/common/storage-service-encryption)
 
-- [Zarządzanie kluczami dostępu do konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Zarządzanie kluczami dostępu do konta magazynu](/azure/storage/common/storage-account-keys-manage)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -902,7 +902,7 @@ Ponadto należy często obrócić klucze konta magazynu, aby ograniczyć wpływ 
 
 **Wskazówki**: Autoryzuj dostęp do obiektów blob i kolejek w ramach kont usługi Azure Storage z tożsamościami Azure Active Directory i zarządzanymi. Usługi Azure BLOB i queue storage obsługują uwierzytelnianie Azure Active Directory (Azure AD) z tożsamościami zarządzanymi dla zasobów platformy Azure. Zarządzane tożsamości dla zasobów platformy Azure mogą autoryzować dostęp do danych obiektów blob i kolejek przy użyciu poświadczeń usługi Azure AD z aplikacji uruchomionych na maszynach wirtualnych platformy Azure, aplikacji funkcji, zestawów skalowania maszyn wirtualnych i innych usług. Korzystając z tożsamości zarządzanych dla zasobów platformy Azure wraz z uwierzytelnianiem w usłudze Azure AD, można uniknąć zapisywania poświadczeń z aplikacjami uruchomionymi w chmurze. 
 
-- [Jak udzielić dostępu do obiektów blob platformy Azure i danych z kolejki przy użyciu tożsamości zarządzanej](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Jak udzielić dostępu do obiektów blob platformy Azure i danych z kolejki przy użyciu tożsamości zarządzanej](/azure/storage/common/storage-auth-aad-rbac-portal)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -920,7 +920,7 @@ Ponadto należy często obrócić klucze konta magazynu, aby ograniczyć wpływ 
 
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Obrona złośliwego oprogramowania](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Obrona złośliwego oprogramowania](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Użyj centralnie zarządzanego oprogramowania chroniącego przed złośliwym oprogramowaniem
 
@@ -936,7 +936,7 @@ Ponadto należy często obrócić klucze konta magazynu, aby ograniczyć wpływ 
 
 Przed przekazaniem do zasobów platformy Azure, takich jak App Service, Data Lake Storage, Blob Storage itd., można również wstępnie skanować każdą zawartość pod kątem złośliwego oprogramowania.
 
-- [Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -952,7 +952,7 @@ Przed przekazaniem do zasobów platformy Azure, takich jak App Service, Data Lak
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odzyskiwanie danych](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odzyskiwanie danych](/azure/security/benchmarks/security-control-data-recovery).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Zapewnij regularne zautomatyzowane przywracanie awaryjne
 
@@ -960,11 +960,11 @@ Przed przekazaniem do zasobów platformy Azure, takich jak App Service, Data Lak
 
 Możesz również włączyć usługę Azure Automation, aby wykonywać regularne migawki obiektów BLOB.
 
-- [Informacje o nadmiarowości usługi Azure Storage i umowach Service-Level](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Informacje o nadmiarowości usługi Azure Storage i umowach Service-Level](/azure/storage/common/storage-redundancy)
 
-- [Tworzenie migawki obiektu BLOB](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)
+- [Tworzenie migawki obiektu BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 
-- [Przegląd Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+- [Przegląd Azure Automation](/azure/automation/automation-intro)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -974,13 +974,13 @@ Możesz również włączyć usługę Azure Automation, aby wykonywać regularne
 
 **Wskazówki**: Aby utworzyć kopię zapasową danych z usług obsługiwanych przez konto magazynu, istnieje wiele dostępnych metod obejmujących używanie AzCopy lub narzędzi innych firm. Niezmienny magazyn usługi Azure Blob Storage umożliwia użytkownikom przechowywanie obiektów danych o kluczowym znaczeniu dla firmy w ROBAKu (zapis jeden raz, odczyt wielu). Ten stan sprawia, że dane nie są wymazywane i nie są modyfikowane dla interwału określonego przez użytkownika.
 
-- [Wprowadzenie do narzędzia AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [Wprowadzenie do narzędzia AzCopy](/azure/storage/common/storage-use-azcopy-v10)
 
-- [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage?tabs=azure-portal)
+- [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](/azure/storage/blobs/storage-blob-immutability-policies-manage?tabs=azure-portal)
 
 Klucze zarządzane/dostarczone przez klienta można tworzyć w ramach Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell. 
 
-- [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -992,15 +992,15 @@ Klucze zarządzane/dostarczone przez klienta można tworzyć w ramach Azure Key 
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret 
 
-- [Jak przywrócić Key Vault certyfikaty](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+- [Jak przywrócić Key Vault certyfikaty](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
-- [Jak przywrócić klucze Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Jak przywrócić klucze Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
-- [Jak przywrócić Key Vault zarządzanych kont magazynu](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
+- [Jak przywrócić Key Vault zarządzanych kont magazynu](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Jak przywrócić Key Vault wpisy tajne](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [Jak przywrócić Key Vault wpisy tajne](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret)
 
-- [AzCopy to narzędzie wiersza polecenia, które służy do kopiowania obiektów blob, plików i danych tabeli do lub z konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [AzCopy to narzędzie wiersza polecenia, które służy do kopiowania obiektów blob, plików i danych tabeli do lub z konta magazynu](/azure/storage/common/storage-use-azcopy-v10)
 
 Uwaga: Jeśli chcesz skopiować dane do i z usługi Azure Table Storage, zainstaluj program AzCopy w wersji 7,3.
 
@@ -1013,11 +1013,11 @@ Uwaga: Jeśli chcesz skopiować dane do i z usługi Azure Table Storage, zainsta
 
 **Wskazówki**: Aby włączyć klucze zarządzane przez klienta na koncie magazynu, należy użyć Azure Key Vault do przechowywania kluczy. Należy włączyć zarówno właściwości nietrwałego usuwania, jak i nie przeczyszczania w magazynie kluczy. Funkcja usuwania nietrwałego Key Vault umożliwia Odzyskiwanie usuniętych magazynów i obiektów magazynu, takich jak klucze, wpisy tajne i certyfikaty. W przypadku tworzenia kopii zapasowych danych konta magazynu w usłudze Azure Storage Blobs należy włączyć opcję usuwania nietrwałego, aby zapisywać i odzyskiwać dane po usunięciu obiektów blob lub migawek obiektów BLOB. Kopie zapasowe należy traktować jako dane poufne i zastosować odpowiednie środki kontroli dostępu i ochrony danych w ramach tej linii bazowej. Ponadto w celu zwiększenia ochrony można przechowywać obiekty danych o kluczowym znaczeniu dla firmy w ROBAKu (napisać jeden raz, odczytać wiele).
 
-- [Jak używać usuwania nietrwałego Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)
+- [Jak używać usuwania nietrwałego Azure Key Vault](/azure/key-vault/key-vault-soft-delete-powershell)
 
-- [Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
+- [Soft delete for Azure Storage blobs](/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
 
-- [Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
+- [Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem](/azure/storage/blobs/storage-blob-immutable-storage)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1025,7 +1025,7 @@ Uwaga: Jeśli chcesz skopiować dane do i z usługi Azure Table Storage, zainsta
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odpowiedź na zdarzenia](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odpowiedź na zdarzenia](/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
@@ -1047,9 +1047,9 @@ Uwaga: Jeśli chcesz skopiować dane do i z usługi Azure Table Storage, zainsta
 
 Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy użyciu tagów i Utwórz system nazewnictwa, aby jasno identyfikować i klasyfikować zasoby platformy Azure, szczególnie te, które przetwarzają dane poufne. Odpowiedzialność za korygowanie alertów zależy od zagrożenia dla zasobów platformy Azure i środowiska, w którym wystąpiło zdarzenie.
 
-- [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](/azure/security-center/security-center-alerts-overview)
 
-- [Organizowanie zasobów platformy Azure przy użyciu tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Organizowanie zasobów platformy Azure przy użyciu tagów](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1069,7 +1069,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 **Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych zostały nadane przez nielegalną lub nieautoryzowaną stronę. Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
 
-- [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](/azure/security-center/security-center-provide-security-contact-details)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1079,9 +1079,9 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 **Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego, która pomaga identyfikować zagrożenia dla zasobów platformy Azure. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center do przesyłania strumieniowego alertów do usługi Azure wskaźnikowej.
 
-- [Jak skonfigurować eksport ciągły](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Jak skonfigurować eksport ciągły](/azure/security-center/continuous-export)
 
-- [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](/azure/sentinel/connect-azure-security-center)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -1091,7 +1091,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 **Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w Azure Security Center, aby automatycznie wyzwalać odpowiedzi poprzez "Logic Apps" dotyczące alertów zabezpieczeń i zaleceń dotyczących ochrony zasobów platformy Azure.
 
-- [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](/azure/security-center/workflow-automation)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -1099,7 +1099,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: testy penetracji i czerwone ćwiczenia zespołu](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: testy penetracji i czerwone ćwiczenia zespołu](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure
 
@@ -1115,5 +1115,5 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład Produkcja, inne niż prod) przy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [test porównawczy zabezpieczeń platformy Azure](/azure/security/benchmarks/overview)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)

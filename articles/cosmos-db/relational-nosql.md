@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 63663d228052934616a59f5d84ff16a6510e46c9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 613e0dbfc90586475fe0ba9820ede1359a99d3a6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282086"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482217"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Zrozumienie różnic między NoSQL i relacyjnymi bazami danych
 
-W tym artykule opisano niektóre z najważniejszych zalet baz danych NoSQL za pośrednictwem relacyjnych baz danych. Będziemy również omawiać niektóre wyzwania związane z pracą z usługą NoSQL. Szczegółowe omówienie różnych istniejących magazynów danych można znaleźć w artykule dotyczącym [wybierania odpowiedniego magazynu danych](https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview).
+W tym artykule opisano niektóre z najważniejszych zalet baz danych NoSQL za pośrednictwem relacyjnych baz danych. Będziemy również omawiać niektóre wyzwania związane z pracą z usługą NoSQL. Szczegółowe omówienie różnych istniejących magazynów danych można znaleźć w artykule dotyczącym [wybierania odpowiedniego magazynu danych](/azure/architecture/guide/technology-choices/data-store-overview).
 
 ## <a name="high-throughput"></a>Wysoka przepływność
 
@@ -25,7 +25,7 @@ Jednym z najbardziej oczywistych wyzwań związanych z utrzymywaniem systemu rel
 
 W tych scenariuszach [rozproszone bazy danych](https://en.wikipedia.org/wiki/Distributed_database) mogą oferować bardziej skalowalne rozwiązanie. Jednak konserwacja nadal może być kosztowna i czasochłonna. Administratorzy mogą koniecznie wykonać dodatkowe czynności, aby zapewnić, że rozproszony charakter systemu jest przejrzysty. Mogą również mieć możliwość uwzględnienia "rozłącznego" charakteru bazy danych.
 
-[Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) upraszcza te wyzwania, wdrażając na całym świecie w całym regionie świadczenia usługi Azure. Zakresy partycji mogą być dynamicznie podzielona, aby bezproblemowo rozszerzać bazę danych w wierszu do aplikacji, jednocześnie utrzymując wysoką dostępność. Szczegółowe i ścisłe sterowanie z obsługą wielodostępności, oparte na chmurze, ułatwiają zarządzanie zasobami natywnymi [w ramach chmury i](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs#consistency-levels-and-latency) przewidywalną wydajność. Partycjonowanie jest w pełni zarządzane, dlatego administratorzy nie muszą pisać kodu lub zarządzać partycjami.
+[Azure Cosmos DB](./introduction.md) upraszcza te wyzwania, wdrażając na całym świecie w całym regionie świadczenia usługi Azure. Zakresy partycji mogą być dynamicznie podzielona, aby bezproblemowo rozszerzać bazę danych w wierszu do aplikacji, jednocześnie utrzymując wysoką dostępność. Szczegółowe i ścisłe sterowanie z obsługą wielodostępności, oparte na chmurze, ułatwiają zarządzanie zasobami natywnymi [w ramach chmury i](./consistency-levels.md#consistency-levels-and-latency) przewidywalną wydajność. Partycjonowanie jest w pełni zarządzane, dlatego administratorzy nie muszą pisać kodu lub zarządzać partycjami.
 
 Jeśli woluminy transakcyjne są osiągane na poziomach skrajnych, takich jak wiele tysięcy transakcji na sekundę, należy wziąć pod uwagę rozproszoną bazę danych NoSQL. Rozważ Azure Cosmos DB, aby uzyskać maksymalną wydajność, łatwość konserwacji i obniżyć całkowity koszt posiadania.
 
@@ -37,7 +37,7 @@ Istnieje znaczna liczba przypadków użycia, w których transakcje w bazie danyc
 
 Jednak obecnie popularność baz danych w stylu dokumentu znacznie się zwiększyła. Te bazy danych mogą być uznawane za przechowanie hierarchicznego modelu baz danych, a teraz nie są one powstrzymane przez problemy związane z przechowywaniem danych na dysku. W efekcie utrzymywanie wielu złożonych relacji jednostek nadrzędny-podrzędny w relacyjnej bazie danych może teraz być uznawane za antywzorców w porównaniu z nowoczesnymi podejściami zorientowanymi na dokumenty.
 
-Problem z modelem zorientowanym na obiekty oraz [niezgodność](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) z [założeniami](https://en.wikipedia.org/wiki/Object-oriented_design), które powstają podczas łączenia go z modeli relacyjnych, powoduje również wyróżnienie antywzorców w relacyjnych bazach danych dla niektórych przypadków użycia. Ukryte, ale często mające znaczący koszt konserwacji, mogą wynikać z tego powodu. Mimo że [podejścia ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) zostały rozwijające się częściowo w ten sposób, to zorientowane na dokumenty bazy danych są znacznie lepiej połączone z podejście zorientowane obiektowo. W tym podejściu deweloperzy nie są zmuszeni do zatwierdzania sterowników ORM ani Bespoke [aparatów bazy danych oo](https://en.wikipedia.org/wiki/Object_database). Jeśli dane zawierają wiele relacji nadrzędny-podrzędny i poziomów hierarchii, warto rozważyć użycie bazy danych dokumentów NoSQL, takiej jak [Azure Cosmos DB interfejsu API SQL](https://docs.microsoft.com/azure/cosmos-db/introduction).
+Problem z modelem zorientowanym na obiekty oraz [niezgodność](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) z [założeniami](https://en.wikipedia.org/wiki/Object-oriented_design), które powstają podczas łączenia go z modeli relacyjnych, powoduje również wyróżnienie antywzorców w relacyjnych bazach danych dla niektórych przypadków użycia. Ukryte, ale często mające znaczący koszt konserwacji, mogą wynikać z tego powodu. Mimo że [podejścia ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) zostały rozwijające się częściowo w ten sposób, to zorientowane na dokumenty bazy danych są znacznie lepiej połączone z podejście zorientowane obiektowo. W tym podejściu deweloperzy nie są zmuszeni do zatwierdzania sterowników ORM ani Bespoke [aparatów bazy danych oo](https://en.wikipedia.org/wiki/Object_database). Jeśli dane zawierają wiele relacji nadrzędny-podrzędny i poziomów hierarchii, warto rozważyć użycie bazy danych dokumentów NoSQL, takiej jak [Azure Cosmos DB interfejsu API SQL](./introduction.md).
 
 :::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="Danych":::
 
@@ -47,11 +47,11 @@ Ironically, uwzględniając swoją nazwę, relacyjne bazy danych obecne mniej ni
 
 Różne formy baz danych "sieci" pojawiły się w czasie, gdy relacyjne bazy danych zakończyły się, ale podobnie jak w przypadku hierarchicznych baz danych, te systemy są niezależne do uzyskania popularności. Wolne przyjęcie zostało spowodowane brakiem przypadków użycia i nieefektywność magazynu. Obecnie aparaty bazy danych grafu mogą być uważane za ponowne wystąpienie modelu bazy danych sieci. Najważniejsze korzyści związane z tymi systemami polegają na tym, że relacje są przechowywane jako "" pierwszej klasy obywatele "w bazie danych. W związku z tym, przechodzenie między relacjami może odbywać się w stałym czasie, zamiast zwiększać złożoność każdego nowego sprzężenia lub iloczynu krzyżowego.
 
-W przypadku zachowania złożonej sieci relacji w bazie danych warto rozważyć użycie bazy danych grafu, takiej jak [Azure Cosmos DB API Gremlin](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) do zarządzania tymi danymi.
+W przypadku zachowania złożonej sieci relacji w bazie danych warto rozważyć użycie bazy danych grafu, takiej jak [Azure Cosmos DB API Gremlin](./graph-introduction.md) do zarządzania tymi danymi.
 
 :::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Danych":::
 
-Azure Cosmos DB to wielomodelowa usługa bazy danych, która oferuje projekcję interfejsu API dla wszystkich głównych typów modeli NoSQL; Rodzina kolumn, dokument, wykres i wartość klucza. Warstwy interfejsu API dokumentów [Gremlin (Graph)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) i SQL (rdzeń) są w pełni obsługiwane. Ma to zalety przełączenia między różnymi modelami na poziomie programowania. W sklepach grafów można wykonywać zapytania dotyczące zarówno złożonych przechodzenia do sieci, jak i transakcji, które są modelowane jako rekordy dokumentów w tym samym magazynie.
+Azure Cosmos DB to wielomodelowa usługa bazy danych, która oferuje projekcję interfejsu API dla wszystkich głównych typów modeli NoSQL; Rodzina kolumn, dokument, wykres i wartość klucza. Warstwy interfejsu API dokumentów [Gremlin (Graph)](./gremlin-support.md) i SQL (rdzeń) są w pełni obsługiwane. Ma to zalety przełączenia między różnymi modelami na poziomie programowania. W sklepach grafów można wykonywać zapytania dotyczące zarówno złożonych przechodzenia do sieci, jak i transakcji, które są modelowane jako rekordy dokumentów w tym samym magazynie.
 
 ## <a name="fluid-schema"></a>Schemat cieczy
 
@@ -64,8 +64,8 @@ Jeśli zarządzasz danymi, których struktury stale się zmieniają, szczególni
 Wzorzec [mikrousług](https://en.wikipedia.org/wiki/Microservices) znacznie się zwiększył w ciągu ostatnich lat. Ten wzorzec ma swoje elementy główne w [architekturze zorientowanej na usługę](https://en.wikipedia.org/wiki/Service-oriented_architecture). Ogólnie obowiązującym standardem przesyłania danych w tych nowoczesnych architekturach mikrousług jest [kod JSON](https://en.wikipedia.org/wiki/JSON), który stanowi również nośnik magazynu dla większości baz danych NoSQL zorientowanych na dokumenty. Dzięki temu dokument NoSQL przechowuje znacznie bardziej bezproblemowe dopasowanie do trwałości i synchronizacji (przy użyciu wzorców określania [źródła zdarzeń](https://en.wikipedia.org/wiki/Event-driven_architecture)) w ramach złożonych implementacji mikrousług. Bardziej skomplikowane relacyjne bazy danych mogą być znacznie bardziej złożone, aby zachować je w tych architekturach. Jest to spowodowane większą ilością transformacji wymaganą zarówno w przypadku stanu, jak i synchronizacji w ramach interfejsów API. Azure Cosmos DB w szczególności zawiera szereg funkcji, które sprawiają, że jeszcze bardziej bezproblemowe w przypadku architektury mikrousług opartych na notacji JSON niż wiele baz danych NoSQL:
 
 * wybór czystych typów danych JSON
-* aparat JavaScript i [interfejs API zapytania](https://docs.microsoft.com/azure/cosmos-db/javascript-query-api) wbudowane w bazę danych.
-* aktualny [kanał informacyjny zmiany](https://docs.microsoft.com/azure/cosmos-db/change-feed) , który klienci mogą subskrybować w celu uzyskania powiadomień o zmianach w kontenerze.
+* aparat JavaScript i [interfejs API zapytania](./javascript-query-api.md) wbudowane w bazę danych.
+* aktualny [kanał informacyjny zmiany](./change-feed.md) , który klienci mogą subskrybować w celu uzyskania powiadomień o zmianach w kontenerze.
 
 ## <a name="some-challenges-with-nosql-databases"></a>Niektóre wyzwania z bazami danych NoSQL
 
@@ -80,20 +80,20 @@ Analizując pierwsze wyzwanie, reguła-kciuk w bazach danych NoSQL jest ogólnie
 
 Najlepszym rozwiązaniem w bazie danych dokumentów NoSQL jest denormalizacja nazwy kategorii i tagów bezpośrednio w "dokumencie produktu". Jednak w celu zachowania synchronizacji kategorii, tagów i produktów, opcje projektowania ułatwiające to dodanie złożoności konserwacji, ponieważ dane są duplikowane przez wiele rekordów w produkcie, a nie jako proste aktualizacje w relacji "jeden do wielu", a następnie przyłączanie do pobierania danych. 
 
-Jest to, że odczyty są bardziej wydajne w nieznormalizowanym rekordzie i stają się coraz bardziej wydajne w miarę zwiększania się liczby jednostek przyłączonych koncepcyjnie. Jednak podobnie jak wydajność odczytu zwiększa się wraz ze wzrostem liczby przyłączonych jednostek w rekordzie denormalizacji, tak że jest to zbyt skomplikowana złożoność utrzymywania obiektów w synchronizacji. Jednym ze sposobów złagodzenia tego problemu jest utworzenie [hybrydowego modelu danych](https://docs.microsoft.com/azure/cosmos-db/modeling-data#hybrid-data-models).
+Jest to, że odczyty są bardziej wydajne w nieznormalizowanym rekordzie i stają się coraz bardziej wydajne w miarę zwiększania się liczby jednostek przyłączonych koncepcyjnie. Jednak podobnie jak wydajność odczytu zwiększa się wraz ze wzrostem liczby przyłączonych jednostek w rekordzie denormalizacji, tak że jest to zbyt skomplikowana złożoność utrzymywania obiektów w synchronizacji. Jednym ze sposobów złagodzenia tego problemu jest utworzenie [hybrydowego modelu danych](./modeling-data.md#hybrid-data-models).
 
-Mimo że w bazach danych NoSQL jest dostępna większa elastyczność, dzięki czemu może ona również zwiększyć elastyczność w zakresie projektowania. Zapoznaj się z artykułem [jak modelować i dzielić dane na Azure Cosmos dB przy użyciu rzeczywistego przykładu](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example), który obejmuje podejście do utrzymywania [nieznormalizowanych danych użytkownika w ramach synchronizacji](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example#denormalizing-usernames) , w których użytkownicy nie tylko znajdują się w różnych partycjach, ale w różnych kontenerach.
+Mimo że w bazach danych NoSQL jest dostępna większa elastyczność, dzięki czemu może ona również zwiększyć elastyczność w zakresie projektowania. Zapoznaj się z artykułem [jak modelować i dzielić dane na Azure Cosmos dB przy użyciu rzeczywistego przykładu](./how-to-model-partition-example.md), który obejmuje podejście do utrzymywania [nieznormalizowanych danych użytkownika w ramach synchronizacji](./how-to-model-partition-example.md#denormalizing-usernames) , w których użytkownicy nie tylko znajdują się w różnych partycjach, ale w różnych kontenerach.
 
 W odniesieniu do silnej spójności bardzo rzadko jest to wymagane w całym zestawie danych. Jednak w przypadkach, gdy jest to konieczne, może to być wyzwanie w rozproszonych bazach danych. Aby zapewnić silną spójność, dane muszą zostać zsynchronizowane we wszystkich replikach i regionach przed zezwoleniem klientom na ich odczytywanie. Może to zwiększyć opóźnienie operacji odczytu.
 
-Azure Cosmos DB zapewnia większą elastyczność niż relacyjne bazy danych dla różnych, które są istotne w tym miejscu, ale w przypadku implementacji małych skali takie podejście może zwiększyć zagadnienia dotyczące projektowania. Zapoznaj się z naszym artykułem dotyczącym [spójności, dostępności i wydajności,](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs) Aby uzyskać więcej szczegółów na temat tego tematu.
+Azure Cosmos DB zapewnia większą elastyczność niż relacyjne bazy danych dla różnych, które są istotne w tym miejscu, ale w przypadku implementacji małych skali takie podejście może zwiększyć zagadnienia dotyczące projektowania. Zapoznaj się z naszym artykułem dotyczącym [spójności, dostępności i wydajności,](./consistency-levels.md) Aby uzyskać więcej szczegółów na temat tego tematu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak zarządzać kontem usługi Azure Cosmos i innymi pojęciami:
 
 * [Jak zarządzać kontem usługi Azure Cosmos](how-to-manage-database-account.md)
-* [Globalne rozproszenie](distribute-data-globally.md)
+* [Dystrybucja globalna](distribute-data-globally.md)
 * [Poziomy spójności](consistency-levels.md)
 * [Praca z kontenerami i elementami platformy Azure Cosmos](account-databases-containers-items.md)
 * [Punkt końcowy usługi sieci wirtualnej dla konta usługi Azure Cosmos](how-to-configure-vnet-service-endpoint.md)

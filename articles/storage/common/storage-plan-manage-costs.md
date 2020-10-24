@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 75b464c140bfda6c3f3559d3bfdbe1e6bc2e7f24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0f5069ca063f95cb845921c0d716b6c013c9e83
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87760740"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479752"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planowanie i zarządzanie kosztami usługi Azure Blob Storage
 
@@ -32,9 +32,9 @@ Skorzystaj z [kalkulatora cen platformy Azure](https://azure.microsoft.com/prici
 
 3. Wybierz opcje z listy rozwijanej. 
 
-   Gdy modyfikujesz wartość tych list rozwijanych, oszacowanie kosztów zostanie zmienione. To oszacowanie pojawia się w górnym rogu, a także u dołu oszacowania. 
-    
-   ![Monitorowanie kosztów za pomocą okienka analiza kosztów](media/storage-plan-manage-costs/price-calculator-storage-type.png)
+   Gdy modyfikujesz wartość tych list rozwijanych, oszacowanie kosztów zostanie zmienione. To oszacowanie pojawia się w górnym rogu, a także u dołu oszacowania.
+
+   ![Zrzut ekranu przedstawiający oszacowanie](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
    W miarę zmieniania wartości listy rozwijanej **Typ** są również wyświetlane inne opcje, które pojawiają się w tym arkuszu. Skorzystaj z linków w sekcji **więcej informacji** , aby dowiedzieć się więcej na temat tego, co oznacza każda opcja i jak te opcje wpływają na cenę operacji związanych z magazynem. 
 
@@ -56,19 +56,19 @@ Ta sekcja zawiera więcej szczegółów.
 
 Możesz zaoszczędzić oszczędności związane z magazynowaniem danych obiektów BLOB w usłudze Azure Storage. Zarezerwowana pojemność usługi Azure Storage oferuje rabat na wydajność blokowych obiektów blob oraz Azure Data Lake Storage Gen2 danych na kontach magazynu w warstwie Standardowa po zatwierdzeniu do rezerwacji przez jeden rok lub trzy lata. Rezerwacja zapewnia stałą ilość miejsca w magazynie w przypadku rezerwacji. Zarezerwowana pojemność usługi Azure Storage może znacząco obniżyć koszty pojemności dla blokowych obiektów blob i danych Azure Data Lake Storage Gen2. 
 
-Aby dowiedzieć się więcej, zobacz [Optymalizacja kosztów magazynu obiektów BLOB przy użyciu zarezerwowanej pojemności](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity).
+Aby dowiedzieć się więcej, zobacz [Optymalizacja kosztów magazynu obiektów BLOB przy użyciu zarezerwowanej pojemności](/azure/storage/blobs/storage-blob-reserved-capacity).
 
 #### <a name="organize-data-into-access-tiers"></a>Organizowanie danych w warstwy dostępu
 
 Możesz obniżyć koszty, umieszczając dane obiektów BLOB w najbardziej ekonomicznych warstwach dostępu. Wybieraj spośród trzech warstw, które zaprojektowano w celu optymalizacji kosztów związanych z użyciem danych. Na przykład warstwa *gorąca* ma wyższy koszt magazynowania, ale obniża koszty dostępu. W związku z tym, jeśli planujesz uzyskać dostęp do danych często, warstwa gorąca może być najbardziej wydajnym wyborem. Jeśli planujesz uzyskiwać dostęp do danych rzadziej, warstwa *zimna* lub *archiwum* może być najbardziej sensowna, ponieważ zwiększa koszt uzyskiwania dostępu do danych przy jednoczesnym zmniejszeniu kosztów przechowywania danych.    
 
-Aby dowiedzieć się więcej, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
+Aby dowiedzieć się więcej, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
 
 #### <a name="automatically-move-data-between-access-tiers"></a>Automatycznie przenoś dane między warstwami dostępu
 
 Zasady zarządzania cyklem życia umożliwiają okresowe przenoszenie danych między warstwami w celu zaoszczędzenia najbardziej pieniędzy. Te zasady mogą przenosić dane do programu przy użyciu określonych reguł. Można na przykład utworzyć regułę, która przenosi obiekty blob do warstwy archiwum, jeśli ten obiekt BLOB nie został zmodyfikowany w ciągu 90 dni. Tworząc zasady dostosowujące warstwę dostępu do danych, możesz zaprojektować najtańsze opcje magazynu dla Twoich potrzeb.
 
-Aby dowiedzieć się więcej, zobacz [Zarządzanie cyklem życia usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+Aby dowiedzieć się więcej, zobacz [Zarządzanie cyklem życia usługi Azure Blob Storage](/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
 
 ## <a name="create-budgets"></a>Tworzenie budżetów
 
@@ -89,13 +89,13 @@ Aby wyświetlić koszty usługi Azure Storage w analizie kosztów:
 
 2. Otwórz okno **Cost Management + rozliczanie** , wybierz pozycję **Zarządzanie kosztami** z menu, a następnie wybierz pozycję **Analiza kosztów**. Następnie można zmienić zakres dla określonej subskrypcji z listy rozwijanej **zakres** .
 
-   ![Monitorowanie kosztów za pomocą okienka analiza kosztów](./media/storage-plan-manage-costs/cost-analysis-pane.png)
+   ![Zrzut ekranu przedstawiający zakres](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
 4. Aby wyświetlić tylko koszty usługi Azure Storage, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi**. Następnie wybierz pozycję **Magazyn** z listy. 
 
    Oto przykład przedstawiający koszty tylko usługi Azure Storage:
 
-   ![Monitorowanie kosztów magazynu za pomocą okienka analiza kosztów](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
+   ![Zrzut ekranu przedstawiający filtr według magazynu](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
 
 W poprzednim przykładzie zobaczysz bieżący koszt usługi. Są również wyświetlane koszty według regionów świadczenia usługi Azure i grup zasobów. Można również dodać inne filtry (na przykład: filtr, aby wyświetlić koszty dla określonych kont magazynu).
 

@@ -7,33 +7,33 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: a5ce99927ce4cd2b04b5dd5cb865299b4be84ecb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f662d7e51c49006b191778ef70740ef79173828c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86519800"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487946"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---hyperscale-citus-compute-resources-with-reserved-capacity"></a>Przedpłata za zasoby obliczeniowe Azure Database for PostgreSQL (Citus) z zarezerwowaną pojemnością
 
 Azure Database for PostgreSQL — funkcja Citus) teraz pomaga zaoszczędzić pieniądze dzięki wykorzystaniu zasobów obliczeniowych w porównaniu z cenami płatności zgodnie z rzeczywistym użyciem. Dzięki zarezerwowanej pojemności (Citus) można wprowadzić z góry zobowiązanie dla grupy serwerów z przedziałem (Citus), aby uzyskać znaczny rabat na koszty obliczeń. Aby kupić zastrzeżoną pojemność (Citus), musisz określić region platformy Azure, termin rezerwacji i częstotliwość rozliczeń.
 
 > [!IMPORTANT]
-> W tym artykule zarezerwowano pojemność Azure Database for PostgreSQL — funkcja Citus. Aby uzyskać informacje o pojemności zarezerwowanej dla Azure Database for PostgreSQL — jeden serwer, zobacz [przedpłata za Azure Database for PostgreSQL — zasoby obliczeniowe pojedynczego serwera o pojemności zarezerwowanej](/azure/postgresql/concept-reserved-pricing).
+> W tym artykule zarezerwowano pojemność Azure Database for PostgreSQL — funkcja Citus. Aby uzyskać informacje o pojemności zarezerwowanej dla Azure Database for PostgreSQL — jeden serwer, zobacz [przedpłata za Azure Database for PostgreSQL — zasoby obliczeniowe pojedynczego serwera o pojemności zarezerwowanej](./concept-reserved-pricing.md).
 
 Nie musisz przypisywać rezerwacji do określonych grup serwerów Citus. W przypadku grupy serwerów z uruchomioną funkcją Moje skalowanie (Citus) lub nowo wdrożonych automatycznie uzyskuje się korzyści wynikające z zarezerwowanych cen. Zakup rezerwacji polega na zapłaceniu za koszt obliczeń przez jeden rok lub trzy lata. Gdy tylko kupisz rezerwację, opłaty za obliczenia ze skalowaniem (Citus), które pasują do atrybutów rezerwacji, nie są już naliczane według stawek płatności zgodnie z rzeczywistym użyciem. 
 
 Rezerwacja nie obejmuje opłat za oprogramowanie, Sieć ani magazyn związany z grupami serwerów Citus. Na koniec okresu rezerwacji, wygaśnięcie korzyści z rozliczeń i grup serwerów w ramach funkcji Citus (z płatnością zgodnie z rzeczywistym użyciem). Rezerwacje nie są autoodnawiane. Aby uzyskać informacje o cenach, zapoznaj się z [zastrzeżoną pojemnością Azure Database for PostgreSQL — Citus](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
 
-W [Azure Portal](https://portal.azure.com/)można zakupić zarezerwowaną pojemność (Citus). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](https://docs.microsoft.com/azure/cost-management-billing/reservations/monthly-payments-reservations). Aby kupić zarezerwowaną pojemność:
+W [Azure Portal](https://portal.azure.com/)można zakupić zarezerwowaną pojemność (Citus). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/prepare-buy-reservation.md). Aby kupić zarezerwowaną pojemność:
 
 * Musisz być w roli właściciela dla co najmniej jednej Umowa Enterprise (EA) lub pojedynczej subskrypcji z stawką płatność zgodnie z rzeczywistym użyciem.
 * W przypadku subskrypcji Umowa Enterprise w [portalu EA](https://ea.azure.com/)należy włączyć opcję **Dodawanie wystąpień zarezerwowanych** . Jeśli to ustawienie jest wyłączone, musisz być administratorem Umowa Enterprise w ramach subskrypcji.
 * W przypadku programu w programie Cloud Solution Provider (CSP) tylko agenci administracyjni lub agenci sprzedaży mogą zakupić zastrzeżoną pojemność (Citus).
 
 Aby uzyskać informacje na temat sposobu, w jaki klienci Umowa Enterprise i klienci z opłatą zgodnie z rzeczywistym użyciem są obciążani zakupami rezerwacji, zobacz:
-- [Informacje na temat użycia usługi Azure Reservation na potrzeby rejestracji Umowa Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-- [Informacje na temat użycia usługi Azure Reservation dla subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Informacje na temat użycia usługi Azure Reservation na potrzeby rejestracji Umowa Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+- [Informacje na temat użycia usługi Azure Reservation dla subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 ## <a name="determine-the-right-server-group-size-before-purchase"></a>Określ właściwy rozmiar grupy serwerów przed zakupem
 
@@ -62,14 +62,14 @@ W poniższej tabeli opisano wymagane pola.
 | Subskrypcja | Subskrypcja używana do płacenia za Azure Database for PostgreSQL zarezerwowaną rezerwację zdolności produkcyjnych. W ramach metody płatności w ramach subskrypcji jest naliczana opłata z tytułu kosztów ponoszonych z góry Azure Database for PostgreSQL zastrzeżonej rezerwacji. Typ subskrypcji musi być Umowa Enterprise (numery ofert: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cenami z rabatem zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). W przypadku subskrypcji Umowa Enterprise opłaty są naliczane od salda zobowiązania pieniężnego rejestracji lub opłaty za nadwyżkowe. W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.                                                                                  |
 | Zakres        | Zakres rezerwacji rdzeń wirtualny może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji **udostępnione**w ramach kontekstu rozliczania zostanie zastosowany rabat zastrzeżeń rdzeń wirtualny (Citus). W przypadku klientów Umowa Enterprise zakresem udostępnionym jest rejestracja i uwzględnianie wszystkich subskrypcji w ramach rejestracji. W przypadku klientów z płatność zgodnie z rzeczywistym użyciem zakresem udostępnionym są wszystkie subskrypcje z płatność zgodnie z rzeczywistym uwzględnieniem utworzone przez administratora konta. W przypadku wybrania opcji **pojedyncze subskrypcje**w ramach tej subskrypcji zostanie zastosowany rabat rezerwacji rdzeń wirtualny (Citus). W przypadku wybrania opcji **pojedyncze grupy zasobów**rabat rezerwacji będzie stosowany do grup serwerów z Citusą w ramach wybranej subskrypcji i wybranej grupy zasobów w ramach danej subskrypcji. |
 | Region       | Region świadczenia usługi Azure objęty rezerwacją zarezerwowanej pojemności Azure Database for PostgreSQL (Citus).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Okres         | Jeden rok lub trzy lata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Termin         | Jeden rok lub trzy lata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Liczba     | Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji zarezerwowanej pojemności Citus. W szczególności liczba elementów będących koordynatorem lub węzłem procesu roboczego rdzeni wirtualnych w wybranym regionie świadczenia usługi Azure, które są zarezerwowane, i które uzyskają rabat rozliczeń. Na przykład, jeśli uruchamiasz (lub planujesz uruchomić) grupy serwerów z funkcją "Citus () z łączną pojemnością obliczeniową 64 węzła rdzeni wirtualnych i 32 węzeł procesu roboczego rdzeni wirtualnych w regionie Wschodnie stany USA, określ ilość odpowiednio 64 i 32 dla koordynatora i węzłów procesu roboczego, aby zmaksymalizować korzyść dla wszystkich serwerów.                                                                                                                                                                                                                                                     |
 
 
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
-Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz samoobsługowe [weksle i zwroty dla rezerwacji platformy Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz samoobsługowe [weksle i zwroty dla rezerwacji platformy Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>elastyczność rozmiaru rdzeń wirtualny
 
@@ -85,9 +85,9 @@ Rabat rezerwacji rdzeń wirtualny jest automatycznie stosowany do liczby grup se
 
 Więcej szczegółów na temat rezerwacji platformy Azure można znaleźć w następujących artykułach:
 
-* [Co to są rezerwacje platformy Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-* [Zarządzanie rezerwacjami platformy Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Informacje na temat rabatu rezerwacji platformy Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Informacje na temat użycia rezerwacji dla subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)
-* [Informacje na temat użycia rezerwacji Umowa Enterprise rejestracji](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Rezerwacje platformy Azure w programie partnerskim dostawca rozwiązań w chmurze](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Co to są rezerwacje platformy Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Zarządzanie rezerwacjami platformy Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Informacje na temat rabatu rezerwacji platformy Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Informacje na temat użycia rezerwacji dla subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
+* [Informacje na temat użycia rezerwacji Umowa Enterprise rejestracji](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Rezerwacje platformy Azure w programie partnerskim dostawca rozwiązań w chmurze](/partner-center/azure-reservations)

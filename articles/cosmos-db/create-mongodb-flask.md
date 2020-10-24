@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 1ed15182e700f125072c69ba9bcf60caf4da5c88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a0545ea61879b30349403e019ead69ba14f75cb9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87873045"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486501"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji w języku Python przy użyciu interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -27,7 +27,7 @@ ms.locfileid: "87873045"
 > * [Golang](create-mongodb-go.md)
 >  
 
-W tym przewodniku szybki start użyjesz Azure Cosmos DB konta interfejsu API usługi Mongo DB lub emulatora Azure Cosmos DB, aby uruchomić aplikację sieci Web do wykonania z kolbą języka Python sklonowaną z usługi GitHub. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
+W tym przewodniku szybki start użyjesz Azure Cosmos DB konta interfejsu API usługi Mongo DB lub emulatora Azure Cosmos DB do uruchamiania kolby Python To-Do aplikacji internetowej sklonowanej z usługi GitHub. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -127,7 +127,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 ## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
 
-Aby wdrożyć tę aplikację, możesz utworzyć nową aplikację internetową na platformie Azure i włączyć ciągłe wdrażanie z rozwidleniem tego repozytorium GitHub. Postępuj zgodnie z tym [samouczkiem](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) , aby skonfigurować ciągłe wdrażanie za pomocą usługi GitHub na platformie Azure.
+Aby wdrożyć tę aplikację, możesz utworzyć nową aplikację internetową na platformie Azure i włączyć ciągłe wdrażanie z rozwidleniem tego repozytorium GitHub. Postępuj zgodnie z tym [samouczkiem](../app-service/deploy-continuous-deployment.md) , aby skonfigurować ciągłe wdrażanie za pomocą usługi GitHub na platformie Azure.
 
 W przypadku wdrażania na platformie Azure należy usunąć klucze aplikacji i upewnić się, że poniższa sekcja nie jest wyłączona przez oznaczenie jej jako komentarza:
 
@@ -137,7 +137,7 @@ W przypadku wdrażania na platformie Azure należy usunąć klucze aplikacji i u
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-Następnie należy dodać do ustawień aplikacji odpowiednie wartości MONGOURL, MONGO_PASSWORD i MONGO_USERNAME. Aby dowiedzieć się więcej o ustawieniach aplikacji w usłudze Azure Web Apps, skorzystaj z tego [samouczka](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings).
+Następnie należy dodać do ustawień aplikacji odpowiednie wartości MONGOURL, MONGO_PASSWORD i MONGO_USERNAME. Aby dowiedzieć się więcej o ustawieniach aplikacji w usłudze Azure Web Apps, skorzystaj z tego [samouczka](../app-service/configure-common.md#configure-app-settings).
 
 Jeśli nie chcesz tworzyć rozwidlenia tego repozytorium, możesz również wybrać poniższy przycisk **Wdróż na platformie Azure** . Następnie należy przejść do platformy Azure i skonfigurować ustawienia aplikacji przy użyciu informacji o koncie Azure Cosmos DB.
 
@@ -158,7 +158,7 @@ Jeśli nie chcesz tworzyć rozwidlenia tego repozytorium, możesz również wybr
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób Azure Cosmos DB tworzenia konta interfejsu API usługi Mongo DB i używania emulatora Azure Cosmos DB do uruchamiania aplikacji sieci Web do przeprowadzenia kolby języka Python sklonowanej z usługi GitHub. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Azure Cosmos DB. 
+W tym przewodniku szybki start przedstawiono sposób tworzenia Azure Cosmos DB dla konta interfejsu API usługi Mongo DB i używania emulatora Azure Cosmos DB do uruchamiania kolby Python To-Do aplikacji internetowej sklonowanej z usługi GitHub. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importowanie danych z bazy danych MongoDB do usługi Azure Cosmos DB](mongodb-migrate.md)
+> [Importowanie danych z bazy danych MongoDB do usługi Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

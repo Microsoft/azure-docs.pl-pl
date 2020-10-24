@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 0ec5b5a5ee5c29893f47560d57e78c281825453e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce4efe0250ea1b85e2e2d77b7ee69bdf3dbcab26
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370393"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480399"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Co to jest Azure Synapse Analytics (dawniej SQL DW)?
 
@@ -40,7 +40,7 @@ Synapse Pula SQL odwołuje się do funkcji magazynowania danych przedsiębiorstw
 
 Pula SQL reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z programu Synapse SQL. Rozmiar puli SQL jest określany przez jednostki magazynowania danych (jednostek dwu).
 
-Zaimportuj dane Big Data za [pomocą prostych zapytań](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL, a następnie użyj możliwości MPP, aby uruchomić analizę o wysokiej wydajności. Po zintegrowaniu i przeanalizowaniu Pula SQL Synapse stanie się jedną wersją prawdy, na którą firma będzie mogła na szybszy i bardziej niezawodny wgląd w szczegółowe dane.  
+Zaimportuj dane Big Data za [pomocą prostych zapytań](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL, a następnie użyj możliwości aparatu zapytań rozproszonych, aby uruchomić analizę o wysokiej wydajności. Po zintegrowaniu i przeanalizowaniu danych Synapse SQL stanie się jedną wersją prawdy, na którą firma może liczyć, aby szybciej i bardziej niezawodnie uzyskiwać szczegółowe informacje. 
 
 ## <a name="key-component-of-a-big-data-solution"></a>Kluczowy składnik rozwiązania danych Big Data
 

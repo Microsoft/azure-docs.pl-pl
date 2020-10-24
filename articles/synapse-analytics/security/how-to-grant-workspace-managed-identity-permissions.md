@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535046"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487198"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Przyznawanie uprawnień do tożsamości zarządzanej przez obszar roboczy (wersja zapoznawcza)
 
@@ -70,7 +70,7 @@ Tożsamość zarządzana powinna mieć dostęp do danych kontenera (systemu plik
 
 
 Wybierz ten sam kontener lub system plików, aby przyznać roli *współautor danych obiektów blob magazynu* dla tożsamości zarządzanej.
-![ADLS Gen2 wybór kontenera konta magazynu](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![Zrzut ekranu pokazujący kontener lub system plików, który należy wybrać.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>Krok 3. przechodzenie do kontroli dostępu
 

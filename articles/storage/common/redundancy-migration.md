@@ -1,5 +1,5 @@
 ---
-title: Zmień sposób replikowania konta magazynu
+title: Zmienianie sposobu replikowania konta magazynu
 titleSuffix: Azure Storage
 description: Dowiedz się, jak zmienić sposób replikowania danych z istniejącego konta magazynu.
 services: storage
@@ -11,14 +11,14 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a16199891c00e2b8133aebebd1eaa6488423896c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827317"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487895"
 ---
-# <a name="change-how-a-storage-account-is-replicated"></a>Zmień sposób replikowania konta magazynu
+# <a name="change-how-a-storage-account-is-replicated"></a>Zmienianie sposobu replikowania konta magazynu
 
 Usługa Azure Storage zawsze przechowuje wiele kopii danych w taki sposób, aby była chroniona przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowymi awariami sprzętowymi, siecią lub przestojem, a także ogromnymi klęskami żywiołowymi. Nadmiarowość gwarantuje, że konto magazynu spełnia warunki [umowy dotyczącej poziomu usług (SLA) dla usługi Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/) , nawet w przypadku awarii.
 
@@ -128,14 +128,14 @@ Możesz zażądać migracji na żywo za pomocą [portalu pomocy technicznej syst
     - **Typ problemu**: wybierz pozycję **techniczne**.
     - **Usługa**: wybierz pozycję **Moje usługi** i **Zarządzanie kontem magazynu**.
     - **Zasób**: wybierz zasób, który chcesz przekonwertować na ZRS.
-3. Wybierz opcję **Dalej**.
+3. Wybierz pozycję **Dalej**.
 4. Określ następujące wartości w sekcji **problem** :
     - **Ważność**: pozostaw wartość domyślną równą-is.
     - **Typ problemu**: wybierz pozycję **migracja danych**.
     - **Kategoria**: wybierz pozycję **Migruj do ZRS**.
     - **Title**: wpisz opisowy tytuł, na przykład **ZRS**.
     - **Szczegóły**: wpisz dodatkowe szczegóły w polu **szczegóły** , na przykład chcę przeprowadzić migrację do ZRS z [LRS, GRS] w \_ \_ regionie.
-5. Wybierz opcję **Dalej**.
+5. Wybierz pozycję **Dalej**.
 6. Sprawdź, czy informacje kontaktowe są poprawne w bloku **informacje kontaktowe** .
 7. Wybierz przycisk **Utwórz**.
 
@@ -144,9 +144,9 @@ Osoba odpowiedzialna za pomoc techniczną skontaktuje się z Tobą i pomoże Ci 
 > [!NOTE]
 > Migracja na żywo nie jest obecnie obsługiwana dla udziałów plików w warstwie Premium. Obecnie obsługiwane są tylko ręczne kopiowanie lub przeniesienie danych.
 >
-> Konta magazynu GZRS nie obsługują obecnie warstwy archiwum. Aby uzyskać więcej informacji [, zobacz warstwy dostępu gorąca, chłodna i archiwalna](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) .
+> Konta magazynu GZRS nie obsługują obecnie warstwy archiwum. Aby uzyskać więcej informacji [, zobacz warstwy dostępu gorąca, chłodna i archiwalna](/azure/storage/blobs/storage-blob-storage-tiers) .
 >
-> Dyski zarządzane są dostępne tylko dla LRS i nie można ich migrować do ZRS. Można przechowywać migawki i obrazy dla dysków zarządzanych przy standardowych dyskach SSD w standardowym magazynie DYSKowym i [wybierać między opcjami LRS i ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Aby uzyskać informacje na temat integracji z zestawami dostępności, zobacz [wprowadzenie do usługi Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
+> Dyski zarządzane są dostępne tylko dla LRS i nie można ich migrować do ZRS. Można przechowywać migawki i obrazy dla dysków zarządzanych przy standardowych dyskach SSD w standardowym magazynie DYSKowym i [wybierać między opcjami LRS i ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Aby uzyskać informacje na temat integracji z zestawami dostępności, zobacz [wprowadzenie do usługi Azure Managed disks](/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 
 ## <a name="switch-from-zrs-classic"></a>Przełącz z ZRS klasycznego
 
@@ -167,7 +167,7 @@ Możesz również uaktualnić konto magazynu ZRS klasycznego do ZRS przy użyciu
 
 Aby uaktualnić do ZRS w Azure Portal, przejdź do ustawień **konfiguracji** konta i wybierz pozycję **Uaktualnij**:
 
-![Uaktualnij ZRS klasyczne do ZRS w portalu](media/redundancy-migration/portal-zrs-classic-upgrade.png)
+![Uaktualnianie klasycznego magazynu ZRS do magazynu ZRS w portalu](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 

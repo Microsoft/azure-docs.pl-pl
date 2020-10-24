@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c93508bebdcfce35a89b3d5e2a8abecc7ac84722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 429883a1bd9bc4df270e6a9f2965087fa3fba2dc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280151"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488864"
 ---
 # <a name="storage-account-overview"></a>Omówienie kont magazynu
 
@@ -32,7 +32,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 obsługują najnowsze funkcje 
 
 - Obiekty blob (wszystkie typy: Block, append, Page)
 - Data Lake Gen2
-- Files
+- Pliki
 - Dyski
 - Kolejki
 - Tabele
@@ -49,7 +49,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 oferują wiele warstw dostępu
 Konta magazynu ogólnego przeznaczenia w wersji 1 zapewniają dostęp do wszystkich usług Azure Storage, ale mogą nie mieć najnowszych funkcji lub najniższych cen za gigabajt. Konta magazynu ogólnego przeznaczenia w wersji 1 obsługują te usługi Azure Storage:
 
 - Obiekty blob (wszystkie typy)
-- Files
+- Pliki
 - Dyski
 - Kolejki
 - Tabele
@@ -133,7 +133,7 @@ Na przykład jeśli Twoje konto magazynu ogólnego przeznaczenia ma nazwę *moje
 - Magazyn tabel: `https://*mystorageaccount*.table.core.windows.net`
 - Kolejka magazynu: `https://*mystorageaccount*.queue.core.windows.net`
 - Azure Files: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (używa [sterownika ABFS zoptymalizowanego pod kątem danych Big Data](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)).
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (używa [sterownika ABFS zoptymalizowanego pod kątem danych Big Data](/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)).
 
 > [!NOTE]
 > Blokowe obiekty blob i BLOB Storage uwidaczniają tylko Blob service punkt końcowy.
@@ -177,7 +177,7 @@ Biblioteka przenoszenia danych usługi Azure Storage dla programu .NET jest opar
 
 Możesz utworzyć niestandardową aplikację w celu migrowania danych z konta usługi Storage ogólnego przeznaczenia do konta usługi BLOB Storage. Użyj jednej z bibliotek klienta platformy Azure lub interfejsu API REST usług Azure Storage. Usługa Azure Storage udostępnia rozbudowane biblioteki dla wielu języków programowania i platform, takich jak .NET, Java, C++, Node.JS, PHP, Ruby i Python. Biblioteki klienta oferują zaawansowane możliwości, takie jak logika ponowień, rejestrowanie i przekazywanie równoległe. Możliwe jest również programowanie bezpośrednio przy użyciu interfejsu API REST, który może być wywoływany przez dowolny język programowania mający możliwość wysyłania żądań HTTP lub HTTPS.
 
-Aby uzyskać więcej informacji na temat interfejsu API REST usługi Azure Storage, zobacz [Dokumentacja interfejsu API REST usług Azure Storage](https://docs.microsoft.com/rest/api/storageservices/).
+Aby uzyskać więcej informacji na temat interfejsu API REST usługi Azure Storage, zobacz [Dokumentacja interfejsu API REST usług Azure Storage](/rest/api/storageservices/).
 
 > [!IMPORTANT]
 > Obiekty blob zaszyfrowane za pomocą szyfrowania po stronie klienta przechowują metadane związane z szyfrowaniem w ramach obiektu blob. W przypadku kopiowania obiektu blob zaszyfrowanego przy użyciu szyfrowania po stronie klienta upewnij się, że podczas operacji kopiowania są zachowywane metadane obiektu blob, a w szczególności metadane związane z szyfrowaniem. W przypadku kopiowania obiektu blob bez metadanych szyfrowania nie można ponownie pobrać zawartości tego obiektu. Aby uzyskać więcej informacji na temat metadanych związanych z szyfrowaniem, zobacz [Azure Storage Client-Side Encryption (Szyfrowanie po stronie klienta usługi Azure Storage)](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

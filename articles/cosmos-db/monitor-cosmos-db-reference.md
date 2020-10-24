@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43a059354c70c792592ba46aa3d5b63677bda4eb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080457"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488354"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Dokumentacja dotycząca danych monitorowania usługi Azure Cosmos DB
 
@@ -25,7 +25,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów w Azure Cosmo
 
 | Pole lub właściwość usługi Azure Storage | Właściwość dzienników Azure Monitor | Opis |
 | --- | --- | --- |
-| **pierwszym** | **TimeGenerated** | Data i godzina (UTC), gdy wystąpiła operacja. |
+| **time** | **TimeGenerated** | Data i godzina (UTC), gdy wystąpiła operacja. |
 | **Identyfikator** | **Zasób** | Konto Azure Cosmos DB, dla którego są włączone dzienniki.|
 | **kategorii** | **Kategoria** | W przypadku Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** są dostępne typy dzienników. |
 | **operationName** | **OperationName** | Nazwa operacji. Nazwa operacji może być,,,,,,,,,,,  `Create` `Update` `Read` `ReadFeed` `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` lub `Upsert` .   |
@@ -38,13 +38,13 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów w Azure Cosmo
 | **clientIpAddress** | **clientIpAddress_s** | Adres IP klienta. |
 | **requestCharge** | **requestCharge_s** | Liczba jednostek RU/s, które są używane przez operację |
 | **collectionRid** | **collectionId_s** | Unikatowy identyfikator kolekcji.|
-| **trwania** | **duration_d** | Czas trwania operacji (w milisekundach). |
+| **czas trwania** | **duration_d** | Czas trwania operacji (w milisekundach). |
 | **requestLength** | **requestLength_s** | Długość żądania w bajtach. |
 | **responseLength** | **responseLength_s** | Długość odpowiedzi (w bajtach).|
-| **resourceTokenUserRid** | **resourceTokenUserRid_s** | Ta wartość nie jest pusta, gdy [tokeny zasobów](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) są używane do uwierzytelniania. Wartość wskazuje identyfikator zasobu użytkownika. |
+| **resourceTokenUserRid** | **resourceTokenUserRid_s** | Ta wartość nie jest pusta, gdy [tokeny zasobów](./secure-access-to-data.md#resource-tokens) są używane do uwierzytelniania. Wartość wskazuje identyfikator zasobu użytkownika. |
 | **responseLength** | **responseLength_s** | Długość odpowiedzi (w bajtach).|
 
-Aby zapoznać się z listą wszystkich kategorii dzienników Azure Monitor i linków do skojarzonych schematów, zobacz [Azure monitor dzienniki kategorii i schematów](../azure-monitor/platform/diagnostic-logs-schema.md). 
+Aby zapoznać się z listą wszystkich kategorii dzienników Azure Monitor i linków do skojarzonych schematów, zobacz [Azure monitor dzienniki kategorii i schematów](../azure-monitor/platform/resource-logs-schema.md). 
 
 ## <a name="metrics"></a>Metryki
 W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure CosmOS DB. Wszystkie metryki są przechowywane w przestrzeni nazw **Cosmos DB metrykach standardowych**.

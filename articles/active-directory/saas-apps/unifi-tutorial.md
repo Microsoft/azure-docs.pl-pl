@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 27e346dd97824918d859ea6819e3c2b43f4c02aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed7bda2875fa68254fb3842dac8b713a0bbddfd4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551952"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486994"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Samouczek: integracja Azure Active Directory z usługą UNIFI
 
@@ -130,15 +130,15 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją UNIFI, wy
 
 2. Kliknij pozycję **Użytkownicy**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/unifi-tutorial/app1.png)
+    ![Zrzut ekranu przedstawia użytkowników wybranych z witryny UNIFI.](./media/unifi-tutorial/app1.png)
 
 3. Kliknij pozycję **Dodaj nowego dostawcę tożsamości**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/unifi-tutorial/app2.png)
+    ![Zrzut ekranu pokazuje, że wybrano nowy dostawca tożsamości usługi AD.](./media/unifi-tutorial/app2.png)
 
 4. W sekcji **Dodawanie dostawcy tożsamości** wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/unifi-tutorial/app3.png) 
+    ![Zrzut ekranu przedstawia dostawcę Dodawanie tożsamości, w którym można wprowadzić podane wartości.](./media/unifi-tutorial/app3.png) 
 
     a. W polu tekstowym **Nazwa dostawcy** wpisz nazwę dostawcy tożsamości.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d784e8bfb0841570f63d8433fa74059eb9e22758
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569820"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487742"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK dla interfejsu API SQL: informacje o wersji i zasoby
 
@@ -22,25 +22,25 @@ ms.locfileid: "91569820"
 > * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
 > * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
-> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
+> * [Zestaw SDK zestawienia zmian platformy .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
-> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
+> * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Pobierz zestaw SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
+|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Python](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
 |**Instrukcje dotyczące instalacji zestawu SDK**|[Instrukcje dotyczące instalacji zestawu SDK języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Wprowadzenie**|[Wprowadzenie do zestawu SDK języka Python](create-sql-api-python.md)|
 |**Bieżąca obsługiwana platforma**|[Python 2,7](https://www.python.org/downloads/) i [Python 3.5.3 +](https://www.python.org/downloads/)|
@@ -113,7 +113,7 @@ ms.locfileid: "91569820"
 
 * Wersja 4.0.0 B2 to druga iteracja w naszych wysiłkach w celu skompilowania biblioteki klienckiej, która odpowiada najlepszym praktykom języka Python.
 
-**Zmiany powodujące niezgodność**
+**Fundamentalne zmiany**
 
 * Połączenie klienta zostało dostosowane do korzystania z potoku HTTP zdefiniowanego w `azure.core.pipeline` .
 
@@ -220,7 +220,7 @@ Wersja 4.0.0 B1 to pierwsza wersja zapoznawcza naszych działań w celu utworzen
 
 * Dodano obsługę domyślnych ponownych prób w przypadku problemów z połączeniem.
 
-### <a name="231"></a>ppkt
+### <a name="231"></a>2.3.1
 
 * Zaktualizowana dokumentacja dotycząca referencyjnego Azure Cosmos DB zamiast platformy Azure DocumentDB.
 
@@ -316,7 +316,7 @@ Wersja 4.0.0 B1 to pierwsza wersja zapoznawcza naszych działań w celu utworzen
 
 ## <a name="release--retirement-dates"></a>Data wycofania &
 
-Firma Microsoft zapewnia powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe.
+Firma Microsoft zapewnia powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Nowe funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualniać do najnowszej wersji zestawu SDK tak szybko, jak to możliwe.
 
 > [!WARNING]
 > Po 31 sierpnia 2022 Azure Cosmos DB nie będą już naprawiać błędów, dodawać nowych funkcji i zapewniać pomoc techniczną do wersji 1. x lub 2. x zestawu SDK Azure Cosmos DB języka Python dla interfejsu API SQL. Jeśli wolisz nie aktualizować, żądania wysyłane z wersji 1. x i 2. x zestawu SDK będą nadal obsługiwane przez usługę Azure Cosmos DB.
@@ -327,8 +327,8 @@ Firma Microsoft zapewnia powiadomienie co najmniej **12 miesięcy** przed WYCOFA
 | [3.0.2](#302) |LIS 15, 2018 |--- |
 | [3.0.1](#301) |04, 2018 |--- |
 | [2.3.3](#233) |Września 08, 2018 |30 sierpnia 2020 |
-| [2.3.2](#232) |Maja 08, 2018 |30 sierpnia 2020 |
-| [ppkt](#231) |21 grudnia 2017 |30 sierpnia 2020 |
+| [2.3.2](#232) |8 maja 2018 r. |30 sierpnia 2020 |
+| [2.3.1](#231) |21 grudnia 2017 |30 sierpnia 2020 |
 | [2.3.0](#230) |10 listopada 2017 |30 sierpnia 2020 |
 | [2.2.1](#221) |29 wrz 2017 |30 sierpnia 2020 |
 | [2.2.0](#220) |10 maja 2017 |30 sierpnia 2020 |
@@ -353,10 +353,10 @@ Firma Microsoft zapewnia powiadomienie co najmniej **12 miesięcy** przed WYCOFA
 | od 0.9.1 — przedlease |23 września, 2014 |29 lutego 2016 |
 | 0.9.0 — przedlease |21 sierpnia 2014 |29 lutego 2016 |
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) . 
+Aby dowiedzieć się więcej na temat usługi Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

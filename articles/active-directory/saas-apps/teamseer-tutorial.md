@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 815c738f1680c12f94aa97e91cd123237bf1b4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac050a9b90272203a899a9a15a51df022e4b0d0e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542501"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Samouczek: integracja Azure Active Directory z usługą TeamSeer
 
@@ -126,7 +126,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TeamSeer, w
 
 1. Przejdź do pozycji **administrator kadr**.
 
-    ![Administrator HR](./media/teamseer-tutorial/ic789634.png "Administrator HR")
+    ![Zrzut ekranu przedstawia administratora H R wybranego z okna TeamSeer.](./media/teamseer-tutorial/ic789634.png "Administrator HR")
 
 1. Kliknij przycisk **Setup (Konfiguracja**).
 
@@ -134,11 +134,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TeamSeer, w
 
 1. Kliknij pozycję **Skonfiguruj szczegóły dostawcy SAML**.
 
-    ![Ustawienia SAML](./media/teamseer-tutorial/ic789636.png "Ustawienia SAML")
+    ![Zrzut ekranu przedstawia wybraną konfigurację dostawcy protokołu SAML.](./media/teamseer-tutorial/ic789636.png "Ustawienia SAML")
 
 1. W sekcji Szczegóły dostawcy SAML wykonaj następujące czynności:
 
-    ![Ustawienia SAML](./media/teamseer-tutorial/ic789637.png "Ustawienia SAML")
+    ![Zrzut ekranu przedstawia szczegóły dostawcy SAML, w którym można wprowadzić podane wartości.](./media/teamseer-tutorial/ic789637.png "Ustawienia SAML")
 
     a. W polu tekstowym **adres URL** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
@@ -146,13 +146,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TeamSeer, w
 
 1. Aby ukończyć konfigurację dostawcy SAML, wykonaj następujące czynności:
 
-    ![Ustawienia SAML](./media/teamseer-tutorial/ic789638.png "Ustawienia SAML")
+    ![Zrzut ekranu przedstawia konfigurację dostawcy SAML, w której można wprowadzić podane wartości.](./media/teamseer-tutorial/ic789638.png "Ustawienia SAML")
 
     a. W polu **Testuj adresy e-mail**wpisz adres e-mail użytkownika testowego.
   
     b. W polu tekstowym **wystawca** wpisz adres URL wystawcy dostawcy usług.
   
-    c. Kliknij przycisk **Zapisz**.
+    c. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -215,7 +215,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze TeamSee
 
 1. Przejdź do pozycji **administratorzy \> kadry** , a następnie kliknij przycisk **Uruchom Kreatora nowego użytkownika**.
 
-    ![Administrator HR](./media/teamseer-tutorial/ic789640.png "Administrator HR")
+    ![Zrzut ekranu przedstawia kartę H R admin, na której można wybrać kreatora do uruchomienia.](./media/teamseer-tutorial/ic789640.png "Administrator HR")
 
 1. W sekcji **szczegóły użytkownika** wykonaj następujące czynności:
 

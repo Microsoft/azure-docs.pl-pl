@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 23811f379f8738e3fe9f162e23627d0c3c457621
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8ae16e6799d1253b8b070d59414beaee3c7ff332
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367503"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479786"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrowanie do szczegółowego dostępu opartego na rolach w przypadku konfiguracji klastrów
 
@@ -26,7 +26,7 @@ Od 3 września 2019 dostęp do tych kluczy tajnych będzie wymagał `Microsoft.H
 
 Wprowadzamy również nową rolę [operatora klastra usługi HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) , która będzie mogła pobierać wpisy tajne bez przyznawania uprawnień administracyjnych współautora lub właściciela. Podsumowując:
 
-| Rola                                  | Poprzedniej                                                                                       | Przechodzenie do przodu       |
+| Role                                  | Poprzedniej                                                                                       | Przechodzenie do przodu       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | Czytelnik                                | — Dostęp do odczytu, w tym wpisy tajne.                                                                   | — Dostęp do odczytu, **z wyłączeniem** wpisów tajnych |           |   |   |
 | Operator klastra usługi HDInsight<br>(Nowa rola) | Nie dotyczy                                                                                              | — Dostęp do odczytu/zapisu, w tym wpisy tajne         |   |   |
@@ -112,11 +112,11 @@ Aktualizacja do [wersji 2.1.0](https://www.nuget.org/packages/Microsoft.Azure.Ma
 
 Aktualizacja do [wersji 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.0.0) lub nowszej zestawu HDInsight SDK dla platformy .NET. Jeśli używasz metody, której dotyczą te zmiany, mogą być wymagane minimalne modyfikacje kodu:
 
-- [`ConfigurationOperationsExtensions.Get`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet)**nie będą już zwracać poufnych parametrów** , takich jak klucze magazynu (lokacja podstawowa) lub poświadczenia http (brama).
-    - Aby pobrać wszystkie konfiguracje, w tym poufne parametry, użyj [`ConfigurationOperationsExtensions.List`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet) przechodzenia do przodu.Należy pamiętać, że użytkownicy z rolą "czytelnik" nie będą mogli korzystać z tej metody. Pozwala to na szczegółową kontrolę nad tym, którzy użytkownicy mogą uzyskać dostęp do poufnych informacji dotyczących klastra. 
-    - Aby pobrać tylko poświadczenia bramy HTTP, użyj [`ClusterOperationsExtensions.GetGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet) . 
-- [`ConfigurationsOperationsExtensions.Update`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet) jest teraz przestarzały i został zastąpiony przez [`ClusterOperationsExtensions.UpdateGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet) . 
-- [`ConfigurationsOperationsExtensions.EnableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet) i [`DisableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet) są obecnie przestarzałe. Protokół HTTP jest teraz zawsze włączony, dlatego te metody nie są już potrzebne.
+- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet&preserve-view=true)**nie będą już zwracać poufnych parametrów** , takich jak klucze magazynu (lokacja podstawowa) lub poświadczenia http (brama).
+    - Aby pobrać wszystkie konfiguracje, w tym poufne parametry, użyj [`ConfigurationOperationsExtensions.List`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet&preserve-view=true) przechodzenia do przodu.Należy pamiętać, że użytkownicy z rolą "czytelnik" nie będą mogli korzystać z tej metody. Pozwala to na szczegółową kontrolę nad tym, którzy użytkownicy mogą uzyskać dostęp do poufnych informacji dotyczących klastra. 
+    - Aby pobrać tylko poświadczenia bramy HTTP, użyj [`ClusterOperationsExtensions.GetGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet&preserve-view=true) . 
+- [`ConfigurationsOperationsExtensions.Update`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet&preserve-view=true) jest teraz przestarzały i został zastąpiony przez [`ClusterOperationsExtensions.UpdateGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet&preserve-view=true) . 
+- [`ConfigurationsOperationsExtensions.EnableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet&preserve-view=true) i [`DisableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet&preserve-view=true) są obecnie przestarzałe. Protokół HTTP jest teraz zawsze włączony, dlatego te metody nie są już potrzebne.
 
 ### <a name="sdk-for-python"></a>Zestaw SDK dla środowiska Python
 
@@ -181,7 +181,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com
 ```
 
-### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
 Możesz również użyć Azure Portal, aby dodać przypisanie roli operatora klastra usługi HDInsight do użytkownika. Zobacz dokumentację, [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal-Dodaj przypisanie roli](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
 
@@ -193,7 +193,7 @@ Konfiguracje klastra są teraz za szczegółowej kontroli dostępu opartej na ro
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Dlaczego widzę "niewystarczające uprawnienia do ukończenia tej operacji" podczas uruchamiania polecenia platformy Azure w celu przypisania roli operatora klastra usługi HDInsight do innego użytkownika lub jego nazwy głównej?
 
-Oprócz roli właściciela użytkownik lub podmiot usługi wykonujący polecenie musi mieć wystarczające uprawnienia usługi Azure AD do wyszukiwania identyfikatorów obiektów osoby przydzielonej. Ten komunikat oznacza niewystarczające uprawnienia usługi Azure AD. Spróbuj zamienić `-–assignee` argument z `–assignee-object-id` i podaj identyfikator obiektu osoby przydzielonej jako parametr zamiast nazwy (lub identyfikatora podmiotu zabezpieczeń w przypadku tożsamości zarządzanej). Aby uzyskać więcej informacji, zobacz sekcję Parametry opcjonalne w sekcji [AZ role przypisanie Create Documentation](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) .
+Oprócz roli właściciela użytkownik lub podmiot usługi wykonujący polecenie musi mieć wystarczające uprawnienia usługi Azure AD do wyszukiwania identyfikatorów obiektów osoby przydzielonej. Ten komunikat oznacza niewystarczające uprawnienia usługi Azure AD. Spróbuj zamienić `-–assignee` argument z `–assignee-object-id` i podaj identyfikator obiektu osoby przydzielonej jako parametr zamiast nazwy (lub identyfikatora podmiotu zabezpieczeń w przypadku tożsamości zarządzanej). Aby uzyskać więcej informacji, zobacz sekcję Parametry opcjonalne w sekcji [AZ role przypisanie Create Documentation](/cli/azure/role/assignment#az-role-assignment-create) .
 
 Jeśli to jeszcze nie zadziała, skontaktuj się z administratorem usługi Azure AD, aby uzyskać odpowiednie uprawnienia.
 

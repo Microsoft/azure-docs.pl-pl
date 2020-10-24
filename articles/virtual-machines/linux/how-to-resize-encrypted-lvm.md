@@ -1,17 +1,18 @@
 ---
-title: Jak zmienić rozmiar zaszyfrowanych dysków zarządzania woluminami logicznymi przy użyciu Azure Disk Encryption
+title: Jak zmienić rozmiar dysków zaszyfrowanych przy użyciu Azure Disk Encryption
 description: Ten artykuł zawiera instrukcje dotyczące zmiany rozmiarów szyfrowanych dysków ADE przy użyciu funkcji zarządzania woluminami logicznymi.
 author: jofrance
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 8e32e4960776084669c8f2f7743b66b9d0f9a6ae
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ddd6097fffbc02c9b7b027bcb712e20cc47f2f96
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978479"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487963"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Jak zmienić rozmiar urządzeń do zarządzania woluminami logicznymi, które używają Azure Disk Encryption
 

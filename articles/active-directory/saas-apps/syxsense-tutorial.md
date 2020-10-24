@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 3bb03444062a5652e4e0aad24560b90acd2ce2d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 234ef7e3cec3bfa78bc2f2aac2670efc1e3c0499
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544822"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483475"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-syxsense"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Syxsense
 
@@ -94,7 +94,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     | Nazwa | Atrybut źródłowy|
     | ------------ | --------- |
-    | Poczta e-mail | User. email |
+    | E-mail | User. email |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -136,11 +136,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **ikonę Ustawienia**.
 
-    ![Konfiguracja Syxsense](./media/syxsense-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia ikonę Ustawienia.](./media/syxsense-tutorial/configure1.png)
 
 1. Kliknij opcję **uwierzytelnianie zewnętrzne** i podaj wartość **adresu URL metadanych federacji aplikacji** w polu tekstowym **metadanych SAML 2.0** , a następnie kliknij przycisk **Zapisz**.
 
-    ![Konfiguracja Syxsense](./media/syxsense-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia stronę uwierzytelnianie zewnętrzne, w której można wprowadzić metadanych federacji aplikacji U wartości R L.](./media/syxsense-tutorial/configure2.png)
 
 ### <a name="create-syxsense-test-user"></a>Utwórz użytkownika testowego Syxsense
 
@@ -148,15 +148,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **konta użytkowników** w lewym panelu nawigacyjnym.
 
-    ![Konfiguracja Syxsense](./media/syxsense-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia konta użytkowników wybrane w panelu nawigacji.](./media/syxsense-tutorial/user1.png)
 
 1. Kliknij pozycję **Dodaj**.
 
-    ![Konfiguracja Syxsense](./media/syxsense-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia okienko konta użytkowników, w którym można wybrać opcję Dodaj.](./media/syxsense-tutorial/user2.png)
 
 1. Podaj szczegóły użytkownika zgodnie z wymaganiami organizacji, a następnie kliknij przycisk **Zapisz**.
 
-    ![Konfiguracja Syxsense](./media/syxsense-tutorial/user3.png)
+    ![Zrzut ekranu przedstawiający stronę, na której można wprowadzać informacje.](./media/syxsense-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 

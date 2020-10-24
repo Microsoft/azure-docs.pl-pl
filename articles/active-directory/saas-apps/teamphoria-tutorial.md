@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 30971c9c5280bfba37f46aaab0aaf2c2506502c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b53b717759bf65241b946194aab91bab0608320c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542347"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483407"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Teamphoria
 
@@ -134,15 +134,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Przejdź do opcji **Ustawienia administratora** na pasku narzędzi po lewej stronie, a następnie na karcie Konfiguracja kliknij pozycję Logowanie **jednokrotne, aby otworzyć** okno Konfiguracja logowania jednokrotnego.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/teamphoria-tutorial/admin_sso_configure.png)
+    ![Zrzut ekranu przedstawia ustawienia administratora, w których można wybrać opcję Logowanie jednokrotne.](./media/teamphoria-tutorial/admin_sso_configure.png)
 
 5. Kliknij opcję **Dodaj nową tożsamość dostawcy** w prawym górnym rogu, aby otworzyć formularz służący do dodawania ustawień logowania jednokrotnego.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/teamphoria-tutorial/add_new_identity_provider.png)
+    ![Zrzut ekranu pokazuje, gdzie można wybrać pozycję Dodaj nowego dostawcę tożsamości.](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
 6. Wprowadź szczegóły w polach zgodnie z opisem poniżej.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
+    ![Zrzut ekranu przedstawia stronę, na której można wprowadzić podane wartości.](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
     a. **Nazwa wyświetlana**: Wprowadź nazwę wyświetlaną wtyczki na stronie administratora.
 
@@ -168,11 +168,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Teampho
 
 1. Kliknij opcję **zapraszanie ręczne** .
 
-    ![Zapraszanie osób](./media/teamphoria-tutorial/admin_manage_add_users.png)
+    ![Zrzut ekranu przedstawia opcję ręcznego ZAPRASZAnia.](./media/teamphoria-tutorial/admin_manage_add_users.png)
 
 1. Na tej stronie wykonaj poniższą akcję.
 
-    ![Zapraszanie osób](./media/teamphoria-tutorial/manual_user_invite.png)
+    ![Zrzut ekranu przedstawia stronę ręczna ZAPRASZAnie użytkownika, na której można wprowadzić nazwę i adres e-mail.](./media/teamphoria-tutorial/manual_user_invite.png)
 
     a. W polu tekstowym **adres e-mail** wprowadź **adres e-mail** użytkownika, na przykład B. Simon.
 

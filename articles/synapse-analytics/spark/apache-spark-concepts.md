@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 74e85906742207d6cde0b7c4cc5c021c23ee4c7b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb5c7e082dc4a35183190f5d2d6a4b305b907f4f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260142"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480483"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark w podstawowych pojęciach dotyczących usługi Azure Synapse Analytics
 
@@ -60,7 +60,40 @@ W przypadku przesłania drugiego zadania, jeśli istnieje pojemność w puli, is
 - Inny użytkownik, U2, przesyła zadanie, J3, które używa 10 węzłów, nowe wystąpienie platformy Spark, SI2, zostało utworzone w celu przetworzenia zadania.
 - Teraz przesyłamy kolejne zadanie, j2, które korzysta z 10 węzłów, ponieważ nadal pojemność puli i wystąpienie, j2, jest przetwarzana przez SI1.
 
+## <a name="quotas-and-resource-constraints-in-apache-spark-for-azure-synapse"></a>Przydziały i ograniczenia zasobów w Apache Spark dla usługi Azure Synapse
+
+### <a name="workspace-level"></a>Poziom obszaru roboczego
+
+Każdy obszar roboczy usługi Azure Synapse ma domyślny limit przydziału rdzeni wirtualnych, który może być używany przez platformę Spark. Przydział jest dzielony między limitem przydziału użytkownika a limitem przydziału przepływu danych, tak aby żaden wzorzec użycia nie korzystał ze wszystkich rdzeni wirtualnych w obszarze roboczym. Przydział jest różny w zależności od typu subskrypcji, ale jest symetryczny między użytkownikiem i przepływu danych. Jeśli jednak zażądasz więcej rdzeni wirtualnych niż pozostało w obszarze roboczym, zostanie wyświetlony następujący błąd:
+
+```console
+Failed to start session: [User] MAXIMUM_WORKSPACE_CAPACITY_EXCEEDED
+Your Spark job requested 480 vcores.
+However, the workspace only has xxx vcores available out of quota of yyy vcores.
+Try reducing the numbers of vcores requested or increasing your vcore quota. Click here for more information - https://go.microsoft.com/fwlink/?linkid=213499
+```
+
+Łącze w wiadomości wskazuje ten artykuł.
+
+W tym artykule opisano sposób żądania wzrostu przydziału rdzeń wirtualny obszaru roboczego.
+
+- Wybierz pozycję "Azure Synapse Analytics" jako typ usługi.
+- W oknie Szczegóły przydziału wybierz pozycję Apache Spark (rdzeń wirtualny) na obszar roboczy
+
+[Zażądaj zwiększenia pojemności za pośrednictwem Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+
+### <a name="spark-pool-level"></a>Poziom puli platformy Spark
+
+Podczas definiowania puli platformy Spark można skutecznie definiować przydziały dla poszczególnych użytkowników dla tej puli, jeśli uruchomisz wiele notesów lub zadań albo mieszany 2, możliwe jest wyczerpanie limitu przydziału puli. W takim przypadku zostanie wygenerowany komunikat o błędzie podobny do następującego:
+
+```console
+Failed to start session: Your Spark job requested xx vcores.
+However, the pool is consuming yy vcores out of available zz vcores.Try ending the running job(s) in the pool, reducing the numbers of vcores requested, increasing the pool maximum size or using another pool
+```
+
+Aby rozwiązać ten problem, należy zmniejszyć użycie zasobów puli przed przesłaniem nowego żądania zasobu przez uruchomienie notesu lub zadania.
+
 ## <a name="next-steps"></a>Następne kroki
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Dokumentacja Apache Spark](https://spark.apache.org/docs/2.4.4/)
+- [Dokumentacja Apache Spark](https://spark.apache.org/docs/2.4.5/)

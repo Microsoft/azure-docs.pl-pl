@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714448"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488626"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z Eksploratorem usługi Azure Storage
 
@@ -23,7 +23,7 @@ Ten przewodnik zawiera podsumowanie rozwiązań dotyczących problemów, które 
 
 ## <a name="azure-rbac-permissions-issues"></a>Problemy z uprawnieniami kontroli RBAC platformy Azure
 
-Kontrola dostępu oparta na rolach na [platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) pozwala uzyskać wysoce szczegółowe zarządzanie zasobami platformy Azure przez łączenie zestawów uprawnień z _rolami_. Poniżej przedstawiono niektóre strategie, które umożliwiają optymalną pracę z usługą Azure RBAC w Eksplorator usługi Storage.
+Kontrola dostępu oparta na rolach na [platformie Azure](/azure/role-based-access-control/overview) pozwala uzyskać wysoce szczegółowe zarządzanie zasobami platformy Azure przez łączenie zestawów uprawnień z _rolami_. Poniżej przedstawiono niektóre strategie, które umożliwiają optymalną pracę z usługą Azure RBAC w Eksplorator usługi Storage.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Jak mogę uzyskać dostęp do moich zasobów w Eksplorator usługi Storage?
 
@@ -63,9 +63,9 @@ Jeśli chcesz uzyskać dostęp do kontenerów obiektów blob lub kolejek, możes
 1. Otwórz okno dialogowe Połącz.
 2. Wybierz pozycję "Dodaj zasób za pośrednictwem Azure Active Directory (Azure AD). Kliknij przycisk Dalej.
 3. Wybierz konto użytkownika i dzierżawcę skojarzone z zasobem, do którego jest dołączane. Kliknij przycisk Dalej.
-4. Wybierz typ zasobu, wprowadź adres URL do zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Kliknij przycisk Dalej. Kliknij przycisk Połącz.
+4. Wybierz typ zasobu, wprowadź adres URL do zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Kliknij przycisk Dalej. Kliknij przycisk Podłącz.
 
-W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego kontroli RBAC platformy Azure. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego kontroli RBAC platformy Azure. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Zalecane role wbudowane platformy Azure
 
@@ -111,7 +111,7 @@ Jeśli nie możesz znaleźć żadnych certyfikatów z podpisem własnym, wykonaj
 
 ### <a name="blank-sign-in-dialog-box"></a>Puste okno dialogowe logowania
 
-Puste okna dialogowe logowania najczęściej występują, gdy Active Directory Federation Services (AD FS) poprosi Eksplorator usługi Storage o przeprowadzenie przekierowania, który jest nieobsługiwany przez elektron. Aby obejść ten problem, możesz spróbować użyć przepływu kodu urządzenia do logowania. Aby to zrobić, wykonaj następujące kroki:
+Puste okna dialogowe logowania najczęściej występują, gdy Active Directory Federation Services (AD FS) poprosi Eksplorator usługi Storage o przeprowadzenie przekierowania, który jest nieobsługiwany przez elektron. Aby obejść ten problem, możesz spróbować użyć przepływu kodu urządzenia do logowania. W tym celu wykonaj następujące czynności:
 
 1. Na pasku narzędzi po lewej stronie, Otwórz pozycję **Ustawienia**. W panelu Ustawienia przejdź do pozycji Logowanie do **aplikacji**  >  **Sign in**. Włącz **Logowanie za pomocą przepływu kodu urządzenia**.
 2. Otwórz okno dialogowe **łączenie** (za pomocą ikony wtyczki na pasku pionowym po lewej stronie lub wybierając pozycję **Dodaj konto** w panelu konta).
@@ -332,7 +332,7 @@ Eksplorator usługi Storage wymaga zainstalowania programu .NET Core w systemie.
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Pobierz plik Eksplorator usługi Storage. tar. gz.
-2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +345,7 @@ Eksplorator usługi Storage wymaga zainstalowania programu .NET Core w systemie.
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Pobierz plik Eksplorator usługi Storage. tar. gz.
-2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -358,7 +358,7 @@ Eksplorator usługi Storage wymaga zainstalowania programu .NET Core w systemie.
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Pobierz plik Eksplorator usługi Storage. tar. gz.
-2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 9a081a28d4c96e3c38986cbb3c0990bc89c5ab99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe1b685a0209643332d798b875b9e62b02aa02da
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83684467"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488779"
 ---
 # <a name="storage-analytics"></a>Analityka magazynu
 
@@ -41,7 +41,7 @@ W przypadku skonfigurowania zasad przechowywania danych nie jest naliczana opła
 
 ### <a name="understanding-billable-requests"></a>Zrozumienie żądań rozliczanych
 
-Każde żądanie wysłane do usługi magazynu konta jest obciążane lub nieobciążane. Analityka magazynu rejestruje każde żądanie wysyłane do usługi, w tym komunikat o stanie, który wskazuje, jak zostało obsłużone żądanie. Podobnie analityka magazynu przechowuje metryki dla usługi i operacji interfejsu API tej usługi, w tym wartości procentowe i liczby niektórych komunikatów o stanie. Funkcje te mogą pomóc analizować żądania rozliczane, wprowadzać ulepszenia aplikacji i diagnozować problemy z żądaniami do usług. Aby uzyskać więcej informacji na temat rozliczeń, zobacz [Opis rozliczeń, transakcji i pojemności usługi Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
+Każde żądanie wysłane do usługi magazynu konta jest obciążane lub nieobciążane. Analityka magazynu rejestruje każde żądanie wysyłane do usługi, w tym komunikat o stanie, który wskazuje, jak zostało obsłużone żądanie. Podobnie analityka magazynu przechowuje metryki dla usługi i operacji interfejsu API tej usługi, w tym wartości procentowe i liczby niektórych komunikatów o stanie. Funkcje te mogą pomóc analizować żądania rozliczane, wprowadzać ulepszenia aplikacji i diagnozować problemy z żądaniami do usług. Aby uzyskać więcej informacji na temat rozliczeń, zobacz [Opis rozliczeń, transakcji i pojemności usługi Azure Storage](/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 Podczas wyszukiwania analityka magazynu danych można użyć tabel w temacie [analityka magazynu zarejestrowane operacje i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) , aby określić, które żądania są rozliczane. Następnie można porównać dane dzienników i metryk do komunikatów o stanie, aby sprawdzić, czy opłata została naliczona za określone żądanie. Możesz również użyć tabel w poprzednim temacie, aby zbadać dostępność usługi magazynu lub operacji poszczególnych interfejsów API.
 

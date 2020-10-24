@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 9390f8a2ab9372927b434ea94d7545c9ec540c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c2194476dc6e640f9c4b93d564728478de41ef7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606260"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475536"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów tworzenia i testowania w usłudze Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Azure Cosmos DB bezpłatna warstwa ułatwia rozpoczęcie pracy, opracowywanie i 
 > [!NOTE]
 > Warstwa Bezpłatna jest dostępna tylko w trybie przepływności aprowizacji.
 
-Bezpłatna warstwa obowiązuje przez okres istnienia konta i zawiera wszystkie [zalety i funkcje](introduction.md#key-benefits) regularnego konta Azure Cosmos DB, w tym nieograniczony magazyn i przepływność (ru/s), umowy SLA, wysoką dostępność, gotowe Global Distribution we wszystkich regionach świadczenia usługi Azure i innych. W ramach każdej subskrypcji platformy Azure można korzystać z maksymalnie jednego konta warstwy bezpłatnej i musi on być w trakcie tworzenia konta. Aby rozpocząć, [Utwórz nowe konto w Azure Portal z włączoną bezpłatną warstwą](create-cosmosdb-resources-portal.md) lub Użyj [szablonu ARM](manage-sql-with-resource-manager.md#free-tier). Więcej szczegółów można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/cosmos-db/).
+Bezpłatna warstwa obowiązuje przez okres istnienia konta i zawiera wszystkie [zalety i funkcje](introduction.md#key-benefits) regularnego konta Azure Cosmos DB, w tym nieograniczony magazyn i przepływność (ru/s), umowy SLA, wysoką dostępność, gotowe Global Distribution we wszystkich regionach świadczenia usługi Azure i innych. W ramach każdej subskrypcji platformy Azure można korzystać z maksymalnie jednego konta warstwy bezpłatnej i musi on być w trakcie tworzenia konta. Aby rozpocząć, [Utwórz nowe konto w Azure Portal z włączoną bezpłatną warstwą](create-cosmosdb-resources-portal.md) lub Użyj [szablonu ARM](./manage-with-templates.md#free-tier). Więcej szczegółów można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Wypróbuj usługę Azure Cosmos DB bezpłatnie
 
@@ -57,5 +57,5 @@ Możesz rozpocząć korzystanie z emulatora lub bezpłatnych kont Azure Cosmos D
 * Dowiedz się więcej na temat [optymalizowania kosztu przepływności](optimize-cost-throughput.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów magazynu](optimize-cost-storage.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów operacji odczytu i zapisu](optimize-cost-reads-writes.md)
-* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](optimize-cost-queries.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](./optimize-cost-reads-writes.md)
 * Dowiedz się więcej [na temat optymalizowania kosztów kont usługi Azure Cosmos w wielu regionach](optimize-cost-regions.md)

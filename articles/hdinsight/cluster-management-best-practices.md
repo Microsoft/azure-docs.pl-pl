@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfb2aef838dbef6e7403e635f5bce42bf9ec901
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89648683"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487266"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania klastrem usługi HDInsight
 
@@ -31,7 +31,7 @@ Poznaj najlepsze rozwiązania dotyczące zarządzania klastrami usługi HDInsigh
 | Interfejs wiersza polecenia platformy Azure | [Tworzenie klastrów usługi HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Tworzenie klastrów Apache Hadoop przy użyciu interfejsu API REST platformy Azure](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| Zestawy SDK (.NET, Python, Java) | [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable), [Przejdź](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
+| Zestawy SDK (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable&preserve-view=true), [Przejdź](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
 
 > [!Note]
 > W przypadku tworzenia klastra i ponownego użycia nazwy klastra z wcześniej utworzonego klastra poczekaj na ukończenie poprzedniego usuwania klastra przed utworzeniem klastra.

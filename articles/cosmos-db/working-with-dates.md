@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7a524d34fcf8e629914d4fbc4669caada210866b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a876c5ba9c289f0edbbfdf8727e9957e7937b781
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019192"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476250"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Praca z datami w Azure Cosmos DB
 
@@ -66,7 +66,7 @@ Ten dokument jest przechowywany w Azure Cosmos DB w następujący sposób:
     }
 ```  
 
-Alternatywnie można przechowywać daty i godziny jako sygnatury czasowe systemu UNIX, czyli liczbę reprezentującą liczbę sekund, które upłynęły od 1 stycznia 1970. Azure Cosmos DB wewnętrzna właściwość sygnatury czasowej ( `_ts` ) jest zgodna z tą metodą. Klasy [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) można użyć do serializacji datetimes jako liczby.
+Alternatywnie można przechowywać daty i godziny jako sygnatury czasowe systemu UNIX, czyli liczbę reprezentującą liczbę sekund, które upłynęły od 1 stycznia 1970. Azure Cosmos DB wewnętrzna właściwość sygnatury czasowej ( `_ts` ) jest zgodna z tą metodą. Klasy [UnixDateTimeConverter](/dotnet/api/microsoft.azure.documents.unixdatetimeconverter) można użyć do serializacji datetimes jako liczby.
 
 ## <a name="querying-datetimes-in-linq"></a>Wykonywanie zapytań o wartości DateTimes w LINQ
 

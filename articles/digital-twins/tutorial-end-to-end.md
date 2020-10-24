@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f0d28a71e2bd6fc2006bda81fba7d7e6336c5b1c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a765bf547924cbba1c4cff36a97df4ae88df1787
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460839"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495949"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -168,24 +168,26 @@ W okienku *Publikowanie* , które zostanie otwarte z powrotem w głównym oknie 
 
 ### <a name="assign-permissions-to-the-function-app"></a>Przypisywanie uprawnień do aplikacji funkcji
 
-Aby umożliwić aplikacji funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji, następnym krokiem jest skonfigurowanie ustawienia aplikacji, przypisanie aplikacji do tożsamości usługi Azure AD zarządzanego przez system i nadanie tej tożsamości roli *właściciela Digital bliźniaczych reprezentacji (wersja zapoznawcza)* w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Ta rola jest wymagana dla każdego użytkownika lub funkcji, które chcą wykonywać wiele działań na płaszczyźnie danych w wystąpieniu. Więcej informacji na temat przypisań zabezpieczeń i ról można znaleźć w tematach [*: Security for Azure Digital bliźniaczych reprezentacji Solutions*](concepts-security.md).
+Aby umożliwić aplikacji funkcji dostęp do usługi Azure Digital bliźniaczych reprezentacji, następnym krokiem jest skonfigurowanie ustawienia aplikacji, przypisanie aplikacji do tożsamości usługi Azure AD zarządzanego przez system i nadanie tej tożsamości roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. Ta rola jest wymagana dla każdego użytkownika lub funkcji, które chcą wykonywać wiele działań na płaszczyźnie danych w wystąpieniu. Więcej informacji na temat przypisań zabezpieczeń i ról można znaleźć w tematach [*: Security for Azure Digital bliźniaczych reprezentacji Solutions*](concepts-security.md).
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 W Azure Cloud Shell Użyj następującego polecenia, aby ustawić ustawienie aplikacji, które będzie używane przez aplikację funkcji do odwoływania się do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Użyj następującego polecenia, aby utworzyć tożsamość zarządzaną przez system. Zwróć uwagę na pole *principalId* w danych wyjściowych.
 
-```azurecli
+```azurecli-interactive
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Użyj wartości *principalId* z danych wyjściowych w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli *właściciela usługi Azure Digital bliźniaczych reprezentacji (wersja zapoznawcza)* dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
+Użyj wartości *principalId* z danych wyjściowych w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 
 Wynikiem tego polecenia jest informacje o utworzonym przypisaniu roli. Aplikacja funkcji ma teraz uprawnienia dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
@@ -213,7 +215,7 @@ Usługa Azure Digital bliźniaczych reprezentacji została zaprojektowana tak, a
 
 W Azure Cloud Shell Użyj tego polecenia, aby utworzyć nowe centrum IoT Hub:
 
-```azurecli
+```azurecli-interactive
 az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
 ```
 
@@ -252,7 +254,7 @@ Ta sekcja tworzy reprezentację urządzenia w IoT Hub z IDENTYFIKATORem *thermos
 
 W Azure Cloud Shell Utwórz urządzenie w IoT Hub za pomocą następującego polecenia:
 
-```azurecli
+```azurecli-interactive
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
 ```
 
@@ -264,13 +266,13 @@ Następnie skonfiguruj symulator urządzenia, aby wysyłał dane do wystąpienia
 
 Zacznij od pobrania *parametrów połączenia usługi IoT Hub* za pomocą tego polecenia:
 
-```azurecli
+```azurecli-interactive
 az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
 Następnie Pobierz *Parametry połączenia z urządzeniem* za pomocą tego polecenia:
 
-```azurecli
+```azurecli-interactive
 az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
@@ -340,13 +342,13 @@ W tej sekcji utworzysz temat usługi Event Grid, a następnie utworzysz punkt ko
 
 W Azure Cloud Shell Uruchom następujące polecenie, aby utworzyć temat siatki zdarzeń:
 
-```azurecli
+```azurecli-interactive
 az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
 
 > [!TIP]
 > Aby uzyskać listę nazw regionów platformy Azure, które mogą być przekazywane do poleceń w interfejsie wiersza polecenia platformy Azure, uruchom następujące polecenie:
-> ```azurecli
+> ```azurecli-interactive
 > az account list-locations -o table
 > ```
 
@@ -354,7 +356,7 @@ Dane wyjściowe tego polecenia to informacje dotyczące utworzonego tematu usłu
 
 Następnie Utwórz punkt końcowy usługi Azure Digital bliźniaczych reprezentacji wskazujący poświęcony usłudze Event Grid. Użyj poniższego polecenia, wypełniając pola zastępcze w razie potrzeby:
 
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
 ```
 
@@ -362,7 +364,7 @@ Dane wyjściowe tego polecenia to informacje o utworzonym punkcie końcowym.
 
 Możesz również sprawdzić, czy tworzenie punktu końcowego zakończyło się pomyślnie, uruchamiając następujące polecenie, aby wykonać zapytanie dotyczące wystąpienia usługi Azure Digital bliźniaczych reprezentacji dla tego punktu końcowego:
 
-```azurecli
+```azurecli-interactive
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
@@ -376,9 +378,7 @@ Zapisz nazwy, które zostały nadaną w temacie usługi Event Grid, oraz punkt k
 
 Następnie utwórz trasę usługi Azure Digital bliźniaczych reprezentacji, która wysyła zdarzenia do właśnie utworzonego punktu końcowego usługi Azure Digital bliźniaczych reprezentacji.
 
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
-
-```azurecli
+```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
 
@@ -451,7 +451,7 @@ Za pomocą [Azure Cloud Shell](https://shell.azure.com)można usunąć wszystkie
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

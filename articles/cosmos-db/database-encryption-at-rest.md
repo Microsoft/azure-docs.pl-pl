@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb3dda7a2f33fa76ab78a67f86fb015430c64099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceb2b8812b52b1ca2030a0fd0006c9388630c05e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85114779"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487487"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Szyfrowanie danych w usłudze Azure Cosmos DB 
 
@@ -46,7 +46,7 @@ Odp.: klucze są zarządzane przez firmę Microsoft.
 Odp.: Firma Microsoft ma zestaw wewnętrznych wytycznych dotyczących rotacji kluczy szyfrowania, który Cosmos DB poniżej. Określone wskazówki nie są publikowane. Firma Microsoft publikuje [cykl projektowania zabezpieczeń (SDL)](https://www.microsoft.com/sdl/default.aspx), który jest traktowany jako podzbiór wskazówek wewnętrznych i ma przydatne najlepsze rozwiązania dla deweloperów.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>P: Czy mogę użyć własnych kluczy szyfrowania?
-Odp.: tak, ta funkcja jest teraz dostępna dla nowych kont Azure Cosmos DB i należy to zrobić w momencie tworzenia konta. Aby uzyskać więcej informacji, przejdź do dokumentu [z kluczami zarządzanymi przez klienta](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) .
+Odp.: tak, ta funkcja jest teraz dostępna dla nowych kont Azure Cosmos DB i należy to zrobić w momencie tworzenia konta. Aby uzyskać więcej informacji, przejdź do dokumentu [z kluczami zarządzanymi przez klienta](./how-to-setup-cmk.md) .
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>P: w jakich regionach włączono szyfrowanie?
 Odp.: wszystkie regiony Azure Cosmos DB mają włączone szyfrowanie dla wszystkich danych użytkownika.

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515020"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488830"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Przenoszenie konta usługi Azure Storage do innego regionu
 
@@ -51,7 +51,7 @@ Ten szablon zawiera ustawienia opisujące Twoje konto magazynu.
 
 Aby wyeksportować szablon przy użyciu witryny Azure Portal:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 
 2. Wybierz pozycję **wszystkie zasoby** , a następnie wybierz swoje konto magazynu.
 
@@ -67,7 +67,7 @@ Aby wyeksportować szablon przy użyciu witryny Azure Portal:
 
 Aby wyeksportować szablon przy użyciu programu PowerShell:
 
-1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
+1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -167,7 +167,7 @@ Aby wdrożyć szablon przy użyciu programu PowerShell:
          }]          
     ```
 
-    Kody regionów można uzyskać, uruchamiając polecenie [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+    Kody regionów można uzyskać, uruchamiając polecenie [Get-AzLocation](/powershell/module/az.resources/get-azlocation) .
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -196,7 +196,7 @@ Wdróż szablon, aby utworzyć nowe konto magazynu w regionie docelowym.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-1. Uzyskaj identyfikator subskrypcji, w której chcesz wdrożyć docelowy publiczny adres IP za pomocą [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+1. Uzyskaj identyfikator subskrypcji, w której chcesz wdrożyć docelowy publiczny adres IP za pomocą [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -219,7 +219,7 @@ Niektóre funkcje nie są eksportowane do szablonu, dlatego konieczne będzie do
 
 W poniższej tabeli wymieniono te funkcje wraz ze wskazówkami dotyczącymi dodania ich do nowego konta magazynu.
 
-| Cecha    | Wskazówki    |
+| Promowanie    | Wskazówki    |
 |--------|-----------|
 | **Zasady zarządzania cyklem życia** | [Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](../blobs/storage-lifecycle-management-concepts.md) |
 | **Statyczne witryny internetowe** | [Hostowanie statycznej witryny sieci Web w usłudze Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
@@ -232,14 +232,14 @@ W poniższej tabeli wymieniono te funkcje wraz ze wskazówkami dotyczącymi doda
 
 ### <a name="move-data-to-the-new-storage-account"></a>Przenoszenie danych do nowego konta magazynu
 
-AzCopy jest preferowanym narzędziem do przenoszenia danych. Program jest zoptymalizowany pod kątem wydajności.  Jednym ze sposobów na przyspieszenie jest kopiowanie danych bezpośrednio pomiędzy serwerami magazynu, dzięki czemu program AzCopy nie wykorzystuje przepustowości sieci Twojego komputera. Użyj polecenia AzCopy w wierszu polecenia lub jako część niestandardowego skryptu. Zobacz Rozpoczynanie [pracy z usługą AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy jest preferowanym narzędziem do przenoszenia danych. Program jest zoptymalizowany pod kątem wydajności.  Jednym ze sposobów na przyspieszenie jest kopiowanie danych bezpośrednio pomiędzy serwerami magazynu, dzięki czemu program AzCopy nie wykorzystuje przepustowości sieci Twojego komputera. Użyj polecenia AzCopy w wierszu polecenia lub jako część niestandardowego skryptu. Zobacz Rozpoczynanie [pracy z usługą AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Możesz również użyć Azure Data Factory, aby przenieść dane. Zapewnia intuicyjny interfejs użytkownika. Aby użyć Azure Data Factory, zobacz dowolne z tych linków:. 
 
-  - [Kopiowanie danych do lub z usługi Azure Blob Storage za pomocą usługi Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Kopiowanie danych do lub z usługi Data Lake Storage Gen2 za pomocą usługi Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Kopiowanie danych z lub do usługi Azure File Storage za pomocą usługi Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Kopiowanie danych do i z usługi Azure Table Storage za pomocą usługi Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  - [Kopiowanie danych do lub z usługi Azure Blob Storage za pomocą usługi Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
+  - [Kopiowanie danych do lub z usługi Data Lake Storage Gen2 za pomocą usługi Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
+  - [Kopiowanie danych z lub do usługi Azure File Storage za pomocą usługi Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
+  - [Kopiowanie danych do i z usługi Azure Table Storage za pomocą usługi Azure Data Factory](/azure/data-factory/connector-azure-table-storage)
 
 ---
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 W tym samouczku przeniesiono konto usługi Azure Storage z jednego regionu do innego i wyczyszczono zasoby źródłowe.  Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zobacz:
 
 
-- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](/azure/azure-resource-manager/resource-group-move-resources)
+- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](/azure/site-recovery/azure-to-azure-tutorial-migrate)

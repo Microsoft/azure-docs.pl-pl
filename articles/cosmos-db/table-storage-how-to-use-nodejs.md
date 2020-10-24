@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
-ms.openlocfilehash: 6ce4354faec73f8fe42a936e677bee473796701d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ac175e2c1caa39bfe88a7c1a5f42318db343fb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318776"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477287"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu platformy Node.js
 
@@ -81,7 +81,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Dodawanie połączenia z usługą Azure Cosmos DB
 
-Aby dodać połączenie Azure Cosmos DB, Utwórz `TableService` obiekt i określ nazwę konta, klucz podstawowy i punkt końcowy. Można skopiować te wartości z **Settings**  >  **parametrów połączenia** ustawienia w Azure Portal dla konta Cosmos DB. Na przykład:
+Aby dodać połączenie Azure Cosmos DB, Utwórz `TableService` obiekt i określ nazwę konta, klucz podstawowy i punkt końcowy. Można skopiować te wartości z **Settings**  >  **parametrów połączenia** ustawienia w Azure Portal dla konta Cosmos DB. Przykład:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -137,7 +137,7 @@ Aby dodać jednostkę, najpierw utwórz obiekt, który definiuje właściwości 
 * **PartitionKey** — określa partycję, w której jest przechowywana jednostka.
 * **RowKey** — unikatowo identyfikuje jednostkę w partycji.
 
-Klucze **PartitionKey** i **RowKey** muszą być wartościami ciągów. Aby uzyskać więcej informacji, zobacz [Understanding the Table Service Data Model (Omówienie modelu danych usługi Table Service)](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Klucze **PartitionKey** i **RowKey** muszą być wartościami ciągów. Aby uzyskać więcej informacji, zobacz [Understanding the Table Service Data Model (Omówienie modelu danych usługi Table Service)](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Poniżej znajduje się przykład definiowania jednostki. **DueDate** jest definiowana jako typ `Edm.DateTime` . Określenie typu jest opcjonalne — w przypadku rezygnacji typy zostaną wywnioskowane.
 
@@ -211,7 +211,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > Domyślnie podczas aktualizowania jednostki nie odbywa się sprawdzenie, czy aktualizowane dane zostały wcześniej zmodyfikowane przez inny proces. Aby obsługiwać równoczesne aktualizacje:
 >
 > 1. Pobierz tag ETag aktualizowanego obiektu. Ten tag jest zwracany jako część elementu `response` dla dowolnej operacji powiązanej z jednostką i można go pobrać za pośrednictwem elementu `response['.metadata'].etag`.
-> 2. Podczas wykonywania operacji aktualizowania jednostki dodaj informacje tagu ETag wcześniej pobrane do nowej jednostki. Na przykład:
+> 2. Podczas wykonywania operacji aktualizowania jednostki dodaj informacje tagu ETag wcześniej pobrane do nowej jednostki. Przykład:
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Wykonaj operację aktualizacji. Jeśli jednostka została zmodyfikowana od czasu pobrania wartości tagu ETag, takiej jak inne wystąpienie aplikacji, element `error` jest zwracany wraz z informacją o tym, że warunek aktualizacji określony w żądaniu nie został spełniony.
@@ -483,6 +483,6 @@ Więcej informacji zawierają poniższe zasoby.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 * Repozytorium zestawu [Azure Storage SDK dla platformy Node.js](https://github.com/Azure/azure-storage-node) w witrynie GitHub.
-* [Platforma Azure dla deweloperów środowiska Node.js](https://docs.microsoft.com/azure/developer/javascript/)
+* [Platforma Azure dla deweloperów środowiska Node.js](/azure/developer/javascript/)
 * [Tworzenie aplikacji internetowej Node.js na platformie Azure](../app-service/quickstart-nodejs.md)
 * [Tworzenie i wdrażanie aplikacji Node.js do usługi w chmurze Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (za pomocą programu Windows PowerShell)

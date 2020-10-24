@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2cf1b643caef515411842d6aaf668708e873e96d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d537ba74dad55ea1cb980ea04d20fd0c8494ed0b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367894"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479446"
 ---
 # <a name="azure-storage-samples"></a>Przykłady usługi Azure Storage
 
@@ -67,8 +67,8 @@ Aby poznać przykłady interfejsu wiersza polecenia platformy Azure, najpierw [Z
 
 | Język | Dokumentacja interfejsu API | Kod źródłowy |
 |----------|---------------|-------------|
-| .NET | [Dokumentacja biblioteki klienta platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Kod źródłowy biblioteki klienta usługi .NET Storage](https://github.com/Azure/azure-storage-net) |
-| Java | [Dokumentacja biblioteki klienta Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Kod źródłowy biblioteki klienta usługi Java Storage](https://github.com/azure/azure-storage-java) |
+| .NET | [Dokumentacja biblioteki klienta platformy .NET](/dotnet/api/overview/azure/storage) | [Kod źródłowy biblioteki klienta usługi .NET Storage](https://github.com/Azure/azure-storage-net) |
+| Java | [Dokumentacja biblioteki klienta Java](/java/api/overview/azure/storage) | [Kod źródłowy biblioteki klienta usługi Java Storage](https://github.com/azure/azure-storage-java) |
 | Python | [Dokumentacja biblioteki klienta języka Python](https://azure-storage.readthedocs.io/) | [Kod źródłowy biblioteki klienta usługi Python Storage](https://github.com/Azure/azure-storage-python) |
 | Node.js | [ Dokumentacja biblioteki klientaNode.js](https://azure.github.io/azure-storage-node) | [Kod źródłowy biblioteki klienta Node.js Storage](https://github.com/Azure/azure-storage-node) |
 | C++ | [Dokumentacja biblioteki klienta C++](https://azure.github.io/azure-sdk-for-cpp/) | [Kod źródłowy biblioteki klienta usługi C++ Storage](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)|

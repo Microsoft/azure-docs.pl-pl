@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 6708fcbe6f756a92984ee8aa48c181e1103f2046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c6e09405fbc2fec6da516cabc7f509de712c45d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532892"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487215"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Samouczek: integracja Azure Active Directory z usługą UserEcho
 
@@ -128,19 +128,19 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą UserEcho, w
 
 2. Na pasku narzędzi u góry kliknij swoją nazwę użytkownika, aby rozwinąć menu, a następnie kliknij przycisk **Setup (Konfiguracja**).
    
-    ![Konfigurowanie logowania jednokrotnego](./media/userecho-tutorial/tutorial_userecho_06.png) 
+    ![Zrzut ekranu przedstawia konfigurację wybraną z witryny UserEcho.](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
 3. Kliknij przycisk **integracji**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/userecho-tutorial/tutorial_userecho_07.png) 
+    ![Zrzut ekranu przedstawia integracje wybrane z menu Ustawienia.](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
 4. Kliknij pozycję **Witryna sieci Web**, a następnie kliknij pozycję **Logowanie jednokrotne (SAML2)**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/userecho-tutorial/tutorial_userecho_08.png) 
+    ![Zrzut ekranu przedstawia SAML2 logowania jednokrotnego wybrane z menu integracji.](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
 5. Na stronie Logowanie jednokrotne **(SAML)** wykonaj następujące czynności:
    
-    ![Konfigurowanie logowania jednokrotnego](./media/userecho-tutorial/tutorial_userecho_09.png)
+    ![Zrzut ekranu przedstawia stronę SAML logowania jednokrotnego, na której można wprowadzić podane wartości.](./media/userecho-tutorial/tutorial_userecho_09.png)
     
     a. Jako **włączony protokół SAML**wybierz pozycję **tak**.
     
@@ -150,7 +150,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą UserEcho, w
     
     d. Otwórz pobrany certyfikat w Notatniku, skopiuj zawartość, a następnie wklej ją do pola tekstowego **certyfikatu X. 509** .
     
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -212,23 +212,23 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w UserEcho.
 
 2. Na pasku narzędzi u góry kliknij swoją nazwę użytkownika, aby rozwinąć menu, a następnie kliknij przycisk **Setup (Konfiguracja**).
    
-    ![Konfigurowanie logowania jednokrotnego](./media/userecho-tutorial/tutorial_userecho_06.png)
+    ![Zrzut ekranu przedstawia konfigurację wybraną z witryny UserEcho.](./media/userecho-tutorial/tutorial_userecho_06.png)
 
 3. Kliknij pozycję **Użytkownicy**, aby rozwinąć sekcję **Użytkownicy** .
    
-    ![Konfigurowanie logowania jednokrotnego](./media/userecho-tutorial/tutorial_userecho_10.png)
+    ![Zrzut ekranu przedstawia użytkowników wybranych w menu Ustawienia.](./media/userecho-tutorial/tutorial_userecho_10.png)
 
 4. Kliknij pozycję **Użytkownicy**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/userecho-tutorial/tutorial_userecho_11.png)
+    ![Zrzut ekranu przedstawia wybrane użytkowników.](./media/userecho-tutorial/tutorial_userecho_11.png)
 
 5. Kliknij pozycję **Zaproś nowego użytkownika**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/userecho-tutorial/tutorial_userecho_12.png)
+    ![Zrzut ekranu przedstawia zaproszenie nowej kontrolki użytkownika.](./media/userecho-tutorial/tutorial_userecho_12.png)
 
 6. W oknie dialogowym **zapraszanie nowego użytkownika** wykonaj następujące czynności:
    
-    ![Konfigurowanie logowania jednokrotnego](./media/userecho-tutorial/tutorial_userecho_13.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Zaproś nowego użytkownika, w którym można wprowadzić informacje o użytkowniku.](./media/userecho-tutorial/tutorial_userecho_13.png)
 
     a. W polu tekstowym **Nazwa** wpisz nazwę użytkownika, na przykład Britta Simon.
     

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: f9765f4ce47e6e698daf1680aecf059241c58382
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d2a6954ffdb9f992ada7fc24dbcc161658b21d23
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993572"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480432"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architektury referencyjne dla Oracle Database Enterprise Edition na platformie Azure
 
@@ -72,7 +72,7 @@ W przypadku Oracle Database w wersji 12,2 lub nowszej można również skonfigur
 
 Poniższy diagram przedstawia zalecaną architekturę korzystania z funkcji Oracle Data Guard na platformie Azure ze strefami dostępności. Ta architektura pozwala uzyskać umowę SLA dotyczącą czasu działania maszyny wirtualnej wynoszącą 99,99% czasu.
 
-![Oracle Database używania stref dostępności z brokerem usługi Data Guard — FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
+![Diagram przedstawiający zalecaną architekturę do korzystania z funkcji Oracle Data Guard na platformie Azure z strefami dostępności.](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
 Na powyższym diagramie system klienta uzyskuje dostęp do niestandardowej aplikacji z zapleczem firmy Oracle za pośrednictwem sieci Web. Fronton sieci Web jest skonfigurowany w usłudze równoważenia obciążenia. Fronton sieci Web tworzy połączenie z odpowiednim serwerem aplikacji w celu obsługi pracy. Serwer aplikacji wysyła zapytanie do podstawowej bazy danych Oracle. Baza danych Oracle została skonfigurowana przy użyciu [maszyny wirtualnej zoptymalizowanej pod kątem pamięci](../../sizes-memory.md) z [ograniczeniami procesorów wirtualnych vCPU](../../../virtual-machines/constrained-vcpu.md) , aby zaoszczędzić na kosztach licencjonowania i zwiększyć wydajność. Wiele dysków Premium lub Ultra (Managed Disks) jest używanych do zapewnienia wydajności i wysokiej dostępności.
 

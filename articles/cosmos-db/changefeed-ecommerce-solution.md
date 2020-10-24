@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a39ade902bd22d67e9b3a7d40b392bfd83dfd3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356370"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475919"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Użyj kanału informacyjnego zmiany Azure Cosmos DB, aby wizualizować analizę danych w czasie rzeczywistym
 
@@ -50,7 +50,7 @@ Na poniższym diagramie przedstawiono przepływ danych i składniki wykorzystywa
 
 5. **Centrum zdarzeń:** Usługa Azure Event Hub przechowuje te zdarzenia i wysyła je do [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) w celu przeprowadzenia dalszej analizy.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics definiuje zapytania do przetwarzania zdarzeń i wykonywania analizy danych w czasie rzeczywistym. Te dane są następnie wysyłane do [Power BI firmy Microsoft](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics:** Azure Stream Analytics definiuje zapytania do przetwarzania zdarzeń i wykonywania analizy danych w czasie rzeczywistym. Te dane są następnie wysyłane do [Power BI firmy Microsoft](/power-bi/desktop-what-is-desktop).  
 
 7. **Power BI:** Power BI służy do wizualizacji danych wysyłanych przez Azure Stream Analytics. Możesz utworzyć pulpit nawigacyjny, aby zobaczyć, jak metryki zmieniają się w czasie rzeczywistym.  
 
@@ -382,4 +382,4 @@ Aby usunąć zasoby utworzone w ramach tego laboratorium, przejdź do grupy zaso
 
 ## <a name="next-steps"></a>Następne kroki 
   
-* Aby dowiedzieć się więcej na temat źródła zmian, zobacz [Praca z obsługą źródła zmian w Azure Cosmos DB](change-feed.md) 
+* Aby dowiedzieć się więcej na temat źródła zmian, zobacz [Praca z obsługą źródła zmian w Azure Cosmos DB](change-feed.md)

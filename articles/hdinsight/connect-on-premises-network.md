@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 3ab706b9cdf3c071fd5d3ceca732cff6b660db6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 542e4e09949aa3d673f632890bd7ee99adf431d5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086561"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487283"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Łączenie usługi HDInsight z siecią lokalną
 
@@ -46,7 +46,7 @@ Na poniższym diagramie zielonymi wierszami są żądania dotyczące zasobów ko
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 * W przypadku korzystania z programu PowerShell należy użyć polecenia [AZ module](https://docs.microsoft.com/powershell/azure/).
-* Jeśli chcesz użyć interfejsu wiersza polecenia platformy Azure i jeszcze go nie zainstalowano, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Jeśli chcesz użyć interfejsu wiersza polecenia platformy Azure i jeszcze go nie zainstalowano, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Utwórz konfigurację sieci wirtualnej
 
@@ -63,7 +63,7 @@ Skorzystaj z następujących dokumentów, aby dowiedzieć się, jak utworzyć Vi
 
 Poniższe kroki służą do tworzenia maszyny wirtualnej platformy Azure przy użyciu [Azure Portal](https://portal.azure.com) . Aby poznać inne sposoby tworzenia maszyny wirtualnej, zobacz temat [Tworzenie maszyny wirtualnej — interfejs wiersza polecenia platformy Azure](../virtual-machines/linux/quick-create-cli.md) i [Tworzenie maszyny wirtualnej — Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Aby utworzyć maszynę wirtualną z systemem Linux używającą oprogramowania [bind](https://www.isc.org/downloads/bind/) DNS, wykonaj następujące czynności:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
   
 1. W górnym menu wybierz pozycję **+ Utwórz zasób**.
 
