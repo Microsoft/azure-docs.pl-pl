@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 9f2aaaa4138c483224bb3a98266e10b95b9381a4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b90f0c379310e8557f08f0f318ab6abe2c0be016
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425846"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520942"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -188,7 +188,7 @@ Obrazy z galerii platformy Azure — opublikowane przez firmę Microsoft | Obsł
 Obrazy z galerii platformy Azure — opublikowane przez inną firmę | Obsługiwane | Obsługiwane, jeśli maszyna wirtualna jest uruchamiana w obsługiwanym systemie operacyjnym.
 Obrazy niestandardowe — Opublikowano przez inną firmę | Obsługiwane | Obsługiwane, jeśli maszyna wirtualna jest uruchamiana w obsługiwanym systemie operacyjnym.
 Maszyny wirtualne migrowane przy użyciu Site Recovery | Obsługiwane | Jeśli maszyna wirtualna VMware lub maszyna fizyczna została zmigrowana do platformy Azure przy użyciu Site Recovery, należy odinstalować starszą wersję usługi mobilności działającej na maszynie i ponownie uruchomić maszynę przed replikacją jej do innego regionu platformy Azure.
-Zasady RBAC | Nieobsługiwane | Zasady kontroli dostępu opartej na rolach (RBAC) na maszynach wirtualnych nie są replikowane do maszyny wirtualnej trybu failover w regionie docelowym.
+Zasady kontroli RBAC platformy Azure | Nieobsługiwane | Zasady kontroli dostępu opartej na rolach (Azure RBAC) na maszynach wirtualnych nie są replikowane do maszyny wirtualnej trybu failover w regionie docelowym.
 Rozszerzenia | Nieobsługiwane | Rozszerzenia nie są replikowane do maszyny wirtualnej trybu failover w regionie docelowym. Należy ją zainstalować ręcznie po przejściu do trybu failover.
 Grupy umieszczania zbliżeniowe | Obsługiwane | Maszyny wirtualne znajdujące się w grupie umieszczania w sąsiedztwie mogą być chronione przy użyciu Site Recovery.
 
@@ -284,7 +284,7 @@ Zarezerwowany (statyczny) adres IP | Obsługiwane | Jeśli karta sieciowa na źr
 Dynamiczny adres IP | Obsługiwane | Jeśli karta sieciowa w źródle ma dynamiczne adresowanie IP, karta sieciowa na maszynie wirtualnej w trybie failover jest również domyślnie dynamiczna.<br/><br/> Jeśli jest to wymagane, można je zmodyfikować na stały adres IP.
 Wiele adresów IP | Nieobsługiwane | Po przełączeniu maszyny wirtualnej w tryb failover, która ma kartę sieciową z wieloma adresami IP, zachowywany jest tylko podstawowy adres IP karty sieciowej w regionie źródłowym. Aby przypisać wiele adresów IP, można dodać maszyny wirtualne do [planu odzyskiwania](recovery-plan-overview.md) i dołączyć skrypt, aby przypisać dodatkowe adresy IP do planu, lub wprowadzić zmianę ręcznie lub za pomocą skryptu po przejściu do trybu failover.
 Traffic Manager     | Obsługiwane | Można wstępnie skonfigurować Traffic Manager tak, aby ruch był kierowany do punktu końcowego w regionie źródłowym w regularnych odstępach czasu i do punktu końcowego w regionie docelowym w przypadku przejścia w tryb failover.
-Azure DNS | Obsługiwane |
+System DNS platformy Azure | Obsługiwane |
 Niestandardowe DNS    | Obsługiwane |
 Nieuwierzytelniony serwer proxy | Obsługiwane | [Dowiedz się więcej](./azure-to-azure-about-networking.md)
 Uwierzytelniony serwer proxy | Nieobsługiwane | Jeśli maszyna wirtualna używa uwierzytelnionego serwera proxy do łączności wychodzącej, nie może być replikowana przy użyciu Azure Site Recovery.

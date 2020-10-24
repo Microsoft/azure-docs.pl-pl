@@ -1,5 +1,5 @@
 ---
-title: Używanie Access Control opartych na rolach dla StorSimple | Microsoft Docs
+title: Używanie kontroli dostępu opartej na rolach na platformie Azure dla StorSimple | Microsoft Docs
 description: Opisuje sposób korzystania z funkcji kontroli dostępu opartej na rolach (Azure RBAC) w kontekście StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c38e23ddbbfe983ff82ad25363c744292d4d69
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87920419"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518980"
 ---
-# <a name="role-based-access-control-for-storsimple"></a>Access Control oparte na rolach dla StorSimple
+# <a name="azure-role-based-access-control-for-storsimple"></a>Kontrola dostępu oparta na rolach na platformie Azure dla StorSimple
 
-Ten artykuł zawiera krótki opis sposobu używania kontroli dostępu opartej na rolach (Azure RBAC) na urządzeniu StorSimple. RBAC oferuje precyzyjne zarządzanie dostępem na platformie Azure. Za pomocą RBAC Udziel dostępu StorSimple użytkownikom w celu uzyskania dostępu do swoich zadań, a nie udzielaj innym osobom nieograniczony dostęp. Aby uzyskać więcej informacji na temat podstaw zarządzania dostępem na platformie Azure, zobacz Wprowadzenie do [Access Control opartej na rolach w Azure Portal](../role-based-access-control/overview.md).
+Ten artykuł zawiera krótki opis sposobu używania kontroli dostępu opartej na rolach (Azure RBAC) na urządzeniu StorSimple. Usługa Azure RBAC oferuje precyzyjne zarządzanie dostępem na platformie Azure. Korzystając z usługi Azure RBAC, Przyznaj dostęp do swoich zadań StorSimple użytkownikom, a nie Udziel wszystkim nieograniczonego dostępu. Aby uzyskać więcej informacji na temat podstaw zarządzania dostępem na platformie Azure, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md).
 
 Ten artykuł dotyczy urządzeń z serii StorSimple 8000 z uruchomioną aktualizacją 3,0 lub nowszą w Azure Portal.
 
@@ -31,7 +31,7 @@ Ten artykuł dotyczy urządzeń z serii StorSimple 8000 z uruchomioną aktualiza
 
 ## <a name="azure-roles-for-storsimple"></a>Role platformy Azure dla usługi StorSimple
 
-Kontrolę RBAC można przypisać na podstawie ról. Role zapewniają pewne poziomy uprawnień na podstawie dostępnych zasobów w środowisku. Istnieją dwa typy ról, z których mogą wybierać użytkownicy StorSimple: wbudowane lub niestandardowe.
+Usługę Azure RBAC można przypisać na podstawie ról. Role zapewniają pewne poziomy uprawnień na podstawie dostępnych zasobów w środowisku. Istnieją dwa typy ról, z których mogą wybierać użytkownicy StorSimple: wbudowane lub niestandardowe.
 
 * **Wbudowane role** — wbudowana rola może być właścicielem, współautorem, czytelnikem lub administratorem dostępu użytkowników. Aby uzyskać więcej informacji, zobacz [wbudowane role dla Access Control opartej na rolach platformy Azure](../role-based-access-control/built-in-roles.md).
 

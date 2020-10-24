@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 4cb46487904f1f909686119d074dff5dcfad40c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b774f50f6f136d9e7c71b5fe6fbffb725a9240a5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604645"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522227"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-orgvitality-sso"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu logowania jednokrotnego OrgVitality
 
@@ -124,7 +124,7 @@ Aby skonfigurować Logowanie jednokrotne po stronie logowania **JEDNOkrotnego Or
 
 ### <a name="create-orgvitality-sso-test-user"></a>Utwórz użytkownika testowego logowania jednokrotnego w usłudze OrgVitality
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w OrgVitality SSO. Współpracuj z [zespołem obsługi rejestracji jednokrotnej OrgVitality](https://orgvitality.com/contact-us/) , aby dodać użytkowników z platformy rejestracji jednokrotnej OrgVitality. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w OrgVitality SSO. Współpracuj z [zespołem obsługi rejestracji jednokrotnej OrgVitality](https://orgvitality.com/contact-us/) , aby dodać użytkowników z platformy rejestracji jednokrotnej OrgVitality. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -132,8 +132,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 1. Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do logowania jednokrotnego OrgVitality, dla którego skonfigurowano Logowanie jednokrotne
 
-1. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka rejestracji jednokrotnej OrgVitality w panelu dostępu należy automatycznie zalogować się do OrgVitality logowania jednokrotnego, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka rejestracji jednokrotnej OrgVitality w panelu dostępu należy automatycznie zalogować się do OrgVitality logowania jednokrotnego, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu logowania jednokrotnego OrgVitality można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu logowania jednokrotnego OrgVitality można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 74527f57340f850b60dd00dcd054992c423a49c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd292fa6b4f613e0a5f5a80e0cd87675f529baf5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90039121"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516175"
 ---
 # <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Ręczne Migrowanie z pulpitu wirtualnego systemu Windows (klasyczny)
 
@@ -35,7 +35,7 @@ Pomimo problemów, Migrowanie z wersji klasycznej jest nadal ważne. Oto co moż
 - Zarządzanie pulpitem wirtualnym systemu Windows za pomocą Azure Portal.
 - Przypisywanie grup użytkowników Azure Active Directory (AD) do grup aplikacji.
 - Aby rozwiązać problem z wdrożeniem, użyj ulepszonej funkcji Log Analytics.
-- Aby zarządzać dostępem administracyjnym, użyj kontroli dostępu Role-Based natywnej platformy Azure.
+- Użyj natywnej kontroli dostępu opartej na rolach (Azure RBAC) do zarządzania dostępem administracyjnym.
 
 ## <a name="when-should-i-migrate"></a>Kiedy należy przeprowadzić migrację?
 

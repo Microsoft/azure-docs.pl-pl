@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c22993baa6a9095bddba67bdc9d18a40021db6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7483e7a9300088d07e85d238ad897522d59c5464
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546393"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Samouczek: integracja Azure Active Directory z usługą TurboRater
 
@@ -28,7 +28,7 @@ Integracja TurboRater z usługą Azure AD zapewnia następujące korzyści:
 * Możesz umożliwić użytkownikom automatyczne logowanie się do usługi TurboRater (Logowanie jednokrotne) przy użyciu kont w usłudze Azure AD.
 * Kontami można zarządzać w jednej centralnej lokalizacji: Azure Portal.
 
-Aby uzyskać szczegółowe informacje na temat integracji aplikacji typu "oprogramowanie jako usługa" (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby uzyskać szczegółowe informacje na temat integracji aplikacji typu "oprogramowanie jako usługa" (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -47,7 +47,7 @@ Usługa TurboRater obsługuje logowanie jednokrotne inicjowane przez dostawcy to
 
 Aby skonfigurować integrację programu TurboRater z usługą Azure AD, musisz dodać TurboRater z portalu Azure Marketplace do listy zarządzanych aplikacji SaaS:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com?azure-portal=true).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com?azure-portal=true).
 1. W lewym okienku wybierz pozycję **Azure Active Directory**.
 
     ![Opcja Azure Active Directory](common/select-azuread.png)
@@ -187,12 +187,12 @@ W tej sekcji utworzysz użytkownika o nazwie B. Simon w TurboRater. Współpracu
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu My Apps.
 
-Po wybraniu opcji **TurboRater** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi TurboRater, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu opcji **TurboRater** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi TurboRater, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](./tutorial-list.md)
 
-* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

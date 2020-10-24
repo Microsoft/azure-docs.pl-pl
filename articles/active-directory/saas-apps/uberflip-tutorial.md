@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 6aed014800be41ce5b9d1d86d137aefcf2585e98
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486977"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Samouczek: integracja Azure Active Directory z usługą Uberflip
 
@@ -28,7 +28,7 @@ Integracja Uberflip z usługą Azure AD zapewnia następujące korzyści:
 * Możesz umożliwić użytkownikom automatyczne logowanie się do usługi Uberflip (Logowanie jednokrotne) przy użyciu kont w usłudze Azure AD.
 * Kontami można zarządzać w jednej centralnej lokalizacji: Azure Portal.
 
-Aby uzyskać szczegółowe informacje na temat integracji aplikacji typu "oprogramowanie jako usługa" (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby uzyskać szczegółowe informacje na temat integracji aplikacji typu "oprogramowanie jako usługa" (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -192,12 +192,12 @@ Użytkownik o nazwie B. Simon jest teraz tworzony w Uberflip. Nie trzeba wykonyw
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu My Apps.
 
-Po wybraniu opcji **Uberflip** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi Uberflip, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu opcji **Uberflip** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi Uberflip, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](./tutorial-list.md)
 
-* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

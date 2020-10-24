@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eeddecbec31ec1bfa73cf956deb4c50809c50e7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751167"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521950"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory
 
@@ -25,7 +25,7 @@ Aby ułatwić integrację aplikacji z obsługą chmury [jako usługi (SaaS)](htt
 
 Aby uzyskać listę wszystkich aplikacji SaaS, które zostały wstępnie zintegrowane z usługą Azure AD, zobacz [witrynę Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
-Użyj [portalu sieci aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) , aby zażądać dodania aplikacji z obsługą [Standard scim](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) do galerii w celu automatycznego APROWIZACJI lub włączenia aplikacji SAML/OIDC do galerii na potrzeby logowania jednokrotnego.
+Użyj [portalu sieci aplikacji](../azuread-dev/howto-app-gallery-listing.md) , aby zażądać dodania aplikacji z obsługą [Standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) do galerii w celu automatycznego APROWIZACJI lub włączenia aplikacji SAML/OIDC do galerii na potrzeby logowania jednokrotnego.
 
 ## <a name="quick-links"></a>Szybkie linki
 
@@ -34,7 +34,7 @@ Użyj [portalu sieci aplikacji](https://docs.microsoft.com/azure/active-director
 | ![logo — Atlassian Cloud](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian w chmurze — Inicjowanie obsługi użytkowników](atlassian-cloud-provisioning-tutorial.md)|
 | ![logo — usługi ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[Usługi ServiceNow — Inicjowanie obsługi użytkowników](servicenow-provisioning-tutorial.md)|
 | ![logo — zapas czasu](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Zapasowy — Inicjowanie obsługi użytkowników](slack-provisioning-tutorial.md)|
-| ![logo — SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors — Inicjowanie obsługi użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| ![logo — SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors — Inicjowanie obsługi użytkowników](./sap-successfactors-inbound-provisioning-tutorial.md) |
 | ![logo — Workday](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday — Inicjowanie obsługi użytkowników](workday-inbound-tutorial.md)|
 
 Aby znaleźć więcej samouczków, użyj spisu treści po lewej stronie.
@@ -47,7 +47,7 @@ Aby znaleźć więcej samouczków, użyj spisu treści po lewej stronie.
 | ![logo — usługa w chmurze Alibaba (oparte na rolach Logowanie jednokrotne)](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Usługa w chmurze Alibaba (klasy role SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![logo — Google Cloud Platform](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform — Inicjowanie obsługi użytkowników](google-apps-provisioning-tutorial.md) |
 | ![logo — Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce — Inicjowanie obsługi użytkowników](salesforce-provisioning-tutorial.md) |
-| ![logo — platforma tożsamości w chmurze SAP](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Platforma SAP Cloud Identity platform](saphana-tutorial.md)|[Platforma tożsamości w chmurze SAP — Inicjowanie obsługi](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
+| ![logo — platforma tożsamości w chmurze SAP](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Platforma SAP Cloud Identity platform](saphana-tutorial.md)|[Platforma tożsamości w chmurze SAP — Inicjowanie obsługi](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 
 ## <a name="oneclick-sso"></a>OneClick Logowanie jednokrotne
 

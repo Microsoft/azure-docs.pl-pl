@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 9e64d76e29ba98181aac12e1e3167351a9c1aa95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b66329ebf101b5b36aee5993151e8b69e92a2bdb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524021"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520340"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Wdesk
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę Wdesk z usługą Azure A
 * Zezwól użytkownikom na automatyczne logowanie się do usługi Wdesk przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * Wdesk obsługuje usługę **SP** i **dostawcy tożsamości** zainicjowano Logowanie jednokrotne
-* Po skonfigurowaniu Wdesk można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Po skonfigurowaniu Wdesk można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-wdesk-from-the-gallery"></a>Dodawanie Wdesk z galerii
 
@@ -246,14 +246,14 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Wdesk, 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Wdesk w panelu dostępu należy automatycznie zalogować się do Wdesk, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Wdesk w panelu dostępu należy automatycznie zalogować się do Wdesk, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

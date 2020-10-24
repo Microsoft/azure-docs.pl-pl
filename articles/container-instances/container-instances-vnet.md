@@ -4,12 +4,12 @@ description: Dowiedz się, jak wdrożyć grupę kontenerów w nowej lub istniej�
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303012"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518130"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure
 
@@ -40,7 +40,7 @@ Po wdrożeniu pierwszej grupy kontenerów za pomocą tej metody można wdrożyć
 
 ### <a name="example"></a>Przykład
 
-Następujące polecenie [AZ Container Create][az-container-create] określa ustawienia dla nowej sieci wirtualnej i podsieci. Podaj nazwę grupy zasobów, która została utworzona w regionie, w którym są [dostępne](container-instances-region-availability.md#availability---virtual-network-deployment)wdrożenia grup kontenerów w sieci wirtualnej. To polecenie wdraża publiczny kontener Microsoft [ACI-HelloWorld][aci-helloworld] , który uruchamia mały Node.js WebServer obsługującego statyczną stronę sieci Web. W następnej sekcji zostanie wdrożona druga grupa kontenerów w tej samej podsieci i przetestowana zostanie komunikacja między dwoma wystąpieniami kontenerów.
+Następujące polecenie [AZ Container Create][az-container-create] określa ustawienia dla nowej sieci wirtualnej i podsieci. Podaj nazwę grupy zasobów, która została utworzona w regionie, w którym są [dostępne](container-instances-region-availability.md)wdrożenia grup kontenerów w sieci wirtualnej. To polecenie wdraża publiczny kontener Microsoft [ACI-HelloWorld][aci-helloworld] , który uruchamia mały Node.js WebServer obsługującego statyczną stronę sieci Web. W następnej sekcji zostanie wdrożona druga grupa kontenerów w tej samej podsieci i przetestowana zostanie komunikacja między dwoma wystąpieniami kontenerów.
 
 ```azurecli
 az container create \
@@ -77,7 +77,7 @@ az container show --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv
 ```
 
-W danych wyjściowych zostanie wyświetlony adres IP grupy kontenerów w podsieci prywatnej. Na przykład:
+W danych wyjściowych zostanie wyświetlony adres IP grupy kontenerów w podsieci prywatnej. Przykład:
 
 ```console
 10.0.0.4

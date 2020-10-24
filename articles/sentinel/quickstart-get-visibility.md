@@ -1,6 +1,6 @@
 ---
 title: 'Szybki start: wprowadzenie do usługi Azure Sentinel'
-description: Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak szybko wyświetlać i monitorować działania wykonywane w danym środowisku za pomocą usługi Azure wskaźnikowej. 
+description: Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak szybko wyświetlać i monitorować działania wykonywane w danym środowisku za pomocą usługi Azure wskaźnikowej.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208230"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516957"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki start: wprowadzenie do usługi Azure Sentinel
 
@@ -83,7 +83,7 @@ Możesz utworzyć nowy skoroszyt od podstaw lub użyć wbudowanego skoroszytu ja
 2. Wybierz subskrypcję, w której jest tworzony skoroszyt, i nadaj jej nazwę opisową. Każdy skoroszyt jest zasobem platformy Azure, podobnie jak inne, i można przypisać role IT (RBAC), aby zdefiniować i ograniczyć dostęp do nich. 
 3. Aby umożliwić wyświetlanie w skoroszytach do przypinania wizualizacji do, należy ją udostępnić. Kliknij przycisk **Udostępnij** , a następnie **Zarządzaj użytkownikami**. 
  
-1. Użyj **uprawnień Sprawdź dostęp** i **rola** , tak jak w przypadku innych zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz [udostępnianie skoroszytów platformy Azure przy użyciu RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Użyj **uprawnień Sprawdź dostęp** i **rola** , tak jak w przypadku innych zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz [udostępnianie skoroszytów platformy Azure za pomocą funkcji RBAC platformy Azure](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
 ## <a name="new-workbook-examples"></a>Przykłady nowych skoroszytów

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 82cd39fdefef477e3761d8d7ab771301cea962e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b81dfec5e8ee828fba202f14967a4583bde32ed3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92443227"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503763"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie HootSuite na potrzeby automatycznego aprowizacji użytkowników
 
@@ -35,7 +35,7 @@ W tym samouczku opisano kroki, które należy wykonać w programie HootSuite i A
 Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * [Dzierżawa usługi Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../users-groups-roles/directory-assign-admin-roles.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego). 
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami](../users-groups-roles/directory-assign-admin-roles.md) do konfigurowania aprowizacji (na przykład administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny). 
 * Konto użytkownika z [HootSuite](http://www.hootsuite.com/) , które ma uprawnienia do **zarządzania członkami** w organizacji.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
@@ -49,7 +49,7 @@ Skontaktuj się z użytkownikiem dev.support@hootsuite.com , aby uzyskać długi
 
 ## <a name="step-3-add-hootsuite-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie HootSuite z galerii aplikacji usługi Azure AD
 
-Dodaj HootSuite z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do HootSuite. Jeśli wcześniej skonfigurowano HootSuite do logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](../manage-apps/add-application-portal.md). 
+Dodaj HootSuite z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do HootSuite. Jeśli wcześniej skonfigurowano HootSuite na potrzeby logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Określenie, kto znajdzie się w zakresie aprowizacji 
 
@@ -108,18 +108,30 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |displayName|Ciąg|
    |preferredLanguage|Ciąg|
    |timezone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: Extension: HootSuite: 2.0: User: organizationIds|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: Extension: HootSuite: 2.0: User: teamIds|Ciąg|
+   |name.givenName|Ciąg|
+   |name.familyName|Ciąg|
 
-10. Aby włączyć usługę Azure AD Provisioning dla HootSuite, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory**.
+
+11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, do HootSuite w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w HootSuite dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
+
+      |Atrybut|Typ|
+      |---|---|
+      |displayName|Ciąg|
+      |externalId|Ciąg|
+      |elementy członkowskie|Tematy pomocy|
+
+12. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Aby włączyć usługę Azure AD Provisioning dla HootSuite, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
     ![Stan aprowizacji — przełącznik w pozycji włączonej](common/provisioning-toggle-on.png)
 
-11. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić HootSuite, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
+14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić HootSuite, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-12. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
+15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
@@ -132,8 +144,12 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 * Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 * Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## <a name="change-log"></a>Dziennik zmian
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* 10/22/2020 — dodano obsługę atrybutów użytkownika "name. imięname" i "name. familyName". Dla użytkowników usunięto niestandardowe atrybuty rozszerzeń "organizationIds" i "teamIds".
+Dodano obsługę atrybutów grupy "displayName", "Members" i "externalId".
+
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

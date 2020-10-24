@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,142 +8,165 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: f5ac97812f973a20f6ee4c2dea34baaeb91203af
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 086ebf71e2da19a96433f32cfb1bae133e875400
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016467"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518080"
 ---
-![Dokumentacja Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
+![Wykres przedstawiający specyfikacje D s v 3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
-Maksymalna przepływność dysku **niebuforowanego** jest domyślnym maksymalnym limitem magazynu, który może obsłużyć maszyna wirtualna. Maksymalny limit przepływności magazynu w **pamięci podręcznej** jest oddzielnym limitem po włączeniu buforowania hosta. Buforowanie hostów działa przez umieszczenie magazynu bliżej maszyny wirtualnej, która może być szybko zapisywana lub odczytana. Ilość miejsca dostępnego dla maszyny wirtualnej na potrzeby buforowania hosta znajduje się w dokumentacji. Na przykład można zobaczyć, że Standard_D8s_v3 zawiera 200 GiB magazynu pamięci podręcznej.
+- Maksymalna przepływność dysku *niebuforowanego* jest domyślnym maksymalnym limitem magazynu, który może obsłużyć maszyna wirtualna.
+- Maksymalny limit przepływności magazynu w *pamięci podręcznej* jest oddzielnym limitem po włączeniu buforowania hosta.
 
-Włączenie buforowania hosta można wykonać podczas tworzenia maszyny wirtualnej i dołączania dysków. Możesz również dostosować, aby włączyć lub wyłączyć buforowanie dysków na istniejącej maszynie wirtualnej.
+Buforowanie hostów działa przez umieszczenie magazynu bliżej maszyny wirtualnej, która może być szybko zapisywana lub odczytana. Ilość miejsca dostępnego dla maszyny wirtualnej na potrzeby buforowania hosta znajduje się w dokumentacji. Na przykład można zobaczyć, że Standard_D8s_v3 zawiera 200 GiB magazynu pamięci podręcznej.
 
-![Buforowanie hosta](media/vm-disk-performance/host-caching.jpg)
+Pamięć podręczną hosta można włączyć podczas tworzenia maszyny wirtualnej i dołączania dysków. Możesz również włączyć i wyłączyć buforowanie hosta na dyskach na istniejącej maszynie wirtualnej.
 
-Pamięć podręczną hosta można dostosować w taki sposób, aby odpowiadała wymaganiom obciążeń dla każdego dysku. Pamięć podręczną hosta można ustawić jako tylko do odczytu dla obciążeń, które wykonują operacje odczytu i zapisu w przypadku obciążeń, które wykonują bilans operacji odczytu i zapisu. Jeśli obciążenie nie jest zgodne z żadnym z tych wzorców, nie zalecamy używania buforowania hosta. 
+![Zrzut ekranu przedstawiający pamięć podręczną hosta.](media/vm-disk-performance/host-caching.jpg)
 
-Uruchommy kilka przykładów różnych ustawień pamięci podręcznej hosta i zobacz, jak ma to wpływ na przepływ danych i wydajność. W pierwszym przykładzie Przyjrzyjmy się temu, co się dzieje z żądaniami we/wy, gdy ustawienie buforowania hosta ma wartość **tylko do odczytu**.
+Pamięć podręczną hosta można dostosować w taki sposób, aby odpowiadała wymaganiom obciążeń dla każdego dysku. Pamięć podręczną hosta można ustawić na:
 
-Konfiguracja:
-- Standardowa_D8s_v3 
-    - Buforowane operacje we/wy: 16 000
-    - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
-- Dysk danych P30 
-    - OPERACJE WE/WY: 5 000
-    - **Buforowanie hosta: tylko do odczytu** 
+- **Tylko do odczytu**: dla obciążeń, które wykonują tylko operacje odczytu
+- **Odczyt/zapis**: dla obciążeń, które wykonują bilans operacji odczytu i zapisu
 
-Po przeczytaniu i wybraniu żądanych danych w pamięci podręcznej pamięć podręczna zwraca żądane dane i nie ma potrzeby odczytywania ich z dysku. Ten odczyt jest liczony do buforowanych limitów maszyn wirtualnych.
+Jeśli obciążenie nie jest zgodne z żadnym z tych wzorców, nie zaleca się używania buforowania hosta.
 
-![Trafienie odczytu odczytu pamięci podręcznej hosta](media/vm-disk-performance/host-caching-read-hit.jpg)
+Uruchommy kilka przykładów różnych ustawień pamięci podręcznej hosta, aby zobaczyć, jak wpłynie to na przepływ danych i wydajność. W pierwszym przykładzie zawarto informacje na temat tego, co się dzieje z żądaniami we/wy, gdy ustawienie buforowania hosta ma wartość **tylko do odczytu**.
 
-Po przeczytaniu i pożądanych danych **nie** jest dostępna w pamięci podręcznej, żądanie odczytu jest następnie przekazywane do dysku, który następnie umieszcza go w pamięci podręcznej i na maszynie wirtualnej. Odczyt ten jest uwzględniany w odniesieniu do limitu braku pamięci podręcznej maszyny wirtualnej i buforowanego limitu maszyny wirtualnej.
+**Instalator**
 
-![Odczytaj Chybienia odczytu pamięci podręcznej hosta](media/vm-disk-performance/host-caching-read-miss.jpg)
+- Standardowa_D8s_v3
+  - Buforowane operacje we/wy: 16 000
+  - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
+- Dysk danych P30
+  - OPERACJE WE/WY: 5 000
+  - Buforowanie hosta: **tylko do odczytu**
+
+Po przeczytaniu i wybraniu żądanych danych w pamięci podręcznej pamięć podręczna zwraca żądane dane. Nie ma potrzeby odczytywania z dysku. Ten odczyt jest liczony do limitów pamięci podręcznej maszyny wirtualnej.
+
+![Diagram przedstawiający trafienie odczytu odczytywania pamięci podręcznej hosta.](media/vm-disk-performance/host-caching-read-hit.jpg)
+
+Gdy odczyt jest wykonywany i wymagane dane *nie* są dostępne w pamięci podręcznej, żądanie odczytu jest przekazywane do dysku. Następnie dysk umieszcza go w pamięci podręcznej i na maszynie wirtualnej. Ten odczyt jest liczony jako limit braku pamięci podręcznej maszyny wirtualnej i limit pamięci podręcznej maszyny wirtualnej.
+
+![Diagram przedstawiający chybień odczytu pamięci podręcznej odczytu.](media/vm-disk-performance/host-caching-read-miss.jpg)
 
 Po wykonaniu zapisu zapis musi być zapisany w pamięci podręcznej i na dysku, zanim zostanie uznany za zakończony. Ten zapis jest liczony do limitu braku pamięci podręcznej maszyny wirtualnej i buforowanego limitu maszyny wirtualnej.
 
-![Odczytaj zapis pamięci podręcznej hosta](media/vm-disk-performance/host-caching-write.jpg)
+![Diagram przedstawiający zapis pamięci podręcznej odczytu hosta.](media/vm-disk-performance/host-caching-write.jpg)
 
-W tym następnym przykładzie Przyjrzyjmy się co się dzieje z żądaniami we/wy, gdy ustawienie pamięci podręcznej hosta jest ustawione na **Odczyt/zapis**.
+Kolejne Przyjrzyjmy się, co się dzieje z żądaniami we/wy, gdy ustawienie pamięci podręcznej hosta jest ustawione na **Odczyt/zapis**.
 
-Konfiguracja:
-- Standardowa_D8s_v3 
-    - Buforowane operacje we/wy: 16 000
-    - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
-- Dysk danych P30 
-    - OPERACJE WE/WY: 5 000
-    - **Buforowanie hosta: odczyt/zapis** 
+**Instalator**
 
-Odczyty są obsługiwane dokładnie tak samo jak w trybie tylko do odczytu, a zapisy są inne, które różnią się od buforowania odczytu i zapisu. Podczas pisania z buforowaniem hosta ustawionym na odczyt/zapis, tylko zapis musi być zapisany w pamięci podręcznej hosta, aby można go było uznać za zakończony. Zapis jest następnie opóźnieniem zapisywana na dysku jako proces w tle. Oznacza to, że zapisy będą zliczane do buforowania operacji we/wy, gdy zostanie on zapisany w pamięci podręcznej i gdy zostanie on opóźnieniem zapisany na dysku, który będzie uwzględniał Niebuforowane operacje we/wy.
+- Standardowa_D8s_v3
+  - Buforowane operacje we/wy: 16 000
+  - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
+- Dysk danych P30
+  - OPERACJE WE/WY: 5 000
+  - Buforowanie hosta: **Odczyt/zapis**
 
-![Zapis pamięci podręcznej odczytu/zapisu](media/vm-disk-performance/host-caching-read-write.jpg)
+Odczyt jest obsługiwany tak samo jak w przypadku tylko do odczytu. Operacje zapisu są takie same, jak w przypadku buforowania odczytu i zapisu. Podczas zapisu w pamięci podręcznej hosta jest ustawiony na wartość **Odczyt/zapis**, tylko zapis musi być zapisany w buforze hosta, aby można go było uznać za zakończony. Zapis jest następnie opóźnieniem zapisywana na dysku jako proces w tle. Oznacza to, że zapis jest liczony w kierunku buforowanej operacji we/wy, gdy zostanie zapisany w pamięci podręcznej. Gdy opóźnieniem jest zapisywana na dysku, liczy się do niebuforowanej operacji we/wy.
 
-Przejdźmy na przykład z naszą Standard_D8s_v3ą maszyną wirtualną. Z tego momentu zostanie włączone buforowanie hosta na dyskach, a teraz limit operacji we/wy maszyny wirtualnej to 16 000 IOPS. Dołączone do maszyny wirtualnej to trzy bazowe dyski P30, które mogą obsłużyć 5 000 operacji we/wy na sekundę.
+![Diagram przedstawiający zapisywanie w pamięci podręcznej hosta odczytu/zapisu.](media/vm-disk-performance/host-caching-read-write.jpg)
 
-Konfiguracja:
-- Standardowa_D8s_v3 
-    - Buforowane operacje we/wy: 16 000
-    - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
-- Dysk systemu operacyjnego P30 
-    - OPERACJE WE/WY: 5 000
-    - Buforowanie hosta: odczyt/zapis 
-- 2 P30 dyski danych
-    - OPERACJE WE/WY: 5 000
-    - Buforowanie hosta: odczyt/zapis
+Kontynuujmy pracę z naszą Standard_D8s_v3ą maszyną wirtualną. Z tego momentu zostanie włączone buforowanie hosta na dyskach. Ponadto limit liczby operacji we/wy maszyny wirtualnej to 16 000 IOPS. Dołączone do maszyny wirtualnej to trzy bazowe dyski P30, które mogą obsłużyć 5 000 operacji we/wy na sekundę.
 
-![Przykład buforowania hosta](media/vm-disk-performance/host-caching-example-without-remote.jpg)
+**Instalator**
 
-Teraz aplikacja używająca tej Standard_D8s_v3 maszynę wirtualną z włączoną buforowaniem wykonuje żądanie do 15 000 operacji we/wy na sekundę. Te żądania są podzielone na 5 000 operacji wejścia/wyjścia na sekundę do każdego dołączonego dysku podstawowego i nie ma żadnego ograniczenia wydajności.
+- Standardowa_D8s_v3
+  - Buforowane operacje we/wy: 16 000
+  - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
+- Dysk systemu operacyjnego P30
+  - OPERACJE WE/WY: 5 000
+  - Buforowanie hosta: **Odczyt/zapis**
+- Dwa dyski z danymi P30 × 2
+  - OPERACJE WE/WY: 5 000
+  - Buforowanie hosta: **Odczyt/zapis**
+
+![Diagram przedstawiający przykład buforowania hosta.](media/vm-disk-performance/host-caching-example-without-remote.jpg)
+
+Aplikacja używa Standard_D8s_v3 maszyny wirtualnej z włączonym buforowaniem. Wysyła żądanie do 15 000 operacji we/wy na sekundę. Żądania są podzielone na 5 000 IOPS do każdego dołączonego dysku podstawowego. Nie ma żadnego pułapu wydajności.
 
 ## <a name="combined-uncached-and-cached-limits"></a>Połączone limity niebuforowane i pamięci podręcznej
 
-Limity buforowania maszyny wirtualnej są oddzielone od limitów pamięci podręcznych. Oznacza to, że można włączyć buforowanie hosta na dyskach dołączonych do maszyny wirtualnej, a także nie włączać buforowania hosta na innych dyskach, aby umożliwić maszynom wirtualnym pobieranie łącznej wartości we/wy magazynu w pamięci podręcznej oraz limitu niebuforowanego. Uruchommy na przykład, aby pomóc zwiększyć, jak te limity współpracują ze sobą, i będziemy kontynuować pracę z załączoną konfiguracją Standard_D8s_v3 maszyny wirtualnej i dysków w warstwie Premium.
+Limity pamięci podręcznej maszyny wirtualnej są oddzielone od limitów w pamięci podręcznej. Oznacza to, że można włączyć buforowanie hosta na dyskach dołączonych do maszyny wirtualnej bez włączania buforowania hosta na innych dyskach. Ta konfiguracja umożliwia maszynom wirtualnym pobieranie łącznej wartości we/wy magazynu w pamięci podręcznej i limitu braku pamięci podręcznej.
 
-Konfiguracja:
-- Standardowa_D8s_v3 
-    - Buforowane operacje we/wy: 16 000
-    - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
-- Dysk systemu operacyjnego P30 
-    - OPERACJE WE/WY: 5 000
-    - Buforowanie hosta: odczyt/zapis
-- 2 P30 dyski danych X 2
-    - OPERACJE WE/WY: 5 000
-    - Buforowanie hosta: odczyt/zapis
-- 2 P30 dyski danych X 2
-    - OPERACJE WE/WY: 5 000
-    - Buforowanie hosta: wyłączone
+Uruchommy przykład, aby pomóc zrozumieć, jak te limity współpracują ze sobą. Będziemy kontynuować pracę z załączoną konfiguracją Standard_D8s_v3 maszyny wirtualnej i dysków w warstwie Premium.
 
-![Przykład buforowania hosta z magazynem zdalnym](media/vm-disk-performance/host-caching-example-with-remote.jpg)
+**Instalator**
 
-Teraz aplikacja uruchomiona na Standard_D8s_v3 maszynie wirtualnej z programem wysyła żądanie do 25 000 operacji we/wy na sekundę. To żądanie jest podzielone na 5 000 IOPS dla każdego dysku bazowego, w którym 3 z tych dysków używa buforowania hosta i 2 dysków nie są. Ponieważ 3 użycie buforowania hosta należy do buforowanych limitów 16 000, te żądania zostały pomyślnie zakończone i nie ma żadnego limitu wydajności magazynu. Ponadto, ponieważ 2 dyski, które nie używają buforowania hosta, znajdują się w granicach niebuforowanych 12 800, te żądania również zostały wykonane pomyślnie i nie występują żadne pułapy.
+- Standardowa_D8s_v3
+  - Buforowane operacje we/wy: 16 000
+  - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
+- Dysk systemu operacyjnego P30
+  - OPERACJE WE/WY: 5 000
+  - Buforowanie hosta: **Odczyt/zapis**
+- Dwa dyski z danymi P30 × 2
+  - OPERACJE WE/WY: 5 000
+  - Buforowanie hosta: **Odczyt/zapis**
+- Dwa dyski z danymi P30 × 2
+  - OPERACJE WE/WY: 5 000
+  - Buforowanie hosta: **wyłączone**
 
-## <a name="metrics-for-disk-performance"></a>Metryki dotyczące wydajności dysków
-Mamy metryki na platformie Azure, które zapewniają wgląd w sposób działania maszyn wirtualnych i dysków. Te metryki mogą być wyświetlane wizualnie za pomocą Azure Portal lub mogą być pobierane za pomocą wywołania interfejsu API. Metryki są obliczane w odstępach jednej minuty. Następujące metryki są dostępne w celu uzyskania wglądu w dane dotyczące maszyn wirtualnych i operacji we/wy na dysku oraz wydajności przepływności:
-- **Głębokość kolejki dysku systemu operacyjnego** — liczba bieżących oczekujących żądań we/wy, które oczekują na odczytanie lub zapis na dysku systemu operacyjnego.
-- **Bajty odczytu z dysku systemu operacyjnego/s** — liczba bajtów odczytywanych w drugim z dysku systemu operacyjnego.
-- **Operacje odczytu z dysku systemu operacyjnego/s** — liczba operacji wejścia, które są odczytywane w drugim z dysku systemu operacyjnego.
-- **Bajty zapisu dysku systemu operacyjnego/s** — liczba bajtów napisanych w drugim z dysku systemu operacyjnego.
-- **Operacje zapisu na dysku systemu operacyjnego/s** — liczba operacji wyjściowych, które są zapisywane w drugim z dysku systemu operacyjnego.
-- **Głębokość kolejki dysku danych** — liczba bieżących oczekujących żądań we/wy, które oczekują na odczyt lub zapis na dyskach danych.
-- **Bajty odczytu dysku danych/s** — liczba bajtów odczytanych w s z dysku danych.
-- **Operacje odczytu z dysku danych/s** — liczba operacji wejścia, które są odczytywane w s z dysku danych.
-- **Bajty zapisu na dysku danych/s** — liczba bajtów napisanych w drugim z dysków danych.
-- **Operacje zapisu na dysku danych/s** — liczba operacji wyjściowych, które zostały zapisane w drugim z dysków danych.
-- **Bajty odczytu dysku/s** — łączna liczba bajtów, które są odczytywane w sekundę ze wszystkich dysków dołączonych do maszyny wirtualnej.
-- **Operacje odczytu z dysku/s** — liczba operacji wejścia, które są odczytywane w sekundę ze wszystkich dysków dołączonych do maszyny wirtualnej.
-- **Bajty zapisu dysku/s** — liczba bajtów napisanych w drugim ze wszystkich dysków dołączonych do maszyny wirtualnej.
-- **Operacje zapisu na dysku/s** — liczba operacji wyjściowych napisanych w drugim ze wszystkich dysków dołączonych do maszyny wirtualnej.
+![Diagram przedstawiający przykład buforowania hosta z magazynem zdalnym.](media/vm-disk-performance/host-caching-example-with-remote.jpg)
+
+W takim przypadku aplikacja uruchomiona na Standard_D8s_v3 maszynie wirtualnej wykonuje żądanie do 25 000 operacji we/wy na sekundę. Żądanie jest podzielone na 5 000 IOPS dla każdego z dołączonych dysków. Trzy dyski używają buforowania hosta, a dwa dyski nie używają buforowania hosta.
+
+- Ponieważ trzy dyski używające buforowania hosta znajdują się w pamięci podręcznej o limicie 16 000, te żądania zostały pomyślnie zakończone. Nie występuje żaden pułap wydajności magazynu.
+- Ponieważ dwa dyski, które nie używają buforowania hosta, znajdują się w granicach niebuforowanych 12 800, te żądania również zostały pomyślnie ukończone. Nie ma żadnego pułapek.
+
+## <a name="disk-performance-metrics"></a>Metryki wydajności dysku
+
+Mamy metryki na platformie Azure, które zapewniają wgląd w sposób działania maszyn wirtualnych i dysków. Te metryki można przeglądać za pomocą Azure Portal. Mogą być również pobierane za poorednictwem wywołania interfejsu API. Metryki są obliczane w odstępach jednej minuty. Następujące metryki są dostępne w celu uzyskania szczegółowych informacji na temat maszyn wirtualnych i operacji we/wy na dysku, a także wydajności przepływności:
+
+- **Głębokość kolejki dysku systemu operacyjnego**: liczba bieżących oczekujących żądań we/wy, które oczekują na odczytanie lub zapis na dysku systemu operacyjnego.
+- **Bajty odczytu z dysku systemu operacyjnego/s**: liczba bajtów odczytanych w drugim z dysku systemu operacyjnego.
+- **Operacje odczytu z dysku systemu operacyjnego/s**: liczba operacji wejściowych, które są odczytywane w drugim z dysku systemu operacyjnego.
+- **Bajty zapisu na dysku systemu operacyjnego/s**: liczba bajtów zapisanych w drugim z dysku systemu operacyjnego.
+- **Operacje zapisu na dysku systemu operacyjnego/s**: liczba operacji wyjściowych, które są zapisywane w drugim z dysku systemu operacyjnego.
+- **Głębokość kolejki dysku danych**: liczba bieżących oczekujących żądań we/wy, które oczekują na odczyt lub zapis na dyskach danych.
+- **Bajty odczytu z dysku danych/s**: liczba bajtów odczytanych w s z dysku danych.
+- **Operacje odczytu z dysku danych/s**: liczba operacji wejściowych, które są odczytywane w s z dysku danych.
+- **Bajty zapisu na dysku danych/s**: liczba bajtów zapisanych sekundowo z dysków danych.
+- **Operacje zapisu na dysku danych/s**: liczba operacji wyjściowych, które są zapisywane w s z dysku danych.
+- **Bajty odczytu dysku/s**: całkowita liczba bajtów odczytywanych w drugim ze wszystkich dysków dołączonych do maszyny wirtualnej.
+- **Operacje odczytu z dysku/s**: liczba operacji wejścia, które są odczytywane w sekundę ze wszystkich dysków dołączonych do maszyny wirtualnej.
+- **Bajty zapisu dysku/s**: liczba bajtów napisanych w drugim ze wszystkich dysków dołączonych do maszyny wirtualnej.
+- **Operacje zapisu na dysku/s**: liczba operacji wyjściowych, które są zapisywane w drugim ze wszystkich dysków dołączonych do maszyny wirtualnej.
 
 ## <a name="storage-io-utilization-metrics"></a>Metryki wykorzystania operacji we/wy magazynu
+
 Metryki pomagające zdiagnozować limitów operacji we/wy dysku:
-- **Procent zużywanych operacji we/wy dysku danych** — procent obliczony przez operacje we/wy na dysku danych wykonanych przez operacje we/wy na dysku danych zainicjowanych. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonej do limitu liczby IOPS dysku danych.
-- **Procent zużywanej przepustowości dysku danych** — wartość procentowa obliczona przez przepływność dysku danych ukończona w ramach przepływności dysku danych z zainicjowaną obsługą. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonej do limitu przepustowości dysku danych.
-- **Procent zużywanych** operacji we/wy dysku systemu operacyjnego — procent obliczony przez operacje we/wy dysku systemu operacyjnego zakończony przez operacje we/wy na dysku systemu operacyjnego. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach limitu liczby operacji we/wy na dysku systemu operacyjnego.
-- **Procent zużytej przepustowości dysku systemu operacyjnego** — wartość procentowa obliczona przez przepływność dysku systemu operacyjnego zakończona przez zainicjowaną przepływność dysku systemu operacyjnego. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach limitu przepustowości dysku systemu operacyjnego.
+
+- **Procent zużywanych operacji we/wy dysku danych**: procent obliczony przez operacje we/wy dysku danych wykonanych przez operacje we/wy na dysku danych zainicjowanych. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona w ramach limitu liczby operacji we/wy na dysku danych.
+- **Procent zużywanej przepustowości dysku danych**: procent obliczony przez przepływność dysku danych w ramach przepływności dysku danych z zainicjowaną obsługą. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona we/wy z ograniczenia przepustowości dysku danych.
+- **Procent zużytych operacji we/wy dysku systemu operacyjnego**: procent obliczony przez operacje we/wy dysku systemu operacyjnego wykonany przez operacje we/wy na dysku systemu operacyjnego. Jeśli ta kwota ma wartość 100%, uruchomiona aplikacja ma limit operacji we/wy na dysku systemu operacyjnego.
+- **Procent zużytej przepustowości dysku systemu operacyjnego**: wartość procentowa obliczona przez przepływność dysku systemu operacyjnego została zakończona przez zainicjowaną przepływność dysku systemu operacyjnego. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona w ramach limitu przepustowości dysku systemu operacyjnego.
 
 Metryki pomagające zdiagnozować limitów operacji we/wy maszyny wirtualnej:
-- **Procent użycia buforowanej** liczby operacji we/wy w trybie failover — wartość procentowa obliczona przez łączną liczbę IOPS zakończonych w ramach maksymalnego limitu liczby IOPS pamięci w trybie Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonego limitu liczby IOPS w pamięci podręcznej maszyny wirtualnej.
-- **Procent wykorzystania przepustowości w pamięci podręcznej maszyny** wirtualnej — wartość procentowa obliczona przez łączną przepływność dysku zakończyła się w maksymalnej przepływności pamięci podręcznej. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonej do limitu przepustowości pamięci podręcznej maszyny wirtualnej.
-- **Procent użycia operacji wejścia/wyjścia w pamięci podręcznej maszyny** wirtualnej — wartość procentowa obliczona przez łączną liczbę IOPS na maszynę wirtualną zakończyła się przez maksymalną wartość limitu liczby IOPS niebuforowanej maszyny wirtualnej. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonego limitu liczby IOPS niebuforowanej maszyny wirtualnej.
-- **Procent wykorzystania przepustowości niebuforowanej przez maszynę** wirtualną — wartość procentowa obliczona przez łączną przepływność dysku na maszynie wirtualnej została zakończona przez maksymalną przepływność maszyny wirtualnej, która została zainicjowana. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonej do limitu przepustowości dla maszyny wirtualnej.
+
+- **Procent zużytych operacji we/wy w pamięci podręcznej maszyny**wirtualnej: procent obliczony przez łączną liczbę IOPS zakończonych przez maksymalną liczbę IOPS w pamięci podręcznej Jeśli ta kwota wynosi od 100%, aplikacja jest uruchomiona we/wy ograniczonego limitu operacji wejścia/wyjścia pamięci maszyny wirtualnej.
+- **Procent zajętej pamięci podręcznej maszyny wirtualnej**: procent obliczony przez łączną przepływność dysku ukończoną przez maksymalną przepływność maszyny wirtualnej w pamięci podręcznej. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona we/wy ograniczonego limitu przepustowości w pamięci podręcznej maszyny wirtualnej.
+- **Procent zużytych operacji we/wy pamięci podręcznej maszyny**wirtualnej: procent obliczony przez łączną liczbę operacji we/wy na maszynach wirtualnych zakończonych maksymalną liczbą IOPS niebuforowanej maszyny wirtualnej. Jeśli ta kwota wynosi od 100%, aplikacja jest uruchomiona w ramach operacji we/wy z limitu liczby IOPS niebuforowanej maszyny wirtualnej.
+- **Procent wykorzystania przepustowości niebuforowanej przez maszynę**wirtualną: procent obliczony przez łączną przepływność dysku maszyny wirtualnej, która została zakończona przez maksymalną zainicjowaną przepływność maszyny wirtualnej. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona w ramach operacji we/wy ograniczonej do limitu przepustowości niebuforowanej maszyny wirtualnej.
 
 ## <a name="storage-io-utilization-metrics-example"></a>Przykład metryk użycia operacji we/wy magazynu
-Uruchommy Przykładowo, jak korzystać z nowych metryk użycia operacji we/wy magazynu, aby pomóc nam w debugowaniu, gdzie wąskie gardło w naszym systemie. Konfiguracja systemu ma dokładne znaczenie w poprzednim przykładzie, z wyjątkiem tego, że ten dysk systemu operacyjnego, który został dołączony, **nie** jest buforowany.
 
-Konfiguracja:
-- Standardowa_D8s_v3 
-    - Buforowane operacje we/wy: 16 000
-    - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
-- Dysk systemu operacyjnego P30 
-    - OPERACJE WE/WY: 5 000
-    - Buforowanie hosta: wyłączone
-- 2 P30 dyski danych X 2
-    - OPERACJE WE/WY: 5 000
-    - Buforowanie hosta: odczyt/zapis
-- 2 P30 dyski danych X 2
-    - OPERACJE WE/WY: 5 000
-    - Buforowanie hosta: wyłączone
+Uruchommy Przykładowo, jak korzystać z nowych metryk użycia operacji we/wy magazynu, aby pomóc nam w debugowaniu, gdzie wąskie gardło w naszym systemie. Konfiguracja systemu jest taka sama jak w poprzednim przykładzie, z wyjątkiem tego, że dołączony dysk systemu operacyjnego *nie* jest buforowany.
 
+**Instalator**
+
+- Standardowa_D8s_v3
+  - Buforowane operacje we/wy: 16 000
+  - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
+- Dysk systemu operacyjnego P30
+  - OPERACJE WE/WY: 5 000
+  - Buforowanie hosta: **wyłączone**
+- Dwa dyski z danymi P30 × 2
+  - OPERACJE WE/WY: 5 000
+  - Buforowanie hosta: **Odczyt/zapis**
+- Dwa dyski z danymi P30 × 2
+  - OPERACJE WE/WY: 5 000
+  - Buforowanie hosta: **wyłączone**

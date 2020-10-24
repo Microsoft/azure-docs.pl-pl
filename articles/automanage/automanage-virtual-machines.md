@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816822"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519660"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
 
@@ -58,7 +58,7 @@ Należy również pamiętać, że Autozarządzanie obsługuje tylko maszyny wirt
 
 Aby uzyskać pełną listę uczestniczących usług platformy Azure, a także ich obsługiwane profile konfiguracji, zobacz temat [Azure automanage Virtual Machines Best Practices](virtual-machines-best-practices.md) .
 
- Zostanie automatycznie dołączony do tych usług uczestniczących. Są one istotne dla naszych najlepszych rozwiązań, które można znaleźć w naszej [strukturze wdrożenia chmury](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management).
+ Zostanie automatycznie dołączony do tych usług uczestniczących. Są one istotne dla naszych najlepszych rozwiązań, które można znaleźć w naszej [strukturze wdrożenia chmury](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 W przypadku wszystkich tych usług będziemy automatycznie dołączać, konfigurować, monitorować do dryfowania i korygować w przypadku wykrycia dryfu.
 

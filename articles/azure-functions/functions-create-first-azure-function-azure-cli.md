@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b299f0bb13bb25fbc192f3d117be11ca1ce26586
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b457c3b0ec0f68dd6a8213fbebe7a2596bed4c2e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89145556"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519677"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji na platformie Azure, która odpowiada na żądania HTTP
 
@@ -82,7 +82,11 @@ func init LocalFunctionProj --powershell
 ```
 ::: zone-end    
 ::: zone pivot="programming-language-java"  
-W pustym folderze uruchom następujące polecenie, aby wygenerować projekt usługi Functions z [archetypu narzędzia Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Użyj `-DjavaVersion=11` , jeśli chcesz, aby działały w języku Java 11. Aby dowiedzieć się więcej, zobacz [wersje Java](functions-reference-java.md#java-versions). 
+W pustym folderze uruchom następujące polecenie, aby wygenerować projekt usługi Functions z [archetypu narzędzia Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). 
+
+> [!IMPORTANT]
+> + Użyj `-DjavaVersion=11` , jeśli chcesz, aby działały w języku Java 11. Aby dowiedzieć się więcej, zobacz [wersje Java](functions-reference-java.md#java-versions). 
+> + `JAVA_HOME`Aby można było ukończyć ten artykuł, zmienna środowiskowa musi być ustawiona na lokalizację instalacji poprawnej wersji JDK.
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
@@ -158,8 +162,6 @@ Ustawienia zasobów platformy Azure utworzonych na potrzeby hostowania aplikacji
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Możesz zmienić te ustawienia, aby kontrolować sposób tworzenia zasobów na platformie Azure, na przykład przez zmianę `runtime.os` z `windows` na `linux` przed początkowym wdrożeniem. Aby uzyskać pełną listę ustawień obsługiwanych przez wtyczkę Maven, zobacz [szczegóły konfiguracji](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
-
-Jeśli chcesz uruchomić aplikację funkcji w środowisku Java 11 zamiast Java 8, musisz ręcznie zaktualizować plik pom.xml przy użyciu wartości języka Java 11. Aby dowiedzieć się więcej, zobacz [wersje Java](functions-reference-java.md#java-versions). W przypadku uruchamiania w programie Java 11 upewnij się, że  
 
 #### <a name="functiontestjava"></a>FunctionTest. Java
 

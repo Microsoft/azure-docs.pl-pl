@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 38986c3f93856981e903ae93ed7788ae01fc6d5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8881adf39a315df7746dbce14dedcbee18ccf6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823585"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521054"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>Przekształcanie UNPIVOT w przepływie danych mapowania
 
@@ -28,27 +28,27 @@ Użyj wyrażenia UNPIVOT w przepływie danych mapowania ADF jako metody przekszt
 
 ![Przekształcanie UNPIVOT](media/data-flow/unpivot5.png "Opcje UNPIVOT 2")
 
-Najpierw ustaw kolumny, według których chcesz grupować dla agregacji tabeli przestawnej. Ustaw co najmniej jedną kolumnę do rozgrupowania przy użyciu znaku + obok listy kolumn.
+Najpierw ustaw kolumny, które chcesz rozgrupować według agregacji UNPIVOT. Ustaw co najmniej jedną kolumnę do rozgrupowania przy użyciu znaku + obok listy kolumn.
 
 ## <a name="unpivot-key"></a>Klucz UNPIVOT
 
 ![Przekształcanie UNPIVOT](media/data-flow/unpivot6.png "Opcje UNPIVOT 3")
 
-Klucz przestawny jest kolumną przestawianą przez ADF z wierszy do kolumny. Domyślnie każda unikatowa wartość w zestawie danych dla tego pola będzie przestawiana do kolumny. Można jednak opcjonalnie wprowadzić wartości z zestawu danych, który ma być przestawny na wartości kolumn.
+Klucz UNPIVOT jest kolumną przestawianą przez ADF z kolumny na wiersz. Domyślnie każda unikatowa wartość w zestawie danych dla tego pola będzie przestawiana do wiersza. Można jednak opcjonalnie wprowadzić wartości z zestawu danych, który ma być przestawny na wartości wierszy.
 
 ## <a name="unpivoted-columns"></a>Kolumny przestawiane
 
 ![Przekształcanie UNPIVOT](media/data-flow//unpivot7.png "Opcje (UNPIVOT) 4")
 
-Na koniec wybierz agregację, która ma być używana dla wartości przestawnych, i sposób, w jaki kolumny mają być wyświetlane w nowej projekcji wyjściowej z transformacji.
+Na koniec wybierz nazwę kolumny do przechowywania wartości przestawianych kolumn, które są przekształcone w wiersze.
 
-Obowiązkowe Można ustawić wzorzec nazewnictwa z prefiksem, środkową i sufiksem, który ma zostać dodany do każdej nowej kolumny Nazwa z wartości wierszy.
+Obowiązkowe Można upuścić wiersze z wartościami null.
 
-Na przykład przestawianie "Sales" według "region" po prostu daje nowe wartości kolumny na podstawie każdej wartości sprzedaży. Na przykład: "25", "50", "1000",... Jeśli jednak ustawisz wartość prefiksu "Sales", "Sales" zostanie poprzedzona wartościami.
+Na przykład SumCost jest nazwą kolumny, która jest wybierana w powyższym przykładzie.
 
 ![Obraz przedstawiający kolumny ZZ, dostawcy i owoce przed i po unipivot transformację przy użyciu kolumny owoce jako klucza unipivot.](media/data-flow/unpivot3.png)
 
-Ustawienie kolumny "normalny" spowoduje grupowanie wszystkich kolumn przestawnych z wartościami zagregowanymi. Ustawienie kolumn rozmieszczenia na "boczne" będzie odróżniać się od kolumn i wartości.
+Ustawienie kolumny "normalny" spowoduje grupowanie wszystkich nowych kolumn, które nie zostały przestawiane z jednej wartości. Ustawienie kolumn rozmieszczenia na "boczne" spowoduje grupowanie nowych kolumn, które nie są wystawiane, wygenerowanych na podstawie istniejącej kolumny.
 
 ![Przekształcanie UNPIVOT](media/data-flow//unpivot7.png "Opcje UNPIVOT 5")
 

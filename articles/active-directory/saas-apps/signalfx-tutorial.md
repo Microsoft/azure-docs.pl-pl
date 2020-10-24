@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 989b41d4fc55241a5fa75a0eed9ea8f4ebaeee67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fbc42864761360d252ed62cea1aef6f2937b599
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856827"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516073"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SignalFx
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę SignalFx z usługą Azur
 * Zezwól użytkownikom na automatyczne logowanie do SignalFx przy użyciu kont usługi Azure AD; lub
 * Zarządzaj kontami w jednej lokalizacji (Azure Portal).
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,7 +42,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Usługa SignalFx obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne
 * SignalFx obsługuje Inicjowanie obsługi użytkowników **just in Time**
-* Po skonfigurowaniu SignalFx można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu SignalFx można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="step-1-add-the-signalfx-application-in-azure"></a>Krok 1. Dodawanie aplikacji SignalFx na platformie Azure
 
@@ -144,7 +144,7 @@ Te instrukcje umożliwiają użytkownikom testowym korzystanie z rejestracji jed
 1. Obok pozycji **certyfikat (base64)** kliknij pozycję **Przekaż plik**, a następnie zlokalizuj plik **certyfikatu zakodowany algorytmem Base64** , który został wcześniej pobrany z Azure Portal.
 1. W obszarze **Identyfikator usługi Azure AD**wklej wartość **identyfikatora usługi Azure AD** skopiowaną wcześniej z Azure Portal. 
 1. W polu **adres URL metadanych Federacji**wklej wartość **adresu URL metadanych federacji aplikacji** skopiowaną wcześniej z Azure Portal. 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="step-7-test-sso"></a>Krok 7. Testowanie rejestracji jednokrotnej
 
@@ -156,7 +156,7 @@ Zapoznaj się z poniższymi informacjami dotyczącymi testowania logowania jedno
 
 * Po pierwszym zalogowaniu się nowego użytkownika testowego platforma Azure wymusi zmianę hasła. W takim przypadku proces logowania jednokrotnego nie zostanie ukończony; Użytkownik testowy zostanie skierowany do Azure Portal. Aby rozwiązać problem, Użytkownik testowy powinien zmienić hasło, a następnie przejść do strony logowania SignalFx lub do panelu dostępu i spróbować ponownie.
     * Po kliknięciu kafelka SignalFx w panelu dostępu należy automatycznie zalogować się do SignalFx. 
-        * Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+        * Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 * Dostęp do aplikacji SignalFx można uzyskać z panelu dostępu lub za pośrednictwem niestandardowej strony logowania przypisanej do organizacji. Użytkownik testowy powinien przetestować integrację, rozpoczynając od jednej z tych lokalizacji.
     * Użytkownik testowy może użyć poświadczeń utworzonych wcześniej w tym procesie dla **b. simon \@ contoso.com**.
@@ -169,12 +169,12 @@ Zapoznaj się z poniższymi informacjami dotyczącymi testowania logowania jedno
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
 - [Wypróbuj SignalFx z usługą Azure AD](https://aad.portal.azure.com/)

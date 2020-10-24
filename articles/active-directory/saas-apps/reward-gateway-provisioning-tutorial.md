@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f908e37c7785744c2f26b6a9cd542ccde228eb38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881be102a00badf1e03188b26514ad0eb1a9bd90
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255741"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520782"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie nagrody bramy dla automatycznej aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w ramach bramy z wynagrodzeniem i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup do nagradzania bramy.
 
 > [!NOTE]
-> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -118,7 +118,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy, aby uzyskać dostęp do bramy**.
 

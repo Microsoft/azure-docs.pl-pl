@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 60c5051b403d3072292a03c60d7cba95bd0cf1d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 918ba128eca8ebf8b452c0f1126e4b7e611542d8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740636"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514473"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Tworzenie i zarządzanie kluczami interfejsu API dla usługi Wyszukiwanie poznawcze platformy Azure
 
@@ -43,7 +43,7 @@ Do uzyskiwania dostępu do usługi wyszukiwania są używane dwa typy kluczy: ad
 
 Klucze dostępu można uzyskać w portalu lub za pomocą [interfejsu API REST zarządzania](/rest/api/searchmanagement/). Aby uzyskać więcej informacji, zobacz [Manage admin and Query API-Keys](search-security-api-keys.md).
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 2. Wyświetl listę [usług wyszukiwania](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  dla Twojej subskrypcji.
 3. Wybierz usługę i na stronie Przegląd kliknij pozycję **Ustawienia**  > **klucze** , aby wyświetlić klucze administratora i kwerendy.
 
@@ -55,7 +55,7 @@ Klucze zapytań są używane na potrzeby dostępu tylko do odczytu do dokumentó
 
 Ograniczanie dostępu i operacji w aplikacjach klienckich jest niezbędne do ochrony zasobów wyszukiwania w usłudze. Zawsze używaj klucza zapytania zamiast klucza administratora dla dowolnego zapytania pochodzącego z aplikacji klienckiej.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 2. Wyświetl listę [usług wyszukiwania](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  dla Twojej subskrypcji.
 3. Wybierz usługę i na stronie Przegląd kliknij pozycję **Ustawienia**  > **klucze**.
 4. Kliknij pozycję **Zarządzaj kluczami zapytań**.
@@ -95,6 +95,6 @@ Członkowie następujących ról mogą wyświetlać i ponownie generować klucze
 
 ## <a name="see-also"></a>Zobacz też
 
-+ [Kontrola dostępu oparta na rolach na platformie Azure Wyszukiwanie poznawcze](search-security-rbac.md)
++ [Kontrola dostępu oparta na rolach na platformie Azure na platformie Azure Wyszukiwanie poznawcze](search-security-rbac.md)
 + [Zarządzanie przy użyciu programu PowerShell](search-manage-powershell.md) 
 + [Artykuł poświęcony wydajności i optymalizacji](search-performance-optimization.md)

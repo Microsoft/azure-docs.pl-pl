@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/01/2018
+ms.date: 10/23/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bba8a0898c11cf1af150f4824d9bef5e9e03576e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370886"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514393"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Przywracanie lub usuwanie ostatnio usuniętego użytkownika przy użyciu Azure Active Directory
-Po usunięciu użytkownika konto pozostaje w stanie wstrzymania przez 30 dni. W tym 30-dniowym oknie można przywrócić konto użytkownika wraz ze wszystkimi jego właściwościami. Po upływie tego 30-dniowego okna użytkownik zostanie automatycznie i trwale usunięty.
+Po usunięciu użytkownika konto pozostaje w stanie wstrzymania przez 30 dni. W tym 30-dniowym oknie można przywrócić konto użytkownika wraz ze wszystkimi jego właściwościami. Po upływie tego 30-dniowego okna proces trwałego usuwania zostanie uruchomiony automatycznie.
 
 Możesz wyświetlić dostępnych użytkowników, przywrócić usuniętego użytkownika lub trwale usunąć użytkownika przy użyciu Azure Active Directory (Azure AD) w Azure Portal.
 
@@ -80,7 +80,7 @@ Można trwale usunąć użytkownika z organizacji bez czekania 30 dni na automat
     ![Strona użytkownicy usunięci użytkownicy z wyróżnioną opcją Usuń użytkownika](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Po przywróceniu lub usunięciu użytkowników można wykonywać następujące podstawowe procesy:
+Po przywróceniu lub usunięciu użytkowników można:
 
 - [Dodawanie lub usuwanie użytkowników](add-users-azure-active-directory.md)
 

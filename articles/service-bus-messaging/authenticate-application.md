@@ -3,12 +3,12 @@ title: Uwierzytelnianie aplikacji w celu uzyskania dostępu do Azure Service Bus
 description: Ten artykuł zawiera informacje o uwierzytelnianiu aplikacji przy użyciu Azure Active Directory w celu uzyskania dostępu do Azure Service Bus jednostek (kolejek, tematów itp.).
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064829"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518232"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Uwierzytelnianie i Autoryzowanie aplikacji przy użyciu Azure Active Directory dostępu do Azure Service Bus jednostek
 Azure Service Bus obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań Service Bus jednostek (kolejek, tematów, subskrypcji lub filtrów). Korzystając z usługi Azure AD, możesz użyć kontroli dostępu opartej na rolach (Azure RBAC), aby przyznać uprawnienia podmiotowi zabezpieczeń, który może być użytkownikiem, grupą lub jednostką usługi aplikacji. Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
@@ -131,7 +131,7 @@ Po zarejestrowaniu aplikacji i przyznaniu jej uprawnień do wysyłania/odbierani
 Aby zapoznać się z listą scenariuszy, w których są obsługiwane tokeny, zobacz sekcję [scenariusze](https://aka.ms/msal-net-scenarios) w [bibliotece Microsoft Authentication Library (MSAL) dla](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) repozytorium usługi .NET GitHub.
 
 ## <a name="sample-on-github"></a>Przykład w witrynie GitHub
-Zapoznaj się z poniższym przykładem w witrynie GitHub: [kontroli dostępu opartej na rolach dla Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). 
+Zapoznaj się z poniższym przykładem w witrynie GitHub: [kontroli dostępu opartej na rolach na platformie Azure dla Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). 
 
 Użyj opcji **logowania klucza tajnego klienta** , a nie opcji **logowania użytkownika interaktywnego** . Jeśli używasz opcji tajnego klienta, nie widzisz okna podręcznego. Aplikacja korzysta z identyfikatora dzierżawy i identyfikatora aplikacji na potrzeby uwierzytelniania. 
 

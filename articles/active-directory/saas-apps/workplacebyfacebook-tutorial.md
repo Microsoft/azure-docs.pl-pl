@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
-ms.openlocfilehash: fade4176cbbf432aabae4422553a3caf0235ebed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f20849e4085adcca909d990a2ae9fb7b9751220b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88526436"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520110"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z miejscem pracy w serwisie Facebook
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować miejsce pracy w usłudze Facebook
 * Zezwól użytkownikom na automatyczne logowanie do miejsca pracy przez serwis Facebook przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,7 +46,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Aplikacja Workplace by Facebook obsługuje **aprowizację just in time**
 * Aplikacja Workplace by Facebook obsługuje **[automatyczne aprowizowanie użytkowników](workplacebyfacebook-provisioning-tutorial.md)**
 * W miejscu pracy według aplikacji mobilnej Facebook można teraz skonfigurować usługę Azure AD w celu włączenia logowania jednokrotnego. W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
-* Po skonfigurowaniu miejsca pracy przez serwis Facebook można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Po skonfigurowaniu miejsca pracy przez serwis Facebook można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Dodawanie aplikacji Workplace by Facebook z galerii
 
@@ -208,7 +208,7 @@ W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje w aplika
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Workplace by Facebook w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Workplace by Facebook, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Workplace by Facebook w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Workplace by Facebook, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="test-sso-for-workplace-by-facebook-mobile"></a>Testowanie logowania jednokrotnego w miejscu pracy przez serwis Facebook (urządzenia przenośne)
 
@@ -234,14 +234,14 @@ Po kliknięciu kafelka Workplace by Facebook w panelu dostępu powinno nastąpi�
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Konfigurowanie aprowizacji użytkowników](workplacebyfacebook-provisioning-tutorial.md)
 
 - [Wypróbuj miejsce pracy w usłudze Facebook przy użyciu usługi Azure AD](https://aad.portal.azure.com)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać funkcje przy użyciu języka Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996494"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519626"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera Azure Functions Java
 
@@ -134,8 +134,6 @@ Poniżej przedstawiono wygenerowane `function.json` przez [platformę Azure-Func
 
 ## <a name="java-versions"></a>Wersje Java
 
-_Obsługa języka Java 11 jest obecnie w wersji zapoznawczej_
-
 Wersja języka Java używana podczas tworzenia aplikacji funkcji, na której działają funkcje na platformie Azure, jest określona w pliku pom.xml. Maven Archetype aktualnie generuje pom.xml dla języka Java 8, który można zmienić przed opublikowaniem. Wersja języka Java w pom.xml powinna być zgodna z wersją, w której aplikacja została opracowana lokalnie i przetestowana. 
 
 ### <a name="supported-versions"></a>Obsługiwane wersje
@@ -144,14 +142,14 @@ W poniższej tabeli przedstawiono bieżące obsługiwane wersje języka Java dla
 
 | Wersja funkcji | Wersje Java (Windows) | Wersje Java (Linux) |
 | ----- | ----- | --- |
-| wersji | 11 (wersja zapoznawcza)<br/>8 | 11 (wersja zapoznawcza)<br/>8 |
+| wersji | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | nie dotyczy |
 
 O ile nie zostanie określona wersja języka Java dla danego wdrożenia, Maven Archetype domyślnie język Java 8 podczas wdrażania na platformie Azure.
 
 ### <a name="specify-the-deployment-version"></a>Określ wersję wdrożenia
 
-Za pomocą parametru można kontrolować wersję języka Java wskazywaną przez Maven Archetype `-DjavaVersion` . Wartością tego parametru może być `8` lub `11` . Obsługa języka Java 11 jest obecnie dostępna w wersji zapoznawczej. 
+Za pomocą parametru można kontrolować wersję języka Java wskazywaną przez Maven Archetype `-DjavaVersion` . Wartością tego parametru może być `8` lub `11` . 
 
 Maven Archetype generuje pom.xml, który jest przeznaczony dla określonej wersji języka Java. Następujące elementy w pom.xml wskazują wersję języka Java do użycia:
 

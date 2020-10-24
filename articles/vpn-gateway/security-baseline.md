@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7604e8519e7ae8db255a0e033ca3df0bb941a845
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df3ae57652737acc2b23cda75ace361f0bb40340
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626262"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518189"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Podstawa zabezpieczeń platformy Azure dla VPN Gateway
 
@@ -178,7 +178,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
-**Wskazówki**: Kontrola dostępu oparta na ROLACH (RBAC) na platformie Azure umożliwia zarządzanie dostępem do zasobów platformy Azure za pomocą przypisań ról. Te role można przypisać do użytkowników, grup jednostek usługi i zarządzanych tożsamości. Istnieją wstępnie zdefiniowane wbudowane role dla niektórych zasobów i te role można spisować lub odpytać za pomocą narzędzi takich jak interfejs wiersza polecenia platformy Azure, Azure PowerShell lub Azure Portal.
+**Wskazówki**: Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure za pomocą przypisań ról. Te role można przypisać do użytkowników, grup jednostek usługi i zarządzanych tożsamości. Istnieją wstępnie zdefiniowane wbudowane role dla niektórych zasobów i te role można spisować lub odpytać za pomocą narzędzi takich jak interfejs wiersza polecenia platformy Azure, Azure PowerShell lub Azure Portal.
 
 - [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
@@ -310,7 +310,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
-**Wskazówki**: bramy sieci VPN mają dedykowane wystąpienia maszyn wirtualnych dla każdej sieci wirtualnej klienta. Zaimplementuj izolację przy użyciu oddzielnych sieci wirtualnych, subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem Azure Active Directory kontroli dostępu opartej na rolach.
+**Wskazówki**: bramy sieci VPN mają dedykowane wystąpienia maszyn wirtualnych dla każdej sieci wirtualnej klienta. Zaimplementuj izolację przy użyciu oddzielnych sieci wirtualnych, subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC).
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
 
@@ -362,11 +362,11 @@ Postępuj zgodnie z Azure Security Center zalecenia dotyczące szyfrowania podcz
 
 **Odpowiedzialność**: klient
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj usługi Azure AD RBAC do kontrolowania dostępu do danych i zasobów, w przeciwnym razie użyj metod kontroli dostępu specyficznych dla usług. Użyj wbudowanych ról kontroli dostępu opartej na rolach, takich jak właściciel, współautor lub współautor sieci, a następnie przypisz rolę do odpowiedniego zakresu. Przypisanie określonych uprawnień dla podzestawu możliwości sieci wirtualnej przez utworzenie roli niestandardowej i przypisanie określonych uprawnień wymaganych dla sieci wirtualnych, podsieci, bram sieci VPN, interfejsów sieciowych, sieciowych grup zabezpieczeń i tabel tras do roli.
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby kontroli dostępu do danych i zasobów, w przeciwnym razie użyj metod kontroli dostępu specyficznych dla usługi. Użyj wbudowanych ról, takich jak właściciel, współautor lub współautor sieci, a następnie przypisz rolę do odpowiedniego zakresu. Przypisanie określonych uprawnień dla podzestawu możliwości sieci wirtualnej przez utworzenie roli niestandardowej i przypisanie określonych uprawnień wymaganych dla sieci wirtualnych, podsieci, bram sieci VPN, interfejsów sieciowych, sieciowych grup zabezpieczeń i tabel tras do roli.
 
-- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
+- [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Planowanie sieci wirtualnych](../virtual-network/virtual-network-vnet-plan-design-arm.md#permissions)
 
@@ -532,7 +532,7 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 - [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](../security-center/recommendations-reference.md)
+- [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](../security-center/recommendations-reference.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

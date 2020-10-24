@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: a3a5834cd63351b9bf61dc97c8d6e14d430b6284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a52fc28d99e0f072323e5042257baec9bf98ecb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979700"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518386"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego z lokalnym programem SharePoint
 
@@ -133,7 +133,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu lokaln
     Uruchom następujące polecenia, aby skonfigurować nowego zaufanego dostawcę tożsamości.
 
     > [!TIP]
-    > Jeśli dopiero zaczynasz pracę z programem PowerShell lub chcesz dowiedzieć się więcej na temat tego, jak działa program PowerShell, zobacz [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps).
+    > Jeśli dopiero zaczynasz pracę z programem PowerShell lub chcesz dowiedzieć się więcej na temat tego, jak działa program PowerShell, zobacz [SharePoint PowerShell](/powershell/sharepoint/overview?view=sharepoint-ps).
 
 
     ```
@@ -154,7 +154,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu lokaln
 
     1. Wybierz pozycję **zaufany dostawca tożsamości**i wybierz pozycję Zidentyfikuj zarejestrowanego dostawcę o nazwie *AzureAD*.
 
-    1. Kliknij przycisk **OK**.
+    1. Wybierz przycisk **OK**.
 
     ![Konfigurowanie dostawcy uwierzytelniania](./media/sharepoint-on-premises-tutorial/config-auth-provider.png)
 
@@ -287,4 +287,4 @@ Mogą istnieć inne scenariusze, w których chcesz zapewnić dostęp do lokalneg
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu lokalnego programu SharePoint można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Po skonfigurowaniu lokalnego programu SharePoint można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

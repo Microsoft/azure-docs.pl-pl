@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: Zhchia
-ms.openlocfilehash: 123f35154c3b87ff1ed479084f5e9dfa35043b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe48cef0fb235d217f95012e81d7daf501928300
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287225"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518572"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie oprogramowania OfficeSpace na potrzeby automatycznego aprowizacji użytkowników
 
@@ -89,7 +89,7 @@ Przed skonfigurowaniem oprogramowania OfficeSpace na potrzeby automatycznego apr
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w oprogramowaniu OfficeSpace na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML dla oprogramowania OfficeSpace, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-tutorial)jednokrotne w programie OfficeSpace. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
+> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML dla oprogramowania OfficeSpace, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](./officespace-tutorial.md)jednokrotne w programie OfficeSpace. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje uzupełniają się wzajemnie.
 
 ### <a name="to-configure-automatic-user-provisioning-for-officespace-software-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników dla oprogramowania OfficeSpace w usłudze Azure AD:
 
@@ -117,7 +117,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników, aby OfficeSpace oprogramowanie**.
 
@@ -153,4 +153,3 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
-

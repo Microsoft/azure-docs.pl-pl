@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: e69b6aa5518f83dbbeba34d70b459c781b50dc9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a7c2634f4dc06e3c988a48c7ca15294160759e2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299999"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520731"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie działania automatycznej aprowizacji użytkowników
 
@@ -89,7 +89,7 @@ Przed skonfigurowaniem działania automatycznej aprowizacji użytkowników w us�
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w systemie, w zależności od przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial)jednokrotne. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem
+> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](./robin-tutorial.md)jednokrotne. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem
 
 ### <a name="to-configure-automatic-user-provisioning-for-robin-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla działania w usłudze Azure AD:
 
@@ -117,7 +117,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do**działania.
 
@@ -163,4 +163,3 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
-

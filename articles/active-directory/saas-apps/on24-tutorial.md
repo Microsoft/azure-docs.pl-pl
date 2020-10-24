@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 30fd3843b50ac6b075d33e961986b94ee2496fef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944468"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518522"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Samouczek: integracja Azure Active Directory z połączeniem SAML środowiska wirtualnego ON24
 
@@ -27,7 +27,7 @@ Integrowanie połączenia SAML środowiska wirtualnego ON24 z usługą Azure AD 
 * Możesz pozwolić użytkownikom na automatyczne logowanie się, aby ON24 wirtualne połączenie SAML środowiska (Logowanie jednokrotne) przy użyciu swoich kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -195,7 +195,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -225,19 +225,18 @@ Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logow
 
 ### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>Utwórz użytkownika testowego połączenia SAML środowiska wirtualnego ON24
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w ramach połączenia SAML środowiska wirtualnego ON24. Współpracuj z [zespołem obsługi połączeń SAML środowiska wirtualnego ON24](https://www.on24.com/about-us/support/) , aby dodać użytkowników z platformy wirtualnej usługi ON24 środowiska wirtualnego. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w ramach połączenia SAML środowiska wirtualnego ON24. Współpracuj z [zespołem obsługi połączeń SAML środowiska wirtualnego ON24](https://www.on24.com/about-us/support/) , aby dodać użytkowników z platformy wirtualnej usługi ON24 środowiska wirtualnego. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka połączenie SAML środowiska wirtualnego ON24 w panelu dostępu należy automatycznie zalogować się do połączenia SAML środowiska wirtualnego ON24, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka połączenie SAML środowiska wirtualnego ON24 w panelu dostępu należy automatycznie zalogować się do połączenia SAML środowiska wirtualnego ON24, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

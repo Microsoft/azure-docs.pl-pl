@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: c2f2e86a3080b0edfcb0a699ac9b3a78ee1b5a52
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940824"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519422"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Samouczek: integracja logowania jednokrotnego w usłudze Azure AD z pakietem
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować pakiet z usługą Azure Active Di
 * Zezwól użytkownikom na automatyczne logowanie do pakietu z użyciem kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji, Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -44,7 +44,7 @@ Pakiet servicesuite obsługuje:
 * Zainicjowane przez dostawcy tożsamości Logowanie jednokrotne.
 * Inicjowanie obsługi administracyjnej użytkowników w trybie JIT (just-in-Time).
 * [Automatyczne Inicjowanie obsługi użytkowników](NetSuite-provisioning-tutorial.md).
-* Po skonfigurowaniu pakietu można wymusić kontrolki sesji, które chronią eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Po skonfigurowaniu pakietu można wymusić kontrolki sesji, które chronią eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Ponieważ identyfikator tej aplikacji jest stałą wartością ciągu, można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
@@ -258,14 +258,14 @@ W tej sekcji użytkownik o nazwie B. Simon został utworzony w pakiecie. Aplikac
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po wybraniu kafelka pakietu w panelu dostępu należy automatycznie zalogować się do pakietu, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka pakietu w panelu dostępu należy automatycznie zalogować się do pakietu, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 - [Wypróbuj pakiet z usługą Azure AD](https://aad.portal.azure.com/)
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić pakiet za pomocą zaawansowanej widoczności i kontroli](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić pakiet za pomocą zaawansowanej widoczności i kontroli](/cloud-app-security/proxy-intro-aad)

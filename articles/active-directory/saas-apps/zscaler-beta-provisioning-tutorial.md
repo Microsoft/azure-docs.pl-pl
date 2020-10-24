@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 71b40fe903e5a837046b9b29f62ef4875e3139e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 001d139e7fc140f41fa94ea0c6f32d0b08036a9a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545921"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519780"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler beta dla automatycznej aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w rozwiązania Zscaler beta i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup w programie rozwiązania Zscaler beta.
 
 > [!NOTE]
-> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 
 
@@ -66,7 +66,7 @@ Azure Active Directory używa koncepcji o nazwie "przydziały", aby określić, 
 
 Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do rozwiązania Zscaler beta. Po ustaleniu tych użytkowników i/lub grup można przypisywać do rozwiązania Zscaler beta, postępując zgodnie z poniższymi instrukcjami:
 
-* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-beta"></a>Ważne porady dotyczące przypisywania użytkowników do programu rozwiązania Zscaler beta
 
@@ -119,7 +119,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Inicjowanie obsługi wersji beta rozwiązania Zscaler](./media/zscaler-beta-provisioning-tutorial/notification.png)
 
-9. Kliknij przycisk **Zapisz**.
+9. Kliknij pozycję **Zapisz**.
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby rozwiązania Zscaler wersję beta**.
 
@@ -137,7 +137,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Inicjowanie obsługi wersji beta rozwiązania Zscaler](./media/zscaler-beta-provisioning-tutorial/group-attribute-mappings.png)
 
-14. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](./../active-directory-saas-scoping-filters.md).
+14. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. Aby włączyć usługę Azure AD Provisioning for rozwiązania Zscaler beta, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
@@ -153,7 +153,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w programie rozwiązania Zscaler beta.
 
-Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../active-directory-saas-provisioning-reporting.md).
+Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
@@ -162,7 +162,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../active-directory-saas-provisioning-reporting.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-beta-provisioning-tutorial/tutorial-general-01.png

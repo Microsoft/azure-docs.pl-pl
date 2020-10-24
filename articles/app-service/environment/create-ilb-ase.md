@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: baf528e1b4ab7e323b69574729669d09692741cc
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148152"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503525"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Tworzenie i używanie wewnętrznego Load Balancer App Service Environment 
 
@@ -104,22 +104,22 @@ W przypadku korzystania z zewnętrznego środowiska ASE aplikacje utworzone w ś
 
 Aby skonfigurować system DNS na własnym serwerze DNS przy użyciu środowiska ILB ASE:
 
-1. Tworzenie strefy dla elementu <ASE name> . appserviceenvironment.NET
+1. Utwórz strefę dla &lt; nazwy środowiska ASE &gt; . appserviceenvironment.NET
 2. Utwórz rekord A w tej strefie, który wskazuje * na adres IP ILB
 3. Utwórz rekord A w tej strefie, który wskazuje na ILB adres IP
-4. Tworzenie strefy w programie <ASE name> . appserviceenvironment.NET o nazwie SCM
+4. Utwórz strefę w programie &lt; ASE Name &gt; . appserviceenvironment.NET o nazwie SCM
 5. Utwórz rekord A w strefie SCM, który wskazuje * na adres IP ILB
 
 Aby skonfigurować serwer DNS w Azure DNS strefach prywatnych:
 
-1. Utwórz Azure DNS strefę prywatną o nazwie <ASE name> . appserviceenvironment.NET
+1. Utwórz strefę prywatną Azure DNS o nazwie &lt; ASE Name &gt; . appserviceenvironment.NET
 2. Utwórz rekord A w tej strefie, który wskazuje * na adres IP ILB
 3. Utwórz rekord A w tej strefie, który wskazuje na ILB adres IP
 4. Utwórz rekord A w tej strefie, który wskazuje *. SCM na adres IP ILB
 
-Ustawienia DNS dla domyślnego sufiksu domeny środowiska ASE nie ograniczają aplikacji do dostępu do tych nazw. Możesz ustawić niestandardową nazwę domeny bez żadnej weryfikacji w aplikacjach w środowisku ILB ASE. Jeśli chcesz utworzyć strefę o nazwie contoso.net, możesz to zrobić i wskazać adres IP ILB. Niestandardowa nazwa domeny działa w przypadku żądań aplikacji, ale nie dla witryny SCM. Witryna SCM jest dostępna tylko pod adresem <appname> . SCM. <asename> .. appserviceenvironment.net.
+Ustawienia DNS dla domyślnego sufiksu domeny środowiska ASE nie ograniczają aplikacji do dostępu do tych nazw. Możesz ustawić niestandardową nazwę domeny bez żadnej weryfikacji w aplikacjach w środowisku ILB ASE. Jeśli chcesz utworzyć strefę o nazwie contoso.net, możesz to zrobić i wskazać adres IP ILB. Niestandardowa nazwa domeny działa w przypadku żądań aplikacji, ale nie dla witryny SCM. Witryna SCM jest dostępna tylko w witrynie &lt; nazwa_aplikacji &gt; . SCM. &lt; asename &gt; . appserviceenvironment.NET.
 
-Strefa o nazwie. <asename> . appserviceenvironment.net jest globalnie unikatowy. Przed 2019 maja klienci mogli określić sufiks domeny ILB ASE. Jeśli chcesz użyć. contoso.com dla sufiksu domeny, możesz to zrobić, aby uwzględnić witrynę SCM. Istniały problemy związane z tym modelem, w tym: Zarządzanie domyślnym certyfikatem SSL, brakiem logowania jednokrotnego w witrynie SCM oraz wymaganie użycia certyfikatu wieloznacznego. Proces uaktualniania domyślnego certyfikatu programu ILB ASE został również zakłócony i spowodowało ponowne uruchomienie aplikacji. Aby rozwiązać te problemy, zachowanie ILB ASE zostało zmienione tak, aby używało sufiksu domeny na podstawie nazwy środowiska ASE i z sufiksem własności firmy Microsoft. Zmiana zachowania środowiska ILB ASE ma wpływ tylko na ILB środowisk ASE wykonane po 2019 maja. Wcześniej istniejące ILB środowisk ASE muszą nadal zarządzać domyślnym certyfikatem środowiska ASE i ich konfiguracją DNS.
+Strefa o nazwie. &lt; asename &gt; . appserviceenvironment.NET jest globalnie unikatowy. Przed 2019 maja klienci mogli określić sufiks domeny ILB ASE. Jeśli chcesz użyć. contoso.com dla sufiksu domeny, możesz to zrobić, aby uwzględnić witrynę SCM. Istniały problemy związane z tym modelem, w tym: Zarządzanie domyślnym certyfikatem SSL, brakiem logowania jednokrotnego w witrynie SCM oraz wymaganie użycia certyfikatu wieloznacznego. Proces uaktualniania domyślnego certyfikatu programu ILB ASE został również zakłócony i spowodowało ponowne uruchomienie aplikacji. Aby rozwiązać te problemy, zachowanie ILB ASE zostało zmienione tak, aby używało sufiksu domeny na podstawie nazwy środowiska ASE i z sufiksem własności firmy Microsoft. Zmiana zachowania środowiska ILB ASE ma wpływ tylko na ILB środowisk ASE wykonane po 2019 maja. Wcześniej istniejące ILB środowisk ASE muszą nadal zarządzać domyślnym certyfikatem środowiska ASE i ich konfiguracją DNS.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publikowanie za pomocą środowiska ASE z wewnętrznym modułem równoważenia obciążenia
 
@@ -141,7 +141,7 @@ Aby dowiedzieć się więcej o sposobie konfigurowania ILB ASE za pomocą urząd
 
 ILB środowisk ASE, które zostały wprowadzone przed 2019 maja, wymagały ustawienia sufiksu domeny podczas tworzenia środowiska ASE. Wymagały one również przekazania domyślnego certyfikatu opartego na tym sufiksie domeny. Ponadto przy użyciu starszej wersji ILB ASE nie można przeprowadzić logowania jednokrotnego do konsoli kudu z aplikacjami w tym ILB ASE. Podczas konfigurowania systemu DNS dla starszej wersji środowiska ILB ASE należy ustawić symbol wieloznaczny A rekordu w strefie, która pasuje do sufiksu domeny. 
 
-## <a name="get-started"></a>Rozpoczęcie pracy ##
+## <a name="get-started"></a>Wprowadzenie ##
 
 * Aby rozpocząć pracę ze środowiskami ASE, zobacz [Wprowadzenie do środowisk App Service Environment][Intro]. 
 

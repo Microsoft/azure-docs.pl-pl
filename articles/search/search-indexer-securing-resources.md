@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101260"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503491"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Dostęp indeksatora do zawartości chronionej przez funkcje zabezpieczeń sieci platformy Azure (Azure Wyszukiwanie poznawcze)
 
@@ -46,7 +46,7 @@ Klienci mogą zabezpieczyć te zasoby za pomocą kilku mechanizmów izolacji sie
 | Azure Functions | Obsługiwane | Obsługiwane tylko w przypadku niektórych warstw usługi Azure Functions |
 
 > [!NOTE]
-> Oprócz opcji wymienionych powyżej w przypadku kont usługi Azure Storage zabezpieczonych za pomocą sieci klienci mogą korzystać z faktu, że usługa Azure Wyszukiwanie poznawcze jest [zaufaną usługą firmy Microsoft](../storage/common/storage-network-security.md#trusted-microsoft-services). Oznacza to, że określona usługa wyszukiwania może pominąć ograniczenia sieci wirtualnej lub protokołu IP na koncie magazynu i uzyskać dostęp do danych na koncie magazynu, jeśli na koncie magazynu jest włączona odpowiednia kontrola dostępu oparta na rolach. Aby uzyskać więcej informacji, zobacz [indeksatory połączeń przy użyciu wyjątku usługi zaufanej](search-indexer-howto-access-trusted-service-exception.md). Tej opcji można użyć zamiast trasy ograniczenia IP, na wypadek gdy konto magazynu lub usługa wyszukiwania nie może zostać przeniesione do innego regionu.
+> Oprócz opcji wymienionych powyżej w przypadku kont usługi Azure Storage zabezpieczonych za pomocą sieci klienci mogą korzystać z faktu, że usługa Azure Wyszukiwanie poznawcze jest [zaufaną usługą firmy Microsoft](../storage/common/storage-network-security.md#trusted-microsoft-services). Oznacza to, że określona usługa wyszukiwania może ominąć ograniczenia sieci wirtualnej lub protokołu IP na koncie magazynu i uzyskać dostęp do danych na koncie magazynu, jeśli na koncie magazynu jest włączona odpowiednia kontrola dostępu oparta na rolach. Aby uzyskać więcej informacji, zobacz [indeksatory połączeń przy użyciu wyjątku usługi zaufanej](search-indexer-howto-access-trusted-service-exception.md). Tej opcji można użyć zamiast trasy ograniczenia IP, na wypadek gdy konto magazynu lub usługa wyszukiwania nie może zostać przeniesione do innego regionu.
 
 Podczas wybierania mechanizmu bezpiecznego dostępu, którego indeksator powinien używać, należy wziąć pod uwagę następujące ograniczenia:
 
@@ -87,7 +87,7 @@ Ta funkcja jest dostępna tylko w usługach wyszukiwania do rozliczeń, z ograni
 
 Klienci powinni wywoływać operację zarządzania wyszukiwaniem, [interfejs API metodę createorupdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) dla **zasobu udostępnionego linku prywatnego**, aby utworzyć połączenie prywatnego punktu końcowego z bezpiecznym zasobem (na przykład konto magazynu). Ruch przesyłany przez to (wychodzące) połączenie z prywatnym punktem końcowym będzie pochodzić tylko z sieci wirtualnej, która znajduje się w określonym środowisku wykonywania indeksatora "Private" usługi wyszukiwania.
 
-Usługa Azure Wyszukiwanie poznawcze sprawdzi, czy wywołujący ten interfejs API mają uprawnienia RBAC do zatwierdzania żądań połączeń prywatnych punktów końcowych do bezpiecznego zasobu. Jeśli na przykład zażądasz prywatnego połączenia punktu końcowego z kontem magazynu z uprawnieniami tylko do odczytu, to wywołanie zostanie odrzucone.
+Usługa Azure Wyszukiwanie poznawcze sprawdzi, czy wywołujący ten interfejs API mają uprawnienia kontroli dostępu do usługi Azure RBAC do zatwierdzania żądań połączeń prywatnych punktów końcowych do bezpiecznego zasobu. Jeśli na przykład zażądasz prywatnego połączenia punktu końcowego z kontem magazynu z uprawnieniami tylko do odczytu, to wywołanie zostanie odrzucone.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Krok 2. Zatwierdź połączenie prywatnego punktu końcowego
 

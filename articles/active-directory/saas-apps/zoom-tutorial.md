@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.openlocfilehash: d257935aa3e9ad54b64b0f416119931661809172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b4484b9bb235b24d2b733c329b52ab6b04be183
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545968"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519830"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu narzędzia Zoom
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować powiększenie z Azure Active Dire
 * Umożliwia użytkownikom automatyczne logowanie się w celu powiększania przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * Powiększenie obsługuje logowanie jednokrotne w programie **SP** i 
-* Powiększenie obsługuje [ **zautomatyzowane** Inicjowanie obsługi użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial).
+* Powiększenie obsługuje [ **zautomatyzowane** Inicjowanie obsługi użytkowników](./zoom-provisioning-tutorial.md).
 
 ## <a name="adding-zoom-from-the-gallery"></a>Dodawanie aplikacji Zoom z galerii
 
@@ -96,7 +96,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Aby dowiedzieć się, jak skonfigurować rolę w usłudze Azure AD, zobacz [Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+> Aby dowiedzieć się, jak skonfigurować rolę w usłudze Azure AD, zobacz [Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](../develop/active-directory-enterprise-app-role-management.md).
 
 > [!NOTE]
 > Powiększenie może oczekiwać wystąpienia grupy w ładunku SAML. Jeśli zostały utworzone wszystkie grupy, skontaktuj się z [zespołem pomocy technicznej powiększenia klienta](https://support.zoom.us/hc/) z informacjami o grupie, aby można było skonfigurować informacje o grupie na ich końcu. Należy również podać identyfikator obiektu, aby [powiększyć zespół obsługi klienta](https://support.zoom.us/hc/) , aby mógł on skonfigurować identyfikator obiektu na końcu. Aby uzyskać identyfikator obiektu, zobacz [Konfigurowanie powiększenia z platformą Azure](https://support.zoom.us/hc/articles/115005887566).
@@ -170,7 +170,7 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
 
 ### <a name="create-zoom-test-user"></a>Tworzenie użytkownika testowego aplikacji Zoom
 
-Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w powiększeniu. Powiększenie obsługuje automatyczne Inicjowanie obsługi użytkowników, które domyślnie jest włączone. Więcej szczegółów dotyczących konfigurowania automatycznego inicjowania obsługi użytkowników można znaleźć [tutaj](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial).
+Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w powiększeniu. Powiększenie obsługuje automatyczne Inicjowanie obsługi użytkowników, które domyślnie jest włączone. Więcej szczegółów dotyczących konfigurowania automatycznego inicjowania obsługi użytkowników można znaleźć [tutaj](./zoom-provisioning-tutorial.md).
 
 > [!NOTE]
 > Jeśli musisz ręcznie utworzyć użytkownika, musisz skontaktować się z [zespołem pomocy technicznej powiększenia klienta](https://support.zoom.us/hc/)
@@ -179,14 +179,14 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w powiększeniu.
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Zoom w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Zoom, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Zoom w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Zoom, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Spróbuj powiększyć w usłudze Azure AD](https://aad.portal.azure.com/)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a8fe24e5fa1935b2363ed5d2c15c72af8af11ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad6a4d075ea861068ad0c929d92cd2f12efa6121
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88539763"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Samouczek: integracja Azure Active Directory z usługą Signagelive
 
@@ -27,7 +27,7 @@ Integrowanie platformy Signagelive z usługą Azure AD zapewnia następujące ko
 * Możesz umożliwić użytkownikom automatyczne logowanie się do usługi Signagelive (Logowanie jednokrotne) przy użyciu kont w usłudze Azure AD.
 * Kontami można zarządzać w jednej centralnej lokalizacji: Azure Portal.
 
-Aby uzyskać więcej informacji na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+Aby uzyskać więcej informacji na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -177,19 +177,18 @@ W tej sekcji udostępnisz użytkownikowi Britta Simon możliwość korzystania z
 
 ### <a name="create-a-signagelive-test-user"></a>Tworzenie użytkownika testowego Signagelive
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon na platformie Signagelive. Współpracuj z [zespołem pomocy technicznej Signagelive](mailto:support@signagelive.com) , aby dodać użytkowników z platformy Signagelive. Przed użyciem logowania jednokrotnego należy utworzyć i aktywować użytkowników.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon na platformie Signagelive. Współpracuj z [zespołem pomocy technicznej Signagelive](mailto:support@signagelive.com) , aby dodać użytkowników z platformy Signagelive. Przed użyciem logowania jednokrotnego należy utworzyć i aktywować użytkowników.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu aplikacji.
 
-Po wybraniu kafelka **Signagelive** w portalu aplikacji należy automatycznie zalogować się. Aby uzyskać więcej informacji na temat portalu aplikacji, zobacz [co to jest portal usługi webapps?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Po wybraniu kafelka **Signagelive** w portalu aplikacji należy automatycznie zalogować się. Aby uzyskać więcej informacji na temat portalu aplikacji, zobacz [co to jest portal usługi webapps?](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

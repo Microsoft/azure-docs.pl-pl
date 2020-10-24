@@ -3,12 +3,12 @@ title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 511706e0de2737feb259c0ff9529373ab8b6d026
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495222"
+ms.locfileid: "92518028"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -42,13 +42,13 @@ Aby uzyskać więcej informacji na temat warstw cenowych, w tym Event Hubs — w
 
 Usługa Azure Event Hubs jest dostępna we wszystkich obsługiwanych regionach platformy Azure. Listę można znaleźć na stronie [regionów świadczenia usługi Azure](https://azure.microsoft.com/regions/) .  
 
-### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>Czy można używać jednego połączenia AMQP do wysyłania i odbierania z wielu centrów zdarzeń?
+### <a name="can-i-use-a-single-advanced-message-queuing-protocol-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>Czy można używać jednego połączenia Advanced Message Queuing Protocol (AMQP) do wysyłania i odbierania z wielu centrów zdarzeń?
 
 Tak, o ile wszystkie Centra zdarzeń znajdują się w tej samej przestrzeni nazw.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Jaki jest maksymalny okres przechowywania zdarzeń?
 
-Warstwa standardowa Event Hubs obecnie obsługuje maksymalny okres przechowywania wynoszący siedem dni. Centra zdarzeń nie są przeznaczone do stałego magazynu danych. Okresy przechowywania powyżej 24 godzin są przeznaczone dla scenariuszy, w których wygodne jest ponowne odtworzenie strumienia zdarzeń w tych samych systemach; na przykład, aby przeprowadzić uczenie lub zweryfikować nowy model uczenia maszynowego na istniejących danych. Jeśli potrzebujesz przechowywania komunikatów przez siedem dni, włączenie [funkcji przechwytywania Event Hubs](event-hubs-capture-overview.md) w centrum zdarzeń powoduje pobranie danych z centrum zdarzeń do konta magazynu lub konta usługi Azure Data Lake. Włączenie funkcji przechwytywania spowoduje naliczenie opłaty na podstawie zakupionych jednostek przepływności.
+Warstwa standardowa Event Hubs obecnie obsługuje maksymalny okres przechowywania wynoszący siedem dni. Centra zdarzeń nie są przeznaczone do stałego magazynu danych. Okresy przechowywania powyżej 24 godzin są przeznaczone dla scenariuszy, w których jest wygodne powtarzanie strumienia zdarzeń w tych samych systemach. Na przykład, aby przeprowadzić uczenie lub zweryfikować nowy model uczenia maszynowego na istniejących danych. Jeśli potrzebujesz przechowywania komunikatów przez siedem dni, włączenie [funkcji przechwytywania Event Hubs](event-hubs-capture-overview.md) w centrum zdarzeń powoduje pobranie danych z centrum zdarzeń do konta magazynu lub konta usługi Azure Data Lake. Włączenie funkcji przechwytywania spowoduje naliczenie opłaty na podstawie zakupionych jednostek przepływności.
 
 Możesz skonfigurować okres przechowywania danych przechwyconych na koncie magazynu. Funkcja **zarządzania cyklem życia** usługi Azure Storage oferuje rozbudowane zasady oparte na regułach dla kont ogólnego przeznaczenia w wersji 2 i BLOB Storage. Użyj zasad, aby przenieść dane do odpowiednich warstw dostępu lub wygasnąć po zakończeniu cyklu życia danych. Aby uzyskać więcej informacji, zobacz [Zarządzanie cyklem życia usługi Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md). 
 
@@ -61,7 +61,7 @@ Usługa Azure Event Hubs przechowuje dane klientów. Te dane są automatycznie p
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Jakie porty muszę otworzyć na zaporze? 
 Za pomocą następujących protokołów można Azure Service Bus wysyłać i odbierać komunikaty:
 
-- Zaawansowane usługi kolejkowania Protocol (AMQP)
+- AMQP
 - HTTP
 - Apache Kafka
 
@@ -105,7 +105,7 @@ Jeśli używasz **nadmiarowości strefy** dla przestrzeni nazw, musisz wykonać 
 ### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Gdzie można znaleźć adresy IP klienta wysyłające lub otrzymujące komunikaty do mojej przestrzeni nazw?
 Najpierw włącz [filtrowanie adresów IP](event-hubs-ip-filtering.md) w przestrzeni nazw. 
 
-Następnie Włącz dzienniki diagnostyczne dla [zdarzeń połączeń sieci wirtualnej Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) , wykonując instrukcje podane w temacie [Włączanie dzienników diagnostycznych](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Zostanie wyświetlony adres IP, dla którego nastąpi odmowa połączenia.
+Następnie Włącz dzienniki diagnostyczne dla [zdarzeń połączeń sieci wirtualnej Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) , wykonując instrukcje podane w temacie [Włączanie dzienników diagnostycznych](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Zobaczysz adres IP, dla którego odmówiono nawiązania połączenia.
 
 ```json
 {
@@ -128,12 +128,23 @@ Event Hubs udostępnia punkt końcowy Kafka, który może być używany przez is
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>Jakie zmiany konfiguracji należy wykonać, aby moja istniejąca aplikacja mogła komunikować się z Event Hubs?
 Aby połączyć się z centrum zdarzeń, należy zaktualizować konfiguracje klienta Kafka. Jest to realizowane przez utworzenie przestrzeni nazw Event Hubs i uzyskanie [parametrów połączenia](event-hubs-get-connection-string.md). Zmień wartość Bootstrap. Servers, aby wskazywała Event Hubs FQDN i port do 9093. Zaktualizuj sasl.jaas.config, aby skierować klienta Kafka do punktu końcowego Event Hubs (czyli uzyskanych parametrów połączenia) z prawidłowym uwierzytelnianiem, jak pokazano poniżej:
 
-Bootstrap. servers = {Twoje. EVENTHUBS. FQDN}: 9093 Request. Timeout. ms = 60 000 Security. Protocol = SASL_SSL SASL. mechanizm = zwykła sasl.jaas.config= org. Apache. Kafka. Common. Security. Plains. PlainLoginModule wymagana nazwa użytkownika = "$ConnectionString" Password = "{Twoje. EVENTHUBS. Połączenia. CIĄG} ";
+```properties
+bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```
 
 Przykład:
 
-Bootstrap. servers = dummynamespace. ServiceBus. Windows. NET: 9093 Request. Timeout. ms = 60 000 Security. Protocol = SASL_SSL SASL. mechanizm = zwykła sasl.jaas.config= org. Apache. Kafka. Common. Security. sys. PlainLoginModule wymagana nazwa użytkownika = "$ConnectionString" Password = "Endpoint = SB://dummynamespace.ServiceBus.Windows.NET/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = XXXXXXXXXXXXXXXXXXXXX ";
-
+```properties
+bootstrap.servers=dummynamespace.servicebus.windows.net:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
+```
 Uwaga: Jeśli sasl.jaas.config nie jest obsługiwaną konfiguracją w Twojej strukturze, Znajdź konfiguracje, które są używane do ustawiania nazwy użytkownika i hasła SASL, i Użyj zamiast nich. Ustaw nazwę użytkownika na $ConnectionString i hasło do parametrów połączenia Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Jaki jest rozmiar komunikatu/zdarzenia dla Event Hubs?
@@ -259,7 +270,7 @@ Aby dowiedzieć się więcej o umowie SLA, zobacz stronę [umowy dotyczące pozi
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Jak można kierować określoną wersję zestawu SDK usługi Azure Storage w przypadku korzystania z usługi Azure Blob Storage jako magazynu punktów kontrolnych?
-Jeśli uruchomisz ten kod w Azure Stack centrum, wystąpią błędy środowiska uruchomieniowego, chyba że zostanie wybrana wersja interfejsu API określonej usługi Storage. Jest to spowodowane tym, że zestaw SDK Event Hubs korzysta z najnowszego dostępnego interfejsu API usługi Azure Storage dostępnego na platformie Azure, który może nie być dostępny na platformie Azure Stack Hub. Azure Stack Hub może obsługiwać inną wersję zestawu SDK obiektów blob magazynu niż te, które są zwykle dostępne na platformie Azure. Jeśli używasz magazynu blogów platformy Azure jako magazynu punktów kontrolnych, sprawdź [obsługiwaną wersję interfejsu API usługi Azure Storage dla kompilacji centrum Azure Stack](/azure-stack/user/azure-stack-acs-differences?#api-version) i wybierz tę wersję w kodzie. 
+Jeśli uruchomisz ten kod w Azure Stack centrum, wystąpią błędy środowiska uruchomieniowego, chyba że zostanie wybrana wersja interfejsu API określonej usługi Storage. Jest to spowodowane tym, że zestaw SDK Event Hubs korzysta z najnowszego dostępnego interfejsu API usługi Azure Storage dostępnego na platformie Azure, który może nie być dostępny na platformie Azure Stack Hub. Azure Stack Hub może obsługiwać inną wersję zestawu SDK obiektów blob magazynu, która jest zazwyczaj dostępna na platformie Azure. Jeśli używasz magazynu blogów platformy Azure jako magazynu punktów kontrolnych, sprawdź [obsługiwaną wersję interfejsu API usługi Azure Storage dla kompilacji centrum Azure Stack](/azure-stack/user/azure-stack-acs-differences?#api-version) i wybierz tę wersję w kodzie. 
 
 Na przykład jeśli korzystasz z programu Azure Stack Hub w wersji 2005, najwyższa dostępna wersja usługi Storage to wersja 2019-02-02. Domyślnie Biblioteka klienta zestawu SDK Event Hubs używa najwyższej dostępnej wersji na platformie Azure (2019-07-07 w momencie wydania zestawu SDK). W takim przypadku, oprócz kroków opisanych w tej sekcji, należy również dodać kod docelowy interfejsu API usługi Storage w wersji 2019-02-02. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady dla języków C#, Java, Python i JavaScript/TypeScript.  
 

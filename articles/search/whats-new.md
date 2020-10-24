@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 135e0ccfd9b4681932a9a69df0372aa400933124
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ddf418c90857b5bb7eca97eb2c6943cc93fce9ab
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102578"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518929"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -21,12 +21,12 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
-Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie użyj uprawnień RBAC, aby przyznać tożsamości tylko do odczytu dla źródeł danych platformy Azure. Opcjonalnie można wybrać opcję [zaufanego wyjątku usługi](search-indexer-howto-access-trusted-service-exception.md) , jeśli nie są dostępne reguły adresów IP.
+Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie użyj uprawnień kontroli RBAC platformy Azure, aby przyznać tożsamości tylko do odczytu dla źródeł danych platformy Azure. Opcjonalnie można wybrać opcję [zaufanego wyjątku usługi](search-indexer-howto-access-trusted-service-exception.md) , jeśli nie są dostępne reguły adresów IP.
 
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |------------------------------|----------|-------------|---------------|
-| [Tożsamość usługi zarządzanej](search-howto-managed-identities-data-sources.md) | Indeksatory, zabezpieczenia | Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie użyj uprawnień RBAC, aby udzielić dostępu do źródeł danych platformy Azure. Takie podejście eliminuje konieczność poświadczeń w parametrach połączenia. <br><br>Dodatkowy sposób używania tożsamości usługi zarządzanej odbywa się za pomocą [zaufanego wyjątku usługi](search-indexer-howto-access-trusted-service-exception.md) , jeśli reguły adresów IP nie są opcją. | Ogólnie dostępna. Uzyskaj dostęp do tej funkcji w przypadku korzystania z portalu lub [tworzenia źródła danych (REST)](/rest/api/searchservice/create-data-source) z interfejsem API-Version = 2020-06-30. |
+| [Tożsamość usługi zarządzanej](search-howto-managed-identities-data-sources.md) | Indeksatory, zabezpieczenia | Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie użyj uprawnień kontroli RBAC platformy Azure, aby udzielić dostępu do źródeł danych platformy Azure. Takie podejście eliminuje konieczność poświadczeń w parametrach połączenia. <br><br>Dodatkowy sposób używania tożsamości usługi zarządzanej odbywa się za pomocą [zaufanego wyjątku usługi](search-indexer-howto-access-trusted-service-exception.md) , jeśli reguły adresów IP nie są opcją. | Ogólnie dostępna. Uzyskaj dostęp do tej funkcji w przypadku korzystania z portalu lub [tworzenia źródła danych (REST)](/rest/api/searchservice/create-data-source) z interfejsem API-Version = 2020-06-30. |
 | [Żądania wychodzące przy użyciu linku prywatnego](search-indexer-howto-access-private.md) | Indeksatory, zabezpieczenia | Utwórz zasób udostępnionego linku, którego indeksatory mogą używać podczas uzyskiwania dostępu do zasobów platformy Azure zabezpieczonych za pomocą prywatnego linku platformy Azure. Aby uzyskać więcej informacji na temat wszystkich sposobów zabezpieczania połączeń indeksatora, zobacz [indeksator dostępu do zawartości chronionej przez funkcje zabezpieczeń sieci platformy Azure](search-indexer-securing-resources.md). | Ogólnie dostępna. Uzyskaj dostęp do tej funkcji, gdy korzystasz z portalu lub [udostępnionego zasobu linku prywatnego](/rest/api/searchmanagement/sharedprivatelinkresources) z interfejsem API-Version = 2020-08-01. |
 | [Interfejs API REST zarządzania (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | Nowy stabilny interfejs API REST dodaje obsługę tworzenia udostępnionych zasobów linków prywatnych. | Ogólnie dostępna. |
 | [Interfejs API REST zarządzania (2020-08-01 — wersja zapoznawcza)](/rest/api/searchmanagement/management-api-versions) | REST | Dodaje udostępnione zasoby linku prywatnego dla baz danych Azure Functions i Azure SQL dla programu MySQL. | Publiczna wersja zapoznawcza. |
@@ -111,7 +111,7 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 
 + W indeksatorach są teraz obsługiwane [Azure Data Lake Storage Gen2 (wersja zapoznawcza)](search-howto-index-azure-data-lake-storage.md) [Cosmos DB, interfejs API Gremlin (wersja](search-howto-index-cosmosdb.md)zapoznawcza) i [Cosmos DB interfejs API Cassandra (wersja zapoznawcza)](search-howto-index-cosmosdb.md) . Możesz zarejestrować się, korzystając z [tego formularza](https://aka.ms/azure-cognitive-search/indexer-preview). Po zaakceptowaniu w programie w wersji zapoznawczej otrzymasz wiadomość e-mail z potwierdzeniem.
 
-### <a name="july-2019"></a>Lipiec 2019 r.
+### <a name="july-2019"></a>Lipiec 2019
 
 + Ogólnie dostępna w [chmurze Azure Government](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search).
 

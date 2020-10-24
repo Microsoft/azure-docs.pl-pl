@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 9f90125edeee453dc9e8b8b80f8eb09d9fc6e84c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49493f47c7178a15e37a54a70dd066690057caba
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971524"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519575"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Konfigurowanie połączenia indeksatora w celu Azure SQL Database przy użyciu tożsamości zarządzanej
 
@@ -29,7 +29,7 @@ Aby dowiedzieć się więcej o tej funkcji, zalecamy zapoznanie się z tym, co t
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 — Włączanie tożsamości zarządzanej przypisanej przez system
 
-Gdy jest włączona tożsamość zarządzana przypisana przez system, platforma Azure tworzy tożsamość usługi wyszukiwania, która może służyć do uwierzytelniania w innych usługach platformy Azure w ramach tej samej dzierżawy i subskrypcji. Tej tożsamości można następnie użyć w przypisaniach kontroli dostępu opartej na rolach (RBAC), które umożliwiają dostęp do danych podczas indeksowania.
+Gdy jest włączona tożsamość zarządzana przypisana przez system, platforma Azure tworzy tożsamość usługi wyszukiwania, która może służyć do uwierzytelniania w innych usługach platformy Azure w ramach tej samej dzierżawy i subskrypcji. Tej tożsamości można następnie użyć w przypisaniach kontroli dostępu opartej na rolach (Azure RBAC), które umożliwiają dostęp do danych podczas indeksowania.
 
 ![Włącz tożsamość zarządzaną przypisaną przez system](./media/search-managed-identities/turn-on-system-assigned-identity.png "Włącz tożsamość zarządzaną przypisaną przez system")
 

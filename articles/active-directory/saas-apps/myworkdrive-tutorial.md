@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: aa0fe40ec28aea7f82ee0e635b3c42140a472816
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b639ee45bfa6356054d93a1b6fcc8a7959173acd
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552445"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516090"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Samouczek: integracja MyWorkDrive z usługą Azure Active Directory
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę MyWorkDrive z usługą A
 * Zezwól użytkownikom na automatyczne logowanie się do usługi MyWorkDrive przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -157,12 +157,12 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w MyWorkDrive. Aby dod
 
 ### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-Po wybraniu kafelka MyWorkDrive w panelu dostępu należy automatycznie zalogować się do MyWorkDrive, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka MyWorkDrive w panelu dostępu należy automatycznie zalogować się do MyWorkDrive, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

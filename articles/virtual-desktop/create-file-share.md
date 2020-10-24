@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad5ebaf7eef5b404f7849b79694facf1efd01b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287325"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519443"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i AD DS
 
@@ -29,7 +29,7 @@ Najpierw musisz skonfigurować konto magazynu Azure Files.
 
 Aby skonfigurować konto magazynu:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Wyszukaj **konto magazynu** na pasku wyszukiwania.
 
@@ -86,7 +86,7 @@ Aby skonfigurować uprawnienia na poziomie udziału, przypisz każdemu użytkown
 >[!NOTE]
 >Konta lub grupy, którym przypisujesz uprawnienia, powinny zostać utworzone w domenie i zsynchronizowane z usługą Azure AD. Konta utworzone w usłudze Azure AD nie działają.
 
-Aby przypisać uprawnienia kontroli dostępu opartej na rolach (RBAC):
+Aby przypisać uprawnienia kontroli dostępu opartej na rolach (Azure RBAC):
 
 1. Otwórz witrynę Azure Portal.
 
@@ -106,7 +106,7 @@ Aby przypisać uprawnienia kontroli dostępu opartej na rolach (RBAC):
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Przypisywanie uprawnień użytkowników w udziale plików platformy Azure
 
-Po przypisaniu użytkownikom uprawnień kontroli dostępu na podstawie ról należy skonfigurować uprawnienia systemu plików NTFS.
+Po przypisaniu uprawnień usługi Azure RBAC do użytkowników należy skonfigurować uprawnienia systemu plików NTFS.
 
 Aby rozpocząć pracę, musisz znać dwie rzeczy z Azure Portal:
 
@@ -179,7 +179,7 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
      - Zastąp <literę dysku zainstalowana> literą dysku użytego do zmapowania dysku.
      - Zastąp <User-e-mail> nazwą UPN grupy użytkowników lub Active Directory zawierającą użytkowników, którzy będą potrzebować dostępu do udziału.
 
-     Na przykład:
+     Przykład:
 
      ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)

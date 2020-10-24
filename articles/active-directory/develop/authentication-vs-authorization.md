@@ -13,18 +13,18 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 320debcf2b744e949faf7b29dd72ed334fe0feea
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252117"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503729"
 ---
 # <a name="authentication-vs-authorization"></a>Uwierzytelnianie a autoryzacja
 
 Ten artykuł definiuje uwierzytelnianie i autoryzację oraz krótko opisuje, jak można używać platformy tożsamości firmy Microsoft do uwierzytelniania i autoryzowania użytkowników w aplikacjach sieci Web, interfejsach API sieci Web lub aplikacjach wywołujących chronione interfejsy API sieci Web. Jeśli zobaczysz termin, którego nie znasz, wypróbuj nasz [słownik](developer-glossary.md) lub nasze [wideo platformy Microsoft Identity platform](identity-videos.md) , które obejmują podstawowe pojęcia.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 **Uwierzytelnianie** to proces potwierdzania użytkownika. Uwierzytelnianie jest czasami określane terminem AuthN. Platforma tożsamości firmy Microsoft implementuje protokół [Connect OpenID Connect](https://openid.net/connect/) do obsługi uwierzytelniania.
 
@@ -35,6 +35,8 @@ Ten artykuł definiuje uwierzytelnianie i autoryzację oraz krótko opisuje, jak
 ## <a name="authentication-and-authorization-using-microsoft-identity-platform"></a>Uwierzytelnianie i autoryzacja przy użyciu platformy tożsamości firmy Microsoft
 
 Zamiast tworzyć aplikacje, które zachowują własne informacje o nazwie użytkownika i hasła, co wiąże się z dużym obciążeniem administracyjnym, gdy trzeba dodać lub usunąć użytkowników w wielu aplikacjach, aplikacje mogą delegować tę odpowiedzialność do scentralizowanego dostawcy tożsamości.
+
+> [!VIDEO https://www.youtube.com/embed/tkQJSHFsduY]
 
 Azure Active Directory (Azure AD) to scentralizowany dostawca tożsamości w chmurze. Delegowanie uwierzytelniania i autoryzacji pozwala na takie scenariusze, jak zasady dostępu warunkowego, które wymagają, aby użytkownik znajdował się w określonej lokalizacji, korzystać z [uwierzytelniania wieloskładnikowego](../authentication/concept-mfa-howitworks.md) (czasami nazywanego uwierzytelnianiem dwuskładnikowym lub funkcji 2FA), a także umożliwiać użytkownikowi logowanie się jednokrotnie do wszystkich aplikacji sieci Web, które współużytkują ten sam katalog scentralizowany. Ta funkcja jest określana jako logowanie jednokrotne **(SSO)**.
 

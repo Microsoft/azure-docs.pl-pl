@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818481"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516974"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Często zadawane pytania dotyczące Azure Container Instances
 
@@ -61,7 +61,7 @@ Użyj najmniejszego obrazu, który spełnia Twoje wymagania. W przypadku systemu
 
 Jest to naprawdę zależne od obciążenia. Rozpocznij małą i testową wydajność, aby zobaczyć, jak działa kontenery. [Monitoruj użycie zasobów procesora i pamięci](container-instances-monitor.md), a następnie Dodaj rdzenie lub pamięć na podstawie rodzaju procesów wdrożonych w kontenerze.
 
-Upewnij się również, że Sprawdź [dostępność zasobów](container-instances-region-availability.md#availability---general) dla regionu, który jest wdrażany w ramach górnej granicy na rdzeniach procesora i dostępnej pamięci dla każdej grupy kontenerów. 
+Upewnij się również, że Sprawdź [dostępność zasobów](container-instances-region-availability.md) dla regionu, który jest wdrażany w ramach górnej granicy na rdzeniach procesora i dostępnej pamięci dla każdej grupy kontenerów. 
 
 > [!NOTE]
 > Niewielka ilość zasobów grupy kontenerów jest używana przez podstawową infrastrukturę usługi. Kontenery będą mogły uzyskać dostęp do większości, ale nie wszystkich zasobów przydzielono do grupy. Z tego powodu należy zaplanować mały bufor zasobów podczas żądania zasobów dla kontenerów w grupie.
@@ -80,7 +80,7 @@ Jeszcze nie. Obecnie są to wartości maksymalne dla grupy kontenerów. Skontakt
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>Kiedy ACI będzie w określonym regionie?
 
-Dostępność bieżącego regionu jest publikowana [tutaj](container-instances-region-availability.md#availability---general). Jeśli masz wymóg dotyczący określonego regionu, skontaktuj się z pomocą techniczną platformy Azure.
+Dostępność bieżącego regionu jest publikowana [tutaj](container-instances-region-availability.md). Jeśli masz wymóg dotyczący określonego regionu, skontaktuj się z pomocą techniczną platformy Azure.
 
 ## <a name="features-and-scenarios"></a>Funkcje i scenariusze
 

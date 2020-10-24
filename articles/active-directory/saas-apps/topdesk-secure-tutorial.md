@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: db7f2afa7993c8f8d2fe9fe30e5ecd4f2388b44b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dd57dd31c0dcf42b7847dc8e3f3945961c3d37f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524266"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Samouczek: integracja Azure Active Directory z usługą TOPdesk — zabezpieczenia
 
@@ -27,7 +27,7 @@ Zintegrowanie aplikacji TOPdesk - Secure z usługą Azure AD zapewnia następuj�
 * Możesz zezwolić swoim użytkownikom na automatyczne logowanie do aplikacji TOPdesk - Secure (logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -184,7 +184,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją TOPdesk -
 
     f. W polu tekstowym **Display name** (Nazwa wyświetlana) wpisz nazwę konfiguracji.
 
-    przykład Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -252,7 +252,7 @@ W przypadku aplikacji TOPdesk - Secure jest to zadanie ręczne.
 
 3. W oknie dialogowym **New Operator** (Nowy operator) wykonaj następujące kroki:
 
-    ![Operator new](./media/topdesk-secure-tutorial/ic790611.png "Nowy operator")
+    ![Nowy operator](./media/topdesk-secure-tutorial/ic790611.png "Nowy operator")
 
     a. Kliknij kartę **General** (Ogólne).
 
@@ -262,7 +262,7 @@ W przypadku aplikacji TOPdesk - Secure jest to zadanie ręczne.
 
     d. W sekcji **TOPdesk Login** (Logowanie w aplikacji TOPdesk) w polu tekstowym **Login Name** (Nazwa logowania) wpisz nazwę logowania użytkownika.
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
 > Za pomocą innych narzędzi do tworzenia kont użytkowników TOPdesk i interfejsów API zapewnianych przez usługę TOPdesk — zabezpieczenia można udostępniać kontom użytkowników usługi Azure AD.
@@ -271,13 +271,12 @@ W przypadku aplikacji TOPdesk - Secure jest to zadanie ręczne.
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka TOPdesk - Secure w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji TOPdesk - Secure, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka TOPdesk - Secure w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji TOPdesk - Secure, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

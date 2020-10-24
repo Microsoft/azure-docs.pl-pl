@@ -9,16 +9,34 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d7e6c5229fa6f8204ba363d9868ffa80d78ccba
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fb99afef2d5e210b8aa166f016bd2b9ec409c2a2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876502"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518963"
 ---
-# <a name="migrate-a-web-app-from-google-maps"></a>Migrowanie aplikacji internetowej z usługi Google Maps
+# <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Samouczek — Migrowanie aplikacji internetowej z usługi Google Maps
 
-Większość aplikacji sieci Web korzystających z usługi Google Maps korzysta z zestawu SDK języka JavaScript usługi Google Maps v3. Zestaw SDK sieci Web Azure Maps to odpowiedni zestaw SDK oparty na platformie Azure do migracji. Zestaw SDK sieci Web Azure Maps umożliwia dostosowywanie interaktywnych map przy użyciu własnej zawartości i obrazów. Aplikację można uruchomić zarówno w sieci Web, jak i aplikacji mobilnych. Kontrolka korzysta z technologii WebGL, co umożliwia renderowanie dużych zestawów danych z wysoką wydajnością. Utwórz ten zestaw SDK przy użyciu języka JavaScript lub TypeScript.
+Większość aplikacji sieci Web korzystających z usługi Google Maps korzysta z zestawu SDK języka JavaScript usługi Google Maps v3. Zestaw SDK sieci Web Azure Maps to odpowiedni zestaw SDK oparty na platformie Azure do migracji. Zestaw SDK sieci Web Azure Maps umożliwia dostosowywanie interaktywnych map przy użyciu własnej zawartości i obrazów. Aplikację można uruchomić zarówno w sieci Web, jak i aplikacji mobilnych. Kontrolka korzysta z technologii WebGL, co umożliwia renderowanie dużych zestawów danych z wysoką wydajnością. Utwórz ten zestaw SDK przy użyciu języka JavaScript lub TypeScript. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+
+> [!div class="checklist"]
+> * Załaduj mapę
+> * Lokalizowanie mapy
+> * Dodaj znaczniki, linie łamane i wielokąty.
+> * Wyświetl informacje w oknie podręcznym lub informacji
+> * Ładowanie i wyświetlanie danych KML i GEOJSON
+> * Znaczniki klastra
+> * Nałóż warstwę kafelków
+> * Wyświetlanie danych o ruchu
+> * Dodawanie nakładki uziemienia
+
+Dowiesz się również: 
+
+> [!div class="checklist"]
+> * Jak wykonać typowe zadania związane z mapowaniem przy użyciu zestawu SDK sieci Web Azure Maps
+> * Najlepsze rozwiązania zwiększające wydajność i środowisko użytkownika
+> * Wskazówki dotyczące sposobu tworzenia aplikacji przy użyciu bardziej zaawansowanych funkcji dostępnych w programie Azure Maps
 
 W przypadku migrowania istniejącej aplikacji sieci Web sprawdź, czy jest ona używana przez bibliotekę kontroli mapy Open Source. Przykłady biblioteki formantów typu "open source" to: cesium, ulotce i OpenLayers. Nadal można przeprowadzić migrację aplikacji, nawet jeśli korzysta ona z biblioteki kontroli mapy Open Source i nie chcesz używać Azure Maps Web SDK. W takim przypadku Połącz aplikację z usługami kafelków Azure Maps (kafelki[road tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [satelitarne](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)kafelków). Poniższe punkty szczegółowo opisują sposób używania Azure Maps w niektórych najczęściej używanych bibliotekach kontroli mapy Open Source.
 
@@ -33,6 +51,11 @@ W przypadku opracowywania przy użyciu struktury JavaScript jeden z następując
 - [Azure Maps reaguje składnik](https://github.com/WiredSolutions/react-azure-maps) — otoka reaguje na Azure Maps kontrolkę.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) — składnik Azure Maps dla aplikacji Vue.
 
+## <a name="prerequisites"></a>Wymagania wstępne 
+
+1. Zaloguj się do [portalu Azure](https://portal.azure.com). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+2. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="key-features-support"></a>Obsługa kluczowych funkcji
 
@@ -72,7 +95,6 @@ Poniżej przedstawiono kilka najważniejszych różnic między usługą Mapy Goo
 
 Ta kolekcja zawiera przykłady kodu dla każdej platformy, a każdy przykład obejmuje typowy przypadek użycia. Ma ona na celu ułatwienie migracji aplikacji sieci Web z usługi Google Maps v3 JavaScript SDK do Azure Maps Web SDK. Przykłady kodu związane z aplikacjami sieci Web są udostępniane w języku JavaScript. Jednakże Azure Maps udostępnia również definicje języka TypeScript jako dodatkową opcję za poorednictwem [modułu npm](how-to-use-map-control.md).
 
-
 **Tematy**
 
 - [Załaduj mapę](#load-a-map)
@@ -90,7 +112,6 @@ Ta kolekcja zawiera przykłady kodu dla każdej platformy, a każdy przykład ob
 - [Wyświetlanie danych o ruchu](#show-traffic-data)
 - [Dodawanie nakładki uziemienia](#add-a-ground-overlay)
 - [Dodawanie danych KML do mapy](#add-kml-data-to-the-map)
-
 
 ### <a name="load-a-map"></a>Załaduj mapę
 
@@ -1011,7 +1032,7 @@ Dodawanie danych i zarządzanie nimi w źródle danych. Połącz źródła danyc
 
 Po włączeniu klastrowania źródło danych wyśle klastrowane i nieklastrowane punkty danych do warstw na potrzeby renderowania. Źródło danych umożliwia klastrowanie setek tysięcy punktów danych. Klastrowany punkt danych ma następujące właściwości:
 
-| Nazwa właściwości             | Type    | Opis   |
+| Nazwa właściwości             | Typ    | Opis   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Wskazuje, czy funkcja reprezentuje klaster. |
 | `cluster_id`              | ciąg  | Unikatowy identyfikator klastra, który może być używany ze źródłem danych `getClusterExpansionZoom` , `getClusterChildren` i `getClusterLeaves` metodami. |
@@ -1720,9 +1741,18 @@ Biblioteki dodają dodatkowe funkcje do mapy. Wiele z tych bibliotek znajduje si
 | Biblioteka geometrii      | [Atlas. Math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | Biblioteka wizualizacji | [Warstwa mapy cieplnej](map-add-heat-map-layer.md) |
 
-Aby dowiedzieć się więcej na temat migrowania usługi Google Maps:
+## <a name="next-steps"></a>Następne kroki
 
-* [Jak używać modułu usług](how-to-use-services-module.md) 
-* [Jak używać modułu narzędzi do rysowania](set-drawing-options.md)
-* [Jak używać modułu usług](how-to-use-services-module.md)
-* [Jak używać kontrolki mapy](how-to-use-map-control.md)
+Dowiedz się więcej na temat Azure Maps Web SDK:
+
+> [!div class="nextstepaction"]
+> [Jak używać kontrolki mapy](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Jak używać modułu narzędzi do rysowania](set-drawing-options.md)
+
+> [!div class="nextstepaction"]
+> [Jak używać modułu usług](how-to-use-services-module.md)
+
+> [!div class="nextstepaction"]
+> [Jak używać przestrzennego modułu we/wy](how-to-use-spatial-io-module.md)

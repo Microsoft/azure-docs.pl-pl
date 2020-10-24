@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 4995f813bbfe7ef368f83085cdd61ab97fa330e8
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b55e66eaf4bda06369711e389629b6a20765271d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108528"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522210"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Samouczek: Integrowanie Qlik wykrywania przedsiębiorstwa z Azure Active Directory
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę Qlik sens przedsiębiors
 * Zezwól użytkownikom na automatyczne logowanie do Qlik wykrywania przedsiębiorstwa przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +41,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Qlik sens przedsiębiorstwa obsługuje logowanie jednokrotne w usłudze **SP** .
 * Qlik wykrywa, że firma obsługuje **obsługę just-in-Time**
 
-* Po skonfigurowaniu Qlik wykrywania przedsiębiorstwa można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Po skonfigurowaniu Qlik wykrywania przedsiębiorstwa można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-qlik-sense-enterprise-from-the-gallery"></a>Dodawanie usługi Qlik Sense Enterprise z galerii
 
@@ -109,7 +109,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -252,17 +252,17 @@ Qlik Sense "Enterprise" obsługuje **Inicjowanie obsługi just-in-Time**, użytk
 
 ### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-Po wybraniu kafelka Qlik na poziomie przedsiębiorstwa w panelu dostępu należy automatycznie zalogować się do przedsiębiorstwa Qlik wykrywania, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka Qlik na poziomie przedsiębiorstwa w panelu dostępu należy automatycznie zalogować się do przedsiębiorstwa Qlik wykrywania, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

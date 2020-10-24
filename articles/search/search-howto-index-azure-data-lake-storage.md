@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: b1a88398d657e6bc242c7db12f3c0ddc1af828ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a585fa1c3c56d285859171e6b5673fe57beffb3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935861"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517325"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indeksowanie dokumentów w Azure Data Lake Storage Gen2
 
@@ -44,7 +44,7 @@ Indeksowanie zawartości w Data Lake Storage Gen2 jest takie samo jak indeksowan
 
 ## <a name="access-control"></a>Kontrola dostępu
 
-Azure Data Lake Storage Gen2 implementuje [model kontroli dostępu](../storage/blobs/data-lake-storage-access-control.md) , który obsługuje zarówno kontrolę dostępu opartą na rolach (Azure RBAC), jak i oparte na systemie POSIX listy kontroli dostępu (ACL). Podczas indeksowania zawartości z Data Lake Storage Gen2 usługa Azure Wyszukiwanie poznawcze nie wyodrębni z zawartości informacji RBAC i listy ACL. W związku z tym te informacje nie zostaną uwzględnione w indeksie usługi Azure Wyszukiwanie poznawcze.
+Azure Data Lake Storage Gen2 implementuje [model kontroli dostępu](../storage/blobs/data-lake-storage-access-control.md) , który obsługuje zarówno kontrolę dostępu opartą na rolach (Azure RBAC), jak i oparte na systemie POSIX listy kontroli dostępu (ACL). Podczas indeksowania zawartości z Data Lake Storage Gen2 usługa Azure Wyszukiwanie poznawcze nie wyodrębni z zawartości informacji RBAC i listy ACL platformy Azure. W związku z tym te informacje nie zostaną uwzględnione w indeksie usługi Azure Wyszukiwanie poznawcze.
 
 Jeśli zachowanie kontroli dostępu dla każdego dokumentu w indeksie jest ważne, to Deweloper aplikacji może wdrożyć [przycinanie zabezpieczeń](./search-security-trimming-for-azure-search.md).
 

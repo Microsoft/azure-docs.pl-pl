@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jeedes
-ms.openlocfilehash: f83d7144a4cc0908dfa5f2b939cd32625c26c0c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5543fa8525c85bdc866143f04f55eca5b4a6e0ee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532040"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517671"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-verme"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Verme
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę Verme z usługą Azure A
 * Zezwól użytkownikom na automatyczne logowanie się do usługi Verme przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +41,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Usługa Verme obsługuje funkcję SSO zainicjowaną przez usługę **SP i dostawcy tożsamości** .
 
-* Po skonfigurowaniu Verme można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu Verme można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-verme-from-the-gallery"></a>Dodawanie Verme z galerii
 
@@ -133,24 +133,24 @@ Aby skonfigurować Logowanie jednokrotne na stronie **Verme** , musisz wysłać 
 
 ### <a name="create-verme-test-user"></a>Utwórz użytkownika testowego Verme
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Verme. Aby dodać użytkowników na platformie Verme, Pracuj z [zespołem pomocy technicznej Verme](mailto:support@verme.ru) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Verme. Aby dodać użytkowników na platformie Verme, Pracuj z [zespołem pomocy technicznej Verme](mailto:support@verme.ru) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Verme w panelu dostępu należy automatycznie zalogować się do Verme, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Verme w panelu dostępu należy automatycznie zalogować się do Verme, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj Verme z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić Verme z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić Verme z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1d2185509631bf03717e418e485cfcaad1e21c63
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3412bfe95951a3fea035ffc6452719ede5e66d4d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102697"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519609"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Konfigurowanie połączenia indeksatora z bazą danych Cosmos DB przy użyciu tożsamości zarządzanej
 
@@ -29,7 +29,7 @@ Aby dowiedzieć się więcej o tej funkcji, zalecamy zapoznanie się z tym, co t
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 — Włączanie tożsamości zarządzanej przypisanej przez system
 
-Gdy jest włączona tożsamość zarządzana przypisana przez system, platforma Azure tworzy tożsamość usługi wyszukiwania, która może służyć do uwierzytelniania w innych usługach platformy Azure w ramach tej samej dzierżawy i subskrypcji. Tej tożsamości można następnie użyć w przypisaniach kontroli dostępu opartej na rolach (RBAC), które umożliwiają dostęp do danych podczas indeksowania.
+Gdy jest włączona tożsamość zarządzana przypisana przez system, platforma Azure tworzy tożsamość usługi wyszukiwania, która może służyć do uwierzytelniania w innych usługach platformy Azure w ramach tej samej dzierżawy i subskrypcji. Tej tożsamości można następnie użyć w przypisaniach kontroli dostępu opartej na rolach (Azure RBAC), które umożliwiają dostęp do danych podczas indeksowania.
 
 ![Włącz tożsamość zarządzaną przypisaną przez system](./media/search-managed-identities/turn-on-system-assigned-identity.png "Włącz tożsamość zarządzaną przypisaną przez system")
 
@@ -85,7 +85,7 @@ Treść żądania zawiera definicję źródła danych, która powinna zawierać 
 | **Nazwij** | Wymagane. Wybierz dowolną nazwę reprezentującą obiekt źródła danych. |
 |**Wprowadź**| Wymagane. Musi być `cosmosdb` . |
 |**uwierzytelniające** | Wymagane. <br/><br/>Podczas nawiązywania połączenia przy użyciu tożsamości zarządzanej powinien być format **poświadczeń** : *Database = [Database-Name]; ResourceId = [Resource-ID-String];(rodzaju interfejsu API = [API-Kind];)*<br/> <br/>Format ResourceId: *ResourceID =/SUBSCRIPTIONS/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.DocumentDB/databaseAccounts/**nazwę konta Cosmos DB**/;*<br/><br/>W przypadku kolekcji SQL parametry połączenia nie wymagają rodzaju interfejsu API.<br/><br/>W przypadku kolekcji MongoDB Dodaj **rodzaju interfejsu API = MongoDB** do parametrów połączenia. <br/><br/>[Aby uzyskać](https://aka.ms/azure-cognitive-search/indexer-preview) dostęp do wersji zapoznawczej i zapoznać się z informacjami na temat sposobu formatowania poświadczeń, w przypadku wykresów Gremlin i tabel Cassandra.<br/>|
-| **kontener** | Zawiera następujące elementy: <br/>**Nazwa**: wymagane. Określ identyfikator kolekcji baz danych do indeksowania.<br/>**zapytanie**: opcjonalne. Możesz określić zapytanie, aby spłaszczyć dowolny dokument JSON do prostego schematu, który usługa Azure Wyszukiwanie poznawcze może indeksować.<br/>W przypadku interfejsu API MongoDB, interfejsu API Gremlin i interfejs API Cassandra zapytania nie są obsługiwane. |
+| **wbudowane** | Zawiera następujące elementy: <br/>**Nazwa**: wymagane. Określ identyfikator kolekcji baz danych do indeksowania.<br/>**zapytanie**: opcjonalne. Możesz określić zapytanie, aby spłaszczyć dowolny dokument JSON do prostego schematu, który usługa Azure Wyszukiwanie poznawcze może indeksować.<br/>W przypadku interfejsu API MongoDB, interfejsu API Gremlin i interfejs API Cassandra zapytania nie są obsługiwane. |
 | **dataChangeDetectionPolicy** | Zalecane |
 |**dataDeletionDetectionPolicy** | Opcjonalne |
 

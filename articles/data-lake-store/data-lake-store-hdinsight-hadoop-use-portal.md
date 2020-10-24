@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 41ba9d9e66fa1d7f622550bde68951573af4bb96
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e901009063afa81c98dd86268ac8c9c6de725e5d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484988"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521020"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Tworzenie klastrów usługi HDInsight z Azure Data Lake Storage Gen1 przy użyciu Azure Portal
 
@@ -95,7 +95,7 @@ Aby użyć istniejącej jednostki usługi z Azure Portal:
 1. Wybierz pozycję Nazwa **główna usługi**, a następnie wybierz nazwę główną usługi.
 1. Przekaż certyfikat (plik PFX) skojarzony z wybraną jednostką usługi, a następnie wprowadź hasło certyfikatu.
 
-[Dodawanie nazwy głównej usługi do klastra HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
+    ![Dodawanie nazwy głównej usługi do klastra HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
 
 1. Wybierz pozycję **dostęp** , aby skonfigurować dostęp do folderu.  Zobacz [Konfigurowanie uprawnień do plików](#configure-file-permissions).
 

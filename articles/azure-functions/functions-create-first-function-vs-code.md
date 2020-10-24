@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c8e22373f4550b0c65f6ea5c0b62815e32dcbb58
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4e50f6b2770f9f787c92e7a9c66f72cdbb252a94
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105128"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519694"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Szybki start: Tworzenie funkcji na platformie Azure przy użyciu programu Visual Studio Code
 
@@ -65,7 +65,7 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 - [.Net core 3,1](https://www.microsoft.com/net/download) i [.NET Core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 ::: zone-end
 ::: zone pivot="programming-language-java"
-- [Zestaw Java developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), wersja 8.
+- [Zestaw Java developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), wersja 8 lub 11.
 
 - [Apache Maven](https://maven.apache.org), wersja 3,0 lub nowsza.
 ::: zone-end
@@ -121,7 +121,7 @@ W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt lokalnego Azure 
     ::: zone pivot="programming-language-java"
     - **Wybierz język projektu funkcji**: Wybierz `Java` .
 
-    - **Wybierz wersję środowiska Java**: Wybierz `Java 8` lub `Java 11 (preview)` , na których funkcja działa na platformie Azure. Wybierz wersję języka Java, która została zweryfikowana lokalnie.
+    - **Wybierz wersję środowiska Java**: Wybierz `Java 8` lub `Java 11` , na których funkcja działa na platformie Azure. Wybierz wersję języka Java, która została zweryfikowana lokalnie.
 
     - **Podaj identyfikator grupy**: Wybierz `com.function` .
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 73087aca6cc43ca18bf76387cfbb7a602524a7c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de411e857c2d6e22b79c5e63a6d2adda71e054e0
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548971"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515580"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pendo"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą pendo
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę pendo z usługą Azure A
 * Zezwól użytkownikom na automatyczne logowanie się do usługi pendo przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * Usługa pendo obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne
-* Po skonfigurowaniu pendo można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu pendo można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-pendo-from-the-gallery"></a>Dodawanie pendo z galerii
 
@@ -133,25 +133,24 @@ Aby skonfigurować Logowanie jednokrotne na stronie **pendo** , musisz wysłać 
 
 ### <a name="create-pendo-test-user"></a>Utwórz użytkownika testowego pendo
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w pendo. Aby dodać użytkowników na platformie pendo, Pracuj z [zespołem pomocy technicznej pendo](mailto:support@pendo.io) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w pendo. Aby dodać użytkowników na platformie pendo, Pracuj z [zespołem pomocy technicznej pendo](mailto:support@pendo.io) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka pendo w panelu dostępu należy automatycznie zalogować się do pendo, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka pendo w panelu dostępu należy automatycznie zalogować się do pendo, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj pendo z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić pendo z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Jak chronić pendo z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)

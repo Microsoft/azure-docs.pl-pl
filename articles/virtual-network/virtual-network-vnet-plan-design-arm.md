@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ea65e94e97b69e24c6935328cc01c2295adc5a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045505"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518640"
 ---
 # <a name="plan-virtual-networks"></a>Planowanie sieci wirtualnych
 
@@ -105,7 +105,7 @@ Zasoby w jednej sieci wirtualnej nie mogą rozpoznać nazw zasobów w równorzę
 
 ## <a name="permissions"></a>Uprawnienia
 
-Platforma Azure używa [kontroli dostępu opartej na rolach](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) do zasobów. Uprawnienia są przypisywane do [zakresu](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) w następującej hierarchii: grupy zarządzania, subskrypcji, grupy zasobów i poszczególnych zasobów. Aby dowiedzieć się więcej o hierarchii, zobacz [organizowanie zasobów](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby współpracować z sieciami wirtualnymi platformy Azure i wszystkimi związanymi z nimi funkcjami, takimi jak Komunikacja równorzędna, sieciowe grupy zabezpieczeń, punkty końcowe usługi i tabele tras, można przypisać członków organizacji do wbudowanych ról [właściciela](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [współautora](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)lub [współautorów sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) , a następnie przypisać rolę do odpowiedniego zakresu. Jeśli chcesz przypisać określone uprawnienia dla podzestawu możliwości sieci wirtualnej, Utwórz [rolę niestandardową](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i przypisz określone uprawnienia wymagane dla [sieci wirtualnych](manage-virtual-network.md#permissions), [podsieci i punktów końcowych usług](virtual-network-manage-subnet.md#permissions), [interfejsów sieciowych](virtual-network-network-interface.md#permissions), [komunikacji równorzędnej](virtual-network-manage-peering.md#permissions), [sieci i grup zabezpieczeń aplikacji](manage-network-security-group.md#permissions)lub [tabel tras](manage-route-table.md#permissions) do roli.
+Platforma Azure korzysta z [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) na potrzeby zasobów. Uprawnienia są przypisywane do [zakresu](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) w następującej hierarchii: grupy zarządzania, subskrypcji, grupy zasobów i poszczególnych zasobów. Aby dowiedzieć się więcej o hierarchii, zobacz [organizowanie zasobów](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby współpracować z sieciami wirtualnymi platformy Azure i wszystkimi związanymi z nimi funkcjami, takimi jak Komunikacja równorzędna, sieciowe grupy zabezpieczeń, punkty końcowe usługi i tabele tras, można przypisać członków organizacji do wbudowanych ról [właściciela](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [współautora](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)lub [współautorów sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) , a następnie przypisać rolę do odpowiedniego zakresu. Jeśli chcesz przypisać określone uprawnienia dla podzestawu możliwości sieci wirtualnej, Utwórz [rolę niestandardową](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i przypisz określone uprawnienia wymagane dla [sieci wirtualnych](manage-virtual-network.md#permissions), [podsieci i punktów końcowych usług](virtual-network-manage-subnet.md#permissions), [interfejsów sieciowych](virtual-network-network-interface.md#permissions), [komunikacji równorzędnej](virtual-network-manage-peering.md#permissions), [sieci i grup zabezpieczeń aplikacji](manage-network-security-group.md#permissions)lub [tabel tras](manage-route-table.md#permissions) do roli.
 
 ## <a name="policy"></a>Zasady
 

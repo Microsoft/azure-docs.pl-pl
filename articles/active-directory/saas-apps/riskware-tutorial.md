@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b147037a58e4af59c0c3ccd56b6f6b241d775308
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e33664501483280978c67b100cd56a714ef63a30
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553341"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Samouczek: integracja Azure Active Directory z usługą potencjalnie szkodliwe oprogramowanie
 
@@ -27,7 +27,7 @@ Integracja potencjalnie szkodliwe oprogramowanie z usługą Azure AD zapewnia na
 * Możesz pozwolić użytkownikom na automatyczne logowanie do potencjalnie szkodliwe oprogramowanie (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -105,18 +105,18 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą potencjalni
     
     | Środowisko| Wzorzec adresu URL|
     |--|--|
-    | Testowanie akceptacyjne przez użytkowników|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | PREZENTOWAN| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
+    | Testowanie akceptacyjne przez użytkowników|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
+    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+    | PREZENTOWAN| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL: 
     
     | Środowisko| Wzorzec adresu URL|
     |--|--|
-    | Testowanie akceptacyjne przez użytkowników| `https://riskcloud.net/uat` |
-    | PROD| `https://riskcloud.net/prod` |
-    | PREZENTOWAN| `https://riskcloud.net/demo` |
+    | Testowanie akceptacyjne przez użytkowników| `https://riskcloud.net/uat` |
+    | PROD| `https://riskcloud.net/prod` |
+    | PREZENTOWAN| `https://riskcloud.net/demo` |
     |||
 
     > [!NOTE]
@@ -179,7 +179,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą potencjalni
 
     l. Zaznacz pole wyboru **Użyj żądania SAML** .
 
-    m. Kliknij przycisk **Zapisz**.
+    m. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -278,18 +278,18 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze potencj
 
     c. W obszarze **Pracownik** wybierz pozycję **Stan pracownika** , np..
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka potencjalnie szkodliwe oprogramowanie w panelu dostępu należy automatycznie zalogować się do potencjalnie szkodliwe oprogramowanie, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka potencjalnie szkodliwe oprogramowanie w panelu dostępu należy automatycznie zalogować się do potencjalnie szkodliwe oprogramowanie, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

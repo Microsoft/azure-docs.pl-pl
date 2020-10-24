@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: e3ec25504decca0747c8a853bb88ab3e7a10966a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546325"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520034"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Wrike na potrzeby automatycznego aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności wykonywanych w Wrike i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników lub grup w usłudze Wrike.
 
 > [!NOTE]
-> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania w aplikacjach typu "oprogramowanie jako usługa" (SaaS) z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania w aplikacjach typu "oprogramowanie jako usługa" (SaaS) z Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -109,7 +109,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Konfigurowanie automatycznej aprowizacji użytkowników dla Wrike w usłudze Azure AD
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
+1. Zaloguj się do [portalu Azure](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Wszystkie aplikacje](common/enterprise-applications.png)
 

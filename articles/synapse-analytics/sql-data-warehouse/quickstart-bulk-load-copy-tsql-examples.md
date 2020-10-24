@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3b22b831deca47eece70d337a99346ae472c7ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ed3a4b0827e81b3f779d95a6eab1dc341e69bb1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569483"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503270"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Bezpieczne ładowanie danych przy użyciu języka SQL Synapse
 
@@ -97,7 +97,7 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
     > [!IMPORTANT]
     > Określ rolę właściciela **danych obiektów BLOB** , współautora lub czytelnika usługi **Storage** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika. 
 
-    ![Udzielanie uprawnień RBAC do załadowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Przyznawanie uprawnień usługi Azure RBAC do ładowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 4. Teraz można uruchomić instrukcję COPY określającą "tożsamość zarządzaną":
 
@@ -118,7 +118,7 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
     > [!IMPORTANT]
     > Określ rolę właściciela **danych obiektów BLOB** , współautora lub czytelnika usługi **Storage** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika.
 
-    ![Udzielanie uprawnień RBAC do załadowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Przyznawanie uprawnień usługi Azure RBAC do ładowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Skonfiguruj uwierzytelnianie usługi Azure AD, wykonując poniższą [dokumentację](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 

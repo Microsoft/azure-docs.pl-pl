@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: f342371ec065c4fb60c492c4354c6f8c717c9bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fec471e4047707f2b7cbaa55fdc7f2256bebe93
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546019"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Samouczek: integracja Azure Active Directory z programem rozwiązania Zscaler beta
 
@@ -27,7 +27,7 @@ W przypadku integracji rozwiązania Zscaler beta z usługą Azure AD można:
 * Zezwól użytkownikom na automatyczne logowanie do rozwiązania Zscaler beta przy użyciu kont usługi Azure AD. Ta kontrola dostępu jest nazywana logowaniem jednokrotnym (SSO).
 * Zarządzaj kontami w jednej centralnej lokalizacji przy użyciu Azure Portal.
 
-Aby uzyskać więcej informacji na temat integracji aplikacji SaaS (Software as a Service) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby uzyskać więcej informacji na temat integracji aplikacji SaaS (Software as a Service) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -136,7 +136,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu ro
     przykład Wybierz pozycję **Zapisz**.
 
     > [!NOTE]
-    > Aby dowiedzieć się, jak skonfigurować role w usłudze Azure AD, zobacz [Konfigurowanie roszczeń ról](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
+    > Aby dowiedzieć się, jak skonfigurować role w usłudze Azure AD, zobacz [Konfigurowanie roszczeń ról](../develop/active-directory-enterprise-app-role-management.md).
 
 7. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **certyfikat (base64)**. Zapisz go na komputerze.
 
@@ -296,11 +296,10 @@ W tej sekcji użytkownik Britta Simon jest tworzony w rozwiązania Zscaler beta.
 
 Przetestuj konfigurację logowania jednokrotnego usługi Azure AD za pomocą panelu dostępu.
 
-Po wybraniu kafelka rozwiązania Zscaler beta w panelu dostępu należy automatycznie zalogować się do rozwiązania Zscaler beta, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka rozwiązania Zscaler beta w panelu dostępu należy automatycznie zalogować się do rozwiązania Zscaler beta, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

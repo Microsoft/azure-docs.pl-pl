@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277504"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508033"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -133,15 +133,16 @@ Poniższa tabela zawiera listę znanych ograniczeń dotyczących używania prywa
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu portalu ](create-private-endpoint-portal.md)
-- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu programu PowerShell ](create-private-endpoint-powershell.md)
-- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu interfejsu wiersza polecenia ](create-private-endpoint-cli.md)
-- [Tworzenie prywatnego punktu końcowego dla konta magazynu przy użyciu portalu ](create-private-endpoint-storage-portal.md)
-- [Tworzenie prywatnego punktu końcowego dla konta usługi Azure Cosmos za pomocą portalu ](../cosmos-db/how-to-configure-private-endpoints.md)
+- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu portalu](create-private-endpoint-portal.md)
+- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu programu PowerShell](create-private-endpoint-powershell.md)
+- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu interfejsu wiersza polecenia](create-private-endpoint-cli.md)
+- [Tworzenie prywatnego punktu końcowego dla konta magazynu przy użyciu portalu](create-private-endpoint-storage-portal.md)
+- [Tworzenie prywatnego punktu końcowego dla konta usługi Azure Cosmos przy użyciu portalu](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Tworzenie własnej usługi linku prywatnego przy użyciu Azure PowerShell](create-private-link-service-powershell.md)
-- [Utwórz własne łącze prywatne dla Azure Database for PostgreSQL-pojedynczego serwera przy użyciu portalu](../postgresql/howto-configure-privatelink-portal.md)
+- [Tworzenie własnego prywatnego linku do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu portalu](../postgresql/howto-configure-privatelink-portal.md)
 - [Utwórz własne połączenie prywatne dla Azure Database for PostgreSQL-pojedynczego serwera przy użyciu interfejsu wiersza polecenia](../postgresql/howto-configure-privatelink-cli.md)
 - [Tworzenie własnego linku prywatnego dla Azure Database for MySQL przy użyciu portalu](../mysql/howto-configure-privatelink-portal.md)
 - [Utwórz własne łącze prywatne dla Azure Database for MySQL przy użyciu interfejsu wiersza polecenia](../mysql/howto-configure-privatelink-cli.md)
 - [Tworzenie własnego linku prywatnego dla Azure Database for MariaDB przy użyciu portalu](../mariadb/howto-configure-privatelink-portal.md)
 - [Utwórz własne łącze prywatne dla Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia](../mariadb/howto-configure-privatelink-cli.md)
+- [Tworzenie własnego linku prywatnego dla Azure Key Vault przy użyciu portalu i interfejsu wiersza polecenia](../key-vault/general/private-link-service.md)

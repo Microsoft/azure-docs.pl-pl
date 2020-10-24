@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.openlocfilehash: d043386f7d0a4713c605f87a9f7bc9f65183029b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7348cc2559e73c83ea4c65bc67efebcfe2b031d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88517148"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Samouczek: integracja Azure Active Directory z usługą SpringCM
 
@@ -27,7 +27,7 @@ Integracja SpringCM z usługą Azure AD zapewnia następujące korzyści:
 * Możesz pozwolić użytkownikom na automatyczne logowanie do SpringCM (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -140,7 +140,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą SpringCM, w
             
     d. Wybierz pozycję **SAML Enabled** jako **enable**.
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -217,7 +217,7 @@ Aby umożliwić użytkownikom Azure Active Directory logowanie się w usłudze S
 
 1. Dodaj użytkownika do **grupy zabezpieczeń**.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
    > [!NOTE]
    > Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników SpringCM i interfejsów API udostępnionych przez usługę SpringCM.
@@ -226,13 +226,12 @@ Aby umożliwić użytkownikom Azure Active Directory logowanie się w usłudze S
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka SpringCM w panelu dostępu należy automatycznie zalogować się do SpringCM, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka SpringCM w panelu dostępu należy automatycznie zalogować się do SpringCM, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

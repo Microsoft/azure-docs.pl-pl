@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: dcc304febe6fcebe3aba3047d1773e695b80f9e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a674f5f653ad420ab8f28ff73c6b86f9c18b154e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551944"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517756"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Trelica
 
@@ -28,7 +28,7 @@ Dzięki tej integracji można:
 * Zezwól użytkownikom na automatyczne logowanie się do usługi Trelica przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,7 +43,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Usługa Trelica obsługuje logowanie jednokrotne inicjowane przez usługę dostawcy tożsamości.
 * Trelica obsługuje Inicjowanie obsługi użytkowników just in Time.
-* Po skonfigurowaniu Trelica można wymusić kontrolę sesji. Ta kontrolka chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu Trelica można wymusić kontrolę sesji. Ta kontrolka chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-trelica-from-the-gallery"></a>Dodawanie Trelica z galerii
 
@@ -138,18 +138,18 @@ Trelica obsługuje Inicjowanie obsługi użytkowników just in Time, która jest
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu My Apps.
 
-Po wybraniu kafelka Trelica w portalu My Apps użytkownik zostanie automatycznie zalogowany do Trelica, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [wprowadzenie do portalu My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka Trelica w portalu My Apps użytkownik zostanie automatycznie zalogowany do Trelica, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [wprowadzenie do portalu My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Tutorials for integrating SaaS apps with Azure Active Directory (Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS apps with Azure Active Directory (Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory)](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj Trelica z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić Trelica z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić Trelica z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)
