@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 9a37baaa80aadcf10f2bb2091a04fccb3fd9b504
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2ce6959cf025d2e29f0ee3dfb3b29b3eaf5d4221
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428940"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490836"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Powiadomienie o planowanej konserwacji w Azure Database for MariaDB
 
@@ -63,7 +63,7 @@ Możesz sprawdzić powiadomienie dotyczące planowanej konserwacji na Azure Port
 
 Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi**można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications.md).
 
-## <a name="can-i-control-or-change-planned-maintenance-for-my-servers-after-i-receive-a-notification-event"></a>Czy mogę kontrolować lub zmieniać planowaną konserwację serwerów po odebraniu zdarzenia powiadomienia?
+## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Czy mogę anulować lub odroczyć planowaną konserwację?
 
 Aby zapewnić bezpieczeństwo i stabilność serwera, należy przeprowadzić konserwację. Nie można anulować lub odłożyć planowanego zdarzenia konserwacji. Po wysłaniu powiadomienia do danego regionu świadczenia usługi Azure nie można zmienić harmonogramu poprawek dla każdego serwera w tym regionie. Poprawka jest rzutowana na cały region jednocześnie. Usługa Azure Database for MariaDB jest przeznaczona dla natywnej aplikacji w chmurze, która nie wymaga szczegółowej kontroli ani dostosowywania usługi.
 

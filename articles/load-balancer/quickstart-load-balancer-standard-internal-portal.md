@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: efe4753e78c6dd16fa0b6ce3e98dd21ceae52577
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 44f6ba313ab57933a1078e96533c88cc4b4b59b3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047815"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490853"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
@@ -61,7 +61,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     |------------------|-----------------------------------------------------------------|
     | **Szczegóły projektu**  |                                                                 |
     | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
-    | Resource Group   | Wybierz **myResourceGroupLB** |
+    | Grupa zasobów   | Wybierz pozycję **CreateIntLBQS — RG** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
     | Region           | Wybierz **Europa Zachodnia** |
@@ -98,7 +98,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
@@ -109,11 +109,11 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
     | Subskrypcja               | Wybierz subskrypcję.    |    
-    | Grupa zasobów         | Wybierz **myResourceGroupLB** utworzone w poprzednim kroku.|
+    | Grupa zasobów         | Wybierz pozycję **CreateIntLBQS-RG** utworzone w poprzednim kroku.|
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
-    | SKU           | Wybierz pozycję **standardowa** |
+    | Jednostka SKU           | Wybierz pozycję **standardowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz **myBackendSubnet** utworzone w poprzednim kroku. |
     | Przypisanie adresu IP | wybierz pozycję **Dynamiczne**. |
@@ -195,7 +195,9 @@ W tej sekcji utworzysz regułę modułu równoważenia obciążenia:
     | Port zaplecza | Wprowadź **80**. |
     | Pula zaplecza | Wybierz pozycję **myBackendPool**.|
     | Sonda kondycji | Wybierz pozycję **myHealthProbe**. |
-    | Utwórz niejawne reguły wychodzące | Wybierz pozycję **Nie**.
+    | Limit czasu bezczynności (minuty) | Przesuń suwak do **15** minut. |
+    | Resetowanie protokołu TCP | Wybierz pozycję **Włączone**. |
+    | Translacja adresów sieciowych dla ruchu wychodzącego (Resources) | Wybierz **(zalecane) Użyj reguł ruchu wychodzącego, aby zapewnić członkom puli zaplecza dostęp do Internetu.** |
 
 4. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **OK**.
 
@@ -223,13 +225,13 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Resource Group | Wybierz **myResourceGroupLB** |
+    | Grupa zasobów | Wybierz pozycję **CreateIntLBQS — RG** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM1** |
     | Region | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Wybierz **strefy dostępności** |
     | Strefa dostępności | Wybierz **1** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -294,7 +296,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     |------------------|-----------------------------------------------------------------|
     | **Szczegóły projektu**  |                                                                 |
     | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
-    | Resource Group   | Wybierz **myResourceGroupLB** |
+    | Grupa zasobów   | Wybierz pozycję **CreateIntLBQS — RG** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
     | Region           | Wybierz **Europa Zachodnia** |
@@ -331,7 +333,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
@@ -342,11 +344,11 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
     | Subskrypcja               | Wybierz subskrypcję.    |    
-    | Grupa zasobów         | Wybierz **myResourceGroupLB** utworzone w poprzednim kroku.|
+    | Grupa zasobów         | Wybierz pozycję **CreateIntLBQS-RG** utworzone w poprzednim kroku.|
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
-    | SKU           | Wybierz pozycję **podstawowa** |
+    | Jednostka SKU           | Wybierz pozycję **podstawowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz **myBackendSubnet** utworzone w poprzednim kroku. |
     | Przypisanie adresu IP | wybierz pozycję **Dynamiczne**. |
@@ -435,6 +437,7 @@ W tej sekcji utworzysz regułę modułu równoważenia obciążenia:
     | Port zaplecza | Wprowadź **80**. |
     | Pula zaplecza | Wybierz pozycję **myBackendPool**.|
     | Sonda kondycji | Wybierz pozycję **myHealthProbe**. |
+    | Limit czasu bezczynności (minuty) | Przesuń suwak do **15** minut. |
  
 4. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **OK**.
 
@@ -462,13 +465,13 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Resource Group | Wybierz **myResourceGroupLB** |
+    | Grupa zasobów | Wybierz pozycję **CreateIntLBQS — RG** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM1** |
     | Region | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Wybierz pozycję **Zestaw dostępności** |
     | Zestaw dostępności | Wybierz pozycję**Utwórz nowy**. </br> Wprowadź **myAvailabilitySet** w polu **Nazwa**. </br> Wybierz **przycisk OK** |
-    | Image (Obraz) | **Windows Server 2019 Datacenter** |
+    | Obraz | **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -534,12 +537,12 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Resource Group | Wybierz **myResourceGroupLB** |
+    | Grupa zasobów | Wybierz pozycję **CreateIntLBQS — RG** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myTestVM** |
     | Region | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -566,7 +569,7 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
 
 ## <a name="install-iis"></a>Instalowanie usług IIS
 
-1. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myVM1** , która znajduje się w grupie zasobów **myResourceGroupLB** .
+1. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myVM1** , która znajduje się w grupie zasobów **CreateIntLBQS-RG** .
 
 2. Na stronie **Przegląd** wybierz opcję **Połącz**, a następnie **bastionu**.
 
@@ -604,7 +607,7 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
 
 2. Zanotuj lub skopiuj adres obok **prywatnego adresu IP** w **omówieniu** **myLoadBalancer**.
 
-3. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myTestVM** , która znajduje się w grupie zasobów **myResourceGroupLB** .
+3. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myTestVM** , która znajduje się w grupie zasobów **CreateIntLBQS-RG** .
 
 4. Na stronie **Przegląd** wybierz opcję **Połącz**, a następnie **bastionu**.
 
@@ -620,7 +623,7 @@ Aby zobaczyć, jak moduł równoważenia obciążenia dystrybuuje ruch na obu ma
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. W tym celu wybierz grupę zasobów **myResourceGroupLB** , która zawiera zasoby, a następnie wybierz pozycję **Usuń**.
+Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. W tym celu wybierz grupę zasobów **CreateIntLBQS-RG** , która zawiera zasoby, a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

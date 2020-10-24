@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a3c37143154a6e701c4308903c46f4e68ac1b604
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458113"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495774"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
@@ -221,6 +221,8 @@ await DeleteRelationship(client, srcId, relId);
 
 Poniższy fragment kodu możliwy do uruchomienia używa operacji relacji z tego artykułu, aby utworzyć wykres Wieloosiowy z bliźniaczych reprezentacjiami i relacjami cyfrowymi.
 
+### <a name="set-up-the-runnable-sample"></a>Konfigurowanie przykładu możliwy do uruchomienia
+
 Fragment kodu używa [*Room.json*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) i [*Floor.jsw*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) definicjach modelu z [*samouczka: Poznaj usługę Azure Digital bliźniaczych reprezentacji z przykładową aplikacją kliencką*](tutorial-command-line-app.md). Możesz użyć tych linków, aby przejść bezpośrednio do plików lub pobrać je jako część pełnego, kompleksowego [projektu](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)przykładu. 
 
 Przed uruchomieniem przykładu należy wykonać następujące czynności:
@@ -232,7 +234,12 @@ Przed uruchomieniem przykładu należy wykonać następujące czynności:
     dotnet add package Azure.identity
     ```
 
-Następnie uruchom przykład.
+Musisz również skonfigurować poświadczenia lokalne, jeśli chcesz uruchomić próbkę bezpośrednio. Następna sekcja przeprowadzi Cię przez ten temat.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
+
+Po wykonaniu powyższych kroków można bezpośrednio uruchomić następujący przykładowy kod.
 
 ```csharp 
 using System;

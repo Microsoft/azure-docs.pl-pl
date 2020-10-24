@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 5832214b5b0a98249f951915e867db8542c28a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23e70d8ed17846100d82a5545e9215bce4eee30f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803963"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491346"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB interfejs API tabel SDK dla języka Python: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -26,8 +26,8 @@ ms.locfileid: "91803963"
 
 |   |   |
 |---|---|
-|**Pobieranie zestawu SDK**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python&preserve-view=true)|
+|**Zestaw SDK do pobrania**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
+|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Python](/python/api/overview/azure/cosmosdb?preserve-view=true&view=azure-python)|
 |**Instrukcje dotyczące instalacji zestawu SDK**|[Instrukcje dotyczące instalacji zestawu SDK języka Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Bieżąca obsługiwana platforma**|[Python 2,7](https://www.python.org/downloads/) lub [python 3,3, 3,4, 3,5 lub 3,6](https://www.python.org/downloads/)|
@@ -45,7 +45,7 @@ ms.locfileid: "91803963"
 * Zestaw SDK w wersji wstępnej
 
 ## <a name="release-and-retirement-dates"></a>Daty wydania i wycofania
-Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji.
+Firma Microsoft udostępni powiadomienie co najmniej **12 miesięcy** przed wycofaniem zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji.
 
 Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe. 
 
@@ -57,9 +57,8 @@ Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu
 | [0.37.1](#0.37.1) |05, 2017 |--- |
 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zobacz też
-Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) . 
-
+Aby dowiedzieć się więcej na temat usługi Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c29fd00a19c930995d748027b2ec04eaa12a5ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075944"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480653"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Rozwiązywanie problemów z opóźnieniami przy użyciu dzienników Analityki magazynu
 
@@ -27,7 +27,7 @@ W poniższych krokach pokazano, jak identyfikować i rozwiązywać problemy z op
 
 ## <a name="recommended-steps"></a>Zalecane czynności
 
-1. Pobierz [dzienniki analityka magazynu](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Pobierz [dzienniki analityka magazynu](/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
 
 2. Użyj poniższego skryptu programu PowerShell, aby przekonwertować nieprzetworzone dzienniki w formacie tabelarycznym:
 

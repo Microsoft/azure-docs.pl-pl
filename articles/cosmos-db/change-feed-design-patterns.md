@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85118954"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489357"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Zmień wzorce projektowe kanału informacyjnego w Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Oprócz odczytywania danych z kanału informacyjnego zmiany kontenera Cosmos mo�
 
 ### <a name="high-availability"></a>Wysoka dostępność
 
-Azure Cosmos DB oferuje dostępność do 99,999% odczytu i zapisu. W przeciwieństwie do wielu kolejek komunikatów, Azure Cosmos DB dane można łatwo dystrybuować i konfigurować za pomocą [RTO (cel czasu odzyskiwania)](consistency-levels-tradeoffs.md#rto) równego zero.
+Azure Cosmos DB oferuje dostępność do 99,999% odczytu i zapisu. W przeciwieństwie do wielu kolejek komunikatów, Azure Cosmos DB dane można łatwo dystrybuować i konfigurować za pomocą [RTO (cel czasu odzyskiwania)](./consistency-levels.md#rto) równego zero.
 
 Po przetworzeniu elementów w kanale informacyjnym zmiany można utworzyć materiałowy widok i zachować zagregowane wartości z powrotem w Azure Cosmos DB. Jeśli używasz Azure Cosmos DB do kompilowania gry, możesz na przykład użyć kanału informacyjnego zmiany w celu zaimplementowania rankingi w czasie rzeczywistym na podstawie wyników z ukończonych gier.
 
@@ -73,7 +73,7 @@ Gdy konieczne jest [denormalizacja danych w partycjach i kontenerach](how-to-mod
 
 ## <a name="event-sourcing"></a>Określanie źródła zdarzeń
 
-[Wzorzec określania źródła zdarzeń](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) obejmuje użycie magazynu tylko do dołączania w celu rejestrowania pełnej serii działań na tych danych. Azure Cosmos DB kanału informacyjnego zmiany to doskonały wybór jako centralny magazyn danych w architekturze pozyskiwania zdarzeń, w których wszystkie dane są modelowane jako zapisy (bez aktualizacji ani usuwania). W takim przypadku każdy zapis do Azure Cosmos DB jest "zdarzenie" i masz pełny rekord przeszłych zdarzeń ze źródła zmian. Typowe zastosowania zdarzeń opublikowanych w centralnym magazynie zdarzeń są przeznaczone do obsługi widoków z materiałami lub integracji z systemami zewnętrznymi. Ponieważ nie ma limitu czasu przechowywania w kanale informacyjnym zmiany, można odtworzyć wszystkie przeszłe zdarzenia, odczytując od początku źródła zmian kontenera Cosmos.
+[Wzorzec określania źródła zdarzeń](/azure/architecture/patterns/event-sourcing) obejmuje użycie magazynu tylko do dołączania w celu rejestrowania pełnej serii działań na tych danych. Azure Cosmos DB kanału informacyjnego zmiany to doskonały wybór jako centralny magazyn danych w architekturze pozyskiwania zdarzeń, w których wszystkie dane są modelowane jako zapisy (bez aktualizacji ani usuwania). W takim przypadku każdy zapis do Azure Cosmos DB jest "zdarzenie" i masz pełny rekord przeszłych zdarzeń ze źródła zmian. Typowe zastosowania zdarzeń opublikowanych w centralnym magazynie zdarzeń są przeznaczone do obsługi widoków z materiałami lub integracji z systemami zewnętrznymi. Ponieważ nie ma limitu czasu przechowywania w kanale informacyjnym zmiany, można odtworzyć wszystkie przeszłe zdarzenia, odczytując od początku źródła zmian kontenera Cosmos.
 
 [Wielu odbiorców źródła danych zmian można subskrybować w ramach tego samego kontenera zmian](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). Poza zainicjowaną przepływność [kontenera dzierżawy](change-feed-processor.md#components-of-the-change-feed-processor) nie ma kosztu korzystania ze źródła zmian. Kanał informacyjny zmiany jest dostępny w każdym kontenerze bez względu na to, czy jest on używany.
 

@@ -9,19 +9,19 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 587fe536e860f3039bfd3a2d2c1e3c76cb40e4d5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 804330d44d63aa70076a7387aacfbbd3b4f742c9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278461"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480993"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Samouczek: Tworzenie aplikacji konsolowej .NET do zarządzania danymi w Azure Cosmos DB koncie interfejsu API SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Java (asynchroniczny)](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [Java (asynchroniczny)](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
@@ -157,7 +157,7 @@ Gratulacje! Pomyślnie nawiązano połączenie z kontem Azure Cosmos DB.
 
 ## <a name="step-4-create-a-database"></a>Krok 4. Tworzenie bazy danych
 
-Baza danych jest logicznym kontenerem elementów podzielonym na partycje w kontenerach. Albo `CreateDatabaseIfNotExistsAsync` `CreateDatabaseAsync` metoda klasy [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) może utworzyć bazę danych.
+Baza danych jest logicznym kontenerem elementów podzielonym na partycje w kontenerach. Albo `CreateDatabaseIfNotExistsAsync` `CreateDatabaseAsync` metoda klasy [CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) może utworzyć bazę danych.
 
 1. Skopiuj i wklej `CreateDatabaseAsync` metodę poniżej `GetStartedDemoAsync` metody.
 
@@ -345,7 +345,7 @@ Gratulacje! Pomyślnie utworzono dwa elementy usługi Azure Cosmos.
 
 ## <a name="step-7-query-azure-cosmos-db-resources"></a><a id="Query"></a>Krok 7. Wykonanie zapytania względem zasobów usługi Azure Cosmos DB
 
-Usługa Azure Cosmos DB obsługuje zaawansowane zapytania względem dokumentów JSON przechowywanych w poszczególnych kontenerach. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z zapytaniami SQL](sql-api-sql-query.md). W następującym przykładowym kodzie pokazano, jak uruchomić zapytanie względem elementów wstawionych w poprzednim kroku.
+Usługa Azure Cosmos DB obsługuje zaawansowane zapytania względem dokumentów JSON przechowywanych w poszczególnych kontenerach. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z zapytaniami SQL](./sql-query-getting-started.md). W następującym przykładowym kodzie pokazano, jak uruchomić zapytanie względem elementów wstawionych w poprzednim kroku.
 
 1. Skopiuj i wklej `QueryItemsAsync` metodę po `AddItemsToContainerAsync` metodzie.
 
@@ -497,8 +497,8 @@ To wszystko — skompiluj projekt i gotowe!
 
 * Potrzebujesz bardziej złożonego samouczka platformy ASP.NET MVC? Zobacz [Samouczek: Tworzenie aplikacji sieci web ASP.NET Core MVC z Azure Cosmos dB przy użyciu zestawu .NET SDK](sql-api-dotnet-application.md).
 * Chcesz przeprowadzić testowanie skalowalności i wydajności za pomocą Azure Cosmos DB? Zobacz [testowanie wydajności i skalowania przy użyciu Azure Cosmos DB](performance-testing.md).
-* Aby dowiedzieć się, jak monitorować żądania Azure Cosmos DB, użycie i magazyn, zobacz [monitorowanie metryk wydajności i magazynu w Azure Cosmos DB](monitor-accounts.md).
+* Aby dowiedzieć się, jak monitorować żądania Azure Cosmos DB, użycie i magazyn, zobacz [monitorowanie metryk wydajności i magazynu w Azure Cosmos DB](./monitor-cosmos-db.md).
 * Aby uruchamiać zapytania względem naszego przykładowego zestawu danych, zobacz [środowisko testowe zapytań](https://www.documentdb.com/sql/demo).
-* Aby dowiedzieć się więcej na temat usługi Azure Cosmos DB, zobacz [Azure Cosmos DB — Zapraszamy!](https://docs.microsoft.com/azure/cosmos-db/introduction)
+* Aby dowiedzieć się więcej na temat usługi Azure Cosmos DB, zobacz [Azure Cosmos DB — Zapraszamy!](./introduction.md)
 
 [cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account

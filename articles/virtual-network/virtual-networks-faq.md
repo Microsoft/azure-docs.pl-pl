@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 71b7217a1a3d79db67e1649ce33d441f0c2c2da2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 86336ddb557613d42117480a5793e8b0ecbc7bae
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489408"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495836"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -283,7 +283,7 @@ Nie. Przestrzenie adresowe nie mogą się nakładać, aby umożliwić komunikacj
 Nie jest naliczana opłata za utworzenie połączenia komunikacji równorzędnej sieci wirtualnej. Opłaty za transfer danych między połączeniami równorzędnymi są naliczone. [Zobacz tutaj](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Czy ruch komunikacji równorzędnej sieci wirtualnej jest szyfrowany?
-W przypadku ruchu komunikacji równorzędnej sieci wirtualnych między centrami danych — poza granicami fizycznymi niekontrolowanymi przez (lub w imieniu firmy Microsoft — [MACsec szyfrowanie warstwy link](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) jest używane na źródłowym sprzęcie sieciowym).
+Gdy ruch platformy Azure jest przenoszony między centrami danych (poza granicami fizycznymi niekontrolowanymi przez firmę Microsoft lub w imieniu firmy Microsoft), [szyfrowanie warstwy linku MACsec](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) jest używane na źródłowym sprzęcie sieciowym.  Ma to zastosowanie do ruchu komunikacji równorzędnej sieci wirtualnej.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Dlaczego moje połączenie komunikacji równorzędnej jest w stanie *odłączonym* ?
 Połączenia komunikacji równorzędnej sieci wirtualnych przechodzą w stan *rozłączenia* , gdy zostanie usunięte łącze komunikacji równorzędnej sieci wirtualnej. Należy usunąć oba linki, aby ponownie ustanowić pomyślne połączenie komunikacji równorzędnej.

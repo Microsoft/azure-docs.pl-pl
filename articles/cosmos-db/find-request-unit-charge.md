@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 23f334d28ef5045c68bb84fc0bc34e8f847fe0f9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d8c1237b1bf4fac743ad5e70fee857337d9624c4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281840"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490666"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>Znajdowanie opłaty za jednostkę żądania dla operacji wykonywanych w Azure Cosmos DB interfejsie API SQL
 
@@ -27,7 +27,7 @@ Obecnie można mierzyć to użycie tylko przy użyciu Azure Portal lub przez spr
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-sql-api-dotnet.md#create-account) i podawanie danych z danymi lub Wybierz istniejące konto usługi Azure Cosmos, które zawiera już dane.
 
@@ -175,8 +175,8 @@ Aby dowiedzieć się więcej na temat optymalizowania użycia RU, zobacz następ
 
 * [Jednostki żądania i przepływności w usłudze Azure Cosmos DB](request-units.md)
 * [Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optymalizacja kosztów zapytania w usłudze Azure Cosmos DB](optimize-cost-queries.md)
-* [Globalne skalowanie aprowizowanej przepływności](scaling-throughput.md)
+* [Optymalizacja kosztów zapytania w usłudze Azure Cosmos DB](./optimize-cost-reads-writes.md)
+* [Globalne skalowanie aprowizowanej przepływności](./request-units.md)
 * [Aprowizacja przepływności kontenerów i baz danych](set-throughput.md)
 * [Obsługa przepływności dla kontenera](how-to-provision-container-throughput.md)
 * [Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB](use-metrics.md)

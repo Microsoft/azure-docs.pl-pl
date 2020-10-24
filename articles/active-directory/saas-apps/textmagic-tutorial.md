@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 81dc3a4f55b214ea6ca7ad0388e57f4b4fdc7124
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1db4f1ae40c72203cdd5d07c49b2f9c202ad525
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546478"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491363"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textmagic"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą TextMagic
 
@@ -149,11 +149,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Wybierz pozycję **Ustawienia konta** w polu Nazwa użytkownika.
 
-    ![Konfiguracja TextMagic](./media/textmagic-tutorial/config1.png)
+    ![Zrzut ekranu przedstawia ustawienia konta wybrane od użytkownika.](./media/textmagic-tutorial/config1.png)
 
 5. Kliknij kartę **Single Sign-On (SSO)** i wypełnij następujące pola:  
 
-    ![Konfiguracja TextMagic](./media/textmagic-tutorial/config2.png)
+    ![Zrzut ekranu przedstawia kartę pojedyncze Sign-On, w której można wprowadzić podane wartości.](./media/textmagic-tutorial/config2.png)
 
     a. W polu tekstowym **Identyfikator jednostki dostawcy tożsamości:** wklej wartość identyfikatora usługi **Azure AD**, która została skopiowana z Azure Portal.
 
@@ -163,7 +163,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. Otwórz **certyfikat zakodowany w formacie Base-64** w Notatniku pobranym z Azure Portal Skopiuj zawartość tego pliku do schowka, a następnie wklej go do **publicznego certyfikatu x509:** TextBox.
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-textmagic-test-user"></a>Utwórz użytkownika testowego TextMagic
 

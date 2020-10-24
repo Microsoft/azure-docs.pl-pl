@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 657d3f84a1dd196733ed23dd3b68db92e4b35e25
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3edaf55c8acb4def4f074c0d8f96eb399d98b6ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279467"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491091"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami rozwiązywania konfliktów w usłudze Azure Cosmos DB
 
@@ -74,7 +74,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 # <a name="async-java-v2-sdk"></a>[Asynchroniczne środowisko Java w wersji 2 SDK](#tab/async)
 
-[Asynchroniczne środowisko Java w wersji 2 SDK](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+[Async Java v2 SDK](sql-api-sdk-async-java.md) (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -86,7 +86,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # <a name="sync-java-v2-sdk"></a>[Synchronizuj zestaw Java v2 SDK](#tab/sync)
 
-[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md)   (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md) (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection lwwCollection = new DocumentCollection();
@@ -262,7 +262,7 @@ await container.Scripts.CreateStoredProcedureAsync(
 
 # <a name="async-java-v2-sdk"></a>[Asynchroniczne środowisko Java w wersji 2 SDK](#tab/async)
 
-[Asynchroniczne środowisko Java w wersji 2 SDK](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+[Async Java v2 SDK](sql-api-sdk-async-java.md) (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -274,7 +274,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # <a name="sync-java-v2-sdk"></a>[Synchronizuj zestaw Java v2 SDK](#tab/sync)
 
-[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md)   (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md) (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection udpCollection = new DocumentCollection();
@@ -377,7 +377,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 # <a name="async-java-v2-sdk"></a>[Asynchroniczne środowisko Java w wersji 2 SDK](#tab/async)
 
-[Asynchroniczne środowisko Java w wersji 2 SDK](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+[Async Java v2 SDK](sql-api-sdk-async-java.md) (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -389,7 +389,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 # <a name="sync-java-v2-sdk"></a>[Synchronizuj zestaw Java v2 SDK](#tab/sync)
 
-[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md)   (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md) (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection manualCollection = new DocumentCollection();
@@ -466,7 +466,7 @@ while (conflictFeed.HasMoreResults)
 
 # <a name="async-java-v2-sdk"></a>[Asynchroniczne środowisko Java w wersji 2 SDK](#tab/async)
 
-[Asynchroniczne środowisko Java w wersji 2 SDK](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+[Async Java v2 SDK](sql-api-sdk-async-java.md) (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 FeedResponse<Conflict> response = client.readConflicts(this.manualCollectionUri, null)
@@ -477,7 +477,7 @@ for (Conflict conflict : response.getResults()) {
 ```
 # <a name="sync-java-v2-sdk"></a>[Synchronizuj zestaw Java v2 SDK](#tab/sync)
 
-[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md)   (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md) (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();
@@ -518,4 +518,4 @@ Poznaj następujące pojęcia dotyczące usługi Azure Cosmos DB:
 - [Dodawanie lub usuwanie regionów z konta usługi Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [Jak configuremulti zapisy w aplikacjach](how-to-multi-master.md).
 - [Partycjonowanie i dystrybucja danych](partitioning-overview.md)
-- [Indeksowanie w usłudze Azure Cosmos DB](indexing-policies.md)
+- [Indeksowanie w usłudze Azure Cosmos DB](index-policy.md)

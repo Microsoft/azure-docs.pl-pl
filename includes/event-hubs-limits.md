@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ea1ac064799b0cede1de82851a514a2b389f20aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116674"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499221"
 ---
 W poniższych tabelach przedstawiono limity przydziału i limity dotyczące [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Aby uzyskać informacje na temat cennika Event Hubs, zobacz [Cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -47,7 +47,9 @@ W poniższej tabeli przedstawiono limity, które mogą być różne dla warstw P
 ### <a name="dedicated-tier"></a>Warstwa dedykowana
 W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena miesięczna, a co najmniej 4 godziny użytkowania. Warstwa dedykowana oferuje wszystkie funkcje planu Standard, ale z możliwością skalowania w przedsiębiorstwie i limitami dla klientów wymagających obciążeń. 
 
-| Cecha | Limity |
+Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal) , jak utworzyć dedykowany klaster Event Hubs przy użyciu Azure Portal.
+
+| Promowanie | Limity |
 | --- | ---|
 | Przepustowość |  20 jednostek |
 | Przestrzenie nazw | 50 na CU |
@@ -64,7 +66,7 @@ W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena 
 ### <a name="schema-registry-limitations"></a>Ograniczenia rejestru schematu
 
 #### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Limity, które są takie same dla warstw **standardowa** i **dedykowana** 
-| Cecha | Limit | 
+| Promowanie | Limit | 
 | --- |  --- | -- |
 | Maksymalna długość nazwy grupy schematu | 50 |  
 | Maksymalna długość nazwy schematu | 100 |    

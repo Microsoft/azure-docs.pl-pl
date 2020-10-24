@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a6aed0630acf6ee6624c72831a2cdc88e6c0a91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013065"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480687"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Projektowanie aplikacji o wysokiej dostępności przy użyciu nadmiarowości geograficznej
 
@@ -146,7 +146,7 @@ Inną kwestią jest sposób obsługi wielu wystąpień aplikacji oraz czynności
 
 Istnieją trzy główne opcje monitorowania częstotliwości ponawiania prób w regionie podstawowym, aby określić, kiedy należy przełączyć się do regionu pomocniczego i zmienić aplikację tak, aby była uruchamiana w trybie tylko do odczytu.
 
-* Dodaj procedurę obsługi dla [**ponawiania**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) zdarzenia dla obiektu [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) przekazanego do żądań magazynu — jest to metoda wyświetlana w tym artykule i używana w towarzyszącej próbce. Te zdarzenia są wyzwalane za każdym razem, gdy klient ponawia próbę żądania, umożliwiając śledzenie, jak często klient napotyka błędy powtarzające się w podstawowym punkcie końcowym.
+* Dodaj procedurę obsługi dla [**ponawiania**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) zdarzenia dla obiektu [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) przekazanego do żądań magazynu — jest to metoda wyświetlana w tym artykule i używana w towarzyszącej próbce. Te zdarzenia są wyzwalane za każdym razem, gdy klient ponawia próbę żądania, umożliwiając śledzenie, jak często klient napotyka błędy powtarzające się w podstawowym punkcie końcowym.
 
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
@@ -157,7 +157,7 @@ Istnieją trzy główne opcje monitorowania częstotliwości ponawiania prób w 
     };
     ```
 
-* W metodzie [**szacowania**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) w niestandardowych zasadach ponawiania można uruchomić kod niestandardowy za każdym razem, gdy zostanie ponowiona ponowna próba. Oprócz rejestrowania w przypadku ponowienia próby, pozwala to również na modyfikowanie zachowania ponowienia próby.
+* W metodzie [**szacowania**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) w niestandardowych zasadach ponawiania można uruchomić kod niestandardowy za każdym razem, gdy zostanie ponowiona ponowna próba. Oprócz rejestrowania w przypadku ponowienia próby, pozwala to również na modyfikowanie zachowania ponowienia próby.
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,

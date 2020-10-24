@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09498587ad65a8de0935a3a4455bb3b66ed6c3ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504342"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491261"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Rozwiązania do okresowego transferu danych
  
@@ -52,12 +52,12 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
 ### <a name="continuous-data-ingestion-over-network"></a>Ciągłe pozyskiwanie danych za pośrednictwem sieci
 
-| Cecha                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
+| Promowanie                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Współczynnik postaci                                   | Urządzenie wirtualne             | Urządzenie fizyczne          | Usługa w Azure Portal, Agent lokalny                                                            |
 | Sprzęt                                      | Funkcja hypervisor            | Dostarczone przez firmę Microsoft    | Nie dotyczy                                                            |
 | Wstępny nakład pracy konfiguracji                          | Niska (<30 minut)            | Umiarkowane (~ kilka godzin) | Duże (~ dni)                                                 |
-| Format danych                                   | Obiekty blob platformy Azure, Azure Files   | Obiekty blob platformy Azure, Azure Files | [Obsługuje ponad 70 łączników danych dla magazynów danych i formatów](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| Format danych                                   | Obiekty blob platformy Azure, Azure Files   | Obiekty blob platformy Azure, Azure Files | [Obsługuje ponad 70 łączników danych dla magazynów danych i formatów](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Przetwarzanie wstępne danych                           | Nie                         | Tak, za pomocą obliczeń brzegowych    | Tak                                                           |
 | Lokalna pamięć podręczna<br>(do przechowywania danych lokalnych)    | Tak                        | Tak                      | Nie                                                            |
 | Transfer z innych chmur                    | Nie                         | Nie                       | Tak                                                           |
@@ -66,8 +66,8 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 ## <a name="next-steps"></a>Następne kroki
 
 - [Transfer danych za pomocą AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
-- [Więcej informacji na temat transferu danych za pomocą interfejsów API REST magazynu](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+- [Więcej informacji na temat transferu danych za pomocą interfejsów API REST magazynu](/dotnet/api/overview/azure/storage).
 - Zapoznaj się z tematem:
-    - [Transferuj dane przy użyciu Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Przekształć dane przy użyciu Data Box Edge przed wysłaniem do platformy Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Dowiedz się, jak transferować dane za pomocą Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-bulk-copy-portal).
+    - [Transferuj dane przy użyciu Data Box Gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
+    - [Przekształć dane przy użyciu Data Box Edge przed wysłaniem do platformy Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
+- [Dowiedz się, jak transferować dane za pomocą Azure Data Factory](/azure/data-factory/tutorial-bulk-copy-portal).

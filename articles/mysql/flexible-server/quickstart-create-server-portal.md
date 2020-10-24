@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/29/2020
-ms.openlocfilehash: 70f2cf183a9bd93b6066516cb68e99ee21cdc1ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/22/2020
+ms.openlocfilehash: 646506eb347970dadd2a5b2fa6527e5d8bd879ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569627"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481395"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Szybki Start: Użyj Azure Portal, aby utworzyć Azure Database for MySQL elastyczny serwer
 
@@ -32,19 +32,27 @@ Tworzysz elastyczny serwer ze zdefiniowanym zestawem [zasobów obliczeniowych i 
 
 Wykonaj następujące kroki, aby utworzyć elastyczny serwer:
 
-1. Wybierz pozycję **Utwórz zasób** (+) w lewym górnym rogu portalu.
+1. Wyszukaj ciąg "Azure Database for MySQL" w portalu przy użyciu pola wyszukiwania, aby znaleźć usługę. 
+    
+    > :::image type="content" source="./media/quickstart-create-server-portal/find-mysql-portal.png" alt-text="Wyszukaj Azure Database for MySQL&quot;:::
 
-2. Wybierz pozycję **bazy danych**  >  **Azure Database for MySQL**. Możesz również wprowadzić **MySQL** w polu wyszukiwania, aby znaleźć usługę.
+2. Wybierz pozycję **Dodaj**. 
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/navigate-to-mysql.png" alt-text="Opcja Azure Database for MySQL":::
-
-3. Wybierz pozycję **elastyczny serwer** jako opcję wdrożenia.
+3. Na stronie &quot;Wybieranie opcji wdrażania" Wybierz opcję **elastyczny serwer** jako opcję wdrożenia.
      
-    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Opcja Azure Database for MySQL":::    
+    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Wyszukaj Azure Database for MySQL&quot;:::
+
+2. Wybierz pozycję **Dodaj**. 
+
+3. Na stronie &quot;Wybieranie opcji wdrażania":::    
 
 4. Wypełnij formularz **podstawy** przy użyciu następujących informacji: 
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Opcja Azure Database for MySQL"::: 
+    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Wyszukaj Azure Database for MySQL&quot;:::
+
+2. Wybierz pozycję **Dodaj**. 
+
+3. Na stronie &quot;Wybieranie opcji wdrażania"::: 
                                     
     |**Ustawienie**|**Sugerowana wartość**|**Opis**|
     |---|---|---|
@@ -57,7 +65,11 @@ Wykonaj następujące kroki, aby utworzyć elastyczny serwer:
     Wersja|5.7| Wersja główna programu MySQL.|
     Obliczenia i magazyn | **Burstable** **Standard_B1ms**, **10** **dni** | Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz pozycję **Konfiguruj serwer**. Wartości domyślne dla **warstwy obliczeniowej**, **rozmiaru obliczeń**, **magazynu**i **okresu przechowywania kopii zapasowej**mogą być przełączone *,* *Standard_B1ms*, *10 GIB*i *7 dni* . Możesz pozostawić te suwaki jako lub dostosować je. Aby zapisać ten wybór obliczeń i magazynu, wybierz pozycję **Zapisz** , aby kontynuować konfigurację. Poniższy zrzut ekranu przedstawia opcje obliczeń i magazynu.|
     
-    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Opcja Azure Database for MySQL":::
+    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Wyszukaj Azure Database for MySQL&quot;:::
+
+2. Wybierz pozycję **Dodaj**. 
+
+3. Na stronie &quot;Wybieranie opcji wdrażania":::
 
 5. Konfigurowanie opcji sieciowych
 
@@ -66,7 +78,11 @@ Wykonaj następujące kroki, aby utworzyć elastyczny serwer:
     > [!NOTE]
     > Nie można zmienić metody łączności po utworzeniu serwera. Na przykład jeśli wybrano opcję *dostęp publiczny (dozwolone adresy IP)* podczas tworzenia, nie można zmienić *dostępu prywatnego (Integracja z siecią wirtualną)* po utworzeniu. Zdecydowanie zalecamy utworzenie serwera z dostępem prywatnym, aby bezpiecznie uzyskać dostęp do serwera przy użyciu integracji sieci wirtualnej. Dowiedz się więcej o prywatnym dostępie w [artykule pojęcia](./concepts-networking.md).
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Opcja Azure Database for MySQL":::  
+    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Wyszukaj Azure Database for MySQL&quot;:::
+
+2. Wybierz pozycję **Dodaj**. 
+
+3. Na stronie &quot;Wybieranie opcji wdrażania":::  
 
 6. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć konfigurację elastycznego serwera.
 
@@ -103,7 +119,11 @@ W grupie zasobów został pomyślnie utworzony Azure Database for MySQL elastycz
 Aby usunąć serwer, możesz kliknąć przycisk **Usuń** na stronie **Przegląd** serwera, jak pokazano poniżej:
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Opcja Azure Database for MySQL":::
+> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Wyszukaj Azure Database for MySQL&quot;:::
+
+2. Wybierz pozycję **Dodaj**. 
+
+3. Na stronie &quot;Wybieranie opcji wdrażania":::
 
 ## <a name="next-steps"></a>Następne kroki
 

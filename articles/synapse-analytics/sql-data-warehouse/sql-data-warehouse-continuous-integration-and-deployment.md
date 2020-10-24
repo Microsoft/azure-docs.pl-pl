@@ -11,18 +11,18 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 131811ffd268f001a047a7031170f0723770d24c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 061be5addd0c236db5d982e6103e3cf455b9c361
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462330"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480534"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Ciągła integracja i wdrażanie na potrzeby magazynowania danych
 
 W tym prostym samouczku przedstawiono sposób integrowania projektu bazy danych SQL Server Data Tools (SSDT) z usługą Azure DevOps i korzystania z Azure Pipelines w celu skonfigurowania ciągłej integracji i wdrażania. Ten samouczek to drugi krok tworzenia potoku ciągłej integracji i wdrażania na potrzeby magazynowania danych.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 - Zapoznaj się z [samouczkiem dotyczącym integracji kontroli źródła](sql-data-warehouse-source-control-integration.md)
 
@@ -60,7 +60,7 @@ W tym momencie istnieje proste środowisko, w którym każde ewidencjonowanie ga
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Eksplorowanie [architektury MPP puli SQL Synapse](massively-parallel-processing-mpp-architecture.md)
+- Eksplorowanie [architektury puli SQL Synapse](massively-parallel-processing-mpp-architecture.md)
 - Szybkie [Tworzenie puli SQL](create-data-warehouse-portal.md)
 - [Ładowanie danych przykładowych](load-data-from-azure-blob-storage-using-polybase.md)
 - Eksploruj [wideo](sql-data-warehouse-videos.md)

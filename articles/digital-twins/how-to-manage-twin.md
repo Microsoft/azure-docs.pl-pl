@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ede358cdbe533a32ff99fbd736e171463472e45c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461326"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494782"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -78,7 +78,7 @@ Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` obiekty są dołączone do `Id` pola. To pole można pozostawić puste, ale jeśli dodasz wartość identyfikatora, musi ona odpowiadać parametrowi identyfikatora przesłanemu do `CreateDigitalTwin()` wywołania. Na przykład:
+> `BasicDigitalTwin` obiekty są dołączone do `Id` pola. To pole można pozostawić puste, ale jeśli dodasz wartość identyfikatora, musi ona odpowiadać parametrowi identyfikatora przesłanemu do `CreateDigitalTwin()` wywołania. Przykład:
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -381,6 +381,8 @@ Aby zapoznać się z przykładem sposobu usuwania wszystkich bliźniaczych repre
 
 Możesz użyć poniższego przykładu kodu możliwy do uruchomienia, aby utworzyć dwuosiowy, zaktualizować jego szczegóły i usunąć sznurek. 
 
+### <a name="set-up-the-runnable-sample"></a>Konfigurowanie przykładu możliwy do uruchomienia
+
 Fragment kodu używa [Room.jsw](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) definicji modelu z [*samouczka: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md). Możesz użyć tego linku, aby przejść bezpośrednio do pliku lub pobrać go w ramach pełnego przykładowego [projektu.](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)
 
 Przed uruchomieniem przykładu należy wykonać następujące czynności:
@@ -392,7 +394,12 @@ Przed uruchomieniem przykładu należy wykonać następujące czynności:
     dotnet add package Azure.identity
     ```
 
-Następnie uruchom przykład.
+Musisz również skonfigurować poświadczenia lokalne, jeśli chcesz uruchomić próbkę bezpośrednio. Następna sekcja przeprowadzi Cię przez ten temat.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
+
+Po wykonaniu powyższych kroków można bezpośrednio uruchomić następujący przykładowy kod.
 
 ```csharp
 using System;
@@ -555,8 +562,6 @@ Oto dane wyjściowe konsoli powyższego programu:
 ## <a name="manage-twins-with-cli"></a>Zarządzanie bliźniaczych reprezentacji przy użyciu interfejsu wiersza polecenia
 
 Bliźniaczych reprezentacji można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [_How do: Użyj interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji *](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="view-all-digital-twins"></a>Wyświetl wszystkie bliźniaczych reprezentacji cyfrowe
 

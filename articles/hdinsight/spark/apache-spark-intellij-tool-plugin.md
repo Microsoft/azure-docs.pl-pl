@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: 370ac9528b023f01aaff5e5a7ec62785a02bb4bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85d9da10650028b0f04458ea3553d010e5589ffd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085348"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491380"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Tworzenie aplikacji Apache Spark dla klastra usługi HDInsight za pomocą Azure Toolkit for IntelliJ
 
@@ -39,7 +39,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 * IntelliJ pomysł. W tym artykule [jest stosowany pomysł IntelliJ Community Ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 
-* Azure Toolkit for IntelliJ.  Zobacz [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable) (Instalowanie zestawu Azure Toolkit for IntelliJ).
+* Azure Toolkit for IntelliJ.  Zobacz [Installing the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) (Instalowanie zestawu Azure Toolkit for IntelliJ).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Instalowanie wtyczki Scala dla środowiska IntelliJ IDEA
 
@@ -71,7 +71,7 @@ Procedura instalacji wtyczki Scala:
 
      ![Okno dialogowe Nowy projekt IntelliJ pomysłów](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-5. Wybierz opcję **Dalej**.
+5. Wybierz pozycję **Dalej**.
 
 6. W oknie **New Project** (Nowy projekt) podaj następujące informacje:  
 
@@ -466,7 +466,7 @@ Istniejące aplikacje Spark Scala, które zostały utworzone w programie Intelli
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń klaster, który został utworzony, wykonując następujące czynności:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 1. W polu **Wyszukaj** w górnej części wpisz **HDInsight**.
 

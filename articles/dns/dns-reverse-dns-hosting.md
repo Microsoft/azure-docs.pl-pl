@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709202"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489680"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Hostowanie stref wyszukiwania wstecznego DNS w Azure DNS
 
@@ -28,7 +28,7 @@ W tym artykule omówiono procedurę tworzenia pierwszej strefy DNS wyszukiwania 
 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Tworzenie strefy DNS wyszukiwania wstecznego
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 1. W menu **centrum** wybierz pozycję **nowe**  >  **sieci**, a następnie wybierz pozycję **strefa DNS**.
 
    ![Wybór "strefy DNS"](./media/dns-reverse-dns-hosting/figure1.png)
@@ -48,7 +48,7 @@ Nazwa strefy wyszukiwania wstecznego IPv4 jest określana na podstawie zakresu a
 
 Poniższy przykład pokazuje, jak utworzyć strefę DNS wstecznej klasy C o nazwie `2.0.192.in-addr.arpa` w Azure DNS za pomocą Azure Portal:
 
- ![Okienko "Tworzenie strefy DNS" z wypełnionymi polami](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Zrzut ekranu pokazujący sposób tworzenia strefy odwrotnej DNS klasy C o nazwie 2.0.192.in-addr. arpa w Azure DNS przy użyciu Azure Portal.](./media/dns-reverse-dns-hosting/figure2.png)
 
 **Lokalizacja grupy zasobów** określa lokalizację grupy zasobów. Nie ma to wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.
 
@@ -117,7 +117,7 @@ Poniższy przykład przeprowadzi Cię przez proces tworzenia rekordu PTR w odwro
 
 1. W górnej części okienka **strefa DNS** wybierz pozycję **+ zestaw rekordów** , aby otworzyć okienko **Dodawanie zestawu rekordów** .
 
-   ![Przycisk służący do tworzenia zestawu rekordów](./media/dns-reverse-dns-hosting/figure4.png)
+   ![Zrzut ekranu przedstawiający okienko strefy DNS ze strzałką wskazującą na przycisk + zestaw rekordów.](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. Nazwa zestawu rekordów dla rekordu PTR musi być resztą adresu IPv4 w odwrotnej kolejności. 
 
@@ -162,7 +162,7 @@ Poniższy przykład przeprowadzi Cię przez proces tworzenia nowego rekordu PTR.
 4. W polu **nazwa domeny wprowadź nazwę**FQDN zasobu, który używa adresu IP.
 5. Wybierz pozycję **OK** u dołu okienka, aby utworzyć rekord DNS.
 
-![Okienko "Dodawanie zestawu rekordów" z wypełnionymi polami](./media/dns-reverse-dns-hosting/figure7.png)
+![Zrzut ekranu pokazujący okienko "Dodawanie zestawu rekordów" z strzałką wskazującą wartość w polu Typ.](./media/dns-reverse-dns-hosting/figure7.png)
 
 W poniższych przykładach pokazano, jak wykonać to zadanie przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
@@ -240,7 +240,7 @@ azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.
 az network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>Czy można hostować strefy wyszukiwania wstecznego DNS dla moich bloków IP przypisanych przez usługodawcę internetowego na Azure DNS?
 

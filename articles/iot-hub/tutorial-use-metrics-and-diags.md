@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: b070d6600f18b87ec16f1f9894d577f4c0a6c51c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 47cca5019277b2f4d0025ccb6743589a21dfaafa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149193"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480126"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Samouczek: Konfigurowanie metryk i dzienników diagnostycznych za pomocą Centrum IoT Hub oraz korzystanie z nich
 
@@ -138,7 +138,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 2. W bloku usługi IoT Hub wyszukaj sekcję **Monitorowanie**. Kliknij pozycję **Ustawienia diagnostyczne**. 
 
-   ![Zrzut ekranu przedstawiający fragment bloku usługi IoT Hub dotyczący ustawień diagnostycznych.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
+   ![Zrzut ekranu, który wyróżnia ustawienia diagnostyczne w sekcji monitorowanie.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
 3. Upewnij się, że subskrypcja i grupa zasobów są poprawne. W obszarze **Typ zasobu** usuń zaznaczenie pola wyboru **Zaznacz wszystko**, a następnie znajdź i zaznacz pozycję **IoT Hub**. (Zaznacza znacznik wyboru obok *opcji wszystkie* ponownie, ignorując go). W obszarze **zasób**wybierz nazwę centrum. Ekran powinien wyglądać jak na poniższej ilustracji: 
@@ -182,7 +182,7 @@ Teraz skonfiguruj kilka metryk, aby obserwować, kiedy komunikaty są wysyłane 
 
    Teraz na ekranie jest widoczna zminimalizowana metryka *Wysłane komunikaty telemetryczne* oraz nowa metryka *Łączna liczba użytych komunikatów*.
 
-   ![Zrzut ekranu przedstawiający dodawanie metryki dla wysłanych komunikatów telemetrycznych.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
+   ![Zrzut ekranu, który podświetla przycisk Przypnij do pulpitu nawigacyjnego.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
 
    Kliknij pozycję **Przypnij do pulpitu nawigacyjnego**. Metryka zostanie przypięta do pulpitu nawigacyjnego witryny Azure Portal, aby można było ponownie uzyskać do niej dostęp. Jeśli nie przypniesz jej do pulpitu nawigacyjnego, ustawienia nie zostaną zachowane.
 

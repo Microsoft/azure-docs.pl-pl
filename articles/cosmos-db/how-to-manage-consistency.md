@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e43f2e9897293cb4d5bc25b6ef95252a28628401
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2b3433d969611fabe1b12a8dcabfe6e50066a8c1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279604"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491193"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Zarządzanie poziomami spójności w usłudze Azure Cosmos DB
 
@@ -288,7 +288,7 @@ Jak ostateczna jest spójność ostateczna? W przypadku średniego przypadku mo�
 Dowiedz się więcej o zarządzaniu konfliktami danych lub przejdź do następnej kluczowej koncepcji w usłudze Azure Cosmos DB. Zobacz następujące artykuły:
 
 * [Poziomy spójności w Azure Cosmos DB](consistency-levels.md)
-* [Partycjonowanie i dystrybucja danych](partition-data.md)
+* [Partycjonowanie i dystrybucja danych](./partitioning-overview.md)
 * [Zarządzanie konfliktami między regionami](how-to-manage-conflicts.md)
 * [Partycjonowanie i dystrybucja danych](partitioning-overview.md)
 * [Założenia dotyczące spójności w nowoczesnych systemach rozproszonej bazy danych](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)

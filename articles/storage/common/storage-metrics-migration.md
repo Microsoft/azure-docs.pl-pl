@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1dc0c7f37dc848ecd361848934cbcc5640afc66
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802841"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490768"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Przejście do metryk w Azure Monitor
 
-W dniu **31 sierpnia 2023** metryki analityka magazynu, nazywane również *metrykami klasycznymi* , zostaną wycofane. Aby uzyskać więcej informacji, zapoznaj się z [oficjalnym ogłoszeniem](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Jeśli używasz metryk klasycznych, upewnij się, że przed tą datą przeszedł do metryk w Azure Monitor. Ten artykuł pomaga w wprowadzeniu przejścia. 
+W dniu **31 sierpnia 2023** metryki analityka magazynu, nazywane również *metrykami klasycznymi* , zostaną wycofane. Więcej informacji znajdziesz w [oficjalnym ogłoszeniu](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Jeśli używasz metryk klasycznych, pamiętaj, aby przejść na metryki w usłudze Azure Monitor przed tą datą. Ten artykuł ułatwi Ci to przejście. 
 
 ## <a name="steps-to-complete-the-transition"></a>Procedura kończenia przejścia
 
@@ -30,12 +30,12 @@ Aby przejść do metryk w Azure Monitor, zalecamy następujące podejście.
 
 3. Określ, [które metryki w Azure monitor](#metrics-mapping-between-old-metrics-and-new-metrics) zawierają te same dane, co aktualnie używane metryki. 
    
-4. Utwórz [wykresy](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) lub [pulpity nawigacyjne](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) , aby wyświetlić dane metryk.
+4. Utwórz [wykresy](/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) lub [pulpity nawigacyjne](/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) , aby wyświetlić dane metryk.
 
    > [!NOTE]
    > Metryki w Azure Monitor są domyślnie włączone, więc nie trzeba wykonywać operacji przechwytywania metryk. Należy jednak utworzyć wykresy lub pulpity nawigacyjne, aby wyświetlić te metryki. 
  
-5. Jeśli utworzono reguły alertów oparte na klasycznych metrykach magazynu, [Utwórz reguły alertów](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) oparte na metrykach w Azure monitor. 
+5. Jeśli utworzono reguły alertów oparte na klasycznych metrykach magazynu, [Utwórz reguły alertów](/azure/azure-monitor/platform/alerts-overview) oparte na metrykach w Azure monitor. 
 
 6. Gdy będzie można zobaczyć wszystkie metryki w Azure Monitor, można wyłączyć rejestrowanie klasyczne. 
 
@@ -53,7 +53,7 @@ W odniesieniu do metryk, klasyczne metryki zapewniają metryki **pojemności** t
 
 Jeśli działanie na koncie nie wyzwala metryki, w przypadku tej metryki metryki klasyczne wyświetlą wartość zero (0). Metryki w Azure Monitor będą całkowicie pomijać dane, co prowadzi do raportów dotyczących czyszczenia. Na przykład w przypadku metryk klasycznych, jeśli nie zostaną zgłoszone błędy limitu czasu serwera, `ServerTimeoutError` wartość w tabeli metryk jest równa 0. Azure Monitor nie zwraca żadnych danych podczas wykonywania zapytania o wartość metryki `Transactions` z wymiarem `ResponseType` równym `ServerTimeoutError` . 
 
-Aby dowiedzieć się więcej o metrykach w Azure Monitor, zobacz [metryki w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Aby dowiedzieć się więcej o metrykach w Azure Monitor, zobacz [metryki w Azure monitor](/azure/azure-monitor/platform/data-platform-metrics).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 

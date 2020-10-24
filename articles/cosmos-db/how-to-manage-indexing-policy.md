@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: f006f249fce56171f8bbf471de013e015b5c4f92
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 67d542ffe0279abe72bc74ab207cd5fddd1a4362
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207779"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491040"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami indeksowania w usłudze Azure Cosmos DB
 
@@ -347,13 +347,13 @@ W Azure Cosmos DB zasady indeksowania można aktualizować przy użyciu dowolnej
 [Aktualizacja zasad indeksowania](index-policy.md#modifying-the-indexing-policy) wyzwala transformację indeksu. Postęp tego przekształcenia może być również śledzony z zestawów SDK.
 
 > [!NOTE]
-> Podczas aktualizowania zasad indeksowania zapisy do Azure Cosmos DB będą nieprzerwane. Dowiedz się więcej o [przekształceniach indeksowania](indexing-policy.md#modifying-the-indexing-policy)
+> Podczas aktualizowania zasad indeksowania zapisy do Azure Cosmos DB będą nieprzerwane. Dowiedz się więcej o [przekształceniach indeksowania](index-policy.md#modifying-the-indexing-policy)
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Kontenery usługi Azure Cosmos przechowują swoje zasady indeksowania jako dokument JSON, który Azure Portal umożliwia bezpośrednie edytowanie.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 1. Utwórz nowe konto usługi Azure Cosmos lub wybierz istniejące.
 

@@ -1,22 +1,22 @@
 ---
 title: Udostępnianie poza organizacji (szablon ARM) — Przewodnik Szybki Start dotyczący usługi Azure Data Share
-description: Dowiedz się, jak udostępniać dane klientom i partnerom za pomocą usługi Azure Data Share i szablonu Menedżer zasobów w tym przewodniku Szybki Start.
+description: W tym przewodniku szybki start dowiesz się, jak udostępniać dane klientom i partnerom przy użyciu usługi Azure Data Share i szablonu Azure Resource Manager (szablon ARM).
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146153"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487691"
 ---
-# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Szybki Start: udostępnianie danych przy użyciu usługi Azure Data Share i szablonów Menedżer zasobów
+# <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Szybki Start: udostępnianie danych przy użyciu usługi Azure Data Share i szablonu ARM
 
-Dowiedz się, jak skonfigurować nowy udział danych platformy Azure na podstawie konta usługi Azure Storage przy użyciu szablonu Azure Resource Manager i rozpocząć udostępnianie danych klientom i partnerom spoza organizacji platformy Azure. Listę obsługiwanych magazynów danych można znaleźć [w temacie obsługiwane magazyny danych w udziale danych platformy Azure](./supported-data-stores.md).
+Dowiedz się, jak skonfigurować nowy udział danych platformy Azure na podstawie konta usługi Azure Storage przy użyciu szablonu Azure Resource Manager (szablon ARM). I zacznij udostępniać dane klientom i partnerom spoza organizacji platformy Azure. Listę obsługiwanych magazynów danych można znaleźć [w temacie obsługiwane magazyny danych w udziale danych platformy Azure](./supported-data-stores.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -38,12 +38,12 @@ Następujące zasoby są zdefiniowane w szablonie:
 
 * [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts):
 * [Microsoft. Storage/storageAccounts/blobServices/kontenery](/azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
+* [Microsoft. dataudział/konta](/azure/templates/microsoft.datashare/accounts)
+* [Microsoft. dataudział/konta/udziały](/azure/templates/microsoft.datashare/accounts/shares)
 * [Microsoft. Storage/storageAccounts/dostawcy/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [Microsoft. dataudział/konta](/rest/api/datashare/accounts/create)
-* [Microsoft. dataudział/konta/udziały](/rest/api/datashare/shares/create)
-* [Microsoft. dataudział/konta/udziały/zestawy danych](/rest/api/datashare/datasets/create)
-* [Microsoft. dataudział/konta/udziały/zaproszenia](/rest/api/datashare/invitations/create)
-* [Microsoft. datashare/accounts/shares/synchronizationSettings](/rest/api/datashare/synchronizationsettings/create)
+* [Microsoft. dataudział/konta/udziały/zestawy danych](/azure/templates/microsoft.datashare/accounts/shares/datasets)
+* [Microsoft. dataudział/konta/udziały/zaproszenia](/azure/templates/microsoft.datashare/accounts/shares/invitations)
+* [Microsoft. datashare/accounts/shares/synchronizationSettings](/azure/templates/microsoft.datashare/accounts/shares/synchronizationsettings)
 
 Szablon wykonuje następujące zadania:
 
@@ -56,11 +56,11 @@ Szablon wykonuje następujące zadania:
 
 Ten szablon jest tworzony na potrzeby celów edukacyjnych. W ramach tej działalności zazwyczaj masz pewne dane na istniejącym koncie magazynu. Przed uruchomieniem szablonu lub skryptu w celu utworzenia zestawu danych należy utworzyć przypisanie roli. Czasami podczas wdrażania szablonu może zostać wyświetlony następujący komunikat o błędzie:
 
-```error message
+```plaintext
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-Wynika to z faktu, że wdrożenie próbuje utworzyć zestaw danych przed ukończeniem przypisywania roli platformy Azure. Mimo komunikatu o błędzie wdrożenie może się powieść.  Nadal będzie można zapoznać się z [przeglądem wdrożonych zasobów](#review-deployed-resources).
+Jest to spowodowane tym, że wdrożenie próbuje utworzyć zestaw danych, zanim będzie można sfinalizować przypisanie roli platformy Azure. Mimo komunikatu o błędzie wdrożenie może się powieść. Nadal będzie można zapoznać się z [przeglądem wdrożonych zasobów](#review-deployed-resources).
 
 ## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
@@ -81,7 +81,7 @@ Wynika to z faktu, że wdrożenie próbuje utworzyć zestaw danych przed ukończ
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 1. Otwórz utworzone konto udostępniania danych.
 1. Z menu po lewej stronie wybierz pozycję **Wyślij udziały**.  Zobaczysz konto magazynu wymienione na liście.
 1. Wybierz konto magazynu.  W obszarze **szczegóły**zobaczysz ustawienie synchronizacji skonfigurowane w szablonie.

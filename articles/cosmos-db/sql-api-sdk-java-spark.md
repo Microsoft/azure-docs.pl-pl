@@ -9,32 +9,32 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: afee95f6a8776c3506e10c29cfd8e776734a915a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ee7e180094c1584995e5d734adbe589a112754b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326681"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477576"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark łącznik dla programu Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
 > * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
 > * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
-> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
+> * [Zestaw SDK zestawienia zmian platformy .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
-> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
 Można przyspieszyć analizę danych Big Data, korzystając z łącznika Azure Cosmos DB Apache Spark for Core (SQL). Łącznik platformy Spark umożliwia uruchamianie zadań [platformy Spark](https://spark.apache.org/) na danych przechowywanych w Azure Cosmos DB. Przetwarzanie wsadowe i przesyłanie strumieniowe są obsługiwane.
 
@@ -54,12 +54,12 @@ Możesz użyć łącznika z usługą [Azure Databricks](https://azure.microsoft.
 
 ## <a name="resources"></a>Zasoby
 
-| Zasób | Łącze |
+| Zasób | Link |
 |---|---|
-| **Pobieranie zestawu SDK** | [Pobierz najnowszą wersję. jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
+| **Zestaw SDK do pobrania** | [Pobierz najnowszą wersję. jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [Maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
 |**Dokumentacja interfejsu API** | [Odwołanie do łącznika Spark]() |
 |**Współtworzenie zestawu SDK** | [Łącznik Azure Cosmos DB dla Apache Spark w witrynie GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
-|**Wprowadzenie** | [Przyspieszenie analizy danych Big Data przy użyciu Apache Spark do Azure Cosmos DB łącznika](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) <br> [Używanie Apache Spark strukturalnych przesyłania strumieniowego z Apache Kafka i Azure Cosmos DB](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
+|**Wprowadzenie** | [Przyspieszenie analizy danych Big Data przy użyciu Apache Spark do Azure Cosmos DB łącznika](./spark-connector.md#bk_working_with_connector) <br> [Używanie Apache Spark strukturalnych przesyłania strumieniowego z Apache Kafka i Azure Cosmos DB](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## <a name="release-history"></a>Historia wersji
 
@@ -117,7 +117,7 @@ Możesz użyć łącznika z usługą [Azure Databricks](https://azure.microsoft.
 #### <a name="new-features"></a>Nowe funkcje
 * Usprawnia zarządzanie połączeniami i pule połączeń, aby zmniejszyć liczbę wywołań metadanych.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Następne kroki

@@ -8,18 +8,18 @@ author: sabbour
 ms.author: asabbour
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eab701d22f579a816aa95bd43a74fd9ea07d9e4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469885"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490241"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Konfigurowanie uwierzytelniania Azure Active Directory na potrzeby klastra usługi Azure Red Hat OpenShift 4 (Portal)
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Utwórz **adres URL wywołania zwrotnego protokołu OAuth** klastra i zanotuj go. Pamiętaj, aby zastąpić **ciąg ARO-RG** nazwą grupy zasobów i **wystawić klaster** z nazwą klastra.
 
@@ -62,7 +62,7 @@ Skonfigurujemy OpenShift do korzystania z tego `email` żądania i wrócisz do `
 
 Przejdź do obszaru **Konfiguracja tokenu (wersja zapoznawcza)** i kliknij pozycję **Dodaj opcjonalne**pole. Wybierz pozycję **Identyfikator** , a następnie sprawdź oświadczenia **adresu e-mail** i **nazwy UPN** .
 
-![Utwórz klucz tajny](media/aro4-ad-tokens.png)
+![Zrzut ekranu pokazujący dodane oświadczenia e-mail i nazwy UPN.](media/aro4-ad-tokens.png)
 
 ## <a name="assign-users-and-groups-to-the-cluster-optional"></a>Przypisywanie użytkowników i grup do klastra (opcjonalnie)
 

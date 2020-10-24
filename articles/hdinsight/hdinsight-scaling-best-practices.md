@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874cea2377d3c0a128894bb67278e8ec2cbe7edc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505016"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490972"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skalowanie klastrów usługi Azure HDInsight
 
@@ -34,17 +34,17 @@ Firma Microsoft udostępnia następujące narzędzia do skalowania klastrów:
 |---|---|
 |[Moduł Az programu PowerShell](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Moduł AzureRM programu PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[Interfejs wiersza polecenia platformy Azure](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Klasyczny interfejs wiersza polecenia platformy Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Azure Portal](https://portal.azure.com)|Otwórz okienko klastra usługi HDInsight, wybierz pozycję **rozmiar klastra** w menu po lewej stronie, a następnie w okienku rozmiar klastra wpisz liczbę węzłów procesu roboczego i wybierz pozycję Zapisz.|  
+|[Witryna Azure Portal](https://portal.azure.com)|Otwórz okienko klastra usługi HDInsight, wybierz pozycję **rozmiar klastra** w menu po lewej stronie, a następnie w okienku rozmiar klastra wpisz liczbę węzłów procesu roboczego i wybierz pozycję Zapisz.|  
 
 ![Azure Portal skalowanie — opcja klastra](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
 Korzystając z dowolnej z tych metod, można skalować klaster usługi HDInsight w górę lub w dół w ciągu kilku minut.
 
 > [!IMPORTANT]  
-> * Klasyczny interfejs wiersza polecenia platformy Azure jest przestarzały i powinien być używany tylko z klasycznym modelem wdrażania. W przypadku wszystkich innych wdrożeń Użyj [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-> * Moduł AzureRM programu PowerShell jest przestarzały.  Użyj [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) wszędzie tam, gdzie to możliwe.
+> * Klasyczny interfejs wiersza polecenia platformy Azure jest przestarzały i powinien być używany tylko z klasycznym modelem wdrażania. W przypadku wszystkich innych wdrożeń Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/).
+> * Moduł AzureRM programu PowerShell jest przestarzały.  Użyj [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) wszędzie tam, gdzie to możliwe.
 
 ## <a name="impact-of-scaling-operations"></a>Wpływ operacji skalowania
 
@@ -146,7 +146,7 @@ Aby ręcznie skasować tę uruchomioną aplikację, wykonaj następujące polece
 yarn application -kill <application_id>
 ```
 
-Na przykład:
+Przykład:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

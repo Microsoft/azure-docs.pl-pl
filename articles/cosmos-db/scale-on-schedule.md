@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: ec5c98d90facf9458769f235880f17d14708e425
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56fa87cfec7f50253dfce7d7c296ff7cb980aebe
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87923659"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482013"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Skalowanie przepływności Azure Cosmos DB przy użyciu wyzwalacza Azure Functions czasomierza
 
 Wydajność konta usługi Azure Cosmos zależy od ilości alokowanej przepływności wyrażonej w jednostkach żądań na sekundę (RU/s). Inicjowanie obsługi jest z drugiej stopnia szczegółowości i jest rozliczane na podstawie najwyższych jednostek RU/s na godzinę. Ten model pojemności zainicjowanej pozwala usłudze zapewnić przewidywalną i spójną przepływność, gwarantowane małe opóźnienia i wysoką dostępność. Większość obciążeń produkcyjnych te funkcje. Jednak w środowiskach deweloperskich i testowych, w których Azure Cosmos DB są używane tylko w godzinach pracy, można skalować przepustowość w górę i skalować ją z góry po godzinach pracy.
 
-Przepływność można ustawić za pomocą [szablonów Azure Resource Manager](resource-manager-samples.md), [interfejsu wiersza polecenia platformy Azure](cli-samples.md)i [programu PowerShell](powershell-samples.md)dla kont interfejsu API programu Core (SQL) lub przy użyciu Azure Cosmos DB zestawów SDK specyficznych dla języka. Zaletą korzystania z szablonów Menedżer zasobów, interfejsu wiersza polecenia platformy Azure lub programu PowerShell jest obsługa wszystkich Azure Cosmos DB interfejsów API modelu.
+Przepływność można ustawić za pomocą [szablonów Azure Resource Manager](./templates-samples-sql.md), [interfejsu wiersza polecenia platformy Azure](cli-samples.md)i [programu PowerShell](powershell-samples.md)dla kont interfejsu API programu Core (SQL) lub przy użyciu Azure Cosmos DB zestawów SDK specyficznych dla języka. Zaletą korzystania z szablonów Menedżer zasobów, interfejsu wiersza polecenia platformy Azure lub programu PowerShell jest obsługa wszystkich Azure Cosmos DB interfejsów API modelu.
 
 ## <a name="throughput-scheduler-sample-project"></a>Przykładowy projekt harmonogramu przepływności
 

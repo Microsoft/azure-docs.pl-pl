@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 12/06/2019
-ms.openlocfilehash: 097323b4566daeda737428121bee4d64e9f7248b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69e7551fbf5b2f38dbc080a468baf81849e4372e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74951568"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490955"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight: przykłady dla platformy .NET
 
@@ -33,7 +33,7 @@ Możesz [aktywować korzyści subskrybenta programu Visual Studio](https://azure
 
 ## <a name="prerequisite"></a>Wymaganie wstępne
 
-[Zestaw SDK usługi Azure HDInsight dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight#sdk-installation)
+[Zestaw SDK usługi Azure HDInsight dla platformy .NET](/dotnet/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>Zarządzanie klastrem — tworzenie
 
@@ -46,4 +46,4 @@ Te przykłady dla platformy .NET można uzyskać, klonowanie repozytorium usług
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Fragmenty kodu dla tej dodatkowej funkcji zestawu SDK znajdują się w [dokumentacji referencyjnej usługi HDINSIGHT SDK dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+Fragmenty kodu dla tej dodatkowej funkcji zestawu SDK znajdują się w [dokumentacji referencyjnej usługi HDINSIGHT SDK dla platformy .NET](/dotnet/api/overview/azure/hdinsight&preserve-view=true).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511725"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481333"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure za pomocą witryny Azure Portal
 
@@ -331,7 +331,7 @@ Wykonaj następujące kroki, aby wyświetlić role niestandardowe.
 
 1. Kliknij przycisk wielokropka (**...**) dla roli niestandardowej, którą chcesz usunąć, a następnie kliknij pozycję **Usuń**.
 
-    ![Niestandardowe menu roli](./media/custom-roles-portal/delete-menu.png)
+    ![Zrzut ekranu przedstawiający listę ról niestandardowych, które można wybrać do usunięcia.](./media/custom-roles-portal/delete-menu.png)
 
     Całkowite usunięcie roli niestandardowej może potrwać kilka minut.
 
