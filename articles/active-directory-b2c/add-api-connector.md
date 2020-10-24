@@ -5,25 +5,28 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102276"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504115"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika rejestracji (wersja zapoznawcza)
+
+> [!IMPORTANT]
+> Łączniki interfejsu API do rejestracji jest publiczną funkcją w wersji zapoznawczej Azure AD B2C. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najpierw utworzyć łącznik interfejsu API, a następnie włączyć go w przepływie użytkownika.
 
 ## <a name="create-an-api-connector"></a>Tworzenie łącznika interfejsu API
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure AD B2C**.
 4. Wybierz pozycję **Łączniki interfejsu API (wersja zapoznawcza)**, a następnie wybierz pozycję **Nowy łącznik interfejsu API**.
 
@@ -48,7 +51,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -80,13 +83,13 @@ Ponadto w przypadku wszystkich żądań jest domyślnie wysyłane żądanie **us
 > Jeśli w momencie wywołania punktu końcowego interfejsu API nie ma wartości, to nie zostanie ono wysłane do interfejsu API. Interfejs API powinien zostać zaprojektowany, aby jawnie sprawdzić i obsłużyć przypadek, w którym w żądaniu nie występuje żądanie.
 
 > [!TIP] 
-> [**tożsamości ("tożsamości")**](https://docs.microsoft.com/graph/api/resources/objectidentity) oraz oświadczenia **adresu e-mail ("e-mail")** mogą być używane przez interfejs API do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. To zdarzenie jest wysyłane, gdy użytkownik uwierzytelnia się za pomocą dostawcy tożsamości, takiego jak Google lub Facebook. wiadomość e-mail jest zawsze wysyłana.
+> [**tożsamości ("tożsamości")**](https://docs.microsoft.com/graph/api/resources/objectidentity) oraz oświadczenia **adresu e-mail ("e-mail")** mogą być używane przez interfejs API do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Włączanie łącznika interfejsu API w przepływie użytkownika
 
 Wykonaj następujące kroki, aby dodać łącznik interfejsu API do przepływu użytkownika w celu rejestracji.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure AD B2C**.
 4. Wybierz pozycję **przepływy użytkownika**, a następnie wybierz przepływ użytkownika, do którego chcesz dodać łącznik interfejsu API.
 5. Wybierz pozycję **Łączniki interfejsu API**, a następnie wybierz punkty końcowe interfejsu API, które mają być wywoływane, w następujących krokach przepływu użytkownika:
@@ -100,7 +103,7 @@ Wykonaj następujące kroki, aby dodać łącznik interfejsu API do przepływu u
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Po zalogowaniu się za pomocą dostawcy tożsamości
 
-Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (np. Google, Facebook, & usługi Azure AD). Ten krok poprzedza ***stronę kolekcji atrybutów***, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. Ten krok nie jest wywoływany, jeśli użytkownik jest rejestrowany przy użyciu konta lokalnego.
+Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (np. Google, Facebook, & usługi Azure AD). Ten krok poprzedza*_stronę kolekcji atrybutów_** _, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. Ten krok nie jest wywoływany, jeśli użytkownik jest rejestrowany przy użyciu konta lokalnego.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Przykładowe żądanie wysłane do interfejsu API w tym kroku
 ```http
@@ -109,7 +112,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -167,7 +170,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -236,9 +239,9 @@ Content-type: application/json
 
 | Parametr                                          | Typ              | Wymagane | Opis                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Wersja                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
-| akcja                                             | Ciąg            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Zwracane wartości mogą zastąpić wartości zebrane przez użytkownika. Mogą być również zwracane w tokenie, jeśli wybrano jako rolę **wniosku**.                                              |
+| Wersja                                            | String            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
+| akcja                                             | String            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Zwracane wartości mogą zastąpić wartości zebrane przez użytkownika. Mogą być również zwracane w tokenie, jeśli wybrane jako a * wyrażenie aplikacji * *.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Nie musi zawierać tego żądania `_<extensions-app-id>_` . Zwracane wartości mogą zastąpić wartości zebrane przez użytkownika. Mogą być również zwracane w tokenie, jeśli wybrano jako rolę **wniosku**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Przykład odpowiedzi blokującej
@@ -257,9 +260,9 @@ Content-type: application/json
 
 | Parametr   | Typ   | Wymagane | Opis                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| Wersja     | Ciąg | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | Ciąg | Tak      | Wartość musi być równa `ShowBlockPage`                                              |
-| userMessage | Ciąg | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| Wersja     | String | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | String | Tak      | Wartość musi być równa `ShowBlockPage`                                              |
+| userMessage | String | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 
 **Środowisko użytkownika końcowego z odpowiedzią blokującą**
 
@@ -283,12 +286,13 @@ Content-type: application/json
 
 | Parametr   | Typ    | Wymagane | Opis                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| Wersja     | Ciąg  | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | Ciąg  | Tak      | Wartość musi być `ValidationError` .                                           |
+| Wersja     | String  | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | String  | Tak      | Wartość musi być `ValidationError` .                                           |
 | status      | Liczba całkowita | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
-| userMessage | Ciąg  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| userMessage | String  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 
-*Uwaga:* Kod stanu HTTP musi mieć wartość "400" Oprócz wartości "status" w treści odpowiedzi.
+> [!NOTE]
+> Kod stanu HTTP musi mieć wartość "400" Oprócz wartości "status" w treści odpowiedzi.
 
 **Środowisko użytkownika końcowego z odpowiedzią na błędy weryfikacji**
 
@@ -318,4 +322,4 @@ Ogólnie rzecz biorąc, warto użyć narzędzi rejestrowania włączonych przez 
 
 ## <a name="next-steps"></a>Następne kroki
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-- Rozpocznij pracę z naszymi [przykładami szybkiego startu usługi Azure Functions](code-samples.md#api-connectors).
+- Rozpocznij pracę z naszymi [przykładami](code-samples.md#api-connectors).

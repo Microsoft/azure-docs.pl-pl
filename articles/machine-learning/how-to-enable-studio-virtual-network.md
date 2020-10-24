@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92426102"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503219"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure
 
@@ -36,7 +36,7 @@ Zapoznaj się z innymi artykułami w tej serii:
 
 
 > [!IMPORTANT]
-> Chociaż większość z nich współpracuje z danymi przechowywanymi w sieci wirtualnej, __nie są to__zintegrowane notesy. Zintegrowane notesy nie obsługują używania magazynu znajdującego się w sieci wirtualnej. Zamiast tego można użyć notesów Jupyter z wystąpienia obliczeniowego. Aby uzyskać więcej informacji, zobacz sekcję [dostęp do danych w notesie wystąpienia obliczeniowego]() .
+> Jeśli obszar roboczy znajduje się w __chmurze suwerennej__, takiej jak Azure Government lub Azure Chiny 21Vianet, zintegrowane notesy _nie_ obsługują używania magazynu znajdującego się w sieci wirtualnej. Zamiast tego można użyć notesów Jupyter z wystąpienia obliczeniowego. Aby uzyskać więcej informacji, zobacz sekcję [dostęp do danych w notesie wystąpienia obliczeniowego](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -127,7 +127,7 @@ Projektant używa konta magazynu dołączonego do obszaru roboczego do przechowy
 Aby ustawić nowy magazyn domyślny dla potoku:
 
 1. W wersji roboczej potoku wybierz **ikonę koła zębatego** obok tytułu potoku.
-1. Wybierz pozycję **Wybierz domyślny magazyn**danych.
+1. Wybierz **pozycję Wybierz domyślny magazyn**danych.
 1. Określ nowy magazyn danych.
 
 Możesz również zastąpić domyślny magazyn danych dla każdego modułu. Zapewnia to kontrolę nad lokalizacją przechowywania poszczególnych modułów.

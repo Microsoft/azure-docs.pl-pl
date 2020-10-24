@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 07bd9353f08e9440e495dfa92c608b4d6f70f5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b0d2c6c3d70e73be25038c763f05ef572b56ebe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543986"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515683"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassian JIRA i Podręcznik administratora Confluence dla Azure Active Directory
 
@@ -67,7 +67,7 @@ Wtyczka obsługuje następujące wersje JIRA i Confluence:
 
 * JIRA rdzeń i oprogramowanie: od 6,0 do 7,12
 * JIRA Service Desk: 3.0.0 do 3.5.0
-* Usługa JIRA obsługuje także wersję 5.2. Aby uzyskać więcej szczegółowych informacji, kliknij następujący link: [logowanie jednokrotne usługi Microsoft Azure Active Directory dla usługi JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* Usługa JIRA obsługuje także wersję 5.2. Aby uzyskać więcej szczegółowych informacji, kliknij następujący link: [logowanie jednokrotne usługi Microsoft Azure Active Directory dla usługi JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5,0 do 5,10
 * Confluence: 6.0.1
 * Confluence: 6.1.1
@@ -185,7 +185,7 @@ Wtyczka obsługuje następujące wersje:
 
 * JIRA rdzeń i oprogramowanie: od 6,0 do 7,12
 * JIRA Service Desk: 3.0.0 do 3.5.0
-* Usługa JIRA obsługuje także wersję 5.2. Aby uzyskać więcej szczegółowych informacji, kliknij następujący link: [logowanie jednokrotne usługi Microsoft Azure Active Directory dla usługi JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* Usługa JIRA obsługuje także wersję 5.2. Aby uzyskać więcej szczegółowych informacji, kliknij następujący link: [logowanie jednokrotne usługi Microsoft Azure Active Directory dla usługi JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5,0 do 5,10
 * Confluence: 6.0.1
 * Confluence: 6.1.1

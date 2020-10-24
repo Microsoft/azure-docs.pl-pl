@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1096437fc1d77042a9db4dc359d51cd6d9d22960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e363b43bf9028e3075efa0f5a1f54e6bda190d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304393"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92512698"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Samouczek: integracja Azure Active Directory z portalem programu Palo Alto Networks
 
@@ -135,7 +135,7 @@ Następnie skonfiguruj logowanie jednokrotne w aplikacji Palo Alto Networks Capt
     
     2. Obok pola **Identity Provider Metadata** (Metadane dostawcy tożsamości) wybierz przycisk **Browse** (Przeglądaj). Wybierz plik metadata.xml pobrany w witrynie Azure Portal.
     
-    3. Kliknij przycisk **OK**.
+    3. Wybierz przycisk **OK**.
 
 ### <a name="create-a-palo-alto-networks-captive-portal-test-user"></a>Tworzenie użytkownika testowego aplikacji Palo Alto Networks Captive Portal
 
@@ -150,8 +150,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do portalu Palo Alto Networks, dla którego skonfigurowano Logowanie jednokrotne
 
-Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka portal usługi Microsoft Palo Alto Networks w panelu dostępu należy automatycznie zalogować się do portalu usługi w sieci Palo Alto, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka portal usługi Microsoft Palo Alto Networks w panelu dostępu należy automatycznie zalogować się do portalu usługi w sieci Palo Alto, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu portalu Palo Alto Networks można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu portalu Palo Alto Networks można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

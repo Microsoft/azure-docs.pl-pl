@@ -1,21 +1,21 @@
 ---
 title: Zarządzanie kontrolą dostępu opartą na rolach na platformie Azure w Azure Site Recovery
-description: W tym artykule opisano sposób stosowania kontroli dostępu opartej na rolach (RBAC) do zarządzania dostępem Azure Site Recovery.
+description: W tym artykule opisano sposób stosowania kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure w celu zarządzania dostępem Azure Site Recovery.
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3e1334f513e8ac587d639758d83ce080c5b4ab9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927168"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516906"
 ---
-# <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Zarządzanie dostępem Site Recovery przy użyciu kontroli dostępu opartej na rolach (RBAC)
+# <a name="manage-site-recovery-access-with-azure-role-based-access-control-azure-rbac"></a>Zarządzanie dostępem Site Recovery przy użyciu kontroli dostępu opartej na rolach (Azure RBAC)
 
-Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Za pomocą RBAC można rozdzielić obowiązki w zespole i udzielić użytkownikom tylko określonych uprawnień dostępu w celu wykonywania określonych zadań.
+Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Korzystając z funkcji RBAC platformy Azure, można dzielić obowiązki w zespole i udzielać użytkownikom tylko określonych uprawnień dostępu do wykonywania określonych zadań.
 
 Azure Site Recovery udostępnia 3 wbudowane role do kontrolowania operacji zarządzania Site Recovery. Dowiedz się więcej o [rolach wbudowanych platformy Azure](../role-based-access-control/built-in-roles.md)
 
@@ -43,7 +43,7 @@ Użytkownik musi mieć następujące uprawnienia, aby ukończyć replikację now
 
 | **Typ zasobu** | **Model wdrażania** | **Uprawnienie** |
 | --- | --- | --- |
-| Compute | Resource Manager | Microsoft. COMPUTE/availabilitySets/Read |
+| Wystąpienia obliczeniowe | Resource Manager | Microsoft. COMPUTE/availabilitySets/Read |
 |  |  | Microsoft. COMPUTE/virtualMachines/Read |
 |  |  | Microsoft. COMPUTE/virtualMachines/Write |
 |  |  | Microsoft. COMPUTE/virtualMachines/Delete |
@@ -72,9 +72,9 @@ Użytkownik musi mieć następujące uprawnienia, aby ukończyć replikację now
 Rozważ użycie [wbudowanych ról](../role-based-access-control/built-in-roles.md) "Współautor maszyny wirtualnej" i "Współautor klasycznej maszyny wirtualnej" dla Menedżer zasobów i klasycznych modeli wdrażania.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): wprowadzenie do kontroli rbac w Azure Portal.
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): wprowadzenie do usługi Azure rbac w Azure Portal.
 * Dowiedz się, jak zarządzać dostępem przy użyciu:
   * [Program PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Interfejs wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md)
   * [Interfejs API REST](../role-based-access-control/role-assignments-rest.md)
-* [Rozwiązywanie problemów Access Control opartych na rolach](../role-based-access-control/troubleshooting.md): Uzyskaj sugestie dotyczące rozwiązywania typowych problemów.
+* [Rozwiązywanie problemów z usługą Azure RBAC](../role-based-access-control/troubleshooting.md): Uzyskaj sugestie dotyczące rozwiązywania typowych problemów.

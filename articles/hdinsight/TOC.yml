@@ -263,11 +263,11 @@
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
         - name: Zestaw SDK środowiska .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true
         - name: Zestaw SDK dla środowiska Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
+          href: /python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true
         - name: Zestaw SDK języka Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
+          href: /java/api/overview/azure/hdinsight
         - name: Zestaw SDK dla języka Go
           href: ./hdinsight-go-sdk-overview.md
         - name: .NET (Apache HBase)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a9410215abeb6fdb413866cbff12cf5f826c0fee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201702"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504375"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure Kubernetes
 
@@ -949,7 +949,7 @@ Moduł Azure AD PowerShell służy do wykonywania zapytań ad hoc w celu odnajdy
 
 Zaimplementuj przestrzeń nazw w Kubernetes, aby utworzyć logiczną granicę izolacji. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. ContainerService", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji wystąpień usługi Azure Kubernetes Service (AKS). 
 
-Przejrzyj i zaimplementuj dodatkowe funkcje Kubernetes oraz zagadnienia dotyczące izolacji i wielu dzierżawców obejmują następujące obszary: planowanie, sieci, uwierzytelnianie/autoryzacja i kontenery. Należy również używać oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Oddziel klastry AKS z sieciami wirtualnymi, podsieciami, które są odpowiednio oznakowane i zabezpieczone za pomocą zapory aplikacji sieci Web (WAF).
+Przejrzyj i zaimplementuj dodatkowe funkcje Kubernetes oraz zagadnienia dotyczące izolacji i wielu dzierżawców, aby uwzględnić następujące kwestie: planowanie, Sieć, uwierzytelnianie/autoryzacja i kontenery. Należy również używać oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Oddziel klastry AKS z sieciami wirtualnymi, podsieciami, które są odpowiednio oznakowane i zabezpieczone za pomocą zapory aplikacji sieci Web (WAF).
 
 - [Dowiedz się więcej o najlepszych rozwiązaniach dotyczących izolacji klastra w AKS](operator-best-practices-cluster-isolation.md)
 
@@ -1235,7 +1235,7 @@ Usuń stan z aplikacji przed utworzeniem kopii zapasowej. W przypadkach, gdy nie
 
 Wykonywanie zwykłych zautomatyzowanych kopii zapasowych Key Vault certyfikatów, kluczy, zarządzanych kont magazynu i wpisów tajnych za pomocą poleceń programu PowerShell. 
 
-Na przykład:
+Przykład:
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1259,7 +1259,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 Okresowe wykonywanie przywracania danych Key Vault certyfikatów, kluczy, zarządzanych kont magazynu i wpisów tajnych za pomocą poleceń programu PowerShell. 
 
-Na przykład:
+Przykład:
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 

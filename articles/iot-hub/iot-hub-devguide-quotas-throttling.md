@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f2ab3c55c5532b76c45a18054fd653dd8fe8137
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797806"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504078"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Przydziały IoT Hub i ograniczanie przepustowości
 
@@ -59,7 +59,7 @@ W poniższej tabeli przedstawiono wymuszone ograniczenia. Wartości odnoszą si�
 | Maksymalna liczba strumieni urządzeń połączonych współbieżnie<sup>1</sup> | 50 | 50 | 50 |
 | Maksymalny<sup>transfer danych</sup> strumienia urządzeń (zagregowany wolumin dziennie) | 300 MB | 300 MB | 300 MB |
 
-<sup>1</sup> Ta funkcja nie jest dostępna w warstwie Podstawowa IoT Hub. Aby uzyskać więcej informacji, zobacz [jak wybrać właściwy IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup> Rozmiar miernika ograniczającego to 4 KB.
+<sup>1</sup> Ta funkcja nie jest dostępna w warstwie Podstawowa IoT Hub. Aby uzyskać więcej informacji, zobacz [jak wybrać właściwy IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup> Rozmiar miernika ograniczającego to 4 KB. Ograniczanie jest oparte tylko na rozmiarze ładunku żądania.
 
 ### <a name="throttling-details"></a>Szczegóły ograniczenia
 
@@ -99,7 +99,7 @@ IoT Hub wymusza inne limity operacyjne:
 
 | Operacja | Limit |
 | --------- | ----- |
-| Devices | Łączna liczba urządzeń i modułów, które mogą być zarejestrowane w pojedynczym Centrum IoT Hub, jest ograniczona do 1 000 000. Jedynym sposobem zwiększenia tego limitu jest skontaktowanie się z [Pomoc techniczna firmy Microsoft](https://azure.microsoft.com/support/options/).|
+| Urządzenia | Łączna liczba urządzeń i modułów, które mogą być zarejestrowane w pojedynczym Centrum IoT Hub, jest ograniczona do 1 000 000. Jedynym sposobem zwiększenia tego limitu jest skontaktowanie się z [Pomoc techniczna firmy Microsoft](https://azure.microsoft.com/support/options/).|
 | Operacje przekazywania plików | 10 współbieżnych przekazywania plików na urządzenie. |
 | Zadania<sup>1</sup> | Maksymalna liczba współbieżnych zadań to 1 (za darmo i S1), 5 (dla S2) i 10 (dla S3). Maksymalne współbieżne [zadania importowania/eksportowania urządzeń](iot-hub-bulk-identity-mgmt.md) mają jednak wartość 1 dla wszystkich warstw. <br/>Historia zadania jest przechowywana do 30 dni. |
 | Dodatkowe punkty końcowe | Płatne centra jednostek SKU mogą mieć 10 dodatkowych punktów końcowych. Bezpłatne centra SKU mogą mieć jeden dodatkowy punkt końcowy. |

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
-ms.openlocfilehash: fd0f489bd6109a5dcd6625eb26286e0d40c50c63
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e4f6cefd56c12162b370c78b6df2cd29ece030f1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962330"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515716"
 ---
 # <a name="enable-write-accelerator"></a>Włącz akcelerator zapisu
 
@@ -57,7 +57,7 @@ Istnieją limity wirtualnych dysków twardych Premium Storage platformy Azure dl
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
 
-Limity IOPS są na maszynę wirtualną, a *nie* na dysku. Wszystkie dyski akcelerator zapisu mają ten sam limit operacji we/wy na maszynę wirtualną.
+Limity IOPS są na maszynę wirtualną, a *nie* na dysku. Wszystkie dyski akcelerator zapisu mają ten sam limit operacji we/wy na maszynę wirtualną. Dołączone dyski nie mogą przekraczać limitu liczby IOPS akceleratora zapisu dla maszyny wirtualnej. Przykładowo, mimo że dołączone dyski mogą wykonywać 30 000 operacji we/wy na sekundę, system nie zezwala na przechodzenie dysków powyżej 20 000 IOPS dla M416ms_v2.
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Włączanie akceleratora zapisu na określonym dysku
 

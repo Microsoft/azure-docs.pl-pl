@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c34ace92fffee3c135cb05e07f06d885751bbce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36be61fd65db7ea02a3baec4b519a13231c420ec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629747"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514445"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Podstawa zabezpieczeń platformy Azure dla Virtual Network
 
@@ -408,13 +408,13 @@ Ponadto "szyfrowanie domyślnie" przy użyciu MACsec (IEEE standard w warstwie l
 
 **Odpowiedzialność**: udostępnione
 
-### <a name="46-use-role-based-access-control-to-manage-access-to-resources"></a>4,6: Użyj kontroli dostępu opartej na rolach, aby zarządzać dostępem do zasobów 
+### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: Korzystaj z usługi Azure RBAC, aby zarządzać dostępem do zasobów 
 
 **Wskazówki**: Aby zarządzać dostępem do danych i zasobów, użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure. W przeciwnym razie użyj metod kontroli dostępu specyficznych dla usługi. 
 
 Wybierz wbudowane role, takie jak właściciel, współautor lub współautor sieci i przypisz rolę do odpowiedniego zakresu. Można na przykład przypisać podzestaw możliwości sieci wirtualnej z określonymi uprawnieniami wymaganymi dla sieci wirtualnych do dowolnej z tych ról. 
 
-- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
+- [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Planowanie sieci wirtualnych](virtual-network-vnet-plan-design-arm.md#permissions)
 
@@ -562,7 +562,7 @@ Zaimplementuj zalecenia z Security Center jako bezpieczną konfigurację odniesi
 
 - [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](../security-center/recommendations-reference.md)
+- [Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny](../security-center/recommendations-reference.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

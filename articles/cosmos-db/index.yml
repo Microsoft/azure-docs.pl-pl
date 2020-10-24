@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 3daa7ed6e59230fe0f6c66e01982f6021f8e1ba7
-  ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+  ms.openlocfilehash: 7ee6db07facb1464428c6d1d8562fdd54216b883
+  ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/20/2020
-  ms.locfileid: "92278452"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92485770"
 landingContent:
 - title: Informacje o usłudze Azure Cosmos DB
   linkLists:
@@ -67,7 +67,7 @@ landingContent:
     - text: Tworzenie aplikacji internetowej platformy .NET do zarządzania danymi
       url: sql-api-dotnet-application.md
     - text: Aplikacja Java z zestawem SDK Async
-      url: sql-api-async-java-get-started.md
+      url: ./create-sql-api-java.md
     - text: Wykonywanie zapytań o dane za pomocą zapytań SQL
       url: tutorial-query-sql-api.md
   - linkListType: how-to-guide
@@ -169,7 +169,7 @@ landingContent:
     - text: Powłoka języka CQL, Spark — interfejs API Cassandra
       url: cassandra-import-data.md
     - text: Usługa Azure Database Migration Service — interfejs API MongoDB
-      url: /azure/dms/tutorial-mongodb-cosmos-db
+      url: ../dms/tutorial-mongodb-cosmos-db.md
     - text: AzCopy, narzędzie do migracji danych — interfejs API tabel
       url: table-import.md
   - linkListType: how-to-guide

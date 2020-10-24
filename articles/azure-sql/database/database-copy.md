@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460958"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516209"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiuj spójnie transakcyjną kopię bazy danych w Azure SQL Database
 
@@ -108,7 +108,7 @@ Zaloguj się do bazy danych Master przy użyciu identyfikatora logowania adminis
 
 To polecenie kopiuje database1 do nowej bazy danych o nazwie Database2 w puli elastycznej o nazwie pool1. W zależności od rozmiaru bazy danych operacja kopiowania może zająć trochę czasu.
 
-Database1 może być pojedynczą lub pulą baz danych, ale pool1 musi być tą samą warstwą usługi co database1. 
+Database1 może być jedną lub bazą danych w puli. Obsługa kopiowania między różnymi pulami warstw jest obsługiwana, ale niektóre kopie między warstwami nie powiodą się. Na przykład można skopiować pojedynczą lub elastyczną bazę danych w warstwie ogólnego przeznaczenia, ale nie można skopiować standardowej elastycznej bazy danych do puli w warstwie Premium. 
 
    ```sql
    -- execute on the master database to start copying

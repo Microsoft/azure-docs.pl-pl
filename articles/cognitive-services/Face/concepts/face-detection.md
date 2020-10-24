@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73743056"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504133"
 ---
 # <a name="face-detection-and-attributes"></a>Wykrywanie i atrybuty
 
@@ -47,7 +47,7 @@ Atrybuty to zestaw funkcji, które mogą być opcjonalnie wykryte przez interfej
 * **Płeć**. Szacowana płeć danej czołowej. Możliwe wartości to samce, sami i bezpłciowe.
 * **Okulary**. Określa, czy dana wartość jest okularów. Możliwe wartości to noglasss, ReadingGlasses, okulary słoneczne i szklarnie.
 * **Włosy**. Typ włosia kroju. Ten atrybut wskazuje, czy włosy jest widoczny, czy baldness jest wykryty i jakie są kolory w postaci włosów.
-* Pozycja **główna**. Orientacja powierzchni w obszarze 3W. Ten atrybut jest opisywany przez kąty przechyłu, rzutowania i Yaw (w stopniach). Zakresy wartości to-90 stopni do 90 stopni,-180 stopni do 180 stopni i-90 stopnie odpowiednio do stopów. Na poniższym diagramie zapoznaj się z mapowaniami kątów:
+* Pozycja **główna**. Orientacja powierzchni w obszarze 3W. Ten atrybut jest opisywany przez kąty przechyłu, rzutowania i Yaw (w stopniach). Zakresy wartości to-90 stopni do 90 stopni,-90 stopni do 90 stopni i-90 stopnie odpowiednio do stopów. Na poniższym diagramie zapoznaj się z mapowaniami kątów:
 
     ![Nagłówek z osiami o szerokości, rzutowania i Yaw z etykietą](../Images/headpose.1.jpg)
 * **Korzeń**. Czy jest to korzeń. Ten atrybut zwraca wartość logiczną dla eyeMakeup i lipMakeup.
@@ -63,7 +63,7 @@ Atrybuty to zestaw funkcji, które mogą być opcjonalnie wykryte przez interfej
 Skorzystaj z poniższych wskazówek, aby upewnić się, że obrazy wejściowe zawierają najbardziej precyzyjne wyniki wykrywania:
 
 * Obsługiwane formaty obrazu wejściowego to JPEG, PNG, GIF dla pierwszej ramki i BMP.
-* Rozmiar pliku obrazu nie może przekraczać 4 MB.
+* Rozmiar pliku obrazu nie może przekraczać 6 MB.
 * Wykrywalny zakres rozmiaru jest 36 x 36 do 4096 x 4096 pikseli. Nie wykryto twarzy poza tym zakresem.
 * Niektóre twarzy mogą nie zostać wykryte ze względu na wyzwania techniczne. Ekstremalny kąt działania (ułożenia głowy) lub zamknięcia czołowy (obiekty takie jak okulary słoneczne lub ręce, które blokują część czołową) mogą mieć wpływ na wykrywanie. Czołowe i bliskie twarze zapewniają najlepsze wyniki.
 

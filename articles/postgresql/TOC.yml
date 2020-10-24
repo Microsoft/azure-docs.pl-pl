@@ -104,7 +104,7 @@
         - name: Interfejs wiersza polecenia platformy Azure
           href: sample-scripts-azure-cli.md
         - name: Elementy wbudowane usługi Azure Policy
-          href: policy-samples.md
+          href: ./policy-reference.md
     - name: Pojęcia
       items:
         - name: Serwery
@@ -542,7 +542,7 @@
           displayName: 'samples, azure cli'
         - name: Elementy wbudowane usługi Azure Policy
           displayName: 'samples, policies, definitions'
-          href: ./policy-samples.md
+          href: ./policy-reference.md
     - name: Pojęcia
       items:
         - name: Rozproszone dane
@@ -640,7 +640,7 @@
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/postgresql/'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-database-postgresql.html'
+      href: /answers/topics/azure-database-postgresql.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: Filmy wideo

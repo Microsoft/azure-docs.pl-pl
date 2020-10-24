@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0261c495ad08000f9041390658e0f19954b71669
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88003365"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517025"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Samouczek: Tworzenie aplikacji do przetwarzania formularzy przy użyciu programu AI Builder
 
@@ -23,7 +23,7 @@ ms.locfileid: "88003365"
 > [!NOTE]
 > Ten projekt jest również dostępny jako [moduł Microsoft Learn](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz model AI przetwarzający formularz
@@ -93,7 +93,7 @@ Na stronie Wybór pola wybierz odpowiednie pola:
     - **Wartość pola**: wartość wygenerowanego pola.
 
 > [!div class="mx-imgBorder"]
-> ![Strona dodawania dokumentów](./media/tutorial-ai-builder/select-fields-page.png)
+> ![Znakowanie strony](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### <a name="label-undetected-fields"></a>Niewykryte pola etykiety
 
@@ -104,7 +104,7 @@ Jeśli pole do etykiet nie zostało wykryte automatycznie przez model, możesz n
 1. Wybierz pozycję **Dalej**, aby zaznaczyć wybrane pola formularza. Jeśli wszystko wygląda dobrze, wybierz pozycję **Trenuj**, aby wytrenować model.
 
     > [!div class="mx-imgBorder"]
-    > ![Strona dodawania dokumentów](./media/tutorial-ai-builder/summary-train-page.png)
+    > ![Strona szkoleń](./media/tutorial-ai-builder/summary-train-page.png)
 1. Po zakończeniu trenowania wybierz pozycję **Przejdź do strony Szczegóły** na ekranie **Ukończono trenowanie**.
 ## <a name="quick-test-your-model"></a>Szybkie testowanie modelu
 
@@ -127,7 +127,7 @@ Jeśli otrzymujesz złe wyniki lub wyniki o niskim poziomie pewności dla niekt�
 Jeśli masz zadowolony z modelu, wybierz pozycję **Publikuj**  , aby opublikować. Po zakończeniu publikowania model zostanie oznaczony jako **Opublikowany** i będzie gotowy do użycia.
 
 > [!div class="mx-imgBorder"]
-> ![Strona dodawania dokumentów](./media/tutorial-ai-builder/model-page.png)
+> ![Strona publikowania modelu](./media/tutorial-ai-builder/model-page.png)
 
 Po opublikowaniu modelu przetwarzania formularza można go używać w [aplikacji kanwy aplikacji](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) lub w programie do [automatyzacji](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
 
