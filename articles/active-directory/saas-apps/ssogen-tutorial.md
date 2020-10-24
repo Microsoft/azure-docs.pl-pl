@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 72b91be9875abf07e5f6f828ed32483a5d61eadd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00aaabb68da13840cc167e235a7cedea4aabe97
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524439"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522006"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO, Single Sign-on) z usługą SSOGEN — Brama rejestracji jednokrotnej w usłudze Azure AD dla Oracle E-Business Suite — EBS, PeopleSoft i JDE
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę SSOGEN — Brama rejestr
 * Zezwól użytkownikom na automatyczne logowanie do SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla Oracle E-Business Suite — EBS, PeopleSoft i JDE z kontami usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla programu Oracle E-Business Suite-EBS, PeopleSoft i JDE obsługuje logowanie jednokrotne z użyciem usług **SP i dostawcy tożsamości** .
-* Po skonfigurowaniu bramy rejestracji jednokrotnej SSOGEN-Azure AD dla programu Oracle E-Business Suite-EBS, PeopleSoft i JDE można wymusić kontrolki sesji, które chronią w czasie rzeczywistym dane poufnych danych organizacji i ich filtrowanie. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Po skonfigurowaniu bramy rejestracji jednokrotnej SSOGEN-Azure AD dla programu Oracle E-Business Suite-EBS, PeopleSoft i JDE można wymusić kontrolki sesji, które chronią w czasie rzeczywistym dane poufnych danych organizacji i ich filtrowanie. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
@@ -147,18 +147,18 @@ Skontaktuj się z pomocą [info@ssogen.com](mailto:info@ssogen.com) [support@sso
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Logowanie jednokrotne usługi Azure AD dla programu Oracle Web-Business Suite-EBS, PeopleSoft i JDE w panelu dostępu należy automatycznie zalogować się do bramy rejestracji jednokrotnej usługi Azure AD dla programu Oracle dla firm SSOGEN, EBS i PEOPLESOFT, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Logowanie jednokrotne usługi Azure AD dla programu Oracle Web-Business Suite-EBS, PeopleSoft i JDE w panelu dostępu należy automatycznie zalogować się do bramy rejestracji jednokrotnej usługi Azure AD dla programu Oracle dla firm SSOGEN, EBS i PEOPLESOFT, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj usługę SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla programu Oracle E-Business Suite — EBS, PeopleSoft i JDE z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla Oracle E-Business Suite-EBS, PeopleSoft i JDE z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla Oracle E-Business Suite-EBS, PeopleSoft i JDE z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)

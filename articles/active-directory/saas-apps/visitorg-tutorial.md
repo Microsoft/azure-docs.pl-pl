@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: f6883d9fe1d88098ed883b202b6c0bc070314caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdac846579ac5928fe3de4e5543d8918b3ee415a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88531739"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508676"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visitorg"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Visit.org
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę Visit.org z usługą Azu
 * Zezwól użytkownikom na automatyczne logowanie się do usługi Visit.org przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -136,20 +136,20 @@ Aby skonfigurować Logowanie jednokrotne na stronie **Visit.org** , musisz wysł
 
 ### <a name="create-visitorg-test-user"></a>Utwórz użytkownika testowego Visit.org
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w Visit.org. Współpracuj z [zespołem pomocy technicznej Visit.org](mailto:tech@visit.org) , aby dodać użytkowników z platformy [nazwa aplikacji]. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w Visit.org. Współpracuj z [zespołem pomocy technicznej Visit.org](mailto:tech@visit.org) , aby dodać użytkowników z platformy [nazwa aplikacji]. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Visit.org w panelu dostępu należy automatycznie zalogować się do Visit.org, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Visit.org w panelu dostępu należy automatycznie zalogować się do Visit.org, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj Visit.org z usługą Azure AD](https://aad.portal.azure.com/)

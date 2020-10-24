@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: jeedes
-ms.openlocfilehash: fd85b3f1e2319c80817da3376911d57263d187b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94dc70d184de27b1c44f9817686630e04da830f9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451120"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521666"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-web-cargo-air"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu sieci Web
 
@@ -124,7 +124,7 @@ Aby skonfigurować Logowanie jednokrotne na stronie **sieci Web** , należy wys�
 
 ### <a name="create-web-cargo-air-test-user"></a>Utwórz użytkownika testowego sieci Web
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w powietrzu sieci Web. Współpracuj z [zespołem pomocy technicznej sieci Web](mailto:support@webcargonet.com) , aby dodać użytkowników na platformie sieci Web ładunków. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w powietrzu sieci Web. Współpracuj z [zespołem pomocy technicznej sieci Web](mailto:support@webcargonet.com) , aby dodać użytkowników na platformie sieci Web ładunków. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -134,10 +134,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 2. Przejdź bezpośrednio do adresu URL logowania do usługi ładunek sieci Web, a następnie zainicjuj w tym miejscu przepływ logowania.
 
-3. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka Air ładunków sieci Web w panelu dostępu zostanie ono przekierowany do adresu URL logowania w sieci Web. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka Air ładunków sieci Web w panelu dostępu zostanie ono przekierowany do adresu URL logowania w sieci Web. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu środowiska sieci Web można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu środowiska sieci Web można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

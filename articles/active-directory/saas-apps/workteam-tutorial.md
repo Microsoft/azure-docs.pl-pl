@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
-ms.openlocfilehash: c95fceaa90ca379519379d37c19fb15dcd1de321
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 077af1e8add63aac9f3d866c5d665ad4a47b133f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546366"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520051"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workteam"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Workteam
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę Workteam z usługą Azur
 * Zezwól użytkownikom na automatyczne logowanie się do usługi Workteam przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -151,7 +151,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. W Notatniku otwórz **certyfikat z kodowaniem Base-64** pobrany z Azure Portal, skopiuj jego zawartość, a następnie wklej go do pola **certyfikatu podpisywania SAML (base64)** .
 
-    e. Kliknij przycisk **OK**.
+    e. Kliknij pozycję **OK**.
 
 ### <a name="create-workteam-test-user"></a>Utwórz użytkownika testowego Workteam
 
@@ -173,21 +173,20 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Worktea
 
     b. W polu tekstowym **Email** (Adres e-mail) wprowadź adres e-mail użytkownika, na przykład `B.Simon\@contoso.com`.
 
-    c. Kliknij przycisk **OK**.
+    c. Kliknij pozycję **OK**.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Workteam w panelu dostępu należy automatycznie zalogować się do Workteam, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Workteam w panelu dostępu należy automatycznie zalogować się do Workteam, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj Workteam z usługą Azure AD](https://aad.portal.azure.com/)
-

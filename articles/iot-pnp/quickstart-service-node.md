@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: a6ade8d44e6c751f45849743c66d0a34075943b4
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b144d49daf9ab89a4553b93e3b36c9c2c8bef9ca
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946131"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521328"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play, które jest połączone z rozwiązaniem (Node.js)
 
@@ -214,7 +214,7 @@ W tym scenariuszu dane wyjściowe `Model Id: dtmi:com:example:Thermostat;1` .
     node twin.js
     ```
 
-1. W sekcji właściwości w danych wyjściowych terminalu **usługi** zostanie wyświetlona zaktualizowana docelowa temperatura. Ukończenie aktualizacji może zająć trochę czasu. Powtórz ten krok, dopóki urządzenie nie przetworzyło aktualizacji właściwości:
+1. W danych wyjściowych terminalu **usługi** w `reported` sekcji właściwości zostanie wyświetlona zaktualizowana docelowa temperatura. Ukończenie aktualizacji może zająć trochę czasu. Powtórz ten krok, dopóki urządzenie nie przetworzyło aktualizacji właściwości:
 
     ```json
     "reported": {

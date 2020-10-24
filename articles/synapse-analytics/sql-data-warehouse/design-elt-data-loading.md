@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 2f3433075a1fddf116aae28666feb62473c6dbfb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0533e76863d01675cee7aaca79e32821e5efc749
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476097"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92507807"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie ładowania danych w puli Synapse SQL
 
@@ -113,12 +113,14 @@ Podczas ładowania plików Parquet Użyj następującego mapowania typu danych S
 |                            INT64                             |            INT (64, true)            |      bigint      |
 |                            INT64                             |           INT (64, false)            |  Liczba dziesiętna (20, 0)   |
 |                            INT64                             |                DOKŁADNOŚCI                |     decimal      |
-|                            INT64                             |         TIME (MICROS/NANOS)         |       time       |
-|                            INT64                             | SYGNATURA CZASOWA (MILL/MICROS/NANOS) |    datetime2     |
+|                            INT64                             |         CZAS (MŁYNER)                 |       time       |
+|                            INT64                             | SYGNATURA CZASOWA (MŁYNEK)                  |    datetime2     |
 | [Typ złożony](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 STAW                  |   varchar(max)   |
 | [Typ złożony](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  ZMAPOWAĆ                  |   varchar(max)   |
 
-
+>[!IMPORTANT] 
+> - Dedykowane pule SQL nie obsługują obecnie typów danych Parquet z MICROS i NANOs Precision. 
+> - Następujący błąd może wystąpić, jeśli typy są niezgodne z Parquet i SQL lub jeśli istnieją nieobsługiwane typy danych Parquet:  **"HdfsBridge:: recordReaderFillBuffer-nieoczekiwany błąd podczas wypełniania buforu czytnika rekordu: ClassCastException:..."**
 
 Aby zapoznać się z przykładem tworzenia obiektów zewnętrznych, zobacz [Tworzenie tabel zewnętrznych](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
 

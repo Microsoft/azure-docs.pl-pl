@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 6a9599c20905168b425675d0b028545143c7d19f
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8f0274aa15d965a4e06a096c21c0fd282ec1d12a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91941079"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522615"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-admin-console"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą konsoli administracyjnej Mimecast
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować konsolę administracyjną Mimecas
 * Zezwól użytkownikom na automatyczne logowanie do konsoli administracyjnej Mimecast przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * Konsola administracyjna Mimecast obsługuje logowanie jednokrotne z użyciem programu **SP i dostawcy tożsamości**
-* Po skonfigurowaniu konsoli administracyjnej Mimecast można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu konsoli administracyjnej Mimecast można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-mimecast-admin-console-from-the-gallery"></a>Dodawanie konsoli Mimecast Admin Console z galerii
 
@@ -113,7 +113,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | Australia       | `https://login-au.mimecast.com/administration/app/#/administration-dashboard`|
     | Offshore        | `https://login-jer.mimecast.com/administration/app/#/administration-dashboard`|
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -181,7 +181,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. Usuń zaznaczenie pola wyboru **Użyj kontekstu chronionego hasłem** i **Użyj opcji kontekstu uwierzytelniania zintegrowanego** .
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-mimecast-admin-console-test-user"></a>Tworzenie użytkownika testowego konsoli Mimecast Admin Console
 
@@ -211,7 +211,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. Zaznacz pole wyboru **Wymuszaj zmianę przy logowaniu** .
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
     f. Aby przypisać role do użytkownika, kliknij pozycję **rola Edytuj** i przypisz wymagane role do użytkownika zgodnie z wymaganiami organizacji.
 
@@ -221,18 +221,18 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Mimecast Admin Console na panelu dostępu powinno nastąpić automatyczne zalogowanie do konsoli Mimecast Admin Console, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Mimecast Admin Console na panelu dostępu powinno nastąpić automatyczne zalogowanie do konsoli Mimecast Admin Console, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj konsolę administracyjną Mimecast z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić konsolę administracyjną Mimecast z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić konsolę administracyjną Mimecast z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)

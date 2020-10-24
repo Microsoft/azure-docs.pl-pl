@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 92ec7c0a1469c9f02855cd6191faa8514e54c8f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff97aa6c6f04ad41ba6e1b986f3cc0734ec7a326
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828966"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92526148"
 ---
 | Zasób | Limit | Uwaga |
 | --- | --- | --- |
@@ -39,6 +39,6 @@ ms.locfileid: "91828966"
 | Maksymalny rozmiar przekazywania pliku WAF |Bramy WAF o rozmiarze V1, 100 MB<br>Duże bramy WAF w wersji 1, 500 MB<br>V2 WAF, 750 MB| |
 | Limit rozmiaru treści WAF, bez plików|128 KB||
 | Maksymalna liczba reguł niestandardowych WAF|100||
-| Maksymalne wykluczenia WAF|100||
+| Maksymalna liczba wykluczeń WAF na Application Gateway|40||
 
 <sup>1</sup> w przypadku jednostek SKU z obsługą WAF należy ograniczyć liczbę zasobów do 40.

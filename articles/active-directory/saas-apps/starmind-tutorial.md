@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 853c4a9eb08528586d8979cad79e353d6fcc374c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecccc0bf05dfc4e27835a676748ca144c6bcc6c8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451112"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521989"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-starmind"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Starmind
 
@@ -137,10 +137,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 2. Przejdź bezpośrednio do adresu URL logowania Starmind i zainicjuj w nim przepływ logowania.
 
-3. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka Starmind w panelu dostępu zostanie on przekierowany do adresu URL logowania Starmind. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka Starmind w panelu dostępu zostanie on przekierowany do adresu URL logowania Starmind. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu Starmind można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu Starmind można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

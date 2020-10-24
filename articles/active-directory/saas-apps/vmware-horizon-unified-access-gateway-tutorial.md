@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 9e9d98e8b68b4e01d7e8f19e7c7d89a88d9bf69f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfdcc39966e58a845be0096474cb8a3366f3dd7a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500893"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503610"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu bramy VMware Horizon — ujednolicony dostęp
 
@@ -125,7 +125,7 @@ Aby skonfigurować Logowanie jednokrotne na stronie **bramy programu VMware z uj
 
 ### <a name="create-vmware-horizon-unified-access-gateway-test-user"></a>Utwórz użytkownika testowego bramy dostępu Horizon-Unified VMware
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w usłudze VMware Horizon-Unified Access Gateway. Współpraca z [zespołem pomocy technicznej opartej na oprogramowaniu VMware — Unified Access](mailto:support@vmware.com) Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w usłudze VMware Horizon-Unified Access Gateway. Współpraca z [zespołem pomocy technicznej opartej na oprogramowaniu VMware — Unified Access](mailto:support@vmware.com) Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -141,8 +141,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Kliknij pozycję **Testuj tę aplikację** w Azure Portal, a użytkownik powinien być automatycznie zalogowany do bramy dostępu opartej na oprogramowaniu VMware Horizon, dla której skonfigurowano Logowanie jednokrotne. 
 
-Możesz również użyć panelu dostępu programu Microsoft, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka programu VMware Horizon — ujednolicona Brama dostępu w panelu dostępu należy automatycznie zalogować się do bramy programu VMware ze ujednoliconym dostępem, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Możesz również użyć panelu dostępu programu Microsoft, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka programu VMware Horizon — ujednolicona Brama dostępu w panelu dostępu należy automatycznie zalogować się do bramy programu VMware ze ujednoliconym dostępem, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu programu VMware Horizon — ujednolicona Brama dostępu można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu programu VMware Horizon — ujednolicona Brama dostępu można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

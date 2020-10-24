@@ -1,27 +1,27 @@
 ---
 title: Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
-description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby utworzyć kopię zapasową maszyn wirtualnych przy użyciu Azure Backup Server.
+description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby tworzyć kopie zapasowe maszyn wirtualnych przy użyciu Azure Backup Server.
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 37fd74f9859813061ff5653fd2c2b0b6cad319e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/23/2020
+ms.openlocfilehash: e71ec19402d22643d51f1435d1abcf56b20a290b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580516"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517382"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 
-Azure Backup Server to niezawodny system tworzenia kopii zapasowych i odzyskiwania danych w przedsiębiorstwie, który przyczynia się do strategii ciągłości działania i odzyskiwania po awarii (BCDR). Podczas korzystania z wersji zapoznawczej rozwiązania Azure VMware można skonfigurować tylko kopie zapasowe na poziomie maszyny wirtualnej za pomocą Azure Backup Server. 
+Azure Backup Server przyczynia się do strategii zachowania ciągłości działania i odzyskiwania po awarii (BCDR). Korzystając z rozwiązania VMware platformy Azure, można skonfigurować kopie zapasowe na poziomie maszyny wirtualnej tylko przy użyciu Azure Backup Server. 
 
 Azure Backup Server mogą przechowywać dane kopii zapasowej w:
 
 - **Dysk**: w celu przechowywania krótkoterminowego Azure Backup Server tworzenia kopii zapasowych danych w pulach dysków.
 - **Azure**: zarówno krótkoterminowe, jak i długoterminowe magazyny magazynu, Azure Backup Server danych przechowywanych w pulach dysków można utworzyć kopie zapasowe w chmurze Microsoft Azure przy użyciu Azure Backup.
 
-Gdy wystąpi awaria i dane źródłowe są niedostępne, można użyć Azure Backup Server, aby łatwo przywrócić dane do źródła lub lokalizacji alternatywnej. Dzięki temu, jeśli oryginalne dane są niedostępne z powodu planowanych lub nieoczekiwanych problemów, można łatwo przywrócić dane do lokalizacji alternatywnej.
+Użyj Azure Backup Server, aby przywrócić dane do lokalizacji źródłowej lub alternatywnej. Dzięki temu, jeśli oryginalne dane są niedostępne z powodu planowanych lub nieoczekiwanych problemów, dane można przywrócić do lokalizacji alternatywnej.
 
-W tym artykule pomożemy przygotować środowisko rozwiązań VMware platformy Azure do tworzenia kopii zapasowych maszyn wirtualnych za pomocą Azure Backup Server. Przeprowadzimy Cię przez kroki, aby: 
+Ten artykuł ułatwia przygotowanie środowiska rozwiązań VMware platformy Azure do tworzenia kopii zapasowych maszyn wirtualnych przy użyciu Azure Backup Server. Przeprowadzimy Cię przez kroki, aby: 
 
 > [!div class="checklist"]
 > * Określ Zalecany typ i rozmiar dysku maszyny wirtualnej.
@@ -31,10 +31,10 @@ W tym artykule pomożemy przygotować środowisko rozwiązań VMware platformy A
 
 ## <a name="supported-vmware-features"></a>Obsługiwane funkcje oprogramowania VMware
 
-- **Tworzenie kopii zapasowej bez wykorzystania agentów:** Azure Backup Server nie wymaga zainstalowania agenta na serwerze vCenter lub ESXi w celu utworzenia kopii zapasowej maszyny wirtualnej. Zamiast tego wystarczy podać adres IP lub w pełni kwalifikowaną nazwę domeny (FQDN) oraz poświadczenia logowania używane do uwierzytelniania serwera VMware za pomocą Azure Backup Server.
+- **Tworzenie kopii zapasowej bez wykorzystania agentów:** Aby można było utworzyć kopię zapasową maszyny wirtualnej, Azure Backup Server nie wymaga zainstalowania agenta na serwerze vCenter lub ESXi. Zamiast tego wystarczy podać adres IP lub w pełni kwalifikowaną nazwę domeny (FQDN) oraz poświadczenia logowania używane do uwierzytelniania serwera VMware za pomocą Azure Backup Server.
 - **Kopia zapasowa zintegrowana z chmurą:** Azure Backup Server chroni obciążenia dyskami i chmurą. Przepływ pracy tworzenia kopii zapasowych i odzyskiwania Azure Backup Server ułatwia zarządzanie długoterminowym przechowywaniem i kopią zapasową poza siedzibą firmy.
 - **Wykrywanie i ochrona maszyn wirtualnych zarządzanych przez program vCenter:** Azure Backup Server wykrywa i chroni maszyny wirtualne wdrożone na serwerze vCenter lub ESXi. Azure Backup Server wykrywa również maszyny wirtualne zarządzane przez program vCenter, dzięki czemu można chronić duże wdrożenia.
-- **Autoochrona na poziomie folderu:** program vCenter umożliwia organizowanie maszyn wirtualnych w folderach maszyn wirtualnych. Azure Backup Server wykrywa te foldery i można z niej korzystać w celu ochrony maszyn wirtualnych na poziomie folderów, które obejmują wszystkie podfoldery. W przypadku ochrony folderów Azure Backup Server nie tylko chroni maszyny wirtualne znajdujące się w tym folderze, ale również chroni maszyny wirtualne dodane później. Azure Backup Server wykrywa nowe maszyny wirtualne codziennie i chroni je automatycznie. Podczas organizowania maszyn wirtualnych w folderach cyklicznych Azure Backup Server automatycznie wykrywa i chroni nowe maszyny wirtualne wdrożone w folderach cyklicznych.
+- **Funkcja autoochrony na poziomie folderu:** program vCenter umożliwia organizowanie maszyn wirtualnych w folderach maszyn wirtualnych. Azure Backup Server wykrywa te foldery. Można jej używać do ochrony maszyn wirtualnych na poziomie folderów, w tym wszystkich podfolderów. W przypadku ochrony folderów Azure Backup Server chroni maszyny wirtualne w tym folderze i chroni maszyny wirtualne dodane później. Azure Backup Server wykrywa nowe maszyny wirtualne codziennie, chroniąc je automatycznie. Podczas organizowania maszyn wirtualnych w folderach cyklicznych Azure Backup Server automatycznie wykrywa i chroni nowe maszyny wirtualne wdrożone w folderach cyklicznych.
 - **Azure Backup Server nadal chronią maszyny wirtualne vMotioned w klastrze:** Ponieważ maszyny wirtualne są vMotioned do równoważenia obciążenia w klastrze, Azure Backup Server automatycznie wykrywa i kontynuuje ochronę maszyny wirtualnej.
 - **Szybsze odzyskiwanie niezbędnych plików:** Azure Backup Server może odzyskiwać pliki lub foldery z maszyny wirtualnej z systemem Windows bez odzyskiwania całej maszyny wirtualnej.
 
@@ -66,11 +66,11 @@ Przed zainstalowaniem Azure Backup Server w środowisku platformy Azure należy 
 
 Upewnij się, że [skonfigurowano sieć dla chmury prywatnej VMware na platformie Azure](tutorial-configure-networking.md).
 
-### <a name="determine-the-size-of-the-virtual-machine"></a>Określanie rozmiaru maszyny wirtualnej
+### <a name="determine-the-size-of-the-vm"></a>Określenie rozmiaru maszyny wirtualnej
 
-Należy utworzyć maszynę wirtualną z systemem Windows w sieci wirtualnej utworzonej w poprzednim kroku. Po wybraniu serwera do uruchamiania Azure Backup Server, Zacznij od obrazu galerii systemu Windows Server 2019 Datacenter. Samouczek [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/windows/quick-create-portal.md) pozwala rozpocząć pracę z ZALECAną maszyną wirtualną na platformie Azure, nawet jeśli nie korzystasz z platformy Azure.
+Postępuj zgodnie z instrukcjami wyświetlanymi na stronie [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w](../virtual-machines/windows/quick-create-portal.md) samouczku Azure Portal.  Utworzysz MASZYNę wirtualną w sieci wirtualnej, która została utworzona w poprzednim kroku. Zacznij od obrazu galerii systemu Windows Server 2019 Datacenter, aby uruchomić Azure Backup Server. 
 
-Poniższa tabela zawiera podsumowanie maksymalnej liczby chronionych obciążeń dla każdego Azure Backup Server rozmiaru maszyny wirtualnej. Informacje są oparte na wewnętrznych testach wydajności i skali z wartościami kanonicznymi rozmiaru i zmian obciążenia. Rzeczywisty rozmiar obciążenia może być większy, ale powinien być uwzględniany przez dyski dołączone do maszyny wirtualnej Azure Backup Server.
+Tabela zawiera podsumowanie maksymalnej liczby chronionych obciążeń dla każdego Azure Backup Server rozmiaru maszyny wirtualnej. Informacje są oparte na wewnętrznych testach wydajności i skali z wartościami kanonicznymi rozmiaru i zmian obciążenia. Rzeczywisty rozmiar obciążenia może być większy, ale powinien być uwzględniany przez dyski dołączone do maszyny wirtualnej Azure Backup Server.
 
 | Maksymalna liczba chronionych obciążeń | Średni rozmiar obciążenia | Średnia wartość zmian obciążenia (dziennie) | Minimalna liczba operacji we/wy na sekundę | Zalecany typ dysku/rozmiar      | Zalecany rozmiar maszyny wirtualnej |
 |-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
@@ -90,12 +90,12 @@ Poniższa tabela zawiera podsumowanie maksymalnej liczby chronionych obciążeń
 
 ### <a name="disks-and-storage"></a>Dyski i magazyn
 
-Azure Backup Server wymaga dysków do instalacji, w tym plików systemowych, plików instalacyjnych, wstępnie wymaganego oprogramowania, plików bazy danych i dysków dedykowanych dla puli magazynów.
+Azure Backup Server wymaga dysków do instalacji. 
 
 | Wymaganie                      | Zalecany rozmiar  |
 |----------------------------------|-------------------------|
 | Instalacja Azure Backup Server                | Lokalizacja instalacji: 3 GB<br />Dysk na pliki bazy danych: 900 MB<br />Dysk systemowy: 1 GB na potrzeby instalacji SQL Server<br /><br />Musisz również mieć miejsce na Azure Backup Server, aby skopiować katalog plików do tymczasowej lokalizacji instalacji podczas archiwizowania.      |
-| Dysk puli magazynów<br />(Używa woluminów podstawowych, nie może znajdować się na dysku dynamicznym) | Dwa do trzech razy więcej niż rozmiar chronionych danych.<br />Aby uzyskać szczegółowe obliczenia magazynu, zobacz [planista wydajności programu DPM](https://www.microsoft.com/download/details.aspx?id=54301).   |
+| Dysk puli magazynów<br />(Używa woluminów podstawowych, nie może znajdować się na dysku dynamicznym) | Dwa do trzech razy większy rozmiar chronionych danych.<br />Aby uzyskać szczegółowe obliczenia magazynu, zobacz [planista wydajności programu DPM](https://www.microsoft.com/download/details.aspx?id=54301).   |
 
 Aby dowiedzieć się, jak dołączyć nowy dysk danych zarządzanych do istniejącej maszyny wirtualnej platformy Azure, zobacz [dołączanie zarządzanego dysku danych do maszyny wirtualnej z systemem Windows przy użyciu Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md).
 
@@ -104,12 +104,12 @@ Aby dowiedzieć się, jak dołączyć nowy dysk danych zarządzanych do istniej�
 
 ### <a name="store-backup-data-on-local-disk-and-in-azure"></a>Przechowywanie danych kopii zapasowej na dysku lokalnym i na platformie Azure
 
-Przechowywanie danych kopii zapasowej na platformie Azure zmniejsza infrastrukturę tworzenia kopii zapasowych na maszynie wirtualnej Azure Backup Server. W przypadku odzyskiwania operacyjnego program Azure Backup Server przechowuje dane kopii zapasowych na dyskach platformy Azure dołączonych do maszyny wirtualnej. Gdy dyski i miejsce do magazynowania zostaną dołączone do maszyny wirtualnej, Azure Backup Server zarządza magazynem. Ilość miejsca w magazynie danych kopii zapasowej zależy od liczby i rozmiaru dysków dołączonych do każdej maszyny wirtualnej platformy Azure. Każdy rozmiar maszyny wirtualnej platformy Azure ma maksymalną liczbę dysków, które można dołączać. Na przykład a2 to cztery dyski, A3 to osiem dysków, a A4 to 16 dysków. Ponownie rozmiar i liczba dysków określają całkowitą pojemność puli magazynów kopii zapasowych.
+Przechowywanie danych kopii zapasowej na platformie Azure zmniejsza infrastrukturę tworzenia kopii zapasowych na maszynie wirtualnej Azure Backup Server. W przypadku odzyskiwania operacyjnego program Azure Backup Server przechowuje dane kopii zapasowych na dyskach platformy Azure dołączonych do maszyny wirtualnej. Gdy dyski i miejsce do magazynowania zostaną dołączone do maszyny wirtualnej, Azure Backup Server zarządza magazynem. Ilość miejsca do magazynowania zależy od liczby i rozmiaru dysków dołączonych do każdej maszyny wirtualnej platformy Azure. Każdy rozmiar maszyny wirtualnej platformy Azure ma maksymalną liczbę dysków, które można dołączać. Na przykład a2 to cztery dyski, A3 to osiem dysków, a A4 to 16 dysków. Ponownie rozmiar i liczba dysków określają całkowitą pojemność puli magazynów kopii zapasowych.
 
 > [!IMPORTANT]
 > Danych odzyskiwania operacyjnego *nie* należy przechowywać na dyskach dołączonych Azure Backup Server przez więcej niż pięć dni. Jeśli dane są starsze niż pięć dni, należy je zapisać w magazynie Recovery Services.
 
-Aby przechowywać dane kopii zapasowej na platformie Azure, Utwórz magazyn Recovery Services lub użyj go. Podczas przygotowywania do wykonania kopii zapasowej obciążenia Azure Backup Server należy [skonfigurować magazyn Recovery Services](#create-a-recovery-services-vault). Po skonfigurowaniu usługi za każdym razem, gdy zostanie uruchomione zadanie tworzenia kopii zapasowej online, do magazynu zostanie utworzony punkt odzyskiwania. Każdy magazyn Recovery Services zawiera maksymalnie 9 999 punktów odzyskiwania. W zależności od liczby utworzonych punktów odzyskiwania i czasu ich przechowywania można zachować dane kopii zapasowej przez wiele lat. Można na przykład utworzyć miesięczne punkty odzyskiwania i zachować je przez pięć lat.
+Aby przechowywać dane kopii zapasowej na platformie Azure, Utwórz magazyn Recovery Services lub użyj go. Podczas przygotowywania do wykonania kopii zapasowej obciążenia Azure Backup Server należy [skonfigurować magazyn Recovery Services](#create-a-recovery-services-vault). Po skonfigurowaniu usługi za każdym razem, gdy zostanie uruchomione zadanie tworzenia kopii zapasowej online, do magazynu zostanie utworzony punkt odzyskiwania. Każdy magazyn Recovery Services zawiera maksymalnie 9 999 punktów odzyskiwania. W zależności od liczby utworzonych punktów odzyskiwania i czasu przechowywania można przechowywać dane kopii zapasowej przez wiele lat. Można na przykład utworzyć miesięczne punkty odzyskiwania i pozostawić je przez pięć lat.
 
 > [!IMPORTANT]
 > Niezależnie od tego, czy dane kopii zapasowej są wysyłane do platformy Azure, czy przechowywane lokalnie, należy zarejestrować Azure Backup Server z magazynem Recovery Services.
@@ -128,9 +128,9 @@ Na maszynie wirtualnej musi być zainstalowany program .NET Framework 3,5 z doda
 
 ### <a name="join-a-domain"></a>Przyłączanie się do domeny
 
-Maszyna wirtualna Azure Backup Server musi być przyłączona do domeny, a użytkownik domeny z uprawnieniami administratora na maszynie wirtualnej musi zainstalować Azure Backup Server.
+Maszyna wirtualna Azure Backup Server musi być przyłączona do domeny. Użytkownik domeny z uprawnieniami administratora na maszynie wirtualnej musi zainstalować Azure Backup Server.
 
-Chociaż nie jest obsługiwany w wersji zapoznawczej, Azure Backup Server wdrożona na maszynie wirtualnej platformy Azure może tworzyć kopie zapasowe obciążeń na maszynach wirtualnych w rozwiązaniu VMware platformy Azure. Obciążenia powinny znajdować się w tej samej domenie, aby można było włączyć operację tworzenia kopii zapasowej.
+Azure Backup Server wdrożony na maszynie wirtualnej platformy Azure można tworzyć kopie zapasowe obciążeń na maszynach wirtualnych w rozwiązaniu VMware platformy Azure. Obciążenia powinny znajdować się w tej samej domenie, aby można było włączyć operację tworzenia kopii zapasowej.
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
@@ -167,13 +167,13 @@ Magazyn Recovery Services jest jednostką magazynową, która przechowuje punkty
 
    ![Utwórz magazyn Recovery Services.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
-   Utworzenie magazynu usługi Recovery Services może zająć trochę czasu. Monitoruj powiadomienia o stanie w obszarze **powiadomienia** w prawym górnym rogu portalu. Po utworzeniu magazynu będzie on widoczny na liście magazynów usługi Recovery Services. Jeśli magazyn nie jest widoczny, wybierz pozycję **Odśwież**.
+   Utworzenie magazynu usługi Recovery Services może zająć trochę czasu. Monitoruj powiadomienia o stanie w obszarze **powiadomienia** w prawym górnym rogu portalu. Po utworzeniu magazynu jest on widoczny na liście magazynów Recovery Services. Jeśli magazyn nie jest widoczny, wybierz pozycję **Odśwież**.
 
    ![Odśwież listę magazynów kopii zapasowych.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
 ## <a name="set-storage-replication"></a>Ustaw replikację magazynu
 
-Opcja replikacja magazynu umożliwia wybranie między magazynem geograficznie nadmiarowym (domyślnym) i magazynem lokalnie nadmiarowym. Magazyn Geograficznie nadmiarowy kopiuje dane z konta magazynu do regionu pomocniczego, co sprawia, że dane są trwałe. Magazyn lokalnie nadmiarowy jest tańszą opcją, która nie jest trwała. Aby dowiedzieć się więcej o opcjach magazynu geograficznie nadmiarowego i lokalnie nadmiarowego, zobacz [nadmiarowość usługi Azure Storage](../storage/common/storage-redundancy.md).
+Opcja replikacja magazynu umożliwia wybranie między magazynem geograficznie nadmiarowym (domyślnym) i magazynem lokalnie nadmiarowym. Magazyn Geograficznie nadmiarowy kopiuje dane z konta magazynu do regionu pomocniczego, dzięki czemu dane są trwałe. Magazyn lokalnie nadmiarowy jest tańszą opcją, która nie jest trwała. Aby dowiedzieć się więcej o opcjach magazynu geograficznie nadmiarowego i lokalnie nadmiarowego, zobacz [nadmiarowość usługi Azure Storage](../storage/common/storage-redundancy.md).
 
 > [!IMPORTANT]
 > Przed skonfigurowaniem kopii zapasowych w magazynie należy najpierw zmienić ustawienie **typu replikacji magazynu lokalnie nadmiarowego i geograficznie** nadmiarowego dla magazynu Recovery Services. Po skonfigurowaniu kopii zapasowych, opcja modyfikacji jest wyłączona i nie można zmienić typu replikacji magazynu.
@@ -190,9 +190,9 @@ Wykonaj kroki opisane w tej sekcji, aby pobrać, wyodrębnić i zainstalować pa
 
 ### <a name="download-the-software-package"></a>Pobierz pakiet oprogramowania
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
-1. Jeśli masz już otwarty magazyn Recovery Services, przejdź do następnego kroku. Jeśli nie masz otwartego magazynu Recovery Services ale jesteś w Azure Portal, w menu głównym wybierz pozycję **Przeglądaj**.
+1. Jeśli masz już otwarty magazyn Recovery Services, przejdź do następnego kroku. Jeśli nie masz otwartego magazynu Recovery Services i masz Azure Portal, w menu głównym wybierz pozycję **Przeglądaj**.
 
    1. Na liście zasobów wprowadź **Recovery Services**.
 
@@ -214,7 +214,7 @@ Wykonaj kroki opisane w tej sekcji, aby pobrać, wyodrębnić i zainstalować pa
 
    ![Wybierz pozycję Kopia zapasowa, aby otworzyć kreatora Wprowadzenie.](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
-1. W otwartym oknie wykonaj następujące czynności:
+1. W otwartym oknie:
 
    1. W menu **gdzie jest uruchomione Twoje obciążenie?** wybierz pozycję **lokalnie**.
 
@@ -226,11 +226,11 @@ Wykonaj kroki opisane w tej sekcji, aby pobrać, wyodrębnić i zainstalować pa
 
       :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Azure Backup Server jest wdrażana jako maszyna wirtualna platformy Azure jako usługa (IaaS) w celu ochrony maszyn wirtualnych rozwiązań VMware platformy Azure.":::
 
-1. W otwartym oknie **infrastruktura przygotowania** wykonaj następujące czynności:
+1. W otwartym oknie **infrastruktura przygotowania** :
 
    1. Wybierz link **pobierania** , aby zainstalować Azure Backup Server.
 
-   1. Pobierz poświadczenia magazynu, zaznaczając pole wyboru **już pobrane lub używając najnowszej instalacji Azure Backup Server** , a następnie wybierz pozycję **Pobierz**. Poświadczenia magazynu są używane podczas rejestracji Azure Backup Server w magazynie Recovery Services. Linki prowadzą do centrum pobierania, w którym pobierasz pakiet oprogramowania.
+   1. 1. Wybierz **już pobranie lub użycie najnowszej instalacji Azure Backup Server** a następnie **Pobierz** , aby pobrać poświadczenia magazynu. Te poświadczenia będą używane podczas rejestrowania Azure Backup Server w magazynie Recovery Services. Linki prowadzą do centrum pobierania, w którym pobierasz pakiet oprogramowania.
 
    :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Azure Backup Server jest wdrażana jako maszyna wirtualna platformy Azure jako usługa (IaaS) w celu ochrony maszyn wirtualnych rozwiązań VMware platformy Azure.":::
 
@@ -243,14 +243,14 @@ Wykonaj kroki opisane w tej sekcji, aby pobrać, wyodrębnić i zainstalować pa
 
 ### <a name="extract-the-software-package"></a>Wyodrębnij pakiet oprogramowania
 
-Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na maszynę wirtualną, która została utworzona w celu wdrożenia Azure Backup Server.
+Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na utworzoną maszynę wirtualną w celu wdrożenia Azure Backup Server.
 
 > [!WARNING]
 > Do wyodrębnienia plików instalacyjnych wymagane jest co najmniej 4 GB wolnego miejsca.
 
 1. Po pobraniu wszystkich plików kliknij dwukrotnie przycisk **MicrosoftAzureBackupInstaller.exe** , aby otworzyć kreatora instalacji **Microsoft Azure Backup** , a następnie wybierz przycisk **dalej**.
 
-1. Wybierz lokalizację, w której mają zostać wyodrębnione pliki, a następnie wybierz pozycję **dalej**.
+1. Wybierz lokalizację, do której mają zostać wyodrębnione pliki, i wybierz pozycję **dalej**.
 
 1. Wybierz pozycję **Wyodrębnij** , aby rozpocząć proces wyodrębniania.
 
@@ -269,28 +269,28 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
 
 1. Na ekranie **powitalnym** wybierz pozycję **dalej** , aby przejść do strony **Sprawdzanie wymagań wstępnych** .
 
-1. Wybierz pozycję **Sprawdź ponownie** , aby określić, czy zostały spełnione wymagania wstępne dotyczące sprzętu i oprogramowania dla Azure Backup Server. Jeśli zostało spełnione pomyślnie, wybierz pozycję **dalej**.
+1. Wybierz pozycję **Sprawdź ponownie** , aby określić, czy sprzęt i oprogramowanie spełniają wymagania wstępne dotyczące Azure Backup Server. Jeśli zostało spełnione pomyślnie, wybierz pozycję **dalej**.
 
-   ![ Wybierz pozycję Sprawdź ponownie, aby określić, czy zostały spełnione wymagania wstępne dotyczące sprzętu i oprogramowania dla Azure Backup Server. Jeśli zostało spełnione pomyślnie, wybierz pozycję Dalej.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   ![ Wybierz pozycję Sprawdź ponownie, aby określić, czy sprzęt i oprogramowanie spełniają wymagania wstępne dotyczące Azure Backup Server. Jeśli zostało spełnione pomyślnie, wybierz pozycję Dalej.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
 1. Pakiet instalacyjny Azure Backup Server jest powiązany z odpowiednimi SQL Server plikami binarnymi, które są potrzebne. Po uruchomieniu nowej instalacji Azure Backup Server wybierz opcję **Zainstaluj nowe wystąpienie SQL Server z tą konfiguracją** . Następnie wybierz pozycję **Sprawdź i zainstaluj**.
 
    ![Pakiet instalacyjny Azure Backup Server jest powiązany z odpowiednimi SQL Server plikami binarnymi, które są potrzebne.](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
 
    > [!NOTE]
-   > Jeśli chcesz użyć własnego wystąpienia SQL Server, obsługiwane wersje SQL Server są SQL Server 2014 z dodatkiem SP1 lub nowszym, 2016 i 2017. Wszystkie SQL Server wersje powinny mieć wersję Standard lub Enterprise 64-bit. Azure Backup Server nie działa z wystąpieniem SQL Server zdalnego. Wystąpienie używane przez Azure Backup Server musi być lokalne. Jeśli używasz istniejącego wystąpienia SQL Server dla Azure Backup Server, Instalator obsługuje tylko *nazwane wystąpienia* SQL Server.
+   > Jeśli chcesz użyć własnego wystąpienia SQL Server, obsługiwane wersje SQL Server są SQL Server 2014 z dodatkiem SP1 lub nowszym, 2016 i 2017. Wszystkie SQL Server wersje powinny mieć wersję Standard lub Enterprise 64-bit. Wystąpienie używane przez Azure Backup Server musi być tylko lokalne; nie może być zdalna. Jeśli używasz istniejącego wystąpienia SQL Server dla Azure Backup Server, Instalator obsługuje tylko *nazwane wystąpienia* SQL Server.
 
    Jeśli wystąpi błąd z zaleceniem ponownego uruchomienia maszyny, zrób to, a następnie wybierz pozycję **Sprawdź ponownie**. W przypadku problemów z konfiguracją SQL Server ponownie skonfiguruj SQL Server zgodnie z wytycznymi SQL Server. Następnie ponów próbę instalacji lub uaktualnienia Azure Backup Server przy użyciu istniejącego wystąpienia SQL Server.
 
    **Konfiguracja ręczna**
 
-   W przypadku korzystania z własnego wystąpienia SQL Server upewnij się, że dodano Builtin\administratorzy do roli sysadmin do bazy danych Master.
+   W przypadku korzystania z własnego wystąpienia SQL Server upewnij się, że dodano Builtin\administratorzy do roli sysadmin do roli sysadmin głównej bazy danych.
 
-   **Konfiguracja usługi SSRS w SQL Server 2017**
+   **Konfigurowanie usług Reporting Services przy użyciu SQL Server 2017**
 
-   W przypadku korzystania z własnego wystąpienia SQL Server 2017 należy ręcznie skonfigurować usługi SQL Server 2017 Reporting Services (SSRS). Po skonfigurowaniu usług SSRS upewnij się, że właściwość **IsInitialized** usług SSRS ma **wartość true**. Gdy ta właściwość ma **wartość true**, Azure Backup Server zakłada, że usługa SSRS jest już skonfigurowana i pomija konfigurację usług SSRS.
+   W przypadku używania wystąpienia SQL Server 2017 należy ręcznie skonfigurować usługi SQL Server 2017 Reporting Services (SSRS). Po skonfigurowaniu usług SSRS upewnij się, że właściwość **IsInitialized** usług SSRS jest ustawiona na **wartość true**. Po ustawieniu na **wartość true**, Azure Backup Server zakłada, że usługa SSRS jest już skonfigurowana i pomija konfigurację usług SSRS.
 
-   Aby sprawdzić stan konfiguracji usług SSRS, uruchom następujące polecenie:
+   Aby sprawdzić stan konfiguracji usług SSRS, uruchom polecenie:
 
    ```powershell
    $configset =Get-WmiObject –namespace 
@@ -310,14 +310,14 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
    [Dowiedz się więcej](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode) o konfiguracji usług SSRS.
 
    > [!NOTE]
-   > [Warunki użytkowania usług online firmy Microsoft](https://www.microsoft.com/licensing/product-licensing/products) (ost) regulują licencjonowanie SQL Server używanych jako baza danych Azure Backup Server. Zgodnie z elementem OST SQL Server dołączone do Azure Backup Server może być używany tylko jako baza danych Azure Backup Server.
+   > [Warunki użytkowania usług online firmy Microsoft](https://www.microsoft.com/licensing/product-licensing/products) (ost) regulują licencjonowanie SQL Server używanych jako baza danych Azure Backup Server. Zgodnie z elementem OST należy używać tylko SQL Server w połączeniu z Azure Backup Server jako baza danych Azure Backup Server.
 
 1. Po pomyślnym zakończeniu instalacji wybierz pozycję **dalej**.
 
-1. Podaj lokalizację instalacji plików serwera Microsoft Azure Backup, a następnie wybierz pozycję **dalej**.
+1. Podaj lokalizację instalacji plików serwera Microsoft Azure Backup i wybierz pozycję **dalej**.
 
    > [!NOTE]
-   > Lokalizacja tymczasowa jest wymagana na potrzeby tworzenia kopii zapasowych na platformie Azure. Upewnij się, że lokalizacja tymczasowa to co najmniej 5% danych, których kopię zapasową zaplanowano do chmury. W przypadku ochrony dysków należy skonfigurować oddzielne dyski po zakończeniu instalacji. Aby uzyskać więcej informacji na temat pul magazynów, zobacz [Konfigurowanie pul magazynów i magazynu dyskowego](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
+   > Lokalizacja tymczasowa jest wymagana na potrzeby tworzenia kopii zapasowych na platformie Azure. Upewnij się, że lokalizacja tymczasowa to co najmniej 5% danych zaplanowanych do utworzenia kopii zapasowej w chmurze. W przypadku ochrony dysków należy skonfigurować oddzielne dyski po zakończeniu instalacji. Aby uzyskać więcej informacji na temat pul magazynów, zobacz [Konfigurowanie pul magazynów i magazynu dyskowego](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
    ![Podaj lokalizację instalacji plików serwera Microsoft Azure Backup, a następnie wybierz pozycję Dalej.](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -334,19 +334,22 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
 
 1. Przejrzyj **Podsumowanie ustawień**, a następnie wybierz pozycję **Zainstaluj**.
 
-   Instalacja odbywa się w fazach. Pierwsza faza instaluje agenta Microsoft Azure Recovery Services, a druga etap sprawdza łączność z Internetem. Jeśli dostępna jest łączność z Internetem, można kontynuować instalację. W przeciwnym razie musisz podać szczegóły serwera proxy, aby połączyć się z Internetem. Końcowa faza sprawdza wstępnie wymagane oprogramowanie. Jeśli nie jest zainstalowana, wszystkie brakujące oprogramowanie zostanie zainstalowane wraz z agentem Microsoft Azure Recovery Services.
+   Instalacja odbywa się w fazach. 
+   - Pierwsza faza instaluje agenta Microsoft Azure Recovery Services.
+   - Druga faza sprawdza łączność z Internetem. Jeśli jest dostępna, można kontynuować instalację. Jeśli nie jest dostępny, należy podać szczegóły serwera proxy w celu nawiązania połączenia z Internetem. 
+   - Końcowa faza sprawdza wstępnie wymagane oprogramowanie. Jeśli nie zainstalowano, wszystkie brakujące oprogramowanie zostanie zainstalowane wraz z agentem Microsoft Azure Recovery Services.
 
 1. Wybierz pozycję **Przeglądaj** , aby zlokalizować swoje poświadczenia magazynu, aby zarejestrować maszynę w magazynie Recovery Services, a następnie wybierz pozycję **dalej**.
 
-1. Wybierz pozycję Przekaż frazę, aby zaszyfrować lub odszyfrować dane wysyłane między platformą Azure i Twoim środowiskiem lokalnym.
+1. Wybierz hasło, aby zaszyfrować lub odszyfrować dane wysyłane między platformą Azure i Twoim środowiskiem lokalnym.
 
    > [!TIP]
-   > Możesz automatycznie generować hasło lub podać własne, 16-znakowe hasło.
+   > Można automatycznie wygenerować hasło lub podać minimalną 16-znakową wartość hasła.
 
 1. Wprowadź lokalizację, w której ma zostać zapisane hasło, a następnie wybierz pozycję **dalej** , aby zarejestrować serwer.
 
    > [!IMPORTANT]
-   > Zapisz frazę Pass w bezpiecznej lokalizacji innej niż serwer lokalny. Zdecydowanie zalecamy używanie Azure Key Vault do przechowywania frazy.
+   > Zapisz hasło w bezpiecznym miejscu innym niż serwer lokalny. Zdecydowanie zalecamy używanie Azure Key Vault do przechowywania hasła.
 
    Po zakończeniu instalacji agenta Microsoft Azure Recovery Services krok instalacji przejdzie do instalacji i konfiguracji SQL Server i składników Azure Backup Server.
 
@@ -356,7 +359,7 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
 
 ### <a name="install-update-rollup-1"></a>Zainstaluj pakiet zbiorczy aktualizacji 1
 
-Przed przystąpieniem do ochrony obciążeń należy zainstalować pakiet zbiorczy aktualizacji 1 dla Azure Backup Server v3. Aby wyświetlić listę poprawek błędów i instrukcje dotyczące instalacji pakietu zbiorczego aktualizacji Azure Backup Server v3 1, zobacz artykuł w bazie wiedzy [4534062](https://support.microsoft.com/en-us/help/4534062/).
+Przed przystąpieniem do ochrony obciążeń należy zainstalować pakiet zbiorczy aktualizacji 1 dla Azure Backup Server v3.  Poprawki błędów i instrukcje instalacji można znaleźć w [artykule bazy wiedzy](https://support.microsoft.com/en-us/help/4534062/).
 
 ## <a name="add-storage-to-azure-backup-server"></a>Dodawanie magazynu do usługi Azure Backup Server
 
@@ -369,7 +372,7 @@ Azure Backup Server wersja 3 obsługuje Nowoczesny magazyn kopii zapasowych ofer
 
 ### <a name="volumes-in-azure-backup-server"></a>Woluminy w Azure Backup Server
 
-Dodaj dyski danych z wymaganą pojemnością magazynu do maszyny wirtualnej Azure Backup Server, jeśli nie został jeszcze dodany.
+Dodaj dyski danych z wymaganą pojemnością magazynu maszyny wirtualnej Azure Backup Server, jeśli jeszcze nie została dodana.
 
 Azure Backup Server v3 akceptuje tylko woluminy magazynu. Po dodaniu woluminu Program Azure Backup Server formatuje wolumin w systemie plików ReFS, który Nowoczesny magazyn kopii zapasowych wymaga.
 
@@ -383,11 +386,10 @@ Azure Backup Server v3 akceptuje tylko woluminy magazynu. Po dodaniu woluminu Pr
 
 1. Wybierz **przycisk OK** , aby sformatować te woluminy do systemu plików ReFS, aby Azure Backup Server mogły korzystać z zalet nowoczesny magazyn kopii zapasowych.
 
-![Dodaj dostępne woluminy](../backup/media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak skonfigurować tworzenie kopii zapasowych maszyn wirtualnych VMware działających na platformie Azure VMware przy użyciu Azure Backup Server.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak skonfigurować tworzenie kopii zapasowych maszyn wirtualnych programu VMware działających w ramach rozwiązania Azure VMware przy użyciu Azure Backup Server.
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure](backup-azure-vmware-solution-virtual-machines.md)

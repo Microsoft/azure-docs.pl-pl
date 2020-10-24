@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: wdrażanie interfejsu API platformy Azure dla usługi FHIR przy użyciu szablonu ARM'
-description: W tym przewodniku szybki start dowiesz się, jak wdrożyć interfejs API platformy Azure pod kątem zasobów współdziałania z usługą opieki zdrowotnej (FHIR®) przy użyciu szablonu Azure Resource Manager.
+description: W tym przewodniku szybki start dowiesz się, jak wdrożyć interfejs API platformy Azure pod kątem szybkich zasobów współdziałania z opieką zdrowotną (FHIR®) przy użyciu szablonu Azure Resource Manager (szablon ARM).
 author: mgblythe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/06/2020
-ms.openlocfilehash: 8e259dffe95b992003c2d8edb5d2a9eb3486631f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0d045aac63daf99bf67ec79438f55eedd5f200d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339343"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521445"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Szybki Start: używanie szablonu ARM do wdrażania interfejsu API platformy Azure dla usługi FHIR
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: b7b28c972dfb55bfdc4e5bb09c460fe71c92328e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489425"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521513"
 ---
 # <a name="what-is-the-speech-service"></a>Czym jest usługa rozpoznawania mowy?
 
@@ -81,9 +81,21 @@ Aby dodać zasób usługi mowy (warstwa Bezpłatna lub płatna) do konta platfor
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-Wdrożenie nowego zasobu mowy trwa kilka minut. Po zakończeniu wdrażania wybierz pozycję **Przejdź do zasobu** , a następnie w okienku nawigacji po lewej stronie wybierz pozycję **klucze i punkt końcowy** , aby wyświetlić klucze subskrypcji usługi mowy i Identyfikator regionu. Każda subskrypcja ma dwa klucze: Możesz użyć dowolnego klawisza w aplikacji. Aby szybko skopiować/wkleić klucz do edytora kodu lub innej lokalizacji, wybierz przycisk Kopiuj obok każdego klucza, Przełącz system Windows, aby wkleić zawartość schowka do żądanej lokalizacji.
+Wdrożenie nowego zasobu mowy trwa kilka minut. 
 
-Ponadto skopiuj wartość, `LOCATION` która jest identyfikatorem regionu (np. `westus`, `westeurope` ) dla wywołań zestawu SDK.
+### <a name="find-keys-and-region"></a>Znajdź klucze i region
+
+Aby znaleźć klucze i region ukończonego wdrożenia, wykonaj następujące kroki:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) za pomocą konta Microsoft.
+
+2. Wybierz pozycję **wszystkie zasoby**, a następnie wybierz nazwę zasobu Cognitive Services.
+
+3. W okienku po lewej stronie w obszarze **Zarządzanie zasobami**wybierz pozycję **klucze i punkt końcowy**.
+
+Każda subskrypcja ma dwa klucze: Możesz użyć dowolnego klawisza w aplikacji. Aby skopiować/wkleić klucz do edytora kodu lub innej lokalizacji, wybierz przycisk Kopiuj obok każdego klucza, Przełącz system Windows, aby wkleić zawartość schowka do żądanej lokalizacji.
+
+Ponadto Skopiuj `LOCATION` wartość, która jest identyfikatorem regionu (np. `westus`, `westeurope` ) dla wywołań zestawu SDK.
 
 > [!IMPORTANT]
 > Te klucze subskrypcji są używane do uzyskiwania dostępu do interfejsu API usługi poznawczej. Nie udostępniaj kluczy. Przechowuj je bezpiecznie — na przykład przy użyciu Azure Key Vault. Zalecamy także regularne ponowne generowanie tych kluczy. Tylko jeden klucz jest wymagany do wywołania interfejsu API. Po ponownym wygenerowaniu pierwszego klucza można użyć drugiego klawisza w celu uzyskania ciągłego dostępu do usługi.

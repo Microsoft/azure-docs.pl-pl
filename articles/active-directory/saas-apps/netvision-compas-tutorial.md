@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 8f92ff60dacd78687207c7523504182521700a7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 423ac882c81582f2843eeba37d11c660662ad6e2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554502"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519405"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą COMPAS
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę COMPAS Azure Active Dire
 * Zezwól użytkownikom na automatyczne logowanie do usługi COMPAS w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * Program Visioning COMPAS obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
-* Po skonfigurowaniu obsługi COMPAS można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Po skonfigurowaniu obsługi COMPAS można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 
 ## <a name="adding-netvision-compas-from-the-gallery"></a>Dodawanie Compasow z galerii
@@ -146,7 +146,7 @@ W tej sekcji włączasz Logowanie jednokrotne SAML w **COMPAS**.
 1. Wprowadź znaczące wartości dla pól **Nazwa wyświetlana** i **Opis** .
 1. Przypisz użytkowników **COMPAS** do dostawcy tożsamości, wybierając z listy **dostępne użytkownicy** , a następnie wybierając przycisk **Dodaj wybrane** . Użytkownicy mogą również być przypisani do dostawcy tożsamości podczas procedury aprowizacji.
 1. Dla opcji SAML **metadanych** kliknij przycisk **Wybierz plik** i wybierz plik metadanych, który został wcześniej zapisany na komputerze.
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
     ![Edytuj dostawcy tożsamości](media/netvision-compas-tutorial/idp-edit.png)
 
@@ -167,7 +167,7 @@ Ta sekcja umożliwia testowanie konfiguracji logowania jednokrotnego usługi Azu
 
 ### <a name="using-the-access-panel-idp-initiated"></a>Za pomocą panelu dostępu (dostawcy tożsamości zainicjowany).
 
-Po kliknięciu kafelka COMPAS programu Visioning w panelu dostępu należy automatycznie zalogować się do COMPAS programu Visioning, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka COMPAS programu Visioning w panelu dostępu należy automatycznie zalogować się do COMPAS programu Visioning, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="directly-accessing-netvision-compas-sp-initiated"></a>Bezpośredni dostęp do Compasow (SP zainicjowany).
 
@@ -184,12 +184,12 @@ Po kliknięciu kafelka COMPAS programu Visioning w panelu dostępu należy autom
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj usługę COMPAS w usłudze Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
