@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1c1d96c373103e0a89a9553ce8dab6ce5cce23c7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d18cf248aa94e23abfa6e2b9467bb1167a32a6f1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279708"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490530"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Konfigurowanie dostępu do Azure Cosmos DB z sieci wirtualnych (VNet)
 
@@ -93,7 +93,7 @@ Aby mieć pewność, że masz dostęp do metryk Azure Cosmos DB z poziomu portal
 
 Wykonaj następujące kroki, aby skonfigurować punkt końcowy usługi na koncie Azure Cosmos DB przy użyciu Azure PowerShell:  
 
-1. Zainstaluj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) i [Zaloguj się](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
+1. Zainstaluj [Azure PowerShell](/powershell/azure/install-Az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps).  
 
 1. Włącz punkt końcowy usługi dla istniejącej podsieci sieci wirtualnej.  
 
@@ -317,7 +317,7 @@ Poniżej przedstawiono kilka często zadawanych pytań dotyczących konfigurowan
 
 ### <a name="are-notebooks-and-mongocassandra-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Czy powłoki Notesy i Mongo/Cassandra są obecnie zgodne z włączonymi kontami Virtual Network?
 
-W tej chwili integracja [powłoki Mongo](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) i [powłoki Cassandra](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) w Eksplorator danych Cosmos DB i [usługi notesów Jupyter](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks)nie są obsługiwane w przypadku dostępu do sieci wirtualnej. Jest to obecnie aktywne programowanie.
+W tej chwili integracja [powłoki Mongo](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) i [powłoki Cassandra](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) w Eksplorator danych Cosmos DB i [usługi notesów Jupyter](./cosmosdb-jupyter-notebooks.md)nie są obsługiwane w przypadku dostępu do sieci wirtualnej. Jest to obecnie aktywne programowanie.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Czy można określić zarówno punkt końcowy usługi sieci wirtualnej, jak i zasady kontroli dostępu IP na koncie usługi Azure Cosmos? 
 

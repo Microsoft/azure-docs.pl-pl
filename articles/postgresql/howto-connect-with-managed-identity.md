@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d801499360bd05cee4c01aefd873337303017f3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 682a580d15af44ca69d9cb12a5349beaca2d28b2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427511"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489918"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Nawiązywanie połączenia za pomocą tożsamości zarządzanej z usługą Azure Database for PostgreSQL
 
@@ -34,13 +34,13 @@ Omawiane kwestie:
 
 ## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika dla maszyny wirtualnej
 
-Utwórz tożsamość w subskrypcji za pomocą polecenia [AZ Identity Create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) . Możesz użyć tej samej grupy zasobów, w której działa maszyna wirtualna, lub innej.
+Utwórz tożsamość w subskrypcji za pomocą polecenia [AZ Identity Create](/cli/azure/identity#az-identity-create) . Możesz użyć tej samej grupy zasobów, w której działa maszyna wirtualna, lub innej.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-Aby skonfigurować tożsamość w poniższych krokach, użyj polecenia [AZ Identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) , aby zapisać identyfikator zasobu tożsamości i identyfikator klienta w zmiennych.
+Aby skonfigurować tożsamość w poniższych krokach, użyj polecenia [AZ Identity show](/cli/azure/identity#az-identity-show) , aby zapisać identyfikator zasobu tożsamości i identyfikator klienta w zmiennych.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -50,7 +50,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-Teraz można przypisać tożsamość przypisaną przez użytkownika do maszyny wirtualnej za pomocą polecenia [AZ VM Identity Assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) :
+Teraz można przypisać tożsamość przypisaną przez użytkownika do maszyny wirtualnej za pomocą polecenia [AZ VM Identity Assign](/cli/azure/vm/identity#az-vm-identity-assign) :
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

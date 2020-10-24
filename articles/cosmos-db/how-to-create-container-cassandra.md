@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: d485e90036f03c13ad8c9d52781486151009e14c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 54b58a07e3d6d4b330b6f97ef0f4a7bdd10293da
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284149"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490462"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-cassandra-api"></a>Tworzenie kontenera w Azure Cosmos DB interfejs API Cassandra
 
@@ -26,7 +26,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera w Azure Cosmos DB int
 
 ## <a name="create-using-azure-portal"></a><a id="portal-cassandra"></a>Tworzenie za pomocą witryny Azure Portal
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-cassandra-dotnet.md#create-a-database-account)lub Wybierz istniejące konto.
 
@@ -68,5 +68,4 @@ Jeśli wystąpi wyjątek limitu czasu podczas tworzenia kolekcji, wykonaj operac
 * [Partitioning in Azure Cosmos DB (Partycjonowanie w usłudze Azure Cosmos DB)](partitioning-overview.md)
 * [Jednostki żądania w usłudze Azure Cosmos DB](request-units.md)
 * [Aprowizacja przepływności kontenerów i baz danych](set-throughput.md)
-* [Praca z kontem usługi Azure Cosmos](account-overview.md)
-
+* [Praca z kontem usługi Azure Cosmos](./account-databases-containers-items.md)

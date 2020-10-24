@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: 04def98108bf996a8f8cabe0ad36c022011aa533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf292ccd185ad2c6a85cb6d2f097bb8a7fa9e173
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080708"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489663"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Tworzenie klastrów usługi HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -27,7 +27,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Interfejs wiersza polecenia platformy Azure. Jeśli nie zainstalowano interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) w celu wykonania kroków.
+Interfejs wiersza polecenia platformy Azure. Jeśli nie zainstalowano interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w celu wykonania kroków.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ Interfejs wiersza polecenia platformy Azure. Jeśli nie zainstalowano interfejsu
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Ustaw zmienne środowiskowe. Użycie zmiennych w tym artykule jest oparte na bash. Inne środowiska będą wymagały niewielkich zmian. Zobacz [AZ-HDInsight-Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) , aby uzyskać pełną listę możliwych parametrów do tworzenia klastra.
+2. Ustaw zmienne środowiskowe. Użycie zmiennych w tym artykule jest oparte na bash. Inne środowiska będą wymagały niewielkich zmian. Zobacz [AZ-HDInsight-Create](/cli/azure/hdinsight#az-hdinsight-create) , aby uzyskać pełną listę możliwych parametrów do tworzenia klastra.
 
     |Parametr | Opis |
     |---|---|
@@ -68,7 +68,7 @@ Interfejs wiersza polecenia platformy Azure. Jeśli nie zainstalowano interfejsu
     export componentVersion=Hadoop=2.7
     ```
 
-3. [Utwórz grupę zasobów](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) , wprowadzając następujące polecenie:
+3. [Utwórz grupę zasobów](/cli/azure/group#az-group-create) , wprowadzając następujące polecenie:
 
     ```azurecli-interactive
     az group create \
@@ -78,7 +78,7 @@ Interfejs wiersza polecenia platformy Azure. Jeśli nie zainstalowano interfejsu
 
     Aby uzyskać listę prawidłowych lokalizacji, użyj `az account list-locations` polecenia, a następnie użyj jednej z tych lokalizacji z `name` wartości.
 
-4. [Utwórz konto usługi Azure Storage](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) , wprowadzając następujące polecenie:
+4. [Utwórz konto usługi Azure Storage](/cli/azure/storage/account#az-storage-account-create) , wprowadzając następujące polecenie:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +91,7 @@ Interfejs wiersza polecenia platformy Azure. Jeśli nie zainstalowano interfejsu
         --sku Standard_LRS
     ```
 
-5. [Wyodrębnij klucz podstawowy z konta usługi Azure Storage](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) i Zapisz go w zmiennej, wprowadzając następujące polecenie:
+5. [Wyodrębnij klucz podstawowy z konta usługi Azure Storage](/cli/azure/storage/account/keys#az-storage-account-keys-list) i Zapisz go w zmiennej, wprowadzając następujące polecenie:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -100,7 +100,7 @@ Interfejs wiersza polecenia platformy Azure. Jeśli nie zainstalowano interfejsu
         --query [0].value -o tsv)
     ```
 
-6. [Utwórz kontener usługi Azure Storage](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) , wprowadzając następujące polecenie:
+6. [Utwórz kontener usługi Azure Storage](/cli/azure/storage/container#az-storage-container-create) , wprowadzając następujące polecenie:
 
     ```azurecli-interactive
     az storage container create \
@@ -109,7 +109,7 @@ Interfejs wiersza polecenia platformy Azure. Jeśli nie zainstalowano interfejsu
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. [Utwórz klaster usługi HDInsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) , wprowadzając następujące polecenie:
+7. [Utwórz klaster usługi HDInsight](/cli/azure/hdinsight#az-hdinsight-create) , wprowadzając następujące polecenie:
 
     ```azurecli-interactive
     az hdinsight create \

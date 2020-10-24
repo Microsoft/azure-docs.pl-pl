@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: 3de7101eb998d0f9b3b57afba6d19595738cbb63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddb14c321962c65d09be420d8da15f1e547aa282
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020409"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489544"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Uruchamianie zadania MapReduce przy użyciu zestawu SDK dla platformy .NET usługi HDInsight
 
@@ -174,5 +174,5 @@ W tym artykule przedstawiono kilka sposobów tworzenia klastra usługi HDInsight
 * Aby przesłać zadanie programu Hive, zobacz [uruchamianie Apache Hive zapytań przy użyciu zestawu .NET SDK usługi HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).
 * Aby utworzyć klastry usługi HDInsight, zobacz [Tworzenie klastrów Apache Hadoop opartych na systemie Linux w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Aby zarządzać klastrami usługi HDInsight, zobacz [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight](../hdinsight-administer-use-portal-linux.md).
-* Aby uzyskać informacje na temat usługi HDInsight SDK dla platformy .NET, zobacz [Dokumentacja zestawu SDK usługi HDInsight dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+* Aby uzyskać informacje na temat usługi HDInsight SDK dla platformy .NET, zobacz [Dokumentacja zestawu SDK usługi HDInsight dla platformy .NET](/dotnet/api/overview/azure/hdinsight).
 * W przypadku nieinterakcyjnego uwierzytelniania na platformie Azure zobacz [Tworzenie aplikacji nieinterakcyjnego uwierzytelniania .NET HDInsight](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).

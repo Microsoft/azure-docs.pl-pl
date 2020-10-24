@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6aed014800be41ce5b9d1d86d137aefcf2585e98
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533167"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Samouczek: integracja Azure Active Directory z usługą Uberflip
 
@@ -50,7 +50,7 @@ Program Uberflip obsługuje następujące funkcje:
 
 Aby skonfigurować integrację programu Uberflip z usługą Azure AD, musisz dodać Uberflip z portalu Azure Marketplace do listy zarządzanych aplikacji SaaS:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 1. W lewym okienku wybierz pozycję **Azure Active Directory**.
 
    ![Opcja Azure Active Directory](common/select-azuread.png)
@@ -96,7 +96,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Uberflip, w
 
 1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** wybierz opcję **Edytuj** (ikona ołówka), aby otworzyć okienko **podstawowe ustawienia protokołu SAML** .
 
-   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić odpowiedź U R L.](common/edit-urls.png)
 
 1. W okienku **podstawowe konfiguracje języka SAML** wykonaj jedną z następujących czynności, w zależności od trybu logowania jednokrotnego, który chcesz skonfigurować:
 
@@ -113,7 +113,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Uberflip, w
 
      `https://app.uberflip.com/users/login`
 
-     ![Uberflip domenę i adresy URL Logowanie jednokrotne](common/both-signonurl.png)
+     ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/both-signonurl.png)
 
 1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** z określonych opcji i zapisać go na komputerze.
 

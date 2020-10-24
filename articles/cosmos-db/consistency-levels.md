@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 70077f8f0e7a951b6da8cf65c874b17eb98b416c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0f69b30f477f99e2a4cae10edc7443b0630175c9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276393"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487810"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Poziomy spójności w usłudze Azure Cosmos DB
 
@@ -187,8 +187,8 @@ Aby dowiedzieć się więcej na temat koncepcji spójności, przeczytaj następu
 
 Aby dowiedzieć się więcej na temat poziomów spójności w Azure Cosmos DB, przeczytaj następujące artykuły:
 
-- [Wybierz odpowiedni poziom spójności dla aplikacji](consistency-levels-choosing.md)
-- [Poziomy spójności w interfejsach API Azure Cosmos DB](consistency-levels-across-apis.md)
+- [Wybierz odpowiedni poziom spójności dla aplikacji]()
+- [Poziomy spójności w interfejsach API Azure Cosmos DB]()
 - [Konfigurowanie domyślnego poziomu spójności](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [Zastępowanie domyślnego poziomu spójności](how-to-manage-consistency.md#override-the-default-consistency-level)
 - [Azure Cosmos DB umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

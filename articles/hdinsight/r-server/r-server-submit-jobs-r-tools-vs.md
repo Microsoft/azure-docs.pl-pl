@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402092f1667abb49da4521b91ba1f0e7d471f0d1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75435255"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490258"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Przesyłanie zadań z narzędzi R Tools for Visual Studio
 
-[R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) to bezpłatne rozszerzenie typu "open source" przeznaczone dla społeczności (wersje bezpłatna), Professional i Enterprise [programów Visual Studio 2017](https://www.visualstudio.com/downloads/)i [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) lub nowsze. RTVS nie jest dostępny dla [programu Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
+[R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) to bezpłatne rozszerzenie typu "open source" przeznaczone dla społeczności (wersje bezpłatna), Professional i Enterprise [programów Visual Studio 2017](https://www.visualstudio.com/downloads/)i [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) lub nowsze. RTVS nie jest dostępny dla [programu Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019&preserve-view=true).
 
 RTVS ulepsza przepływ pracy w języku R, oferując narzędzia, takie jak [okno R Interactive](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), IntelliSense (uzupełnianie kodu), [rysowanie wizualizacji](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) za pomocą bibliotek języka r, takich jak ggplot2 i Ggviz, [Debugowanie kodu języka r](https://docs.microsoft.com/visualstudio/rtvs/debugging)i inne.
 

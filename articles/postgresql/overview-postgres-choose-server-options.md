@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: f81a44af4a90ccda1875c0a9f2bfaa8dc0b73441
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8bc303f619d145cc280e6caab65781bd42d1b314
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947628"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489697"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Wybierz odpowiednią opcję serwera PostgreSQL na platformie Azure
 
@@ -80,13 +80,13 @@ Za pomocą Azure Database for PostgreSQL można nadal administrować swoją baz�
 - Bazy danych
 - Logowanie
 - Dostrajanie indeksu
-- Dostrajanie zapytania
+- Dostrajanie zapytań
 - Inspekcja
 - Zabezpieczenia
 
 Ponadto skonfigurowanie wysokiej dostępności w innym centrum danych wymaga minimalnej konfiguracji lub jej administracji.
 
-- Dzięki PostgreSQL na maszynach wirtualnych platformy Azure masz pełną kontrolę nad systemem operacyjnym i konfiguracją wystąpienia serwera PostgreSQL. W przypadku maszyny wirtualnej należy określić, kiedy należy zaktualizować lub uaktualnić system operacyjny i oprogramowanie bazy danych oraz jakie poprawki mają być stosowane. Należy również określić, kiedy zainstalować dodatkowe oprogramowanie, np. aplikację antywirusową. Niektóre funkcje automatyczne zapewniają znacznie uproszczenie stosowania poprawek, kopii zapasowych i wysokiej dostępności. Można kontrolować rozmiar maszyny wirtualnej, liczbę dysków i ich konfiguracje magazynu. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych i usług w chmurze dla platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+- Dzięki PostgreSQL na maszynach wirtualnych platformy Azure masz pełną kontrolę nad systemem operacyjnym i konfiguracją wystąpienia serwera PostgreSQL. W przypadku maszyny wirtualnej należy określić, kiedy należy zaktualizować lub uaktualnić system operacyjny i oprogramowanie bazy danych oraz jakie poprawki mają być stosowane. Należy również określić, kiedy zainstalować dodatkowe oprogramowanie, np. aplikację antywirusową. Niektóre funkcje automatyczne zapewniają znacznie uproszczenie stosowania poprawek, kopii zapasowych i wysokiej dostępności. Można kontrolować rozmiar maszyny wirtualnej, liczbę dysków i ich konfiguracje magazynu. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych i usług w chmurze dla platformy Azure](../virtual-machines/sizes.md).
 
 ## <a name="time-to-move-to-azure-postgresql-service-paas"></a>Czas przejścia do usługi Azure PostgreSQL Service (PaaS)
 
@@ -98,4 +98,3 @@ Ponadto skonfigurowanie wysokiej dostępności w innym centrum danych wymaga min
 
 - Zobacz cennik usługi Azure Database for [PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
 - Rozpoczęcie pracy przez utworzenie pierwszego serwera.
-

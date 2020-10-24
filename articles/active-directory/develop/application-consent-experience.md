@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a4af81c6a216119ae2e1b0221c06ddc349452f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115479"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478137"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Opis środowisk zgody dla aplikacji usługi Azure AD
 
@@ -65,13 +65,13 @@ Poniżej przedstawiono sposób, w jaki użytkownik może zobaczyć w typowych sc
     
     2. Użytkownicy będą widzieć tradycyjny monit o zgodę.
 
-        ![Monit o zgodę dla scenariusza 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Zrzut ekranu pokazujący tradycyjny monit o zgodę.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. Osoby, które uzyskują dostęp do aplikacji, która wymaga co najmniej jednego uprawnienia poza ich zakresem uprawnień.
     1. Administratorzy będą widzieli ten sam monit co 1. pokazane powyżej.
     2. Użytkownicy będą mogli udzielać zgody na dostęp do aplikacji i otrzymają monit o poproszenie administratora o udzielenie dostępu do aplikacji. 
                 
-        ![Monit o zgodę dla scenariusza 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Zrzut ekranu przedstawiający monit o zgodę informujący użytkownika o konieczności uzyskania dostępu do aplikacji.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. Osoby, które poruszają się lub kierują do przepływu zgody administratora.
     1. Administratorzy będą widzieli monit o zgodę administratora. Tytuł i opisy uprawnień zostały zmienione w tym monicie, natomiast w przypadku zmiany zostanie wyświetlona informacja o tym, że ten monit zostanie udzielony, udziel aplikacji dostępu do żądanych danych w imieniu całej dzierżawy.

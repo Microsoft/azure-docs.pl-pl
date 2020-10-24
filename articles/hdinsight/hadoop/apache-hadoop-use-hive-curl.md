@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 524c888bb132405f03af44f9c28198be0ac89370
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085552"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489595"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Uruchamianie zapytań Apache Hive z Apache Hadoop w usłudze HDInsight przy użyciu usługi REST
 
@@ -33,7 +33,7 @@ Dowiedz się, jak używać interfejsu API REST WebHCat do uruchamiania zapytań 
 
 Podstawowy Uniform Resource Identifier (URI) dla interfejsu API REST w usłudze HDInsight to `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , gdzie `CLUSTERNAME` jest nazwą klastra.  Nazwy klastra w identyfikatorach URI są **rozróżniane wielkości**liter.  W czasie, gdy nazwa klastra w w pełni kwalifikowana nazwa domeny (FQDN) w ramach identyfikatora URI ( `CLUSTERNAME.azurehdinsight.net` ) nie uwzględnia wielkości liter, inne wystąpienia w identyfikatorze URI uwzględniają wielkość liter.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 W przypadku korzystania z zawieszeń lub innej komunikacji REST z WebHCat należy uwierzytelnić żądania, podając nazwę użytkownika i hasło administratora klastra usługi HDInsight. Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego](https://en.wikipedia.org/wiki/Basic_access_authentication). Aby upewnić się, że poświadczenia są bezpiecznie wysyłane do serwera, należy zawsze wysyłać żądania przy użyciu bezpiecznego protokołu HTTP (HTTPS).
 
@@ -185,7 +185,7 @@ $clusterName
 
 1. Po zmianie stanu zadania na **powodzenie**można pobrać wyniki zadania z usługi Azure Blob Storage. `statusdir`Parametr przesłany z zapytaniem zawiera lokalizację pliku wyjściowego; w tym przypadku `/example/rest` . Ten adres przechowuje dane wyjściowe w `example/curl` katalogu w domyślnym magazynie klastrów.
 
-    Możesz wyświetlić i pobrać te pliki przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polecenia platformy Azure z usługą Azure Storage, zobacz dokument [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli) .
+    Możesz wyświetlić i pobrać te pliki przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polecenia platformy Azure z usługą Azure Storage, zobacz dokument [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli) .
 
 ## <a name="next-steps"></a>Następne kroki
 

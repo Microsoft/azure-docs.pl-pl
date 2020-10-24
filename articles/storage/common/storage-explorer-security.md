@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b403a960016be3795857ddd5645eb73e53e83bd6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714388"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488609"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Przewodnik po zabezpieczeniach Eksplorator usługi Azure Storage
 
@@ -44,13 +44,13 @@ W tej sekcji opisano dwie technologie oparte na usłudze Azure AD, które mogą 
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)
 
-[Kontrola dostępu oparta na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) zapewnia precyzyjną kontrolę dostępu do zasobów platformy Azure. Rolami i uprawnieniami platformy Azure można zarządzać z poziomu Azure Portal.
+[Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview) zapewnia precyzyjną kontrolę dostępu do zasobów platformy Azure. Rolami i uprawnieniami platformy Azure można zarządzać z poziomu Azure Portal.
 
 Eksplorator usługi Storage obsługuje dostęp do usługi Azure RBAC do kont magazynu, obiektów blob i kolejek. Jeśli potrzebujesz dostępu do udziałów plików lub tabel, musisz przypisać role platformy Azure, które przyznają uprawnienia do wyświetlania kluczy konta magazynu.
 
 #### <a name="access-control-lists-acls"></a>Listy kontroli dostępu (ACL)
 
-[Listy kontroli dostępu (ACL)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) umożliwiają kontrolowanie dostępu na poziomie plików i folderów w kontenerach obiektów BLOB ADLS Gen2. Listami ACL można zarządzać przy użyciu Eksplorator usługi Storage.
+[Listy kontroli dostępu (ACL)](/azure/storage/blobs/data-lake-storage-access-control) umożliwiają kontrolowanie dostępu na poziomie plików i folderów w kontenerach obiektów BLOB ADLS Gen2. Listami ACL można zarządzać przy użyciu Eksplorator usługi Storage.
 
 ### <a name="shared-access-signatures-sas"></a>Sygnatury dostępu współdzielonego (SAS)
 
@@ -102,4 +102,4 @@ Podczas włączania dostępu publicznego do kontenera obiektów BLOB zalecamy na
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zalecenia dotyczące zabezpieczeń](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [Zalecenia dotyczące zabezpieczeń](/azure/storage/blobs/security-recommendations)

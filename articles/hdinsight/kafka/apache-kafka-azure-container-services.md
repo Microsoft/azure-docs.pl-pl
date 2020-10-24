@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: baf350e23025342cc74b4d063d9a1604e8ad2ffd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab87f181f78158d2ea0dd6575a30e6087600f60c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087426"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485685"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Korzystanie z usługi Azure Kubernetes Service z usługą Apache Kafka w usłudze HDInsight
 
@@ -26,7 +26,7 @@ Dowiedz się, jak używać usługi Azure Kubernetes Service (AKS) z [Apache Kafk
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 * Subskrypcja platformy Azure
 
 W tym dokumencie przyjęto założenie, że wiesz już, jak tworzyć i korzystać z następujących usług platformy Azure:

@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
-ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/21/2020
+ms.openlocfilehash: a666acbcd2aed168bd1d871c0ef0fb8c3205fd05
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367724"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479151"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Samouczek: tworzenie użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD
 
@@ -27,7 +27,7 @@ Ten artykuł przeprowadzi Cię przez proces tworzenia użytkowników usługi Azu
 
 Aby uzyskać więcej informacji na temat uwierzytelniania usługi Azure AD dla usługi Azure SQL, zobacz artykuł [używanie uwierzytelniania Azure Active Directory](authentication-aad-overview.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > - Przypisywanie tożsamości do serwera logicznego usługi Azure SQL
@@ -173,10 +173,20 @@ Aby poznać podobne podejście do sposobu ustawiania uprawnienia **czytelników 
     - **Identyfikator aplikacji**
     - **Identyfikator dzierżawy** — powinien być taki sam jak poprzednio
 
-W tym samouczku będziemy używać usługi *AppSP* jako naszej głównej nazwy głównej usługi i *MojaApl* jako drugi użytkownik głównej usługi, który zostanie utworzony w usłudze Azure SQL przez *AppSP*. Konieczne będzie utworzenie dwóch aplikacji, *AppSP* i *MojaApl*.
+W tym samouczku będziemy używać usługi *AppSP* jako naszej głównej nazwy głównej usługi i *MojaApl* jako drugi użytkownik głównej usługi, który zostanie utworzony w usłudze Azure SQL przez *AppSP*. Należy utworzyć dwie aplikacje, *AppSP* i *MojaApl*.
 
 Aby uzyskać więcej informacji na temat tworzenia aplikacji usługi Azure AD, zobacz artykuł [jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../../active-directory/develop/howto-create-service-principal-portal.md).
 
+### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Uprawnienia wymagane do ustawienia lub nieustawienia administratora usługi Azure AD
+
+Aby nazwa główna usługi mogła określić lub cofnąć uprawnienia administratora usługi Azure AD dla usługi Azure SQL, wymagane jest dodatkowe uprawnienie interfejsu API. Do aplikacji w usłudze Azure AD należy dodać uprawnienie do [usługi Directory. Read. All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Identyfikator obiektu":::
+
+Nazwa główna usługi będzie również potrzebować roli [**współautor SQL Server**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) dla SQL Database lub roli [**współautor wystąpienia zarządzanego SQL**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) dla wystąpienia zarządzanego SQL.
+
+> [!NOTE]
+> Mimo że interfejs API programu Graph usługi Azure AD jest przestarzały, do tego samouczka nadal mają zastosowanie **wszystkie** uprawnienia. Interfejs API Microsoft Graph nie ma zastosowania do tego samouczka.
 
 ## <a name="create-the-service-principal-user-in-azure-sql-database"></a>Tworzenie użytkownika nazwy głównej usługi w Azure SQL Database
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277794"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489238"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Azure Cosmos DB obsługuje dwa tryby indeksowania:
 
 Domyślnie zasady indeksowania są ustawione na `automatic` . Jest to osiągane przez ustawienie `automatic` właściwości w zasadach indeksowania na `true` . Ustawienie tej właściwości `true` umożliwia usłudze Azure CosmosDB Automatyczne indeksowanie dokumentów w miarę ich pisania.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Uwzględnianie i wykluczanie ścieżek właściwości
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Uwzględnianie i wykluczanie ścieżek właściwości
 
 Niestandardowe zasady indeksowania mogą określać ścieżki właściwości, które są jawnie dołączone lub wykluczone z indeksowania. Przez optymalizację liczby indeksowanych ścieżek można znacznie ograniczyć opóźnienia i obciążenie RU operacji zapisu. Te ścieżki są zdefiniowane po [metodzie opisanej w sekcji Omówienie indeksowania](index-overview.md#from-trees-to-property-paths) z następującymi dodatkami:
 

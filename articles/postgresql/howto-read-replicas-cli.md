@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20bedf7e48b2e40cd67e33ea024a3ae0a9d305a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707544"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489714"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Tworzenie replik odczytu i zarządzanie nimi w interfejsie wiersza polecenia platformy Azure, interfejs API REST
 
@@ -34,7 +34,7 @@ Można tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- [Instalowanie interfejsu wiersza polecenia platformy Azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Instalowanie interfejsu wiersza polecenia platformy Azure 2,0](/cli/azure/install-azure-cli)
 - [Serwer Azure Database for PostgreSQL](quickstart-create-server-up-azure-cli.md) być serwerem podstawowym.
 
 
@@ -60,7 +60,7 @@ Można tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza
 
 ### <a name="create-a-read-replica"></a>Tworzenie repliki do odczytu
 
-Polecenie [AZ Postgres Server Replica Create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) wymaga następujących parametrów:
+Polecenie [AZ Postgres Server Replica Create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) wymaga następujących parametrów:
 
 | Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
@@ -91,14 +91,14 @@ Jeśli nie ustawisz `azure.replication_support` parametru na **replikę** na ser
 > Przed zaktualizowaniem ustawienia serwera podstawowego do nowej wartości należy zaktualizować ustawienie repliki na wartość równą lub większą. Ta akcja ułatwia przeprowadzenie replikacji ze wszystkimi zmianami wprowadzonymi do wzorca.
 
 ### <a name="list-replicas"></a>Wyświetlanie listy replik
-Listę replik serwera podstawowego można wyświetlić za pomocą polecenia [AZ Postgres Server Replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) .
+Listę replik serwera podstawowego można wyświetlić za pomocą polecenia [AZ Postgres Server Replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) .
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Zatrzymaj replikację do serwera repliki
-Można zatrzymać replikację między serwerem podstawowym a repliką odczytu przy użyciu polecenia [AZ Postgres Server Replica Stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) .
+Można zatrzymać replikację między serwerem podstawowym a repliką odczytu przy użyciu polecenia [AZ Postgres Server Replica Stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) .
 
 Po zatrzymaniu replikacji na serwer podstawowy i replikę odczytu nie można jej cofnąć. Replika odczytu jest autonomicznym serwerem, który obsługuje zarówno operacje odczytu, jak i zapisu. Serwer autonomiczny nie może zostać ponownie utworzony w replice.
 
@@ -107,7 +107,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>Usuwanie serwera podstawowego lub repliki
-Aby usunąć serwer podstawowy lub replikę, użyj polecenia [AZ Postgres Server Delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) .
+Aby usunąć serwer podstawowy lub replikę, użyj polecenia [AZ Postgres Server Delete](/cli/azure/postgres/server#az-postgres-server-delete) .
 
 Po usunięciu serwera podstawowego replikacja do wszystkich replik odczytu zostanie zatrzymana. Repliki odczytu stają się autonomicznymi serwerami, które teraz obsługują operacje odczytu i zapisu.
 

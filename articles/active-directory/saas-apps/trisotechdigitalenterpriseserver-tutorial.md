@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 3e8bf3d2407e2c3d0db4bb5d8591ba598aba68a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfad185718dcc4a1c06ba3a4ed22961615ccd37e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546444"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486960"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Samouczek: integracja Azure Active Directory z programem Trisotech Digital Enterprise Server
 
@@ -120,15 +120,15 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu Tr
 
 2. Kliknij **ikonę menu** , a następnie wybierz pozycję **Administracja**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia ikonę Administracja na serwerze Microsoft Digital Enterprise.](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
 3. Wybierz pozycję **dostawca użytkownika**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia dostawcę użytkownika wybranego z menu.](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
 
 4. W sekcji **konfiguracje dostawcy użytkowników** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
+    ![Zrzut ekranu przedstawia konfiguracje dostawcy użytkowników, w których można wprowadzić podane wartości.](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
     a. Wybierz opcję **Secure Assertion Markup Language 2 (SAML 2)** z listy rozwijanej w **metodzie uwierzytelniania**.
 

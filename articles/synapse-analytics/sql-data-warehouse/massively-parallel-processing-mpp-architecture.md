@@ -1,6 +1,6 @@
 ---
 title: Architektura usługi Azure Synapse Analytics (dawniej SQL DW)
-description: Dowiedz się, jak usługa Azure Synapse Analytics (dawniej SQL DW) łączy masowe przetwarzanie równoległe (MPP) z usługą Azure Storage w celu uzyskania wysokiej wydajności i skalowalności.
+description: Dowiedz się, jak usługa Azure Synapse Analytics (wcześniej SQL DW) łączy rozproszone możliwości przetwarzania zapytań z usługą Azure Storage w celu uzyskania wysokiej wydajności i skalowalności.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210970"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479344"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architektura usługi Azure Synapse Analytics (dawniej SQL DW)
 
@@ -33,13 +33,13 @@ Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie da
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="synapse-sql-mpp-architecture-components"></a>Synapse składniki architektury MPP języka SQL
+## <a name="synapse-sql-architecture-components"></a>Składniki architektury SQL Synapse
 
 [Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) wykorzystuje architekturę skalowalną w poziomie do dystrybucji obliczeniowego przetwarzania danych w wielu węzłach. Jednostka skali jest abstrakcją mocy obliczeniowej, która jest znana jako [Jednostka magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md). Obliczenia są niezależne od magazynu, co umożliwia skalowanie obliczeniowe niezależnie od danych w systemie.
 
 ![Architektura usługi](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-Synapse SQL używa architektury opartej na węźle. Aplikacje nawiązują połączenie i wydają polecenia T-SQL do węzła kontrolki, który jest pojedynczym punktem wejścia dla Synapse SQL. Węzeł kontrolny uruchamia aparat MPP, który optymalizuje zapytania do przetwarzania równoległego, a następnie przekazuje operacje do węzłów obliczeniowych w celu wykonywania równoległych zadań.
+Synapse SQL używa architektury opartej na węźle. Aplikacje nawiązują połączenie i wydają polecenia T-SQL do węzła kontrolki, który jest pojedynczym punktem wejścia dla Synapse SQL. Węzeł kontrolny obsługuje aparat zapytań rozproszonych, który optymalizuje zapytania do przetwarzania równoległego, a następnie przekazuje operacje do węzłów obliczeniowych w celu wykonywania równoległych zadań.
 
 Węzły obliczeniowe przechowują wszystkie dane użytkowników w usłudze Azure Storage i wykonują zapytania równoległe. Usługa przenoszenia danych (ang. Data Movement Service, DMS) to wewnętrzna usługa działająca na poziomie systemu, która przenosi dane pomiędzy węzłami w sposób wymagany do równoległego wykonywania zapytań i zwracania prawidłowych wyników.
 
@@ -60,13 +60,13 @@ Synapse SQL wykorzystuje usługę Azure Storage, aby zapewnić bezpieczeństwo d
 
 ### <a name="control-node"></a>Węzeł kontrolny
 
-Węzeł kontrolny to mózg całej architektury. Jest to fronton współdziałający ze wszystkimi aplikacjami i połączeniami. Aparat MPP działa na węźle kontrolnym, optymalizując i koordynując zapytania równolegle. Po przesłaniu zapytania T-SQL węzeł kontrolny przekształca go w zapytania, które są wykonywane równolegle do każdej dystrybucji.
+Węzeł kontrolny to mózg całej architektury. Jest to fronton współdziałający ze wszystkimi aplikacjami i połączeniami. Aparat zapytań rozproszonych działa w węźle kontroli w celu optymalizowania i koordynowania zapytań równoległych. Po przesłaniu zapytania T-SQL węzeł kontrolny przekształca go w zapytania, które są wykonywane równolegle do każdej dystrybucji.
 
 ### <a name="compute-nodes"></a>Węzły obliczeniowe
 
 Węzły obliczeniowe zapewniają moc obliczeniową. Dystrybucje są mapowane na węzły obliczeniowe do przetwarzania. Ponieważ płacisz za więcej zasobów obliczeniowych, dystrybucje są ponownie mapowane na dostępne węzły obliczeniowe. Liczba węzłów obliczeniowych z zakresu od 1 do 60 i jest określana na podstawie poziomu usługi dla Synapse SQL.
 
-Każdy węzeł obliczeniowy ma identyfikator węzła, który jest widoczny w widokach systemu. IDENTYFIKATOR węzła obliczeniowego można zobaczyć, szukając kolumny node_id w widokach systemowych, których nazwy rozpoczynają się od sys.pdw_nodes. Aby zapoznać się z listą tych widoków systemowych, zobacz [widoki systemowe MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Każdy węzeł obliczeniowy ma identyfikator węzła, który jest widoczny w widokach systemu. IDENTYFIKATOR węzła obliczeniowego można zobaczyć, szukając kolumny node_id w widokach systemowych, których nazwy rozpoczynają się od sys.pdw_nodes. Listę tych widoków systemowych można znaleźć w temacie [Synapse SQL system viewss](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="data-movement-service"></a>Usługa przenoszenia danych
 

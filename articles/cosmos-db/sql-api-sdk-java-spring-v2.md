@@ -9,32 +9,32 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d5a906e12df14c6c3ffec704310bbede742ad841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15d3b5eb0dfd5eb35b81da1c0c1ef629aa0def63
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760829"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477423"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Dane wiosenne Azure Cosmos DB v2 for Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
 > * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
 > * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
-> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
+> * [Zestaw SDK zestawienia zmian platformy .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
-> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
  Dane wiosenne Azure Cosmos DB wersja 2 dla rdzenia (SQL) umożliwiają deweloperom korzystanie z Azure Cosmos DB w aplikacjach wiosennych. Dane wiosenne Azure Cosmos DB uwidaczniają interfejs danych sprężyny do manipulowania bazami plików i kolekcjami, pracy z dokumentami i wystawiania zapytań. W tym samym artefaktie Maven są obsługiwane zarówno interfejsy API synchronizacji, jak i asynchroniczne (reaktywne). 
 
@@ -48,30 +48,30 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 > Dane sprężynowe Azure Cosmos DB obsługują tylko interfejs API SQL.
 >
 > Zobacz następujące artykuły, aby uzyskać informacje na temat sprężyny danych na innych Azure Cosmos DB interfejsach API:
-> * [Sprężynowe dane dla Apache Cassandra z Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [MongoDB danych wiosennych z Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Gremlin danych wiosennych z Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Sprężynowe dane dla Apache Cassandra z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [MongoDB danych wiosennych z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Gremlin danych wiosennych z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Chcesz szybko zacząć?
 > 1. Zainstaluj [minimalny obsługiwany środowisko uruchomieniowe Java, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), aby można było użyć zestawu SDK.
-> 2. Utwórz aplikację ze sprężyną danych Azure Cosmos DB przy użyciu [Starter](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). To proste!
-> 3. Zapoznaj się z [przewodnikiem po programie dla danych sprężyny Azure Cosmos DB deweloperem](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), który przeprowadzi Cię przez podstawowe żądania Azure Cosmos DB.
+> 2. Utwórz aplikację ze sprężyną danych Azure Cosmos DB przy użyciu [Starter](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). To proste!
+> 3. Zapoznaj się z [przewodnikiem po programie dla danych sprężyny Azure Cosmos DB deweloperem](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), który przeprowadzi Cię przez podstawowe żądania Azure Cosmos DB.
 >
 > Możesz szybko uruchamiać aplikacje z rozruchem wiosny przy użyciu [sprężyny Initializr](https://start.spring.io/)!
 >
 
 ## <a name="resources"></a>Zasoby
 
-| Zasób | Łącze |
+| Zasób | Link |
 |---|---|
-| **Pobieranie zestawu SDK** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/spring-data-cosmosdb) |
+| **Zestaw SDK do pobrania** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/spring-data-cosmosdb) |
 |**Dokumentacja interfejsu API** | [Informacje o sprężyny Azure Cosmos DB dokumentacji]() |
 |**Współtworzenie zestawu SDK** | [Dane wiosenne Azure Cosmos DB repozytorium w serwisie GitHub](https://github.com/microsoft/spring-data-cosmosdb) | 
 |**Rozruch z sprężyną Starter**| [Azure Cosmos DB wiosny startowej biblioteki klienckiej dla języka Java](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
 |**Przykład aplikacji ze sprężyną do zrobienia przy użyciu Azure Cosmos DB**| [Kompleksowe środowisko Java w systemie App Service Linux (część 2)](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2) |
-|**Przewodnik dewelopera** | [Przewodnik dewelopera usługi Azure Cosmos DB w rozwiązaniu Spring Data](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
-|**Przy użyciu Starter** | [Jak używać funkcji sprężynowego rozruchu Starter z interfejsem API SQL Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [Repozytorium GitHub dla Azure Cosmos DB sprężynowego rozruchu Starter](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
-|**Przykład z Azure App Service** | [Jak używać platformy Spring i usługi Cosmos DB z usługą App Service w systemie Linux](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Przykład aplikacji do zrobienia](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
+|**Przewodnik dewelopera** | [Przewodnik dewelopera usługi Azure Cosmos DB w rozwiązaniu Spring Data](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
+|**Przy użyciu Starter** | [Jak używać funkcji sprężynowego rozruchu Starter z interfejsem API SQL Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [Repozytorium GitHub dla Azure Cosmos DB sprężynowego rozruchu Starter](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
+|**Przykład z Azure App Service** | [Jak używać platformy Spring i usługi Cosmos DB z usługą App Service w systemie Linux](/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Przykład aplikacji do zrobienia](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
 
 ## <a name="release-history"></a>Historia wersji
 
@@ -199,7 +199,7 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 #### <a name="key-bug-fixes"></a>Poprawki klucza
 * Rozwiązywanie błędów i eliminowanie wad.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Następne kroki

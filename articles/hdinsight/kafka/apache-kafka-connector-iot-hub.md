@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4f390e6d362895d58be0e8695e72d058a021b34
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087388"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485549"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Używanie Apache Kafka w usłudze HDInsight z platformą Azure IoT Hub
 
@@ -162,7 +162,7 @@ Aby pobrać informacje o usłudze IoT Hub używane przez łącznik, wykonaj nast
         > [!IMPORTANT]  
         > Wartość punktu końcowego z portalu może zawierać dodatkowy tekst, który nie jest wymagany w tym przykładzie. Wyodrębnij tekst pasujący do tego wzorca `sb://<randomnamespace>.servicebus.windows.net/` .
 
-   * W __ [interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ wykonaj następujące polecenie:
+   * W __ [interfejsie wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli)__ wykonaj następujące polecenie:
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -184,7 +184,7 @@ Aby pobrać informacje o usłudze IoT Hub używane przez łącznik, wykonaj nast
         2. Skopiuj wartość __klucza podstawowego__ .
         3. Skopiuj __Parametry połączenia — wartość klucza podstawowego__ .
 
-    * W __ [interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ wykonaj następujące polecenie:
+    * W __ [interfejsie wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli)__ wykonaj następujące polecenie:
 
         1. Aby uzyskać wartość klucza podstawowego, użyj następującego polecenia:
 

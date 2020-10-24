@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bcda410e678e44916a4128d7ef097883e148ed79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81d0a0df53ff18661582416d4d96fd5d5ee83192
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551864"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486909"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą uniFLOW online
 
@@ -152,20 +152,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W okienku nawigacji po lewej stronie wybierz pozycję Karta **użytkownika** .
 
-    ![uniFLOW konfiguracja online](./media/uniflow-online-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia użytkownika wybranego w witrynie uniFLOW online.](./media/uniflow-online-tutorial/configure1.png)
 
 1. Kliknij pozycję **dostawcy tożsamości**.
 
-    ![uniFLOW konfiguracja online](./media/uniflow-online-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia wybrane dostawcy tożsamości.](./media/uniflow-online-tutorial/configure2.png)
 
 1. Kliknij pozycję **Dodaj dostawcę tożsamości**.
 
-    ![uniFLOW konfiguracja online](./media/uniflow-online-tutorial/configure3.png)
+    ![Zrzut ekranu pokazuje wybrany dostawca Dodaj dostawcę tożsamości.](./media/uniflow-online-tutorial/configure3.png)
 
 1. W sekcji **Dodawanie dostawcy tożsamości** wykonaj następujące czynności:
 
-
-    ![uniFLOW konfiguracja online](./media/uniflow-online-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawia sekcję Dodawanie dostawcy tożsamości, w której można wprowadzić podane wartości.](./media/uniflow-online-tutorial/configure4.png)
 
     a. Wprowadź nazwę wyświetlaną ex: *AZUREAD SSO*.
 
@@ -173,11 +172,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     c. Dla **typu protokołu WS-karmionego**wybierz opcję **Azure Active Directory** z listy rozwijanej.
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 1. Na karcie **Ogólne** wykonaj następujące czynności:
 
-    ![uniFLOW konfiguracja online](./media/uniflow-online-tutorial/configure5.png)
+    ![Zrzut ekranu przedstawia kartę Ogólne, w której można wprowadzić podane wartości.](./media/uniflow-online-tutorial/configure5.png)
 
     a. Wprowadź nazwę wyświetlaną ex: *AZUREAD SSO*.
 
@@ -189,7 +188,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e. Wybierz pozycję **Automatyczna rejestracja użytkowników** jako **aktywowana**.
 
-    f. Kliknij przycisk **Zapisz**.
+    f. Kliknij pozycję **Zapisz**.
 
 ### <a name="sign-in-to-uniflow-online-using-the-created-test-user"></a>Zaloguj się do usługi uniFLOW online za pomocą utworzonego użytkownika testowego
 

@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104108"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480075"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 
@@ -37,13 +37,13 @@ W wersji zapoznawczej, gdy łącze Azure Synapse jest włączone dla konta wielo
 
 W przypadku kontenerów z włączonym magazynem analitycznym automatyczne tworzenie kopii zapasowych i przywracanie danych w magazynie analitycznym nie jest obecnie obsługiwane. 
 
-Gdy łącze Synapse jest włączone na koncie bazy danych, Azure Cosmos DB będzie nadal automatycznie [tworzyć kopie zapasowe](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) danych w magazynie transakcyjnym (tylko) kontenerów z zaplanowanym interwałem tworzenia kopii zapasowych, tak jak zawsze. Należy pamiętać, że gdy kontener z włączonym magazynem analitycznym zostanie przywrócony do nowego konta, kontener zostanie przywrócony tylko z magazynem transakcyjnym i nie włączono magazynu analitycznego. 
+Gdy łącze Synapse jest włączone na koncie bazy danych, Azure Cosmos DB będzie nadal automatycznie [tworzyć kopie zapasowe](./online-backup-and-restore.md) danych w magazynie transakcyjnym (tylko) kontenerów z zaplanowanym interwałem tworzenia kopii zapasowych, tak jak zawsze. Należy pamiętać, że gdy kontener z włączonym magazynem analitycznym zostanie przywrócony do nowego konta, kontener zostanie przywrócony tylko z magazynem transakcyjnym i nie włączono magazynu analitycznego. 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Czy mogę wyłączyć funkcję linku usługi Azure Synapse dla mojego konta Azure Cosmos DB?
 
 Obecnie po włączeniu funkcji usługi Synapse Link na poziomie konta nie można jej wyłączyć. Należy pamiętać, że włączenie funkcji usługi Synapse Link na poziomie konta nie pociąga żadnych implikacji rozliczeniowych w przypadku braku kontenerów z włączonym magazynem analitycznym. 
 
-Jeśli musisz wyłączyć tę możliwość, masz dwie opcje. Pierwszym z nich jest usunięcie i ponowne utworzenie nowego konta Azure Cosmos DB, w razie potrzeby, Migrowanie danych. Druga opcja to otwarcie biletu pomocy technicznej, aby uzyskać pomoc na temat migracji danych na inne konto.
+Jeśli musisz wyłączyć tę możliwość, masz 2 opcje. Pierwszą jest usunięcie i ponowne utworzenie nowego konta usługi Azure Cosmos DB oraz, jeśli jest to konieczne, przeprowadzenie migracji danych. Drugą opcją to otwarcie biletu pomocy technicznej, aby uzyskać pomoc na temat migracji danych na inne konto.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Magazyn analityczny Azure Cosmos DB
 
@@ -98,9 +98,9 @@ Dane w magazynie analitycznym są partycjonowane w oparciu o partycjonowanie poz
 
 Obecnie nie można przekształcić elementów danych, gdy są one automatycznie propagowane ze sklepu transakcyjnego do magazynu analitycznego. Jeśli masz scenariusze blokowane przez to ograniczenie, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-### <a name="is-analytical-store-supported-by-terraform"></a>Czy magazyn analityczny jest obsługiwany przez Terraform?
+### <a name="is-analytical-store-supported-by-terraform"></a>Czy magazyn analityczny jest obsługiwany przez program Terraform?
 
-Obecnie Terraform nie obsługuje kontenerów magazynu analitycznego. Aby uzyskać więcej informacji, zobacz problemy z usługą [GitHub Terraform](https://github.com/hashicorp/terraform/issues) .
+Obecnie program Terraform nie obsługuje kontenerów magazynu analitycznego. Aby uzyskać więcej informacji, zobacz [problemy dotyczące programu Terraform w serwisie GitHub](https://github.com/hashicorp/terraform/issues).
 
 ## <a name="analytical-time-to-live-ttl"></a>Analityczny czas wygaśnięcia (TTL)
 

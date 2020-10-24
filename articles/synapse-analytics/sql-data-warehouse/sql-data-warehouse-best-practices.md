@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 6978855e9b32a3842e76d02ef543d86cf0673019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206652"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489646"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Najlepsze rozwiązania dotyczące Synapse puli SQL w usłudze Azure Synapse Analytics (dawniej SQL DW)
 
@@ -64,7 +64,7 @@ Zobacz również [Wstawianie](/sql/t-sql/statements/insert-transact-sql?toc=/azu
 
 Pula SQL obsługuje ładowanie i eksportowanie danych za poorednictwem kilku narzędzi, takich jak Azure Data Factory, Base i BCP.  W przypadku małych ilości danych, gdy wydajność nie ma decydującego znaczenia, można zastosować dowolne narzędzie.  Jednak podczas ładowania lub eksportowania dużych ilości danych lub w przypadku, gdy wymagana jest wysoka wydajność, najlepszym wyborem jest funkcja PolyBase.  
 
-Baza danych została zaprojektowana tak, aby korzystała z architektury MPP (wysoce równoległego przetwarzania), i będzie ładować i eksportować wielkości dane szybciej niż inne narzędzia.  Obciążenia funkcji PolyBase można uruchomić za pomocą instrukcji CTAS lub INSERT INTO.  
+Baza danych została zaprojektowana tak, aby korzystała z rozproszonego charakteru systemu i załadowała i eksportuje znacznie szybciej niż inne narzędzia.  Obciążenia funkcji PolyBase można uruchomić za pomocą instrukcji CTAS lub INSERT INTO.   
 
 > [!TIP]
 > Użycie instrukcji CTAS minimalizuje rejestrowanie transakcji i stanowi najszybszy sposób ładowania danych.

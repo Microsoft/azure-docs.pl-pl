@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329376"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489289"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -144,7 +144,7 @@ Nie ma żadnych ograniczeń dotyczących ładunków elementów, takich jak liczb
 
 ## <a name="per-request-limits"></a>Limity żądań na żądanie
 
-Azure Cosmos DB obsługuje [operacje CRUD i zapytań](/rest/api/cosmos-db/) wobec zasobów, takich jak kontenery, elementy i bazy danych. Obsługuje ona również [transakcyjne żądania wsadowe](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) dla wielu elementów z tym samym kluczem partycji w kontenerze.
+Azure Cosmos DB obsługuje [operacje CRUD i zapytań](/rest/api/cosmos-db/) wobec zasobów, takich jak kontenery, elementy i bazy danych. Obsługuje ona również [transakcyjne żądania wsadowe](/dotnet/api/microsoft.azure.cosmos.transactionalbatch) dla wielu elementów z tym samym kluczem partycji w kontenerze.
 
 | Zasób | Limit domyślny |
 | --- | --- |
@@ -191,7 +191,7 @@ Zapoznaj się z artykułem [skalowania automatycznego](provision-throughput-auto
 
 ## <a name="sql-query-limits"></a>Limity zapytań SQL
 
-Cosmos DB obsługuje wykonywanie zapytań względem elementów przy użyciu [języka SQL](how-to-sql-query.md). W poniższej tabeli opisano ograniczenia dotyczące instrukcji zapytania, na przykład w przypadku liczby klauzul lub długości zapytań.
+Cosmos DB obsługuje wykonywanie zapytań względem elementów przy użyciu [języka SQL](./sql-query-getting-started.md). W poniższej tabeli opisano ograniczenia dotyczące instrukcji zapytania, na przykład w przypadku liczby klauzul lub długości zapytań.
 
 | Zasób | Limit domyślny |
 | --- | --- |

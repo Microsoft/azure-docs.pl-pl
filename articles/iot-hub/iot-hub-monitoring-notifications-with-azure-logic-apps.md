@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146637"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490326"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Zdalne monitorowanie i powiadomienia w usłudze IoT przy użyciu Azure Logic Apps łączenia Centrum IoT i skrzynki pocztowej
 
@@ -84,7 +84,7 @@ Utwórz przestrzeń nazw i kolejkę usługi Service Bus. W dalszej części tego
 
    ![Utwórz przestrzeń nazw usługi Service Bus w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-1. Wybierz pozycję **Utwórz**. Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
+1. Wybierz przycisk **Utwórz**. Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
 
 ### <a name="add-a-service-bus-queue-to-the-namespace"></a>Dodawanie kolejki Service Bus do przestrzeni nazw
 
@@ -112,7 +112,7 @@ Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i
 
 1. W obszarze **Obsługa komunikatów**wybierz pozycję **routing wiadomości**. W okienku **routing wiadomości** wybierz kartę **niestandardowe punkty końcowe** , a następnie wybierz pozycję **+ Dodaj**. Z listy rozwijanej wybierz **kolejno pozycje Usługa Service Bus**.
 
-   ![Dodaj punkt końcowy do centrum IoT Hub w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Zrzut ekranu, który podświetla opcję kolejki usługi Service Bus.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
 1. W okienku **Dodaj punkt końcowy usługi Service Bus** wprowadź następujące informacje:
 
@@ -124,7 +124,7 @@ Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i
 
    ![Dodaj punkt końcowy do centrum IoT Hub w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. Wybierz pozycję **Utwórz**. Po pomyślnym utworzeniu punktu końcowego przejdź do następnego kroku.
+1. Wybierz przycisk **Utwórz**. Po pomyślnym utworzeniu punktu końcowego przejdź do następnego kroku.
 
 ### <a name="add-a-routing-rule"></a>Dodawanie reguły rozsyłania
 
@@ -162,7 +162,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
    ![Tworzenie aplikacji logiki w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-the-logic-app-trigger"></a>Konfigurowanie wyzwalacza aplikacji logiki
 
@@ -183,7 +183,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 1. Utwórz połączenie z usługą Service Bus.
    1. Wprowadź nazwę połączenia i wybierz z listy Service Bus przestrzeń nazw. Zostanie otwarty następny ekran.
 
-      ![Utwórz połączenie usługi Service Bus dla aplikacji logiki w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![Zrzut ekranu, który wyróżnia opcję gdy co najmniej jeden komunikat dociera do kolejki (Autouzupełnianie).](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
    1. Wybierz zasady usługi Service Bus (RootManageSharedAccessKey). Następnie wybierz pozycję  **Utwórz**.
 

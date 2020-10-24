@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bd659ebd74b67a036c189cae763205e6b0371f7c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e1dd1e94bd9747bb0961c09ce2f281c433b4b4fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058169"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488218"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Samouczek: opracowywanie aplikacji sieci Web ASP.NET Core MVC z Azure Cosmos DB przy użyciu zestawu SDK platformy .NET
 
@@ -22,7 +22,7 @@ ms.locfileid: "92058169"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 W tym samouczku pokazano, jak przy użyciu usługi Azure Cosmos DB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji ASP.NET MVC hostowanej na platformie Azure. W tym samouczku użyto zestawu .NET SDK v3. Na poniższej ilustracji przedstawiono stronę sieci Web, która zostanie utworzona za pomocą przykładu w tym artykule:
@@ -238,7 +238,7 @@ Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połą
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
 
-   Kod w tym kroku inicjuje klienta w oparciu o konfigurację jako pojedyncze wystąpienie, które ma zostać dodane przez [iniekcję zależności w ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+   Kod w tym kroku inicjuje klienta w oparciu o konfigurację jako pojedyncze wystąpienie, które ma zostać dodane przez [iniekcję zależności w ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
 
    Upewnij się, że domyślny kontroler MVC został zmieniony na `Item` , edytując trasy w `Configure` metodzie tego samego pliku:
 
@@ -286,7 +286,7 @@ Aby przetestować aplikację na komputerze lokalnym, wykonaj następujące czynn
 
 1. Wybierz opcję **Utwórz nowe** łącze i Dodaj wartości do pól **Nazwa** i **Opis** . Pozostaw zaznaczone pole wyboru **ukończone** . W przypadku wybrania tej opcji aplikacja dodaje nowy element w stanie ukończone. Element nie jest już wyświetlany na liście początkowej.
 
-1. Wybierz pozycję **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
+1. Wybierz przycisk **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
 
     :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
   
@@ -333,11 +333,11 @@ W ciągu kilku sekund program Visual Studio opublikuje aplikację sieci Web i ur
 W tym samouczku przedstawiono sposób tworzenia aplikacji sieci Web ASP.NET Core MVC. Aplikacja może uzyskiwać dostęp do danych przechowywanych w Azure Cosmos DB. Teraz możesz kontynuować z następującymi zasobami:
 
 * [Partitioning in Azure Cosmos DB (Partycjonowanie w usłudze Azure Cosmos DB)](./partitioning-overview.md)
-* [Wprowadzenie do zapytań SQL](./how-to-sql-query.md)
+* [Wprowadzenie do zapytań SQL](./sql-query-getting-started.md)
 * [Jak modelować i partycjonować dane w usłudze Azure Cosmos DB przy użyciu przykładu wziętego z życia](./how-to-model-partition-example.md)
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: https://docs.microsoft.com/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
+[Preventing Cross-Site Request Forgery]: /aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
+[Basic CRUD Operations in ASP.NET MVC]: /aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 [GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app

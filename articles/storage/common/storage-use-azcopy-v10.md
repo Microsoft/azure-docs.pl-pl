@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 2f5b82f07ecff36ba95917a1f1b347c42ae7e074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1d25ae127d9a732225859a09622bb057c348e28
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856788"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488490"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -37,7 +37,7 @@ Najpierw Pobierz plik wykonywalny AzCopy v10 do dowolnego katalogu na komputerze
 Te pliki są kompresowane jako plik zip (Windows i Mac) lub plik tar (Linux). Aby pobrać i zdekompresować plik tar w systemie Linux, zapoznaj się z dokumentacją dystrybucji systemu Linux.
 
 > [!NOTE]
-> Jeśli chcesz skopiować dane do i z usługi [Azure Table Storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) , zainstaluj program [AzCopy w wersji 7,3](https://aka.ms/downloadazcopynet).
+> Jeśli chcesz skopiować dane do i z usługi [Azure Table Storage](/azure/storage/tables/table-storage-overview) , zainstaluj program [AzCopy w wersji 7,3](https://aka.ms/downloadazcopynet).
 
 
 ## <a name="run-azcopy"></a>Uruchamianie narzędzia AzCopy
@@ -80,14 +80,14 @@ Za pomocą Azure Active Directory można podać poświadczenia jeden raz zamiast
 
 Wymagany poziom autoryzacji zależy od tego, czy planujesz przekazywanie plików czy po prostu pobierasz je.
 
-Jeśli chcesz tylko pobrać pliki, sprawdź, czy [czytnik danych BLOB magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) został przypisany do tożsamości użytkownika, tożsamości zarządzanej lub nazwy głównej usługi.
+Jeśli chcesz tylko pobrać pliki, sprawdź, czy [czytnik danych BLOB magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) został przypisany do tożsamości użytkownika, tożsamości zarządzanej lub nazwy głównej usługi.
 
 > Tożsamości użytkowników, zarządzane tożsamości i nazwy główne usług to każdy typ *podmiotu zabezpieczeń*, dlatego będziemy używać warunkowego *podmiotu zabezpieczeń* dla pozostałej części tego artykułu.
 
 Jeśli chcesz przekazać pliki, sprawdź, czy jedna z tych ról została przypisana do podmiotu zabezpieczeń:
 
-- [Współautor danych obiektu blob usługi Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
-- [Właściciel danych obiektu blob usługi Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Współautor danych obiektu blob usługi Storage](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
+- [Właściciel danych obiektu blob usługi Storage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 Role te można przypisać do podmiotu zabezpieczeń w dowolnym z następujących zakresów:
 
@@ -96,14 +96,14 @@ Role te można przypisać do podmiotu zabezpieczeń w dowolnym z następujących
 - Grupa zasobów
 - Subskrypcja
 
-Aby dowiedzieć się, jak weryfikować i przypisywać role, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Aby dowiedzieć się, jak weryfikować i przypisywać role, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Należy pamiętać, że propagacja ról platformy Azure może potrwać do 5 minut.
 
 Nie trzeba mieć jednej z tych ról przypisanych do podmiotu zabezpieczeń, jeśli podmiot zabezpieczeń zostanie dodany do listy kontroli dostępu (ACL) docelowego kontenera lub katalogu. Na liście ACL podmiot zabezpieczeń musi mieć uprawnienia do zapisu w katalogu docelowym i uprawnienia do wykonywania w kontenerze i w każdym katalogu nadrzędnym.
 
-Aby dowiedzieć się więcej, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+Aby dowiedzieć się więcej, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-access-control).
 
 #### <a name="authenticate-a-user-identity"></a>Uwierzytelnianie tożsamości użytkownika
 
@@ -137,9 +137,9 @@ Przed uruchomieniem skryptu należy zalogować się interaktywnie co najmniej je
 
 Możesz zalogować się do konta przy użyciu klucza tajnego klienta lub przy użyciu hasła certyfikatu skojarzonego z rejestracją aplikacji jednostki usługi.
 
-Aby dowiedzieć się więcej na temat tworzenia nazwy głównej usługi, zobacz [How to: Use the Portal, aby utworzyć aplikację usługi Azure AD i nazwę główną usługi, która może uzyskiwać dostęp do zasobów](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Aby dowiedzieć się więcej na temat tworzenia nazwy głównej usługi, zobacz [How to: Use the Portal, aby utworzyć aplikację usługi Azure AD i nazwę główną usługi, która może uzyskiwać dostęp do zasobów](/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Aby dowiedzieć się więcej na temat ogólnych nazw głównych usług, zobacz temat [obiekty główne aplikacji i usługi w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+Aby dowiedzieć się więcej na temat ogólnych nazw głównych usług, zobacz temat [obiekty główne aplikacji i usługi w Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals)
 
 ##### <a name="using-a-client-secret"></a>Korzystanie z klucza tajnego klienta
 
@@ -169,7 +169,7 @@ Zastąp `<application-id>` symbol zastępczy identyfikatorem aplikacji rejestrac
 
 Jeśli wolisz użyć własnych poświadczeń do autoryzacji, możesz przekazać certyfikat do rejestracji aplikacji, a następnie użyć tego certyfikatu do logowania.
 
-Oprócz przekazywania certyfikatu do rejestracji aplikacji trzeba również mieć kopię certyfikatu zapisaną na komputerze lub maszynie wirtualnej, na której będzie działać AzCopy. Ta kopia certyfikatu powinna znajdować się w temacie. PFX lub. Format PEM i musi zawierać klucz prywatny. Klucz prywatny powinien być chroniony hasłem. Jeśli używasz systemu Windows, a certyfikat istnieje tylko w magazynie certyfikatów, upewnij się, że ten certyfikat został wyeksportowany do pliku PFX (w tym klucza prywatnego). Aby uzyskać wskazówki, zobacz [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+Oprócz przekazywania certyfikatu do rejestracji aplikacji trzeba również mieć kopię certyfikatu zapisaną na komputerze lub maszynie wirtualnej, na której będzie działać AzCopy. Ta kopia certyfikatu powinna znajdować się w temacie. PFX lub. Format PEM i musi zawierać klucz prywatny. Klucz prywatny powinien być chroniony hasłem. Jeśli używasz systemu Windows, a certyfikat istnieje tylko w magazynie certyfikatów, upewnij się, że ten certyfikat został wyeksportowany do pliku PFX (w tym klucza prywatnego). Aby uzyskać wskazówki, zobacz [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate)
 
 Następnie ustaw dla `AZCOPY_SPA_CERT_PASSWORD` zmiennej środowiskowej hasło certyfikatu.
 
@@ -205,7 +205,7 @@ Aby dowiedzieć się więcej na temat włączania tożsamości zarządzanej na p
 
 ##### <a name="using-a-system-wide-managed-identity"></a>Korzystanie z tożsamości zarządzanej na poziomie systemu
 
-Najpierw upewnij się, że na maszynie wirtualnej została włączona tożsamość zarządzana na poziomie systemu. Zobacz [tożsamość zarządzana przypisana przez system](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+Najpierw upewnij się, że na maszynie wirtualnej została włączona tożsamość zarządzana na poziomie systemu. Zobacz [tożsamość zarządzana przypisana przez system](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
 
 Następnie w konsoli poleceń wpisz następujące polecenie, a następnie naciśnij klawisz ENTER.
 
@@ -215,7 +215,7 @@ azcopy login --identity
 
 ##### <a name="using-a-user-assigned-managed-identity"></a>Korzystanie z tożsamości zarządzanej przypisanej przez użytkownika
 
-Najpierw upewnij się, że na maszynie wirtualnej została włączona tożsamość zarządzana przypisana przez użytkownika. Zobacz [tożsamość zarządzana przypisana przez użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+Najpierw upewnij się, że na maszynie wirtualnej została włączona tożsamość zarządzana przypisana przez użytkownika. Zobacz [tożsamość zarządzana przypisana przez użytkownika](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
 
 Następnie w konsoli poleceń wpisz dowolne z poniższych poleceń, a następnie naciśnij klawisz ENTER.
 
@@ -247,7 +247,7 @@ To przykładowe polecenie cyklicznie kopiuje dane z katalogu lokalnego do konten
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-Aby dowiedzieć się więcej o tokenach SAS i sposobach ich uzyskania, zobacz [Używanie sygnatur dostępu współdzielonego (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+Aby dowiedzieć się więcej o tokenach SAS i sposobach ich uzyskania, zobacz [Używanie sygnatur dostępu współdzielonego (SAS)](/azure/storage/common/storage-sas-overview).
 
 ## <a name="transfer-files"></a>Transfer plików
 
@@ -261,7 +261,7 @@ Aby znaleźć przykładowe polecenia, zapoznaj się z dowolnym z tych artykułó
 
 - [Transferowanie danych za pomocą zasobników AzCopy i Amazon S3](storage-use-azcopy-s3.md)
 
-- [Transferowanie danych za pomocą AzCopy i magazynu Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+- [Transferowanie danych za pomocą AzCopy i magazynu Azure Stack](/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
 ## <a name="use-azcopy-in-a-script"></a>Używanie AzCopy w skrypcie
 
@@ -312,9 +312,9 @@ Eksplorator usługi Storage używa klucza konta do wykonywania operacji, więc p
 
 Jeśli potrzebujesz użyć poprzedniej wersji programu AzCopy, zobacz następujące linki:
 
-- [Narzędzie AzCopy w systemie Windows (wersja 8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+- [Narzędzie AzCopy w systemie Windows (wersja 8)](/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy w systemie Linux (wersji 7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy w systemie Linux (wersji 7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
 

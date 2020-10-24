@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a601b7ec7e2615053203e23ea61fc6d2efc85bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09d661f29b2e262e5e67c471711a5e978abe79d8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533524"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Samouczek: integracja Azure Active Directory z usługą T&E Express
 
@@ -128,11 +128,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą usługi T&E
 
 1. Na karcie **administrator** kliknij pozycję **domena SAML** , aby otworzyć stronę Ustawienia protokołu SAML.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/tyeexpress-tutorial/tye-SAML.png)
+    ![Zrzut ekranu przedstawia domenę protokołu SAML wybraną z menu administratora.](./media/tyeexpress-tutorial/tye-SAML.png)
 
 1. Wybierz opcję **Activar (Activate)** od **nie** do **si (tak)**. W polu tekstowym **metadane dostawcy tożsamości** wklej plik XML metadanych, który został pobrany z Azure Portal.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/tyeexpress-tutorial/tyeAdmin.png)
+    ![Zrzut ekranu przedstawia stronę SAML dominio, na której można wprowadzić metadane.](./media/tyeexpress-tutorial/tyeAdmin.png)
 
 1. Kliknij przycisk **Guardar (Zapisz)** , aby zapisać ustawienia.
 
@@ -197,17 +197,17 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze T&E Exp
 
 1. W obszarze Tag administratora kliknij pozycję Użytkownicy, aby otworzyć stronę wzorcową użytkownicy.
 
-    ![Dodawanie pracownika](./media/tyeexpress-tutorial/tye-adminusers.png)
+    ![Zrzut ekranu przedstawia użytkowników wybranych z menu Administrator.](./media/tyeexpress-tutorial/tye-adminusers.png)
 
 1. Na stronie głównej kliknij pozycję Włącz, **+** Aby dodać użytkowników.
 
-    ![Dodawanie pracownika](./media/tyeexpress-tutorial/tye-usershome.png)
+    ![Zrzut ekranu przedstawia ikonę znaku plus, aby dodać użytkowników.](./media/tyeexpress-tutorial/tye-usershome.png)
 
 1. Wprowadź wszystkie wymagane szczegóły zgodnie z prośbą w formularzu i kliknij przycisk Zapisz, aby zapisać szczegóły.
 
-    ![Dodawanie pracownika](./media/tyeexpress-tutorial/tye-usersadd.png)
+    ![Zrzut ekranu przedstawia sekcję Informacje o użytkowniku, w której można wprowadzić odpowiednie wartości.](./media/tyeexpress-tutorial/tye-usersadd.png)
 
-    ![Dodawanie pracownika](./media/tyeexpress-tutorial/tye-userssave.png)
+    ![Zrzut ekranu przedstawia sekcje osoby zatwierdzające i asystenta, w których można wprowadzać odpowiednie wartości.](./media/tyeexpress-tutorial/tye-userssave.png)
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

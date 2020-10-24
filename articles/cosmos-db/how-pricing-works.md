@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: bb47dde8813f31f4a6acceb696a8b7c7eb0095be
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7d54dfe2efa82aaa650168c476da03d89fe4527
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281547"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490496"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Model cen w usłudze Azure Cosmos DB
 
@@ -36,7 +36,7 @@ W przypadku wdrożenia konta Azure Cosmos DB w regionie nierządowym w Stanach Z
 
 Azure Cosmos DB oferuje dla deweloperów wiele opcji bezpłatnych. Dostępne są następujące opcje:
 
-* **Azure Cosmos DB bezpłatna**: warstwa Bezpłatna Azure Cosmos DB ułatwia rozpoczęcie pracy, opracowywanie i testowanie aplikacji, a nawet uruchamianie małych obciążeń produkcyjnych. Po włączeniu warstwy Bezpłatna na koncie uzyskasz pierwsze 400 RU/s i 5 GB miejsca do magazynowania w ramach konta, przez okres istnienia konta. W ramach każdej subskrypcji platformy Azure można korzystać z maksymalnie jednego konta warstwy bezpłatnej i musi on być w trakcie tworzenia konta. Aby rozpocząć, [Utwórz nowe konto w Azure Portal z włączoną bezpłatną warstwą](create-cosmosdb-resources-portal.md) lub Użyj [szablonu ARM](manage-sql-with-resource-manager.md#free-tier).
+* **Azure Cosmos DB bezpłatna**: warstwa Bezpłatna Azure Cosmos DB ułatwia rozpoczęcie pracy, opracowywanie i testowanie aplikacji, a nawet uruchamianie małych obciążeń produkcyjnych. Po włączeniu warstwy Bezpłatna na koncie uzyskasz pierwsze 400 RU/s i 5 GB miejsca do magazynowania w ramach konta, przez okres istnienia konta. W ramach każdej subskrypcji platformy Azure można korzystać z maksymalnie jednego konta warstwy bezpłatnej i musi on być w trakcie tworzenia konta. Aby rozpocząć, [Utwórz nowe konto w Azure Portal z włączoną bezpłatną warstwą](create-cosmosdb-resources-portal.md) lub Użyj [szablonu ARM](./manage-with-templates.md#free-tier).
 
 * **Bezpłatne konto platformy Azure**: platforma Azure oferuje [bezpłatną warstwę](https://azure.microsoft.com/free/) , która daje $200 na środki na korzystanie z platformy Azure za pierwsze 30 dni i ograniczoną liczbę bezpłatnych usług przez 12 miesięcy. Aby uzyskać więcej informacji, zobacz [Bezpłatne konto platformy Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB jest częścią bezpłatnego konta platformy Azure. W odniesieniu do Azure Cosmos DB to bezpłatne konto oferuje 5 GB miejsca do magazynowania i 400 RU/s zainicjowanej przepływności przez cały rok.
 
@@ -59,7 +59,7 @@ Więcej informacji na temat optymalizowania kosztów zasobów Azure Cosmos DB mo
 * Dowiedz się więcej na temat [optymalizowania kosztu przepływności](optimize-cost-throughput.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów magazynu](optimize-cost-storage.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów operacji odczytu i zapisu](optimize-cost-reads-writes.md)
-* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](optimize-cost-queries.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](./optimize-cost-reads-writes.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów wieloregionowych kont Cosmos](optimize-cost-regions.md)
 * Dowiedz się więcej o [zarezerwowanej pojemności Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 * Informacje na temat [emulatora Azure Cosmos DB](local-emulator.md)

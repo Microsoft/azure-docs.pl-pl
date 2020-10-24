@@ -5,28 +5,30 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
+ms.openlocfilehash: 6cb30b96f9c2094e6d690b565edf487d6508d520
 ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479579"
+ms.locfileid: "92487120"
 ---
 1. Z poziomu [Azure Portal](https://portal.azure.com)w obszarze **zasoby wyszukiwania, usługi i dokumenty (G +/)** wpisz **Brama sieci wirtualnej**. Znajdź **bramę sieci wirtualnej** w wynikach wyszukiwania i wybierz ją.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Pole wyszukiwania" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/search.png" alt-text="Pole wyszukiwania" lightbox="./media/vpn-gateway-add-gw-rm-portal-empty/search-expand.png":::
 
 1. Na stronie **Brama sieci wirtualnej** wybierz pozycję **+ Dodaj**. Spowoduje to otwarcie strony **Tworzenie bramy sieci wirtualnej**.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="Pole wyszukiwania":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/add.png" alt-text="Pole wyszukiwania":::
 1. Na karcie **podstawowe** wprowadź wartości dla bramy sieci wirtualnej.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Pole wyszukiwania":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/gateway.png" alt-text="Pole wyszukiwania":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Pole wyszukiwania":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/gateway-vnet.png" alt-text="Pole wyszukiwania":::
+
+   **Szczegóły projektu**
 
    * **Subskrypcja**: wybierz subskrypcję, której chcesz użyć z listy rozwijanej.
    * **Grupa zasobów**: to ustawienie jest wypełniane po wybraniu sieci wirtualnej na tej stronie.

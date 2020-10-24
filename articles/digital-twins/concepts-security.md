@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331757"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485753"
 ---
 # <a name="secure-azure-digital-twins"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji
 
@@ -48,11 +48,13 @@ Przy użyciu tożsamości zarządzanych platforma Azure zarządza tą tożsamoś
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autoryzacja: role platformy Azure dla usługi Azure Digital bliźniaczych reprezentacji
 
 Platforma Azure oferuje następujące wbudowane role platformy Azure umożliwiające autoryzowanie dostępu do zasobu Digital bliźniaczych reprezentacji platformy Azure:
-* *Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)* — ta rola zapewnia pełen dostęp za pośrednictwem zasobów usługi Azure Digital bliźniaczych reprezentacji.
-* *Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza)* — ta rola umożliwia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji.
+* *Właściciel danych Digital bliźniaczych reprezentacji systemu Azure* — ta rola umożliwia pełny dostęp do zasobów usługi Azure Digital bliźniaczych reprezentacji.
+* *Czytnik danych Digital bliźniaczych reprezentacji systemu Azure* — ta rola umożliwia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji.
 
-> [!TIP]
-> Rola *usługi Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza)* obsługuje teraz również Przeglądanie relacji.
+>[!NOTE]
+> Nazwy tych ról zostały ostatnio zmienione przed nazwami w wersji zapoznawczej:
+> * *Właściciel danych Digital bliźniaczych reprezentacji platformy Azure* był wcześniej *właścicielem usługi Azure Digital bliźniaczych reprezentacji (wersja zapoznawcza)*.
+> * *Usługa Azure Digital bliźniaczych reprezentacji Data Reader* była wcześniej *usługą Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza)*.
 
 Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, zobacz [*Omówienie definicji ról*](../role-based-access-control/role-definitions.md) w dokumentacji usługi Azure RBAC. Aby uzyskać informacje na temat tworzenia ról niestandardowych platformy Azure, zobacz [*role niestandardowe platformy Azure*](../role-based-access-control/custom-roles.md).
 

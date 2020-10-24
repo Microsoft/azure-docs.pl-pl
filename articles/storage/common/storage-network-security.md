@@ -9,12 +9,12 @@ ms.date: 10/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7e7a61247c8f449291fb8ec0b91b7513ee75f6c9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 96e06e31ae3c963459a0f6b4772147197913b52a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072496"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488592"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
@@ -358,13 +358,13 @@ Regułami sieci IP dla kont magazynu można zarządzać za pomocą Azure Portal,
 
 ## <a name="exceptions"></a>Wyjątki
 
-Reguły sieciowe pomagają w tworzeniu bezpiecznego środowiska dla połączeń między aplikacjami i danymi w większości scenariuszy. Niektóre aplikacje są jednak zależne od usług platformy Azure, których nie można jednoznacznie odizolować za pomocą sieci wirtualnej lub reguł adresów IP. Jednak te usługi muszą zostać przyznane do magazynu, aby umożliwić pełne działanie aplikacji. W takich sytuacjach można użyć ustawienia Zezwalaj na ***Zaufane usługi firmy Microsoft..*** ., aby umożliwić tym usługom dostęp do danych, dzienników lub analiz.
+Reguły sieciowe pomagają w tworzeniu bezpiecznego środowiska dla połączeń między aplikacjami i danymi w większości scenariuszy. Niektóre aplikacje są jednak zależne od usług platformy Azure, których nie można jednoznacznie odizolować za pomocą sieci wirtualnej lub reguł adresów IP. Jednak te usługi muszą zostać przyznane do magazynu, aby umożliwić pełne działanie aplikacji. W takich sytuacjach można użyć **_Zezwalaj na zaufane usługi firmy Microsoft..._* _ ustawienie, aby umożliwić tym usługom dostęp do danych, dzienników lub analizy.
 
 ### <a name="trusted-microsoft-services"></a>Zaufane usługi firmy Microsoft
 
 Niektóre usługi firmy Microsoft działają z sieci, które nie mogą być uwzględnione w regułach sieci. Można przyznać podzbiór takich zaufanych usług firmy Microsoft dostęp do konta magazynu przy zachowaniu reguł sieci dla innych aplikacji. Te zaufane usługi będą następnie używać silnego uwierzytelniania do bezpiecznego łączenia się z kontem magazynu. Włączono dwa tryby zaufanego dostępu dla usług firmy Microsoft.
 
-- Zasoby niektórych usług, które są **rejestrowane w ramach subskrypcji**, mogą uzyskiwać dostęp do konta magazynu **w ramach tej samej subskrypcji** dla operacji wybierania, takich jak zapisywanie dzienników lub kopia zapasowa.
+- Zasoby niektórych usług, _ * po zarejestrowaniu w subskrypcji * *, mogą uzyskiwać dostęp do konta magazynu **w ramach tej samej subskrypcji** dla operacji wybierania, takich jak zapisywanie dzienników lub kopia zapasowa.
 - Do zasobów niektórych usług można uzyskać jawny dostęp do konta magazynu, **przypisując rolę platformy Azure** do zarządzanej tożsamości przypisanej do systemu.
 
 
@@ -381,8 +381,8 @@ Po włączeniu ustawienia **Zezwalaj na zaufane usługi firmy Microsoft..** . dl
 | Azure HDInsight          | Microsoft. HDInsight        | Zainicjuj wstępną zawartość domyślnego systemu plików dla nowego klastra usługi HDInsight. [Dowiedz się więcej](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Eksportowanie importu platformy Azure      | Microsoft. ImportExport     | Umożliwia importowanie danych do usługi Azure Storage lub eksportowanie danych z usługi Azure Storage w usłudze Azure Storage Import/Export. [Dowiedz się więcej](/azure/storage/common/storage-import-export-service).  |
 | Azure Monitor            | Microsoft. Insights         | Umożliwia zapisywanie danych monitorowania na zabezpieczonym koncie magazynu, w tym dzienników zasobów, Azure Active Directory logowania i dzienników inspekcji oraz dzienników Microsoft Intune. [Dowiedz się więcej](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Sieć platformy Azure         | Microsoft.Network          | Przechowywanie i analizowanie dzienników ruchu sieciowego, w tym za pomocą usług Network Watcher i Analiza ruchu. [Dowiedz się więcej](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
-| Azure Site Recovery      | Microsoft. SiteRecovery     | Włącz replikację na potrzeby odzyskiwania po awarii maszyn wirtualnych platformy Azure IaaS w przypadku korzystania z pamięci podręcznej z włączoną zaporą, źródła lub docelowego konta magazynu.  [Dowiedz się więcej](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Sieć platformy Azure         | Microsoft.Network          | Przechowywanie i analizowanie dzienników ruchu sieciowego, w tym za pomocą usług Network Watcher i Analiza ruchu. [Dowiedz się więcej](/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
+| Azure Site Recovery      | Microsoft. SiteRecovery     | Włącz replikację na potrzeby odzyskiwania po awarii maszyn wirtualnych platformy Azure IaaS w przypadku korzystania z pamięci podręcznej z włączoną zaporą, źródła lub docelowego konta magazynu.  [Dowiedz się więcej](/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
 Ustawienie **Zezwalaj na zaufane usługi firmy Microsoft...** umożliwia również określonym wystąpieniu poniższych usług uzyskanie dostępu do konta magazynu, jeśli użytkownik jawnie [przypisze rolę platformy Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) do [zarządzanej tożsamości przypisanej do systemu](../../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli platformy Azure przypisanej do zarządzanej tożsamości.
 
@@ -397,7 +397,7 @@ Ustawienie **Zezwalaj na zaufane usługi firmy Microsoft...** umożliwia równie
 | Azure Logic Apps               | Microsoft. Logic/przepływy pracy              | Umożliwia aplikacjom logiki dostęp do kont magazynu. [Dowiedz się więcej](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Azure Machine Learning Service | Microsoft.MachineLearningServices      | Autoryzowane Azure Machine Learning obszary robocze zapisują dane wyjściowe eksperymentu, modele i dzienniki w usłudze BLOB Storage i odczytywane danych. [Dowiedz się więcej](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)       | Microsoft.Sql                          | Umożliwia importowanie i eksportowanie danych z określonych baz danych SQL przy użyciu instrukcji COPY lub Base. [Dowiedz się więcej](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure SQL Database       | Microsoft.Sql                          | Umożliwia [Importowanie](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) danych z kont magazynu i [Zapisywanie](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) danych inspekcji na kontach magazynu za zaporą. |
+| Azure SQL Database       | Microsoft.Sql                          | Umożliwia [Importowanie](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) danych z kont magazynu i [Zapisywanie](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) danych inspekcji na kontach magazynu za zaporą. |
 | Usługa Azure Stream Analytics         | Microsoft. StreamAnalytics             | Umożliwia zapisanie danych z zadania przesyłania strumieniowego w usłudze BLOB Storage. [Dowiedz się więcej](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft. Synapse/obszary robocze          | Umożliwia dostęp do danych w usłudze Azure Storage z Synapse Analytics. |
 

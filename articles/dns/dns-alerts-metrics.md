@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
-ms.openlocfilehash: 42acbc0d32b3ce5de4befcf112b68f611ad70542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a27c4519024d6d3d2f3852534619b5f8c2bb5e43
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76937458"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489612"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS metryki i alerty
 Azure DNS to usługa hostingu dla domen DNS, która umożliwia rozpoznawanie nazw przy użyciu infrastruktury Microsoft Azure. W tym artykule opisano metryki i alerty dla usługi Azure DNS.
@@ -57,7 +57,7 @@ Metryka *liczby zestawów rekordów* przedstawia liczbę zestawów rekordów w A
 ### <a name="record-set-capacity-utilization"></a>Wykorzystanie pojemności zestawu rekordów
 Metryka *wykorzystania pojemności zestawu rekordów* w Azure DNS pokazuje procent wykorzystania pojemności zestawu rekordów dla strefy DNS. Każda strefa DNS w Azure DNS podlega limitowi rekordów, który definiuje maksymalną liczbę zestawów rekordów, które są dozwolone dla strefy (zobacz [limity DNS](dns-zones-records.md#limits)). W związku z tym ta Metryka pokazuje, jak zamykasz limit zestawu rekordów. Na przykład jeśli masz zestawy rekordów 500 skonfigurowane dla strefy DNS, a strefa ma domyślny limit rekordów równy 5000, Metryka RecordSetCapacityUtilization będzie zawierać wartość 10% (uzyskaną przez podzielenie 500 przez 5000). Jednostka miary jest **wartością procentową** , a typ **agregacji** to **maksimum**. Aby wyświetlić tę metrykę, wybierz pozycję metryki (wersja zapoznawcza) środowisko Eksploratora na karcie monitorowanie w Azure Portal. Wybierz strefę DNS z listy rozwijanej zasób, wybierz pozycję zestaw rekordów Metryka wykorzystania pojemności i wybierz wartość maksymalna jako agregację. Poniższy zrzut ekranu przedstawia przykład. Aby uzyskać więcej informacji na temat środowiska Eksplorator metryk i wykresów, zobacz [Azure Monitor Eksplorator metryk](../azure-monitor/platform/metrics-charts.md). 
 
-![Liczba zestawów rekordów](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
+![Zrzut ekranu, który whows przykład sposobu wyświetlania metryk.](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
 *Ilustracja: Ustawianie rekordu Azure DNS metryk wykorzystania pojemności*
 

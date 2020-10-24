@@ -7,23 +7,23 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 10/04/2019
 ms.author: sngun
-ms.openlocfilehash: 4ac5222e735e0699e507ca1392dc5dd42fc77105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a265f1ae6e925440e2804056348cb705b09da5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400472"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490564"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Limity środowiska Gremlin w usłudze Azure Cosmos DB
 W tym artykule omówiono limity Azure Cosmos DB aparacie Gremlin i wyjaśniono, jak mogą one wpływać na przechodzenie klientów.
 
-Cosmos DB Gremlin jest oparty na infrastrukturze Cosmos DB. Z tego powodu wszystkie limity wyjaśnione w [Azure Cosmos DB limity usług](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) nadal obowiązują.
+Cosmos DB Gremlin jest oparty na infrastrukturze Cosmos DB. Z tego powodu wszystkie limity wyjaśnione w [Azure Cosmos DB limity usług](./concepts-limits.md) nadal obowiązują.
 
 ## <a name="limits"></a>Limity
 
 Po osiągnięciu limitu Gremlin funkcja przechodzenia zostanie anulowana z **kodem x-MS-status-** 429 wskazującym na błąd ograniczania. Aby uzyskać więcej informacji, zobacz [nagłówki odpowiedzi serwera Gremlin](gremlin-limits.md) .
 
-**Zasób**    | **Limit domyślny** | **Objaśnienie**
+**Zasób**    | **Limit domyślny** | **Wyjaśnienie**
 --- | --- | ---
 *Długość skryptu* | **64 KB** | Maksymalna długość skrypt przechodzenia języka Gremlin na żądanie.
 *Głębokość operatora* | **400** |  Całkowita liczba unikatowych kroków przechodzenia. Na przykład ```g.V().out()``` ma liczbę operatorów równą 2: v () i out (), ```g.V('label').repeat(out()).times(100)``` ma głębokość operatora 3: v (), Repeat () i out (), ponieważ ```.times(100)``` jest parametrem do ```.repeat()``` operatora.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: fe93ada343e83d61526b6b899429d9e2b7b745d3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9736c4d2b048aa18f283689247f5597d7526f1df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996173"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480364"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Odzyskiwanie po awarii dla Oracle Database bazy danych 12c w środowisku platformy Azure
 
@@ -42,7 +42,7 @@ Poniżej znajduje się podsumowanie konfiguracji platformy Azure:
 - Serwera przesiadkowego, Usługa aplikacji, baza danych i Brama sieci VPN w różnych podsieciach
 - SIECIOWEJ grupy zabezpieczeń wymuszane w podsieciach aplikacji i bazy danych
 
-![Zrzut ekranu przedstawiający stronę topologii DR](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Diagram przedstawiający witryny podstawowe i DR na platformie Azure.](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
 ## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scenariusz 2: lokacja podstawowa i usługa odzyskiwania po awarii na platformie Azure
 
@@ -68,7 +68,7 @@ Poniżej znajduje się podsumowanie konfiguracji platformy Azure:
 - Zasada sieciowej grupy zabezpieczeń/reguła zezwalająca na przychodzący port TCP 1521 (lub port zdefiniowany przez użytkownika)
 - Zasada sieciowej grupy zabezpieczeń/reguła ograniczająca dostęp do sieci wirtualnej tylko w lokalnym adresie IP lub w aplikacji.
 
-![Zrzut ekranu przedstawiający stronę topologii DR](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![Diagram przedstawiający bezpośrednie połączenia między środowiskiem lokalnym i platformą Azure, które wymagają otwartych portów TCP zapory.](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Podejście 2: sieć VPN typu lokacja-lokacja
 Sieci VPN typu lokacja-lokacja jest lepszym rozwiązaniem. Aby uzyskać więcej informacji na temat konfigurowania sieci VPN, zobacz [Tworzenie sieci wirtualnej z połączeniem sieci VPN typu lokacja-lokacja przy użyciu interfejsu wiersza polecenia](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).

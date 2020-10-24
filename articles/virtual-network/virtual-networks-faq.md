@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d676d891683cc11dd8c1999c26464373d17e97be
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 71b7217a1a3d79db67e1649ce33d441f0c2c2da2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932026"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489408"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -191,7 +191,7 @@ Tak. Wszystkie maszyny wirtualne i wystąpienia roli Cloud Services wdrożone w 
 ## <a name="azure-services-that-connect-to-vnets"></a>Usługi platformy Azure, które łączą się z usługą sieci wirtualnych
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Czy można używać Azure App Service Web Apps z siecią wirtualną?
-Tak. Web Apps można wdrożyć wewnątrz sieci wirtualnej przy użyciu środowiska ASE (App Service Environment), połączyć zaplecze aplikacji z usługą sieci wirtualnych z integracją sieci wirtualnej i zablokować ruch przychodzący do aplikacji za pomocą punktów końcowych usługi. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Tak. Web Apps można wdrożyć wewnątrz sieci wirtualnej przy użyciu środowiska ASE (App Service Environment), połączyć zaplecze aplikacji z usługą sieci wirtualnych z integracją sieci wirtualnej i zablokować ruch przychodzący do aplikacji za pomocą punktów końcowych usługi. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [App Service funkcje sieciowe](../app-service/networking-features.md)
 * [Tworzenie Web Apps w App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -259,7 +259,7 @@ Poniższe zasoby mogą korzystać z podstawowych modułów równoważenia obcią
 - Usługa domena usługi Active Directory (dodaje)
 - Logic Apps
 - HDInsight
--   Azure Batch
+-   Usługa Azure Batch
 - Środowisko usługi App Service
 
 Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.
@@ -283,7 +283,7 @@ Nie. Przestrzenie adresowe nie mogą się nakładać, aby umożliwić komunikacj
 Nie jest naliczana opłata za utworzenie połączenia komunikacji równorzędnej sieci wirtualnej. Opłaty za transfer danych między połączeniami równorzędnymi są naliczone. [Zobacz tutaj](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Czy ruch komunikacji równorzędnej sieci wirtualnej jest szyfrowany?
-Nie. Ruch między zasobami w sieci wirtualnych komunikacji równorzędnej jest prywatny i izolowany. Pozostanie w całości w sieci szkieletowej firmy Microsoft.
+W przypadku ruchu komunikacji równorzędnej sieci wirtualnych między centrami danych — poza granicami fizycznymi niekontrolowanymi przez (lub w imieniu firmy Microsoft — [MACsec szyfrowanie warstwy link](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) jest używane na źródłowym sprzęcie sieciowym).
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Dlaczego moje połączenie komunikacji równorzędnej jest w stanie *odłączonym* ?
 Połączenia komunikacji równorzędnej sieci wirtualnych przechodzą w stan *rozłączenia* , gdy zostanie usunięte łącze komunikacji równorzędnej sieci wirtualnej. Należy usunąć oba linki, aby ponownie ustanowić pomyślne połączenie komunikacji równorzędnej.

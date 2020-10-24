@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: 5e32e269a36196d774bb1163a1c70c5d818ddcbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000621"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489000"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Korzystanie z funkcji zdefiniowanych przez użytkownika w języku C# przy użyciu Apache Hive i Apache chlewnej na Apache Hadoop w usłudze HDInsight
 
@@ -30,7 +30,7 @@ Zarówno Hive, jak i świnie mogą przekazywać dane do aplikacji zewnętrznych 
 
     Używaj dowolnego środowiska IDE. Zalecamy korzystanie z [programu Visual Studio](https://www.visualstudio.com/vs) lub [Visual Studio Code](https://code.visualstudio.com/). W procedurach przedstawionych w tym dokumencie użyto programu Visual Studio 2019.
 
-* Sposób przekazywania plików exe do klastra i uruchamiania zadań dotyczących trzody chlewnej i Hive. Zalecamy [Data Lake narzędzi dla programu Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md), [Azure PowerShell](/powershell/azure)i [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Kroki opisane w tym dokumencie wykorzystują Data Lake Tools for Visual Studio do przekazywania plików i uruchamiania przykładowego zapytania Hive.
+* Sposób przekazywania plików exe do klastra i uruchamiania zadań dotyczących trzody chlewnej i Hive. Zalecamy [Data Lake narzędzi dla programu Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md), [Azure PowerShell](/powershell/azure)i [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Kroki opisane w tym dokumencie wykorzystują Data Lake Tools for Visual Studio do przekazywania plików i uruchamiania przykładowego zapytania Hive.
 
     Aby uzyskać informacje na temat innych sposobów uruchamiania zapytań programu Hive, zobacz [co to jest Apache Hive i HiveQL w usłudze Azure HDInsight?](hdinsight-use-hive.md).
 
@@ -56,7 +56,7 @@ Aby utworzyć projekt C# dla Apache Hive UDF:
 
 2. Wybierz pozycję **Utwórz nowy projekt**.
 
-3. W oknie **Tworzenie nowego projektu** wybierz szablon **aplikacja konsoli (.NET Framework)** (wersja języka C#). Następnie wybierz pozycję **Dalej**.
+3. W oknie **Tworzenie nowego projektu** wybierz szablon **aplikacja konsoli (.NET Framework)** (wersja języka C#). Następnie wybierz przycisk **Dalej**.
 
 4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *HiveCSharp*, a następnie przejdź do lokalizacji lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz przycisk **Utwórz**.
 
@@ -123,7 +123,7 @@ Aby utworzyć projekt C# dla Apache Hive UDF:
 
 2. W oknie **uruchamiania** wybierz pozycję **Utwórz nowy projekt**.
 
-3. W oknie **Tworzenie nowego projektu** wybierz szablon **aplikacja konsoli (.NET Framework)** (wersja języka C#). Następnie wybierz pozycję **Dalej**.
+3. W oknie **Tworzenie nowego projektu** wybierz szablon **aplikacja konsoli (.NET Framework)** (wersja języka C#). Następnie wybierz przycisk **Dalej**.
 
 4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *PigUDF*, a następnie przejdź do lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz przycisk **Utwórz**.
 

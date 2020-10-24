@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 09/02/2020
-ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23361470fd7b1cdb5b6153580e0240ac2f6c9133
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400861"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490343"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Dostosowywanie klastrów usługi Azure HDInsight za pomocą akcji skryptu
 
@@ -207,7 +207,7 @@ Utworzenie klastra może potrwać kilka minut.
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Używanie akcji skryptu podczas tworzenia klastra z poziomu zestawu .NET SDK usługi HDInsight
 
-Zestaw SDK platformy .NET dla usługi HDInsight zawiera biblioteki klienckie, które ułatwiają pracę z usługą HDInsight z poziomu aplikacji .NET. Aby uzyskać przykład kodu, zobacz [Akcje skryptu](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#script-actions).
+Zestaw SDK platformy .NET dla usługi HDInsight zawiera biblioteki klienckie, które ułatwiają pracę z usługą HDInsight z poziomu aplikacji .NET. Aby uzyskać przykład kodu, zobacz [Akcje skryptu](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true#script-actions).
 
 ## <a name="script-action-to-a-running-cluster"></a>Akcja skryptu w uruchomionym klastrze
 
@@ -260,7 +260,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Stosowanie akcji skryptu do działającego klastra z poziomu interfejsu wiersza polecenia platformy Azure
 
-Przed rozpoczęciem upewnij się, że zainstalowano i skonfigurowano interfejs wiersza polecenia platformy Azure. Upewnij się, że masz najnowszą wersję. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Przed rozpoczęciem upewnij się, że zainstalowano i skonfigurowano interfejs wiersza polecenia platformy Azure. Upewnij się, że masz najnowszą wersję. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 1. Uwierzytelnianie w ramach subskrypcji platformy Azure:
 
@@ -323,12 +323,12 @@ Poniższy przykładowy skrypt demonstruje użycie poleceń cmdlet do podniesieni
 
 | Polecenie | Opis |
 | --- | --- |
-| [`az hdinsight script-action delete`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |Usuwa określoną akcję utrwalonego skryptu w klastrze. To polecenie nie cofa akcji wykonywanych przez skrypt. usuwa tylko flagę PERSISTED.|
-|[`az hdinsight script-action execute`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Wykonaj akcje skryptu w określonym klastrze usługi HDInsight.|
-| [`az hdinsight script-action list`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list) |Wyświetla wszystkie akcje utrwalonego skryptu dla określonego klastra. |
-|[`az hdinsight script-action list-execution-history`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list-execution-history)|Wyświetla historię wykonywania wszystkich skryptów dla określonego klastra.|
-|[`az hdinsight script-action promote`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-promote)|Promuje określone wykonywanie skryptu ad hoc do utrwalonego skryptu.|
-|[`az hdinsight script-action show-execution-details`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-show-execution-details)|Pobiera szczegóły wykonania skryptu dla danego identyfikatora wykonywania skryptu.|
+| [`az hdinsight script-action delete`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-delete) |Usuwa określoną akcję utrwalonego skryptu w klastrze. To polecenie nie cofa akcji wykonywanych przez skrypt. usuwa tylko flagę PERSISTED.|
+|[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute)|Wykonaj akcje skryptu w określonym klastrze usługi HDInsight.|
+| [`az hdinsight script-action list`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list) |Wyświetla wszystkie akcje utrwalonego skryptu dla określonego klastra. |
+|[`az hdinsight script-action list-execution-history`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list-execution-history)|Wyświetla historię wykonywania wszystkich skryptów dla określonego klastra.|
+|[`az hdinsight script-action promote`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-promote)|Promuje określone wykonywanie skryptu ad hoc do utrwalonego skryptu.|
+|[`az hdinsight script-action show-execution-details`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-show-execution-details)|Pobiera szczegóły wykonania skryptu dla danego identyfikatora wykonywania skryptu.|
 
 ### <a name="hdinsight-net-sdk"></a>Zestaw SDK usługi HDInsight dla platformy .NET
 

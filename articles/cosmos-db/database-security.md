@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6236b34c76ccd9e4688b97e7844cbadf9f515213
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 35bfc45ffffac17a2eca40cb51c2db5d94c140a2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372246"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487470"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Zabezpieczenia w usłudze Azure Cosmos DB — omówienie
 
@@ -69,7 +69,7 @@ Przyjrzyjmy się szczegółowo Dig.
 |Zautomatyzowane kopie zapasowe online|Kopie zapasowe baz danych usługi Azure Cosmos są regularnie tworzone i przechowywane w geograficznie nadmiarowym magazynie. <br><br>Dowiedz się więcej w temacie [Automatyczne tworzenie kopii zapasowych online i przywracanie za pomocą Azure Cosmos DB](online-backup-and-restore.md).|
 |Przywracanie usuniętych danych|Zautomatyzowane kopie zapasowe w trybie online mogą służyć do odzyskiwania danych, które można przypadkowo usunąć do 30 dni po zdarzeniu. <br><br>Dowiedz się więcej w temacie [Automatyczne tworzenie kopii zapasowych online i przywracanie za pomocą Azure Cosmos DB](online-backup-and-restore.md)|
 |Ochrona i izolowanie poufnych danych|Wszystkie dane w regionach na liście nowości? jest teraz szyfrowana w stanie spoczynku.<br><br>Dane osobowe i inne dane poufne mogą być izolowane do określonego kontenera, a dostęp do odczytu i zapisu mogą być ograniczone do określonych użytkowników.|
-|Monitoruj ataki|Korzystając z [rejestrowania inspekcji i dzienników aktywności](logging.md), można monitorować konto pod kątem normalnej i nieprawidłowej aktywności. Możesz zobaczyć, jakie operacje zostały wykonane względem zasobów, kto zainicjował operację, po wystąpieniu operacji, stan operacji i wiele innych, jak pokazano na zrzucie ekranu poniższej tabeli.|
+|Monitoruj ataki|Korzystając z [rejestrowania inspekcji i dzienników aktywności](./monitor-cosmos-db.md), można monitorować konto pod kątem normalnej i nieprawidłowej aktywności. Możesz zobaczyć, jakie operacje zostały wykonane względem zasobów, kto zainicjował operację, po wystąpieniu operacji, stan operacji i wiele innych, jak pokazano na zrzucie ekranu poniższej tabeli.|
 |Reagowanie na ataki|Po skontaktowaniu się z pomocą techniczną platformy Azure w celu zgłoszenia potencjalnego ataku zostanie rozpoczęty proces reagowania na zdarzenia z 5 etapami. Proces 5-etapowy polega na przywróceniu normalnego zabezpieczenia usługi i operacji tak szybko, jak to możliwe po wykryciu problemu i rozpoczęciu badania.<br><br>Dowiedz się więcej w [Microsoft Azure odpowiedzi na zabezpieczenia w chmurze](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Ogrodzenie geograficzne|Azure Cosmos DB zapewnia zarządzanie danymi dla suwerennych regionów (na przykład Niemiec, Chin, US Gov).|
 |Chronione obiekty|Dane w Azure Cosmos DB są przechowywane w dysków SSD w chronionych centrach danych platformy Azure.<br><br>Dowiedz się więcej w [globalnych centrach danych firmy Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
@@ -104,6 +104,6 @@ Klucze podstawowe, pomocnicze, tylko do odczytu i odczyt-zapis można pobrać i 
 
 Aby uzyskać więcej informacji na temat kluczy podstawowych i tokenów zasobów, zobacz [Zabezpieczanie dostępu do danych Azure Cosmos DB](secure-access-to-data.md).
 
-Aby uzyskać więcej informacji na temat rejestrowania inspekcji, zobacz [Azure Cosmos DB rejestrowanie diagnostyczne](logging.md).
+Aby uzyskać więcej informacji na temat rejestrowania inspekcji, zobacz [Azure Cosmos DB rejestrowanie diagnostyczne](./monitor-cosmos-db.md).
 
 Aby uzyskać więcej informacji o certyfikatach firmy Microsoft, zobacz [Centrum zaufania Azure](https://azure.microsoft.com/support/trust-center/).

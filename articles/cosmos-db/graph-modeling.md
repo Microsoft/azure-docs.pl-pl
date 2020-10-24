@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409769"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490632"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
 
@@ -37,7 +37,7 @@ Rozwiązanie bazy danych grafu można optymalnie zastosować, jeśli jednostki i
 
 Jeśli powyższe kryteria są spełnione, prawdopodobnie podejście bazy danych grafu będzie zapewniało korzyści wynikające z **złożoności zapytań**, **skalowalności modelu danych**i **wydajności zapytań**.
 
-Następnym krokiem jest określenie, czy wykres ma być używany do celów analitycznych czy transakcyjnych. Jeśli wykres jest przeznaczony do użycia w przypadku dużych obciążeń obliczeniowych i przetwarzania danych, warto zbadać [Cosmos DB łącznika Spark](https://docs.microsoft.com/azure/cosmos-db/spark-connector) i korzystać z [biblioteki GraphX](https://spark.apache.org/graphx/). 
+Następnym krokiem jest określenie, czy wykres ma być używany do celów analitycznych czy transakcyjnych. Jeśli wykres jest przeznaczony do użycia w przypadku dużych obciążeń obliczeniowych i przetwarzania danych, warto zbadać [Cosmos DB łącznika Spark](./spark-connector.md) i korzystać z [biblioteki GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Jak używać obiektów grafów
 
@@ -45,14 +45,14 @@ Następnym krokiem jest określenie, czy wykres ma być używany do celów anali
 
 Poniżej przedstawiono najlepsze rozwiązania dotyczące właściwości w obiektach grafu:
 
-| Obiekt | Właściwość | Type | Uwagi |
+| Obiekt | Właściwość | Typ | Uwagi |
 | --- | --- | --- |  --- |
-| Wierzchołka | ID (Identyfikator) | Ciąg | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
-| Wierzchołka | label | Ciąg | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
+| Wierzchołka | ID (Identyfikator) | String | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
+| Wierzchołka | label | String | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
 | Wierzchołka | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdym wierzchołku. |
 | Wierzchołka | klucz partycji | Ciąg, wartość logiczna, numeryczna | Ta właściwość określa miejsce, w którym będą przechowywane wierzchołki i jej krawędzie wychodzące. Przeczytaj więcej na temat [partycjonowania grafów](graph-partitioning.md). |
-| Edge | ID (Identyfikator) | Ciąg | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
-| Edge | label | Ciąg | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
+| Edge | ID (Identyfikator) | String | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
+| Edge | label | String | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
 | Edge | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdej krawędzi. |
 
 > [!NOTE]

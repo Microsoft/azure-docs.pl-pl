@@ -8,12 +8,12 @@ ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: faf13f580f6600e761cdaa9927fee4efa2b5995f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f157cc7ac2331f948a562dc12e99acc60e979ada
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500184"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488167"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrowanie do narzędzi programistycznych opartych na Azure Resource Manager dla klastrów usługi HDInsight
 
@@ -232,7 +232,7 @@ Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -clusterName $clust
 * [Przesyłanie zadań Apache Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migrowanie do nowego zestawu .NET SDK usługi HDInsight
-[Zestaw .NET SDK usługi HDInsight](https://msdn.microsoft.com/library/azure/mt416619.aspx) oparty na usłudze Azure Service Management (ASM) jest obecnie przestarzały. Zaleca się użycie [zestawu .NET SDK usługi HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)opartego na Menedżer zasobów opartej na usłudze Azure Resource Management. Następujące pakiety usługi HDInsight oparte na ASM są przestarzałe.
+[Zestaw .NET SDK usługi HDInsight](https://msdn.microsoft.com/library/azure/mt416619.aspx) oparty na usłudze Azure Service Management (ASM) jest obecnie przestarzały. Zaleca się użycie [zestawu .NET SDK usługi HDInsight](/dotnet/api/overview/azure/hdinsight)opartego na Menedżer zasobów opartej na usłudze Azure Resource Management. Następujące pakiety usługi HDInsight oparte na ASM są przestarzałe.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`
@@ -241,7 +241,7 @@ Ta sekcja zawiera wskaźniki do dodatkowych informacji na temat wykonywania okre
 
 | Jak... Korzystanie z zestawu SDK usługi HDInsight opartego na Menedżer zasobów | Linki |
 | --- | --- |
-| Zestaw SDK usługi Azure HDInsight dla platformy .NET|Zobacz [zestaw SDK usługi Azure HDInsight dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet) |
+| Zestaw SDK usługi Azure HDInsight dla platformy .NET|Zobacz [zestaw SDK usługi Azure HDInsight dla platformy .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true) |
 | Interaktywna uwierzytelnianie aplikacji przy użyciu Azure Active Directory z zestawem SDK platformy .NET |Zobacz [uruchamianie Apache Hive zapytań przy użyciu zestawu .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Fragment kodu w tym artykule używa podejścia do uwierzytelniania interaktywnego. |
 | Uwierzytelnianie aplikacji nieinteraktywnie przy użyciu Azure Active Directory z zestawem SDK .NET |Zobacz [Tworzenie aplikacji nieinterakcyjnych dla usługi HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | Prześlij zadanie Apache Hive przy użyciu zestawu .NET SDK |Zobacz [przesyłanie zadań Apache Hive](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |

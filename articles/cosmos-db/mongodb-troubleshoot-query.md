@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 615bd423296fb9ed2ee28cab9e362873a30ee7b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284188"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488388"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Rozwiązywanie problemów z kwerendą podczas korzystania z interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -116,7 +116,7 @@ db.coll.find({foodGroup: "Baby Foods"}).explain({"executionStatistics": true })
 | `timeInclusiveMS` | Opóźnienie zapytania wewnętrznej bazy danych |
 | `pathsIndexed` | Pokazuje indeksy używane przez zapytanie | 
 | `pathsNotIndexed` | Pokazuje indeksy, które mogą być używane w zapytaniu, jeśli są dostępne | 
-| `shardInformation` | Podsumowanie wydajności zapytań dla określonej [partycji fizycznej](partition-data.md#physical-partitions) | 
+| `shardInformation` | Podsumowanie wydajności zapytań dla określonej [partycji fizycznej](./partitioning-overview.md#physical-partitions) | 
 | `retrievedDocumentCount` | Liczba dokumentów załadowanych przez aparat zapytań | 
 | `outputDocumentCount` | Liczba dokumentów zwróconych w wynikach zapytania | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Szacowane dodatkowe opóźnienie zapytania z powodu ograniczenia szybkości | 
@@ -256,7 +256,7 @@ Najlepsze rozwiązania dotyczące indeksowania w interfejsie API Azure Cosmos DB
 
 [Indeksy wieloznaczne](mongodb-indexing.md#wildcard-indexes) mogą uprościć indeksowanie. W przeciwieństwie do MongoDB, indeksy symboli wieloznacznych mogą obsługiwać wiele pól w predykatach zapytań. W przypadku użycia jednego indeksu wieloznacznego zamiast tworzenia oddzielnego indeksu dla każdej właściwości nie będzie różnica w wydajności zapytań. Dodanie indeksu wieloznacznego dla wszystkich właściwości jest najprostszym sposobem optymalizacji wszystkich zapytań.
 
-Nowe indeksy można dodać w dowolnym momencie, bez wpływu na dostępność operacji zapisu lub odczytu. [Postęp przekształcania indeksów można śledzić](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Nowe indeksy można dodać w dowolnym momencie, bez wpływu na dostępność operacji zapisu lub odczytu. [Postęp przekształcania indeksów można śledzić](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-aggregation-operations-use-the-index"></a>Informacje o tym, które operacje agregacji używają indeksu
 

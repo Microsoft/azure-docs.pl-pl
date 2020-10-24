@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e1a9e4b82971180f375a006f4825832e6179e9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279842"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490615"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Wprowadzenie do interfejsu API Gremlin w Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Poniżej przedstawiono zróżnicowane funkcje, które Azure Cosmos DB Gremlin in
 
 * **Elastycznie skalowalna przepływność i magazyn**
 
-  Skalowanie grafów w świecie rzeczywistym wymaga skalowania przekraczającego pojemność pojedynczego serwera. Azure Cosmos DB obsługuje skalowalne w poziomie bazy danych grafów, które mogą mieć praktycznie nieograniczony rozmiar w zakresie magazynu i alokowanej przepływności. Gdy skala bazy danych grafu zostanie powiększona, dane będą automatycznie dystrybuowane przy użyciu [partycjonowania grafu](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+  Skalowanie grafów w świecie rzeczywistym wymaga skalowania przekraczającego pojemność pojedynczego serwera. Azure Cosmos DB obsługuje skalowalne w poziomie bazy danych grafów, które mogą mieć praktycznie nieograniczony rozmiar w zakresie magazynu i alokowanej przepływności. Gdy skala bazy danych grafu zostanie powiększona, dane będą automatycznie dystrybuowane przy użyciu [partycjonowania grafu](./graph-partitioning.md).
 
 * **Replikacja w wielu regionach**
 
@@ -52,7 +52,7 @@ Poniżej przedstawiono zróżnicowane funkcje, które Azure Cosmos DB Gremlin in
 
 * **Automatyczne indeksowanie**
 
-  Domyślnie Azure Cosmos DB automatycznie indeksuje wszystkie właściwości w węzłach (nazywanych także wierzchołkami) i krawędziami wykresu i nie oczekuje ani nie wymaga żadnego schematu ani tworzenia indeksów pomocniczych. Dowiedz się więcej [na temat indeksowania w Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview).
+  Domyślnie Azure Cosmos DB automatycznie indeksuje wszystkie właściwości w węzłach (nazywanych także wierzchołkami) i krawędziami wykresu i nie oczekuje ani nie wymaga żadnego schematu ani tworzenia indeksów pomocniczych. Dowiedz się więcej [na temat indeksowania w Azure Cosmos DB](/azure/cosmos-db/index-overview).
 
 * **Zgodność z witryną Apache TinkerPop**
 

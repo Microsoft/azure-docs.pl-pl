@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9a6d8843acf27a53e261d9c7180906b15d05cc33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30be9cbba7fe702d12285fe13794290c4820fd53
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314814"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487997"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorowanie i dostrajanie Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
@@ -22,7 +22,7 @@ Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i
 
 Funkcja Citus) udostępnia metryki dla każdego węzła w grupie serwerów. Metryki zapewniają wgląd w zachowanie obsługi zasobów. Każda Metryka jest emitowana z częstotliwością jednej minuty i ma do 30 dni historii.
 
-Oprócz wyświetlania wykresów metryk można skonfigurować alerty. Aby uzyskać wskazówki krok po kroku, zobacz [jak skonfigurować alerty](howto-hyperscale-alert-on-metric.md).  Inne zadania obejmują Konfigurowanie zautomatyzowanych akcji, uruchamianie zaawansowanej analizy i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Oprócz wyświetlania wykresów metryk można skonfigurować alerty. Aby uzyskać wskazówki krok po kroku, zobacz [jak skonfigurować alerty](howto-hyperscale-alert-on-metric.md).  Inne zadania obejmują Konfigurowanie zautomatyzowanych akcji, uruchamianie zaawansowanej analizy i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista metryk
 

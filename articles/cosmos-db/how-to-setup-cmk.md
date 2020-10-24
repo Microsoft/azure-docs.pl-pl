@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3a5106fcc7f1b55db22ee13ced34328cc38096d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836514"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486212"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Skonfiguruj klucze zarządzane przez klienta na potrzeby konta usługi Azure Cosmos przy użyciu usługi Azure Key Vault
 
@@ -83,7 +83,7 @@ Jeśli tworzysz nowe wystąpienie Azure Key Vault, Włącz te właściwości pod
 
 ## <a name="create-a-new-azure-cosmos-account"></a>Utwórz nowe konto usługi Azure Cosmos
 
-### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
 Po utworzeniu nowego konta Azure Cosmos DB z Azure Portal wybierz opcję **klucz zarządzany przez klienta** w kroku **szyfrowanie** . W polu **Identyfikator URI klucza** wklej identyfikator URI/klucz Azure Key Vault klucza skopiowanego z poprzedniego kroku:
 
@@ -277,7 +277,7 @@ W przypadku korzystania z kluczy zarządzanych przez klienta [jednostki żądań
 
 Wszystkie dane przechowywane na koncie usługi Azure Cosmos są szyfrowane przy użyciu kluczy zarządzanych przez klienta, z wyjątkiem następujących metadanych:
 
-- Nazwy [kont Azure Cosmos DB, baz danych i kontenerów](./account-overview.md#elements-in-an-azure-cosmos-account)
+- Nazwy [kont Azure Cosmos DB, baz danych i kontenerów](./account-databases-containers-items.md#elements-in-an-azure-cosmos-account)
 
 - Nazwy [procedur składowanych](./stored-procedures-triggers-udfs.md)
 

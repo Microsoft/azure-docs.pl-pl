@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0d621728ac1956b2c036c9a45202c5d75ee9153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3181d4a0c605e0b1325f21de6b277e2b41f92d37
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87499572"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487300"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: przykłady interfejsu wiersza polecenia platformy Azure
 
@@ -26,13 +26,13 @@ Ten artykuł zawiera przykładowe skrypty dla typowych zadań. Dla każdego przy
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Interfejs wiersza polecenia platformy Azure. Aby uzyskać instrukcje [, zobacz Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) .
+* Interfejs wiersza polecenia platformy Azure. Aby uzyskać instrukcje [, zobacz Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) .
 
 * Opcjonalnie: bash. W przykładach w tym artykule użyto powłoki bash w systemie Windows 10. Aby uzyskać instrukcje dotyczące instalacji, zobacz artykuł [podsystem instalacji systemu Windows dla systemu Linux w systemie Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) .  Przykłady będą działały z wiersza polecenia systemu Windows z niewielkimi modyfikacjami.
 
 ## <a name="az-login"></a>az login
 
-[Zaloguj się do platformy Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
+[Zaloguj się do platformy Azure](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login
@@ -43,7 +43,7 @@ az login
 
 ## <a name="az-hdinsight-create"></a>AZ HDInsight Create
 
-[Tworzy nowy klaster](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+[Tworzy nowy klaster](/cli/azure/hdinsight#az-hdinsight-create).
 
 ### <a name="create-a-cluster-with-an-existing-storage-account"></a>Tworzenie klastra z istniejącym kontem magazynu
 
@@ -176,7 +176,7 @@ az hdinsight create \
 
 ## <a name="az-hdinsight-application-create"></a>AZ HDInsight Application Create
 
-[Tworzenie aplikacji dla klastra usługi HDInsight](https://docs.microsoft.com/cli/azure/hdinsight/application?view=azure-cli-latest#az-hdinsight-application-create).
+[Tworzenie aplikacji dla klastra usługi HDInsight](/cli/azure/hdinsight/application#az-hdinsight-application-create).
 
 ### <a name="create-an-application-with-a-script-uri"></a>Tworzenie aplikacji za pomocą identyfikatora URI skryptu
 
@@ -243,7 +243,7 @@ az hdinsight application create \
 
 ## <a name="az-hdinsight-script-action-execute"></a>AZ HDInsight Script-Action Execute
 
-[Wykonaj akcje skryptu w określonym klastrze usługi HDInsight](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).
+[Wykonaj akcje skryptu w określonym klastrze usługi HDInsight](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
 
 ### <a name="execute-a-script-action-and-persist-on-success"></a>Wykonywanie akcji skryptu i utrwalanie po sukcesie
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 821b2a36a40f828edf37ff1c2f3eab58b10b4162
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 97bb7db434322609630d97b7eff84e08da72c11c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88607577"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486654"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Szybki Start: Tworzenie konta, bazy danych, kontenera i elementów usługi Azure Cosmos w Azure Portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "88607577"
 
 Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Za pomocą Azure Cosmos DB można szybko tworzyć i wykonywać zapytania dotyczące baz danych typu klucz/wartość, baz danych dokumentów i baz danych grafów, a wszystkie korzyści wynikające z dystrybucji globalnej i możliwości skalowania poziomego w ramach rdzenia Azure Cosmos DB. 
 
-W tym przewodniku szybki start pokazano, jak za pomocą Azure Portal utworzyć konto [interfejsu API SQL](sql-api-introduction.md) Azure Cosmos DB, utworzyć bazę danych dokumentów i kontener oraz dodać dane do kontenera. 
+W tym przewodniku szybki start pokazano, jak za pomocą Azure Portal utworzyć konto [interfejsu API SQL](./introduction.md) Azure Cosmos DB, utworzyć bazę danych dokumentów i kontener oraz dodać dane do kontenera. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

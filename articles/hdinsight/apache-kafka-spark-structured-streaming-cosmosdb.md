@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
-ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203466"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487334"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Używanie Apache Spark strukturalnych przesyłania strumieniowego z Apache Kafka i Azure Cosmos DB
 
@@ -86,7 +86,7 @@ Mimo że można utworzyć ręcznie klastry usługi Azure Virtual Network, Kafka 
 
 W projekcie używanym w tym dokumencie są przechowywane dane w Cosmos DB. Przed uruchomieniem kodu należy najpierw utworzyć _bazę danych_ i _kolekcję_ w wystąpieniu Cosmos DB. Należy również pobrać punkt końcowy dokumentu oraz _klucz_ używany do uwierzytelniania żądań do Cosmos DB.
 
-Jednym ze sposobów jest użycie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Poniższy skrypt spowoduje utworzenie bazy danych o nazwie `kafkadata` i kolekcji o nazwie `kafkacollection` . Następnie zwraca klucz podstawowy.
+Jednym ze sposobów jest użycie [interfejsu wiersza polecenia platformy Azure](/cli/azure/). Poniższy skrypt spowoduje utworzenie bazy danych o nazwie `kafkadata` i kolekcji o nazwie `kafkacollection` . Następnie zwraca klucz podstawowy.
 
 ```azurecli
 #!/bin/bash

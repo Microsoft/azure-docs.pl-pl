@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b3c694b4d6134f30d04ba8bafee9a6ffabdd959
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856589"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488116"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informacje dotyczące korzystania z usługi HDInsight w systemie Linux
 
@@ -25,7 +25,7 @@ Wiele kroków opisanych w tym dokumencie korzysta z następujących narzędzi, k
 
 * [zwinięcie](https://curl.haxx.se/) — używany do komunikowania się z usługami sieci Web.
 * **JQ**, procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) — służy do zdalnego zarządzania usługami platformy Azure.
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) — służy do zdalnego zarządzania usługami platformy Azure.
 * **Klient SSH**. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Użytkownicy
@@ -191,7 +191,7 @@ Istnieją różne sposoby uzyskiwania dostępu do danych spoza klastra usługi H
 
 Jeśli korzystasz z __usługi Azure Blob Storage__, Skorzystaj z poniższych linków, aby uzyskać dostęp do danych:
 
-* Interfejs [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line poleceń interfejsu do pracy z platformą Azure. Po zainstalowaniu programu Użyj `az storage` polecenia, aby uzyskać pomoc dotyczącą korzystania z magazynu, lub `az storage blob` dla poleceń specyficznych dla obiektu BLOB.
+* Interfejs [wiersza polecenia platformy Azure](/cli/azure/install-az-cli2): Command-Line poleceń interfejsu do pracy z platformą Azure. Po zainstalowaniu programu Użyj `az storage` polecenia, aby uzyskać pomoc dotyczącą korzystania z magazynu, lub `az storage blob` dla poleceń specyficznych dla obiektu BLOB.
 * [blobxfer.py](https://github.com/Azure/blobxfer): skrypt języka Python służący do pracy z obiektami BLOB w usłudze Azure Storage.
 * Różne zestawy SDK:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b99d5ea33693431fb3811af50385891684a366e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df256749a813fe81857aa250081411afd52ae35c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546461"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489561"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thousandeyes"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą ThousandEyes
 
@@ -129,11 +129,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. W menu u góry kliknij pozycję **Settings** (Ustawienia).
 
-    ![Ustawienia](./media/thousandeyes-tutorial/ic790066.png "Ustawienia")
+    ![Zrzut ekranu przedstawia witrynę ThousandEyes z wybranymi ustawieniami.](./media/thousandeyes-tutorial/ic790066.png "Ustawienia")
 
 3. Kliknij pozycję **konto**
 
-    ![Konto](./media/thousandeyes-tutorial/ic790067.png "Konto")
+    ![Zrzut ekranu przedstawia konto wybrane w menu Ustawienia.](./media/thousandeyes-tutorial/ic790067.png "Konto")
 
 4. Kliknij kartę **uwierzytelnianie & zabezpieczeń** .
 
@@ -153,7 +153,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e. W obszarze **certyfikat weryfikacji**kliknij pozycję **Wybierz plik**, a następnie przekaż certyfikat pobrany z Azure Portal.
 
-    f. Kliknij przycisk **Zapisz**.
+    f. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-thousandeyes-test-user"></a>Utwórz użytkownika testowego ThousandEyes
 
@@ -165,11 +165,11 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w ThousandEy
 
 2. Kliknij polecenie **Ustawienia**.
 
-    ![Ustawienia](./media/thousandeyes-tutorial/IC790066.png "Ustawienia")
+    ![Zrzut ekranu przedstawia witrynę ThousandEyes z wybranymi ustawieniami.](./media/thousandeyes-tutorial/ic790066.png "Ustawienia")
 
 3. Kliknij pozycję **Account** (Konto).
 
-    ![Konto](./media/thousandeyes-tutorial/IC790067.png "Konto")
+    ![Zrzut ekranu przedstawia konto wybrane w menu Ustawienia.](./media/thousandeyes-tutorial/ic790067.png "Konto")
 
 4. Kliknij kartę **konta & użytkownicy** .
 

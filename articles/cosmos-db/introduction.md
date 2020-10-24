@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: aad69a34cc27f341bec5beda0f52e2581538aaf9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cd6bbe963f0cee89c188053d0770816fdabc1b93
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278436"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490394"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB — Zapraszamy!
 
@@ -40,7 +40,7 @@ Dzięki głębokiej integracji z infrastrukturą platformy Azure i [przezroczyst
 
 ### <a name="elastic-scalability-of-throughput-and-storage-worldwide"></a>Elastyczne skalowanie przepływności i magazynu na całym świecie
 
-Zaprojektowana z przezroczystym podziałem na partycje i wieloregionową replikacją zapisu, Cosmos DB oferuje niespotykaną elastyczną skalowalność dla operacji zapisu i odczytu na całym świecie. Można elastycznie skalować w górę od tysięcy do setek milionów żądań na sekundę na całym świecie przy użyciu jednego wywołania interfejsu API i płacić tylko za przepływność i magazyn, które są potrzebne. Ta funkcja pomaga radzić sobie z niespodziewanymi wzrostami w obciążeniach bez konieczności nadmiernej aprowizacji dla szczytu. Aby uzyskać więcej informacji, zobacz [partycjonowanie w Cosmos DB](partitioning-overview.md), [zainicjowana przepływność na kontenerach i bazach danych](set-throughput.md)i [globalnie skalowanie przepływności](scaling-throughput.md).
+Zaprojektowana z przezroczystym podziałem na partycje i wieloregionową replikacją zapisu, Cosmos DB oferuje niespotykaną elastyczną skalowalność dla operacji zapisu i odczytu na całym świecie. Można elastycznie skalować w górę od tysięcy do setek milionów żądań na sekundę na całym świecie przy użyciu jednego wywołania interfejsu API i płacić tylko za przepływność i magazyn, które są potrzebne. Ta funkcja pomaga radzić sobie z niespodziewanymi wzrostami w obciążeniach bez konieczności nadmiernej aprowizacji dla szczytu. Aby uzyskać więcej informacji, zobacz [partycjonowanie w Cosmos DB](partitioning-overview.md), [zainicjowana przepływność na kontenerach i bazach danych](set-throughput.md)i [globalnie skalowanie przepływności](./request-units.md).
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Gwarantowane małe opóźnienia na poziomie 99. percentyla, na całym świecie
 
@@ -48,7 +48,7 @@ Przy użyciu usługi Cosmos DB można tworzyć szybko reagujące aplikacje skalo
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Wiele dokładnie zdefiniowanych opcji spójności
 
-Podczas kompilowania aplikacji rozproszonych globalnie w Cosmos DB nie trzeba już podejmować wyjątkowo [kompromisów między spójnością, dostępnością, opóźnieniami i przepływności](consistency-levels-tradeoffs.md). Wieloregionowa Usługa replikacji zapisu w systemie Cosmos DB została starannie zaprojektowana w celu zaoferowania [pięciu dobrze zdefiniowanych opcji spójności](consistency-levels.md), silnej nieprawidłowej nieprawidłowej, bezwzględnej,  -  *strong* *spójnego prefiksu*i *ostateczności* — dla intuicyjnego modelu programowania z małymi opóźnieniami i wysoką dostępnością dla aplikacji rozproszonej globalnie. *bounded staleness* *session*
+Podczas kompilowania aplikacji rozproszonych globalnie w Cosmos DB nie trzeba już podejmować wyjątkowo [kompromisów między spójnością, dostępnością, opóźnieniami i przepływności](./consistency-levels.md). Wieloregionowa Usługa replikacji zapisu w systemie Cosmos DB została starannie zaprojektowana w celu zaoferowania [pięciu dobrze zdefiniowanych opcji spójności](consistency-levels.md), silnej nieprawidłowej nieprawidłowej, bezwzględnej,  -  *strong* *spójnego prefiksu*i *ostateczności* — dla intuicyjnego modelu programowania z małymi opóźnieniami i wysoką dostępnością dla aplikacji rozproszonej globalnie. *bounded staleness* *session*
 
 ### <a name="no-schema-or-index-management"></a>Bez zarządzania schematami lub indeksami
 
@@ -76,11 +76,11 @@ Usługa Cosmos DB jest pierwszą i jedyną usługą, która oferuje [wiodące w 
 
 ### <a name="globally-distributed-operational-analytics-and-ai-with-natively-built-in-apache-spark"></a>Globalnie dystrybuowana analiza operacyjna i AI z natywnie wbudowaną Apache Spark
 
-Możesz uruchomić projekt [Spark](spark-connector.md) bezpośrednio na danych przechowywanych w usłudze Cosmos DB. Ta funkcja umożliwia przeprowadzenie analizy operacyjnej o małych opóźnieniach w skali globalnej bez wywierania wpływu na obciążenia transakcyjne działające bezpośrednio w odniesieniu do usługi Cosmos DB. Aby uzyskać więcej informacji, zobacz [globalnie dystrybuowane analizy operacyjne](lambda-architecture.md).
+Możesz uruchomić projekt [Spark](spark-connector.md) bezpośrednio na danych przechowywanych w usłudze Cosmos DB. Ta funkcja umożliwia przeprowadzenie analizy operacyjnej o małych opóźnieniach w skali globalnej bez wywierania wpływu na obciążenia transakcyjne działające bezpośrednio w odniesieniu do usługi Cosmos DB. Aby uzyskać więcej informacji, zobacz [globalnie dystrybuowane analizy operacyjne](./synapse-link.md).
 
 ### <a name="develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis"></a>Opracowywanie aplikacji na Cosmos DB przy użyciu popularnych interfejsów API oprogramowania typu Open Source (OSS)
 
-Cosmos DB oferuje interfejsy API do pracy z danymi przechowywanymi w bazie danych Cosmos. Domyślnie [można użyć języka SQL](how-to-sql-query.md) (podstawowego interfejsu API) do wykonywania zapytań dotyczących bazy danych Cosmos. Cosmos DB również implementuje interfejsy API dla [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) i [Azure Table Storage](table-introduction.md). Możesz wskazać sterowniki klienta (i narzędzia) dla najczęściej używanych NoSQL (np. MongoDB, Cassandra, Gremlin) bezpośrednio do swojej bazy danych programu Cosmos. Dzięki obsłudze protokołów sieci powszechnie używanych interfejsów API NoSQL Cosmos DB umożliwia:
+Cosmos DB oferuje interfejsy API do pracy z danymi przechowywanymi w bazie danych Cosmos. Domyślnie [można użyć języka SQL](./sql-query-getting-started.md) (podstawowego interfejsu API) do wykonywania zapytań dotyczących bazy danych Cosmos. Cosmos DB również implementuje interfejsy API dla [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) i [Azure Table Storage](table-introduction.md). Możesz wskazać sterowniki klienta (i narzędzia) dla najczęściej używanych NoSQL (np. MongoDB, Cassandra, Gremlin) bezpośrednio do swojej bazy danych programu Cosmos. Dzięki obsłudze protokołów sieci powszechnie używanych interfejsów API NoSQL Cosmos DB umożliwia:
 
 * Łatwe migrowanie aplikacji do usługi Cosmos DB przy jednoczesnym zachowaniu znacznej części logiki aplikacji.
 * Zapewnienie, że aplikacja będzie nadal przenośna i niezależna od dostawcy i chmury.

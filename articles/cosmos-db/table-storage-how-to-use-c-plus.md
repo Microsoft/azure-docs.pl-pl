@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: ed3ea64bf76eafd965e13f4dab1911840ed8139a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282854"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477338"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Jak korzystać z usługi Azure Table Storage i interfejsu API tabel usługi Azure Cosmos DB przy użyciu języka C++
 
@@ -78,7 +78,7 @@ Ten przykład pokazuje, jak zadeklarować pole statyczne do przechowywania param
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Użyj nazwy konta magazynu dla usługi `<your_storage_account>` . W przypadku <your_storage_account_key> Użyj klucza dostępu dla konta magazynu wymienionego w [Azure Portal](https://portal.azure.com). Aby uzyskać informacje na temat kont magazynu i kluczy dostępu, zobacz [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md).
+Użyj nazwy konta magazynu dla usługi `<your_storage_account>` . W przypadku <your_storage_account_key> Użyj klucza dostępu dla konta magazynu wymienionego w [Azure Portal](https://portal.azure.com). Aby uzyskać informacje na temat kont magazynu i kluczy dostępu, zobacz [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 
 ### <a name="set-up-an-azure-cosmos-db-connection-string"></a>Konfigurowanie parametrów połączenia usługi Azure Cosmos DB
 
@@ -138,7 +138,7 @@ table.create_if_not_exists();
 
 ### <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
 
-Aby dodać jednostkę do tabeli, Utwórz nowy `table_entity` obiekt i przekaż go do `table_operation::insert_entity` . W poniższym kodzie imię klienta jest używane jako klucz wiersza, a nazwisko jako klucz partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki z różnymi kluczami partycji. Użycie różnych kluczy partycji pozwala zwiększyć skalowalność operacji równoległych. Aby uzyskać więcej informacji, zobacz temat [Microsoft Azure Storage Performance and Scalability Checklist (Lista kontrolna dotycząca wydajności i skalowalności usługi Microsoft Azure Storage)](../storage/common/storage-performance-checklist.md).
+Aby dodać jednostkę do tabeli, Utwórz nowy `table_entity` obiekt i przekaż go do `table_operation::insert_entity` . W poniższym kodzie imię klienta jest używane jako klucz wiersza, a nazwisko jako klucz partycji. Razem klucz partycji i klucz wiersza jednostki jednoznacznie identyfikują jednostkę w tabeli. Jednostki z tym samym kluczem partycji mogą być przeszukiwane szybciej niż jednostki z różnymi kluczami partycji. Użycie różnych kluczy partycji pozwala zwiększyć skalowalność operacji równoległych. Aby uzyskać więcej informacji, zobacz temat [Microsoft Azure Storage Performance and Scalability Checklist (Lista kontrolna dotycząca wydajności i skalowalności usługi Microsoft Azure Storage)](../storage/blobs/storage-performance-checklist.md).
 
 Poniższy kod tworzy nowe wystąpienie `table_entity` z danymi klienta, które mają być przechowywane. Kod Next wywołuje `table_operation::insert_entity` , aby utworzyć `table_operation` obiekt, aby wstawić jednostkę do tabeli, i kojarzy z nią nową jednostkę tabeli. Na koniec kod wywołuje `execute` metodę dla `cloud_table` obiektu. Nowy `table_operation` wysyła żądanie do Table Service, aby wstawić nową jednostkę klienta do `people` tabeli.  
 

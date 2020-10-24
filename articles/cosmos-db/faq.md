@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26794f0d743bc701879a161f69e374340206e5d8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570360"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488473"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące różnych interfejsów API w usłudze Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Możesz również użyć [emulatora Azure Cosmos DB](local-emulator.md) , aby be
 
 Aby zadać pytanie techniczne, możesz ogłosić na jednym z tych pytań i odpowiedzi na forach:
 
-* [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Strona pytania&pytań i odpowiedzi](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow jest Najlepsza w przypadku pytań związanych z programowaniem. Upewnij się, że pytanie jest [w temacie](https://stackoverflow.com/help/on-topic) i [Podaj jak najwięcej szczegółów, dzięki czemu pytanie jest jasne i możliwe do odpowiedzi](https://stackoverflow.com/help/how-to-ask).
 
 Aby zażądać nowych funkcji, Utwórz nowe żądanie na [głos użytkownika](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -179,7 +179,7 @@ Interfejs API SQL obsługuje agregację o małym opóźnieniu w dowolnej skali z
 
 Interfejs API SQL obsługuje optymistyczną kontrolę współbieżności (OCC) za pośrednictwem tagów jednostek HTTP lub elementów ETag. Każdy zasób interfejsu API SQL ma element ETag, a element ETag jest ustawiany na serwerze za każdym razem, gdy dokument zostanie zaktualizowany. Nagłówek ETag i bieżąca wartość są uwzględniane we wszystkich komunikatach odpowiedzi. Elementy ETag mogą być używane z nagłówkiem If-Match, aby umożliwić serwerowi podjęcie decyzji o tym, czy zasób powinien zostać zaktualizowany. Wartość If-Match jest wartością ETag, która ma zostać sprawdzona. Jeśli wartość ETag jest zgodna z wartością ETag serwera, zasób zostanie zaktualizowany. Jeśli element ETag nie jest już aktualny, serwer odrzuca operację z kodem odpowiedzi "HTTP 412 niepowodzenie warunku wstępnego". Klient ponownie pobierze zasób, aby uzyskać bieżącą wartość ETag dla zasobu. Ponadto elementy ETag mogą być używane z nagłówkiem If-None-Match, aby określić, czy konieczne jest ponowne pobranie zasobu.
 
-Aby użyć optymistycznej współbieżności w programie .NET, należy użyć klasy [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) . Aby zapoznać się z przykładem platformy .NET, zobacz [program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) w przykładzie DocumentManagement w witrynie GitHub.
+Aby użyć optymistycznej współbieżności w programie .NET, należy użyć klasy [AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition) . Aby zapoznać się z przykładem platformy .NET, zobacz [program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) w przykładzie DocumentManagement w witrynie GitHub.
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Jak mogę wykonywać transakcji w interfejsie API SQL?
 
@@ -210,7 +210,7 @@ Jest to ograniczenie języka JavaScript. Kod JavaScript używa liczb zmiennoprze
 Tworzenie uprawnień przy użyciu ResourceTokens jest dozwolone na poziomie kontenera i jego elementach podrzędnych (takich jak dokumenty, załączniki). Oznacza to, że próba utworzenia uprawnienia do bazy danych lub poziomu konta nie jest obecnie dozwolona.
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Następne kroki
 
