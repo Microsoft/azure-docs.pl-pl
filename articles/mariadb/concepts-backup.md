@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 5c82c7a3fbe931042c1ae817d2f5b6c9ae6989ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427755"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480738"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MariaDB
 
@@ -44,12 +44,15 @@ Okres przechowywania kopii zapasowej decyduje o tym, jak daleko w czasie można 
 - Serwery z magazynem o pojemności do 4 TB przechowują do 2 kopii zapasowych pełnych baz danych, wszystkie różnicowe kopie zapasowe i kopie zapasowe dziennika transakcji wykonane od najwcześniejszej pełnej kopii zapasowej bazy danych.
 -   Serwery z magazynem do 16 TB będą zachować pełną migawkę bazy danych, wszystkie migawki różnicowe i kopie zapasowe dziennika transakcji w ciągu ostatnich 8 dni.
 
+#### <a name="long-term-retention-of-backups"></a>Długoterminowe przechowywanie kopii zapasowych
+Długoterminowe przechowywanie kopii zapasowych poza 35 dni nie jest obecnie obsługiwane w sposób natywny przez usługę. Możesz użyć mysqldump, aby tworzyć kopie zapasowe i przechowywać je do długoterminowego przechowywania. Nasz zespół pomocy technicznej Blogged [krok po kroku,](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) aby udostępnić, jak można to osiągnąć. 
+
 ### <a name="backup-redundancy-options"></a>Opcje nadmiarowości kopii zapasowej
 
 Azure Database for MariaDB zapewnia elastyczność wyboru między lokalnie nadmiarowym lub geograficznie nadmiarowym magazynem kopii zapasowych w warstwach Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci. Gdy kopie zapasowe są przechowywane w magazynie geograficznie nadmiarowym, nie są przechowywane tylko w regionie, w którym znajduje się serwer, ale są również replikowane do [sparowanego centrum danych](../best-practices-availability-paired-regions.md). Zapewnia to lepszą ochronę i możliwość przywracania serwera w innym regionie w przypadku awarii. Warstwa Podstawowa oferuje tylko lokalnie nadmiarowy magazyn kopii zapasowych.
 
-> [!IMPORTANT]
-> Konfiguracja lokalnie nadmiarowego lub geograficznie nadmiarowego magazynu dla kopii zapasowej jest dozwolona tylko podczas tworzenia serwera. Po aprowizacji serwera nie można zmienić opcji nadmiarowości magazynu kopii zapasowej.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Przechodzenie z lokalnie nadmiarowego do magazynu kopii zapasowej nadmiarowej geograficznie
+Konfiguracja lokalnie nadmiarowego lub geograficznie nadmiarowego magazynu dla kopii zapasowej jest dozwolona tylko podczas tworzenia serwera. Po aprowizacji serwera nie można zmienić opcji nadmiarowości magazynu kopii zapasowej. W celu przeniesienia magazynu kopii zapasowych z magazynu lokalnie nadmiarowego do magazynu geograficznie nadmiarowego, utworzenie nowego serwera i Migrowanie danych przy użyciu [zrzutów i przywracania](howto-migrate-dump-restore.md) jest jedyną obsługiwaną opcją.
 
 ### <a name="backup-storage-cost"></a>Koszt magazynu kopii zapasowych
 

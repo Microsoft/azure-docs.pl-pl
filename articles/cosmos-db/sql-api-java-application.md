@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 913bc4373785d9341064e505ddce84fe43f727b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74a4178cc6b9645f3cb22bf3d1c7c0ee942c3f5f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801600"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485294"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Samouczek: Tworzenie aplikacji sieci Web w języku Java przy użyciu Azure Cosmos DB i interfejsu API SQL
 
@@ -22,7 +22,7 @@ ms.locfileid: "91801600"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -197,7 +197,7 @@ Usługa Azure Web Sites sprawia, że wdrożenie aplikacji Java sprowadza się do
    * W polu Miejsce docelowe wybierz miejsce zapisania pliku WAR.
    * Kliknij przycisk **Finish** (Zakończ).
 
-1. Teraz, gdy masz już plik WAR, możesz go po prostu przesłać do katalogu **webapps** swojej usługi Azure Web Sites. Aby uzyskać instrukcje dotyczące przekazywania pliku, zobacz [Add a Java application to Azure App Service Web Apps](../app-service/web-sites-java-add-app.md) (Dodawanie aplikacji Java do usługi Web Apps w usłudze Azure App Service). Po przekazaniu pliku WAR do katalogu webapps środowisko uruchomieniowe wykryje, że zostało dodane i zostanie automatycznie załadowane.
+1. Teraz, gdy masz już plik WAR, możesz go po prostu przesłać do katalogu **webapps** swojej usługi Azure Web Sites. Aby uzyskać instrukcje dotyczące przekazywania pliku, zobacz [Add a Java application to Azure App Service Web Apps](../app-service/quickstart-java.md) (Dodawanie aplikacji Java do usługi Web Apps w usłudze Azure App Service). Po przekazaniu pliku WAR do katalogu webapps środowisko uruchomieniowe wykryje, że zostało dodane i zostanie automatycznie załadowane.
 
 1. Aby wyświetlić gotową aplikację, przejdź do `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` i zacznij dodawać zadania.
 

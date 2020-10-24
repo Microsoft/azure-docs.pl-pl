@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 035bc13ee44a8a003ae860eb2bdd67432fa91f14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 175934c3e80e1271d6d17aa04327b58887427ea5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542525"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483696"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Tableau online
 
@@ -165,15 +165,15 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 1. W innym oknie przeglądarki Zaloguj się do aplikacji online Tableau. Przejdź do pozycji **Ustawienia** , a następnie pozycję **uwierzytelnianie**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
+    ![Zrzut ekranu przedstawia uwierzytelnianie wybrane z menu Ustawienia.](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
 
 2. Aby włączyć protokół SAML, w sekcji **typy uwierzytelniania** . Zaznacz **opcję Włącz dodatkową metodę uwierzytelniania** , a następnie zaznacz pole wyboru **SAML** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
+    ![Zrzut ekranu przedstawia sekcję typy uwierzytelniania, w której można wybrać wartości.](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
 
 3. Przewiń w dół, aby **zaimportować plik metadanych do sekcji Tableau online** .  Kliknij przycisk Przeglądaj i zaimportuj plik metadanych, który został pobrany z usługi Azure AD. Następnie kliknij przycisk **Zastosuj**.
 
-   ![Konfigurowanie logowania jednokrotnego](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
+   ![Zrzut ekranu przedstawia sekcję, w której można zaimportować plik metadanych.](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
 
 4. W sekcji **potwierdzenia dopasowania** Wstaw odpowiednią nazwę potwierdzenia dostawcy tożsamości dla **adresu e-mail**, **imienia**i **nazwiska**. Aby uzyskać te informacje z usługi Azure AD: 
   
@@ -181,17 +181,17 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
     b. W sekcji **atrybuty użytkownika & oświadczenia** kliknij ikonę edycji.
 
-   ![Konfigurowanie logowania jednokrotnego](./media/tableauonline-tutorial/attributesection.png)
+   ![Zrzut ekranu przedstawia sekcję "atrybuty użytkownika & oświadczenia, w której można wybrać ikonę edycji.](./media/tableauonline-tutorial/attributesection.png)
 
     c. Skopiuj wartość przestrzeni nazw dla tych atrybutów: imięname, email i nazwisko, wykonując następujące czynności:
 
-   ![Pojedynczy Sign-On usługi Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
+   ![Zrzut ekranu pokazuje podaną wartośćname, nazwisko i atrybuty EmailAddress.](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
 
     d. Kliknij pozycję **użytkownik. dana** wartośćname
 
     e. Skopiuj wartość z pola tekstowego **przestrzeń nazw** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/tableauonline-tutorial/attributesection2.png)
+    ![Zrzut ekranu przedstawia sekcję Zarządzanie oświadczeniami użytkowników, w której można wprowadzić przestrzeń nazw.](./media/tableauonline-tutorial/attributesection2.png)
 
     f. Aby skopiować wartości przestrzeni nazw dla wiadomości e-mail i nazwiska, powtórz powyższe kroki.
 
@@ -203,7 +203,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
     * Nazwisko: **nazwisko**
 
-    ![Konfigurowanie logowania jednokrotnego](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+    ![Zrzut ekranu przedstawia sekcję dopasowanie atrybutów, w której można wprowadzić wartości.](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
 
 ### <a name="create-tableau-online-test-user"></a>Utwórz użytkownika testowego usługi Tableau online
 
@@ -211,11 +211,11 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w usłudze Tableau onl
 
 1. W witrynie **Tableau online**, kliknij pozycję **Ustawienia** , a następnie sekcję **uwierzytelnianie** . Przewiń w dół do sekcji **Zarządzanie użytkownikami** . Kliknij pozycję **Dodaj użytkowników** , a następnie kliknij pozycję **wprowadź adresy e-mail**.
   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
+    ![Zrzut ekranu przedstawia sekcję Zarządzanie użytkownikami, w której można wybrać opcję Dodaj użytkowników.](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
 2. Wybierz pozycję **Dodaj użytkowników dla (SAML) uwierzytelnianie**. W polu tekstowym **wprowadź adresy e-mail** Dodaj Britta. Simon \@ contoso.com
   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
+    ![Zrzut ekranu przedstawia stronę Dodawanie użytkowników, na której można wprowadzić adres e-mail.](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 
 3. Kliknij pozycję **Dodaj użytkowników**.
 

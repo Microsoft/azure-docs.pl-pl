@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dca046df68b10853752b0de65c48c2b8f83afb31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5af62cd8c110e38ffd2a72ef2441a8e548e1ece
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020902"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475485"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optymalizuj koszt magazynu w Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Azure Cosmos DB oferuje nieograniczony magazyn i przepływność. W przeciwieńs
 
 ## <a name="storage-cost"></a>Koszty magazynu
 
-Magazyn jest rozliczany przy użyciu jednostki GB. Lokalny dysk SSD — magazyn kopii zapasowych jest używany przez dane i indeksowanie. Łączny używany magazyn jest równy magazynowi wymaganemu przez dane i indeksy używane we wszystkich regionach, w których są używane Azure Cosmos DB. Jeśli globalnie replikujesz konto usługi Azure Cosmos w trzech regionach, będziesz płacić za łączny koszt magazynu w każdym z tych trzech regionów. Aby oszacować wymaganie magazynu, zobacz Narzędzie do [planowania pojemności](https://www.documentdb.com/capacityplanner) . Koszt magazynu w Azure Cosmos DB wynosi $0,25 GB/miesiąc, zobacz stronę z [cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) , aby uzyskać najnowsze aktualizacje. Można skonfigurować alerty w celu określenia magazynu używanego przez kontener usługi Azure Cosmos, aby monitorować magazyn, zobacz artykuł [monitorowanie Azure Cosmos DB](monitor-accounts.md)).
+Magazyn jest rozliczany przy użyciu jednostki GB. Lokalny dysk SSD — magazyn kopii zapasowych jest używany przez dane i indeksowanie. Łączny używany magazyn jest równy magazynowi wymaganemu przez dane i indeksy używane we wszystkich regionach, w których są używane Azure Cosmos DB. Jeśli globalnie replikujesz konto usługi Azure Cosmos w trzech regionach, będziesz płacić za łączny koszt magazynu w każdym z tych trzech regionów. Aby oszacować wymaganie magazynu, zobacz Narzędzie do [planowania pojemności](https://www.documentdb.com/capacityplanner) . Koszt magazynu w Azure Cosmos DB wynosi $0,25 GB/miesiąc, zobacz stronę z [cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) , aby uzyskać najnowsze aktualizacje. Można skonfigurować alerty w celu określenia magazynu używanego przez kontener usługi Azure Cosmos, aby monitorować magazyn, zobacz artykuł [monitorowanie Azure Cosmos DB](./monitor-cosmos-db.md)).
 
 ## <a name="optimize-cost-with-item-size"></a>Optymalizuj koszt z rozmiarem elementu
 
@@ -28,7 +28,7 @@ Azure Cosmos DB oczekuje, że rozmiar elementu wynosi 2 MB lub mniej, aby zapewn
 
 ## <a name="optimize-cost-with-indexing"></a>Optymalizowanie kosztów za pomocą indeksowania
 
-Domyślnie dane są indeksowane automatycznie, co może zwiększyć łączny zużyty magazyn. Można jednak zastosować niestandardowe zasady indeksu w celu zmniejszenia tego obciążenia. Automatyczne indeksowanie, które nie zostało dostrojone za pomocą zasad, to około 10-20% rozmiaru elementu. Przez usunięcie lub dostosowanie zasad indeksu nie są napłacone dodatkowe koszty związane z zapisem i nie jest wymagane dodatkowe możliwości przepływności. Aby skonfigurować niestandardowe zasady indeksowania, zobacz [indeksowanie w Azure Cosmos DB](indexing-policies.md) . Jeśli wcześniej pracujesz z relacyjnymi bazami danych, możesz zastanowić się, że "indeks wszystkiego" oznacza Podwajanie przestrzeni dyskowej lub wyższą. Jednak w Azure Cosmos DB, w przypadku gdy jest to znacznie mniejsze. W Azure Cosmos DB obciążenie magazynu dla indeksu jest zwykle niskie (10-20%) nawet w przypadku automatycznego indeksowania, ponieważ jest ono przeznaczone do niskiego rozmiaru magazynu. Zarządzając zasadami indeksowania, można kontrolować kompromisy między wpływami indeksowania i wydajnością zapytań w bardziej szczegółowy sposób.
+Domyślnie dane są indeksowane automatycznie, co może zwiększyć łączny zużyty magazyn. Można jednak zastosować niestandardowe zasady indeksu w celu zmniejszenia tego obciążenia. Automatyczne indeksowanie, które nie zostało dostrojone za pomocą zasad, to około 10-20% rozmiaru elementu. Przez usunięcie lub dostosowanie zasad indeksu nie są napłacone dodatkowe koszty związane z zapisem i nie jest wymagane dodatkowe możliwości przepływności. Aby skonfigurować niestandardowe zasady indeksowania, zobacz [indeksowanie w Azure Cosmos DB](index-policy.md) . Jeśli wcześniej pracujesz z relacyjnymi bazami danych, możesz zastanowić się, że "indeks wszystkiego" oznacza Podwajanie przestrzeni dyskowej lub wyższą. Jednak w Azure Cosmos DB, w przypadku gdy jest to znacznie mniejsze. W Azure Cosmos DB obciążenie magazynu dla indeksu jest zwykle niskie (10-20%) nawet w przypadku automatycznego indeksowania, ponieważ jest ono przeznaczone do niskiego rozmiaru magazynu. Zarządzając zasadami indeksowania, można kontrolować kompromisy między wpływami indeksowania i wydajnością zapytań w bardziej szczegółowy sposób.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Optymalizowanie kosztów za pomocą czasu wygaśnięcia i kanału informacyjnego zmiany
 
@@ -40,7 +40,7 @@ Jeśli chcesz przechowywać rozbudowane typy multimediów, na przykład wideo, o
 
 ## <a name="check-storage-consumed"></a>Sprawdź zużyte miejsce w magazynie
 
-Aby sprawdzić użycie magazynu przez kontener usługi Azure Cosmos, możesz uruchomić żądanie HEAD lub GET na kontenerze i sprawdzić `x-ms-request-quota` `x-ms-request-usage` nagłówki i. Alternatywnie, podczas pracy z zestawem SDK .NET, można użyć właściwości [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))i [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) , aby uzyskać zużyty magazyn.
+Aby sprawdzić użycie magazynu przez kontener usługi Azure Cosmos, możesz uruchomić żądanie HEAD lub GET na kontenerze i sprawdzić `x-ms-request-quota` `x-ms-request-usage` nagłówki i. Alternatywnie, podczas pracy z zestawem SDK .NET, można użyć właściwości [DocumentSizeQuota](/previous-versions/azure/dn850325(v%3Dazure.100))i [DocumentSizeUsage](/previous-versions/azure/dn850324(v=azure.100)) , aby uzyskać zużyty magazyn.
 
 ## <a name="using-sdk"></a>Używanie zestawu SDK
 
@@ -59,6 +59,5 @@ Następnie możesz dowiedzieć się więcej o optymalizacji kosztów w Azure Cos
 * Dowiedz się więcej o [zrozumieniu Azure Cosmos DB rachunku](understand-your-bill.md)
 * Dowiedz się więcej na temat [optymalizowania kosztu przepływności](optimize-cost-throughput.md)
 * Dowiedz się więcej o [optymalizowaniu kosztów operacji odczytu i zapisu](optimize-cost-reads-writes.md)
-* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](optimize-cost-queries.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów zapytań](./optimize-cost-reads-writes.md)
 * Dowiedz się więcej [na temat optymalizowania kosztów kont usługi Azure Cosmos w wielu regionach](optimize-cost-regions.md)
-

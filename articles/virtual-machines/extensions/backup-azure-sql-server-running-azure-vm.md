@@ -1,19 +1,19 @@
 ---
 title: Azure Backup SQL Server uruchomionego na maszynie wirtualnej platformy Azure
 description: W tym artykule dowiesz się, jak zarejestrować Azure Backup w SQL Server uruchomionym na maszynie wirtualnej platformy Azure.
-services: backup
 author: dcurwin
 manager: carmonm
-ms.service: backup
+ms.service: virtual-machines
+ms.subservice: extensions
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 84ff3e18cf488f5536d5945d7b8fc8d78882424e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66675f77d480ce8d9f21e5ffb507c475337c9dab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511181"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490734"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure Backup SQL Server uruchomionego na maszynie wirtualnej platformy Azure
 

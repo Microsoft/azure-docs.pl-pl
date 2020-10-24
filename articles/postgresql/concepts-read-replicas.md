@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 3b660875288db1f16f13d58b1538a876e2ff2666
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7f81e6182209e29e41a21abadbaf05518844d201
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123302"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490173"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Odczytaj repliki w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -143,7 +143,7 @@ Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w
 
 ### <a name="disaster-recovery"></a>Odzyskiwanie po awarii
 
-W przypadku wystąpienia poważnych zdarzeń awaryjnych, takich jak strefa dostępności lub awarie regionalne, można wykonać operację odzyskiwania po awarii, promując replikę odczytu. W portalu interfejsu użytkownika można przejść do serwera odczytywania repliki. Następnie kliknij kartę replikacja, a następnie Zatrzymaj replikę, aby zapewnić jej niezależny serwer. Alternatywnie można użyć [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) do zatrzymania i podniesienia poziomu serwera repliki.
+W przypadku wystąpienia poważnych zdarzeń awaryjnych, takich jak strefa dostępności lub awarie regionalne, można wykonać operację odzyskiwania po awarii, promując replikę odczytu. W portalu interfejsu użytkownika można przejść do serwera odczytywania repliki. Następnie kliknij kartę replikacja, a następnie Zatrzymaj replikę, aby zapewnić jej niezależny serwer. Alternatywnie można użyć [interfejsu wiersza polecenia platformy Azure](/cli/azure/postgres/server/replica#az_postgres_server_replica_stop) do zatrzymania i podniesienia poziomu serwera repliki.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 

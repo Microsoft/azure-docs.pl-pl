@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 631dd3242e695a1e7872a4b078ab3f9761591c56
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0b19d7681925296936fee5823f7df32e131f8bb8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277761"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482659"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Zarządzanie zasobami interfejsu API platformy Azure Cosmos Core (SQL) przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W poniższym przewodniku opisano typowe polecenia służące do automatyzowania zarządzania kontami, bazami danych i kontenerami usługi Azure Cosmos DB przy użyciu interfejsu wiersza polecenia platformy Azure. W [dokumentacji interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/cosmosdb)są dostępne strony referencyjne dla wszystkich poleceń CLI Azure Cosmos DB. Więcej przykładów można znaleźć w przykładach [interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB](cli-samples.md), w tym tworzenia i zarządzania kontami Cosmos DB, bazami danych i kontenerami dla MongoDB, Gremlin, Cassandra i interfejs API tabel.
+W poniższym przewodniku opisano typowe polecenia służące do automatyzowania zarządzania kontami, bazami danych i kontenerami usługi Azure Cosmos DB przy użyciu interfejsu wiersza polecenia platformy Azure. W [dokumentacji interfejsu wiersza polecenia platformy Azure](/cli/azure/cosmosdb)są dostępne strony referencyjne dla wszystkich poleceń CLI Azure Cosmos DB. Więcej przykładów można znaleźć w przykładach [interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB](cli-samples.md), w tym tworzenia i zarządzania kontami Cosmos DB, bazami danych i kontenerami dla MongoDB, Gremlin, Cassandra i interfejs API tabel.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -545,5 +545,5 @@ az lock delete --ids $lockid
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz:
 
 * [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
-* [Dokumentacja interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
+* [Dokumentacja interfejsu wiersza polecenia platformy Azure](/cli/azure/cosmosdb)
 * [Dodatkowe przykłady interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB](cli-samples.md)

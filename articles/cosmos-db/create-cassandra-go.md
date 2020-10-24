@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: ba53fb786b1d1f61535168cda2152049a12dfb99
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87f3ea2d1ce8d3d9f2f584db379618fc6c4a4a67
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86535789"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491244"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Szybki Start: Tworzenie aplikacji języka go z `gocql` klientem w celu zarządzania danymi interfejs API Cassandra Azure Cosmos DB
 
@@ -85,7 +85,7 @@ func GetSession(cosmosCassandraContactPoint, cosmosCassandraPort, cosmosCassandr
 }
 ```
 
-Azure Cosmos DB Host Cassandra jest przesyłany do [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) funkcji, aby uzyskać [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) strukturę, która następnie jest skonfigurowana do korzystania z nazwy użytkownika, hasła, portu i odpowiedniej wersji protokołu TLS ([wymaganie zabezpieczeń protokołu HTTPS/SSL/TLS](https://docs.microsoft.com/azure/cosmos-db/database-security?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))
+Azure Cosmos DB Host Cassandra jest przesyłany do [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) funkcji, aby uzyskać [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) strukturę, która następnie jest skonfigurowana do korzystania z nazwy użytkownika, hasła, portu i odpowiedniej wersji protokołu TLS ([wymaganie zabezpieczeń protokołu HTTPS/SSL/TLS](./database-security.md?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))
 
 `GetSession`Funkcja jest następnie wywoływana z `main` funkcji ( `main.go` ).
 
@@ -238,7 +238,7 @@ set COSMOSDB_CASSANDRA_USER=<value for "USERNAME">
 set COSMOSDB_CASSANDRA_PASSWORD=<value for "PRIMARY PASSWORD">
 ```
 
-W oknie terminalu przejdź do odpowiedniego folderu. Na przykład:
+W oknie terminalu przejdź do odpowiedniego folderu. Przykład:
 
 ```shell
 cd "C:\git-samples\azure-cosmosdb-cassandra-go-getting-started"

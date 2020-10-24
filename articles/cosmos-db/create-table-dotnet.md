@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e49ecf0f8e88e0de22117a5ed85b8352e73a2f5d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65a3e9a1e60ad28fbc0357c5b04007ce4da37895
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89020239"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487606"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji interfejs API tabel przy użyciu zestawu .NET SDK i Azure Cosmos DB 
 
@@ -22,7 +22,7 @@ ms.locfileid: "89020239"
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 >  
 
 Ten przewodnik szybkiego startu pokazuje, jak używać programu .NET i [interfejsu API tabeli](table-introduction.md) usługi Azure Cosmos DB do tworzenia aplikacji przez sklonowanie przykładu z usługi GitHub. Ten przewodnik Szybki start pokazuje również, jak utworzyć konto usługi Azure Cosmos DB i jak korzystać z Eksploratora danych do tworzenia tabel i jednostek w witrynie internetowej Azure Portal.
@@ -68,7 +68,7 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
    ```
 
 > [!TIP]
-> Aby zapoznać się z bardziej szczegółowym omówieniem podobnego kodu, zobacz artykuł [Cosmos DB interfejs API tabel Sample](table-storage-how-to-use-dotnet.md) .
+> Aby zapoznać się z bardziej szczegółowym omówieniem podobnego kodu, zobacz artykuł [Cosmos DB interfejs API tabel Sample](./tutorial-develop-table-dotnet.md) .
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Otwieranie przykładowej aplikacji w programie Visual Studio
 
@@ -173,4 +173,3 @@ W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure
 
 > [!div class="nextstepaction"]
 > [Importowanie danych tabeli do interfejsu API tabeli](table-import.md)
-

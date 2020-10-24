@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: bec4e831b3f7af0ef551617ba8a8253925226e05
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 925a5000f9778689660765ef715dd8760d5340a2
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461842"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495977"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -318,7 +318,7 @@ Jeśli planujesz kontynuować korzystanie z samouczków Digital bliźniaczych re
 
 Następnie usuń Azure Active Directory rejestrację aplikacji utworzoną dla aplikacji klienckiej przy użyciu tego polecenia:
 
-```azurecli
+```azurecli-interactive
 az ad app delete --id <your-application-ID>
 ```
 

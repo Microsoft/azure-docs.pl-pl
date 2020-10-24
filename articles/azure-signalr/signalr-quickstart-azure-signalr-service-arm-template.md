@@ -1,18 +1,18 @@
 ---
 title: 'Szybki Start: Tworzenie usługi Azure Signal Service — szablon ARM'
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć usługę Azure Signal przy użyciu szablonu Azure Resource Manager.
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć usługę Azure Signal Service przy użyciu szablonu Azure Resource Manager (szablon ARM).
 author: mgblythe
 ms.service: signalr
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/02/2020
-ms.openlocfilehash: 04d0a98863dded93216f5fc669b8148f710f5f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f38bd6ed91788343c028ec5834ba28f4bad3ba43
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858857"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487827"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Szybki Start: korzystanie z szablonu ARM w celu wdrożenia usługi Azure Signal Service
 
@@ -70,7 +70,7 @@ Na stronie **wdrażanie usługi Azure Signal Service** :
 
 3. Jeśli utworzono nową grupę zasobów, wybierz **region** dla grupy zasobów.
 
-4. Jeśli chcesz, wprowadź nową **nazwę** i **lokalizację** (na przykład **eastus2**) usługi Azure Signal Service. Jeśli nazwa nie zostanie określona, jest generowana automatycznie. Lokalizacja usługi Azure Signal Service może być taka sama jak lub różna od regionu grupy zasobów. Jeśli lokalizacja nie zostanie określona, zostanie ona ustawiona na ten sam region, w którym znajduje się grupa zasobów.
+4. Jeśli chcesz, wprowadź nową **nazwę** i **lokalizację** (na przykład **Eastus2**) usługi Azure Signal Service. Jeśli nazwa nie zostanie określona, jest generowana automatycznie. Lokalizacja usługi Azure Signal Service może być taka sama jak lub różna od regionu grupy zasobów. Jeśli lokalizacja nie zostanie określona, zostanie ona ustawiona na ten sam region, w którym znajduje się grupa zasobów.
 
 5. Wybierz **warstwę cenową** (**Free_F1** lub **Standard_S1**), wprowadź **pojemność** (liczbę jednostek sygnalizujących), a następnie wybierz **tryb usługi** **domyślnej** (wymaga serwera Hub), **bezserwerowe** (nie zezwala na żadne połączenie z serwerem) ani **klasyczny** (kierowany do serwera Hub tylko wtedy, gdy koncentrator ma połączenie z serwerem). Następnie zdecyduj, czy **włączyć dzienniki łączności** , czy **włączyć dzienniki obsługi komunikatów**.
 
@@ -79,7 +79,7 @@ Na stronie **wdrażanie usługi Azure Signal Service** :
 
     :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Przycisk służący do wdrażania usługi Azure Signal platform na platformie Azure przy użyciu szablonu ARM w Azure Portal.":::
 
-6. Wybierz pozycję **Przeglądanie + tworzenie**.
+6. Wybierz pozycję **Przejrzyj i utwórz**.
 
 7. Przeczytaj warunki i postanowienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -100,7 +100,7 @@ Użyj poniższego kodu, aby wdrożyć usługę Azure Signal przy użyciu szablon
 * Czy włączyć dzienniki dla połączeń lub komunikatów (**true** lub **false**)
 
 ```azurepowershell-interactive
-$serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR service"
+$serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
 $serviceLocation = Read-Host -Prompt "Enter an Azure region (for example, westus2) for the service"
 $resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group to contain the service"
 $resourceGroupRegion = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
@@ -124,7 +124,7 @@ $paramObjHashTable = @{
     enableMessagingLogs = $enableMessageLogs
 }
 
-Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR service using an ARM template" -Verbose
+Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR Service using an ARM template" -Verbose
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateParameterObject $paramObjHashTable `
     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json
@@ -145,7 +145,7 @@ Użyj poniższego kodu, aby wdrożyć usługę Azure Signal przy użyciu szablon
 * Czy włączyć dzienniki dla połączeń lub komunikatów (**true** lub **false**)
 
 ```azurecli-interactive
-read -p "Enter a name for the new Azure SignalR service: " serviceName &&
+read -p "Enter a name for the new Azure SignalR Service: " serviceName &&
 read -p "Enter an Azure region (for example, westus2) for the service: " serviceLocation &&
 read -p "Enter a name for the new resource group to contain the service: " resourceGroupName &&
 read -p "Enter an Azure region (for example, centralus) for the resource group: " resourceGroupRegion &&
@@ -157,7 +157,7 @@ read -p "Specify whether to enable messaging logs (true or false): " enableMessa
 params='name='$serviceName' location='$serviceLocation' pricingTier='$priceTier' capacity='$unitCapacity' serviceMode='$servicingMode' enableConnectivityLogs='$enableConnectionLogs' enableMessagingLogs='$enableMessageLogs &&
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
-echo "RUN az deployment group create, which creates an Azure SignalR service using an ARM template" &&
+echo "RUN az deployment group create, which creates an Azure SignalR Service using an ARM template" &&
 az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
@@ -182,7 +182,7 @@ Wykonaj następujące kroki, aby zapoznać się z omówieniem nowej usługi Azur
 Uruchom Poniższy kod interaktywny, aby wyświetlić szczegółowe informacje o usłudze Azure Signal Service. Musisz wprowadzić nazwę nowej usługi i grupy zasobów.
 
 ```azurepowershell-interactive
-$serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR service"
+$serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR Service"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Write-Verbose "Get-AzSignalR -ResourceGroupName $resourceGroupName -Name $serviceName" -Verbose
 Get-AzSignalR -ResourceGroupName $resourceGroupName -Name $serviceName
@@ -194,7 +194,7 @@ Read-Host "Press [ENTER] to continue"
 Uruchom Poniższy kod interaktywny, aby wyświetlić szczegółowe informacje o usłudze Azure Signal Service. Musisz wprowadzić nazwę nowej usługi i grupy zasobów.
 
 ```azurecli-interactive
-read -p "Enter the name of your Azure SignalR service: " serviceName &&
+read -p "Enter the name of your Azure SignalR Service: " serviceName &&
 read -p "Enter the resource group name: " resourceGroupName &&
 echo "SHOW SERVICE DETAILS:  az signalr show --resource-group $resourceGroupName --name $serviceName" &&
 az signalr show --resource-group $resourceGroupName --name $serviceName &&

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: allensu
-ms.openlocfilehash: 26c4c01aaf6abe6b9c9ac6daf6836d7b660ba21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b507fbad4d9089d918ae7a85c07f30efcb118476
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649868"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487249"
 ---
 # <a name="configure-tcp-idle-timeout-for-azure-load-balancer"></a>Skonfiguruj limit czasu bezczynności protokołu TCP dla Azure Load Balancer
 
@@ -28,7 +28,11 @@ ms.locfileid: "91649868"
 
 Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten artykuł wymaga modułu Azure PowerShell w wersji 5.4.1 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
-Azure Load Balancer ma ustawienie limitu czasu bezczynności wynoszące 4 minuty do 120 minut. Wartość domyślna to 4 minuty. Jeśli okres braku aktywności jest dłuższy niż wartość limitu czasu, nie ma gwarancji, że sesja TCP lub HTTP jest utrzymywana między klientem a usługą w chmurze. Dowiedz się więcej o [limicie czasu bezczynności protokołu TCP](load-balancer-tcp-reset.md).
+Azure Load Balancer ma następujący zakres limitów czasu bezczynności:
+
+4 minuty do 100 minut dla reguł ruchu wychodzącego od 4 do 30 minut dla reguł Load Balancer i reguł NAT dla ruchu przychodzącego
+
+Wartość domyślna to 4 minuty. Jeśli okres braku aktywności jest dłuższy niż wartość limitu czasu, nie ma gwarancji, że sesja TCP lub HTTP jest utrzymywana między klientem a usługą w chmurze. Dowiedz się więcej o [limicie czasu bezczynności protokołu TCP](load-balancer-tcp-reset.md).
 
 W poniższych sekcjach opisano, jak zmienić ustawienia limitu czasu bezczynności dla zasobów publicznego adresu IP i modułu równoważenia obciążenia.
 
@@ -41,11 +45,11 @@ $publicIP.IdleTimeoutInMinutes = "15"
 Set-AzPublicIpAddress -PublicIpAddress $publicIP
 ```
 
-Parametr `IdleTimeoutInMinutes` jest opcjonalny. Jeśli nie jest ustawiona, domyślny limit czasu wynosi 4 minuty. Akceptowalny zakres limitu czasu wynosi od 4 do 120 minut.
+Parametr `IdleTimeoutInMinutes` jest opcjonalny. Jeśli nie jest ustawiona, domyślny limit czasu wynosi 4 minuty. 
 
 ## <a name="set-the-tcp-idle-timeout-on-rules"></a>Ustaw limit czasu bezczynności protokołu TCP dla reguł
 
-Aby ustawić limit czasu bezczynności dla modułu równoważenia obciążenia, wartość "IdleTimeoutInMinutes" jest ustawiana dla reguły ze zrównoważonym obciążeniem. Na przykład:
+Aby ustawić limit czasu bezczynności dla modułu równoważenia obciążenia, wartość "IdleTimeoutInMinutes" jest ustawiana dla reguły ze zrównoważonym obciążeniem. Przykład:
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"

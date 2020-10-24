@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578040"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490751"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Azure Functions Premium
 
@@ -104,7 +104,7 @@ Rozmiar planu i maksymalne wartości można skonfigurować w Azure Portal, wybie
 Możesz również zwiększyć maksymalny limit obciążeń z poziomu interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 Minimum dla każdego planu będzie co najmniej jednym wystąpieniem.  Rzeczywista minimalna liczba wystąpień zostanie automatycznie skonfigurowana dla użytkownika w oparciu o zawsze gotowe wystąpienia wymagane przez aplikacje w planie.  Na przykład jeśli aplikacja A zwróci pięć zawsze gotowe wystąpienia, a aplikacja B żąda dwóch zawsze przygotowanych wystąpień w tym samym planie, minimalny rozmiar planu zostanie obliczony jako pięć.  Aplikacja A będzie działać na wszystkich 5, a aplikacja B będzie działać tylko na 2.
@@ -117,14 +117,14 @@ W większości przypadków wartość minimalna powinna być wystarczająca.  Jed
 Zwiększenie obliczonego minimum dla planu można wykonać przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### <a name="available-instance-skus"></a>Dostępne jednostki SKU wystąpienia
 
 Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień.  Opłaty są naliczane za łączną liczbę rdzeni i pamięci, która została przypisana do każdego wystąpienia.  Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.  
 
-|SKU|Rdzenie|Pamięć|Magazyn|
+|Jednostka SKU|Rdzenie|Pamięć|Magazyn|
 |--|--|--|--|
 |EP1|1|3,5 GB|250|
 |EP2|2|7GB|250|
@@ -157,7 +157,7 @@ Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](h
 |Wschodnie stany USA 2| 100 | 20 |
 |Francja Środkowa| 100 | 20 |
 |Niemcy Środkowo-Zachodnie| 100 | Niedostępny |
-|Japan East| 100 | 20 |
+|Japonia Wschodnia| 100 | 20 |
 |Japonia Zachodnia| 100 | 20 |
 |Korea Środkowa| 100 | 20 |
 |Korea Południowa| Niedostępny | 20 |

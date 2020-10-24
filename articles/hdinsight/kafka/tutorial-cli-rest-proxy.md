@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 44951fc19f36bb6652caf79ded96484bcc4b38f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49419853f193336e39ff8f729472342bb137fd39
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503144"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490224"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Samouczek: Tworzenie klastra Apache Kafka z włączonym serwerem proxy REST w usłudze HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -27,7 +27,7 @@ W ramach tego samouczka nauczysz się:
 > * Wymagania wstępne dotyczące serwera proxy REST Kafka
 > * Tworzenie klastra Apache Kafka przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,7 +35,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 * Grupa zabezpieczeń usługi Azure AD z zarejestrowaną aplikacją jako członek. Ta grupa zabezpieczeń zostanie użyta do kontrolowania, które aplikacje mogą korzystać z serwera proxy REST. Aby uzyskać więcej informacji na temat tworzenia grup usługi Azure AD, zobacz [Tworzenie grupy podstawowej i Dodawanie członków przy użyciu Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* Interfejs wiersza polecenia platformy Azure. Upewnij się, że masz co najmniej wersję 2.0.79. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Interfejs wiersza polecenia platformy Azure. Upewnij się, że masz co najmniej wersję 2.0.79. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-apache-kafka-cluster"></a>Tworzenie klastra platformy Apache Kafka
 
@@ -85,7 +85,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     export componentVersion=kafka=2.1
     ```
 
-1. [Utwórz grupę zasobów](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) , wprowadzając następujące polecenie:
+1. [Utwórz grupę zasobów](/cli/azure/group#az-group-create) , wprowadzając następujące polecenie:
 
     ```azurecli
      az group create \
@@ -93,7 +93,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
         --name $resourceGroupName
     ```
 
-1. [Utwórz konto usługi Azure Storage](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) , wprowadzając następujące polecenie:
+1. [Utwórz konto usługi Azure Storage](/cli/azure/storage/account#az-storage-account-create) , wprowadzając następujące polecenie:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -106,7 +106,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
         --sku Standard_LRS
     ```
 
-1. [Wyodrębnij klucz podstawowy](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) z konta usługi Azure Storage i Zapisz go w zmiennej, wprowadzając następujące polecenie:
+1. [Wyodrębnij klucz podstawowy](/cli/azure/storage/account/keys#az-storage-account-keys-list) z konta usługi Azure Storage i Zapisz go w zmiennej, wprowadzając następujące polecenie:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -115,7 +115,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
         --query [0].value -o tsv)
     ```
 
-1. [Utwórz kontener usługi Azure Storage](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) , wprowadzając następujące polecenie:
+1. [Utwórz kontener usługi Azure Storage](/cli/azure/storage/container#az-storage-container-create) , wprowadzając następujące polecenie:
 
     ```azurecli
     az storage container create \
@@ -124,7 +124,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
         --account-name $storageAccount
     ```
 
-1. [Utwórz klaster usługi HDInsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create). Przed wprowadzeniem polecenia należy zwrócić uwagę na następujące parametry:
+1. [Utwórz klaster usługi HDInsight](/cli/azure/hdinsight#az-hdinsight-create). Przed wprowadzeniem polecenia należy zwrócić uwagę na następujące parametry:
 
     1. Parametry wymagane dla klastrów Kafka:
 

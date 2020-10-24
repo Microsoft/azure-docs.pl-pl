@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 81180cc0d9cc7754e5a3e935c09441995f16c56a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca2e988067add1513036e2f314e84a7ba6908cdd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907556"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488065"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Przedpłata za zasoby obliczeniowe dla Azure Database for PostgreSQL pojedynczego serwera z zarezerwowaną pojemnością
 
@@ -20,15 +20,15 @@ Azure Database for PostgreSQL teraz pomaga zaoszczędzić pieniądze dzięki wyp
 Nie musisz przypisywać rezerwacji do określonych serwerów Azure Database for PostgreSQL. Już uruchomione Azure Database for PostgreSQL (lub nowo wdrożone) będą automatycznie korzystać z korzyści z zarezerwowanych cen. Zakup rezerwacji polega na przedpłaceniu za koszt obliczeń przez okres jeden lub trzy lata. Gdy tylko kupisz rezerwację, opłaty za usługę Azure Database for PostgreSQL, które pasują do atrybutów rezerwacji, nie są już naliczane według stawek płatności zgodnie z rzeczywistym użyciem. Rezerwacja nie obejmuje opłat za oprogramowanie, sieci lub magazyn związany z serwerami baz danych PostgreSQL. Na koniec okresu rezerwacji Pomoc dotycząca rozliczeń wygaśnie, a Azure Database for PostgreSQL są rozliczane według ceny płatności zgodnie z rzeczywistym użyciem. Rezerwacje nie są autoodnawiane. Aby uzyskać informacje o cenach, zobacz [Azure Database for PostgreSQL zarezerwowanej pojemności](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> Ceny zarezerwowanej pojemności są dostępne dla Azure Database for PostgreSQL zarówno na [jednym serwerze](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) , jak i w [Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) . Aby uzyskać informacje o cenach w modelu RI (Citus), zobacz [Tę stronę](concepts-hyperscale-reserved-pricing.md).
+> Ceny zarezerwowanej pojemności są dostępne dla Azure Database for PostgreSQL zarówno na [jednym serwerze](./overview.md#azure-database-for-postgresql---single-server) , jak i w [Citus](./overview.md#azure-database-for-postgresql--hyperscale-citus) . Aby uzyskać informacje o cenach w modelu RI (Citus), zobacz [Tę stronę](concepts-hyperscale-reserved-pricing.md).
 
-W [Azure Portal](https://portal.azure.com/)można kupić Azure Database for PostgreSQL zarezerwowaną pojemność. Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/monthly-payments-reservations.md). Aby kupić zarezerwowaną pojemność:
+W [Azure Portal](https://portal.azure.com/)można kupić Azure Database for PostgreSQL zarezerwowaną pojemność. Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/prepare-buy-reservation.md). Aby kupić zarezerwowaną pojemność:
 
 * Musisz być w roli właściciela dla co najmniej jednej subskrypcji przedsiębiorstwa lub indywidualnej, która ma stawki płatność zgodnie z rzeczywistym użyciem.
 * W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com/) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji.
 * W przypadku programu Cloud Solution Provider (CSP) tylko agenci administracyjni lub agenci sprzedaży mogą zakupić Azure Database for PostgreSQL zarezerwowaną pojemność. </br>
 
-Szczegółowe informacje na temat tego, w jaki sposób Klienci korporacyjni i klienci korzystający z płatnej zgodnie z rzeczywistym [użyciem są](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) obciążani opłatami za zakup rezerwacji [.](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+Szczegółowe informacje na temat tego, w jaki sposób Klienci korporacyjni i klienci korzystający z płatnej zgodnie z rzeczywistym [użyciem są](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) obciążani opłatami za zakup rezerwacji [.](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 
 ## <a name="determine-the-right-server-size-before-purchase"></a>Określ właściwy rozmiar serwera przed zakupem
@@ -58,12 +58,12 @@ W poniższej tabeli opisano wymagane pola.
 | Region | Region świadczenia usługi Azure objęty Azure Database for PostgreSQL rezerwacji zarezerwowanej pojemności.
 | Typ wdrożenia | Typ zasobu Azure Database for PostgreSQL, dla którego chcesz kupić rezerwację.
 | Warstwa wydajności | Warstwa usług dla serwerów Azure Database for PostgreSQL.
-| Okres | Jeden rok
+| Termin | Jeden rok
 | Liczba | Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji Azure Database for PostgreSQL zarezerwowanej. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania programu lub planowania uruchamiania serwerów Azure Database for PostgreSQL z łączną pojemnością obliczeniową 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich serwerów.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
-Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
+Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
 
 ## <a name="vcore-size-flexibility"></a>elastyczność rozmiaru rdzeń wirtualny
 
@@ -79,9 +79,9 @@ Rabat rezerwacji rdzeń wirtualny jest automatycznie stosowany do liczby serwer�
 
 Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
 
-* [Co to są Azure Reservations](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)?
-* [Zarządzanie usługą Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Informacje na temat rabatu na rezerwacje platformy Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)
-* [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Rezerwacje platformy Azure w programie Cloud Solution Provider w Centrum partnerskim](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Co to są Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md)?
+* [Zarządzanie usługą Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Informacje na temat rabatu na rezerwacje platformy Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
+* [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Rezerwacje platformy Azure w programie Cloud Solution Provider w Centrum partnerskim](/partner-center/azure-reservations)

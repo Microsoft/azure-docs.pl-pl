@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: jasonh
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 72b3f8a4e4a6da434ef20c8e505718ccd3e2deff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0b81bf951df6db0da7ed049c435a319f6ee33b8a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91578392"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479055"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Szybki Start: Tworzenie aplikacji .NET Framework lub Core przy użyciu konta interfejsu API Azure Cosmos DB Gremlin
 
@@ -72,7 +72,7 @@ Teraz sklonujemy aplikację interfejsu API języka Gremlin z repozytorium GitHub
 5. Przywróć pakiety NuGet w projekcie. Powinny one obejmować sterownik Gremlin.Net, a także pakiet Newtonsoft.Json.
 
 
-6. Sterownik Gremlin.Net możesz także zainstalować ręcznie, za pomocą menedżera pakietów NuGet lub [narzędzia wiersza polecenia nuget](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. Sterownik Gremlin.Net możesz także zainstalować ręcznie, za pomocą menedżera pakietów NuGet lub [narzędzia wiersza polecenia nuget](/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net
@@ -176,4 +176,3 @@ W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure
 
 > [!div class="nextstepaction"]
 > [Wykonywanie zapytań przy użyciu języka Gremlin](tutorial-query-graph.md)
-

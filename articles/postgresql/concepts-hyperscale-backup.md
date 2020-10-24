@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 2d781ca7293d4bd95ae62eadc50295ca14c2d381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314934"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485379"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
@@ -39,7 +39,7 @@ W Azure Database for PostgreSQL przywracanie klastra Citus (prescaleing) powoduj
 
 
 > [!IMPORTANT]
-> Nie można przywrócić usuniętych klastrów Citus. Jeśli usuniesz klaster, wszystkie węzły należące do klastra zostaną usunięte i nie będzie można go odzyskać. Aby chronić zasoby klastra, po ich wdrożeniu przed przypadkowym usunięciem lub nieoczekiwanymi zmianami Administratorzy mogą korzystać z [blokad zarządzania](/azure/azure-resource-manager/management/lock-resources).
+> Nie można przywrócić usuniętych klastrów Citus. Jeśli usuniesz klaster, wszystkie węzły należące do klastra zostaną usunięte i nie będzie można go odzyskać. Aby chronić zasoby klastra, po ich wdrożeniu przed przypadkowym usunięciem lub nieoczekiwanymi zmianami Administratorzy mogą korzystać z [blokad zarządzania](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore-pitr"></a>Przywracanie do punktu w czasie (kopie)
 
@@ -65,5 +65,5 @@ Po przywróceniu z dowolnego mechanizmu odzyskiwania należy wykonać następuj�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [strefach dostępności platformy Azure](/azure/availability-zones/az-overview).
-* Ustawianie [sugerowanych alertów](/azure/postgresql/howto-hyperscale-alert-on-metric#suggested-alerts) w grupach serwerów Citus.
+* Dowiedz się więcej o [strefach dostępności platformy Azure](../availability-zones/az-overview.md).
+* Ustawianie [sugerowanych alertów](./howto-hyperscale-alert-on-metric.md#suggested-alerts) w grupach serwerów Citus.

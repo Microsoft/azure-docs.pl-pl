@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 23f32b6d09e36a98c68f5cb8f73ae1125c0543dd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e44fe44285a6693583c1b16645ad0d023428c72b
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460754"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494688"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -34,6 +34,8 @@ Co należy zrobić:
 * **Platforma .NET Core 3,1** na komputerze deweloperskim. Tę wersję zestaw .NET Core SDK można pobrać z wielu platform [pobrać z programu .NET Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
+
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
 ## <a name="set-up-project"></a>Konfigurowanie projektu
 
@@ -116,9 +118,6 @@ Console.WriteLine($"Service client created – ready to go");
 ```
 
 Zapisz plik. 
-
->[!NOTE]
-> Ten przykład używa `DefaultAzureCredential` do uwierzytelniania. Informacje o innych typach poświadczeń znajdują się w dokumentacji dotyczącej [bibliotek uwierzytelniania platformy tożsamości firmy Microsoft](../active-directory/develop/reference-v2-libraries.md)lub artykułu Digital bliźniaczych reprezentacji systemu Azure dotyczących [uwierzytelniania aplikacji klienckich](how-to-authenticate-client.md).
 
 W oknie polecenia Uruchom kod przy użyciu tego polecenia: 
 

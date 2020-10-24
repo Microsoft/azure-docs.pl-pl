@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: jasonh
-ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6733e0f6447d055da8d349940bc7c7665e003e33
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409701"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475604"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Kroki optymalizacji po migracji podczas korzystania z interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -53,12 +53,12 @@ Aby globalnie dystrybuować dane, zobacz [dystrybuowanie danych globalnie w inte
 
 ## <a name="set-consistency-level"></a>Ustaw poziom spójności
 
-Azure Cosmos DB oferuje 5 dobrze zdefiniowanych [poziomów spójności](consistency-levels.md). Aby zapoznać się z mapowaniem między MongoDB i Azure Cosmos DB poziomów spójności, odczyt [poziomów spójności i Azure Cosmos DB interfejsów API](consistency-levels-across-apis.md). Domyślny poziom spójności to poziom spójności sesji. Zmiana poziomu spójności jest opcjonalna i można ją zoptymalizować dla aplikacji. Aby zmienić poziom spójności przy użyciu Azure Portal:
+Azure Cosmos DB oferuje 5 dobrze zdefiniowanych [poziomów spójności](consistency-levels.md). Aby zapoznać się z mapowaniem między MongoDB i Azure Cosmos DB poziomów spójności, odczyt [poziomów spójności i Azure Cosmos DB interfejsów API](./consistency-levels.md). Domyślny poziom spójności to poziom spójności sesji. Zmiana poziomu spójności jest opcjonalna i można ją zoptymalizować dla aplikacji. Aby zmienić poziom spójności przy użyciu Azure Portal:
 
 1. Przejdź do **domyślnego bloku spójności** w obszarze Ustawienia.
 2. Wybierz [poziom spójności](consistency-levels.md)
 
-Większość użytkowników opuszcza poziom spójności w domyślnym ustawieniu spójności sesji. Istnieją jednak [kompromisy dostępności i wydajności dla różnych poziomów spójności](consistency-levels-tradeoffs.md).
+Większość użytkowników opuszcza poziom spójności w domyślnym ustawieniu spójności sesji. Istnieją jednak [kompromisy dostępności i wydajności dla różnych poziomów spójności](./consistency-levels.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

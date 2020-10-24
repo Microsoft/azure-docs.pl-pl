@@ -7,24 +7,24 @@ ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 56cf360dd8d015d797b4974aab667bb89edcce4b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 340ec7c16c5ed3e477cc2c4505c8b018d2d39a06
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951931"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486008"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurowanie czasu wygaśnięcia w usłudze Azure Cosmos DB
 
 W usłudze Azure Cosmos DB możesz skonfigurować czas wygaśnięcia (Time to Live, TTL) na poziomie kontenera lub zastąpić go na poziomie elementu po ustawieniu TTL dla kontenera. TTL można skonfigurować dla kontenera przy użyciu witryny Azure Portal lub zestawu SDK właściwego dla używanego języka. Zastępowanie TTL na poziome elementu można skonfigurować za pomocą zestawów SDK.
 
-> Ta zawartość jest powiązana z Azure Cosmos DBą czasu wygaśnięcia magazynu transakcyjnego. Jeśli szukasz wartości TTL magazynu analitycal, która umożliwia NoETLe scenariusze HTAP za pomocą [linku Synapse platformy Azure](https://docs.microsoft.com/azure/cosmos-db/synapse-link), kliknij [tutaj](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> Ta zawartość jest powiązana z Azure Cosmos DBą czasu wygaśnięcia magazynu transakcyjnego. Jeśli szukasz wartości TTL magazynu analitycal, która umożliwia NoETLe scenariusze HTAP za pomocą [linku Synapse platformy Azure](./synapse-link.md), kliknij [tutaj](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Włączanie czasu wygaśnięcia dla kontenera w witrynie Azure Portal
 
 Wykonaj następujące czynności, aby włączyć czas wygaśnięcia dla kontenera bez terminu wygaśnięcia. Włącz tę funkcję, aby umożliwić zastępowanie TTL na poziomie elementu. Możesz także ustawić TTL, wprowadzając niezerową liczbę sekund.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 2. Utwórz nowe konto usługi Azure Cosmos lub wybierz istniejące.
 
@@ -208,7 +208,7 @@ Oprócz skonfigurowania domyślnego czasu wygaśnięcia dla kontenera możesz us
 
 Wykonaj następujące kroki, aby włączyć czas wygaśnięcia dla elementu:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 2. Utwórz nowe konto usługi Azure Cosmos lub wybierz istniejące.
 

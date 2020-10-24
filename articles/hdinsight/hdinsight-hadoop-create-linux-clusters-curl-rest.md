@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 75eda1720e80a886ca0efb2d1f4204416a5b55f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2b3810afab86b2f81a18bac442ef361404f2309
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083342"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490360"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Tworzenie klastrów Apache Hadoop przy użyciu interfejsu API REST platformy Azure
 
@@ -214,7 +214,7 @@ Ten przykład jest używany w procedurach przedstawionych w tym dokumencie. Zast
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Zaloguj się do subskrypcji platformy Azure
 
-Wykonaj kroki opisane w temacie [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) i nawiąż połączenie z subskrypcją za pomocą `az login` poleceniu.
+Wykonaj kroki opisane w temacie [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-az-cli2) i nawiąż połączenie z subskrypcją za pomocą `az login` poleceniu.
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 

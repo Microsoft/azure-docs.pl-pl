@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 9781369e862c74afe5a8a94cafafff7ef35e68e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5524c7625678d3bacc5fdbe3c295d8392da2280f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078354"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491006"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Monitorowanie klastrów usługi HDInsight za pomocą dzienników usługi Azure Monitor
 
@@ -42,7 +42,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 * W przypadku korzystania z programu PowerShell należy użyć polecenia [AZ module](https://docs.microsoft.com/powershell/azure/). Upewnij się, że masz najnowszą wersję. W razie potrzeby uruchom polecenie `Update-Module -Name Az` .
 
-* Jeśli chcesz użyć interfejsu wiersza polecenia platformy Azure i jeszcze go nie zainstalowano, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Jeśli chcesz użyć interfejsu wiersza polecenia platformy Azure i jeszcze go nie zainstalowano, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 > [!NOTE]  
 > Zaleca się umieszczenie klastra usługi HDInsight i obszaru roboczego Log Analytics w tym samym regionie w celu uzyskania lepszej wydajności. Dzienniki Azure Monitor nie są dostępne we wszystkich regionach świadczenia usługi Azure.
@@ -105,7 +105,7 @@ Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 
 ## <a name="enable-azure-monitor-using-azure-cli"></a>Włączanie Azure Monitor przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Dzienniki Azure Monitor można włączyć za pomocą interfejsu wiersza polecenia platformy Azure `[az hdinsight monitor enable` ] ( https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-enable) polecenie.
+Dzienniki Azure Monitor można włączyć przy użyciu interfejsu wiersza polecenia platformy Azure `[az hdinsight monitor enable` ] (/CLI/Azure/HDInsight/monitor # AZ-HDInsight-monitor-Enable).
 
 ```azurecli
 # set variables
@@ -120,7 +120,7 @@ az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --wo
 az hdinsight monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-Aby wyłączyć, użyj [`az hdinsight monitor disable`](https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-disable) polecenia.
+Aby wyłączyć, użyj [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable) polecenia.
 
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup

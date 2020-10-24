@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311673"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489017"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Znane problemy w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -34,7 +34,7 @@ Alternatywnie możesz otworzyć okienko Cloud Shell w Azure Portal i zakończyć
 
 :::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Widok Azure Portal z wyróżnioną ikoną &quot;Cloud Shell&quot; i Cloud Shell pojawia się u dołu okna portalu":::
 
-Na koniec inne rozwiązanie polega na [zainstalowaniu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) na komputerze, aby umożliwić lokalne uruchamianie poleceń interfejsu CLI platformy Azure. Ten problem nie występuje w lokalnym interfejsie wiersza polecenia.
+Na koniec inne rozwiązanie polega na [zainstalowaniu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) na komputerze, aby umożliwić lokalne uruchamianie poleceń interfejsu CLI platformy Azure. Ten problem nie występuje w lokalnym interfejsie wiersza polecenia.
 
 ### <a name="possible-causes"></a>Możliwe przyczyny
 
@@ -46,7 +46,9 @@ Nie ma to wpływu na polecenia usługi Azure Digital bliźniaczych reprezentacji
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Brak przypisania roli po skonfigurowaniu skryptu
 
-Niektórzy użytkownicy mogą napotkać problemy z częścią przypisywania ról [*: Konfigurowanie wystąpienia i uwierzytelniania (skrypt)*](how-to-set-up-instance-scripted.md). Skrypt nie wskazuje błędu, ale rola *właściciela Digital bliźniaczych reprezentacji (wersja zapoznawcza)* nie została pomyślnie przypisana do użytkownika, a ten problem będzie miał wpływ na możliwość tworzenia innych zasobów w dół.
+Niektórzy użytkownicy mogą napotkać problemy z częścią przypisywania ról [*: Konfigurowanie wystąpienia i uwierzytelniania (skrypt)*](how-to-set-up-instance-scripted.md). Skrypt nie wskazuje błędu, ale rola *właściciela danych Digital bliźniaczych reprezentacji systemu Azure* nie została pomyślnie przypisana do użytkownika, a ten problem będzie miał wpływ na możliwość tworzenia innych zasobów w dół.
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Aby określić, czy przypisanie roli zostało pomyślnie skonfigurowane po uruchomieniu skryptu, postępuj zgodnie z instrukcjami w sekcji [*Weryfikuj przypisanie roli użytkownika*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) w artykule Instalatora. Jeśli użytkownik nie jest wyświetlany z tą rolą, ten problem wystąpi.
 
@@ -64,7 +66,7 @@ W przypadku użytkowników zalogowanych przy użyciu osobistego [konto Microsoft
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problem z uwierzytelnianiem interakcyjnej przeglądarki
 
-Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet) **mogą wystąpić problemy z metodą [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
+Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) **mogą wystąpić problemy z metodą [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) .
 
 To nie jest Najnowsza wersja biblioteki. Najnowsza wersja to **1.2.2**.
 

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 89e8a6a2abfc38c497be646bd70910895f92588f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107491"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489323"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
 
@@ -49,7 +49,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy da
 | blob  | Tak |
 | boolean  | Tak |
 | counter  | Tak |
-| data  | Tak |
+| date  | Tak |
 | decimal  | Tak |
 | double  | Tak |
 | float  | Tak |
@@ -208,7 +208,7 @@ Możesz również nawiązać połączenie z interfejs API Cassandra w Azure Cosm
 
 **Systemy**
 
-W przypadku korzystania z systemu Windows zaleca się włączenie [systemu Windows w systemie Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Następnie możesz użyć poniższych poleceń systemu Linux.
+W przypadku korzystania z systemu Windows zaleca się włączenie [systemu Windows w systemie Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Następnie możesz użyć poniższych poleceń systemu Linux.
 
 **Unix/Linux/Mac:**
 
@@ -255,7 +255,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mapowanie spójności 
 
-Interfejs API Cassandra usługi Azure Cosmos DB zapewnia możliwość wyboru spójności operacji odczytu.  Mapowanie spójności jest szczegółowo opisane w [tym miejscu](consistency-levels-across-apis.md#cassandra-mapping).
+Interfejs API Cassandra usługi Azure Cosmos DB zapewnia możliwość wyboru spójności operacji odczytu.  Mapowanie spójności jest szczegółowo opisane w [tym miejscu](./cassandra-consistency.md#mapping-consistency-levels).
 
 ## <a name="permission-and-role-management"></a>Zarządzanie uprawnieniami i rolami
 

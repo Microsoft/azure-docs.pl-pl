@@ -9,18 +9,18 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 5b4e2fa95b9a5eebf393d7c64feecd3997b7ecfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37e56caa8242709214265af0e1fc03c3853300f1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280032"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488796"
 ---
 # <a name="azure-storage-analytics-logging"></a>Rejestrowanie analizy usługi Azure Storage
 
 Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku.
 
- Rejestrowanie w usłudze Storage Analytics nie jest domyślnie włączone dla Twojego konta magazynu. Można ją włączyć w [Azure Portal](https://portal.azure.com/); Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w Azure Portal](/azure/storage/storage-monitor-storage-account). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Aby włączyć analityka magazynu dla każdej usługi, użyj [właściwości get BLOB Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Pobierz właściwości usługi kolejkowania](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties)i [Pobierz właściwości usługi Table](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) Service.
+ Rejestrowanie w usłudze Storage Analytics nie jest domyślnie włączone dla Twojego konta magazynu. Można ją włączyć w [Azure Portal](https://portal.azure.com/); Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w Azure Portal](/azure/storage/storage-monitor-storage-account). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Aby włączyć analityka magazynu dla każdej usługi, użyj [właściwości get BLOB Service](/rest/api/storageservices/Blob-Service-REST-API), [Pobierz właściwości usługi kolejkowania](/rest/api/storageservices/Get-Queue-Service-Properties)i [Pobierz właściwości usługi Table](/rest/api/storageservices/Get-Table-Service-Properties) Service.
 
  Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do punktu końcowego usługi. Na przykład jeśli konto magazynu ma aktywność w swoim punkcie końcowym obiektu BLOB, ale nie znajduje się w jego punktach końcowych tabeli lub kolejki, zostaną utworzone tylko dzienniki dotyczące Blob service.
 
@@ -204,7 +204,7 @@ Poniższy przykład pokazuje, jak można pobrać dane dziennika dla usługi kole
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Aby dowiedzieć się więcej o pobieraniu określonych plików, zobacz [pobieranie określonych plików](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+Aby dowiedzieć się więcej o pobieraniu określonych plików, zobacz [pobieranie określonych plików](/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
 Po pobraniu danych dziennika można wyświetlić wpisy dziennika w plikach. Te pliki dzienników używają rozdzielanego formatu tekstu, który umożliwia przeanalizowanie wielu narzędzi do odczytywania dzienników (Aby uzyskać więcej informacji, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Różne narzędzia mają różne pomieszczenia do formatowania, filtrowania, sortowania, wyszukiwania w usłudze AD zawartości plików dziennika. Aby uzyskać więcej informacji na temat formatu i zawartości pliku dziennika rejestrowania magazynu, zobacz [analityka magazynu format dziennika](/rest/api/storageservices/storage-analytics-log-format) i [analityka magazynu zarejestrowanych operacji i komunikatów o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: cfe565c45ea6aa0a4bcfecc95b1e1149b17542a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa136a15e4fa034307e16ef50c2b16060c5af0d2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708054"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490207"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Zaawansowana ochrona przed zagrożeniami w programie Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -41,6 +41,6 @@ Zaawansowana ochrona przed zagrożeniami dla Azure Database for PostgreSQL wykry
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Dowiedz się więcej o [Azure Security Center](../security-center/security-center-introduction.md)
 * Aby uzyskać więcej informacji na temat cen, zobacz [stronę z cennikiem Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/) . 
-* Konfigurowanie [Azure Database for PostgreSQL zaawansowanej ochrony przed zagrożeniami](howto-database-threat-protection-portal.md) przy użyciu Azure Portal  
+* Konfigurowanie [Azure Database for PostgreSQL zaawansowanej ochrony przed zagrożeniami](howto-database-threat-protection-portal.md) przy użyciu Azure Portal

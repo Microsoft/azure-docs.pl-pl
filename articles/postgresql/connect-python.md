@@ -8,19 +8,19 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ecf5c540c3fce7a60ebf256d871993400a731ed
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91707901"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481197"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka Python do nawiązywania połączeń i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 
 W tym przewodniku szybki start pracujesz z Azure Database for PostgreSQL przy użyciu języka Python w systemie macOS, Ubuntu Linux lub Windows. Przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z bazą danych i używania instrukcji SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych. W artykule założono, że znasz język Python, ale nowy do pracy z Azure Database for PostgreSQL.
 
 > [!TIP]
-> Jeśli chcesz skompilować aplikację Django z PostgreSQL, Wyewidencjonuj samouczek, [Wdróż aplikację sieci Web Django za pomocą](../app-service/containers/tutorial-python-postgresql-app.md) samouczka PostgreSQL.
+> Jeśli chcesz skompilować aplikację Django z PostgreSQL, Wyewidencjonuj samouczek, [Wdróż aplikację sieci Web Django za pomocą](../app-service/tutorial-python-postgresql-app.md) samouczka PostgreSQL.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne

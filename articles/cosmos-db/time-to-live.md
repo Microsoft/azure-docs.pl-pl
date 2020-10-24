@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802934"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476981"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Czas wygaśnięcia (TTL) w usłudze Azure Cosmos DB
 
@@ -20,7 +20,7 @@ W przypadku **czasu** wygaśnięcia lub czasu wygaśnięcia usługa Azure Cosmos
 
 Usuwanie wygasłych elementów to zadanie w tle, które wykorzystuje [jednostki](request-units.md)żądań od lewej do końca, które są jednostkami żądania, które nie zostały zużyte przez żądania użytkowników. Nawet po wygaśnięciu czasu wygaśnięcia, jeśli kontener jest przeciążony przy użyciu żądań i jeśli nie ma wystarczającej ilości RU, usuwanie danych jest opóźnione. Dane są usuwane, gdy jest wystarczająco dużo jednostek ru dostępne do wykonania operacji usuwania. Mimo że usuwanie danych jest opóźnione, dane nie są zwracane przez żadne zapytania (przez dowolny interfejs API) po wygaśnięciu czasu wygaśnięcia.
 
-> Ta zawartość jest powiązana z Azure Cosmos DBą czasu wygaśnięcia magazynu transakcyjnego. Jeśli szukasz wartości TTL magazynu analitycal, która umożliwia NoETLe scenariusze HTAP za pomocą [linku Synapse platformy Azure](https://docs.microsoft.com/azure/cosmos-db/synapse-link), kliknij [tutaj](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> Ta zawartość jest powiązana z Azure Cosmos DBą czasu wygaśnięcia magazynu transakcyjnego. Jeśli szukasz wartości TTL magazynu analitycal, która umożliwia NoETLe scenariusze HTAP za pomocą [linku Synapse platformy Azure](./synapse-link.md), kliknij [tutaj](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Czas wygaśnięcia kontenerów i elementów
 

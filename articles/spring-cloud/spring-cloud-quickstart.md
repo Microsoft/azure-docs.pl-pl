@@ -4,16 +4,16 @@ description: W tym przewodniku szybki start wdrożono aplikację w chmurze ze sp
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/18/2020
+ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2ec79c9c1fc3b461037b2005da7198f81cbbab34
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: a060528d3140203541f6a13064659651c7a4f67d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170351"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488961"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny
 
@@ -96,7 +96,7 @@ W programie Visual Studio Utwórz ASP.NET Core aplikację sieci Web o nazwie "He
    cd hello-world
    ```
 
-1. Edytuj *appSettings.jsw*   pliku, aby dodać następujące ustawienia:
+1. Edytuj *appSettings.jsw* pliku, aby dodać następujące ustawienia:
 
    ```json
    "spring": {
@@ -345,9 +345,9 @@ Aby ukończyć ten przewodnik Szybki start:
 
 ## <a name="generate-a-spring-cloud-project"></a>Generowanie projektu wiosennej chmury
 
-Zacznij od [Initializr sprężyny](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin) , aby wygenerować przykładowy projekt z zalecanymi zależnościami dla chmury wiosennej platformy Azure. Na poniższej ilustracji przedstawiono Initializr skonfigurowany dla tego przykładowego projektu.
+Zacznij od [Initializr sprężyny](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client) , aby wygenerować przykładowy projekt z zalecanymi zależnościami dla chmury wiosennej platformy Azure. Na poniższej ilustracji przedstawiono Initializr skonfigurowany dla tego przykładowego projektu.
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
 
   ![Strona Initializr](media/spring-cloud-quickstart-java/initializr-page.png)

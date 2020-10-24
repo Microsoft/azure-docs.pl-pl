@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 5945f50ada9af6a8d117d3d773ebeae48d5f4085
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c3ea7930f41fe89538a817da032e993e534db9cd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90903779"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491329"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Co to jest usługa Azure Database for PostgreSQL?
 
@@ -29,7 +29,7 @@ Azure Database for PostgreSQL jest usługą relacyjnej bazy danych w chmurze fir
 
  :::image type="content" source="./media/overview/overview-what-is-azure-postgres.png" alt-text="Azure Database for PostgreSQL":::
 
-Te możliwości wymagają niemal braku administracji, a wszystkie są udostępniane bez dodatkowych kosztów. Umożliwiają one skoncentrowanie się na szybkim tworzeniu aplikacji i skróceniu czasu wprowadzenia na rynek zamiast przydzielania cennych czasu i zasobów do zarządzania maszynami wirtualnymi i infrastrukturą. Ponadto możesz kontynuować tworzenie aplikacji przy użyciu tych samych wybranych przez siebie narzędzi typu open source oraz platformy w celu dostarczania zawartości z wymaganą szybkością i skutecznością bez konieczności uczenia się nowych umiejętności.
+Powyższe możliwości prawie w ogóle nie wymagają administracji i są udostępniane bez żadnych dodatkowych kosztów. Umożliwiają one skoncentrowanie się na szybkim tworzeniu aplikacji i skróceniu czasu wprowadzenia na rynek zamiast przydzielania cennych czasu i zasobów do zarządzania maszynami wirtualnymi i infrastrukturą. Ponadto możesz kontynuować tworzenie aplikacji przy użyciu tych samych wybranych przez siebie narzędzi typu open source oraz platformy w celu dostarczania zawartości z wymaganą szybkością i skutecznością bez konieczności uczenia się nowych umiejętności.
 
 ## <a name="deployment-models"></a>Modele wdrażania
 
@@ -43,7 +43,7 @@ Azure Database for PostgreSQL obsługiwane przez PostgreSQL Community Edition s�
 
 Azure Database for PostgreSQL pojedynczym serwerze to w pełni zarządzana usługa bazy danych z minimalnymi wymaganiami dotyczącymi dostosowywania bazy danych. Platforma jednoserwerowa została zaprojektowana tak, aby obsługiwała większość funkcji zarządzania bazami danych, takich jak stosowanie poprawek, kopii zapasowych, wysoka dostępność, zabezpieczenia z minimalną konfiguracją i kontrolą użytkownika. Architektura jest zoptymalizowana pod kątem wbudowanej wysokiej dostępności dzięki dostępności na 99,99% w ramach pojedynczej strefy dostępności. Obsługuje ona wersję Community PostgreSQL 9,5, 9, 6, 10 i 11. Usługa jest ogólnie dostępna dzisiaj w wielu [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
-Opcja wdrożenia pojedynczego serwera oferuje trzy warstwy cenowe: Podstawowa, Ogólnego przeznaczenia lub Zoptymalizowana pod kątem pamięci. Każda warstwa oferuje inne możliwości w zakresie zasobów, aby wspierać obciążenia bazy danych. Możesz utworzyć swoją pierwszą aplikację na podstawie małej bazy danych za jedynie kilka dolarów miesięcznie, a następnie dostosować skalowanie do potrzeb rozwiązania. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów. Zapłacisz tylko za potrzebne zasoby i tylko wtedy, gdy będą używane. Aby uzyskać szczegółowe informacje, zobacz [Warstwy cenowe](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers).
+Opcja wdrożenia pojedynczego serwera oferuje trzy warstwy cenowe: Podstawowa, Ogólnego przeznaczenia lub Zoptymalizowana pod kątem pamięci. Każda warstwa oferuje inne możliwości w zakresie zasobów, aby wspierać obciążenia bazy danych. Możesz utworzyć swoją pierwszą aplikację na podstawie małej bazy danych za jedynie kilka dolarów miesięcznie, a następnie dostosować skalowanie do potrzeb rozwiązania. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów. Zapłacisz tylko za potrzebne zasoby i tylko wtedy, gdy będą używane. Aby uzyskać szczegółowe informacje, zobacz [Warstwy cenowe](./concepts-pricing-tiers.md).
 
 Pojedyncze serwery najlepiej nadają się do obsługi natywnych aplikacji w chmurze, które mają obsługiwać automatyczne stosowanie poprawek bez potrzeby szczegółowej kontroli nad harmonogramem poprawek i niestandardowymi ustawieniami konfiguracji PostgreSQL.
 
@@ -72,7 +72,7 @@ Opcja wdrożenia Hiperskala (Citus) zapewnia następujące funkcje:
 - Przetwarzanie równoległe zapytań na tych serwerach w celu uzyskania szybszych odpowiedzi w dużych zestawach danych
 - Doskonała pomoc techniczna dla aplikacji wielodostępnych, analizy danych operacyjnych w czasie rzeczywistym oraz obciążeń transakcyjnych o wysokiej przepływności
   
-Aplikacje skompilowane dla PostgreSQL mogą uruchamiać zapytania rozproszone na potrzeby tworzenia i skalowania (Citus) przy użyciu standardowych [bibliotek połączeń](https://docs.microsoft.com/azure/postgresql/concepts-connection-libraries) i minimalnych zmian.
+Aplikacje skompilowane dla PostgreSQL mogą uruchamiać zapytania rozproszone na potrzeby tworzenia i skalowania (Citus) przy użyciu standardowych [bibliotek połączeń](./concepts-connection-libraries.md) i minimalnych zmian.
 
 ## <a name="next-steps"></a>Następne kroki
 

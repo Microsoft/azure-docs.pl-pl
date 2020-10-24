@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7f9573769beb5bf1f6ebe47e6e0a277185ac42b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084827"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488422"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Łączenie się z usługą Azure Cosmos DB przy użyciu narzędzi analizy biznesowej ze sterownikiem ODBC
 
@@ -128,7 +128,7 @@ Poniższe kroki tworzą schemat dla danych w jednym lub większej liczbie konten
 
     Na przykład jeśli dołączysz wartość **atrybutu** miasto i chcesz ograniczyć tabelę do uwzględnienia tylko wierszy z wartością miasto New York i Dubaj, wpisz miasto w polu atrybuty, a Nowy Jork, a następnie Dubaj w polu **wartości** .
 
-1. Kliknij przycisk **OK**. 
+1. Kliknij pozycję **OK**. 
 
 1. Po zakończeniu definiowania mapowania dla kontenerów, które chcesz próbkować, w oknie **Edytor schematu** kliknij **przykład**.
      Dla każdej kolumny można zmodyfikować nazwę SQL kolumny, typ SQL, Długość SQL (jeśli ma to zastosowanie), skalować (jeśli dotyczy), dokładnooć (jeśli dotyczy) i dopuszczać wartość null.
@@ -145,7 +145,7 @@ Możesz wysyłać zapytania do Azure Cosmos DB z SQL Server Management Studio (S
 
 1. Utwórz systemowe źródło danych zgodnie z opisem w [kroku 2](#connect), o nazwie na przykład `SDS Name` .
 
-1. [Zainstaluj SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) i nawiąż połączenie z serwerem. 
+1. [Zainstaluj SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) i nawiąż połączenie z serwerem. 
 
 1. W edytorze zapytań programu SSMS Utwórz obiekt połączonego serwera `DEMOCOSMOS` dla źródła danych za pomocą poniższych poleceń. Zamień na `DEMOCOSMOS` nazwę połączonego serwera i `SDS Name` nazwę źródła danych systemu.
 
@@ -203,7 +203,7 @@ Następnie w oknie **Definicje widoku** wykonaj następujące czynności:
 
 1. Kliknij pozycję **Nowy**, wprowadź nazwę widoku, na przykład EmployeesfromSeattleView, a następnie kliknij przycisk **OK**.
 
-1. W oknie **Edycja widoku** wprowadź zapytanie Azure Cosmos DB. Musi to być [Azure Cosmos DB zapytania SQL](how-to-sql-query.md), na przykład `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"` , a następnie kliknąć przycisk **OK**.
+1. W oknie **Edycja widoku** wprowadź zapytanie Azure Cosmos DB. Musi to być [Azure Cosmos DB zapytania SQL](./sql-query-getting-started.md), na przykład `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"` , a następnie kliknąć przycisk **OK**.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Administrator źródła danych Azure Cosmos DB ODBC":::
 

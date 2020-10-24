@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
-ms.openlocfilehash: cdb2207ab834ab84cedd2ad23e5e26186ac44039
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f815754c099e1e085fb0692285b9e690d68194e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020477"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487674"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Uruchamianie zapytań Apache Hive przy użyciu zestawu .NET SDK usługi HDInsight
 
@@ -146,6 +146,6 @@ W tym artykule przedstawiono sposób przesyłania zapytań Apache Hive przy uży
 
 * [Wprowadzenie do usługi Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Tworzenie klastrów Apache Hadoop w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Dokumentacja zestawu SDK platformy .NET dla usługi HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [Dokumentacja zestawu SDK platformy .NET dla usługi HDInsight](/dotnet/api/overview/azure/hdinsight)
 * [Korzystanie z programu Apache Sqoop z usługą HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Tworzenie aplikacji usługi HDInsight platformy .NET z uwierzytelnianiem nieinterakcyjnym](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

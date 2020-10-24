@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: fcbce9e7a5b24cbbe695b2ad664137875464b705
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 32ff5a73494bac2cabcb9488f946673435173dd0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107933"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489442"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Tworzenie ustawień diagnostycznych w celu wysyłania metryk i dzienników platformy do różnych miejsc docelowych
 [Dzienniki platformy](platform-logs-overview.md) na platformie Azure, w tym dziennik aktywności platformy Azure i dzienniki zasobów, zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą. [Metryki platformy](data-platform-metrics.md) są zbierane domyślnie i zazwyczaj przechowywane w bazie danych metryk Azure monitor. Ten artykuł zawiera szczegółowe informacje na temat tworzenia i konfigurowania ustawień diagnostycznych w celu wysyłania metryk platformy i dzienników platformy do różnych miejsc docelowych.
@@ -63,6 +63,8 @@ Przed utworzeniem ustawień diagnostycznych należy utworzyć wszystkie miejsca 
 > [!NOTE]
 > Konta usługi Azure Data Lake Storage Gen2 nie są obecnie obsługiwane jako miejsce docelowe dla ustawień diagnostycznych, mimo że mogą być wymienione jako prawidłowa opcja w witrynie Azure Portal.
 
+> [!NOTE]
+> Azure Monitor (ustawienia diagnostyczne) nie mogą uzyskać dostępu do zasobów Event Hubs, gdy sieci wirtualne są włączone. Należy włączyć ustawienie Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tego ustawienia zapory w centrum zdarzeń, aby usługa Azure Monitor (ustawienia diagnostyczne) uzyskała dostęp do zasobów Event Hubs. 
 
 
 ## <a name="create-in-azure-portal"></a>Tworzenie w witrynie Azure Portal

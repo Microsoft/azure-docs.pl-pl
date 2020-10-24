@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984102"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478324"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Dostrajanie wydajności w widokach z materiałami
 
@@ -38,7 +38,7 @@ Większość wymagań dotyczących widoku standardowego nadal stosuje się do wi
 |Odświeżanie danych                    | Zawsze aktualizowane                               | Zawsze aktualizowane
 |Szybkość pobierania danych widoku z złożonych zapytań     | Mała                                         | Duża  
 |Dodatkowy magazyn                   | Nie                                           | Tak
-|Składnia                          | UTWÓRZ WIDOK                                  | UTWÓRZ WIDOK Z MATERIAŁAMI JAKO WYBRANY
+|Składnia                          | CREATE VIEW                                  | UTWÓRZ WIDOK Z MATERIAŁAMI JAKO WYBRANY
 
 ## <a name="benefits-of-using-materialized-views"></a>Zalety korzystania z widoków z materiałami
 
@@ -79,7 +79,7 @@ W porównaniu z innymi opcjami dostrajania, takimi jak skalowanie i Zarządzanie
 
 **Potrzebna inna strategia dystrybucji danych w celu przyspieszenia wykonywania zapytań**
 
-Pula SQL jest systemem rozproszonym do masowego przetwarzania równoległego (MPP).   Dane w tabeli puli SQL są dystrybuowane między 60 węzłami przy użyciu jednej z trzech [strategii dystrybucji](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (mieszanie, round_robin lub zreplikowane).  
+Synapse SQL to system przetwarzania zapytań rozproszonych.  Dane w tabeli SQL są dystrybuowane między 60 węzłami przy użyciu jednej z trzech [strategii dystrybucji](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (mieszanie, round_robin lub zreplikowane).   
 
 Dystrybucja danych jest określana w czasie tworzenia tabeli i pozostaje niezmieniona, dopóki tabela nie zostanie porzucona. Widok z materiałami jest tabelą wirtualną na dysku obsługującym dystrybucję danych i round_robin.  Użytkownicy mogą wybrać dystrybucję danych inną niż tabele podstawowe, ale optymalną dla wydajności zapytań, które korzystają z większości widoków.  
 
@@ -115,7 +115,7 @@ Opcje zmniejszania liczby widoków z materiałami:
 
 - Porzuć widoki z materiałami, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materiałowy nie jest obsługiwany, ale nadal wiąże się z nim koszt magazynu.  
 
-- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Na przykład:
+- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Przykład:
 
 ```sql
 

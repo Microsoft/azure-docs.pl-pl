@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0cbbcc822765097f83fcd1a52ce775c69faba9fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836432"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489578"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Szybki Start: Tworzenie udziału Azure Files i zarządzanie nim przy użyciu maszyn wirtualnych z systemem Windows
 
@@ -20,9 +20,9 @@ W tym artykule przedstawiono podstawowe kroki tworzenia i używania udziału us�
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+Zaloguj się do [portalu Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
@@ -72,7 +72,7 @@ Na razie na platformie Azure utworzono konto magazynu i udział plików zawieraj
 1. Pozostaw wartości domyślne w polach **Region**, **Opcje dostępności**, **Obraz** i **Rozmiar**.
 1. W obszarze **Konto administratora** dodaj wartość *VMadmin* w polu **Nazwa użytkownika** i wprowadź **hasło** dla maszyny wirtualnej.
 1. W obszarze **Reguły portów wejściowych** wybierz opcję **Zezwalaj na wybrane porty**, a następnie wybierz **RDP (3389)** i **HTTP** z listy rozwijanej.
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**. Tworzenie nowej maszyny wirtualnej potrwa kilka minut.
 
 1. Po zakończeniu wdrażania maszyny wirtualnej wybierz pozycję **Przejdź do zasobu**.
@@ -98,7 +98,7 @@ Na tym etapie utworzono nową maszynę wirtualną i dołączono dysk z danymi. T
 1. W witrynie Azure Portal przejdź do udziału plików *qsfileshare* i wybierz pozycję **Połącz**.
 1. Skopiuj zawartość drugiego pola, a następnie wklej ją w **Notatniku**.
 
-   ![Ścieżka UNC z okienka Połącz usługi Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
+   ![Zrzut ekranu pokazujący zawartość pola sekund, które należy skopiować i wkleić w Notatniku.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. Na maszynie wirtualnej otwórz **Eksploratora plików** i w oknie wybierz pozycję **Ten komputer**. Ten wybór spowoduje zmianę menu dostępnego na wstążce. W menu **Komputer** wybierz pozycję **Mapuj dysk sieciowy**.
 1. Wybierz literę dysku i wprowadź ścieżkę UNC. Jeśli zostały wykonane sugestie dotyczące nazewnictwa w tym przewodniku Szybki Start, skopiuj * \\ qsstorageacct. plik. Core. Windows. Net\qsfileshare* z **Notatnika**.

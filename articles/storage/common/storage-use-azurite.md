@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f18746242ef9f680f44be1fd614c6c769289aadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331577"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490785"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Korzystanie z emulatora azurite na potrzeby tworzenia lokalnych magazynów platformy Azure
 
@@ -282,7 +282,7 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>Konfiguracja certyfikatu (HTTPS)
 
-**Opcjonalna** — domyślnie azurite używa protokołu HTTP. Włącz tryb HTTPS, podając ścieżkę do pliku certyfikatu Privacy Enhanced Mail (PEM) lub [wymiany informacji osobistych (pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) do `--cert` przełącznika.
+**Opcjonalna** — domyślnie azurite używa protokołu HTTP. Włącz tryb HTTPS, podając ścieżkę do pliku certyfikatu Privacy Enhanced Mail (PEM) lub [wymiany informacji osobistych (pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) do `--cert` przełącznika.
 
 Gdy `--cert` jest dostarczany dla pliku PEM, należy podać odpowiedni `--key` przełącznik.
 
@@ -440,7 +440,7 @@ var client = new BlobContainerClient(
   );
 ```
 
-#### <a name="azure-queue-storage"></a>Usługa Azure Queue Storage
+#### <a name="azure-queue-storage"></a>Azure Queue Storage
 
 Można również utworzyć wystąpienie QueueClient lub QueueServiceClient.
 
@@ -499,7 +499,7 @@ Wykonaj następujące kroki, aby dodać azurite HTTPS do Eksplorator usługi Sto
 1. Wybierz **załączony & lokalny**
 1. Kliknij prawym przyciskiem myszy pozycję **konta magazynu** i wybierz pozycję **Połącz z usługą Azure Storage**.
 1. Wybierz opcję **Użyj parametrów połączenia**
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Wprowadź wartość w polu **Nazwa wyświetlana** .
 1. Wprowadź [Parametry połączenia HTTPS](#https-connection-strings) z poprzedniej sekcji tego dokumentu
 1. Wybierz pozycję **Dalej**

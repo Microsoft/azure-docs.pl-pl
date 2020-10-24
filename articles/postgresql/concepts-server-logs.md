@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 8d249cdabcbfd82fc555c486f29bbdba200e1da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ae3c538c78be8af0fa4569592ac60547e7f5912
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710502"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481299"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Dzienniki w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -72,7 +72,7 @@ Aby włączyć dzienniki zasobów przy użyciu programu PowerShell lub interfejs
 
 ### <a name="access-resource-logs"></a>Dostęp do dzienników zasobów
 
-Sposób dostępu do dzienników zależy od wybranego punktu końcowego. W przypadku usługi Azure Storage zapoznaj się z artykułem [Logs (dzienniki konta magazynu](../azure-monitor/platform/resource-logs-collect-storage.md) ). Aby uzyskać Event Hubs, zobacz artykuł [przesyłanie strumieniowe dzienników platformy Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+Sposób dostępu do dzienników zależy od wybranego punktu końcowego. W przypadku usługi Azure Storage zapoznaj się z artykułem [Logs (dzienniki konta magazynu](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) ). Aby uzyskać Event Hubs, zobacz artykuł [przesyłanie strumieniowe dzienników platformy Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
 
 W przypadku dzienników Azure Monitor dzienniki są wysyłane do wybranego obszaru roboczego. Dzienniki Postgres używają trybu zbierania **AzureDiagnostics** , dzięki czemu można wykonywać zapytania z tabeli AzureDiagnostics. Pola w tabeli są opisane poniżej. Więcej informacji o wysyłaniu zapytań i alertach znajduje się w temacie Omówienie [zapytań dotyczących dzienników Azure monitor](../azure-monitor/log-query/log-query-overview.md) .
 
@@ -103,7 +103,7 @@ W poniższej tabeli opisano pola dla typu **PostgreSQLLogs** . W zależności od
 | TenantId | Identyfikator dzierżawy |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
-| Type | Typ dziennika. Stałego `AzureDiagnostics` |
+| Typ | Typ dziennika. Stałego `AzureDiagnostics` |
 | SubscriptionId | Identyfikator GUID subskrypcji, do której należy serwer |
 | ResourceGroup | Nazwa grupy zasobów, do której należy serwer |
 | ResourceProvider | Nazwa dostawcy zasobów. Stałego `MICROSOFT.DBFORPOSTGRESQL` |
@@ -114,7 +114,7 @@ W poniższej tabeli opisano pola dla typu **PostgreSQLLogs** . W zależności od
 | OperationName | `LogEvent` |
 | Zmienna | Poziom rejestrowania, przykład: LOG, błąd, Uwaga |
 | Wiadomość | Podstawowy komunikat dziennika | 
-| Obszar | Wersja serwera, przykład: Postgres-10 |
+| Domena | Wersja serwera, przykład: Postgres-10 |
 | Szczegóły | Dodatkowy komunikat dziennika (jeśli dotyczy) |
 | nazwa_kolumny | Nazwa kolumny (jeśli dotyczy) |
 | SchemaName | Nazwa schematu (jeśli dotyczy) |

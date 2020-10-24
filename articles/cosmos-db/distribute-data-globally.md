@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 5ea5ee2dfe89b36fce78c369100224718eb5864f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ddb6bc297a32be856172707a220fe1dfaefb9f6d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278762"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487453"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Globalna dystrybucja danych przy użyciu usługi Azure Cosmos DB
 
@@ -55,7 +55,6 @@ Więcej informacji na temat dystrybucji globalnej można znaleźć w następują
 * [Dodawanie lub usuwanie regionów z konta usługi Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Utwórz niestandardowe zasady rozwiązywania konfliktów dla kont interfejsu API SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 * [Programowalne modele spójności w Cosmos DB](consistency-levels.md)
-* [Wybierz odpowiedni poziom spójności dla aplikacji](consistency-levels-choosing.md)
-* [Poziomy spójności w interfejsach API Azure Cosmos DB](consistency-levels-across-apis.md)
-* [Wady dostępności i wydajności dla różnych poziomów spójności](consistency-levels-tradeoffs.md)
-
+* [Wybierz odpowiedni poziom spójności dla aplikacji](./consistency-levels.md)
+* [Poziomy spójności w interfejsach API Azure Cosmos DB](./consistency-levels.md)
+* [Wady dostępności i wydajności dla różnych poziomów spójności](./consistency-levels.md)

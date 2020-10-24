@@ -8,18 +8,18 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 5b37417efdb99f6b90983b86954da70fa6f7c6a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f969c30033604cb4b331b5ed86d992af371f9c75
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716093"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490819"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Samouczek: Migrowanie danych lokalnych do magazynu w chmurze za pomocą usługi AzCopy
 
 Narzędzie AzCopy to narzędzie wiersza polecenia służące do kopiowania danych do lub z magazynu Azure Blob Storage, Azure Files lub Azure Table przy użyciu prostych poleceń. Polecenia te zostały zaprojektowane w celu uzyskania optymalnej wydajności. Za pomocą narzędzia AzCopy można kopiować dane między systemem plików i kontem magazynu lub między kontami magazynu. Narzędzia AzCopy można użyć do skopiowania danych lokalnych do konta magazynu.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu 
@@ -46,7 +46,7 @@ Wykonaj następujące kroki, aby utworzyć kontener:
 1. Wybierz przycisk **Konta magazynu** ze strony głównej, a następnie wybierz utworzone konto magazynu.
 2. Wybierz pozycję **Obiekty blob** w obszarze **Usługi**, a następnie wybierz pozycję **Kontener**.
 
-   ![Tworzenie kontenera](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Zrzut ekranu przedstawiający tworzenie kontenera](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Nazwy kontenerów muszą zaczynać się literą lub cyfrą. Mogą one zawierać tylko litery, cyfry i znaki łącznika (-). Aby uzyskać dodatkowe informacje o regułach nazewnictwa kontenerów i obiektów blob, zobacz temat [Naming and Referencing Containers, Blobs, and Metadata (Nazewnictwo i odwoływanie się do kontenerów, obiektów blob i metadanych)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -62,7 +62,7 @@ Umieść plik AzCopy w dowolnym miejscu na komputerze. Dodaj lokalizację pliku 
 
 ## <a name="authenticate-with-azure-ad"></a>Uwierzytelnianie za pomocą usługi Azure AD
 
-Najpierw Przypisz rolę [współautor danych obiektów blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) do swojej tożsamości. Zobacz [używanie Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+Najpierw Przypisz rolę [współautor danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) do swojej tożsamości. Zobacz [używanie Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](/azure/storage/common/storage-auth-aad-rbac-portal).
 
 Następnie otwórz wiersz polecenia, wpisz poniższe polecenie i naciśnij klawisz ENTER.
 
@@ -72,13 +72,13 @@ azcopy login
 
 To polecenie zwraca kod uwierzytelniania i adres URL witryny sieci Web. Otwórz witrynę sieci Web, podaj kod, a następnie wybierz przycisk **dalej** .
 
-![Tworzenie kontenera](media/storage-use-azcopy-v10/azcopy-login.png)
+![Zrzut ekranu przedstawiający monit logowania](media/storage-use-azcopy-v10/azcopy-login.png)
 
 Zostanie wyświetlone okno logowania. W tym oknie Zaloguj się do konta platformy Azure przy użyciu poświadczeń konta platformy Azure. Po pomyślnym zalogowaniu możesz zamknąć okno przeglądarki i zacząć korzystać z AzCopy.
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Przekazywanie zawartości folderu do magazynu obiektów blob
 
-Za pomocą narzędzia AzCopy możesz przekazać wszystkie pliki w folderze do magazynu obiektów blob w systemie [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) lub [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). Aby przekazać wszystkie obiekty blob w folderze, wprowadź następujące polecenie narzędzia AzCopy:
+Za pomocą narzędzia AzCopy możesz przekazać wszystkie pliki w folderze do magazynu obiektów blob w systemie [Windows](/azure/storage/common/storage-use-azcopy) lub [Linux](/azure/storage/common/storage-use-azcopy-linux). Aby przekazać wszystkie obiekty blob w folderze, wprowadź następujące polecenie narzędzia AzCopy:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -176,7 +176,7 @@ Aby sprawdzić, czy zaplanowane zadanie lub zadanie cron jest działa poprawnie,
 
 Aby dowiedzieć się więcej o sposobach przenoszenia danych lokalnych do usługi Azure Storage i na odwrót, kliknij następujący link:
 
-* [Przenoszenie danych do i z usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Przenoszenie danych do i z usługi Azure Storage](/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 Aby uzyskać więcej informacji na temat AzCopy, zobacz dowolny z następujących artykułów:
 

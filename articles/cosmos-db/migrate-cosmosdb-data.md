@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263548"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480925"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrowanie setek terabajtów danych do usługi Azure Cosmos DB 
 
@@ -38,7 +38,7 @@ Wiele z tych ograniczeń jest naprawionych w przypadku narzędzi takich jak Azur
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>Niestandardowe narzędzie z biblioteką modułu wykonującego zbiorczo 
 
-Wyzwania opisane w powyższej sekcji można rozwiązać przy użyciu niestandardowego narzędzia, które można łatwo skalować w wielu wystąpieniach i odporne na błędy przejściowe. Ponadto narzędzie niestandardowe może wstrzymywać i wznawiać migrację w różnych punktach kontrolnych. Azure Cosmos DB już udostępnia [bibliotekę wykonawców zbiorczych](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) , która obejmuje niektóre z tych funkcji. Na przykład biblioteka wykonawczy Bulk ma już funkcjonalność do obsługi błędów przejściowych i można skalować w poziomie wątki w jednym węźle, aby użyć około 500 K jednostek ru na węzeł. Biblioteka wykonawców zbiorczych również dzieli źródłowy zestaw danych na mikropartie, które są obsługiwane niezależnie jako forma tworzenia punktów kontrolnych.  
+Wyzwania opisane w powyższej sekcji można rozwiązać przy użyciu niestandardowego narzędzia, które można łatwo skalować w wielu wystąpieniach i odporne na błędy przejściowe. Ponadto narzędzie niestandardowe może wstrzymywać i wznawiać migrację w różnych punktach kontrolnych. Azure Cosmos DB już udostępnia [bibliotekę wykonawców zbiorczych](./bulk-executor-overview.md) , która obejmuje niektóre z tych funkcji. Na przykład biblioteka wykonawczy Bulk ma już funkcjonalność do obsługi błędów przejściowych i można skalować w poziomie wątki w jednym węźle, aby użyć około 500 K jednostek ru na węzeł. Biblioteka wykonawców zbiorczych również dzieli źródłowy zestaw danych na mikropartie, które są obsługiwane niezależnie jako forma tworzenia punktów kontrolnych.  
 
 Narzędzie niestandardowe używa biblioteki wykonawców zbiorczych i obsługuje skalowanie w poziomie między wieloma klientami oraz śledzenie błędów w procesie pozyskiwania. Aby można było używać tego narzędzia, dane źródłowe powinny być partycjonowane na różne pliki w Azure Data Lake Storage (ADLS), dzięki czemu różne procesy robocze migracji mogą pobrać każdy plik i pozyskiwać je do Azure Cosmos DB. Narzędzie niestandardowe korzysta z oddzielnej kolekcji, która przechowuje metadane dotyczące postępu migracji każdego pliku źródłowego w programie ADLS i śledzi wszelkie związane z nimi błędy.  
 
@@ -152,4 +152,4 @@ Chociaż w tym przewodniku można pomyślnie migrować duże zestawy danych do A
 
 * Dowiedz się więcej, pobierając przykładowe aplikacje zużywające zbiorczą bibliotekę wykonawczą w programie [.NET i środowisku](bulk-executor-dot-net.md) [Java](bulk-executor-java.md). 
 * Biblioteka wykonawców zbiorczych jest zintegrowana z łącznikiem Cosmos DB Spark, aby dowiedzieć się więcej, zobacz Azure Cosmos DB artykuł dotyczący [łącznika Spark](spark-connector.md) .  
-* Skontaktuj się z zespołem produktu Azure Cosmos DB, otwierając bilet pomocy technicznej w ramach typu problemu "ogólny poradnik" i "duże (TB +) migracje", aby uzyskać dodatkową pomoc dotyczącą migracji z dużą skalą. 
+* Skontaktuj się z zespołem produktu Azure Cosmos DB, otwierając bilet pomocy technicznej w ramach typu problemu "ogólny poradnik" i "duże (TB +) migracje", aby uzyskać dodatkową pomoc dotyczącą migracji z dużą skalą.

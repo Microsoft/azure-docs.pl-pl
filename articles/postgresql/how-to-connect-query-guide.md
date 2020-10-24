@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 924dbadc07f57e5928ecc63a24bf5e57d6213670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c6d6a51887d2912da8d6b4e357a1036596d63d5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938811"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490020"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Przegląd połączeń i zapytań dotyczących usługi Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -23,7 +23,7 @@ Poniższy dokument zawiera linki do przykładów przedstawiających sposób nawi
 | Szybki start | Opis |
 |---|---|
 |[PgAdmin](https://www.pgadmin.org/)|Możesz użyć pgAdmin, aby nawiązać połączenie z serwerem i uprościć proces tworzenia, obsługi i używania obiektów bazy danych.|
-|[PSQL w Azure Cloud Shell](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|W tym artykule pokazano, jak uruchomić program [**PSQL**](https://www.postgresql.org/docs/current/static/app-psql.html) w [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) , aby nawiązać połączenie z serwerem, a następnie uruchomić instrukcje w celu wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych. Jeśli jest zainstalowany w środowisku deweloperskim, można uruchomić **PSQL**|
+|[PSQL w Azure Cloud Shell](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|W tym artykule pokazano, jak uruchomić program [**PSQL**](https://www.postgresql.org/docs/current/static/app-psql.html) w [Azure Cloud Shell](../cloud-shell/overview.md) , aby nawiązać połączenie z serwerem, a następnie uruchomić instrukcje w celu wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych. Jeśli jest zainstalowany w środowisku deweloperskim, można uruchomić **PSQL**|
 |[PostgreSQL z VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)|Rozszerzenie bazy danych platformy Azure dla VS Code (wersja zapoznawcza) umożliwia przeglądanie i wykonywanie zapytań dotyczących serwera PostgreSQL zarówno lokalnie, jak i w chmurze za pomocą zapoznawczych funkcji IntelliSense. |
 |[PHP](connect-php.md)|W tym przewodniku szybki start pokazano, jak używać języka PHP do tworzenia programu w celu nawiązania połączenia z bazą danych i używania pracy z obiektami bazy danych w celu wykonywania zapytań dotyczących danych.|
 |[Java](connect-java.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z bazą danych przy użyciu języka Java, a następnie używania programu Work with Database Objects w celu wykonywania zapytań dotyczących danych.|
@@ -42,10 +42,10 @@ Transport Layer Security (TLS) jest używany przez wszystkie sterowniki dostarcz
 ## <a name="postgresql-extensions"></a>Rozszerzenia PostgreSQL
 PostgreSQL zapewnia możliwość rozszerzenia funkcjonalności bazy danych przy użyciu rozszerzeń. Rozszerzenia zapewniają wiele powiązanych obiektów SQL razem w jednym pakiecie, który można załadować lub usunąć z bazy danych za pomocą jednego polecenia. Po załadowaniu do bazy danych rozszerzenia działają jak wbudowane funkcje.
 
-- [Rozszerzenia Postgres 11](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-11-extensions)
-- [Rozszerzenia Postgres 10](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-10-extensions)
-- [Rozszerzenia Postgres 9,6](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-96-extensions)
-- [Rozszerzenia Postgres 9,5](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-95-extensions)
+- [Rozszerzenia Postgres 11](./concepts-extensions.md#postgres-11-extensions)
+- [Rozszerzenia Postgres 10](./concepts-extensions.md#postgres-10-extensions)
+- [Rozszerzenia Postgres 9,6](./concepts-extensions.md#postgres-96-extensions)
+- [Rozszerzenia Postgres 9,5](./concepts-extensions.md#postgres-95-extensions)
 
 Aby uzyskać więcej informacji, zobacz [jak używać rozszerzeń PostgreSQL na jednym serwerze](concepts-extensions.md).
 

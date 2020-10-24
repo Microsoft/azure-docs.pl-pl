@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 337a4c1ba3e355c2ba1dd7ea6e34645112d1c7b1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 73b48f8bcb4ec6facfebfc62d03ee5cd8237f504
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091308"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490802"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Wprowadzenie do podstawowych usług Azure Storage
 
@@ -46,7 +46,7 @@ Poniższa tabela zawiera porównanie plików, obiektów blob, dysków, kolejek i
 | **Azure Files** |Oferuje w pełni zarządzane udziały plików w chmurze, do których można uzyskać dostęp z dowolnego miejsca za pośrednictwem protokołu SMB (Industry Standard Server Message Block).<br><br>Udziały plików platformy Azure można instalować z lokalnych wdrożeń systemu Windows, Linux i macOS. | Chcesz "podnieść i przenieść" aplikację do chmury, która korzysta już z natywnych interfejsów API systemu plików do udostępniania danych między nimi a innymi aplikacjami uruchomionymi na platformie Azure.<br/><br/>Chcesz zastąpić lub uzupełnić lokalne serwery plików lub urządzenia NAS.<br><br> Chcesz przechowywać narzędzia do tworzenia i debugowania, które muszą być dostępne z wielu maszyn wirtualnych. |
 | **Obiekty blob platformy Azure** | Umożliwia przechowywanie danych bez struktury i uzyskiwanie do nich dostępu w dużej skali w blokowych obiektach Blob.<br/><br/>Program obsługuje również [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) w przypadku rozwiązań do analizy danych Big Data w przedsiębiorstwie. | Chcesz, aby aplikacja obsługiwała scenariusze przesyłania strumieniowego i dostępu losowego.<br/><br/>Chcesz mieć możliwość dostępu do danych aplikacji z dowolnego miejsca.<br/><br/>Chcesz utworzyć przedsiębiorstwo Data Lake na platformie Azure i przeprowadzić analizę danych Big Data. |
 | **Azure Disks** | Umożliwia trwałe przechowywanie danych i uzyskiwanie do nich dostępu z dołączonego wirtualnego dysku twardego. | Chcesz "podnieść i przenieść" aplikacje, które używają natywnych interfejsów API systemu plików do odczytu i zapisu danych na dyskach trwałych.<br/><br/>Chcesz przechowywać dane, które nie są wymagane, aby można było uzyskać do nich dostęp spoza maszyny wirtualnej, do której dysk jest podłączony. |
-| **Kolejki platformy Azure** | Umożliwia asynchroniczne kolejkowanie komunikatów między składnikami aplikacji. | Chcesz oddzielić składniki aplikacji i używać komunikatów asynchronicznych do komunikacji między nimi.<br><br>Wskazówki dotyczące korzystania z usługi queue storage i kolejek Service Bus można znaleźć w temacie [kolejki magazynu i kolejki Service Bus — w porównaniu z kontrastami](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Kolejki platformy Azure** | Umożliwia asynchroniczne kolejkowanie komunikatów między składnikami aplikacji. | Chcesz oddzielić składniki aplikacji i używać komunikatów asynchronicznych do komunikacji między nimi.<br><br>Wskazówki dotyczące korzystania z usługi queue storage i kolejek Service Bus można znaleźć w temacie [kolejki magazynu i kolejki Service Bus — w porównaniu z kontrastami](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
 | **Tabele platformy Azure** | Umożliwiają przechowywanie strukturalnych danych NoSQL w chmurze, zapewniając Magazyn kluczy/atrybutów z projektem bez schematu. | Chcesz przechowywać elastyczne zestawy danych, takie jak dane użytkowników dla aplikacji sieci Web, książki adresowe, informacje o urządzeniach lub inne typy metadanych, których potrzebuje Twoja usługa. <br/><br/>Aby uzyskać wskazówki dotyczące korzystania z usługi Table Storage i interfejs API tabel Azure Cosmos DB, zobacz [Tworzenie aplikacji za pomocą Azure Cosmos DB interfejs API tabel i usługi Azure Table Storage](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Blob Storage
@@ -61,7 +61,7 @@ Usługa Blob Storage to idealne rozwiązanie w następujących przypadkach:
 - Zapisywanie danych w celu tworzenia kopii zapasowych, przywracania, odzyskiwania po awarii i archiwizowania.
 - Przechowywanie danych w celu analizy w usłudze lokalnej lub hostowanej na platformie Azure.
 
-Dostęp do obiektów w usłudze Blob Storage można uzyskać z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Użytkownicy lub aplikacje klienckie mogą uzyskiwać dostęp do obiektów blob za pomocą adresów URL, [interfejsu API REST usługi Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [programu Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/storage) lub biblioteki klienta usługi Azure Storage. Biblioteki klienta magazynu są dostępne dla wielu języków, w tym [.NET](/dotnet/api/overview/azure/storage), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) i [Ruby](https://azure.github.io/azure-storage-ruby).
+Dostęp do obiektów w usłudze Blob Storage można uzyskać z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Użytkownicy lub aplikacje klienckie mogą uzyskiwać dostęp do obiektów blob za pomocą adresów URL, [interfejsu API REST usługi Azure Storage](/rest/api/storageservices/blob-service-rest-api), [programu Azure PowerShell](/powershell/module/azure.storage), [interfejsu wiersza polecenia platformy Azure](/cli/azure/storage) lub biblioteki klienta usługi Azure Storage. Biblioteki klienta magazynu są dostępne dla wielu języków, w tym [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) i [Ruby](https://azure.github.io/azure-storage-ruby).
 
 Aby uzyskać więcej informacji dotyczących usługi Blob Storage, zobacz [Introduction to Blob storage (Wprowadzenie do usługi Blob Storage)](../blobs/storage-blobs-introduction.md).
 
@@ -113,7 +113,7 @@ Każde żądanie do usługi Azure Storage musi być autoryzowane. Usługa Azure 
 
 - **Azure Active Directory (Azure AD) integracja dla danych obiektów blob i kolejek.** Usługa Azure Storage obsługuje uwierzytelnianie i autoryzację w usłudze Azure AD dla usług obiektów blob i kolejek za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Autoryzacja żądań za pomocą usługi Azure AD jest zalecana w celu zapewnienia bezpieczeństwa i łatwość użycia. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](storage-auth-aad.md).
 - **Autoryzacja usługi Azure AD za pośrednictwem protokołu SMB dla Azure Files.** Azure Files obsługuje autoryzację opartą na tożsamościach za pośrednictwem protokołu SMB (Server Message Block) za pośrednictwem Azure Active Directory Domain Services (Azure AD DS) lub lokalnego Active Directory Domain Services (wersja zapoznawcza). Przyłączone do domeny maszyny wirtualne z systemem Windows mogą uzyskiwać dostęp do udziałów plików platformy Azure przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [omówienie Azure Files obsługi uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB](../files/storage-files-active-directory-overview.md) i [planowania wdrożenia Azure Files](../files/storage-files-planning.md#identity).
-- **Autoryzacja za pomocą klucza współużytkowanego.** Usługi Azure Storage Blob, plików, kolejek i tabel obsługują autoryzację za pomocą klucza współużytkowanego. Klient korzystający z autoryzacji klucza wspólnego przekazuje nagłówek z każdym żądaniem podpisanym przy użyciu klucza dostępu konta magazynu. Aby uzyskać więcej informacji, zobacz [Autoryzuj przy użyciu klucza współużytkowanego](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **Autoryzacja za pomocą klucza współużytkowanego.** Usługi Azure Storage Blob, plików, kolejek i tabel obsługują autoryzację za pomocą klucza współużytkowanego. Klient korzystający z autoryzacji klucza wspólnego przekazuje nagłówek z każdym żądaniem podpisanym przy użyciu klucza dostępu konta magazynu. Aby uzyskać więcej informacji, zobacz [Autoryzuj przy użyciu klucza współużytkowanego](/rest/api/storageservices/authorize-with-shared-key).
 - **Autoryzacja przy użyciu sygnatur dostępu współdzielonego (SAS).** Sygnatura dostępu współdzielonego (SAS) jest ciągiem zawierającym token zabezpieczający, który może być dołączany do identyfikatora URI zasobu magazynu. Token zabezpieczający hermetyzuje ograniczenia, takie jak uprawnienia i interwał dostępu. Aby uzyskać więcej informacji, zobacz [Używanie sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md).
 - **Anonimowy dostęp do kontenerów i obiektów BLOB.** Kontener i jego obiekty blob mogą być publicznie dostępne. Po określeniu, że kontener lub obiekt BLOB jest publiczny, każda osoba może ją odczytać anonimowo; nie jest wymagane żadne uwierzytelnianie. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](../blobs/storage-manage-access-to-resources.md).
 
@@ -121,7 +121,7 @@ Każde żądanie do usługi Azure Storage musi być autoryzowane. Usługa Azure 
 
 Istnieją dwa podstawowe rodzaje szyfrowania dostępne dla podstawowych usług magazynu. Aby uzyskać więcej informacji na temat bezpieczeństwa i szyfrowania, zobacz [Azure Storage security guide (Przewodnik po zabezpieczeniach usługi Azure Storage)](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
+### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
 Szyfrowanie usługi Azure Storage chroni i zabezpiecza dane zgodnie ze zobowiązaniami dotyczącymi zabezpieczeń i zgodności w organizacji. Usługa Azure Storage automatycznie szyfruje wszystkie dane przed utrwaleniem do konta magazynu i odszyfrowuje je przed pobraniem. Procesy szyfrowania, odszyfrowywania i zarządzania kluczami są niewidoczne dla użytkowników. Klienci mogą również zdecydować się na zarządzanie własnymi kluczami przy użyciu Azure Key Vault. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Azure Storage dla danych magazynowanych](storage-service-encryption.md).
 
@@ -147,10 +147,10 @@ Możesz uzyskać dostęp do zasobów na koncie magazynu za pomocą dowolnego ję
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Dokumentacja bibliotek i interfejsów API danych usługi Azure Storage
 
-- [Usługa Azure Storage — interfejs API REST](https://docs.microsoft.com/rest/api/storageservices/)
-- [Biblioteka klienta usługi Azure Storage dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-- [Biblioteka klienta usługi Azure Storage dla środowiska Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Biblioteka klienta usługi Azure Storage dla Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Usługa Azure Storage — interfejs API REST](/rest/api/storageservices/)
+- [Biblioteka klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage)
+- [Biblioteka klienta usługi Azure Storage dla środowiska Java/Android](/java/api/overview/azure/storage)
+- [Biblioteka klienta usługi Azure Storage dla Node.js](/javascript/api/overview/azure/storage-overview)
 - [Biblioteka klienta usługi Azure Storage dla języka Python](https://github.com/Azure/azure-storage-python)
 - [Biblioteka klienta usługi Azure Storage dla języka PHP](https://github.com/Azure/azure-storage-php)
 - [Biblioteka klienta usługi Azure Storage dla języka Ruby](https://github.com/Azure/azure-storage-ruby)
@@ -158,19 +158,19 @@ Możesz uzyskać dostęp do zasobów na koncie magazynu za pomocą dowolnego ję
 
 ### <a name="azure-storage-management-api-and-library-references"></a>Dokumentacja bibliotek i interfejsów API zarządzania usługi Azure Storage
 
-- [Interfejs API REST dostawcy zasobów usługi Storage](https://docs.microsoft.com/rest/api/storagerp/)
-- [Biblioteka klienta dostawcy zasobów usługi Storage dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
+- [Interfejs API REST dostawcy zasobów usługi Storage](/rest/api/storagerp/)
+- [Biblioteka klienta dostawcy zasobów usługi Storage dla platformy .NET](/dotnet/api/overview/azure/storage/management)
 - [Interfejs API REST zarządzania usługą Storage (klasyczny)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Dokumentacja bibliotek i interfejsów API ruchu danych usługi Azure Storage
 
-- [Interfejs API REST usługi Import/Eksport usługi Storage](https://docs.microsoft.com/rest/api/storageimportexport/)
+- [Interfejs API REST usługi Import/Eksport usługi Storage](/rest/api/storageimportexport/)
 - [Biblioteka klienta przenoszenia danych usługi Storage dla platformy .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Narzędzia i programy narzędziowe
 
-- [Polecenia cmdlet programu Azure PowerShell dla usługi Storage](https://docs.microsoft.com/powershell/module/az.storage)
-- [Polecenia cmdlet interfejsu wiersza polecenia platformy Azure dla usługi Storage](https://docs.microsoft.com/cli/azure/storage)
+- [Polecenia cmdlet programu Azure PowerShell dla usługi Storage](/powershell/module/az.storage)
+- [Polecenia cmdlet interfejsu wiersza polecenia platformy Azure dla usługi Storage](/cli/azure/storage)
 - [Narzędzie AzCopy Command-Line](https://aka.ms/downloadazcopy)
 - [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) jest bezpłatną, autonomiczną aplikacją oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 - [Szablony Azure Resource Manager dla usługi Azure Storage](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)

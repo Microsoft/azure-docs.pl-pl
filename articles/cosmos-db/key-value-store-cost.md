@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262824"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488456"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB jako magazyn wartości klucza — przegląd kosztów
 
-Azure Cosmos DB to globalnie dystrybuowana, wielomodelowa usługa bazy danych służąca do łatwego tworzenia aplikacji o wysokiej dostępności. Domyślnie Azure Cosmos DB automatycznie i efektywnie indeksuje wszystkie dane, które pobiera. Pozwala to na szybkie i spójne zapytania [SQL](how-to-sql-query.md) (i [JavaScript](stored-procedures-triggers-udfs.md)) dotyczące danych. 
+Azure Cosmos DB to globalnie dystrybuowana, wielomodelowa usługa bazy danych służąca do łatwego tworzenia aplikacji o wysokiej dostępności. Domyślnie Azure Cosmos DB automatycznie i efektywnie indeksuje wszystkie dane, które pobiera. Pozwala to na szybkie i spójne zapytania [SQL](./sql-query-getting-started.md) (i [JavaScript](stored-procedures-triggers-udfs.md)) dotyczące danych. 
 
 W tym artykule opisano koszt Azure Cosmos DB prostych operacji zapisu i odczytu, gdy jest używany jako magazyn klucz/wartość. Operacje zapisu obejmują Wstawianie, zamienianie, usuwanie i upserts elementów danych. Oprócz zagwarantowania, że umowa SLA dostępności na 99,999% dla wszystkich kont wieloregionowych, Azure Cosmos DB oferuje gwarantowane <10 ms dla operacji odczytu i dla (indeksowane) zapisów w 99 percentylu. 
 
@@ -48,4 +48,3 @@ Większość podstawowych obiektów blob lub obiektów przechowuje opłaty $0,40
 ## <a name="next-steps"></a>Następne kroki
 
 * Użyj [kalkulatora ru](https://cosmos.azure.com/capacitycalculator/) , aby oszacować przepływność dla obciążeń.
-

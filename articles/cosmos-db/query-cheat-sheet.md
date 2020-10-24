@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5683fb64c9b5df027ff8b0f50cec49e9bce5808
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85117985"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475128"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Arkusze Ściągawka zapytań Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Pobierz [Ściągawka arkusze zapytań o rozmiarze a3 Azure Cosmos DB](https://go
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać pomoc w pisaniu zapytań, zobacz następujące artykuły:
-* W przypadku zapytań interfejsu API SQL zobacz [zapytanie przy użyciu interfejsu API SQL](tutorial-query-sql-api.md), [zapytań SQL dla Azure Cosmos DB](how-to-sql-query.md)i [odwołania do składni SQL](sql-api-query-reference.md)
+* W przypadku zapytań interfejsu API SQL zobacz [zapytanie przy użyciu interfejsu API SQL](tutorial-query-sql-api.md), [zapytań SQL dla Azure Cosmos DB](./sql-query-getting-started.md)i [odwołania do składni SQL](./sql-query-getting-started.md)
 * W przypadku zapytań MongoDB Zobacz temat [zapytanie przy użyciu interfejsu api Azure Cosmos DB dla MongoDB](tutorial-query-mongodb.md) i [Azure Cosmos DB interfejsu API do obsługi funkcji MongoDB i składni](mongodb-feature-support.md)
 * Aby uzyskać zapytania dotyczące interfejsu API Gremlin, zobacz [zapytanie przy użyciu interfejsu API Gremlin](tutorial-query-graph.md) i [obsługi grafu Azure Cosmos DB Gremlin](gremlin-support.md)
 * W przypadku zapytań interfejs API tabel zobacz [zapytanie przy użyciu interfejs API tabel](tutorial-query-table.md)

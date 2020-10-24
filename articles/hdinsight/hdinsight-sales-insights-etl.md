@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a37729849bc9702fb6823c11d4534cf35df72abf
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006436"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489527"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Samouczek: Tworzenie kompleksowego potoku danych w celu uzyskania szczegółowych informacji o sprzedaży w usłudze Azure HDInsight
 
@@ -27,7 +27,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Interfejs wiersza polecenia platformy Azure — co najmniej wersja 2.2.0. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Interfejs wiersza polecenia platformy Azure — co najmniej wersja 2.2.0. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 * JQ, procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 
@@ -93,7 +93,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    Jeśli nie masz pewności, który region należy określić, możesz pobrać listę obsługiwanych regionów dla subskrypcji za pomocą polecenia [AZ Account List-Locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) .
+    Jeśli nie masz pewności, który region należy określić, możesz pobrać listę obsługiwanych regionów dla subskrypcji za pomocą polecenia [AZ Account List-Locations](/cli/azure/account#az-account-list-locations) .
 
     Polecenie spowoduje wdrożenie następujących zasobów:
 

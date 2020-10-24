@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409531"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490581"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB nagłówki odpowiedzi serwera Gremlin
 W tym artykule opisano nagłówki, które serwer Gremlin usługi Cosmos DB zwraca do obiektu wywołującego po wykonaniu żądania. Te nagłówki są przydatne podczas rozwiązywania problemów z wydajnością żądań, tworzenia aplikacji integrującej się natywnie z usługą Cosmos DB i upraszczania obsługi klientów.
@@ -21,7 +21,7 @@ Należy pamiętać, że w zależności od tych nagłówków ograniczenie przeno�
 
 ## <a name="headers"></a>Nagłówki
 
-| Header | Type | Przykładowa wartość | Po dołączeniu | Objaśnienie |
+| Header | Typ | Przykładowa wartość | Po dołączeniu | Wyjaśnienie |
 | --- | --- | --- | --- | --- |
 | **x-ms-request-charge** | double | 11,3243 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych wykorzystywana w [jednostkach żądania (ru/s lub jednostek ru)](request-units.md) dla komunikatu częściowego odpowiedzi. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Odzwierciedla opłaty za konkretny fragment odpowiedzi. Tylko w przypadku żądań składających się z pojedynczego fragmentu odpowiedzi ten nagłówek dopasowuje łączny koszt przechodzenia. Jednak w przypadku większości złożonych przechodzenia ta wartość reprezentuje koszt częściowy. |
 | **x-ms-total-request-charge** | double | 423,987 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych wykorzystywana w [jednostkach żądania (ru/s lub jednostek ru)](request-units.md) dla całego żądania. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Wskazuje ona łączną opłatę od początku żądania. Wartość tego nagłówka w ostatnim fragmencie wskazuje na całkowitą opłatą żądania. |
@@ -29,14 +29,14 @@ Należy pamiętać, że w zależności od tych nagłówków ograniczenie przeno�
 | **x-MS-Total-serwer-czas-MS** | double | 130,512 | Sukces i niepowodzenie | Łączny czas (w milisekundach), jaki program Cosmos DB Gremlin Server wykonał cały przechodzenie. Ten nagłówek jest uwzględniany w każdej częściowej odpowiedzi. Reprezentuje łączny czas wykonania od momentu rozpoczęcia żądania. Ostatnia odpowiedź wskazuje łączny czas wykonywania. Ten nagłówek jest przydatny do rozróżniania między klientem a serwerem jako źródłem opóźnienia. Można porównać czas wykonywania przechodzenia na kliencie z wartością tego nagłówka. |
 | **x-ms-status-code** | długi | 200 | Sukces i niepowodzenie | Nagłówek wskazuje wewnętrzny powód uzupełniania lub kończenia żądania. Zalecane jest, aby aplikacja poszukiwała wartości tego nagłówka i podejmować działania naprawcze. |
 | **x-MS-Substatus — kod** | długi | 1003 | Tylko Niepowodzenie | Cosmos DB to wielomodelowa baza danych, która jest oparta na ujednoliconej warstwie magazynu. Ten nagłówek zawiera dodatkowe informacje o przyczynie niepowodzenia w przypadku wystąpienia błędu w niższych warstwach stosu o wysokiej dostępności. Aplikacja zaleca przechowywanie tego nagłówka i używanie go podczas kontaktowania się z działem obsługi klienta Cosmos DB. Wartość tego nagłówka jest przydatna dla Cosmos DB inżyniera w celu szybkiego rozwiązywania problemów. |
-| **x-ms-retry-after-ms** | ciąg (TimeSpan) | "00:00:03.9500000" | Tylko Niepowodzenie | Ten nagłówek jest reprezentacją ciągu typu [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan) platformy .NET. Ta wartość zostanie uwzględniona tylko w żądaniach zakończonych niepowodzeniem z powodu wyczerpania przepływności. Aplikacja powinna ponownie przesłać przechodzenie po upływie pożądanego czasu. |
+| **x-ms-retry-after-ms** | ciąg (TimeSpan) | "00:00:03.9500000" | Tylko Niepowodzenie | Ten nagłówek jest reprezentacją ciągu typu [TimeSpan](/dotnet/api/system.timespan) platformy .NET. Ta wartość zostanie uwzględniona tylko w żądaniach zakończonych niepowodzeniem z powodu wyczerpania przepływności. Aplikacja powinna ponownie przesłać przechodzenie po upływie pożądanego czasu. |
 | **x-ms-activity-id** | ciąg (GUID) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Sukces i niepowodzenie | Nagłówek zawiera unikatowy identyfikator po stronie serwera dla żądania. Każde żądanie ma przypisany unikatowy identyfikator serwera do celów śledzenia. Aplikacje powinny rejestrować identyfikatory działań zwracanych przez serwer w przypadku żądań, do których klienci mogą chcieć skontaktować się z pomocą techniczną. Pracownicy pomocy technicznej Cosmos DB mogą znaleźć określone żądania według identyfikatorów w usłudze Cosmos DB telemetrii usługi. |
 
 ## <a name="status-codes"></a>Kody stanu
 
 Poniżej wymieniono najczęstsze kody stanu zwracane przez serwer.
 
-| Stan | Objaśnienie |
+| Stan | Wyjaśnienie |
 | --- | --- |
 | **401** | Komunikat o błędzie `"Unauthorized: Invalid credentials provided"` jest zwracany, jeśli hasło uwierzytelniania nie jest zgodne z kluczem konta Cosmos DB. Przejdź do konta Cosmos DB Gremlin w Azure Portal i upewnij się, że klucz jest prawidłowy.|
 | **404** | Współbieżne operacje, które próbują usunąć i zaktualizować tę samą krawędź lub wierzchołek jednocześnie. Komunikat o błędzie `"Owner resource does not exist"` wskazuje, że określona baza danych lub kolekcja jest niepoprawna w ramach parametrów połączenia w formacie `/dbs/<database name>/colls/<collection or graph name>`.|

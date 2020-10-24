@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59781f9b86764d0982e1612f9671e8f0919ed490
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89009512"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488439"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Tworzenie kontenerów z dużym kluczem partycji
 
@@ -83,4 +83,4 @@ Obecnie nie można używać kontenerów z dużym kluczem partycji w ramach Power
 * [Partitioning in Azure Cosmos DB (Partycjonowanie w usłudze Azure Cosmos DB)](partitioning-overview.md)
 * [Jednostki żądania w usłudze Azure Cosmos DB](request-units.md)
 * [Aprowizacja przepływności kontenerów i baz danych](set-throughput.md)
-* [Praca z kontem usługi Azure Cosmos](account-overview.md)
+* [Praca z kontem usługi Azure Cosmos](./account-databases-containers-items.md)

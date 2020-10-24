@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 7a15e5135cd89d7360a1357e3518b1253e80ee65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1c54c2e486f935b3c3ba1b13207caaa67099459
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019525"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490989"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrowanie z biblioteki procesora źródła zmian do zestawu SDK platformy Azure Cosmos DB .NET v3
 
@@ -23,7 +23,7 @@ W tym artykule opisano czynności wymagane do przeprowadzenia migracji kodu istn
 Zestaw SDK dla platformy .NET v3 zawiera kilka istotnych zmian: należy wykonać następujące czynności, aby przeprowadzić migrację aplikacji.
 
 1. Przekonwertuj `DocumentCollectionInfo` wystąpienia na `Container` odwołania do kontenerów monitorowane i dzierżawione.
-1. Dostosowania, które `WithProcessorOptions` powinny być używane do użycia `WithLeaseConfiguration` i `WithPollInterval` dla interwałów, `WithStartTime` [czasu rozpoczęcia](how-to-configure-change-feed-start-time.md)i `WithMaxItems` definiowania maksymalnej liczby elementów.
+1. Dostosowania, które `WithProcessorOptions` powinny być używane do użycia `WithLeaseConfiguration` i `WithPollInterval` dla interwałów, `WithStartTime` [czasu rozpoczęcia](./change-feed-processor.md#starting-time)i `WithMaxItems` definiowania maksymalnej liczby elementów.
 1. Ustaw `processorName` wartość na na `GetChangeFeedProcessorBuilder` zgodną z wartością skonfigurowaną `ChangeFeedProcessorOptions.LeasePrefix` lub Użyj `string.Empty` innej.
 1. Zmiany nie są już dostarczane jako, ale jest `IReadOnlyList<Document>` `IReadOnlyCollection<T>` typem, `T` który należy zdefiniować, nie istnieje już Klasa elementu podstawowego.
 1. Aby obsłużyć zmiany, nie potrzebujesz już implementacji, zamiast tego musisz [zdefiniować delegata](change-feed-processor.md#implementing-the-change-feed-processor). Delegat może być funkcją statyczną lub, jeśli trzeba zachować stan w ramach wykonywania, można utworzyć własną klasę i przekazać metodę wystąpienia jako delegat.
@@ -60,4 +60,4 @@ Teraz można dowiedzieć się więcej o procesorze źródła zmian w następują
 
 * [Omówienie procesora kanału informacyjnego zmiany](change-feed-processor.md)
 * [Korzystanie z estymatora zestawienia zmian](how-to-use-change-feed-estimator.md)
-* [Czas rozpoczęcia procesora zestawienia zmian](how-to-configure-change-feed-start-time.md)
+* [Czas rozpoczęcia procesora zestawienia zmian](./change-feed-processor.md#starting-time)

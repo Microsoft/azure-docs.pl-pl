@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: jasonh
-ms.openlocfilehash: 841d2bcc50b62554fac8643048a3b3534e82dfa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408236"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490598"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Jak użyć kroku profilu wykonywania do oceny zapytań aparatu Gremlin
 
@@ -22,7 +22,7 @@ Ten artykuł zawiera omówienie sposobu użycia kroku profilu wykonywania dla ba
 
 Aby użyć tego kroku, wystarczy dołączyć `executionProfile()` wywołanie funkcji na końcu zapytania Gremlin. **Zapytanie Gremlin zostanie wykonane** , a wynik operacji zwróci obiekt odpowiedzi JSON z profilem wykonywania zapytania.
 
-Na przykład:
+Przykład:
 
 ```java
     // Basic traversal
@@ -220,8 +220,8 @@ Załóżmy, że następująca odpowiedź profilu wykonania z **partycjonowanego 
 
 Następujące wnioski można wykonać z tego:
 - Zapytanie jest wyszukiwaniem pojedynczego identyfikatora, ponieważ instrukcja Gremlin jest zgodna ze wzorcem `g.V('id')` .
-- Oceniania z `time` metryki, opóźnienie tego zapytania jest wysokie, ponieważ jest ono [większe niż 10 ms dla operacji odczytu punktu](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- Jeśli przejdziemy do `storeOps` obiektu, zobaczymy `fanoutFactor` , że jest to `5` , co oznacza, że do tej operacji uzyskuje się dostęp do [5 partycji](https://docs.microsoft.com/azure/cosmos-db/partition-data) .
+- Oceniania z `time` metryki, opóźnienie tego zapytania jest wysokie, ponieważ jest ono [większe niż 10 ms dla operacji odczytu punktu](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Jeśli przejdziemy do `storeOps` obiektu, zobaczymy `fanoutFactor` , że jest to `5` , co oznacza, że do tej operacji uzyskuje się dostęp do [5 partycji](./partitioning-overview.md) .
 
 W ramach tej analizy możemy określić, że pierwsze zapytanie uzyskuje dostęp do większej liczby partycji niż jest to konieczne. Można to rozwiązać przez określenie klucza partycjonowania w zapytaniu jako predykatu. Pozwoli to zmniejszyć opóźnienia i obsłużyć mniej kosztów na zapytanie. Dowiedz się więcej o [partycjonowaniu grafów](graph-partitioning.md). Bardziej optymalne może być zapytanie `g.V('tt0093640').has('partitionKey', 't1001')` .
 

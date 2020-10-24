@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 59e00d2bb47826bb4bfa381c42db551f44d84b71
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427602"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486926"
 ---
 # <a name="manage-app-consent-policies"></a>Zarządzanie zasadami wyrażania zgody aplikacji
 
@@ -57,14 +57,14 @@ Warto zacząć od zapoznania się z istniejącymi zasadami wyrażania zgody na a
 1. Wyświetlanie zestawów warunków "Includes" zasad:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
 1. Wyświetl zestawy warunków "excludes":
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 

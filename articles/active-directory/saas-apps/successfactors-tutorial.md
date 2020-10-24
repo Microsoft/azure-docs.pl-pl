@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 48524bec352d2fa9c169a1345e52ad4c789e59d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 232d138488d061c638073b51198e5f2ea4c6b53f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552122"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481282"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SuccessFactors
 
@@ -160,14 +160,14 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 3. Umieść dowolną wartość w polu **Reset Token** (Token resetowania), a następnie kliknij przycisk **Save Token** (Zapisz token), aby włączyć logowanie jednokrotne protokołu SAML.
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji][11]
+    ![Zrzut ekranu przedstawia kartę Zabezpieczenia aplikacji z funkcją logowania jednokrotnego o nazwie, w której można wprowadzić token.][11]
 
     > [!NOTE]
     > Ta wartość jest używana jako przełącznik włączania/wyłączania. Jeśli zostanie zapisana jakakolwiek wartość, logowanie jednokrotne protokołu SAML będzie włączone. Jeśli zostanie zapisana pusta wartość, logowanie jednokrotnego protokołu SAML będzie wyłączone.
 
 4. Zapoznaj się z poniższym zrzutem ekranu i wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji][12]
+    ![Zrzut ekranu przedstawia okienko dla języka SAML, w którym można wprowadzać podane wartości.][12]
   
     a. Zaznacz przycisk radiowy **SAML v2 SSO** (Logowanie jednokrotne protokołu SAML w wersji 2)
   
@@ -192,7 +192,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 5. Przejdź do strony protokołu SAML w wersji 2, a następnie wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji][13]
+    ![Zrzut ekranu przedstawia okienko wylogowywania zainicjowane przez protokół SAML V2 S, w którym można wprowadzić podane wartości.][13]
 
     a. W polu **Support SP-initiated Global Logout** (Obsługuj globalne wylogowywanie inicjowane przez dostawcę usług) wybierz pozycję **Yes** (Tak).
 
@@ -214,7 +214,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     b. Zaznacz pole wyboru obok pozycji **Enable Non-Case-Sensitive Username** (Zezwól na nazwę użytkownika bez uwzględnienia wielkości liter).
 
-    c. Kliknij przycisk **Zapisz**.
+    c. Kliknij pozycję **Zapisz**.
 
     > [!NOTE]
     > Jeśli spróbujesz włączyć tę funkcję, system sprawdzi, czy utworzona nie zostanie zduplikowana nazwa logowania protokołu SAML. Może to mieć miejsce, jeśli klient ma użytkowników o nazwach Użytkownik1 i użytkownik1. Wyłączenie uwzględniania wielkości liter spowoduje występowanie takich duplikatów. W systemie zostanie wyświetlony komunikat i ta funkcja nie zostanie włączona. Klient musi zmienić jedną z nazw użytkowników na inną.

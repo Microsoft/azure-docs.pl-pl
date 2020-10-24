@@ -2,17 +2,18 @@
 title: Sprawdź stan szyfrowania dla systemu Linux — Azure Disk Encryption
 description: Ten artykuł zawiera instrukcje dotyczące weryfikowania stanu szyfrowania na poziomach platformy i systemu operacyjnego.
 author: kailashmsft
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e39a230c71cf48422220768adfa8de91cbaa6692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f51aae39c2cb60d8b60d4fb496f74eadb91b33b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072846"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487657"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Sprawdź stan szyfrowania dla systemu Linux 
 
@@ -53,7 +54,7 @@ Innym sposobem sprawdzenia stanu szyfrowania jest przejrzenie sekcji **Ustawieni
 >
 > Aby sprawdzić, czy dyski są rzeczywiście zaszyfrowane, możesz dwukrotnie sprawdzić szyfrowanie każdego dysku na poziomie systemu operacyjnego.
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 Aby sprawdzić *ogólny* stan szyfrowania zaszyfrowanej maszyny wirtualnej, można użyć następujących poleceń programu PowerShell:
 

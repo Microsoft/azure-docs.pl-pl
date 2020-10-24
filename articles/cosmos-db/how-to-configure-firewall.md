@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3ad53a90586ccf88c5c74326103997ca0a53cdf9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: fb97f9ee822c808057139bd25b2e4f43c48a2e48
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279755"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490513"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurowanie zapory IP w Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Aby zabezpieczyć dane przechowywane na koncie, Azure Cosmos DB obsługuje model
 
 Domyślnie konto usługi Azure Cosmos jest dostępne z Internetu, o ile do żądania dołączono prawidłowy token autoryzacji. Aby skonfigurować kontrolę dostępu opartą na zasadach IP, użytkownik musi podać zestaw adresów IP lub zakresy adresów IP w formularzu CIDR (bezklasowe Inter-Domain Routing), który będzie uwzględniony jako lista dozwolonych adresów IPv4 klienta, aby uzyskać dostęp do danego konta usługi Azure Cosmos. Po zastosowaniu tej konfiguracji wszystkie żądania pochodzące z maszyn spoza tej listy dozwolonych otrzymują odpowiedź 403 (dostęp zabroniony). W przypadku korzystania z zapory IP zaleca się umożliwienie Azure Portal dostępu do Twojego konta. Dostęp jest wymagany, aby umożliwić korzystanie z Eksploratora danych oraz pobieranie metryk dla konta, które są wyświetlane na Azure Portal. W przypadku korzystania z Eksploratora danych, oprócz zezwalania Azure Portal na dostęp do konta, należy również zaktualizować ustawienia zapory, aby dodać bieżący adres IP do reguł zapory. Należy pamiętać, że zmiany w zaporze mogą zająć do 15 min.
 
-Zaporę opartą na protokole IP można połączyć z kontrolą dostępu do podsieci i sieci wirtualnej. Łącząc je, można ograniczyć dostęp do dowolnego źródła, które ma publiczny adres IP i/lub z określonej podsieci w sieci wirtualnej. Aby dowiedzieć się więcej o korzystaniu z funkcji kontroli dostępu opartej na podsieci i sieci wirtualnej, zobacz [dostęp Azure Cosmos DB zasobów z sieci wirtualnych](vnet-service-endpoint.md).
+Zaporę opartą na protokole IP można połączyć z kontrolą dostępu do podsieci i sieci wirtualnej. Łącząc je, można ograniczyć dostęp do dowolnego źródła, które ma publiczny adres IP i/lub z określonej podsieci w sieci wirtualnej. Aby dowiedzieć się więcej o korzystaniu z funkcji kontroli dostępu opartej na podsieci i sieci wirtualnej, zobacz [dostęp Azure Cosmos DB zasobów z sieci wirtualnych](./how-to-configure-vnet-service-endpoint.md).
 
 Podsumowując, token autoryzacji jest zawsze wymagany do uzyskania dostępu do konta usługi Azure Cosmos. Jeśli nie skonfigurowano zapory IP i listy Access Control sieci wirtualnej (ACL), do konta usługi Azure Cosmos można uzyskać dostęp przy użyciu tokenu autoryzacji. Po skonfigurowaniu na koncie usługi Azure Cosmos zapory IP lub listy ACL sieci wirtualnej lub obu z nich są dostępne tylko żądania pochodzące z określonych źródeł (i z tokenem autoryzacji). 
 
@@ -91,7 +91,7 @@ W przypadku skalowania w poziomie usługi w chmurze przez dodanie wystąpień ro
 
 ### <a name="requests-from-virtual-machines"></a>Żądania z maszyn wirtualnych
 
-Do hostowania usług warstwy środkowej przy użyciu Azure Cosmos DB można także użyć [maszyn wirtualnych](https://azure.microsoft.com/services/virtual-machines/) lub [zestawów skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . Aby skonfigurować konto Cosmos DB w taki sposób, aby umożliwiało dostęp z maszyn wirtualnych, należy skonfigurować publiczny adres IP maszyny wirtualnej i/lub zestawu skalowania maszyn wirtualnych jako jeden z dozwolonych adresów IP dla konta Azure Cosmos DB przez [skonfigurowanie zasad kontroli dostępu do adresów IP](#configure-ip-policy).
+Do hostowania usług warstwy środkowej przy użyciu Azure Cosmos DB można także użyć [maszyn wirtualnych](https://azure.microsoft.com/services/virtual-machines/) lub [zestawów skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) . Aby skonfigurować konto Cosmos DB w taki sposób, aby umożliwiało dostęp z maszyn wirtualnych, należy skonfigurować publiczny adres IP maszyny wirtualnej i/lub zestawu skalowania maszyn wirtualnych jako jeden z dozwolonych adresów IP dla konta Azure Cosmos DB przez [skonfigurowanie zasad kontroli dostępu do adresów IP](#configure-ip-policy).
 
 Adresy IP dla maszyn wirtualnych można pobrać w Azure Portal, jak pokazano na poniższym zrzucie ekranu:
 
@@ -105,7 +105,7 @@ W przypadku uzyskiwania dostępu do konta Azure Cosmos DB z komputera w Internec
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Konfigurowanie zapory IP przy użyciu szablonu Menedżer zasobów
 
-Aby skonfigurować kontrolę dostępu do konta Azure Cosmos DB, upewnij się, że szablon Menedżer zasobów określa właściwość **ipRules** z tablicą dozwolonych zakresów adresów IP. W przypadku konfigurowania zapory IP dla już wdrożonego konta Cosmos upewnij się, że `locations` Tablica jest zgodna z aktualnie wdrożonym. Nie można jednocześnie zmodyfikować `locations` tablicy i innych właściwości. Aby uzyskać więcej informacji i przykłady szablonów Azure Resource Manager dla Azure Cosmos DB Zobacz, [Azure Resource Manager szablony dla Azure Cosmos DB](resource-manager-samples.md)
+Aby skonfigurować kontrolę dostępu do konta Azure Cosmos DB, upewnij się, że szablon Menedżer zasobów określa właściwość **ipRules** z tablicą dozwolonych zakresów adresów IP. W przypadku konfigurowania zapory IP dla już wdrożonego konta Cosmos upewnij się, że `locations` Tablica jest zgodna z aktualnie wdrożonym. Nie można jednocześnie zmodyfikować `locations` tablicy i innych właściwości. Aby uzyskać więcej informacji i przykłady szablonów Azure Resource Manager dla Azure Cosmos DB Zobacz, [Azure Resource Manager szablony dla Azure Cosmos DB](./templates-samples-sql.md)
 
 > [!IMPORTANT]
 > Właściwość **ipRules** została wprowadzona przy użyciu interfejsu API w wersji 2020-04-01. Poprzednie wersje uwidaczniają Właściwość **ipRangeFilter** , czyli listę adresów IP rozdzielonych przecinkami.
@@ -221,7 +221,7 @@ Gdy uzyskujesz dostęp do zasobów Azure Cosmos DB przy użyciu zestawów SDK z 
 
 ### <a name="source-ips-in-blocked-requests"></a>Źródłowe adresy IP w zablokowanych żądaniach
 
-Włącz rejestrowanie diagnostyczne na koncie Azure Cosmos DB. Te dzienniki zawierają wszystkie żądania i odpowiedzi. Komunikaty dotyczące zapory są rejestrowane przy użyciu kodu powrotu 403. Filtrując te komunikaty, można zobaczyć źródłowe adresy IP dla zablokowanych żądań. Zobacz [rejestrowanie diagnostyczne Azure Cosmos DB](logging.md).
+Włącz rejestrowanie diagnostyczne na koncie Azure Cosmos DB. Te dzienniki zawierają wszystkie żądania i odpowiedzi. Komunikaty dotyczące zapory są rejestrowane przy użyciu kodu powrotu 403. Filtrując te komunikaty, można zobaczyć źródłowe adresy IP dla zablokowanych żądań. Zobacz [rejestrowanie diagnostyczne Azure Cosmos DB](./monitor-cosmos-db.md).
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Żądania z podsieci z punktem końcowym usługi dla Azure Cosmos DB włączone
 
