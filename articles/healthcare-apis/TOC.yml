@@ -19,6 +19,7 @@
         - name: Korzystanie z interfejsu wiersza polecenia (CLI)
           href: fhir-paas-cli-quickstart.md
         - name: Korzystanie z szablonu usługi ARM
+          displayName: Resource Manager
           href: fhir-paas-arm-template-quickstart.md
     - name: Wdrażanie łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza) — portal
       href: iot-fhir-portal-quickstart.md

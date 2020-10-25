@@ -194,7 +194,7 @@
                   items:
                     - name: 'CZĘSTO ZADAWANE PYTANIA: Lokalnie przypięte woluminy'
                       href: storsimple-8000-local-volume-faq.md
-                - name: Kontrola dostępu oparta na rolach
+                - name: Kontrola dostępu na podstawie ról na platformie Azure
                   href: storsimple-8000-role-based-access-control.md
                 - name: Zarządzanie rekordami ACR
                   href: storsimple-8000-manage-acrs.md
