@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: c8d7ae3cd40f118399e5ff60fa0738b07249c5ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bce381ba4916bc58d2c7acf8d69b323dbdf972aa
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442409"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544787"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu uwierzytelniania usługi RADIUS: PowerShell
 
@@ -40,7 +40,7 @@ Połączenia typu punkt-lokacja nie wymagają urządzenia sieci VPN ani publiczn
 
 Dla połączeń punkt-lokacja wymagane są następujące elementy:
 
-* Brama sieci VPN oparta na trasie. 
+* Brama sieci VPN oparta na trasie. 
 * Serwer RADIUS obsługujący uwierzytelnianie użytkowników. Serwer RADIUS można wdrożyć lokalnie lub w sieci wirtualnej platformy Azure. Można również skonfigurować dwa serwery RADIUS w celu zapewnienia wysokiej dostępności.
 * Pakiet konfiguracji klienta sieci VPN dla urządzeń z systemem Windows, które będą łączyć się z siecią wirtualną. Pakiet konfiguracji klienta sieci VPN udostępnia ustawienia wymagane przez klienta VPN do łączenia się za pośrednictwem usługi P2S.
 
@@ -119,7 +119,7 @@ Poniższe kroki tworzą grupę zasobów i sieć wirtualną w grupie zasobów z t
    ```azurepowershell-interactive
    New-AzResourceGroup -Name "TestRG" -Location "East US"
    ```
-2. Utwórz konfiguracje podsieci dla sieci wirtualnej, nadając im nazwy *FrontEnd*, *BackEnd* i *GatewaySubnet*. Prefiksy te muszą być częścią zadeklarowanej przestrzeni adresowej sieci wirtualnej.
+2. Utwórz konfiguracje podsieci dla sieci wirtualnej, nadając im nazwy *FrontEnd* , *BackEnd* i *GatewaySubnet* . Prefiksy te muszą być częścią zadeklarowanej przestrzeni adresowej sieci wirtualnej.
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
@@ -148,8 +148,8 @@ Poniższe kroki tworzą grupę zasobów i sieć wirtualną w grupie zasobów z t
 
 Przed utworzeniem i skonfigurowaniem bramy sieci wirtualnej należy prawidłowo skonfigurować serwer RADIUS na potrzeby uwierzytelniania.
 
-1. Jeśli nie masz wdrożonego serwera usługi RADIUS, wdróż go. Procedurę wdrażania można znaleźć w przewodniku instalacji dostarczonym przez dostawcę usługi RADIUS.  
-2. Skonfiguruj bramę sieci VPN jako klienta RADIUS na serwerze RADIUS. Podczas dodawania tego klienta usługi RADIUS należy określić utworzoną sieć wirtualną GatewaySubnet. 
+1. Jeśli nie masz wdrożonego serwera usługi RADIUS, wdróż go. Procedurę wdrażania można znaleźć w przewodniku instalacji dostarczonym przez dostawcę usługi RADIUS.  
+2. Skonfiguruj bramę sieci VPN jako klienta RADIUS na serwerze RADIUS. Podczas dodawania tego klienta usługi RADIUS należy określić utworzoną sieć wirtualną GatewaySubnet. 
 3. Po skonfigurowaniu serwera RADIUS Pobierz adres IP serwera RADIUS i wspólny klucz tajny, który powinni używać klienci usługi RADIUS do komunikowania się z serwerem RADIUS. Jeśli serwer RADIUS należy do sieci wirtualnej platformy Azure, użyj adresu IP urzędu certyfikacji serwera usługi RADIUS.
 
 Artykuł [serwera zasad sieciowych (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) zawiera wskazówki dotyczące konfigurowania serwera usługi Windows RADIUS (NPS) na potrzeby uwierzytelniania domeny usługi AD.
@@ -169,9 +169,9 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 ## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"></a> Dodaj serwer RADIUS i pulę adresów klienta
  
-* Wartość parametru-RadiusServer można określić według nazwy lub adresu IP. Jeśli określisz, że nazwa i serwer znajdują się lokalnie, Brama sieci VPN może nie być w stanie rozpoznać nazwy. W takim przypadku lepiej jest określić adres IP serwera programu. 
+* Wartość parametru-RadiusServer można określić według nazwy lub adresu IP. Jeśli określisz, że nazwa i serwer znajdują się lokalnie, Brama sieci VPN może nie być w stanie rozpoznać nazwy. W takim przypadku lepiej jest określić adres IP serwera programu. 
 * Parametr-RadiusSecret powinien być zgodny z konfiguracją na serwerze RADIUS.
-* -VpnClientAddressPool jest zakresem, z którego łączący się klienci sieci VPN otrzymują adres IP.Używaj zakresu prywatnych adresów IP nienakładającego się na lokalizację lokalną, z której będziesz się łączyć, ani na sieć wirtualną, z którą chcesz się łączyć. Upewnij się, że skonfigurowano wystarczającą dla siebie pulę adresów.  
+* -VpnClientAddressPool jest zakresem, z którego łączący się klienci sieci VPN otrzymują adres IP. Używaj zakresu prywatnych adresów IP nienakładającego się na lokalizację lokalną, z której będziesz się łączyć, ani na sieć wirtualną, z którą chcesz się łączyć. Upewnij się, że skonfigurowano wystarczającą dla siebie pulę adresów.  
 
 1. Utwórz bezpieczny ciąg dla wpisu tajnego usługi RADIUS.
 
@@ -237,7 +237,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 ## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a> Pobierz pakiet konfiguracji klienta sieci VPN i Skonfiguruj klienta sieci VPN
 
-Konfiguracja klienta sieci VPN umożliwia urządzeniom łączenie się z siecią wirtualną za pośrednictwem połączenia P2S.Aby wygenerować pakiet konfiguracji klienta sieci VPN i skonfigurować klienta sieci VPN, zobacz [Tworzenie konfiguracji klienta sieci VPN na potrzeby uwierzytelniania usługi RADIUS](point-to-site-vpn-client-configuration-radius.md).
+Konfiguracja klienta sieci VPN umożliwia urządzeniom łączenie się z siecią wirtualną za pośrednictwem połączenia P2S. Aby wygenerować pakiet konfiguracji klienta sieci VPN i skonfigurować klienta sieci VPN, zobacz [Tworzenie konfiguracji klienta sieci VPN na potrzeby uwierzytelniania usługi RADIUS](point-to-site-vpn-client-configuration-radius.md).
 
 ## <a name="7-connect-to-azure"></a><a name="connect"></a>7. Nawiązywanie połączenia z platformą Azure
 
@@ -252,13 +252,13 @@ Konfiguracja klienta sieci VPN umożliwia urządzeniom łączenie się z siecią
 
 ### <a name="connect-from-a-mac-vpn-client"></a>Nawiązywanie połączenia z klienta sieci VPN dla komputerów Mac
 
-W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a następnie kliknij polecenie **Połącz**.
+W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a następnie kliknij polecenie **Połącz** .
 
   ![Połączenie z komputerem Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>Aby zweryfikować połączenie
 
-1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all*.
+1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all* .
 2. Przejrzyj wyniki. Zwróć uwagę na fakt, że otrzymany adres IP należy do określonej podczas konfiguracji połączenia punkt-lokacja puli adresów klienta sieci VPN. Wyniki są podobne, jak w następującym przykładzie:
 
    ```
@@ -278,9 +278,13 @@ Aby rozwiązać problem z połączeniem P2S, zobacz [Rozwiązywanie problemów z
 
 ## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Nawiązywanie połączenia z maszyną wirtualną
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
-## <a name="faq"></a><a name="faq"></a>Najczęściej zadawane pytania
+* Sprawdź, czy pakiet konfiguracji klienta sieci VPN został wygenerowany po określeniu adresów IP serwera DNS dla sieci wirtualnej. Jeśli adresy IP serwera DNS zostały zaktualizowane, wygeneruj i zainstaluj nowy pakiet konfiguracji klienta sieci VPN.
+
+* Użyj narzędzia „ipconfig”, aby sprawdzić adres IPv4 przypisany do karty Ethernet na komputerze, z którego jest nawiązywane połączenie. Jeśli adres IP znajduje się w zakresie adresów sieci wirtualnej, z którą jest nawiązywane połączenie, lub w zakresie adresów puli VPNClientAddressPool, jest to określane jako nakładająca się przestrzeń adresowa. Kiedy przestrzeń adresowa nakłada się w ten sposób, ruch sieciowy nie dociera do platformy Azure, tylko pozostaje w sieci lokalnej.
+
+## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 
 Często zadawane pytania dotyczą P2S przy użyciu uwierzytelniania usługi RADIUS
 

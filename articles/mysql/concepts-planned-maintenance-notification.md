@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: bd2f91a697fffa1ef83f5173a394686245cf9826
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488915"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544838"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Powiadomienie o planowanej konserwacji w Azure Database for MySQL-pojedynczym serwerze
 
@@ -46,22 +46,22 @@ Możesz sprawdzić powiadomienie dotyczące planowanej konserwacji na Azure Port
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Sprawdź powiadomienie o planowanej konserwacji z Azure Portal
 
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Service Health**.
+1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Service Health** .
 2. Wybierz kartę **Planowana konserwacja**
-3. Wybierz pozycję **subskrypcja**, * * region i **Usługa** , dla której chcesz sprawdzić zaplanowane powiadomienie o konserwacji. 
+3. Wybierz pozycję **subskrypcja** , * * region i **Usługa** , dla której chcesz sprawdzić zaplanowane powiadomienie o konserwacji. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Aby odebrać powiadomienie o planowanej konserwacji
 
-1. W [portalu](https://portal.azure.com)wybierz pozycję **Service Health**.
-2. W sekcji **alerty** wybierz pozycję **alerty dotyczące kondycji**.
+1. W [portalu](https://portal.azure.com)wybierz pozycję **Service Health** .
+2. W sekcji **alerty** wybierz pozycję **alerty dotyczące kondycji** .
 3. Wybierz pozycję **+ Dodaj alert kondycji usługi** i wypełnij pola.
 4. Wypełnij pola wymagane. 
-5. Wybierz **Typ zdarzenia**, wybierz pozycję **Planowana konserwacja** lub **Zaznacz wszystko**
+5. Wybierz **Typ zdarzenia** , wybierz pozycję **Planowana konserwacja** lub **Zaznacz wszystko**
 6. W obszarze **grupy akcji** Określ, w jaki sposób chcesz otrzymywać alert (Otrzymuj wiadomość e-mail, wyzwól aplikację logiki itp.).  
 7. Upewnij się, że w momencie utworzenia reguły włączania zostanie ustawiona wartość tak.
 8. Wybierz pozycję **Utwórz regułę alertu** , aby zakończyć alert
 
-Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi**można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications.md).
+Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi** można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Czy mogę anulować lub odroczyć planowaną konserwację?
 

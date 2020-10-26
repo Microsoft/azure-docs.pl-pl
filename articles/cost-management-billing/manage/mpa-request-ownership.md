@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 10/19/2020
 ms.author: banders
-ms.openlocfilehash: bb2a58b76445f2cfd14a905de1fb66dbff3eee7e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: aaa94f66f1b0441e025013369b3b674d799d4847
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371018"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203266"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Uzyskiwanie własności rozliczeń subskrypcji platformy Azure dla konta umowy partnerskiej firmy Microsoft
 
@@ -21,31 +21,31 @@ Aby zapewnić jedną połączoną fakturę za usługi zarządzane i użycie plat
 
 Ta funkcja jest dostępna tylko dla partnerów rozliczających się bezpośrednio, którzy mają certyfikat [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). Podlega to ładowi i zasadom firmy Microsoft i może wymagać weryfikacji oraz zatwierdzenia w przypadku niektórych klientów.
 
-Aby zawnioskować o własność rozliczeń, użytkownik musi mieć rolę **administratora globalnego** lub **agenta administratora**. Aby dowiedzieć się więcej, zobacz [Centrum partnerskie — Przypisywanie ról i uprawnień użytkowników](https://docs.microsoft.com/partner-center/permissions-overview).
+Aby zawnioskować o własność rozliczeń, użytkownik musi mieć rolę **administratora globalnego** lub **agenta administratora** . Aby dowiedzieć się więcej, zobacz [Centrum partnerskie — Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview).
 
 Ten artykuł dotyczy kont rozliczeniowych dla umów partnerskich firmy Microsoft Te konta są tworzone dla dostawców rozwiązań w chmurze w celu zarządzania rozliczeniami dla klientów w nowym środowisku handlowym. To nowe środowisko jest dostępne tylko dla partnerów mających co najmniej jednego klienta, który zaakceptował umowę klienta firmy Microsoft i ma plan platformy Azure. [Sprawdź, czy masz dostęp do umowy partnerskiej firmy Microsoft](#check-access-to-a-microsoft-partner-agreement).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Ustanów [relację odsprzedawcy](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) z klientem. Sprawdź [Omówienie uwierzytelniania regionalnego dostawców usług w chmurze](https://docs.microsoft.com/partner-center/regional-authorization-overview), aby upewnić się, że klient i dzierżawca partnera znajdują się w tym samym regionie autoryzowanym.
-1. [Potwierdź, że klient zaakceptował umowę klienta firmy Microsoft](https://docs.microsoft.com/partner-center/confirm-customer-agreement).
-1. Skonfiguruj [plan platformy Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan) dla klienta. Jeśli klient dokonuje zakupu za pośrednictwem wielu odsprzedawców, należy skonfigurować plan platformy Azure dla każdej kombinacji klienta i odsprzedawcy.
+1. Ustanów [relację odsprzedawcy](/partner-center/request-a-relationship-with-a-customer) z klientem. Sprawdź [Omówienie uwierzytelniania regionalnego dostawców usług w chmurze](/partner-center/regional-authorization-overview), aby upewnić się, że klient i dzierżawca partnera znajdują się w tym samym regionie autoryzowanym.
+1. [Potwierdź, że klient zaakceptował umowę klienta firmy Microsoft](/partner-center/confirm-customer-agreement).
+1. Skonfiguruj [plan platformy Azure](/partner-center/purchase-azure-plan) dla klienta. Jeśli klient dokonuje zakupu za pośrednictwem wielu odsprzedawców, należy skonfigurować plan platformy Azure dla każdej kombinacji klienta i odsprzedawcy.
 
 ## <a name="request-billing-ownership"></a>Żądanie własności rozliczeń
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu poświadczeń agenta administratora dostawcy usług w chmurze w dzierżawie dostawcy usług w chmurze.
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .  
     ![Zrzut ekranu przedstawiający wyszukiwanie narzędzia Cost management + Billing w witrynie Azure Portal w celu zażądania własności rozliczeń.](./media/mpa-request-ownership/search-cmb.png)
 1. Wybierz pozycję **Klienci** po lewej stronie, a następnie wybierz klienta z listy.  
     [![Zrzut ekranu pokazujący wybieranie klientów](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
-1. Wybierz pozycję **Żądania przeniesienia** w lewym dolnym rogu, a następnie wybierz pozycję **Dodaj nowe żądanie**.  
+1. Wybierz pozycję **Żądania przeniesienia** w lewym dolnym rogu, a następnie wybierz pozycję **Dodaj nowe żądanie** .  
     [![Zrzut ekranu pokazujący wybieranie żądań przeniesienia](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
-1. Wprowadź adres e-mail użytkownika w organizacji klienta, który będzie akceptował żądanie przeniesienia. Użytkownik musi być właścicielem konta umowy Enterprise Agreement. Wybierz pozycję **Wyślij żądanie przeniesienia**.  
+1. Wprowadź adres e-mail użytkownika w organizacji klienta, który będzie akceptował żądanie przeniesienia. Użytkownik musi być właścicielem konta umowy Enterprise Agreement. Wybierz pozycję **Wyślij żądanie przeniesienia** .  
     [![Zrzut ekranu przedstawiający wysyłanie żądania przeniesienia](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
 1. Użytkownik otrzymuje wiadomość e-mail z instrukcjami dotyczącymi przeglądania żądania transferu.  
     ![Zrzut ekranu przedstawiający wiadomość e-mail z prośbą o przejrzenie żądania przeniesienia](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
 1. Aby zatwierdzić żądanie przeniesienia, użytkownik wybiera link w wiadomości e-mail i postępuje zgodnie z instrukcjami.  
-    [![Zrzut ekranu przedstawiający prośbę o przejrzenie żądania przeniesienia](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) Użytkownik może wybrać konto rozliczeniowe, z którego chce przenieść produkty platformy Azure. Po jego wybraniu zostaną wyświetlone kwalifikujące się produkty, które można przenieść. **Uwaga:** Wyłączonych subskrypcji nie można przenieść i będą one wyświetlane na liście „Produkty platformy Azure, których nie można przenieść”, jeśli ma to zastosowanie. Po wybraniu produktów platformy Azure do przeniesienia wybierz pozycję **Waliduj**.
+    [![Zrzut ekranu przedstawiający prośbę o przejrzenie żądania przeniesienia](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) Użytkownik może wybrać konto rozliczeniowe, z którego chce przenieść produkty platformy Azure. Po jego wybraniu zostaną wyświetlone kwalifikujące się produkty, które można przenieść. **Uwaga:** Wyłączonych subskrypcji nie można przenieść i będą one wyświetlane na liście „Produkty platformy Azure, których nie można przenieść”, jeśli ma to zastosowanie. Po wybraniu produktów platformy Azure do przeniesienia wybierz pozycję **Waliduj** .
 1. W obszarze **Wynik walidacji przeniesienia** zostanie wyświetlony wpływ produktów platformy Azure, które mają zostać przeniesione. Oto możliwe stany:
     * **Zakończone pomyślnie** — walidacja dla tego produktu platformy Azure zakończyła się pomyślnie i można go przenieść.
     * **Ostrzeżenie** — istnieje ostrzeżenie dotyczące wybranego produktu platformy Azure. Chociaż produkt nadal może zostać przeniesiony, będzie to miało pewien wpływ, o którym użytkownik powinien wiedzieć w przypadku, gdyby chciał podjąć akcje korygujące. Na przykład przenoszona subskrypcja platformy Azure korzysta z wystąpienia zarezerwowanego. Po przeniesieniu subskrypcja nie będzie już otrzymywać tej korzyści. Aby zmaksymalizować oszczędności, upewnij się, że wystąpienie zarezerwowane jest skojarzone z inną subskrypcją, która może korzystać z jego korzyści. Zamiast tego użytkownik może również wrócić do strony wyboru i usunąć zaznaczenie tej subskrypcji platformy Azure.
@@ -55,7 +55,7 @@ Ten artykuł dotyczy kont rozliczeniowych dla umów partnerskich firmy Microsoft
 ## <a name="check-the-transfer-request-status"></a>Sprawdzanie stanu żądania przeniesienia
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .  
     ![Zrzut ekranu przedstawiający wyszukiwanie narzędzia Cost Management + Billing w witrynie Azure Portal dla stanu żądania przeniesienia.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Wybierz pozycję **Klienci** po lewej stronie.  
     [![Zrzut ekranu pokazujący wybieranie klientów](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
@@ -115,7 +115,7 @@ Wyłączonych subskrypcji nie można przenosić. Aby przeniesienie własności r
 
 ### <a name="azure-resources-transfer"></a>Przenoszenie zasobów platformy Azure
 
-Wszystkie zasoby z subskrypcji, takie jak maszyny wirtualne, dyski i witryny internetowe, są przenoszone.
+Wszystkie zasoby z subskrypcji, takie jak maszyny wirtualne, dyski i witryny internetowe, są przenoszone. Identyfikatory subskrypcji oraz identyfikatory zasobów są zachowywane podczas przenoszenia. 
 
 ### <a name="azure-marketplace-products-transfer"></a>Przenoszenie produktów z witryny Azure Marketplace
 
@@ -123,13 +123,13 @@ Produkty z witryny Azure Marketplace, które są dostępne dla subskrypcji zarz�
 
 ### <a name="azure-reservations-transfer"></a>Przenoszenie rezerwacji platformy Azure
 
-Rezerwacje platformy Azure nie są automatycznie przenoszone wraz z subskrypcjami. Możesz zachować rezerwację w ramach umowy EA dla innych subskrypcji lub [anulować rezerwację](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) i umożliwić partnerowi ponowny zakup od dostawcy CSP.
+Rezerwacje platformy Azure nie są automatycznie przenoszone wraz z subskrypcjami. Możesz zachować rezerwację w ramach umowy EA dla innych subskrypcji lub [anulować rezerwację](../reservations/exchange-and-refund-azure-reservations.md) i umożliwić partnerowi ponowny zakup od dostawcy CSP.
 
 ### <a name="access-to-azure-services"></a>Dostęp do usług platformy Azure
 
 Przejście nie wpływa na dostęp do istniejących użytkowników, grup lub jednostek usługi, które zostały przypisane w ramach [kontroli dostępu na podstawie ról (RBAC) platformy Azure](../../role-based-access-control/overview.md). Partner nie uzyska nowego dostępu RBAC platformy Azure do subskrypcji.
 
-Partnerzy powinni skontaktować się z klientem w celu uzyskania dostępu do subskrypcji. Partnerzy muszą uzyskać [Dostęp administratora w imieniu — AOBO (Admin on Behalf Of)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) lub [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider), aby otwierać bilety pomocy technicznej.
+Partnerzy powinni skontaktować się z klientem w celu uzyskania dostępu do subskrypcji. Partnerzy muszą uzyskać [Dostęp administratora w imieniu — AOBO (Admin on Behalf Of)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) lub [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md), aby otwierać bilety pomocy technicznej.
 
 ### <a name="azure-support-plan"></a>Plan pomocy technicznej platformy Azure
 
@@ -145,7 +145,7 @@ Oryginalny właściciel rozliczeń subskrypcji jest odpowiedzialny za wszelkie o
 
 ### <a name="software-as-a-service-saas-transfer"></a>Przenoszenie oprogramowania jako usługi (SaaS)
 
-Produkty SaaS nie są przenoszone razem z subskrypcjami. Poproś użytkownika o [skontaktowanie się z pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) w celu przeniesienia własności rozliczeń produktów SaaS. Oprócz własności rozliczeń użytkownik może również przenieść własność zasobów. Własność zasobów umożliwia wykonywanie operacji zarządzania, takich jak usuwanie i wyświetlanie szczegółów produktu. Użytkownik musi być właścicielem zasobu w ramach produktu SaaS, aby przenieść własność zasobów.
+Produkty SaaS nie są przenoszone razem z subskrypcjami. Poproś użytkownika o [skontaktowanie się z pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) w celu przeniesienia własności rozliczeń produktów SaaS. Oprócz własności rozliczeń użytkownik może również przenieść własność zasobów. Własność zasobów umożliwia wykonywanie operacji zarządzania takich jak usuwanie i wyświetlanie szczegółów produktu. Użytkownik musi być właścicielem zasobu w ramach produktu SaaS, aby przenieść własność zasobów.
 
 ### <a name="additional-approval-for-certain-customers"></a>Dodatkowe zatwierdzenie dla niektórych klientów
 
@@ -155,13 +155,13 @@ Niektóre żądania przeniesienia klientów mogą wymagać dodatkowego procesu w
 
 Katalog subskrypcji platformy Azure, które są przenoszone, musi być zgodny z katalogiem klienta wybranego podczas ustanawiania relacji z dostawcą usług w chmurze.
 
-Jeśli te dwa katalogi nie są zgodne, przeniesienie subskrypcji jest niemożliwe. Należy ustanowić nową relację z odsprzedawcą dostawcy usług w chmurze, wybierając katalog subskrypcji platformy Azure, lub zmienić katalog subskrypcji platformy Azure, aby był zgodny z katalogiem relacji klienta z dostawcą usług w chmurze. Aby uzyskać więcej informacji, zobacz [Kojarzenie istniejącej subskrypcji z katalogiem usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+Jeśli te dwa katalogi nie są zgodne, przeniesienie subskrypcji jest niemożliwe. Należy ustanowić nową relację z odsprzedawcą dostawcy usług w chmurze, wybierając katalog subskrypcji platformy Azure, lub zmienić katalog subskrypcji platformy Azure, aby był zgodny z katalogiem relacji klienta z dostawcą usług w chmurze. Aby uzyskać więcej informacji, zobacz [Kojarzenie istniejącej subskrypcji z katalogiem usługi Azure AD](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
-### <a name="ea-subscription-in-the-non-orgnization-directory"></a>Subskrypcja EA w katalogu nienależącym do organizacji
+### <a name="ea-subscription-in-the-non-organization-directory"></a>Subskrypcja EA w katalogu nienależącym do organizacji
 
 Subskrypcje EA z katalogów nienależących do organizacji mogą być przenoszone, o ile katalog ma relację odsprzedawcy z dostawcą usług w chmurze. Jeśli katalog nie ma relacji odsprzedawcy, należy upewnić się, że użytkownik z organizacji ma w katalogu uprawnienie *Administrator globalny* pozwalające akceptować relację partnera. Część z nazwą domeny w nazwie użytkownika musi być albo początkową domyślną nazwą domeny „[nazwa domeny]. onmicrosoft.com”, albo zweryfikowaną niestandardową nazwą domeny niefederacyjnej, taką jak „contoso.com”.  
 
-Aby dodać nowego użytkownika do katalogu, zobacz [przewodnik Szybki start: Dodawanie nowych użytkowników do usługi Azure Active Directory w celu dodania nowego użytkownika do katalogu usługi AAD](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Aby dodać nowego użytkownika do katalogu, zobacz [przewodnik Szybki start: Dodawanie nowych użytkowników do usługi Azure Active Directory w celu dodania nowego użytkownika do katalogu](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Sprawdzanie dostępu do umowy partnerskiej firmy Microsoft
 
@@ -174,4 +174,4 @@ Jeśli potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://port
 ## <a name="next-steps"></a>Następne kroki
 
 * Własność rozliczeń subskrypcji platformy Azure zostaje przeniesiona na użytkownika. Śledź opłaty za te subskrypcje w witrynie [Azure Portal](https://portal.azure.com).
-* Skontaktuj się z klientem, aby uzyskać dostęp do przeniesionych subskrypcji platformy Azure. [Dodaj lub usuń przypisania ról platformy Azure przy użyciu witryny Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* Skontaktuj się z klientem, aby uzyskać dostęp do przeniesionych subskrypcji platformy Azure. [Dodaj lub usuń przypisania ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).

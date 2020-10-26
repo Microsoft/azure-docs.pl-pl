@@ -7,18 +7,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88211301"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544515"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Usługa Azure cache for Redis — często zadawane pytania
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące opracowywania usługi Azure cache for Redis.
 
-## <a name="common-questions-and-answers"></a>Typowe pytania i odpowiedzi
+## <a name="common-questions-and-answers"></a>Często zadawane pytania i odpowiedzi
 W tej sekcji omówiono następujące często zadawane pytania:
 
 * [Jak rozpocząć pracę z usługą Azure cache for Redis?](#how-can-i-get-started-with-azure-cache-for-redis)
@@ -55,8 +55,8 @@ Zwykle wartości domyślne klienta są wystarczające. Możesz dostosować opcje
 
 * **Ponowne próby**
   * W przypadku ConnectRetry i ConnectTimeout ogólne wskazówki są szybkie i ponawiane. Wskazówki te są oparte na obciążeniu i ile czasu na średnim jest to, aby klient mógł wydać polecenie Redis i odebrać odpowiedź.
-  * Zezwól programowi StackExchange. Redis na automatyczne ponowne nawiązywanie połączenia zamiast sprawdzania stanu połączenia i samodzielnego łączenia się. **Unikaj używania właściwości ConnectionMultiplexer. IsConnected**.
-  * Snowballing — czasami może wystąpić problem polegający na tym, że ponawianie próby, a ponowne próby Snowball i nigdy nie są odzyskiwane. Jeśli wystąpią Snowballing, należy rozważyć użycie wykładniczego algorytmu ponowienia wycofywania, zgodnie z opisem w temacie [ponowienie ogólnych wskazówek](../best-practices-retry-general.md) opublikowanych przez firmę Microsoft w ramach systemu praktyk &.
+  * Zezwól programowi StackExchange. Redis na automatyczne ponowne nawiązywanie połączenia zamiast sprawdzania stanu połączenia i samodzielnego łączenia się. **Unikaj używania właściwości ConnectionMultiplexer. IsConnected** .
+  * Snowballing — czasami może wystąpić problem polegający na tym, że ponawianie próby, a ponowne próby Snowball i nigdy nie są odzyskiwane. Jeśli wystąpią Snowballing, należy rozważyć użycie wykładniczego algorytmu ponowienia wycofywania, zgodnie z opisem w temacie [ponowienie ogólnych wskazówek](/azure/architecture/best-practices/transient-faults) opublikowanych przez firmę Microsoft w ramach systemu praktyk &.
   
 * **Wartości limitu czasu**
   * Zastanów się nad obciążeniem i ustaw odpowiednie wartości. Jeśli przechowujesz duże wartości, ustaw limit czasu na wyższą wartość.
@@ -109,7 +109,7 @@ Można użyć dowolnego polecenia wymienionego w [poleceniach Redis](https://red
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Narzędzia wiersza polecenia Redis nie działają z portem TLS, ale można użyć narzędzia, takiego jak `stunnel` Aby bezpiecznie połączyć narzędzia z portem TLS, postępując zgodnie z instrukcjami w temacie [jak używać narzędzia wiersza polecenia Redis z usługą Azure cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) .
+> Narzędzia wiersza polecenia Redis nie działają z portem TLS, ale można użyć narzędzia, takiego jak `stunnel` Aby bezpiecznie połączyć narzędzia z portem TLS, postępując zgodnie z instrukcjami w temacie [jak używać narzędzia wiersza polecenia Redis z usługą Azure cache for Redis](./cache-how-to-redis-cli-tool.md) .
 >
 >
 

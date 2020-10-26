@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b4df91f4654f39780f81e0a27139677431926238
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91439986"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532666"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL — elastyczny serwer
 
@@ -90,11 +90,9 @@ Elastyczna usługa serwera jest wyposażona w wbudowaną funkcję monitorowania 
 
 Usługa uruchamia wersję społeczności PostgreSQL. Pozwala to na pełną zgodność aplikacji i wymaga minimalnego kosztu refaktoryzacji w celu przeprowadzenia migracji istniejącej aplikacji opracowanej w aparacie PostgreSQL na elastyczny serwer. 
 
-- **Zrzuty i przywracanie** — w przypadku migracji w trybie offline, w których użytkownicy mogą zapewnić przestój, zrzuty i przywracanie przy użyciu narzędzi społeczności, takich jak pg_dump i pg_restore mogą zapewnić najszybszy sposób migracji. Aby uzyskać szczegółowe informacje [, zobacz Migrowanie przy użyciu zrzutów i przywracania](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) .
-- **Azure Database Migration Service** — w celu zapewnienia bezproblemowej i uproszczonej migracji do elastycznego serwera z minimalnym przestojem Azure Database Migration Service można korzystać z nich. Zobacz [DMS za pośrednictwem portalu](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) i [DMS za pomocą interfejsu wiersza polecenia](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online). Można przeprowadzić migrację z serwera Azure Database for PostgreSQL-pojedynczego do elastycznego serwera. Aby uzyskać szczegółowe informacje, zobacz ten [artykuł DMS](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) .
+- **Zrzuty i przywracanie** — w przypadku migracji w trybie offline, w których użytkownicy mogą zapewnić przestój, zrzuty i przywracanie przy użyciu narzędzi społeczności, takich jak pg_dump i pg_restore mogą zapewnić najszybszy sposób migracji. Aby uzyskać szczegółowe informacje [, zobacz Migrowanie przy użyciu zrzutów i przywracania](../howto-migrate-using-dump-and-restore.md) .
+- **Azure Database Migration Service** — w celu zapewnienia bezproblemowej i uproszczonej migracji do elastycznego serwera z minimalnym przestojem Azure Database Migration Service można korzystać z nich. Zobacz [DMS za pośrednictwem portalu](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) i [DMS za pomocą interfejsu wiersza polecenia](../../dms/tutorial-postgresql-azure-postgresql-online.md). Można przeprowadzić migrację z serwera Azure Database for PostgreSQL-pojedynczego do elastycznego serwera. Aby uzyskać szczegółowe informacje, zobacz ten [artykuł DMS](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
 Teraz, po zapoznaniu się z wprowadzeniem do Azure Database for PostgreSQL elastyczny tryb wdrażania serwera, możesz utworzyć pierwszy serwer: [utwórz Azure Database for PostgreSQL-elastyczny serwer przy użyciu Azure Portal](./quickstart-create-server-portal.md)
-
-

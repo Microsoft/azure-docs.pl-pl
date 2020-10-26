@@ -39,21 +39,21 @@ Współrzędne punktów są zwracane w jednostkach pikseli.
 
 Atrybuty to zestaw funkcji, które mogą być opcjonalnie wykryte przez interfejs API [wykrywania kroju](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) . Następujące atrybuty mogą zostać wykryte:
 
-* **Wiek**. Szacowany wiek w latach o określonej wartości.
-* **Rozmycie**. Blurriness na obrazie. Ten atrybut zwraca wartość z przedziału od zera do jednej i nieformalnej oceny niskiej, średniej lub wysokiej.
-* **Rozpoznawania emocji**. Lista emocji z ich pewnością wykrywania dla danej czołowej. Wyniki pewności są znormalizowane, a wyniki we wszystkich emocjiach są dodawane do jednego. Emocji zwracane są szczęście, smutek, neutralne, gniew, w tempie, obrzydzenie, niespodziewane i obaw.
-* **Ekspozycja**. Ekspozycja kroju obrazu. Ten atrybut zwraca wartość z przedziału od zera do jednej i nieformalnej oceny nienadzorowanego narażenia, goodExposure lub prześwietlania.
-* **Sierść twarzy**. Szacowana obecność twarzy i długość dla danej twarzy.
-* **Płeć**. Szacowana płeć danej czołowej. Możliwe wartości to samce, sami i bezpłciowe.
-* **Okulary**. Określa, czy dana wartość jest okularów. Możliwe wartości to noglasss, ReadingGlasses, okulary słoneczne i szklarnie.
-* **Włosy**. Typ włosia kroju. Ten atrybut wskazuje, czy włosy jest widoczny, czy baldness jest wykryty i jakie są kolory w postaci włosów.
-* Pozycja **główna**. Orientacja powierzchni w obszarze 3W. Ten atrybut jest opisywany przez kąty przechyłu, rzutowania i Yaw (w stopniach). Zakresy wartości to-90 stopni do 90 stopni,-90 stopni do 90 stopni i-90 stopnie odpowiednio do stopów. Na poniższym diagramie zapoznaj się z mapowaniami kątów:
+* **Wiek** . Szacowany wiek w latach o określonej wartości.
+* **Rozmycie** . Blurriness na obrazie. Ten atrybut zwraca wartość z przedziału od zera do jednej i nieformalnej oceny niskiej, średniej lub wysokiej.
+* **Rozpoznawania emocji** . Lista emocji z ich pewnością wykrywania dla danej czołowej. Wyniki pewności są znormalizowane, a wyniki we wszystkich emocjiach są dodawane do jednego. Emocji zwracane są szczęście, smutek, neutralne, gniew, w tempie, obrzydzenie, niespodziewane i obaw.
+* **Ekspozycja** . Ekspozycja kroju obrazu. Ten atrybut zwraca wartość z przedziału od zera do jednej i nieformalnej oceny nienadzorowanego narażenia, goodExposure lub prześwietlania.
+* **Sierść twarzy** . Szacowana obecność twarzy i długość dla danej twarzy.
+* **Płeć** . Szacowana płeć danej czołowej. Możliwe wartości to samce, sami i bezpłciowe.
+* **Okulary** . Określa, czy dana wartość jest okularów. Możliwe wartości to noglasss, ReadingGlasses, okulary słoneczne i szklarnie.
+* **Włosy** . Typ włosia kroju. Ten atrybut wskazuje, czy włosy jest widoczny, czy baldness jest wykryty i jakie są kolory w postaci włosów.
+* Pozycja **główna** . Orientacja powierzchni w obszarze 3W. Ten atrybut jest opisywany przez kąty przechyłu, rzutowania i Yaw (w stopniach). Zakresy wartości to-90 stopni do 90 stopni,-90 stopni do 90 stopni i-90 stopnie odpowiednio do stopów. Na poniższym diagramie zapoznaj się z mapowaniami kątów:
 
     ![Nagłówek z osiami o szerokości, rzutowania i Yaw z etykietą](../Images/headpose.1.jpg)
-* **Korzeń**. Czy jest to korzeń. Ten atrybut zwraca wartość logiczną dla eyeMakeup i lipMakeup.
-* **Szum**. Szum wizualny wykryty w obrazie kroju. Ten atrybut zwraca wartość z przedziału od zera do jednej i nieformalnej oceny niskiej, średniej lub wysokiej.
-* **Zamknięcia**. Czy istnieją obiekty, które blokują elementy. Ten atrybut zwraca wartość logiczną dla eyeOccluded, foreheadOccluded i mouthOccluded.
-* **Uśmiech**. Wyrażenie uśmiechu danej wartości. Ta wartość jest z zakresu od 0 do nr uśmiechu i jeden dla jasnego uśmiechu.
+* **Korzeń** . Czy jest to korzeń. Ten atrybut zwraca wartość logiczną dla eyeMakeup i lipMakeup.
+* **Szum** . Szum wizualny wykryty w obrazie kroju. Ten atrybut zwraca wartość z przedziału od zera do jednej i nieformalnej oceny niskiej, średniej lub wysokiej.
+* **Zamknięcia** . Czy istnieją obiekty, które blokują elementy. Ten atrybut zwraca wartość logiczną dla eyeOccluded, foreheadOccluded i mouthOccluded.
+* **Uśmiech** . Wyrażenie uśmiechu danej wartości. Ta wartość jest z zakresu od 0 do nr uśmiechu i jeden dla jasnego uśmiechu.
 
 > [!IMPORTANT]
 > Atrybuty kroju są przewidywane przy użyciu algorytmów statystycznych. Mogą one być niedokładne. Należy zachować ostrożność podczas podejmowania decyzji na podstawie danych atrybutów.
@@ -69,9 +69,9 @@ Skorzystaj z poniższych wskazówek, aby upewnić się, że obrazy wejściowe za
 
 W przypadku wykrycia twarzy ze źródła wideo może być możliwe zwiększenie wydajności przez dostosowanie niektórych ustawień w aparacie wideo:
 
-* **Wygładzanie**: wiele kamer wideo stosuje efekt wygładzania. Należy ją wyłączyć, jeśli jest to możliwe, ponieważ tworzy rozmycie między ramkami i zmniejsza przejrzystość.
-* **Szybkość migawki**: szybsza szybkość migawki zmniejsza liczbę ruchów między ramkami i czyści każdą ramkę. Zalecamy szybkość migawki 1/60 sekund.
-* **Kąt migawki**: Niektóre kamery określają kąt migawki zamiast szybkości migawki. Jeśli to możliwe, należy użyć mniejszego kąta migawki. Spowoduje to wyraźniejsze ramki wideo.
+* **Wygładzanie** : wiele kamer wideo stosuje efekt wygładzania. Należy ją wyłączyć, jeśli jest to możliwe, ponieważ tworzy rozmycie między ramkami i zmniejsza przejrzystość.
+* **Szybkość migawki** : szybsza szybkość migawki zmniejsza liczbę ruchów między ramkami i czyści każdą ramkę. Zalecamy szybkość migawki 1/60 sekund.
+* **Kąt migawki** : Niektóre kamery określają kąt migawki zamiast szybkości migawki. Jeśli to możliwe, należy użyć mniejszego kąta migawki. Spowoduje to wyraźniejsze ramki wideo.
 
     >[!NOTE]
     > Aparat o niższym kącie ściętym będzie mniej jasny w każdej klatce, dzięki czemu obraz będzie ciemniejszy. Należy określić odpowiedni poziom użycia.

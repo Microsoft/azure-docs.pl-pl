@@ -95,6 +95,8 @@
   items:
     - name: Zarządzanie kontami usługi Maps
       items:
+        - name: Tworzenie konta przy użyciu szablonu usługi ARM
+          href: how-to-create-template.md
         - name: Zarządzanie kontami
           href: how-to-manage-account-keys.md
         - name: Zarządzanie uwierzytelnianiem

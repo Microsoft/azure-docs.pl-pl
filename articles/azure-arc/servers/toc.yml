@@ -41,8 +41,18 @@
           href: onboard-powershell.md
     - name: Zarządzanie
       items:
-        - name: Zarządzanie rozszerzeniami maszyn wirtualnych platformy Azure i korzystanie z nich
-          href: manage-vm-extensions.md
+        - name: Rozszerzenia maszyn wirtualnych platformy Azure
+          items:
+            - name: Omówienie
+              href: manage-vm-extensions.md
+            - name: Zarządzanie rozszerzeniami z poziomu portalu
+              href: manage-vm-extensions-portal.md
+            - name: Zarządzanie rozszerzeniami przy użyciu interfejsu wiersza polecenia
+              href: manage-vm-extensions-cli.md
+            - name: Zarządzanie rozszerzeniami przy użyciu programu PowerShell
+              href: manage-vm-extensions-powershell.md
+            - name: Wdrażanie rozszerzeń przy użyciu szablonu usługi ARM
+              href: manage-vm-extensions-template.md
         - name: Zarządzanie agentem
           href: manage-agent.md
     - name: Rozwiązywanie problemów
@@ -55,8 +65,22 @@
   items:
     - name: Rezydencja danych
       href: data-residency.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/connectedmachine/connectedmachine
+    - name: Azure PowerShell
+      href: /powershell/module/az.connectedmachine
+    - name: .NET
+      href: /dotnet/api/overview/azure/hybridcompute/management
     - name: REST
       href: /rest/api/hybridcompute
+    - name: Przejdź
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
+    - name: Java
+      href: /java/api/overview/azure/hybridcompute/management
+    - name: JavaScript
+      href: /javascript/api/%40azure/arm-hybridcompute
+    - name: Python
+      href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html'
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: policy-reference.md

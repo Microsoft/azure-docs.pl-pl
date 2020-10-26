@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 45170e9df7082e277c445a2dab6d617eb208cd44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47262e0dc7247e1d514eeb64512c21ff1ae527ab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855637"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534825"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Przekazywanie danych dla zadań Apache Hadoop w usłudze HDInsight
 
@@ -37,7 +37,7 @@ Firma Microsoft udostępnia następujące narzędzia do pracy z usługą Azure S
 
 | Narzędzie | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Witryna Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Interfejs wiersza polecenia platformy Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
@@ -88,7 +88,7 @@ Istnieje również kilka aplikacji, które udostępniają interfejs graficzny s�
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Instalowanie usługi Azure Storage jako dysku lokalnego
 
-Zobacz [Instalowanie usługi Azure Storage jako dysku lokalnego](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
+Zobacz [Instalowanie usługi Azure Storage jako dysku lokalnego](/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## <a name="upload-using-services"></a>Przekaż za pomocą usług
 
@@ -98,8 +98,8 @@ Usługa Azure Data Factory to w pełni zarządzana usługa umożliwiająca tworz
 
 |Typ magazynu|Dokumentacja|
 |----|----|
-|Azure Blob Storage|[Kopiowanie danych do lub z usługi Azure Blob Storage za pomocą usługi Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
-|Usługa Azure Data Lake Storage 1. generacji|[Kopiowanie danych do lub z Azure Data Lake Storage Gen1 przy użyciu Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
+|Usługa Azure Blob Storage|[Kopiowanie danych do lub z usługi Azure Blob Storage za pomocą usługi Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
+|Azure Data Lake Storage Gen1|[Kopiowanie danych do lub z Azure Data Lake Storage Gen1 przy użyciu Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
 |Usługa Azure Data Lake Storage 2. generacji |[Załaduj dane do Azure Data Lake Storage Gen2 z Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 ### <a name="apache-sqoop"></a>Apache Sqoop

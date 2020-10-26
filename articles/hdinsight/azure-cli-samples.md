@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3181d4a0c605e0b1325f21de6b277e2b41f92d37
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a289a0d963c8e20a3b861ff9964e8afd6665de22
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487300"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542356"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: przykłady interfejsu wiersza polecenia platformy Azure
 
@@ -28,7 +28,7 @@ Ten artykuł zawiera przykładowe skrypty dla typowych zadań. Dla każdego przy
 
 * Interfejs wiersza polecenia platformy Azure. Aby uzyskać instrukcje [, zobacz Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) .
 
-* Opcjonalnie: bash. W przykładach w tym artykule użyto powłoki bash w systemie Windows 10. Aby uzyskać instrukcje dotyczące instalacji, zobacz artykuł [podsystem instalacji systemu Windows dla systemu Linux w systemie Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) .  Przykłady będą działały z wiersza polecenia systemu Windows z niewielkimi modyfikacjami.
+* Opcjonalnie: bash. W przykładach w tym artykule użyto powłoki bash w systemie Windows 10. Aby uzyskać instrukcje dotyczące instalacji, zobacz artykuł [podsystem instalacji systemu Windows dla systemu Linux w systemie Windows 10](/windows/wsl/install-win10) .  Przykłady będą działały z wiersza polecenia systemu Windows z niewielkimi modyfikacjami.
 
 ## <a name="az-login"></a>az login
 

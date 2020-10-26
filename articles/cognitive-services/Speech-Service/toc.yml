@@ -297,17 +297,15 @@
           href: index-conversation-scenarios.yml
         - name: Transkrypcja konwersacji
           items:
-            - name: Omówienie
-              items:
-                - name: Co to jest transkrypcja konwersacji?
-                  href: conversation-transcription.md
+            - name: Omówienie transkrypcji konwersacji
+              href: conversation-transcription.md
+            - name: Transkrypcja konwersacji w czasie rzeczywistym — Szybki start
+              href: how-to-use-conversation-transcription.md
             - name: Przewodniki z instrukcjami
               items:
                 - name: Obsługa scenariuszy biura obsługi
                   displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
                   href: call-center-transcription.md
-                - name: Transkrypcja konwersacji w czasie rzeczywistym
-                  href: how-to-use-conversation-transcription.md
                 - name: Asynchroniczna transkrypcja konwersacji
                   href: how-to-async-conversation-transcription.md
             - name: Dokumentacja
@@ -341,14 +339,10 @@
                       href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
         - name: Konwersacja między wieloma urządzeniami
           items:
-            - name: Omówienie
-              items:
-                - name: Co to jest konwersacja między wieloma urządzeniami?
-                  href: multi-device-conversation.md
-            - name: Szybki start
-              items:
-                - name: Rozpoczynanie konwersacji i dołączanie do niej
-                  href: quickstarts/multi-device-conversation.md
+            - name: Konwersacja między wieloma urządzeniami — omówienie
+              href: multi-device-conversation.md
+            - name: Konwersacja między wieloma urządzeniami — Szybki start
+              href: quickstarts/multi-device-conversation.md
             - name: Dokumentacja
               items:
                 - name: Zestaw SDK rozpoznawania mowy
@@ -363,12 +357,8 @@
       items:
         - name: Dokumentacja asystentów głosowych
           href: index-voice-assistants.yml
-        - name: Omówienie
-          items:
-            - name: Co to jest asystent głosowy?
-              href: voice-assistants.md
-            - name: Przykłady asystenta głosowego (GitHub)
-              href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
+        - name: Omówienie asystentów głosowych
+          href: voice-assistants.md
         - name: Polecenia niestandardowe
           items:
             - name: Co to są polecenia niestandardowe?

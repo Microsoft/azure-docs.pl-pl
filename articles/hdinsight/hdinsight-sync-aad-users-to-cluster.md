@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 689417dd0743b01afd18b57b5336640f11edd044
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19466174faeef20b8ac29882b047d74ad2adc5ff
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504659"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535182"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchronizowanie użytkowników usługi Azure Active Directory z klastrem usługi HDInsight
 
-[Klastry usługi HDInsight z pakiet Enterprise Security (ESP)](hdinsight-domain-joined-introduction.md) mogą używać silnego uwierzytelniania z użytkownikami Azure Active Directory (Azure AD), a także korzystać z zasad *kontroli dostępu opartej na ROLACH (Azure RBAC)* . Podczas dodawania użytkowników i grup do usługi Azure AD można synchronizować użytkowników, którzy potrzebują dostępu do klastra.
+[Klastry usługi HDInsight z pakiet Enterprise Security (ESP)](./domain-joined/hdinsight-security-overview.md) mogą używać silnego uwierzytelniania z użytkownikami Azure Active Directory (Azure AD), a także korzystać z zasad *kontroli dostępu opartej na ROLACH (Azure RBAC)* . Podczas dodawania użytkowników i grup do usługi Azure AD można synchronizować użytkowników, którzy potrzebują dostępu do klastra.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli jeszcze tego nie zrobiono, [Utwórz klaster usługi HDInsight z pakiet Enterprise Security](hdinsight-domain-joined-configure.md).
+Jeśli jeszcze tego nie zrobiono, [Utwórz klaster usługi HDInsight z pakiet Enterprise Security](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="add-new-azure-ad-users"></a>Dodawanie nowych użytkowników usługi Azure AD
 
@@ -29,15 +29,15 @@ Aby wyświetlić hosty, Otwórz interfejs użytkownika sieci Web Ambari. Każdy 
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do katalogu usługi Azure AD skojarzonego z klastrem ESP.
 
-2. Wybierz pozycję **Wszyscy użytkownicy** w menu po lewej stronie, a następnie wybierz pozycję **nowy użytkownik**.
+2. Wybierz pozycję **Wszyscy użytkownicy** w menu po lewej stronie, a następnie wybierz pozycję **nowy użytkownik** .
 
     ![Azure Portal wszystkich użytkowników i grup](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
-3. Wypełnij formularz nowego użytkownika. Wybierz grupy, które zostały utworzone na potrzeby przypisywania uprawnień opartych na klastrze. W tym przykładzie należy utworzyć grupę o nazwie "HiveUsers", do której można przypisać nowych użytkowników. [Przykładowe instrukcje](hdinsight-domain-joined-configure.md) dotyczące tworzenia klastra ESP obejmują dodanie dwóch grup `HiveUsers` i `AAD DC Administrators` .
+3. Wypełnij formularz nowego użytkownika. Wybierz grupy, które zostały utworzone na potrzeby przypisywania uprawnień opartych na klastrze. W tym przykładzie należy utworzyć grupę o nazwie "HiveUsers", do której można przypisać nowych użytkowników. [Przykładowe instrukcje](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) dotyczące tworzenia klastra ESP obejmują dodanie dwóch grup `HiveUsers` i `AAD DC Administrators` .
 
     ![Wybieranie grup Azure Portal okienka użytkownika](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz przycisk **Utwórz** .
 
 ## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Korzystanie z interfejsu API REST usługi Apache Ambari w celu synchronizowania użytkowników
 
@@ -120,10 +120,10 @@ W poniższej metodzie jest używany wpis POST z interfejsem API REST Ambari. Aby
     }
     ```
 
-1. Ten wynik pokazuje, że stan jest **zakończony**, jeden nowy użytkownik został utworzony, a użytkownik przypisał do niego członkostwo. W tym przykładzie użytkownik jest przypisany do synchronizowanej grupy LDAP "HiveUsers", ponieważ użytkownik został dodany do tej samej grupy w usłudze Azure AD.
+1. Ten wynik pokazuje, że stan jest **zakończony** , jeden nowy użytkownik został utworzony, a użytkownik przypisał do niego członkostwo. W tym przykładzie użytkownik jest przypisany do synchronizowanej grupy LDAP "HiveUsers", ponieważ użytkownik został dodany do tej samej grupy w usłudze Azure AD.
 
     > [!NOTE]  
-    > Poprzednia metoda synchronizuje grupy usługi Azure AD określone we właściwości **grupy użytkowników dostępu** w ustawieniach domeny podczas tworzenia klastra. Aby uzyskać więcej informacji, zobacz  [Tworzenie klastra usługi HDInsight](domain-joined/apache-domain-joined-configure.md).
+    > Poprzednia metoda synchronizuje grupy usługi Azure AD określone we właściwości **grupy użytkowników dostępu** w ustawieniach domeny podczas tworzenia klastra. Aby uzyskać więcej informacji, zobacz  [Tworzenie klastra usługi HDInsight](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Weryfikowanie nowo dodanego użytkownika usługi Azure AD
 
@@ -148,6 +148,6 @@ Nowy przykładowy użytkownik ma nazwę użytkownika `hiveuser3@contoso.com` . W
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Konfigurowanie zasad Apache Hive w usłudze HDInsight przy użyciu protokołu ESP](hdinsight-domain-joined-run-hive.md)
-* [Zarządzanie klastrami usługi HDInsight przy użyciu protokołu ESP](hdinsight-domain-joined-manage.md)
+* [Konfigurowanie zasad Apache Hive w usłudze HDInsight przy użyciu protokołu ESP](./domain-joined/apache-domain-joined-run-hive.md)
+* [Zarządzanie klastrami usługi HDInsight przy użyciu protokołu ESP](./domain-joined/apache-domain-joined-manage.md)
 * [Autoryzuj użytkowników do Apache Ambari](hdinsight-authorize-users-to-ambari.md)

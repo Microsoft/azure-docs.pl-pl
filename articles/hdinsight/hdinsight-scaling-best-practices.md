@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 874cea2377d3c0a128894bb67278e8ec2cbe7edc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490972"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535403"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skalowanie klastrów usługi Azure HDInsight
 
@@ -32,8 +32,8 @@ Firma Microsoft udostępnia następujące narzędzia do skalowania klastrów:
 
 |Narzędzie | Opis|
 |---|---|
-|[Moduł Az programu PowerShell](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[Moduł AzureRM programu PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[Moduł Az programu PowerShell](/powershell/azure)|[`Set-AzHDInsightClusterSize`](/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[Moduł AzureRM programu PowerShell](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Interfejs wiersza polecenia platformy Azure](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Klasyczny interfejs wiersza polecenia platformy Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Witryna Azure Portal](https://portal.azure.com)|Otwórz okienko klastra usługi HDInsight, wybierz pozycję **rozmiar klastra** w menu po lewej stronie, a następnie w okienku rozmiar klastra wpisz liczbę węzłów procesu roboczego i wybierz pozycję Zapisz.|  
@@ -44,7 +44,7 @@ Korzystając z dowolnej z tych metod, można skalować klaster usługi HDInsight
 
 > [!IMPORTANT]  
 > * Klasyczny interfejs wiersza polecenia platformy Azure jest przestarzały i powinien być używany tylko z klasycznym modelem wdrażania. W przypadku wszystkich innych wdrożeń Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/).
-> * Moduł AzureRM programu PowerShell jest przestarzały.  Użyj [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) wszędzie tam, gdzie to możliwe.
+> * Moduł AzureRM programu PowerShell jest przestarzały.  Użyj [AZ module](/powershell/azure/new-azureps-module-az) wszędzie tam, gdzie to możliwe.
 
 ## <a name="impact-of-scaling-operations"></a>Wpływ operacji skalowania
 
@@ -125,12 +125,12 @@ Aby uniknąć niepowodzenia wykonywanych zadań podczas operacji skalowania w d�
 1. Ręcznie Zakończ zadania.
 1. Prześlij ponownie zadania po zakończeniu operacji skalowania.
 
-Aby wyświetlić listę oczekujących i uruchomionych zadań, można użyć **interfejsu użytkownika Menedżer zasobów**przędzy, wykonując następujące czynności:
+Aby wyświetlić listę oczekujących i uruchomionych zadań, można użyć **interfejsu użytkownika Menedżer zasobów** przędzy, wykonując następujące czynności:
 
 1. Na [Azure Portal](https://portal.azure.com/)wybierz swój klaster.  Klaster zostanie otwarty na nowej stronie portalu.
-2. W widoku głównym przejdź do strony **pulpity nawigacyjne klastra**  >  **Ambari Home**. Wprowadź poświadczenia klastra.
+2. W widoku głównym przejdź do strony **pulpity nawigacyjne klastra**  >  **Ambari Home** . Wprowadź poświadczenia klastra.
 3. Z poziomu interfejsu użytkownika Ambari wybierz pozycję **przędza** na liście usług w menu po lewej stronie.  
-4. Na stronie PRZĘDZa wybierz pozycję **szybkie linki** i umieść kursor nad aktywnym węzłem głównym, a następnie wybierz pozycję **Menedżer zasobów interfejsie użytkownika**.
+4. Na stronie PRZĘDZa wybierz pozycję **szybkie linki** i umieść kursor nad aktywnym węzłem głównym, a następnie wybierz pozycję **Menedżer zasobów interfejsie użytkownika** .
 
     ![Szybkie linki Menedżer zasobów Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
@@ -146,7 +146,7 @@ Aby ręcznie skasować tę uruchomioną aplikację, wykonaj następujące polece
 yarn application -kill <application_id>
 ```
 
-Przykład:
+Na przykład:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

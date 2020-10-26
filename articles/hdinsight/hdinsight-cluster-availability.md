@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 615e23dc388f36f5ae1cd7e0d846acc14ffa2236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cfc2abad828a3974c04074a4cde062a479f673f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086419"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533567"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Jak monitorować dostępność klastra za pomocą platformy Apache Ambari w usłudze Azure HDInsight
 
@@ -62,7 +62,6 @@ Ambari oferuje wiele wstępnie zdefiniowanych alertów dotyczących dostępnośc
 | Procent dostępnych JournalNodes    | Ten alert jest wyzwalany, jeśli liczba w dół JournalNodes w klastrze jest większa niż skonfigurowany próg krytyczny. Agreguje wyniki testów procesu JournalNode. |
 | Dostępne węzły datanodes       | Ten alert jest wyzwalany, jeśli liczba węzłów danych w dół w klastrze jest większa niż skonfigurowany próg krytyczny. Agreguje wyniki kontroli procesu elementu datanode.|
 
-Pełna lista alertów Ambari, które ułatwiają monitorowanie dostępności klastra, można znaleźć [tutaj](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui),
 
 Aby wyświetlić szczegóły alertu lub zmodyfikować kryteria, wybierz **nazwę** alertu. Zapoznaj się z przykładem **Podsumowanie kondycji węzła** . Można wyświetlić opis alertu, a także określone kryteria, które będą wyzwalać alert "ostrzeżenie" lub "krytyczny" oraz interwał sprawdzania dla kryteriów. Aby edytować konfigurację, wybierz przycisk **Edytuj** w prawym górnym rogu pola konfiguracji.
 
@@ -87,7 +86,7 @@ Zostanie otwarte okno dialogowe umożliwiające zarządzanie powiadomieniami o a
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dostępność i niezawodność klastrów Apache Hadoop w usłudze HDInsight](hdinsight-high-availability-linux.md)
+- [Dostępność i niezawodność klastrów Apache Hadoop w usłudze HDInsight](./hdinsight-business-continuity.md)
 - [Dostępność klastra — dzienniki usługi Azure Monitor](./cluster-availability-monitor-logs.md)
 - [Korzystanie z dzienników Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [Powiadomienia e-mail w usłudze Apache Ambari](apache-ambari-email.md)

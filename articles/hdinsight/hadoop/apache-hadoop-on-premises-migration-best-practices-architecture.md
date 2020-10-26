@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 2d560a415aa6ee0da5304a1a9900c30b32e3be18
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: af9b1f42140c5656c5f55a98c2d635d59e130db5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488932"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533737"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — najlepsze rozwiązania dotyczące architektury
 
@@ -44,8 +44,8 @@ W poniższej tabeli przedstawiono różne metody, których można użyć do utwo
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
 |[Zestaw SDK platformy .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)||||X|
-|[Zestaw SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight)||||X|
-|[Zestaw SDK Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight)||||X|
+|[Zestaw SDK dla języka Python](/python/api/overview/azure/hdinsight)||||X|
+|[Zestaw SDK Java](/java/api/overview/azure/hdinsight)||||X|
 |[Szablony usługi Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 Aby uzyskać więcej informacji, zobacz artykuł [typy klastrów w usłudze HDInsight](../hadoop/apache-hadoop-introduction.md).

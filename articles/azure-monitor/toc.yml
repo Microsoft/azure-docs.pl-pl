@@ -1026,6 +1026,8 @@
           href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
         - name: Monitorowanie wdrożeń i funkcji HPA
           href: insights/container-insights-deployment-hpa-metrics.md
+        - name: Monitorowanie woluminów trwałych
+          href: insights/container-insights-persistent-volumes.md
         - name: Wyświetlanie danych na żywo
           items:
             - name: Dane na żywo (wersja zapoznawcza) — omówienie

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb522e047ed8bb4929a3aba270df35322256319b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75895230"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534893"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Troubleshoot Apache Hive by using Azure HDInsight (Rozwiązywanie problemów z technologią Apache Hive za pomocą usługi Azure HDInsight)
 
@@ -49,7 +49,7 @@ Kod w krokach rozwiązania założono, że ścieżki danych w nowym klastrze są
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
-1. Połącz się z klastrem usługi HDInsight przy użyciu protokołu SSH. Aby uzyskać więcej informacji, zobacz **dodatkowy odczyt**.
+1. Połącz się z klastrem usługi HDInsight przy użyciu protokołu SSH. Aby uzyskać więcej informacji, zobacz **dodatkowy odczyt** .
 
 2. Aby wyświetlić dzienniki klienta programu Hive, użyj następującego polecenia:
 
@@ -120,17 +120,17 @@ Kod w krokach rozwiązania założono, że ścieżki danych w nowym klastrze są
    Musisz podać Przykładowy program jako pierwszy argument.
 
    Prawidłowe nazwy programów to:
-    - **ContainerReuseAnalyzer**: Drukuj szczegóły ponownego użycia kontenera w Dag
-    - **CriticalPath**: Znajdź ścieżkę KRYTYCZNą Dag
-    - **LocalityAnalyzer**: szczegóły drukowania w Dag
-    - **ShuffleTimeAnalyzer**: Analizuj szczegóły czasu losowego w Dag
-    - **SkewAnalyzer**: Analizuj szczegóły pochylenia w Dag
-    - **SlowNodeAnalyzer**: drukowanie szczegółów węzła w Dag
-    - **SlowTaskIdentifier**: Drukuj wolne szczegóły zadania w Dag
-    - **SlowestVertexAnalyzer**: Drukuj najwolniejsze szczegóły wierzchołka w Dag
-    - **SpillAnalyzer**: drukowanie szczegółów rozlania w Dag
-    - **TaskConcurrencyAnalyzer**: Wydrukuj szczegóły współbieżności zadania w Dag
-    - **VertexLevelCriticalPathAnalyzer**: Znajdź ścieżkę krytyczną na poziomie wierzchołka w Dag
+    - **ContainerReuseAnalyzer** : Drukuj szczegóły ponownego użycia kontenera w Dag
+    - **CriticalPath** : Znajdź ścieżkę KRYTYCZNą Dag
+    - **LocalityAnalyzer** : szczegóły drukowania w Dag
+    - **ShuffleTimeAnalyzer** : Analizuj szczegóły czasu losowego w Dag
+    - **SkewAnalyzer** : Analizuj szczegóły pochylenia w Dag
+    - **SlowNodeAnalyzer** : drukowanie szczegółów węzła w Dag
+    - **SlowTaskIdentifier** : Drukuj wolne szczegóły zadania w Dag
+    - **SlowestVertexAnalyzer** : Drukuj najwolniejsze szczegóły wierzchołka w Dag
+    - **SpillAnalyzer** : drukowanie szczegółów rozlania w Dag
+    - **TaskConcurrencyAnalyzer** : Wydrukuj szczegóły współbieżności zadania w Dag
+    - **VertexLevelCriticalPathAnalyzer** : Znajdź ścieżkę krytyczną na poziomie wierzchołka w Dag
 
 ### <a name="additional-reading"></a>Materiały uzupełniające
 
@@ -155,7 +155,7 @@ Istnieją dwa sposoby zbierania danych tez DAG:
   1. Przejdź do Ambari.
   2. Przejdź do widoku tez (w obszarze ikony kafelków w prawym górnym rogu).
   3. Wybierz DAG, które chcesz wyświetlić.
-  4. Wybierz pozycję **Pobierz dane**.
+  4. Wybierz pozycję **Pobierz dane** .
 
 ### <a name="additional-reading"></a><a name="additional-reading-end"></a>Materiały uzupełniające
 
@@ -169,4 +169,4 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 - Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

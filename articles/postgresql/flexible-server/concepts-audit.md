@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 2fccf5431666990919faf7e6378b46c41d682437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf749f3aef10a0c67814722577f79906f447ffdb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937089"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532785"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---flexible-server"></a>Rejestrowanie inspekcji na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -57,7 +57,7 @@ Każdy wpis inspekcji jest wskazywany przez `AUDIT:` blisko początku wiersza dz
 Aby szybko rozpocząć pracę, ustaw `pgaudit.log` wartość `WRITE` i Otwórz Dzienniki serwera, aby przejrzeć dane wyjściowe. 
 
 ## <a name="viewing-audit-logs"></a>Wyświetlanie dzienników inspekcji
-Sposób dostępu do dzienników zależy od wybranego punktu końcowego. W przypadku usługi Azure Storage zapoznaj się z artykułem [Logs (dzienniki konta magazynu](../../azure-monitor/platform/resource-logs-collect-storage.md) ). Aby uzyskać Event Hubs, zobacz artykuł [przesyłanie strumieniowe dzienników platformy Azure](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+Sposób dostępu do dzienników zależy od wybranego punktu końcowego. W przypadku usługi Azure Storage zapoznaj się z artykułem [Logs (dzienniki konta magazynu](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) ). Aby uzyskać Event Hubs, zobacz artykuł [przesyłanie strumieniowe dzienników platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
 
 W przypadku dzienników Azure Monitor dzienniki są wysyłane do wybranego obszaru roboczego. Dzienniki Postgres używają trybu zbierania **AzureDiagnostics** , dzięki czemu można wykonywać zapytania z tabeli AzureDiagnostics. Pola w tabeli są opisane poniżej. Więcej informacji o wysyłaniu zapytań i alertach znajduje się w temacie Omówienie [zapytań dotyczących dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md) .
 

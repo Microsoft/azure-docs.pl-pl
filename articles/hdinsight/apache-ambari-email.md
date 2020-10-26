@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541666"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542560"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Samouczek: Konfigurowanie powiadomień e-mail Apache Ambari w usłudze Azure HDInsight
 
@@ -26,7 +26,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto e-mail SendGrid. Instrukcje można znaleźć w temacie [jak wysyłać pocztą E-mail przy użyciu SendGrid z platformą Azure](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) .
+* Konto e-mail SendGrid. Instrukcje można znaleźć w temacie [jak wysyłać pocztą E-mail przy użyciu SendGrid z platformą Azure](../sendgrid-dotnet-how-to-send-email.md) .
 
 * HDInsight An klaster. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -34,15 +34,15 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do zasobu SendGrid.
 
-1. Na stronie Przegląd wybierz pozycję **Zarządzaj**, aby przejść do strony sieci Web SendGrid dla Twojego konta.
+1. Na stronie Przegląd wybierz pozycję **Zarządzaj** , aby przejść do strony sieci Web SendGrid dla Twojego konta.
 
     ![Omówienie SendGrid w witrynie Azure Portal](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
 
-1. W menu po lewej stronie przejdź do swojej nazwy konta, a następnie **szczegóły konta**.
+1. W menu po lewej stronie przejdź do swojej nazwy konta, a następnie **szczegóły konta** .
 
     ![Nawigacja pulpitu nawigacyjnego SendGrid](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
 
-1. Na stronie **szczegóły konta** Zapisz **nazwę użytkownika**.
+1. Na stronie **szczegóły konta** Zapisz **nazwę użytkownika** .
 
     ![Szczegóły konta SendGrid](./media/apache-ambari-email/sendgrid-account-details.png)
 
@@ -50,7 +50,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. Z listy rozwijanej **Akcje** wybierz pozycję **Zarządzaj powiadomieniami**.
+1. Z listy rozwijanej **Akcje** wybierz pozycję **Zarządzaj powiadomieniami** .
 
 1. W oknie **Zarządzanie powiadomieniami o alertach** wybierz **+** ikonę.
 
@@ -64,7 +64,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     |Grupy|Skonfiguruj je zgodnie z potrzebami.|
     |Ważność|Skonfiguruj je zgodnie z potrzebami.|
     |Opis|Opcjonalny.|
-    |Metoda|Pozostaw **wiadomość e-mail**.|
+    |Metoda|Pozostaw **wiadomość e-mail** .|
     |Wyślij wiadomość e-mail do|Podaj wiadomości e-mail na potrzeby otrzymywania powiadomień, rozdzielając je przecinkami.|
     |Serwer SMTP|`smtp.sendgrid.net`|
     |Port SMTP|25 lub 587 (dla nieszyfrowanych/TLS połączeń).|
@@ -77,9 +77,9 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
     ![Zrzut ekranu przedstawia okno dialogowe Tworzenie powiadomienia o alertach.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
-    Wybierz pozycję **Zapisz**. Powrócisz do okna **Zarządzanie powiadomieniami o alertach** .
+    Wybierz pozycję **Zapisz** . Powrócisz do okna **Zarządzanie powiadomieniami o alertach** .
 
-1. W oknie **Zarządzanie powiadomieniami o alertach** wybierz pozycję **Zamknij**.
+1. W oknie **Zarządzanie powiadomieniami o alertach** wybierz pozycję **Zamknij** .
 
 ## <a name="next-steps"></a>Następne kroki
 

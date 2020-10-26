@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 929956d6f439df2a2e7cb8d1b950f5e68cdeab68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 348b9b80c74f085ce31ecce93753a253782fe3ea
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631719"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543172"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Kontrolowanie ruchu sieciowego w usłudze Azure HDInsight
 
 Ruch sieciowy w sieciach wirtualnych platformy Azure można kontrolować przy użyciu następujących metod:
 
-* **Sieciowe grupy zabezpieczeń** (sieciowej grupy zabezpieczeń) umożliwiają filtrowanie ruchu przychodzącego i wychodzącego do sieci. Aby uzyskać więcej informacji, zobacz [Filtrowanie ruchu sieciowego przy użyciu grup zabezpieczeń sieci](../virtual-network/security-overview.md) .
+* **Sieciowe grupy zabezpieczeń** (sieciowej grupy zabezpieczeń) umożliwiają filtrowanie ruchu przychodzącego i wychodzącego do sieci. Aby uzyskać więcej informacji, zobacz [Filtrowanie ruchu sieciowego przy użyciu grup zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md) .
 
 * **Wirtualne urządzenia sieciowe** (urządzenie WUS) mogą być używane tylko z ruchem wychodzącym. Urządzeń WUS replikację funkcji urządzeń, takich jak zapory i routery. Aby uzyskać więcej informacji, zobacz dokument [urządzenia sieciowe](https://azure.microsoft.com/solutions/network-appliances) .
 
@@ -40,9 +40,9 @@ Jeśli planujesz używać **grup zabezpieczeń sieci** do kontrolowania ruchu si
 
 3. Utwórz lub zmodyfikuj sieciowe grupy zabezpieczeń dla podsieci, w której ma zostać zainstalowana Usługa HDInsight.
 
-    * __Sieciowe grupy zabezpieczeń__: Zezwalaj na ruch __przychodzący__ na porcie __443__ z adresów IP. Dzięki temu usługi HDInsight Management Services mogą dotrzeć do klastra spoza sieci wirtualnej. W przypadku klastrów z włączonym __serwerem proxy REST Kafka__ należy również zezwolić na ruch __przychodzący__ na porcie __9400__ . Zapewni to dostęp do serwera proxy REST Kafka.
+    * __Sieciowe grupy zabezpieczeń__ : Zezwalaj na ruch __przychodzący__ na porcie __443__ z adresów IP. Dzięki temu usługi HDInsight Management Services mogą dotrzeć do klastra spoza sieci wirtualnej. W przypadku klastrów z włączonym __serwerem proxy REST Kafka__ należy również zezwolić na ruch __przychodzący__ na porcie __9400__ . Zapewni to dostęp do serwera proxy REST Kafka.
 
-Aby uzyskać więcej informacji na temat sieciowych grup zabezpieczeń, zobacz [Omówienie sieciowych grup zabezpieczeń](../virtual-network/security-overview.md).
+Aby uzyskać więcej informacji na temat sieciowych grup zabezpieczeń, zobacz [Omówienie sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md).
 
 ## <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Kontrolowanie ruchu wychodzącego z klastrów usługi HDInsight
 
@@ -69,6 +69,6 @@ Aby uzyskać więcej informacji na temat reguł zapory dla urządzeń wirtualnyc
 * Aby zapoznać się z przykładami kodu i przykłady tworzenia sieci wirtualnych platformy Azure, zobacz [Tworzenie sieci wirtualnych dla klastrów usługi Azure HDInsight](hdinsight-create-virtual-network.md).
 * Aby zapoznać się z kompleksowym przykładem konfigurowania usługi HDInsight w celu nawiązania połączenia z siecią lokalną, zobacz [łączenie usługi HDInsight z siecią lokalną](./connect-on-premises-network.md).
 * Aby uzyskać więcej informacji na temat sieci wirtualnych platformy Azure, zobacz [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
-* Aby uzyskać więcej informacji na temat sieciowych grup zabezpieczeń, zobacz [Network Security Groups](../virtual-network/security-overview.md).
+* Aby uzyskać więcej informacji na temat sieciowych grup zabezpieczeń, zobacz [Network Security Groups](../virtual-network/network-security-groups-overview.md).
 * Aby uzyskać więcej informacji na temat tras zdefiniowanych przez użytkownika, zobacz [trasy zdefiniowane przez użytkownika i przekazywanie adresów IP](../virtual-network/virtual-networks-udr-overview.md).
 * Aby uzyskać więcej informacji na temat sieci wirtualnych, zobacz [Plan sieci wirtualnych for HDInsight](./hdinsight-plan-virtual-network-deployment.md).

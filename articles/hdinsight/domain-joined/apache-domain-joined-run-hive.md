@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2d9c96a616f05c22c8b999fdc6cab2505c27485
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397831"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544940"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurowanie zasad technologii Apache Hive w usłudze HDInsight przy użyciu pakietu Enterprise Security
 
@@ -21,7 +21,7 @@ Dowiedz się, jak skonfigurować zasady Apache Ranger dla Apache Hive. Korzystaj
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Klaster usługi HDInsight z pakiet Enterprise Security. Zobacz [Konfigurowanie klastrów usługi HDInsight przy użyciu protokołu ESP](apache-domain-joined-configure.md).
+* Klaster usługi HDInsight z pakiet Enterprise Security. Zobacz [Konfigurowanie klastrów usługi HDInsight przy użyciu protokołu ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * Stacja robocza z Microsoft 365 aplikacjami dla przedsiębiorstw, Office 2016, Office 2013 Professional Plus, Excel 2013 Standalone lub Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Łączenie z interfejsem użytkownika administratora platformy Apache Ranger
@@ -49,14 +49,14 @@ W tej sekcji utworzysz dwie zasady Ranger na potrzeby uzyskiwania dostępu do hi
 **Aby utworzyć zasady platformy Ranger**
 
 1. Otwórz interfejs użytkownika administratora platformy Ranger. Zobacz sekcję Łączenie z interfejsem użytkownika administratora platformy Apache Ranger.
-2. Wybierz **CLUSTERNAME_Hive**, w obszarze **Hive**. Zostaną wyświetlone dwie wstępnie skonfigurowane zasady.
-3. Wybierz pozycję **Dodaj nowe zasady**, a następnie wprowadź następujące wartości:
+2. Wybierz **CLUSTERNAME_Hive** , w obszarze **Hive** . Zostaną wyświetlone dwie wstępnie skonfigurowane zasady.
+3. Wybierz pozycję **Dodaj nowe zasady** , a następnie wprowadź następujące wartości:
 
     |Właściwość |Wartość |
     |---|---|
     |Policy Name (Nazwa zasad)|Read-hivesampletable-All|
     |Baza danych programu Hive|default|
-    |tabela|hivesampletable|
+    |table (stolik)|hivesampletable|
     |Kolumna Hive|*|
     |Select User (Wybierz użytkownika)|Użytkownik hiveuser1|
     |Uprawnienia|Wybierz|
@@ -74,7 +74,7 @@ W tej sekcji utworzysz dwie zasady Ranger na potrzeby uzyskiwania dostępu do hi
     |---|---|
     |Policy Name (Nazwa zasad)|Read-hivesampletable-devicemake|
     |Baza danych programu Hive|default|
-    |tabela|hivesampletable|
+    |table (stolik)|hivesampletable|
     |Kolumna Hive|ClientID, devicemake|
     |Select User (Wybierz użytkownika)|hiveuser2|
     |Uprawnienia|Wybierz|
@@ -87,9 +87,9 @@ Instrukcje można znaleźć w sekcji [Create Hive ODBC data source](../hadoop/ap
  | --- | --- |
  | Data Source Name (Nazwa źródła danych) | Nadaj nazwę źródła danych. |
  | Host | Wprowadź CLUSTERNAME.azurehdinsight.net. np. myHDICluster.azurehdinsight.net. |
- | Port | Użyj portu **443**. (Ten port został zmieniony z 563 na 443). |
- | baza danych | Użyj **domyślnego**. |
- | Hive Server Type (Typ serwera Hive) | Wybierz wartość **Hive Server 2**. |
+ | Port | Użyj portu **443** . (Ten port został zmieniony z 563 na 443). |
+ | baza danych | Użyj **domyślnego** . |
+ | Hive Server Type (Typ serwera Hive) | Wybierz wartość **Hive Server 2** . |
  | Mechanism (Mechanizm) | Wybierz wartość **Azure HDInsight Service** (Usługa Azure HDInsight). |
  | HTTP Path (Ścieżka HTTP) | Pozostaw to pole puste. |
  | Nazwa użytkownika | Wprowadź hiveuser1@contoso158.onmicrosoft.com. Zaktualizuj nazwę domeny, jeśli jest inna. |
@@ -107,17 +107,17 @@ W ostatniej sekcji zostały skonfigurowane dwie zasady.  Użytkownik hiveuser1 m
 
     ![Kreator otwierania połączenia danych](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 
-1. Z listy rozwijanej wybierz nazwę źródła danych utworzoną w ostatniej sekcji, a następnie wybierz przycisk **OK**.
+1. Z listy rozwijanej wybierz nazwę źródła danych utworzoną w ostatniej sekcji, a następnie wybierz przycisk **OK** .
 
 1. Do pierwszego użycia zostanie otwarte okno dialogowe **sterownika ODBC** . Z menu po lewej stronie wybierz pozycję **Windows** . Następnie wybierz pozycję **Połącz** , aby otworzyć okno **Nawigator** .
 
-1. Zaczekaj na otwarcie okna dialogowego **Wybieranie bazy danych i tabeli**. Może to potrwać kilka sekund.
+1. Zaczekaj na otwarcie okna dialogowego **Wybieranie bazy danych i tabeli** . Może to potrwać kilka sekund.
 
-1. Wybierz pozycję **hivesampletable**, a następnie wybierz pozycję **Next (dalej**).
+1. Wybierz pozycję **hivesampletable** , a następnie wybierz pozycję **Next (dalej** ).
 
-1. Wybierz pozycję **Zakończ**.
+1. Wybierz pozycję **Zakończ** .
 
-1. W oknie dialogowym **Importowanie danych** możesz zmienić lub określić zapytanie. W tym celu wybierz pozycję **Właściwości**. Może to potrwać kilka sekund.
+1. W oknie dialogowym **Importowanie danych** możesz zmienić lub określić zapytanie. W tym celu wybierz pozycję **Właściwości** . Może to potrwać kilka sekund.
 
 1. Wybierz kartę **Definicja** . Tekst polecenia:
 
@@ -131,7 +131,7 @@ W ostatniej sekcji zostały skonfigurowane dwie zasady.  Użytkownik hiveuser1 m
 
 1. Wybierz **przycisk OK** , aby zamknąć okno dialogowe **Importowanie danych** .  
 
-1. Wprowadź ponownie hasło użytkownika hiveuser1, a następnie kliknij przycisk **OK**. Importowanie danych do programu Excel może potrwać kilka sekund. Gdy wszystko będzie gotowe, zobaczysz 11 kolumn danych.
+1. Wprowadź ponownie hasło użytkownika hiveuser1, a następnie kliknij przycisk **OK** . Importowanie danych do programu Excel może potrwać kilka sekund. Gdy wszystko będzie gotowe, zobaczysz 11 kolumn danych.
 
 Aby przetestować drugie zasady (Read-hivesampletable-devicemake), utworzone w ostatniej sekcji
 
@@ -158,7 +158,7 @@ Aby przetestować drugie zasady (Read-hivesampletable-devicemake), utworzone w o
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby skonfigurować klaster usługi HDInsight z pakiet Enterprise Security, zobacz [Konfigurowanie klastrów usługi HDInsight przy użyciu protokołu ESP](apache-domain-joined-configure.md).
+* Aby skonfigurować klaster usługi HDInsight z pakiet Enterprise Security, zobacz [Konfigurowanie klastrów usługi HDInsight przy użyciu protokołu ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * Aby zarządzać klastrem usługi HDInsight przy użyciu protokołu ESP, zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu protokołu ESP](apache-domain-joined-manage.md).
 * Aby uruchamiać zapytania programu Hive przy użyciu protokołu SSH w klastrach usługi HDInsight z protokołem ESP, zobacz [Używanie protokołu SSH z usługą HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).
 * Aby nawiązać połączenie z usługą Hive przy użyciu usługi Hive JDBC, zobacz [nawiązywanie połączenia z Apache Hive w usłudze Azure HDInsight przy użyciu sterownika JDBC Hive](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
