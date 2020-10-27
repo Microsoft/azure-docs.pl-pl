@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856232"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541999"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Dodawanie dodatkowych kont magazynu do usługi HDInsight
 
@@ -26,7 +26,7 @@ Dowiedz się, jak za pomocą akcji skryptu dodać dodatkowe *konta* magazynu pla
 
 * Klaster usługi Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nazwa i klucz konta magazynu. Zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md).
-* W przypadku korzystania z programu PowerShell należy użyć polecenia AZ module.  Zobacz [omówienie Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+* W przypadku korzystania z programu PowerShell należy użyć polecenia AZ module.  Zobacz [omówienie Azure PowerShell](/powershell/azure/).
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -65,7 +65,7 @@ Podczas wyświetlania klastra usługi HDInsight w Azure Portal wybranie pozycji 
 
 Aby sprawdzić, czy magazyn dodatkowy wykorzystuje jedną z metod przedstawionych poniżej:
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 Skrypt zwróci nazwy kont magazynu skojarzone z danym klastrem. Zamień na `CLUSTERNAME` rzeczywistą nazwę klastra, a następnie uruchom skrypt.
 
@@ -97,7 +97,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. Przejdź do **HDFS**  >  **konfiguracji**systemu plików HDFS  >  **Advanced**  >  **— Zaawansowane niestandardowe podstawowe Lokacje**.
+1. Przejdź do **HDFS**  >  **konfiguracji** systemu plików HDFS  >  **Advanced**  >  **— Zaawansowane niestandardowe podstawowe Lokacje** .
 
 1. Obserwuj klucze, które zaczynają się od `fs.azure.account.key` . Nazwa konta będzie częścią klucza, jak pokazano w tym przykładowym obrazie:
 
@@ -107,7 +107,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. Przejdź do **HDFS**  >  **konfiguracji**systemu plików HDFS  >  **Advanced**  >  **— Zaawansowane niestandardowe podstawowe Lokacje**.
+1. Przejdź do **HDFS**  >  **konfiguracji** systemu plików HDFS  >  **Advanced**  >  **— Zaawansowane niestandardowe podstawowe Lokacje** .
 
 1. Usuń następujące klucze:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -119,7 +119,7 @@ Po usunięciu tych kluczy i zapisaniu konfiguracji należy ponownie uruchomić O
 
 ### <a name="storage-firewall"></a>Zapora magazynu
 
-Jeśli wybierzesz opcję zabezpieczenia konta magazynu za pomocą ograniczeń **zapory i sieci wirtualnych** w **wybranych sieciach**, należy włączyć wyjątek **Zezwalaj na zaufane usługi firmy Microsoft...** , aby Usługa HDInsight mogła uzyskać dostęp do konta magazynu`.`
+Jeśli wybierzesz opcję zabezpieczenia konta magazynu za pomocą ograniczeń **zapory i sieci wirtualnych** w **wybranych sieciach** , należy włączyć wyjątek **Zezwalaj na zaufane usługi firmy Microsoft...** , aby Usługa HDInsight mogła uzyskać dostęp do konta magazynu`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Nie można uzyskać dostępu do magazynu po zmianie klucza
 

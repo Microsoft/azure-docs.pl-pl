@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 3fd1ae82450c6203833a1e7b9947d516950c0330
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3975a57c095a8593e392e932bd125308853d3756
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146588"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541523"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Wzbogacanie komunikatów dla komunikatów IoT Hub między urządzeniami a chmurą
 
@@ -35,9 +35,9 @@ Może **to** być dowolny z następujących przykładów:
 
 * Dowolny ciąg statyczny. Wartości dynamiczne, takie jak warunki, logika, operacje i funkcje, są niedozwolone. Na przykład jeśli tworzysz aplikację SaaS, która jest używana przez kilku klientów, można przypisać identyfikator do każdego klienta i udostępnić ten identyfikator w aplikacji. Gdy aplikacja zostanie uruchomiona, IoT Hub będzie sygnaturą komunikatów telemetrycznych urządzenia z identyfikatorem klienta, dzięki czemu można przetwarzać komunikaty inaczej dla każdego klienta.
 
-* Nazwa wysyłanego przez Centrum IoT Hub. Ta wartość jest *$iothubname*.
+* Nazwa wysyłanego przez Centrum IoT Hub. Ta wartość jest *$iothubname* .
 
-* Informacje z sznurka urządzenia, takie jak jego ścieżka. Przykładami mogą być *$Twin. Tags. Field* i *$Twin. Tags. Latitude*.
+* Informacje z sznurka urządzenia, takie jak jego ścieżka. Przykładami mogą być *$Twin. Tags. Field* i *$Twin. Tags. Latitude* .
 
    > [!NOTE]
    > W tej chwili tylko $iothubname, $twin. Tags, $twin. Properties. pożądaną i $twin. Properties. raportowane są obsługiwane zmienne do wzbogacania komunikatów.
@@ -63,7 +63,7 @@ Wzbogacania można skonfigurować przy użyciu następujących metod:
 | **Metoda** | **Polecenie** |
 | ----- | -----| 
 | Portal | [Witryna Azure Portal](https://portal.azure.com) | Zapoznaj się z [samouczkiem dotyczącym wzbogacania komunikatów](tutorial-message-enrichments.md) | 
-| Interfejs wiersza polecenia platformy Azure   | [AZ IoT Hub Message-wzbogacanie](/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Interfejs wiersza polecenia platformy Azure   | [AZ IoT Hub Message-wzbogacanie](/cli/azure/iot/hub/message-enrichment) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
 Dodanie wzbogacania komunikatów nie powoduje dodania opóźnienia do routingu komunikatów.
@@ -84,7 +84,7 @@ Aby wypróbować wzbogacanie komunikatów, zobacz [Samouczek dotyczący wzbogaca
 
 * Aktualizacje sznurka urządzenia mogą potrwać do 5 minut, aby można było je odzwierciedlić w odpowiedniej wartości wzbogacania.
 
-* Łączny rozmiar komunikatów, łącznie z wzbogacami, nie może przekroczyć 256 KB. Jeśli rozmiar komunikatu przekracza 256 KB, IoT Hub spowoduje porzucenie komunikatu. Za pomocą [metryk IoT Hub](iot-hub-metrics.md) można identyfikować i debugować błędy podczas usuwania komunikatów. Na przykład można monitorować D2C. telemetrię. ruch wychodzący. nieprawidłowy.
+* Łączny rozmiar komunikatów, łącznie z wzbogacami, nie może przekroczyć 256 KB. Jeśli rozmiar komunikatu przekracza 256 KB, IoT Hub spowoduje porzucenie komunikatu. Za pomocą [metryk IoT Hub](monitor-iot-hub-reference.md#metrics) można identyfikować i debugować błędy podczas usuwania komunikatów. Można na przykład monitorować *niezgodność komunikatów telemetrycznych* ( *D2C. telemetrii.* ruch wychodzący. nieprawidłowa) w [metrykach routingu](monitor-iot-hub-reference.md#routing-metrics). Aby dowiedzieć się więcej, zobacz [Monitor IoT Hub](monitor-iot-hub.md).
 
 * Wzbogacania komunikatów nie mają zastosowania do wieloosiowych zdarzeń zmiany.
 

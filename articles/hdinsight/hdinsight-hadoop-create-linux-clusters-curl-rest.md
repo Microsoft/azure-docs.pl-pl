@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: f2b3810afab86b2f81a18bac442ef361404f2309
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b67ddd57c3a0787213763253cef5083f420cefe0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490360"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541676"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Tworzenie klastrów Apache Hadoop przy użyciu interfejsu API REST platformy Azure
 
@@ -219,7 +219,7 @@ Wykonaj kroki opisane w temacie [Rozpoczynanie pracy z interfejsem wiersza polec
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
 > [!NOTE]  
-> Te kroki są skróconą wersją sekcji *Tworzenie nazwy głównej usługi z hasłem* w [interfejsie wiersza polecenia Użyj platformy Azure, aby utworzyć nazwę główną usługi do uzyskiwania dostępu do zasobów](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) . W tych krokach opisano tworzenie jednostki usługi, która jest używana do uwierzytelniania w interfejsie API REST platformy Azure.
+> Te kroki są skróconą wersją sekcji *Tworzenie nazwy głównej usługi z hasłem* w [interfejsie wiersza polecenia Użyj platformy Azure, aby utworzyć nazwę główną usługi do uzyskiwania dostępu do zasobów](/cli/azure/create-an-azure-service-principal-azure-cli) . W tych krokach opisano tworzenie jednostki usługi, która jest używana do uwierzytelniania w interfejsie API REST platformy Azure.
 
 1. W wierszu polecenia Użyj następującego polecenia, aby wyświetlić listę Twoich subskrypcji platformy Azure.
 
@@ -242,13 +242,13 @@ Wykonaj kroki opisane w temacie [Rozpoczynanie pracy z interfejsem wiersza polec
 
    Wartością zwracaną z tego polecenia jest __Identyfikator aplikacji__ dla nowej aplikacji. Zapisz tę wartość.
 
-3. Użyj następującego polecenia, aby utworzyć nazwę główną usługi przy użyciu **identyfikatora aplikacji**.
+3. Użyj następującego polecenia, aby utworzyć nazwę główną usługi przy użyciu **identyfikatora aplikacji** .
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     Wartością zwracaną z tego polecenia jest __Identyfikator obiektu__. Zapisz tę wartość.
+     Wartością zwracaną z tego polecenia jest __Identyfikator obiektu__ . Zapisz tę wartość.
 
 4. Przypisz rolę **właściciela** do jednostki usługi przy użyciu wartości **identyfikatora obiektu** . Użyj pozyskanego wcześniej **identyfikatora subskrypcji** .
 
@@ -274,7 +274,7 @@ Ustaw `$TENANTID` , `$APPID` i `$PASSWORD` do wartości uzyskanych lub użytych 
 
 Jeśli to żądanie powiedzie się, otrzymasz odpowiedź serii 200, a treść odpowiedzi zawiera dokument JSON.
 
-Dokument JSON zwrócony przez to żądanie zawiera element o nazwie **access_token**. Wartość **access_token** jest używana do uwierzytelniania żądań do interfejsu API REST.
+Dokument JSON zwrócony przez to żądanie zawiera element o nazwie **access_token** . Wartość **access_token** jest używana do uwierzytelniania żądań do interfejsu API REST.
 
 ```json
 {

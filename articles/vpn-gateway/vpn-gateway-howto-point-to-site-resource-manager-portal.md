@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: e1a0234754c2966313e0b35dd59bed79e7736a2c
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 18260867f0258ebe3cc885c5a1b1754f143bfccc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328447"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541608"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Skonfiguruj połączenie sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure: Azure Portal
 
@@ -85,7 +85,7 @@ Certyfikaty są używane przez platformę Azure do uwierzytelniania klientów ł
 
 Pula adresów klienta to określony przez Ciebie zakres prywatnych adresów IP. Klienci łączący się dynamicznie przez połączenie VPN typu punkt-lokacja otrzymują adres IP z tego zakresu. Używaj zakresu prywatnych adresów IP nienakładającego się na lokalizację lokalną, z której się łączysz, ani na sieć wirtualną, z którą chcesz się łączyć. W przypadku skonfigurowania wielu protokołów i protokołu SSTP jest jednym z protokołów, skonfigurowana Pula adresów będzie równo dzielona między skonfigurowanymi protokołami.
 
-1. Po utworzeniu bramy sieci wirtualnej przejdź do sekcji **Ustawienia** na stronie bramy sieci wirtualnej. W sekcji **Ustawienia** wybierz pozycję **Konfiguracja punktu do lokacji**. Wybierz pozycję **Konfiguruj teraz** , aby otworzyć stronę konfiguracja.
+1. Po utworzeniu bramy sieci wirtualnej przejdź do sekcji **Ustawienia** na stronie bramy sieci wirtualnej. W sekcji **Ustawienia** wybierz pozycję **Konfiguracja punktu do lokacji** . Wybierz pozycję **Konfiguruj teraz** , aby otworzyć stronę konfiguracja.
 
    ![Strona połączenia typu punkt-lokacja](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-configure.png "Konfiguracja punktu do lokacji")
 2. Na stronie **Konfiguracja typu punkt-lokacja** można skonfigurować różne ustawienia. Jeśli na tej stronie nie widzisz typu tunelu lub typu uwierzytelniania, brama używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie obsługuje uwierzytelniania za pomocą protokołu IKEv2 ani usługi RADIUS. Aby użyć tych ustawień, należy usunąć i ponownie utworzyć bramę przy użyciu innej jednostki SKU bramy.
@@ -106,7 +106,7 @@ Można wybrać typ tunelu. Dostępne są opcje tunelu OpenVPN, SSTP i IKEv2.
 
 ## <a name="6-configure-authentication-type"></a><a name="authenticationtype"></a>6. Skonfiguruj typ uwierzytelniania
 
-W obszarze **Typ uwierzytelniania**wybierz pozycję **certyfikat platformy Azure**.
+W obszarze **Typ uwierzytelniania** wybierz pozycję **certyfikat platformy Azure** .
 
   ![Authentication type](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authentication-type.png "Określ typ uwierzytelniania") (Typ uwierzytelniania)
 
@@ -114,12 +114,12 @@ W obszarze **Typ uwierzytelniania**wybierz pozycję **certyfikat platformy Azure
 
 Możesz przekazać łącznie do 20 zaufanych certyfikatów głównych. Po przekazaniu danych certyfikatu publicznego platforma Azure może używać go do uwierzytelniania klientów, którzy mają zainstalowany certyfikat klienta wygenerowany na podstawie zaufanego certyfikatu głównego. Przekaż informacje o kluczu publicznym certyfikatu głównego na platformę Azure.
 
-1. Certyfikaty są dodawane na stronie **Konfiguracja punktu do lokacji** w sekcji **Certyfikat główny**.
+1. Certyfikaty są dodawane na stronie **Konfiguracja punktu do lokacji** w sekcji **Certyfikat główny** .
 2. Upewnij się, że certyfikat główny został wyeksportowany jako plik X.509 (cer) zaszyfrowany z użyciem algorytmu Base-64. Certyfikat należy wyeksportować w takim formacie, aby możliwe było jego otwarcie za pomocą edytora tekstów.
 3. Otwórz certyfikat za pomocą edytora tekstów, takiego jak Notatnik. Podczas kopiowania danych dotyczących certyfikatu upewnij się, że kopiujesz tekst jako jeden ciągły wiersz bez znaków powrotu karetki i wysuwu wiersza. Może zajść potrzeba zmodyfikowania widoku w edytorze tekstu na potrzeby pokazywania symboli lub pokazywania wszystkich znaków, aby wyświetlić znaki powrotu karetki i wysuwu wiersza. Skopiuj tylko następującą sekcję jako jeden ciągły wiersz:
 
    ![Dane dotyczące certyfikatu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png "Kopiuj dane certyfikatu głównego")
-4. Wklej dane dotyczące certyfikatu w polu **Dane certyfikatu publicznego**. **Nazwij** certyfikat, a następnie wybierz pozycję **Zapisz**. Możesz dodać maksymalnie 20 zaufanych certyfikatów głównych.
+4. Wklej dane dotyczące certyfikatu w polu **Dane certyfikatu publicznego** . **Nazwij** certyfikat, a następnie wybierz pozycję **Zapisz** . Możesz dodać maksymalnie 20 zaufanych certyfikatów głównych.
 
    ![Wklej dane certyfikatu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png "Wklej dane certyfikatu")
 5. Wybierz pozycję **Zapisz** w górnej części strony, aby zapisać wszystkie ustawienia konfiguracji.
@@ -147,9 +147,9 @@ Pliki konfiguracji klienta sieci VPN zawierają ustawienia do konfigurowania urz
 >
 >
 
-1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Wybierz pozycję **Połącz**. Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Wybierz pozycję **Kontynuuj** , aby użyć podwyższonych uprawnień.
+1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Wybierz pozycję **Połącz** . Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Wybierz pozycję **Kontynuuj** , aby użyć podwyższonych uprawnień.
 
-2. Na stronie stanu **Połączenie** wybierz przycisk **Połącz**, aby rozpocząć połączenie. Jeśli widzisz ekran **Wybierz certyfikat**, sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli tak nie jest, użyj strzałki listy rozwijanej, aby wybrać poprawny certyfikat, a następnie wybierz przycisk **OK**.
+2. Na stronie stanu **Połączenie** wybierz przycisk **Połącz** , aby rozpocząć połączenie. Jeśli widzisz ekran **Wybierz certyfikat** , sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli tak nie jest, użyj strzałki listy rozwijanej, aby wybrać poprawny certyfikat, a następnie wybierz przycisk **OK** .
 
    ![Łączenie klienta sieci VPN z platformą Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png "nawiązywania połączenia")
 3. Połączenie zostało ustanowione.
@@ -162,7 +162,7 @@ Pliki konfiguracji klienta sieci VPN zawierają ustawienia do konfigurowania urz
 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Aby połączyć się z klienta sieci VPN na komputerze Mac
 
-W oknie dialogowym sieć Znajdź profil klienta, którego chcesz użyć, określ ustawienia z [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac)a następnie wybierz pozycję **Połącz**.
+W oknie dialogowym sieć Znajdź profil klienta, którego chcesz użyć, określ ustawienia z [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac)a następnie wybierz pozycję **Połącz** .
 
 Aby uzyskać szczegółowe instrukcje, sprawdź [Install-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) . Jeśli występują problemy z połączeniem, sprawdź, czy Brama sieci wirtualnej nie używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie jest obsługiwana w przypadku klientów na komputery Mac.
 
@@ -172,7 +172,7 @@ Aby uzyskać szczegółowe instrukcje, sprawdź [Install-Mac (OS X)](https://doc
 
 Te instrukcje dotyczą klientów w systemie Windows.
 
-1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all*.
+1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all* .
 2. Przejrzyj wyniki. Zwróć uwagę na fakt, że otrzymany adres IP należy do określonej podczas konfiguracji połączenia punkt-lokacja puli adresów klienta sieci VPN. Wyniki są podobne, jak w następującym przykładzie:
 
    ```
@@ -192,7 +192,11 @@ Te instrukcje dotyczą klientów w systemie Windows.
 
 Te instrukcje dotyczą klientów w systemie Windows.
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
+
+* Sprawdź, czy pakiet konfiguracji klienta sieci VPN został wygenerowany po określeniu adresów IP serwera DNS dla sieci wirtualnej. Jeśli adresy IP serwera DNS zostały zaktualizowane, wygeneruj i zainstaluj nowy pakiet konfiguracji klienta sieci VPN.
+
+* Użyj narzędzia „ipconfig”, aby sprawdzić adres IPv4 przypisany do karty Ethernet na komputerze, z którego jest nawiązywane połączenie. Jeśli adres IP znajduje się w zakresie adresów sieci wirtualnej, z którą jest nawiązywane połączenie, lub w zakresie adresów puli VPNClientAddressPool, jest to określane jako nakładająca się przestrzeń adresowa. Kiedy przestrzeń adresowa nakłada się w ten sposób, ruch sieciowy nie dociera do platformy Azure, tylko pozostaje w sieci lokalnej.
 
 ## <a name="to-add-or-remove-trusted-root-certificates"></a><a name="add"></a>Dodawanie lub usuwanie zaufanych certyfikatów głównych
 
@@ -222,7 +226,7 @@ Certyfikat klienta można odwołać przez dodanie odcisku palca do listy odwoła
 2. Skopiuj informacje do edytora tekstu i usuń wszelkie spacje, tak aby powstał ciąg bez odstępów.
 3. Przejdź do strony **Konfiguracja punktu do lokacji** bramy sieci wirtualnej. Korzystając z tej samej strony, [przekazano zaufany certyfikat główny](#uploadfile).
 4. W sekcji **Odwołane certyfikaty** wprowadź przyjazną nazwę certyfikatu (nie musi to być nazwa pospolita certyfikatu).
-5. Skopiuj i wklej ciąg odcisku palca do pola **Odcisk palca**.
+5. Skopiuj i wklej ciąg odcisku palca do pola **Odcisk palca** .
 6. Odcisk palca zostanie zweryfikowany i automatycznie dodany do listy odwołania. Na ekranie zobaczysz komunikat informujący o aktualizowaniu listy. 
 7. Po zakończeniu aktualizowania nie będzie można już używać certyfikatu do nawiązywania połączeń. Klienci, którzy spróbują połączyć się za pomocą tego certyfikatu, zobaczą komunikat informujący o tym, że certyfikat nie jest już ważny.
 

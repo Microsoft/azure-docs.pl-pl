@@ -47,7 +47,7 @@ Ten samouczek zawiera informacje na następujące tematy:
 Przed rozpoczęciem upewnij się, że spełniono następujące warunki:
 
 * Ukończenie tematu [Samouczek: kopiowanie danych na urządzenie Azure Data Box i ich weryfikacja](data-box-deploy-copy-data.md).
-* Zadania kopiowania są ukończone, a na stronie **Połącz i skopiuj** nie ma żadnych błędów. Nie można uruchomić przygotowania do wysłania, jeśli zadania kopiowania są w toku lub występują błędy na stronie **Połącz i skopiuj**.
+* Zadania kopiowania są ukończone, a na stronie **Połącz i skopiuj** nie ma żadnych błędów. Nie można uruchomić przygotowania do wysłania, jeśli zadania kopiowania są w toku lub występują błędy na stronie **Połącz i skopiuj** .
 
 ## <a name="prepare-to-ship"></a>Przygotowanie do wysłania
 
@@ -92,7 +92,7 @@ W przypadku zwrotu urządzenia w Stanach Zjednoczonych, Kanadzie lub Europie wyk
     * Jeśli nie podasz numeru śledzenia, firma UPS będzie wymagała uiszczenia dodatkowej opłaty podczas odbioru.
 
     Zamiast planowania odbioru możesz także dostarczyć urządzenie Data Box do najbliższego punktu UPS.
-4. Po odebraniu urządzenia Data Box i zeskanowaniu go przez kuriera stan zamówienia w portalu zostanie zmieniony na **Pobrane**. Będzie też wyświetlany identyfikator śledzenia przesyłki.
+4. Po odebraniu urządzenia Data Box i zeskanowaniu go przez kuriera stan zamówienia w portalu zostanie zmieniony na **Pobrane** . Będzie też wyświetlany identyfikator śledzenia przesyłki.
 
 ::: zone target="chromeless"
 

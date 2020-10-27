@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: ccdd7b16c7ec292b8f4f4c155a6f9497c606a489
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e174a0539a75945cc0a2595e28a60d928e10acf4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371817"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166220"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Zarządzanie dostępem do informacji rozliczeniowych dla platformy Azure
 
@@ -51,15 +51,15 @@ Po przypisaniu przez administratora konta odpowiednich ról innym użytkownikom 
 
 1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) jako administrator konta.
 
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
 
-    ![Zrzut ekranu przedstawiający wyszukiwanie w witrynie Azure Portal](./media/manage-billing-access/billing-search-cost-management-billing.png)
+    ![Zrzut ekranu, na którym wyróżniono usługę Cost Management + Billing w sekcji Usługi.](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Wybierz pozycję **Subskrypcje** w okienku po lewej stronie. W zależności od dostępu może być konieczne wybranie zakresu rozliczeniowego, a następnie wybranie pozycji **Subskrypcje**.
+1. Wybierz pozycję **Subskrypcje** w okienku po lewej stronie. W zależności od dostępu może być konieczne wybranie zakresu rozliczeniowego, a następnie wybranie pozycji **Subskrypcje** .
 
     ![Zrzut ekranu pokazujący wybieranie subskrypcji](./media/manage-billing-access/billing-select-subscriptions.png)
 
-1. Wybierz pozycję **Faktury**, a następnie pozycję **Dostęp do faktury**.
+1. Wybierz pozycję **Faktury** , a następnie pozycję **Dostęp do faktury** .
 
     ![Zrzut ekranu przedstawia sposób delegowania dostępu do faktur](./media/manage-billing-access/aa-optin01.png)
 
@@ -77,11 +77,11 @@ Funkcja czytelnika rozliczeń jest dostępna w wersji zapoznawczej i nie obsług
 
 1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) jako administrator konta.
 
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
 
     ![Zrzut ekranu przedstawiający wyszukiwanie w witrynie Azure Portal](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Wybierz pozycję **Subskrypcje** w okienku po lewej stronie. W zależności od dostępu może być konieczne wybranie zakresu rozliczeniowego, a następnie wybranie pozycji **Subskrypcje**.
+1. Wybierz pozycję **Subskrypcje** w okienku po lewej stronie. W zależności od dostępu może być konieczne wybranie zakresu rozliczeniowego, a następnie wybranie pozycji **Subskrypcje** .
 
     ![Zrzut ekranu pokazujący wybieranie subskrypcji](./media/manage-billing-access/billing-select-subscriptions.png)
 
@@ -90,11 +90,11 @@ Funkcja czytelnika rozliczeń jest dostępna w wersji zapoznawczej i nie obsług
 
     ![Zrzut ekranu pokazujący kliknięcie pozycji Dodaj przypisanie roli](./media/manage-billing-access/billing-click-add-role-assignment.png)
 
-1. Z listy rozwijanej **Rola** wybierz pozycję **Czytelnik rozliczeń**.
+1. Z listy rozwijanej **Rola** wybierz pozycję **Czytelnik rozliczeń** .
 1. W polu tekstowym **Wybierz** wpisz nazwę lub adres e-mail dla użytkownika, którego chcesz dodać.
 1. Wybierz użytkownika.
-1. Wybierz pozycję **Zapisz**.
-    ![Zrzut ekranu pokazujący kliknięcie pozycji Dodaj przypisanie roli](./media/manage-billing-access/billing-save-role-assignment.png)
+1. Wybierz pozycję **Zapisz** .
+    ![Zrzut ekranu, na którym wyróżniono przycisk Zapisz.](./media/manage-billing-access/billing-save-role-assignment.png)
 
 1. Po kilku chwilach użytkownikowi zostanie przypisana rola czytelnika rozliczeń dla subskrypcji.
 

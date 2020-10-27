@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: 2a6b324c4caf9619566ba335ab2e5a318ab68bb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e85226e7a2544cda01f40a1c1be6be32f11d9dfc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079432"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542798"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Korzystanie z programu Apache Zeppelin do uruchamiania zapytań Apache Phoenix w usłudze Apache HBase w usłudze Azure HDInsight
 
@@ -31,7 +31,7 @@ Klaster Apache HBase w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z Apache 
 
 1. Zamień na `CLUSTERNAME` nazwę klastra w następującym adresie URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin` . Następnie wprowadź adres URL w przeglądarce sieci Web. Wprowadź nazwę użytkownika i hasło logowania do klastra.
 
-1. Na stronie Zeppelin wybierz pozycję **Utwórz nową notatkę**.
+1. Na stronie Zeppelin wybierz pozycję **Utwórz nową notatkę** .
 
     ![Zapytanie interaktywne Zeppelin usługi HDInsight](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
 
@@ -40,13 +40,13 @@ Klaster Apache HBase w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z Apache 
     - Nazwa komentarza: Wprowadź nazwę notatki.
     - Interpreter domyślny: wybierz pozycję **JDBC** z listy rozwijanej.
 
-    Następnie wybierz pozycję **Utwórz notatkę**.
+    Następnie wybierz pozycję **Utwórz notatkę** .
 
 1. Upewnij się, że nagłówek notesu pokazuje połączony stan. Jest ona oznaczona zieloną kropką w prawym górnym rogu.
 
     ![Stan notesu Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Stan notesu Zeppelin")
 
-1. Utwórz tabelę HBase. Wprowadź następujące polecenie, a następnie naciśnij klawisze **SHIFT + ENTER**:
+1. Utwórz tabelę HBase. Wprowadź następujące polecenie, a następnie naciśnij klawisze **SHIFT + ENTER** :
 
     ```sql
     %jdbc(phoenix)
@@ -98,5 +98,5 @@ Klaster Apache HBase w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z Apache 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Apache Phoenix teraz obsługuje Zeppelin w usłudze Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
+- [Apache Phoenix teraz obsługuje Zeppelin w usłudze Azure HDInsight](/archive/blogs/ashish/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight)
 - [Apache Phoenix gramatyki](https://phoenix.apache.org/language/index.html)

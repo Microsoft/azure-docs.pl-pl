@@ -8,18 +8,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: ab07da38c01b052a4220274fb059683a22950a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c90142330b0530f1127beae1624ff27d7eb6ca
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75750700"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541489"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrowanie IoT Hub z monitorowania operacji do ustawień diagnostycznych
 
 Klienci korzystający z [monitorowania operacji](iot-hub-operations-monitoring.md) do śledzenia stanu operacji w IoT Hub mogą migrować ten przepływ pracy do [ustawień diagnostycznych platformy Azure](../azure-monitor/platform/platform-logs-overview.md), funkcję Azure monitor. Ustawienia diagnostyki dostarczają informacji diagnostycznych na poziomie zasobów dla wielu usług platformy Azure.
 
-**Funkcja monitorowania operacji IoT Hub jest przestarzała**i została usunięta z portalu. W tym artykule przedstawiono procedurę przenoszenia obciążeń z monitorowania operacji do ustawień diagnostycznych. Aby uzyskać więcej informacji na temat osi czasu wycofania, zobacz [monitorowanie rozwiązań usługi Azure IoT za pomocą Azure monitor i Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
+**Funkcja monitorowania operacji IoT Hub jest przestarzała** i została usunięta z portalu. W tym artykule przedstawiono procedurę przenoszenia obciążeń z monitorowania operacji do ustawień diagnostycznych. Aby uzyskać więcej informacji na temat osi czasu wycofania, zobacz [monitorowanie rozwiązań usługi Azure IoT za pomocą Azure monitor i Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
 ## <a name="update-iot-hub"></a>IoT Hub aktualizacji
 
@@ -34,9 +34,9 @@ Aby zaktualizować IoT Hub w Azure Portal, najpierw włącz ustawienia diagnosty
 
 Po przetestowaniu nowych ustawień diagnostycznych w przepływie pracy można wyłączyć funkcję monitorowania operacji. 
 
-1. W menu IoT Hub wybierz pozycję **monitorowanie operacji**.
+1. W menu IoT Hub wybierz pozycję **monitorowanie operacji** .
 
-2. W obszarze każdej kategorii monitorowania zaznacz opcję **Brak**.
+2. W obszarze każdej kategorii monitorowania zaznacz opcję **Brak** .
 
 3. Zapisz zmiany monitorowania operacji.
 
@@ -52,12 +52,12 @@ Ponadto ustawienia diagnostyki oferują pięć nowych kategorii do śledzenia. P
 * Operacje zadań
 * Metody bezpośrednie
 
-Aby uzyskać informacje o określonych strukturach schematu, zobacz [Omówienie schematu dla ustawień diagnostycznych](iot-hub-monitor-resource-health.md#understand-the-logs).
+Aby uzyskać informacje o określonych strukturach schematu, zobacz [dzienniki zasobów](monitor-iot-hub-reference.md#resource-logs).
 
 ## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>Monitorowanie zdarzeń łączenia i rozłączania urządzeń z małymi opóźnieniami
 
-Aby monitorować zdarzenia łączenia i rozłączania urządzeń w środowisku produkcyjnym, zalecamy subskrybowanie [zdarzenia **odłączenia urządzenia** ](iot-hub-event-grid.md#event-types) w Event Grid w celu uzyskania alertów i monitorowania stanu połączenia urządzenia. Skorzystaj z tego [samouczka](iot-hub-how-to-order-connection-state-events.md) , aby dowiedzieć się, jak zintegrować urządzenia połączone i odłączone urządzenia z IoT Hub w rozwiązaniu IoT.
+Aby monitorować zdarzenia łączenia i rozłączania urządzeń w środowisku produkcyjnym, zalecamy subskrybowanie [zdarzenia **odłączenia urządzenia**](iot-hub-event-grid.md#event-types) w Event Grid w celu uzyskania alertów i monitorowania stanu połączenia urządzenia. Skorzystaj z tego [samouczka](iot-hub-how-to-order-connection-state-events.md) , aby dowiedzieć się, jak zintegrować urządzenia połączone i odłączone urządzenia z IoT Hub w rozwiązaniu IoT.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Monitorowanie kondycji usługi Azure IoT Hub i szybkie diagnozowanie problemów](iot-hub-monitor-resource-health.md)
+[Monitoruj IoT Hub](monitor-iot-hub.md)

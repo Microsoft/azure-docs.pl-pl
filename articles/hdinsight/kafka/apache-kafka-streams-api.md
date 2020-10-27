@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
-ms.openlocfilehash: 0174c40a0fada0f78cc8d52f5c45b991c3851da0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a5982cb96891b3c0724007aa98527a07daba0fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85850555"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532564"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Samouczek: korzystanie z interfejsu API strumieni Apache Kafka w usłudze Azure HDInsight
 
@@ -39,7 +39,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 * Wykonaj kroki opisane w dokumencie [Apache Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) (Interfejs API odbiorcy i producenta na platformie Apache Kafka). Czynności opisane w tym dokumencie bazują na przykładowej aplikacji i tematach utworzonych w tym samouczku.
 
-* [Zestaw Java developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks) lub równoważnej, taki jak OpenJDK.
+* [Zestaw Java developer Kit (JDK) w wersji 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) lub równoważnej, taki jak OpenJDK.
 
 * Pakiet [Apache Maven](https://maven.apache.org/download.cgi) został prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z usługą Apache.  Maven to system kompilacji projektu dla projektów języka Java.
 
@@ -249,7 +249,7 @@ Aby skompilować i wdrożyć projekt na platformie Kafka w klastrze usługi HDIn
 
     Parametr `--from-beginning` konfiguruje odbiorcę, aby rozpoczął przetwarzanie od początku rekordów przechowywanych w temacie. Liczba wystąpień zwiększa się każdorazowo po napotkaniu wyrazu, dlatego temat zawiera wiele pozycji dla każdego wyrazu ze zwiększającą się liczbą wystąpień.
 
-4. Użyj klawiszy __Ctrl + C__, aby zakończyć działanie producenta. Podobnie użyj klawiszy __Ctrl + C__, aby zakończyć działanie aplikacji i odbiorcy.
+4. Użyj klawiszy __Ctrl + C__ , aby zakończyć działanie producenta. Podobnie użyj klawiszy __Ctrl + C__ , aby zakończyć działanie aplikacji i odbiorcy.
 
 5. Aby usunąć tematy używane przez operację przesyłania strumieniowego, użyj następujących poleceń:
 
@@ -266,7 +266,7 @@ Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasob�
 
 Aby usunąć grupę zasobów za pomocą witryny Azure Portal:
 
-1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję __Grupy zasobów__, aby wyświetlić listę grup zasobów.
+1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję __Grupy zasobów__ , aby wyświetlić listę grup zasobów.
 2. Znajdź grupę zasobów do usunięcia, a następnie kliknij prawym przyciskiem myszy przycisk __Więcej (...)__ po prawej stronie listy.
 3. Wybierz pozycję __Usuń grupę zasobów__ i potwierdź.
 

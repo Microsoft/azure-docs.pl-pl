@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: bed196d1be101ffa75affc389d390ec0fa764b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937053"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532649"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-elastycznym serwerze
 
@@ -28,7 +28,7 @@ Jeśli baza danych jest skonfigurowana z wysoką dostępnością, codzienne miga
 > [!IMPORTANT]
 >Kopie zapasowe nie są wykonywane na zatrzymanych serwerach. Kopie zapasowe są jednak wznawiane, gdy baza danych jest uruchamiana automatycznie po upływie 7 dni lub uruchomieniu przez użytkownika.
 
-Kopie zapasowe mogą być używane tylko w przypadku operacji przywracania na serwerze elastycznym. Jeśli chcesz wyeksportować lub zaimportować dane na elastyczny serwer, użyj metodologii [zrzutów i przywracania](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   .
+Kopie zapasowe mogą być używane tylko w przypadku operacji przywracania na serwerze elastycznym. Jeśli chcesz wyeksportować lub zaimportować dane na elastyczny serwer, użyj metodologii [zrzutów i przywracania](../howto-migrate-using-dump-and-restore.md) .
 
 
 ### <a name="backup-retention"></a>Przechowywanie kopii zapasowej
@@ -40,9 +40,9 @@ Okres przechowywania kopii zapasowej decyduje o tym, jak daleko wstecz w czasie 
 
 ### <a name="backup-storage-cost"></a>Koszt magazynu kopii zapasowych
 
-Elastyczny serwer oferuje do 100% miejsca do magazynowania z magazynem kopii zapasowych bez dodatkowych kosztów. Każdy dodatkowy magazyn kopii zapasowych jest naliczany w GB miesięcznie. Na przykład jeśli masz zainicjowany serwer z 250 GiB magazynu, masz 250 GiB pojemności magazynu kopii zapasowych bez dodatkowych opłat. Jeśli codzienne użycie kopii zapasowej to 25 GiB, możesz mieć do 10 dni wolnego miejsca w magazynie kopii zapasowych. Użycie magazynu kopii zapasowych przekracza 250 GiB jest naliczana zgodnie z [modelem cen](https://azure.microsoft.com/pricing/details/postgresql/).
+Elastyczny serwer oferuje do 100% miejsca do magazynowania z magazynem kopii zapasowych bez dodatkowych kosztów. Każdy dodatkowy magazyn kopii zapasowych jest naliczany w GB miesięcznie. Na przykład jeśli masz zainicjowany serwer z 250 GiB magazynu, masz 250 GiB pojemności magazynu kopii zapasowych bez dodatkowych opłat. Jeśli codzienne użycie kopii zapasowej to 25 GiB, możesz mieć do 10 dni wolnego miejsca w magazynie kopii zapasowych. Użycie magazynu kopii zapasowych przekracza 250 GiB jest naliczana zgodnie z [modelem cen](https://azure.microsoft.com/pricing/details/postgresql/).
 
-Metryki [używanej przez magazyn kopii zapasowych](https://docs.microsoft.com/azure/postgresql/concepts-monitoring)można użyć   w Azure Portal do monitorowania magazynu kopii zapasowych zużywanego przez serwer. Metryka Użycie magazynu kopii zapasowych reprezentuje sumę magazynu używanego przez wszystkie przechowywane kopie zapasowe bazy danych i kopie zapasowe dzienników na podstawie okresu przechowywania kopii zapasowych ustawionego dla tego serwera.  Duża liczba transakcji na serwerze może powodować zwiększenie użycia magazynu kopii zapasowych niezależnie od całkowitego rozmiaru bazy danych.
+Do monitorowania użycia magazynu kopii zapasowych przez serwer służy metryka [Użycie magazynu kopii zapasowych](../concepts-monitoring.md) w witrynie Azure Portal. Metryka Użycie magazynu kopii zapasowych reprezentuje sumę magazynu używanego przez wszystkie przechowywane kopie zapasowe bazy danych i kopie zapasowe dzienników na podstawie okresu przechowywania kopii zapasowych ustawionego dla tego serwera.  Duża liczba transakcji na serwerze może powodować zwiększenie użycia magazynu kopii zapasowych niezależnie od całkowitego rozmiaru bazy danych.
 
 Podstawowym sposobem kontrolowania kosztu magazynowania kopii zapasowych jest ustawienie odpowiedniego okresu przechowywania kopii zapasowych i wybranie odpowiednich opcji nadmiarowości kopii zapasowych w celu spełnienia potrzebnych celów odzyskiwania.
 
@@ -71,15 +71,15 @@ Przywracanie do punktu w czasie jest przydatne w wielu scenariuszach. Na przykł
 
 Można wybrać między najwcześniejszym punktem przywracania i niestandardowym punktem przywracania.
 
--   Najwcześniejszy **punkt przywracania**: w zależności od okresu przechowywania będzie to Najwcześniejszy czas, który można przywrócić. Najstarsza godzina tworzenia kopii zapasowej zostanie wybrana i będzie wyświetlana w portalu. Jest to przydatne, jeśli chcesz zbadać lub wykonać niektóre testy od momentu rozpoczęcia tego punktu w czasie.
+-   Najwcześniejszy **punkt przywracania** : w zależności od okresu przechowywania będzie to Najwcześniejszy czas, który można przywrócić. Najstarsza godzina tworzenia kopii zapasowej zostanie wybrana i będzie wyświetlana w portalu. Jest to przydatne, jeśli chcesz zbadać lub wykonać niektóre testy od momentu rozpoczęcia tego punktu w czasie.
 
--   **Niestandardowy punkt przywracania**: Ta opcja umożliwia wybranie dowolnego punktu w czasie w okresie przechowywania zdefiniowanym dla tego elastycznego serwera. Domyślnie Najnowsza godzina w formacie UTC jest zaznaczona i jest przydatna, jeśli chcesz przywrócić ostatnią zatwierdzoną transakcję do celów testowych. Opcjonalnie możesz wybrać inne dni i godziny. 
+-   **Niestandardowy punkt przywracania** : Ta opcja umożliwia wybranie dowolnego punktu w czasie w okresie przechowywania zdefiniowanym dla tego elastycznego serwera. Domyślnie Najnowsza godzina w formacie UTC jest zaznaczona i jest przydatna, jeśli chcesz przywrócić ostatnią zatwierdzoną transakcję do celów testowych. Opcjonalnie możesz wybrać inne dni i godziny. 
 
 Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiar bazy danych, ilość dzienników transakcji do przetworzenia, przepustowość sieci i łączna liczba baz danych, które są odzyskiwane w tym samym regionie w tym samym czasie. Ogólny czas odzyskiwania zazwyczaj trwa od kilku minut do kilku godzin.
 
 
 > [!IMPORTANT]
->  **Nie**można przywrócić usuniętych serwerów   . Usunięcie serwera spowoduje również usunięcie wszystkich baz danych należących do serwera, których nie można odzyskać. Aby chronić zasoby serwera, po wdrożeniu przed przypadkowym usunięciem lub nieoczekiwanymi zmianami, Administratorzy mogą korzystać z [blokad zarządzania](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> **Nie** można przywrócić usuniętych serwerów. Usunięcie serwera spowoduje również usunięcie wszystkich baz danych należących do serwera, których nie można odzyskać. Aby chronić zasoby serwera, po wdrożeniu przed przypadkowym usunięciem lub nieoczekiwanymi zmianami, Administratorzy mogą korzystać z [blokad zarządzania](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="perform-post-restore-tasks"></a>Wykonywanie zadań po przywróceniu
 
@@ -101,6 +101,5 @@ Po przywróceniu bazy danych można wykonać następujące zadania w celu przygo
 ## <a name="next-steps"></a>Następne kroki
 
 -   Informacje o [ciągłości działania firmy](./concepts-business-continuity.md)
--   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
+-   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
 -   Dowiedz się [, jak przywrócić](./how-to-restore-server-portal.md)
-

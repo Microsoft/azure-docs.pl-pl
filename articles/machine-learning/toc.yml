@@ -235,7 +235,7 @@
           displayName: policy
     - name: Tworzenie obszarów roboczych i zarządzanie nimi
       items:
-        - name: Korzystanie z witryny Azure Portal
+        - name: Używanie witryny Azure Portal lub zestawu Python SDK
           href: how-to-manage-workspace.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: how-to-manage-workspace-cli.md

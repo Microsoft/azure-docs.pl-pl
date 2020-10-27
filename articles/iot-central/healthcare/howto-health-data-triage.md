@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 5175575bcd968ab9d9bb9db7e284eb332bc7f675
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127084"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542424"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Samouczek: tworzenie pulpitu nawigacyjnego dostawcy Power BI
 
@@ -29,7 +29,7 @@ Podstawowa architektura będzie zgodna z tą strukturą:
 >[!div class="mx-imgBorder"] 
 >![Pulpit nawigacyjny Klasyfikacja dostawcy](media/dashboard-architecture.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Eksportowanie danych z usługi Azure IoT Central do platformy Azure Event Hubs
@@ -139,21 +139,21 @@ Następnym krokiem będzie przeanalizować dane pochodzące z centrum zdarzeń w
 }
 ```
 
-2. Po sprawdzeniu ładunków w formacie JSON Wróć do projektanta aplikacji logiki i wybierz pozycję **+ nowy krok**. Wyszukaj i Dodaj **zmienną Initialize** w następnym kroku i wprowadź następujące parametry:
+2. Po sprawdzeniu ładunków w formacie JSON Wróć do projektanta aplikacji logiki i wybierz pozycję **+ nowy krok** . Wyszukaj i Dodaj **zmienną Initialize** w następnym kroku i wprowadź następujące parametry:
 
     |Parametr|Wartość|
     |---|---|
     |Nazwa|Nazwa interfejsu|
-    |Typ|Ciąg|
+    |Typ|String|
 
-    Wybierz pozycję **Zapisz**. 
+    Wybierz pozycję **Zapisz** . 
 
-3. Dodaj kolejną zmienną o nazwie **Body** z typem jako **ciąg**. Do aplikacji logiki zostaną dodane następujące akcje:
+3. Dodaj kolejną zmienną o nazwie **Body** z typem jako **ciąg** . Do aplikacji logiki zostaną dodane następujące akcje:
 
     >[!div class="mx-imgBorder"]
     >![Inicjowanie zmiennych](media/initialize-string-variables.png)
     
-4. Wybierz pozycję **+ nowy krok** i Dodaj akcję **Przeanalizuj dane JSON** . Zmień nazwę tego elementu na, aby **przeanalizować właściwości**. Dla zawartości wybierz **Właściwości** pochodzące z centrum zdarzeń. Wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu** u dołu i wklej przykładowy ładunek z powyższej sekcji Właściwości.
+4. Wybierz pozycję **+ nowy krok** i Dodaj akcję **Przeanalizuj dane JSON** . Zmień nazwę tego elementu na, aby **przeanalizować właściwości** . Dla zawartości wybierz **Właściwości** pochodzące z centrum zdarzeń. Wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu** u dołu i wklej przykładowy ładunek z powyższej sekcji Właściwości.
 
 5. Następnie wybierz akcję **Ustaw zmienną** i zaktualizuj zmienną **nazwy interfejsu** za pomocą **iothub-Interface-Name** z właściwości przeanalizowanego pliku JSON.
 
@@ -168,14 +168,14 @@ Następnym krokiem będzie przeanalizować dane pochodzące z centrum zdarzeń w
 
 9. Dodaj akcję **Ustaw zmienną** i zaktualizuj zmienną **treści** do **treści** z przeanalizowanego kodu JSON w kroku 7.
 
-10. Dodaj kontrolkę **warunek** jako następną akcję i Ustaw warunek na **treść**, **zawiera**, **HeartRate**. Dzięki temu można upewnić się, że masz właściwy zestaw danych pochodzący z poprawki inteligentnej, przed wypełnieniem Power BI zestawu danych. Kroki 7-9 będą wyglądać następująco:
+10. Dodaj kontrolkę **warunek** jako następną akcję i Ustaw warunek na **treść** , **zawiera** , **HeartRate** . Dzięki temu można upewnić się, że masz właściwy zestaw danych pochodzący z poprawki inteligentnej, przed wypełnieniem Power BI zestawu danych. Kroki 7-9 będą wyglądać następująco:
 
     >[!div class="mx-imgBorder"] 
     >![Warunki](media/smart-vitals-pbi.png)
 
 11. W przypadku **prawdziwego** przypadku warunku Dodaj akcję, która wywołuje funkcję **Dodaj wiersze do zestawu danych** Power BI. Musisz zalogować się do Power BI. **Fałszywych** przypadków można ponownie użyć kontrolki **zakończenia** .
 
-12. Wybierz odpowiedni **obszar roboczy**, **zestaw danych**i **tabelę**. Mapuj parametry, które zostały określone podczas tworzenia zestawu danych przesyłania strumieniowego w Power BI do przeanalizowanych wartości JSON, które pochodzą z centrum zdarzeń. Wypełnione akcje powinny wyglądać następująco:
+12. Wybierz odpowiedni **obszar roboczy** , **zestaw danych** i **tabelę** . Mapuj parametry, które zostały określone podczas tworzenia zestawu danych przesyłania strumieniowego w Power BI do przeanalizowanych wartości JSON, które pochodzą z centrum zdarzeń. Wypełnione akcje powinny wyglądać następująco:
 
     >[!div class="mx-imgBorder"] 
     >![Dodaj wiersze do Power BI](media/add-rows-yesenia.png)
@@ -183,14 +183,14 @@ Następnym krokiem będzie przeanalizować dane pochodzące z centrum zdarzeń w
 13. W przypadku przełącznika "inteligentne" w **nawiasach klamrowych** Dodaj akcję **Przeanalizuj dane JSON** , aby przeanalizować zawartość, podobną do kroku 7. Następnie **Dodaj wiersze do zestawu danych** , aby zaktualizować zestaw danych Silver Teddy w Power BI.
 
     >[!div class="mx-imgBorder"] 
-    >![Warunki](media/knee-brace-pbi.png)
+    >![Zrzut ekranu pokazujący sposób dodawania wierszy do zestawu danych.](media/knee-brace-pbi.png)
 
 14. Naciśnij pozycję **Zapisz** , a następnie uruchom aplikację logiki.
 
 ## <a name="build-a-real-time-dashboard-for-patient-vitals"></a>Tworzenie pulpitu nawigacyjnego w czasie rzeczywistym na potrzeby najważniejszych elementów pacjenta
-Teraz wróć do Power BI i wybierz pozycję **+ Utwórz** , aby utworzyć nowy **pulpit nawigacyjny**. Nadaj pulpitowi nawigacyjnemu nazwę i naciśnij przycisk **Utwórz**.
+Teraz wróć do Power BI i wybierz pozycję **+ Utwórz** , aby utworzyć nowy **pulpit nawigacyjny** . Nadaj pulpitowi nawigacyjnemu nazwę i naciśnij przycisk **Utwórz** .
 
-Wybierz trzy kropki na górnym pasku nawigacyjnym, a następnie wybierz pozycję **+ Dodaj kafelek**.
+Wybierz trzy kropki na górnym pasku nawigacyjnym, a następnie wybierz pozycję **+ Dodaj kafelek** .
 
 >[!div class="mx-imgBorder"] 
 >![Dodaj kafelek do pulpitu nawigacyjnego](media/add-tile.png)
@@ -203,7 +203,7 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń zasoby, wykonując nas
 
 1. Z Azure Portal można usunąć utworzone centrum zdarzeń i zasoby Logic Apps.
 
-2. W przypadku aplikacji IoT Central przejdź do karty Administracja i wybierz pozycję **Usuń**.
+2. W przypadku aplikacji IoT Central przejdź do karty Administracja i wybierz pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

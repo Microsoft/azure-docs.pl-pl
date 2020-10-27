@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 524c888bb132405f03af44f9c28198be0ac89370
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 956406ec5ac99be5973f1928bbb89db10e68b339
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489595"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533771"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Uruchamianie zapytań Apache Hive z Apache Hadoop w usłudze HDInsight przy użyciu usługi REST
 
@@ -25,13 +25,13 @@ Dowiedz się, jak używać interfejsu API REST WebHCat do uruchamiania zapytań 
 
 * Klaster Apache Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Klient REST. W tym dokumencie jest stosowane [wywołanie Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) w programie Windows PowerShell i [zwinięcie](https://curl.haxx.se/) w witrynie [bash](https://docs.microsoft.com/windows/wsl/install-win10).
+* Klient REST. W tym dokumencie jest stosowane [wywołanie Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) w programie Windows PowerShell i [zwinięcie](https://curl.haxx.se/) w witrynie [bash](/windows/wsl/install-win10).
 
 * Jeśli używasz bash, potrzebujesz również JQ, procesora JSON wiersza polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 
 ## <a name="base-uri-for-rest-api"></a>Podstawowy identyfikator URI interfejsu API REST
 
-Podstawowy Uniform Resource Identifier (URI) dla interfejsu API REST w usłudze HDInsight to `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , gdzie `CLUSTERNAME` jest nazwą klastra.  Nazwy klastra w identyfikatorach URI są **rozróżniane wielkości**liter.  W czasie, gdy nazwa klastra w w pełni kwalifikowana nazwa domeny (FQDN) w ramach identyfikatora URI ( `CLUSTERNAME.azurehdinsight.net` ) nie uwzględnia wielkości liter, inne wystąpienia w identyfikatorze URI uwzględniają wielkość liter.
+Podstawowy Uniform Resource Identifier (URI) dla interfejsu API REST w usłudze HDInsight to `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , gdzie `CLUSTERNAME` jest nazwą klastra.  Nazwy klastra w identyfikatorach URI są **rozróżniane wielkości** liter.  W czasie, gdy nazwa klastra w w pełni kwalifikowana nazwa domeny (FQDN) w ramach identyfikatora URI ( `CLUSTERNAME.azurehdinsight.net` ) nie uwzględnia wielkości liter, inne wystąpienia w identyfikatorze URI uwzględniają wielkość liter.
 
 ## <a name="authentication"></a>Authentication
 
@@ -120,7 +120,7 @@ $clusterName
     {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
     ```
 
-1. Aby utworzyć tabelę o nazwie **log4jLogs**, wykonaj następujące czynności:
+1. Aby utworzyć tabelę o nazwie **log4jLogs** , wykonaj następujące czynności:
 
     ```bash
     jobid=$(curl -s -u admin:$password -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$clusterName.azurehdinsight.net/templeton/v1/hive | jq -r .id)
@@ -156,7 +156,7 @@ $clusterName
 
    * `ROW FORMAT` — Jak są formatowane dane. Pola w każdym dzienniku są oddzielone spacjami.
    * `STORED AS TEXTFILE LOCATION` — Miejsce, w którym dane są przechowywane (przykład/katalog danych) i są przechowywane jako tekst.
-   * `SELECT` -Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]**. Ta instrukcja zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.
+   * `SELECT` -Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]** . Ta instrukcja zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.
 
      > [!NOTE]  
      > Należy zauważyć, że odstępy między instrukcjami HiveQL są zastępowane `+` znakiem, gdy jest używany z zwinięciem. Ujęte w cudzysłów wartości zawierające spację, takie jak ogranicznik, nie powinny być zastępowane przez `+` .
@@ -181,11 +181,11 @@ $clusterName
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    Jeśli zadanie zostało zakończone, stan zostanie **zakończony pomyślnie**.
+    Jeśli zadanie zostało zakończone, stan zostanie **zakończony pomyślnie** .
 
-1. Po zmianie stanu zadania na **powodzenie**można pobrać wyniki zadania z usługi Azure Blob Storage. `statusdir`Parametr przesłany z zapytaniem zawiera lokalizację pliku wyjściowego; w tym przypadku `/example/rest` . Ten adres przechowuje dane wyjściowe w `example/curl` katalogu w domyślnym magazynie klastrów.
+1. Po zmianie stanu zadania na **powodzenie** można pobrać wyniki zadania z usługi Azure Blob Storage. `statusdir`Parametr przesłany z zapytaniem zawiera lokalizację pliku wyjściowego; w tym przypadku `/example/rest` . Ten adres przechowuje dane wyjściowe w `example/curl` katalogu w domyślnym magazynie klastrów.
 
-    Możesz wyświetlić i pobrać te pliki przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polecenia platformy Azure z usługą Azure Storage, zobacz dokument [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli) .
+    Możesz wyświetlić i pobrać te pliki przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polecenia platformy Azure z usługą Azure Storage, zobacz dokument [Używanie interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](../../storage/blobs/storage-quickstart-blobs-cli.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

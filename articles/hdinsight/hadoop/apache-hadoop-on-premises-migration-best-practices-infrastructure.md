@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083104"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542305"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — najlepsze rozwiązania dotyczące infrastruktury
 
@@ -27,7 +27,7 @@ Kluczowe Opcje planowania pojemności klastra usługi HDInsight są następując
 Region platformy Azure określa, gdzie klaster jest fizycznie zainicjowany. Aby zminimalizować opóźnienie operacji odczytu i zapisu, klaster powinien znajdować się w tym samym regionie co dane.
 
 **Lokalizacja i rozmiar magazynu**  
-Domyślny magazyn musi znajdować się w tym samym regionie co klaster.W przypadku klastra z 48 węzłami zaleca się używanie 4 do 8 kont magazynu. Mimo że może już być wystarczająca ilość miejsca w magazynie, każde konto magazynu oferuje dodatkową przepustowość sieci dla węzłów obliczeniowych. Jeśli istnieje wiele kont magazynu, użyj nazwy losowej dla każdego konta magazynu, bez prefiksu. Celem przypadkowego nazewnictwa jest zmniejszenie ryzyka związanego z wąskimi gardłami magazynowania (ograniczanie) lub awariami trybu wspólnego na wszystkich kontach. Aby uzyskać lepszą wydajność, należy użyć tylko jednego kontenera na konto magazynu.
+Domyślny magazyn musi znajdować się w tym samym regionie co klaster. W przypadku klastra z 48 węzłami zaleca się używanie 4 do 8 kont magazynu. Mimo że może już być wystarczająca ilość miejsca w magazynie, każde konto magazynu oferuje dodatkową przepustowość sieci dla węzłów obliczeniowych. Jeśli istnieje wiele kont magazynu, użyj nazwy losowej dla każdego konta magazynu, bez prefiksu. Celem przypadkowego nazewnictwa jest zmniejszenie ryzyka związanego z wąskimi gardłami magazynowania (ograniczanie) lub awariami trybu wspólnego na wszystkich kontach. Aby uzyskać lepszą wydajność, należy użyć tylko jednego kontenera na konto magazynu.
 
 **Rozmiar i typ maszyny wirtualnej (teraz obsługuje serię G)**  
 Każdy typ klastra ma zestaw typów węzłów, a każdy typ węzła ma konkretne opcje rozmiaru i typu maszyny wirtualnej. Rozmiar i typ maszyny wirtualnej są określane przez procesor CPU, rozmiar pamięci RAM i opóźnienie sieci. Symulowane obciążenie może służyć do określenia optymalnego rozmiaru i typu maszyn wirtualnych dla każdego typu węzła.
@@ -52,35 +52,35 @@ Aplikacje lub składniki, które były dostępne w klastrach lokalnych, ale nie 
 |**Aplikacja**|**Integracja**
 |---|---|
 |Przepływ powietrza|IaaS lub węzeł brzegowy usługi HDInsight
-|Alluxio|IaaS  
-|Arcadia|IaaS 
+|Alluxio|IaaS  
+|Arcadia|IaaS 
 |Atlas|Brak (tylko HDP)
 |Datameer|Węzeł krawędzi usługi HDInsight
 |DataStax (Cassandra)|IaaS (CosmosDB alternatywę na platformie Azure)
-|DataTorrent|IaaS 
-|Przechodzenie do szczegółów|IaaS 
+|DataTorrent|IaaS 
+|Przechodzenie do szczegółów|IaaS 
 |Ignite|IaaS
-|Jethro|IaaS 
-|Mapador|IaaS 
+|Jethro|IaaS 
+|Mapador|IaaS 
 |Mongo|IaaS (CosmosDB alternatywę na platformie Azure)
-|NiFi|IaaS 
+|NiFi|IaaS 
 |Presto|IaaS lub węzeł brzegowy usługi HDInsight
-|Python 2|PaaS 
-|Python 3|PaaS 
-|R|PaaS 
-|SYGNATUR|IaaS 
+|Python 2|PaaS 
+|Python 3|PaaS 
+|R|PaaS 
+|SAS|IaaS 
 |Vertica|IaaS (SQLDW alternatywę na platformie Azure)
-|Tableau|IaaS 
+|Tableau|IaaS 
 |Wodną|Węzeł krawędzi usługi HDInsight
-|StreamSets|Krawędź usługi HDInsight 
-|Palantir|IaaS 
-|Sailpoint|IaaS 
+|StreamSets|Krawędź usługi HDInsight 
+|Palantir|IaaS 
+|Sailpoint|IaaS 
 
 Aby uzyskać więcej informacji, zobacz artykuł [Apache Hadoop składniki dostępne w różnych wersjach usługi HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu
 
-Usługa HDInsight udostępnia metodę konfiguracji klastra nazywaną **akcją skryptu**. Akcja skryptu to skrypt bash, który działa w węzłach klastra usługi HDInsight i może służyć do instalowania dodatkowych składników i zmieniania ustawień konfiguracji.
+Usługa HDInsight udostępnia metodę konfiguracji klastra nazywaną **akcją skryptu** . Akcja skryptu to skrypt bash, który działa w węzłach klastra usługi HDInsight i może służyć do instalowania dodatkowych składników i zmieniania ustawień konfiguracji.
 
 Akcje skryptu muszą być przechowywane w identyfikatorze URI dostępnym z klastra usługi HDInsight. Mogą one być używane podczas tworzenia klastra lub po nim, a także mogą być ograniczone do uruchamiania tylko dla określonych typów węzłów.
 
@@ -101,7 +101,7 @@ Usługa HDInsight udostępnia wstępnie zapisane skrypty umożliwiające zainsta
 
 Akcje skryptu można również publikować w portalu Azure Marketplace jako aplikację usługi HDInsight.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Instalowanie aplikacji Apache Hadoop innych firm w usłudze HDInsight](../hdinsight-apps-install-applications.md)
 - [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md)
@@ -109,7 +109,7 @@ Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Dostosowywanie konfiguracji usługi HDInsight przy użyciu narzędzia Bootstrap
 
-Zmiany w konfiguracjach w plikach konfiguracyjnych, takich jak `core-site.xml` , `hive-site.xml` i `oozie-env.xml` można wykonać przy użyciu Bootstrap. Poniższy skrypt jest przykładem przy użyciu polecenia [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)programu PowerShell:
+Zmiany w konfiguracjach w plikach konfiguracyjnych, takich jak `core-site.xml` , `hive-site.xml` i `oozie-env.xml` można wykonać przy użyciu Bootstrap. Poniższy skrypt jest przykładem przy użyciu polecenia [AZ module](/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightcluster)programu PowerShell:
 
 ```powershell
 # hive-site.xml configuration
@@ -172,7 +172,7 @@ Usługę HDInsight można dodać do nowego lub istniejącego Virtual Network pla
 > [!Note]  
 > Usługa HDInsight nie obsługuje obecnie wymuszonego tunelowania. Wymuszone tunelowanie to ustawienie podsieci, które wymusza wychodzący ruch internetowy do urządzenia w celu przeprowadzenia inspekcji i rejestrowania. Usuń wymuszone tunelowanie przed zainstalowaniem usługi HDInsight w podsieci lub Utwórz nową podsieć dla usługi HDInsight. Usługa HDInsight nie obsługuje również ograniczania łączności sieciowej wychodzącej.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Azure Virtual-Networks — Omówienie](../../virtual-network/virtual-networks-overview.md)
 - [Rozszerzanie usługi Azure HDInsight za pomocą usługi Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md)
@@ -181,7 +181,7 @@ Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 Usługa HDInsight obsługuje [punkty końcowe usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md), które umożliwiają bezpieczne łączenie się z bazami danych platformy Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB i SQL. Po włączeniu punktu końcowego usługi Azure HDInsight ruch przepływów odbywa się za pośrednictwem zabezpieczonej trasy z centrum danych platformy Azure. Dzięki temu zwiększonemu poziomowi zabezpieczeń w warstwie sieciowej można zablokować konta magazynu danych Big Data do określonych sieci wirtualnych (sieci wirtualnych) i nadal używać klastrów usługi HDInsight bezproblemowo, aby uzyskać dostęp do tych danych i ich przetworzyć.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Punkty końcowe usługi dla sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Rozszerzanie zabezpieczeń usługi HDInsight za pomocą punktów końcowych usług](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)

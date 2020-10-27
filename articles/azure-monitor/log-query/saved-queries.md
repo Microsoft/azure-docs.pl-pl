@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d712aab6dcb52f64af340b3110e475c8da2b10
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959846"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542611"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Zapisane zapytania w Azure Monitor Log Analytics
 
@@ -38,7 +38,7 @@ Możesz na przykład uzyskać przykładowe zapytania z dwóch różnych lokaliza
 
 ### <a name="example-query-dialog"></a>Przykładowe okno dialogowe zapytania
 
-Po wprowadzeniu pierwszego środowiska Log Analytics wyświetlane jest *okno dialogowe przykładowe zapytania* .  Można też uzyskać do niego dostęp, klikając w prawym górnym rogu ekranu na **przykład zapytań**.
+Po wprowadzeniu pierwszego środowiska Log Analytics wyświetlane jest *okno dialogowe przykładowe zapytania* .  Można też uzyskać do niego dostęp, klikając w prawym górnym rogu ekranu na **przykład zapytań** .
 
 ![—](media/saved-queries/sidebar-2.png)
 
@@ -54,7 +54,7 @@ Każde przykładowe zapytanie jest reprezentowane przez kartę. Możesz szybko s
 
 Dostęp do tych samych funkcji środowiska dialogu można uzyskać z okienka zapytania na pasku bocznym po lewej stronie Log Analytics. Możesz umieścić kursor na nazwie zapytania, aby uzyskać opis zapytania i dodatkowe funkcje.
 
-![—](media/saved-queries/sidebar-3.png)
+![Zrzut ekranu przedstawiający okienko zapytania.](media/saved-queries/sidebar-3.png)
 
 ## <a name="finding-and-filtering-queries"></a>Znajdowanie i filtrowanie zapytań
 
@@ -80,13 +80,13 @@ Aby zmienić grupowanie zapytań, kliknij listę rozwijaną *Grupuj według* :
 Okno dialogowe obsługuje grupowanie według:
 
 - **Typ zasobu** — zasób zdefiniowany na platformie Azure, na przykład maszynę wirtualną. Zapoznaj się z [Azure Monitorą tabeli](/azure/azure-monitor/reference/tables/tables-resourcetype) , aby uzyskać pełne mapowanie tabel Azure monitor dzienników/log Analytics na typ zasobu.  
-- **Category** — typ informacji, takich jak *zabezpieczenia* czy *Inspekcja*. Kategorie są identyczne z kategoriami zdefiniowanymi w okienku po stronie tabele. Aby uzyskać pełną listę kategorii, zobacz [odwołanie do tabeli Azure monitor](/azure/azure-monitor/reference/tables/tables-category) .  
+- **Category** — typ informacji, takich jak *zabezpieczenia* czy *Inspekcja* . Kategorie są identyczne z kategoriami zdefiniowanymi w okienku po stronie tabele. Aby uzyskać pełną listę kategorii, zobacz [odwołanie do tabeli Azure monitor](/azure/azure-monitor/reference/tables/tables-category) .  
 - **Rozwiązanie** — rozwiązanie Azure monitor skojarzone z zapytaniami
-- **Temat** — temat przykładowego zapytania, na przykład *dzienniki aktywności* lub *Dzienniki aplikacji*. Właściwość tematu jest unikatowa dla przykładowych zapytań i może się różnić w zależności od określonego typu zasobu.
+- **Temat** — temat przykładowego zapytania, na przykład *dzienniki aktywności* lub *Dzienniki aplikacji* . Właściwość tematu jest unikatowa dla przykładowych zapytań i może się różnić w zależności od określonego typu zasobu.
 
 Wartości grupowania również działają jako aktywny Spis treści. Kliknięcie jednej z wartości po lewej stronie ekranu powoduje przewinięcie widoku zapytania bezpośrednio do klikniętego elementu.
 
-### <a name="filter"></a>Filtrowanie
+### <a name="filter"></a>Filtr
 
 Można również filtrować zapytania zgodnie z wymienionymi wcześniej wartościami GroupBy. W oknie dialogowym przykładowego zapytania filtry znajdują się u góry.
 

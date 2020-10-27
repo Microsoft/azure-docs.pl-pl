@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 6d4539e5dbc7182386a60317a9ee45a986ffd61f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 99ea17dad4f99cdab3fb44b8031e60e6cf69879c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999948"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543155"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Broker identyfikatorów usługi Azure HDInsight (wersja zapoznawcza)
 
@@ -43,7 +43,7 @@ Na tym diagramie klient (czyli przeglądarka lub aplikacja) musi najpierw uzyska
 
 Nadal może istnieć wiele starszych aplikacji, które obsługują tylko uwierzytelnianie podstawowe (to jest nazwa użytkownika i hasło). W tych scenariuszach nadal można nawiązać połączenie z bramami klastra przy użyciu uwierzytelniania podstawowego protokołu HTTP. W tej konfiguracji należy zapewnić łączność sieciową z węzłów bramy do punktu końcowego Active Directory Federation Services (AD FS), aby zapewnić bezpośrednią linię wglądu z węzłów bramy.
 
-Na poniższym diagramie przedstawiono przepływ uwierzytelniania podstawowego dla użytkowników federacyjnych. Najpierw Brama próbuje ukończyć uwierzytelnianie przy użyciu usługi [ROPC Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc). W przypadku braku skrótów haseł synchronizowanych z usługą Azure AD powracanie do odnajdywania punktu końcowego AD FS i kończenia uwierzytelniania przez uzyskanie dostępu do punktu końcowego AD FS.
+Na poniższym diagramie przedstawiono przepływ uwierzytelniania podstawowego dla użytkowników federacyjnych. Najpierw Brama próbuje ukończyć uwierzytelnianie przy użyciu usługi [ROPC Flow](../../active-directory/develop/v2-oauth-ropc.md). W przypadku braku skrótów haseł synchronizowanych z usługą Azure AD powracanie do odnajdywania punktu końcowego AD FS i kończenia uwierzytelniania przez uzyskanie dostępu do punktu końcowego AD FS.
 
 :::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram przedstawiający przepływ uwierzytelniania przy użyciu brokera identyfikatora usługi HDInsight.":::
 
@@ -54,7 +54,7 @@ Aby utworzyć klaster pakiet Enterprise Security z włączonym brokerem identyfi
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Postępuj zgodnie z podstawowymi procedurami tworzenia klastra pakiet Enterprise Security. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra usługi HDInsight przy użyciu pakiet Enterprise Security](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Wybierz pozycję **Włącz brokera identyfikatorów HDInsight**.
+1. Wybierz pozycję **Włącz brokera identyfikatorów HDInsight** .
 
 Funkcja brokera identyfikatorów usługi HDInsight dodaje do klastra jedną dodatkową maszynę wirtualną. Ta maszyna wirtualna jest węzłem brokera identyfikatora usługi HDInsight i obejmuje składniki serwera do obsługi uwierzytelniania. Węzeł brokera identyfikatorów HDInsight jest przyłączony do domeny AD DS platformy Azure.
 
@@ -103,7 +103,7 @@ Jeśli dodasz nową rolę o nazwie `idbrokernode` z następującymi atrybutami d
 
 ## <a name="tool-integration"></a>Integracja narzędzi
 
-Narzędzia usługi HDInsight są aktualizowane w celu natywnej obsługi protokołu OAuth. Użyj tych narzędzi dla nowoczesnego dostępu opartego na protokole OAuth do klastrów. Wtyczka usługi HDInsight [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) może być używana w przypadku aplikacji opartych na języku Java, takich jak Scala. [Narzędzia Spark i Hive dla Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) mogą być używane na potrzeby zadań PySpark i Hive. Narzędzia obsługują zadanie wsadowe i zadania interaktywne.
+Narzędzia usługi HDInsight są aktualizowane w celu natywnej obsługi protokołu OAuth. Użyj tych narzędzi dla nowoczesnego dostępu opartego na protokole OAuth do klastrów. Wtyczka usługi HDInsight [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#integrate-with-hdinsight-identity-broker-hib) może być używana w przypadku aplikacji opartych na języku Java, takich jak Scala. [Narzędzia Spark i Hive dla Visual Studio Code](../hdinsight-for-vscode.md) mogą być używane na potrzeby zadań PySpark i Hive. Narzędzia obsługują zadanie wsadowe i zadania interaktywne.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Dostęp SSH bez skrótu hasła na platformie Azure AD DS
 
@@ -117,11 +117,11 @@ Aby zapewnić połączenie SSH z maszyną wirtualną przyłączoną do domeny lu
 
 Jeśli Twoja organizacja nie synchronizuje skrótów haseł do usługi Azure AD DS, najlepszym rozwiązaniem jest utworzenie jednego użytkownika tylko w chmurze w usłudze Azure AD. Następnie przypisz go jako administratora klastra podczas tworzenia klastra i użyj go do celów administracyjnych. Można go użyć, aby uzyskać dostęp do maszyn wirtualnych za pośrednictwem protokołu SSH.
 
-Aby rozwiązać problemy z uwierzytelnianiem, zobacz [ten przewodnik](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+Aby rozwiązać problemy z uwierzytelnianiem, zobacz [ten przewodnik](./domain-joined-authentication-issues.md).
 
 ## <a name="clients-using-oauth-to-connect-to-an-hdinsight-gateway-with-hdinsight-id-broker"></a>Klienci korzystający z protokołu OAuth do nawiązywania połączenia z bramą usługi HDInsight z brokerem identyfikatorów usługi HDInsight
 
-W konfiguracji brokera identyfikatora usługi HDInsight można zaktualizować niestandardowe aplikacje i klientów, którzy łączą się z bramą w celu uzyskania najpierw wymaganego tokenu OAuth. Wykonaj kroki opisane w [tym dokumencie](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) , aby uzyskać token z następującymi informacjami:
+W konfiguracji brokera identyfikatora usługi HDInsight można zaktualizować niestandardowe aplikacje i klientów, którzy łączą się z bramą w celu uzyskania najpierw wymaganego tokenu OAuth. Wykonaj kroki opisane w [tym dokumencie](../../storage/common/storage-auth-aad-app.md) , aby uzyskać token z następującymi informacjami:
 
 *   Identyfikator URI zasobu OAuth: `https://hib.azurehdinsight.net` 
 *   Identyfikator aplikacji: 7865c1d2-F040-46cc-875f-831a1ef6a28a

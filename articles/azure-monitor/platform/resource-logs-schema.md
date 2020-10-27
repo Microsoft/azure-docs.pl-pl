@@ -4,12 +4,12 @@ description: Poznaj obsługiwane usługi i schemat zdarzeń dla dzienników zaso
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b9d3dafdf62bda2d07eb7f9d7c357f61ec913d44
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 791f95dc75c55c7a5c7c26d0719e186245713fba
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144000"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543414"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Wspólny schemat dotyczący dzienników zasobów platformy Azure
 
@@ -53,7 +53,7 @@ Schemat dzienników zasobów różni się w zależności od kategorii zasobów i
 | API Management | [Dzienniki zasobów API Management](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Bramy aplikacji |[Rejestrowanie Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics dla Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Azure Batch |[Rejestrowanie Azure Batch](../../batch/batch-diagnostics.md) |
+| Usługa Azure Batch |[Rejestrowanie Azure Batch](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Rejestrowanie w usłudze Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Rejestrowanie Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Dzienniki platformy Azure dla usługi CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -70,8 +70,8 @@ Schemat dzienników zasobów różni się w zależności od kategorii zasobów i
 | Express Route | Schemat jest niedostępny. |
 | Azure Firewall | Schemat jest niedostępny. |
 | Front Door | [Rejestrowanie dla drzwi przednich](../../frontdoor/front-door-diagnostics.md) |
-| Usługa IoT Hub | [Operacje IoT Hub](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Rejestrowanie Azure Key Vault](../../key-vault/general/logging.md) |
+| Usługa IoT Hub | [Operacje IoT Hub](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
+| Usługa Key Vault |[Rejestrowanie Azure Key Vault](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Rejestrowanie usługi Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
 | Load Balancer |[Analiza dzienników dotyczących usługi Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps — niestandardowy schemat śledzenia B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
@@ -79,7 +79,7 @@ Schemat dzienników zasobów różni się w zależności od kategorii zasobów i
 | Ochrona przed atakami DDOS | [Zarządzanie Azure DDoS Protection Standard](../../virtual-network/manage-ddos-protection.md) |
 | Power BI — warstwa Dedykowana | [Rejestrowanie Power BI Embedded na platformie Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Model danych dla Azure Backup](../../backup/backup-azure-reports-data-model.md)|
-| Wyszukaj |[Włączanie i używanie Analiza ruchu wyszukiwania](../../search/search-traffic-analytics.md) |
+| Wyszukiwanie |[Włączanie i używanie Analiza ruchu wyszukiwania](../../search/search-traffic-analytics.md) |
 | Service Bus |[Dzienniki Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Baza danych SQL | [Rejestrowanie Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Dzienniki zadań](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |

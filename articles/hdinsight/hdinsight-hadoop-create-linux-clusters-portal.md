@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebfd5c456d3658c6339e5174c9c4ab33f6c52d4d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874031"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541710"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu Azure Portal
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W górnym menu wybierz pozycję **+ Utwórz zasób**.
+1. W górnym menu wybierz pozycję **+ Utwórz zasób** .
 
     ![Utwórz nowy klaster w Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Tworzenie nowego klastra w Azure Portal")
 
@@ -48,35 +48,35 @@ Na karcie **podstawowe** podaj następujące informacje:
 |Właściwość |Opis |
 |---|---|
 |Subskrypcja|Z listy rozwijanej wybierz subskrypcję platformy Azure używaną na potrzeby klastra.|
-|Grupa zasobów|Z listy rozwijanej wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową**.|
+|Grupa zasobów|Z listy rozwijanej wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową** .|
 |Nazwa klastra|Podaj globalnie unikatową nazwę.|
 |Region|Z listy rozwijanej wybierz region, w którym tworzony jest klaster.|
 |Typ klastra|Kliknij pozycję **Wybierz typ klastra** , aby otworzyć listę. Z listy wybierz żądany typ klastra. Klastry usługi HDInsight są dostępne w różnych typach. Są one zgodne z obciążeniem lub technologią, dla której jest dostrojony klaster. Nie ma obsługiwanej metody tworzenia klastra, który łączy wiele typów.|
-|Wersja|Z listy rozwijanej wybierz **wersję**. Użyj wersji domyślnej, jeśli nie wiesz, co wybrać. Więcej informacji można znaleźć w temacie [HDInsight cluster versions](hdinsight-component-versioning.md) (Wersje klastrów usługi HDInsight).|
-|Nazwa użytkownika logowania klastra|Podaj nazwę użytkownika — wartość domyślna to **admin**.|
+|Wersja|Z listy rozwijanej wybierz **wersję** . Użyj wersji domyślnej, jeśli nie wiesz, co wybrać. Więcej informacji można znaleźć w temacie [HDInsight cluster versions](hdinsight-component-versioning.md) (Wersje klastrów usługi HDInsight).|
+|Nazwa użytkownika logowania klastra|Podaj nazwę użytkownika — wartość domyślna to **admin** .|
 |Hasło logowania klastra|Podaj hasło.|
 |Potwierdź hasło logowania klastra|Wprowadź ponownie hasło|
 |Nazwa użytkownika protokołu SSH (Secure Shell)|Podaj nazwę użytkownika, wartość domyślna to **sshuser**|
 |Użyj hasła logowania do klastra dla protokołu SSH|Jeśli chcesz użyć tego samego hasła SSH jako hasła administratora określonego wcześniej, zaznacz pole wyboru **Użyj hasła logowania klastra dla SSH** . Jeśli nie, podaj **hasło** lub **klucz publiczny** , aby uwierzytelnić użytkownika ssh. Zaleca się użycie klucza publicznego. Wybierz **pozycję Wybierz** u dołu, aby zapisać konfigurację poświadczeń.  Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 
-Wybierz pozycję **Dalej: >>magazynu ** , aby przejść do następnej karty.
+Wybierz pozycję **Dalej: >>magazynu** , aby przejść do następnej karty.
 
 ## <a name="storage"></a>Magazyn
 
 > [!WARNING] 
-> Od 15 czerwca 2020 klienci nie będą mogli utworzyć nowej jednostki usługi za pomocą usługi HDInsight. Zobacz [Tworzenie nazwy głównej usługi i certyfikatów](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) przy użyciu Azure Active Directory.
+> Od 15 czerwca 2020 klienci nie będą mogli utworzyć nowej jednostki usługi za pomocą usługi HDInsight. Zobacz [Tworzenie nazwy głównej usługi i certyfikatów](../active-directory/develop/howto-create-service-principal-portal.md) przy użyciu Azure Active Directory.
 
 ![Magazyn tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Tworzenie nowego klastra w magazynie Azure Portal")
 
 ### <a name="primary-storage"></a>Magazyn podstawowy
 
-Z listy rozwijanej **Typ magazynu podstawowego**wybierz swój domyślny typ magazynu. Późniejsze pola do wykonania będą się różnić w zależności od wybranej opcji. W przypadku **usługi Azure Storage**:
+Z listy rozwijanej **Typ magazynu podstawowego** wybierz swój domyślny typ magazynu. Późniejsze pola do wykonania będą się różnić w zależności od wybranej opcji. W przypadku **usługi Azure Storage** :
 
-1. W **obszarze Metoda wyboru**wybierz opcję **Wybierz z listy**lub **Użyj klucza dostępu**.
-    * W polu **Wybierz z listy**wybierz swoje **podstawowe konto magazynu** z listy rozwijanej lub wybierz pozycję **Utwórz nową**.
-    * Aby **użyć klucza dostępu**, wprowadź **nazwę konta magazynu**. Następnie podaj **klucz dostępu**.
+1. W **obszarze Metoda wyboru** wybierz opcję **Wybierz z listy** lub **Użyj klucza dostępu** .
+    * W polu **Wybierz z listy** wybierz swoje **podstawowe konto magazynu** z listy rozwijanej lub wybierz pozycję **Utwórz nową** .
+    * Aby **użyć klucza dostępu** , wprowadź **nazwę konta magazynu** . Następnie podaj **klucz dostępu** .
 
-1. W polu **kontener**Zaakceptuj wartość domyślną lub wprowadź nową.
+1. W polu **kontener** Zaakceptuj wartość domyślną lub wprowadź nową.
 
 ### <a name="additional-azure-storage"></a>Dodatkowa usługa Azure Storage
 
@@ -99,7 +99,7 @@ Na karcie **zabezpieczenia i sieć** podaj następujące informacje:
 
 |Właściwość |Opis |
 |---|---|
-|Pakiet zabezpieczeń przedsiębiorstwa|Opcjonalne: zaznacz pole wyboru, aby użyć **pakiet Enterprise Security**. Aby uzyskać więcej informacji, zobacz [Konfigurowanie klastra usługi HDInsight za pomocą pakiet Enterprise Security przy użyciu Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
+|Pakiet zabezpieczeń przedsiębiorstwa|Opcjonalne: zaznacz pole wyboru, aby użyć **pakiet Enterprise Security** . Aby uzyskać więcej informacji, zobacz [Konfigurowanie klastra usługi HDInsight za pomocą pakiet Enterprise Security przy użyciu Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
 |TLS|Opcjonalne: Wybierz wersję protokołu TLS z listy rozwijanej. Aby uzyskać więcej informacji, zobacz [Transport Layer Security](./transport-layer-security.md).|
 |Sieć wirtualna|Opcjonalne: wybierz istniejącą sieć wirtualną i podsieć z listy rozwijanej. Aby uzyskać więcej informacji, zobacz [Planowanie wdrożenia sieci wirtualnej dla klastrów usługi Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). Artykuł zawiera określone wymagania dotyczące konfiguracji dla sieci wirtualnej.|
 |Ustawienia szyfrowania dysku|Opcjonalne: zaznacz pole wyboru, aby użyć szyfrowania. Aby uzyskać więcej informacji, zobacz [szyfrowanie dysków kluczy zarządzanych przez klienta](./disk-encryption.md).|
@@ -128,7 +128,7 @@ Wybierz pozycję **Przegląd + utwórz >>** , aby sprawdzić poprawność konfig
 
 ![Podsumowanie tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png "Określ liczbę węzłów klastra")
 
-Przejrzyj ustawienia. Wybierz opcję **Utwórz**, aby utworzyć klaster.
+Przejrzyj ustawienia. Wybierz opcję **Utwórz** , aby utworzyć klaster.
 
 Tworzenie klastra zajmuje trochę czasu, zwykle około 20 minut. Monitoruj **powiadomienia** , aby sprawdzić proces aprowizacji.
 
@@ -145,7 +145,7 @@ Niektóre ikony w oknie są wyjaśnione w następujący sposób:
 |Omówienie|Zawiera wszystkie podstawowe informacje o klastrze. Przykładami są nazwa, Grupa zasobów, do której należy, lokalizacja, system operacyjny i adres URL pulpitu nawigacyjnego klastra.|
 |Pulpity nawigacyjne klastra|Kieruje użytkownika do portalu Ambari skojarzonego z klastrem.|
 |SSH + logowanie do klastra|Zapewnia informacje konieczne do uzyskania dostępu do klastra przy użyciu protokołu SSH.|
-|Usuwanie|Usuwa klaster usługi HDInsight.|
+|Usuń|Usuwa klaster usługi HDInsight.|
 
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 

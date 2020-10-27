@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: b94fb5aba8cc54d9014a01610f467776c3a3784a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ce0f83e4233837d56ba9045a9a356ebd1cc33f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075964"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541818"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu Azure PowerShell
 
@@ -60,7 +60,7 @@ Utworzenie klastra może potrwać do 20 minut.
 
 ## <a name="create-cluster-configuration-object"></a>Tworzenie klastra: obiekt konfiguracji
 
-Możesz również utworzyć obiekt konfiguracji usługi HDInsight przy użyciu [`New-AzHDInsightClusterConfig`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) polecenia cmdlet. Następnie można zmodyfikować ten obiekt konfiguracji w celu włączenia dodatkowych opcji konfiguracji klastra. Na koniec Użyj `-Config` parametru [`New-AzHDInsightCluster`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) polecenia cmdlet, aby użyć konfiguracji.
+Możesz również utworzyć obiekt konfiguracji usługi HDInsight przy użyciu [`New-AzHDInsightClusterConfig`](/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) polecenia cmdlet. Następnie można zmodyfikować ten obiekt konfiguracji w celu włączenia dodatkowych opcji konfiguracji klastra. Na koniec Użyj `-Config` parametru [`New-AzHDInsightCluster`](/powershell/module/az.hdinsight/new-azhdinsightcluster) polecenia cmdlet, aby użyć konfiguracji.
 
 Poniższy skrypt tworzy obiekt konfiguracji w celu skonfigurowania R Server w typie klastra usługi HDInsight. Konfiguracja umożliwia węzłowi krawędzi, RStudio i dodatkowe konto magazynu.
 

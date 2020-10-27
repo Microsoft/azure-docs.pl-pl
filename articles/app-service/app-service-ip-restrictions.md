@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168226"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533958"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Ograniczenia dostępu Azure App Service
 
@@ -61,7 +61,8 @@ Punkty końcowe usługi nie mogą być używane do ograniczania dostępu do apli
 Za pomocą punktów końcowych usługi można skonfigurować aplikację przy użyciu bram aplikacji lub innych urządzeń WAF. Możesz również skonfigurować wielowarstwowe aplikacje z bezpiecznymi punktami końcowymi. Aby uzyskać więcej informacji na temat niektórych możliwości, Odczytaj [funkcje sieciowe i App Service](networking-features.md) i [Application Gateway integrację z punktami końcowymi usługi](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
-> Punkty końcowe usługi są obecnie nieobsługiwane w przypadku aplikacji sieci Web, które używają Połączenie SSL z adresu IP wirtualnego adresu IP (VIP). 
+> - Punkty końcowe usługi są obecnie nieobsługiwane w przypadku aplikacji sieci Web, które używają Połączenie SSL z adresu IP wirtualnego adresu IP (VIP).
+> - Istnieje limit 512 wierszy ograniczeń adresów IP lub punktów końcowych usługi. Jeśli potrzebujesz więcej niż 512 wierszy ograniczeń, sugerujemy zajrzeć do samodzielnego produktu zabezpieczeń, takiego jak Azure front-drzwi, Azure App Gateway lub Zapora aplikacji sieci Web (WAF).
 >
 
 ## <a name="managing-access-restriction-rules"></a>Zarządzanie regułami ograniczeń dostępu
@@ -74,7 +75,7 @@ Podczas edytowania reguły nie można zmienić typu między regułą adresu IP a
 
 ![Zrzut ekranu okna dialogowego Edytowanie ograniczenia adresów IP w Azure Portal pokazywania ustawień reguły Virtual Network.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-Aby usunąć regułę, kliknij pozycję **...** w regule, a następnie kliknij przycisk **Usuń**.
+Aby usunąć regułę, kliknij pozycję **...** w regule, a następnie kliknij przycisk **Usuń** .
 
 ![Usuń regułę ograniczenia dostępu](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -111,7 +112,7 @@ Wartości można również ustawić ręcznie przy użyciu operacji Put [interfej
 
 Lokalizacja tych informacji w Menedżer zasobów:
 
-**Identyfikator subskrypcji**Management.Azure.com/subscriptions//resourceGroups/**grupy zasobów**/Providers/Microsoft.Web/Sites/**Nazwa aplikacji sieci Web**/config/Web? API-Version = 2018 r-02-01
+**Identyfikator subskrypcji** Management.Azure.com/subscriptions//resourceGroups/ **grupy zasobów** /Providers/Microsoft.Web/Sites/ **Nazwa aplikacji sieci Web** /config/Web? API-Version = 2018 r-02-01
 
 Składnia JSON dla poprzedniego przykładu:
 ```json

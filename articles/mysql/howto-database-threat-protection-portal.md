@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 43b85ba58ed7163a896054ab9e77ddf82e3461a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f6993f92192a1149e3b243c68fdf5fe96fdc66
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902808"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541455"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Zaawansowana ochrona przed zagrożeniami dla Azure Database for MySQL
 
@@ -28,11 +28,11 @@ Zaawansowana ochrona przed zagrożeniami jest częścią zaawansowanej oferty za
 
 ## <a name="set-up-threat-detection"></a>Konfigurowanie wykrywania zagrożeń
 1. Uruchom Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
-2. Przejdź do strony konfiguracji serwera Azure Database for MySQL, który ma być chroniony. W obszarze Ustawienia zabezpieczeń wybierz pozycję **Zaawansowana ochrona przed zagrożeniami (wersja zapoznawcza)**.
+2. Przejdź do strony konfiguracji serwera Azure Database for MySQL, który ma być chroniony. W obszarze Ustawienia zabezpieczeń wybierz pozycję **Zaawansowana ochrona przed zagrożeniami (wersja zapoznawcza)** .
 3. Na stronie Konfiguracja **zaawansowanej ochrony przed zagrożeniami (wersja zapoznawcza)** :
 
    - Włącz zaawansowaną ochronę przed zagrożeniami na serwerze.
-   - W obszarze **Ustawienia zaawansowanej ochrony przed zagrożeniami**w polu tekstowym **Wyślij alerty do** wprowadź listę wiadomości e-mail, które mają otrzymywać alerty zabezpieczeń po wykryciu nietypowych działań bazy danych.
+   - W obszarze **Ustawienia zaawansowanej ochrony przed zagrożeniami** w polu tekstowym **Wyślij alerty do** wprowadź listę wiadomości e-mail, które mają otrzymywać alerty zabezpieczeń po wykryciu nietypowych działań bazy danych.
   
    :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Konfigurowanie wykrywania zagrożeń":::
 
@@ -63,5 +63,5 @@ Kliknij pozycję **alert wykrywania zagrożeń** , aby uruchomić stronę alerty
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Aby uzyskać więcej informacji na temat cen, zobacz [stronę z cennikiem Azure Database for MySQL](https://azure.microsoft.com/pricing/details/mysql/) .  
+* Dowiedz się więcej o [Azure Security Center](../security-center/security-center-introduction.md)
+* Aby uzyskać więcej informacji na temat cen, zobacz [stronę z cennikiem Azure Database for MySQL](https://azure.microsoft.com/pricing/details/mysql/) .
