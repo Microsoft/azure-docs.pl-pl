@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: fa0ae0137064cc14d6d8f2adfe085ca255da73af
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486314"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545994"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Tworzenie akcji skryptu za pomocą usługi HDInsight
 
@@ -161,13 +161,13 @@ Usługa HDInsight rejestruje dane wyjściowe skryptu zapisane w strumieniach STD
 > [!NOTE]  
 > Apache Ambari jest dostępny tylko wtedy, gdy klaster został utworzony pomyślnie. Jeśli podczas tworzenia klastra używasz akcji skryptu, a tworzenie nie powiedzie się, zobacz [Rozwiązywanie problemów z skryptami](./troubleshoot-script-action.md) w celu uzyskania innych sposobów uzyskiwania dostępu do zarejestrowanych informacji.
 
-Większość narzędzi i pakietów instalacyjnych już zapisują informacje w strumieniach STDOUT i STDERR, jednak możesz chcieć dodać dodatkowe rejestrowanie. Aby wysłać tekst do STDOUT, użyj `echo` . Przykład:
+Większość narzędzi i pakietów instalacyjnych już zapisują informacje w strumieniach STDOUT i STDERR, jednak możesz chcieć dodać dodatkowe rejestrowanie. Aby wysłać tekst do STDOUT, użyj `echo` . Na przykład:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Domyślnie program `echo` wysyła ciąg do stdout. Aby skierować go do STDERR, Dodaj `>&2` przed `echo` . Przykład:
+Domyślnie program `echo` wysyła ciąg do stdout. Aby skierować go do STDERR, Dodaj `>&2` przed `echo` . Na przykład:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -256,7 +256,7 @@ Ta sekcja zawiera wskazówki dotyczące wdrażania niektórych typowych wzorców
 
 W niektórych przypadkach skrypt może wymagać parametrów. Na przykład może być wymagane hasło administratora dla klastra podczas korzystania z interfejsu API REST Ambari.
 
-Parametry przekazane do skryptu są znane jako *parametry pozycyjne*i są przypisywane do `$1` pierwszego parametru, `$2` dla drugiego i tak dalej. `$0` zawiera nazwę samego skryptu.
+Parametry przekazane do skryptu są znane jako *parametry pozycyjne* i są przypisywane do `$1` pierwszego parametru, `$2` dla drugiego i tak dalej. `$0` zawiera nazwę samego skryptu.
 
 Wartości przesłane do skryptu jako parametry powinny być ujęte w cudzysłów ("). To gwarantuje, że przeniesiona wartość jest traktowana jako literał.
 
@@ -290,9 +290,9 @@ Skrypty używane do dostosowywania klastra muszą być przechowywane w jednej z 
 
 * __Dodatkowe konto magazynu__ skojarzone z klastrem.
 
-* __Publicznie czytelny identyfikator URI__. Na przykład adres URL do danych przechowywanych w usłudze OneDrive, Dropbox lub w innej usłudze hostingu plików.
+* __Publicznie czytelny identyfikator URI__ . Na przykład adres URL do danych przechowywanych w usłudze OneDrive, Dropbox lub w innej usłudze hostingu plików.
 
-* __Konto Azure Data Lake Storage__ skojarzone z klastrem usługi HDInsight. Aby uzyskać więcej informacji na temat używania Azure Data Lake Storage z usługą HDInsight, zobacz [Szybki Start: Konfigurowanie klastrów w usłudze HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* __Konto Azure Data Lake Storage__ skojarzone z klastrem usługi HDInsight. Aby uzyskać więcej informacji na temat używania Azure Data Lake Storage z usługą HDInsight, zobacz [Szybki Start: Konfigurowanie klastrów w usłudze HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
     > [!NOTE]  
     > Główna Usługa HDInsight używa do uzyskiwania dostępu do Data Lake Storage musi mieć dostęp do odczytu do skryptu.
@@ -332,13 +332,13 @@ Firma Microsoft oferuje przykładowe skrypty do instalowania składników w klas
 
 Poniżej przedstawiono błędy, które można napotkać podczas korzystania z utworzonych skryptów:
 
-**Błąd**: `$'\r': command not found` . Czasami następuje `syntax error: unexpected end of file` .
+**Błąd** : `$'\r': command not found` . Czasami następuje `syntax error: unexpected end of file` .
 
-*Przyczyna*: ten błąd występuje, gdy wiersze w skrypcie kończą się znakiem CRLF. Systemy UNIX oczekują tylko LF jako zakończenia wiersza.
+*Przyczyna* : ten błąd występuje, gdy wiersze w skrypcie kończą się znakiem CRLF. Systemy UNIX oczekują tylko LF jako zakończenia wiersza.
 
 Ten problem najczęściej występuje, gdy skrypt jest tworzony w środowisku systemu Windows, ponieważ CRLF jest typowym wierszem kończącym się w przypadku wielu edytorów tekstu w systemie Windows.
 
-*Rozwiązanie*: Jeśli jest to opcja w edytorze tekstu, wybierz pozycję Format systemu UNIX lub LF dla końca wiersza. Możesz również użyć następujących poleceń w systemie UNIX, aby zmienić wartość CRLF na LF:
+*Rozwiązanie* : Jeśli jest to opcja w edytorze tekstu, wybierz pozycję Format systemu UNIX lub LF dla końca wiersza. Możesz również użyć następujących poleceń w systemie UNIX, aby zmienić wartość CRLF na LF:
 
 > [!NOTE]  
 > Następujące polecenia są w przybliżeniu równoważne, które powinny zmienić końce linii CRLF na LF. Wybierz jeden na podstawie narzędzi dostępnych w systemie.
@@ -350,11 +350,11 @@ Ten problem najczęściej występuje, gdy skrypt jest tworzony w środowisku sys
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modyfikuje plik bezpośrednio |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |PLIK jest w wersji zawierającej tylko końce LF. |
 
-**Błąd**: `line 1: #!/usr/bin/env: No such file or directory` .
+**Błąd** : `line 1: #!/usr/bin/env: No such file or directory` .
 
-*Przyczyna*: ten błąd występuje, gdy skrypt został zapisany jako UTF-8 z oznaczeniem kolejności bajtów (BOM).
+*Przyczyna* : ten błąd występuje, gdy skrypt został zapisany jako UTF-8 z oznaczeniem kolejności bajtów (BOM).
 
-*Rozwiązanie*: Zapisz plik jako ASCII lub UTF-8 bez BOM. Możesz również użyć następującego polecenia w systemie Linux lub UNIX, aby utworzyć plik bez BOM:
+*Rozwiązanie* : Zapisz plik jako ASCII lub UTF-8 bez BOM. Możesz również użyć następującego polecenia w systemie Linux lub UNIX, aby utworzyć plik bez BOM:
 
 ```bash
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
@@ -366,4 +366,4 @@ Zamień na `INFILE` plik zawierający BOM. `OUTFILE` powinna być nową nazwą p
 
 * Dowiedz się, jak [dostosować klastry usługi HDInsight za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md)
 * Aby dowiedzieć się więcej o tworzeniu aplikacji platformy .NET, które zarządzają usługą HDInsight, Skorzystaj z [dokumentacji usługi HDINSIGHT SDK dla platformy .NET](/dotnet/api/overview/azure/hdinsight)
-* Użyj [interfejsu API REST usługi HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) , aby dowiedzieć się, jak używać funkcji REST do wykonywania akcji zarządzania w klastrach usługi HDInsight.
+* Użyj [interfejsu API REST usługi HDInsight](/rest/api/hdinsight/) , aby dowiedzieć się, jak używać funkcji REST do wykonywania akcji zarządzania w klastrach usługi HDInsight.

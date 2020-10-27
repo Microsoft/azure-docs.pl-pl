@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dcb5d7ed75bda8422ba3bd461b08d3bfb2d974f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595788"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541013"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Zarządzanie klastrami usługi HDInsight przy użyciu pakiet Enterprise Security
 
@@ -87,13 +87,13 @@ Aby znaleźć w pełni kwalifikowaną nazwę domeny węzła głównego, użyj in
 
 Klaster usługi HDInsight inny niż ESP ma dwa konta użytkowników, które są tworzone podczas tworzenia klastra:
 
-- **Ambari administrator**: to konto jest również znane jako *użytkownik usługi Hadoop* lub *użytkownik http*. Tego konta można użyć do zalogowania się do Ambari o `https://CLUSTERNAME.azurehdinsight.net` . Można go również użyć do uruchamiania zapytań w widokach Ambari, wykonywania zadań za pośrednictwem zewnętrznych narzędzi (na przykład PowerShell, Templeton, Visual Studio) i uwierzytelniania za pomocą sterownika programu Hive ODBC oraz narzędzi analizy biznesowej (na przykład Excel, Power BI lub Tableau).
+- **Ambari administrator** : to konto jest również znane jako *użytkownik usługi Hadoop* lub *użytkownik http* . Tego konta można użyć do zalogowania się do Ambari o `https://CLUSTERNAME.azurehdinsight.net` . Można go również użyć do uruchamiania zapytań w widokach Ambari, wykonywania zadań za pośrednictwem zewnętrznych narzędzi (na przykład PowerShell, Templeton, Visual Studio) i uwierzytelniania za pomocą sterownika programu Hive ODBC oraz narzędzi analizy biznesowej (na przykład Excel, Power BI lub Tableau).
 
 Klaster usługi HDInsight z protokołem ESP ma trzech nowych użytkowników oprócz administratora Ambari.
 
-- **Ranger administrator**: to konto jest lokalnym kontem administratora Apache Ranger. Nie jest to użytkownik domeny usługi Active Directory. Tego konta można użyć do skonfigurowania zasad i nawiązać innych administratorów lub administratorów delegowanych (tak, aby użytkownicy mogli zarządzać zasadami). Domyślnie nazwa użytkownika to *admin* , a hasło jest takie samo jak hasło administratora Ambari. Hasło można zaktualizować na stronie Ustawienia w Ranger.
+- **Ranger administrator** : to konto jest lokalnym kontem administratora Apache Ranger. Nie jest to użytkownik domeny usługi Active Directory. Tego konta można użyć do skonfigurowania zasad i nawiązać innych administratorów lub administratorów delegowanych (tak, aby użytkownicy mogli zarządzać zasadami). Domyślnie nazwa użytkownika to *admin* , a hasło jest takie samo jak hasło administratora Ambari. Hasło można zaktualizować na stronie Ustawienia w Ranger.
 
-- **Domena administratora klastra**: to konto jest użytkownikiem domeny usługi Active Directory wyznaczono jako administrator klastra Hadoop, w tym Ambari i Ranger. Należy podać poświadczenia tego użytkownika podczas tworzenia klastra. Ten użytkownik ma następujące uprawnienia:
+- **Domena administratora klastra** : to konto jest użytkownikiem domeny usługi Active Directory wyznaczono jako administrator klastra Hadoop, w tym Ambari i Ranger. Należy podać poświadczenia tego użytkownika podczas tworzenia klastra. Ten użytkownik ma następujące uprawnienia:
     - Przyłączanie maszyn do domeny i umieszczanie ich w jednostce organizacyjnej określonej podczas tworzenia klastra.
     - Utwórz jednostki usługi w jednostce organizacyjnej, która została określona podczas tworzenia klastra.
     - Utwórz odwrotne wpisy DNS.
@@ -102,7 +102,7 @@ Klaster usługi HDInsight z protokołem ESP ma trzech nowych użytkowników opr�
 
     Istnieje kilka punktów końcowych w klastrze (na przykład Templeton), które nie są zarządzane przez Ranger i dlatego nie są bezpieczne. Te punkty końcowe są zablokowane dla wszystkich użytkowników z wyjątkiem użytkownika domeny administratora klastra.
 
-- **Regularna**: podczas tworzenia klastra można podać wiele grup usługi Active Directory. Użytkownicy w tych grupach są synchronizowani z Ranger i Ambari. Ci użytkownicy są użytkownikami domeny i mają dostęp tylko do Ranger punktów końcowych zarządzanych przez program (na przykład serwera hiveserver2). Wszystkie zasady i inspekcja RBAC będą stosowane dla tych użytkowników.
+- **Regularna** : podczas tworzenia klastra można podać wiele grup usługi Active Directory. Użytkownicy w tych grupach są synchronizowani z Ranger i Ambari. Ci użytkownicy są użytkownikami domeny i mają dostęp tylko do Ranger punktów końcowych zarządzanych przez program (na przykład serwera hiveserver2). Wszystkie zasady i inspekcja RBAC będą stosowane dla tych użytkowników.
 
 ## <a name="roles-of-hdinsight-clusters-with-esp"></a>Role klastrów usługi HDInsight z partycją ESP
 
@@ -117,7 +117,7 @@ Usługa HDInsight pakiet Enterprise Security ma następujące role:
 **Aby wyświetlić uprawnienia tych ról**
 
 1. Otwórz interfejs użytkownika zarządzania Ambari.  Zobacz [Otwórz interfejs użytkownika zarządzania Ambari](#open-the-ambari-management-ui).
-2. Z menu po lewej stronie wybierz pozycję **role**.
+2. Z menu po lewej stronie wybierz pozycję **role** .
 3. Wybierz niebieski znak zapytania, aby wyświetlić uprawnienia:
 
     ![Uprawnienia ról usługi HDInsight ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
@@ -126,7 +126,7 @@ Usługa HDInsight pakiet Enterprise Security ma następujące role:
 
 1. Przejdź do `https://CLUSTERNAME.azurehdinsight.net/` lokalizacji, gdzie ClusterName jest nazwą klastra.
 1. Zaloguj się do Ambari przy użyciu nazwy użytkownika i hasła administratora klastra.
-1. Wybierz menu rozwijane **administratora** w prawym górnym rogu, a następnie wybierz pozycję **Zarządzaj Ambari**.
+1. Wybierz menu rozwijane **administratora** w prawym górnym rogu, a następnie wybierz pozycję **Zarządzaj Ambari** .
 
     ![Usługa ESP HDInsight — zarządzanie Apache Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 
@@ -137,21 +137,21 @@ Usługa HDInsight pakiet Enterprise Security ma następujące role:
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Wyświetl listę użytkowników domeny synchronizowanych z Active Directory
 
 1. Otwórz interfejs użytkownika zarządzania Ambari.  Zobacz [Otwórz interfejs użytkownika zarządzania Ambari](#open-the-ambari-management-ui).
-2. Z menu po lewej stronie wybierz pozycję **Użytkownicy**. Zobaczysz wszystkich użytkowników synchronizowanych z Active Directory do klastra usługi HDInsight.
+2. Z menu po lewej stronie wybierz pozycję **Użytkownicy** . Zobaczysz wszystkich użytkowników synchronizowanych z Active Directory do klastra usługi HDInsight.
 
     ![Lista użytkowników listy UI usługi HDInsight Ambari Management](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
 ## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Wyświetl listę grup domen synchronizowanych z Active Directory
 
 1. Otwórz interfejs użytkownika zarządzania Ambari.  Zobacz [Otwórz interfejs użytkownika zarządzania Ambari](#open-the-ambari-management-ui).
-2. Z menu po lewej stronie wybierz pozycję **grupy**. Zostaną wyświetlone wszystkie grupy synchronizowane z Active Directory do klastra usługi HDInsight.
+2. Z menu po lewej stronie wybierz pozycję **grupy** . Zostaną wyświetlone wszystkie grupy synchronizowane z Active Directory do klastra usługi HDInsight.
 
     ![Grupy list UI usługi HDInsight Ambari Management](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
 ## <a name="configure-hive-views-permissions"></a>Konfigurowanie uprawnień do widoków Hive
 
 1. Otwórz interfejs użytkownika zarządzania Ambari.  Zobacz [Otwórz interfejs użytkownika zarządzania Ambari](#open-the-ambari-management-ui).
-2. Z menu po lewej stronie wybierz pozycję **widoki**.
+2. Z menu po lewej stronie wybierz pozycję **widoki** .
 3. Wybierz pozycję **Hive** , aby wyświetlić szczegóły.
 
     ![Widoki programu Hive interfejsu użytkownika usługi HDInsight Ambari Management](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
@@ -161,17 +161,17 @@ Usługa HDInsight pakiet Enterprise Security ma następujące role:
 
     ![Widoki programu Hive dla interfejsu użytkownika usługi HDInsight Ambari Management Konfigurowanie uprawnień](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
 
-6. Wybierz pozycję **Dodaj użytkownika** lub **Dodaj grupę**, a następnie określ użytkowników lub grupy, które mogą używać widoków Hive.
+6. Wybierz pozycję **Dodaj użytkownika** lub **Dodaj grupę** , a następnie określ użytkowników lub grupy, które mogą używać widoków Hive.
 
 ## <a name="configure-users-for-the-roles"></a>Konfigurowanie użytkowników dla ról
 
  Aby wyświetlić listę ról i ich uprawnień, zobacz Role klastrów usługi HDInsight z ESP.
 
 1. Otwórz interfejs użytkownika zarządzania Ambari.  Zobacz [Otwórz interfejs użytkownika zarządzania Ambari](#open-the-ambari-management-ui).
-2. Z menu po lewej stronie wybierz pozycję **role**.
+2. Z menu po lewej stronie wybierz pozycję **role** .
 3. Wybierz pozycję **Dodaj użytkownika** lub **Dodaj grupę** , aby przypisać użytkowników i grupy do różnych ról.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby skonfigurować klaster usługi HDInsight z pakiet Enterprise Security, zobacz [Konfigurowanie klastrów usługi HDInsight przy użyciu protokołu ESP](apache-domain-joined-configure.md).
+- Aby skonfigurować klaster usługi HDInsight z pakiet Enterprise Security, zobacz [Konfigurowanie klastrów usługi HDInsight przy użyciu protokołu ESP](./apache-domain-joined-configure-using-azure-adds.md).
 - Aby skonfigurować zasady Hive i uruchamiać zapytania programu Hive, zobacz [Konfigurowanie zasad Apache Hive dla klastrów usługi HDInsight przy użyciu protokołu ESP](apache-domain-joined-run-hive.md).

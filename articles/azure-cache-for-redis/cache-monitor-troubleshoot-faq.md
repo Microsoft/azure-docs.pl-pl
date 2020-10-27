@@ -6,17 +6,17 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 2149d069ce9cb0b636e461d19963f413b162bc9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e96c73578a9341f67d90cd4482ed75179c6886d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010893"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537528"
 ---
 # <a name="azure-cache-for-redis-monitoring-and-troubleshooting-faqs"></a>Pamięć podręczna systemu Azure na potrzeby monitorowania Redis i rozwiązywania problemów
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące sposobu monitorowania i rozwiązywania problemów z usługą Azure cache for Redis.
 
-## <a name="common-questions-and-answers"></a>Typowe pytania i odpowiedzi
+## <a name="common-questions-and-answers"></a>Często zadawane pytania i odpowiedzi
 W tej sekcji omówiono następujące często zadawane pytania:
 
 * [Jak mogę monitorować kondycję i wydajność mojej pamięci podręcznej?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
@@ -29,7 +29,7 @@ Pamięć podręczna Microsoft Azure wystąpień Redis można monitorować w [Azu
 **Menu zasobów** usługi Azure cache for Redis zawiera również kilka narzędzi do monitorowania i rozwiązywania problemów z pamięcią podręczną.
 
 * **Diagnozowanie i rozwiązywanie problemów** zawiera informacje o typowych problemach i strategiach ich rozwiązywania.
-* **Kondycja zasobu** obserwuje zasób i informuje o tym, że działa zgodnie z oczekiwaniami. Aby uzyskać więcej informacji o usłudze Azure Resource Health, zobacz [Omówienie usługi Azure Resource Health](../resource-health/resource-health-overview.md).
+* **Kondycja zasobu** obserwuje zasób i informuje o tym, że działa zgodnie z oczekiwaniami. Aby uzyskać więcej informacji o usłudze Azure Resource Health, zobacz [Omówienie usługi Azure Resource Health](../service-health/resource-health-overview.md).
 * **Nowe żądanie obsługi** oferuje opcje otwierania żądania obsługi dla pamięci podręcznej.
 
 Te narzędzia umożliwiają monitorowanie kondycji pamięci podręcznej platformy Azure dla wystąpień Redis i ułatwiają zarządzanie aplikacjami buforowania. Aby uzyskać więcej informacji, zobacz sekcję "Obsługa & ustawień rozwiązywania problemów" w temacie [jak skonfigurować usługę Azure cache for Redis](cache-configure.md).

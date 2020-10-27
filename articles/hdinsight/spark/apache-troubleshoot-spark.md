@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79271943"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545637"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z platformą Apache Spark za pomocą usługi Azure HDInsight
 
@@ -25,31 +25,31 @@ Wartości konfiguracji platformy Spark można dostrajać w celu uniknięcia wyj�
 
 1. Zaloguj się do Ambari przy `https://CLUSTERNAME.azurehdidnsight.net` użyciu poświadczeń klastra. Na ekranie początkowym zostanie wyświetlony pulpit nawigacyjny przegląd. Istnieją niewielkie różnice między usługami HDInsight 3,6 i 4,0.
 
-1. Przejdź do **Spark2**  >  **configs**.
+1. Przejdź do **Spark2**  >  **configs** .
 
     ![Wybierz kartę konfiguracje](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. Na liście konfiguracji wybierz i rozwiń pozycję **Custom-spark2-Defaults**.
+1. Na liście konfiguracji wybierz i rozwiń pozycję **Custom-spark2-Defaults** .
 
-1. Wyszukaj ustawienie wartości, które należy dostosować, takie jak **spark.executor. Memory**. W tym przypadku wartość **9728m** jest zbyt wysoka.
+1. Wyszukaj ustawienie wartości, które należy dostosować, takie jak **spark.executor. Memory** . W tym przypadku wartość **9728m** jest zbyt wysoka.
 
     ![Wybierz pozycję niestandardowe-Spark-Defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Ustaw wartość na zalecane ustawienie. Wartość **2048m** jest zalecana dla tego ustawienia.
 
-1. Zapisz wartość, a następnie Zapisz konfigurację. Wybierz pozycję **Zapisz**.
+1. Zapisz wartość, a następnie Zapisz konfigurację. Wybierz pozycję **Zapisz** .
 
     ![Zmień wartość na 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    Napisz uwagi dotyczące zmian konfiguracji, a następnie wybierz pozycję **Zapisz**.
+    Napisz uwagi dotyczące zmian konfiguracji, a następnie wybierz pozycję **Zapisz** .
 
     ![Wprowadź adnotację dotyczącą wprowadzonych zmian](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
-    Otrzymasz powiadomienie, jeśli jakieś konfiguracje wymagają uwagi. Zanotuj elementy, a następnie wybierz pozycję **kontynuować mimo wszystko**.
+    Otrzymasz powiadomienie, jeśli jakieś konfiguracje wymagają uwagi. Zanotuj elementy, a następnie wybierz pozycję **kontynuować mimo wszystko** .
 
     ![Wybierz pozycję nadal pomimo](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
-1. Po zapisaniu konfiguracji zostanie wyświetlony monit o ponowne uruchomienie usługi. Wybierz pozycję **Uruchom ponownie**.
+1. Po zapisaniu konfiguracji zostanie wyświetlony monit o ponowne uruchomienie usługi. Wybierz pozycję **Uruchom ponownie** .
 
     ![Wybierz pozycję Uruchom ponownie](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
@@ -61,13 +61,13 @@ Wartości konfiguracji platformy Spark można dostrajać w celu uniknięcia wyj�
 
     ![Przeglądanie uruchomionych procesów](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. Można dodać konfiguracje. Na liście konfiguracji wybierz pozycję **Custom-spark2-Defaults**, a następnie wybierz pozycję **Dodaj właściwość**.
+1. Można dodać konfiguracje. Na liście konfiguracji wybierz pozycję **Custom-spark2-Defaults** , a następnie wybierz pozycję **Dodaj właściwość** .
 
     ![Wybierz pozycję Dodaj właściwość](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Zdefiniuj nową właściwość. Można zdefiniować pojedynczą właściwość przy użyciu okna dialogowego dla określonych ustawień, takich jak typ danych. Lub można zdefiniować wiele właściwości przy użyciu jednej definicji dla każdego wiersza.
 
-    W tym przykładzie właściwość **Spark. Driver. Memory** jest zdefiniowana z wartością **4G**.
+    W tym przykładzie właściwość **Spark. Driver. Memory** jest zdefiniowana z wartością **4G** .
 
     ![Definiuj nową właściwość](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
@@ -107,10 +107,10 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * [Zarządzanie pamięcią Spark — Omówienie](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-* [Debugowanie aplikacji Spark w klastrach usługi HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
+* [Debugowanie aplikacji Spark w klastrach usługi HDInsight](/archive/blogs/azuredatalake/spark-debugging-101).
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
 * Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e7765e077638c85c0cefe394a10cc22fe2b0b757
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 30ce2247207b34ab63df5b32b2a96f27256afdbb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147775"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547796"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Słownik warunków IoT Hub
 
@@ -60,7 +60,7 @@ Istnieją _zestawy SDK usługi_ dostępne dla wielu języków, które umożliwia
 
 ## <a name="azure-portal"></a>Azure Portal
 
-[Microsoft Azure Portal](https://portal.azure.com) to centralne miejsce, w którym można zainicjować obsługę zasobów platformy Azure i zarządzać nimi. Organizuje swoją _zawartość przy użyciu_bloków.
+[Microsoft Azure Portal](https://portal.azure.com) to centralne miejsce, w którym można zainicjować obsługę zasobów platformy Azure i zarządzać nimi. Organizuje swoją _zawartość przy użyciu_ bloków.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -218,7 +218,7 @@ IoT Hub to w pełni zarządzana usługa platformy Azure, która umożliwia nieza
 
 ## <a name="iot-hub-metrics"></a>Metryki IoT Hub
 
-[Metryki IoT Hub](iot-hub-metrics.md) zapewniają dane dotyczące stanu centrów IoT w [ramach subskrypcji platformy Azure](#subscription). Metryki IoT Hub umożliwiają ocenę ogólnej kondycji usługi i podłączonych do niej urządzeń. Metryki IoT Hub mogą pomóc zobaczyć, co się dzieje z Twoim centrum IoT Hub, i zbadać problemy związane z główną przyczyną, bez konieczności kontaktowania się z pomocą techniczną platformy Azure.
+[Metryki IoT Hub](monitor-iot-hub-reference.md#metrics) zapewniają dane dotyczące stanu centrów IoT w [ramach subskrypcji platformy Azure](#subscription). Metryki IoT Hub umożliwiają ocenę ogólnej kondycji usługi i podłączonych do niej urządzeń. Metryki IoT Hub mogą pomóc zobaczyć, co się dzieje z Twoim centrum IoT Hub, i zbadać problemy związane z główną przyczyną, bez konieczności kontaktowania się z pomocą techniczną platformy Azure. Aby dowiedzieć się więcej, zobacz [Monitor IoT Hub](monitor-iot-hub.md).
 
 ## <a name="iot-hub-query-language"></a>Język zapytań IoT Hub
 

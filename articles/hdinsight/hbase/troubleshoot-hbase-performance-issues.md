@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be3f02a80524d9c4b633e1e34d581fc26bfd32d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887159"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547898"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Rozwiązywanie problemów z wydajnością oprogramowania Apache HBase w usłudze Azure HDInsight
 
@@ -73,9 +73,9 @@ Poniżej przedstawiono niektóre z innych określonych parametrów, które zosta
 
 - Zwiększ `memstore` rozmiar z domyślnych 128 MB do 256 MB. Zwykle to ustawienie jest zalecane w przypadku dużych scenariuszy zapisu.
 
-- Zwiększ liczbę wątków, które są dedykowane dla kompaktowania, z domyślnego ustawienia od **1** do **4**. To ustawienie ma zastosowanie, jeśli obserwujemy często drobne kompakty.
+- Zwiększ liczbę wątków, które są dedykowane dla kompaktowania, z domyślnego ustawienia od **1** do **4** . To ustawienie ma zastosowanie, jeśli obserwujemy często drobne kompakty.
 
-- Unikaj blokowania `memstore` opróżniania z powodu limitu magazynu. Aby podać ten bufor, zwiększ wartość `Hbase.hstore.blockingStoreFiles` Ustawienia na **100**.
+- Unikaj blokowania `memstore` opróżniania z powodu limitu magazynu. Aby podać ten bufor, zwiększ wartość `Hbase.hstore.blockingStoreFiles` Ustawienia na **100** .
 
 - Aby kontrolować opróżnianie, użyj następujących ustawień:
 
@@ -104,13 +104,13 @@ Poniżej przedstawiono niektóre z innych określonych parametrów, które zosta
 - Limity czasu wywołań RPC: **3 minuty**
 
    - Limity czasu wywołań RPC obejmują limit czasu usługi HBase RPC, limit czasu skanera klienta HBase i limit czasu zapytania w Phoenix. 
-   - Upewnij się, że `hbase.client.scanner.caching` parametr jest ustawiony na tę samą wartość zarówno na końcu serwera, jak i na końcu klienta. Jeśli nie są one takie same, to ustawienie prowadzi do błędów klienta, które są powiązane z `OutOfOrderScannerException` . Dla tego ustawienia należy ustawić niską wartość dla dużych skanów. Ta wartość jest ustawiana na **100**.
+   - Upewnij się, że `hbase.client.scanner.caching` parametr jest ustawiony na tę samą wartość zarówno na końcu serwera, jak i na końcu klienta. Jeśli nie są one takie same, to ustawienie prowadzi do błędów klienta, które są powiązane z `OutOfOrderScannerException` . Dla tego ustawienia należy ustawić niską wartość dla dużych skanów. Ta wartość jest ustawiana na **100** .
 
 ## <a name="other-considerations"></a>Inne zagadnienia
 
 Poniżej znajdują się dodatkowe parametry, które należy wziąć pod uwagę:
 
-- `Hbase.rs.cacheblocksonwrite` — Domyślnie w HDI, to ustawienie ma **wartość true**.
+- `Hbase.rs.cacheblocksonwrite` — Domyślnie w HDI, to ustawienie ma **wartość true** .
 
 - Ustawienia, które zezwalają na odroczenie mniejszych kompaktowania w przyszłości.
 
@@ -124,4 +124,4 @@ Jeśli problem nie zostanie rozwiązany, odwiedź jeden z następujących kanał
 
 - Połącz się z [@AzureSupport](https://twitter.com/azuresupport) . Jest to oficjalne konto Microsoft Azure na potrzeby ulepszania środowiska klienta. Łączy społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
-- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Twoja subskrypcja Microsoft Azure obejmuje dostęp do zarządzania subskrypcjami i rozliczeń, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Twoja subskrypcja Microsoft Azure obejmuje dostęp do zarządzania subskrypcjami i rozliczeń, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

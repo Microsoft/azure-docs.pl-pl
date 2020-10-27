@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 1de11a07bdbac153b6813915cfa52edfa6484aec
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 982747c1a7e093f84daeb63e75cfdf439d3fccf9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877006"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546725"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Przywróć usunięty serwer Azure Database for MySQL
 
@@ -36,7 +36,7 @@ Aby przywrócić usunięty serwer Azure Database for MySQL, potrzebne są nastę
    
  3. Kliknij dwukrotnie zdarzenie Usuń serwer MySQL i kliknij kartę JSON i zanotuj atrybuty "resourceId" i "submissionTimestamp" w danych wyjściowych JSON. Identyfikator zasobu jest w następującym formacie:/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforMySQL/servers/deletedserver.
  
- 4. Przejdź do [strony Tworzenie interfejsu API REST serwera](https://docs.microsoft.com/rest/api/mysql/servers/create) i kliknij pozycję "Wypróbuj ją" w kolorze zielonym, a następnie zaloguj się przy użyciu konta platformy Azure.
+ 4. Przejdź do [strony Tworzenie interfejsu API REST serwera](/rest/api/mysql/servers/create) i kliknij pozycję "Wypróbuj ją" w kolorze zielonym, a następnie zaloguj się przy użyciu konta platformy Azure.
  
  5. Podaj wartość resourceGroupName, ServerName (usunięto nazwę serwera), Identyfikator subskrypcji, pochodną od atrybutu resourceId przechwyconego w kroku 3, podczas gdy wersja interfejsu API jest wstępnie wypełniona, jak pokazano na ilustracji.
  

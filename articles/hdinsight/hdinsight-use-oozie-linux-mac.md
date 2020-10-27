@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b0d3ac4775ca057856c28ab42197bb734f149d6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085943"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534944"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Definiowanie i uruchamianie przepływu pracy w opartej na systemie Linux usłudze Azure HDInsight za pomocą programu Apache Oozie z narzędziem Apache Hadoop
 
@@ -31,11 +31,11 @@ Można również użyć Oozie do planowania zadań specyficznych dla systemu, ta
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Klaster usługi Hadoop w usłudze HDInsight**. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Klaster usługi Hadoop w usłudze HDInsight** . Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Klient SSH**. Zobacz [nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Klient SSH** . Zobacz [nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Azure SQL Database**.  Zobacz [Tworzenie bazy danych w Azure SQL Database w Azure Portal](../sql-database/sql-database-get-started.md).  W tym artykule jest stosowana baza danych o nazwie **oozietest**.
+* **Azure SQL Database** .  Zobacz [Tworzenie bazy danych w Azure SQL Database w Azure Portal](../azure-sql/database/single-database-create-quickstart.md).  W tym artykule jest stosowana baza danych o nazwie **oozietest** .
 
 * Schemat identyfikatora URI magazynu podstawowego klastrów. `wasb://` w przypadku usługi Azure Storage `abfs://` dla Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI mógłby być `wasbs://` . Zobacz również [bezpieczny transfer](../storage/common/storage-require-secure-transfer.md).
 
@@ -130,7 +130,7 @@ Wykonaj następujące kroki, aby utworzyć skrypt programu Hive Query Language (
 
      Plik definicji przepływu pracy, workflow.xml w tym artykule, przekazuje te wartości do tego skryptu HiveQL w czasie wykonywania.
 
-1. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X**, wprowadź **Y**, a następnie wybierz klawisz **Enter**.  
+1. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X** , wprowadź **Y** , a następnie wybierz klawisz **Enter** .  
 
 1. Użyj następującego polecenia, aby skopiować `useooziewf.hql` do `wasbs:///tutorials/useoozie/useooziewf.hql` :
 
@@ -215,7 +215,7 @@ Definicje przepływu pracy Oozie są zapisywane w języku definicji procesów us
 
      Należy również zwrócić uwagę na `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` wpis w sekcji Sqoop. Ten wpis nakazuje Oozie udostępnienie tego Archiwum dla Sqoop, gdy ta akcja zostanie uruchomiona.
 
-3. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X**, wprowadź **Y**, a następnie wybierz klawisz **Enter**.  
+3. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X** , wprowadź **Y** , a następnie wybierz klawisz **Enter** .  
 
 4. Użyj następującego polecenia, aby skopiować `workflow.xml` plik do `/tutorials/useoozie/workflow.xml` :
 
@@ -382,7 +382,7 @@ W definicji zadania opisano, gdzie znaleźć workflow.xml. Opisano w nim równie
 
 4. Po otwarciu edytora nano wklej edytowany kod XML jako zawartość pliku.
 
-5. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X**, wprowadź **Y**, a następnie wybierz klawisz **Enter**.
+5. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X** , wprowadź **Y** , a następnie wybierz klawisz **Enter** .
 
 ## <a name="submit-and-manage-the-job"></a>Przesyłanie zadania i zarządzanie nim
 
@@ -489,9 +489,9 @@ Aby uzyskać więcej informacji na temat polecenia Oozie, zobacz [Narzędzie wie
 
 Za pomocą interfejsu API REST Oozie można tworzyć własne narzędzia, które współpracują z Oozie. Następujące informacje specyficzne dla usługi HDInsight dotyczące korzystania z interfejsu API REST Oozie:
 
-* **Identyfikator URI**: można uzyskać dostęp do interfejsu API REST spoza klastra pod adresem `https://CLUSTERNAME.azurehdinsight.net/oozie` .
+* **Identyfikator URI** : można uzyskać dostęp do interfejsu API REST spoza klastra pod adresem `https://CLUSTERNAME.azurehdinsight.net/oozie` .
 
-* **Uwierzytelnianie**: Aby przeprowadzić uwierzytelnianie, użyj interfejsu API dla konta http klastra (administratora) i hasła. Na przykład:
+* **Uwierzytelnianie** : Aby przeprowadzić uwierzytelnianie, użyj interfejsu API dla konta http klastra (administratora) i hasła. Na przykład:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -517,11 +517,11 @@ Aby uzyskać dostęp do interfejsu użytkownika sieci Web Oozie, wykonaj następ
 
 2. Po utworzeniu tunelu Otwórz interfejs użytkownika sieci Web Ambari w przeglądarce sieci Web przy użyciu identyfikatora URI `http://headnodehost:8080` .
 
-3. W lewej części strony wybierz pozycję **Oozie**  >  **szybkie linki**  >  **Oozie interfejs użytkownika sieci Web**.
+3. W lewej części strony wybierz pozycję **Oozie**  >  **szybkie linki**  >  **Oozie interfejs użytkownika sieci Web** .
 
     ![Kroki interfejsu użytkownika sieci Web Apache Ambari Oozie](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
-4. Interfejs użytkownika sieci Web Oozie domyślnie wyświetla uruchomione zadania przepływu pracy. Aby wyświetlić wszystkie zadania przepływu pracy, wybierz pozycję **wszystkie zadania**.
+4. Interfejs użytkownika sieci Web Oozie domyślnie wyświetla uruchomione zadania przepływu pracy. Aby wyświetlić wszystkie zadania przepływu pracy, wybierz pozycję **wszystkie zadania** .
 
     ![Zadania przepływu pracy konsoli sieci Web Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
@@ -529,13 +529,13 @@ Aby uzyskać dostęp do interfejsu użytkownika sieci Web Oozie, wykonaj następ
 
     ![Informacje o zadaniu usługi HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
-6. Na karcie **Informacje o zadaniu** można zobaczyć podstawowe informacje o zadaniu oraz poszczególne akcje w ramach zadania. Za pomocą kart w górnej części strony można wyświetlić **definicję zadania**, **konfigurację zadania**, uzyskać dostęp do **dziennika zadań**lub wyświetlić ukierunkowany wykres o wartościach (DAG) zadania w obszarze **zadanie DAG**.
+6. Na karcie **Informacje o zadaniu** można zobaczyć podstawowe informacje o zadaniu oraz poszczególne akcje w ramach zadania. Za pomocą kart w górnej części strony można wyświetlić **definicję zadania** , **konfigurację zadania** , uzyskać dostęp do **dziennika zadań** lub wyświetlić ukierunkowany wykres o wartościach (DAG) zadania w obszarze **zadanie DAG** .
 
-   * **Dziennik zadań**: wybierz przycisk **Pobierz dzienniki** , aby pobrać wszystkie dzienniki dla zadania, lub użyj pola **Wypełnij filtr wyszukiwania** , aby odfiltrować dzienniki.
+   * **Dziennik zadań** : wybierz przycisk **Pobierz dzienniki** , aby pobrać wszystkie dzienniki dla zadania, lub użyj pola **Wypełnij filtr wyszukiwania** , aby odfiltrować dzienniki.
 
        ![Dziennik zadań usługi HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
-   * **DAG zadania**: DAG jest graficznym przeglądem ścieżek danych wykonanych za pomocą przepływu pracy.
+   * **DAG zadania** : DAG jest graficznym przeglądem ścieżek danych wykonanych za pomocą przepływu pracy.
 
        !["HDInsight Apache Oozie Job dag"](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
@@ -543,13 +543,13 @@ Aby uzyskać dostęp do interfejsu użytkownika sieci Web Oozie, wykonaj następ
 
     ![Informacje o akcji zadania Oozie usługi HDInsight](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
-8. Możesz zobaczyć szczegóły akcji, na przykład link do **adresu URL konsoli**. Użyj tego linku, aby wyświetlić informacje o śledzeniu zadania dla tego zadania.
+8. Możesz zobaczyć szczegóły akcji, na przykład link do **adresu URL konsoli** . Użyj tego linku, aby wyświetlić informacje o śledzeniu zadania dla tego zadania.
 
 ## <a name="schedule-jobs"></a>Planowanie zadań
 
 Można użyć koordynatora, aby określić częstotliwość uruchamiania, zakończenia i wystąpienia zadań. Aby zdefiniować harmonogram dla przepływu pracy, wykonaj następujące czynności:
 
-1. Użyj następującego polecenia, aby utworzyć plik o nazwie **coordinator.xml**:
+1. Użyj następującego polecenia, aby utworzyć plik o nazwie **coordinator.xml** :
 
     ```bash
     nano coordinator.xml
@@ -576,7 +576,7 @@ Można użyć koordynatora, aby określić częstotliwość uruchamiania, zakoń
     > * `${coordTimezone}`: Zadania koordynatora są w stałej strefie czasowej bez czasu letniego, zazwyczaj reprezentowane przy użyciu czasu UTC. Ta strefa czasowa jest określana jako strefa czasowa *przetwarzania Oozie.*
     > * `${wfPath}`: Ścieżka do workflow.xml.
 
-2. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X**, wprowadź **Y**, a następnie wybierz klawisz **Enter**.
+2. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X** , wprowadź **Y** , a następnie wybierz klawisz **Enter** .
 
 3. Aby skopiować plik do katalogu roboczego dla tego zadania, użyj następującego polecenia:
 
@@ -631,7 +631,7 @@ Można użyć koordynatora, aby określić częstotliwość uruchamiania, zakoń
 
        Te wartości ustawiają czas rozpoczęcia na 12:00 PM w dniu 10 maja 2018 i godzinę zakończenia do 12 maja 2018. Interwał uruchamiania tego zadania jest ustawiony na codziennie. Częstotliwość jest w minutach, przez co 24 godziny x 60 minut = 1440 minut. Na koniec strefa czasowa jest ustawiona na czas UTC.
 
-5. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X**, wprowadź **Y**, a następnie wybierz klawisz **Enter**.
+5. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X** , wprowadź **Y** , a następnie wybierz klawisz **Enter** .
 
 6. Aby przesłać i uruchomić zadanie, użyj następującego polecenia:
 

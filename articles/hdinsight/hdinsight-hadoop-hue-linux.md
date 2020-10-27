@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: ef30672e250e598688d1b81fd33fe0a995e78c7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e80df5d1c3d2b2195e76622964406cc65c933a63
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087728"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546198"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalowanie i używanie odcienia w klastrach usługi HDInsight Hadoop
 
@@ -33,7 +33,7 @@ Odcień to zestaw aplikacji sieci Web służący do współdziałania z klastrem
 > [!WARNING]  
 > Składniki dostarczane z klastrem usługi HDInsight są w pełni obsługiwane, a pomoc techniczna firmy Microsoft ułatwiają izolowanie i rozwiązywanie problemów związanych z tymi składnikami.
 >
-> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Może to skutkować rozwiązaniem problemu lub zapytaniem o zaangażowanie dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dla tej technologii. Na przykład istnieje wiele witryn społeczności, których można użyć, takich jak: [Microsoft Q&stronie pytania dotyczącej usługi HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) [https://stackoverflow.com](https://stackoverflow.com) . Również projekty Apache mają witryny projektu [https://apache.org](https://apache.org) , na przykład: [Hadoop](https://hadoop.apache.org/).
+> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Może to skutkować rozwiązaniem problemu lub zapytaniem o zaangażowanie dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dla tej technologii. Na przykład istnieje wiele witryn społeczności, których można użyć, takich jak: [Microsoft Q&stronie pytania dotyczącej usługi HDInsight](/answers/topics/azure-hdinsight.html) [https://stackoverflow.com](https://stackoverflow.com) . Również projekty Apache mają witryny projektu [https://apache.org](https://apache.org) , na przykład: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="install-hue-using-script-actions"></a>Instalowanie odcienia przy użyciu akcji skryptu
 
@@ -87,11 +87,11 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 
 ### <a name="run-a-hive-query"></a>Uruchomienie zapytania programu Hive
 
-1. W portalu odcienia wybierz pozycję **edytory zapytań**, a następnie wybierz pozycję **Hive** , aby otworzyć Edytor Hive.
+1. W portalu odcienia wybierz pozycję **edytory zapytań** , a następnie wybierz pozycję **Hive** , aby otworzyć Edytor Hive.
 
     ![Portal odcienia usługi HDInsight Użyj edytora Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Korzystanie z programu Hive")
 
-2. Na karcie **Pomoc** w obszarze **baza danych**powinna zostać wyświetlona wartość **hivesampletable**. Jest to Przykładowa tabela, która jest dostarczana ze wszystkimi klastrami Hadoop w usłudze HDInsight. Wprowadź przykładowe zapytanie w okienku po prawej stronie i zobacz dane wyjściowe na karcie **wyniki** w okienku poniżej, jak pokazano na przechwytywaniu ekranu.
+2. Na karcie **Pomoc** w obszarze **baza danych** powinna zostać wyświetlona wartość **hivesampletable** . Jest to Przykładowa tabela, która jest dostarczana ze wszystkimi klastrami Hadoop w usłudze HDInsight. Wprowadź przykładowe zapytanie w okienku po prawej stronie i zobacz dane wyjściowe na karcie **wyniki** w okienku poniżej, jak pokazano na przechwytywaniu ekranu.
 
     ![Zapytanie programu Hive portalu odcienia usługi HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Uruchom zapytanie programu Hive")
 
@@ -125,8 +125,8 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 
    Jest to spowodowane znanym problemem. W ramach tego problemu należy zmodyfikować Ambari tak, aby aktywne Menedżer zasobów również działały na podstawowym węzła głównego.
 
-1. Odcienie rozumie WebHDFS, podczas gdy klastry HDInsight używają usługi Azure Storage za pomocą programu `wasbs://` . Tak więc skrypt niestandardowy używany z akcją skryptu instaluje WebWasb, która jest usługą zgodną z WebHDFS na potrzeby rozmowy z WASB. W związku z tym, mimo że portal odcienia mówi system plików HDFS w miejscu (na przykład gdy przenosisz wskaźnik myszy nad **przeglądarką pliku**), powinien on być interpretowany jako WASB.
+1. Odcienie rozumie WebHDFS, podczas gdy klastry HDInsight używają usługi Azure Storage za pomocą programu `wasbs://` . Tak więc skrypt niestandardowy używany z akcją skryptu instaluje WebWasb, która jest usługą zgodną z WebHDFS na potrzeby rozmowy z WASB. W związku z tym, mimo że portal odcienia mówi system plików HDFS w miejscu (na przykład gdy przenosisz wskaźnik myszy nad **przeglądarką pliku** ), powinien on być interpretowany jako WASB.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zainstaluj język R w klastrach usługi HDInsight](hdinsight-hadoop-r-scripts-linux.md). Użyj dostosowywania klastra, aby zainstalować język R w klastrach Hadoop usługi HDInsight. R to język i środowisko "open source" do obliczeń statystycznych. Zapewnia setki wbudowanych funkcji statystycznych i własnego języka programowania, który łączy aspekty funkcjonalne i programowanie zorientowane obiektowo. Zapewnia również szerokie możliwości graficzne.
+[Zainstaluj język R w klastrach usługi HDInsight](./r-server/r-server-overview.md). Użyj dostosowywania klastra, aby zainstalować język R w klastrach Hadoop usługi HDInsight. R to język i środowisko "open source" do obliczeń statystycznych. Zapewnia setki wbudowanych funkcji statystycznych i własnego języka programowania, który łączy aspekty funkcjonalne i programowanie zorientowane obiektowo. Zapewnia również szerokie możliwości graficzne.

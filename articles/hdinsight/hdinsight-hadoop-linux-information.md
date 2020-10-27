@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 1b3c694b4d6134f30d04ba8bafee9a6ffabdd959
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0f0073c72c28395d89cec74a489cbc36a8f3ffe7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488116"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546113"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informacje dotyczące korzystania z usługi HDInsight w systemie Linux
 
@@ -24,9 +24,9 @@ Klastry usługi Azure HDInsight zapewniają Apache Hadoop w znanym środowisku s
 Wiele kroków opisanych w tym dokumencie korzysta z następujących narzędzi, które mogą wymagać zainstalowania w systemie.
 
 * [zwinięcie](https://curl.haxx.se/) — używany do komunikowania się z usługami sieci Web.
-* **JQ**, procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
+* **JQ** , procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) — służy do zdalnego zarządzania usługami platformy Azure.
-* **Klient SSH**. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Klient SSH** . Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Użytkownicy
 
@@ -81,7 +81,7 @@ To polecenie zwraca dokument JSON opisujący usługę, a następnie [JQ](https:/
     >
     > Uwierzytelnianie jest zwykłym tekstem — zawsze używaj protokołu HTTPS, aby upewnić się, że połączenie jest bezpieczne.
 
-* **SSH** -CLUSTERNAME-SSH.azurehdinsight.NET na porcie 22 lub 23. Port 22 jest używany do nawiązywania połączenia z podstawowym węzła głównego, podczas gdy 23 jest używany do nawiązywania połączenia z serwerem pomocniczym. Aby uzyskać więcej informacji na temat węzłów głównych, zobacz [dostępność i niezawodność klastrów Apache Hadoop w usłudze HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** -CLUSTERNAME-SSH.azurehdinsight.NET na porcie 22 lub 23. Port 22 jest używany do nawiązywania połączenia z podstawowym węzła głównego, podczas gdy 23 jest używany do nawiązywania połączenia z serwerem pomocniczym. Aby uzyskać więcej informacji na temat węzłów głównych, zobacz [dostępność i niezawodność klastrów Apache Hadoop w usłudze HDInsight](./hdinsight-business-continuity.md).
 
     > [!NOTE]  
     > Dostęp do węzłów głównych klastra można uzyskać tylko za pośrednictwem protokołu SSH z komputera klienckiego. Po nawiązaniu połączenia można uzyskać dostęp do węzłów procesu roboczego przy użyciu protokołu SSH z węzła głównego.
@@ -92,8 +92,8 @@ Aby uzyskać więcej informacji, zobacz [porty używane przez Apache Hadoop Serv
 
 Pliki związane z usługą Hadoop znajdują się w węzłach klastra pod adresem `/usr/hdp` . Ten katalog zawiera następujące podkatalogi:
 
-* **2.6.5.3009-43**: Nazwa katalogu jest wersją platformy Hadoop używanej przez usługi HDInsight. Liczba w klastrze może być różna od wymienionej w tym miejscu.
-* **bieżący**: ten katalog zawiera linki do podkatalogów w katalogu **2.6.5.3009-43** . Ten katalog istnieje, aby nie trzeba było pamiętać numeru wersji.
+* **2.6.5.3009-43** : Nazwa katalogu jest wersją platformy Hadoop używanej przez usługi HDInsight. Liczba w klastrze może być różna od wymienionej w tym miejscu.
+* **bieżący** : ten katalog zawiera linki do podkatalogów w katalogu **2.6.5.3009-43** . Ten katalog istnieje, aby nie trzeba było pamiętać numeru wersji.
 
 Przykładowe dane i pliki JAR można znaleźć w rozproszony system plików Hadoop w systemach `/example` i `/HdiSamples` .
 
@@ -183,13 +183,13 @@ Informacje o magazynie można także znaleźć za pomocą Azure Portal, wykonuj�
 
 1. Na [Azure Portal](https://portal.azure.com/)wybierz klaster usługi HDInsight.
 
-2. W sekcji **Właściwości** wybierz pozycję **konta magazynu**. Zostanie wyświetlona informacja o magazynie dla klastra.
+2. W sekcji **Właściwości** wybierz pozycję **konta magazynu** . Zostanie wyświetlona informacja o magazynie dla klastra.
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>Jak mogę dostęp do plików spoza usługi HDInsight
 
 Istnieją różne sposoby uzyskiwania dostępu do danych spoza klastra usługi HDInsight. Poniżej przedstawiono kilka linków do narzędzi i zestawów SDK, których można użyć do pracy z danymi:
 
-Jeśli korzystasz z __usługi Azure Blob Storage__, Skorzystaj z poniższych linków, aby uzyskać dostęp do danych:
+Jeśli korzystasz z __usługi Azure Blob Storage__ , Skorzystaj z poniższych linków, aby uzyskać dostęp do danych:
 
 * Interfejs [wiersza polecenia platformy Azure](/cli/azure/install-az-cli2): Command-Line poleceń interfejsu do pracy z platformą Azure. Po zainstalowaniu programu Użyj `az storage` polecenia, aby uzyskać pomoc dotyczącą korzystania z magazynu, lub `az storage blob` dla poleceń specyficznych dla obiektu BLOB.
 * [blobxfer.py](https://github.com/Azure/blobxfer): skrypt języka Python służący do pracy z obiektami BLOB w usłudze Azure Storage.
@@ -201,9 +201,9 @@ Jeśli korzystasz z __usługi Azure Blob Storage__, Skorzystaj z poniższych lin
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [Interfejs API REST magazynu](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+    * [Interfejs API REST magazynu](/rest/api/storageservices/Blob-Service-REST-API)
 
-Jeśli używasz __Azure Data Lake Storage Gen1__, zobacz następujące linki, aby poznać sposoby dostępu do danych:
+Jeśli używasz __Azure Data Lake Storage Gen1__ , zobacz następujące linki, aby poznać sposoby dostępu do danych:
 
 * [Przeglądarka sieci Web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Program PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
@@ -245,7 +245,7 @@ Aby użyć innej wersji składnika, Przekaż potrzebną wersję i użyj jej do z
 > [!IMPORTANT]
 > Składniki dostarczane z klastrem usługi HDInsight są w pełni obsługiwane i pomoc techniczna firmy Microsoft ułatwiają izolowanie i rozwiązywanie problemów związanych z tymi składnikami.
 >
-> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Może to skutkować rozwiązaniem problemu lub zapytaniem o zaangażowanie dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dla tej technologii. Na przykład istnieje wiele witryn społeczności, których można użyć, takich jak: [Microsoft Q&stronie pytania dotyczącej usługi HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) [https://stackoverflow.com](https://stackoverflow.com) . Również projekty Apache mają witryny projektu [https://apache.org](https://apache.org) , na przykład: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
+> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Może to skutkować rozwiązaniem problemu lub zapytaniem o zaangażowanie dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dla tej technologii. Na przykład istnieje wiele witryn społeczności, których można użyć, takich jak: [Microsoft Q&stronie pytania dotyczącej usługi HDInsight](/answers/topics/azure-hdinsight.html) [https://stackoverflow.com](https://stackoverflow.com) . Również projekty Apache mają witryny projektu [https://apache.org](https://apache.org) , na przykład: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## <a name="next-steps"></a>Następne kroki
 

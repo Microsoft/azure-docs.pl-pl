@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 28a97edcbe84ae63a3d3d0cad2b9275c672f5664
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5864a5de8ddec60f2072a28827a870c83ece8b9d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082279"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546045"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Łączenie narzędzi do skalowania i platformy Spark w usłudze HDInsight
 
-W tym dokumencie przedstawiono sposób przewidywania opóźnień przybycia lotów przy użyciu modelu regresji logistycznej **skalowania** . W przykładzie użyto opóźnień i danych pogody, które są sprzężone przy użyciu **platformy Spark**.
+W tym dokumencie przedstawiono sposób przewidywania opóźnień przybycia lotów przy użyciu modelu regresji logistycznej **skalowania** . W przykładzie użyto opóźnień i danych pogody, które są sprzężone przy użyciu **platformy Spark** .
 
 Mimo że oba pakiety działają w aparacie wykonywania Spark Apache Hadoop, są blokowane z udostępniania danych w pamięci, ponieważ każdy z nich wymaga odpowiednich sesji platformy Spark. Dopóki ten problem nie zostanie rozwiązany w przyszłej wersji ML Server, obejście tego problemu będzie obsługiwać nienakładające się sesje platformy Spark oraz wymieniać dane za pośrednictwem plików pośrednich. Instrukcje te pokazują, że te wymagania są bezpośrednie do osiągnięcia.
 
@@ -25,7 +25,7 @@ Ten przykład został początkowo udostępniony w porozmawiać o stratach 2016 p
 
 Kod został pierwotnie zapisany dla ML Server działającego w usłudze Spark w klastrze usługi HDInsight na platformie Azure. Jednak pojęcie dotyczące mieszania użycia platformy Spark i skalowania w jednym skrypcie jest również prawidłowe w kontekście środowisk lokalnych.
 
-W procedurach przedstawionych w tym dokumencie przyjęto założenie, że masz pośredni poziom wiedzy o języku R i jest to biblioteka [skalowania](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) ml Server. W tym scenariuszu nastąpiło wprowadzenie do [platformy Spark](https://spark.apache.org/docs/2.1.0/sparkr.html) .
+W procedurach przedstawionych w tym dokumencie przyjęto założenie, że masz pośredni poziom wiedzy o języku R i jest to biblioteka [skalowania](/machine-learning-server/r/concept-what-is-revoscaler) ml Server. W tym scenariuszu nastąpiło wprowadzenie do [platformy Spark](https://spark.apache.org/docs/2.1.0/sparkr.html) .
 
 ## <a name="the-airline-and-weather-datasets"></a>Zestawy danych linii lotniczych i pogody
 
@@ -535,7 +535,7 @@ W tym artykule pokazano, jak można połączyć korzystanie z platformy Spark w 
 
 ## <a name="next-steps-and-more-information"></a>Następne kroki i więcej informacji
 
-- Aby uzyskać więcej informacji na temat używania ML Server na Apache Spark, zobacz [Przewodnik wprowadzający](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- Aby uzyskać więcej informacji na temat używania ML Server na Apache Spark, zobacz [Przewodnik wprowadzający](/machine-learning-server/r/how-to-revoscaler-spark).
 
 - Aby uzyskać informacje dotyczące usługi ML w usłudze HDInsight, zobacz [Omówienie usług w usłudze ml w usłudze HDInsight](r-server/r-server-overview.md).
 
@@ -543,4 +543,4 @@ Aby uzyskać więcej informacji na temat korzystania z platformy Spark, zobacz:
 
 - [Dokument platformy Apache Spark](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [Omówienie platformy Spark](https://docs.databricks.com/spark/latest/sparkr/overview.html) z poziomu kostek.
+- [Omówienie platformy Spark](/azure/databricks/spark/latest/sparkr/overview)

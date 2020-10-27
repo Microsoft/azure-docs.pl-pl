@@ -4,15 +4,15 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: c9a0d4387511bbfa033bcb90d9f83e1a7bb39719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31e61069c95be9bd1c7a684bb83ebcd93bcb14be
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67182936"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548195"
 ---
 1. Uruchom instalatora UnifiedSetup.exe usługi Azure Site Recovery.
-2. W obszarze **Przed rozpoczęciem** wybierz pozycję **Dodaj dodatkowe serwery przetwarzania w celu zwiększenia skali wdrożenia**.
+2. W obszarze **Przed rozpoczęciem** wybierz pozycję **Dodaj dodatkowe serwery przetwarzania w celu zwiększenia skali wdrożenia** .
 
    ![Dodawanie serwera przetwarzania](./media/site-recovery-add-process-server/ps-page-1.png)
 
@@ -23,14 +23,14 @@ ms.locfileid: "67182936"
 
    ![Dodawanie serwera przetwarzania 3](./media/site-recovery-add-process-server/ps-page-3.png)
 
-   * Jeśli chcesz łączyć się z serwerem proxy aktualnie skonfigurowanym na maszynie, wybierz opcję **Połącz przy użyciu istniejących ustawień serwera proxy**.
-   * Jeśli chcesz, aby dostawca łączył się bezpośrednio, wybierz opcję **Połącz bezpośrednio bez serwera proxy**.
-   * Jeśli istniejący serwer proxy wymaga uwierzytelniania lub jeśli chcesz użyć niestandardowego serwera proxy dla połączenia dostawcy, wybierz opcję **Połącz przy użyciu niestandardowych ustawień serwera proxy**.
+   * Jeśli chcesz łączyć się z serwerem proxy aktualnie skonfigurowanym na maszynie, wybierz opcję **Połącz przy użyciu istniejących ustawień serwera proxy** .
+   * Jeśli chcesz, aby dostawca łączył się bezpośrednio, wybierz opcję **Połącz bezpośrednio bez serwera proxy** .
+   * Jeśli istniejący serwer proxy wymaga uwierzytelniania lub jeśli chcesz użyć niestandardowego serwera proxy dla połączenia dostawcy, wybierz opcję **Połącz przy użyciu niestandardowych ustawień serwera proxy** .
 
      * Jeśli używasz niestandardowego serwera proxy, musisz określić adres, port i poświadczenia.
      * W przypadku używania serwera proxy już zezwolono na użycie adresów URL usług.
 
-5. W kroku **Sprawdzanie wymagań wstępnych** Instalator przeprowadza kontrolę w celu upewnienia się, że można uruchomić instalację. Jeśli zostanie wyświetlone ostrzeżenie dotyczące **kontroli synchronizacji czasu globalnego**, sprawdź, czy czas zegara systemowego (ustawienia **Data i godzina**) jest taki sam jak dla strefy czasowej.
+5. W kroku **Sprawdzanie wymagań wstępnych** Instalator przeprowadza kontrolę w celu upewnienia się, że można uruchomić instalację. Jeśli zostanie wyświetlone ostrzeżenie dotyczące **kontroli synchronizacji czasu globalnego** , sprawdź, czy czas zegara systemowego (ustawienia **Data i godzina** ) jest taki sam jak dla strefy czasowej.
 
      ![Dodawanie serwera przetwarzania 4](./media/site-recovery-add-process-server/ps-page-4.png)
 
@@ -39,11 +39,11 @@ ms.locfileid: "67182936"
      ![Dodawanie serwera przetwarzania 5](./media/site-recovery-add-process-server/ps-page-5.png)
 
 7. W obszarze **Lokalizacja instalacji** wybierz, gdzie mają zostać zainstalowane pliki binarne i gdzie ma być przechowywana pamięć podręczną. Na wybranym dysku musi być co najmniej 5 GB dostępnego miejsca, ale zalecamy dysk pamięci podręcznej z co najmniej 600 GB wolnego miejsca.
-     ![Dodawanie serwera przetwarzania 5](./media/site-recovery-add-process-server/ps-page-6.png)
+     ![Zrzut ekranu pokazujący lokalizację instalacji plików binarnych i magazynu pamięci podręcznej.](./media/site-recovery-add-process-server/ps-page-6.png)
 
 8. W obszarze **Wybór sieci** określ odbiornik (kartę sieciową i port SSL), za pomocą którego serwer konfiguracji będzie wysyłać i odbierać dane replikacji. Port 9443 jest domyślnym portem używanym do wysyłania i odbierania ruchu związanego z replikacją, ale możesz zmienić ten numer portu tak, aby odpowiadał wymaganiom Twojego środowiska. Oprócz portu 9443 otwieramy też port 443, który jest używany przez serwer sieci Web do organizowania operacji replikacji. Nie należy używać portu 443 do wysyłania i odbierania ruchu związanego z replikacją.
 
      ![Dodawanie serwera przetwarzania 6](./media/site-recovery-add-process-server/ps-page-7.png)
-9. W obszarze **Podsumowanie** przejrzyj informacje i kliknij przycisk **Zainstaluj**. Po zakończeniu instalacji generowane jest hasło. Będzie ono potrzebne po włączeniu replikacji, dlatego skopiuj je i przechowuj w bezpiecznym miejscu.
+9. W obszarze **Podsumowanie** przejrzyj informacje i kliknij przycisk **Zainstaluj** . Po zakończeniu instalacji generowane jest hasło. Będzie ono potrzebne po włączeniu replikacji, dlatego skopiuj je i przechowuj w bezpiecznym miejscu.
 
      ![Dodawanie serwera przetwarzania 7](./media/site-recovery-add-process-server/ps-page-8.png)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484767"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539704"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Pracuj w ekosystemie Apache Hadoop w usłudze HDInsight z komputera z systemem Windows
 
@@ -31,17 +31,17 @@ Przykłady zadań, które można wykonać za pomocą programu PowerShell:
 * [Uruchamianie zapytań Apache Hive przy użyciu programu PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Zarządzanie klastrami przy użyciu programu PowerShell](hdinsight-administer-use-powershell.md).
 
-Wykonaj kroki, aby [zainstalować i skonfigurować program Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) w celu uzyskania najnowszej wersji.
+Wykonaj kroki, aby [zainstalować i skonfigurować program Azure PowerShell](/powershell/azure/install-az-ps) w celu uzyskania najnowszej wersji.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Narzędzia, które można uruchomić w przeglądarce
 
 Następujące narzędzia zawierają interfejs użytkownika sieci Web, który działa w przeglądarce:
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** to interaktywna powłoka wiersza polecenia uruchamiana w przeglądarce i z Azure Portal.
+* **[Azure Cloud Shell](../cloud-shell/overview.md)** to interaktywna powłoka wiersza polecenia uruchamiana w przeglądarce i z Azure Portal.
 
 * **[Interfejs użytkownika sieci Web Apache Ambari](hdinsight-hadoop-manage-ambari.md)** to narzędzie do zarządzania i monitorowania dostępne w Azure Portal, które może służyć do zarządzania różnymi rodzajami zadań, takich jak:
     * [Korzystanie z platformy Apache Ambari z interfejsem API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Widok Apache Hive w programie Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Widok Apache Tez w programie Apache Ambari](hdinsight-debug-ambari-tez-view.md)
+    * [Widok Apache Tez w programie Apache Ambari](./index.yml)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Narzędzia Data Lake (Hadoop) dla programu Visual Studio
 
@@ -84,7 +84,7 @@ Klastry Apache Spark w usłudze HDInsight obejmują Notesy i jądra platformy Ap
 
 Jeśli pracujesz w sytuacji, w której musisz użyć narzędzia lub technologii, która jest dostępna tylko w systemie Linux, weź pod uwagę następujące opcje:
 
-* **Bash on Ubuntu w systemie Windows 10** udostępnia podsystem Linux w systemie Windows. Bash umożliwia bezpośrednie uruchamianie narzędzi systemu Linux bez konieczności konserwowania dedykowanej instalacji systemu Linux. Aby uzyskać instrukcje dotyczące instalacji, zobacz artykuł [podsystem instalacji systemu Windows dla systemu Linux w systemie Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) .  Inne [powłoki systemu UNIX](https://www.gnu.org/software/bash/) również będą działały.
+* **Bash on Ubuntu w systemie Windows 10** udostępnia podsystem Linux w systemie Windows. Bash umożliwia bezpośrednie uruchamianie narzędzi systemu Linux bez konieczności konserwowania dedykowanej instalacji systemu Linux. Aby uzyskać instrukcje dotyczące instalacji, zobacz artykuł [podsystem instalacji systemu Windows dla systemu Linux w systemie Windows 10](/windows/wsl/install-win10) .  Inne [powłoki systemu UNIX](https://www.gnu.org/software/bash/) również będą działały.
 * **Docker for Windows** zapewnia dostęp do wielu narzędzi opartych na systemie Linux i można go uruchomić bezpośrednio z systemu Windows. Na przykład można użyć platformy Docker do uruchomienia klienta Z usługi Beeline dla programu Hive bezpośrednio z systemu Windows. Można również użyć platformy Docker do uruchomienia lokalnego notesu Jupyter i zdalnego łączenia się z platformą Spark w usłudze HDInsight. [Wprowadzenie do Docker for Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** umożliwia graficzne przeglądanie systemu plików klastra za pośrednictwem połączenia SSH.
 

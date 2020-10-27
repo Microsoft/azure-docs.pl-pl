@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49419853f193336e39ff8f729472342bb137fd39
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 68dddcbc5771ef1a8b5d6ea423674a1c6845a5e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490224"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539483"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Samouczek: Tworzenie klastra Apache Kafka z włączonym serwerem proxy REST w usłudze HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym samouczku dowiesz się, jak Apache Kafka utworzyć klaster z [włączonym serwerem proxy REST](./rest-proxy.md) w usłudze Azure HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure (CLI). Azure HDInsight jest zarządzaną usługą analityczną typu „open source” o szerokim zakresie, z przeznaczeniem dla przedsiębiorstw. Apache Kafka to rozproszona platforma przesyłania strumieniowego typu open source. Jest ona często używana jako broker komunikatów, ponieważ oferuje funkcje podobne do kolejki komunikatów dotyczących publikowania i subskrybowania. Serwer proxy REST Kafka umożliwia współdziałanie z klastrem Kafka za pośrednictwem [interfejsu API REST](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) za pośrednictwem protokołu HTTP. Interfejs wiersza polecenia platformy Azure to wieloplatformowe środowisko wiersza polecenia do zarządzania zasobami platformy Azure.
+W tym samouczku dowiesz się, jak Apache Kafka utworzyć klaster z [włączonym serwerem proxy REST](./rest-proxy.md) w usłudze Azure HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure (CLI). Azure HDInsight jest zarządzaną usługą analityczną typu „open source” o szerokim zakresie, z przeznaczeniem dla przedsiębiorstw. Apache Kafka to rozproszona platforma przesyłania strumieniowego typu open source. Jest ona często używana jako broker komunikatów, ponieważ oferuje funkcje podobne do kolejki komunikatów dotyczących publikowania i subskrybowania. Serwer proxy REST Kafka umożliwia współdziałanie z klastrem Kafka za pośrednictwem [interfejsu API REST](/rest/api/hdinsight-kafka-rest-proxy/) za pośrednictwem protokołu HTTP. Interfejs wiersza polecenia platformy Azure to wieloplatformowe środowisko wiersza polecenia do zarządzania zasobami platformy Azure.
 
 Dostęp do interfejsu API platformy Apache Kafka mogą uzyskać tylko zasoby będące w tej samej sieci wirtualnej. Dostęp do klastra można uzyskać bezpośrednio przy użyciu protokołu SSH. Aby do platformy Apache Kafka podłączyć inne usługi, sieci lub maszyny wirtualne, należy najpierw utworzyć sieć wirtualną, a następnie utworzyć zasoby w obrębie tej sieci. Aby uzyskać więcej informacji, zobacz [łączenie się z Apache Kafka przy użyciu sieci wirtualnej](./apache-kafka-connect-vpn-gateway.md).
 
@@ -56,8 +56,8 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     |location|Zamień lokalizację na region, w którym zostanie utworzony klaster. Aby uzyskać listę prawidłowych lokalizacji, użyj `az account list-locations` polecenia|
     |clusterName|Zastąp element CLUSTERname globalnie unikatową nazwą nowego klastra.|
     |storageAccount|Zastąp STORAGEACCOUNTNAME nazwą nowego konta magazynu.|
-    |httpPassword|Zastąp hasło hasłem logowania klastra, **administrator**.|
-    |sshPassword|Zastąp hasło hasłem dla nazwy użytkownika Secure Shell **sshuser**.|
+    |httpPassword|Zastąp hasło hasłem logowania klastra, **administrator** .|
+    |sshPassword|Zastąp hasło hasłem dla nazwy użytkownika Secure Shell **sshuser** .|
     |securityGroupName|Zastąp SECURITYGROUPNAME nazwą grupy zabezpieczeń klienta usługi AAD dla Kafka proxy Rest. Zmienna zostanie przeniesiona do `--kafka-client-group-name` parametru dla `az-hdinsight-create` .|
     |securityGroupID|Zastąp SECURITYGROUPID IDENTYFIKATORem grupy zabezpieczeń usługi AAD klienta dla Kafka serwera proxy Rest. Zmienna zostanie przeniesiona do `--kafka-client-group-id` parametru dla `az-hdinsight-create` .|
     |storageContainer|Kontener magazynu, który będzie używany przez klaster, dla tego samouczka należy pozostawić wartość ". Ta zmienna zostanie ustawiona z nazwą klastra.|
@@ -130,18 +130,18 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
         |Parametr | Opis|
         |---|---|
-        |--Wpisz|Wartość musi być **Kafka**.|
-        |--workernode-dane-disks-Node|Liczba dysków danych do użycia na węzeł procesu roboczego. Usługa HDInsight Kafka jest obsługiwana tylko w przypadku dysków z danymi. Ten samouczek używa wartości **2**.|
+        |--Wpisz|Wartość musi być **Kafka** .|
+        |--workernode-dane-disks-Node|Liczba dysków danych do użycia na węzeł procesu roboczego. Usługa HDInsight Kafka jest obsługiwana tylko w przypadku dysków z danymi. Ten samouczek używa wartości **2** .|
 
     1. Parametry wymagane dla serwera proxy REST Kafka:
 
         |Parametr | Opis|
         |---|---|
-        |--Kafka-Management-Node-size|Rozmiar węzła. W tym samouczku zostanie użyta wartość **Standard_D4_v2**.|
-        |--Kafka-Client-Group-ID|Identyfikator grupy zabezpieczeń usługi AAD klienta dla serwera proxy REST Kafka. Wartość jest przenoszona ze zmiennej **$securityGroupID**.|
-        |--Kafka-Client-Group-Name|Nazwa grupy zabezpieczeń usługi AAD klienta dla serwera proxy REST Kafka. Wartość jest przenoszona ze zmiennej **$securityGroupName**.|
-        |--Version|Wersja klastra usługi HDInsight musi być równa co najmniej 4,0. Wartość jest przenoszona ze zmiennej **$clusterVersion**.|
-        |--wersja składnika|Wersja Kafka musi wynosić co najmniej 2,1. Wartość jest przenoszona ze zmiennej **$componentVersion**.|
+        |--Kafka-Management-Node-size|Rozmiar węzła. W tym samouczku zostanie użyta wartość **Standard_D4_v2** .|
+        |--Kafka-Client-Group-ID|Identyfikator grupy zabezpieczeń usługi AAD klienta dla serwera proxy REST Kafka. Wartość jest przenoszona ze zmiennej **$securityGroupID** .|
+        |--Kafka-Client-Group-Name|Nazwa grupy zabezpieczeń usługi AAD klienta dla serwera proxy REST Kafka. Wartość jest przenoszona ze zmiennej **$securityGroupName** .|
+        |--Version|Wersja klastra usługi HDInsight musi być równa co najmniej 4,0. Wartość jest przenoszona ze zmiennej **$clusterVersion** .|
+        |--wersja składnika|Wersja Kafka musi wynosić co najmniej 2,1. Wartość jest przenoszona ze zmiennej **$componentVersion** .|
     
         Jeśli chcesz utworzyć klaster bez serwera proxy REST, Usuń `--kafka-management-node-size` , `--kafka-client-group-id` i `--kafka-client-group-name` z `az hdinsight create` polecenia.
 

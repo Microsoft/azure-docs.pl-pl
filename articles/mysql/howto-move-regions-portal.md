@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88f9b82df0ce1fae78f0c9de9c8d7a7b158d151e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542516"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546334"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Przenoszenie serwera Azure Database for MySQL do innego regionu przy użyciu Azure Portal
 
@@ -21,7 +21,7 @@ Istnieją różne scenariusze dotyczące przechodzenia istniejącego serwera Azu
 Do przechodzenia do innego regionu można użyć Azure Database for MySQL [replik odczytu między regionami](concepts-read-replicas.md#cross-region-replication) . W tym celu należy najpierw utworzyć replikę odczytu w regionie docelowym. Następnie Zatrzymaj replikację do serwera repliki odczytu, aby udostępnić go serwerowi Autonomicznemu, który akceptuje ruch odczytu i zapisu. 
 
 > [!NOTE]
-> Ten artykuł koncentruje się na przenoszeniu serwera do innego regionu. Jeśli chcesz przenieść serwer do innej grupy zasobów lub subskrypcji, zapoznaj się z artykułem dotyczącym [przenoszenia](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) . 
+> Ten artykuł koncentruje się na przenoszeniu serwera do innego regionu. Jeśli chcesz przenieść serwer do innej grupy zasobów lub subskrypcji, zapoznaj się z artykułem dotyczącym [przenoszenia](../azure-resource-manager/management/move-resource-group-and-subscription.md) . 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,8 +35,8 @@ Aby utworzyć serwer repliki odczytu między regionami w regionie docelowym przy
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Wybierz istniejący serwer Azure Database for MySQL, który ma być używany jako serwer źródłowy. Ta akcja powoduje otwarcie strony **Przegląd** .
-1. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
-1. Wybierz pozycję **Dodaj replikę**.
+1. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia** .
+1. Wybierz pozycję **Dodaj replikę** .
 1. Wprowadź nazwę serwera repliki.
 1. Wybierz lokalizację serwera repliki. Lokalizacja domyślna jest taka sama jak w przypadku serwera źródłowego. Sprawdź, czy została wybrana lokalizacja docelowa, w której ma zostać wdrożona replika.
 1. Wybierz **przycisk OK** , aby potwierdzić utworzenie repliki. Podczas tworzenia repliki dane są kopiowane z serwera źródłowego do repliki. Czas utworzenia może trwać kilka minut lub dłużej, proporcjonalnie do rozmiaru serwera źródłowego.
@@ -53,19 +53,19 @@ Aby utworzyć serwer repliki odczytu między regionami w regionie docelowym przy
 Zatrzymywanie replikacji na serwerze repliki powoduje, że staje się ona serwerem autonomicznym. Aby zatrzymać replikację do repliki z Azure Portal, wykonaj następujące czynności:
 
 1. Po utworzeniu repliki Znajdź i wybierz serwer źródłowy Azure Database for MySQL. 
-1. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
+1. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia** .
 1. Wybierz serwer repliki.
-1. Wybierz pozycję **Zatrzymaj replikację**.
-1. Potwierdź, że chcesz zatrzymać replikację, klikając przycisk **OK**.
+1. Wybierz pozycję **Zatrzymaj replikację** .
+1. Potwierdź, że chcesz zatrzymać replikację, klikając przycisk **OK** .
 
 ## <a name="clean-up-source-server"></a>Oczyść serwer źródłowy
 
 Możesz chcieć usunąć źródłowy serwer Azure Database for MySQL. Aby to zrobić, skorzystaj z poniższych instrukcji:
 
 1. Po utworzeniu repliki Znajdź i wybierz serwer źródłowy Azure Database for MySQL.
-1. W oknie **Przegląd** wybierz pozycję **Usuń**.
+1. W oknie **Przegląd** wybierz pozycję **Usuń** .
 1. Wpisz nazwę serwera źródłowego, aby potwierdzić, że chcesz usunąć.
-1. Wybierz pozycję **Usuń**.
+1. Wybierz pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 709ebacc66382d75b79cd41edf88cad962dfd7c2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147724"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547762"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Informacje o rejestrze tożsamości w centrum IoT Hub
 
@@ -94,19 +94,19 @@ Dane urządzenia, które są przechowywane w ramach danego rozwiązania IoT, zal
 
 ## <a name="device-heartbeat"></a>Puls urządzenia
 
-Rejestr tożsamości IoT Hub zawiera pole o nazwie **connectionState**. Podczas tworzenia i debugowania Używaj tylko pola **connectionState** . Rozwiązania IoT nie powinny wysyłać zapytań do pola w czasie wykonywania. Na przykład nie należy wysyłać zapytania do pola **connectionState** , aby sprawdzić, czy urządzenie jest połączone przed wysłaniem komunikatu z chmury do urządzenia lub wiadomości SMS. Zalecamy subskrybowanie [zdarzeń **odłączenia urządzenia** ](iot-hub-event-grid.md#event-types) w Event Grid w celu uzyskania alertów i monitorowania stanu połączenia urządzenia. Skorzystaj z tego [samouczka](iot-hub-how-to-order-connection-state-events.md) , aby dowiedzieć się, jak zintegrować urządzenia połączone i odłączone urządzenia z IoT Hub w rozwiązaniu IoT.
+Rejestr tożsamości IoT Hub zawiera pole o nazwie **connectionState** . Podczas tworzenia i debugowania Używaj tylko pola **connectionState** . Rozwiązania IoT nie powinny wysyłać zapytań do pola w czasie wykonywania. Na przykład nie należy wysyłać zapytania do pola **connectionState** , aby sprawdzić, czy urządzenie jest połączone przed wysłaniem komunikatu z chmury do urządzenia lub wiadomości SMS. Zalecamy subskrybowanie [zdarzeń **odłączenia urządzenia**](iot-hub-event-grid.md#event-types) w Event Grid w celu uzyskania alertów i monitorowania stanu połączenia urządzenia. Skorzystaj z tego [samouczka](iot-hub-how-to-order-connection-state-events.md) , aby dowiedzieć się, jak zintegrować urządzenia połączone i odłączone urządzenia z IoT Hub w rozwiązaniu IoT.
 
-Jeśli Twoje rozwiązanie IoT musi wiedzieć, czy urządzenie jest połączone, można zaimplementować *wzorzec pulsu*.
+Jeśli Twoje rozwiązanie IoT musi wiedzieć, czy urządzenie jest połączone, można zaimplementować *wzorzec pulsu* .
 W przypadku wzorca pulsu urządzenie wysyła komunikaty z urządzenia do chmury co najmniej raz na ustalony czas (na przykład co najmniej raz na godzinę). W związku z tym nawet jeśli urządzenie nie ma żadnych danych do wysłania, nadal wysyła pustą wiadomość z urządzenia do chmury (zazwyczaj z właściwością identyfikującą ją jako puls). Po stronie usługi rozwiązanie zachowuje mapę z ostatnim pulsem odebranym dla każdego urządzenia. Jeśli rozwiązanie nie odbiera komunikatu pulsu w oczekiwanym czasie z urządzenia, zakłada się, że występuje problem z urządzeniem.
 
-Bardziej złożona implementacja może obejmować informacje z [Azure monitor](../azure-monitor/index.yml) i [Azure Resource Health](../service-health/resource-health-overview.md) do identyfikowania urządzeń próbujących nawiązać połączenie lub komunikację, ale kończy się niepowodzeniem, sprawdź monitor z przewodnikiem [diagnostycznym](iot-hub-monitor-resource-health.md) . Podczas implementowania wzorca pulsu upewnij się, że zaznaczono [IoT Hub przydziały i ograniczenia](iot-hub-devguide-quotas-throttling.md).
+Bardziej złożona implementacja może obejmować informacje z [Azure monitor](../azure-monitor/index.yml) i [Azure Resource Health](../service-health/resource-health-overview.md) do identyfikowania urządzeń, które próbują nawiązać połączenie lub komunikować się, ale kończy się niepowodzeniem. Aby dowiedzieć się więcej, zobacz [monitorowanie IoT Hub](monitor-iot-hub.md) i [Sprawdzanie kondycji zasobów IoT Hub](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health). Podczas implementowania wzorca pulsu upewnij się, że zaznaczono [IoT Hub przydziały i ograniczenia](iot-hub-devguide-quotas-throttling.md).
 
 > [!NOTE]
 > Jeśli rozwiązanie IoT używa stanu połączenia wyłącznie do określenia, czy wysyłać komunikaty z chmury do urządzenia, a komunikaty nie są emitowane do dużych zestawów urządzeń, należy rozważyć użycie *krótkiego wzorca czasu wygaśnięcia* . Ten wzorzec osiąga ten sam wynik jak utrzymywanie rejestru stanu połączenia urządzenia przy użyciu wzorca pulsu, a jednocześnie jest wydajniejszy. W przypadku żądania potwierdzeń komunikatów IoT Hub może powiadomić o tym, które urządzenia mogą odbierać komunikaty, które nie są.
 
 ## <a name="device-and-module-lifecycle-notifications"></a>Powiadomienia dotyczące cyklu życia urządzenia i modułu
 
-IoT Hub może powiadomić rozwiązanie IoT o utworzeniu lub usunięciu tożsamości, wysyłając powiadomienia o cyklu życia. W tym celu Twoje rozwiązanie IoT musi utworzyć trasę i ustawić źródło danych równe *DeviceLifecycleEvents* lub *ModuleLifecycleEvents*. Domyślnie żadne powiadomienia o cyklu życia nie są wysyłane, oznacza to, że nie istnieją takie trasy. Komunikat powiadomienia zawiera właściwości i treść.
+IoT Hub może powiadomić rozwiązanie IoT o utworzeniu lub usunięciu tożsamości, wysyłając powiadomienia o cyklu życia. W tym celu Twoje rozwiązanie IoT musi utworzyć trasę i ustawić źródło danych równe *DeviceLifecycleEvents* lub *ModuleLifecycleEvents* . Domyślnie żadne powiadomienia o cyklu życia nie są wysyłane, oznacza to, że nie istnieją takie trasy. Komunikat powiadomienia zawiera właściwości i treść.
 
 Właściwości: właściwości systemu komunikatów są poprzedzone `$` symbolem.
 
@@ -191,14 +191,14 @@ Tożsamości urządzeń są reprezentowane jako dokumenty JSON o następujących
 | Właściwość | Opcje | Opis |
 | --- | --- | --- |
 | deviceId |wymagane, tylko do odczytu w aktualizacjach |Ciąg z rozróżnianą wielkością liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne i niektóre znaki specjalne: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
-| generationId |wymagane, tylko do odczytu |Ciąg z rozróżnianą wielkością liter, który jest generowany przez Centrum IoT, do 128 znaków. Ta wartość jest używana do rozróżniania urządzeń z tym samym identyfikatorem **deviceId**, gdy zostały usunięte i ponownie utworzone. |
+| generationId |wymagane, tylko do odczytu |Ciąg z rozróżnianą wielkością liter, który jest generowany przez Centrum IoT, do 128 znaków. Ta wartość jest używana do rozróżniania urządzeń z tym samym identyfikatorem **deviceId** , gdy zostały usunięte i ponownie utworzone. |
 | element ETag |wymagane, tylko do odczytu |Ciąg reprezentujący słaby element ETag dla tożsamości urządzenia, zgodnie z [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | uwierzytelniania |optional |Obiekt złożony zawierający informacje o uwierzytelnianiu i materiały zabezpieczające. |
 | auth. symkey |optional |Obiekt złożony zawierający klucz podstawowy i pomocniczy, przechowywany w formacie base64. |
-| status |wymagane |Wskaźnik dostępu. Można **włączyć** lub **wyłączyć**. Jeśli ta **Funkcja jest włączona**, urządzenie może nawiązać połączenie. Jeśli ta **możliwość jest wyłączona**, urządzenie nie może uzyskać dostępu do żadnego punktu końcowego mającego dostęp do urządzenia. |
+| status |wymagane |Wskaźnik dostępu. Można **włączyć** lub **wyłączyć** . Jeśli ta **Funkcja jest włączona** , urządzenie może nawiązać połączenie. Jeśli ta **możliwość jest wyłączona** , urządzenie nie może uzyskać dostępu do żadnego punktu końcowego mającego dostęp do urządzenia. |
 | statusReason |optional |Ciąg o długości 128 znaków, który przechowuje przyczynę stanu tożsamości urządzenia. Dozwolone są wszystkie znaki UTF-8. |
 | statusUpdateTime |tylko do odczytu |Wskaźnik czasowy przedstawiający datę i godzinę ostatniej aktualizacji stanu. |
-| connectionState |tylko do odczytu |Pole wskazujące stan połączenia: **połączone** lub **rozłączone**. To pole reprezentuje widok IoT Hub stanu połączenia z urządzeniem. **Ważne**: to pole powinno być używane tylko na potrzeby tworzenia i debugowania. Stan połączenia jest aktualizowany tylko dla urządzeń korzystających z MQTT lub AMQP. Ponadto jest oparty na poleceniach ping na poziomie protokołu (MQTT Pings lub pinges AMQP) i może mieć maksymalnie 5 minut. Z tego względu można mieć fałszywe pozytywne, takie jak urządzenia zgłoszone jako połączone, ale które są rozłączone. |
+| connectionState |tylko do odczytu |Pole wskazujące stan połączenia: **połączone** lub **rozłączone** . To pole reprezentuje widok IoT Hub stanu połączenia z urządzeniem. **Ważne** : to pole powinno być używane tylko na potrzeby tworzenia i debugowania. Stan połączenia jest aktualizowany tylko dla urządzeń korzystających z MQTT lub AMQP. Ponadto jest oparty na poleceniach ping na poziomie protokołu (MQTT Pings lub pinges AMQP) i może mieć maksymalnie 5 minut. Z tego względu można mieć fałszywe pozytywne, takie jak urządzenia zgłoszone jako połączone, ale które są rozłączone. |
 | connectionStateUpdatedTime |tylko do odczytu |Wskaźnik danych czasowych, przedstawiający datę i godzinę ostatniego zaktualizowania stanu połączenia. |
 | lastActivityTime |tylko do odczytu |Wskaźnik danych czasowych, przedstawiający datę i godzinę ostatniego połączenia urządzenia, odebrania lub wysłania wiadomości. |
 
@@ -206,7 +206,7 @@ Tożsamości urządzeń są reprezentowane jako dokumenty JSON o następujących
 > Stan połączenia może reprezentować tylko widok IoT Hub stanu połączenia. Aktualizacje tego stanu mogą być opóźnione, w zależności od warunków i konfiguracji sieci.
 
 > [!NOTE]
-> Obecnie zestawy SDK urządzeń nie obsługują używania `+` znaków i w identyfikatorze `#` **deviceId**.
+> Obecnie zestawy SDK urządzeń nie obsługują używania `+` znaków i w identyfikatorze `#` **deviceId** .
 
 ## <a name="module-identity-properties"></a>Właściwości tożsamości modułu
 
@@ -216,19 +216,19 @@ Tożsamości modułów są reprezentowane jako dokumenty JSON o następujących 
 | --- | --- | --- |
 | deviceId |wymagane, tylko do odczytu w aktualizacjach |Ciąg z rozróżnianą wielkością liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne i niektóre znaki specjalne: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
 | moduleId |wymagane, tylko do odczytu w aktualizacjach |Ciąg z rozróżnianą wielkością liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne i niektóre znaki specjalne: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
-| generationId |wymagane, tylko do odczytu |Ciąg z rozróżnianą wielkością liter, który jest generowany przez Centrum IoT, do 128 znaków. Ta wartość jest używana do rozróżniania urządzeń z tym samym identyfikatorem **deviceId**, gdy zostały usunięte i ponownie utworzone. |
+| generationId |wymagane, tylko do odczytu |Ciąg z rozróżnianą wielkością liter, który jest generowany przez Centrum IoT, do 128 znaków. Ta wartość jest używana do rozróżniania urządzeń z tym samym identyfikatorem **deviceId** , gdy zostały usunięte i ponownie utworzone. |
 | element ETag |wymagane, tylko do odczytu |Ciąg reprezentujący słaby element ETag dla tożsamości urządzenia, zgodnie z [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | uwierzytelniania |optional |Obiekt złożony zawierający informacje o uwierzytelnianiu i materiały zabezpieczające. |
 | auth. symkey |optional |Obiekt złożony zawierający klucz podstawowy i pomocniczy, przechowywany w formacie base64. |
-| status |wymagane |Wskaźnik dostępu. Można **włączyć** lub **wyłączyć**. Jeśli ta **Funkcja jest włączona**, urządzenie może nawiązać połączenie. Jeśli ta **możliwość jest wyłączona**, urządzenie nie może uzyskać dostępu do żadnego punktu końcowego mającego dostęp do urządzenia. |
+| status |wymagane |Wskaźnik dostępu. Można **włączyć** lub **wyłączyć** . Jeśli ta **Funkcja jest włączona** , urządzenie może nawiązać połączenie. Jeśli ta **możliwość jest wyłączona** , urządzenie nie może uzyskać dostępu do żadnego punktu końcowego mającego dostęp do urządzenia. |
 | statusReason |optional |Ciąg o długości 128 znaków, który przechowuje przyczynę stanu tożsamości urządzenia. Dozwolone są wszystkie znaki UTF-8. |
 | statusUpdateTime |tylko do odczytu |Wskaźnik czasowy przedstawiający datę i godzinę ostatniej aktualizacji stanu. |
-| connectionState |tylko do odczytu |Pole wskazujące stan połączenia: **połączone** lub **rozłączone**. To pole reprezentuje widok IoT Hub stanu połączenia z urządzeniem. **Ważne**: to pole powinno być używane tylko na potrzeby tworzenia i debugowania. Stan połączenia jest aktualizowany tylko dla urządzeń korzystających z MQTT lub AMQP. Ponadto jest oparty na poleceniach ping na poziomie protokołu (MQTT Pings lub pinges AMQP) i może mieć maksymalnie 5 minut. Z tego względu można mieć fałszywe pozytywne, takie jak urządzenia zgłoszone jako połączone, ale które są rozłączone. |
+| connectionState |tylko do odczytu |Pole wskazujące stan połączenia: **połączone** lub **rozłączone** . To pole reprezentuje widok IoT Hub stanu połączenia z urządzeniem. **Ważne** : to pole powinno być używane tylko na potrzeby tworzenia i debugowania. Stan połączenia jest aktualizowany tylko dla urządzeń korzystających z MQTT lub AMQP. Ponadto jest oparty na poleceniach ping na poziomie protokołu (MQTT Pings lub pinges AMQP) i może mieć maksymalnie 5 minut. Z tego względu można mieć fałszywe pozytywne, takie jak urządzenia zgłoszone jako połączone, ale które są rozłączone. |
 | connectionStateUpdatedTime |tylko do odczytu |Wskaźnik danych czasowych, przedstawiający datę i godzinę ostatniego zaktualizowania stanu połączenia. |
 | lastActivityTime |tylko do odczytu |Wskaźnik danych czasowych, przedstawiający datę i godzinę ostatniego połączenia urządzenia, odebrania lub wysłania wiadomości. |
 
 > [!NOTE]
-> Obecnie zestawy SDK urządzeń nie obsługują używania `+` znaków i w identyfikatorach `#` **deviceId** i **moduleId**.
+> Obecnie zestawy SDK urządzeń nie obsługują używania `+` znaków i w identyfikatorach `#` **deviceId** i **moduleId** .
 
 ## <a name="additional-reference-material"></a>Dodatkowe materiały referencyjne
 

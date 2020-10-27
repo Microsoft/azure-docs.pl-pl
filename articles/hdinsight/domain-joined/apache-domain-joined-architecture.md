@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
-ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d951089e4247d9b959476c812b98e170d92bd8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365791"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547983"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Korzystanie z pakietu Enterprise Security w usłudze HDInsight
 
@@ -57,7 +57,7 @@ Aby uzyskać więcej informacji, zobacz [Konfigurowanie klastrów usługi HDInsi
 
 Jeśli masz lokalne wystąpienie Active Directory lub bardziej skomplikowane Active Directory konfiguracje dla domeny, możesz synchronizować te tożsamości z usługą Azure AD przy użyciu Azure AD Connect. Następnie można włączyć usługę Azure AD DS w tym Active Directory dzierżawie.
 
-Ponieważ protokół Kerberos opiera się na skrótach haseł, należy [włączyć synchronizację skrótów haseł na platformie Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+Ponieważ protokół Kerberos opiera się na skrótach haseł, należy [włączyć synchronizację skrótów haseł na platformie Azure AD DS](../../active-directory-domain-services/tutorial-create-instance.md).
 
 Jeśli używasz Federacji z Active Directory Federation Services (AD FS), musisz włączyć synchronizację skrótów haseł. (Aby uzyskać zalecaną konfigurację, zobacz [ten film wideo](https://youtu.be/qQruArbu2Ew)). Synchronizacja skrótów haseł ułatwia odzyskiwanie po awarii w przypadku niepowodzenia infrastruktury AD FS, a także pomaga w zapewnianiu nieujawnionej ochrony poświadczeń. Aby uzyskać więcej informacji, zobacz [Włączanie synchronizacji skrótów haseł przy użyciu synchronizacji Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -65,7 +65,7 @@ Korzystanie z lokalnych Active Directory lub Active Directory na maszynach wirtu
 
 Jeśli jest używana Federacja, a skróty haseł są synchronizowane prawidłowo, ale nie są dostępne błędy uwierzytelniania, sprawdź, czy dla jednostki usługi programu PowerShell jest włączone uwierzytelnianie hasła w chmurze. Jeśli nie, musisz ustawić [zasady odnajdowania obszaru macierzystego (HRD)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) dla dzierżawy usługi Azure AD. Aby sprawdzić i ustawić zasady HRD:
 
-1. Zainstaluj [moduł programu Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)w wersji zapoznawczej.
+1. Zainstaluj [moduł programu Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)w wersji zapoznawczej.
 
    ```powershell
    Install-Module AzureAD

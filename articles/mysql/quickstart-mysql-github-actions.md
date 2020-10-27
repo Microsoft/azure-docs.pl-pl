@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 7b4620c739b2f94cb6b96743280cd1decbbb746e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326191"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541268"
 ---
 # <a name="use-github-actions-to-connect-to-azure-mysql"></a>Łączenie się z usługą Azure MySQL za pomocą akcji usługi GitHub
 
@@ -39,7 +39,7 @@ Plik ma dwie sekcje:
 
 ## <a name="generate-deployment-credentials"></a>Generuj poświadczenia wdrożenia
 
-Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) można utworzyć jednostkę [usługi](../active-directory/develop/app-objects-and-service-principals.md) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
+Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) można utworzyć jednostkę [usługi](../active-directory/develop/app-objects-and-service-principals.md) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
 
 Zastąp symbole zastępcze `server-name` nazwą serwera MySQL hostowanego na platformie Azure. Zastąp wartość `subscription-id` i `resource-group` identyfikatorem subskrypcji i grupą zasobów połączoną z serwerem MySQL.  
 
@@ -66,7 +66,7 @@ Dane wyjściowe są obiektem JSON z poświadczeniami przypisania roli, które za
 
 ## <a name="copy-the-mysql-connection-string"></a>Kopiuj parametry połączenia MySQL 
 
-W Azure Portal przejdź do serwera Azure Database for MySQL **i Otwórz pozycję**  >  **Parametry połączenia**. Skopiuj parametry połączenia **ADO.NET**. Zastąp wartości symboli zastępczych dla `your_database` i `your_password` . Parametry połączenia będą wyglądać podobnie do tego. 
+W Azure Portal przejdź do serwera Azure Database for MySQL **i Otwórz pozycję**  >  **Parametry połączenia** . Skopiuj parametry połączenia **ADO.NET** . Zastąp wartości symboli zastępczych dla `your_database` i `your_password` . Parametry połączenia będą wyglądać podobnie do tego. 
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
@@ -77,7 +77,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium.
 
-1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło**.
+1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło** .
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
@@ -98,7 +98,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. Przejdź do **akcji** dla repozytorium GitHub. 
 
-2. Wybierz **samodzielnie Skonfiguruj swój przepływ pracy**. 
+2. Wybierz **samodzielnie Skonfiguruj swój przepływ pracy** . 
 
 2. Usuń wszystko po `on:` sekcji pliku przepływu pracy. Na przykład pozostały przepływ pracy może wyglądać następująco. 
 
@@ -191,4 +191,4 @@ Gdy baza danych i repozytorium usługi Azure MySQL nie są już potrzebne, Oczy�
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o integracji z platformą Azure i usługą GitHub](https://docs.microsoft.com/azure/developer/github/)
+> [Dowiedz się więcej o integracji z platformą Azure i usługą GitHub](/azure/developer/github/)

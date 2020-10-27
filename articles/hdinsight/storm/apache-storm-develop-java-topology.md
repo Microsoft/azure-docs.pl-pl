@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: b928ea8b0d05b9e1eac3c9429ec4c0ce8f88bb22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881ec4aa36261958b566dc2d7c4d06475a76bad4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322877"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545501"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Tworzenie topologii Apache Storm w języku Java
 
@@ -26,7 +26,7 @@ Po wykonaniu kroków opisanych w tym dokumencie można wdrożyć topologię w ce
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Java developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks)
+* [Java developer Kit (JDK) w wersji 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * Pakiet [Apache Maven](https://maven.apache.org/download.cgi) został prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z usługą Apache.  Maven to system kompilacji projektu dla projektów języka Java.
 
@@ -43,7 +43,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Tworzenie projektu Maven
 
-Wprowadź następujące polecenie, aby utworzyć projekt Maven o nazwie **WORDCOUNT**:
+Wprowadź następujące polecenie, aby utworzyć projekt Maven o nazwie **WORDCOUNT** :
 
 ```cmd
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
@@ -199,9 +199,9 @@ Ta sekcja służy do dodawania dodatków plug-in, zasobów i innych opcji konfig
 
     Innym przydatnym dodatkiem plug-in jest [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/) , który służy do zmiany opcji kompilacji. Zmień wersję języka Java używaną przez Maven dla źródła i celu dla aplikacji.
 
-  * W przypadku usługi HDInsight __3,4 lub starszej__Ustaw źródłową i docelową wersję języka Java na __1,7__.
+  * W przypadku usługi HDInsight __3,4 lub starszej__ Ustaw źródłową i docelową wersję języka Java na __1,7__ .
 
-  * W przypadku usługi HDInsight __3,5__Ustaw źródłową i docelową wersję języka Java na __1,8__.
+  * W przypadku usługi HDInsight __3,5__ Ustaw źródłową i docelową wersję języka Java na __1,8__ .
 
   Dodaj następujący tekst do `<plugins>` sekcji `pom.xml` pliku, aby dołączyć wtyczkę kompilatora Apache Maven. W tym przykładzie określono 1,8, więc docelowa wersja usługi HDInsight to 3,5.
 
@@ -237,11 +237,11 @@ Ten przykład dodaje katalog zasobów w katalogu głównym projektu ( `${basedir
 
 Topologia Apache Storm oparta na języku Java składa się z trzech składników, które należy utworzyć (lub jako odwołanie) jako zależność.
 
-* **Elementy Spout**: odczytuje dane ze źródeł zewnętrznych i emituje strumienie danych do topologii.
+* **Elementy Spout** : odczytuje dane ze źródeł zewnętrznych i emituje strumienie danych do topologii.
 
-* **Pioruny**: przetwarza strumienie emitowane przez elementy Spout lub inne pioruny i emituje jeden lub więcej strumieni.
+* **Pioruny** : przetwarza strumienie emitowane przez elementy Spout lub inne pioruny i emituje jeden lub więcej strumieni.
 
-* **Topologia**: definiuje, jak elementy Spout i pioruny są rozmieszczone i udostępnia punkt wejścia dla topologii.
+* **Topologia** : definiuje, jak elementy Spout i pioruny są rozmieszczone i udostępnia punkt wejścia dla topologii.
 
 ### <a name="create-the-spout"></a>Tworzenie elementu Spout
 
@@ -327,9 +327,9 @@ public class RandomSentenceSpout extends BaseRichSpout {
 
 Pioruny obsługują przetwarzanie danych. Pioruny mogą wykonywać dowolne czynności, na przykład obliczenia, trwałość lub rozmowy z zewnętrznymi składnikami. Ta topologia używa dwóch piorunów:
 
-* **SplitSentence**: dzieli zdania emitowane przez **RandomSentenceSpout** na poszczególne słowa.
+* **SplitSentence** : dzieli zdania emitowane przez **RandomSentenceSpout** na poszczególne słowa.
 
-* **WORDCOUNT**: zlicza liczbę przypadków wystąpienia każdego wyrazu.
+* **WORDCOUNT** : zlicza liczbę przypadków wystąpienia każdego wyrazu.
 
 #### <a name="splitsentence"></a>SplitSentence
 

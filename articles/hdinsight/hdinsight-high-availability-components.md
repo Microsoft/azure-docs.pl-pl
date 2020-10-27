@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 4d0405df1863ee47374242ba4fba5b845711d3a1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1ff7932f0afb128f6e7568ecdae602c6471db0bd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424515"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539721"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Usługi wysokiej dostępności obsługiwane przez usługę Azure HDInsight
 
 W celu zapewnienia optymalnego poziomu dostępności dla składników analitycznych Usługa HDInsight została opracowana przy użyciu unikatowej architektury zapewniającej wysoką dostępność (HA) krytycznych usług. Niektóre składniki tej architektury zostały opracowane przez firmę Microsoft w celu zapewnienia automatycznego przejścia w tryb failover. Inne składniki to standardowe składniki Apache wdrożone w celu obsługi określonych usług. W tym artykule wyjaśniono architekturę modelu usług HA w usłudze HDInsight, jak Usługa HDInsight obsługuje tryb failover dla usług HA oraz najlepsze rozwiązania w zakresie odzyskiwania z innych przerw w działaniu usługi.
 
 > [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *podrzędnego*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
+> Ten artykuł zawiera odwołania do warunku *podrzędnego* , termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 ## <a name="high-availability-infrastructure"></a>Infrastruktura wysokiej dostępności
 
@@ -49,7 +49,7 @@ Poniższe sekcje zawierają szczegółowe informacje o tym, jak te usługi wspó
 
 ## <a name="hdinsight-high-availability-services"></a>Usługi HDInsight wysokiej dostępności
 
-Firma Microsoft zapewnia pomoc techniczną dla czterech usług Apache w poniższej tabeli w klastrach usługi HDInsight. Aby odróżnić je od usług wysokiej dostępności obsługiwanych przez składniki z platformy Apache, są one nazywane *usługami HDINSIGHT ha*.
+Firma Microsoft zapewnia pomoc techniczną dla czterech usług Apache w poniższej tabeli w klastrach usługi HDInsight. Aby odróżnić je od usług wysokiej dostępności obsługiwanych przez składniki z platformy Apache, są one nazywane *usługami HDINSIGHT ha* .
 
 | Usługa | Węzły klastra | Typy klastrów | Przeznaczenie |
 |---|---|---|---|
@@ -65,7 +65,7 @@ Firma Microsoft zapewnia pomoc techniczną dla czterech usług Apache w poniższ
 
 Każdy klaster usługi HDInsight ma odpowiednio dwa węzłów głównych w trybie aktywnym i w stanie gotowości. Usługi HDInsight HA działają tylko na węzłów głównych. Te usługi powinny być zawsze uruchamiane w ramach aktywnego węzła głównego i zatrzymane i włączone w trybie konserwacji w węzła głównego w stanie wstrzymania.
 
-Aby zachować poprawne Stany usług HA i zapewnić szybką pracę w trybie failover, Usługa HDInsight wykorzystuje Apache ZooKeeper, która jest usługą koordynacyjną dla aplikacji rozproszonych, do przeprowadzania aktywnych węzła głównego wyborów. Usługa HDInsight udostępnia również kilka procesów Java w tle, które koordynują procedurę przełączania do trybu failover usług HDInsight HA. Te usługi są następujące: główny kontroler trybu failover, podrzędny kontroler trybu failover, *Master-ha-Service*i *slave-ha-Service*.
+Aby zachować poprawne Stany usług HA i zapewnić szybką pracę w trybie failover, Usługa HDInsight wykorzystuje Apache ZooKeeper, która jest usługą koordynacyjną dla aplikacji rozproszonych, do przeprowadzania aktywnych węzła głównego wyborów. Usługa HDInsight udostępnia również kilka procesów Java w tle, które koordynują procedurę przełączania do trybu failover usług HDInsight HA. Te usługi są następujące: główny kontroler trybu failover, podrzędny kontroler trybu failover, *Master-ha-Service* i *slave-ha-Service* .
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 
@@ -136,5 +136,5 @@ Klastry usługi HDInsight HBase obsługują wysoką dostępność HBase Master. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dostępność i niezawodność klastrów Apache Hadoop w usłudze HDInsight](hdinsight-high-availability-linux.md)
+- [Dostępność i niezawodność klastrów Apache Hadoop w usłudze HDInsight](./hdinsight-business-continuity.md)
 - [Architektura sieci wirtualnej usługi Azure HDInsight](hdinsight-virtual-network-architecture.md)

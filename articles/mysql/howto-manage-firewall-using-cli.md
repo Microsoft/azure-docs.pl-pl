@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d981bf66ef9c17fda031e66e12e18a2ad9c67cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7f8547419b45314ad044b41957a53085cdbe13
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503059"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546402"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Tworzenie reguł zapory Azure Database for MySQL i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do serwera Azure Database for MySQL z określonego adresu IP lub zakresu adresów IP. Korzystając z wygodnych poleceń interfejsu wiersza polecenia platformy Azure, można tworzyć, aktualizować, usuwać i wyświetlać reguły zapory w celu zarządzania serwerem. Aby zapoznać się z omówieniem zapór Azure Database for MySQL, zobacz [reguły zapory Azure Database for MySQL Server](./concepts-firewall-rules.md).
@@ -21,18 +21,18 @@ Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do 
 Reguły Virtual Network (VNet) mogą również służyć do zabezpieczania dostępu do serwera. Dowiedz się więcej o [tworzeniu i zarządzaniu Virtual Network punktów końcowych usługi i reguł przy użyciu interfejsu wiersza polecenia platformy Azure](howto-manage-vnet-using-cli.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * [Serwer Azure Database for MySQL i baza danych](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Polecenia reguły zapory:
 Polecenie **AZ MySQL Server firewall-Rule** jest używane w interfejsie wiersza polecenia platformy Azure do tworzenia, usuwania, wyświetlania i aktualizowania reguł zapory.
 
 Polecenia:
-- **Tworzenie**: Tworzenie reguły zapory serwera Azure MySQL.
-- **usuwanie**: Usuwanie reguły zapory serwera Azure MySQL.
-- **Lista**: Lista reguł zapory serwera Azure MySQL.
-- **Pokaż**: pokazuje szczegóły reguły zapory serwera Azure MySQL.
-- **Aktualizacja**: aktualizowanie reguły zapory serwera Azure MySQL.
+- **Tworzenie** : Tworzenie reguły zapory serwera Azure MySQL.
+- **usuwanie** : Usuwanie reguły zapory serwera Azure MySQL.
+- **Lista** : Lista reguł zapory serwera Azure MySQL.
+- **Pokaż** : pokazuje szczegóły reguły zapory serwera Azure MySQL.
+- **Aktualizacja** : aktualizowanie reguły zapory serwera Azure MySQL.
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Zaloguj się do platformy Azure i wystaw serwery Azure Database for MySQL
 Bezpiecznie łącz interfejs wiersza polecenia platformy Azure z kontem platformy Azure za pomocą polecenia **AZ login** .

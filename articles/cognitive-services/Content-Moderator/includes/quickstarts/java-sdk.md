@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 1e32cd924c8e0f713ebe7cedfca0466a1e07c3bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 304807214958a9893560b176e96f6bfcf79877ab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91332580"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548054"
 ---
 Rozpocznij pracę z biblioteką kliencką Content Moderator platformy Azure dla języka Java. Wykonaj następujące kroki, aby zainstalować pakiet Maven i wypróbować przykładowy kod dla podstawowych zadań. 
 
@@ -24,42 +24,41 @@ Content Moderator to usługa AI, która umożliwia obsługę zawartości potencj
 
 Użyj biblioteki klienta Content Moderator dla języka Java, aby:
 
-* Umiarkowane obrazy dotyczące zawartości dla dorosłych lub erotycznej, tekstu lub ludzkich twarzy.
+* Obrazy umiarkowane
+* Tekst umiarkowany
 
-[Dokumentacja](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable)  |  referencyjna [Artefakt (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator)  |  [Przykłady](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
+[Dokumentacja](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-contentmoderator)  | źródłowy biblioteki [Artefakt (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator)  |  [Przykłady](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
 * Bieżąca wersja [zestawu Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Narzędzie kompilacji Gradle](https://gradle.org/install/)lub inny Menedżer zależności.
+* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title=" Utwórz zasób Content moderator "  target="_blank"> utwórz zasób Content Moderator <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na jego wdrożenie i kliknij przycisk **Przejdź do zasobu** .
+    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć swoją aplikację z Content Moderator. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
+    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 
-## <a name="create-a-content-moderator-resource"></a>Tworzenie zasobu Content Moderator
+## <a name="setting-up"></a>Konfigurowanie
 
-Usługa Azure Cognitive Services jest reprezentowana przez zasoby platformy Azure, które subskrybujesz. Utwórz zasób dla Content Moderator przy użyciu [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na komputerze lokalnym. Możesz również wykonać następujące czynności:
-
-* Wyświetl zasób na [Azure Portal](https://portal.azure.com/).
-
-Po uzyskaniu klucza z zasobu [Utwórz zmienną środowiskową](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza o nazwie `AZURE_CONTENTMODERATOR_KEY` .
-
-## <a name="create-a-new-gradle-project"></a>Utwórz nowy projekt Gradle
+### <a name="create-a-new-gradle-project"></a>Utwórz nowy projekt Gradle
 
 W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla aplikacji i przejdź do niego. 
 
 ```console
 mkdir myapp && cd myapp
 ```
-Uruchom polecenie `gradle init`. To polecenie spowoduje utworzenie podstawowych plików kompilacji dla Gradle, w tym *Build. Gradle. KTS*, który jest używany w środowisku uruchomieniowym do tworzenia i konfigurowania aplikacji. Uruchom następujące polecenie w katalogu roboczym:
+
+Uruchom `gradle init` polecenie z katalogu roboczego. To polecenie spowoduje utworzenie podstawowych plików kompilacji dla Gradle, w tym *Build. Gradle. KTS* , który jest używany w środowisku uruchomieniowym do tworzenia i konfigurowania aplikacji.
 
 ```console
 gradle init --type basic
 ```
 
-Po wyświetleniu monitu o wybranie skryptu kompilacji DSL wybierz pozycję **Kotlin**.
+Po wyświetleniu monitu wybierz pozycję **Język DSL** , a następnie **Kotlin** .
 
 ## <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
 
-Znajdź plik *Build. Gradle. KTS* i otwórz go za pomocą PREFEROWANEGO środowiska IDE lub edytora tekstu. Następnie skopiuj w poniższej konfiguracji kompilacji. Ta konfiguracja definiuje projekt jako aplikację Java, której punkt wejścia to Klasa **ContentModeratorQuickstart**. Importuje Content Moderator bibliotekę kliencką oraz zestaw SDK Gson dla serializacji JSON.
+Znajdź plik *Build. Gradle. KTS* i otwórz go za pomocą PREFEROWANEGO środowiska IDE lub edytora tekstu. Następnie skopiuj w poniższej konfiguracji kompilacji. Ta konfiguracja definiuje projekt jako aplikację Java, której punkt wejścia to Klasa **ContentModeratorQuickstart** . Importuje Content Moderator bibliotekę kliencką oraz zestaw SDK GSON dla serializacji JSON.
 
 ```kotlin
 plugins {
@@ -81,15 +80,35 @@ dependencies{
 }
 ```
 
-W katalogu roboczym Uruchom następujące polecenie, aby utworzyć folder źródłowy projektu.
+### <a name="create-a-java-file"></a>Tworzenie pliku języka Java
+
+
+W katalogu roboczym Uruchom następujące polecenie, aby utworzyć folder źródłowy projektu:
 
 ```console
 mkdir -p src/main/java
 ```
 
-Następnie utwórz plik o nazwie *ContentModeratorQuickstart. Java* w nowym folderze. Otwórz plik w preferowanym edytorze lub środowisku IDE i zaimportuj następujące biblioteki w górnej części:
+Przejdź do nowego folderu i Utwórz plik o nazwie *ContentModeratorQuickstart. Java* . Otwórz go w preferowanym edytorze lub środowisku IDE i Dodaj następujące `import` instrukcje:
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imports)]
+
+> [!TIP]
+> Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Można je znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java), która zawiera przykłady kodu w tym przewodniku Szybki Start.
+
+W klasie **ContentModeratorQuickstart** aplikacji Utwórz zmienne dla klucza i punktu końcowego zasobu.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_creds)]
+
+> [!IMPORTANT]
+> Przejdź do witryny Azure Portal. Jeśli zasób [Product Name] utworzony w sekcji **wymagań wstępnych** został pomyślnie wdrożony, kliknij przycisk **Przejdź do zasobu** w obszarze **następne kroki** . Klucz i punkt końcowy można znaleźć na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami** . 
+>
+> Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [zabezpieczeń](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) Cognitive Services.
+
+W metodzie **głównej** aplikacji Dodaj wywołania metod używanych w tym przewodniku Szybki Start. Zdefiniujesz je później.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_maincalls)]
+
 
 ## <a name="object-model"></a>Model obiektów
 
@@ -109,41 +128,29 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Obrazy umiarkowane](#moderate-images)
+* [Tekst umiarkowany](#moderate-text)
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-> [!NOTE]
-> W tym kroku przyjęto założenie, że dla klucza Content Moderator została [utworzona zmienna środowiskowa](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) o nazwie `AZURE_CONTENTMODERATOR_KEY` .
-
-W `main` metodzie aplikacji Utwórz obiekt [ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) przy użyciu wartości punktu końcowego subskrypcji i zmiennej środowiskowej klucza subskrypcji. 
-
-> [!NOTE]
-> Jeśli zmienna środowiskowa została utworzona po uruchomieniu aplikacji, należy zamknąć i ponownie otworzyć Edytor, środowisko IDE lub powłokę, na których jest uruchomiona, aby uzyskać dostęp do zmiennej.
+W `main` metodzie aplikacji Utwórz obiekt [ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) przy użyciu wartości punktu końcowego subskrypcji i klucza subskrypcji.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_client)]
 
 ## <a name="moderate-images"></a>Obrazy umiarkowane
 
-### <a name="get-sample-images"></a>Pobierz przykładowe obrazy
+### <a name="set-up-sample-image"></a>Konfigurowanie przykładowego obrazu
 
-W folderze **src/Main/** folder projektu Utwórz folder **zasobów** i przejdź do niego. Następnie utwórz nowy plik tekstowy *ImageFiles.txt*. W tym pliku należy dodać adresy URL obrazów do analizowania &mdash; jednego adresu URL w każdym wierszu. Możesz użyć następujących przykładowych obrazów:
+W nowej metodzie Skonstruuj obiekt **[BodyModelModel](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.models.bodymodelmodel?view=azure-java-stable)** z danym ciągiem adresu URL, który wskazuje na obraz.
 
-```
-https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
-https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod)]
+
 
 ### <a name="define-helper-class"></a>Zdefiniuj klasę pomocnika
 
-Następnie w pliku *ContentModeratorQuickstart. Java* Dodaj następującą definicję klasy wewnątrz klasy **ContentModeratorQuickstart** . Ta wewnętrzna Klasa zostanie później użyta w procesie moderowania obrazu.
+Następnie w pliku *ContentModeratorQuickstart. Java* Dodaj następującą definicję klasy wewnątrz klasy **ContentModeratorQuickstart** . Ta wewnętrzna Klasa jest używana w procesie moderowania obrazu.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_evaluationdata)]
 
-### <a name="iterate-through-images"></a>Wykonaj iterację obrazów
-
-Następnie Dodaj następujący kod na końcu `main` metody. Można też dodać go do oddzielnej metody, która jest wywoływana z `main` . Ten kod jest wykonywany w każdym wierszu pliku _ImageFiles.txt_ .
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_iterate)]
 
 ### <a name="analyze-content"></a>Analizowanie zawartości
 Ten wiersz kodu sprawdza obraz pod podanym adresem URL dla zawartości dla dorosłych lub erotycznej. Informacje na temat tych warunków można znaleźć w przewodniku koncepcyjnym moderowania obrazu.
@@ -166,13 +173,38 @@ Na koniec Zapisz zwrócone informacje na `EvaluationData` liście.
 
 ### <a name="print-results"></a>Drukuj wyniki
 
-Po `while` pętli Dodaj następujący kod, który drukuje wyniki do konsoli programu i do pliku wyjściowego, *src/Main/sources/ModerationOutput.json*.
+Po `while` pętli Dodaj następujący kod, który drukuje wyniki do konsoli programu i do pliku wyjściowego, *src/Main/sources/ModerationOutput.json* .
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_printdata)]
 
 Zamknij `try` instrukcję i Dodaj `catch` instrukcję, aby ukończyć metodę.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_catch)]
+
+## <a name="moderate-text"></a>Tekst umiarkowany
+
+### <a name="set-up-sample-text"></a>Konfigurowanie przykładowego tekstu
+
+W górnej części klasy **ContentModeratorQuickstart** Zdefiniuj odwołanie do lokalnego pliku tekstowego. Dodaj plik txt do katalogu projektu i wprowadź tekst, który chcesz przeanalizować.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_var)]
+
+### <a name="analyze-text"></a>Analizowanie tekstu
+
+Utwórz nową metodę, która odczytuje plik txt i wywołuje metodę **screenText** w każdym wierszu.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod)]
+
+### <a name="print-text-moderation-results"></a>Wyniki moderowania tekstu wydruku
+
+Dodaj następujący kod, aby wydrukować wyniki moderowania do pliku JSON w katalogu projektu.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_print)]
+
+Zamknij `try` instrukcję i, `catch` Aby zakończyć metodę.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_catch)]
+
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 

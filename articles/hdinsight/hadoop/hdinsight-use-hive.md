@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462279"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540401"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Co to jest Apache Hive i HiveQL w usłudze Azure HDInsight?
 
@@ -72,14 +72,14 @@ Aby uzyskać więcej informacji na temat formatów plików obsługiwanych przez 
 
 Istnieją dwa typy tabel, które można utworzyć przy użyciu programu Hive:
 
-* __Wewnętrzne__: dane są przechowywane w magazynie danych programu Hive. Magazyn danych znajduje się w `/hive/warehouse/` domyślnym magazynie klastra.
+* __Wewnętrzne__ : dane są przechowywane w magazynie danych programu Hive. Magazyn danych znajduje się w `/hive/warehouse/` domyślnym magazynie klastra.
 
     Użyj tabel wewnętrznych, gdy są spełnione jeden z następujących warunków:
 
     * Dane są tymczasowe.
     * Program Hive ma zarządzać cyklem życia tabeli i danych.
 
-* __Zewnętrzne__: dane są przechowywane poza magazynem danych. Dane mogą być przechowywane w dowolnym magazynie dostępnym w klastrze.
+* __Zewnętrzne__ : dane są przechowywane poza magazynem danych. Dane mogą być przechowywane w dowolnym magazynie dostępnym w klastrze.
 
     Użyj tabel zewnętrznych, gdy są spełnione jeden z następujących warunków:
 
@@ -88,11 +88,11 @@ Istnieją dwa typy tabel, które można utworzyć przy użyciu programu Hive:
     * Potrzebujesz niestandardowej lokalizacji, takiej jak konto magazynu innego niż domyślne.
     * Program inny niż Hive zarządza formatem danych, lokalizacją i tak dalej.
 
-Aby uzyskać więcej informacji, zobacz wpis w blogu dotyczący [wewnętrznej i zewnętrznej tabeli programu Hive](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) .
+Aby uzyskać więcej informacji, zobacz wpis w blogu dotyczący [wewnętrznej i zewnętrznej tabeli programu Hive](/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro) .
 
 ## <a name="user-defined-functions-udf"></a>Funkcje zdefiniowane przez użytkownika (UDF)
 
-Gałąź Hive można również rozszerzyć za poorednictwem **funkcji zdefiniowanych przez użytkownika (UDF)**. System UDF umożliwia implementację funkcji lub logiki, która nie jest łatwo modelowana w HiveQL. Przykład użycia UDF z programem Hive można znaleźć w następujących dokumentach:
+Gałąź Hive można również rozszerzyć za poorednictwem **funkcji zdefiniowanych przez użytkownika (UDF)** . System UDF umożliwia implementację funkcji lub logiki, która nie jest łatwo modelowana w HiveQL. Przykład użycia UDF z programem Hive można znaleźć w następujących dokumentach:
 
 * [Używanie funkcji zdefiniowanej przez użytkownika w języku Java z Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -100,7 +100,7 @@ Gałąź Hive można również rozszerzyć za poorednictwem **funkcji zdefiniowa
 
 * [Używanie funkcji zdefiniowanej przez użytkownika w języku C# z Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Jak dodać niestandardową Apache Hive funkcję zdefiniowaną przez użytkownika do usługi HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
+* [Jak dodać niestandardową Apache Hive funkcję zdefiniowaną przez użytkownika do usługi HDInsight](/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Przykład Apache Hive funkcji zdefiniowanej przez użytkownika w celu przekonwertowania formatów daty/godziny na sygnaturę czasową Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -133,11 +133,11 @@ W poprzednim przykładzie instrukcje HiveQL wykonują następujące czynności:
 
 |Instrukcja |Opis |
 |---|---|
-|USUŃ TABELĘ|Jeśli tabela już istnieje, usuń ją.|
+|DROP TABLE|Jeśli tabela już istnieje, usuń ją.|
 |TWORZENIE TABELI ZEWNĘTRZNEJ|Tworzy nową tabelę **zewnętrzną** w usłudze Hive. Tabele zewnętrzne przechowują wyłącznie definicję tabeli w programie Hive. Dane pozostaną w oryginalnej lokalizacji i w oryginalnym formacie.|
 |FORMAT WIERSZA|Informuje Hive, jak dane są sformatowane. W takim przypadku pola w każdym dzienniku są oddzielone spacją.|
 |PRZECHOWYWANE JAKO LOKALIZACJA TEXTFILE|Informuje gałąź, w której dane są przechowywane ( `example/data` katalog) i które są przechowywane jako tekst. Dane mogą znajdować się w jednym pliku lub rozłożyć na wiele plików w katalogu.|
-|SELECT|Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]**. Ta instrukcja zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.|
+|SELECT|Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]** . Ta instrukcja zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.|
 |INPUT__FILE__NAME jak "%. log"|Gałąź próbuje zastosować schemat do wszystkich plików w katalogu. W takim przypadku katalog zawiera pliki, które nie są zgodne ze schematem. Aby zapobiec utracie danych bezużytecznych w wyniku, ta instrukcja informuje gałąź, że będziemy zwracać tylko dane z plików kończących się na. log.|
 
 > [!NOTE]  
@@ -168,7 +168,7 @@ Te instrukcje wykonują następujące czynności:
 |---|---|
 |CREATE TABLE, JEŚLI NIE ISTNIEJE|Jeśli tabela nie istnieje, utwórz ją. Ponieważ **zewnętrzne** słowo kluczowe nie jest używane, ta instrukcja tworzy tabelę wewnętrzną. Tabela jest przechowywana w magazynie danych programu Hive i jest w pełni zarządzana przez program Hive.|
 |PRZECHOWYWANE JAKO ORC|Dane są przechowywane w formacie zoptymalizowanego wiersza kolumnowy (ORC). ORC to wysoce zoptymalizowany i wydajny format służący do przechowywania danych programu Hive.|
-|WSTAW ZASTĄPIENIE... ZAZNACZENIA|Wybiera wiersze z tabeli **log4jLogs** zawierającej wartość **[Error]**, a następnie wstawia dane do tabeli **errorLogs** .|
+|WSTAW ZASTĄPIENIE... ZAZNACZENIA|Wybiera wiersze z tabeli **log4jLogs** zawierającej wartość **[Error]** , a następnie wstawia dane do tabeli **errorLogs** .|
 
 > [!NOTE]  
 > W przeciwieństwie do tabel zewnętrznych, porzucanie tabeli wewnętrznej powoduje również usunięcie danych źródłowych.
@@ -197,11 +197,11 @@ Azure Data Factory umożliwia korzystanie z usługi HDInsight w ramach potoku Da
 
 Do uruchomienia zadania Hive można użyć SQL Server Integration Services (SSIS). Pakiet Azure Feature Pack dla usług SSIS zawiera następujące składniki, które działają z zadaniami Hive w usłudze HDInsight.
 
-* [Zadanie Hive usługi Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Zadanie Hive usługi Azure HDInsight](/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Menedżer połączeń subskrypcji platformy Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Menedżer połączeń subskrypcji platformy Azure](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Aby uzyskać więcej informacji, zobacz dokumentację [pakietu Feature Pack platformy Azure](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) .
+Aby uzyskać więcej informacji, zobacz dokumentację [pakietu Feature Pack platformy Azure](/sql/integration-services/azure-feature-pack-for-integration-services-ssis) .
 
 ### <a name="apache-oozie"></a>Apache Oozie
 

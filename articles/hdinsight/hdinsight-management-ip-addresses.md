@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974672"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547813"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresy IP zarządzania usługą HDInsight
 
@@ -40,10 +40,10 @@ Zezwalaj na ruch z następujących adresów IP dla usług Azure HDInsight Health
 
 | Źródłowy adres IP | Element docelowy  | Kierunek |
 | ---- | ----- | ----- |
-| 168.61.49.99 | \*: 443 | Inbound |
-| 23.99.5.239 | \*: 443 | Inbound |
-| 168.61.48.131 | \*: 443 | Inbound |
-| 138.91.141.162 | \*: 443 | Inbound |
+| 168.61.49.99 | \*: 443 | Przychodzący |
+| 23.99.5.239 | \*: 443 | Przychodzący |
+| 168.61.48.131 | \*: 443 | Przychodzący |
+| 138.91.141.162 | \*: 443 | Przychodzący |
 
 ## <a name="health-and-management-services-specific-regions"></a>Usługi kondycji i zarządzania: określone regiony
 
@@ -54,40 +54,40 @@ Zezwalaj na ruch z adresów IP wymienionych dla usług Azure HDInsight Health i 
 
 | Country (Kraj) | Region | Dozwolone źródłowe adresy IP | Dozwolone miejsce docelowe | Kierunek |
 | ---- | ---- | ---- | ---- | ----- |
-| Azja | Azja Wschodnia | 23.102.235.122</br>52.175.38.134 | \*: 443 | Inbound |
-| &nbsp; | Southeast Asia | 13.76.245.160</br>13.76.136.249 | \*: 443 | Inbound |
-| Australia | Australia Wschodnia | 104.210.84.115</br>13.75.152.195 | \*: 443 | Inbound |
-| &nbsp; | Australia Południowo-Wschodnia | 13.77.2.56</br>13.77.2.94 | \*: 443 | Inbound |
-| Brazylia | Brazil South | 191.235.84.104</br>191.235.87.113 | \*: 443 | Inbound |
-| Canada | Kanada Wschodnia | 52.229.127.96</br>52.229.123.172 | \*: 443 | Inbound |
-| &nbsp; | Kanada Środkowa | 52.228.37.66</br>52.228.45.222 |\*: 443 | Inbound |
-| Chiny | Chiny Północne | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*: 443 | Inbound |
-| &nbsp; | Chiny Wschodnie | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*: 443 | Inbound |
-| &nbsp; | Chiny Północne 2 | 40.73.37.141</br>40.73.38.172 | \*: 443 | Inbound |
-| &nbsp; | Chiny Wschodnie 2 | 139.217.227.106</br>139.217.228.187 | \*: 443 | Inbound |
-| Europa | Europa Północna | 52.164.210.96</br>13.74.153.132 | \*: 443 | Inbound |
-| &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | \*: 443 | Inbound |
-| Francja | Francja Środkowa| 20.188.39.64</br>40.89.157.135 | \*: 443 | Inbound |
-| Niemcy | Niemcy Środkowe | 51.4.146.68</br>51.4.146.80 | \*: 443 | Inbound |
-| &nbsp; | Niemcy Północno-Wschodnie | 51.5.150.132</br>51.5.144.101 | \*: 443 | Inbound |
-| Indie | Indie Środkowe | 52.172.153.209</br>52.172.152.49 | \*: 443 | Inbound |
-| &nbsp; | Indie Południowe | 104.211.223.67<br/>104.211.216.210 | \*: 443 | Inbound |
-| Japonia | Japan East | 13.78.125.90</br>13.78.89.60 | \*: 443 | Inbound |
-| &nbsp; | Japonia Zachodnia | 40.74.125.69</br>138.91.29.150 | \*: 443 | Inbound |
-| Korea | Korea Środkowa | 52.231.39.142</br>52.231.36.209 | \*: 443 | Inbound |
-| &nbsp; | Korea Południowa | 52.231.203.16</br>52.231.205.214 | \*: 443 | Inbound
-| Zjednoczone Królestwo | Zachodnie Zjednoczone Królestwo | 51.141.13.110</br>51.141.7.20 | \*: 443 | Inbound |
-| &nbsp; | Południowe Zjednoczone Królestwo | 51.140.47.39</br>51.140.52.16 | \*: 443 | Inbound |
-| Stany Zjednoczone | Central US | 13.89.171.122</br>13.89.171.124 | \*: 443 | Inbound |
-| &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*: 443 | Inbound |
-| &nbsp; | Północno-środkowe stany USA | 157.56.8.38</br>157.55.213.99 | \*: 443 | Inbound |
-| &nbsp; | Zachodnio-środkowe stany USA | 52.161.23.15</br>52.161.10.167 | \*: 443 | Inbound |
-| &nbsp; | Zachodnie stany USA | 13.64.254.98</br>23.101.196.19 | \*: 443 | Inbound |
-| &nbsp; | Zachodnie stany USA 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | Inbound |
-| &nbsp; | Północne Zjednoczone Emiraty Arabskie | 65.52.252.96</br>65.52.252.97 | \*: 443 | Inbound |
-| &nbsp; | Środkowy Zjednoczone Emiraty Arabskie | 20.37.76.96</br>20.37.76.99 | \*: 443 | Inbound |
+| Azja | Azja Wschodnia | 23.102.235.122</br>52.175.38.134 | \*: 443 | Przychodzący |
+| &nbsp; | Southeast Asia | 13.76.245.160</br>13.76.136.249 | \*: 443 | Przychodzący |
+| Australia | Australia Wschodnia | 104.210.84.115</br>13.75.152.195 | \*: 443 | Przychodzący |
+| &nbsp; | Australia Południowo-Wschodnia | 13.77.2.56</br>13.77.2.94 | \*: 443 | Przychodzący |
+| Brazylia | Brazil South | 191.235.84.104</br>191.235.87.113 | \*: 443 | Przychodzący |
+| Kanada | Kanada Wschodnia | 52.229.127.96</br>52.229.123.172 | \*: 443 | Przychodzący |
+| &nbsp; | Kanada Środkowa | 52.228.37.66</br>52.228.45.222 |\*: 443 | Przychodzący |
+| Chiny | Chiny Północne | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*: 443 | Przychodzący |
+| &nbsp; | Chiny Wschodnie | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*: 443 | Przychodzący |
+| &nbsp; | Chiny Północne 2 | 40.73.37.141</br>40.73.38.172 | \*: 443 | Przychodzący |
+| &nbsp; | Chiny Wschodnie 2 | 139.217.227.106</br>139.217.228.187 | \*: 443 | Przychodzący |
+| Europa | Europa Północna | 52.164.210.96</br>13.74.153.132 | \*: 443 | Przychodzący |
+| &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | \*: 443 | Przychodzący |
+| Francja | Francja Środkowa| 20.188.39.64</br>40.89.157.135 | \*: 443 | Przychodzący |
+| Niemcy | Niemcy Środkowe | 51.4.146.68</br>51.4.146.80 | \*: 443 | Przychodzący |
+| &nbsp; | Niemcy Północno-Wschodnie | 51.5.150.132</br>51.5.144.101 | \*: 443 | Przychodzący |
+| Indie | Indie Środkowe | 52.172.153.209</br>52.172.152.49 | \*: 443 | Przychodzący |
+| &nbsp; | Indie Południowe | 104.211.223.67<br/>104.211.216.210 | \*: 443 | Przychodzący |
+| Japonia | Japonia Wschodnia | 13.78.125.90</br>13.78.89.60 | \*: 443 | Przychodzący |
+| &nbsp; | Japonia Zachodnia | 40.74.125.69</br>138.91.29.150 | \*: 443 | Przychodzący |
+| Korea | Korea Środkowa | 52.231.39.142</br>52.231.36.209 | \*: 443 | Przychodzący |
+| &nbsp; | Korea Południowa | 52.231.203.16</br>52.231.205.214 | \*: 443 | Przychodzący
+| Zjednoczone Królestwo | Zachodnie Zjednoczone Królestwo | 51.141.13.110</br>51.141.7.20 | \*: 443 | Przychodzący |
+| &nbsp; | Południowe Zjednoczone Królestwo | 51.140.47.39</br>51.140.52.16 | \*: 443 | Przychodzący |
+| Stany Zjednoczone | Central US | 13.89.171.122</br>13.89.171.124 | \*: 443 | Przychodzący |
+| &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*: 443 | Przychodzący |
+| &nbsp; | Północno-środkowe stany USA | 157.56.8.38</br>157.55.213.99 | \*: 443 | Przychodzący |
+| &nbsp; | Zachodnio-środkowe stany USA | 52.161.23.15</br>52.161.10.167 | \*: 443 | Przychodzący |
+| &nbsp; | Zachodnie stany USA | 13.64.254.98</br>23.101.196.19 | \*: 443 | Przychodzący |
+| &nbsp; | Zachodnie stany USA 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | Przychodzący |
+| &nbsp; | Północne Zjednoczone Emiraty Arabskie | 65.52.252.96</br>65.52.252.97 | \*: 443 | Przychodzący |
+| &nbsp; | Środkowy Zjednoczone Emiraty Arabskie | 20.37.76.96</br>20.37.76.99 | \*: 443 | Przychodzący |
 
-Aby uzyskać informacje dotyczące adresów IP, które mają być używane na potrzeby Azure Government, zobacz dokument [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) .
+Aby uzyskać informacje dotyczące adresów IP, które mają być używane na potrzeby Azure Government, zobacz dokument [Azure Government Intelligence + Analytics](../azure-government/compare-azure-government-global-azure.md) .
 
 Aby uzyskać więcej informacji, zobacz [sterowanie ruchem sieciowym](./control-network-traffic.md).
 

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: f3a58a6766c42385dd6611c2014ba36fd1078710
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fe1d5a5a472b47abd364a89d1a65f1249c67c0d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939291"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538667"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Monitoruj Azure Database for MySQL elastycznych serwerów za pomocą wbudowanych metryk
 
@@ -24,9 +24,9 @@ W tym artykule opisano różne metryki dostępne dla elastycznego serwera, któr
 
 ## <a name="available-metrics"></a>Dostępne metryki
 
-Azure Database for MySQL elastyczny serwer udostępnia różne metryki, aby zrozumieć, jak działa obciążenie i na podstawie tych danych można zrozumieć wpływ na serwer i aplikację. Na przykład w elastycznym serwerze można monitorować **procent procesora CPU hosta**, **aktywne połączenia**, **procent operacji we/wy**i **procent pamięci hosta** , aby określić, kiedy występuje wpływ na wydajność. Z tego miejsca może być konieczne zoptymalizowanie obciążenia, skalowanie w pionie poprzez zmianę warstw obliczeniowych lub skalowanie w poziomie przy użyciu repliki odczytu.
+Azure Database for MySQL elastyczny serwer udostępnia różne metryki, aby zrozumieć, jak działa obciążenie i na podstawie tych danych można zrozumieć wpływ na serwer i aplikację. Na przykład w elastycznym serwerze można monitorować **procent procesora CPU hosta** , **aktywne połączenia** , **procent operacji we/wy** i **procent pamięci hosta** , aby określić, kiedy występuje wpływ na wydajność. Z tego miejsca może być konieczne zoptymalizowanie obciążenia, skalowanie w pionie poprzez zmianę warstw obliczeniowych lub skalowanie w poziomie przy użyciu repliki odczytu.
 
-Wszystkie metryki platformy Azure mają częstotliwość jednominutową, a każda Metryka zapewnia 30-dniową historię. Można skonfigurować alerty dotyczące metryk. Instrukcje krok po kroku znajdują się w temacie [How to set up Alerts](./how-to-alert-on-metric.md). Inne zadania obejmują Konfigurowanie zautomatyzowanych akcji, wykonywanie zaawansowanych analiz i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Wszystkie metryki platformy Azure mają częstotliwość jednominutową, a każda Metryka zapewnia 30-dniową historię. Można skonfigurować alerty dotyczące metryk. Instrukcje krok po kroku znajdują się w temacie [How to set up Alerts](./how-to-alert-on-metric.md). Inne zadania obejmują Konfigurowanie zautomatyzowanych akcji, wykonywanie zaawansowanych analiz i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista metryk
 Te metryki są dostępne dla Azure Database for MySQL:

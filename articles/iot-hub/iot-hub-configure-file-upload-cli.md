@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: 830e72a8de047b0219cfa0be264fad2e1f83beb2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142605"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536066"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Konfigurowanie przekazywania plików IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -25,7 +25,7 @@ Do ukończenia tego samouczka są potrzebne są następujące elementy:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut.
 
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 * Usługa Azure IoT Hub. Jeśli nie masz usługi IoT Hub, możesz użyć [ `az iot hub create` polecenia](/cli/azure/iot/hub#az-iot-hub-create) w celu utworzenia jednego lub [utworzenia Centrum IoT Hub przy użyciu portalu](iot-hub-create-through-portal.md).
 
@@ -35,7 +35,7 @@ Do ukończenia tego samouczka są potrzebne są następujące elementy:
 
 Zaloguj się do konta platformy Azure i wybierz subskrypcję.
 
-1. W wierszu polecenia uruchom [polecenie logowania](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
+1. W wierszu polecenia uruchom [polecenie logowania](/cli/azure/get-started-with-azure-cli):
 
     ```azurecli
     az login
@@ -89,15 +89,15 @@ Teraz można skonfigurować Centrum IoT, aby umożliwić [przekazywanie plików 
 
 Konfiguracja wymaga następujących wartości:
 
-* **Kontener magazynu**: kontener obiektów BLOB na koncie usługi Azure Storage w bieżącej subskrypcji platformy Azure do skojarzenia z Twoim centrum IoT Hub. Pobrano niezbędne informacje o koncie magazynu w poprzedniej sekcji. IoT Hub automatycznie generuje identyfikatory URI SAS z uprawnieniami do zapisu w tym kontenerze obiektów BLOB dla urządzeń, które będą używane podczas przekazywania plików.
+* **Kontener magazynu** : kontener obiektów BLOB na koncie usługi Azure Storage w bieżącej subskrypcji platformy Azure do skojarzenia z Twoim centrum IoT Hub. Pobrano niezbędne informacje o koncie magazynu w poprzedniej sekcji. IoT Hub automatycznie generuje identyfikatory URI SAS z uprawnieniami do zapisu w tym kontenerze obiektów BLOB dla urządzeń, które będą używane podczas przekazywania plików.
 
-* **Odbieraj powiadomienia dla przekazanych plików**: Włącz lub Wyłącz powiadomienia dotyczące przekazywania plików.
+* **Odbieraj powiadomienia dla przekazanych plików** : Włącz lub Wyłącz powiadomienia dotyczące przekazywania plików.
 
-* Czas **wygaśnięcia sygnatury dostępu współdzielonego**: to ustawienie jest czasem wygaśnięcia identyfikatorów URI sygnatury dostępu współdzielonego zwróconego do urządzenia przez IoT Hub. Domyślnie ustawiona na godzinę.
+* Czas **wygaśnięcia sygnatury dostępu współdzielonego** : to ustawienie jest czasem wygaśnięcia identyfikatorów URI sygnatury dostępu współdzielonego zwróconego do urządzenia przez IoT Hub. Domyślnie ustawiona na godzinę.
 
-* **Ustawienia powiadomień o pliku domyślny czas wygaśnięcia**: godzina wygaśnięcia powiadomienia o przekazaniu pliku przed jego wygaśnięciem. Domyślnie ustawiona na jeden dzień.
+* **Ustawienia powiadomień o pliku domyślny czas wygaśnięcia** : godzina wygaśnięcia powiadomienia o przekazaniu pliku przed jego wygaśnięciem. Domyślnie ustawiona na jeden dzień.
 
-* **Maksymalna liczba dostaw powiadomień o pliku**: liczba prób dostarczenia przez IoT Hub powiadomienia o przekazaniu pliku. Domyślnie ustawiona na 10.
+* **Maksymalna liczba dostaw powiadomień o pliku** : liczba prób dostarczenia przez IoT Hub powiadomienia o przekazaniu pliku. Domyślnie ustawiona na 10.
 
 Użyj następujących poleceń interfejsu wiersza polecenia platformy Azure, aby skonfigurować ustawienia przekazywania plików w centrum IoT:
 
@@ -138,8 +138,7 @@ Aby uzyskać więcej informacji na temat możliwości przekazywania plików IoT 
 Skorzystaj z poniższych linków, aby dowiedzieć się więcej o zarządzaniu usługą Azure IoT Hub:
 
 * [Zbiorcze zarządzanie urządzeniami IoT](iot-hub-bulk-identity-mgmt.md)
-* [Metryki IoT Hub](iot-hub-metrics.md)
-* [Monitorowanie operacji](iot-hub-operations-monitoring.md)
+* [Monitorowanie Centrum IoT Hub](monitor-iot-hub.md)
 
 Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
 
