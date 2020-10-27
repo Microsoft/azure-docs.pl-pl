@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: 7ce183595ed8e20c4b5cf4afe9ac1174882dc392
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d24c63e3a2989173e718cd27fa43cecc50181047
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370325"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533499"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Samouczek: korzystanie z platformy Apache HBase w usłudze Azure HDInsight
 
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Bash. W przykładach w tym artykule użyto powłoki bash w systemie Windows 10 dla poleceń zwinięcie. Aby uzyskać instrukcje dotyczące instalacji, zobacz artykuł [podsystem instalacji systemu Windows dla systemu Linux w systemie Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) .  Inne [powłoki systemu UNIX](https://www.gnu.org/software/bash/) również będą działały.  Przykłady Zastąp, z niewielkimi modyfikacjami, mogą współpracować z wierszem polecenia systemu Windows.  Można też użyć polecenia cmdlet programu Windows PowerShell [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
+* Bash. W przykładach w tym artykule użyto powłoki bash w systemie Windows 10 dla poleceń zwinięcie. Aby uzyskać instrukcje dotyczące instalacji, zobacz artykuł [podsystem instalacji systemu Windows dla systemu Linux w systemie Windows 10](/windows/wsl/install-win10) .  Inne [powłoki systemu UNIX](https://www.gnu.org/software/bash/) również będą działały.  Przykłady Zastąp, z niewielkimi modyfikacjami, mogą współpracować z wierszem polecenia systemu Windows.  Można też użyć polecenia cmdlet programu Windows PowerShell [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
 ## <a name="create-apache-hbase-cluster"></a>Tworzenie klastra Apache HBase
 
@@ -50,14 +50,14 @@ Poniższa procedura używa szablonu Azure Resource Manager do utworzenia klastra
     |Grupa zasobów|Utwórz grupę usługi Azure Resource Management lub Użyj istniejącej grupy.|
     |Lokalizacja|Określ lokalizację grupy zasobów. |
     |NazwaKlastra|Wprowadź nazwę dla klastra HBase.|
-    |Nazwa użytkownika i hasło logowania do klastra|Domyślna nazwa logowania to **admin**.|
-    |Nazwa użytkownika i hasło protokołu SSH|Domyślna nazwa użytkownika to **sshuser**.|
+    |Nazwa użytkownika i hasło logowania do klastra|Domyślna nazwa logowania to **admin** .|
+    |Nazwa użytkownika i hasło protokołu SSH|Domyślna nazwa użytkownika to **sshuser** .|
 
     Inne parametry są opcjonalne.  
 
     Każdy klaster zależy od konta usługi Azure Storage. Po usunięciu klastra dane pozostają na koncie magazynu. Domyślna nazwa konta magazynu klastra to nazwa klastra z dołączonym ciągiem „store”. Jest to stałe w sekcji zmienne szablonu.
 
-3. Zaznacz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia**, a następnie kliknij przycisk **Kup**. Utworzenie klastra trwa około 20 minut.
+3. Zaznacz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia** , a następnie kliknij przycisk **Kup** . Utworzenie klastra trwa około 20 minut.
 
 Po usunięciu klastra HBase można utworzyć inny klaster HBase za pomocą tego samego domyślnego kontenera obiektów blob. Nowy klaster przejmuje tabele bazy danych HBase utworzone w oryginalnym klastrze. Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra.
 
@@ -228,7 +228,7 @@ Z usługi Hive można także wykonywać zapytania dotyczące danych HBase przy u
 
 Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego](https://en.wikipedia.org/wiki/Basic_access_authentication). Należy zawsze tworzyć żądania przy użyciu protokołu HTTPS (HTTP Secure), aby mieć pewność, że poświadczenia są bezpiecznie wysyłane do serwera.
 
-1. Aby włączyć interfejsy API REST usługi HBase w klastrze usługi HDInsight, Dodaj następujący niestandardowy skrypt uruchamiania do sekcji **Akcja skryptu** . Możesz dodać skrypt uruchamiania podczas tworzenia klastra lub po utworzeniu klastra. W **polu Typ węzła**wybierz opcję **serwery regionów** , aby upewnić się, że skrypt jest wykonywany tylko na serwerach regionu HBase.
+1. Aby włączyć interfejsy API REST usługi HBase w klastrze usługi HDInsight, Dodaj następujący niestandardowy skrypt uruchamiania do sekcji **Akcja skryptu** . Możesz dodać skrypt uruchamiania podczas tworzenia klastra lub po utworzeniu klastra. W **polu Typ węzła** wybierz opcję **serwery regionów** , aby upewnić się, że skrypt jest wykonywany tylko na serwerach regionu HBase.
 
 
     ```bash
@@ -332,7 +332,7 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
 
 1. Z menu po lewej stronie wybierz pozycję **HBase** .
 
-1. W górnej części strony wybierz pozycję **szybkie linki** , wskaż pozycję Active Node dozorcy link, a następnie wybierz pozycję **interfejs użytkownika HBase Master**.  Interfejs użytkownika zostanie otwarty w innej karcie przeglądarki:
+1. W górnej części strony wybierz pozycję **szybkie linki** , wskaż pozycję Active Node dozorcy link, a następnie wybierz pozycję **interfejs użytkownika HBase Master** .  Interfejs użytkownika zostanie otwarty w innej karcie przeglądarki:
 
    ![Interfejs użytkownika usługi HDInsight Apache HBase serwera hmaster](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
@@ -349,10 +349,10 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
 Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra. Można użyć polecenia HBase `disable 'Contacts'` . Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster bazy danych HBase, wykonując następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. W polu **Wyszukaj** w górnej części wpisz **HDInsight**.
-1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
+1. W polu **Wyszukaj** w górnej części wpisz **HDInsight** .
+1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi** .
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka.
-1. Kliknij polecenie **Usuń**. Kliknij przycisk **Yes** (Tak).
+1. Kliknij polecenie **Usuń** . Kliknij przycisk **Yes** (Tak).
 
 ## <a name="next-steps"></a>Następne kroki
 

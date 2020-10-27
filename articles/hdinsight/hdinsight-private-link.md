@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426389"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547422"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Zabezpiecz i Izoluj klastry usługi Azure HDInsight za pomocą prywatnego linku (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Prywatne klastry usługi HDInsight można tworzyć przez skonfigurowanie określ
 
 ## <a name="remove-public-ip-addresses"></a>Usuń publiczne adresy IP
 
-Domyślnie element RP usługi HDInsight używa połączenia *przychodzącego* z klastrem przy użyciu publicznych adresów IP. Gdy `resourceProviderConnection` Właściwość Network jest ustawiona na *wychodzące*, powoduje odwrócenie połączeń do jednostki uzależnionej usługi HDInsight, dzięki czemu połączenia są zawsze inicjowane z wnętrza klastra do jednostki uzależnionej. Bez połączenia przychodzącego nie ma potrzeby stosowania w przypadku tagów usługi przychodzącej ani publicznych adresów IP.
+Domyślnie element RP usługi HDInsight używa połączenia *przychodzącego* z klastrem przy użyciu publicznych adresów IP. Gdy `resourceProviderConnection` Właściwość Network jest ustawiona na *wychodzące* , powoduje odwrócenie połączeń do jednostki uzależnionej usługi HDInsight, dzięki czemu połączenia są zawsze inicjowane z wnętrza klastra do jednostki uzależnionej. Bez połączenia przychodzącego nie ma potrzeby stosowania w przypadku tagów usługi przychodzącej ani publicznych adresów IP.
 
 Podstawowe usługi równoważenia obciążenia używane w domyślnej architekturze sieci wirtualnej automatycznie zapewniają publiczne translatora adresów sieciowych (NAT), aby uzyskać dostęp do wymaganych zależności wychodzących, takich jak HDInsight RP. Jeśli chcesz ograniczyć łączność wychodzącą do publicznej sieci Internet, możesz [skonfigurować zaporę](./hdinsight-restrict-outbound-traffic.md), ale nie jest to wymagane.
 
@@ -54,13 +54,13 @@ Aby uzyskać dostęp do klastra przy użyciu nazw FQDN klastra, możesz bezpośr
 
 Link prywatny, który jest domyślnie wyłączony, wymaga rozległej wiedzy o sieci, aby skonfigurować trasy zdefiniowane przez użytkownika (UDR) i reguły zapory prawidłowo przed utworzeniem klastra. Dostęp do prywatnego linku do klastra jest dostępny tylko wtedy, gdy `resourceProviderConnection` Właściwość Network jest ustawiona na ruch *wychodzący* zgodnie z opisem w poprzedniej sekcji.
 
-Gdy `privateLink` jest ustawiona na wartość *enable*, są tworzone wewnętrzne [standardowe moduły równoważenia obciążenia](../load-balancer/load-balancer-overview.md) , a usługa Azure Private link jest obsługiwana dla każdego modułu wystawcy. Usługa link prywatny umożliwia dostęp do klastra usługi HDInsight z prywatnych punktów końcowych.
+Gdy `privateLink` jest ustawiona na wartość *enable* , są tworzone wewnętrzne [standardowe moduły równoważenia obciążenia](../load-balancer/load-balancer-overview.md) , a usługa Azure Private link jest obsługiwana dla każdego modułu wystawcy. Usługa link prywatny umożliwia dostęp do klastra usługi HDInsight z prywatnych punktów końcowych.
 
-Usługi równoważenia obciążenia w warstwie Standardowa nie zapewniają automatycznie [wychodzącego NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) , takiego jak podstawowe usługi równoważenia obciążenia. Należy podać własne rozwiązanie NAT, takie jak [Virtual Network NAT](../virtual-network/nat-overview.md) lub [Zapora](./hdinsight-restrict-outbound-traffic.md), dla zależności wychodzących. Klaster usługi HDInsight nadal potrzebuje dostępu do jego zależności wychodzących. Jeśli te zależności wychodzące nie są dozwolone, tworzenie klastra może się nie powieść.
+Usługi równoważenia obciążenia w warstwie Standardowa nie zapewniają automatycznie [wychodzącego NAT](../load-balancer/load-balancer-outbound-connections.md) , takiego jak podstawowe usługi równoważenia obciążenia. Należy podać własne rozwiązanie NAT, takie jak [Virtual Network NAT](../virtual-network/nat-overview.md) lub [Zapora](./hdinsight-restrict-outbound-traffic.md), dla zależności wychodzących. Klaster usługi HDInsight nadal potrzebuje dostępu do jego zależności wychodzących. Jeśli te zależności wychodzące nie są dozwolone, tworzenie klastra może się nie powieść.
 
 ### <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
-Aby successgfull tworzenie usług łączy prywatnych, należy jawnie [wyłączyć zasady sieci dla usługi łącza prywatnego](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy).
+Aby successgfull tworzenie usług łączy prywatnych, należy jawnie [wyłączyć zasady sieci dla usługi łącza prywatnego](../private-link/disable-private-link-service-network-policy.md).
 
 Na poniższym diagramie przedstawiono przykład konfiguracji sieci wymaganej przed utworzeniem klastra. W tym przykładzie cały ruch wychodzący jest [wymuszany](../firewall/forced-tunneling.md) w zaporze platformy Azure przy użyciu programu UDR, a przed utworzeniem klastra wymagane są "dozwolone" w zaporze. W przypadku klastrów pakiet Enterprise Security połączenie sieciowe z Azure Active Directory Domain Services może być zapewnione przez komunikację równorzędną sieci wirtualnych.
 

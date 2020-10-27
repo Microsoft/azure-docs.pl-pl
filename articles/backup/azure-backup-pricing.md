@@ -62,11 +62,11 @@ Aby oszacować koszty tworzenia kopii zapasowych maszyn wirtualnych platformy Az
 
 - **Opcjonalnie** — Selektywne tworzenie kopii zapasowej dysku
 
-  - Jeśli podczas tworzenia kopii zapasowych maszyn wirtualnych platformy Azure używasz opcji **Selektywne tworzenie kopii zapasowej dysku**, wybierz opcję **Exclude disk** (Wyklucz dysk) i określ w procentach rozmiar dysków wykluczony z tworzenia kopii zapasowych. Jeśli na przykład masz maszynę wirtualną połączoną z trzema dyskami, na których używane jest po 200 GB miejsca, a chcesz wykluczyć z tworzenia kopii zapasowych dwa takie dyski, wprowadź 66,7%.
+  - Jeśli podczas tworzenia kopii zapasowych maszyn wirtualnych platformy Azure używasz opcji **Selektywne tworzenie kopii zapasowej dysku** , wybierz opcję **Exclude disk** (Wyklucz dysk) i określ w procentach rozmiar dysków wykluczony z tworzenia kopii zapasowych. Jeśli na przykład masz maszynę wirtualną połączoną z trzema dyskami, na których używane jest po 200 GB miejsca, a chcesz wykluczyć z tworzenia kopii zapasowych dwa takie dyski, wprowadź 66,7%.
 
 - **Opcjonalnie** — Nadmiarowość magazynu kopii zapasowych
 
-  - Ten parametr określa nadmiarowość konta magazynu, na którym zapisywane są dane kopii zapasowych. Zalecamy użycie opcji **GRS** (Magazyn geograficznie nadmiarowy) w celu zapewnienia maksymalnej dostępności. Ponieważ ta opcja gwarantuje przechowywanie kopii danych kopii zapasowej w innym regionie, ułatwia spełnienie wielu standardów zachowania zgodności. Zmień ustawienie nadmiarowości na **LRS** (Magazyn lokalnie nadmiarowy), jeśli tworzysz kopie zapasowe środowisk deweloperskich i testowych, które nie wymagają kopii zapasowej klasy korporacyjnej. Wybierz w arkuszu opcję **RARGS**, jeśli chcesz oszacować koszty w przypadku włączenia opcji [przywracania między regionami](backup-azure-arm-restore-vms.md#cross-region-restore) dla kopii zapasowych.
+  - Ten parametr określa nadmiarowość konta magazynu, na którym zapisywane są dane kopii zapasowych. Zalecamy użycie opcji **GRS** (Magazyn geograficznie nadmiarowy) w celu zapewnienia maksymalnej dostępności. Ponieważ ta opcja gwarantuje przechowywanie kopii danych kopii zapasowej w innym regionie, ułatwia spełnienie wielu standardów zachowania zgodności. Zmień ustawienie nadmiarowości na **LRS** (Magazyn lokalnie nadmiarowy), jeśli tworzysz kopie zapasowe środowisk deweloperskich i testowych, które nie wymagają kopii zapasowej klasy korporacyjnej. Wybierz w arkuszu opcję **RARGS** , jeśli chcesz oszacować koszty w przypadku włączenia opcji [przywracania między regionami](backup-azure-arm-restore-vms.md#cross-region-restore) dla kopii zapasowych.
 
 - **Opcjonalne** — Modyfikowanie cen w regionach lub stosowanie stawek z rabatem
 
@@ -82,7 +82,7 @@ Aby oszacować koszty tworzenia kopii zapasowych serwerów SQL działających na
 
 - Jaka jest oczekiwana kompresja danych kopii zapasowej serwerów SQL?
 
-  - W przypadku większości klientów usługi Azure Backup, jeśli kompresja SQL jest **włączona**, dane kopii zapasowej mają 80-procentową kompresję w porównaniu do rozmiaru serwera SQL.
+  - W przypadku większości klientów usługi Azure Backup, jeśli kompresja SQL jest **włączona** , dane kopii zapasowej mają 80-procentową kompresję w porównaniu do rozmiaru serwera SQL.
 
   - Jeśli spodziewasz się innego współczynnika kompresji, wprowadź liczbę w tym polu
 
@@ -155,7 +155,7 @@ Aby oszacować koszty tworzenia kopii zapasowych serwerów SAP HANA działający
 
 Aby oszacować koszty tworzenia kopii zapasowych udziałów plików platformy Azure przy użyciu oferowanego w usłudze Azure Backup [rozwiązania kopii zapasowej opartej na migawkach](azure-file-share-backup-overview.md), potrzebne są następujące parametry:
 
-- Rozmiar (**w GB**) udziałów plików, dla których planujesz utworzyć kopię zapasową.
+- Rozmiar ( **w GB** ) udziałów plików, dla których planujesz utworzyć kopię zapasową.
 
 - Jeśli chcesz tworzyć kopię zapasową udziałów plików rozmieszczonych na wielu różnych kontach magazynu, określ liczbę kont magazynu, na których są hostowane udziały plików o tym rozmiarze.
 

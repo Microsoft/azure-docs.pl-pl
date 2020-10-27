@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 2177e74bd627e80ea1afbcacaf85baf4e030834c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 725b616fec9c2bc4a0540a7941098377e01732e2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91928983"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546470"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Ponowne uruchamianie maszyn wirtualnych dla klastrów usługi HDInsight
 
@@ -38,13 +38,13 @@ Gdy węzeł jest ponownie uruchamiany, klaster może stać się w złej kondycji
 
 Aby można było użyć operacji ponownego rozruchu węzła, wymagane są dwa kroki: węzły list i ponownie uruchomione węzły.
 
-1. Wyświetlanie listy węzłów. Listę węzłów klastra można pobrać pod adresem [Get-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsighthost).
+1. Wyświetlanie listy węzłów. Listę węzłów klastra można pobrać pod adresem [Get-AzHDInsightHost](/powershell/module/az.hdinsight/get-azhdinsighthost).
 
       ```
       Get-AzHDInsightHost -ClusterName myclustername
       ```
 
-1. Uruchom ponownie hosty. Po otrzymaniu nazw węzłów, które mają zostać ponownie uruchomione, uruchom ponownie węzły za pomocą polecenia [restart-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/restart-azhdinsighthost).
+1. Uruchom ponownie hosty. Po otrzymaniu nazw węzłów, które mają zostać ponownie uruchomione, uruchom ponownie węzły za pomocą polecenia [restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost).
 
       ```
       Restart-AzHDInsightHost -ClusterName myclustername -Name wn0-myclus, wn1-myclus
@@ -54,13 +54,13 @@ Aby można było użyć operacji ponownego rozruchu węzła, wymagane są dwa kr
 
 Aby wysyłać żądania do usługi HDInsight, można użyć funkcji **Wypróbuj ją** w dokumentacji interfejsu API. Aby można było użyć operacji ponownego rozruchu węzła, wymagane są dwa kroki: węzły list i ponownie uruchomione węzły.
 
-1. Wyświetlanie listy węzłów. Listę węzłów klastra można pobrać z interfejsu API REST lub w Ambari. Aby uzyskać więcej informacji, zobacz [Obsługa interfejsu API REST na liście usługi HDInsight](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines/listhosts).
+1. Wyświetlanie listy węzłów. Listę węzłów klastra można pobrać z interfejsu API REST lub w Ambari. Aby uzyskać więcej informacji, zobacz [Obsługa interfejsu API REST na liście usługi HDInsight](/rest/api/hdinsight/virtualmachines/listhosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. Uruchom ponownie hosty. Po otrzymaniu nazw węzłów, które mają zostać ponownie uruchomione, uruchom ponownie węzły przy użyciu interfejsu API REST, aby ponownie uruchomić węzły. Nazwa węzła jest zgodna ze wzorcem *NodeType (WN/HN/ZK/GW)*  +  *x*  +  *pierwszych sześciu znaków nazwy klastra*. Aby uzyskać więcej informacji, zobacz [operacja interfejsu API REST hosta usługi HDInsight](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines/restarthosts).
+1. Uruchom ponownie hosty. Po otrzymaniu nazw węzłów, które mają zostać ponownie uruchomione, uruchom ponownie węzły przy użyciu interfejsu API REST, aby ponownie uruchomić węzły. Nazwa węzła jest zgodna ze wzorcem *NodeType (WN/HN/ZK/GW)*  +  *x*  +  *pierwszych sześciu znaków nazwy klastra* . Aby uzyskać więcej informacji, zobacz [operacja interfejsu API REST hosta usługi HDInsight](/rest/api/hdinsight/virtualmachines/restarthosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview
@@ -77,6 +77,6 @@ Rzeczywiste nazwy węzłów, które mają zostać ponownie rozruchowe, są okre�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Restart-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/restart-azhdinsighthost)
-* [Interfejs API REST maszyn wirtualnych usługi HDInsight](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines)
-* [Interfejs API REST usługi HDInsight](https://docs.microsoft.com/rest/api/hdinsight/)
+* [Restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost)
+* [Interfejs API REST maszyn wirtualnych usługi HDInsight](/rest/api/hdinsight/virtualmachines)
+* [Interfejs API REST usługi HDInsight](/rest/api/hdinsight/)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e727bc7ad8b7f0b8a04c48f3abd1f1ac0806c66
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71121935"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545909"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Samouczek: używanie języka R w kontekście obliczeń Spark w usłudze Azure HDInsight
 
@@ -33,7 +33,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Klaster usług Machine Learning usługi Azure HDInsight. Przejdź do [obszaru tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i dla **typu klastra**wybierz pozycję usługi w usłudze **ml**.
+* Klaster usług Machine Learning usługi Azure HDInsight. Przejdź do [obszaru tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i dla **typu klastra** wybierz pozycję usługi w usłudze **ml** .
 
 ## <a name="connect-to-rstudio-server"></a>Łączenie z programem RStudio Server
 
@@ -43,7 +43,7 @@ Serwer RStudio jest uruchamiany w węźle brzegowym klastra. Przejdź do następ
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-Gdy logujesz się po raz pierwszy, uwierzytelniasz dwa razy. W pierwszym monicie uwierzytelniania Podaj nazwę użytkownika i hasło administratora klastra (wartość domyślna to *admin*). W drugim monicie o uwierzytelnieniu Podaj nazwę użytkownika i hasło SSH (wartość domyślna to *sshuser*). Kolejne logowania wymagają tylko poświadczeń SSH.
+Gdy logujesz się po raz pierwszy, uwierzytelniasz dwa razy. W pierwszym monicie uwierzytelniania Podaj nazwę użytkownika i hasło administratora klastra (wartość domyślna to *admin* ). W drugim monicie o uwierzytelnieniu Podaj nazwę użytkownika i hasło SSH (wartość domyślna to *sshuser* ). Kolejne logowania wymagają tylko poświadczeń SSH.
 
 ## <a name="download-the-sample-data-to-local-storage"></a>Pobieranie przykładowych danych do magazynu lokalnego
 
@@ -57,7 +57,7 @@ Gdy logujesz się po raz pierwszy, uwierzytelniasz dwa razy. W pierwszym monicie
     remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012" # location of data
     ```
 
-1. W okienku po prawej stronie wybierz kartę **środowisko** . Zmienne są wyświetlane w obszarze **wartości**.
+1. W okienku po prawej stronie wybierz kartę **środowisko** . Zmienne są wyświetlane w obszarze **wartości** .
 
     ![Konsola sieci Web HDInsight R Studio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
@@ -168,7 +168,7 @@ W kontekście obliczeniowym platformy Spark można utworzyć źródła danych, k
 |`RxParquetData` | Generuje obiekt źródła danych Parquet.|
 |`RxOrcData` | Generuje obiekt źródła danych ORC.|
 
-Utwórz obiekt [RxTextData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxtextdata) przy użyciu plików skopiowanych do systemu plików HDFS. W RStudio wprowadź następujący kod:
+Utwórz obiekt [RxTextData](/machine-learning-server/r-reference/revoscaler/rxtextdata) przy użyciu plików skopiowanych do systemu plików HDFS. W RStudio wprowadź następujący kod:
 
 ```R
 airDS <- RxTextData( airDataDir,
@@ -179,7 +179,7 @@ airDS <- RxTextData( airDataDir,
 
 ## <a name="create-a-compute-context-for-spark"></a>Tworzenie kontekstu obliczeniowego dla platformy Spark
 
-Aby załadować dane i uruchomić analizy w węzłach procesu roboczego, należy ustawić kontekst obliczeń w skrypcie na [obliczeniowego rxspark](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxspark). W tym kontekście funkcja R automatycznie dystrybuuje obciążenie dla wszystkich węzłów procesu roboczego bez wbudowanego wymagania dotyczącego zarządzania zadaniami lub kolejką. Kontekst obliczeń platformy Spark jest ustanawiany za pośrednictwem `RxSpark` `rxSparkConnect()` programu lub w celu utworzenia kontekstu obliczeniowego platformy Spark i służy `rxSparkDisconnect()` do powrotu do lokalnego kontekstu obliczeniowego. W RStudio wprowadź następujący kod:
+Aby załadować dane i uruchomić analizy w węzłach procesu roboczego, należy ustawić kontekst obliczeń w skrypcie na [obliczeniowego rxspark](/machine-learning-server/r-reference/revoscaler/rxspark). W tym kontekście funkcja R automatycznie dystrybuuje obciążenie dla wszystkich węzłów procesu roboczego bez wbudowanego wymagania dotyczącego zarządzania zadaniami lub kolejką. Kontekst obliczeń platformy Spark jest ustanawiany za pośrednictwem `RxSpark` `rxSparkConnect()` programu lub w celu utworzenia kontekstu obliczeniowego platformy Spark i służy `rxSparkDisconnect()` do powrotu do lokalnego kontekstu obliczeniowego. W RStudio wprowadź następujący kod:
 
 ```R
 # Define the Spark compute context
@@ -191,7 +191,7 @@ rxSetComputeContext(mySparkCluster)
 
 ## <a name="fit-a-linear-model"></a>Dopasuj model liniowy
 
-1. Użyj funkcji [rxLinMod](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxlinmod) , aby dopasować model liniowy przy użyciu `airDS` źródła danych. W RStudio wprowadź następujący kod:
+1. Użyj funkcji [rxLinMod](/machine-learning-server/r-reference/revoscaler/rxlinmod) , aby dopasować model liniowy przy użyciu `airDS` źródła danych. W RStudio wprowadź następujący kod:
 
     ```R
     system.time(
@@ -225,14 +225,14 @@ rxSetComputeContext(mySparkCluster)
     Coefficients:
                    Estimate Std. Error t value Pr(>|t|)     | Counts
     DayOfWeek=Mon   3.54210    0.03736   94.80 2.22e-16 *** | 901592
-    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 *** | 855805
-    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 *** | 868505
-    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 *** | 891674
-    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 *** | 896495
-    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 *** | 732944
-    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 *** | 858366
+    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 **_ | 855805
+    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 _*_ | 868505
+    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 _*_ | 891674
+    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 _*_ | 896495
+    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 _*_ | 732944
+    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 _*_ | 858366
     ---
-    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+    Signif. codes:  0 ‘_*_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
     Residual standard error: 35.48 on 6005374 degrees of freedom
     Multiple R-squared: 0.001827 (as if intercept included)
@@ -247,7 +247,7 @@ rxSetComputeContext(mySparkCluster)
 
 Jak widać, można analizować pliki CSV bezpośrednio przy użyciu języka R w usłudze Hadoop. Jednak analizę można wykonać szybciej, jeśli dane są przechowywane w bardziej wydajny sposób. Format pliku XDF języka R jest wydajny, ale jest nieco modyfikowany dla systemu plików HDFS, dzięki czemu pojedyncze pliki pozostają w jednym bloku systemu plików HDFS. (Rozmiar bloku systemu plików HDFS różni się od instalacji do instalacji, ale ma zazwyczaj 64 MB lub 128 MB). 
 
-W przypadku tworzenia zestawu złożonych plików XDF przy użyciu usługi [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) w usłudze Hadoop należy określić `RxTextData` Źródło danych, takie jak `AirDS` dane i `RxXdfData` Źródło danych z systemem plików w systemie HDFS jako argumentem pliku. Można następnie użyć `RxXdfData` obiektu jako argumentu danych w kolejnych analizach języka R.
+W przypadku tworzenia zestawu złożonych plików XDF przy użyciu usługi [rxImport](/machine-learning-server/r-reference/revoscaler/rximport) w usłudze Hadoop należy określić `RxTextData` Źródło danych, takie jak `AirDS` dane i `RxXdfData` Źródło danych z systemem plików w systemie HDFS jako argumentem pliku. Można następnie użyć `RxXdfData` obiektu jako argumentu danych w kolejnych analizach języka R.
 
 1. Zdefiniuj `RxXdfData` obiekt. W RStudio wprowadź następujący kod:
 
@@ -298,7 +298,7 @@ W przypadku tworzenia zestawu złożonych plików XDF przy użyciu usługi [rxIm
 
 ### <a name="in-a-spark-context"></a>W kontekście platformy Spark
 
-Jeśli pliki CSV zostały przekonwertowane na format pliku XDF w celu zwiększenia wydajności podczas wykonywania analiz, ale teraz chcesz przekonwertować dane z powrotem do woluminu CSV, możesz to zrobić za pomocą [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep).
+Jeśli pliki CSV zostały przekonwertowane na format pliku XDF w celu zwiększenia wydajności podczas wykonywania analiz, ale teraz chcesz przekonwertować dane z powrotem do woluminu CSV, możesz to zrobić za pomocą [rxDataStep](/machine-learning-server/r-reference/revoscaler/rxdatastep).
 
 Aby utworzyć folder plików CSV, najpierw Utwórz `RxTextData` Obiekt przy użyciu nazwy katalogu jako argumentu pliku. Ten obiekt reprezentuje folder, w którym mają zostać utworzone pliki CSV. Ten katalog jest tworzony podczas uruchamiania programu `rxDataStep` . Następnie wskaż ten `RxTextData` obiekt w `outFile` argumencie `rxDataStep` . Każdy utworzony wolumin CSV ma nazwę na podstawie nazwy katalogu i po nim liczby.
 
@@ -363,7 +363,7 @@ Aby usunąć klaster, zobacz [usuwanie klastra usługi HDInsight przy użyciu pr
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób korzystania z funkcji R w Apache Spark uruchomionych w klastrze usługi HDInsight Machine Learning. Aby uzyskać więcej informacji zobacz następujące artykuły:
+W tym samouczku przedstawiono sposób korzystania z funkcji R w Apache Spark uruchomionych w klastrze usługi HDInsight Machine Learning. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [Opcje kontekstu obliczeniowego dla klastra usług Machine Learning usługi Azure HDInsight](r-server-compute-contexts.md)
-* [Funkcje języka R dla platformy Spark w usłudze Hadoop](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)
+* [Funkcje języka R dla platformy Spark w usłudze Hadoop](/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)

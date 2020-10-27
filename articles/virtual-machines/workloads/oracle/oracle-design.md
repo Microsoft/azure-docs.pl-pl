@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ccf7ddb44a25ec123f13b5d7b6cdb5354b63778
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9bfd2330f71b9690e2864968cf51cb438bb23676
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996629"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534077"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projektowanie i implementowanie bazy danych Oracle na platformie Azure
 
@@ -101,11 +101,11 @@ Jedną z najważniejszych zdarzeń na pierwszym planie, które wskazują, gdzie 
 
 Na przykład na poniższym diagramie synchronizacja pliku dziennika znajduje się u góry. Wskazuje liczbę czekań, które są wymagane, zanim LGWR zapisze bufor dziennika w pliku dziennika ponownego wykonywania. Te wyniki wskazują, że lepsze przeprowadzenie magazynu lub dysków jest wymagane. Ponadto diagram przedstawia liczbę procesorów CPU (rdzenie) i ilość pamięci.
 
-![Zrzut ekranu strony raportu AWR](./media/oracle-design/cpu_memory_info.png)
+![Zrzut ekranu pokazujący synchronizację pliku dziennika w górnej części tabeli.](./media/oracle-design/cpu_memory_info.png)
 
 Na poniższym diagramie przedstawiono łączną liczbę operacji we/wy odczytu i zapisu. Wystąpiło 59 GB odczytu i 247,3 GB zapisu w czasie wykonywania raportu.
 
-![Zrzut ekranu strony raportu AWR](./media/oracle-design/io_info.png)
+![Zrzut ekranu pokazujący łączną liczbę operacji we/wy operacji odczytu i zapisu.](./media/oracle-design/io_info.png)
 
 #### <a name="2-choose-a-vm"></a>2. Wybierz maszynę wirtualną
 
@@ -143,13 +143,13 @@ Na podstawie wymagań dotyczących przepustowości sieci istnieją różne typy 
 
 ### <a name="disk-types-and-configurations"></a>Typy i konfiguracje dysków
 
-- *Domyślne dyski systemu operacyjnego*: te typy dysków oferują trwałe dane i buforowanie. Są one zoptymalizowane pod kątem dostępu do systemu operacyjnego przy uruchamianiu i nie są przeznaczone do obciążeń transakcyjnych lub magazynu danych (analitycznych).
+- *Domyślne dyski systemu operacyjnego* : te typy dysków oferują trwałe dane i buforowanie. Są one zoptymalizowane pod kątem dostępu do systemu operacyjnego przy uruchamianiu i nie są przeznaczone do obciążeń transakcyjnych lub magazynu danych (analitycznych).
 
-- *Dyski niezarządzane*: przy użyciu tych typów dysków można zarządzać kontami magazynu, które przechowują pliki wirtualnego dysku twardego (VHD), które odpowiadają DYSKOM maszyny wirtualnej. Pliki VHD są przechowywane jako stronicowe obiekty blob na kontach usługi Azure Storage.
+- *Dyski niezarządzane* : przy użyciu tych typów dysków można zarządzać kontami magazynu, które przechowują pliki wirtualnego dysku twardego (VHD), które odpowiadają DYSKOM maszyny wirtualnej. Pliki VHD są przechowywane jako stronicowe obiekty blob na kontach usługi Azure Storage.
 
-- *Dyski zarządzane*: platforma Azure zarządza kontami magazynu używanymi dla dysków maszyny wirtualnej. Należy określić typ dysku (Premium lub standardowa) oraz wymagany rozmiar dysku. Platforma Azure tworzy dysk i zarządza nim.
+- *Dyski zarządzane* : platforma Azure zarządza kontami magazynu używanymi dla dysków maszyny wirtualnej. Należy określić typ dysku (Premium lub standardowa) oraz wymagany rozmiar dysku. Platforma Azure tworzy dysk i zarządza nim.
 
-- *Dyski usługi Premium Storage*: te typy dysków najlepiej nadają się do obciążeń produkcyjnych. Usługa Premium Storage obsługuje dyski maszyn wirtualnych, które mogą być dołączone do określonych maszyn wirtualnych serii rozmiarów, takich jak usługi DS, DSv2, GS i maszyny wirtualne z serii F. Dysk w warstwie Premium ma różne rozmiary i można wybrać między dyskami od 32 GB do 4 096 GB. Każdy rozmiar dysku ma własne specyfikacje wydajności. W zależności od wymagań aplikacji można dołączyć jeden lub więcej dysków do maszyny wirtualnej.
+- *Dyski usługi Premium Storage* : te typy dysków najlepiej nadają się do obciążeń produkcyjnych. Usługa Premium Storage obsługuje dyski maszyn wirtualnych, które mogą być dołączone do określonych maszyn wirtualnych serii rozmiarów, takich jak usługi DS, DSv2, GS i maszyny wirtualne z serii F. Dysk w warstwie Premium ma różne rozmiary i można wybrać między dyskami od 32 GB do 4 096 GB. Każdy rozmiar dysku ma własne specyfikacje wydajności. W zależności od wymagań aplikacji można dołączyć jeden lub więcej dysków do maszyny wirtualnej.
 
 Podczas tworzenia nowego dysku zarządzanego w portalu można wybrać **Typ konta** dla typu dysku, który ma być używany. Należy pamiętać, że nie wszystkie dostępne dyski są wyświetlane w menu rozwijanym. Po wybraniu określonego rozmiaru maszyny wirtualnej w menu zostaną wyświetlone tylko dostępne jednostki SKU magazynu w warstwie Premium, które są oparte na tym rozmiarze maszyny wirtualnej.
 
@@ -186,9 +186,9 @@ Po wybraniu jasnego obrazu wymagań we/wy możesz wybrać kombinację dysków, k
 
 Istnieją trzy opcje buforowania hosta:
 
-- *Tylko do odczytu*: wszystkie żądania są buforowane na potrzeby przyszłych operacji odczytu. Wszystkie zapisy są utrwalane bezpośrednio w usłudze Azure Blob Storage.
+- *Tylko do odczytu* : wszystkie żądania są buforowane na potrzeby przyszłych operacji odczytu. Wszystkie zapisy są utrwalane bezpośrednio w usłudze Azure Blob Storage.
 
-- *ReadWrite*: jest to algorytm "Ready". Operacje odczytu i zapisu są buforowane na potrzeby przyszłych operacji odczytu. Operacje zapisu inne niż Write-through są najpierw utrwalane w lokalnej pamięci podręcznej. Zapewnia również najniższe opóźnienie dysku dla obciążeń lekkich. Używanie pamięci podręcznej ReadWrite z aplikacją, która nie obsługuje utrwalania wymaganych danych może spowodować utratę danych, jeśli maszyna wirtualna ulegnie awarii.
+- *ReadWrite* : jest to algorytm "Ready". Operacje odczytu i zapisu są buforowane na potrzeby przyszłych operacji odczytu. Operacje zapisu inne niż Write-through są najpierw utrwalane w lokalnej pamięci podręcznej. Zapewnia również najniższe opóźnienie dysku dla obciążeń lekkich. Używanie pamięci podręcznej ReadWrite z aplikacją, która nie obsługuje utrwalania wymaganych danych może spowodować utratę danych, jeśli maszyna wirtualna ulegnie awarii.
 
 - *Brak* (wyłączone): za pomocą tej opcji można ominąć pamięć podręczną. Wszystkie dane są przekazywane na dysk i utrwalane w usłudze Azure Storage. Ta metoda zapewnia najwyższą szybkość operacji we/wy dla obciążeń intensywnie korzystających z operacji we/wy. Należy również wziąć pod uwagę "koszt transakcji".
 
@@ -196,7 +196,7 @@ Istnieją trzy opcje buforowania hosta:
 
 Aby zmaksymalizować przepływność, zalecamy rozpoczęcie od **braku** dla buforowania hosta. W przypadku Premium Storage należy pamiętać o wyłączeniu "barier" podczas instalowania systemu plików z opcjami **ReadOnly** lub **none** . Zaktualizuj plik/etc/fstab za pomocą identyfikatora UUID na dyskach.
 
-![Zrzut ekranu przedstawiający stronę dysk zarządzany](./media/oracle-design/premium_disk02.png)
+![Zrzut ekranu przedstawiający stronę dysk zarządzany z opcjami ReadOnly i none.](./media/oracle-design/premium_disk02.png)
 
 - W przypadku dysków systemu operacyjnego Użyj domyślnego buforowania **odczytu i zapisu** .
 - Dla opcji SYSTEM, TEMP i UNDO **nie** można używać buforowania.
@@ -208,9 +208,9 @@ Po zapisaniu ustawienia dysku z danymi nie można zmienić ustawienia pamięci p
 
 Po skonfigurowaniu i skonfigurowaniu środowiska platformy Azure następnym krokiem jest zabezpieczenie sieci. Poniżej przedstawiono niektóre zalecenia:
 
-- *Zasady sieciowej grupy zabezpieczeń*: sieciowej grupy zabezpieczeń może być zdefiniowana przez podsieć lub kartę sieciową. Łatwiej jest kontrolować dostęp na poziomie podsieci zarówno w przypadku zabezpieczeń, jak i wymuszania routingu dla takich elementów jak zapory aplikacji.
+- *Zasady sieciowej grupy zabezpieczeń* : sieciowej grupy zabezpieczeń może być zdefiniowana przez podsieć lub kartę sieciową. Łatwiej jest kontrolować dostęp na poziomie podsieci zarówno w przypadku zabezpieczeń, jak i wymuszania routingu dla takich elementów jak zapory aplikacji.
 
-- *Serwera przesiadkowego*: Aby uzyskać bardziej bezpieczny dostęp, Administratorzy nie powinni bezpośrednio łączyć się z usługą aplikacji lub bazą danych. Serwera przesiadkowego jest używany jako nośnik między komputerem administratora i zasobami platformy Azure.
+- *Serwera przesiadkowego* : Aby uzyskać bardziej bezpieczny dostęp, Administratorzy nie powinni bezpośrednio łączyć się z usługą aplikacji lub bazą danych. Serwera przesiadkowego jest używany jako nośnik między komputerem administratora i zasobami platformy Azure.
 ![Zrzut ekranu przedstawiający stronę topologii serwera przesiadkowego](./media/oracle-design/jumpbox.png)
 
     Komputer administratora powinien oferować dostęp z ograniczonym dostępem do adresów IP tylko do serwera przesiadkowego. Serwera przesiadkowego powinien mieć dostęp do aplikacji i bazy danych.

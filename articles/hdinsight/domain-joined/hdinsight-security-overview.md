@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: ea61ca42c345fe9df0436a193fb2adcb00ce6195
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7f450d54a0039f591178ae839fbb404f31d80671
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150804"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537273"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Omówienie zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight
 
@@ -21,7 +21,7 @@ Usługa Azure HDInsight oferuje różne metody zaspokajania potrzeb związanych 
 
 Ten artykuł dotyczy rozwiązań zabezpieczeń dzielących rozwiązania zabezpieczeń na cztery tradycyjne filary zabezpieczeń: zabezpieczenia obwodowe, uwierzytelnianie, autoryzacja i szyfrowanie.
 
-W tym artykule wprowadzono również **pakiet Enterprise Security usługi Azure HDInsight (ESP)**, która zapewnia uwierzytelnianie oparte na Active Directory, obsługę wieloużytkownikom oraz kontrolę dostępu opartą na rolach dla klastrów usługi HDInsight.
+W tym artykule wprowadzono również **pakiet Enterprise Security usługi Azure HDInsight (ESP)** , która zapewnia uwierzytelnianie oparte na Active Directory, obsługę wieloużytkownikom oraz kontrolę dostępu opartą na rolach dla klastrów usługi HDInsight.
 
 ## <a name="enterprise-security-pillars"></a>Filary zabezpieczeń przedsiębiorstwa
 
@@ -78,10 +78,10 @@ Poniższa tabela zawiera linki do zasobów dla każdego typu rozwiązania zabezp
 | Zabezpieczenia dostępu do danych | Konfigurowanie [kontroli dostępu listy ACL](../../storage/blobs/data-lake-storage-access-control.md) dla Azure Data Lake Storage Gen1 i Gen2  | Klient |
 |  | Włącz Właściwość ["wymagany bezpieczny transfer"](../../storage/common/storage-require-secure-transfer.md) na kontach magazynu. | Klient |
 |  | Konfigurowanie zapór i sieci wirtualnych [usługi Azure Storage](../../storage/common/storage-network-security.md) | Klient |
-|  | Konfigurowanie [punktów końcowych usługi sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) dla Cosmos DB i [usługi Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Klient |
+|  | Konfigurowanie [punktów końcowych usługi sieci wirtualnej platformy Azure](../../virtual-network/virtual-network-service-endpoints-overview.md) dla Cosmos DB i [usługi Azure SQL DB](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) | Klient |
 |  | Upewnij się, że funkcja [szyfrowania w ramach przesyłania](./encryption-in-transit.md) jest włączona, aby używać protokołów TLS i IPSec do komunikacji wewnątrz klastra. | Klient |
-|  | Konfigurowanie [kluczy zarządzanych przez klienta](../../storage/common/storage-encryption-keys-portal.md) do szyfrowania za pomocą usługi Azure Storage | Klient |
-|  | Kontroluj dostęp do danych przez pomoc techniczną platformy Azure przy użyciu [skrytki klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Klient |
+|  | Konfigurowanie [kluczy zarządzanych przez klienta](../../storage/common/customer-managed-keys-configure-key-vault.md) do szyfrowania za pomocą usługi Azure Storage | Klient |
+|  | Kontroluj dostęp do danych przez pomoc techniczną platformy Azure przy użyciu [skrytki klienta](../../security/fundamentals/customer-lockbox-overview.md) | Klient |
 | Zabezpieczenia aplikacji i oprogramowania pośredniczącego | Integracja z usługą AAD-DS oraz [Konfigurowanie protokołu ESP](apache-domain-joined-configure-using-azure-adds.md) lub korzystanie z [Hib do uwierzytelniania OAuth](identity-broker.md)| Klient |
 |  | Konfigurowanie zasad [autoryzacji Apache Ranger](apache-domain-joined-run-hive.md) | Klient |
 |  | Korzystanie z [dzienników Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Klient |
@@ -98,5 +98,5 @@ Poniższa tabela zawiera linki do zasobów dla każdego typu rozwiązania zabezp
 ## <a name="next-steps"></a>Następne kroki
 
 * [Planowanie klastrów usługi HDInsight przy użyciu ESP](apache-domain-joined-architecture.md)
-* [Konfigurowanie klastrów usługi HDInsight przy użyciu ESP](apache-domain-joined-configure.md)
+* [Konfigurowanie klastrów usługi HDInsight przy użyciu ESP](./apache-domain-joined-configure-using-azure-adds.md)
 * [Zarządzanie klastrami usługi HDInsight przy użyciu protokołu ESP](apache-domain-joined-manage.md)

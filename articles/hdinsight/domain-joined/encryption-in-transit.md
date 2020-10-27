@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85382ecd627ec8afc63a85de0debd98f94a89849
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89668780"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544889"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Szyfrowanie IPSec podczas przesyłania dla usługi Azure HDInsight
 
@@ -27,7 +27,7 @@ Usługa Azure HDInsight oferuje różne funkcje zabezpieczeń w celu zabezpiecza
 
 Szyfrowanie w spoczynku obejmuje szyfrowanie po stronie serwera na kontach usługi Azure Storage, a także szyfrowanie dysków na maszynach wirtualnych platformy Azure, które są częścią klastra usługi HDInsight.
 
-Szyfrowanie danych przesyłanych w usłudze HDInsight jest realizowane z użyciem [Transport Layer Security (TLS)](https://docs.microsoft.com/azure/hdinsight/transport-layer-security) accssing bramy klastra i [zabezpieczenia protokołu internetowego (IPSec)](https://en.wikipedia.org/wiki/IPsec) między węzłami klastra. Protokół IPSec może być opcjonalnie włączony między wszystkimi węzłami głównymi, węzłami procesu roboczego, węzłami krawędzi i węzłami dozorcy. Nie jest on włączony dla ruchu między węzłami bramy lub [brokera identyfikatora](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker) , które są maszynami wirtualnymi opartymi na systemie Windows i innymi węzłami systemu Linux w klastrze.
+Szyfrowanie danych przesyłanych w usłudze HDInsight jest realizowane z użyciem [Transport Layer Security (TLS)](../transport-layer-security.md) accssing bramy klastra i [zabezpieczenia protokołu internetowego (IPSec)](https://en.wikipedia.org/wiki/IPsec) między węzłami klastra. Protokół IPSec może być opcjonalnie włączony między wszystkimi węzłami głównymi, węzłami procesu roboczego, węzłami krawędzi i węzłami dozorcy. Nie jest on włączony dla ruchu między węzłami bramy lub [brokera identyfikatora](./identity-broker.md) , które są maszynami wirtualnymi opartymi na systemie Windows i innymi węzłami systemu Linux w klastrze.
 
 ## <a name="enable-encryption-in-transit"></a>Włącz szyfrowanie podczas przesyłania
 

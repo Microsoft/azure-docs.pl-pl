@@ -1,18 +1,18 @@
 ---
 title: Łączenie i zapytania — pojedynczy serwer PostgreSQL
-description: Linki do usługi Azure My SQL Database — Przewodnik Szybki Start pokazujący sposób nawiązywania połączenia z serwerem i uruchamiania zapytań.
+description: Linki do przewodników szybki start przedstawiające sposób nawiązywania połączenia z Azure Database for PostgreSQL jednym serwerem i uruchamiania zapytań.
 services: postgresql
 ms.service: postgresql
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 5c6d6a51887d2912da8d6b4e357a1036596d63d5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490020"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546555"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Przegląd połączeń i zapytań dotyczących usługi Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -33,13 +33,12 @@ Poniższy dokument zawiera linki do przykładów przedstawiających sposób nawi
 |[Python](connect-python.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z bazą danych przy użyciu języka Python i używania programu Work with Database Objects w celu wykonywania zapytań dotyczących danych. |
 |[Ruby](connect-ruby.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z bazą danych przy użyciu języka Ruby oraz używania pracy z obiektami bazy danych w celu wykonywania zapytań dotyczących danych.|
 
-
 ## <a name="tls-considerations-for-database-connectivity"></a>Zagadnienia dotyczące łączności z bazą danych TLS
 
-Transport Layer Security (TLS) jest używany przez wszystkie sterowniki dostarczone lub obsługiwane przez firmę Microsoft w celu łączenia się z bazami danych w programie Azure Database for PostgreSQL. Nie jest wymagana żadna specjalna konfiguracja, ale należy wymusić użycie protokołu TLS 1,2 dla nowo utworzonych serwerów. Zaleca się, aby w przypadku używania protokołów TLS 1,0 i 1,1 zaktualizować wersję protokołu TLS dla serwerów. Zobacz [ jak skonfigurować protokół TLS](howto-tls-configurations.md)
-
+Transport Layer Security (TLS) jest używany przez wszystkie sterowniki dostarczone lub obsługiwane przez firmę Microsoft w celu łączenia się z bazami danych w programie Azure Database for PostgreSQL. Nie jest wymagana żadna specjalna konfiguracja, ale należy wymusić użycie protokołu TLS 1,2 dla nowo utworzonych serwerów. Zaleca się, aby w przypadku używania protokołów TLS 1,0 i 1,1 zaktualizować wersję protokołu TLS dla serwerów. Zobacz [jak skonfigurować protokół TLS](howto-tls-configurations.md)
 
 ## <a name="postgresql-extensions"></a>Rozszerzenia PostgreSQL
+
 PostgreSQL zapewnia możliwość rozszerzenia funkcjonalności bazy danych przy użyciu rozszerzeń. Rozszerzenia zapewniają wiele powiązanych obiektów SQL razem w jednym pakiecie, który można załadować lub usunąć z bazy danych za pomocą jednego polecenia. Po załadowaniu do bazy danych rozszerzenia działają jak wbudowane funkcje.
 
 - [Rozszerzenia Postgres 11](./concepts-extensions.md#postgres-11-extensions)
@@ -49,7 +48,7 @@ PostgreSQL zapewnia możliwość rozszerzenia funkcjonalności bazy danych przy 
 
 Aby uzyskać więcej informacji, zobacz [jak używać rozszerzeń PostgreSQL na jednym serwerze](concepts-extensions.md).
 
-## <a name="next-steps"></a>Następne kroki 
+## <a name="next-steps"></a>Następne kroki
 
 - [Migrowanie danych przy użyciu zrzutów i przywracania](howto-migrate-using-dump-and-restore.md)
 - [Migrowanie danych przy użyciu funkcji importowania i eksportowania](howto-migrate-using-export-and-import.md)

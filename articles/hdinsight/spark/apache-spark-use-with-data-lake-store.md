@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 583a5bcac71265596127c7860c0509963f76b2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6abdb3cc6981a4fbdd52b88a75457c37709597f5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080945"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534332"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Analizowanie danych w Data Lake Storage Gen1 przy użyciu klastra usługi HDInsight Spark
 
@@ -23,7 +23,7 @@ W tym artykule opisano [Jupyter Notebook](https://jupyter.org/) dostępne z klas
 
 * Konto Azure Data Lake Storage Gen1. Postępuj zgodnie z instrukcjami w punkcie wprowadzenie [do Azure Data Lake Storage Gen1 przy użyciu Azure Portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Azure HDInsight Spark klaster z Data Lake Storage Gen1 jako magazyn. Postępuj zgodnie z instrukcjami w [przewodniku szybki start: Konfigurowanie klastrów w usłudze HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Azure HDInsight Spark klaster z Data Lake Storage Gen1 jako magazyn. Postępuj zgodnie z instrukcjami w [przewodniku szybki start: Konfigurowanie klastrów w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="prepare-the-data"></a>Przygotowywanie danych
 
@@ -58,24 +58,24 @@ Jeśli klaster usługi HDInsight został utworzony przy użyciu Data Lake Storag
     Copy Completed. 1 file copied.
     ```
 
-    Plik danych (**HVAC.csv**) zostanie skopiowany do folderu **/hvac** na koncie Data Lake Storage.
+    Plik danych ( **HVAC.csv** ) zostanie skopiowany do folderu **/hvac** na koncie Data Lake Storage.
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Korzystanie z klastra usługi HDInsight Spark z Data Lake Storage Gen1
 
-1. W [Azure Portal](https://portal.azure.com/), w tablicy startowej, kliknij kafelek klastra Apache Spark (jeśli przypięto go do tablicy startowej). Możesz również przejść do klastra w obszarze **przeglądanie wszystkich**  >  **klastrów usługi HDInsight**.
+1. W [Azure Portal](https://portal.azure.com/), w tablicy startowej, kliknij kafelek klastra Apache Spark (jeśli przypięto go do tablicy startowej). Możesz również przejść do klastra w obszarze **przeglądanie wszystkich**  >  **klastrów usługi HDInsight** .
 
-2. W bloku klastra Spark kliknij pozycję **Szybkie linki**, a następnie w bloku **Pulpit nawigacyjny klastra** kliknij pozycję **Jupyter Notebook**. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia administratora klastra.
+2. W bloku klastra Spark kliknij pozycję **Szybkie linki** , a następnie w bloku **Pulpit nawigacyjny klastra** kliknij pozycję **Jupyter Notebook** . Jeśli zostanie wyświetlony monit, wprowadź poświadczenia administratora klastra.
 
    > [!NOTE]  
    > Można również przejść do aplikacji Jupyter Notebook dla klastra, otwierając następujący adres URL w przeglądarce. Zastąp ciąg **CLUSTERNAME** nazwą klastra:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. Utwórz nowy notes. Kliknij opcję **New** (Nowy), a następnie kliknij pozycję **PySpark**.
+3. Utwórz nowy notes. Kliknij opcję **New** (Nowy), a następnie kliknij pozycję **PySpark** .
 
     ![Tworzenie nowego notesu Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Tworzenie nowego notesu Jupyter")
 
-4. Ponieważ notes został utworzony z użyciem jądra PySpark, nie ma konieczności jawnego tworzenia kontekstów. Konteksty Spark i Hive zostaną automatycznie utworzone po uruchomieniu pierwszej komórki kodu. Możesz zacząć od importowania typów wymaganych w tym scenariuszu. W tym celu wklej poniższy fragment kodu w komórce i naciśnij klawisze **SHIFT + ENTER**.
+4. Ponieważ notes został utworzony z użyciem jądra PySpark, nie ma konieczności jawnego tworzenia kontekstów. Konteksty Spark i Hive zostaną automatycznie utworzone po uruchomieniu pierwszej komórki kodu. Możesz zacząć od importowania typów wymaganych w tym scenariuszu. W tym celu wklej poniższy fragment kodu w komórce i naciśnij klawisze **SHIFT + ENTER** .
 
     ```scala
     from pyspark.sql.types import *
@@ -105,7 +105,7 @@ Jeśli klaster usługi HDInsight został utworzony przy użyciu Data Lake Storag
         adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
         ```
 
-     W pustej komórce wklej następujący przykład kodu, Zastąp **MYDATALAKESTORE** nazwą konta Data Lake Storage i naciśnij klawisze **SHIFT + ENTER**. Ten przykład kodu rejestruje dane w tabeli tymczasowej o nazwie **hvac**.
+     W pustej komórce wklej następujący przykład kodu, Zastąp **MYDATALAKESTORE** nazwą konta Data Lake Storage i naciśnij klawisze **SHIFT + ENTER** . Ten przykład kodu rejestruje dane w tabeli tymczasowej o nazwie **hvac** .
 
       ```scala
       # Load the data. The path below assumes Data Lake Storage is   default storage for the Spark cluster

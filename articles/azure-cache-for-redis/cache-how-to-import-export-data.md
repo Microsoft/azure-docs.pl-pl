@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: a89acb73ea5c78c9f82758e0a322fb9001698c24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8bb1457bbf5d610518c3bc84768186972734099
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004325"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536865"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importowanie i eksportowanie danych w pamięci podręcznej platformy Azure dla Redis
 Import/Export to pamięć podręczna platformy Azure do Redis operacji zarządzania danymi, która umożliwia importowanie danych do usługi Azure cache dla Redis lub eksportowanie danych z pamięci podręcznej platformy Azure dla Redis przez zaimportowanie i eksportowanie pamięci podręcznej platformy Azure dla migawki bazy danych Redis Database (RDB) z pamięci podręcznej Premium do obiektu BLOB na koncie usługi Azure Storage.
@@ -28,15 +28,15 @@ Ten artykuł zawiera Przewodnik dotyczący importowania i eksportowania danych z
 >
 >
 
-## <a name="import"></a>Import
+## <a name="import"></a>Importuj
 Import może służyć do przenoszenia zgodnych plików RDB Redis z dowolnego serwera Redis działającego w dowolnej chmurze lub środowisku, w tym Redis działających w systemie Linux, Windows lub dowolnym dostawcy chmury, takim jak Amazon Web Services i inne. Importowanie danych to prosty sposób tworzenia pamięci podręcznej z wstępnie wypełnionymi danymi. Podczas procesu importowania usługa Azure cache for Redis ładuje pliki RDB z usługi Azure Storage do pamięci, a następnie wstawia klucze do pamięci podręcznej.
 
 > [!NOTE]
-> Przed rozpoczęciem operacji importowania upewnij się, że plik i pliki bazy danych Redis Database (RDB) są przekazywane do stron lub blokowych obiektów BLOB w usłudze Azure Storage w tym samym regionie i w ramach subskrypcji, w której znajduje się wystąpienie usługi Azure cache for Redis. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Jeśli plik RDB został wyeksportowany przy użyciu funkcji [eksportu usługi Azure cache for Redis](#export) , plik RDB jest już przechowywany w obiekcie blob stronicowania i jest gotowy do zaimportowania.
+> Przed rozpoczęciem operacji importowania upewnij się, że plik i pliki bazy danych Redis Database (RDB) są przekazywane do stron lub blokowych obiektów BLOB w usłudze Azure Storage w tym samym regionie i w ramach subskrypcji, w której znajduje się wystąpienie usługi Azure cache for Redis. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md). Jeśli plik RDB został wyeksportowany przy użyciu funkcji [eksportu usługi Azure cache for Redis](#export) , plik RDB jest już przechowywany w obiekcie blob stronicowania i jest gotowy do zaimportowania.
 >
 >
 
-1. Aby zaimportować co najmniej jeden wyeksportowany obiekt BLOB pamięci podręcznej, [Przejdź do pamięci podręcznej](cache-configure.md#configure-azure-cache-for-redis-settings) w Azure Portal a następnie kliknij pozycję **Importuj dane** w **menu zasób**.
+1. Aby zaimportować co najmniej jeden wyeksportowany obiekt BLOB pamięci podręcznej, [Przejdź do pamięci podręcznej](cache-configure.md#configure-azure-cache-for-redis-settings) w Azure Portal a następnie kliknij pozycję **Importuj dane** w **menu zasób** .
 
     ![Importowanie danych](./media/cache-how-to-import-export-data/cache-import-data.png)
 2. Kliknij pozycję **Wybierz obiekty blob** i wybierz konto magazynu zawierające dane do zaimportowania.
@@ -45,7 +45,7 @@ Import może służyć do przenoszenia zgodnych plików RDB Redis z dowolnego se
 3. Kliknij kontener zawierający dane do zaimportowania.
 
     ![Wybieranie kontenera](./media/cache-how-to-import-export-data/cache-import-choose-container.png)
-4. Wybierz co najmniej jeden obiekt BLOB do zaimportowania, klikając obszar z lewej strony nazwy obiektu BLOB, a następnie kliknij przycisk **Wybierz**.
+4. Wybierz co najmniej jeden obiekt BLOB do zaimportowania, klikając obszar z lewej strony nazwy obiektu BLOB, a następnie kliknij przycisk **Wybierz** .
 
     ![Wybierz obiekty blob](./media/cache-how-to-import-export-data/cache-import-choose-blobs.png)
 5. Kliknij przycisk **Importuj** , aby rozpocząć proces importowania.
@@ -55,7 +55,7 @@ Import może służyć do przenoszenia zgodnych plików RDB Redis z dowolnego se
    >
    >
 
-    ![Import](./media/cache-how-to-import-export-data/cache-import-blobs.png)
+    ![Importuj](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
     Możesz monitorować postęp operacji importowania, wykonując powiadomienia z Azure Portal lub wyświetlając zdarzenia w [dzienniku inspekcji](../azure-resource-manager/management/view-activity-logs.md).
 
@@ -64,7 +64,7 @@ Import może służyć do przenoszenia zgodnych plików RDB Redis z dowolnego se
 ## <a name="export"></a>Eksportowanie
 Eksport pozwala wyeksportować dane przechowywane w pamięci podręcznej platformy Azure dla Redis do Redis zgodnych plików RDB. Ta funkcja służy do przenoszenia danych z jednej pamięci podręcznej platformy Azure dla wystąpienia Redis do innego lub do innego serwera Redis. Podczas eksportowania plik tymczasowy jest tworzony na maszynie wirtualnej, która obsługuje wystąpienie serwera usługi Azure cache for Redis, i plik zostanie przekazany do wskazanego konta magazynu. Po zakończeniu operacji eksportowania ze stanem powodzenie lub niepowodzenie plik tymczasowy zostanie usunięty.
 
-1. Aby wyeksportować bieżącą zawartość pamięci podręcznej do magazynu, [Przejdź do pamięci podręcznej](cache-configure.md#configure-azure-cache-for-redis-settings) w Azure Portal a następnie kliknij pozycję **Eksportuj dane** w **menu zasób**.
+1. Aby wyeksportować bieżącą zawartość pamięci podręcznej do magazynu, [Przejdź do pamięci podręcznej](cache-configure.md#configure-azure-cache-for-redis-settings) w Azure Portal a następnie kliknij pozycję **Eksportuj dane** w **menu zasób** .
 
     ![Wybieranie kontenera magazynu](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. Kliknij pozycję **Wybierz kontener magazynu** i wybierz odpowiednie konto magazynu. Konto magazynu musi znajdować się w tej samej subskrypcji i regionie co pamięć podręczna.
@@ -74,7 +74,7 @@ Eksport pozwala wyeksportować dane przechowywane w pamięci podręcznej platfor
    >
 
     ![Konto magazynu](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
-3. Wybierz żądany kontener obiektów blob, a następnie kliknij przycisk **Wybierz**. Aby użyć nowego kontenera, kliknij przycisk **Dodaj kontener** , aby go najpierw dodać, a następnie wybierz go z listy.
+3. Wybierz żądany kontener obiektów blob, a następnie kliknij przycisk **Wybierz** . Aby użyć nowego kontenera, kliknij przycisk **Dodaj kontener** , aby go najpierw dodać, a następnie wybierz go z listy.
 
     ![Wybieranie kontenera magazynu](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. Wpisz **prefiks nazwy obiektu BLOB** , a następnie kliknij przycisk **Eksportuj** , aby rozpocząć proces eksportowania. Prefiks nazwy obiektu BLOB jest używany do tworzenia prefiksu nazw plików wygenerowanych przez tę operację eksportowania.

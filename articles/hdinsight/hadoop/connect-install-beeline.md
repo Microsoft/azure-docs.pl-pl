@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754960"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547592"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Nawiązywanie połączenia z usługą Apache Z usługi Beeline w usłudze HDInsight lub instalowanie jej lokalnie
 
@@ -104,7 +104,7 @@ W przypadku łączenia się bezpośrednio z węzłem głównym klastra lub z zas
 
 ## <a name="install-beeline-client"></a>Zainstaluj klienta Z usługi Beeline
 
-Mimo że usługa Z usługi Beeline jest dołączana do węzłów głównych, warto zainstalować ją lokalnie.  Kroki instalacji dla komputera lokalnego są oparte na [podsystemie Windows dla systemu Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Mimo że usługa Z usługi Beeline jest dołączana do węzłów głównych, warto zainstalować ją lokalnie.  Kroki instalacji dla komputera lokalnego są oparte na [podsystemie Windows dla systemu Linux](/windows/wsl/install-win10).
 
 1. Aktualizowanie list pakietów. Wprowadź następujące polecenie w powłoce bash:
 
@@ -128,7 +128,7 @@ Mimo że usługa Z usługi Beeline jest dołączana do węzłów głównych, war
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        Naciśnij **klawisze Ctrl + X**, a następnie **Y**, a następnie ENTER.
+        Naciśnij **klawisze Ctrl + X** , a następnie **Y** , a następnie ENTER.
 
 1. Pobierz archiwa Hadoop i Z usługi Beeline, wprowadź następujące polecenia:
 
@@ -144,7 +144,7 @@ Mimo że usługa Z usługi Beeline jest dołączana do węzłów głównych, war
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Dalsze zmiany pliku bashrc. Należy określić ścieżkę, w której archiwa zostały rozpakowane. W przypadku korzystania z [podsystemu Windows dla systemu Linux](https://docs.microsoft.com/windows/wsl/install-win10), jeśli wykonano kroki dokładnie, ścieżką będzie `/mnt/c/Users/user/` , gdzie `user` to nazwa użytkownika.
+1. Dalsze zmiany pliku bashrc. Należy określić ścieżkę, w której archiwa zostały rozpakowane. W przypadku korzystania z [podsystemu Windows dla systemu Linux](/windows/wsl/install-win10), jeśli wykonano kroki dokładnie, ścieżką będzie `/mnt/c/Users/user/` , gdzie `user` to nazwa użytkownika.
 
     1. Otwórz plik: `nano ~/.bashrc`
 
@@ -156,7 +156,7 @@ Mimo że usługa Z usługi Beeline jest dołączana do węzłów głównych, war
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. Naciśnij **klawisze Ctrl + X**, a następnie **Y**, a następnie ENTER.
+    1. Naciśnij **klawisze Ctrl + X** , a następnie **Y** , a następnie ENTER.
 
 1. Zamknij i ponownie otwórz sesję bash.
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 616e3e6c37faa3c085b8531173b557973e09fbf8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0c14e5537385b7518fd08d9d3599993bc6d82f88
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974570"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535505"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -32,11 +32,11 @@ Ta wersja dotyczy zarówno usługi HDInsight 3,6, jak i usługi HDInsight 4,0. W
 Usługa HDInsight obsługuje teraz tworzenie klastrów bez publicznego adresu IP i prywatnego połączenia z klastrami w wersji zapoznawczej. Klienci mogą używać nowych zaawansowanych ustawień sieci, aby utworzyć w pełni izolowany klaster bez publicznego adresu IP i korzystać z własnych prywatnych punktów końcowych w celu uzyskania dostępu do klastra. 
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Przechodzenie do zestawów skalowania maszyn wirtualnych platformy Azure
-Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji klastra. Począwszy od tej wersji, usługa stopniowo przeprowadzi migrację do [zestawów skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Cały proces może potrwać miesiące. Po przeprowadzeniu migracji regionów i subskrypcji nowo utworzone klastry usługi HDInsight będą uruchamiane w zestawach skalowania maszyn wirtualnych bez akcji klienta. Nie oczekiwano zmiany krytycznej.
+Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji klastra. Począwszy od tej wersji, usługa stopniowo przeprowadzi migrację do [zestawów skalowania maszyn wirtualnych platformy Azure](../virtual-machine-scale-sets/overview.md). Cały proces może potrwać miesiące. Po przeprowadzeniu migracji regionów i subskrypcji nowo utworzone klastry usługi HDInsight będą uruchamiane w zestawach skalowania maszyn wirtualnych bez akcji klienta. Nie oczekiwano zmiany krytycznej.
 
 ## <a name="deprecation"></a>Przestarzałe
 #### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Wycofanie klastra usług HDInsight 3,6 ML
-Typ klastra usług HDInsight 3,6 ML zostanie zakończony przez gru 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
+Typ klastra usług HDInsight 3,6 ML zostanie zakończony przez gru 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](./hdinsight-component-versioning.md#available-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
 
 ## <a name="behavior-changes"></a>Zmiany zachowania
 Brak zmian w zachowaniu dla tej wersji.
@@ -51,4 +51,4 @@ Usługa HDInsight obecnie nie obsługuje dostosowywania rozmiaru węzła dozorcy
 Usługa HDInsight kontynuuje zwiększanie niezawodności i wydajności klastrów. 
 
 ## <a name="component-version-change"></a>Zmiana wersji składnika
-Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](./hdinsight-component-versioning.md).

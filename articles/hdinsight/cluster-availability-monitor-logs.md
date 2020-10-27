@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f86b2166ea9bd2a547a29a777d6b709877036161
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163734"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542543"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Jak monitorować dostępność klastra za pomocą dzienników Azure Monitor w usłudze HDInsight
 
@@ -22,11 +22,11 @@ Klastry usługi HDInsight obejmują integrację dzienników Azure Monitor, któr
 
 Dzienniki Azure Monitor umożliwiają gromadzenie i agregowanie danych wygenerowanych przez wiele zasobów, takich jak klastry usługi HDInsight, w celu zapewnienia ujednoliconego środowiska monitorowania.
 
-Jako warunek wstępny potrzebny będzie obszar roboczy Log Analytics do przechowywania zebranych danych. Jeśli jeszcze tego nie zrobiono, możesz wykonać poniższe instrukcje: [Utwórz obszar roboczy log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Jako warunek wstępny potrzebny będzie obszar roboczy Log Analytics do przechowywania zebranych danych. Jeśli jeszcze tego nie zrobiono, możesz wykonać poniższe instrukcje: [Utwórz obszar roboczy log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Włącz integrację dzienników Azure Monitor usługi HDInsight
 
-Na stronie zasób klastra usługi HDInsight w portalu wybierz pozycję **Azure monitor**. Następnie wybierz pozycję **Włącz** , a następnie wybierz obszar roboczy log Analytics z listy rozwijanej.
+Na stronie zasób klastra usługi HDInsight w portalu wybierz pozycję **Azure monitor** . Następnie wybierz pozycję **Włącz** , a następnie wybierz obszar roboczy log Analytics z listy rozwijanej.
 
 ![Pakiet Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
 
@@ -34,7 +34,7 @@ Domyślnie program pakietu OMS jest instalowany na wszystkich węzłach klastra 
 
 ## <a name="query-metrics-and-logs-tables"></a>Zapytanie dotyczące metryk i tabel dzienników
 
-Po włączeniu integracji dzienników Azure Monitor (może to potrwać kilka minut) przejdź do zasobów **obszaru roboczego log Analytics** i wybierz pozycję **dzienniki**.
+Po włączeniu integracji dzienników Azure Monitor (może to potrwać kilka minut) przejdź do zasobów **obszaru roboczego log Analytics** i wybierz pozycję **dzienniki** .
 
 ![Log Analytics dzienników obszaru roboczego](media/cluster-availability-monitor-logs/hdinsight-portal-logs.png)
 
@@ -55,13 +55,13 @@ Przykładowo Uruchom przykładowe zapytanie o **współczynnik dostępności** ,
 > [!NOTE]  
 > Częstotliwość dostępności jest mierzona w okresie 24-godzinnym, więc klaster będzie musiał działać przez co najmniej 24 godziny, zanim zobaczysz dokładne stawki dostępności.
 
-Możesz przypiąć tę tabelę do udostępnionego pulpitu nawigacyjnego, klikając pozycję **Przypnij** w prawym górnym rogu. Jeśli nie masz żadnych zapisywalnych udostępnionych pulpitów nawigacyjnych, możesz zobaczyć, jak utworzyć je w tym miejscu: [Tworzenie i udostępnianie pulpitów nawigacyjnych w Azure Portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
+Możesz przypiąć tę tabelę do udostępnionego pulpitu nawigacyjnego, klikając pozycję **Przypnij** w prawym górnym rogu. Jeśli nie masz żadnych zapisywalnych udostępnionych pulpitów nawigacyjnych, możesz zobaczyć, jak utworzyć je w tym miejscu: [Tworzenie i udostępnianie pulpitów nawigacyjnych w Azure Portal](../azure-portal/azure-portal-dashboards.md#publish-and-share-a-dashboard).
 
 ## <a name="azure-monitor-alerts"></a>Alerty Azure Monitor
 
 Można również skonfigurować alerty Azure Monitor, które będą wyzwalane, gdy wartość metryki lub wyniki zapytania spełniają określone warunki. Na przykład utwórz alert, aby wysłać wiadomość e-mail, gdy co najmniej jeden węzeł nie wysłał pulsu w ciągu 5 godzin (tj. jest to prawdopodobnie niedostępne).
 
-W obszarze **dzienniki**Uruchom przykładowe zapytanie **niedostępne komputery** , wybierając polecenie **Uruchom** dla tego zapytania, jak pokazano poniżej.
+W obszarze **dzienniki** Uruchom przykładowe zapytanie **niedostępne komputery** , wybierając polecenie **Uruchom** dla tego zapytania, jak pokazano poniżej.
 
 ![Przykład dziennika obszaru roboczego "niedostępne komputery" Log Analytics](media/cluster-availability-monitor-logs/portal-unavailable-computers.png)
 
@@ -70,11 +70,11 @@ Jeśli wszystkie węzły są dostępne, to zapytanie powinno zwrócić teraz zer
 ![Log Analytics nowej regule alertu obszaru roboczego](media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png)
 
 Alert zawiera trzy składniki: *zasób* , dla którego ma zostać utworzona reguła (log Analytics w tym przypadku obszar roboczy), *warunek* wyzwalania alertu oraz *grupy akcji* , które określają, co się stanie po wyzwoleniu alertu.
-Kliknij **tytuł warunku**, jak pokazano poniżej, aby zakończyć konfigurowanie logiki sygnałów.
+Kliknij **tytuł warunku** , jak pokazano poniżej, aby zakończyć konfigurowanie logiki sygnałów.
 
 ![Warunek reguły tworzenia alertu portalu](media/cluster-availability-monitor-logs/portal-condition-title.png)
 
-Spowoduje to otwarcie **konfiguracji logiki sygnałów**.
+Spowoduje to otwarcie **konfiguracji logiki sygnałów** .
 
 Skonfiguruj sekcję **logika alertów** w następujący sposób:
 
@@ -84,7 +84,7 @@ Ponieważ to zapytanie zwraca tylko niedostępne węzły jako wyniki, jeśli lic
 
 W sekcji **oceniane na podstawie** Określ **okres** i **częstotliwość** w zależności od tego, jak często chcesz sprawdzać dostępność niedostępnych węzłów.
 
-Na potrzeby tego alertu należy się upewnić, że **okres = częstotliwość.** Więcej informacji na temat okresu, częstotliwości i innych parametrów alertu można znaleźć [tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types).
+Na potrzeby tego alertu należy się upewnić, że **okres = częstotliwość.** Więcej informacji na temat okresu, częstotliwości i innych parametrów alertu można znaleźć [tutaj](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition).
 
 Po zakończeniu konfigurowania logiki sygnałów wybierz pozycję **gotowe** .
 
@@ -94,16 +94,16 @@ Jeśli nie masz jeszcze istniejącej grupy akcji, kliknij pozycję **Utwórz now
 
 ![Reguła alertu tworzy nową grupę akcji](media/cluster-availability-monitor-logs/portal-create-new-action-group.png)
 
-Spowoduje to otwarcie **grupy akcji Dodaj**. Wybierz **nazwę grupy akcji**, **krótką nazwę**, **subskrypcję**i **grupę zasobów.** W sekcji **Akcje** wybierz **nazwę akcji** i wybierz pozycję **email/SMS/push/Voice** jako **Typ akcji.**
+Spowoduje to otwarcie **grupy akcji Dodaj** . Wybierz **nazwę grupy akcji** , **krótką nazwę** , **subskrypcję** i **grupę zasobów.** W sekcji **Akcje** wybierz **nazwę akcji** i wybierz pozycję **email/SMS/push/Voice** jako **Typ akcji.**
 
 > [!NOTE]
-> Istnieje kilka innych akcji, które mogą być wyzwalane przez alert oprócz wiadomości E-mail/SMS/wypychania/głosu, takich jak usługa Azure Functions, LogicApp, webhook, narzędzia ITSM i Automatyzacja. [Dowiedz się więcej.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
+> Istnieje kilka innych akcji, które mogą być wyzwalane przez alert oprócz wiadomości E-mail/SMS/wypychania/głosu, takich jak usługa Azure Functions, LogicApp, webhook, narzędzia ITSM i Automatyzacja. [Dowiedz się więcej.](../azure-monitor/platform/action-groups.md#action-specific-information)
 
-Spowoduje to otwarcie **wiadomości e-mail/SMS/wypychania/głosu**. Wybierz **nazwę** odbiorcy, **zaznacz** pole adres **e-mail** , a następnie wpisz adres e-mail, na który ma być wysyłany alert. Wybierz pozycję **OK** w  **wiadomości e-mail/SMS/wypychanie/głos**, a następnie w obszarze **Dodaj grupę akcji** , aby zakończyć konfigurowanie grupy akcji.
+Spowoduje to otwarcie **wiadomości e-mail/SMS/wypychania/głosu** . Wybierz **nazwę** odbiorcy, **zaznacz** pole adres **e-mail** , a następnie wpisz adres e-mail, na który ma być wysyłany alert. Wybierz pozycję **OK** w  **wiadomości e-mail/SMS/wypychanie/głos** , a następnie w obszarze **Dodaj grupę akcji** , aby zakończyć konfigurowanie grupy akcji.
 
 ![Reguła alertu tworzy grupę akcji.](media/cluster-availability-monitor-logs/portal-add-action-group.png)
 
-Po zamknięciu tych zamków powinna zostać wyświetlona grupa akcji wymieniona w sekcji **grupy akcji** . Na koniec Wypełnij sekcję **szczegóły alertu** , wpisując nazwę i **Opis** **reguły alertu** i wybierając **ważność**. Kliknij przycisk **Utwórz regułę alertu** , aby zakończyć.
+Po zamknięciu tych zamków powinna zostać wyświetlona grupa akcji wymieniona w sekcji **grupy akcji** . Na koniec Wypełnij sekcję **szczegóły alertu** , wpisując nazwę i **Opis** **reguły alertu** i wybierając **ważność** . Kliknij przycisk **Utwórz regułę alertu** , aby zakończyć.
 
 ![Portal tworzy zakończenie reguły alertu](media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png)
 
@@ -114,7 +114,7 @@ Po spełnieniu warunku tego alertu alert zostanie uruchomiony i otrzymasz wiadom
 
 ![Przykład wiadomości e-mail dotyczącej alertu Azure Monitor](media/cluster-availability-monitor-logs/portal-oms-alert-email.png)
 
-Możesz również wyświetlić wszystkie alerty, które zostały wywołane, pogrupowane według ważności, przechodząc do **alertów** w **obszarze roboczym log Analytics**.
+Możesz również wyświetlić wszystkie alerty, które zostały wywołane, pogrupowane według ważności, przechodząc do **alertów** w **obszarze roboczym log Analytics** .
 
 ![Log Analytics alertów obszaru roboczego](media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png)
 

@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.custom: mvc
-ms.openlocfilehash: b0c0fd1b540251b5a7dfefde5fc33adb2813bb8e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 75d76c64c10bf3ecc28c32452618048119bb9a59
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490071"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547626"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Szybki Start: Tworzenie Azure Database for PostgreSQL elastycznego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym przewodniku szybki start pokazano, jak za pomocą poleceń [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) w [Azure Cloud Shell](https://shell.azure.com) utworzyć Azure Database for PostgreSQL elastyczny serwer w ciągu pięciu minut. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+W tym przewodniku szybki start pokazano, jak za pomocą poleceń [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) w [Azure Cloud Shell](https://shell.azure.com) utworzyć Azure Database for PostgreSQL elastyczny serwer w ciągu pięciu minut. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 > [!IMPORTANT] 
 > Azure Database for PostgreSQL elastyczny serwer jest obecnie w wersji zapoznawczej.
@@ -46,7 +46,7 @@ az account set --subscription <subscription id>
 
 ## <a name="create-a-flexible-server"></a>Tworzenie serwera elastycznego
 
-Utwórz [grupę zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) za pomocą `az group create` polecenia, a następnie utwórz serwer elastyczny PostgreSQL wewnątrz tej grupy zasobów. Należy podać unikatową nazwę. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `westus`.
+Utwórz [grupę zasobów platformy Azure](../../azure-resource-manager/management/overview.md) za pomocą `az group create` polecenia, a następnie utwórz serwer elastyczny PostgreSQL wewnątrz tej grupy zasobów. Należy podać unikatową nazwę. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -79,7 +79,7 @@ Aby nawiązać połączenie z serwerem, musisz podać informacje o hoście i po�
 az postgres flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin**.
+Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin** .
 
 <!--FIXME-->
 ```json
@@ -112,7 +112,7 @@ Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **a
 
 ## <a name="connect-using-postgresql-command-line-client"></a>Nawiązywanie połączenia przy użyciu klienta wiersza polecenia PostgreSQL
 
-Ponieważ serwer elastyczny został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)*, należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do utworzonej sieci wirtualnej. 
+Ponieważ serwer elastyczny został utworzony z *dostępem prywatnym (Integracja z siecią wirtualną)* , należy połączyć się z serwerem z zasobu w ramach tej samej sieci wirtualnej co serwer. Można utworzyć maszynę wirtualną i dodać ją do utworzonej sieci wirtualnej. 
 
 Po utworzeniu maszyny wirtualnej można do niej wykonać protokół SSH i zainstalować narzędzie wiersza polecenia **[PSQL](https://www.postgresql.org/download/)** .
 

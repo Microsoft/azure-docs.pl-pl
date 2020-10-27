@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: b01e7ca9ff05b6eed51e1c454b8064ab28bda0d5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222910"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537477"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Pamięć podręczna platformy Azure dla opcji izolacji sieci Redis 
 W tym artykule dowiesz się, jak określić najlepsze rozwiązanie do izolacji sieci dla Twoich potrzeb. Zapoznajemy się z podstawowymi informacjami na temat powiązań prywatnych platformy Azure, iniekcji platformy Azure Virtual Network (VNet) i reguł zapory platformy Azure wraz z ich zaletami i ograniczeniami.  
@@ -21,7 +21,7 @@ W tym artykule dowiesz się, jak określić najlepsze rozwiązanie do izolacji s
 
 ### <a name="advantages"></a>Zalety
 * Obsługiwane w usłudze Azure cache w warstwach Podstawowa, standardowa i Premium dla wystąpień Redis. 
-* Za pomocą [linku prywatnego platformy Azure](/azure/private-link/private-link-overview)można nawiązać połączenie z wystąpieniem usługi Azure cache z sieci wirtualnej za pośrednictwem prywatnego punktu końcowego, który ma przypisany prywatny adres IP w podsieci w sieci wirtualnej. Dzięki temu wystąpienia pamięci podręcznej są dostępne zarówno w sieci wirtualnej, jak i publicznie.  
+* Za pomocą [linku prywatnego platformy Azure](../private-link/private-link-overview.md)można nawiązać połączenie z wystąpieniem usługi Azure cache z sieci wirtualnej za pośrednictwem prywatnego punktu końcowego, który ma przypisany prywatny adres IP w podsieci w sieci wirtualnej. Dzięki temu wystąpienia pamięci podręcznej są dostępne zarówno w sieci wirtualnej, jak i publicznie.  
 * Po utworzeniu prywatnego punktu końcowego dostęp do sieci publicznej może być ograniczony przez `publicNetworkAccess` flagę. Ta flaga jest domyślnie ustawiona na wartość `Enabled` , co pozwala na dostęp do pamięci podręcznej zarówno publicznego, jak i prywatnego. Jeśli jest ustawiona na `Disabled` , zezwala na dostęp tylko do prywatnego linku. Możesz ustawić wartość na `Disabled` za pomocą żądania patch. Aby uzyskać więcej informacji, zobacz [Azure cache for Redis za pomocą prywatnego linku platformy Azure (wersja zapoznawcza)](cache-private-link.md). 
 * Wszystkie zależności zewnętrznej pamięci podręcznej nie będą miały wpływu na reguły sieciowej grupy zabezpieczeń sieci wirtualnej.
 
@@ -51,7 +51,7 @@ Sieć wirtualna jest podstawowym blokiem konstrukcyjnym sieci prywatnej na platf
 
 
 ## <a name="azure-firewall-rules"></a>Reguły zapory platformy Azure
-[Zapora systemu Azure](/azure/firewall/overview) to zarządzana, oparta na chmurze usługa zabezpieczeń sieci, która chroni zasoby sieci wirtualnej platformy Azure. Jest to w pełni stanowa Zapora jako usługa z wbudowaną wysoką dostępnością i nieograniczoną skalowalnością chmury. Możesz centralnie tworzyć, wymuszać i rejestrować zasady łączności aplikacji i sieci w subskrypcjach i sieciach wirtualnych.  
+[Zapora systemu Azure](../firewall/overview.md) to zarządzana, oparta na chmurze usługa zabezpieczeń sieci, która chroni zasoby sieci wirtualnej platformy Azure. Jest to w pełni stanowa Zapora jako usługa z wbudowaną wysoką dostępnością i nieograniczoną skalowalnością chmury. Możesz centralnie tworzyć, wymuszać i rejestrować zasady łączności aplikacji i sieci w subskrypcjach i sieciach wirtualnych.  
 
 ### <a name="advantages"></a>Zalety
 * Po skonfigurowaniu reguł zapory tylko połączenia klienckie z określonych zakresów adresów IP mogą łączyć się z pamięcią podręczną. Połączenia z usługi Azure cache dla systemów monitorowania Redis są zawsze dozwolone, nawet jeśli są skonfigurowane reguły zapory. Zdefiniowane reguły sieciowej grupy zabezpieczeń są również dozwolone.  
@@ -63,4 +63,4 @@ Sieć wirtualna jest podstawowym blokiem konstrukcyjnym sieci prywatnej na platf
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak skonfigurować dyskową pamięć podręczną z dodaną pamięcią podręczną dla [wystąpienia usługi Redis w warstwie Premium](cache-how-to-premium-vnet.md).  
 * Dowiedz się, jak skonfigurować [reguły zapory dla wszystkich warstw usługi Azure cache for Redis](cache-configure.md#firewall). 
-* Dowiedz się, jak [skonfigurować prywatne punkty końcowe dla wszystkich warstw usługi Azure cache for Redis](cache-private-link.md). 
+* Dowiedz się, jak [skonfigurować prywatne punkty końcowe dla wszystkich warstw usługi Azure cache for Redis](cache-private-link.md).

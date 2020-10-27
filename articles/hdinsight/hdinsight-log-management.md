@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 95472d53045e23741286188da004eb649570a965
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c2aa33ac9e92f6763c0d89f0a049409c1a6a4049
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487232"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546028"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Zarządzanie dziennikami klastra usługi HDInsight
 
@@ -77,11 +77,11 @@ Typowy klaster usługi HDInsight używa kilku usług i pakietów oprogramowania 
 
 Apache Ambari upraszcza zarządzanie, konfigurację i monitorowanie klastra usługi HDInsight przez udostępnienie internetowego interfejsu użytkownika i interfejsu API REST. Usługa Ambari jest dołączana do klastrów usługi HDInsight opartych na systemie Linux. Wybierz okienko **pulpit nawigacyjny klastra** na stronie Azure Portal HDInsight, aby otworzyć stronę łącza **pulpity nawigacyjne klastra** .  Następnie wybierz okienko **pulpit nawigacyjny klastra usługi HDInsight** , aby otworzyć interfejs użytkownika Ambari.  Zostanie wyświetlony monit o podanie poświadczeń logowania do klastra.
 
-Aby otworzyć listę widoków usług, wybierz okienko **widoki Ambari** na stronie Azure portal usługi HDInsight.  Ta lista różni się w zależności od zainstalowanych bibliotek.  Na przykład można zobaczyć Menedżera kolejki PRZĘDZy, widok Hive i widok tez.  Wybierz łącze do usługi, aby wyświetlić informacje o konfiguracji i usłudze.  Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są informacje na temat konfiguracji usługi klastra i historii wersji usługi. Aby przejść do tej sekcji interfejsu użytkownika Ambari, wybierz menu **administrator** , a następnie kliknij **stosy i wersje**.  Wybierz kartę **wersje** , aby wyświetlić informacje o wersji usługi.
+Aby otworzyć listę widoków usług, wybierz okienko **widoki Ambari** na stronie Azure portal usługi HDInsight.  Ta lista różni się w zależności od zainstalowanych bibliotek.  Na przykład można zobaczyć Menedżera kolejki PRZĘDZy, widok Hive i widok tez.  Wybierz łącze do usługi, aby wyświetlić informacje o konfiguracji i usłudze.  Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są informacje na temat konfiguracji usługi klastra i historii wersji usługi. Aby przejść do tej sekcji interfejsu użytkownika Ambari, wybierz menu **administrator** , a następnie kliknij **stosy i wersje** .  Wybierz kartę **wersje** , aby wyświetlić informacje o wersji usługi.
 
 ![Stos i wersje administratora oprogramowania Apache Ambari](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Za pomocą interfejsu użytkownika Ambari można pobrać konfigurację dla dowolnych (lub wszystkich) usług działających na określonym hoście (lub węźle) w klastrze.  Wybierz menu **hosty** , a następnie link do hosta zainteresowania. Na stronie tego hosta wybierz przycisk **Akcje hosta** , a następnie **Pobierz konfiguracji klienta**.
+Za pomocą interfejsu użytkownika Ambari można pobrać konfigurację dla dowolnych (lub wszystkich) usług działających na określonym hoście (lub węźle) w klastrze.  Wybierz menu **hosty** , a następnie link do hosta zainteresowania. Na stronie tego hosta wybierz przycisk **Akcje hosta** , a następnie **Pobierz konfiguracji klienta** .
 
 ![Konfiguracja klienta hosta pobierania oprogramowania Apache Ambari](./media/hdinsight-log-management/download-client-configs.png)
 
@@ -109,7 +109,7 @@ Następnym krokiem jest przejrzenie plików dziennika wykonywania zadań dla ró
 
 ### <a name="access-the-hadoop-log-files"></a>Dostęp do plików dziennika usługi Hadoop
 
-Pliki dzienników usługi HDInsight są przechowywane zarówno w systemie plików klastra, jak i w usłudze Azure Storage. Pliki dziennika można przeanalizować w klastrze, otwierając połączenie [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) z klastrem i przeglądając system plików lub korzystając z portalu stanu przędzy usługi Hadoop na zdalnym serwerze węzła głównego. Pliki dziennika można przeanalizować w usłudze Azure Storage przy użyciu dowolnych narzędzi, które mogą uzyskiwać dostęp do danych z usługi Azure Storage i je pobierać. Przykłady to [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)i Visual Studio Eksplorator serwera. Aby uzyskać dostęp do danych w usłudze Azure Blob Storage, można również użyć programu PowerShell i bibliotek klienckich usługi Azure Storage lub zestawów SDK platformy Azure.
+Pliki dzienników usługi HDInsight są przechowywane zarówno w systemie plików klastra, jak i w usłudze Azure Storage. Pliki dziennika można przeanalizować w klastrze, otwierając połączenie [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) z klastrem i przeglądając system plików lub korzystając z portalu stanu przędzy usługi Hadoop na zdalnym serwerze węzła głównego. Pliki dziennika można przeanalizować w usłudze Azure Storage przy użyciu dowolnych narzędzi, które mogą uzyskiwać dostęp do danych z usługi Azure Storage i je pobierać. Przykłady to [AzCopy](../storage/common/storage-use-azcopy-v10.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)i Visual Studio Eksplorator serwera. Aby uzyskać dostęp do danych w usłudze Azure Blob Storage, można również użyć programu PowerShell i bibliotek klienckich usługi Azure Storage lub zestawów SDK platformy Azure.
 
 Usługa Hadoop uruchamia zadania w trakcie wykonywania *zadań* w różnych węzłach w klastrze. Usługa HDInsight może inicjować podejmowanie spekulacyjnych prób zadań, kończąc wszystkie inne nieudane próby wykonania zadań. Spowoduje to wygenerowanie znaczącego działania, które jest rejestrowane w plikach dziennika kontrolera, stderr i dziennik systemowy na bieżąco. Ponadto jednocześnie jest uruchomionych wiele prób wykonywania zadań, ale w pliku dziennika mogą być wyświetlane tylko wyniki liniowe.
 
@@ -144,13 +144,13 @@ Interfejs użytkownika programu ResourceManager jest uruchamiany w węźle głó
 
 1. W przeglądarce internetowej przejdź do adresu `https://CLUSTERNAME.azurehdinsight.net`. Zastąp CLUSTERNAME nazwą klastra usługi HDInsight:
 2. Z listy usług po lewej stronie wybierz pozycję PRZĘDZa.
-3. Z listy rozwijanej szybkie linki wybierz jeden z węzłów głównych klastra, a następnie wybierz pozycję **dzienniki zasobów źródłowych**. Zostanie wyświetlona lista linków do dzienników PRZĘDZy.
+3. Z listy rozwijanej szybkie linki wybierz jeden z węzłów głównych klastra, a następnie wybierz pozycję **dzienniki zasobów źródłowych** . Zostanie wyświetlona lista linków do dzienników PRZĘDZy.
 
 ## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Krok 4: wielkość magazynu i koszty przechowywania w dzienniku prognozy
 
 Po wykonaniu poprzednich kroków można zrozumieć typy i woluminy plików dziennika, które są wytwarzane przez klastry usługi HDInsight.
 
-Następnie Analizuj wolumin danych dziennika w lokalizacjach magazynu dzienników kluczy w danym okresie czasu. Na przykład można analizować wolumin i wzrost ponad 30-60-90 dni.  Zapisz te informacje w arkuszu kalkulacyjnym lub użyj innych narzędzi, takich jak Visual Studio, Eksplorator usługi Azure Storage lub Power Query dla programu Excel. Aby uzyskać więcej informacji, zobacz [Analizowanie dzienników usługi HDInsight](hdinsight-debug-jobs.md).  
+Następnie Analizuj wolumin danych dziennika w lokalizacjach magazynu dzienników kluczy w danym okresie czasu. Na przykład można analizować wolumin i wzrost ponad 30-60-90 dni.  Zapisz te informacje w arkuszu kalkulacyjnym lub użyj innych narzędzi, takich jak Visual Studio, Eksplorator usługi Azure Storage lub Power Query dla programu Excel. ```
 
 Masz teraz wystarczającą ilość informacji, aby utworzyć strategię zarządzania dziennikami dla dzienników kluczy.  Użyj swojego arkusza kalkulacyjnego (lub wybranego narzędzia) do prognozowania zarówno wzrostu rozmiaru dziennika, jak i magazynu dzienników usługi Azure.  Należy również wziąć pod uwagę wszystkie wymagania dotyczące przechowywania dzienników dla zestawu dzienników, które są rozpatrywane.  Teraz można dokonać ponownej prognozy kosztów magazynu dzienników po określeniu, które pliki dziennika mogą zostać usunięte (jeśli istnieją) i które dzienniki należy zachować i zarchiwizować w tańszej usłudze Azure Storage.
 
@@ -186,6 +186,6 @@ Aby zebrać dzienniki ze wszystkich węzłów do jednej centralnej lokalizacji, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozwiązanie do monitorowania i rejestrowania w usłudze HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
+* [Rozwiązanie do monitorowania i rejestrowania w usłudze HDInsight](/previous-versions/msp-n-p/dn749790(v=pandp.10))
 * [Dostęp do Apache Hadoop dzienników aplikacji PRZĘDZy w usłudze HDInsight opartej na systemie Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Jak kontrolować rozmiar plików dziennika dla różnych składników Apache Hadoop](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: 71f1e2b50daf333e19bc11bce119f37cec28d146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90e60044e227ea1a18ea032d302b29abda1ea2e8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209204"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536848"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Samouczek: tworzenie rankingu z odkładaniem do pamięci podręcznej na platformie ASP.NET
 
-W tym samouczku zaktualizujesz aplikację internetową platformy ASP.NET o nazwie *ContosoTeamStats*, utworzoną w ramach [przewodnika Szybki start platformy ASP.NET dla usługi Azure Cache for Redis](cache-web-app-howto.md), w taki sposób, aby zawierała ranking korzystający ze [wzorca odkładania do pamięci podręcznej](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) i usługi Azure Cache for Redis. Przykładowa aplikacja wyświetla listę statystyk zespołu z bazy danych i demonstruje różne sposoby korzystania z usługi Azure Cache for Redis do przechowywania danych w pamięci podręcznej i pobierania ich w celu podniesienia wydajności. Wykonanie instrukcji z samouczka umożliwi uzyskanie działającej aplikacji internetowej wykonującej odczyt i zapis w bazie danych, zoptymalizowanej przy użyciu usługi Azure Cache for Redis i hostowanej na platformie Azure.
+W tym samouczku zaktualizujesz aplikację internetową platformy ASP.NET o nazwie *ContosoTeamStats* , utworzoną w ramach [przewodnika Szybki start platformy ASP.NET dla usługi Azure Cache for Redis](cache-web-app-howto.md), w taki sposób, aby zawierała ranking korzystający ze [wzorca odkładania do pamięci podręcznej](/azure/architecture/patterns/cache-aside) i usługi Azure Cache for Redis. Przykładowa aplikacja wyświetla listę statystyk zespołu z bazy danych i demonstruje różne sposoby korzystania z usługi Azure Cache for Redis do przechowywania danych w pamięci podręcznej i pobierania ich w celu podniesienia wydajności. Wykonanie instrukcji z samouczka umożliwi uzyskanie działającej aplikacji internetowej wykonującej odczyt i zapis w bazie danych, zoptymalizowanej przy użyciu usługi Azure Cache for Redis i hostowanej na platformie Azure.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -45,8 +45,8 @@ W tej części samouczka dla projektu *ContosoTeamStats* zostanie skonfigurowany
 ### <a name="add-the-entity-framework-to-the-project"></a>Dodawanie platformy Entity Framework do projektu
 
 1. W programie Visual Studio otwórz rozwiązanie *ContosoTeamStats* utworzone w [przewodniku Szybki start platformy ASP.NET dla usługi Azure Cache for Redis](cache-web-app-howto.md).
-2. Kliknij pozycje **Narzędzia > Menedżer pakietów NuGet > Konsola menedżera pakietów**.
-3. Uruchom następujące polecenie w oknie **Konsola menedżera pakietów**, aby zainstalować platformę EntityFramework:
+2. Kliknij pozycje **Narzędzia > Menedżer pakietów NuGet > Konsola menedżera pakietów** .
+3. Uruchom następujące polecenie w oknie **Konsola menedżera pakietów** , aby zainstalować platformę EntityFramework:
 
     ```powershell
     Install-Package EntityFramework
@@ -56,9 +56,9 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
 
 ### <a name="add-the-team-model"></a>Dodawanie modelu zespołu
 
-1. Kliknij prawym przyciskiem myszy pozycję **Modele** w **Eksploratorze rozwiązań**, a następnie wybierz kolejno pozycje **Dodaj**, **Klasa**.
+1. Kliknij prawym przyciskiem myszy pozycję **Modele** w **Eksploratorze rozwiązań** , a następnie wybierz kolejno pozycje **Dodaj** , **Klasa** .
 
-1. Wprowadź `Team` dla nazwy klasy i kliknij przycisk **Dodaj**.
+1. Wprowadź `Team` dla nazwy klasy i kliknij przycisk **Dodaj** .
 
     ![Dodawanie klasy modelu](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png)
 
@@ -142,7 +142,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
     }
     ```
 
-1. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Web.config**, aby go otworzyć.
+1. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Web.config** , aby go otworzyć.
 
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 
@@ -173,17 +173,17 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
 
 1. Skompiluj projekt w programie Visual Studio. 
 
-1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy folder **Kontrolery** i wybierz kolejno pozycje **Dodaj**, **Kontroler**.
+1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy folder **Kontrolery** i wybierz kolejno pozycje **Dodaj** , **Kontroler** .
 
-1. Wybierz pozycję **Kontroler MVC 5 z widokami używający narzędzia Entity Framework** i kliknij przycisk **Dodaj**. Jeśli po kliknięciu przycisku **Dodaj** występuje błąd, upewnij się, czy został wcześniej utworzony projekt.
+1. Wybierz pozycję **Kontroler MVC 5 z widokami używający narzędzia Entity Framework** i kliknij przycisk **Dodaj** . Jeśli po kliknięciu przycisku **Dodaj** występuje błąd, upewnij się, czy został wcześniej utworzony projekt.
 
     ![Dodawanie klasy kontrolera](./media/cache-web-app-cache-aside-leaderboard/cache-add-controller-class.png)
 
-1. Wybierz pozycję **Zespół (ContosoTeamStats.Models)** z listy rozwijanej **Klasa modelu**. Wybierz pozycję **TeamContext (ContosoTeamStats.Models)** z listy rozwijanej **Klasa kontekstu danych**. Wpisz nazwę `TeamsController` w polu tekstowym **Kontroler** (jeśli nie została automatycznie wypełniona). Kliknij przycisk **Dodaj**, aby utworzyć klasę kontrolera i dodać widoki domyślne.
+1. Wybierz pozycję **Zespół (ContosoTeamStats.Models)** z listy rozwijanej **Klasa modelu** . Wybierz pozycję **TeamContext (ContosoTeamStats.Models)** z listy rozwijanej **Klasa kontekstu danych** . Wpisz nazwę `TeamsController` w polu tekstowym **Kontroler** (jeśli nie została automatycznie wypełniona). Kliknij przycisk **Dodaj** , aby utworzyć klasę kontrolera i dodać widoki domyślne.
 
     ![Konfigurowanie kontrolera](./media/cache-web-app-cache-aside-leaderboard/cache-configure-controller.png)
 
-1. W **Eksploratorze rozwiązań** rozwiń folder **Global.asax** i kliknij dwukrotnie plik **Global.asax.cs**, aby go otworzyć.
+1. W **Eksploratorze rozwiązań** rozwiń folder **Global.asax** i kliknij dwukrotnie plik **Global.asax.cs** , aby go otworzyć.
 
     ![Global.asax.cs](./media/cache-web-app-cache-aside-leaderboard/cache-global-asax.png)
 
@@ -216,7 +216,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
 
 ### <a name="configure-the-layout-view"></a>Konfigurowanie widoku układu
 
-1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki**, a następnie folder **Współużytkowane**, a następnie kliknij dwukrotnie pozycję **_Layout.cshtml**. 
+1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki** , a następnie folder **Współużytkowane** , a następnie kliknij dwukrotnie pozycję **_Layout.cshtml** . 
 
     ![_Layout.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml.png)
 
@@ -226,7 +226,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
     <title>@ViewBag.Title - Contoso Team Stats</title>
     ```
 
-1. W sekcji `body` dodaj następującą nową instrukcję `Html.ActionLink` dla projektu *Contoso Team Stats* zaraz pod linkiem dla elementu *Azure Cache for Redis Test*.
+1. W sekcji `body` dodaj następującą nową instrukcję `Html.ActionLink` dla projektu *Contoso Team Stats* zaraz pod linkiem dla elementu *Azure Cache for Redis Test* .
 
     ```csharp
     @Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
@@ -234,7 +234,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
 
     ![Zmiany kodu](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
 
-1. Naciśnij klawisze **Ctrl+F5**, aby utworzyć i uruchomić aplikację. Ta wersja aplikacji odczytuje wyniki bezpośrednio z bazy danych. Zwróć uwagę na akcje **Utwórz nowe**, **Edytuj**, **Szczegóły** oraz **Usuń**, które zostały automatycznie dodane do aplikacji przez szkielet **Kontroler MVC 5 z widokami używający narzędzia Entity Framework**. W następnej sekcji samouczka dodasz pamięć podręczną Azure Cache for Redis w celu optymalizacji dostępu do danych i zapewnienia dodatkowych funkcji w aplikacji.
+1. Naciśnij klawisze **Ctrl+F5** , aby utworzyć i uruchomić aplikację. Ta wersja aplikacji odczytuje wyniki bezpośrednio z bazy danych. Zwróć uwagę na akcje **Utwórz nowe** , **Edytuj** , **Szczegóły** oraz **Usuń** , które zostały automatycznie dodane do aplikacji przez szkielet **Kontroler MVC 5 z widokami używający narzędzia Entity Framework** . W następnej sekcji samouczka dodasz pamięć podręczną Azure Cache for Redis w celu optymalizacji dostępu do danych i zapewnienia dodatkowych funkcji w aplikacji.
 
     ![Aplikacja startowa](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
 
@@ -244,13 +244,13 @@ W tej sekcji samouczka skonfigurujesz przykładową aplikację do przechowywania
 
 ### <a name="add-a-cache-connection-to-the-teams-controller"></a>Dodawanie połączenia pamięci podręcznej do kontrolera zespołów
 
-Pakiet biblioteki klienta *StackExchange.Redis* został już zainstalowany w ramach przewodnika Szybki start. Oprócz tego skonfigurowano ustawienia aplikacji *CacheConnection* tak, aby była używana lokalnie i z opublikowaną usługą App Service. Użyj tej samej biblioteki klienta i informacji *CacheConnection* w elemencie *TeamsController*.
+Pakiet biblioteki klienta *StackExchange.Redis* został już zainstalowany w ramach przewodnika Szybki start. Oprócz tego skonfigurowano ustawienia aplikacji *CacheConnection* tak, aby była używana lokalnie i z opublikowaną usługą App Service. Użyj tej samej biblioteki klienta i informacji *CacheConnection* w elemencie *TeamsController* .
 
-1. W **Eksploratorze rozwiązań** rozwiń folder **Kontrolery** i kliknij dwukrotnie plik **TeamsController.cs**, aby go otworzyć.
+1. W **Eksploratorze rozwiązań** rozwiń folder **Kontrolery** i kliknij dwukrotnie plik **TeamsController.cs** , aby go otworzyć.
 
     ![Kontroler zespołów](./media/cache-web-app-cache-aside-leaderboard/cache-teamscontroller.png)
 
-1. Dodaj dwie poniższe instrukcje `using` do pliku **TeamsController.cs**:
+1. Dodaj dwie poniższe instrukcje `using` do pliku **TeamsController.cs** :
 
     ```csharp
     using System.Configuration;
@@ -574,7 +574,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
 
 ### <a name="add-caching-methods-to-the-teams-index-view"></a>Dodawanie metod buforowania do widoku indeksu zespołów
 
-1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki**, a następnie folder **Zespoły** i kliknij dwukrotnie plik **Index.cshtml**.
+1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki** , a następnie folder **Zespoły** i kliknij dwukrotnie plik **Index.cshtml** .
 
     ![Index.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-views-teams-index-cshtml.png)
 
@@ -624,7 +624,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
 
     ![Komunikat o stanie](./media/cache-web-app-cache-aside-leaderboard/cache-status-message.png)
 
-1. Naciśnij klawisz **F6**, aby utworzyć projekt.
+1. Naciśnij klawisz **F6** , aby utworzyć projekt.
 
 ## <a name="run-the-app-locally"></a>Lokalne uruchamianie aplikacji
 
@@ -648,35 +648,35 @@ W tej sekcji zostanie zainicjowana Nowa baza danych w SQL Database, aby aplikacj
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Utwórz zasób** w prawym lewym rogu.
 
-1. Na stronie **Nowy** kliknij pozycje **Bazy danych** > **SQL Database**.
+1. Na stronie **Nowy** kliknij pozycje **Bazy danych** > **SQL Database** .
 
 1. Dla nowej bazy danych SQL Database użyj następujących ustawień:
 
    | Ustawienie       | Sugerowana wartość | Opis |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nazwa bazy danych** | *ContosoTeamsDatabase* | Prawidłowe nazwy baz danych znajdują się w temacie [identyfikatory baz danych](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Nazwa bazy danych** | *ContosoTeamsDatabase* | Prawidłowe nazwy baz danych znajdują się w temacie [identyfikatory baz danych](/sql/relational-databases/databases/database-identifiers). |
    | **Subskrypcja** | *Twoja subskrypcja*  | Wybierz tę samą subskrypcję, która została użyta do utworzenia pamięci podręcznej i hostowania usługi App Service. |
    | **Grupa zasobów**  | *TestResourceGroup* | Kliknij pozycję **Użyj istniejącej** i użyj tej samej grupy zasobów, w której umieszczono pamięć podręczną i usługę App Service. |
    | **Wybierz źródło** | **Pusta baza danych** | Zacznij od pustej bazy danych. |
 
-1. W obszarze **Serwer** kliknij pozycje **Skonfiguruj wymagane ustawienia** > **Utwórz nowy serwer** i podaj następujące informacje, a następnie kliknij przycisk **Wybierz**:
+1. W obszarze **Serwer** kliknij pozycje **Skonfiguruj wymagane ustawienia** > **Utwórz nowy serwer** i podaj następujące informacje, a następnie kliknij przycisk **Wybierz** :
 
    | Ustawienie       | Sugerowana wartość | Opis |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
-   | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy logowania można znaleźć w temacie [identyfikatory baz danych](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy logowania można znaleźć w temacie [identyfikatory baz danych](/sql/relational-databases/databases/database-identifiers). |
    | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej 8 znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
    | **Lokalizacja** | *East US* | Wybierz ten sam region, w którym utworzono pamięć podręczną i usługę App Service. |
 
-1. Kliknij pozycję **Przypnij do pulpitu nawigacyjnego**, a następnie pozycję **Utwórz**, aby utworzyć nową bazę danych i nowy serwer.
+1. Kliknij pozycję **Przypnij do pulpitu nawigacyjnego** , a następnie pozycję **Utwórz** , aby utworzyć nową bazę danych i nowy serwer.
 
-1. Po utworzeniu nowej bazy danych kliknij pozycję **Pokaż parametry połączenia bazy danych** i skopiuj parametry połączenia **ADO.NET**.
+1. Po utworzeniu nowej bazy danych kliknij pozycję **Pokaż parametry połączenia bazy danych** i skopiuj parametry połączenia **ADO.NET** .
 
     ![Pokazywanie parametrów połączeń](./media/cache-web-app-cache-aside-leaderboard/cache-show-connection-strings.png)
 
-1. W witrynie Azure Portal przejdź do usługi App Service i kliknij pozycję **Ustawienia aplikacji**, a następnie pozycję **Dodaj nowe parametry połączenia** w sekcji Parametry połączenia.
+1. W witrynie Azure Portal przejdź do usługi App Service i kliknij pozycję **Ustawienia aplikacji** , a następnie pozycję **Dodaj nowe parametry połączenia** w sekcji Parametry połączenia.
 
-1. Dodaj nowe parametry połączenia o nazwie *TeamContext*, aby zachować zgodność z klasą kontekstu bazy danych platformy Entity Framework. Wklej parametry połączenia dla nowej bazy danych jako wartość. Pamiętaj, aby zastąpić następujące symbole zastępcze w parametrach połączenia, a następnie kliknij pozycję **Zapisz**:
+1. Dodaj nowe parametry połączenia o nazwie *TeamContext* , aby zachować zgodność z klasą kontekstu bazy danych platformy Entity Framework. Wklej parametry połączenia dla nowej bazy danych jako wartość. Pamiętaj, aby zastąpić następujące symbole zastępcze w parametrach połączenia, a następnie kliknij pozycję **Zapisz** :
 
     | Symbol zastępczy | Sugerowana wartość |
     | --- | --- |
@@ -689,11 +689,11 @@ W tej sekcji zostanie zainicjowana Nowa baza danych w SQL Database, aby aplikacj
 
 W tym kroku samouczka opublikujesz aktualizacje aplikacji na platformie Azure w celu uruchamiania jej w chmurze.
 
-1. Kliknij prawym przyciskiem myszy projekt **ContosoTeamStats** w programie Visual Studio i wybierz polecenie **Publikuj**.
+1. Kliknij prawym przyciskiem myszy projekt **ContosoTeamStats** w programie Visual Studio i wybierz polecenie **Publikuj** .
 
-    ![Opublikuj](./media/cache-web-app-cache-aside-leaderboard/cache-publish-app.png)
+    ![Publikowanie](./media/cache-web-app-cache-aside-leaderboard/cache-publish-app.png)
 
-2. Kliknij pozycję **Opublikuj**, aby użyć tego samego profilu publikowania, który został utworzony w ramach przewodnika Szybki start.
+2. Kliknij pozycję **Opublikuj** , aby użyć tego samego profilu publikowania, który został utworzony w ramach przewodnika Szybki start.
 
 3. Po zakończeniu publikowania program Visual Studio uruchomi aplikację w domyślnej przeglądarce internetowej.
 
@@ -717,19 +717,19 @@ Klikaj różne akcje i eksperymentuj z pobieraniem danych z różnych źródeł.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Po zakończeniu pracy z przykładową aplikacją z samouczka możesz usunąć używane zasoby platformy Azure w celu oszczędności kosztów i zasobów. Wszystkie zasoby powinny być zawarte w tej samej grupie zasobów, więc można je usunąć razem w ramach jednej operacji, usuwając grupę zasobów. Instrukcje dla tego tematu korzystały z grupy zasobów o nazwie *TestResources*.
+Po zakończeniu pracy z przykładową aplikacją z samouczka możesz usunąć używane zasoby platformy Azure w celu oszczędności kosztów i zasobów. Wszystkie zasoby powinny być zawarte w tej samej grupie zasobów, więc można je usunąć razem w ramach jednej operacji, usuwając grupę zasobów. Instrukcje dla tego tematu korzystały z grupy zasobów o nazwie *TestResources* .
 
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne i grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. Jeśli zasoby do hostowania tego przykładu zostały utworzone wewnątrz istniejącej grupy zasobów zawierającej zasoby, które chcesz zachować, możesz usunąć każdy zasób oddzielnie z odpowiadającego mu bloku.
 >
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Grupy zasobów**.
-2. Wpisz nazwę grupy zasobów w polu tekstowym **Filtruj elementy...**.
-3. Kliknij pozycję **...** z prawej strony grupy zasobów i kliknij pozycję **Usuń grupę zasobów**.
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Grupy zasobów** .
+2. Wpisz nazwę grupy zasobów w polu tekstowym **Filtruj elementy...** .
+3. Kliknij pozycję **...** z prawej strony grupy zasobów i kliknij pozycję **Usuń grupę zasobów** .
 
-    ![Usuwanie](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
+    ![Usuń](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
-4. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
+4. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń** .
 
     Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 

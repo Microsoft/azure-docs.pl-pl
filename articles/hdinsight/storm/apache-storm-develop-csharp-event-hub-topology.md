@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb1c2d8daa74d1224ad07ef7a2fb5a74f4773338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dac56059455a75f4d64a698c416dc22793432bc8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000315"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545603"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Przetwarzanie zdarzeń z usługi Azure Event Hubs przy użyciu Apache Storm w usłudze HDInsight (C#)
 
@@ -43,10 +43,10 @@ Firma Microsoft udostępnia zestaw składników języka Java, których można u�
 
 W tym przykładzie używane są następujące składniki:
 
-* __EventHubSpout__: odczytuje dane z Event Hubs.
-* __EventHubBolt__: zapisuje dane do Event Hubs.
-* __EventHubSpoutConfig__: służy do konfigurowania EventHubSpout.
-* __EventHubBoltConfig__: służy do konfigurowania EventHubBolt.
+* __EventHubSpout__ : odczytuje dane z Event Hubs.
+* __EventHubBolt__ : zapisuje dane do Event Hubs.
+* __EventHubSpoutConfig__ : służy do konfigurowania EventHubSpout.
+* __EventHubBoltConfig__ : służy do konfigurowania EventHubBolt.
 
 ### <a name="example-spout-usage"></a>Przykładowe użycie elementu Spout
 
@@ -64,11 +64,11 @@ SCP.NET zapewnia metody dodawania EventHubSpout do topologii. Te metody ułatwia
     eventHubPartitions);
 ```
 
-Poprzedni przykład tworzy nowy składnik elementu Spout o nazwie __EventHubSpout__i konfiguruje go do komunikacji z centrum zdarzeń. Warunek równoległości dla składnika jest ustawiony na liczbę partycji w centrum zdarzeń. To ustawienie umożliwia burzę w celu utworzenia wystąpienia składnika dla każdej partycji.
+Poprzedni przykład tworzy nowy składnik elementu Spout o nazwie __EventHubSpout__ i konfiguruje go do komunikacji z centrum zdarzeń. Warunek równoległości dla składnika jest ustawiony na liczbę partycji w centrum zdarzeń. To ustawienie umożliwia burzę w celu utworzenia wystąpienia składnika dla każdej partycji.
 
 ### <a name="example-bolt-usage"></a>Przykładowe użycie pioruna
 
-Użyj metody **JavaComponmentConstructor** , aby utworzyć wystąpienie obiektu. W poniższym przykładzie pokazano, jak utworzyć i skonfigurować nowe wystąpienie **EventHubBolt**:
+Użyj metody **JavaComponmentConstructor** , aby utworzyć wystąpienie obiektu. W poniższym przykładzie pokazano, jak utworzyć i skonfigurować nowe wystąpienie **EventHubBolt** :
 
 ```csharp
 // Java construcvtor for the Event Hub Bolt
@@ -91,7 +91,7 @@ topologyBuilder.SetJavaBolt(
 ```
 
 > [!NOTE]  
-> W tym przykładzie użyto wyrażenia Clojure przekazaną jako ciąg, a nie za pomocą **JavaComponentConstructor** do utworzenia **EventHubBoltConfig**, jako przykładu elementu Spout. Każda metoda działa. Użyj metody, która jest najbardziej przydatna.
+> W tym przykładzie użyto wyrażenia Clojure przekazaną jako ciąg, a nie za pomocą **JavaComponentConstructor** do utworzenia **EventHubBoltConfig** , jako przykładu elementu Spout. Każda metoda działa. Użyj metody, która jest najbardziej przydatna.
 
 ## <a name="download-the-completed-project"></a>Pobierz ukończony projekt
 
@@ -99,7 +99,7 @@ Możesz pobrać kompletną wersję projektu utworzoną w tym artykule z usługi 
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* Klaster Apache Storm w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybierz pozycję **burza** dla **typu klastra**.
+* Klaster Apache Storm w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybierz pozycję **burza** dla **typu klastra** .
 
 * [Centrum zdarzeń platformy Azure](../../event-hubs/event-hubs-create.md).
 
@@ -107,7 +107,7 @@ Możesz pobrać kompletną wersję projektu utworzoną w tym artykule z usługi 
 
 * [Narzędzia HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-* Java JDK 1,8 lub nowszy w środowisku deweloperskim. Pliki do pobrania JDK są dostępne w [bazie danych Oracle](https://aka.ms/azure-jdks).
+* Java JDK 1,8 lub nowszy w środowisku deweloperskim. Pliki do pobrania JDK są dostępne w [bazie danych Oracle](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
   * Zmienna środowiskowa **JAVA_HOME** musi wskazywać katalog zawierający język Java.
   * Katalog **% JAVA_HOME%/bin.** musi znajdować się w ścieżce.
@@ -122,7 +122,7 @@ Utwórz katalog o nazwie `eventhubspout` i Zapisz plik w katalogu.
 
 Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w sekcji "Tworzenie centrum zdarzeń" tematu wprowadzenie [do Event Hubs](../../event-hubs/event-hubs-create.md).
 
-1. Po utworzeniu centrum zdarzeń Sprawdź ustawienia **centrum EventHub** w Azure Portal i wybierz pozycję **zasady dostępu współdzielonego**. Wybierz pozycję **+ Dodaj** , aby utworzyć następujące zasady:
+1. Po utworzeniu centrum zdarzeń Sprawdź ustawienia **centrum EventHub** w Azure Portal i wybierz pozycję **zasady dostępu współdzielonego** . Wybierz pozycję **+ Dodaj** , aby utworzyć następujące zasady:
 
    | Nazwa | Uprawnienia |
    | --- | --- |
@@ -139,7 +139,7 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
 
 2. Pobierz rozwiązanie z [centrum eventhub — burze hybrydowe](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
-3. Otwórz **EventHubExample. sln**. W projekcie **EventHubWriter** otwórz plik **App.config** . Użyj informacji z centrum zdarzeń, które zostały wcześniej skonfigurowane, aby wypełnić wartość następujących kluczy:
+3. Otwórz **EventHubExample. sln** . W projekcie **EventHubWriter** otwórz plik **App.config** . Użyj informacji z centrum zdarzeń, które zostały wcześniej skonfigurowane, aby wypełnić wartość następujących kluczy:
 
    | Klucz | Wartość |
    | --- | --- |
@@ -155,7 +155,7 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
 
 1. Otwórz projekt **EventHubReader** .
 
-2. Otwórz plik **App.config** dla **EventHubReader**. Użyj informacji z centrum zdarzeń, które zostały wcześniej skonfigurowane, aby wypełnić wartość następujących kluczy:
+2. Otwórz plik **App.config** dla **EventHubReader** . Użyj informacji z centrum zdarzeń, które zostały wcześniej skonfigurowane, aby wypełnić wartość następujących kluczy:
 
    | Klucz | Wartość |
    | --- | --- |
@@ -169,11 +169,11 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
 
 ## <a name="deploy-the-topologies"></a>Wdrażanie topologii
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **EventHubReader** , a następnie wybierz pozycję **Prześlij do burzy w usłudze HDInsight**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **EventHubReader** , a następnie wybierz pozycję **Prześlij do burzy w usłudze HDInsight** .
 
     ![Zrzut ekranu przedstawiający Eksplorator rozwiązań, z opcją Prześlij do burzy w usłudze HDInsight](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
 
-2. W oknie dialogowym **przesyłanie topologii** wybierz **klaster burzy**. Rozwiń węzeł **dodatkowe konfiguracje**, wybierz pozycję **ścieżki plików w języku Java**, wybierz pozycję **...**, a następnie wybierz katalog zawierający pobrany wcześniej plik JAR. Na koniec kliknij przycisk **Prześlij**.
+2. W oknie dialogowym **przesyłanie topologii** wybierz **klaster burzy** . Rozwiń węzeł **dodatkowe konfiguracje** , wybierz pozycję **ścieżki plików w języku Java** , wybierz pozycję **...** , a następnie wybierz katalog zawierający pobrany wcześniej plik JAR. Na koniec kliknij przycisk **Prześlij** .
 
     ![Zrzut ekranu przedstawiający okno dialogowe topologia przesyłania](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
 
@@ -181,13 +181,13 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
 
     ![Zrzut ekranu przedstawiający przeglądarkę topologii burzy](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
 
-4. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **EventHubWriter** , a następnie wybierz pozycję **Prześlij do burzy w usłudze HDInsight**.
+4. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **EventHubWriter** , a następnie wybierz pozycję **Prześlij do burzy w usłudze HDInsight** .
 
-5. W oknie dialogowym **przesyłanie topologii** wybierz **klaster burzy**. Rozwiń węzeł **dodatkowe konfiguracje**, wybierz pozycję **ścieżki plików w języku Java**, wybierz pozycję **...**, a następnie wybierz katalog zawierający pobrany wcześniej plik JAR. Na koniec kliknij przycisk **Prześlij**.
+5. W oknie dialogowym **przesyłanie topologii** wybierz **klaster burzy** . Rozwiń węzeł **dodatkowe konfiguracje** , wybierz pozycję **ścieżki plików w języku Java** , wybierz pozycję **...** , a następnie wybierz katalog zawierający pobrany wcześniej plik JAR. Na koniec kliknij przycisk **Prześlij** .
 
 6. Po przesłaniu topologii Odśwież listę topologii w **podglądzie topologii burzy** , aby sprawdzić, czy obie topologie są uruchomione w klastrze.
 
-7. W obszarze **Podgląd topologii burzy**wybierz topologię **EventHubReader** .
+7. W obszarze **Podgląd topologii burzy** wybierz topologię **EventHubReader** .
 
 8. Aby otworzyć podsumowanie składnika dla pioruna, kliknij dwukrotnie składnik **LogBolt** na diagramie.
 
@@ -201,7 +201,7 @@ Event Hubs jest źródłem danych dla tego przykładu. Skorzystaj z informacji w
 
 ## <a name="stop-the-topologies"></a>Zatrzymywanie topologii
 
-Aby zatrzymać topologie, zaznacz każdą topologię w **przeglądarce topologii burzy**, a następnie kliknij przycisk **Kill**.
+Aby zatrzymać topologie, zaznacz każdą topologię w **przeglądarce topologii burzy** , a następnie kliknij przycisk **Kill** .
 
 ![Zrzut ekranu przedstawiający przeglądarkę topologii burzy z wyróżnionym przyciskiem Kill](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
 

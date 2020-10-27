@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 6b097aa0adb39e1576e8771bbae8707348351a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63ce078cc80b856fe09f3d2bbad1c6e96615eae8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740126"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546810"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -35,9 +35,9 @@ Serwer repliki odczytu można utworzyć, wykonując następujące czynności:
 
 2. Wybierz istniejący serwer Azure Database for MySQL, który ma być używany jako główny. Ta akcja powoduje otwarcie strony **Przegląd** .
 
-3. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
+3. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia** .
 
-4. Wybierz pozycję **Dodaj replikę**.
+4. Wybierz pozycję **Dodaj replikę** .
 
    :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL — replikacja":::
 
@@ -55,7 +55,7 @@ Serwer repliki odczytu można utworzyć, wykonując następujące czynności:
 7. Wybierz **przycisk OK** , aby potwierdzić utworzenie repliki.
 
 > [!NOTE]
-> Repliki odczytu są tworzone z tą samą konfiguracją serwera co serwer główny. Konfigurację serwera repliki można zmienić po jego utworzeniu. Serwer repliki jest zawsze tworzony w tej samej grupie zasobów i tej samej subskrypcji co serwer źródłowy. Jeśli chcesz utworzyć serwer repliki w innej grupie zasobów lub innej subskrypcji, możesz [przenieść serwer repliki](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) po utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż źródło, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
+> Repliki odczytu są tworzone z tą samą konfiguracją serwera co serwer główny. Konfigurację serwera repliki można zmienić po jego utworzeniu. Serwer repliki jest zawsze tworzony w tej samej grupie zasobów i tej samej subskrypcji co serwer źródłowy. Jeśli chcesz utworzyć serwer repliki w innej grupie zasobów lub innej subskrypcji, możesz [przenieść serwer repliki](../azure-resource-manager/management/move-resource-group-and-subscription.md) po utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż źródło, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
 
 Po utworzeniu serwera repliki można go wyświetlić w bloku **replikacja** .
 
@@ -70,17 +70,17 @@ Aby zatrzymać replikację między źródłem a serwerem repliki z Azure Portal,
 
 1. W Azure Portal wybierz swój źródłowy serwer Azure Database for MySQL. 
 
-2. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
+2. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia** .
 
 3. Wybierz serwer repliki, dla którego ma zostać zatrzymana replikacja.
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Azure Database for MySQL — replikacja":::
 
-4. Wybierz pozycję **Zatrzymaj replikację**.
+4. Wybierz pozycję **Zatrzymaj replikację** .
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Azure Database for MySQL — replikacja":::
 
-5. Potwierdź, że chcesz zatrzymać replikację, klikając przycisk **OK**.
+5. Potwierdź, że chcesz zatrzymać replikację, klikając przycisk **OK** .
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Azure Database for MySQL — replikacja":::
 
@@ -90,7 +90,7 @@ Aby usunąć serwer repliki odczytu z Azure Portal, wykonaj następujące czynno
 
 1. W Azure Portal wybierz swój źródłowy serwer Azure Database for MySQL.
 
-2. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
+2. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia** .
 
 3. Wybierz serwer repliki, który chcesz usunąć.
 
@@ -113,7 +113,7 @@ Aby usunąć serwer źródłowy z Azure Portal, wykonaj następujące czynności
 
 1. W Azure Portal wybierz swój źródłowy serwer Azure Database for MySQL.
 
-2. W obszarze **Przegląd**wybierz pozycję **Usuń**.
+2. W obszarze **Przegląd** wybierz pozycję **Usuń** .
 
    :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL — replikacja":::
 
@@ -125,7 +125,7 @@ Aby usunąć serwer źródłowy z Azure Portal, wykonaj następujące czynności
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz serwer repliki Azure Database for MySQL, który chcesz monitorować.
 
-2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **metryki**:
+2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **metryki** :
 
 3. Wybierz pozycję **opóźnienie replikacji w sekundach** z listy rozwijanej dostępnych metryk.
 

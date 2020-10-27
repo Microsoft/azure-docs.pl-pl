@@ -3,12 +3,12 @@ title: Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platform
 description: Dowiedz się, jak zarządzać wszystkimi aspektami cyklu życia maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu narzędzi Microsoft Azure natywnych.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 928a632a34dd31272c7c3bf92f6dc6dda97cb6cc
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5280d362c1e7b1bf33579d051c4cc11adb1b7e59
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216253"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545767"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure
 
@@ -25,8 +25,8 @@ Narzędzia Microsoft Azure Native umożliwiają monitorowanie maszyn wirtualnych
     - Ocena poprawek systemu operacyjnego
     - Ocena niezgodności konfiguracji zabezpieczeń
     - Ocena programu Endpoint Protection 
-- Łatwo Wdrażaj Microsoft Monitoring Agent (MMA) przy użyciu usługi Azure ARC dla nowych maszyn wirtualnych. 
-- Obszar roboczy Log Analytics w Azure Monitor umożliwia zbieranie dzienników i zbieranie danych licznika wydajności przy użyciu MMA lub rozszerzeń. Zbieranie danych i dzienników w jednym punkcie i prezentowanie tych danych w różnych usługach natywnych platformy Azure. 
+- Łatwo Wdrażaj agenta Log Analytics przy użyciu rozszerzenia maszyny wirtualnej z obsługą usługi Azure Arc w przypadku nowych i istniejących maszyn wirtualnych. 
+- Obszar roboczy Log Analytics w Azure Monitor umożliwia zbieranie dzienników i zbieranie danych licznika wydajności przy użyciu agenta Log Analytics lub rozszerzeń. Zbieranie danych i dzienników w jednym punkcie i prezentowanie tych danych w różnych usługach natywnych platformy Azure. 
 - Dodano zalety Azure Monitor obejmują: 
     - Bezproblemowe monitorowanie 
     - Lepsza widoczność infrastruktury 
@@ -40,36 +40,73 @@ Na poniższym diagramie przedstawiono zintegrowaną architekturę monitorowania 
 
 ![Zintegrowana architektura monitorowania platformy Azure](media/lifecycle-management-azure-vmware-solutions-virtual-machines/integrated-azure-monitoring-architecture.png)
 
+## <a name="before-you-start"></a>Przed rozpoczęciem
+
+Jeśli dopiero zaczynasz na platformie Azure lub nie znasz żadnej z wymienionych powyżej usług, zapoznaj się z następującymi artykułami:
+
+- [Omówienie uwierzytelniania konta usługi Automation](../automation/automation-security-overview.md)
+- [Projektowanie wdrożenia dzienników Azure monitor](../azure-monitor/platform/design-logs-deployment.md) i [Azure monitor](../azure-monitor/overview.md)
+- [Planowanie](../security-center/security-center-planning-and-operations-guide.md) i [obsługiwane platformy](../security-center/security-center-os-coverage.md) dla Azure Security Center
+- [Włącz przegląd Azure Monitor dla maszyn wirtualnych](../azure-monitor/insights/vminsights-enable-overview.md)
+- [Co to są serwery z włączonym usługą Azure Arc?](../azure-arc/servers/overview.md) a [co to jest usługa Azure Arc Kubernetes?](../azure-arc/kubernetes/overview.md)
+- [Omówienie rozwiązania Update Management](../automation/update-management/overview.md)
+
 ## <a name="integrating-and-deploying-azure-native-services"></a>Integrowanie i wdrażanie usług natywnych platformy Azure
 
-**Usługa Azure Arc** rozszerza zarządzanie platformą Azure na dowolną infrastrukturę, w tym rozwiązanie VMware platformy Azure, lokalne lub inne platformy w chmurze. Usługę Azure ARC można wdrożyć, instalując klaster usługi Azure Kubernetes Service (AKS) w środowisku rozwiązań VMware platformy Azure. Aby uzyskać więcej informacji, zobacz [łączenie klastra Kubernetes z obsługą usługi Azure Arc](../azure-arc/kubernetes/connect-cluster.md).
+### <a name="enable-azure-update-management"></a>Włącz Update Management platformy Azure
 
-Maszyny wirtualne rozwiązań VMware platformy Azure można monitorować za pośrednictwem MMA (nazywanego również agentem Log Analytics lub agentem usługi OMS Linux). MMA można instalować automatycznie, gdy maszyny wirtualne są obsługiwane za pośrednictwem przepływów pracy cyklu życia maszyny wirtualnej ARC. MMA można także zainstalować podczas wdrażania maszyn wirtualnych na podstawie szablonu w programie vCenter; ponownie z maszynami wirtualnymi, które są obsługiwane za pośrednictwem przepływów pracy ARC. Wszystkie maszyny wirtualne rozwiązań VMware z obsługą administracyjną mogą następnie zainstalować MMA i wysłać dzienniki do obszaru roboczego usługi Azure Log Analytics. Aby uzyskać więcej informacji, zobacz [Omówienie agenta log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+Usługa Azure Update Management w Azure Automation zarządza aktualizacjami systemu operacyjnego dla maszyn z systemami Windows i Linux w środowisku hybrydowym. Monitoruje zgodność poprawek i przekazuje alerty odchylenia poprawek do Azure Monitor na potrzeby korygowania. Usługa Azure Update Management musi połączyć się z obszarem roboczym Log Analytics, aby użyć przechowywanych danych do oceny stanu aktualizacji na maszynach wirtualnych.
 
-**Log Analytics obszar roboczy** umożliwia zbieranie dzienników i zbieranie danych licznika wydajności przy użyciu MMA lub rozszerzeń. Aby utworzyć obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
-- Aby dodać maszyny wirtualne z systemem Windows do obszaru roboczego usługi log Analytics, zobacz [Install log Analytics Agent na komputerach z systemem Windows](../azure-monitor/platform/agent-windows.md).
-- Aby dodać maszyny wirtualne z systemem Linux do obszaru roboczego usługi log Analytics, zobacz [Install log Analytics Agent na komputerach z systemem Linux](../azure-monitor/platform/agent-linux.md).
+1.  Aby można było dodać Log Analytics do usługi Azure Update Management, należy najpierw [utworzyć konto Azure Automation](../automation/automation-create-standalone-account.md). Jeśli wolisz utworzyć konto przy użyciu szablonu, zobacz [Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager](../automation/quickstart-create-automation-account-template.md).
 
-**Usługa Azure Update Management** w Azure Automation zarządza aktualizacjami systemu operacyjnego dla maszyn z systemami Windows i Linux w środowisku hybrydowym. Monitoruje zgodność poprawek i przekazuje alerty odchylenia poprawek do Azure Monitor na potrzeby korygowania. Usługa Azure Update Management musi połączyć się z obszarem roboczym Log Analytics, aby użyć przechowywanych danych do oceny stanu aktualizacji na maszynach wirtualnych.
-- Aby dodać Log Analytics do usługi Azure Update Management, musisz najpierw [utworzyć konto Azure Automation](../automation/automation-create-standalone-account.md).
-- Aby połączyć obszar roboczy Log Analytics z kontem usługi Automation, zobacz [log Analytics obszaru roboczego i konta usługi Automation](../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
-- Aby włączyć Update Management platformy Azure dla maszyn wirtualnych, zobacz [włączanie Update Management na podstawie konta usługi Automation](../automation/update-management/enable-from-automation-account.md).
-- Po dodaniu maszyn wirtualnych do usługi Azure Update Management można [wdrażać aktualizacje na maszynach wirtualnych i przeglądać wyniki](../automation/update-management/deploy-updates.md). 
+2. **Log Analytics obszar roboczy** umożliwia zbieranie dzienników i zbieranie danych licznika wydajności przy użyciu agenta log Analytics lub rozszerzeń. Aby utworzyć obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md). Jeśli wolisz, możesz również utworzyć obszar roboczy za pomocą szablonu [interfejsu wiersza polecenia](../azure-monitor/learn/quick-create-workspace-cli.md), [programu PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md)lub [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md).
 
-**Azure Security Center** zapewnia zaawansowaną ochronę przed zagrożeniami w ramach obciążeń hybrydowych w chmurze i lokalnie. Ocenia ona lukę w zabezpieczeniach maszyn wirtualnych rozwiązań platformy Azure VMware i zgłasza alerty zgodnie z potrzebami. Te alerty zabezpieczeń można przesłać dalej do Azure Monitor w celu rozwiązania problemu.
-- Azure Security Center nie wymaga wdrożenia. Aby uzyskać więcej informacji, zobacz listę [obsługiwanych funkcji dla maszyn wirtualnych](../security-center/security-center-services.md).
-- Aby dodać maszyny wirtualne rozwiązań VMware platformy Azure i maszyny wirtualne spoza platformy Azure do Azure Security Center, zobacz Dołączanie [komputerów z systemem Windows do Azure Security Center](../security-center/quickstart-onboard-machines.md) i dołączania [komputerów z systemem Linux do Azure Security Center](../security-center/quickstart-onboard-machines.md).
-- Po dodaniu maszyn wirtualnych Azure Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potencjalne luki w zabezpieczeniach. Zawiera również zalecenia na karcie Przegląd. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące zabezpieczeń w Azure Security Center](../security-center/security-center-recommendations.md).
-- Zasady zabezpieczeń można definiować w Azure Security Center. Aby uzyskać informacje na temat konfigurowania zasad zabezpieczeń, zobacz [Praca z zasadami zabezpieczeń](../security-center/tutorial-security-policy.md).
+3. Aby włączyć Update Management platformy Azure dla maszyn wirtualnych, zobacz [włączanie Update Management na podstawie konta usługi Automation](../automation/update-management/update-mgmt-enable-automation-account.md). W procesie zostanie połączony obszar roboczy Log Analytics z kontem usługi Automation. 
+ 
+4. Po dodaniu maszyn wirtualnych do usługi Azure Update Management można [wdrażać aktualizacje na maszynach wirtualnych i przeglądać wyniki](../automation/update-management/deploy-updates.md). 
 
-**Azure monitor** to kompleksowe rozwiązanie do zbierania i analizowania danych telemetrycznych w środowiskach chmurowych i lokalnych. Nie wymaga wdrożenia.
+### <a name="enable-azure-security-center"></a>Włącz Azure Security Center
+
+Azure Security Center zapewnia zaawansowaną ochronę przed zagrożeniami w ramach obciążeń hybrydowych w chmurze i lokalnie. Ocenia ona lukę w zabezpieczeniach maszyn wirtualnych rozwiązań platformy Azure VMware i zgłasza alerty zgodnie z potrzebami. Te alerty zabezpieczeń można przesłać dalej do Azure Monitor w celu rozwiązania problemu.
+
+Azure Security Center nie wymaga wdrożenia. Aby uzyskać więcej informacji, zobacz listę [obsługiwanych funkcji dla maszyn wirtualnych](../security-center/security-center-services.md).
+
+1. Aby dodać maszyny wirtualne rozwiązań VMware platformy Azure i maszyny wirtualne spoza platformy Azure do Security Center, zobacz [Szybki Start: konfigurowanie Azure Security Center](../security-center/security-center-get-started.md). 
+
+2. Po dodaniu maszyn wirtualnych lub maszyn wirtualnych rozwiązań VMware platformy Azure z poziomu środowiska niepochodzącego od platformy Azure należy włączyć usługę Azure Defender w Security Center. Security Center będzie oceniać maszyny wirtualne pod kątem potencjalnych problemów z zabezpieczeniami. Zawiera również zalecenia na karcie Przegląd. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące zabezpieczeń w Azure Security Center](../security-center/security-center-recommendations.md).
+
+3. Zasady zabezpieczeń można definiować w Azure Security Center. Aby uzyskać informacje na temat konfigurowania zasad zabezpieczeń, zobacz [Praca z zasadami zabezpieczeń](../security-center/tutorial-security-policy.md).
+
+### <a name="onboard-vms-to-azure-arc-enabled-servers"></a>Dołączanie maszyn wirtualnych do serwerów z obsługą usługi Azure Arc
+
+Usługa Azure Arc rozszerza zarządzanie platformą Azure na dowolną infrastrukturę, w tym rozwiązanie VMware platformy Azure, lokalne lub inne platformy w chmurze.
+
+- Zobacz [łączenie maszyn hybrydowych z platformą Azure na dużą skalę](../azure-arc/servers/onboard-service-principal.md) , aby włączyć serwery z obsługą usługi Azure ARC dla wielu maszyn wirtualnych z systemem Windows lub Linux.
+
+### <a name="onboard-hybrid-kubernetes-clusters-with-arc-enabled-kubernetes"></a>Dołączanie hybrydowych klastrów Kubernetes z włączonym łukiem Kubernetes
+
+Możesz dołączyć klaster Kubernetes hostowany w środowisku rozwiązania Azure VMware przy użyciu usługi Azure Arc Kubernetes. 
+
+- Zobacz [Tworzenie jednostki usługi dołączania opartej na usłudze Azure Arc](../azure-arc/kubernetes/create-onboarding-service-principal.md).
+
+### <a name="deploy-the-log-analytics-agent"></a>Wdrażanie agenta Log Analytics
+
+Maszyny wirtualne rozwiązań VMware platformy Azure mogą być monitorowane za pośrednictwem agenta Log Analytics (nazywanego także Microsoft Monitoring Agent (MMA) lub pakietu OMS Linux. Utworzono już Log Analytics obszar roboczy podczas włączania Azure Automation Update Management.
+
+- Wdróż agenta Log Analytics przy użyciu [obsługi rozszerzenia maszyny wirtualnej z obsługą usługi Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
+
+### <a name="enable-azure-monitor"></a>Włącz Azure Monitor
+
+Azure Monitor to kompleksowe rozwiązanie do zbierania i analizowania danych telemetrycznych w środowiskach chmurowych i lokalnych. Nie wymaga wdrożenia. Za pomocą Azure Monitor można monitorować wydajność systemu operacyjnego gościa oraz odnajdywać i mapować zależności aplikacji dla rozwiązań VMware platformy Azure lub lokalnych maszyn wirtualnych.
+
 - Azure Monitor umożliwia zbieranie danych z różnych źródeł do monitorowania i analizowania. Aby uzyskać więcej informacji, zobacz [źródła danych monitorowania dla Azure monitor](../azure-monitor/platform/data-sources.md).
-- Możesz również zbierać różne typy danych do analizy, wizualizacji i tworzenia alertów. Aby uzyskać więcej informacji, zobacz [Azure monitor platformę danych](../azure-monitor/platform/data-platform.md).
+
+- Zbieraj różne typy danych do analizy, wizualizacji i tworzenia alertów. Aby uzyskać więcej informacji, zobacz [Azure monitor platformę danych](../azure-monitor/platform/data-platform.md).
+
 - Aby skonfigurować Azure Monitor przy użyciu obszaru roboczego Log Analytics, zobacz [Konfigurowanie obszaru roboczego log Analytics dla Azure monitor dla maszyn wirtualnych](../azure-monitor/insights/vminsights-configure-workspace.md).
+
 - Można tworzyć reguły alertów w celu identyfikowania problemów w środowisku, takich jak wysokie wykorzystanie zasobów, brak poprawek, mała ilość miejsca na dysku i pulsy maszyn wirtualnych. Możesz również ustawić automatyczną odpowiedź na wykryte zdarzenia, wysyłając alert do narzędzi do zarządzania usługami IT (narzędzia ITSM). Powiadomienie o wykryciu alertu można również wysłać za pośrednictwem poczty e-mail. Aby utworzyć takie reguły, zobacz:
     - [Twórz i wyświetlaj alerty metryk i zarządzaj nimi za pomocą Azure monitor](../azure-monitor/platform/alerts-metric.md).
     - [Twórz i wyświetlaj alerty dzienników oraz zarządzaj nimi przy użyciu Azure monitor](../azure-monitor/platform/alerts-log.md).
     - [Reguły akcji](../azure-monitor/platform/alerts-action-rules.md) do ustawiania zautomatyzowanych akcji i powiadomień.
     - [Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu Łącznik zarządzania usługami IT](../azure-monitor/platform/itsmc-overview.md).
-
-**Platforma Azure jako usługa (PaaS)** to środowisko programistyczne i wdrożeniowe w chmurze, dzięki czemu można dostarczać aplikacje oparte na chmurze. Na przykład możesz zintegrować Azure SQL Database z maszynami wirtualnymi rozwiązań VMware platformy Azure. Alerty SQL mogą następnie być skorelowane z alertami maszyn wirtualnych rozwiązania Azure VMware. Załóżmy na przykład, że SQL Database rozgałęzienia aplikacji jest w ramach usługi Azure PAAS, a warstwa aplikacji sieci Web tej samej aplikacji jest hostowana na maszynach wirtualnych rozwiązania Azure VMware. Alerty bazy danych można następnie skorelować z alertami aplikacji sieci Web. Rozwiązywanie problemów jest uproszczone dzięki pojedynczej zintegrowanej widoczności platformy Azure, rozwiązań VMware platformy Azure i lokalnych maszyn wirtualnych.

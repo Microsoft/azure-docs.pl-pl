@@ -8,12 +8,12 @@ keywords: Wysoka dostępność usługi Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207584"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547031"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Architektury ciągłości biznesowej usługi Azure HDInsight
 
@@ -54,11 +54,11 @@ W *aktywnym serwerze podstawowym z architekturą pomocniczą na żądanie* aplik
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>Aktywna gałąź podstawowa z dodatkowym zapasem pomocniczym
 
-W *aktywnym elemencie podstawowym z rezerwą pomocniczą*, aplikacje zapisują się w aktywnym regionie podstawowym, podczas gdy awaryjny klaster skalowalny w poziomie w trybie tylko do odczytu jest uruchamiany podczas normalnego działania. Podczas normalnych operacji można odciążyć operacje odczytu specyficzne dla regionu do pomocniczego.
+W *aktywnym elemencie podstawowym z rezerwą pomocniczą* , aplikacje zapisują się w aktywnym regionie podstawowym, podczas gdy awaryjny klaster skalowalny w poziomie w trybie tylko do odczytu jest uruchamiany podczas normalnego działania. Podczas normalnych operacji można odciążyć operacje odczytu specyficzne dla regionu do pomocniczego.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Architektura zapytań Hive i Interactive":::
 
-Aby uzyskać więcej informacji na temat replikacji i przykładów kodu programu Hive, odwołuje się [Apache Hive replikacji w klastrach usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
+Aby uzyskać więcej informacji na temat replikacji i przykładów kodu programu Hive, odwołuje się [Apache Hive replikacji w klastrach usługi Azure HDInsight](./interactive-query/apache-hive-replication.md)
 
 ## <a name="apache-spark"></a>Apache Spark
 
@@ -97,7 +97,7 @@ Aplikacje odczytują i zapisują w klastrach platformy Spark i Hive w regionie p
 
 HBase eksportu i HBase są typowymi sposobami zapewniania ciągłości biznesowej między klastrami usługi HDInsight HBase.
 
-HBase Export to proces replikacji wsadowej, który używa narzędzia eksportu HBase do eksportowania tabel z podstawowego klastra HBase do jego podstawowego Azure Data Lake Storage magazynu generacji 2. Dostęp do wyeksportowanych danych będzie możliwy z pomocniczego klastra HBase i zaimportowany do tabel, które muszą znajdować się w pomocniczym. Chociaż eksport HBase ma stopień szczegółowości poziomu tabeli oferty, w sytuacjach aktualizacji przyrostowych aparat automatyzacji eksportu kontroluje zakres wierszy przyrostowych do uwzględnienia w każdym uruchomieniu. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych i replikacja w usłudze HDInsight HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#export-then-import).
+HBase Export to proces replikacji wsadowej, który używa narzędzia eksportu HBase do eksportowania tabel z podstawowego klastra HBase do jego podstawowego Azure Data Lake Storage magazynu generacji 2. Dostęp do wyeksportowanych danych będzie możliwy z pomocniczego klastra HBase i zaimportowany do tabel, które muszą znajdować się w pomocniczym. Chociaż eksport HBase ma stopień szczegółowości poziomu tabeli oferty, w sytuacjach aktualizacji przyrostowych aparat automatyzacji eksportu kontroluje zakres wierszy przyrostowych do uwzględnienia w każdym uruchomieniu. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych i replikacja w usłudze HDInsight HBase](./hbase/apache-hbase-backup-replication.md#export-then-import).
 
 Replikacja HBase używa replikacji niemal w czasie rzeczywistym między klastrami HBase w pełni zautomatyzowany sposób. Replikacja odbywa się na poziomie tabeli. Wszystkie tabele lub konkretne tabele mogą być przeznaczone do replikacji. Replikacja HBase jest ostatecznie spójna, co oznacza, że ostatnie modyfikacje tabeli w regionie podstawowym mogą być od razu niedostępne dla wszystkich serwerów pomocniczych. Serwery pomocnicze mogą ostatecznie stać się spójne z podstawowym. Replikację HBase można skonfigurować między co najmniej dwa klastry usługi HDInsight HBase, jeśli:
 
@@ -105,9 +105,9 @@ Replikacja HBase używa replikacji niemal w czasie rzeczywistym między klastram
 * Podstawowe i pomocnicze znajdują się w różnych sieci wirtualnych równorzędnych w tym samym regionie.
 * Podstawowe i pomocnicze znajdują się w różnych sieci wirtualnychach równorzędnych w różnych regionach.
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie replikacji klastra Apache HBase w usłudze Azure Virtual Networks](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie replikacji klastra Apache HBase w usłudze Azure Virtual Networks](./hbase/apache-hbase-replication.md).
 
-Istnieje kilka innych sposobów wykonywania kopii zapasowych klastrów HBase, takich jak [Kopiowanie folderu HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-the-hbase-folder), [Kopiowanie tabel](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-tables) i [migawek](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#snapshots).
+Istnieje kilka innych sposobów wykonywania kopii zapasowych klastrów HBase, takich jak [Kopiowanie folderu HBase](./hbase/apache-hbase-backup-replication.md#copy-the-hbase-folder), [Kopiowanie tabel](./hbase/apache-hbase-backup-replication.md#copy-tables) i [migawek](./hbase/apache-hbase-backup-replication.md#snapshots).
 
 ### <a name="hbase-rpo--rto"></a>HBase RPO & RTO
 
@@ -147,7 +147,7 @@ Model replikacji wieloregionowej/cyklicznej to rozszerzenie replikacji HBase i m
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
-Aby włączyć obsługę wielu regionów Usługa HDInsight 4,0 obsługuje Kafka narzędzia MirrorMaker, której można użyć do obsługi repliki pomocniczej podstawowego klastra Kafka w innym regionie. Narzędzia MirrorMaker działa jako para klientów na wysokim poziomie, zużywa z określonego tematu w klastrze podstawowym i tworzy do tematu o tej samej nazwie w pomocniczym. Replikacja między klastrami w celu odzyskiwania po awarii o wysokiej dostępności przy użyciu usługi narzędzia MirrorMaker obejmuje założenie, że producenci i konsumenci muszą przejść do trybu failover w klastrze repliki. Aby uzyskać więcej informacji, zobacz temat [Używanie narzędzia MirrorMaker do replikowania tematów Apache Kafka z Kafka w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring)
+Aby włączyć obsługę wielu regionów Usługa HDInsight 4,0 obsługuje Kafka narzędzia MirrorMaker, której można użyć do obsługi repliki pomocniczej podstawowego klastra Kafka w innym regionie. Narzędzia MirrorMaker działa jako para klientów na wysokim poziomie, zużywa z określonego tematu w klastrze podstawowym i tworzy do tematu o tej samej nazwie w pomocniczym. Replikacja między klastrami w celu odzyskiwania po awarii o wysokiej dostępności przy użyciu usługi narzędzia MirrorMaker obejmuje założenie, że producenci i konsumenci muszą przejść do trybu failover w klastrze repliki. Aby uzyskać więcej informacji, zobacz temat [Używanie narzędzia MirrorMaker do replikowania tematów Apache Kafka z Kafka w usłudze HDInsight](./kafka/apache-kafka-mirroring.md)
 
 W zależności od okresu istnienia replikacji, replikacja tematu narzędzia MirrorMaker może prowadzić do różnych przesunięć między tematami źródłowymi i replikami. Klastry usługi HDInsight Kafka obsługują również replikację partycji tematu, która jest funkcją wysokiej dostępności na poziomie poszczególnych klastrów.
 
@@ -192,7 +192,7 @@ Wady:
 
 ## <a name="hdinsight-enterprise-security-package"></a>pakiet Enterprise Security usługi HDInsight
 
-Ta konfiguracja służy do włączania funkcji dla wszystkich użytkowników zarówno podstawowych, jak i pomocniczych, jak również dla [zestawów replik AD DS platformy Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-replica-set) , aby zapewnić użytkownikom możliwość uwierzytelniania w obu klastrach. W trakcie normalnych operacji zasady Ranger należy skonfigurować w dodatkowej, aby upewnić się, że użytkownicy mają ograniczony dostęp do operacji odczytu. W poniższej architekturze wyjaśniono, jak może wyglądać aktywna podstawowa gałąź ESP — konfiguracja pomocnicza.
+Ta konfiguracja służy do włączania funkcji dla wszystkich użytkowników zarówno podstawowych, jak i pomocniczych, jak również dla [zestawów replik AD DS platformy Azure](../active-directory-domain-services/tutorial-create-replica-set.md) , aby zapewnić użytkownikom możliwość uwierzytelniania w obu klastrach. W trakcie normalnych operacji zasady Ranger należy skonfigurować w dodatkowej, aby upewnić się, że użytkownicy mają ograniczony dostęp do operacji odczytu. W poniższej architekturze wyjaśniono, jak może wyglądać aktywna podstawowa gałąź ESP — konfiguracja pomocnicza.
 
 Replikacja magazynu metadanych Ranger:
 

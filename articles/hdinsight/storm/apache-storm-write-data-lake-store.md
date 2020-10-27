@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cdcc60e6eeec22e202d670c3fc057711bd432a6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73241210"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545450"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Samouczek: zapisywanie do Apache Hadoop HDFS z Apache Storm w usłudze Azure HDInsight
 
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Java developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks)
+* [Java developer Kit (JDK) w wersji 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * Pakiet [Apache Maven](https://maven.apache.org/download.cgi) został prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z usługą Apache.  Maven to system kompilacji projektu dla projektów języka Java.
 
@@ -160,7 +160,7 @@ Aby uzyskać informacje na temat używania tego skryptu z klastrem, zobacz [Dost
     hdfs.url: wasbs:///
     ```
 
-    Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__, a następnie __Y__i __klawisza ENTER__. Wartości w tym pliku ustawiają adres URL magazynu i nazwę katalogu, w którym są zapisywane dane.
+    Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__ , a następnie __Y__ i __klawisza ENTER__ . Wartości w tym pliku ustawiają adres URL magazynu i nazwę katalogu, w którym są zapisywane dane.
 
 1. Użyj następującego polecenia, aby uruchomić topologię:
 
@@ -205,7 +205,7 @@ Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasob�
 
 Aby usunąć grupę zasobów za pomocą witryny Azure Portal:
 
-1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję __Grupy zasobów__, aby wyświetlić listę grup zasobów.
+1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję __Grupy zasobów__ , aby wyświetlić listę grup zasobów.
 2. Znajdź grupę zasobów do usunięcia, a następnie kliknij prawym przyciskiem myszy przycisk __Więcej (...)__ po prawej stronie listy.
 3. Wybierz pozycję __Usuń grupę zasobów__ i potwierdź.
 

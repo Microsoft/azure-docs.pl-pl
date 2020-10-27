@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5f5a9fb8ddd25f750b19044bac7253bbff2f98
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006606"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545212"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Uruchamianie zadań MapReduce w Apache Hadoop usłudze HDInsight przy użyciu programu PowerShell
 
@@ -25,7 +25,7 @@ Ten dokument zawiera przykład użycia Azure PowerShell do uruchamiania zadania 
 
 * Klaster Apache Hadoop w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Program PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/) został zainstalowany.
+* Program PowerShell [AZ module](/powershell/azure/) został zainstalowany.
 
 ## <a name="run-a-mapreduce-job"></a>Uruchamianie zadania MapReduce
 
@@ -43,7 +43,7 @@ Następujące polecenia cmdlet są używane podczas uruchamiania zadań MapReduc
 
 Poniższe kroki pokazują, jak używać tych poleceń cmdlet do uruchamiania zadania w klastrze usługi HDInsight.
 
-1. Za pomocą edytora Zapisz Poniższy kod jako **mapreducejob.ps1**.
+1. Za pomocą edytora Zapisz Poniższy kod jako **mapreducejob.ps1** .
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 

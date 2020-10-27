@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 260a3fbb8486a1e9eeaa87e920143615e5fae867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca796b09f10127c68c5a22ff58f95c89cbda2610
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83681820"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534400"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Samouczek: korzystanie z interfejsów API producentów i odbiorców platformy Apache Kafka
 
@@ -34,7 +34,7 @@ Aby uzyskać więcej informacji o tych interfejsach API, zobacz dokumentację pl
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Apache Kafka w klastrze usługi HDInsight. Aby dowiedzieć się, jak utworzyć klaster, zobacz [Rozpoczynanie pracy z Apache Kafka w usłudze HDInsight](apache-kafka-get-started.md).
-* [Zestaw Java developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks) lub równoważnej, taki jak OpenJDK.
+* [Zestaw Java developer Kit (JDK) w wersji 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) lub równoważnej, taki jak OpenJDK.
 * Pakiet [Apache Maven](https://maven.apache.org/download.cgi) został prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z usługą Apache.  Maven to system kompilacji projektu dla projektów języka Java.
 * Klient SSH, taki jak wyglądająco. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -184,7 +184,7 @@ Jeśli chcesz pominąć ten krok, prekompilowane Jars można pobrać z `Prebuilt
 
     Zostanie wyświetlona liczba odczytanych rekordów wraz z liczbą rekordów.
 
-1. Użyj klawiszy __Ctrl+C__, aby zakończyć działanie odbiorcy.
+1. Użyj klawiszy __Ctrl+C__ , aby zakończyć działanie odbiorcy.
 
 ### <a name="multiple-consumers"></a>Wielu odbiorców
 
@@ -196,7 +196,7 @@ Aplikacja odbiorcy akceptuje parametr, który jest używany jako identyfikator g
 java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup
 ```
 
-Użyj klawiszy __Ctrl+C__, aby zakończyć działanie odbiorcy.
+Użyj klawiszy __Ctrl+C__ , aby zakończyć działanie odbiorcy.
 
 Aby zobaczyć, jak działa ten proces, użyj następującego polecenia:
 
@@ -227,7 +227,7 @@ Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasob�
 
 Aby usunąć grupę zasobów za pomocą witryny Azure Portal:
 
-1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję __Grupy zasobów__, aby wyświetlić listę grup zasobów.
+1. W witrynie Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję __Grupy zasobów__ , aby wyświetlić listę grup zasobów.
 2. Znajdź grupę zasobów do usunięcia, a następnie kliknij prawym przyciskiem myszy przycisk __Więcej (...)__ po prawej stronie listy.
 3. Wybierz pozycję __Usuń grupę zasobów__ i potwierdź.
 

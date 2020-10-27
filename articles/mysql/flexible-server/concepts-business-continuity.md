@@ -1,17 +1,17 @@
 ---
-title: Przegląd ciągłości działania w Azure Database for MySQL elastycznym serwerze
+title: Przegląd ciągłości działania — Azure Database for MySQL elastyczny serwer
 description: Dowiedz się więcej na temat pojęć związanych z ciągłością działania w Azure Database for MySQL elastycznym serwerze
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0c1afaa7d2d7971b2570914aa7c69fa7c666ae46
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 833031a787f8571a8f8aea8e536410d4abcca298
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107848"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546419"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Przegląd ciągłości działania z serwerem elastycznym Azure Database for MySQL (wersja zapoznawcza)
 
@@ -21,7 +21,6 @@ ms.locfileid: "92107848"
 Azure Database for MySQL elastyczny serwer umożliwia funkcje ciągłości działania chroniące bazy danych w przypadku planowanej i nieplanowanej awarii. Funkcje, takie jak zautomatyzowane kopie zapasowe i wysoka dostępność, są różne dla różnych poziomów ochrony przed awarią oraz różnych zagrożeń związanych z czasem odzyskiwania i utratą danych. Podczas tworzenia architektury aplikacji w celu ochrony przed awariami należy wziąć pod uwagę cel czasu odzyskiwania (RTO) i cel punktu odzyskiwania dla każdej aplikacji. RTO to tolerancja przestoju i cel punktu odzyskiwania to tolerancja utraty danych po przerwie w działaniu usługi bazy danych.
 
 W poniższej tabeli przedstawiono funkcje, które oferuje elastyczny serwer.
-
 
 | **Funkcja** | **Opis** | **Ograniczenia** |
 | ---------- | ----------- | ------------ |
@@ -34,17 +33,18 @@ W poniższej tabeli przedstawiono funkcje, które oferuje elastyczny serwer.
 > W okresie zapoznawczym są oferowane bezpłatne warunki umowy SLA RTO i punktu odzyskiwania. Szczegóły podane na tej stronie są przeznaczone tylko do celów związanych z informacjami i planowaniem.
 
 ## <a name="planned-downtime-mitigation"></a>Planowane ograniczenie przestoju
+
 Poniżej przedstawiono niektóre planowane scenariusze konserwacji, które ponoszą przestoje:
 
 | **Scenariusz** | **Proces**|
 | :------------ | :----------- |
 | **Skalowanie obliczeniowe (użytkownik)**| Podczas wykonywania operacji skalowania obliczeń nowy elastyczny serwer jest inicjowany przy użyciu skalowalnej konfiguracji obliczeniowej. W istniejącym serwerze bazy danych można wykonać aktywne punkty kontrolne, połączenia klientów są opróżniane, wszystkie niezatwierdzone transakcje są anulowane, a następnie wyłączone. Magazyn jest następnie dołączany do nowego serwera, a baza danych zostanie uruchomiona, w razie potrzeby, w razie konieczności, przed zaakceptowaniem połączeń z klientami. |
 | **Nowe wdrożenie oprogramowania (Azure)** | Nowe funkcje wdrażania lub rozwiązywania błędów są automatycznie wykonywane w ramach planowanej konserwacji usługi i można zaplanować, kiedy te działania mają być wykonywane. Aby uzyskać więcej informacji, zobacz [dokumentację](https://aka.ms/servicehealthpm), a także sprawdź [Portal](https://aka.ms/servicehealthpm) |
-| **Uaktualnienia wersji pomocniczej (Azure)** | Azure Database for MySQL automatycznie poprawek serwerów baz danych do wersji pomocniczej ustalonej przez platformę Azure. Odbywa się to w ramach planowanej konserwacji usługi. Może to spowodować skrócenie przestoju w ciągu kilku sekund, a serwer bazy danych zostanie automatycznie uruchomiony ponownie z nową wersją pomocniczą. Aby uzyskać więcej informacji, zobacz [dokumentację](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification), a także sprawdź [Portal](https://aka.ms/servicehealthpm).|
+| **Uaktualnienia wersji pomocniczej (Azure)** | Azure Database for MySQL automatycznie poprawek serwerów baz danych do wersji pomocniczej ustalonej przez platformę Azure. Odbywa się to w ramach planowanej konserwacji usługi. Może to spowodować skrócenie przestoju w ciągu kilku sekund, a serwer bazy danych zostanie automatycznie uruchomiony ponownie z nową wersją pomocniczą. Aby uzyskać więcej informacji, zobacz [dokumentację](../concepts-monitoring.md#planned-maintenance-notification), a także sprawdź [Portal](https://aka.ms/servicehealthpm).|
 
-Gdy elastyczny serwer jest skonfigurowany z **nadmiarową wysoką dostępnością strefy**, elastyczny serwer wykonuje operacje na serwerze rezerwy najpierw, a następnie na serwerze podstawowym bez trybu failover. Zapoznaj się z [pojęciami — wysoka dostępność](./concepts-high-availability.md) , aby uzyskać więcej szczegółów.
+Gdy elastyczny serwer jest skonfigurowany z **nadmiarową wysoką dostępnością strefy** , elastyczny serwer wykonuje operacje na serwerze rezerwy najpierw, a następnie na serwerze podstawowym bez trybu failover. Zapoznaj się z [pojęciami — wysoka dostępność](./concepts-high-availability.md) , aby uzyskać więcej szczegółów.
 
-##  <a name="unplanned-downtime-mitigation"></a>Nieplanowane ograniczenie przestoju
+## <a name="unplanned-downtime-mitigation"></a>Nieplanowane ograniczenie przestoju
 
 Nieplanowane przestoje mogą wystąpić w wyniku nieprzewidzianych awarii, w tym podstawowego błędu sprzętowego, problemów z siecią i błędów oprogramowania. Jeśli serwer bazy danych ulegnie awarii, jeśli zostanie skonfigurowany z wysoką dostępnością [HA], zostanie uaktywniona replika gotowości. Jeśli nie, zostanie automatycznie zainicjowany nowy serwer bazy danych. Chociaż nie można uniknąć nieplanowanych przestojów, elastyczny serwer zmniejsza czas przestoju przez automatyczne wykonywanie operacji odzyskiwania zarówno na serwerze bazy danych, jak i w warstwach magazynu, bez konieczności interwencji człowieka.
 
@@ -60,12 +60,10 @@ Poniżej przedstawiono niektóre nieplanowane scenariusze błędów i proces odz
 | **Awaria strefy dostępności** | Chociaż jest to zdarzenie rzadkie, jeśli chcesz odzyskać sprawność po awarii poziomu strefy, możesz wykonać odzyskiwanie do punktu w czasie za pomocą kopii zapasowej i wybrać niestandardowy punkt przywracania, aby uzyskać dostęp do najnowszych danych. Nowy, elastyczny serwer zostanie wdrożony w innej strefie. Czas trwania przywracania zależy od poprzedniej kopii zapasowej i liczby dzienników transakcji do odzyskania. | Elastyczny serwer przeprowadza automatyczne przejście w tryb failover do lokacji w stanie wstrzymania. Więcej informacji można znaleźć na [stronie pojęć o wysokiej dostępności](./concepts-high-availability.md) . |
 | **Awaria regionu** | Repliki obejmujące wiele regionów i funkcje przywracania geograficznego nie są jeszcze obsługiwane w wersji zapoznawczej. | |
 
-
 > [!IMPORTANT]
->  **Nie**można przywrócić usuniętych serwerów   . Usunięcie serwera spowoduje również usunięcie wszystkich baz danych należących do serwera, których nie można odzyskać. Użyj [blokady zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)   , aby zapobiec przypadkowemu usunięciu serwera.
-
+> **Nie** można przywrócić usuniętych serwerów. Usunięcie serwera spowoduje również usunięcie wszystkich baz danych należących do serwera, których nie można odzyskać. Użyj [blokady zasobów platformy Azure](../../azure-resource-manager/management/lock-resources.md) , aby zapobiec przypadkowemu usunięciu serwera.
 
 ## <a name="next-steps"></a>Następne kroki
 
--   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
--   Informacje na temat [tworzenia kopii zapasowych i odzyskiwania](./concepts-backup-restore.md)
+- Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
+- Informacje na temat [tworzenia kopii zapasowych i odzyskiwania](./concepts-backup-restore.md)

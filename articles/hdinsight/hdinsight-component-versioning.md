@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e2211be478a16238d35eeb5219cf6e785a6979
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394333"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547575"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Składniki i wersje oprogramowania Apache dostępne dla usługi Azure HDInsight
 
@@ -96,7 +96,7 @@ Ta tabela zawiera listę wersji usługi HDInsight dostępnych w Azure Portal i i
 | Usługi HDInsight 3,6 ML      | 9,3               | 31 grudnia 2020                      | 31 grudnia 2020                |
 
 > [!NOTE]
-> Po wygaśnięciu obsługi wersji klastra może ona nie być dostępna za pomocą Azure Portal. W niektórych przypadkach wersje klastra są nadal dostępne za pomocą parametru **Version** w poleceniu [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) programu Windows PowerShell i zestawu .NET SDK do momentu wycofania wersji.
+> Po wygaśnięciu obsługi wersji klastra może ona nie być dostępna za pomocą Azure Portal. W niektórych przypadkach wersje klastra są nadal dostępne za pomocą parametru **Version** w poleceniu [New-AzHDInsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) programu Windows PowerShell i zestawu .NET SDK do momentu wycofania wersji.
 
 ### <a name="retired-versions"></a>Wycofane wersje
 
@@ -119,7 +119,7 @@ W tej tabeli wymieniono wersje usługi HDInsight, które nie są dostępne w Azu
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Umowa dotycząca poziomu usług dla wersji klastra usługi HDInsight
 
-Umowa dotycząca poziomu usług jest definiowana w _oknie obsługi_. Okno pomocy technicznej to czas, przez który wersja usługi HDInsight jest obsługiwana przez dział obsługi klienta firmy Microsoft. Jeśli wersja została przeniesiona na _datę wygaśnięcia obsługi_, klaster usługi HDInsight jest poza oknem obsługi. Obsługa wygasania w usłudze HDInsight w wersji X (dostępna jest nowsza wersja X + 1) jest nowsza:
+Umowa dotycząca poziomu usług jest definiowana w _oknie obsługi_ . Okno pomocy technicznej to czas, przez który wersja usługi HDInsight jest obsługiwana przez dział obsługi klienta firmy Microsoft. Jeśli wersja została przeniesiona na _datę wygaśnięcia obsługi_ , klaster usługi HDInsight jest poza oknem obsługi. Obsługa wygasania w usłudze HDInsight w wersji X (dostępna jest nowsza wersja X + 1) jest nowsza:
 
 - **Wzór 1:** Dodaj 180 dni do daty wydania klastra usługi HDInsight w wersji X.
 - **Formuła 2:** Dodaj 90 dni do daty, w której w Azure Portal jest dostępny klaster usługi HDInsight w wersji X + 1.

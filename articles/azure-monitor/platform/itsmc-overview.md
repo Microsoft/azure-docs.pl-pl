@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: c163b7325cb4e039ddcfee95a39b82b4cb258b3c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f47a23a3b95975d98d3825bc5b14ed0522102a0c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461298"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547643"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
 
@@ -50,7 +50,7 @@ Aby można było utworzyć połączenie, należy dodać rozwiązanie łącznik I
 
    ![Nowy zasób platformy Azure](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Wyszukaj **Łącznik zarządzania usługami IT** w portalu Marketplace, a następnie kliknij przycisk **Utwórz**.
+2. Wyszukaj **Łącznik zarządzania usługami IT** w portalu Marketplace, a następnie kliknij przycisk **Utwórz** .
 
    ![Dodaj rozwiązanie ITSMC](media/itsmc-overview/add-itsmc-solution.png)
 
@@ -65,7 +65,7 @@ Aby można było utworzyć połączenie, należy dodać rozwiązanie łącznik I
    >[!NOTE]
    >W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako Log Analytics obszary robocze.
 
-5. Kliknij pozycję **Utwórz**.
+5. Kliknij pozycję **Utwórz** .
 
 Gdy zasób rozwiązania zostanie wdrożony, w prawym górnym rogu okna pojawi się powiadomienie.
 
@@ -85,12 +85,12 @@ W zależności od produktu narzędzia ITSM, z którym nawiązujesz połączenie,
 
 Po jego narzędzi Narzędzia ITSM wykonaj następujące kroki, aby utworzyć połączenie:
 
-1. Przejdź do pozycji **wszystkie zasoby**i Znajdź pozycję **Servicedesk (YourWorkspaceName)**.
-2. W obszarze **źródła danych obszaru roboczego** w lewym okienku kliknij pozycję **połączenia narzędzia ITSM**.
+1. Przejdź do pozycji **wszystkie zasoby** i Znajdź pozycję **Servicedesk (YourWorkspaceName)** .
+2. W obszarze **źródła danych obszaru roboczego** w lewym okienku kliknij pozycję **połączenia narzędzia ITSM** .
    ![Połączenia narzędzia ITSM](media/itsmc-overview/itsm-connections.png)
 
    Na tej stronie zostanie wyświetlona lista połączeń.
-3. Kliknij pozycję **Dodaj połączenie**.
+3. Kliknij pozycję **Dodaj połączenie** .
 
    ![Dodaj połączenie narzędzia ITSM](media/itsmc-overview/add-new-itsm-connection.png)
 
@@ -112,7 +112,7 @@ Przy użyciu szablonów umożliwiają klientowi zdefiniowanie pól, które będ�
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure
 
-Po utworzeniu połączenia z usługą narzędzia ITSM można tworzyć elementy robocze w narzędziu narzędzia ITSM na podstawie alertów platformy Azure za pomocą **akcji narzędzia ITSM** w **grupach akcji**.
+Po utworzeniu połączenia z usługą narzędzia ITSM można tworzyć elementy robocze w narzędziu narzędzia ITSM na podstawie alertów platformy Azure za pomocą **akcji narzędzia ITSM** w **grupach akcji** .
 
 Grupy akcji umożliwiają modularne i wielokrotne użycie metody wyzwalania akcji dla alertów platformy Azure. Za pomocą grup akcji można korzystać z alertów metryk, alertów dziennika aktywności i alertów usługi Azure Log Analytics w programie Azure Portal.
 
@@ -122,8 +122,8 @@ Grupy akcji umożliwiają modularne i wielokrotne użycie metody wyzwalania akcj
 
 Postępuj zgodnie z następującą procedurą:
 
-1. W Azure Portal kliknij pozycję  **Monitoruj**.
-2. W lewym okienku kliknij pozycję  **grupy akcji**. Zostanie wyświetlone okno **Dodaj grupę akcji** .
+1. W Azure Portal kliknij pozycję  **Monitoruj** .
+2. W lewym okienku kliknij pozycję  **grupy akcji** . Zostanie wyświetlone okno **Dodaj grupę akcji** .
 
     ![Grupy akcji](media/itsmc-overview/action-groups.png)
 
@@ -131,7 +131,7 @@ Postępuj zgodnie z następującą procedurą:
 
     ![Szczegóły grup akcji](media/itsmc-overview/action-groups-details.png)
 
-4. Na liście Akcje wybierz pozycję **Narzędzia ITSM** z menu rozwijanego dla **typu akcji**. Podaj **nazwę** akcji, a następnie kliknij pozycję **Edytuj szczegóły**.
+4. Na liście Akcje wybierz pozycję **Narzędzia ITSM** z menu rozwijanego dla **typu akcji** . Podaj **nazwę** akcji, a następnie kliknij pozycję **Edytuj szczegóły** .
 5. Wybierz **subskrypcję** , w której znajduje się obszar roboczy log Analytics. Wybierz nazwę **połączenia** (nazwę łącznik ITSM), a następnie nazwę obszaru roboczego. Na przykład "MyITSMMConnector (mój obszar roboczy)".
 
     ![Szczegóły akcji narzędzia ITSM](media/itsmc-overview/itsm-action-details.png)
@@ -140,7 +140,10 @@ Postępuj zgodnie z następującą procedurą:
 
 7. Jeśli chcesz wypełnić pola pola wartościami stałymi, należy zaznaczyć pole wyboru "Użyj szablonu niestandardowego", w przeciwnym razie wybierz opcję Użyj istniejącego [szablonu](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) z listy rozwijanej i wypełnij pola szablonu wartościami stałymi.
 
-8. Kliknij przycisk **OK**.
+8. Zaznaczając pole wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** , każdy element konfiguracji będzie miał własny element roboczy. Oznacza to, że będzie istnieć jeden element roboczy dla każdego elementu konfiguracji i zostanie on zaktualizowany zgodnie z alertami, które zostaną utworzone.
+Po cofnięciu zaznaczenia pola wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy alert utworzy nowy element roboczy, co oznacza, że może istnieć więcej niż jeden alert dla każdego elementu konfiguracji.
+
+9. Kliknij pozycję **OK** .
 
 Podczas tworzenia/edytowania reguły alertu platformy Azure Użyj grupy akcji, która ma akcję narzędzia ITSM. Gdy wyzwalacze alertów, element roboczy jest tworzony/aktualizowany w narzędziu narzędzia ITSM.
 
@@ -303,7 +306,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 
 2. Jeśli dane z usługi ServiceNow nie są synchronizowane do Log Analytics, upewnij się, że wystąpienie usługi ServiceNow nie jest w stanie uśpienia. Wystąpienia dev usługi ServiceNow czasami przechodzą w stan uśpienia, gdy jest on bezczynny przez długi czas. W przeciwnym razie Zgłoś problem.
 3. Jeśli alerty Log Analytics wyzwalane, ale elementy robocze nie są tworzone w produkcie narzędzia ITSM lub elementy konfiguracji nie są tworzone/połączone z elementami roboczymi lub innymi informacjami ogólnymi, należy poszukać w następujących miejscach:
-   -  ITSMC: rozwiązanie pokazuje podsumowanie połączeń/elementów roboczych/komputerów itp. Kliknij kafelek ze **stanem łącznika**, który przeprowadzi Cię przez **Wyszukiwanie**  przy użyciu odpowiedniego zapytania. Aby uzyskać więcej informacji, sprawdź rekordy dziennika z LogType_S jako błąd.
+   -  ITSMC: rozwiązanie pokazuje podsumowanie połączeń/elementów roboczych/komputerów itp. Kliknij kafelek ze **stanem łącznika** , który przeprowadzi Cię przez **Wyszukiwanie**  przy użyciu odpowiedniego zapytania. Aby uzyskać więcej informacji, sprawdź rekordy dziennika z LogType_S jako błąd.
    - Strona **przeszukiwania dzienników** : Wyświetl błędy/powiązane informacje bezpośrednio przy użyciu `*` ServiceDeskLog_CL zapytania `*` .
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Rozwiązywanie problemów z wdrażaniem aplikacji sieci Web Service Manager

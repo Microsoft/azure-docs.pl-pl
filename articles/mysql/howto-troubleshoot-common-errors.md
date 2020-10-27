@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ebe9f936e3d0dfafec23842fcdbfd225995d546b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ac42407945196bd60c5ef466497ea6a86b5816c4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88720251"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547303"
 ---
 # <a name="common-errors"></a>Typowe błędy
 
@@ -36,13 +36,13 @@ BEGIN
 END;
 ```
 
-**Rozwiązanie**: Aby rozwiązać ten problem, ustaw log_bin_trust_function_creators na 1 z bloku [parametrów serwera](howto-server-parameters.md) w portalu, wykonaj instrukcje języka DDL lub zaimportuj schemat w celu utworzenia żądanych obiektów i Przywróć poprzednią wartość parametru log_bin_trust_function_creators po utworzeniu.
+**Rozwiązanie** : Aby rozwiązać ten problem, ustaw log_bin_trust_function_creators na 1 z bloku [parametrów serwera](howto-server-parameters.md) w portalu, wykonaj instrukcje języka DDL lub zaimportuj schemat w celu utworzenia żądanych obiektów i Przywróć poprzednią wartość parametru log_bin_trust_function_creators po utworzeniu.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>BŁĄD 1227 (42000) w wierszu 101: odmowa dostępu; potrzebujesz (co najmniej jednego z tych uprawnień) dla tej operacji. Operacja nie powiodła się z ExitCode 1
 
 Powyższy błąd może wystąpić podczas importowania pliku zrzutu lub procedury tworzenia, która zawiera [definicje.](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html) 
 
-**Rozwiązanie**: Aby rozwiązać ten problem, administrator może udzielić uprawnień do tworzenia lub wykonywania procedur przez uruchomienie polecenia Grant, jak w następujących przykładach:
+**Rozwiązanie** : Aby rozwiązać ten problem, administrator może udzielić uprawnień do tworzenia lub wykonywania procedur przez uruchomienie polecenia Grant, jak w następujących przykładach:
 
 ```sql
 GRANT CREATE ROUTINE ON mydb.* TO 'someuser'@'somehost';
@@ -64,7 +64,7 @@ DELIMITER ;
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli nie znajdziesz odpowiedzi, której szukasz, weź pod uwagę następujące kwestie:
-- Opublikuj pytanie w witrynie [Microsoft Q&stronie pytania](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Opublikuj pytanie w witrynie [Microsoft Q&stronie pytania](/answers/topics/azure-database-mysql.html) lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 - Wyślij wiadomość e-mail do Azure Database for MySQL zespołu [ @Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). Ten adres e-mail nie jest aliasem pomocy technicznej.
 - Skontaktuj się z pomocą techniczną platformy Azure, aby [uzyskać bilet z Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Aby rozwiązać problem z Twoim kontem, wyślij [żądanie obsługi](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) w portalu Azure Portal.
 - Aby przekazać opinię lub poprosić o nowe funkcje, utwórz wpis w platformie [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).

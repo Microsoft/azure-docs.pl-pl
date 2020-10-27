@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d0d7f3ecb9ddb8a52c8ddda8a076e32283ae16
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564002"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545722"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
@@ -94,6 +94,7 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - East US
 - Wschodnie stany USA 2
 - Zachodnio-środkowe stany USA
+- Zachodnie stany USA
 - Zachodnie stany USA 2
 - South Central US
 - Central US
@@ -102,6 +103,7 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - Południowe Zjednoczone Królestwo
 - Southeast Asia
 - Australia Wschodnia
+- Australia Południowo-Wschodnia
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Komunikacja wychodząca za pośrednictwem publicznego punktu końcowego z zarządzanych Virtual Network APD
 - Tylko port 443 jest otwarty dla komunikacji wychodzącej.

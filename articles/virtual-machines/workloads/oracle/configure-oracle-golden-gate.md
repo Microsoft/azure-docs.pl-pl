@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c1890ab9f99999c88e28eb9a76d6270fa08fb87c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996677"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534145"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementowanie bramy Oracle na maszynie wirtualnej platformy Azure z systemem Linux 
 
@@ -24,7 +24,7 @@ Przed rozpoczęciem upewnij się, że interfejs wiersza polecenia platformy Azur
 
 ## <a name="prepare-the-environment"></a>Przygotowywanie środowiska
 
-Aby przeprowadzić instalację firmy Oracle, należy utworzyć dwie maszyny wirtualne platformy Azure w tym samym zestawie dostępności. Obraz portalu Marketplace używany do tworzenia maszyn wirtualnych to **Oracle: Oracle-Database-EE: 12.1.0.2: Najnowsze**.
+Aby przeprowadzić instalację firmy Oracle, należy utworzyć dwie maszyny wirtualne platformy Azure w tym samym zestawie dostępności. Obraz portalu Marketplace używany do tworzenia maszyn wirtualnych to **Oracle: Oracle-Database-EE: 12.1.0.2: Najnowsze** .
 
 Należy również zapoznać się z edytorem systemu UNIX VI i uzyskać podstawową wiedzę na temat X11 (X Windows).
 
@@ -41,7 +41,7 @@ Poniżej znajduje się podsumowanie konfiguracji środowiska:
 > | **Proces tworzenia bramy** |EXTORA |REPORA|
 
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure 
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure 
 
 Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index) . Następnie postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
@@ -347,7 +347,7 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Pobierz oprogramowanie bramy
 Aby pobrać i przygotować oprogramowanie Oracle, należy wykonać następujące czynności:
 
-1. Pobierz plik **fbo_ggs_Linux_x64_shiphome.zip** z [strony pobierania bramy programu Oracle](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). W obszarze tytuł pobierania **Oracle GoldenGate 12. x. x. x dla Oracle Linux x86-64**powinien istnieć zestaw plików. zip do pobrania.
+1. Pobierz plik **fbo_ggs_Linux_x64_shiphome.zip** z [strony pobierania bramy programu Oracle](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). W obszarze tytuł pobierania **Oracle GoldenGate 12. x. x. x dla Oracle Linux x86-64** powinien istnieć zestaw plików. zip do pobrania.
 
 2. Po pobraniu plików zip na komputer kliencki Użyj protokołu Secure Copy Protocol (SCP) do skopiowania plików na maszynę wirtualną:
 
@@ -389,9 +389,9 @@ Ten krok jest opcjonalny. Ten krok można pominąć, jeśli używasz klienta z s
 3. W oknie generator kluczy:
 
    - Aby wygenerować klucz, wybierz przycisk **Generuj** .
-   - Skopiuj zawartość klucza (**Ctrl + C**).
+   - Skopiuj zawartość klucza ( **Ctrl + C** ).
    - Wybierz przycisk **Zapisz klucz prywatny** .
-   - Zignoruj wyświetlone ostrzeżenie, a następnie wybierz przycisk **OK**.
+   - Zignoruj wyświetlone ostrzeżenie, a następnie wybierz przycisk **OK** .
 
    ![Zrzut ekranu przedstawiający stronę generatora kluczy](./media/oracle-golden-gate/puttykeygen.png)
 
@@ -403,21 +403,21 @@ Ten krok jest opcjonalny. Ten krok można pominąć, jeśli używasz klienta z s
    $ cd .ssh
    ```
 
-5. Utwórz plik o nazwie **authorized_keys**. Wklej zawartość klucza w tym pliku, a następnie Zapisz plik.
+5. Utwórz plik o nazwie **authorized_keys** . Wklej zawartość klucza w tym pliku, a następnie Zapisz plik.
 
    > [!NOTE]
    > Klucz musi zawierać ciąg `ssh-rsa` . Ponadto zawartość klucza musi być pojedynczym wierszem tekstu.
    >  
 
-6. Uruchom program PuTTY. W okienku **Kategoria** wybierz pozycję **połączenie**  >  **SSH**  >  **AUTH**. W polu **plik klucza prywatnego dla uwierzytelniania** przejdź do wygenerowanego wcześniej klucza.
+6. Uruchom program PuTTY. W okienku **Kategoria** wybierz pozycję **połączenie**  >  **SSH**  >  **AUTH** . W polu **plik klucza prywatnego dla uwierzytelniania** przejdź do wygenerowanego wcześniej klucza.
 
    ![Zrzut ekranu przedstawiający stronę Ustawianie klucza prywatnego](./media/oracle-golden-gate/setprivatekey.png)
 
-7. W okienku **Kategoria** wybierz pozycję **połączenie**  >  **SSH**  >  **X11**. Następnie zaznacz pole wyboru **Włącz przekazywanie X11** .
+7. W okienku **Kategoria** wybierz pozycję **połączenie**  >  **SSH**  >  **X11** . Następnie zaznacz pole wyboru **Włącz przekazywanie X11** .
 
    ![Zrzut ekranu przedstawiający stronę Włączanie X11](./media/oracle-golden-gate/enablex11.png)
 
-8. W okienku **Kategoria** przejdź do **sesji**. Wprowadź informacje o hoście, a następnie wybierz pozycję **Otwórz**.
+8. W okienku **Kategoria** przejdź do **sesji** . Wprowadź informacje o hoście, a następnie wybierz pozycję **Otwórz** .
 
    ![Zrzut ekranu przedstawiający stronę sesji](./media/oracle-golden-gate/puttysession.png)
 
@@ -436,25 +436,25 @@ Aby zainstalować firmę Oracle, należy wykonać następujące czynności:
 
    ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Zmień lokalizację oprogramowania. Następnie wybierz pole **Start Manager** i wprowadź lokalizację bazy danych. Wybierz przycisk **Dalej**, aby kontynuować.
+3. Zmień lokalizację oprogramowania. Następnie wybierz pole **Start Manager** i wprowadź lokalizację bazy danych. Wybierz przycisk **Dalej** , aby kontynuować.
 
    ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji](./media/oracle-golden-gate/golden_gate_install_02.png)
 
 4. Zmień katalog spisu, a następnie wybierz pozycję **dalej** , aby kontynuować.
 
-   ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji, w której znajduje się katalog instalacji.](./media/oracle-golden-gate/golden_gate_install_03.png)
 
 5. Na ekranie **Podsumowanie** wybierz pozycję **Zainstaluj** , aby kontynuować.
 
-   ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji i przycisk Instaluj.](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. Może zostać wyświetlony monit o uruchomienie skryptu jako "root". W takim przypadku Otwórz oddzielną sesję, SSH z maszyną wirtualną, sudo do katalogu głównego, a następnie uruchom skrypt. Wybierz pozycję **OK** Kontynuuj.
 
-   ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![Zrzut ekranu pokazujący lokalizację skryptu i sposób wykonywania skryptu konfiguracyjnego.](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. Po zakończeniu instalacji wybierz pozycję **Zamknij** , aby ukończyć proces.
 
-   ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![Zrzut ekranu przedstawiający stronę Wybieranie instalacji, na której znajduje się przycisk Zamknij.](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Konfigurowanie usługi na myVM1 (podstawowa)
 

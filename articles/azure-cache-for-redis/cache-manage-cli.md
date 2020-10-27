@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7643f882d5ac330046c169e0a3f2fa4920331d4e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500508"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537698"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Jak utworzyć usługę Azure cache for Redis i zarządzać nią przy użyciu klasycznego interfejsu wiersza polecenia platformy Azure
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ Klasyczny interfejs wiersza polecenia platformy Azure to doskonały sposób na z
 Aby tworzyć wystąpienia usługi Azure cache for Redis i zarządzać nimi przy użyciu klasycznego interfejsu wiersza polecenia platformy Azure, należy wykonać następujące czynności.
 
 * Musisz mieć konto platformy Azure. Jeśli go nie masz, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut.
-* [Zainstaluj klasyczny interfejs wiersza polecenia platformy Azure](../cli-install-nodejs.md).
+* [Zainstaluj klasyczny interfejs wiersza polecenia platformy Azure](/cli/azure/install-classic-cli).
 * Podłącz instalację interfejsu wiersza polecenia platformy Azure przy użyciu osobistego konta platformy Azure lub konta platformy Azure w ramach pracy lub szkoły, a następnie zaloguj się przy użyciu klasycznego interfejsu wiersza polecenia za pomocą `azure login` poleceń.
-* Przed uruchomieniem dowolnego z poniższych poleceń Przełącz klasyczny interfejs wiersza polecenia do trybu Menedżer zasobów, uruchamiając `azure config mode arm` polecenie. Aby uzyskać więcej informacji, zobacz [Korzystanie z klasycznego interfejsu wiersza polecenia platformy Azure do zarządzania zasobami i grupami zasobów platformy Azure](../xplat-cli-azure-resource-manager.md).
+* Przed uruchomieniem dowolnego z poniższych poleceń Przełącz klasyczny interfejs wiersza polecenia do trybu Menedżer zasobów, uruchamiając `azure config mode arm` polecenie. Aby uzyskać więcej informacji, zobacz [Korzystanie z klasycznego interfejsu wiersza polecenia platformy Azure do zarządzania zasobami i grupami zasobów platformy Azure](../azure-resource-manager/management/manage-resources-cli.md).
 
 ## <a name="azure-cache-for-redis-properties"></a>Właściwości usługi Azure Cache for Redis
 Następujące właściwości są używane podczas tworzenia i aktualizowania usługi Azure cache for Redis Instances.

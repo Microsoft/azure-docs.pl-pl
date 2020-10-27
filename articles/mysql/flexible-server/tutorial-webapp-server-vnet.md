@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9cbcbeb9d9e216a0b686cba258288db8439e0a9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7b673dc8dfeb2ebf86aec5b7449df91c2ffd635
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90946656"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534060"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Samouczek: Tworzenie serwera Azure Database for MySQL-elastyczny (wersja zapoznawcza) przy użyciu aplikacji internetowej App Services w sieci wirtualnej
 
 > [!IMPORTANT]
 > Serwer elastyczny Azure Database for MySQL jest obecnie w publicznej wersji zapoznawczej.
 
-W tym samouczku pokazano, jak utworzyć aplikację sieci Web Azure App Service przy użyciu elastycznego serwera MySQL (wersja zapoznawcza) w [sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+W tym samouczku pokazano, jak utworzyć aplikację sieci Web Azure App Service przy użyciu elastycznego serwera MySQL (wersja zapoznawcza) w [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,7 +28,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby sprawdzić zainstalowaną wersję, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-Musisz zalogować się na swoje konto za pomocą polecenia [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) . Zanotuj właściwość **id** z danych wyjściowych polecenia dla odpowiedniej nazwy subskrypcji.
+Musisz zalogować się na swoje konto za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) . Zanotuj właściwość **id** z danych wyjściowych polecenia dla odpowiedniej nazwy subskrypcji.
 
 ```azurecli
 az login
@@ -69,7 +69,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 
 > [!NOTE]
 > - W przypadku argumentu--Location Użyj tej samej lokalizacji co w przypadku bazy danych w poprzedniej sekcji.
-> - Zastąp _ &lt; ciąg App-Name>_ unikatową nazwą na wszystkich platformie Azure (punkt końcowy serwera to https:// \<app-name> . azurewebsites.NET). Dozwolone znaki dla nazwy <aplikacji> to A-Z, 0-9 i-. Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.
+> - Zastąp _&lt; ciąg App-Name>_ unikatową nazwą na wszystkich platformie Azure (punkt końcowy serwera to https:// \<app-name> . azurewebsites.NET). Dozwolone znaki dla nazwy <aplikacji> to A-Z, 0-9 i-. Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.
 
 To polecenie wykonuje następujące akcje, co może potrwać kilka minut:
 
@@ -81,7 +81,7 @@ To polecenie wykonuje następujące akcje, co może potrwać kilka minut:
 
 ## <a name="add-the-web-app-to-the-virtual-network"></a>Dodawanie aplikacji sieci Web do sieci wirtualnej
 
-Użyj polecenia **AZ webapp VNET-Integration** , aby dodać integrację regionalnej sieci wirtualnej do WEBAPP. Zastąp wartość Virtual _ &lt; -name>_ _ &lt; i podsiecią_ nazwę sieci wirtualnej i nazwę podsieci, z której korzysta serwer elastyczny.
+Użyj polecenia **AZ webapp VNET-Integration** , aby dodać integrację regionalnej sieci wirtualnej do WEBAPP. Zastąp wartość Virtual _&lt; -name>_ _&lt; i podsiecią_ nazwę sieci wirtualnej i nazwę podsieci, z której korzysta serwer elastyczny.
 
 ```azurecli
 az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
@@ -95,8 +95,8 @@ Po wdrożeniu kodu w App Service, następnym krokiem jest połączenie aplikacji
 az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.database.azure.com" DBNAME="flexibleserverdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- Zastąp ciąg _ &lt; MySQL-Server-Name>_, _ &lt; username>_ i _ &lt; Password>_ dla nowo utworzonego polecenia elastycznego serwera.
-- Zastąp _ &lt;>nazwy użytkownika_ i _ &lt; hasła>_ poświadczeniami, które zostały również wygenerowane przez polecenie.
+- Zastąp ciąg _&lt; MySQL-Server-Name>_ , _&lt; username>_ i _&lt; Password>_ dla nowo utworzonego polecenia elastycznego serwera.
+- Zastąp _&lt;>nazwy użytkownika_ i _&lt; hasła>_ poświadczeniami, które zostały również wygenerowane przez polecenie.
 - Nazwa grupy zasobów i aplikacji jest rysowana z wartości pamięci podręcznej w pliku. Azure/config.
 - Polecenie tworzy ustawienia o nazwie dbhost, dbname, dbuser i dbpass. Jeśli kod aplikacji używa innej nazwy dla informacji o bazie danych, Użyj tych nazw dla ustawień aplikacji, jak wspomniano w kodzie.
 
@@ -111,4 +111,4 @@ az group delete -n myresourcegroup
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md)

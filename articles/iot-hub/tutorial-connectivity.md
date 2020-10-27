@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 0d886fc6797011ff3a0adeb69f50358ece9c5f57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf1c558474cfde85dd2c9ba8c85dc553fe5d9b56
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252175"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547507"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Samouczek: testowanie łączności z centrum IoT za pomocą urządzenia symulowanego
 
@@ -62,7 +62,7 @@ Pobierz przykładowy projekt symulatora urządzenia Node.js ze strony https://gi
 
 Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 Jeśli podczas pracy z poprzednim przewodnikiem Szybki start lub samouczkiem zostało już utworzone centrum IoT w warstwie Bezpłatna lub Standardowa, możesz pominąć ten krok.
 
@@ -72,21 +72,21 @@ Jeśli podczas pracy z poprzednim przewodnikiem Szybki start lub samouczkiem zos
 
 Urządzenie musi zostać uwierzytelnione w centrum, zanim możliwa będzie wymiana danych z centrum. Możesz użyć narzędzia **Urządzenia IoT** w sekcji **Zarządzanie urządzeniami** w portalu, aby zarządzać urządzeniami i sprawdzić używane klucze uwierzytelniania. W tej części samouczka dodasz nowe urządzenie testowe, pobierzesz jego klucz i sprawdzisz, czy urządzenie testowe może nawiązać połączenie z centrum. W dalszej części zresetujesz klucz uwierzytelniania w celu zaobserwowania, co się stanie, gdy urządzenie spróbuje użyć nieaktualnego klucza. W tej części tego samouczka będziesz korzystać z witryny Azure Portal w celu utworzenia urządzenia i przykładowego symulatora urządzenia Node.js, monitorowania ich i zarządzania nimi.
 
-Zaloguj się w portalu i przejdź do swojego centrum IoT. Następnie przejdź do narzędzia **Urządzenia IoT**:
+Zaloguj się w portalu i przejdź do swojego centrum IoT. Następnie przejdź do narzędzia **Urządzenia IoT** :
 
 ![Narzędzie Urządzenia IoT](media/tutorial-connectivity/iot-devices-tool.png)
 
-Aby zarejestrować nowe urządzenie, kliknij przycisk **+ Dodaj**, w polu **Identyfikator urządzenia** ustaw wartość **MyTestDevice** i kliknij przycisk **Zapisz**:
+Aby zarejestrować nowe urządzenie, kliknij przycisk **+ Dodaj** , w polu **Identyfikator urządzenia** ustaw wartość **MyTestDevice** i kliknij przycisk **Zapisz** :
 
 ![Dodawanie nowego urządzenia](media/tutorial-connectivity/add-device.png)
 
-Aby pobrać parametry połączenia dla urządzenia **MyTestDevice**, kliknij je na liście urządzeń, a następnie skopiuj wartość **Parametry połączenia — klucz podstawowy**. Te parametry połączenia zawierają *klucz dostępu współdzielonego* dla urządzenia.
+Aby pobrać parametry połączenia dla urządzenia **MyTestDevice** , kliknij je na liście urządzeń, a następnie skopiuj wartość **Parametry połączenia — klucz podstawowy** . Te parametry połączenia zawierają *klucz dostępu współdzielonego* dla urządzenia.
 
 ![Pobieranie parametrów połączenia urządzenia](media/tutorial-connectivity/copy-connection-string.png)
 
 Aby symulować wysyłanie danych telemetrycznych przez urządzenie **MyTestDevice** do centrum IoT, uruchom pobraną wcześniej aplikację urządzenia symulowanego Node.js.
 
-W oknie terminalu na komputerze deweloperskim przejdź do folderu głównego pobranego projektu przykładowego Node.js. Następnie przejdź do folderu **iot-hub\Tutorials\ConnectivityTests**.
+W oknie terminalu na komputerze deweloperskim przejdź do folderu głównego pobranego projektu przykładowego Node.js. Następnie przejdź do folderu **iot-hub\Tutorials\ConnectivityTests** .
 
 W oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki i uruchomić aplikację urządzenia symulowanego. Użyj parametrów połączenia urządzenia, zanotowanych podczas dodawania urządzenia w portalu.
 
@@ -105,7 +105,7 @@ Urządzenie zostało pomyślnie uwierzytelnione przy użyciu klucza urządzenia 
 
 W tej sekcji zresetujesz klucz urządzenia i zaobserwujesz błąd, który wystąpi, gdy urządzenie symulowane spróbuje nawiązać połączenie.
 
-Aby zresetować podstawowy klucz urządzenia dla urządzenia **MyTestDevice**, uruchom następujące polecenia:
+Aby zresetować podstawowy klucz urządzenia dla urządzenia **MyTestDevice** , uruchom następujące polecenia:
 
 ```azurecli-interactive
 # Generate a new Base64 encoded key using the current date
@@ -146,7 +146,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Zanotuj pełen tekst wygenerowanego tokenu SAS. Token SAS wygląda następująco: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-W oknie terminalu na komputerze deweloperskim przejdź do folderu głównego pobranego projektu przykładowego Node.js. Następnie przejdź do folderu **iot-hub\Tutorials\ConnectivityTests**.
+W oknie terminalu na komputerze deweloperskim przejdź do folderu głównego pobranego projektu przykładowego Node.js. Następnie przejdź do folderu **iot-hub\Tutorials\ConnectivityTests** .
 
 W oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki i uruchomić aplikację urządzenia symulowanego:
 
@@ -200,7 +200,7 @@ Podczas wysyłania danych telemetrycznych do centrum w oknie terminalu zostaną 
 
 ![Wysyłanie komunikatów przez symulowane urządzenie](media/tutorial-connectivity/sim-3-sending.png)
 
-Możesz użyć **metryk** w portalu, aby sprawdzić, czy komunikaty telemetryczne docierają do centrum IoT. Wybierz centrum IoT w menu rozwijanym **Zasób**, a następnie wybierz metrykę **Komunikaty telemetrii wysłane** i wybierz przedział czasowy **Ostatnia godzina**. Wykres pokazuje zagregowaną liczbę komunikatów wysłanych przez urządzenie symulowane:
+Możesz użyć **metryk** w portalu, aby sprawdzić, czy komunikaty telemetryczne docierają do centrum IoT. Wybierz centrum IoT w menu rozwijanym **Zasób** , a następnie wybierz metrykę **Komunikaty telemetrii wysłane** i wybierz przedział czasowy **Ostatnia godzina** . Wykres pokazuje zagregowaną liczbę komunikatów wysłanych przez urządzenie symulowane:
 
 ![Wyświetlanie metryk usługi IoT Hub](media/tutorial-connectivity/metrics-portal.png)
 
@@ -248,7 +248,7 @@ Aby sprawdzić, czy centrum otrzymało zgłoszone właściwości z urządzenia, 
 az iot hub device-twin show --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-W sekcji „reported properties” (zgłoszone właściwości) w danych wyjściowych polecenia jest widoczna właściwość **devicelaststarted**. Ta właściwość pokazuje, kiedy ostatnio uruchomiono urządzenie symulowane.
+W sekcji „reported properties” (zgłoszone właściwości) w danych wyjściowych polecenia jest widoczna właściwość **devicelaststarted** . Ta właściwość pokazuje, kiedy ostatnio uruchomiono urządzenie symulowane.
 
 ![Wyświetlanie zgłaszanych właściwości](media/tutorial-connectivity/reported-properties.png)
 
@@ -266,11 +266,11 @@ Oprócz otrzymywania na bieżąco żądanych zmian właściwości urządzenie sy
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli nie potrzebujesz już tego centrum IoT, usuń je oraz grupę zasobów z poziomu portalu. Aby to zrobić, wybierz grupę zasobów **tutorials-iot-hub-rg** zawierającą centrum IoT Hub, a następnie kliknij przycisk **Usuń**.
+Jeśli nie potrzebujesz już tego centrum IoT, usuń je oraz grupę zasobów z poziomu portalu. Aby to zrobić, wybierz grupę zasobów **tutorials-iot-hub-rg** zawierającą centrum IoT Hub, a następnie kliknij przycisk **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono sposób sprawdzania kluczy urządzenia, sprawdzania łączności urządzenia z chmurą i chmury z urządzeniem oraz sprawdzania synchronizacji bliźniaczej reprezentacji urządzenia. Aby dowiedzieć się więcej na temat monitorowania centrum IoT, zapoznaj się z artykułem z instrukcjami dotyczącymi monitorowania usługi IoT Hub.
 
 > [!div class="nextstepaction"]
-> [Monitorowanie z diagnostyką](iot-hub-monitor-resource-health.md)
+> [Monitoruj IoT Hub](monitor-iot-hub.md)

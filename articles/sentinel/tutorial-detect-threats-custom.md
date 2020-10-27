@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 55853cc6a3dc27df4c63e0a28ab079813040e45d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5cf2b473b6b08dcd77f1a8612d19cea26fc16b9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617183"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546759"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Samouczek: Tworzenie niestandardowych reguł analizy w celu wykrywania zagrożeń
 
-Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md)   na platformie Azure, można utworzyć reguły niestandardowe, które mogą wyszukiwać określone kryteria w środowisku i generować zdarzenia, gdy kryteria są dopasowane, aby można było je zbadać. Ten samouczek ułatwia tworzenie reguł niestandardowych w celu wykrywania zagrożeń przy użyciu platformy Azure.
+Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md) na platformie Azure, można utworzyć reguły niestandardowe, które mogą wyszukiwać określone kryteria w środowisku i generować zdarzenia, gdy kryteria są dopasowane, aby można było je zbadać. Ten samouczek ułatwia tworzenie reguł niestandardowych w celu wykrywania zagrożeń przy użyciu platformy Azure.
 
 Ten samouczek pomaga wykrywać zagrożenia przy użyciu platformy Azure.
 > [!div class="checklist"]
@@ -34,13 +34,13 @@ Ten samouczek pomaga wykrywać zagrożenia przy użyciu platformy Azure.
 
 Można utworzyć niestandardowe reguły analizy, które ułatwią wyszukiwanie typów zagrożeń i anomalii podejrzanych w danym środowisku. Reguła gwarantuje, że od razu otrzymasz powiadomienie, dzięki czemu można klasyfikacja, zbadać i skorygować zagrożenia.
 
-1. W Azure Portal w obszarze wskaźnik platformy Azure wybierz pozycję **Analiza**.
+1. W Azure Portal w obszarze wskaźnik platformy Azure wybierz pozycję **Analiza** .
 
-1. Na górnym pasku menu wybierz pozycję **+ Utwórz** i wybierz pozycję **zaplanowana reguła zapytania**. Spowoduje to otwarcie **kreatora reguły analizy**.
+1. Na górnym pasku menu wybierz pozycję **+ Utwórz** i wybierz pozycję **zaplanowana reguła zapytania** . Spowoduje to otwarcie **kreatora reguły analizy** .
 
     :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query.png" alt-text="Utwórz zaplanowane zapytanie":::
 
-1. Na karcie **Ogólne** Podaj unikatową **nazwę** i **Opis**. W polu **taktykę** można wybierać spośród kategorii ataków, według których ma zostać sklasyfikowana reguła. W razie potrzeby ustaw **ważność** alertu. Po utworzeniu reguły jego **stan** jest domyślnie **włączony** , co oznacza, że zostanie uruchomiony natychmiast po zakończeniu tworzenia. Jeśli nie chcesz, aby był uruchamiany natychmiast, wybierz pozycję **wyłączone**, a reguła zostanie dodana do karty **aktywne reguły** i możesz ją włączyć z niej, gdy będzie potrzebna.
+1. Na karcie **Ogólne** Podaj unikatową **nazwę** i **Opis** . W polu **taktykę** można wybierać spośród kategorii ataków, według których ma zostać sklasyfikowana reguła. W razie potrzeby ustaw **ważność** alertu. Po utworzeniu reguły jego **stan** jest domyślnie **włączony** , co oznacza, że zostanie uruchomiony natychmiast po zakończeniu tworzenia. Jeśli nie chcesz, aby był uruchamiany natychmiast, wybierz pozycję **wyłączone** , a reguła zostanie dodana do karty **aktywne reguły** i możesz ją włączyć z niej, gdy będzie potrzebna.
 
     ![Rozpocznij tworzenie niestandardowej reguły analizy](media/tutorial-detect-threats-custom/general-tab.png)
 
@@ -57,11 +57,13 @@ Można utworzyć niestandardowe reguły analizy, które ułatwią wyszukiwanie t
       AzureActivity
       | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
       | where ActivityStatus == "Succeeded"
-      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
       ```
 
         > [!NOTE]
-        > Długość zapytania powinna wynosić od 1 do 10 000 znaków i nie może zawierać znaku "Search \* " ani "Union \* ".
+        > - Długość zapytania powinna wynosić od 1 do 10 000 znaków i nie może zawierać znaku "Search \* " ani "Union \* ".
+        >
+        > - Używanie funkcji ADX do tworzenia zapytań usługi Azure Eksplorator danych w ramach okna zapytania Log Analytics **nie jest obsługiwane** .
 
     1. Sekcja **Mapuj jednostki** służy do łączenia parametrów z wyników zapytania do jednostek rozpoznanych przez wskaźnik na platformie Azure. Te jednostki stanowią podstawę do dalszej analizy, w tym grupowanie alertów na zdarzenia na karcie **Ustawienia zdarzenia** .
   
@@ -80,22 +82,22 @@ Można utworzyć niestandardowe reguły analizy, które ułatwią wyszukiwanie t
 
     1. Użyj sekcji **próg alertu** , aby zdefiniować linię bazową. Na przykład ustaw **Wygeneruj alert, gdy liczba wyników zapytania** **jest większa niż** i wprowadź liczbę 1000, jeśli chcesz, aby reguła wygenerowała alert tylko wtedy, gdy kwerenda zwróci więcej niż 1000 wyników przy każdym uruchomieniu. To pole jest wymagane, dlatego jeśli nie chcesz ustawiać planu bazowego — czyli jeśli chcesz, aby alert rejestrował każde zdarzenie — wprowadź wartość 0 w polu Liczba.
     
-    1. W obszarze **grupowanie zdarzeń**wybierz jeden z dwóch sposobów obsługi grupowania **zdarzeń** w **alertach**: 
+    1. W obszarze **grupowanie zdarzeń** wybierz jeden z dwóch sposobów obsługi grupowania **zdarzeń** w **alertach** : 
 
        - **Grupuj wszystkie zdarzenia w pojedynczym alercie** (ustawienie domyślne). Reguła generuje pojedynczy alert przy każdym uruchomieniu, pod warunkiem, że zapytanie zwróci więcej wyników niż określony **próg alertu** powyżej. Alert zawiera podsumowanie wszystkich zdarzeń zwróconych w wyniku. 
 
-       - **Wyzwalaj alert dla każdego zdarzenia**. Reguła generuje unikatowy alert dla każdego zdarzenia zwróconego przez zapytanie. Jest to przydatne, jeśli chcesz, aby zdarzenia były wyświetlane indywidualnie, lub jeśli chcesz pogrupować je według określonych parametrów — według użytkownika, nazwy hosta lub innego elementu. Można zdefiniować te parametry w zapytaniu.
+       - **Wyzwalaj alert dla każdego zdarzenia** . Reguła generuje unikatowy alert dla każdego zdarzenia zwróconego przez zapytanie. Jest to przydatne, jeśli chcesz, aby zdarzenia były wyświetlane indywidualnie, lub jeśli chcesz pogrupować je według określonych parametrów — według użytkownika, nazwy hosta lub innego elementu. Można zdefiniować te parametry w zapytaniu.
     
-       Obecnie liczba alertów, które może wygenerować reguła, jest ograniczona do 20. Jeśli w określonej zasadzie **grupowanie zdarzeń** jest ustawione na **wyzwolenie alertu dla każdego zdarzenia**, a zapytanie reguły zwróci więcej niż 20 zdarzeń, każde pierwsze 19 zdarzeń wygeneruje unikatowy alert, a dwudziesty alert podsumowuje cały zestaw zwracanych zdarzeń. Innymi słowy, dwudziesty alert to co zostało wygenerowane w ramach opcji **Grupuj wszystkie zdarzenia do pojedynczego alertu** .
+       Obecnie liczba alertów, które może wygenerować reguła, jest ograniczona do 20. Jeśli w określonej zasadzie **grupowanie zdarzeń** jest ustawione na **wyzwolenie alertu dla każdego zdarzenia** , a zapytanie reguły zwróci więcej niż 20 zdarzeń, każde pierwsze 19 zdarzeń wygeneruje unikatowy alert, a dwudziesty alert podsumowuje cały zestaw zwracanych zdarzeń. Innymi słowy, dwudziesty alert to co zostało wygenerowane w ramach opcji **Grupuj wszystkie zdarzenia do pojedynczego alertu** .
 
        > [!NOTE]
-       > Czym różnią się **zdarzenia** i **alerty**?
+       > Czym różnią się **zdarzenia** i **alerty** ?
        >
        > - **Zdarzenie** to opis pojedynczego wystąpienia. Na przykład pojedynczy wpis w pliku dziennika może być traktowany jako zdarzenie. W tym kontekście zdarzenie odnosi się do pojedynczego wyniku zwróconego przez zapytanie w regule analizy.
        >
        > - **Alert** to zbiór zdarzeń, które razem są istotne w przypadku bezpieczeństwa punktu widzenia zabezpieczeń. Alert może zawierać pojedyncze zdarzenie, jeśli zdarzenie miało znaczące konsekwencje dla bezpieczeństwa — logowanie administracyjne z obcego kraju poza godzinami pracy, na przykład.
        >
-       > - Co to jest **incydenty**? Wewnętrzna logika wskaźnikowa platformy Azure tworzy **zdarzenia** z **alertów** lub grup alertów. Kolejka incydentów to główne punkty analityków, badanie i korygowanie Klasyfikacja.
+       > - Co to jest **incydenty** ? Wewnętrzna logika wskaźnikowa platformy Azure tworzy **zdarzenia** z **alertów** lub grup alertów. Kolejka incydentów to główne punkty analityków, badanie i korygowanie Klasyfikacja.
        > 
        > Na platformie Azure Wskaźnikowanie pozyskuje zdarzenia pierwotne z niektórych źródeł danych i już przetwarza alerty od innych użytkowników. Ważne jest, aby zwrócić uwagę na to, do której kwestii w dowolnym momencie.
 
@@ -109,37 +111,37 @@ Można utworzyć niestandardowe reguły analizy, które ułatwią wyszukiwanie t
    > [!IMPORTANT]
    > Karta Ustawienia zdarzenia jest obecnie dostępna w publicznej wersji zapoznawczej. Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
     
-    1. W sekcji **Ustawienia zdarzenia** **Tworzenie zdarzeń z alertów wyzwalanych przez tę regułę analizy** jest domyślnie ustawione na wartość **włączone**, co oznacza, że punkt kontrolny platformy Azure utworzy pojedyncze, oddzielne zdarzenie z każdego i każdego alertu wyzwalanego przez regułę.
-       - Jeśli nie chcesz, aby ta reguła nie powodowała tworzenia żadnych zdarzeń (na przykład jeśli ta reguła jest tylko do zbierania informacji do dalszej analizy), ustaw dla tej opcji wartość **wyłączone**.
+    1. W sekcji **Ustawienia zdarzenia** **Tworzenie zdarzeń z alertów wyzwalanych przez tę regułę analizy** jest domyślnie ustawione na wartość **włączone** , co oznacza, że punkt kontrolny platformy Azure utworzy pojedyncze, oddzielne zdarzenie z każdego i każdego alertu wyzwalanego przez regułę.
+       - Jeśli nie chcesz, aby ta reguła nie powodowała tworzenia żadnych zdarzeń (na przykład jeśli ta reguła jest tylko do zbierania informacji do dalszej analizy), ustaw dla tej opcji wartość **wyłączone** .
 
-    1. Jeśli w sekcji **grupowanie alertów** ma zostać wygenerowane pojedyncze zdarzenie z grupy do 150 podobnych lub cyklicznych alertów (patrz Uwaga), ustaw **alerty powiązane z grupą, wyzwalane przez tę regułę analizy, w zdarzeniach** do **włączenia**i ustaw następujące parametry.
+    1. Jeśli w sekcji **grupowanie alertów** ma zostać wygenerowane pojedyncze zdarzenie z grupy do 150 podobnych lub cyklicznych alertów (patrz Uwaga), ustaw **alerty powiązane z grupą, wyzwalane przez tę regułę analizy, w zdarzeniach** do **włączenia** i ustaw następujące parametry.
 
-    - **Ogranicz grupę do alertów utworzonych w ramach wybranego przedziału czasu**: Określ przedział czasu, w którym będą grupowane podobne lub cykliczne alerty. Wszystkie odpowiednie alerty w tym przedziale czasu spowodują zbiorcze wygenerowanie incydentu lub zestawu incydentów (w zależności od ustawień grupowania poniżej). Alerty poza tym przedziałem czasu generują oddzielne zdarzenie lub zestaw zdarzeń.
+    - **Ogranicz grupę do alertów utworzonych w ramach wybranego przedziału czasu** : Określ przedział czasu, w którym będą grupowane podobne lub cykliczne alerty. Wszystkie odpowiednie alerty w tym przedziale czasu spowodują zbiorcze wygenerowanie incydentu lub zestawu incydentów (w zależności od ustawień grupowania poniżej). Alerty poza tym przedziałem czasu generują oddzielne zdarzenie lub zestaw zdarzeń.
 
-    - **Grupuj alerty wyzwalane przez tę regułę analizy w ramach pojedynczego zdarzenia przez**: Wybierz podstawę, z której będą grupowane alerty:
+    - **Grupuj alerty wyzwalane przez tę regułę analizy w ramach pojedynczego zdarzenia przez** : Wybierz podstawę, z której będą grupowane alerty:
 
-        - **Grupuj alerty w pojedynczym zdarzeniu, jeśli wszystkie jednostki pasują**do siebie: alerty są grupowane razem, jeśli współużytkują te same wartości dla każdej mapowanej jednostki (zdefiniowanej na karcie Reguły logiki zasad powyżej). Jest to zalecane ustawienie.
+        - **Grupuj alerty w pojedynczym zdarzeniu, jeśli wszystkie jednostki pasują** do siebie: alerty są grupowane razem, jeśli współużytkują te same wartości dla każdej mapowanej jednostki (zdefiniowanej na karcie Reguły logiki zasad powyżej). Jest to zalecane ustawienie.
 
-        - **Grupuj wszystkie alerty wyzwalane przez tę regułę w pojedynczym zdarzeniu**: wszystkie alerty wygenerowane przez tę regułę są grupowane razem, nawet jeśli nie mają identycznych wartości.
+        - **Grupuj wszystkie alerty wyzwalane przez tę regułę w pojedynczym zdarzeniu** : wszystkie alerty wygenerowane przez tę regułę są grupowane razem, nawet jeśli nie mają identycznych wartości.
 
-        - **Grupuj alerty w pojedynczym zdarzeniu, jeśli wybrane jednostki są zgodne**: alerty są grupowane razem, jeśli współużytkują te same wartości dla niektórych mapowanych jednostek (które można wybrać z listy rozwijanej). Możesz chcieć użyć tego ustawienia, jeśli na przykład chcesz utworzyć oddzielne zdarzenia na podstawie źródłowego lub docelowego adresu IP.
+        - **Grupuj alerty w pojedynczym zdarzeniu, jeśli wybrane jednostki są zgodne** : alerty są grupowane razem, jeśli współużytkują te same wartości dla niektórych mapowanych jednostek (które można wybrać z listy rozwijanej). Możesz chcieć użyć tego ustawienia, jeśli na przykład chcesz utworzyć oddzielne zdarzenia na podstawie źródłowego lub docelowego adresu IP.
 
-    - **Ponownie otwórz zamknięte zdarzenia dopasowane**: Jeśli zdarzenie zostało rozwiązane i zamknięte, a później zostanie wygenerowany inny alert, który powinien należeć do tego zdarzenia, ustaw to ustawienie na **włączone** , jeśli chcesz ponownie otworzyć zamknięte zdarzenie i pozostaw jako **wyłączone** , jeśli chcesz, aby alert utworzył nowe zdarzenie.
+    - **Ponownie otwórz zamknięte zdarzenia dopasowane** : Jeśli zdarzenie zostało rozwiązane i zamknięte, a później zostanie wygenerowany inny alert, który powinien należeć do tego zdarzenia, ustaw to ustawienie na **włączone** , jeśli chcesz ponownie otworzyć zamknięte zdarzenie i pozostaw jako **wyłączone** , jeśli chcesz, aby alert utworzył nowe zdarzenie.
     
         > [!NOTE]
         > Do 150 alertów można grupować w jedno zdarzenie. W przypadku wygenerowania więcej niż 150 alertów przez regułę grupującą je w pojedyncze zdarzenie zostanie wygenerowane nowe zdarzenie zawierające te same szczegóły zdarzenia co oryginał, a nadmiarowe alerty zostaną zgrupowane w nowym zdarzeniu.
 
-1. Na karcie **odpowiedzi automatyczne** zaznacz wszystkie elementy PlayBook, które mają być uruchamiane automatycznie po wygenerowaniu alertu przez regułę niestandardową. Aby uzyskać więcej informacji na temat tworzenia i automatyzowania elementy PlayBook, zobacz [reagowanie na zagrożenia](tutorial-respond-threats-playbook.md).
+1. Na karcie **odpowiedzi automatyczne** zaznacz wszystkie elementy PlayBook, które mają być uruchamiane automatycznie po wygenerowaniu alertu przez regułę niestandardową. Aby uzyskać więcej informacji na temat tworzenia i automatyzowania elementy PlayBook, zobacz [reagowanie na zagrożenia](tutorial-respond-threats-playbook.md).
 
-1. Wybierz pozycję **Przejrzyj i Utwórz,** aby przejrzeć wszystkie ustawienia nowej reguły alertu, a następnie wybierz pozycję **Utwórz, aby zainicjować regułę alertu**.
+1. Wybierz pozycję **Przejrzyj i Utwórz,** aby przejrzeć wszystkie ustawienia nowej reguły alertu, a następnie wybierz pozycję **Utwórz, aby zainicjować regułę alertu** .
   
-1. Po utworzeniu alertu reguła niestandardowa zostanie dodana do tabeli w obszarze **aktywne reguły**. Z tej listy można włączać, wyłączać lub usuwać każdą regułę.
+1. Po utworzeniu alertu reguła niestandardowa zostanie dodana do tabeli w obszarze **aktywne reguły** . Z tej listy można włączać, wyłączać lub usuwać każdą regułę.
 
-1. Aby wyświetlić wyniki utworzonych reguł alertów, przejdź do strony **incydenty** , na której można klasyfikacja, [zbadać zdarzenia](tutorial-investigate-cases.md)i skorygować zagrożenia.
+1. Aby wyświetlić wyniki utworzonych reguł alertów, przejdź do strony **incydenty** , na której można klasyfikacja, [zbadać zdarzenia](tutorial-investigate-cases.md)i skorygować zagrożenia.
 
 
 > [!NOTE]
-> Alerty generowane na platformie Azure — wskaźnikiem dostępności są dostępne za pomocą [Microsoft Graph zabezpieczenia](https://aka.ms/securitygraphdocs). Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą alertów zabezpieczeń Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs).
+> Alerty generowane na platformie Azure — wskaźnikiem dostępności są dostępne za pomocą [Microsoft Graph zabezpieczenia](https://aka.ms/securitygraphdocs). Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą alertów zabezpieczeń Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -182,5 +184,5 @@ Menedżerów SOC powinni mieć pewność, że lista reguł ma być regularnie sp
 
 W tym samouczku przedstawiono sposób rozpoczynania wykrywania zagrożeń przy użyciu platformy Azure.
 
-Aby dowiedzieć się, jak zautomatyzować odpowiedzi na zagrożenia, [Skonfiguruj automatyczne reagowanie na zagrożenia na platformie Azure](tutorial-respond-threats-playbook.md).
+Aby dowiedzieć się, jak zautomatyzować odpowiedzi na zagrożenia, [Skonfiguruj automatyczne reagowanie na zagrożenia na platformie Azure](tutorial-respond-threats-playbook.md).
 

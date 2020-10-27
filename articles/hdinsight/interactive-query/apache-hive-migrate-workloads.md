@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308388"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534689"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrowanie obciążeń platformy Azure HDInsight 3,6 do usługi HDInsight 4,0
 
@@ -39,7 +39,7 @@ Utwórz nową kopię zewnętrznego magazynu metadanych. Jeśli używasz zewnętr
 ### <a name="3-upgrade-metastore-schema"></a>3. Uaktualnij schemat magazynu metadanych
 Po zakończeniu **kopiowania** magazynu metadanych Uruchom skrypt uaktualnienia schematu w [akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md) w istniejącym klastrze usługi HDInsight 3,6, aby uaktualnić nowy magazyn metadanych do schematu Hive 3. (Ten krok nie wymaga połączenia nowego magazynu metadanych z klastrem). Umożliwia to dołączenie bazy danych jako magazynu metadanych usługi HDInsight 4,0.
 
-Skorzystaj z wartości w tabeli poniżej. Zamień na `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` odpowiednie wartości magazyn metadanych Hive **kopii**, rozdzielone spacjami. Podczas określania nazwy serwera SQL nie dodawaj ". database.windows.net".
+Skorzystaj z wartości w tabeli poniżej. Zamień na `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` odpowiednie wartości magazyn metadanych Hive **kopii** , rozdzielone spacjami. Podczas określania nazwy serwera SQL nie dodawaj ". database.windows.net".
 
 |Właściwość | Wartość |
 |---|---|
@@ -117,7 +117,7 @@ Klastry HDInsight 3,6 i 4,0 muszą korzystać z tego samego konta magazynu.
 
 1. Połącz się z klastrem usługi HDInsight 3,6 przy użyciu [klienta Secure Shell (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Z otwartej sesji SSH Pobierz następujący plik skryptu w celu wygenerowania pliku o nazwie **alltables. HQL**.
+1. Z otwartej sesji SSH Pobierz następujący plik skryptu w celu wygenerowania pliku o nazwie **alltables. HQL** .
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh
@@ -208,7 +208,7 @@ Po potwierdzeniu, że wydanie jest kompletne i w pełni funkcjonalne, można usu
 
 ## <a name="query-execution-across-hdinsight-versions"></a>Wykonywanie zapytania w wersjach usługi HDInsight
 
-Istnieją dwa sposoby wykonywania i debugowania zapytań Hive/LLAP w klastrze usługi HDInsight 3,6. HiveCLI udostępnia środowisko wiersza polecenia, a widok [tez/Hive](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) zawiera przepływ pracy oparty na graficznym interfejsie użytkownika.
+Istnieją dwa sposoby wykonywania i debugowania zapytań Hive/LLAP w klastrze usługi HDInsight 3,6. HiveCLI udostępnia środowisko wiersza polecenia, a widok [tez/Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) zawiera przepływ pracy oparty na graficznym interfejsie użytkownika.
 
 W usłudze HDInsight 4,0 HiveCLI został zastąpiony Z usługi Beeline. Widok tez/Hive zawiera przepływ pracy oparty na graficznym interfejsie użytkownika. HiveCLI to Thrift Client for Hiveserver 1, a Z usługi Beeline to klient JDBC, który zapewnia dostęp do Hiveserver 2. Z usługi Beeline również może służyć do nawiązywania połączenia z dowolnym innym punktem końcowym bazy danych zgodnym z JDBC. Usługa z usługi Beeline jest dostępna w przypadku usługi HDInsight 4,0 bez konieczności instalacji.
 
