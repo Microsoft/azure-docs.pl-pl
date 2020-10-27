@@ -16,25 +16,25 @@ Ostatnim krokiem jest przygotowanie urządzenia do wysłania. W tym kroku wszyst
 > [!IMPORTANT]
 > Przygotowywanie do wysłania jest wymagane, ponieważ umożliwia oflagowanie danych, które nie są zgodne z konwencjami nazewnictwa platformy Azure. Ten krok zapobiega potencjalnym niepowodzeniom przekazywania danych z powodu ich niezgodności.
 
-1. Przejdź do pozycji **Przygotowanie do wysłania** i kliknij przycisk **Rozpocznij przygotowywanie**. Domyślnie sumy kontrolne są obliczane podczas kopiowania danych. Podczas przygotowywania do wysłania kończone jest obliczanie sum kontrolnych i tworzona jest lista plików (*pliki BOM*). Obliczanie sum kontrolnych może potrwać klika godzin a nawet dni — w zależności od rozmiaru danych. 
+1. Przejdź do pozycji **Przygotowanie do wysłania** i kliknij przycisk **Rozpocznij przygotowywanie** . Domyślnie sumy kontrolne są obliczane podczas kopiowania danych. Podczas przygotowywania do wysłania kończone jest obliczanie sum kontrolnych i tworzona jest lista plików ( *pliki BOM* ). Obliczanie sum kontrolnych może potrwać klika godzin a nawet dni — w zależności od rozmiaru danych. 
    
     ![Przygotowanie do wysłania 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
-    Jeśli z jakiegoś powodu chcesz zatrzymać przygotowywanie urządzenia, kliknij przycisk **Zatrzymaj przygotowywanie**. Przygotowywanie do wysłania można wznowić później.
+    Jeśli z jakiegoś powodu chcesz zatrzymać przygotowywanie urządzenia, kliknij przycisk **Zatrzymaj przygotowywanie** . Przygotowywanie do wysłania można wznowić później.
         
     ![Przygotowanie do wysłania 2](media/data-box-prepare-to-ship/prepare-to-ship2.png)
     
-2. Przygotowywanie do wysłania rozpoczyna się i udziały urządzenia przechodzą w tryb offline. <!--You see a reminder to download the shipping label once the device is ready.--> Po zakończeniu przygotowywania urządzenia jego stan jest aktualizowany do wartości *Gotowe do wysyłki*, a urządzenie jest blokowane.
+2. Przygotowywanie do wysłania rozpoczyna się i udziały urządzenia przechodzą w tryb offline. <!--You see a reminder to download the shipping label once the device is ready.--> Po zakończeniu przygotowywania urządzenia jego stan jest aktualizowany do wartości *Gotowe do wysyłki* , a urządzenie jest blokowane.
         
     ![Przygotowanie do wysłania 3](media/data-box-prepare-to-ship/prepare-to-ship3.png)
 
     Jeśli chcesz skopiować więcej danych na urządzenie, możesz je odblokować, skopiować dane i ponownie uruchomić proces przygotowywania do wysłania.
 
-    Jeśli w tym kroku wystąpią błędy, stan zostanie zaktualizowany do *Skanowanie ukończone z błędami*. Odblokuj urządzenie, przejdź do strony **Połącz i skopiuj**, pobierz listę problemów i usuń błędy.
+    Jeśli w tym kroku wystąpią błędy, stan zostanie zaktualizowany do *Skanowanie ukończone z błędami* . Odblokuj urządzenie, przejdź do strony **Połącz i skopiuj** , pobierz listę problemów i usuń błędy.
 
     ![Przygotowanie do wysłania 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 
-    Po usunięciu błędów uruchom **przygotowywanie do wysłania**.
+    Po usunięciu błędów uruchom **przygotowywanie do wysłania** .
 
 4. Po pomyślnym ukończeniu przygotowania do wysłania (bez błędów) wykonaj następujące czynności:
 
@@ -45,6 +45,6 @@ Ostatnim krokiem jest przygotowanie urządzenia do wysłania. W tym kroku wszyst
     3. Wybierz i pobierz instrukcje dotyczące wysyłki dla urządzenia. Instrukcje dotyczące wysyłki są różne w zależności od kraju, w którym się znajdujesz.
     4. Jeśli na wyświetlaczu E-ink nie jest wyświetlana etykieta wysyłkowa, w tym miejscu możesz pobrać etykietę przesyłki zwrotnej. 
 
-5. Zamknij urządzenie. Przejdź do strony **Zamknij lub uruchom ponownie** i kliknij przycisk **Zamknij**. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **OK**, aby kontynuować.
+5. Zamknij urządzenie. Przejdź do strony **Zamknij lub uruchom ponownie** i kliknij przycisk **Zamknij** . Po wyświetleniu monitu o potwierdzenie kliknij przycisk **OK** , aby kontynuować.
 
 6. Odłącz kable. Następnym krokiem jest wysłanie urządzenia do firmy Microsoft.
