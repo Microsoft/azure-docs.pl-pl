@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 17fb1bf8aebe1bd114f970aed997e77ce8a07af1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b194812ef68820a0c310d0bac3b055360c5b5e4a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150767"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538429"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z połączeniami z platformą Azure IoT Hub
 
@@ -28,25 +28,25 @@ Problemy z łącznością dla urządzeń IoT mogą być trudne do rozwiązania, 
 
 Użyj Azure Monitor, aby otrzymywać alerty i zapisywać dzienniki podczas odłączania urządzeń.
 
-### <a name="turn-on-diagnostic-logs"></a>Włączanie dzienników diagnostycznych
+### <a name="turn-on-logs"></a>Włącz dzienniki
 
-Aby rejestrować zdarzenia i błędy połączeń urządzeń, Włącz diagnostykę dla IoT Hub. Zalecamy włączenie tych dzienników tak szybko, jak to możliwe, ponieważ dzienniki diagnostyczne nie są włączone, gdy nastąpi odłączenie urządzenia, nie będą dostępne żadne informacje umożliwiające rozwiązanie problemu z usługą.
+Aby rejestrować zdarzenia i błędy połączeń urządzeń, należy utworzyć ustawienia diagnostyczne dla [dzienników zasobów połączeń IoT Hub](monitor-iot-hub-reference.md#connections). Zalecamy utworzenie tego ustawienia tak szybko, jak to możliwe, ponieważ te dzienniki nie są domyślnie zbierane i nie będą mieć żadnych informacji do rozwiązywania problemów z odłączaniem urządzenia po ich wystąpieniu.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Przejdź do centrum IoT Hub.
+1. Przejdź do centrum IoT Hub.
 
-3. Wybierz pozycję **Ustawienia diagnostyki**.
+1. Wybierz pozycję **Ustawienia diagnostyki** .
 
-4. Wybierz pozycję **Włącz diagnostykę**.
+1. Wybierz pozycję **Dodaj ustawienie diagnostyczne** .
 
-5. Włącz zbieranie dzienników **połączeń** .
+1. Wybierz pozycję Dzienniki **połączeń** .
 
-6. Aby ułatwić analizę, Włącz opcję **Wyślij do log Analytics** ([Zobacz cennik](https://azure.microsoft.com/pricing/details/log-analytics/)). Zobacz przykład w obszarze [Rozwiązywanie problemów z łącznością](#resolve-connectivity-errors).
+1. Aby ułatwić analizę, wybierz pozycję **Wyślij do log Analytics** ( [Zobacz cennik](https://azure.microsoft.com/pricing/details/log-analytics/)). Zobacz przykład w obszarze [Rozwiązywanie problemów z łącznością](#resolve-connectivity-errors).
 
    ![Zalecane ustawienia](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
-Aby dowiedzieć się więcej, zobacz [monitorowanie kondycji usługi Azure IoT Hub i Szybkie diagnozowanie problemów](iot-hub-monitor-resource-health.md).
+Aby dowiedzieć się więcej, zobacz [Monitor IoT Hub](monitor-iot-hub.md).
 
 ### <a name="set-up-alerts-for-device-disconnect-at-scale"></a>Konfigurowanie alertów dotyczących rozłączenia urządzenia w dużej skali
 
@@ -56,11 +56,11 @@ Aby otrzymywać alerty w przypadku rozłączenia urządzeń, skonfiguruj alerty 
 
 2. Przejdź do centrum IoT Hub.
 
-3. Wybierz pozycję **alerty**.
+3. Wybierz pozycję **alerty** .
 
-4. Wybierz przycisk **Nowa reguła alertu**.
+4. Wybierz przycisk **Nowa reguła alertu** .
 
-5. Wybierz pozycję **Dodaj warunek**, a następnie wybierz pozycję "połączone urządzenia (wersja zapoznawcza)".
+5. Wybierz pozycję **Dodaj warunek** , a następnie wybierz pozycję "połączone urządzenia (wersja zapoznawcza)".
 
 6. Skonfiguruj próg i alerty, postępując zgodnie z poniższymi instrukcjami.
 
@@ -72,15 +72,15 @@ Aby wykryć rozłączenia *dla poszczególnych urządzeń* , na przykład gdy tr
 
 ## <a name="resolve-connectivity-errors"></a>Rozwiązywanie problemów z łącznością
 
-Po włączeniu dzienników diagnostycznych i alertów dla podłączonych urządzeń otrzymujesz alerty w przypadku wystąpienia błędów. W tej sekcji opisano, jak wyszukiwać typowe problemy występujące podczas otrzymywania alertu. W poniższych krokach przyjęto założenie, że skonfigurowano dzienniki Azure Monitor dla dzienników diagnostycznych.
+Po włączeniu dzienników i alertów dla podłączonych urządzeń otrzymujesz alerty w przypadku wystąpienia błędów. W tej sekcji opisano, jak wyszukiwać typowe problemy występujące podczas otrzymywania alertu. W poniższych krokach przyjęto założenie, że zostało już utworzone ustawienie diagnostyczne służące do wysyłania dzienników połączeń IoT Hub do Log Analytics obszaru roboczego.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Przejdź do centrum IoT Hub.
 
-1. Wybierz pozycję **dzienniki**.
+1. Wybierz pozycję **dzienniki** .
 
-1. Aby wyizolować dzienniki błędów łączności dla IoT Hub, wprowadź następujące zapytanie, a następnie wybierz polecenie **Uruchom**:
+1. Aby wyizolować dzienniki błędów łączności dla IoT Hub, wprowadź następujące zapytanie, a następnie wybierz polecenie **Uruchom** :
 
     ```kusto
     AzureDiagnostics

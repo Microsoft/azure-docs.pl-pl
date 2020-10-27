@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 8fd42169ab6ccb144215e1b6ad2ece09ff55c07f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9474a1845898e3fda0c810314f41f6f4deabc96b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072832"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538735"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Korzystanie z usługi Apache świni z usługą Apache Hadoop w usłudze HDInsight
 
 Dowiedz się, jak używać oprogramowania [Apache świni](https://pig.apache.org/) z usługą HDInsight.
 
-Apache świni to platforma służąca do tworzenia programów dla Apache Hadoop przy użyciu języka proceduralnego znanego jako *świnie*. Świnie są alternatywą dla języka Java do tworzenia rozwiązań *MapReduce* i są dołączone do usługi Azure HDInsight. Skorzystaj z poniższej tabeli, aby poznać różne sposoby używania świni z usługą HDInsight:
+Apache świni to platforma służąca do tworzenia programów dla Apache Hadoop przy użyciu języka proceduralnego znanego jako *świnie* . Świnie są alternatywą dla języka Java do tworzenia rozwiązań *MapReduce* i są dołączone do usługi Azure HDInsight. Skorzystaj z poniższej tabeli, aby poznać różne sposoby używania świni z usługą HDInsight:
 
 ## <a name="why-use-apache-pig"></a><a id="why"></a>Dlaczego warto używać oprogramowania Apache świni
 
@@ -30,11 +30,11 @@ Jednym z wyzwań związanych z przetwarzaniem danych przy użyciu MapReduce w us
 
 Język łaciński (wieprzowina) pozwala na opisywanie przepływu danych z nieprzetworzonego wejścia, przez jedno lub więcej transformacji, w celu wygenerowania żądanych danych wyjściowych. Programy z wieprzowiną są zgodne z tym ogólnym wzorcem:
 
-* **Ładowanie**: odczytywanie danych do manipulacji z systemu plików.
+* **Ładowanie** : odczytywanie danych do manipulacji z systemu plików.
 
-* **Przekształcanie**: manipulowanie danymi.
+* **Przekształcanie** : manipulowanie danymi.
 
-* **Zrzut lub przechowywanie**: dane wyjściowe na ekranie lub przechowywane do przetworzenia.
+* **Zrzut lub przechowywanie** : dane wyjściowe na ekranie lub przechowywane do przetworzenia.
 
 ### <a name="user-defined-functions"></a>Funkcje zdefiniowane przez użytkownika
 
@@ -95,15 +95,15 @@ Teraz, gdy wiesz już, jak używać świni z usługą HDInsight, Skorzystaj z po
 
 * [Przekazywanie danych do usługi HDInsight](hdinsight-upload-data.md)
 * [Korzystanie z programu Apache Hive z usługą HDInsight](./hadoop/hdinsight-use-hive.md)
-* [Korzystanie z programu Apache Sqoop z usługą HDInsight](hdinsight-use-sqoop.md)
+* [Korzystanie z programu Apache Sqoop z usługą HDInsight](./hadoop/hdinsight-use-sqoop.md)
 * [Korzystanie z zadań MapReduce z usługą HDInsight](./hadoop/hdinsight-use-mapreduce.md)
 
 [apachepig-home]: https://pig.apache.org/
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: https://curl.haxx.se/
-[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[pigtask]: /sql/integration-services/control-flow/azure-hdinsight-pig-task?viewFallbackFrom=sql-server-2014
+[connectionmanager]: /sql/integration-services/connection-manager/azure-subscription-connection-manager?viewFallbackFrom=sql-server-2014
+[ssispack]: /sql/integration-services/azure-feature-pack-for-integration-services-ssis?viewFallbackFrom=sql-server-2014
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md

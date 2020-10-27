@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362269"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541285"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Strojenie wydajności za pomocą buforowania zestawu wyników
 
@@ -36,11 +36,15 @@ Gdy buforowanie zestawu wyników jest włączone, Synapse SQL automatycznie bufo
 
 Po włączeniu buforowania zestawu wyników dla bazy danych wyniki są buforowane dla wszystkich zapytań do momentu zapełnienia pamięci podręcznej, z wyjątkiem tych zapytań:
 
-- Zapytania korzystające z funkcji niedeterministycznych, takich jak DateTime. Now ()
+- Zapytania z wbudowanymi funkcjami lub wyrażeniami środowiska uruchomieniowego, które nie są deterministyczne nawet wtedy, gdy nie ma zmian w danych lub kwerendzie tabel podstawowych. Na przykład DateTime. Now (), GetDate ().
 - Zapytania korzystające z funkcji zdefiniowanych przez użytkownika
 - Zapytania korzystające z tabel z włączonymi zabezpieczeniami na poziomie wierszy lub zabezpieczeniami
 - Zapytania zwracające dane z rozmiarem wiersza większym niż 64 KB
 - Zapytania zwracające duże ilości danych (>10 GB) 
+>[!NOTE]
+> - Niektóre funkcje niedeterministyczne i wyrażenia środowiska uruchomieniowego mogą być deterministyczne dla powtarzanych zapytań dotyczących tych samych danych. Na przykład ROW_NUMBER ().  
+> - Użyj polecenia ORDER BY w zapytaniu, jeśli kolejność/sekwencja wierszy w zestawie wyników zapytania jest ważna dla logiki aplikacji.
+> - Jeśli dane w kolumnach ORDER BY nie są unikatowe, nie istnieje kolejność wierszy GARANTEED wierszy z tymi samymi wartościami w kolumnach ORDER BY, niezależnie od tego, czy buforowanie zestawu wyników jest włączone, czy wyłączone.
 
 > [!IMPORTANT]
 > Operacje tworzenia pamięci podręcznej zestawu wyników i pobierania danych z pamięci podręcznej odbywają się w węźle kontrolnym wystąpienia puli SQL Synapse.

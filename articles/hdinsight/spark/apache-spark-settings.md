@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188161"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545943"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurowanie ustawień platformy Apache Spark
 
@@ -23,13 +23,13 @@ Domyślny Klaster Apache Spark usługi HDInsight zawiera następujące węzły: 
 
 ![Architektura usługi HDInsight Spark](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-Liczba maszyn wirtualnych i rozmiary maszyn wirtualnych dla węzłów w klastrze usługi HDInsight może mieć wpływ na konfigurację platformy Spark. Inne niż domyślne wartości konfiguracji usługi HDInsight często wymagają niedomyślnych wartości konfiguracji platformy Spark. Podczas tworzenia klastra usługi HDInsight Spark są wyświetlane sugerowane rozmiary maszyn wirtualnych dla każdego składnika. Obecnie [zoptymalizowane pod kątem pamięci rozmiary maszyn wirtualnych z systemem Linux](../../virtual-machines/linux/sizes-memory.md) dla platformy Azure to D12 w wersji 2 lub nowszej.
+Liczba maszyn wirtualnych i rozmiary maszyn wirtualnych dla węzłów w klastrze usługi HDInsight może mieć wpływ na konfigurację platformy Spark. Inne niż domyślne wartości konfiguracji usługi HDInsight często wymagają niedomyślnych wartości konfiguracji platformy Spark. Podczas tworzenia klastra usługi HDInsight Spark są wyświetlane sugerowane rozmiary maszyn wirtualnych dla każdego składnika. Obecnie [zoptymalizowane pod kątem pamięci rozmiary maszyn wirtualnych z systemem Linux](../../virtual-machines/sizes-memory.md) dla platformy Azure to D12 w wersji 2 lub nowszej.
 
 ## <a name="apache-spark-versions"></a>Wersje Apache Spark
 
 Użyj najlepszej wersji platformy Spark dla klastra.  Usługa HDInsight obejmuje kilka wersji zarówno platformy Spark, jak i usługi HDInsight.  Każda wersja platformy Spark zawiera zestaw domyślnych ustawień klastra.  
 
-Podczas tworzenia nowego klastra istnieje wiele wersji platformy Spark do wyboru. Aby zapoznać się z pełną listą,  [składnikami i wersjami usługi HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Podczas tworzenia nowego klastra istnieje wiele wersji platformy Spark do wyboru. Aby zapoznać się z pełną listą,  [składnikami i wersjami usługi HDInsight](../hdinsight-component-versioning.md).
 
 > [!NOTE]  
 > Domyślna wersja Apache Spark w usłudze HDInsight może ulec zmianie bez powiadomienia. Jeśli masz zależność wersji, firma Microsoft zaleca, aby określić tę konkretną wersję podczas tworzenia klastrów przy użyciu zestawu .NET SDK, Azure PowerShell i klasycznego interfejsu wiersza polecenia platformy Azure.
@@ -60,7 +60,7 @@ Przed rozpoczęciem optymalizacji wydajności w klastrze Sprawdź bieżące usta
 
 Zostanie wyświetlony interfejs użytkownika sieci Web Apache Ambari z pulpitem nawigacyjnym metryk użycia zasobów klastra kluczy.  Na pulpicie nawigacyjnym Ambari przedstawiono konfigurację Apache Spark i inne zainstalowane usługi. Pulpit nawigacyjny zawiera kartę **historia konfiguracji** , w której można wyświetlić informacje o zainstalowanych usługach, w tym Spark.
 
-Aby wyświetlić wartości konfiguracyjne dla Apache Spark, wybierz pozycję **historia konfiguracji**, a następnie wybierz pozycję **Spark2**.  Wybierz kartę **konfiguracje** , a następnie wybierz `Spark` link (lub `Spark2` , w zależności od wersji) na liście usług.  Zostanie wyświetlona lista wartości konfiguracyjnych dla klastra:
+Aby wyświetlić wartości konfiguracyjne dla Apache Spark, wybierz pozycję **historia konfiguracji** , a następnie wybierz pozycję **Spark2** .  Wybierz kartę **konfiguracje** , a następnie wybierz `Spark` link (lub `Spark2` , w zależności od wersji) na liście usług.  Zostanie wyświetlona lista wartości konfiguracyjnych dla klastra:
 
 ![Konfiguracje platformy Spark](./media/apache-spark-settings/spark-configurations.png)
 

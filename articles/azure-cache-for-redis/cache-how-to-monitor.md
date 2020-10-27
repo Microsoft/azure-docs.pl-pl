@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93ac9a0b8766da70a55ac04f864fe48106fe8774
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004848"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536746"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Jak monitorować usługę Azure cache for Redis
 
@@ -34,13 +34,13 @@ Blok **przeglądu** zawiera następujące wstępnie skonfigurowane wykresy monit
 
 ### <a name="monitoring-charts"></a>Wykresy monitorowania
 
-Sekcja **monitorowanie** w bloku **Przegląd** zawiera wartości **trafień i chybień**, **pobieranie i zestawy**, **połączenia**oraz całkowite wykresy **poleceń** .
+Sekcja **monitorowanie** w bloku **Przegląd** zawiera wartości **trafień i chybień** , **pobieranie i zestawy** , **połączenia** oraz całkowite wykresy **poleceń** .
 
 ![Wykresy monitorowania](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### <a name="usage-charts"></a>Wykresy użycia
 
-Sekcja **użycie** w bloku **Przegląd** ma **Redis obciążenia serwera**, **użycie pamięci**, **przepustowość sieci**i wykresy **użycia procesora CPU** , a także wyświetla **warstwę cenową** dla wystąpienia pamięci podręcznej.
+Sekcja **użycie** w bloku **Przegląd** ma **Redis obciążenia serwera** , **użycie pamięci** , **przepustowość sieci** i wykresy **użycia procesora CPU** , a także wyświetla **warstwę cenową** dla wystąpienia pamięci podręcznej.
 
 ![Wykresy użycia](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
@@ -48,27 +48,27 @@ Sekcja **użycie** w bloku **Przegląd** ma **Redis obciążenia serwera**, **u�
 
 ## <a name="view-metrics-with-azure-monitor"></a>Wyświetlanie metryk przy użyciu usługi Azure monitor
 
-Aby wyświetlić metryki Redis i utworzyć wykresy niestandardowe przy użyciu Azure Monitor, kliknij pozycję **metryki** w **menu zasób**i Dostosuj wykres przy użyciu żądanych metryk, interwału raportowania, typu wykresu i innych.
+Aby wyświetlić metryki Redis i utworzyć wykresy niestandardowe przy użyciu Azure Monitor, kliknij pozycję **metryki** w **menu zasób** i Dostosuj wykres przy użyciu żądanych metryk, interwału raportowania, typu wykresu i innych.
 
 ![Metryki Redis](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Aby uzyskać więcej informacji na temat pracy z metrykami przy użyciu Azure Monitor, zobacz [Omówienie metryk w Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Aby uzyskać więcej informacji na temat pracy z metrykami przy użyciu Azure Monitor, zobacz [Omówienie metryk w Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Eksportowanie metryk pamięci podręcznej
 
-Domyślnie metryki pamięci podręcznej w Azure Monitor są [przechowywane przez 30 dni](../azure-monitor/platform/data-platform-metrics.md) , a następnie usuwane. Aby zachować metryki pamięci podręcznej przez dłużej niż 30 dni, można [wyznaczyć konto magazynu](../azure-monitor/platform/archive-diagnostic-logs.md) i określić zasady **przechowywania (dni)** dla metryk pamięci podręcznej. 
+Domyślnie metryki pamięci podręcznej w Azure Monitor są [przechowywane przez 30 dni](../azure-monitor/platform/data-platform-metrics.md) , a następnie usuwane. Aby zachować metryki pamięci podręcznej przez dłużej niż 30 dni, można [wyznaczyć konto magazynu](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) i określić zasady **przechowywania (dni)** dla metryk pamięci podręcznej. 
 
 Aby skonfigurować konto magazynu dla metryk pamięci podręcznej:
 
-1. Na stronie **usługi Azure cache for Redis** w obszarze nagłówek **monitorowania** wybierz pozycję **Diagnostyka**.
-2. Wybierz pozycję **+ Dodaj ustawienie diagnostyczne**.
+1. Na stronie **usługi Azure cache for Redis** w obszarze nagłówek **monitorowania** wybierz pozycję **Diagnostyka** .
+2. Wybierz pozycję **+ Dodaj ustawienie diagnostyczne** .
 3. Nadaj nazwę ustawieniom.
-4. Zaznacz pozycję **Zarchiwizuj na koncie magazynu**. W przypadku wysyłania danych diagnostycznych do konta magazynu będą naliczone zwykłe stawki za dane związane z magazynowaniem i transakcjami.
+4. Zaznacz pozycję **Zarchiwizuj na koncie magazynu** . W przypadku wysyłania danych diagnostycznych do konta magazynu będą naliczone zwykłe stawki za dane związane z magazynowaniem i transakcjami.
 4. Wybierz pozycję **Konfiguruj** , aby wybrać konto magazynu, w którym mają być przechowywane metryki pamięci podręcznej.
-5. W obszarze pole **Metryka**nagłówka tabeli obok elementów wiersza, które mają być przechowywane, takich jak **AllMetrics**. Określ zasady **przechowywania (dni)** . Maksymalne dozwolone okresy przechowywania to **365 dni**. Jeśli jednak chcesz zachować dane metryk w nieskończoność, ustaw wartość **przechowywanie (w dniach)** na **0**.
-6. Kliknij przycisk **Zapisz**.
+5. W obszarze pole **Metryka** nagłówka tabeli obok elementów wiersza, które mają być przechowywane, takich jak **AllMetrics** . Określ zasady **przechowywania (dni)** . Maksymalne dozwolone okresy przechowywania to **365 dni** . Jeśli jednak chcesz zachować dane metryk w nieskończoność, ustaw wartość **przechowywanie (w dniach)** na **0** .
+6. Kliknij pozycję **Zapisz** .
 
 
 ![Diagnostyka Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -85,7 +85,7 @@ Aby uzyskać dostęp do metryk, można je wyświetlić w Azure Portal, jak opisa
 
 ## <a name="available-metrics-and-reporting-intervals"></a>Dostępne metryki i interwały raportowania
 
-Metryki pamięci podręcznej są raportowane przy użyciu kilku interwałów raportowania, w tym **ostatnich godzin**, **dzisiaj**, **ostatnich tygodni**i **niestandardowych**. Blok **metryk** dla każdego wykresu metryk zawiera wartości średnie, minimum i maksimum dla każdej metryki na wykresie, a niektóre metryki zawierają sumę dla interwału raportowania. 
+Metryki pamięci podręcznej są raportowane przy użyciu kilku interwałów raportowania, w tym **ostatnich godzin** , **dzisiaj** , **ostatnich tygodni** i **niestandardowych** . Blok **metryk** dla każdego wykresu metryk zawiera wartości średnie, minimum i maksimum dla każdej metryki na wykresie, a niektóre metryki zawierają sumę dla interwału raportowania. 
 
 Każda Metryka zawiera dwie wersje. Jedna Metryka mierzy wydajność dla całej pamięci podręcznej, a dla pamięci podręcznej korzystającej z [klastrowania](cache-how-to-premium-clustering.md)druga wersja metryki, która obejmuje `(Shard 0-9)` nazwę mierzy wydajność dla jednego fragmentu w pamięci podręcznej. Na przykład jeśli pamięć podręczna ma cztery fragmentów, `Cache Hits` to łączna liczba trafień dla całej pamięci podręcznej i `Cache Hits (Shard 3)` jest to tylko liczba trafień dla tego fragmentu pamięci podręcznej.
 
@@ -103,7 +103,7 @@ Każda Metryka zawiera dwie wersje. Jedna Metryka mierzy wydajność dla całej 
 | Zapis w pamięci podręcznej |Ilość danych zapisywana w pamięci podręcznej w megabajtach na sekundę (MB/s) podczas określonego interwału raportowania. Ta wartość pochodzi z kart interfejsu sieciowego, które obsługują maszynę wirtualną obsługującą pamięć podręczną, i nie Redis określonych. Ta wartość odpowiada przepustowości sieci danych wysyłanych do pamięci podręcznej z klienta programu. |
 | Połączeni klienci |Liczba połączeń klienta z pamięcią podręczną w określonym interwale raportowania. Ta liczba jest mapowana na wartość `connected_clients` z REDIS info. Po osiągnięciu [limitu połączenia](cache-configure.md#default-redis-server-configuration) kolejne próby połączenia z pamięcią podręczną zakończą się niepowodzeniem. Nawet jeśli nie ma aktywnych aplikacji klienckich, nadal może istnieć kilka wystąpień połączonych klientów z powodu wewnętrznych procesów i połączeń. |
 | Procesor CPU |Użycie procesora CPU w pamięci podręcznej platformy Azure dla serwera Redis jako wartość procentowa w określonym interwale raportowania. Ta wartość jest mapowana na `\Processor(_Total)\% Processor Time` licznik wydajności systemu operacyjnego. |
-| Errors | Określone błędy i problemy z wydajnością, które mogą występować w pamięci podręcznej w określonym interwale raportowania. Ta Metryka ma osiem wymiarów reprezentujących różne typy błędów, ale w przyszłości może być dodanych. Reprezentowane typy błędów są następujące: <br/><ul><li>Tryb failover — gdy pamięć podręczna zostanie przełączona w tryb **pracy awaryjnej** (podrzędna prom do podstawowego)</li><li>**Datastrata** — w przypadku utraty danych w pamięci podręcznej</li><li>**UnresponsiveClients** — gdy klienci nie odczytują danych z serwera wystarczająco szybko</li><li>**Kopia zapasowa AOF** — w przypadku problemów związanych z TRWAŁOŚCIą kopia zapasowa AOF</li><li>**RDB** — w przypadku wystąpienia problemu związanego z TRWAŁOŚCIą RDB</li><li>**Importuj** — w przypadku problemu związanego z IMPORTem RDB</li><li>**Eksport** — w przypadku problemu związanego z EKSPORTem RDB</li></ul> |
+| błędy | Określone błędy i problemy z wydajnością, które mogą występować w pamięci podręcznej w określonym interwale raportowania. Ta Metryka ma osiem wymiarów reprezentujących różne typy błędów, ale w przyszłości może być dodanych. Reprezentowane typy błędów są następujące: <br/><ul><li>Tryb failover — gdy pamięć podręczna zostanie przełączona w tryb **pracy awaryjnej** (podrzędna prom do podstawowego)</li><li>**Datastrata** — w przypadku utraty danych w pamięci podręcznej</li><li>**UnresponsiveClients** — gdy klienci nie odczytują danych z serwera wystarczająco szybko</li><li>**Kopia zapasowa AOF** — w przypadku problemów związanych z TRWAŁOŚCIą kopia zapasowa AOF</li><li>**RDB** — w przypadku wystąpienia problemu związanego z TRWAŁOŚCIą RDB</li><li>**Importuj** — w przypadku problemu związanego z IMPORTem RDB</li><li>**Eksport** — w przypadku problemu związanego z EKSPORTem RDB</li></ul> |
 | Wykluczone klucze |Liczba elementów wykluczonych z pamięci podręcznej w określonym interwale raportowania ze względu na `maxmemory` limit. Ta liczba jest mapowana na wartość `evicted_keys` z REDIS info. |
 | Wygasłe klucze |Liczba elementów, które wygasły z pamięci podręcznej w określonym interwale raportowania. Ta wartość jest mapowana na `expired_keys` podstawie polecenia REDIS info.|
 | Pobrania |Liczba operacji pobierania z pamięci podręcznej w określonym interwale raportowania. Ta wartość jest sumą następujących wartości z polecenia Redis info All:,,,, `cmdstat_get` , `cmdstat_hget` `cmdstat_hgetall` `cmdstat_hmget` `cmdstat_mget` `cmdstat_getbit` i `cmdstat_getrange` , i jest równoważna z sumą trafień w pamięci podręcznej i chybień w okresie raportowania. |
@@ -125,11 +125,11 @@ Można skonfigurować odbieranie alertów w oparciu o metryki i dzienniki aktywn
 * Wywołanie elementu webhook
 * Wywołanie aplikacji logiki platformy Azure
 
-Aby skonfigurować reguły alertów dla pamięci podręcznej, kliknij pozycję **reguły alertów** w **menu zasób**.
+Aby skonfigurować reguły alertów dla pamięci podręcznej, kliknij pozycję **reguły alertów** w **menu zasób** .
 
 ![Monitorowanie](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Aby uzyskać więcej informacji o konfigurowaniu i używaniu alertów, zobacz [Omówienie alertów](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Aby uzyskać więcej informacji o konfigurowaniu i używaniu alertów, zobacz [Omówienie alertów](../azure-monitor/platform/alerts-classic-portal.md).
 
 ## <a name="activity-logs"></a>Dzienniki aktywności
 Dzienniki aktywności zapewniają wgląd w operacje wykonane w pamięci podręcznej platformy Azure dla wystąpień Redis. Wcześniej była znana jako "dzienniki inspekcji" lub "dzienniki operacyjne". Korzystając z dzienników aktywności, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) podejmowanych w pamięci podręcznej platformy Azure dla wystąpień Redis. 
@@ -138,6 +138,6 @@ Dzienniki aktywności zapewniają wgląd w operacje wykonane w pamięci podręcz
 > Dzienniki aktywności nie obejmują operacji odczytu (GET).
 >
 
-Aby wyświetlić dzienniki aktywności pamięci podręcznej, kliknij pozycję **dzienniki aktywności** w **menu zasób**.
+Aby wyświetlić dzienniki aktywności pamięci podręcznej, kliknij pozycję **dzienniki aktywności** w **menu zasób** .
 
 Aby uzyskać więcej informacji na temat dzienników aktywności, zobacz [Omówienie dziennika aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md).

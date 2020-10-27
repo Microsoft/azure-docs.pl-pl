@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: d2cc3627222bcd8de5a5cb1b5c83b04c5d4ef880
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 327e995a8fe2f66903548fba054804768d2538ab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86130197"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534298"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Konfigurowanie serwera konfiguracji na potrzeby odzyskiwania po awarii serwerów fizycznych na platformie Azure
 
@@ -36,19 +36,19 @@ W poniższej tabeli przedstawiono minimalne wymagania dotyczące sprzętu, oprog
 ## <a name="choose-your-protection-goals"></a>Wybierz cele ochrony
 
 1. W Azure Portal przejdź do bloku magazyny **Recovery Services** i wybierz swój magazyn.
-2. W menu **zasób** magazynu kliknij **wprowadzenie**  >  **Site Recovery**  >  **krok 1: przygotowanie**  >  **celu ochrony**infrastruktury.
+2. W menu **zasób** magazynu kliknij **wprowadzenie**  >  **Site Recovery**  >  **krok 1: przygotowanie**  >  **celu ochrony** infrastruktury.
 
-    ![Wybieranie celów](./media/physical-azure-set-up-source/choose-goals.png)
-3. W obszarze **cel ochrony**wybierz pozycję **na platformie Azure** , a **nie zwirtualizowany/inny**, a następnie kliknij przycisk **OK**.
+    ![Zrzut ekranu pokazujący, gdzie wybrać cel ochrony.](./media/physical-azure-set-up-source/choose-goals.png)
+3. W obszarze **cel ochrony** wybierz pozycję **na platformie Azure** , a **nie zwirtualizowany/inny** , a następnie kliknij przycisk **OK** .
 
     ![Wybieranie celów](./media/physical-azure-set-up-source/physical-protection-goal.png)
 
 ## <a name="set-up-the-source-environment"></a>Konfigurowanie środowiska źródłowego
 
-1. Jeśli nie masz serwera konfiguracji, w obszarze **Przygotowywanie źródła**kliknij pozycję **+ serwer konfiguracji** , aby dodać jeden.
+1. Jeśli nie masz serwera konfiguracji, w obszarze **Przygotowywanie źródła** kliknij pozycję **+ serwer konfiguracji** , aby dodać jeden.
 
-   ![Konfiguracja źródła](./media/physical-azure-set-up-source/plus-config-srv.png)
-2. W bloku **Dodawanie serwera** Sprawdź, czy **serwer konfiguracji** jest wyświetlany w polu **Typ serwera**.
+   ![Zrzut ekranu pokazujący sposób wybierania serwera konfiguracji.](./media/physical-azure-set-up-source/plus-config-srv.png)
+2. W bloku **Dodawanie serwera** Sprawdź, czy **serwer konfiguracji** jest wyświetlany w polu **Typ serwera** .
 4. Pobierz plik instalacyjny programu Site Recovery Unified Setup.
 5. Pobierz klucz rejestracji magazynu. Po uruchomieniu ujednoliconej konfiguracji wymagany jest klucz rejestracji. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 

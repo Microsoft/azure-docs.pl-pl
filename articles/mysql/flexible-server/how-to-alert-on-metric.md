@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: d4385ccda665e9acd2d2f9fd340e675b8a9dfe6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a099a9850289a046435b4e1763d7f54a702c0d0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940519"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545093"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla serwera Azure Database for MySQL-elastyczny 
 
@@ -28,36 +28,36 @@ Można skonfigurować alert, aby wykonał następujące akcje po jego wyzwoleniu
 * Wywołanie elementu webhook
 
 Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
-* [Azure Portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Witryna Azure Portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interfejs wiersza polecenia platformy Azure](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Interfejs API REST usługi Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Interfejs API REST usługi Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Tworzenie reguły alertu na podstawie metryki z Azure Portal
 1. W [Azure Portal](https://portal.azure.com/)wybierz Azure Database for MySQL elastyczny serwer, który chcesz monitorować.
-2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **alerty**.
-3. Wybierz pozycję **+ Nowa reguła alertu**.
-4. Zostanie otwarta strona **Tworzenie reguły**. Wypełnij wymagane informacje:
-5. W sekcji **warunek** wybierz **pozycję Wybierz warunek**.
+2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **alerty** .
+3. Wybierz pozycję **+ Nowa reguła alertu** .
+4. Zostanie otwarta strona **Tworzenie reguły** . Wypełnij wymagane informacje:
+5. W sekcji **warunek** wybierz **pozycję Wybierz warunek** .
 6. Zostanie wyświetlona lista obsługiwanych sygnałów, wybierz metrykę, dla której chcesz utworzyć alert. Na przykład wybierz pozycję "procent magazynu".
 7. Zostanie wyświetlony wykres metryki dla ostatnich sześciu godzin. Za pomocą listy rozwijanej **Okres wykresu** wybierz opcję, aby wyświetlić dłuższą historię dla metryki.
 8. Wybierz typ **progu** (np. "Static" lub "Dynamic"), **operator** (np. "Większe niż") i **typ agregacji** (np. średnia). Spowoduje to określenie logiki, która będzie Szacowana przez regułę alertu metryki.
     - Jeśli używasz progu **statycznego** , Kontynuuj definiowanie **wartości progowej** (np. 85 procent). Wykres metryk może pomóc w ustaleniu, co może być rozsądnym progiem.
-    - Jeśli używasz progu **dynamicznego** , Kontynuuj definiowanie **czułości progowej**. Na wykresie metryki zostaną wyświetlone obliczone progi na podstawie ostatnich danych. [Dowiedz się więcej o opcjach typu i czułości wartości progów dynamicznych](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
+    - Jeśli używasz progu **dynamicznego** , Kontynuuj definiowanie **czułości progowej** . Na wykresie metryki zostaną wyświetlone obliczone progi na podstawie ostatnich danych. [Dowiedz się więcej o opcjach typu i czułości wartości progów dynamicznych](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
 9. Zawęź warunek, dostosowując **stopień szczegółowości agregacji (okres)** , w którym punkty danych są grupowane przy użyciu funkcji typu agregacji (np. "30 minut") i **częstotliwość** (np. co 15 minut).
-10. Kliknij pozycję **Gotowe**.
+10. Kliknij pozycję **Gotowe** .
 11. Dodaj grupę akcji. Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. W sekcji **grupy akcji** wybierz **pozycję Wybierz grupę akcji** , aby wybrać istniejącą grupę akcji, która ma zostać dołączona do reguły alertu.
 12. Możesz również utworzyć nową grupę akcji, aby otrzymywać powiadomienia dotyczące alertu. Aby uzyskać więcej informacji [, zobacz Tworzenie grupy akcji i zarządzanie nią](../../azure-monitor/platform/action-groups.md) .
-13. Aby utworzyć nową grupę akcji, wybierz pozycję **+ Utwórz grupę akcji**. Wypełnij formularz "Tworzenie grupy akcji" z **subskrypcją**, **grupą zasobów**, **nazwą grupy akcji** i **nazwą wyświetlaną**.
+13. Aby utworzyć nową grupę akcji, wybierz pozycję **+ Utwórz grupę akcji** . Wypełnij formularz "Tworzenie grupy akcji" z **subskrypcją** , **grupą zasobów** , **nazwą grupy akcji** i **nazwą wyświetlaną** .
 14. Skonfiguruj **powiadomienia** dla grupy akcji.
     
-    W obszarze **Typ powiadomienia**wybierz pozycję "E-mail Azure Resource Manager rolę", aby wybrać właścicieli subskrypcji, współautorów i czytelników, którzy mają otrzymywać powiadomienia. Wybierz **rolę Azure Resource Manager** do wysłania wiadomości e-mail.
+    W obszarze **Typ powiadomienia** wybierz pozycję "E-mail Azure Resource Manager rolę", aby wybrać właścicieli subskrypcji, współautorów i czytelników, którzy mają otrzymywać powiadomienia. Wybierz **rolę Azure Resource Manager** do wysłania wiadomości e-mail.
     Możesz również wybrać **wiadomości e-mail/SMS/wypychanie/głos** , aby wysyłać powiadomienia do określonych adresatów.
 
     Podaj **nazwę** dla typu powiadomienia, a następnie wybierz pozycję **Przegląd + Utwórz** po zakończeniu.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::-->
     
-15. Wypełnij **szczegóły reguły** alertu, takie jak **Nazwa reguły alertu**, **Opis**, **Zapisz regułę alertu w grupie zasobów** i **ważności**.
+15. Wypełnij **szczegóły reguły** alertu, takie jak **Nazwa reguły alertu** , **Opis** , **Zapisz regułę alertu w grupie zasobów** i **ważności** .
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group":::-->
 

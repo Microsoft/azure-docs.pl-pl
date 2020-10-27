@@ -6,18 +6,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: yegu
-ms.openlocfilehash: 145be11436eb4d0c4f6b892e5239ccacd838d780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0bb8fd2d0b0ac271a167ad5474a55646bdafc65
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654166"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536797"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Wysoka dostępność dla usługi Azure cache for Redis
 
 Usługa Azure cache for Redis ma wbudowaną wysoką dostępność. Celem jego architektury wysokiej dostępności jest upewnienie się, że zarządzane wystąpienie Redis działa nawet wtedy, gdy jego bazowe maszyny wirtualne mają wpływ na planowane lub nieplanowane przestoje. Zapewnia ona znacznie wyższą stawkę procentową niż osiągane przez hosting Redis na jednej maszynie wirtualnej.
 
-Usługa Azure cache for Redis implementuje wysoką dostępność przy użyciu wielu maszyn wirtualnych, nazywanych *węzłami*, dla pamięci podręcznej. Konfiguruje te węzły w taki sposób, że replikacja danych i tryb failover są wykonywane w sposób skoordynowany. Organizuje ona również operacje konserwacji, takie jak Redis. Dostępne są różne opcje wysokiej dostępności w warstwach Standardowa i Premium:
+Usługa Azure cache for Redis implementuje wysoką dostępność przy użyciu wielu maszyn wirtualnych, nazywanych *węzłami* , dla pamięci podręcznej. Konfiguruje te węzły w taki sposób, że replikacja danych i tryb failover są wykonywane w sposób skoordynowany. Organizuje ona również operacje konserwacji, takie jak Redis. Dostępne są różne opcje wysokiej dostępności w warstwach Standardowa i Premium:
 
 | Opcja | Opis | Dostępność | Standardowa (Standard) | Premium |
 | ------------------- | ------- | ------- | :------: | :---: |
@@ -28,7 +28,7 @@ Usługa Azure cache for Redis implementuje wysoką dostępność przy użyciu wi
 
 ## <a name="standard-replication"></a>Standardowa replikacja
 
-Pamięć podręczna platformy Azure dla Redis w warstwie Standardowa lub Premium jest domyślnie uruchamiana na parze serwerów Redis. Te dwa serwery są hostowane na dedykowanych maszynach wirtualnych. Redis Open Source umożliwia obsługę żądań zapisu danych tylko jeden serwer. Ten serwer jest węzłem *podstawowym* , natomiast druga *replika*. Po wprowadzeniu w nim węzłów serwera usługa Azure cache for Redis przypisze do nich role podstawowe i repliki. Węzeł podstawowy zazwyczaj jest odpowiedzialny za obsługę zapisu oraz żądania odczytu z klientów Redis. W operacji zapisu zostaje zatwierdzona Nowa klucz i Aktualizacja klucza do pamięci wewnętrznej i natychmiast odpowiedzi na klienta. Przekazuje operację do repliki asynchronicznie.
+Pamięć podręczna platformy Azure dla Redis w warstwie Standardowa lub Premium jest domyślnie uruchamiana na parze serwerów Redis. Te dwa serwery są hostowane na dedykowanych maszynach wirtualnych. Redis Open Source umożliwia obsługę żądań zapisu danych tylko jeden serwer. Ten serwer jest węzłem *podstawowym* , natomiast druga *replika* . Po wprowadzeniu w nim węzłów serwera usługa Azure cache for Redis przypisze do nich role podstawowe i repliki. Węzeł podstawowy zazwyczaj jest odpowiedzialny za obsługę zapisu oraz żądania odczytu z klientów Redis. W operacji zapisu zostaje zatwierdzona Nowa klucz i Aktualizacja klucza do pamięci wewnętrznej i natychmiast odpowiedzi na klienta. Przekazuje operację do repliki asynchronicznie.
 
 :::image type="content" source="media/cache-high-availability/replication.png" alt-text="Konfiguracja replikacji danych":::
    
@@ -37,7 +37,7 @@ Pamięć podręczna platformy Azure dla Redis w warstwie Standardowa lub Premium
 >
 >
 
-Jeśli węzeł podstawowy w pamięci podręcznej Redis jest niedostępny, replika zostanie podniesiona do automatycznej nowej głównej. Ten proces jest nazywany *trybem failover*. Replika będzie oczekiwać przez wystarczająco długi czas przed przejęciem w przypadku, gdy węzeł podstawowy odzyska szybkie odzyskiwanie. W przypadku przejścia w tryb failover usługa Azure cache for Redis Inicjuje nową maszynę wirtualną i łączy ją z pamięcią podręczną jako węzłem repliki. Replika wykonuje pełną synchronizację danych z podstawowym, tak że ma kolejną kopię danych pamięci podręcznej.
+Jeśli węzeł podstawowy w pamięci podręcznej Redis jest niedostępny, replika zostanie podniesiona do automatycznej nowej głównej. Ten proces jest nazywany *trybem failover* . Replika będzie oczekiwać przez wystarczająco długi czas przed przejęciem w przypadku, gdy węzeł podstawowy odzyska szybkie odzyskiwanie. W przypadku przejścia w tryb failover usługa Azure cache for Redis Inicjuje nową maszynę wirtualną i łączy ją z pamięcią podręczną jako węzłem repliki. Replika wykonuje pełną synchronizację danych z podstawowym, tak że ma kolejną kopię danych pamięci podręcznej.
 
 Węzeł podstawowy może wychodzić z usługi w ramach zaplanowanego działania konserwacji, takiego jak Redis oprogramowanie lub Aktualizacja systemu operacyjnego. Może ona również przestać działać z powodu nieplanowanych zdarzeń, takich jak awarie w podstawowym sprzęcie, oprogramowaniu lub sieci. [Tryb failover i poprawka dla usługi Azure cache for Redis](cache-failover.md) zawierają szczegółowe wyjaśnienie typów trybu failover Redis. Pamięć podręczna platformy Azure dla usługi Redis przejdzie przez wiele przełączeń w tryb failover w okresie istnienia. Architektura wysokiej dostępności została zaprojektowana w celu wprowadzenia tych zmian w pamięci podręcznej, jak to możliwe.
 
@@ -57,7 +57,7 @@ Pamięć podręczna systemu Azure dla usługi Redis umożliwia dodanie dodatkowy
 >
 >
 
-Pamięć podręczna systemu Azure dla usługi Redis obsługuje nadmiarowe konfiguracje stref w warstwie Premium. [Pamięć podręczna nadmiarowa strefy](cache-how-to-zone-redundancy.md) może umieścić węzły w różnych [strefy dostępności platformy Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) w tym samym regionie. Eliminuje to centrum danych lub AZ przestój jako single point of failure i zwiększa ogólną dostępność pamięci podręcznej.
+Pamięć podręczna systemu Azure dla usługi Redis obsługuje nadmiarowe konfiguracje stref w warstwie Premium. [Pamięć podręczna nadmiarowa strefy](cache-how-to-zone-redundancy.md) może umieścić węzły w różnych [strefy dostępności platformy Azure](../availability-zones/az-overview.md) w tym samym regionie. Eliminuje to centrum danych lub AZ przestój jako single point of failure i zwiększa ogólną dostępność pamięci podręcznej.
 
 Na poniższym diagramie przedstawiono konfigurację nadmiarową strefy:
 

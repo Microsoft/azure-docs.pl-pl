@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839694"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536882"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Jak skonfigurować replikację geograficzną dla usługi Azure cache for Redis
 
@@ -75,7 +75,7 @@ Po skonfigurowaniu replikacji geograficznej, następujące ograniczenia mają za
 
     ![Zrzut ekranu przedstawiający sposób wyświetlania stanu konsolidacji dla podstawowych i pomocniczych pamięci podręcznych.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Po zakończeniu procesu replikacji **Stan łącza** zmieni się na **powodzenie**.
+    Po zakończeniu procesu replikacji **Stan łącza** zmieni się na **powodzenie** .
 
     ![Stan pamięci podręcznej](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -145,8 +145,8 @@ Tak, replikacja geograficzna pamięci podręcznych w sieci wirtualnych jest obs�
 
 - Replikacja geograficzna między pamięciami podręcznymi w tej samej sieci wirtualnej jest obsługiwana.
 - Obsługiwane są również replikacje geograficzne między pamięciami podręcznymi w różnych sieci wirtualnych.
-  - Jeśli sieci wirtualnych znajdują się w tym samym regionie, można połączyć je za pomocą [komunikacji równorzędnej sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) lub [VPN Gateway połączenia](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V)między siećmi wirtualnymi.
-  - Jeśli sieci wirtualnych znajdują się w różnych regionach, jest obsługiwana replikacja geograficzna używająca komunikacji równorzędnej sieci wirtualnych, ale maszyna wirtualna w sieci wirtualnej 1 (region 1) nie będzie w stanie uzyskać dostępu do pamięci podręcznej w sieci wirtualnej 2 (region 2) za pomocą nazwy DNS z powodu ograniczenia dotyczącego podstawowych wewnętrznych modułów równoważenia obciążenia. Aby uzyskać więcej informacji na temat ograniczeń wirtualnych sieci równorzędnych, zobacz [Virtual Network-Komunikacja równorzędna — wymagania i ograniczenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). Zalecanym rozwiązaniem jest użycie VPN Gateway połączenia między sieciami WIRTUALNYmi.
+  - Jeśli sieci wirtualnych znajdują się w tym samym regionie, można połączyć je za pomocą [komunikacji równorzędnej sieci wirtualnej](../virtual-network/virtual-network-peering-overview.md) lub [VPN Gateway połączenia](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)między siećmi wirtualnymi.
+  - Jeśli sieci wirtualnych znajdują się w różnych regionach, jest obsługiwana replikacja geograficzna używająca komunikacji równorzędnej sieci wirtualnych, ale maszyna wirtualna w sieci wirtualnej 1 (region 1) nie będzie w stanie uzyskać dostępu do pamięci podręcznej w sieci wirtualnej 2 (region 2) za pomocą nazwy DNS z powodu ograniczenia dotyczącego podstawowych wewnętrznych modułów równoważenia obciążenia. Aby uzyskać więcej informacji na temat ograniczeń wirtualnych sieci równorzędnych, zobacz [Virtual Network-Komunikacja równorzędna — wymagania i ograniczenia](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Zalecanym rozwiązaniem jest użycie VPN Gateway połączenia między sieciami WIRTUALNYmi.
   
 Korzystając z [tego szablonu platformy Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), można szybko wdrożyć dwie buforowane geograficznie podsieci w sieci wirtualnej połączonej z VPN Gateway połączeniem między sieciami wirtualnymi.
 
@@ -166,7 +166,7 @@ Aby uzyskać punkt odzyskiwania, należy [wyeksportować](cache-how-to-import-ex
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Czy można użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure do zarządzania replikacją geograficzną?
 
-Tak. replikację geograficzną można zarządzać przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz Dokumentacja programu [PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) lub [Dokumentacja interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
+Tak. replikację geograficzną można zarządzać przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz Dokumentacja programu [PowerShell](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) lub [Dokumentacja interfejsu wiersza polecenia platformy Azure](/cli/azure/redis/server-link?view=azure-cli-latest).
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Ile kosztuje, aby replikować dane w regionach platformy Azure?
 
@@ -188,7 +188,7 @@ Aby uruchomić tryb failover zainicjowany przez klienta, najpierw Odłącz pami�
 
 ### <a name="can-i-configure-a-firewall-with-geo-replication"></a>Czy można skonfigurować zaporę z replikacją geograficzną?
 
-Tak, można skonfigurować [zaporę](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) z replikacją geograficzną. Aby można było obsłużyć replikację geograficzną obok zapory, należy się upewnić, że adres IP pomocniczej pamięci podręcznej jest dodawany do reguł zapory podstawowej pamięci podręcznej.
+Tak, można skonfigurować [zaporę](./cache-configure.md#firewall) z replikacją geograficzną. Aby można było obsłużyć replikację geograficzną obok zapory, należy się upewnić, że adres IP pomocniczej pamięci podręcznej jest dodawany do reguł zapory podstawowej pamięci podręcznej.
 
 ## <a name="next-steps"></a>Następne kroki
 

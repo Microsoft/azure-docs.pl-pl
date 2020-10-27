@@ -3,15 +3,15 @@ title: Zasady integracji usługi Azure API Management Dapr | Microsoft Docs
 description: Dowiedz się więcej o zasadach API Management platformy Azure na potrzeby współpracy z rozszerzeniami mikrousług Dapr.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 9/13/2020
+ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: d537040be4ed4cbf961a4621980d3d290e306359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345136"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558401"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Zasady integracji API Management Dapr
 
@@ -104,14 +104,14 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 ## <a name="send-message-to-pubsub-topic"></a><a name="pubsub"></a> Wyślij komunikat do publikowania/tematu podrzędnego
 
-Te zasady instruują API Management Gateway, aby wysyłali komunikat do tematu Dapr Publish/subskrybowania. Zasady te osiągają, dzięki czemu żądanie HTTP POST `http://localhost:3500/v1.0/publish/{{pub-name}}/{{topic}}` zastępujące parametry szablonu i dodanie zawartości określonej w instrukcji zasad.
+Te zasady instruują API Management Gateway, aby wysyłali komunikat do tematu Dapr Publish/subskrybowania. Zasady te osiągają, dzięki czemu żądanie HTTP POST `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}` zastępujące parametry szablonu i dodanie zawartości określonej w instrukcji zasad.
 
 Zasady założono, że środowisko uruchomieniowe Dapr jest uruchomione w kontenerze przyczepki w tym samym obszarze co brama. Środowisko uruchomieniowe Dapr implementuje semantykę pub/sub.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
-<publish-to-dapr topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -131,7 +131,8 @@ Sekcja "zaplecze" jest pusta, a żądanie nie jest przekazywane do zaplecza.
      <inbound>
         <base />
         <publish-to-dapr
-               topic="@("orders/new")"
+           pubsub-name="orders"
+               topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
         </publish-to-dapr>
@@ -158,7 +159,8 @@ Sekcja "zaplecze" jest pusta, a żądanie nie jest przekazywane do zaplecza.
 
 | Atrybut        | Opis                     | Wymagane | Domyślne |
 |------------------|---------------------------------|----------|---------|
-| temat            | Nazwa tematu docelowego               | Tak      | Nie dotyczy     |
+| pubsub — nazwa      | Nazwa docelowego składnika PubSub. Mapuje do parametru [pubsubname](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) w Dapr. Jeśli nie istnieje, wartość atrybutu __tematu__ musi mieć postać `pubsub-name/topic-name` .    | Nie       | Brak    |
+| temat            | Nazwa tematu. Mapuje do parametru [tematu](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) w Dapr.               | Tak      | Nie dotyczy     |
 | Ignoruj-błąd     | Jeśli ustawiono `true` , aby nie wyzwalał instrukcji ["On-Error"](api-management-error-handling-policies.md) podczas uzyskiwania błędu z środowiska uruchomieniowego Dapr | Nie | `false` |
 | odpowiedź-zmienna-nazwa | Nazwa wpisu kolekcji [zmiennych](api-management-policy-expressions.md#ContextVariables) , który ma być używany do przechowywania odpowiedzi z środowiska uruchomieniowego Dapr | Nie | Brak |
 | timeout | Czas (w sekundach) oczekiwania na odpowiedź środowiska uruchomieniowego Dapr. Może mieć zakres od 1 do 240 sekund. | Nie | 5 |

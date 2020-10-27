@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767351"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547711"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Składnia zapytania dotyczącego routingu komunikatów usługi IoT Hub
 
@@ -23,7 +23,7 @@ Routing komunikatów umożliwia użytkownikom kierowanie różnych typów danych
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Routing komunikatów umożliwia wykonywanie zapytań dotyczących właściwości komunikatów i treści wiadomości, a także znaczników sznurka urządzenia i właściwości sznurów urządzenia. Jeśli treść komunikatu nie jest JSON, routing komunikatów może nadal kierować komunikat, ale nie można zastosować zapytań do treści komunikatu.  Zapytania są opisane jako wyrażenia logiczne, w których wartość logiczna true powoduje, że zapytanie powiodło się, które kieruje wszystkie dane przychodzące, a wartość logiczna false kończy się niepowodzeniem i nie są kierowane żadne dane. Jeśli wyrażenie daje w wyniku wartość null lub undefined, jest traktowane jako FAŁSZ i w przypadku awarii zostanie wygenerowany błąd w dziennikach diagnostycznych. Składnia zapytania musi być prawidłowa dla trasy, która ma zostać zapisana i oceniona.  
+Routing komunikatów umożliwia wykonywanie zapytań dotyczących właściwości komunikatów i treści wiadomości, a także znaczników sznurka urządzenia i właściwości sznurów urządzenia. Jeśli treść komunikatu nie jest JSON, routing komunikatów może nadal kierować komunikat, ale nie można zastosować zapytań do treści komunikatu.  Zapytania są opisane jako wyrażenia logiczne, w których wartość logiczna true powoduje, że zapytanie powiodło się, które kieruje wszystkie dane przychodzące, a wartość logiczna false kończy się niepowodzeniem i nie są kierowane żadne dane. Jeśli wyrażenie ma wartość null lub nie jest zdefiniowane, jest traktowane jako FAŁSZ i zostanie wygenerowany błąd w IoT Hub [kierowanie dzienników dzienników zasobów](monitor-iot-hub-reference.md#routes) w przypadku awarii. Składnia zapytania musi być prawidłowa dla trasy, która ma zostać zapisana i oceniona.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Kwerenda routingu komunikatów oparta na właściwościach komunikatów 
 
@@ -53,7 +53,7 @@ IoT Hub definiuje [typowy format](iot-hub-devguide-messages-construct.md) dla ws
 
 Właściwości systemu pomagają identyfikować zawartość i źródło komunikatów. 
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | contentType | ciąg | Użytkownik określa typ zawartości komunikatu. Aby zezwolić na zapytanie w treści wiadomości, należy ustawić wartość Application/JSON. |
 | contentEncoding | ciąg | Użytkownik określa typ kodowania wiadomości. Dozwolone wartości to UTF-8, UTF-16, UTF-32, jeśli dla właściwości contentType ustawiono wartość Application/JSON. |
@@ -62,7 +62,7 @@ Właściwości systemu pomagają identyfikować zawartość i źródło komunika
 | DT — schemat elementu | ciąg |  Ta wartość jest ustawiana przez Centrum IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera identyfikator modelu urządzenia ustawiony w ramach połączenia urządzenia. Aby wykonać zapytanie, użyj `$dt-dataschema` . |
 | DT — temat | ciąg | Nazwa składnika wysyłającego komunikaty z urządzenia do chmury. Aby wykonać zapytanie, użyj `$dt-subject` . |
 
-Zgodnie z opisem w komunikatach [IoT Hub](iot-hub-devguide-messages-construct.md)w komunikacie są dostępne dodatkowe właściwości systemu. Oprócz powyższych właściwości w poprzedniej tabeli można także wysyłać zapytania **connectionDeviceId**, **connectionModuleId**.
+Zgodnie z opisem w komunikatach [IoT Hub](iot-hub-devguide-messages-construct.md)w komunikacie są dostępne dodatkowe właściwości systemu. Oprócz powyższych właściwości w poprzedniej tabeli można także wysyłać zapytania **connectionDeviceId** , **connectionModuleId** .
 
 ### <a name="application-properties"></a>Właściwości aplikacji
 
@@ -146,7 +146,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Pokazuje, jak obsłużyć kodowanie treści w języku JavaScript. Jeśli chcesz zobaczyć przykład w języku C#, Pobierz [przykłady w języku c# dla usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Rozpakuj plik master.zip. Plik Program.cs rozwiązania Visual Studio *SimulatedDevice*przedstawia sposób kodowania i przesyłania komunikatów do IoT Hub. Jest to ten sam przykład używany do testowania routingu wiadomości, zgodnie z opisem w [samouczku dotyczącym routingu wiadomości](tutorial-routing.md). W dolnej części Program.cs ma także metodę odczytywania w jednym z zakodowanych plików, dekodowanie go i zapisanie go jako ASCII, aby można było go odczytać. 
+> Pokazuje, jak obsłużyć kodowanie treści w języku JavaScript. Jeśli chcesz zobaczyć przykład w języku C#, Pobierz [przykłady w języku c# dla usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Rozpakuj plik master.zip. Plik Program.cs rozwiązania Visual Studio *SimulatedDevice* przedstawia sposób kodowania i przesyłania komunikatów do IoT Hub. Jest to ten sam przykład używany do testowania routingu wiadomości, zgodnie z opisem w [samouczku dotyczącym routingu wiadomości](tutorial-routing.md). W dolnej części Program.cs ma także metodę odczytywania w jednym z zakodowanych plików, dekodowanie go i zapisanie go jako ASCII, aby można było go odczytać. 
 
 
 ### <a name="query-expressions"></a>Wyrażenia zapytań

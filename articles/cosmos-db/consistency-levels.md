@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 0f69b30f477f99e2a4cae10edc7443b0630175c9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487810"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547082"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Poziomy spójności w usłudze Azure Cosmos DB
 
@@ -49,14 +49,14 @@ Azure Cosmos DB gwarantuje, że 100 procent żądań odczytu spełnia gwarancję
 
 Semantyka pięciu poziomów spójności została opisana tutaj:
 
-- **Silne**: silna spójność oferuje gwarancję linearizability. Linearizability odwołuje się do obsługi żądań współbieżnie. Odczyty są gwarantowane do zwrócenia najnowszej zatwierdzonej wersji elementu. Klient nigdy nie widzi niezatwierdzonego ani częściowego zapisu. Użytkownicy zawsze mają zagwarantowany odczyt najnowszej zatwierdzonego zapisu.
+- **Silne** : silna spójność oferuje gwarancję linearizability. Linearizability odwołuje się do obsługi żądań współbieżnie. Odczyty są gwarantowane do zwrócenia najnowszej zatwierdzonej wersji elementu. Klient nigdy nie widzi niezatwierdzonego ani częściowego zapisu. Użytkownicy zawsze mają zagwarantowany odczyt najnowszej zatwierdzonego zapisu.
 
   Poniższa ilustracja ilustruje silną spójność z notatkami muzycznymi. Po zapisaniu danych w regionie "zachodnie stany USA 2" podczas odczytywania danych z innych regionów otrzymujesz najnowszą wartość:
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Spójność jako spektrum" można skonfigurować na dwa sposoby:
 
-- Liczba wersji (*K*) elementu
-- Odczyty interwału czasu (*T*) mogą być opóźnieniami za zapisem
+- Liczba wersji ( *K* ) elementu
+- Odczyty interwału czasu ( *T* ) mogą być opóźnieniami za zapisem
 
 W przypadku konta z jednym regionem minimalna wartość *K* i *T* to 10 operacji zapisu lub 5 sekund. W przypadku kont wieloregionowych minimalna wartość *K* i *T* to 100 000 operacji zapisu lub 300 sekund.
 
@@ -84,7 +84,7 @@ Klienci poza sesją wykonującą operacje zapisu będą widzieć następujące g
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Spójność jako spektrum":::
 
-- **Spójny prefiks**: zwrócone aktualizacje zawierają prefiks wszystkich aktualizacji bez przerw. Spójny poziom spójności prefiksu gwarantuje, że odczyty nigdy nie są wyświetlane.
+- **Spójny prefiks** : zwrócone aktualizacje zawierają prefiks wszystkich aktualizacji bez przerw. Spójny poziom spójności prefiksu gwarantuje, że odczyty nigdy nie są wyświetlane.
 
 Jeśli operacje zapisu zostały wykonane w podanej kolejności `A, B, C` , klient zobaczy `A` , `A,B` , lub `A,B,C` , ale nigdy nie z kolejności permutacji, takich jak `A,C` lub `B,A,C` . Spójny prefiks zapewnia opóźnienia zapisu, dostępność i przepływność odczytu porównywalne do tej spójności ostatecznej, ale również zapewnia gwarancję zamówienia, która odpowiada potrzebom scenariuszy, w których kolejność jest ważna.
 
@@ -99,7 +99,7 @@ Poniższa ilustracja ilustruje spójność prefiksu spójności z notatkami muzy
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Spójność jako spektrum":::
 
-- **Ostateczne**: nie ma gwarancji porządkowania dla operacji odczytu. W przypadku braku jakichkolwiek dalszych zapisów repliki staną się ostatecznie zbieżne.  
+- **Ostateczne** : nie ma gwarancji porządkowania dla operacji odczytu. W przypadku braku jakichkolwiek dalszych zapisów repliki staną się ostatecznie zbieżne.  
 Spójność ostateczna to najsłaba forma spójności, ponieważ klient może odczytać wartości starsze niż te, które były wcześniej odczytywane. Spójność ostateczna jest idealnym miejscem, w którym aplikacja nie wymaga żadnych gwarancji związanych z porządkowaniem. Przykłady obejmują liczbę ponownych tweetów, polubień lub komentarzy niewielowątkowych. Na poniższej ilustracji przedstawiono spójność ostateczną z notatkami muzycznymi.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Spójność jako spektrum":::
@@ -108,7 +108,7 @@ Spójność ostateczna to najsłaba forma spójności, ponieważ klient może od
 
 W tym przypadku często można uzyskać silniejsze gwarancje spójności. Gwarancje spójności operacji odczytu odnoszą się do aktualności i kolejności żądanego stanu bazy danych. Spójność odczytu jest związana z porządkowaniem i propagacją operacji zapisu/aktualizacji.  
 
-Jeśli w bazie danych nie ma żadnych operacji **zapisu, operacja odczytu z poziomem**spójności, **sesja**lub **spójny prefiks** może dać te same wyniki co operacja odczytu o silnym poziomie spójności.
+Jeśli w bazie danych nie ma żadnych operacji **zapisu, operacja odczytu z poziomem** spójności, **sesja** lub **spójny prefiks** może dać te same wyniki co operacja odczytu o silnym poziomie spójności.
 
 Jeśli Twoje konto usługi Azure Cosmos jest skonfigurowane z poziomem spójności innym niż silna spójność, można sprawdzić prawdopodobieństwo, że klienci mogą uzyskać mocne i spójne odczyty dla obciążeń, patrząc na metrykę *probabilistically z Nieodświeżoną* (PBS). Ta Metryka jest dostępna w Azure Portal, aby dowiedzieć się więcej, zobacz [monitorowanie metryki probabilistically ograniczonej (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
@@ -148,7 +148,7 @@ Dokładne opóźnienie czasu RTT to funkcja szybkości i topologii sieci platfor
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Poziomy spójności i trwałość danych
 
-W globalnie rozproszonym środowisku bazy danych istnieje bezpośrednia relacja między poziomem spójności a trwałością danych w przypadku awarii całego regionu. Podczas opracowywania planu ciągłości biznesowej należy zrozumieć maksymalny akceptowalny czas, po upływie którego aplikacja zostanie w pełni odzyskana po zdarzeniu zakłócania. Czas wymagany do pełnego odzyskania aplikacji jest znany jako **cel czasu odzyskiwania** (**RTO**). Należy również zrozumieć maksymalny okres ostatnich aktualizacji danych, które aplikacja może tolerować podczas odzyskiwania po wystąpieniu zdarzenia zakłócenia. Przedział czasu aktualizacji, które mogą zostać utracone, jest określany jako **cel punktu odzyskiwania** (**RPO**).
+W globalnie rozproszonym środowisku bazy danych istnieje bezpośrednia relacja między poziomem spójności a trwałością danych w przypadku awarii całego regionu. Podczas opracowywania planu ciągłości biznesowej należy zrozumieć maksymalny akceptowalny czas, po upływie którego aplikacja zostanie w pełni odzyskana po zdarzeniu zakłócania. Czas wymagany do pełnego odzyskania aplikacji jest znany jako **cel czasu odzyskiwania** ( **RTO** ). Należy również zrozumieć maksymalny okres ostatnich aktualizacji danych, które aplikacja może tolerować podczas odzyskiwania po wystąpieniu zdarzenia zakłócenia. Przedział czasu aktualizacji, które mogą zostać utracone, jest określany jako **cel punktu odzyskiwania** ( **RPO** ).
 
 W poniższej tabeli zdefiniowano relacje między modelem spójności i trwałością danych w przypadku awarii całego regionu. Należy pamiętać, że w systemie rozproszonym, nawet ze silną spójnością, nie można mieć rozproszonej bazy danych z celem punktu odzyskiwania i RTO równym zero ze względu na [theorem](https://en.wikipedia.org/wiki/CAP_theorem).
 
@@ -187,8 +187,6 @@ Aby dowiedzieć się więcej na temat koncepcji spójności, przeczytaj następu
 
 Aby dowiedzieć się więcej na temat poziomów spójności w Azure Cosmos DB, przeczytaj następujące artykuły:
 
-- [Wybierz odpowiedni poziom spójności dla aplikacji]()
-- [Poziomy spójności w interfejsach API Azure Cosmos DB]()
 - [Konfigurowanie domyślnego poziomu spójności](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [Zastępowanie domyślnego poziomu spójności](how-to-manage-consistency.md#override-the-default-consistency-level)
 - [Azure Cosmos DB umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

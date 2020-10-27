@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: 62a34a2dba459c6f65729cd5c6804378ee7f8b52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74aa0bf84c19b9d663b92d529604c08bf5800c45
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902764"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544855"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Jak używać sys_schema na potrzeby dostrajania wydajności i konserwacji bazy danych w programie Azure Database for MySQL
 
@@ -29,7 +29,7 @@ W sys_schema istnieją widoki 52, a każdy widok ma jedną z następujących pre
 - Użytkownik: zasoby używane i pogrupowane według użytkowników. Przykłady to plik I/OS, połączenia i pamięć.
 - Czekaj: zdarzenia oczekiwania pogrupowane według hosta lub użytkownika.
 
-Teraz przyjrzyjmy się typowym wzorcem użycia sys_schema. Aby zacząć od, będziemy grupować wzorce użycia do dwóch kategorii: **dostrajania wydajności** i **konserwacji bazy danych**.
+Teraz przyjrzyjmy się typowym wzorcem użycia sys_schema. Aby zacząć od, będziemy grupować wzorce użycia do dwóch kategorii: **dostrajania wydajności** i **konserwacji bazy danych** .
 
 ## <a name="performance-tuning"></a>Dostosowywanie wydajności
 
@@ -83,4 +83,4 @@ Indeksy to doskonałe narzędzia pozwalające zwiększyć wydajność odczytu, a
 Podsumowując, sys_schema jest doskonałym narzędziem do dostrajania wydajności i konserwacji bazy danych. Upewnij się, że korzystasz z tej funkcji w Azure Database for MySQL. 
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby znaleźć odpowiedzi na najczęściej zadawane pytania lub opublikować nowe pytanie/odpowiedź, odwiedź stronę pytania lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)w [witrynie Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) .
+- Aby znaleźć odpowiedzi na najczęściej zadawane pytania lub opublikować nowe pytanie/odpowiedź, odwiedź stronę pytania lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)w [witrynie Microsoft Q&](/answers/topics/azure-database-mysql.html) .

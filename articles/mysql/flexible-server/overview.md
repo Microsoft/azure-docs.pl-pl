@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 951de77f2ef10a06ff03801872cebcef088172b7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167053"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537953"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Serwer elastyczny Azure Database for MySQL (wersja zapoznawcza)
 
@@ -66,7 +66,7 @@ Aby dowiedzieć się więcej, zobacz [pojęcia dotyczące kopii zapasowych](conc
 
 ## <a name="network-isolation"></a>Izolacja sieci
 
-Dostępne są dwie opcje sieciowe umożliwiające nawiązanie połączenia z serwerem elastycznym Azure Database for MySQL. Opcje są **dostęp prywatny (Integracja z siecią wirtualną)** i **dostęp publiczny (dozwolone adresy IP)**. 
+Dostępne są dwie opcje sieciowe umożliwiające nawiązanie połączenia z serwerem elastycznym Azure Database for MySQL. Opcje są **dostęp prywatny (Integracja z siecią wirtualną)** i **dostęp publiczny (dozwolone adresy IP)** . 
 
 * **Dostęp prywatny (Integracja z siecią wirtualną)** — możesz wdrożyć elastyczny serwer do [Virtual Network platformy Azure](../../virtual-network/virtual-networks-overview.md). Sieci wirtualne platformy Azure zapewniają prywatną i bezpieczną komunikację sieciową. Zasoby w sieci wirtualnej mogą komunikować się za pomocą prywatnych adresów IP.
 
@@ -75,7 +75,7 @@ Dostępne są dwie opcje sieciowe umożliwiające nawiązanie połączenia z ser
    * Używanie sieci VPN lub ExpressRoute do nawiązywania połączeń z zasobów spoza platformy Azure z serwerem elastycznym
    * Brak publicznego punktu końcowego
 
-* **Dostęp publiczny (dozwolone adresy IP)** — można wdrożyć elastyczny serwer z publicznym punktem końcowym. Publiczny punkt końcowy jest publicznie rozpoznawalnym adresem DNS. Fraza "dozwolone adresy IP" odnosi się do zakresu adresów IP wybranych do udzielenia uprawnienia dostępu do serwera. Te uprawnienia są nazywane **regułami zapory**.
+* **Dostęp publiczny (dozwolone adresy IP)** — można wdrożyć elastyczny serwer z publicznym punktem końcowym. Publiczny punkt końcowy jest publicznie rozpoznawalnym adresem DNS. Fraza "dozwolone adresy IP" odnosi się do zakresu adresów IP wybranych do udzielenia uprawnienia dostępu do serwera. Te uprawnienia są nazywane **regułami zapory** .
 
 Zobacz [pojęcia dotyczące sieci](concepts-networking.md) , aby dowiedzieć się więcej.
 
@@ -99,7 +99,7 @@ Usługa domyślnie szyfruje dane z użyciem zabezpieczeń warstwy transportowej.
 
 Aby dowiedzieć się więcej, zobacz [jak używać szyfrowanych połączeń z elastycznymi serwerami](https://docs.mongodb.com/manual/tutorial/configure-ssl) .
 
-Elastyczne serwery umożliwiają pełny dostęp do serwerów za pomocą integracji z [usługą Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNET). Serwery w usłudze Azure Virtual Network mogą być osiągalne i połączone tylko za pomocą prywatnych adresów IP. Dzięki integracji z siecią wirtualną dostęp publiczny jest zabroniony i serwery nie można osiągnąć przy użyciu publicznych punktów końcowych. 
+Elastyczne serwery umożliwiają pełny dostęp do serwerów za pomocą integracji z [usługą Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNET). Serwery w usłudze Azure Virtual Network mogą być osiągalne i połączone tylko za pomocą prywatnych adresów IP. Dzięki integracji z siecią wirtualną dostęp publiczny jest zabroniony i serwery nie można osiągnąć przy użyciu publicznych punktów końcowych. 
 
 Zobacz [pojęcia dotyczące sieci](concepts-networking.md) , aby dowiedzieć się więcej.
 
@@ -115,7 +115,7 @@ Aby dowiedzieć się więcej, zobacz [zagadnienia dotyczące monitorowania](conc
 Usługa uruchamia wersję społeczności MySQL. Zapewnia to pełną zgodność aplikacji i wymaga minimalnego kosztu refaktoryzacji w celu przeprowadzenia migracji istniejącej aplikacji opracowanej na aparat MySQL do jednego serwera. Migrację do pojedynczego serwera można przeprowadzić przy użyciu jednej z następujących opcji:
 
 - **Zrzuć i Przywróć** — w przypadku migracji w trybie offline, w których użytkownicy mogą uzyskać pewien przestój, zrzuty i przywracanie przy użyciu narzędzi społeczności, takich jak mysqldump/Dumper, mogą zapewnić najszybszy sposób migracji. Aby uzyskać szczegółowe informacje, zobacz Migrowanie przy użyciu zrzutów i przywracania. 
-- **Azure Database Migration Service** — w celu zapewnienia bezproblemowej i uproszczonej migracji na pojedynczy serwer z minimalnym przestojem, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) można wykorzystać. 
+- **Azure Database Migration Service** — w celu zapewnienia bezproblemowej i uproszczonej migracji na pojedynczy serwer z minimalnym przestojem, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-online.md) można wykorzystać. 
 
 ## <a name="azure-regions"></a>Regiony świadczenia usługi Azure
 

@@ -8,12 +8,12 @@ keywords: Wysoka dostępność usługi Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893649"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546946"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Ciągłość biznesowa usługi Azure HDInsight
 
@@ -39,7 +39,7 @@ W tej sekcji omówiono kilka najlepszych rozwiązań, które należy wziąć pod
 
 * Użyj narzędzi monitorowania platformy Azure w usłudze HDInsight, aby wykryć nietypowe zachowanie w klastrze i ustawić odpowiednie powiadomienia o alertach. Można wdrożyć wstępnie skonfigurowane rozwiązania do zarządzania specyficzne dla klastra usługi HDInsight, które zbierają ważne metryki wydajności określonego typu klastra. Aby uzyskać więcej informacji, zobacz [Azure Monitoring for HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
-* Zasubskrybuj alerty dotyczące kondycji platformy Azure, aby otrzymywać powiadomienia o problemach z usługą, planowanej konserwacji, kondycji i klasyfikatorach zabezpieczeń dla subskrypcji, usługi lub regionu. Powiadomienia o kondycji, które obejmują przyczynę problemu, i Resolute EZT pomagają w lepszym przejściu do trybu failover i failbacks. Aby uzyskać więcej informacji, zobacz [dokumentację Azure Service Health](/azure/service-health/).
+* Zasubskrybuj alerty dotyczące kondycji platformy Azure, aby otrzymywać powiadomienia o problemach z usługą, planowanej konserwacji, kondycji i klasyfikatorach zabezpieczeń dla subskrypcji, usługi lub regionu. Powiadomienia o kondycji, które obejmują przyczynę problemu, i Resolute EZT pomagają w lepszym przejściu do trybu failover i failbacks. Aby uzyskać więcej informacji, zobacz [dokumentację Azure Service Health](../service-health/index.yml).
 
 ## <a name="single-region-availability"></a>Dostępność pojedynczego regionu
 
@@ -98,7 +98,7 @@ Usługa HDInsight zaleca Azure Data Lake Storage Gen2 jako podstawową warstwę 
 
 [Azure Active Directory Domain Services](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) oferuje umowę SLA na 99,9%. Azure AD DS to usługa o wysokiej dostępności hostowana w globalnie rozproszonych centrach danych. Zestawy replik to funkcja w wersji zapoznawczej platformy Azure AD DS, która umożliwia odzyskiwanie po awarii geograficznej, jeśli region platformy Azure przejdzie w tryb offline. Aby uzyskać więcej informacji, zobacz [pojęcia i funkcje programu Replica dotyczące Azure Active Directory Domain Services](../active-directory-domain-services/concepts-replica-sets.md) , aby dowiedzieć się więcej.  
 
-### <a name="azure-dns"></a>Azure DNS
+### <a name="azure-dns"></a>System DNS platformy Azure
 
 [Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/) oferuje umowę SLA na 100%. Usługa HDInsight używa Azure DNS w różnych miejscach do rozpoznawania nazw domen.
 
@@ -113,7 +113,7 @@ Poprawa ciągłości działania przy użyciu funkcji odzyskiwania awaryjnego o w
 |Magazyn danych|Duplikowanie podstawowych danych/tabel w regionie pomocniczym|Replikuj tylko nadzorowane dane|
 |Dane wychodzące|Wychodzące transfery danych między regionami są oferowane w cenie. Przegląd wytycznych dotyczących cen przepustowości|Replikuj tylko nadzorowane dane, aby zmniejszyć poziom ruchu wychodzącego z regionu|
 |Obliczenia klastra|Dodatkowe klastry usługi HDInsight/s w regionie pomocniczym|Użyj skryptów automatycznych do wdrożenia dodatkowych obliczeń po awarii podstawowej. Użyj skalowania automatycznego, aby zapewnić minimalny rozmiar klastra pomocniczego. Używaj tańszych jednostek SKU maszyn wirtualnych. Tworzenie serwerów pomocniczych w regionach, w których mogą zostać obniżone liczby jednostek SKU maszyn wirtualnych.|
-|Uwierzytelnianie |Scenariusze wieloużytkownikom w regionie pomocniczym będą naliczane dodatkowe konfiguracje usługi Azure AD DS|Unikaj konfigurowania wieloużytkownikom w regionie pomocniczym.|
+|Authentication |Scenariusze wieloużytkownikom w regionie pomocniczym będą naliczane dodatkowe konfiguracje usługi Azure AD DS|Unikaj konfigurowania wieloużytkownikom w regionie pomocniczym.|
 
 ### <a name="complexity-optimizations"></a>Optymalizacje złożoności
 

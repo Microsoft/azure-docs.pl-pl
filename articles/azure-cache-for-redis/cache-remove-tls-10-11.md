@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: fd0e6f893d152259c46ff06e9ec20af54395c5e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496053"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545314"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Usuń protokoły TLS 1,0 i 1,1 z używania z usługą Azure cache for Redis
 
@@ -65,7 +65,7 @@ Klienci platformy Redis .NET domyślnie używają najstarszej wersji protokołu 
 
 Redis klienci .NET Core domyślnie do domyślnej wersji protokołu TLS systemu operacyjnego, która oczywiście zależy od samego systemu operacyjnego. 
 
-W zależności od wersji systemu operacyjnego i wszelkich poprawek, które zostały zastosowane, skuteczna domyślna wersja protokołu TLS może się różnić. Istnieje jedno źródło informacji o [tym, że jest to artykuł](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) dla systemu Windows. 
+W zależności od wersji systemu operacyjnego i wszelkich poprawek, które zostały zastosowane, skuteczna domyślna wersja protokołu TLS może się różnić. Istnieje jedno źródło informacji o [tym, że jest to artykuł](/dotnet/framework/network-programming/tls#support-for-tls-12) dla systemu Windows. 
 
 Jeśli jednak używasz starego systemu operacyjnego lub chcesz upewnić się, że zalecamy ręczne skonfigurowanie preferowanej wersji protokołu TLS za pośrednictwem klienta programu.
 

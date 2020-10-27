@@ -7,16 +7,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89399960"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535250"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>SIECIOWEJ grupy zabezpieczeń Tagi usług dla usługi Azure HDInsight
 
-Tagi usługi Azure HDInsight dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) to grupy adresów IP dla usług kondycji i zarządzania. Te grupy pomagają zminimalizować złożoność tworzenia reguł zabezpieczeń. [Tagi usług](../virtual-network/security-overview.md#service-tags) zezwalają na ruch przychodzący z określonych adresów IP bez wprowadzania do nich każdego [adresu IP zarządzania](hdinsight-management-ip-addresses.md) w sieciowych grup zabezpieczeń.
+Tagi usługi Azure HDInsight dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) to grupy adresów IP dla usług kondycji i zarządzania. Te grupy pomagają zminimalizować złożoność tworzenia reguł zabezpieczeń. [Tagi usług](../virtual-network/network-security-groups-overview.md#service-tags) zezwalają na ruch przychodzący z określonych adresów IP bez wprowadzania do nich każdego [adresu IP zarządzania](hdinsight-management-ip-addresses.md) w sieciowych grup zabezpieczeń.
 
 Usługa HDInsight zarządza tymi tagami usług. Nie można utworzyć własnego tagu usługi ani zmodyfikować istniejącego tagu. Firma Microsoft zarządza prefiksami adresów zgodnymi z tagiem usługi i automatycznie aktualizuje tag usługi jako adresy.
 
@@ -26,9 +26,9 @@ Jeśli chcesz użyć określonego regionu, a tag usługi nie został jeszcze udo
 
 Dostępne są dwie opcje używania tagów usługi w sieciowych grupach zabezpieczeń:
 
-- **Użyj jednego globalnego tagu usługi HDInsight**: Ta opcja umożliwia otworzenie sieci wirtualnej ze wszystkimi adresami IP używanymi przez usługę HDInsight do monitorowania klastrów we wszystkich regionach. Ta opcja jest najprostszą metodą, ale może nie być odpowiednia, jeśli istnieją restrykcyjne wymagania dotyczące zabezpieczeń.
+- **Użyj jednego globalnego tagu usługi HDInsight** : Ta opcja umożliwia otworzenie sieci wirtualnej ze wszystkimi adresami IP używanymi przez usługę HDInsight do monitorowania klastrów we wszystkich regionach. Ta opcja jest najprostszą metodą, ale może nie być odpowiednia, jeśli istnieją restrykcyjne wymagania dotyczące zabezpieczeń.
 
-- **Użyj wielu tagów usługi regionalnej**: Ta opcja umożliwia otwarcie sieci wirtualnej tylko do adresów IP używanych przez usługę HDInsight w tym konkretnym regionie. Jeśli jednak używasz wielu regionów, musisz dodać wiele tagów usługi do sieci wirtualnej.
+- **Użyj wielu tagów usługi regionalnej** : Ta opcja umożliwia otwarcie sieci wirtualnej tylko do adresów IP używanych przez usługę HDInsight w tym konkretnym regionie. Jeśli jednak używasz wielu regionów, musisz dodać wiele tagów usługi do sieci wirtualnej.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Użyj jednego globalnego tagu usługi HDInsight
 
@@ -36,11 +36,11 @@ Najprostszym sposobem rozpoczęcia korzystania z tagów usług w klastrze usług
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz grupę zabezpieczeń sieci.
 
-1. W obszarze **Ustawienia**wybierz pozycję **reguły zabezpieczeń ruchu przychodzącego**, a następnie wybierz pozycję **+ Dodaj**.
+1. W obszarze **Ustawienia** wybierz pozycję **reguły zabezpieczeń ruchu przychodzącego** , a następnie wybierz pozycję **+ Dodaj** .
 
-1. Z listy rozwijanej **Źródło** wybierz pozycję **tag usługi**.
+1. Z listy rozwijanej **Źródło** wybierz pozycję **tag usługi** .
 
-1. Z listy rozwijanej **tag usługi źródłowej** wybierz pozycję **HDInsight**.
+1. Z listy rozwijanej **tag usługi źródłowej** wybierz pozycję **HDInsight** .
 
     ![Dodaj tag usługi z Azure Portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
@@ -104,7 +104,7 @@ Na przykład jeśli klaster jest tworzony w `East US 2` regionie, należy dodać
 | &nbsp; | South Central US | HDInsight. SouthCentralUS |
 | &nbsp; | East US | HDInsight. wschód |
 | &nbsp; | Zachodnie stany USA | HDInsight. Zachodnie |
-| Japonia | Japan East | HDInsight. JapanEast |
+| Japonia | Japonia Wschodnia | HDInsight. JapanEast |
 | Europa | Europa Północna | HDInsight. NorthEurope |
 | &nbsp; | West Europe| HDInsight. WestEurope |
 | Azja | Azja Wschodnia | HDInsight. EastAsia |
@@ -125,5 +125,5 @@ Klastry w regionach *Niemiec środkowe* i *Niemcy północ* muszą zezwalać na 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Sieciowe grupy zabezpieczeń: Tagi usług](../virtual-network/security-overview.md#security-rules)
+- [Sieciowe grupy zabezpieczeń: Tagi usług](../virtual-network/network-security-groups-overview.md#security-rules)
 - [Tworzenie sieci wirtualnych dla klastrów usługi Azure HDInsight](hdinsight-create-virtual-network.md)

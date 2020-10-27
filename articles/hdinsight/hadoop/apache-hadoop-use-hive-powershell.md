@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 327a8a0de0d144a5c1d8494a6dd22a8b89a7bd93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 013eb8215064173e002aea23043bc2e9ba92b525
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081053"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545246"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Uruchamianie zapytań Apache Hive przy użyciu programu PowerShell
 
@@ -28,7 +28,7 @@ Ten dokument zawiera przykład użycia Azure PowerShell do uruchamiania zapytań
 
 * Klaster Apache Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Program PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/) został zainstalowany.
+* Program PowerShell [AZ module](/powershell/azure/) został zainstalowany.
 
 ## <a name="run-a-hive-query"></a>Uruchomienie zapytania programu Hive
 
@@ -84,7 +84,7 @@ Poniższe kroki pokazują, jak używać tych poleceń cmdlet do uruchamiania zad
    >
    > `Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > Aby uzyskać więcej informacji na temat **ciągów**, zobacz sekcję <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">using Windows PowerShell tutaj-Strings</a>.
+   > Aby uzyskać więcej informacji na temat **ciągów** , zobacz [tutaj](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 1cb35ce995a27030612499cc3147943112e1c50e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 12466f64daa699925e4e184536b2d50c5fb89847
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89662376"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547728"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacją platformy .NET Core
 
@@ -22,14 +22,14 @@ W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do apli
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-- [Zestaw SDK dla platformy .NET Core](https://dotnet.microsoft.com/download)
+- [Zestaw .NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Zanotuj **NAZWĘ HOSTA** i **podstawowy** klucz dostępu. Później użyjesz tych wartości do utworzenia wpisu tajnego *CacheConnection*.
+Zanotuj **NAZWĘ HOSTA** i **podstawowy** klucz dostępu. Później użyjesz tych wartości do utworzenia wpisu tajnego *CacheConnection* .
 
 
 
@@ -41,15 +41,15 @@ Otwórz nowe okno poleceń i wykonaj następujące polecenie, aby utworzyć now�
 dotnet new console -o Redistest
 ```
 
-W oknie poleceń przełącz na nowy katalog projektów *Redistest*.
+W oknie poleceń przełącz na nowy katalog projektów *Redistest* .
 
 
 
 ## <a name="add-secret-manager-to-the-project"></a>Dodawanie narzędzia Secret Manager do projektu
 
-W tej sekcji dodasz narzędzie [Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) do projektu. Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperskiej poza Twoim drzewem projektu. Takie podejście zapobiega przypadkowemu ujawnieniu wpisów tajnych aplikacji w kodzie źródłowym.
+W tej sekcji dodasz narzędzie [Secret Manager](/aspnet/core/security/app-secrets) do projektu. Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperskiej poza Twoim drzewem projektu. Takie podejście zapobiega przypadkowemu ujawnieniu wpisów tajnych aplikacji w kodzie źródłowym.
 
-Otwórz plik *Redistest.csproj*. Dodaj element `DotNetCliToolReference`, aby uwzględnić narzędzia *Microsoft.Extensions.SecretManager.Tools*. Dodaj również element `UserSecretsId` w sposób pokazany poniżej, a następnie zapisz plik.
+Otwórz plik *Redistest.csproj* . Dodaj element `DotNetCliToolReference`, aby uwzględnić narzędzia *Microsoft.Extensions.SecretManager.Tools* . Dodaj również element `UserSecretsId` w sposób pokazany poniżej, a następnie zapisz plik.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -64,7 +64,7 @@ Otwórz plik *Redistest.csproj*. Dodaj element `DotNetCliToolReference`, aby uwz
 </Project>
 ```
 
-Uruchom następujące polecenie, aby dodać do projektu pakiet *Microsoft.Extensions.Configuration.UserSecrets*:
+Uruchom następujące polecenie, aby dodać do projektu pakiet *Microsoft.Extensions.Configuration.UserSecrets* :
 
 ```
 dotnet add package Microsoft.Extensions.Configuration.UserSecrets
@@ -82,13 +82,13 @@ W oknie poleceń wykonaj następujące polecenie, aby zapisać nowy wpis tajny o
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary-access-key>"
 ```
 
-Dodaj następującą instrukcję akcji `using` do pliku *Program.cs*:
+Dodaj następującą instrukcję akcji `using` do pliku *Program.cs* :
 
 ```csharp
 using Microsoft.Extensions.Configuration;
 ```
 
-Dodaj następujące elementy członkowskie do klasy `Program` w pliku *Program.cs*. Ten kod inicjuje konfigurację do uzyskiwania dostępu do wpisu tajnego użytkownika dla parametrów połączenia usługi Azure Cache for Redis.
+Dodaj następujące elementy członkowskie do klasy `Program` w pliku *Program.cs* . Ten kod inicjuje konfigurację do uzyskiwania dostępu do wpisu tajnego użytkownika dla parametrów połączenia usługi Azure Cache for Redis.
 
 ```csharp
 private static IConfigurationRoot Configuration { get; set; }
@@ -107,7 +107,7 @@ private static void InitializeConfiguration()
 
 W tej sekcji skonfigurujesz aplikację konsolową umożliwiającą korzystanie z klienta [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) na platformie .NET.
 
-W oknie poleceń uruchom następujące polecenie w katalogu projektów *Redistest*:
+W oknie poleceń uruchom następujące polecenie w katalogu projektów *Redistest* :
 
 ```
 dotnet add package StackExchange.Redis
@@ -118,7 +118,7 @@ Po ukończeniu instalacji klient pamięci podręcznej *StackExchange.Redis* będ
 
 ## <a name="connect-to-the-cache"></a>Łączenie z pamięcią podręczną
 
-Dodaj następującą instrukcję akcji `using` do pliku *Program.cs*:
+Dodaj następującą instrukcję akcji `using` do pliku *Program.cs* :
 
 ```csharp
 using StackExchange.Redis;
@@ -191,7 +191,7 @@ static void Main(string[] args)
 }
 ```
 
-Zapisz plik *Program.cs*.
+Zapisz plik *Program.cs* .
 
 Usługa Azure Cache for Redis ma konfigurowalną liczbę baz danych (domyślnie 16), których można użyć do logicznego odseparowania danych w tej usłudze. Kod łączy się z domyślną bazą danych DB 0. Aby uzyskać więcej informacji, zobacz [What are Redis databases?](cache-development-faq.md#what-are-redis-databases) (Co to są bazy danych Redis?) i [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Domyślna konfiguracja serwera Redis).
 
@@ -228,13 +228,13 @@ Uruchom następujące polecenie, aby dodać pakiet *Newtonsoft.json* do aplikacj
 dotnet add package Newtonsoft.json
 ```
 
-Dodaj następującą instrukcję `using` na początku pliku *Program.cs*:
+Dodaj następującą instrukcję `using` na początku pliku *Program.cs* :
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Dodaj następującą definicję klasy `Employee` do pliku *Program.cs*:
+Dodaj następującą definicję klasy `Employee` do pliku *Program.cs* :
 
 ```csharp
 class Employee
@@ -293,13 +293,13 @@ W przeciwnym razie po zakończeniu pracy z przykładową aplikacją poradnika Sz
 > Usunięcie grupy zasobów jest nieodwracalne i grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. Jeśli zasoby do hostowania tego przykładu zostały utworzone wewnątrz istniejącej grupy zasobów zawierającej zasoby, które chcesz zachować, możesz usunąć każdy zasób oddzielnie z odpowiadającego mu bloku zamiast usuwać całą grupę zasobów.
 >
 
-Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Grupy zasobów**.
+Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Grupy zasobów** .
 
-W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
+W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources* . Dla grupy zasobów na liście wyników kliknij pozycję **...** , a następnie kliknij pozycję **Usuń grupę zasobów** .
 
-![Usuwanie](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
+![Usuń](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 
-Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
+Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń** .
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 
@@ -317,4 +317,4 @@ W tym przewodniku Szybki start przedstawiono sposób użycia usługi Azure Cache
 Chcesz zoptymalizować i zapisać wydatki na chmurę?
 
 > [!div class="nextstepaction"]
-> [Rozpocznij analizowanie kosztów za pomocą Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Rozpocznij analizowanie kosztów za pomocą Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
