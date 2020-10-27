@@ -11,7 +11,7 @@ ms.date: 10/19/2020
 ms.author: tamram
 ms.openlocfilehash: 0bf9d6eb68536588b35df93e13b04841d7868d31
 ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/26/2020
 ms.locfileid: "92547161"
