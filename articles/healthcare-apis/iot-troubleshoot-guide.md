@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982990"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558520"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z usługą Azure IoT Connector for FHIR (wersja zapoznawcza)
 
@@ -104,7 +104,7 @@ Podczas otwierania biletu pomocy technicznej w celu ułatwienia rozwiązywania p
 > [!NOTE]
 > Ten proces może również służyć do kopiowania i zapisywania zawartości JSON **"Konfigurowanie mapowania FHIR"** .
 
-3. Wybierz pozycję **"Konfiguruj mapowanie urządzenia"**.
+3. Wybierz pozycję **"Konfiguruj mapowanie urządzenia"** .
 
     :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
@@ -122,7 +122,7 @@ Podczas otwierania biletu pomocy technicznej w celu ułatwienia rozwiązywania p
 Zapoznaj się z często zadawanymi pytaniami dotyczącymi łącznika usługi Azure IoT dla FHIR.
 
 >[!div class="nextstepaction"]
->[Łącznik usługi Azure IoT dla FHIR — często zadawane pytania](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Łącznik usługi Azure IoT dla FHIR — często zadawane pytania](fhir-faq.md)
 
 * W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
 

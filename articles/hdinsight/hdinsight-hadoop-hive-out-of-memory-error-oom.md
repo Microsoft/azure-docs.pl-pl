@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: 71f9bc75bc2b84708af54ba89918cd874099a2d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d91da1aa6f7079069541ac955fce8331591a3bc6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85961901"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546181"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Naprawianie błędu braku pamięci Apache Hive w usłudze Azure HDInsight
 
@@ -91,7 +91,7 @@ Nasza pomoc techniczna i zespoły inżynieryjne znalazły jeden z problemów spo
 
 "When. Auto. Convert. Join. noconditionaltask = true Sprawdzamy noconditionaltask. size, a jeśli sumy tabel w sprzężeniu mapy są mniejsze niż noconditionaltask. rozmiar planu wygeneruje sprzężenie mapy, problem z tym, że obliczenie nie uwzględnia obciążenia wprowadzonego przez inną implementację HashTable jako wyniki, jeśli suma rozmiarów danych wejściowych jest mniejsza niż rozmiar noconditionaltask przez zapytania o małym marginesie, zostanie osiągnięty OOM".
 
-Plik **Hive. Auto. Convert. Join. noconditionaltask** w pliku hive-site.xml został ustawiony na **wartość true**:
+Plik **Hive. Auto. Convert. Join. noconditionaltask** w pliku hive-site.xml został ustawiony na **wartość true** :
 
 ```xml
 <property>
@@ -105,14 +105,14 @@ Plik **Hive. Auto. Convert. Join. noconditionaltask** w pliku hive-site.xml zost
 </property>
 ```
 
-Prawdopodobnie mapowanie jest przyczyną błędu braku pamięci sterty języka Java. Zgodnie z opisem w blogu [Ustawienia pamięci przędzy usługi Hadoop w usłudze HDInsight](https://docs.microsoft.com/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), gdy używany jest aparat wykonywania tez, używany obszar sterty faktycznie należy do kontenera tez. Zapoznaj się z poniższym obrazem opisującym pamięć kontenera tez.
+Prawdopodobnie mapowanie jest przyczyną błędu braku pamięci sterty języka Java. Zgodnie z opisem w blogu [Ustawienia pamięci przędzy usługi Hadoop w usłudze HDInsight](/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), gdy używany jest aparat wykonywania tez, używany obszar sterty faktycznie należy do kontenera tez. Zapoznaj się z poniższym obrazem opisującym pamięć kontenera tez.
 
 ![Diagram pamięci kontenera tez: błąd gałęzi braku pamięci](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-Zgodnie z wpisem w blogu poniższe dwa ustawienia pamięci definiują pamięć kontenera dla sterty: **Hive. tez. Container. size** i **Hive. tez. Java.** W naszym środowisku wyjątek braku pamięci oznacza, że rozmiar kontenera jest zbyt mały. Oznacza to, że rozmiar sterty Java (Hive. tez. Java.) jest za mały. W każdym przypadku, gdy zostanie wyświetlona ilość pamięci, możesz spróbować zwiększyć **gałąź Hive. tez. Java.** W razie potrzeby może zajść konieczność zwiększenia **gałęzi Hive. tez. Container. size**. Ustawienie **Java.** monity powinno mieć rozmiar około 80% **kontenera.**
+Zgodnie z wpisem w blogu poniższe dwa ustawienia pamięci definiują pamięć kontenera dla sterty: **Hive. tez. Container. size** i **Hive. tez. Java.** W naszym środowisku wyjątek braku pamięci oznacza, że rozmiar kontenera jest zbyt mały. Oznacza to, że rozmiar sterty Java (Hive. tez. Java.) jest za mały. W każdym przypadku, gdy zostanie wyświetlona ilość pamięci, możesz spróbować zwiększyć **gałąź Hive. tez. Java.** W razie potrzeby może zajść konieczność zwiększenia **gałęzi Hive. tez. Container. size** . Ustawienie **Java.** monity powinno mieć rozmiar około 80% **kontenera.**
 
 > [!NOTE]  
-> Ustawienie **Hive. tez. Java.** funkcja musi być zawsze mniejsze niż **Hive. tez. Container. size**.
+> Ustawienie **Hive. tez. Java.** funkcja musi być zawsze mniejsze niż **Hive. tez. Container. size** .
 
 Ponieważ maszyna D12 ma 28 GB pamięci, zalecamy użycie rozmiaru kontenera 10 GB (10240 MB) i przypisanie 80% do środowiska Java.
 

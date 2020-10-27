@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c02f9de5b41d58e40001ba103191f3ef015f5c5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873096"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534910"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Korzystanie z zewnętrznych magazynów metadanych w usłudze Azure HDInsight
 
@@ -63,9 +63,9 @@ Usługa HDInsight obsługuje również niestandardowe magazyny metadanych, któr
 
 ### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Tworzenie i konfiguracja Azure SQL Database dla niestandardowego magazynu metadanych
 
-Przed skonfigurowaniem niestandardowego magazyn metadanych Hive klastra usługi HDInsight należy utworzyć lub mieć istniejące Azure SQL Database.  Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie pojedynczej bazy danych w Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+Przed skonfigurowaniem niestandardowego magazyn metadanych Hive klastra usługi HDInsight należy utworzyć lub mieć istniejące Azure SQL Database.  Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie pojedynczej bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
-Podczas tworzenia klastra Usługa HDInsight musi połączyć się z zewnętrznym magazynem metadanych i zweryfikować swoje poświadczenia. Skonfiguruj reguły zapory Azure SQL Database, aby zezwolić usługom i zasobom platformy Azure na dostęp do serwera. Włącz tę opcję w Azure Portal, wybierając pozycję **Ustaw zaporę serwera**. Następnie wybierz pozycję **nie** poniżej opcji **Odmów dostępu do sieci publicznej**i **tak** poniżej **Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera** w celu Azure SQL Database. Aby uzyskać więcej informacji, zobacz [Tworzenie reguł zapory IP i zarządzanie nimi](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+Podczas tworzenia klastra Usługa HDInsight musi połączyć się z zewnętrznym magazynem metadanych i zweryfikować swoje poświadczenia. Skonfiguruj reguły zapory Azure SQL Database, aby zezwolić usługom i zasobom platformy Azure na dostęp do serwera. Włącz tę opcję w Azure Portal, wybierając pozycję **Ustaw zaporę serwera** . Następnie wybierz pozycję **nie** poniżej opcji **Odmów dostępu do sieci publicznej** i **tak** poniżej **Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera** w celu Azure SQL Database. Aby uzyskać więcej informacji, zobacz [Tworzenie reguł zapory IP i zarządzanie nimi](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 Prywatne punkty końcowe dla magazynów SQL nie są obsługiwane.
 
@@ -75,7 +75,7 @@ Prywatne punkty końcowe dla magazynów SQL nie są obsługiwane.
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Wybierz niestandardowy magazyn metadanych podczas tworzenia klastra
 
-Możesz wskazać klaster do wcześniej utworzonego Azure SQL Database w dowolnym momencie. Aby można było utworzyć klaster za pośrednictwem portalu, opcja jest określana na podstawie **ustawień magazynu > Storage**.
+Możesz wskazać klaster do wcześniej utworzonego Azure SQL Database w dowolnym momencie. Aby można było utworzyć klaster za pośrednictwem portalu, opcja jest określana na podstawie **ustawień magazynu > Storage** .
 
 ![Magazyn metadanych Hive usługi HDInsight Azure Portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
 

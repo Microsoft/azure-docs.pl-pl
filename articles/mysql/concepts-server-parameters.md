@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627350"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545161"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametry serwera w Azure Database for MySQL
 
@@ -57,9 +57,9 @@ W celu poprawienia problemów z wydajnością krótkich zapytań w puli wątków
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-W Azure Database for MySQL dzienniki binarne są zawsze włączone (tj. `log_bin` jest ustawione na wartość włączone). Jeśli chcesz użyć wyzwalaczy, zostanie wyświetlony komunikat o błędzie podobny do tego, że *nie masz uprawnień administratora, a rejestrowanie binarne jest włączone (możesz chcieć użyć mniej bezpiecznej `log_bin_trust_function_creators` zmiennej)*. 
+W Azure Database for MySQL dzienniki binarne są zawsze włączone (tj. `log_bin` jest ustawione na wartość włączone). Jeśli chcesz użyć wyzwalaczy, zostanie wyświetlony komunikat o błędzie podobny do tego, że *nie masz uprawnień administratora, a rejestrowanie binarne jest włączone (możesz chcieć użyć mniej bezpiecznej `log_bin_trust_function_creators` zmiennej)* . 
 
-Format rejestrowania binarnego to zawsze **wiersz** i wszystkie połączenia z serwerem **zawsze** używają rejestrowania binarnego opartego na wierszach. W przypadku rejestrowania binarnego opartego na wierszach problemy z zabezpieczeniami nie istnieją i rejestrowanie danych binarnych nie może zostać zerwane, więc można bezpiecznie ustawić [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) **wartość true**.
+Format rejestrowania binarnego to zawsze **wiersz** i wszystkie połączenia z serwerem **zawsze** używają rejestrowania binarnego opartego na wierszach. W przypadku rejestrowania binarnego opartego na wierszach problemy z zabezpieczeniami nie istnieją i rejestrowanie danych binarnych nie może zostać zerwane, więc można bezpiecznie ustawić [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) **wartość true** .
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -69,8 +69,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|872415232|134217728|872415232|
-|Podstawowy|2|2684354560|134217728|2684354560|
+|Podstawowa|1|872415232|134217728|872415232|
+|Podstawowa|2|2684354560|134217728|2684354560|
 |Ogólnego przeznaczenia|2|3758096384|134217728|3758096384|
 |Ogólnego przeznaczenia|4|8053063680|134217728|8053063680|
 |Ogólnego przeznaczenia|8|16106127360|134217728|16106127360|
@@ -87,8 +87,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|872415232|134217728|872415232|
-|Podstawowy|2|2684354560|134217728|2684354560|
+|Podstawowa|1|872415232|134217728|872415232|
+|Podstawowa|2|2684354560|134217728|2684354560|
 |Ogólnego przeznaczenia|2|7516192768|134217728|7516192768|
 |Ogólnego przeznaczenia|4|16106127360|134217728|16106127360|
 |Ogólnego przeznaczenia|8|32212254720|134217728|32212254720|
@@ -108,7 +108,7 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 Baza danych MySQL przechowuje tabelę InnoDB w różnych obszarach tabel w oparciu o konfigurację podaną podczas tworzenia tabeli. Przestrzeń dyskowa [systemu](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) jest obszarem magazynu dla słownika danych InnoDB. Obszar tabel dla [poszczególnych tabel](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) zawiera dane i indeksy dla pojedynczej tabeli InnoDB i jest przechowywany w systemie plików w osobnym pliku danych. Takie zachowanie jest kontrolowane przez `innodb_file_per_table` parametr serwer. Ustawienie `innodb_file_per_table` `OFF` powoduje, że InnoDB utworzyć tabele w obszarze obszary obszaru systemu. W przeciwnym razie InnoDB tworzy tabele w tabelach tabel w tabeli.
 
-Azure Database for MySQL obsługuje o największych **1 TB**w jednym pliku danych. Jeśli rozmiar bazy danych jest większy niż 1 TB, należy utworzyć tabelę w [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) obszar tabel. Jeśli rozmiar pojedynczej tabeli jest większy niż 1 TB, należy użyć tabeli partycji.
+Azure Database for MySQL obsługuje o największych **1 TB** w jednym pliku danych. Jeśli rozmiar bazy danych jest większy niż 1 TB, należy utworzyć tabelę w [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) obszar tabel. Jeśli rozmiar pojedynczej tabeli jest większy niż 1 TB, należy użyć tabeli partycji.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -116,8 +116,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|262144|128|268435455|
 |Ogólnego przeznaczenia|4|262144|128|536870912|
 |Ogólnego przeznaczenia|8|262144|128|1073741824|
@@ -134,8 +134,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|50|10|50|
-|Podstawowy|2|100|10|100|
+|Podstawowa|1|50|10|50|
+|Podstawowa|2|100|10|100|
 |Ogólnego przeznaczenia|2|300|10|600|
 |Ogólnego przeznaczenia|4|625|10|1250|
 |Ogólnego przeznaczenia|8|1250|10|2500|
@@ -165,8 +165,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|16777216|16384|268435455|
 |Ogólnego przeznaczenia|4|16777216|16384|536870912|
 |Ogólnego przeznaczenia|8|16777216|16384|1073741824|
@@ -190,8 +190,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|* * Wartość maksymalna * *|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|0|0|16777216|
 |Ogólnego przeznaczenia|4|0|0|33554432|
 |Ogólnego przeznaczenia|8|0|0|67108864|
@@ -215,9 +215,9 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Jeśli zostanie wyświetlony komunikat o błędzie podobny do "rozmiar wiersza jest zbyt duży (> 8126)", możesz chcieć wyłączyć **innodb_strict_mode**parametru. **Innodb_strict_mode** parametru serwera nie można modyfikować globalnie na poziomie serwera, ponieważ jeśli rozmiar danych wierszy jest większy niż 8k, dane zostaną obcięte bez błędu prowadzącego do potencjalnej utraty danych. Zalecamy zmodyfikowanie schematu w celu dopasowania go do limitu rozmiaru strony. 
+Jeśli zostanie wyświetlony komunikat o błędzie podobny do "rozmiar wiersza jest zbyt duży (> 8126)", możesz chcieć wyłączyć **innodb_strict_mode** parametru. **Innodb_strict_mode** parametru serwera nie można modyfikować globalnie na poziomie serwera, ponieważ jeśli rozmiar danych wierszy jest większy niż 8k, dane zostaną obcięte bez błędu prowadzącego do potencjalnej utraty danych. Zalecamy zmodyfikowanie schematu w celu dopasowania go do limitu rozmiaru strony. 
 
-Ten parametr można ustawić na poziomie sesji przy użyciu `init_connect` . Aby ustawić **innodb_strict_mode** na poziomie sesji, zapoznaj się z [parametrem ustawienia nie](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed)ma na liście.
+Ten parametr można ustawić na poziomie sesji przy użyciu `init_connect` . Aby ustawić **innodb_strict_mode** na poziomie sesji, zapoznaj się z [parametrem ustawienia nie](./howto-server-parameters.md#setting-parameters-not-listed)ma na liście.
 
 > [!NOTE]
 > Jeśli masz serwer repliki odczytu, ustawienie **innodb_strict_mode** na wyłączone na poziomie sesji na serwerze źródłowym spowoduje przerwanie replikacji. Zaleca się pozostawienie parametru jako WYŁĄCZONEgo w przypadku odczytu replik.
@@ -228,8 +228,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|524288|32768|4194304|
 |Ogólnego przeznaczenia|4|524288|32768|8388608|
 |Ogólnego przeznaczenia|8|524288|32768|16777216|
@@ -248,8 +248,8 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|16777216|1024|67108864|
 |Ogólnego przeznaczenia|4|16777216|1024|134217728|
 |Ogólnego przeznaczenia|8|16777216|1024|268435456|

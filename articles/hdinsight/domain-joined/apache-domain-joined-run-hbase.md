@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73044640"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544957"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Samouczek: Konfigurowanie zasad Apache HBase w usłudze HDInsight przy użyciu pakiet Enterprise Security
 
@@ -45,7 +45,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="create-domain-users"></a>Tworzenie użytkowników domeny
 
-Zapoznaj się z sekcją dotyczącą [tworzenia klastra usługi HDInsight przy użyciu pakietu Enterprise Security](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds), aby dowiedzieć się, jak utworzyć użytkowników domeny **sales_user1** i **marketing_user1**. W scenariuszu produkcyjnym użytkownicy domeny pochodzą z dzierżawy usługi Active Directory.
+Zapoznaj się z sekcją dotyczącą [tworzenia klastra usługi HDInsight przy użyciu pakietu Enterprise Security](./apache-domain-joined-configure-using-azure-adds.md), aby dowiedzieć się, jak utworzyć użytkowników domeny **sales_user1** i **marketing_user1** . W scenariuszu produkcyjnym użytkownicy domeny pochodzą z dzierżawy usługi Active Directory.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Tworzenie tabel bazy danych HBase i importowanie przykładowych danych
 
@@ -93,13 +93,13 @@ Protokół SSH umożliwia połączenie z klastrami HBase, a następnie korzystan
 
 ## <a name="create-ranger-policies"></a>Tworzenie zasad platformy Ranger
 
-Utwórz zasady platformy Ranger dla użytkowników **sales_user1** i **marketing_user1**.
+Utwórz zasady platformy Ranger dla użytkowników **sales_user1** i **marketing_user1** .
 
-1. Otwórz **interfejs użytkownika administratora platformy Ranger**. Kliknij ** \<ClusterName> _hbase** w obszarze **HBase**.
+1. Otwórz **interfejs użytkownika administratora platformy Ranger** . Kliknij **\<ClusterName> _hbase** w obszarze **HBase** .
 
    ![Interfejs użytkownika administratora usługi HDInsight Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
-2. Na ekranie **Lista zasad** zostaną wyświetlone wszystkie zasady platformy Ranger utworzone dla tego klastra. Lista może zawierać tylko jedne wstępnie skonfigurowane zasady. Kliknij pozycję **Dodaj nowe zasady**.
+2. Na ekranie **Lista zasad** zostaną wyświetlone wszystkie zasady platformy Ranger utworzone dla tego klastra. Lista może zawierać tylko jedne wstępnie skonfigurowane zasady. Kliknij pozycję **Dodaj nowe zasady** .
 
     ![Lista zasad HBase Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
@@ -191,7 +191,7 @@ Zgodnie ze skonfigurowanymi zasadami platformy Ranger użytkownik **sales_user1*
 
 ### <a name="access-data-as-marketing_user1"></a>Uzyskiwanie dostępu do danych jako marketing_user1
 
-1. Otwórz nowe połączenie SSH z klastrem. Użyj następującego polecenia, aby zalogować się jako użytkownik **marketing_user1**:
+1. Otwórz nowe połączenie SSH z klastrem. Użyj następującego polecenia, aby zalogować się jako użytkownik **marketing_user1** :
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -236,10 +236,10 @@ Zgodnie ze skonfigurowanymi zasadami platformy Ranger użytkownik **sales_user1*
 Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster bazy danych HBase, wykonując następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. W polu **Wyszukaj** w górnej części wpisz **HDInsight**. 
-1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
+2. W polu **Wyszukaj** w górnej części wpisz **HDInsight** . 
+1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi** .
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka. 
-1. Kliknij polecenie **Usuń**. Kliknij przycisk **Yes** (Tak).
+1. Kliknij polecenie **Usuń** . Kliknij przycisk **Yes** (Tak).
 
 ## <a name="next-steps"></a>Następne kroki
 

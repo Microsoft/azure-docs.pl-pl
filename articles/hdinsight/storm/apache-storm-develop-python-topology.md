@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 1f062a8f358ac311b53e657fb5714583458bd9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62e2583f8a4d3872a1342f0f702a1913f733e7f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872586"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545467"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Opracowywanie topologii Apache Storm przy użyciu języka Python w usłudze HDInsight
 
@@ -24,13 +24,13 @@ Dowiedz się, jak utworzyć topologię [Apache Storm](https://storm.apache.org/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Klaster Apache Storm w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybierz pozycję **burza** dla **typu klastra**.
+* Klaster Apache Storm w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybierz pozycję **burza** dla **typu klastra** .
 
 * Lokalne środowisko programistyczne (opcjonalnie). Lokalne środowisko burzowe jest wymagane tylko wtedy, gdy chcesz uruchomić topologię lokalnie. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska deweloperskiego](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
 * [Python 2,7 lub nowszy](https://www.python.org/downloads/).
 
-* [Java developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks).
+* [Java developer Kit (JDK) w wersji 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * Pakiet [Apache Maven](https://maven.apache.org/download.cgi) został prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z usługą Apache.  Maven to system kompilacji projektu dla projektów języka Java.
 
@@ -114,7 +114,7 @@ Jak wspomniano wcześniej, istnieje `storm.py` plik, który implementuje definic
     storm kill wordcount
     ```
 
-    Alternatywnie można użyć interfejsu użytkownika burzy. W obszarze **Akcje topologii** dla topologii wybierz pozycję **Kasuj**.
+    Alternatywnie można użyć interfejsu użytkownika burzy. W obszarze **Akcje topologii** dla topologii wybierz pozycję **Kasuj** .
 
 ## <a name="run-the-topology-locally"></a>Uruchamianie topologii lokalnie
 
@@ -141,7 +141,7 @@ Po uruchomieniu topologii emitują informacje do konsoli lokalnej podobne do nas
 24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
 ```
 
-Aby zatrzymać topologię, użyj __kombinacji klawiszy CTRL + C__.
+Aby zatrzymać topologię, użyj __kombinacji klawiszy CTRL + C__ .
 
 ## <a name="next-steps"></a>Następne kroki
 

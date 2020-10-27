@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: b4f390e6d362895d58be0e8695e72d058a021b34
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c4efb8b4835b7dc828caa49eaf6013a2f58bb081
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485549"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534553"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Używanie Apache Kafka w usłudze HDInsight z platformą Azure IoT Hub
 
@@ -37,7 +37,7 @@ Aby uzyskać więcej informacji na temat interfejsu API Connect, zobacz [https:/
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* IoT Hub i urządzenie platformy Azure. W tym artykule warto rozważyć użycie [symulatora Raspberry Pi online do IoT Hub platformy Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
+* IoT Hub i urządzenie platformy Azure. W tym artykule warto rozważyć użycie [symulatora Raspberry Pi online do IoT Hub platformy Azure](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md).
 
 * [Narzędzie kompilacji Scala](https://www.scala-sbt.org/).
 
@@ -125,7 +125,7 @@ Z poziomu połączenia SSH z węzłem brzegowym wykonaj następujące kroki, aby
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Tak samo jak powyżej.|
     |Nie dotyczy|`consumer.max.poll.records=10`|Dodaj do końca pliku. Ta zmiana polega na uniknięciu limitów czasu w łączniku ujścia przez ograniczenie go do 10 rekordów jednocześnie. Aby uzyskać więcej informacji, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
-1. Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__, __Y__, a następnie klawisz __Enter__.
+1. Aby zapisać plik, użyj __kombinacji klawiszy Ctrl + X__ , __Y__ , a następnie klawisz __Enter__ .
 
 1. Aby utworzyć tematy używane przez łącznik, użyj następujących poleceń:
 
@@ -149,11 +149,11 @@ Aby pobrać informacje o usłudze IoT Hub używane przez łącznik, wykonaj nast
 
 1. Pobierz punkt końcowy zgodny z centrum zdarzeń i nazwę punktu końcowego zgodnego z centrum zdarzeń dla Centrum IoT Hub. Aby uzyskać te informacje, należy użyć jednej z następujących metod:
 
-   * W __ [Azure Portal](https://portal.azure.com/)__ wykonaj następujące czynności:
+   * W __[Azure Portal](https://portal.azure.com/)__ wykonaj następujące czynności:
 
-     1. Przejdź do IoT Hub i wybierz __punkty końcowe__.
-     2. Z __wbudowanych punktów końcowych__wybierz pozycję __zdarzenia__.
-     3. Z __Właściwości__, skopiuj wartość następujących pól:
+     1. Przejdź do IoT Hub i wybierz __punkty końcowe__ .
+     2. Z __wbudowanych punktów końcowych__ wybierz pozycję __zdarzenia__ .
+     3. Z __Właściwości__ , skopiuj wartość następujących pól:
 
          * __Nazwa zgodna z centrum zdarzeń__
          * __Punkt końcowy zgodny z centrum zdarzeń__
@@ -162,7 +162,7 @@ Aby pobrać informacje o usłudze IoT Hub używane przez łącznik, wykonaj nast
         > [!IMPORTANT]  
         > Wartość punktu końcowego z portalu może zawierać dodatkowy tekst, który nie jest wymagany w tym przykładzie. Wyodrębnij tekst pasujący do tego wzorca `sb://<randomnamespace>.servicebus.windows.net/` .
 
-   * W __ [interfejsie wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli)__ wykonaj następujące polecenie:
+   * W __[interfejsie wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli)__ wykonaj następujące polecenie:
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -176,15 +176,15 @@ Aby pobrać informacje o usłudze IoT Hub używane przez łącznik, wykonaj nast
        "Partitions": 2
        ```
 
-2. Pobierz __zasady dostępu współdzielonego__ i __klucz__. W tym przykładzie należy użyć klucza __usługi__ . Aby uzyskać te informacje, należy użyć jednej z następujących metod:
+2. Pobierz __zasady dostępu współdzielonego__ i __klucz__ . W tym przykładzie należy użyć klucza __usługi__ . Aby uzyskać te informacje, należy użyć jednej z następujących metod:
 
-    * W __ [Azure Portal](https://portal.azure.com/)__ wykonaj następujące czynności:
+    * W __[Azure Portal](https://portal.azure.com/)__ wykonaj następujące czynności:
 
-        1. Wybierz pozycję __zasady dostępu współdzielonego__, a następnie wybierz pozycję __Usługa__.
+        1. Wybierz pozycję __zasady dostępu współdzielonego__ , a następnie wybierz pozycję __Usługa__ .
         2. Skopiuj wartość __klucza podstawowego__ .
         3. Skopiuj __Parametry połączenia — wartość klucza podstawowego__ .
 
-    * W __ [interfejsie wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli)__ wykonaj następujące polecenie:
+    * W __[interfejsie wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli)__ wykonaj następujące polecenie:
 
         1. Aby uzyskać wartość klucza podstawowego, użyj następującego polecenia:
 
@@ -233,7 +233,7 @@ Aby skonfigurować źródło do pracy z IoT Hub, wykonaj następujące czynnośc
 
     Aby zapoznać się z przykładową konfiguracją, zobacz [Łącznik Kafka Connect Source for Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
-1. Aby zapisać zmiany, użyj __klawiszy Ctrl + X__, __Y__, a następnie __Enter__.
+1. Aby zapisać zmiany, użyj __klawiszy Ctrl + X__ , __Y__ , a następnie __Enter__ .
 
 Aby uzyskać więcej informacji na temat konfigurowania źródła łącznika, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md) .
 
@@ -262,7 +262,7 @@ Aby skonfigurować połączenie ujścia do pracy z IoT Hub, wykonaj następując
 
     Aby zapoznać się z przykładową konfiguracją, zobacz [Łącznik Kafka Connect sink for Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-1. Aby zapisać zmiany, użyj __klawiszy Ctrl + X__, __Y__, a następnie __Enter__.
+1. Aby zapisać zmiany, użyj __klawiszy Ctrl + X__ , __Y__ , a następnie __Enter__ .
 
 Aby uzyskać więcej informacji na temat konfigurowania ujścia łącznika, zobacz [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 

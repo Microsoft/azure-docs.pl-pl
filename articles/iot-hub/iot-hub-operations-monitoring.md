@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139326"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538497"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitorowanie operacji IoT Hub (przestarzałe)
 
 Monitorowanie operacji IoT Hub umożliwia monitorowanie stanu operacji w centrum IoT w czasie rzeczywistym. IoT Hub śledzi zdarzenia w kilku kategoriach operacji. Możesz zrezygnować z wysyłania zdarzeń z jednej lub kilku kategorii do punktu końcowego Centrum IoT Hub w celu przetworzenia. Można monitorować dane pod kątem błędów lub konfigurować bardziej złożone przetwarzanie na podstawie wzorców danych.
 
 >[!NOTE]
->**Monitorowanie operacji IoT Hub jest przestarzałe i zostało usunięte z IoT Hub 10 marca 2019**. Aby monitorować operacje i kondycję IoT Hub, zobacz [monitorowanie kondycji usługi Azure IoT Hub i Szybkie diagnozowanie problemów](iot-hub-monitor-resource-health.md). Aby uzyskać więcej informacji na temat osi czasu wycofania, zobacz [monitorowanie rozwiązań usługi Azure IoT za pomocą Azure monitor i Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>**Monitorowanie operacji IoT Hub jest przestarzałe i zostało usunięte z IoT Hub 10 marca 2019** . Aby monitorować operacje i kondycję IoT Hub, zobacz [IoT Hub monitorowania](monitor-iot-hub.md). Aby uzyskać więcej informacji na temat osi czasu wycofania, zobacz [monitorowanie rozwiązań usługi Azure IoT za pomocą Azure monitor i Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub monitoruje sześć kategorii zdarzeń:
 
@@ -39,11 +39,11 @@ IoT Hub monitoruje sześć kategorii zdarzeń:
 
 1. Utwórz centrum IoT. Instrukcje dotyczące sposobu tworzenia Centrum IoT można znaleźć [w przewodniku wprowadzenie.](quickstart-send-telemetry-dotnet.md)
 
-2. Otwórz blok Centrum IoT. W tym miejscu kliknij pozycję **monitorowanie operacji**.
+2. Otwórz blok Centrum IoT. W tym miejscu kliknij pozycję **monitorowanie operacji** .
 
     ![Dostęp do konfiguracji monitorowania operacji w portalu](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-3. Wybierz kategorie monitorowania, które chcesz monitorować, a następnie kliknij przycisk **Zapisz**. Zdarzenia są dostępne do odczytu z punktu końcowego zgodnego z centrum zdarzeń wymienionym w obszarze **ustawienia monitorowania**. IoT Hub punkt końcowy jest wywoływany `messages/operationsmonitoringevents` .
+3. Wybierz kategorie monitorowania, które chcesz monitorować, a następnie kliknij przycisk **Zapisz** . Zdarzenia są dostępne do odczytu z punktu końcowego zgodnego z centrum zdarzeń wymienionym w obszarze **ustawienia monitorowania** . IoT Hub punkt końcowy jest wywoływany `messages/operationsmonitoringevents` .
 
     ![Konfigurowanie monitorowania operacji w centrum IoT Hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
@@ -197,11 +197,11 @@ Aby nawiązać połączenie z punktem końcowym monitorowania, potrzebne są par
 
 1. W portalu przejdź do bloku zasobów IoT Hub.
 
-2. Wybierz pozycję **monitorowanie operacji**i zanotuj wartości zgodne z centrum zdarzeń **Nazwa** i **punkt końcowy zgodne z centrum zdarzeń** :
+2. Wybierz pozycję **monitorowanie operacji** i zanotuj wartości zgodne z centrum zdarzeń **Nazwa** i **punkt końcowy zgodne z centrum zdarzeń** :
 
     ![Wartości punktów końcowych zgodnych z centrum zdarzeń](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Wybierz pozycję **zasady dostępu współdzielonego**, a następnie wybierz pozycję **Usługa**. Zanotuj wartość **klucza podstawowego** :
+3. Wybierz pozycję **zasady dostępu współdzielonego** , a następnie wybierz pozycję **Usługa** . Zanotuj wartość **klucza podstawowego** :
 
     ![Klucz podstawowy zasad dostępu współdzielonego usługi](./media/iot-hub-operations-monitoring/service-key.png)
 

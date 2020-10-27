@@ -8,15 +8,15 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2cee60a71f6f19e09194dc689f95999bb11faad3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca84cb6cdd6b47976eadbc5298701a46fe677426
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086470"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547830"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace
-Aplikację Azure HDInsight można zainstalować w klastrze usługi HDInsight opartym na systemie Linux. W tym artykule dowiesz się, jak opublikować aplikację usługi HDInsight w portalu Azure Marketplace. Aby uzyskać ogólne informacje o publikowaniu w portalu Azure Marketplace, zobacz temat [Publikowanie oferty w portalu Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
+Aplikację Azure HDInsight można zainstalować w klastrze usługi HDInsight opartym na systemie Linux. W tym artykule dowiesz się, jak opublikować aplikację usługi HDInsight w portalu Azure Marketplace. Aby uzyskać ogólne informacje o publikowaniu w portalu Azure Marketplace, zobacz temat [Publikowanie oferty w portalu Azure Marketplace](../marketplace/overview.md).
 
 Aplikacje usługi HDInsight wykorzystują model *BYOL* . W scenariuszu BYOL Dostawca aplikacji jest odpowiedzialny za Licencjonowanie aplikacji użytkownikom aplikacji. Użytkownicy aplikacji są rozliczani wyłącznie za utworzone przez siebie zasoby platformy Azure, takie jak klaster usługi HDInsight, oraz maszyny wirtualne i węzły klastra. Obecnie naliczanie opłat za samą aplikację nie odbywa się na platformie Azure.
 
@@ -28,7 +28,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły dotyczące aplik
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby przesłać aplikację niestandardową w portalu Marketplace, najpierw [Utwórz i przetestuj aplikację niestandardową](hdinsight-apps-install-custom-applications.md).
 
-Należy również zarejestrować konto dewelopera. Aby uzyskać więcej informacji, zobacz temat [Publikowanie oferty w portalu Azure Marketplace](../marketplace/marketplace-publishers-guide.md) i [Tworzenie konta dewelopera Microsoft](../marketplace/marketplace-publishers-guide.md).
+Należy również zarejestrować konto dewelopera. Aby uzyskać więcej informacji, zobacz temat [Publikowanie oferty w portalu Azure Marketplace](../marketplace/overview.md) i [Tworzenie konta dewelopera Microsoft](../marketplace/overview.md).
 
 ## <a name="define-the-application"></a>Definiowanie aplikacji
 Dwa kroki są związane z publikowaniem aplikacji w portalu Marketplace. Najpierw Zdefiniuj *createUiDef.js* pliku. createUiDef.jsw pliku wskazuje, które klastry są zgodne z aplikacją. Następnie opublikuj szablon na podstawie Azure Portal. Oto przykład createUiDef.jsw pliku:
@@ -63,7 +63,7 @@ Gdy aplikacja jest zainstalowana w klastrze (w istniejącym klastrze lub w nowym
   > * Łącznik, dla czytelności.
   > * Unikatowa funkcja ciągu z nazwą aplikacji jako parametrem.
   > 
-  > Powyższy przykład na liście akcji utrwalonego skryptu jest wyświetlany jako **odcień-Install-VO-4wkahss55hlas**. Zobacz [przykładowy ładunek JSON](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+  > Powyższy przykład na liście akcji utrwalonego skryptu jest wyświetlany jako **odcień-Install-VO-4wkahss55hlas** . Zobacz [przykładowy ładunek JSON](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
 
 Skrypt instalacji musi mieć następującą charakterystykę:
@@ -87,14 +87,14 @@ Utwórz plik zip, który zawiera wszystkie pliki wymagane do zainstalowania apli
 Aby opublikować aplikację usługi HDInsight:
 
 1. Zaloguj się do [publikowania na platformie Azure](https://publish.windowsazure.com/).
-2. W menu po lewej stronie wybierz pozycję **Szablony rozwiązań**.
-3. Wprowadź tytuł, a następnie wybierz pozycję **Utwórz nowy szablon rozwiązania**.
-4. Jeśli Twoja organizacja nie została jeszcze zarejestrowana, wybierz pozycję **Utwórz konto Centrum deweloperów i Dołącz do programu Azure**.  Aby uzyskać więcej informacji, zobacz [Tworzenie konta dewelopera Microsoft](../marketplace/marketplace-publishers-guide.md).
-5. Wybierz pozycję **Zdefiniuj pewne topologie, aby rozpocząć pracę**. Szablon rozwiązania jest "nadrzędny" dla wszystkich jego topologii. Można zdefiniować wiele topologii w jednej ofercie lub szablonie rozwiązania. Gdy oferta jest wypychana do przemieszczania, jest wypychana do wszystkich jej topologii. 
+2. W menu po lewej stronie wybierz pozycję **Szablony rozwiązań** .
+3. Wprowadź tytuł, a następnie wybierz pozycję **Utwórz nowy szablon rozwiązania** .
+4. Jeśli Twoja organizacja nie została jeszcze zarejestrowana, wybierz pozycję **Utwórz konto Centrum deweloperów i Dołącz do programu Azure** .  Aby uzyskać więcej informacji, zobacz [Tworzenie konta dewelopera Microsoft](../marketplace/overview.md).
+5. Wybierz pozycję **Zdefiniuj pewne topologie, aby rozpocząć pracę** . Szablon rozwiązania jest "nadrzędny" dla wszystkich jego topologii. Można zdefiniować wiele topologii w jednej ofercie lub szablonie rozwiązania. Gdy oferta jest wypychana do przemieszczania, jest wypychana do wszystkich jej topologii. 
 6. Wprowadź nazwę topologii, a następnie wybierz pozycję **+** .
 7. Wprowadź nową wersję, a następnie wybierz pozycję **+** .
 8. Przekaż plik zip, który został utworzony podczas pakowania aplikacji.  
-9. Wybierz pozycję **Żądaj certyfikacji**. Zespół certyfikacji firmy Microsoft przegląda pliki i poświadcza topologię.
+9. Wybierz pozycję **Żądaj certyfikacji** . Zespół certyfikacji firmy Microsoft przegląda pliki i poświadcza topologię.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [instalować aplikacje usługi HDInsight](hdinsight-apps-install-applications.md) w klastrach.
@@ -102,4 +102,3 @@ Aby opublikować aplikację usługi HDInsight:
 * Dowiedz się, jak [używać akcji skryptu do dostosowywania klastrów usługi HDInsight opartych na systemie Linux](hdinsight-hadoop-customize-cluster-linux.md) i dodawania większej liczby aplikacji. 
 * Informacje na temat [tworzenia klastrów Apache Hadoop opartych na systemie Linux w usłudze HDInsight przy użyciu szablonów Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Dowiedz się, jak [używać pustego węzła krawędzi w usłudze HDInsight](hdinsight-apps-use-edge-node.md) , aby uzyskiwać dostęp do klastrów usługi HDInsight, testować aplikacje usługi HDInsight i hostować aplikacje usługi HDInsight.
-

@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 35f96080d6a931c3491e119fe6866bc51eff4ff4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ab606e357bd911f4d7f266977bd14871f92744a0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490054"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546572"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>Samouczek: Tworzenie serwera Azure Database for PostgreSQL-elastyczny przy użyciu aplikacji internetowej App Services w sieci wirtualnej
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL — serwer elastyczny jest w wersji zapoznawczej
 
-W tym samouczku pokazano, jak utworzyć aplikację internetową Azure App Service za pomocą serwera Azure Database for PostgreSQL-elastyczną (wersja zapoznawcza) w [sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+W tym samouczku pokazano, jak utworzyć aplikację internetową Azure App Service za pomocą serwera Azure Database for PostgreSQL-elastyczną (wersja zapoznawcza) w [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md).
 
 W tym samouczku zostanie
 >[!div class="checklist"]
@@ -121,4 +121,4 @@ az group delete -n myresourcegroup
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md)

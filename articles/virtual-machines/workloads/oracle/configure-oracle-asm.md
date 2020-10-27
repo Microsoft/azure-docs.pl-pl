@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 2d112db720d8ad5a1cba1ec2f35fbb59670e1e92
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b9653cded11edd36602caea0ecd50cfb8dd05ebe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996733"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547184"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurowanie programu Oracle ASM na maszynie wirtualnej platformy Azure z systemem Linux  
 
@@ -144,7 +144,7 @@ Aby uzyskać więcej informacji na temat instalowania oprogramowania Oracle ASM,
 
 ## <a name="set-up-oracle-asm"></a>Konfigurowanie programu Oracle ASM
 
-W tym samouczku domyślny użytkownik jest *siatką* , a domyślną grupą jest *asmadmin*. Upewnij się, że użytkownik *Oracle* jest częścią grupy asmadmin. Aby skonfigurować instalację programu Oracle ASM, wykonaj następujące czynności:
+W tym samouczku domyślny użytkownik jest *siatką* , a domyślną grupą jest *asmadmin* . Upewnij się, że użytkownik *Oracle* jest częścią grupy asmadmin. Aby skonfigurować instalację programu Oracle ASM, wykonaj następujące czynności:
 
 1. Ustawienie sterownika biblioteki ASM firmy Oracle obejmuje zdefiniowanie domyślnego użytkownika (siatki) i grupy domyślnej (asmadmin), a także skonfigurowanie dysku do uruchamiania przy rozruchu (wybierz y) i przeskanowanie w poszukiwaniu dysków przy rozruchu (wybierz y). Musisz odpowiedzieć na pytania przy użyciu następującego polecenia:
 
@@ -346,7 +346,7 @@ Aby pobrać i przygotować oprogramowanie infrastruktury siatki Oracle, wykonaj 
 
 1. Pobierz infrastrukturę usługi Oracle Grid ze [strony pobierania programu Oracle ASM](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
-   W obszarze Pobieranie zatytułowane **Oracle Database 12C wersja 1 Grid Infrastructure (12.1.0.2.0) dla systemu Linux x86-64**Pobierz dwa pliki. zip.
+   W obszarze Pobieranie zatytułowane **Oracle Database 12C wersja 1 Grid Infrastructure (12.1.0.2.0) dla systemu Linux x86-64** Pobierz dwa pliki. zip.
 
 2. Po pobraniu plików zip na komputer kliencki można użyć protokołu Secure Copy Protocol (SCP) do skopiowania plików na maszynę wirtualną:
 
@@ -385,7 +385,7 @@ Aby pobrać i przygotować oprogramowanie infrastruktury siatki Oracle, wykonaj 
    vi /etc/waagent.conf
    ```
 
-   Wyszukaj `ResourceDisk.SwapSizeMB` i zmień wartość na **8192**. Należy nacisnąć klawisz `insert` , aby wprowadzić tryb wstawiania, wpisz wartość **8192** , a następnie naciśnij klawisz `esc` , aby powrócić do trybu polecenia. Aby zapisać zmiany i zamknąć plik, wpisz `:wq` i naciśnij klawisz `enter` .
+   Wyszukaj `ResourceDisk.SwapSizeMB` i zmień wartość na **8192** . Należy nacisnąć klawisz `insert` , aby wprowadzić tryb wstawiania, wpisz wartość **8192** , a następnie naciśnij klawisz `esc` , aby powrócić do trybu polecenia. Aby zapisać zmiany i zamknąć plik, wpisz `:wq` i naciśnij klawisz `enter` .
    
    > [!NOTE]
    > Zdecydowanie zalecamy, aby `WALinuxAgent` skonfigurować przestrzeń wymiany tak, aby była zawsze tworzona na lokalnym dysku tymczasowym (dysku tymczasowego) w celu uzyskania najlepszej wydajności. Aby uzyskać więcej informacji na temat, zobacz [jak dodać plik wymiany na maszynach wirtualnych systemu Linux Azure](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
@@ -420,15 +420,15 @@ Skonfigurowanie systemu Oracle ASM wymaga interfejsu graficznego do ukończenia 
    > Klucz musi zawierać ciąg `ssh-rsa` . Ponadto zawartość klucza musi być pojedynczym wierszem tekstu.
    >  
 
-6. Na komputerze klienckim uruchom polecenie wylogowania. W okienku **Kategoria** przejdź do pozycji **połączenie**  >  **SSH**  >  **AUTH**. W polu **plik klucza prywatnego dla uwierzytelniania** przejdź do wygenerowanego wcześniej klucza.
+6. Na komputerze klienckim uruchom polecenie wylogowania. W okienku **Kategoria** przejdź do pozycji **połączenie**  >  **SSH**  >  **AUTH** . W polu **plik klucza prywatnego dla uwierzytelniania** przejdź do wygenerowanego wcześniej klucza.
 
    ![Zrzut ekranu opcji uwierzytelniania SSH](./media/oracle-asm/setprivatekey.png)
 
-7. W okienku **Kategoria** przejdź do pozycji **połączenie**  >  **SSH**  >  **X11**. Zaznacz pole wyboru **Włącz przekazywanie X11** .
+7. W okienku **Kategoria** przejdź do pozycji **połączenie**  >  **SSH**  >  **X11** . Zaznacz pole wyboru **Włącz przekazywanie X11** .
 
    ![Zrzut ekranu przedstawiający opcje przekazywania SSH X11](./media/oracle-asm/enablex11.png)
 
-8. W okienku **Kategoria** przejdź do **sesji**. W oknie dialogowym Nazwa hosta wprowadź swoją maszynę wirtualną Oracle ASM `<publicIPaddress>` , Wypełnij nową `Saved Session` nazwę, a następnie kliknij przycisk Włącz `Save` .  Po zapisaniu kliknij przycisk Włącz, `open` Aby nawiązać połączenie z maszyną wirtualną programu Oracle ASM.  Przy pierwszym połączeniu zostanie wyświetlone ostrzeżenie, że system zdalny nie jest buforowany w rejestrze. Kliknij pozycję Włącz `yes` , aby ją dodać i kontynuować.
+8. W okienku **Kategoria** przejdź do **sesji** . W oknie dialogowym Nazwa hosta wprowadź swoją maszynę wirtualną Oracle ASM `<publicIPaddress>` , Wypełnij nową `Saved Session` nazwę, a następnie kliknij przycisk Włącz `Save` .  Po zapisaniu kliknij przycisk Włącz, `open` Aby nawiązać połączenie z maszyną wirtualną programu Oracle ASM.  Przy pierwszym połączeniu zostanie wyświetlone ostrzeżenie, że system zdalny nie jest buforowany w rejestrze. Kliknij pozycję Włącz `yes` , aby ją dodać i kontynuować.
 
    ![Zrzut ekranu przedstawiający opcje sesji](./media/oracle-asm/puttysession.png)
 
@@ -436,7 +436,7 @@ Skonfigurowanie systemu Oracle ASM wymaga interfejsu graficznego do ukończenia 
 
 Aby zainstalować infrastrukturę sieci Oracle, wykonaj następujące czynności:
 
-1. Zaloguj się jako **Siatka**. (Powinno być możliwe zalogowanie się bez monitowania o hasło). 
+1. Zaloguj się jako **Siatka** . (Powinno być możliwe zalogowanie się bez monitowania o hasło). 
 
    > [!NOTE]
    > Jeśli używasz systemu Windows, przed rozpoczęciem instalacji upewnij się, że uruchomiono Xming.
@@ -448,7 +448,7 @@ Aby zainstalować infrastrukturę sieci Oracle, wykonaj następujące czynności
 
    Zostanie otwarty Instalator programu Oracle Grid Infrastructure 12c w wersji 1. (Uruchomienie Instalatora może potrwać kilka minut).
 
-2. Na stronie **Wybierz opcję instalacji** wybierz opcję **Zainstaluj i skonfiguruj infrastrukturę usługi Oracle Grid dla serwera autonomicznego**.
+2. Na stronie **Wybierz opcję instalacji** wybierz opcję **Zainstaluj i skonfiguruj infrastrukturę usługi Oracle Grid dla serwera autonomicznego** .
 
    ![Zrzut ekranu przedstawiający stronę opcji instalacji w instalatorze](./media/oracle-asm/install01.png)
 
@@ -456,9 +456,9 @@ Aby zainstalować infrastrukturę sieci Oracle, wykonaj następujące czynności
 
 4. Na stronie **Tworzenie grupy dysków ASM** :
    - Wprowadź nazwę grupy dysków.
-   - W obszarze **nadmiarowość**wybierz pozycję **zewnętrzny**.
-   - W obszarze **rozmiar jednostki alokacji**wybierz pozycję **4**.
-   - W obszarze **Dodawanie dysków**wybierz pozycję **ORCLASMSP**.
+   - W obszarze **nadmiarowość** wybierz pozycję **zewnętrzny** .
+   - W obszarze **rozmiar jednostki alokacji** wybierz pozycję **4** .
+   - W obszarze **Dodawanie dysków** wybierz pozycję **ORCLASMSP** .
    - Kliknij pozycję `next` (Dalej).
 
 5. Na stronie **Określanie hasła ASM** wybierz opcję **Użyj tych samych haseł dla tych kont** , a następnie wprowadź hasło.
@@ -495,7 +495,7 @@ Aby zainstalować infrastrukturę sieci Oracle, wykonaj następujące czynności
 
 Aby skonfigurować instalację programu Oracle ASM, wykonaj następujące czynności:
 
-1. Upewnij się, że nadal zalogowano się jako **Siatka**, z sesji X11. Może być konieczne przekroczenie `enter` , aby przywrócić Terminal. Następnie Uruchom Asystenta konfiguracji zautomatyzowanego zarządzania magazynem firmy Oracle:
+1. Upewnij się, że nadal zalogowano się jako **Siatka** , z sesji X11. Może być konieczne przekroczenie `enter` , aby przywrócić Terminal. Następnie Uruchom Asystenta konfiguracji zautomatyzowanego zarządzania magazynem firmy Oracle:
 
    ```bash
    cd /u01/app/grid/product/12.1.0/grid/bin
@@ -508,9 +508,9 @@ Aby skonfigurować instalację programu Oracle ASM, wykonaj następujące czynno
 
 3. W oknie dialogowym **Tworzenie grupy dysków** :
 
-   - Wprowadź **dane**w polu Nazwa grupy dysków.
-   - W obszarze **Wybierz dyski Członkowskie**wybierz pozycję **ORCL_DATA** i **ORCL_DATA1**.
-   - W obszarze **rozmiar jednostki alokacji**wybierz pozycję **4**.
+   - Wprowadź **dane** w polu Nazwa grupy dysków.
+   - W obszarze **Wybierz dyski Członkowskie** wybierz pozycję **ORCL_DATA** i **ORCL_DATA1** .
+   - W obszarze **rozmiar jednostki alokacji** wybierz pozycję **4** .
    - Kliknij, `ok` Aby utworzyć grupę dysków.
    - Kliknij, `ok` Aby zamknąć okno potwierdzenia.
 
@@ -520,14 +520,14 @@ Aby skonfigurować instalację programu Oracle ASM, wykonaj następujące czynno
 
 5. W oknie dialogowym **Tworzenie grupy dysków** :
 
-   - Wprowadź nazwę grupy dysków **FRA**.
-   - W obszarze **nadmiarowość**wybierz pozycję **zewnętrzny (brak)**.
-   - W obszarze **Wybierz dyski Członkowskie**wybierz pozycję **ORCL_FRA**.
-   - W obszarze **rozmiar jednostki alokacji**wybierz pozycję **4**.
+   - Wprowadź nazwę grupy dysków **FRA** .
+   - W obszarze **nadmiarowość** wybierz pozycję **zewnętrzny (brak)** .
+   - W obszarze **Wybierz dyski Członkowskie** wybierz pozycję **ORCL_FRA** .
+   - W obszarze **rozmiar jednostki alokacji** wybierz pozycję **4** .
    - Kliknij, `ok` Aby utworzyć grupę dysków.
    - Kliknij, `ok` Aby zamknąć okno potwierdzenia.
 
-   ![Zrzut ekranu przedstawiający okno dialogowe Tworzenie grupy dysków](./media/oracle-asm/asm04.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe Tworzenie grupy dysków i wyróżnienie opcji zewnętrzny (brak).](./media/oracle-asm/asm04.png)
 
 6. Wybierz pozycję **Zakończ** , aby zamknąć Asystenta konfiguracji ASM.
 
@@ -552,10 +552,10 @@ Oprogramowanie bazy danych Oracle jest już zainstalowane w obrazie portalu Azur
 3. Na stronie **tryb tworzenia** :
 
    - Wprowadź nazwę bazy danych.
-   - W przypadku **typu magazynu**upewnij się, że jest wybrana **Funkcja automatycznego zarządzania magazynem (ASM)** .
-   - W polu **Lokalizacja plików bazy danych**Użyj domyślnej sugerowanej lokalizacji ASM.
-   - W przypadku **obszaru szybkiego odzyskiwania**Użyj domyślnej sugerowanej lokalizacji ASM.
-   - Wpisz **hasło administracyjne** i **Potwierdź hasło**.
+   - W przypadku **typu magazynu** upewnij się, że jest wybrana **Funkcja automatycznego zarządzania magazynem (ASM)** .
+   - W polu **Lokalizacja plików bazy danych** Użyj domyślnej sugerowanej lokalizacji ASM.
+   - W przypadku **obszaru szybkiego odzyskiwania** Użyj domyślnej sugerowanej lokalizacji ASM.
+   - Wpisz **hasło administracyjne** i **Potwierdź hasło** .
    - Upewnij `create as container database` się, że wybrano.
    - Wpisz `pluggable database name` wartość.
 

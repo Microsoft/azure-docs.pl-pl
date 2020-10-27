@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075574"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539772"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorowanie wydajności klastra w usłudze Azure HDInsight
 
@@ -50,7 +50,7 @@ Usługa Hadoop oferuje różne usługi działające na platformie rozproszonej. 
 
 PRZĘDZa dzieli dwie odpowiedzialności za JobTracker, zarządzanie zasobami i planowanie/monitorowanie zadań w dwóch demonach: globalna Menedżer zasobów i dla aplikacji ApplicationMaster (AM).
 
-Menedżer zasobów jest *czystym harmonogramem*i wyłącznie rozstrzyga dostępne zasoby między wszystkimi konkurującymi aplikacjami. Menedżer zasobów zapewnia, że wszystkie zasoby są zawsze używane, Optymalizacja pod kątem różnych stałych, takich jak umowy SLA, gwarancje wydajności i tak dalej. ApplicationMaster negocjuje zasoby z Menedżer zasobów i współpracuje z węzłów w celu wykonywania i monitorowania kontenerów oraz ich zużycia zasobów.
+Menedżer zasobów jest *czystym harmonogramem* i wyłącznie rozstrzyga dostępne zasoby między wszystkimi konkurującymi aplikacjami. Menedżer zasobów zapewnia, że wszystkie zasoby są zawsze używane, Optymalizacja pod kątem różnych stałych, takich jak umowy SLA, gwarancje wydajności i tak dalej. ApplicationMaster negocjuje zasoby z Menedżer zasobów i współpracuje z węzłów w celu wykonywania i monitorowania kontenerów oraz ich zużycia zasobów.
 
 Gdy wiele dzierżawców współużytkuje duży klaster, istnieje konkurs dla zasobów klastra. CapacityScheduler to podłączany harmonogram, który ułatwia udostępnianie zasobów przez kolejkowanie żądań. CapacityScheduler obsługuje również *hierarchiczne kolejki* , aby zapewnić, że zasoby są współużytkowane przez kolejki podrzędne organizacji, zanim inne kolejki aplikacji będą mogły korzystać z bezpłatnych zasobów.
 
@@ -66,15 +66,15 @@ Aby zapoznać się z bardziej szczegółowymi informacjami o kolejkach, na pulpi
 
 ![Menedżer zasobów linki menu interfejsu użytkownika](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
-W interfejsie użytkownika Menedżer zasobów wybierz pozycję **harmonogram** z menu po lewej stronie. Zostanie wyświetlona lista kolejek pod *kolejkami aplikacji*. W tym miejscu możesz zobaczyć pojemność użytą dla każdej z kolejek, jak również są dystrybuowane zadania między nimi oraz czy wszystkie zadania są ograniczone do zasobów.
+W interfejsie użytkownika Menedżer zasobów wybierz pozycję **harmonogram** z menu po lewej stronie. Zostanie wyświetlona lista kolejek pod *kolejkami aplikacji* . W tym miejscu możesz zobaczyć pojemność użytą dla każdej z kolejek, jak również są dystrybuowane zadania między nimi oraz czy wszystkie zadania są ograniczone do zasobów.
 
 ![Menu interfejsu użytkownika Menedżer zasobów Apache HAdoop](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Ograniczanie przepustowości magazynu
 
-Na poziomie magazynu mogą wystąpić wąskie gardła wydajności klastra. Ten typ wąskich gardeł najczęściej z powodu *blokowania* operacji wejścia/wyjścia (IO), które są wykonywane, gdy uruchomione zadania wysyłają więcej operacji we/wy niż może obsłużyć usługa magazynu. Ten blok umożliwia utworzenie kolejki żądań we/wy oczekujących na przetworzenie do momentu przetworzenia bieżącego systemu IOs. Bloki są spowodowane *ograniczeniami magazynu*, które nie jest limitem fizycznym, ale raczej limitem narzuconym przez usługę magazynu przez umowę dotyczącą poziomu usług (SLA). Ten limit gwarantuje, że żaden pojedynczy klient lub dzierżawca nie może monopolize usługi. Umowa SLA ogranicza liczbę operacji we/wy na sekundę (IOPS) dla usługi Azure Storage — Aby uzyskać szczegółowe informacje, zobacz [elementy docelowe skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../storage/common/scalability-targets-standard-account.md).
+Na poziomie magazynu mogą wystąpić wąskie gardła wydajności klastra. Ten typ wąskich gardeł najczęściej z powodu *blokowania* operacji wejścia/wyjścia (IO), które są wykonywane, gdy uruchomione zadania wysyłają więcej operacji we/wy niż może obsłużyć usługa magazynu. Ten blok umożliwia utworzenie kolejki żądań we/wy oczekujących na przetworzenie do momentu przetworzenia bieżącego systemu IOs. Bloki są spowodowane *ograniczeniami magazynu* , które nie jest limitem fizycznym, ale raczej limitem narzuconym przez usługę magazynu przez umowę dotyczącą poziomu usług (SLA). Ten limit gwarantuje, że żaden pojedynczy klient lub dzierżawca nie może monopolize usługi. Umowa SLA ogranicza liczbę operacji we/wy na sekundę (IOPS) dla usługi Azure Storage — Aby uzyskać szczegółowe informacje, zobacz [elementy docelowe skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../storage/common/scalability-targets-standard-account.md).
 
-Jeśli używasz usługi Azure Storage, aby uzyskać informacje na temat monitorowania problemów związanych z magazynem, w tym ograniczania przepustowości, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Jeśli używasz usługi Azure Storage, aby uzyskać informacje na temat monitorowania problemów związanych z magazynem, w tym ograniczania przepustowości, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 Jeśli magazyn zapasowy klastra jest Azure Data Lake Storage (ADLS), ograniczenie jest najprawdopodobniej spowodowane limitami przepustowości. Ograniczanie w tym przypadku może być identyfikowane przez obserwowanie błędów ograniczania w dziennikach zadań. Aby uzyskać ADLS, zobacz sekcję ograniczanie przepustowości dla odpowiedniej usługi w następujących artykułach:
 
@@ -126,6 +126,6 @@ Aby uzyskać więcej informacji dotyczących problemów z miejscem na dysku, zob
 
 Aby uzyskać więcej informacji o rozwiązywaniu problemów i monitorowaniu klastrów, odwiedź następujące linki:
 
-* [Analizowanie dzienników usługi HDInsight](hdinsight-debug-jobs.md)
+* [Analizowanie dzienników usługi HDInsight](./hdinsight-troubleshoot-guide.md)
 * [Debugowanie aplikacji przy użyciu dzienników Apache Hadoop PRZĘDZy](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Włączanie zrzutów sterty dla usług Apache Hadoop w usłudze HDInsight opartej na systemie Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

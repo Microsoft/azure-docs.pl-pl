@@ -4,23 +4,24 @@ description: Dowiedz się, jak nawiązać połączenie z usługą Azure Cosmos D
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 3b5886984d6e3830549e86a7c1ee46cd2483e4b4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: be37ab43db9b5b696a619cb1539981c064b4cb0e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480602"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537800"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Zarządzanie zasobami Azure Cosmos DB przy użyciu Eksplorator usługi Azure Storage
 
 Aby nawiązać połączenie z usługą Azure Cosmos DB, można użyć Eksploratora usługi Azure Storage. Umożliwia ona łączenie się z kontami Azure Cosmos DB hostowanymi na platformie Azure i w ramach suwerennych chmur z systemem Windows, macOS lub Linux.
 
-Użyj tego samego narzędzia, aby zarządzać różnymi jednostkami platformy Azure w jednym miejscu. Możesz zarządzać jednostkami Azure Cosmos DB, manipulować danymi, aktualizować procedury składowane i wyzwalacze wraz z innymi jednostkami platformy Azure, takimi jak obiekty blob magazynu i kolejki.
+Użyj tego samego narzędzia, aby zarządzać różnymi jednostkami platformy Azure w jednym miejscu. Możesz zarządzać jednostkami Azure Cosmos DB, manipulować danymi, aktualizować procedury składowane i wyzwalacze wraz z innymi jednostkami platformy Azure, takimi jak obiekty blob magazynu i kolejki. Eksplorator usługi Azure Storage obsługuje konta Cosmos skonfigurowane dla interfejsów API SQL, MongoDB, Graph i Table.
 
-Eksplorator usługi Azure Storage obsługuje konta Cosmos skonfigurowane dla interfejsów API SQL, MongoDB, Graph i Table. Aby uzyskać więcej informacji, przejdź do [Azure Cosmos DB w Eksplorator usługi Azure Storage]() .
+> [!NOTE]
+> Integracja Azure Cosmos DB z Eksplorator usługi Storage została zaniechana. Żadna istniejąca funkcja nie zostanie usunięta przez co najmniej jeden rok z tej wersji. Zamiast tego należy użyć [witryny Azure Portal,](https://portal.azure.com/) [aplikacji klasycznej Azure Portal](https://portal.azure.com/App/Download) lub autonomicznego [Eksploratora usługi Azure Cosmos](data-explorer.md) . Alternatywne opcje zawierają wiele nowych funkcji, które nie są obecnie obsługiwane w Eksplorator usługi Storage.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,19 +33,19 @@ Aby zainstalować najnowszą Eksplorator usługi Azure Storage BITS, zobacz [Eks
 
 ## <a name="connect-to-an-azure-subscription"></a>Łączenie się z subskrypcją platformy Azure
 
-1. Po zainstalowaniu **Eksplorator usługi Azure Storage**wybierz ikonę **wtyczki** w okienku po lewej stronie.
+1. Po zainstalowaniu **Eksplorator usługi Azure Storage** wybierz ikonę **wtyczki** w okienku po lewej stronie.
 
    :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
-1. Wybierz pozycję **Dodaj konto platformy Azure**, a następnie wybierz pozycję **Zaloguj się**.
+1. Wybierz pozycję **Dodaj konto platformy Azure** , a następnie wybierz pozycję **Zaloguj się** .
 
    :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
-1. W oknie dialogowym **Logowanie do platformy Azure** wybierz pozycję **Zaloguj**, a następnie wprowadź swoje poświadczenia platformy Azure.
+1. W oknie dialogowym **Logowanie do platformy Azure** wybierz pozycję **Zaloguj** , a następnie wprowadź swoje poświadczenia platformy Azure.
 
     :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
-1. Wybierz subskrypcję z listy, a następnie wybierz przycisk **Zastosuj**.
+1. Wybierz subskrypcję z listy, a następnie wybierz przycisk **Zastosuj** .
 
     :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
@@ -58,14 +59,14 @@ Aby zainstalować najnowszą Eksplorator usługi Azure Storage BITS, zobacz [Eks
 
 Możesz użyć parametrów połączenia, aby nawiązać połączenie z Azure Cosmos DB. Ta metoda obsługuje tylko interfejsy API SQL i tabele. Wykonaj następujące kroki, aby nawiązać połączenie z parametrami połączenia:
 
-1. Znajdź **lokalne i dołączone** w lewym drzewie, kliknij prawym przyciskiem myszy pozycję **Cosmos DB konta**, a następnie wybierz pozycję **Połącz z Cosmos DB**.
+1. Znajdź **lokalne i dołączone** w lewym drzewie, kliknij prawym przyciskiem myszy pozycję **Cosmos DB konta** , a następnie wybierz pozycję **Połącz z Cosmos DB** .
 
     :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 2. W oknie **łączenie z Cosmos DB** :
    1. Wybierz interfejs API z menu rozwijanego.
    1. Wklej parametry połączenia w polu **Parametry połączenia** . Aby uzyskać informacje na temat pobierania podstawowych parametrów połączenia, zobacz [pobieranie parametrów połączenia](manage-with-powershell.md#list-keys).
-   1. Wprowadź **etykietę konta**, a następnie wybierz pozycję **dalej** , aby sprawdzić podsumowanie.
+   1. Wprowadź **etykietę konta** , a następnie wybierz pozycję **dalej** , aby sprawdzić podsumowanie.
    1. Wybierz pozycję **Połącz** , aby połączyć konto Azure Cosmos DB.
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
@@ -76,13 +77,13 @@ Wykonaj następujące kroki, aby nawiązać połączenie z Azure Cosmos DB z emu
 
 1. Zainstaluj Cosmos DB emulator, a następnie otwórz go. Informacje na temat sposobu instalowania emulatora znajdują się w temacie [Cosmos DB emulator](./local-emulator.md).
 
-1. Znajdź **lokalne i dołączone** w lewym drzewie, kliknij prawym przyciskiem myszy pozycję **Cosmos DB konta**, a następnie wybierz pozycję **Połącz z emulatorem Cosmos DB**.
+1. Znajdź **lokalne i dołączone** w lewym drzewie, kliknij prawym przyciskiem myszy pozycję **Cosmos DB konta** , a następnie wybierz pozycję **Połącz z emulatorem Cosmos DB** .
 
     :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 1. W oknie **łączenie z Cosmos DB** :
    1. Wklej parametry połączenia w polu **Parametry połączenia** . Aby uzyskać informacje na temat pobierania podstawowych parametrów połączenia, zobacz [pobieranie parametrów połączenia](manage-with-powershell.md#list-keys).
-   1. Wprowadź **etykietę konta**, a następnie wybierz pozycję **dalej** , aby sprawdzić podsumowanie.
+   1. Wprowadź **etykietę konta** , a następnie wybierz pozycję **dalej** , aby sprawdzić podsumowanie.
    1. Wybierz pozycję **Połącz** , aby połączyć konto Azure Cosmos DB.
 
       :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
@@ -117,7 +118,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 #### <a name="create-a-database"></a>Tworzenie bazy danych
 
-1. Kliknij prawym przyciskiem myszy konto Azure Cosmos DB, a następnie wybierz polecenie **Utwórz bazę danych**.
+1. Kliknij prawym przyciskiem myszy konto Azure Cosmos DB, a następnie wybierz polecenie **Utwórz bazę danych** .
 
    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
@@ -125,7 +126,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 #### <a name="delete-a-database"></a>Usuwanie bazy danych
 
-1. Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie **Usuń bazę danych**. 
+1. Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie **Usuń bazę danych** . 
 
    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
@@ -135,11 +136,11 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 #### <a name="create-a-collection"></a>Tworzenie kolekcji
 
-1. Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję **Utwórz kolekcję**.
+1. Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję **Utwórz kolekcję** .
 
    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
-1. W oknie Tworzenie kolekcji wprowadź żądane informacje, takie jak **identyfikator kolekcji** i **pojemność magazynu**itd. Wybierz przycisk **OK**, aby zakończyć.
+1. W oknie Tworzenie kolekcji wprowadź żądane informacje, takie jak **identyfikator kolekcji** i **pojemność magazynu** itd. Wybierz przycisk **OK** , aby zakończyć.
 
    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
@@ -152,7 +153,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 #### <a name="delete-a-collection"></a>Usuwanie kolekcji
 
-- Kliknij prawym przyciskiem myszy kolekcję, wybierz pozycję **Usuń kolekcję**, a następnie wybierz pozycję **tak** w oknie podręcznym.
+- Kliknij prawym przyciskiem myszy kolekcję, wybierz pozycję **Usuń kolekcję** , a następnie wybierz pozycję **tak** w oknie podręcznym.
 
     Węzeł kolekcji zostanie usunięty, a baza danych zostanie odświeżona automatycznie.
 
@@ -162,8 +163,8 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 #### <a name="create-and-modify-documents"></a>Tworzenie i modyfikowanie dokumentów
 
-- Otwórz okno **dokumenty** w lewym okienku, wybierz pozycję **Nowy dokument**, Edytuj zawartość w okienku po prawej stronie, a następnie wybierz pozycję **Zapisz**.
-- Możesz również zaktualizować istniejący dokument, a następnie wybrać pozycję **Zapisz**. Aby odrzucić zmiany, wybierz pozycję **Odrzuć**.
+- Otwórz okno **dokumenty** w lewym okienku, wybierz pozycję **Nowy dokument** , Edytuj zawartość w okienku po prawej stronie, a następnie wybierz pozycję **Zapisz** .
+- Możesz również zaktualizować istniejący dokument, a następnie wybrać pozycję **Zapisz** . Aby odrzucić zmiany, wybierz pozycję **Odrzuć** .
 
   :::image type="content" source="./media/storage-explorer/document.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
@@ -173,7 +174,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 #### <a name="query-for-documents"></a>Wykonywanie zapytań dotyczących dokumentów
 
-* Aby edytować filtr dokumentu, wprowadź [zapytanie SQL](./sql-query-getting-started.md), a następnie wybierz pozycję **Zastosuj**.
+* Aby edytować filtr dokumentu, wprowadź [zapytanie SQL](./sql-query-getting-started.md), a następnie wybierz pozycję **Zastosuj** .
 
   :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
@@ -181,7 +182,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 #### <a name="create-and-modify-a-vertex"></a>Tworzenie i modyfikowanie wierzchołka
 
-* Aby utworzyć nowy wierzchołek, Otwórz program **Graph** w okienku po lewej stronie, wybierz pozycję **nowy wierzchołek**, Edytuj zawartość, a następnie wybierz **przycisk OK**.
+* Aby utworzyć nowy wierzchołek, Otwórz program **Graph** w okienku po lewej stronie, wybierz pozycję **nowy wierzchołek** , Edytuj zawartość, a następnie wybierz **przycisk OK** .
 * Aby zmodyfikować istniejący wierzchołek, wybierz ikonę pióra w okienku po prawej stronie.
 
    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
@@ -192,7 +193,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 #### <a name="filter-for-graph"></a>Filtrowanie wykresów
 
-* Aby edytować filtr wykresu, wprowadź [zapytanie Gremlin](gremlin-support.md), a następnie wybierz pozycję **Zastosuj filtr**.
+* Aby edytować filtr wykresu, wprowadź [zapytanie Gremlin](gremlin-support.md), a następnie wybierz pozycję **Zastosuj filtr** .
 
    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
@@ -201,14 +202,14 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 #### <a name="create-and-modify-a-table"></a>Tworzenie i modyfikowanie tabeli
 
 * Aby utworzyć nową tabelę:
-   1. W okienku po lewej stronie Otwórz pozycję **jednostki**, a następnie wybierz pozycję **Dodaj**.
+   1. W okienku po lewej stronie Otwórz pozycję **jednostki** , a następnie wybierz pozycję **Dodaj** .
    1. W oknie dialogowym **Dodawanie jednostki** Edytuj zawartość.
    1. Wybierz przycisk **Dodaj właściwość** , aby dodać właściwość.
-   1. Wybierz pozycję **Wstaw**.
+   1. Wybierz pozycję **Wstaw** .
 
       :::image type="content" source="./media/storage-explorer/table.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
-* Aby zmodyfikować tabelę, wybierz pozycję **Edytuj**, zmodyfikuj zawartość, a następnie wybierz pozycję **Aktualizuj**.
+* Aby zmodyfikować tabelę, wybierz pozycję **Edytuj** , zmodyfikuj zawartość, a następnie wybierz pozycję **Aktualizuj** .
 
    
 
@@ -234,15 +235,15 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Zarządzanie procedurami składowanymi, wyzwalaczami i funkcjami definiowanymi przez użytkownika (UDF)
 
 * Aby utworzyć procedurę przechowywaną:
-  1. W lewym drzewie kliknij prawym przyciskiem myszy **procedury składowane**, a następnie wybierz polecenie **Utwórz procedurę składowaną**.
+  1. W lewym drzewie kliknij prawym przyciskiem myszy **procedury składowane** , a następnie wybierz polecenie **Utwórz procedurę składowaną** .
   
      :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
   
-  1. Wprowadź nazwę z lewej strony, w okienku po prawej stronie Wprowadź skrypty procedury składowanej, a następnie wybierz pozycję **Utwórz**.
+  1. Wprowadź nazwę z lewej strony, w okienku po prawej stronie Wprowadź skrypty procedury składowanej, a następnie wybierz pozycję **Utwórz** .
   
 * Aby edytować istniejącą procedurę składowaną, kliknij dwukrotnie procedurę, wprowadź aktualizację, a następnie wybierz pozycję **Aktualizuj** , aby zapisać. Możesz również wybrać pozycję **Odrzuć** , aby anulować zmianę.
 
-* Operacje dotyczące **wyzwalaczy** i **UDF** są podobne do **procedur składowanych**.
+* Operacje dotyczące **wyzwalaczy** i **UDF** są podobne do **procedur składowanych** .
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -256,7 +257,7 @@ Najpierw należy ponownie uruchomić aplikację, aby sprawdzić, czy ten problem
 
 Istnieje kilka powodów, dla których widzisz ten błąd, dwa Najczęstsze są następujące:
 
-* Jesteś za *przezroczystym serwerem proxy*. Ktoś, podobnie jak dział IT, przechwytuje ruch HTTPS, odszyfrowuje go, a następnie szyfruje przy użyciu certyfikatu z podpisem własnym.
+* Jesteś za *przezroczystym serwerem proxy* . Ktoś, podobnie jak dział IT, przechwytuje ruch HTTPS, odszyfrowuje go, a następnie szyfruje przy użyciu certyfikatu z podpisem własnym.
 
 * Używasz oprogramowania, takiego jak oprogramowanie antywirusowe. Oprogramowanie wprowadza certyfikat TLS/SSL z podpisem własnym do odbieranych wiadomości HTTPS.
 
@@ -268,12 +269,12 @@ Gdy Eksplorator usługi Storage odnajdzie certyfikat z podpisem własnym, nie ma
      - macOS i Linux: powinny być dołączone do systemu operacyjnego.
 
 1. Uruchom OpenSSL:
-    * Windows: Przejdź do katalogu instalacyjnego, a następnie **/bin/**, a następnie kliknij dwukrotnie przycisk **openssl.exe**.
+    * Windows: Przejdź do katalogu instalacyjnego, a następnie **/bin/** , a następnie kliknij dwukrotnie przycisk **openssl.exe** .
     * Mac i Linux: wykonywanie **OpenSSL** z terminalu.
 1. Wykonaj `s_client -showcerts -connect microsoft.com:443` .
 1. Wyszukaj certyfikaty z podpisem własnym. Jeśli nie masz pewności, co jest z podpisem własnym, poszukaj w dowolnym miejscu ("s:") i wystawcy ("i:").
 1. Jeśli znajdziesz wszystkie certyfikaty z podpisem własnym, skopiuj i Wklej wszystko z i, w tym **-----Rozpocznij certyfikat-----** , aby **----------certyfikatów** do nowej. Plik CER dla każdej z nich.
-1. Otwórz Eksplorator usługi Storage, a następnie przejdź do pozycji **Edytuj**  >  **Certyfikaty SSL**  >  **Importuj certyfikaty**. Użyj selektora plików, aby znaleźć, wybrać, a następnie otwórz. Utworzone pliki CER.
+1. Otwórz Eksplorator usługi Storage, a następnie przejdź do pozycji **Edytuj**  >  **Certyfikaty SSL**  >  **Importuj certyfikaty** . Użyj selektora plików, aby znaleźć, wybrać, a następnie otwórz. Utworzone pliki CER.
 
 Jeśli nie znajdziesz żadnych certyfikatów z podpisem własnym, możesz wysłać opinię, aby uzyskać pomoc.
 
@@ -321,7 +322,7 @@ Jeśli nie możesz usunąć konta lub link ponownego uwierzytelnienia nie wykonu
   * ~/.config/StorageExplorer dla systemu Linux
   
   > [!NOTE]
-  > Po usunięciu tych plików **należy ponownie wprowadzić wszystkie poświadczenia**.
+  > Po usunięciu tych plików **należy ponownie wprowadzić wszystkie poświadczenia** .
 
 ### <a name="httphttps-proxy-issue"></a>Problem z serwerem proxy HTTP/HTTPS
 

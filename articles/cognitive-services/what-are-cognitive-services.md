@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 2cc0ef4ed0e7a63a822efc34e223cbec20815dd9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 82531466c80917087ca007900ca79b3485f38a21
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521479"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546266"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Co to jest platforma Azure Cognitive Services?
 
@@ -44,7 +44,7 @@ Poniższe sekcje tego artykułu zawierają listę usług, które są częścią 
 |[Rozpoznawanie twarzy](https://docs.microsoft.com/azure/cognitive-services/face/ "Rozpoznawanie twarzy")| Usługa kroju obsługi zapewnia dostęp do zaawansowanych algorytmów, co umożliwia wykrywanie i rozpoznawanie atrybutów.|
 |[Rozpoznawanie formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Rozpoznawanie formularzy")|Aparat rozpoznawania formularzy identyfikuje i wyodrębnia pary klucz-wartość oraz dane tabeli z dokumentów formularzy; następnie dane są wyprowadzane z uwzględnieniem relacji w oryginalnym pliku.|
 |[Aparat rozpoznawania atramentu](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Rozpoznawanie pisma odręcznego") (wycofywanie)|Aparat rozpoznawania pisma odręcznego pozwala rozpoznawać i analizować dane cyfrowego pociągnięć odręcznych, kształtów i zawartości napisanej ręcznie, a następnie wyprowadzać strukturę dokumentu ze wszystkimi rozpoznanymi obiektami.|
-|[Indeksator wideo](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Indeksator wideo")|Video Indexer umożliwia wyodrębnienie szczegółowych informacji z filmu wideo.|
+|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer umożliwia wyodrębnienie szczegółowych informacji z filmu wideo.|
 
 ## <a name="speech-apis"></a>Interfejsy API mowy
 
@@ -84,7 +84,7 @@ Poniższe sekcje tego artykułu zawierają listę usług, które są częścią 
 |:-----------|:------------------|
 |[Wyszukiwanie wiadomości (Bing)](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "Wyszukiwanie wiadomości (Bing)")|Wyszukiwanie wiadomości Bing zwraca listę artykułów z wiadomościami ustalonych jako istotne dla zapytania użytkownika.|
 |[Wyszukiwanie klipów wideo w usłudze Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "Wyszukiwanie klipów wideo w usłudze Bing")|Wyszukiwanie wideo Bing zwraca listę filmów wideo, które zostały określone jako istotne dla zapytania użytkownika.|
-|[Wyszukiwanie w sieci Web (Bing)](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/ "Wyszukiwanie w sieci Web (Bing)")|Wyszukiwanie w sieci Web Bing zwraca listę wyników wyszukiwania, które zostały uznane za istotne dla zapytania użytkownika.|
+|[Wyszukiwanie w Internecie Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/ "Wyszukiwanie w Internecie Bing")|Wyszukiwanie w sieci Web Bing zwraca listę wyników wyszukiwania, które zostały uznane za istotne dla zapytania użytkownika.|
 |[Automatyczne sugerowanie Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest "Automatyczne sugerowanie Bing")|Automatyczne sugerowanie Bing umożliwia wysłanie terminu zapytania wyszukiwania częściowego do usługi Bing i odwracanie listy sugerowanych zapytań.|
 |[Wyszukiwanie niestandardowe Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search "Wyszukiwanie niestandardowe Bing")|Wyszukiwanie niestandardowe Bing umożliwia tworzenie dostosowanych środowisk wyszukiwania dla tematów, które Cię interesują.|
 |[Wyszukiwanie jednostek Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Wyszukiwanie jednostek Bing")|Wyszukiwanie jednostek Bing zwraca informacje o jednostkach, które są określane przez usługę Bing, w odniesieniu do zapytania użytkownika.|
@@ -93,7 +93,18 @@ Poniższe sekcje tego artykułu zawierają listę usług, które są częścią 
 |[Wyszukiwanie lokalnych firm w usłudze Bing](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Wyszukiwanie lokalnych firm w usłudze Bing")| Interfejs API wyszukiwania lokalnego usługi Bing umożliwia aplikacjom Znajdowanie informacji o kontakcie i lokalizacji na temat lokalnych firm w oparciu o zapytania wyszukiwania.|
 |[Sprawdzanie pisowni Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Sprawdzanie pisowni Bing")|Sprawdzanie pisowni Bing umożliwia wykonywanie gramatycznych kontekstowych i sprawdzanie pisowni.|
 
-## <a name="get-started-with-cognitive-services"></a>Wprowadzenie do usług Cognitive Services
+## <a name="development-options"></a>Opcje programowania 
+
+Dzięki platformie Azure i Cognitive Services masz dostęp do kilku opcji programistycznych, takich jak:
+
+* Narzędzia do automatyzacji i integracji, takie jak Logic Apps i Automatyzacja.
+* Opcje wdrażania, takie jak Azure Functions i App Service. 
+* Cognitive Services kontenerów platformy Docker na potrzeby bezpiecznego dostępu.
+* Narzędzia takie jak Apache Spark, Azure Databricks, Azure Synapse Analytics i Azure Kubernetes Service na potrzeby scenariuszy danych Big Data. 
+
+Aby dowiedzieć się więcej, zobacz [Cognitive Services opcje projektowania](./cognitive-services-development-options.md).
+
+## <a name="learn-with-the-quickstarts"></a>Zapoznaj się z przewodnikami Szybki Start
 
 Zacznij od utworzenia zasobu Cognitive Services za pomocą praktycznych przewodników Szybki Start przy użyciu następujących metod:
 

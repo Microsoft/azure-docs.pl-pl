@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: bcd232a3242b0341bfc81fa9785f76b0d3bd90cb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2f1edc14efdeaf70bf4c2acc0e31e1517753ed3e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369458"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546351"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii maszyny wirtualnej VMware/serwera fizycznego
 
@@ -29,24 +29,24 @@ Licencja świadczona z szablonem OVF to licencja ewaluacyjna ważna przez 180 dn
 Dostęp do serwera konfiguracji można uzyskać w następujący sposób:
 
 * Zaloguj się do maszyny wirtualnej, na której ją wdrożono, i zacznij **Azure Site Recovery Configuration Manager** ze skrótu na pulpicie.
-* Alternatywnie możesz uzyskać dostęp do serwera konfiguracji zdalnie z https://*ConfigurationServerName*/: 44315/. Zaloguj się przy użyciu poświadczeń administratora.
+* Alternatywnie możesz uzyskać dostęp do serwera konfiguracji zdalnie z https:// *ConfigurationServerName* /: 44315/. Zaloguj się przy użyciu poświadczeń administratora.
 
 ## <a name="modify-vmware-server-settings"></a>Modyfikowanie ustawień serwera VMware
 
-1. Aby skojarzyć inny serwer VMware z serwerem konfiguracji, po [zalogowaniu](#access-configuration-server)wybierz pozycję **Dodaj vCenter Server/vSphere ESXi serwer**.
-2. Wprowadź szczegóły, a następnie wybierz przycisk **OK**.
+1. Aby skojarzyć inny serwer VMware z serwerem konfiguracji, po [zalogowaniu](#access-configuration-server)wybierz pozycję **Dodaj vCenter Server/vSphere ESXi serwer** .
+2. Wprowadź szczegóły, a następnie wybierz przycisk **OK** .
 
 ## <a name="modify-credentials-for-automatic-discovery"></a>Modyfikowanie poświadczeń na potrzeby automatycznego odnajdywania
 
-1. Aby zaktualizować poświadczenia używane do nawiązywania połączenia z serwerem VMware w celu automatycznego odnajdywania maszyn wirtualnych VMware, po [zalogowaniu](#access-configuration-server)wybierz konto i kliknij przycisk **Edytuj**.
-2. Wprowadź nowe poświadczenia, a następnie wybierz przycisk **OK**.
+1. Aby zaktualizować poświadczenia używane do nawiązywania połączenia z serwerem VMware w celu automatycznego odnajdywania maszyn wirtualnych VMware, po [zalogowaniu](#access-configuration-server)wybierz konto i kliknij przycisk **Edytuj** .
+2. Wprowadź nowe poświadczenia, a następnie wybierz przycisk **OK** .
 
     ![Modyfikowanie oprogramowania VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
 Poświadczenia można także modyfikować za pomocą CSPSConfigtool.exe.
 
 1. Zaloguj się do serwera konfiguracji i uruchom CSPSConfigtool.exe
-2. Wybierz konto, które chcesz zmodyfikować, a następnie kliknij przycisk **Edytuj**.
+2. Wybierz konto, które chcesz zmodyfikować, a następnie kliknij przycisk **Edytuj** .
 3. Wprowadź zmodyfikowane poświadczenia i kliknij przycisk **OK** .
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Modyfikuj poświadczenia instalacji usługi mobilności
@@ -55,7 +55,7 @@ Zmodyfikuj poświadczenia używane do automatycznej instalacji usługi mobilnoś
 
 1. Po [zalogowaniu](#access-configuration-server)wybierz pozycję **Zarządzaj poświadczeniami maszyny wirtualnej**
 2. Wybierz konto, które chcesz zmodyfikować, a następnie kliknij pozycję **Edytuj** .
-3. Wprowadź nowe poświadczenia, a następnie wybierz przycisk **OK**.
+3. Wprowadź nowe poświadczenia, a następnie wybierz przycisk **OK** .
 
     ![Modyfikowanie poświadczeń usługi mobilności](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
@@ -63,27 +63,27 @@ Możesz również zmodyfikować poświadczenia za CSPSConfigtool.exe.
 
 1. Zaloguj się do serwera konfiguracji i uruchom CSPSConfigtool.exe
 2. Wybierz konto, które chcesz zmodyfikować, a następnie kliknij pozycję **Edytuj** .
-3. Wprowadź nowe poświadczenia i kliknij przycisk **OK**.
+3. Wprowadź nowe poświadczenia i kliknij przycisk **OK** .
 
 ## <a name="add-credentials-for-mobility-service-installation"></a>Dodawanie poświadczeń do instalacji usługi mobilności
 
 Jeśli pominięto Dodawanie poświadczeń podczas OVF wdrażania serwera konfiguracji,
 
-1. Po [zalogowaniu](#access-configuration-server)wybierz pozycję **Zarządzaj poświadczeniami maszyny wirtualnej**.
-2. Kliknij pozycję **Dodaj poświadczenia maszyny wirtualnej**.
+1. Po [zalogowaniu](#access-configuration-server)wybierz pozycję **Zarządzaj poświadczeniami maszyny wirtualnej** .
+2. Kliknij pozycję **Dodaj poświadczenia maszyny wirtualnej** .
     ![Zrzut ekranu przedstawia okienko zarządzanie poświadczeniami maszyny wirtualnej za pomocą linku Dodawanie poświadczeń maszyny wirtualnej.](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
-3. Wprowadź nowe poświadczenia i kliknij przycisk **Dodaj**.
+3. Wprowadź nowe poświadczenia i kliknij przycisk **Dodaj** .
 
 Możesz również dodać poświadczenia za CSPSConfigtool.exe.
 
 1. Zaloguj się do serwera konfiguracji i uruchom CSPSConfigtool.exe
-2. Kliknij przycisk **Dodaj**, wprowadź nowe poświadczenia i kliknij przycisk **OK**.
+2. Kliknij przycisk **Dodaj** , wprowadź nowe poświadczenia i kliknij przycisk **OK** .
 
 ## <a name="modify-proxy-settings"></a>Modyfikowanie ustawień serwera proxy
 
 Zmodyfikuj ustawienia serwera proxy używane przez maszynę serwera konfiguracji na potrzeby dostępu do Internetu na platformie Azure. W przypadku maszyny serwera przetwarzania oprócz domyślnego serwera przetwarzania uruchomionego na komputerze serwera konfiguracji należy zmodyfikować ustawienia na obu komputerach.
 
-1. Po [zalogowaniu](#access-configuration-server) się do serwera konfiguracji wybierz pozycję **Zarządzaj łącznością**.
+1. Po [zalogowaniu](#access-configuration-server) się do serwera konfiguracji wybierz pozycję **Zarządzaj łącznością** .
 2. Zaktualizuj wartości serwera proxy. Następnie wybierz pozycję **Zapisz** , aby zaktualizować ustawienia.
 
 ## <a name="add-a-network-adapter"></a>Dodaj kartę sieciową
@@ -99,7 +99,7 @@ Serwer konfiguracji ma wbudowany serwer sieci Web, który organizuje działania 
 
 ### <a name="check-expiry"></a>Sprawdź ważność
 
-Data wygaśnięcia jest wyświetlana w obszarze **kondycja serwera konfiguracji**. W przypadku wdrożeń serwera konfiguracji przed 2016 maja wartość wygaśnięcia certyfikatu została ustawiona na jeden rok. Jeśli masz certyfikat, który wkrótce wygaśnie, wystąpią następujące sytuacje:
+Data wygaśnięcia jest wyświetlana w obszarze **kondycja serwera konfiguracji** . W przypadku wdrożeń serwera konfiguracji przed 2016 maja wartość wygaśnięcia certyfikatu została ustawiona na jeden rok. Jeśli masz certyfikat, który wkrótce wygaśnie, wystąpią następujące sytuacje:
 
 - Gdy data wygaśnięcia wynosi dwa miesiące lub mniej, usługa zaczyna wysyłać powiadomienia w portalu i pocztą e-mail (Jeśli subskrybujesz powiadomienia Site Recovery).
 - Na stronie zasobów magazynu zostanie wyświetlony transparent powiadomienia. Aby uzyskać więcej informacji, wybierz transparent.
@@ -107,14 +107,14 @@ Data wygaśnięcia jest wyświetlana w obszarze **kondycja serwera konfiguracji*
 
 ### <a name="if-certificates-are-yet-to-expire"></a>Jeśli certyfikaty jeszcze nie wygasną
 
-1. Aby odnowić w magazynie, Otwórz **Site Recovery**  >  **serwer konfiguracji**infrastruktury. Wybierz wymagany serwer konfiguracji.
+1. Aby odnowić w magazynie, Otwórz **Site Recovery**  >  **serwer konfiguracji** infrastruktury. Wybierz wymagany serwer konfiguracji.
 2. Upewnij się, że wszystkie składniki serwerów przetwarzania skalowalnego w poziomie, główne serwery docelowe i agenci mobilności na wszystkich chronionych maszynach znajdują się w najnowszych wersjach i są w stanie połączonym.
-3. Teraz wybierz pozycję **Odnów certyfikaty**.
+3. Teraz wybierz pozycję **Odnów certyfikaty** .
 4. Uważnie postępuj zgodnie z instrukcjami na tej stronie, a następnie kliknij przycisk OK, aby odnowić certyfikaty na wybranym serwerze konfiguracji i skojarzone składniki.
 
 ### <a name="if-certificates-have-already-expired"></a>Jeśli certyfikaty już wygasły
 
-1. Po wygaśnięciu **nie można odnowić certyfikatów z Azure Portal**. Przed kontynuowaniem upewnij się, że wszystkie składniki skalowalne w poziomie serwery procesów, główne serwery docelowe i agenci mobilności na wszystkich chronionych komputerach znajdują się w najnowszych wersjach i są w stanie połączonym.
+1. Po wygaśnięciu **nie można odnowić certyfikatów z Azure Portal** . Przed kontynuowaniem upewnij się, że wszystkie składniki skalowalne w poziomie serwery procesów, główne serwery docelowe i agenci mobilności na wszystkich chronionych komputerach znajdują się w najnowszych wersjach i są w stanie połączonym.
 2. **Wykonaj tę procedurę tylko wtedy, gdy certyfikaty już wygasły.** Zaloguj się do serwera konfiguracji, przejdź do dysku C > dane programu > Site Recovery > Home > svsystems > bin i uruchom narzędzie wykonawcze "Narzędzie renewcerts" jako administrator.
 3. W oknie wykonywania programu PowerShell są wydawane punkty obecności i wyzwalane są odnowienia certyfikatów. Może to potrwać maksymalnie 15 minut. Nie zamykaj okna do momentu zakończenia odnawiania.
 
@@ -125,12 +125,12 @@ Data wygaśnięcia jest wyświetlana w obszarze **kondycja serwera konfiguracji*
 Jeśli zachodzi taka potrzeba, można ponownie zarejestrować serwer konfiguracji w tym samym magazynie. Jeśli istnieje dodatkowy serwer przetwarzania, oprócz domyślnego serwera przetwarzania uruchomionego na komputerze serwera konfiguracji, należy ponownie zarejestrować obie maszyny.
 
 
-1. W magazynie Otwórz pozycję **Zarządzaj**  >  **Site Recovery Infrastructure**  >  **serwerami konfiguracji**infrastruktury Site Recovery.
-2. W obszarze **serwery**wybierz pozycję **Pobierz klucz rejestracji** , aby pobrać plik poświadczeń magazynu.
+1. W magazynie Otwórz pozycję **Zarządzaj**  >  **Site Recovery Infrastructure**  >  **serwerami konfiguracji** infrastruktury Site Recovery.
+2. W obszarze **serwery** wybierz pozycję **Pobierz klucz rejestracji** , aby pobrać plik poświadczeń magazynu.
 3. Zaloguj się na komputerze serwera konfiguracji.
-4. W **%ProgramData%\ASR\home\svsystems\bin**Otwórz **cspsconfigtool.exe**.
-5. Na karcie **rejestracja w magazynie** wybierz pozycję **Przeglądaj**, a następnie Znajdź pobrany plik poświadczeń magazynu.
-6. W razie konieczności Podaj szczegóły serwera proxy. Następnie wybierz pozycję **Zarejestruj**.
+4. W **%ProgramData%\ASR\home\svsystems\bin** Otwórz **cspsconfigtool.exe** .
+5. Na karcie **rejestracja w magazynie** wybierz pozycję **Przeglądaj** , a następnie Znajdź pobrany plik poświadczeń magazynu.
+6. W razie konieczności Podaj szczegóły serwera proxy. Następnie wybierz pozycję **Zarejestruj** .
 7. Otwórz okno poleceń administracyjnych programu PowerShell i uruchom następujące polecenie:
    ```
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -178,18 +178,18 @@ Linki do pakietów zbiorczych aktualizacji na potrzeby uaktualniania do wszystki
 
 Uaktualnij serwer w następujący sposób:
 
-1. W magazynie przejdź do pozycji **Zarządzanie**  >  **Site Recovery infrastruktura**  >  **serwery konfiguracji**.
+1. W magazynie przejdź do pozycji **Zarządzanie**  >  **Site Recovery infrastruktura**  >  **serwery konfiguracji** .
 2. Jeśli dostępna jest aktualizacja, w kolumnie > **wersja agenta** zostanie wyświetlony link.
     ![Aktualizowanie](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Pobierz plik instalatora aktualizacji na serwer konfiguracji.
 
-    ![Aktualizacja](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Zrzut ekranu pokazujący, gdzie kliknąć, aby pobrać plik instalatora aktualizacji.](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Kliknij dwukrotnie, aby uruchomić Instalatora.
 5. Instalator wykryje bieżącą wersję uruchomioną na komputerze. Kliknij przycisk **tak** , aby rozpocząć uaktualnianie.
 6. Po zakończeniu uaktualniania serwer sprawdza poprawność.
 
-    ![Aktualizacja](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Zrzut ekranu przedstawiający ukończoną konfigurację weryfikacji serwera.](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Kliknij przycisk **Zakończ** , aby zamknąć Instalatora.
 8. Aby uaktualnić pozostałe składniki Site Recovery, zapoznaj się z naszymi [wskazówkami dotyczącymi uaktualniania](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
@@ -256,8 +256,8 @@ ProxyPassword="Password"
 1. [Wyłącz ochronę](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) dla wszystkich maszyn wirtualnych na serwerze konfiguracji.
 2. Usuń [skojarzenie](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) i [usunąć](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) wszystkie zasady replikacji z serwera konfiguracji.
 3. [Usuń](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) wszystkie hosty vCenter/vSphere, które są skojarzone z serwerem konfiguracji.
-4. W magazynie Otwórz **Site Recovery**  >  **serwery konfiguracji**infrastruktury.
-5. Wybierz serwer konfiguracji, który chcesz usunąć. Następnie na stronie **szczegóły** wybierz pozycję **Usuń**.
+4. W magazynie Otwórz **Site Recovery**  >  **serwery konfiguracji** infrastruktury.
+5. Wybierz serwer konfiguracji, który chcesz usunąć. Następnie na stronie **szczegóły** wybierz pozycję **Usuń** .
 
     ![Usuń serwer konfiguracji](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
 
@@ -293,15 +293,15 @@ Opcjonalnie można usunąć serwer konfiguracji za pomocą programu PowerShell.
 
 1. Zaloguj się do serwera konfiguracji, a następnie otwórz okno wiersza polecenia jako administrator.
 2. Aby zmienić katalog na folder bin, wykonaj polecenie **CD%ProgramData%\ASR\home\svsystems\bin**
-3. Aby wygenerować plik hasła, wykonaj **genpassphrase.exe-v > MobSvc. hasło**.
-4. Hasło zostanie zapisane w pliku znajdującym się w lokalizacji **%ProgramData%\ASR\home\svsystems\bin\MobSvc.Passphrase**.
+3. Aby wygenerować plik hasła, wykonaj **genpassphrase.exe-v > MobSvc. hasło** .
+4. Hasło zostanie zapisane w pliku znajdującym się w lokalizacji **%ProgramData%\ASR\home\svsystems\bin\MobSvc.Passphrase** .
 
 ## <a name="refresh-configuration-server"></a>Odśwież serwer konfiguracji
 
 1. W Azure Portal przejdź do **magazynu Recovery Services**  >  **Zarządzanie**  >  **Site Recovery infrastruktury**  >  **dla programu VMware &**  >  **serwery konfiguracji** komputerów fizycznych
 2. Kliknij serwer konfiguracji, który chcesz odświeżyć.
-3. W bloku ze szczegółowymi informacjami o wybranym serwerze konfiguracji kliknij pozycję **więcej**  >  **Odśwież serwer**.
-4. Monitoruj postęp zadania w obszarze Recovery Services monitorowania **magazynu**  >  **Monitoring**  >  **Site Recovery zadania**.
+3. W bloku ze szczegółowymi informacjami o wybranym serwerze konfiguracji kliknij pozycję **więcej**  >  **Odśwież serwer** .
+4. Monitoruj postęp zadania w obszarze Recovery Services monitorowania **magazynu**  >  **Monitoring**  >  **Site Recovery zadania** .
 
 ## <a name="failback-requirements"></a>Wymagania dotyczące powrotu po awarii
 

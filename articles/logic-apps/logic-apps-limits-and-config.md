@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 05881791d495770167b271e20de173e6679f39d9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0235b8350e21fa51d1b3fed747a11b681f125e67
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440658"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540724"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -37,7 +37,7 @@ Poniżej przedstawiono limity dla jednej definicji aplikacji logiki:
 | Maksymalna liczba `parameters` | 50 | |
 | Maksymalna liczba `outputs` | 10 | |
 | Maksymalny rozmiar dla `trackedProperties` | 16 000 znaków |
-| Akcja kodu wbudowanego — Maksymalna liczba znaków kodu | 1 024 znaków <p>Aby uzyskać limit znaków 100 000, Utwórz Aplikacje logiki przy użyciu Visual Studio Code i [rozszerzenia podglądu **Azure Logic Apps** ](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
+| Akcja kodu wbudowanego — Maksymalna liczba znaków kodu | 1 024 znaków <p>Aby uzyskać limit znaków 100 000, Utwórz Aplikacje logiki przy użyciu Visual Studio Code i [rozszerzenia podglądu **Azure Logic Apps**](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
 
 <a name="run-duration-retention-limits"></a>
 
@@ -47,39 +47,60 @@ Poniżej przedstawiono limity dla pojedynczego uruchomienia aplikacji logiki:
 
 | Nazwa | Limit wielu dzierżawców | Limit środowiska usługi integracji | Uwagi |
 |------|--------------------|---------------------------------------|-------|
-| Czas trwania przebiegu | 90 dni | 366 dni | Czas trwania przebiegu jest obliczany przy użyciu czasu rozpoczęcia uruchomienia. |
-| Uruchom przechowywanie historii w magazynie | 90 dni | 366 dni | Jeśli czas trwania uruchomienia przekracza limit przechowywania bieżącej historii przebiegów, przebieg zostanie usunięty z historii uruchamiania w magazynie. Bez względu na to, czy uruchomienie przebiegu lub przekroczenie limitu czasu, przechowywanie historii przebiegów jest zawsze obliczane przy użyciu czasu rozpoczęcia i bieżącego limitu określonego w ustawieniu przepływu pracy. [**przechowywanie historii przebiega w dniach**](#change-retention). Niezależnie od poprzedniego limitu bieżący limit jest zawsze używany do obliczania przechowywania. <p><p>Aby zmienić domyślny limit i aby uzyskać więcej informacji, zobacz [zmiana zachowania historii przebiegów w magazynie](#change-retention). Aby zwiększyć maksymalny limit, [skontaktuj się z zespołem Logic Apps](mailto://logicappsemail@microsoft.com) , aby uzyskać pomoc dotyczącą Twoich wymagań. |
+| Czas trwania przebiegu | 90 dni | 366 dni | Czas wykonywania jest obliczany przy użyciu czasu rozpoczęcia przebiegu i limitu określonego w ustawieniu przepływu pracy. [**przechowywanie historii w dniach**](#change-duration) o tej godzinie. <p><p>Aby zmienić domyślny limit, zobacz temat [Zmienianie czasu trwania i przechowywanie historii w magazynie](#change-duration). |
+| Uruchom przechowywanie historii w magazynie | 90 dni | 366 dni | Jeśli czas trwania uruchomienia przekracza limit przechowywania bieżącej historii przebiegów, przebieg zostanie usunięty z historii uruchamiania w magazynie. Bez względu na to, czy uruchomienie przebiegu lub przekroczenie limitu czasu, przechowywanie historii przebiegów jest zawsze obliczane przy użyciu czasu rozpoczęcia i bieżącego limitu określonego w ustawieniu przepływu pracy. [**przechowywanie historii przebiega w dniach**](#change-retention). Niezależnie od poprzedniego limitu bieżący limit jest zawsze używany do obliczania przechowywania. <p><p>Aby zmienić domyślny limit i uzyskać więcej informacji, zobacz temat [zmiana czasu trwania i uruchamianie historii przechowywania w magazynie](#change-retention). Aby zwiększyć maksymalny limit, [skontaktuj się z zespołem Logic Apps](mailto://logicappsemail@microsoft.com) , aby uzyskać pomoc dotyczącą Twoich wymagań. |
 | Minimalny interwał cyklu | 1 sekunda | 1 sekunda ||
 | Maksymalny interwał cyklu | 500 dni | 500 dni ||
 |||||
 
+<a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-history-retention-in-storage"></a>Przechowywanie historii przebiegów zmian w magazynie
+### <a name="change-run-duration-and-history-retention-in-storage"></a>Czas trwania przebiegu zmian i przechowywanie historii w magazynie
 
-Aby zmienić domyślny limit przechowywania historii przebiegów w magazynie, wykonaj następujące czynności.
+To samo ustawienie określa maksymalną liczbę dni uruchamiania przepływu pracy oraz przechowywanie historii uruchamiania w magazynie. Aby zmienić domyślny lub bieżący limit tych właściwości, wykonaj następujące kroki.
 
 * W przypadku aplikacji logiki na platformie Azure z wieloma dzierżawcami domyślny limit 90 dni jest taki sam, jak maksymalny limit. Tę wartość można zmniejszyć tylko.
 
 * W przypadku aplikacji logiki w środowisku usługi integracji można obniżyć lub zwiększyć 90-dniowy limit.
 
-Załóżmy na przykład, że zmniejszasz limit przechowywania od 90 do 30 dni. W historii uruchamiania zostanie usunięte 60-dniowe uruchomienie. Jeśli okres przechowywania zostanie zwiększony z 30 dni do 60 dni, zostanie uruchomione 20-dniowe w historii przebiegów przez kolejne 40 dni. 
-
+Załóżmy na przykład, że zmniejszasz limit przechowywania od 90 do 30 dni. W historii uruchamiania zostanie usunięte 60-dniowe uruchomienie. Jeśli okres przechowywania zostanie zwiększony z 30 dni do 60 dni, zostanie uruchomione 20-dniowe w historii przebiegów przez kolejne 40 dni.
 
 > [!IMPORTANT]
-> Aby uniknąć utraty historii przebiegów, upewnij się, że limit przechowywania jest *zawsze* większy niż najdłuższy możliwy czas trwania. W przeciwnym razie historia przebiegu zostanie utracona.
+> Jeśli czas trwania uruchomienia przekracza limit przechowywania bieżącej historii przebiegów, przebieg zostanie usunięty z historii uruchamiania w magazynie. Aby uniknąć utraty historii przebiegów, upewnij się, że limit przechowywania jest *zawsze* większy niż najdłuższy możliwy czas trwania.
 
-1. W polu wyszukiwania [Azure Portal](https://portal.azure.com) Znajdź i wybierz pozycję **Aplikacje logiki**.
+1. W polu wyszukiwania [Azure Portal](https://portal.azure.com) Znajdź i wybierz pozycję **Aplikacje logiki** .
 
 1. Znajdź i wybierz aplikację logiki. Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. W menu aplikacji logiki wybierz pozycję **Ustawienia przepływu pracy**.
+1. W menu aplikacji logiki wybierz pozycję **Ustawienia przepływu pracy** .
 
-1. W obszarze **Opcje środowiska uruchomieniowego**na liście **przechowywanie historii uruchamiania w dniach** wybierz pozycję **niestandardowa**.
+1. W obszarze **Opcje środowiska uruchomieniowego** na liście **przechowywanie historii uruchamiania w dniach** wybierz pozycję **niestandardowa** .
 
 1. Przeciągnij suwak, aby zmienić żądaną liczbę dni.
 
-1. Gdy skończysz, na pasku narzędzi **Ustawienia przepływu pracy** wybierz pozycję **Zapisz**.
+1. Gdy skończysz, na pasku narzędzi **Ustawienia przepływu pracy** wybierz pozycję **Zapisz** .
+
+Jeśli wygenerujesz szablon Azure Resource Manager dla aplikacji logiki, to ustawienie będzie wyświetlane jako właściwość w definicji zasobu przepływu pracy, która jest opisana w [dokumentacji szablonu przepływy pracy Microsoft. Logic](/templates/microsoft.logic/workflows):
+
+```json
+{
+   "name": "{logic-app-name}",
+   "type": "Microsoft.Logic/workflows",
+   "location": "{Azure-region}",
+   "apiVersion": "2019-05-01",
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "runtimeConfiguration": {
+         "lifetime": {
+            "unit": "day",
+            "count": {number-of-days}
+         }
+      }
+   }
+}
+```
 
 <a name="looping-debatching-limits"></a>
 
@@ -89,11 +110,11 @@ Poniżej przedstawiono limity dla pojedynczego uruchomienia aplikacji logiki:
 
 | Nazwa | Limit | Uwagi |
 | ---- | ----- | ----- |
-| Współbieżność wyzwalacza | -Nieograniczone, gdy kontrola współbieżności jest wyłączona <p><p>-25 jest domyślnym limitem, gdy włączony jest formant współbieżności, którego nie można cofnąć po włączeniu współbieżności. Można zmienić wartość domyślną z przedziału od 1 do 50 włącznie. | Ten limit opisuje największą liczbę wystąpień aplikacji logiki, które mogą być uruchamiane w tym samym czasie lub równolegle. <p><p>**Uwaga**: po włączeniu współbieżności limit SplitOn zostaje zredukowany do 100 elementów na potrzeby tworzenia [wsadowych tablic](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Aby zmienić domyślny limit na wartość z przedziału od 1 do 50 włącznie, zobacz [Zmienianie wyzwalacza współbieżności](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) lub [wystąpień wyzwalaczy sekwencyjnie](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Współbieżność wyzwalacza | -Nieograniczone, gdy kontrola współbieżności jest wyłączona <p><p>-25 jest domyślnym limitem, gdy włączony jest formant współbieżności, którego nie można cofnąć po włączeniu współbieżności. Można zmienić wartość domyślną z przedziału od 1 do 50 włącznie. | Ten limit opisuje największą liczbę wystąpień aplikacji logiki, które mogą być uruchamiane w tym samym czasie lub równolegle. <p><p>**Uwaga** : po włączeniu współbieżności limit SplitOn zostaje zredukowany do 100 elementów na potrzeby tworzenia [wsadowych tablic](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Aby zmienić domyślny limit na wartość z przedziału od 1 do 50 włącznie, zobacz [Zmienianie wyzwalacza współbieżności](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) lub [wystąpień wyzwalaczy sekwencyjnie](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Maksymalna liczba oczekujących przebiegów | -Bez współbieżności minimalna liczba oczekujących uruchomień wynosi 1, a maksymalna liczba to 50. <p><p>— Za pomocą współbieżności minimalna liczba oczekujących uruchomień wynosi 10 i liczbę współbieżnych uruchomień (współbieżność wyzwalacza). Można zmienić maksymalną liczbę do 100 włącznie. | Ten limit opisuje największą liczbę wystąpień aplikacji logiki, które mogą czekać na uruchomienie, gdy w aplikacji logiki jest już uruchomiona Maksymalna liczba wystąpień współbieżnych. <p><p>Aby zmienić domyślny limit, zobacz [Limit uruchamiania oczekujących zmian](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Elementy tablicy foreach | 100 000 | Ten limit opisuje największą liczbę elementów tablicy, które może przetworzyć pętla for each. <p><p>Aby filtrować większe tablice, można użyć [akcji zapytania](logic-apps-perform-data-operations.md#filter-array-action). |
 | Współbieżność foreach | 20 jest domyślnym limitem, gdy kontrola współbieżności jest wyłączona. Można zmienić wartość domyślną z przedziału od 1 do 50 włącznie. | Ten limit to największą liczbę iteracji pętli "for each", które mogą być uruchamiane w tym samym czasie lub równolegle. <p><p>Aby zmienić domyślny limit na wartość z przedziału od 1 do 50 włącznie, zobacz [zmiana "dla każdego" ograniczenia współbieżności](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) lub [uruchomienie "dla każdej" pętli sekwencyjnie](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Elementy SplitOn | -100 000 bez współbieżności wyzwalacza <p><p>-100 z współbieżnością wyzwalacza | Dla wyzwalaczy, które zwracają tablicę, można określić wyrażenie używające właściwości "SplitOn", które [dzieli lub departia elementy tablicy w wielu wystąpieniach przepływu pracy](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) do przetworzenia, zamiast używać pętli "foreach". To wyrażenie odwołuje się do tablicy, która ma zostać użyta do utworzenia i uruchomienia wystąpienia przepływu pracy dla każdego elementu tablicy. <p><p>**Uwaga**: po włączeniu współbieżności limit SplitOn zostanie zmniejszony do 100 elementów. |
+| Elementy SplitOn | -100 000 bez współbieżności wyzwalacza <p><p>-100 z współbieżnością wyzwalacza | Dla wyzwalaczy, które zwracają tablicę, można określić wyrażenie używające właściwości "SplitOn", które [dzieli lub departia elementy tablicy w wielu wystąpieniach przepływu pracy](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) do przetworzenia, zamiast używać pętli "foreach". To wyrażenie odwołuje się do tablicy, która ma zostać użyta do utworzenia i uruchomienia wystąpienia przepływu pracy dla każdego elementu tablicy. <p><p>**Uwaga** : po włączeniu współbieżności limit SplitOn zostanie zmniejszony do 100 elementów. |
 | Iteracje Until | -Wartość domyślna: 60 <p><p>-Maksimum: 5 000 | |
 ||||
 
@@ -149,8 +170,8 @@ Niektóre operacje łączników powodują wywołania asynchroniczne lub Nasłuch
 
 | Nazwa | Limit wielu dzierżawców | Limit środowiska usługi integracji | Uwagi |
 |------|--------------------|---------------------------------------|-------|
-| Żądanie wychodzące | 120 sekund <br>(2 minuty) | 240 sekund <br>(4 minuty) | Przykłady żądań wychodzących obejmują wywołania wykonywane przez wyzwalacze protokołu HTTP. <p><p>**Porada**: Aby uzyskać więcej uruchomionych operacji, użyj [asynchronicznego wzorca sondowania](../logic-apps/logic-apps-create-api-app.md#async-pattern) lub [pętli do until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Aby obejść limity limitu czasu podczas wywoływania innej aplikacji logiki, która ma [możliwy do wywołania punkt końcowy](logic-apps-http-endpoint.md), można zamiast tego użyć wbudowanej akcji Azure Logic Apps, którą można znaleźć w selektorze łącznika w obszarze **wbudowane**. |
-| Żądanie przychodzące | 120 sekund <br>(2 minuty) | 240 sekund <br>(4 minuty) | Przykładowe żądania przychodzące obejmują wywołania odbierane przez wyzwalacze żądań i wyzwalacze elementu webhook. <p><p>**Uwaga**: Aby uzyskać odpowiedzi dla oryginalnego obiektu wywołującego, wszystkie kroki odpowiedzi muszą zakończyć się w ramach limitu, chyba że zostanie wywołana inna aplikacja logiki jako zagnieżdżony przepływ pracy. Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki](../logic-apps/logic-apps-http-endpoint.md). |
+| Żądanie wychodzące | 120 sekund <br>(2 minuty) | 240 sekund <br>(4 minuty) | Przykłady żądań wychodzących obejmują wywołania wykonywane przez wyzwalacze protokołu HTTP. <p><p>**Porada** : Aby uzyskać więcej uruchomionych operacji, użyj [asynchronicznego wzorca sondowania](../logic-apps/logic-apps-create-api-app.md#async-pattern) lub [pętli do until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Aby obejść limity limitu czasu podczas wywoływania innej aplikacji logiki, która ma [możliwy do wywołania punkt końcowy](logic-apps-http-endpoint.md), można zamiast tego użyć wbudowanej akcji Azure Logic Apps, którą można znaleźć w selektorze łącznika w obszarze **wbudowane** . |
+| Żądanie przychodzące | 120 sekund <br>(2 minuty) | 240 sekund <br>(4 minuty) | Przykładowe żądania przychodzące obejmują wywołania odbierane przez wyzwalacze żądań i wyzwalacze elementu webhook. <p><p>**Uwaga** : Aby uzyskać odpowiedzi dla oryginalnego obiektu wywołującego, wszystkie kroki odpowiedzi muszą zakończyć się w ramach limitu, chyba że zostanie wywołana inna aplikacja logiki jako zagnieżdżony przepływ pracy. Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
 <a name="message-size-limits"></a>
@@ -264,7 +285,7 @@ Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.micros
 | Artefakt | Limit | Uwagi |
 | -------- | ----- | ----- |
 | Zestaw | 8 MB | Aby przekazać pliki o rozmiarze większym niż 2 MB, użyj [konta usługi Azure Storage i kontenera obiektów BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Map (plik XSLT) | 8 MB | Aby przekazać pliki o rozmiarze większym niż 2 MB, użyj [Azure Logic Apps interfejsu API REST — Maps](/rest/api/logic/maps/createorupdate). <p><p>**Uwaga**: ilość danych lub rekordów, które może pomyślnie przetworzyć mapa, zależy od rozmiaru komunikatu i limitów czasu akcji w Azure Logic Apps. Na przykład jeśli używasz akcji HTTP, na podstawie [rozmiaru komunikatu http i limitów czasu](#request-limits), mapa może przetwarzać dane do limitu rozmiaru wiadomości HTTP, jeśli operacja kończy się w limicie limitu czasu http. |
+| Map (plik XSLT) | 8 MB | Aby przekazać pliki o rozmiarze większym niż 2 MB, użyj [Azure Logic Apps interfejsu API REST — Maps](/rest/api/logic/maps/createorupdate). <p><p>**Uwaga** : ilość danych lub rekordów, które może pomyślnie przetworzyć mapa, zależy od rozmiaru komunikatu i limitów czasu akcji w Azure Logic Apps. Na przykład jeśli używasz akcji HTTP, na podstawie [rozmiaru komunikatu http i limitów czasu](#request-limits), mapa może przetwarzać dane do limitu rozmiaru wiadomości HTTP, jeśli operacja kończy się w limicie limitu czasu http. |
 | Schemat | 8 MB | Aby przekazać pliki o rozmiarze większym niż 2 MB, użyj [konta usługi Azure Storage i kontenera obiektów BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
@@ -311,8 +332,8 @@ Adresy IP używane przez Azure Logic Apps dla wywołań przychodzących i wychod
 > Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [tagów usługi](../virtual-network/service-tags-overview.md)zamiast określać Logic Apps adresy IP dla każdego regionu, opisane w dalszej części tej sekcji.
 > Tagi te działają w regionach, w których usługa Logic Apps jest dostępna:
 >
-> * **LogicAppsManagement**: reprezentuje prefiksy adresów IP dla ruchu przychodzącego dla usługi Logic Apps.
-> * **LogicApps**: reprezentuje prefiksy adresów IP wychodzące dla usługi Logic Apps.
+> * **LogicAppsManagement** : reprezentuje prefiksy adresów IP dla ruchu przychodzącego dla usługi Logic Apps.
+> * **LogicApps** : reprezentuje prefiksy adresów IP wychodzące dla usługi Logic Apps.
 
 * W przypadku [platformy Azure w Chinach](/azure/china/)nie są dostępne stałe lub zastrzeżone adresy IP dla [łączników niestandardowych](../logic-apps/custom-connector-overview.md) i [łączników zarządzanych](../connectors/apis-list.md#managed-api-connectors), na przykład azure Storage, SQL Server, Office 365 Outlook i tak dalej.
 
@@ -333,7 +354,7 @@ Adresy IP używane przez Azure Logic Apps dla wywołań przychodzących i wychod
 Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azure Logic Apps. Jeśli masz Azure Government, zobacz [Azure Government-przychodzące adresy IP](#azure-government-inbound).
 
 > [!TIP]
-> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicAppsManagement**zamiast określania przychodzących prefiksów adresów IP Logic Apps dla każdego regionu.
+> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicAppsManagement** zamiast określania przychodzących prefiksów adresów IP Logic Apps dla każdego regionu.
 > Ten tag działa w regionach, w których jest dostępna usługa Logic Apps.
 
 <a name="multi-tenant-inbound"></a>
@@ -356,7 +377,7 @@ Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azu
 | Francja Południowa | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
 | Niemcy Północne | 51.116.211.29, 51.116.208.132, 51.116.208.37, 51.116.208.64 |
 | Niemcy Środkowo-Zachodnie | 51.116.168.222, 51.116.171.209, 51.116.233.40, 51.116.175.0 |
-| Japan East | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
+| Japonia Wschodnia | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
 | Japonia Zachodnia | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85 |
 | Korea Środkowa | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
 | Korea Południowa | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
@@ -397,7 +418,7 @@ Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azu
 Ta sekcja zawiera listę wychodzących adresów IP dla usługi Azure Logic Apps i łączników zarządzanych. Jeśli masz Azure Government, zobacz [Azure Government wychodzące adresy IP](#azure-government-outbound).
 
 > [!TIP]
-> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicApps**, zamiast określać prefiksy adresów IP Logic Apps wychodzące dla każdego regionu.
+> Aby zmniejszyć złożoność podczas tworzenia reguł zabezpieczeń, można opcjonalnie użyć [znacznika usługi](../virtual-network/service-tags-overview.md) **LogicApps** , zamiast określać prefiksy adresów IP Logic Apps wychodzące dla każdego regionu.
 > W przypadku łączników zarządzanych można opcjonalnie użyć znacznika usługi **AzureConnectors** zamiast określać prefiksy adresów IP łączników zarządzanych przez wychodzące dla każdego regionu. Tagi te działają w regionach, w których usługa Logic Apps jest dostępna. 
 
 <a name="multi-tenant-outbound"></a>
@@ -420,7 +441,7 @@ Ta sekcja zawiera listę wychodzących adresów IP dla usługi Azure Logic Apps 
 | Francja Południowa | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 - 40.79.178.255, 52.136.133.184, 52.136.142.154, 40.79.180.224 - 40.79.180.255 |
 | Niemcy Północne | 51.116.211.168, 51.116.208.165, 51.116.208.175, 51.116.208.192, 51.116.208.200, 51.116.208.222, 51.116.208.217, 51.116.208.51 | 51.116.211.212, 51.116.60.192 - 51.116.60.223, 51.116.59.16 - 51.116.60.31 |
 | Niemcy Środkowo-Zachodnie | 51.116.233.35, 51.116.171.49, 51.116.233.33, 51.116.233.22, 51.116.168.104, 51.116.175.17, 51.116.233.87, 51.116.175.51 | 51.116.236.78, 51.116.158.96 - 51.116.158.127, 51.116.155.80 - 51.116.155.95 |
-| Japan East | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96, 13.73.21.230, 40.79.189.64 - 40.79.189.95 |
+| Japonia Wschodnia | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96, 13.73.21.230, 40.79.189.64 - 40.79.189.95 |
 | Japonia Zachodnia | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 40.74.100.224 - 40.74.100.239, 40.74.130.77, 104.215.61.248, 104.215.27.24, 40.80.180.64 - 40.80.180.95 |
 | Korea Środkowa | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.231.18.208 - 52.231.18.223, 52.141.36.214, 52.141.1.104, 20.44.29.64 - 20.44.29.95 |
 | Korea Południowa | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.147.0 - 52.231.147.15, 52.231.163.10, 52.231.201.173, 52.231.148.224 - 52.231.148.255 |

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 74e62c39295d36132abdce0abc033162fa22cb64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 747b8bc1abbf19c861e180faf17e2fa1a143a237
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531636"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546317"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Jak tworzyć repliki odczytu i zarządzać nimi w Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure i API REST
 
@@ -23,7 +23,7 @@ Można tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- [Instalowanie interfejsu wiersza polecenia platformy Azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Instalowanie interfejsu wiersza polecenia platformy Azure 2,0](/cli/azure/install-azure-cli)
 - [Serwer Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) , który będzie używany jako serwer źródłowy. 
 
 > [!IMPORTANT]
@@ -42,9 +42,9 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 
 `az mysql server replica create`Polecenie wymaga następujących parametrów:
 
-| Ustawienie | Przykładowa wartość | Opis  |
+| Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
+| resource-group |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
 | name | mydemoreplicaserver | Nazwa nowego serwera repliki, który został utworzony. |
 | source-server | mydemoserver | Nazwa lub identyfikator istniejącego serwera źródłowego do replikacji. |
 
@@ -71,9 +71,9 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 
 `az mysql server replica list`Polecenie wymaga następujących parametrów:
 
-| Ustawienie | Przykładowa wartość | Opis  |
+| Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
+| resource-group |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
 | nazwa-serwera | mydemoserver | Nazwa lub identyfikator serwera źródłowego. |
 
 ### <a name="stop-replication-to-a-replica-server"></a>Zatrzymaj replikację do serwera repliki
@@ -89,9 +89,9 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 `az mysql server replica stop`Polecenie wymaga następujących parametrów:
 
-| Ustawienie | Przykładowa wartość | Opis  |
+| Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Grupa zasobów, w której istnieje serwer repliki.  |
+| resource-group |  myresourcegroup |  Grupa zasobów, w której istnieje serwer repliki.  |
 | name | mydemoreplicaserver | Nazwa serwera repliki, na którym ma zostać zatrzymana replikacja. |
 
 ### <a name="delete-a-replica-server"></a>Usuwanie serwera repliki

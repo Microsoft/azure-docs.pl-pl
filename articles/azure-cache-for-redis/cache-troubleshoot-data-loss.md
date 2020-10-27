@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 29492ee6b7bce50c4807a36d0c252e18e6aadf87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008954"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538599"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Rozwiązywanie problemów z utratą danych w usłudze Azure Cache for Redis
 
@@ -36,7 +36,7 @@ Jeśli okaże się, że klucze zniknęły z pamięci podręcznej, należy sprawd
 
 ### <a name="key-expiration"></a>Wygaśnięcie klucza
 
-Usługa Azure cache for Redis usuwa klucz automatycznie, jeśli klucz ma przypisany limit czasu i ten okres został zakończony. Więcej informacji o wygaśnięciu klucza Redis można znaleźć w dokumentacji polecenia [wygasania](https://redis.io/commands/expire) . Wartości limitu czasu można również ustawić za pomocą poleceń [Set](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GetSet](https://redis.io/commands/getset)i other ** \* Store** .
+Usługa Azure cache for Redis usuwa klucz automatycznie, jeśli klucz ma przypisany limit czasu i ten okres został zakończony. Więcej informacji o wygaśnięciu klucza Redis można znaleźć w dokumentacji polecenia [wygasania](https://redis.io/commands/expire) . Wartości limitu czasu można również ustawić za pomocą poleceń [Set](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GetSet](https://redis.io/commands/getset)i other **\* Store** .
 
 Aby uzyskać statystyki dotyczące liczby wygasłych kluczy, użyj polecenia [info](https://redis.io/commands/info) . `Stats`Sekcja zawiera łączną liczbę wygasłych kluczy. `Keyspace`Sekcja zawiera więcej informacji o liczbie kluczy z limitami czasu i średnim limitem czasu.
 
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Nieprawidłowy wybór bazy danych
 
-Usługa Azure cache for Redis domyślnie używa bazy danych **DB0** . Jeśli przełączysz się do innej bazy danych (na przykład **DB1**) i spróbujesz odczytać z niej klucze, usługa Azure cache for Redis nie będzie tam znajdować. Każda baza danych jest logicznie oddzielną jednostką i zawiera inny zestaw danych. Użyj polecenia [SELECT](https://redis.io/commands/select) , aby użyć innych dostępnych baz danych i wyszukać klucze w każdym z nich.
+Usługa Azure cache for Redis domyślnie używa bazy danych **DB0** . Jeśli przełączysz się do innej bazy danych (na przykład **DB1** ) i spróbujesz odczytać z niej klucze, usługa Azure cache for Redis nie będzie tam znajdować. Każda baza danych jest logicznie oddzielną jednostką i zawiera inny zestaw danych. Użyj polecenia [SELECT](https://redis.io/commands/select) , aby użyć innych dostępnych baz danych i wyszukać klucze w każdym z nich.
 
 ### <a name="redis-instance-failure"></a>Niepowodzenie wystąpienia Redis
 
@@ -114,7 +114,7 @@ Redis to magazyn danych w pamięci. Dane są przechowywane na maszynach fizyczny
 
 Pamięć podręczna w warstwach Standardowa i Premium zapewnia znacznie wyższą odporność na utratę danych przy użyciu dwóch maszyn wirtualnych w zreplikowanej konfiguracji. W przypadku awarii węzła podstawowego w takiej pamięci podręcznej węzeł repliki przejmuje dane automatycznie. Te maszyny wirtualne znajdują się w oddzielnych domenach dla błędów i aktualizacji, aby zminimalizować prawdopodobieństwo, że oba staną się niedostępne jednocześnie. W przypadku wystąpienia poważnej awarii centrum danych maszyny wirtualne mogą jednak nadal przechodzić do siebie. W tych rzadkich przypadkach Twoje dane zostaną utracone.
 
-Rozważ użycie [trwałości danych Redis](https://redis.io/topics/persistence) i [replikacji geograficznej](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) , aby zwiększyć ochronę danych przed awarią infrastruktury.
+Rozważ użycie [trwałości danych Redis](https://redis.io/topics/persistence) i [replikacji geograficznej](./cache-how-to-geo-replication.md) , aby zwiększyć ochronę danych przed awarią infrastruktury.
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 

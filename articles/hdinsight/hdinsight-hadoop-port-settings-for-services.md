@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: a9f050bb25873e4b6ede234c800b00f2c34085d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3e2ca2eca0d258a14365edc97b98d0c827b0b6f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085280"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546062"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Porty używane przez usługi Apache Hadoop w usłudze HDInsight
 
@@ -55,7 +55,7 @@ Dla określonych typów klastrów dostępne są następujące elementy:
 | Storm |443 |HTTPS |Storm |Interfejs użytkownika sieci Web burzy. Zobacz [wdrażanie topologii Apache Storm w usłudze HDInsight i zarządzanie nimi](storm/apache-storm-deploy-monitor-topology-linux.md) |
 | Serwer proxy REST Kafka |443 |HTTPS |Kafka |Interfejs API REST usługi Kafka. Zobacz [posługiwanie się klastrami Apache Kafka w usłudze Azure HDInsight przy użyciu serwera proxy REST](kafka/rest-proxy.md) |
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Wszystkie usługi publicznie uwidocznione w Internecie muszą zostać uwierzytelnione:
 
@@ -158,7 +158,7 @@ Przykłady:
 | --- | --- | --- | --- | --- |
 | Brokera |Węzły procesu roboczego |9092 |Protokół sieci Kafka |Używany do komunikacji z klientem |
 | &nbsp; |Dozorcy węzły |2181 |&nbsp; |Port używany przez klientów do łączenia się z usługą dozorcy |
-| Serwer proxy REST | Węzły zarządzania Kafka |9400 |HTTPS |[Kafka — Specyfikacja REST](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
+| Serwer proxy REST | Węzły zarządzania Kafka |9400 |HTTPS |[Kafka — Specyfikacja REST](/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### <a name="spark-ports"></a>Porty platformy Spark
 

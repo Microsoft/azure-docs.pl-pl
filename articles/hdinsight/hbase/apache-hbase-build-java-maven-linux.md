@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
-ms.openlocfilehash: 7cd368df1f2a94c8f49454530e7f5997f2659a32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61b8aaf9ea61ebe85eac6708d7390c386dea2696
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323778"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547915"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Tworzenie aplikacji Java dla platformy Apache HBase
 
@@ -25,13 +25,13 @@ Kroki opisane w tym dokumencie wykorzystują [Apache Maven](https://maven.apache
 
 * Klaster Apache HBase w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
-* [Java developer Kit (JDK) w wersji 8](https://aka.ms/azure-jdks).
+* [Java developer Kit (JDK) w wersji 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * Pakiet [Apache Maven](https://maven.apache.org/download.cgi) został prawidłowo [zainstalowany](https://maven.apache.org/install.html) zgodnie z usługą Apache.  Maven to system kompilacji projektu dla projektów języka Java.
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* W przypadku korzystania z programu PowerShell należy użyć polecenia [AZ module](https://docs.microsoft.com/powershell/azure/).
+* W przypadku korzystania z programu PowerShell należy użyć polecenia [AZ module](/powershell/azure/).
 
 * Edytor tekstów. W tym artykule jest wykorzystywany program Microsoft Notepad.
 
@@ -48,7 +48,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Tworzenie projektu Maven
 
-1. Wprowadź następujące polecenie, aby utworzyć projekt Maven o nazwie **hbaseapp**:
+1. Wprowadź następujące polecenie, aby utworzyć projekt Maven o nazwie **hbaseapp** :
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -415,7 +415,7 @@ Poniższe kroki służą `scp` do kopiowania jar do podstawowego węzła główn
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
     ```
 
-    To polecenie tworzy tabelę HBase o nazwie **ludzie**i wypełnia ją danymi.
+    To polecenie tworzy tabelę HBase o nazwie **ludzie** i wypełnia ją danymi.
 
 4. Aby wyszukać adresy e-mail przechowywane w tabeli, użyj następującego polecenia:
 
@@ -442,7 +442,7 @@ Poniższe kroki służą `scp` do kopiowania jar do podstawowego węzła główn
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Przekazywanie zadań JAR i Run (PowerShell)
 
-Poniższe kroki używają Azure PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) , aby przekazać plik jar do domyślnego magazynu dla klastra Apache HBase. Polecenia cmdlet usługi HDInsight są następnie używane do zdalnego uruchamiania przykładów.
+Poniższe kroki używają Azure PowerShell [AZ module](/powershell/azure/new-azureps-module-az) , aby przekazać plik jar do domyślnego magazynu dla klastra Apache HBase. Polecenia cmdlet usługi HDInsight są następnie używane do zdalnego uruchamiania przykładów.
 
 1. Po zainstalowaniu i skonfigurowaniu elementu AZ module utwórz plik o nazwie `hbase-runner.psm1` . Użyj następującego tekstu jako zawartości tego pliku:
 

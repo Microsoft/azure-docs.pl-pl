@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91564786"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543818"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Usługa Azure Database for MySQL — pojedynczy serwer
 
@@ -55,7 +55,7 @@ Usługa Single Server automatycznie tworzy kopie zapasowe serwera i przechowuje 
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Dostosowanie wydajności i skalowania w kilka sekund
 
-Usługa Single Server jest dostępna w trzech warstwach SKU: podstawowa, Ogólnego przeznaczenia i zoptymalizowana pod kątem pamięci. Warstwa Podstawowa najlepiej nadaje się w przypadku obciążeń o małym koszcie i niskich współbieżności. Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci są lepiej dopasowane do obciążeń produkcyjnych wymagających dużej współbieżności, skali i przewidywalnej wydajności. Możesz utworzyć swoją pierwszą aplikację na podstawie małej bazy danych za jedynie kilka dolarów miesięcznie, a następnie dostosować skalowanie do potrzeb rozwiązania. Skalowanie magazynu jest w trybie online i obsługuje automatyczne przyrosty pamięci masowej. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów. Płacisz tylko za zasoby, z których korzystasz. Aby uzyskać szczegółowe informacje, zobacz  [Warstwy cenowe](concepts-service-tiers.md).
+Usługa Single Server jest dostępna w trzech warstwach SKU: podstawowa, Ogólnego przeznaczenia i zoptymalizowana pod kątem pamięci. Warstwa Podstawowa najlepiej nadaje się w przypadku obciążeń o małym koszcie i niskich współbieżności. Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci są lepiej dopasowane do obciążeń produkcyjnych wymagających dużej współbieżności, skali i przewidywalnej wydajności. Możesz utworzyć swoją pierwszą aplikację na podstawie małej bazy danych za jedynie kilka dolarów miesięcznie, a następnie dostosować skalowanie do potrzeb rozwiązania. Skalowanie magazynu jest w trybie online i obsługuje automatyczne przyrosty pamięci masowej. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów. Płacisz tylko za zasoby, z których korzystasz. Aby uzyskać szczegółowe informacje, zobacz [Warstwy cenowe](./concepts-pricing-tiers.md).
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>Zabezpieczenia, zgodność i zarządzanie klasy korporacyjnej
 
@@ -63,7 +63,7 @@ Usługa Single Server używa zatwierdzonego modułu kryptograficznego FIPS 140-2
 
 Usługa umożliwia prywatnym dostęp do serwerów za pomocą [prywatnego linku](concepts-data-access-security-private-link.md) i zapewnia funkcję [zaawansowanej ochrony przed zagrożeniami](concepts-data-access-and-security-threat-protection.md) . Zaawansowana ochrona przed zagrożeniami wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania.
 
-Oprócz uwierzytelniania natywnego usługa Single Server obsługuje uwierzytelnianie  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) . Uwierzytelnianie usługi Azure AD to mechanizm łączenia się z serwerami MySQL przy użyciu tożsamości zdefiniowanych i zarządzanych w usłudze Azure AD. Uwierzytelnianie za pomocą usługi Azure AD umożliwia zarządzanie tożsamościami użytkowników bazy danych i innymi usługami platformy Azure w centralnej lokalizacji, co upraszcza i scentralizowano kontrolę dostępu.
+Oprócz uwierzytelniania natywnego usługa Single Server obsługuje uwierzytelnianie  [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) . Uwierzytelnianie usługi Azure AD to mechanizm łączenia się z serwerami MySQL przy użyciu tożsamości zdefiniowanych i zarządzanych w usłudze Azure AD. Uwierzytelnianie za pomocą usługi Azure AD umożliwia zarządzanie tożsamościami użytkowników bazy danych i innymi usługami platformy Azure w centralnej lokalizacji, co upraszcza i scentralizowano kontrolę dostępu.
 
 [Rejestrowanie inspekcji](concepts-audit-logs.md) jest dostępne do śledzenia wszystkich działań na poziomie bazy danych. 
 
@@ -80,7 +80,7 @@ Usługa Single Server jest wyposażona w wbudowaną funkcję monitorowania wydaj
 Usługa uruchamia wersję społeczności MySQL. Zapewnia to pełną zgodność aplikacji i wymaga minimalnego kosztu refaktoryzacji w celu przeprowadzenia migracji istniejącej aplikacji opracowanej na aparat MySQL do jednego serwera. Migrację do pojedynczego serwera można przeprowadzić przy użyciu jednej z następujących opcji:
 
 - **Zrzuć i Przywróć** — w przypadku migracji w trybie offline, w których użytkownicy mogą uzyskać pewien przestój, zrzuty i przywracanie przy użyciu narzędzi społeczności, takich jak mysqldump/Dumper, mogą zapewnić najszybszy sposób migracji. Aby uzyskać szczegółowe informacje [, zobacz Migrowanie przy użyciu zrzutów i przywracania](concepts-migrate-dump-restore.md) . 
-- **Azure Database Migration Service** — w celu zapewnienia bezproblemowej i uproszczonej migracji na pojedynczy serwer z minimalnym przestojem, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) można wykorzystać. 
+- **Azure Database Migration Service** — w celu zapewnienia bezproblemowej i uproszczonej migracji na pojedynczy serwer z minimalnym przestojem, [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-online.md) można wykorzystać. 
 - **Replikacja danych** — w przypadku minimalnych okresów migracji, replikacji danych, które opierają się na replikacji opartej na binlogach, można również wykorzystać. Replikacja danych w celu zapewnienia większej kontroli nad migracją jest preferowana w przypadku niewielkiej liczby przestojów. Szczegóły można znaleźć [w temacie replikacja danych](concepts-data-in-replication.md) .
 
 ## <a name="contacts"></a>Kontakty
@@ -108,4 +108,3 @@ Teraz, po zapoznaniu się z wprowadzeniem do Azure Database for MySQL trybu wdro
   - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Przejdź](./connect-go.md)
-  

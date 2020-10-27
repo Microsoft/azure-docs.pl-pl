@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 1bdec284ccdfca9e13ca227fe1109afe28da14b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851381"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539466"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Omówienie usługi Azure Storage w usłudze HDInsight
 
@@ -21,7 +21,7 @@ Usługa Azure Storage to niezawodne rozwiązanie do magazynowania ogólnego prze
 
 Zalecamy używanie oddzielnych kontenerów magazynu dla domyślnego magazynu klastra i danych firmowych. Rozdzielenie polega na odizolowaniu dzienników usługi HDInsight i plików tymczasowych z własnych danych firmowych. Zalecamy również usunięcie domyślnego kontenera obiektów blob, który zawiera Dzienniki aplikacji i systemu po każdym użyciu, aby zmniejszyć koszty magazynu. Koniecznie pobierz dzienniki przed usunięciem kontenera.
 
-Jeśli wybierzesz opcję zabezpieczenia konta magazynu za pomocą ograniczeń **zapory i sieci wirtualnych** w **wybranych sieciach**, należy włączyć wyjątek **Zezwalaj na zaufane usługi firmy Microsoft.**... Wyjątek polega na tym, że Usługa HDInsight może uzyskać dostęp do konta magazynu.
+Jeśli wybierzesz opcję zabezpieczenia konta magazynu za pomocą ograniczeń **zapory i sieci wirtualnych** w **wybranych sieciach** , należy włączyć wyjątek **Zezwalaj na zaufane usługi firmy Microsoft.** ... Wyjątek polega na tym, że Usługa HDInsight może uzyskać dostęp do konta magazynu.
 
 ## <a name="hdinsight-storage-architecture"></a>Architektura magazynu usługi HDInsight
 
@@ -44,7 +44,7 @@ W przypadku korzystania z konta usługi Azure Storage z klastrami HDInsight nale
 * **Kontenery publiczne lub publiczne obiekty blob na kontach magazynu, które nie są połączone z klastrem:** Masz uprawnienia tylko do odczytu obiektów BLOB w kontenerach.
   
   > [!NOTE]  
-  > Kontenery publiczne umożliwiają uzyskanie listy wszystkich obiektów blob, które są dostępne w tym kontenerze i uzyskiwania metadanych kontenera. Publiczne obiekty blob umożliwiają dostęp do obiektów blob jedynie osobom znającym dokładny adres URL. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](../storage/blobs/storage-manage-access-to-resources.md).
+  > Kontenery publiczne umożliwiają uzyskanie listy wszystkich obiektów blob, które są dostępne w tym kontenerze i uzyskiwania metadanych kontenera. Publiczne obiekty blob umożliwiają dostęp do obiektów blob jedynie osobom znającym dokładny adres URL. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Prywatne kontenery na kontach magazynu, które nie są połączone z klastrem:** Nie można uzyskać dostępu do obiektów BLOB w kontenerach, chyba że zostanie zdefiniowane konto magazynu podczas przesyłania zadań WebHCat.
 

@@ -8,17 +8,17 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553651"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558537"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Szablony mapowania łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
 W tym artykule szczegółowo opisano sposób konfigurowania łącznika usługi Azure IoT dla FHIR * przy użyciu szablonów mapowania.
 
-Łącznik usługi Azure IoT dla FHIR wymaga dwóch typów szablonów mapowania opartych na notacji JSON. Pierwszy typ, **Mapowanie urządzenia**, jest odpowiedzialny za mapowanie ładunków urządzeń wysyłanych do `devicedata` punktu końcowego centrum zdarzeń platformy Azure. Wyodrębnia typy, identyfikatory urządzeń, Data i czas pomiaru oraz wartości miary. Drugim typem, **Mapowanie FHIR**, steruje mapowaniem zasobu FHIR. Umożliwia ona konfigurację długości okresu obserwacji, FHIR typ danych służący do przechowywania wartości oraz kodów terminologii. 
+Łącznik usługi Azure IoT dla FHIR wymaga dwóch typów szablonów mapowania opartych na notacji JSON. Pierwszy typ, **Mapowanie urządzenia** , jest odpowiedzialny za mapowanie ładunków urządzeń wysyłanych do `devicedata` punktu końcowego centrum zdarzeń platformy Azure. Wyodrębnia typy, identyfikatory urządzeń, Data i czas pomiaru oraz wartości miary. Drugim typem, **Mapowanie FHIR** , steruje mapowaniem zasobu FHIR. Umożliwia ona konfigurację długości okresu obserwacji, FHIR typ danych służący do przechowywania wartości oraz kodów terminologii. 
 
 Szablony mapowania składają się na dokument JSON w oparciu o ich typ. Te dokumenty JSON są następnie dodawane do łącznika usługi Azure IoT dla FHIR za pomocą Azure Portal. Dokument mapowania urządzeń zostanie dodany za pomocą strony **Konfigurowanie mapowania urządzenia** i dokumentu mapowania FHIR na stronie **Konfigurowanie mapowania FHIR** .
 
@@ -32,7 +32,7 @@ Mapowanie urządzeń udostępnia funkcje mapowania umożliwiające Wyodrębnieni
 | - | - |
 |**Typ**|Nazwa/Typ do klasyfikowania miary. Ta wartość jest używana do powiązania z wymaganym szablonem mapowania FHIR.  Wiele szablonów można wyprowadzić do tego samego typu, co pozwala na mapowanie różnych reprezentacji na wiele urządzeń do jednego wspólnego danych wyjściowych.|
 |**OccurenceTimeUtc**|Czas wystąpienia pomiaru.|
-|**DeviceId**|Identyfikator urządzenia. Ta wartość powinna być zgodna z identyfikatorem zasobu urządzenia, który istnieje na serwerze docelowym FHIR.|
+|**Identyfikator**|Identyfikator urządzenia. Ta wartość powinna być zgodna z identyfikatorem zasobu urządzenia, który istnieje na serwerze docelowym FHIR.|
  |**Właściwości**|Wyodrębnij co najmniej jedną właściwość, aby można było zapisać wartość w tworzonym zasobie.  Właściwości są kolekcją par wartości klucza wyodrębnionych podczas normalizacji.|
 
 Poniżej znajduje się przykład koncepcji, co dzieje się podczas normalizacji.
@@ -71,8 +71,8 @@ JsonPathContentTemplate umożliwia dopasowanie i wyodrębnianie wartości z komu
 |**TypeMatchExpression**|Wyrażenie ścieżki JSON, które jest oceniane względem ładunku centrum zdarzeń. Jeśli zostanie znaleziony pasujący JToken, szablon jest uznawany za dopasowanie. Wszystkie kolejne wyrażenia są oceniane względem wyodrębnionego JToken dopasowanego tutaj.|`$..[?(@heartRate)]`
 |**TimestampExpression**|Wyrażenie ścieżki JSON wyodrębniające wartość sygnatury czasowej OccurenceTimeUtc pomiaru.|`$.endDate`
 |**DeviceIdExpression**|Wyrażenie ścieżki JSON umożliwiające wyodrębnienie identyfikatora urządzenia.|`$.deviceId`
-|**PatientIdExpression**|*Opcjonalnie*: wyrażenie ścieżki JSON do wyodrębnienia identyfikatora pacjenta.|`$.patientId`
-|**EncounterIdExpression**|*Opcjonalnie*: wyrażenie ścieżki JSON do wyodrębnienia napotkanego identyfikatora.|`$.encounterId`
+|**PatientIdExpression**|*Opcjonalnie* : wyrażenie ścieżki JSON do wyodrębnienia identyfikatora pacjenta.|`$.patientId`
+|**EncounterIdExpression**|*Opcjonalnie* : wyrażenie ścieżki JSON do wyodrębnienia napotkanego identyfikatora.|`$.encounterId`
 |**Wartości []. Pełna**|Nazwa, która ma zostać skojarzona z wartością wyodrębnioną przez kolejne wyrażenie. Służy do powiązania wymaganej wartości/składnika w szablonie mapowania FHIR. |`hr`
 |**Wartości []. ValueExpression**|Wyrażenie ścieżki JSON umożliwiające wyodrębnienie wymaganej wartości.|`$.heartRate`
 |**Wartości []. Wymagane**|Wartość musi być obecna w ładunku.  Jeśli nie zostanie znaleziona, pomiar nie zostanie wygenerowany i zostanie wygenerowany InvalidOperationException.|`true`
@@ -565,7 +565,7 @@ Reprezentuje typ danych [CodeableConcept](http://hl7.org/fhir/datatypes.html#Cod
 Zapoznaj się z często zadawanymi pytaniami dotyczącymi usługi Azure IoT Connector FHIR (wersja zapoznawcza).
 
 >[!div class="nextstepaction"]
->[Łącznik usługi Azure IoT dla FHIR — często zadawane pytania](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Łącznik usługi Azure IoT dla FHIR — często zadawane pytania](fhir-faq.md)
 
 * W Azure Portal łącznik usługi Azure IoT dla FHIR jest określany jako łącznik IoT (wersja zapoznawcza).
 

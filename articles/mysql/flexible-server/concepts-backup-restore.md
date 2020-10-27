@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44cfe9bc6cd357cc0c649cecd022d3955bb5a2ce
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756538"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545875"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ Azure Database for MySQL elastyczny serwer, program automatycznie tworzy kopie z
 
 Elastyczny serwer pobiera kopie zapasowe plików danych i zapisuje je w lokalnym nadmiarowym magazynie. Serwer wykonuje również kopie zapasowe dzienników transakcji i przechowuje je w lokalnym magazynie nadmiarowym. Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można skonfigurować kopię zapasową bazy danych od 1 do 35 dni. Wszystkie kopie zapasowe są szyfrowane przy użyciu szyfrowania AES 256-bitowego dla danych przechowywanych w spoczynku.
 
-Nie można eksportować tych plików kopii zapasowej. Kopie zapasowe mogą być używane tylko w przypadku operacji przywracania na serwerze elastycznym. Możesz również użyć [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   z klienta MySQL, aby skopiować bazę danych.
+Nie można eksportować tych plików kopii zapasowej. Kopie zapasowe mogą być używane tylko w przypadku operacji przywracania na serwerze elastycznym. Możesz również użyć [mysqldump](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) z klienta MySQL, aby skopiować bazę danych.
 
 ## <a name="backup-frequency"></a>Częstotliwość wykonywania kopii zapasowych
 
@@ -40,9 +40,9 @@ Okres przechowywania kopii zapasowej decyduje o tym, jak daleko w czasie można 
 
 ## <a name="backup-storage-cost"></a>Koszt magazynu kopii zapasowych
 
-Elastyczny serwer oferuje do 100% miejsca do magazynowania z magazynem kopii zapasowych bez dodatkowych kosztów. Każdy dodatkowy magazyn kopii zapasowych jest naliczany w GB miesięcznie. Na przykład jeśli masz zainicjowany serwer z 250 GB miejsca w magazynie, masz 250 GB miejsca do magazynowania dla kopii zapasowych serwera bez dodatkowych opłat. Jeśli codzienne użycie kopii zapasowej to 25 GB, możesz mieć do 10 dni wolnego miejsca w magazynie kopii zapasowych. Magazyn używany do tworzenia kopii zapasowych przekracza 250 GB jest naliczany zgodnie z [modelem cen](https://azure.microsoft.com/pricing/details/mysql/).
+Elastyczny serwer oferuje do 100% miejsca do magazynowania z magazynem kopii zapasowych bez dodatkowych kosztów. Każdy dodatkowy magazyn kopii zapasowych jest naliczany w GB miesięcznie. Na przykład jeśli masz zainicjowany serwer z 250 GB miejsca w magazynie, masz 250 GB miejsca do magazynowania dla kopii zapasowych serwera bez dodatkowych opłat. Jeśli codzienne użycie kopii zapasowej to 25 GB, możesz mieć do 10 dni wolnego miejsca w magazynie kopii zapasowych. Magazyn używany do tworzenia kopii zapasowych przekracza 250 GB jest naliczany zgodnie z [modelem cen](https://azure.microsoft.com/pricing/details/mysql/).
 
-Możesz użyć metryki [używany magazyn kopii zapasowych](https://docs.microsoft.com/azure/mysql/concepts-monitoring)   w Azure Monitor dostępnej w Azure Portal do monitorowania magazynu kopii zapasowych zużywanego przez serwer. Metryka używany **Magazyn kopii zapasowych** reprezentuje sumę magazynu zużywanego przez wszystkie kopie zapasowe bazy danych i kopie zapasowe dziennika przechowywane na podstawie okresu przechowywania kopii zapasowej ustawionego dla serwera. Duża liczba transakcji na serwerze może powodować zwiększenie użycia magazynu kopii zapasowych niezależnie od całkowitego rozmiaru bazy danych.
+Możesz użyć metryki [używany magazyn kopii zapasowych](../concepts-monitoring.md) w Azure monitor dostępnej w Azure Portal do monitorowania magazynu kopii zapasowych zużywanego przez serwer. Metryka używany **Magazyn kopii zapasowych** reprezentuje sumę magazynu zużywanego przez wszystkie kopie zapasowe bazy danych i kopie zapasowe dziennika przechowywane na podstawie okresu przechowywania kopii zapasowej ustawionego dla serwera. Duża liczba transakcji na serwerze może powodować zwiększenie użycia magazynu kopii zapasowych niezależnie od całkowitego rozmiaru bazy danych.
 
 Podstawowym sposobem kontrolowania kosztów magazynu kopii zapasowych jest ustawienie odpowiedniego okresu przechowywania kopii zapasowych. Możesz wybrać okres przechowywania od 1 do 35 dni.
 
@@ -68,8 +68,8 @@ Przywracanie do punktu w czasie jest przydatne w wielu scenariuszach. Niektóre 
 
 Można wybrać między najnowszym punktem przywracania i niestandardowym punktem przywracania za pośrednictwem [Azure Portal](how-to-restore-server-portal.md).
 
--   **Najnowszy punkt przywracania**: najnowszy punkt przywracania ułatwia przywrócenie serwera do ostatniej kopii zapasowej wykonanej na serwerze źródłowym. Sygnatura czasowa dla przywracania zostanie również wyświetlona w portalu. Ta opcja jest przydatna, aby szybko przywrócić serwer do najbardziej zaktualizowanego stanu.
--   **Niestandardowy punkt przywracania**: umożliwi to wybranie dowolnego punktu w czasie w okresie przechowywania zdefiniowanym dla tego serwera elastycznego. Ta opcja przydaje się do przywrócenia serwera w precyzyjnym punkcie w czasie w celu odzyskania sprawności po błędzie użytkownika.
+-   **Najnowszy punkt przywracania** : najnowszy punkt przywracania ułatwia przywrócenie serwera do ostatniej kopii zapasowej wykonanej na serwerze źródłowym. Sygnatura czasowa dla przywracania zostanie również wyświetlona w portalu. Ta opcja jest przydatna, aby szybko przywrócić serwer do najbardziej zaktualizowanego stanu.
+-   **Niestandardowy punkt przywracania** : umożliwi to wybranie dowolnego punktu w czasie w okresie przechowywania zdefiniowanym dla tego serwera elastycznego. Ta opcja przydaje się do przywrócenia serwera w precyzyjnym punkcie w czasie w celu odzyskania sprawności po błędzie użytkownika.
 
 Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiary baz danych, rozmiar kopii zapasowej dziennika transakcji, rozmiar obliczeń jednostki SKU i czas przywracania. Odzyskiwanie dziennika transakcji jest najbardziej czasochłonną częścią procesu przywracania. Jeśli czas przywracania jest wybierany bliżej harmonogramu tworzenia kopii zapasowej pełnej lub różnicowej, przywracanie jest szybsze, ponieważ aplikacja dziennika transakcji jest minimalna. Aby oszacować dokładny czas odzyskiwania dla serwera, zdecydowanie zalecamy przetestowanie go w środowisku, ponieważ zawiera zbyt wiele zmiennych specyficznych dla środowiska.
 
@@ -77,7 +77,7 @@ Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiary baz
 > Jeśli przywracasz elastyczny serwer skonfigurowany z nadmiarową wysoką dostępnością strefy, przywrócony serwer zostanie skonfigurowany w tym samym regionie i strefie co serwer podstawowy i wdrożony jako pojedynczy serwer elastyczny w trybie innym niż HA. Zapoznaj się z [strefą nadmiarową wysokiej dostępności](concepts-high-availability.md) dla serwera elastycznego.
 
 > [!IMPORTANT]
->  **Nie**można przywrócić usuniętych serwerów   . Usunięcie serwera spowoduje również usunięcie wszystkich baz danych należących do serwera, których nie można odzyskać. Aby chronić zasoby serwera, po wdrożeniu przed przypadkowym usunięciem lub nieoczekiwanymi zmianami, Administratorzy mogą korzystać z [blokad zarządzania](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> **Nie** można przywrócić usuniętych serwerów. Usunięcie serwera spowoduje również usunięcie wszystkich baz danych należących do serwera, których nie można odzyskać. Aby chronić zasoby serwera, po wdrożeniu przed przypadkowym usunięciem lub nieoczekiwanymi zmianami, Administratorzy mogą korzystać z [blokad zarządzania](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="perform-post-restore-tasks"></a>Wykonywanie zadań po przywróceniu
 
@@ -91,5 +91,5 @@ Po przywróceniu z poziomu **najnowszego punktu przywracania** lub niestandardow
 ## <a name="next-steps"></a>Następne kroki
 
 -   Informacje o [ciągłości działania firmy](./concepts-business-continuity.md)
--   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
+-   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
 -   Informacje na temat [tworzenia kopii zapasowych i odzyskiwania](./concepts-backup-restore.md)

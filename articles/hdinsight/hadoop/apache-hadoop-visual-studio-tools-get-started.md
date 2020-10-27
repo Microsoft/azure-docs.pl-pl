@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: how-to
 ms.date: 04/14/2020
-ms.openlocfilehash: 5fce1a8e2f4dda8ea84cfd66aa9dc13768ab17e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56154f7e5ebd71e1b6580bec55ca57520eb126ff
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86077089"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548017"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Używanie Data Lake narzędzi dla programu Visual Studio do nawiązywania połączenia z usługą Azure HDInsight i uruchamiania zapytań Apache Hive
 
@@ -42,7 +42,7 @@ Postępuj zgodnie z odpowiednimi instrukcjami, aby zainstalować narzędzia Data
 
     Podczas instalacji programu Visual Studio upewnij się, że dołączysz obciążenie **Programowanie na platformie Azure** lub **Magazyn danych i obciążenie przetwarzaniem** .  
 
-    W przypadku istniejących instalacji programu Visual Studio przejdź do paska menu IDE, a następnie wybierz pozycję **Narzędzia**  >  **Pobierz narzędzia i funkcje** , aby otworzyć Instalator programu Visual Studio. Na karcie **obciążenia** wybierz co najmniej obciążenie **Programowanie na platformie Azure** (w obszarze **chmura & sieci Web**). Lub wybierz obciążenie **magazynu i przetwarzania danych** (w obszarze **inne zestawy narzędzi**).
+    W przypadku istniejących instalacji programu Visual Studio przejdź do paska menu IDE, a następnie wybierz pozycję **Narzędzia**  >  **Pobierz narzędzia i funkcje** , aby otworzyć Instalator programu Visual Studio. Na karcie **obciążenia** wybierz co najmniej obciążenie **Programowanie na platformie Azure** (w obszarze **chmura & sieci Web** ). Lub wybierz obciążenie **magazynu i przetwarzania danych** (w obszarze **inne zestawy narzędzi** ).
 
   ![Wybór obciążenia, Instalator programu Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png)
 
@@ -56,19 +56,19 @@ Następnie upewnij się, że Data Lake narzędzia zostały zaktualizowane do naj
 
 1. Otwórz program Visual Studio.
 
-2. W oknie **uruchamiania** wybierz pozycję **Kontynuuj bez kodu**.
+2. W oknie **uruchamiania** wybierz pozycję **Kontynuuj bez kodu** .
 
-3. Na pasku menu środowiska IDE programu Visual Studio wybierz pozycję **rozszerzenia**  >  **Zarządzanie rozszerzeniami**.
+3. Na pasku menu środowiska IDE programu Visual Studio wybierz pozycję **rozszerzenia**  >  **Zarządzanie rozszerzeniami** .
 
 4. W oknie dialogowym **Zarządzanie rozszerzeniami** rozwiń węzeł **aktualizacje** .
 
-5. Jeśli lista dostępnych aktualizacji zawiera **narzędzia Azure Data Lake i Stream Analytics**, zaznacz je. Następnie wybierz przycisk **Aktualizuj** . Po wyświetleniu i usunięciu okna dialogowego **pobieranie i Instalowanie** programu Visual Studio dodaje do harmonogramu aktualizacji rozszerzenie " **Azure Data Lake i Stream Analytics Tools** ".
+5. Jeśli lista dostępnych aktualizacji zawiera **narzędzia Azure Data Lake i Stream Analytics** , zaznacz je. Następnie wybierz przycisk **Aktualizuj** . Po wyświetleniu i usunięciu okna dialogowego **pobieranie i Instalowanie** programu Visual Studio dodaje do harmonogramu aktualizacji rozszerzenie " **Azure Data Lake i Stream Analytics Tools** ".
 
 6. Zamknij wszystkie okna programu Visual Studio. Zostanie wyświetlone okno dialogowe **Instalator VSIX** .
 
 7. Wybierz **licencję** , aby odczytać postanowienia licencyjne, a następnie wybierz pozycję **Zamknij** , aby powrócić do okna dialogowego **Instalator VSIX** .
 
-8. Wybierz pozycję **Modyfikuj**. Rozpocznie się instalacja aktualizacji rozszerzenia. Po czasie okno dialogowe zmienia się, aby pokazać, że wykonuje modyfikacje. Wybierz pozycję **Zamknij**, a następnie uruchom ponownie program Visual Studio, aby zakończyć instalację.
+8. Wybierz pozycję **Modyfikuj** . Rozpocznie się instalacja aktualizacji rozszerzenia. Po czasie okno dialogowe zmienia się, aby pokazać, że wykonuje modyfikacje. Wybierz pozycję **Zamknij** , a następnie uruchom ponownie program Visual Studio, aby zakończyć instalację.
 
 > [!NOTE]  
 > Możesz użyć tylko narzędzi Data Lake Tools w wersji 2.3.0.0 lub nowszej, aby nawiązać połączenie z klastrami zapytań interaktywnych oraz uruchamiać zapytania interaktywne usługi Hive.
@@ -78,7 +78,7 @@ Następnie upewnij się, że Data Lake narzędzia zostały zaktualizowane do naj
 Narzędzia Data Lake Tools for Visual Studio umożliwiają łączenie się z klastrami usługi HDInsight, wykonywanie podstawowych operacji zarządzania i uruchamianie zapytań programu Hive.
 
 > [!NOTE]  
-> Aby uzyskać informacje na temat nawiązywania połączenia z ogólnym klastrem Hadoop, zobacz [jak pisać i przesyłać zapytania programu Hive przy użyciu programu Visual Studio](https://blogs.msdn.microsoft.com/xiaoyong/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio/).
+> Aby uzyskać informacje na temat nawiązywania połączenia z ogólnym klastrem Hadoop, zobacz [jak pisać i przesyłać zapytania programu Hive przy użyciu programu Visual Studio](/archive/blogs/xiaoyong/how-to-write-and-submit-hive-queries-using-visual-studio).
 
 ### <a name="connect-to-an-azure-subscription"></a>Łączenie się z subskrypcją platformy Azure
 
@@ -86,17 +86,17 @@ Aby nawiązać połączenie z subskrypcją platformy Azure:
 
 1. Otwórz program Visual Studio.
 
-2. W oknie **uruchamiania** wybierz pozycję **Kontynuuj bez kodu**.
+2. W oknie **uruchamiania** wybierz pozycję **Kontynuuj bez kodu** .
 
-3. Na pasku menu IDE wybierz polecenie **Wyświetl**  >  **Eksplorator serwera**.
+3. Na pasku menu IDE wybierz polecenie **Wyświetl**  >  **Eksplorator serwera** .
 
-4. W **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z subskrypcją Microsoft Azure**i Ukończ proces uwierzytelniania. W **Eksplorator serwera**rozwiń węzeł **Azure**  >  **HDInsight** , aby wyświetlić listę istniejących klastrów usługi HDInsight.
+4. W **Eksplorator serwera** kliknij prawym przyciskiem myszy pozycję **Azure** , wybierz pozycję **Połącz z subskrypcją Microsoft Azure** i Ukończ proces uwierzytelniania. W **Eksplorator serwera** rozwiń węzeł **Azure**  >  **HDInsight** , aby wyświetlić listę istniejących klastrów usługi HDInsight.
 
 5. Jeśli nie masz żadnych klastrów, utwórz je za pomocą Azure Portal, Azure PowerShell lub zestawu SDK usługi HDInsight. Aby uzyskać więcej informacji, zobacz [Konfigurowanie klastrów w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
    ![Lista klastrów usługi HDInsight, Eksplorator serwera, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png)
 
-6. Rozwiń węzeł klastra usługi HDInsight. Klaster zawiera węzły dla **baz danych programu Hive**. Ponadto domyślne konto magazynu, wszystkie dodatkowe połączone konta magazynu i **Dziennik usługi Hadoop**. Jednostki można rozwinąć.
+6. Rozwiń węzeł klastra usługi HDInsight. Klaster zawiera węzły dla **baz danych programu Hive** . Ponadto domyślne konto magazynu, wszystkie dodatkowe połączone konta magazynu i **Dziennik usługi Hadoop** . Jednostki można rozwinąć.
 
 Po nawiązaniu połączenia z subskrypcją platformy Azure można wykonać następujące zadania.
 
@@ -104,15 +104,15 @@ Po nawiązaniu połączenia z subskrypcją platformy Azure można wykonać nast�
 
 Nawiązywanie połączenia z witryną Azure Portal w programie Visual Studio:
 
-1. W **Eksplorator serwera**rozwiń węzeł **Azure**  >  **HDInsight** i wybierz swój klaster.
+1. W **Eksplorator serwera** rozwiń węzeł **Azure**  >  **HDInsight** i wybierz swój klaster.
 
-2. Kliknij prawym przyciskiem myszy klaster usługi HDInsight, a następnie wybierz pozycję **Zarządzaj klastrem w Azure Portal**.
+2. Kliknij prawym przyciskiem myszy klaster usługi HDInsight, a następnie wybierz pozycję **Zarządzaj klastrem w Azure Portal** .
 
 ### <a name="offer-questions-and-feedback-from-visual-studio"></a>Zaproponuj pytania i opinie z programu Visual Studio
 
 Aby zadać pytania i lub przekazać Opinie z programu Visual Studio:
 
-1. W obszarze Eksplorator serwera wybierz pozycję **Azure**  >  **HDInsight**.
+1. W obszarze Eksplorator serwera wybierz pozycję **Azure**  >  **HDInsight** .
 
 2. Kliknij prawym przyciskiem myszy pozycję **HDInsight** i wybierz opcję **forum MSDN** , aby zadawać pytania, lub **Przekaż opinię** , aby przesłać opinię.
 
@@ -123,15 +123,15 @@ Aby zadać pytania i lub przekazać Opinie z programu Visual Studio:
 
 Aby połączyć klaster usługi HDInsight:
 
-1. Kliknij prawym przyciskiem myszy pozycję **HDInsight**, a następnie wybierz pozycję **Połącz klaster usługi HDInsight** , aby wyświetlić okno dialogowe **łączenie klastra usługi HDInsight** .
+1. Kliknij prawym przyciskiem myszy pozycję **HDInsight** , a następnie wybierz pozycję **Połącz klaster usługi HDInsight** , aby wyświetlić okno dialogowe **łączenie klastra usługi HDInsight** .
 
-2. Wprowadź **adres URL połączenia** w formularzu `https://CLUSTERNAME.azurehdinsight.net` . **Nazwa klastra** jest automatycznie wypełniana nazwą klastra w adresie URL po przejściu do innego pola. Następnie wprowadź **nazwę użytkownika** i **hasło**, a następnie wybierz pozycję **dalej**.
+2. Wprowadź **adres URL połączenia** w formularzu `https://CLUSTERNAME.azurehdinsight.net` . **Nazwa klastra** jest automatycznie wypełniana nazwą klastra w adresie URL po przejściu do innego pola. Następnie wprowadź **nazwę użytkownika** i **hasło** , a następnie wybierz pozycję **dalej** .
 
     ![Łączenie klastra, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
-3. Wybierz pozycję **Zakończ**. Jeśli powiązanie klastra zakończy się pomyślnie, klaster zostanie wyświetlony w węźle **HDInsight** .
+3. Wybierz pozycję **Zakończ** . Jeśli powiązanie klastra zakończy się pomyślnie, klaster zostanie wyświetlony w węźle **HDInsight** .
 
-Aby zaktualizować połączony klaster, kliknij prawym przyciskiem myszy klaster i wybierz polecenie **Edytuj**. Następnie można zaktualizować informacje o klastrze.
+Aby zaktualizować połączony klaster, kliknij prawym przyciskiem myszy klaster i wybierz polecenie **Edytuj** . Następnie można zaktualizować informacje o klastrze.
 
 ![Edytowanie połączonego klastra, usługi HDInsight i programu Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
 
@@ -141,7 +141,7 @@ Z poziomu Eksploratora serwera można zobaczyć domyślne konto magazynu i wszys
 
 ![Data Lake narzędzia dla połączonych zasobów programu Visual Studio w programie Eksplorator serwera](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png)
 
-Kliknij prawym przyciskiem myszy kontener i wybierz pozycję **Wyświetl kontener** , aby wyświetlić zawartość kontenera. Po otwarciu kontenera można użyć przycisków paska narzędzi, aby **odświeżyć** listę zawartości, **przekazać obiekt BLOB**, **usunąć wybrane obiekty blob**, **otworzyć obiekt BLOB**i pobrać (**Zapisz jako**) wybrane obiekty blob.
+Kliknij prawym przyciskiem myszy kontener i wybierz pozycję **Wyświetl kontener** , aby wyświetlić zawartość kontenera. Po otwarciu kontenera można użyć przycisków paska narzędzi, aby **odświeżyć** listę zawartości, **przekazać obiekt BLOB** , **usunąć wybrane obiekty blob** , **otworzyć obiekt BLOB** i pobrać ( **Zapisz jako** ) wybrane obiekty blob.
 
 ![Lista kontenerów i operacje obiektów blob, klaster usługi HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png)
 
@@ -156,33 +156,33 @@ Kliknij prawym przyciskiem myszy kontener i wybierz pozycję **Wyświetl kontene
 
 Możesz również użyć narzędzi Data Lake Tools for Visual Studio, aby zobaczyć, co znajduje się w zadaniu Hive. Narzędzia Data Lake Tools for Visual Studio zbierają i ujawniają dzienniki Yarn dla wybranych zadań Hive.
 
-W obszarze **Eksplorator serwera**wybierz pozycję **Azure**  >  **HDInsight** i wybierz swój klaster.  Ten węzeł jest punktem początkowym w **Eksplorator serwera** dla sekcji do wykonania.
+W obszarze **Eksplorator serwera** wybierz pozycję **Azure**  >  **HDInsight** i wybierz swój klaster.  Ten węzeł jest punktem początkowym w **Eksplorator serwera** dla sekcji do wykonania.
 
 ### <a name="view-hivesampletable"></a>Zobacz tabelę hivesampletable
 
 Wszystkie klastry usługi HDInsight mają domyślną przykładową tabelę programu Hive o nazwie `hivesampletable` .  
 
-W klastrze wybierz opcję **bazy danych Hive**  >  **default**  >  **hivesampletable**.
+W klastrze wybierz opcję **bazy danych Hive**  >  **default**  >  **hivesampletable** .
 
 * Aby wyświetlić `hivesampletable` schemat:
 
-    Rozwiń węzeł **hivesampletable**. Są wyświetlane nazwy i typy danych `hivesampletable` kolumn.
+    Rozwiń węzeł **hivesampletable** . Są wyświetlane nazwy i typy danych `hivesampletable` kolumn.
 
 * Aby wyświetlić `hivesampletable` dane:
 
-    Kliknij prawym przyciskiem myszy pozycję **hivesampletable**, a następnie wybierz pozycję **Wyświetl pierwsze 100 wierszy**. Zostanie wyświetlona lista 100 wyników w **tabeli programu Hive: hivesampletable** okno. Ta akcja jest równoznaczna z uruchomieniem następującego zapytania programu Hive przy użyciu sterownika programu Hive ODBC:
+    Kliknij prawym przyciskiem myszy pozycję **hivesampletable** , a następnie wybierz pozycję **Wyświetl pierwsze 100 wierszy** . Zostanie wyświetlona lista 100 wyników w **tabeli programu Hive: hivesampletable** okno. Ta akcja jest równoznaczna z uruchomieniem następującego zapytania programu Hive przy użyciu sterownika programu Hive ODBC:
 
     `SELECT * FROM hivesampletable LIMIT 100`
 
-    Liczbę wierszy można dostosować, zmieniając **liczbę wierszy**. z listy rozwijanej można wybrać 50, 100, 200 lub 1000 wierszy.
+    Liczbę wierszy można dostosować, zmieniając **liczbę wierszy** . z listy rozwijanej można wybrać 50, 100, 200 lub 1000 wierszy.
 
 ### <a name="create-hive-tables"></a>Tworzenie tabel programu Hive
 
 Do utworzenia tabeli programu Hive można użyć graficznego interfejsu użytkownika lub zapytań programu Hive. Aby uzyskać informacje o używaniu zapytań Hive, zobacz [Tworzenie i uruchamianie zapytań programu Hive](#create-and-run-hive-queries).
 
-1. W klastrze wybierz opcję **bazy danych Hive**  >  **Domyślnie**.
+1. W klastrze wybierz opcję **bazy danych Hive**  >  **Domyślnie** .
 
-2. Kliknij prawym przyciskiem myszy pozycję **domyślne**, a następnie wybierz pozycję **Utwórz tabelę**.
+2. Kliknij prawym przyciskiem myszy pozycję **domyślne** , a następnie wybierz pozycję **Utwórz tabelę** .
 
 3. Skonfiguruj tabelę.
 
@@ -201,7 +201,7 @@ Masz dwie opcje umożliwiające utworzenie i uruchomienie zapytań Hive:
 
 Aby utworzyć i uruchomić zapytanie ad hoc:
 
-1. Kliknij prawym przyciskiem myszy klaster, w którym chcesz uruchomić zapytanie, a następnie wybierz polecenie **Napisz zapytanie programu Hive**.  
+1. Kliknij prawym przyciskiem myszy klaster, w którym chcesz uruchomić zapytanie, a następnie wybierz polecenie **Napisz zapytanie programu Hive** .  
 
 2. Wprowadź zapytanie programu Hive.
 
@@ -227,17 +227,17 @@ Aby utworzyć i uruchomić zapytanie ad hoc:
 
     * **Interaktywne**  
 
-        Z pierwszej listy rozwijanej wybierz pozycję **interaktywny**, a następnie wybierz pozycję **Wykonaj**.
+        Z pierwszej listy rozwijanej wybierz pozycję **interaktywny** , a następnie wybierz pozycję **Wykonaj** .
 
         ![Tryb interaktywny, kwerenda ad hoc Hive, klaster HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-execute.png)  
 
     * **Batch**  
 
-        Z pierwszej listy rozwijanej wybierz pozycję **Batch**, a następnie wybierz pozycję **Prześlij**. Lub wybierz ikonę listy rozwijanej obok pozycji **Prześlij** i wybierz pozycję **Zaawansowane**.
+        Z pierwszej listy rozwijanej wybierz pozycję **Batch** , a następnie wybierz pozycję **Prześlij** . Lub wybierz ikonę listy rozwijanej obok pozycji **Prześlij** i wybierz pozycję **Zaawansowane** .
 
         ![Tryb wsadowy, kwerenda ad hoc Hive, klaster usługi HDInsight, program Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)
 
-        W przypadku wybrania opcji przesyłania zaawansowane zostanie wyświetlone okno dialogowe **Prześlij skrypt** . Skonfiguruj **nazwę zadania**, **argumenty**, **dodatkowe konfiguracje**i **katalog stanu** dla skryptu.
+        W przypadku wybrania opcji przesyłania zaawansowane zostanie wyświetlone okno dialogowe **Prześlij skrypt** . Skonfiguruj **nazwę zadania** , **argumenty** , **dodatkowe konfiguracje** i **katalog stanu** dla skryptu.
 
         ![Okno dialogowe przesyłania skryptu, zapytanie ad hoc Hive, klaster usługi HDInsight, program Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png)
 
@@ -248,15 +248,15 @@ Aby utworzyć i uruchomić zapytanie ad hoc:
 
 Tworzenie i uruchamianie rozwiązania Hive:
 
-1. Na pasku menu wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
+1. Na pasku menu wybierz pozycję **plik**  >  **Nowy**  >  **projekt** .
 
-2. W oknie **Tworzenie nowego projektu** zaznacz pole wyszukiwania i wpisz **Hive**. Następnie wybierz pozycję **aplikacja Hive** i wybierz pozycję **dalej**.
+2. W oknie **Tworzenie nowego projektu** zaznacz pole wyszukiwania i wpisz **Hive** . Następnie wybierz pozycję **aplikacja Hive** i wybierz pozycję **dalej** .
 
-3. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu**, wybierz lub Utwórz **lokalizację**projektu, a następnie wybierz pozycję **Utwórz**.
+3. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** , wybierz lub Utwórz **lokalizację** projektu, a następnie wybierz pozycję **Utwórz** .
 
     ![Nowa aplikacja Hive, Konfigurowanie okna nowego projektu, HDInsight Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-new-hive-project.png)
 
-4. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Script.hql**, aby otworzyć skrypt.
+4. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Script.hql** , aby otworzyć skrypt.
 
 ### <a name="view-job-summary-and-output"></a>Wyświetlanie podsumowania i danych wyjściowych zadania
 
@@ -264,9 +264,9 @@ Podsumowanie zadania różni się **nieco w zależności od trybu** **wsadowego*
 
 ![Podsumowanie zadań programu Hive Windows, Batch i tryb interaktywny, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png)
 
-Użyj ikony **Odśwież** , aby zaktualizować stan do momentu, gdy stan zadania zmieni się na **zakończone**.  
+Użyj ikony **Odśwież** , aby zaktualizować stan do momentu, gdy stan zadania zmieni się na **zakończone** .  
 
-* W obszarze Szczegóły zadania w trybie **wsadowym** wybierz linki u dołu, aby wyświetlić **zapytanie dotyczące zadania**, **dane wyjściowe zadania**lub **Dziennik zadań**lub **wyświetlić dzienniki przędzy**.
+* W obszarze Szczegóły zadania w trybie **wsadowym** wybierz linki u dołu, aby wyświetlić **zapytanie dotyczące zadania** , **dane wyjściowe zadania** lub **Dziennik zadań** lub **wyświetlić dzienniki przędzy** .
 
 * Aby uzyskać szczegółowe informacje o zadaniu w trybie **interaktywnym** , zobacz okienka danych **wyjściowych** i **serwera hiveserver2** .
 
@@ -296,7 +296,7 @@ W najnowszej wersji narzędzi można sprawdzić zawartość zadań Hive, zbieraj
 
 Aby wyświetlić zadania Hive:
 
-1. Kliknij prawym przyciskiem myszy klaster usługi HDInsight, a następnie wybierz pozycję **Wyświetl zadania**.
+1. Kliknij prawym przyciskiem myszy klaster usługi HDInsight, a następnie wybierz pozycję **Wyświetl zadania** .
 
     ![Wyświetlanie zadań, Apache Hive, klastra usługi HDInsight i programu Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-view-hive-jobs.png)
 
@@ -310,11 +310,11 @@ Aby wyświetlić zadania Hive:
 
 ## <a name="run-apache-pig-scripts"></a>Uruchamianie skryptów Apache świni
 
-1. Na pasku menu wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
+1. Na pasku menu wybierz pozycję **plik**  >  **Nowy**  >  **projekt** .
 
-2. W oknie **uruchamiania** wybierz pole wyszukiwania i wprowadź **świnie**. Następnie wybierz pozycję **aplikacja świniowa** i wybierz pozycję **dalej**.
+2. W oknie **uruchamiania** wybierz pole wyszukiwania i wprowadź **świnie** . Następnie wybierz pozycję **aplikacja świniowa** i wybierz pozycję **dalej** .
 
-3. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu**, a następnie wybierz lub Utwórz **lokalizację** dla projektu. Następnie wybierz przycisk **Utwórz**.
+3. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** , a następnie wybierz lub Utwórz **lokalizację** dla projektu. Następnie wybierz przycisk **Utwórz** .
 
 4. W okienku **Eksplorator rozwiązań** IDE kliknij dwukrotnie **skrypt. świni** , aby otworzyć skrypt.
 

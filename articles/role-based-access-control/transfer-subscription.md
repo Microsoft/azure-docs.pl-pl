@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819710"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545348"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 
@@ -75,7 +75,8 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 | Azure Files | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure File Sync | Tak | Tak |  |  |
 | Dyski zarządzane platformy Azure | Tak | Tak |  |  Jeśli używasz zestawów szyfrowania dysków do szyfrowania Managed Disks przy użyciu kluczy zarządzanych przez klienta, musisz wyłączyć i ponownie włączyć tożsamości przypisane do systemu skojarzone z zestawami szyfrowania dysków. I należy ponownie utworzyć przypisania ról, a tym samym ponownie przyznać wymagane uprawnienia do zestawów szyfrowania dysków w magazynach kluczy. |
-| Azure Container Services dla Kubernetes | Tak | Tak |  |  |
+| Azure Kubernetes Service | Tak | Tak |  |  |
+| Azure Policy | Tak | Nie | Wszystkie obiekty Azure Policy, łącznie z definicjami niestandardowymi, przypisaniami, wykluczeniami i danymi zgodności. | Należy [wyeksportować](../governance/policy/how-to/export-resources.md), zaimportować i ponownie przypisać definicje. Następnie utwórz nowe przypisania zasad i wszelkie potrzebne [wykluczenia zasad](../governance/policy/concepts/exemption-structure.md). |
 | Azure Active Directory Domain Services | Tak | Nie |  |  |
 | Rejestracje aplikacji | Tak | Tak |  |  |
 
@@ -108,9 +109,9 @@ Aby wykonać te kroki, potrzebne są:
     az account set --subscription "Marketing"
     ```
 
-### <a name="install-the-resource-graph-extension"></a>Instalowanie rozszerzenia grafu zasobów
+### <a name="install-the-azure-resource-graph-extension"></a>Zainstaluj rozszerzenie grafu zasobów platformy Azure
 
- Rozszerzenie grafu zasobów umożliwia użycie polecenia [AZ Graph](/cli/azure/ext/resource-graph/graph) do wykonywania zapytań dotyczących zasobów zarządzanych przez Azure Resource Manager. To polecenie będzie używane w dalszych krokach.
+ Rozszerzenie interfejsu wiersza polecenia platformy Azure dla [wykresu zasobów platformy Azure](../governance/resource-graph/index.yml), *grafy zasobów* , umożliwia używanie [AZ Graph](/cli/azure/ext/resource-graph/graph) Command do wykonywania zapytań dotyczących zasobów zarządzanych przez Azure Resource Manager. To polecenie będzie używane w dalszych krokach.
 
 1. Użyj [AZ Extension list](/cli/azure/extension#az_extension_list) , aby sprawdzić, czy masz zainstalowane rozszerzenie *grafu zasobów* .
 

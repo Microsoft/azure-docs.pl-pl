@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 31fc6fe02559c356f072761c024308f158ae4d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7d3992ecd2c74947eaa1071b97b2032000c749
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085450"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547609"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Przetwarzanie i analizowanie dokumentów JSON przy użyciu Apache Hive w usłudze Azure HDInsight
 
@@ -129,7 +129,7 @@ Istnieją ograniczenia dotyczące get_json_object UDF:
 * Ponieważ każde pole w zapytaniu wymaga przeanalizowania zapytania, ma wpływ na wydajność.
 * **Pobierz \_ JSON_OBJECT ()** zwraca ciąg reprezentujący tablicę. Aby przekonwertować tę tablicę na tablicę programu Hive, należy użyć wyrażeń regularnych w celu zastąpienia nawiasów kwadratowych "[" i "]", a następnie należy wywołać metodę Split, aby pobrać tablicę.
 
-Ta konwersja polega na tym, że witryna typu wiki programu Hive zaleca korzystanie z **json_tuple**.  
+Ta konwersja polega na tym, że witryna typu wiki programu Hive zaleca korzystanie z **json_tuple** .  
 
 ### <a name="use-the-json_tuple-udf"></a>Użyj json_tuple UDF
 
@@ -146,7 +146,7 @@ Dane wyjściowe tego skryptu w konsoli programu Hive:
 
 ![Apache Hive wyniki zapytania JSON](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-W formacie `json_tuple` UDF użyto składni [widoku bocznego](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) w gałęzi, która umożliwia \_ krotkom JSON Tworzenie tabeli wirtualnej przez zastosowanie funkcji UDT do każdego wiersza oryginalnej tabeli. Złożone dane JSON stają się zbyt nieporęczny z powodu wielokrotnego użycia **widoku bocznego**. Ponadto **JSON_TUPLE** nie może obsłużyć ZAGNIEŻDŻONych notacji JSON.
+W formacie `json_tuple` UDF użyto składni [widoku bocznego](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) w gałęzi, która umożliwia \_ krotkom JSON Tworzenie tabeli wirtualnej przez zastosowanie funkcji UDT do każdego wiersza oryginalnej tabeli. Złożone dane JSON stają się zbyt nieporęczny z powodu wielokrotnego użycia **widoku bocznego** . Ponadto **JSON_TUPLE** nie może obsłużyć ZAGNIEŻDŻONych notacji JSON.
 
 ### <a name="use-a-custom-serde"></a>Użyj niestandardowego elementu SERDE
 
@@ -154,11 +154,11 @@ Elementu SERDE jest najlepszym wyborem do analizowania zagnieżdżonych dokument
 
 ## <a name="summary"></a>Podsumowanie
 
-Typ operatora JSON w wyborze gałęzi zależy od danego scenariusza. Korzystając z prostego dokumentu JSON i jednego pola do wyszukania, wybierz opcję UDF **get_json_object**platformy Hive. Jeśli masz więcej niż jeden klucz do wyszukania, możesz użyć **json_tuple**. W przypadku dokumentów zagnieżdżonych Użyj **elementu SERDE JSON**.
+Typ operatora JSON w wyborze gałęzi zależy od danego scenariusza. Korzystając z prostego dokumentu JSON i jednego pola do wyszukania, wybierz opcję UDF **get_json_object** platformy Hive. Jeśli masz więcej niż jeden klucz do wyszukania, możesz użyć **json_tuple** . W przypadku dokumentów zagnieżdżonych Użyj **elementu SERDE JSON** .
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby poznać pokrewne artykuły, zobacz:
 
-* [Analizowanie przykładowego pliku Apache Log4J przy użyciu Apache Hive i HiveQL z Apache Hadoop w usłudze HDInsight](../hdinsight-use-hive.md)
+* [Analizowanie przykładowego pliku Apache Log4J przy użyciu Apache Hive i HiveQL z Apache Hadoop w usłudze HDInsight](./hdinsight-use-hive.md)
 * [Analizowanie danych dotyczących opóźnień lotów przy użyciu interakcyjnych zapytań w usłudze HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

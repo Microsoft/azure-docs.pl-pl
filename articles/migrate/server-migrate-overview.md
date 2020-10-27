@@ -3,12 +3,12 @@ title: Wybierz opcję migracji VMware z migracją na serwer Azure Migrate | Micr
 description: Zawiera omówienie opcji migrowania maszyn wirtualnych VMware na platformę Azure przy użyciu migracji Azure Migrate serwera
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e62b9cea80f1ed7f672135b93e52ba606a717a6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac08075212d885a1aca755f94906b50754e23b9d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950225"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534111"
 ---
 # <a name="select-a-vmware-migration-option"></a>Wybierz opcję migracji VMware
 
@@ -29,9 +29,9 @@ Użyj tych wybranych porównań, aby określić metodę, która ma zostać użyt
 **Wdrażanie urządzenia** | [Urządzenie Azure Migrate](migrate-appliance.md) jest wdrażane lokalnie. | [Urządzenie replikacji Azure Migrate](migrate-replication-appliance.md) jest wdrażane lokalnie.
 **Zgodność Site Recovery** | Zgodność. | Nie można przeprowadzić replikacji z migracją serwera Azure Migrate, jeśli skonfigurowano replikację dla maszyny przy użyciu Site Recovery.
 **Dysk docelowy** | Dyski zarządzane | Dyski zarządzane
-**Limity dysku** | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk danych: 8 TB<br/><br/> Maksymalna liczba dysków: 60 | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk danych: 8 TB<br/><br/> Maksymalna liczba dysków: 63
+**Limity dysku** | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk z danymi: 32 TB<br/><br/> Maksymalna liczba dysków: 60 | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk danych: 8 TB<br/><br/> Maksymalna liczba dysków: 63
 **Przekazywanie dysków** | Nieobsługiwane | Obsługiwane
-**Rozruch z interfejsem UEFI** | Nieobsługiwane | Migrowana maszyna wirtualna na platformie Azure zostanie automatycznie przekonwertowana na maszynę wirtualną rozruchową w systemie BIOS.<br/><br/> Dysk systemu operacyjnego powinien mieć maksymalnie cztery partycje, a woluminy powinny być sformatowane w systemie plików NTFS.
+**Rozruch z interfejsem UEFI** | Obsługiwane. | Obsługiwane.
 
 ## <a name="compare-deployment-steps"></a>Porównanie kroków wdrożenia
 
@@ -45,7 +45,7 @@ Po przejrzeniu ograniczeń można zrozumieć kroki związane z wdrażaniem poszc
 **Przygotuj oprogramowanie VMware do migracji** | Skonfiguruj ustawienia na serwerach i maszynach wirtualnych VMware. | Wymagane | Wymagane
 **Instalowanie usługi mobilności na maszynach wirtualnych** | Usługa mobilności jest uruchamiana na każdej maszynie wirtualnej, która ma zostać zreplikowana | Niewymagane | Wymagane
 **Wdrażanie urządzenia replikacji** | [Urządzenie do replikacji](migrate-replication-appliance.md) jest używane na potrzeby migracji opartej na agentach. Łączy między usługą mobilności działającą na maszynach wirtualnych i migracją serwera. | Niewymagane | Wymagane
-**Replikowanie maszyn wirtualnych**. Włącz replikację maszyny wirtualnej. | Skonfiguruj ustawienia replikacji i wybierz maszyny wirtualne do replikacji | Wymagane | Wymagane
+**Replikowanie maszyn wirtualnych** . Włącz replikację maszyny wirtualnej. | Skonfiguruj ustawienia replikacji i wybierz maszyny wirtualne do replikacji | Wymagane | Wymagane
 **Uruchamianie migracji testowej** | Uruchom migrację testową, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami. | Wymagane | Wymagane
 **Uruchamianie pełnej migracji** | Migrowanie maszyn wirtualnych. | Wymagane | Wymagane
 

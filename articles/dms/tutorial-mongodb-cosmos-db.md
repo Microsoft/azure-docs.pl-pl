@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: b5e335659a26568ae11a17425c4e53c53f02a843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d06b7be7be06d037589e482fe59c4326cbfad29
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282361"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546708"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Samouczek: Migrowanie MongoDB Azure Cosmos DB do interfejsu API usługi MongoDB w trybie offline za pomocą usługi DMS
 
@@ -56,25 +56,25 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.DataMigration
 
-1. Zaloguj się w witrynie Azure Portal, wybierz pozycję **Wszystkie usługi**, a następnie wybierz pozycję **Subskrypcje**.
+1. Zaloguj się w witrynie Azure Portal, wybierz pozycję **Wszystkie usługi** , a następnie wybierz pozycję **Subskrypcje** .
 
    ![Wyświetlanie subskrypcji w portalu](media/tutorial-mongodb-to-cosmosdb/portal-select-subscription1.png)
 
-2. Wybierz subskrypcję, w której chcesz utworzyć wystąpienie usługi Azure Database Migration Service, a następnie wybierz pozycję **Dostawcy zasobów**.
+2. Wybierz subskrypcję, w której chcesz utworzyć wystąpienie usługi Azure Database Migration Service, a następnie wybierz pozycję **Dostawcy zasobów** .
 
     ![Wyświetlanie dostawców zasobów](media/tutorial-mongodb-to-cosmosdb/portal-select-resource-provider.png)
 
-3. Wyszukaj pozycję migracja, a następnie po prawej stronie **programu Microsoft. datamigration**wybierz pozycję **zarejestruj**.
+3. Wyszukaj pozycję migracja, a następnie po prawej stronie **programu Microsoft. datamigration** wybierz pozycję **zarejestruj** .
 
     ![Rejestrowanie dostawcy zasobów](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Tworzenie wystąpienia
 
-1. W witrynie Azure Portal wybierz pozycję + **Utwórz zasób**, wyszukaj usługę Azure Database Migration Service, a następnie wybierz usługę **Azure Database Migration Service** na liście rozwijanej.
+1. W witrynie Azure Portal wybierz pozycję + **Utwórz zasób** , wyszukaj usługę Azure Database Migration Service, a następnie wybierz usługę **Azure Database Migration Service** na liście rozwijanej.
 
     ![Azure Marketplace](media/tutorial-mongodb-to-cosmosdb/portal-marketplace.png)
 
-2. Na ekranie **Azure Database Migration Service** wybierz polecenie **Utwórz**.
+2. Na ekranie **Azure Database Migration Service** wybierz polecenie **Utwórz** .
 
     ![Tworzenie wystąpienia usługi Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb/dms-create1.png)
   
@@ -94,25 +94,25 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
     ![Konfigurowanie ustawień wystąpienia usługi Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb/dms-settings2.png)
 
-7. Wybierz pozycję **Utwórz**, aby utworzyć usługę.
+7. Wybierz pozycję **Utwórz** , aby utworzyć usługę.
 
 ## <a name="create-a-migration-project"></a>Tworzenie projektu migracji
 
 Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a następnie utwórz nowy projekt migracji.
 
-1. W witrynie Azure Portal wybierz pozycję **Wszystkie usługi**, wyszukaj usługę Azure Database Migration Service, a następnie wybierz pozycję **Azure Database Migration Services**.
+1. W witrynie Azure Portal wybierz pozycję **Wszystkie usługi** , wyszukaj usługę Azure Database Migration Service, a następnie wybierz pozycję **Azure Database Migration Services** .
 
       ![Znajdź wszystkie wystąpienia Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb/dms-search.png)
 
 2. Na ekranie **usługi Azure Database Migration Services** Wyszukaj nazwę utworzonego wystąpienia Azure Database Migration Service, a następnie wybierz wystąpienie.
 
-3. Wybierz pozycję + **Nowy projekt migracji**.
+3. Wybierz pozycję + **Nowy projekt migracji** .
 
-4. Na ekranie **Nowy projekt migracji** wpisz nazwę projektu, w polu tekstowym **Typ serwera źródłowego** wybierz pozycję **MongoDB**, w polu tekstowym **Typ serwera docelowego** wybierz pozycję **CosmosDB (interfejs API MongoDB)**, a następnie w polu **Wybierz typ działania** wybierz pozycję **Migracja danych w trybie offline**. 
+4. Na ekranie **Nowy projekt migracji** wpisz nazwę projektu, w polu tekstowym **Typ serwera źródłowego** wybierz pozycję **MongoDB** , w polu tekstowym **Typ serwera docelowego** wybierz pozycję **CosmosDB (interfejs API MongoDB)** , a następnie w polu **Wybierz typ działania** wybierz pozycję **Migracja danych w trybie offline** . 
 
     ![Tworzenie projektu usługi Database Migration Service](media/tutorial-mongodb-to-cosmosdb/dms-create-project.png)
 
-5. Wybierz polecenie **Utwórz i uruchom działanie**, aby utworzyć projekt i uruchomić działanie migracji.
+5. Wybierz polecenie **Utwórz i uruchom działanie** , aby utworzyć projekt i uruchomić działanie migracji.
 
 ## <a name="specify-source-details"></a>Określanie szczegółów źródła
 
@@ -122,9 +122,9 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
    > Azure Database Migration Service nie obsługuje Azure Cosmos DB jako źródła.
 
     Istnieją trzy tryby nawiązywania połączenia ze źródłem:
-   * **Tryb standardowy**, który akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP, numer portu i poświadczenia połączenia.
-   * **Tryb parametrów połączenia**, który akceptuje parametry połączenia bazy danych MongoDB zgodnie z opisem znajdującym się w artykule [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/) (Format identyfikatora URI parametrów połączenia).
-   * **Tryb danych z usługi Azure Storage**, który akceptuje adres URL sygnatury dostępu współdzielonego kontenera obiektów blob. Zaznacz pole wyboru **Obiekt blob zawiera zrzuty BSON**, jeśli kontener obiektów blob zawiera zrzuty BSON utworzone przez [narzędzie bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/) bazy danych MongoDB, lub usuń zaznaczenie tego pola wyboru, jeśli kontener zawiera pliki JSON.
+   * **Tryb standardowy** , który akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP, numer portu i poświadczenia połączenia.
+   * **Tryb parametrów połączenia** , który akceptuje parametry połączenia bazy danych MongoDB zgodnie z opisem znajdującym się w artykule [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/) (Format identyfikatora URI parametrów połączenia).
+   * **Tryb danych z usługi Azure Storage** , który akceptuje adres URL sygnatury dostępu współdzielonego kontenera obiektów blob. Zaznacz pole wyboru **Obiekt blob zawiera zrzuty BSON** , jeśli kontener obiektów blob zawiera zrzuty BSON utworzone przez [narzędzie bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/) bazy danych MongoDB, lub usuń zaznaczenie tego pola wyboru, jeśli kontener zawiera pliki JSON.
 
      Jeśli wybierzesz tę opcję, upewnij się, że parametry połączenia konta magazynu mają następujący format:
 
@@ -136,9 +136,9 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
      
      Na podstawie informacji zrzutu typu w usłudze Azure Storage należy również pamiętać o następujących kwestiach.
 
-     * W przypadku zrzutów BSON dane w kontenerze obiektów blob muszą mieć format bsondump, tak aby pliki danych były umieszczone w folderach o nazwach zgodnych z odpowiednimi bazami danych w formacie kolekcja.bson. Pliki metadanych (jeśli istnieją) powinny mieć nazwy w formacie *kolekcja*.metadata.json.
+     * W przypadku zrzutów BSON dane w kontenerze obiektów blob muszą mieć format bsondump, tak aby pliki danych były umieszczone w folderach o nazwach zgodnych z odpowiednimi bazami danych w formacie kolekcja.bson. Pliki metadanych (jeśli istnieją) powinny mieć nazwy w formacie *kolekcja* .metadata.json.
 
-     * W przypadku zrzutów JSON pliki w kontenerze obiektów blob muszą być umieszczone w folderach o nazwach zgodnych z odpowiednimi bazami danych. W każdym folderze bazy danych pliki danych muszą być umieszczone w podfolderze o nazwie „data” i mieć nazwy w formacie *kolekcja*.json. Pliki metadanych (jeśli istnieją) muszą być umieszczone w podfolderze o nazwie „metadata” i mieć nazwy w takim samym formacie *kolekcja*.json. Pliki metadanych muszą mieć taki sam format jak pliki tworzone przez narzędzie bsondump bazy danych MongoDB.
+     * W przypadku zrzutów JSON pliki w kontenerze obiektów blob muszą być umieszczone w folderach o nazwach zgodnych z odpowiednimi bazami danych. W każdym folderze bazy danych pliki danych muszą być umieszczone w podfolderze o nazwie „data” i mieć nazwy w formacie *kolekcja* .json. Pliki metadanych (jeśli istnieją) muszą być umieszczone w podfolderze o nazwie „metadata” i mieć nazwy w takim samym formacie *kolekcja* .json. Pliki metadanych muszą mieć taki sam format jak pliki tworzone przez narzędzie bsondump bazy danych MongoDB.
 
     > [!IMPORTANT]
     > Nie zaleca się używania certyfikatu z podpisem własnym na serwerze Mongo. Jeśli jednak jest używany, Połącz się z serwerem przy użyciu **trybu parametrów połączenia** i upewnij się, że parametry połączenia mają ""
@@ -151,7 +151,7 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
    ![Określanie szczegółów źródła](media/tutorial-mongodb-to-cosmosdb/dms-specify-source.png)
 
-2. Wybierz pozycję **Zapisz**.
+2. Wybierz pozycję **Zapisz** .
 
 ## <a name="specify-target-details"></a>Określanie szczegółów elementu docelowego
 
@@ -159,7 +159,7 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
     ![Określanie szczegółów elementu docelowego](media/tutorial-mongodb-to-cosmosdb/dms-specify-target.png)
 
-2. Wybierz pozycję **Zapisz**.
+2. Wybierz pozycję **Zapisz** .
 
 ## <a name="map-to-target-databases"></a>Mapowanie do docelowych baz danych
 
@@ -173,7 +173,7 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
     ![Mapowanie do docelowych baz danych](media/tutorial-mongodb-to-cosmosdb/dms-map-target-databases.png)
 
-2. Wybierz pozycję **Zapisz**.
+2. Wybierz pozycję **Zapisz** .
 3. Na ekranie **Ustawienia kolekcji** rozwiń listę kolekcji, a następnie przejrzyj listę kolekcji, które będą migrowane.
 
     Azure Database Migration Service wybiera wszystkie kolekcje istniejące w źródłowym wystąpieniu MongoDB, które nie istnieją na docelowym koncie Azure Cosmos DB. Jeśli chcesz ponownie przeprowadzić migrację kolekcji, które już zawierają dane, musisz jawnie wybrać te kolekcje w tym bloku.
@@ -187,7 +187,7 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
     ![Wybieranie tabel kolekcji](media/tutorial-mongodb-to-cosmosdb/dms-collection-setting.png)
 
-4. Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **Zapisz** .
 
 5. Na ekranie **Podsumowanie migracji** w polu tekstowym **Nazwa działania** określ nazwę działania migracji.
 
@@ -195,15 +195,15 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
 ## <a name="run-the-migration"></a>Uruchamianie migracji
 
-* Wybierz polecenie **Uruchom migrację**.
+* Wybierz polecenie **Uruchom migrację** .
 
-    Zostanie wyświetlone okno działania migracji, a **stan** działania będzie określony jako **Nierozpoczęte**.
+    Zostanie wyświetlone okno działania migracji, a **stan** działania będzie określony jako **Nierozpoczęte** .
 
     ![Stan działania](media/tutorial-mongodb-to-cosmosdb/dms-activity-status.png)
 
 ## <a name="monitor-the-migration"></a>Monitorowanie migracji
 
-* Na ekranie działania migracji wybieraj polecenie **Odśwież**, aby zaktualizować ekran, aż do momentu, gdy **Stan** migracji zmieni się na **Ukończono**.
+* Na ekranie działania migracji wybieraj polecenie **Odśwież** , aby zaktualizować ekran, aż do momentu, gdy **Stan** migracji zmieni się na **Ukończono** .
 
    > [!NOTE]
    > Po wybraniu działania można uzyskać szczegółowe informacje o metrykach migracji na poziomie bazy danych i kolekcji.
@@ -214,7 +214,7 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
 * Po zakończeniu migracji możesz sprawdzić konto usługi Azure Cosmos DB, aby upewnić się, że wszystkie kolekcje zostały zmigrowane pomyślnie.
 
-    ![Stan działania — ukończono](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+    ![Zrzut ekranu pokazujący, gdzie sprawdzić konto Azure Cosmos DB, aby sprawdzić, czy wszystkie kolekcje zostały pomyślnie zmigrowane.](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 
 ## <a name="post-migration-optimization"></a>Optymalizacja po migracji
 

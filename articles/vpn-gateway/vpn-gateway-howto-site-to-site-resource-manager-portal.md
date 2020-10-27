@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 069add9a7e5dd6b19810b8b36a4fca49818bfb02
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b8c12048283cb8cc4220cb325762b272cde4a68f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479634"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541319"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Tworzenie połączenia typu lokacja-lokacja w witrynie Azure Portal
 
@@ -100,7 +100,7 @@ Utwórz bramę sieci lokalnej przy użyciu następujących wartości:
 Połączenia typu lokacja-lokacja z siecią lokalną wymagają urządzenia sieci VPN. W tym kroku konfigurowane jest urządzenie sieci VPN. Podczas konfigurowania urządzenia sieci VPN potrzebne są następujące wartości:
 
 * Klucz współużytkowany. To ten sam klucz współużytkowany, który jest określany podczas tworzenia połączenia sieci VPN typu lokacja-lokacja. W naszych przykładach używamy podstawowego klucza współużytkowanego. Zalecamy, aby do użycia wygenerować bardziej złożony klucz.
-* Publiczny adres IP bramy sieci wirtualnej. Publiczny adres IP można wyświetlić za pomocą witryny Azure Portal, programu PowerShell lub interfejsu wiersza polecenia. Aby znaleźć publiczny adres IP bramy sieci VPN przy użyciu Azure Portal, przejdź do opcji **bramy sieci wirtualnej**, a następnie wybierz nazwę bramy.
+* Publiczny adres IP bramy sieci wirtualnej. Publiczny adres IP można wyświetlić za pomocą witryny Azure Portal, programu PowerShell lub interfejsu wiersza polecenia. Aby znaleźć publiczny adres IP bramy sieci VPN przy użyciu Azure Portal, przejdź do opcji **bramy sieci wirtualnej** , a następnie wybierz nazwę bramy.
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
@@ -122,7 +122,7 @@ Utwórz połączenie, używając następujących wartości:
 
 ## <a name="how-to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Jak nawiązać połączenie z maszyną wirtualną
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
 ## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>Jak zresetować bramę VPN Gateway
 

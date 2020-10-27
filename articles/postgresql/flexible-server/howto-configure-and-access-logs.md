@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 0b7b09696cbbe12a57d066e452b4c8ea7a7b8f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 319b7a40a87d29454b22a26088df313ef524dc56
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938846"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545824"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Konfigurowanie i uzyskiwanie dostępu do dzienników na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -22,20 +22,20 @@ Dzienniki PostgreSQL są dostępne w każdym węźle elastycznego serwera. Dzien
 
 ## <a name="configure-diagnostic-settings"></a>Konfigurowanie ustawień diagnostycznych
 
-Ustawienia diagnostyczne dla serwera Postgres można włączyć za pomocą Azure Portal, interfejsu wiersza polecenia i środowiska API REST oraz programu PowerShell. Kategoria dziennika do wybrania to **PostgreSQLLogs**.
+Ustawienia diagnostyczne dla serwera Postgres można włączyć za pomocą Azure Portal, interfejsu wiersza polecenia i środowiska API REST oraz programu PowerShell. Kategoria dziennika do wybrania to **PostgreSQLLogs** .
 
 Aby włączyć dzienniki zasobów przy użyciu Azure Portal:
 
 1. W portalu przejdź do pozycji *Ustawienia diagnostyczne* w menu nawigacji serwera Postgres.
    
-2. Wybierz pozycję *Dodaj ustawienie diagnostyczne*.
+2. Wybierz pozycję *Dodaj ustawienie diagnostyczne* .
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Przycisk dodawania ustawień diagnostycznych":::
 
 3. Nadaj nazwę temu ustawieniu. 
 
 4. Wybierz preferowany punkt końcowy (konto magazynu, centrum zdarzeń, Analiza dzienników). 
 
-5. Wybierz typ dziennika **PostgreSQLLogs**.
+5. Wybierz typ dziennika **PostgreSQLLogs** .
    :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Przycisk dodawania ustawień diagnostycznych":::
 
 7. Zapisz ustawienie.
@@ -44,7 +44,7 @@ Aby włączyć dzienniki zasobów przy użyciu programu PowerShell lub interfejs
 
 ### <a name="access-resource-logs"></a>Dostęp do dzienników zasobów
 
-Sposób dostępu do dzienników zależy od wybranego punktu końcowego. W przypadku usługi Azure Storage zapoznaj się z artykułem [Logs (dzienniki konta magazynu](../../azure-monitor/platform/resource-logs-collect-storage.md) ). Aby uzyskać Event Hubs, zobacz artykuł [przesyłanie strumieniowe dzienników platformy Azure](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+Sposób dostępu do dzienników zależy od wybranego punktu końcowego. W przypadku usługi Azure Storage zapoznaj się z artykułem [Logs (dzienniki konta magazynu](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) ). Aby uzyskać Event Hubs, zobacz artykuł [przesyłanie strumieniowe dzienników platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
 
 W przypadku dzienników Azure Monitor dzienniki są wysyłane do wybranego obszaru roboczego. Dzienniki Postgres używają trybu zbierania **AzureDiagnostics** , dzięki czemu można wykonywać zapytania z tabeli AzureDiagnostics. Pola w tabeli są opisane poniżej. Więcej informacji o wysyłaniu zapytań i alertach znajduje się w temacie Omówienie [zapytań dotyczących dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md) .
 
@@ -71,5 +71,5 @@ W powyższym zapytaniu zostaną wyświetlone wyniki w ciągu ostatnich 6 godzin 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie do zapytań usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
-- Informacje o [centrach zdarzeń platformy Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)
+- [Wprowadzenie do zapytań usługi log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+- Informacje o [centrach zdarzeń platformy Azure](../../event-hubs/event-hubs-about.md)

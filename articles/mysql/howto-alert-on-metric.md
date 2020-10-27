@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 3891d1730648fea3c480cd03921a76fe005c308f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb86bc3fbfd4beffdaca713d7989218550841f03
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740058"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546895"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla Azure Database for MySQL 
 
@@ -25,9 +25,9 @@ Można skonfigurować alert, aby wykonał następujące akcje po jego wyzwoleniu
 * Wywołanie elementu webhook
 
 Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Witryna Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interfejs wiersza polecenia platformy Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Interfejs API REST usługi Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Interfejs API REST usługi Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Tworzenie reguły alertu na podstawie metryki z Azure Portal
 1. W [Azure Portal](https://portal.azure.com/)wybierz serwer Azure Database for MySQL, który chcesz monitorować.
@@ -42,13 +42,13 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
 
    :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Wybierz reguły alertów":::
 
-5. W sekcji **warunek** wybierz pozycję **Dodaj warunek**.
+5. W sekcji **warunek** wybierz pozycję **Dodaj warunek** .
 
 6. Wybierz metrykę z listy sygnałów, dla których chcesz otrzymywać alerty. W tym przykładzie wybierz pozycję "procent magazynu".
    
    :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Wybierz reguły alertów":::
 
-7. Skonfiguruj logikę alertów, łącznie z **warunkiem** (np. "Większe niż"), **próg** (np. 85 procent), **agregacja czasu**, **okres** czasu reguły metryki musi być spełniony przed wyzwalaczami alertu (np. "W ciągu ostatnich 30 minut") i **częstotliwość**.
+7. Skonfiguruj logikę alertów, łącznie z **warunkiem** (np. "Większe niż"), **próg** (np. 85 procent), **agregacja czasu** , **okres** czasu reguły metryki musi być spełniony przed wyzwalaczami alertu (np. "W ciągu ostatnich 30 minut") i **częstotliwość** .
    
    Wybierz pozycję **gotowe** po zakończeniu.
 
@@ -82,4 +82,4 @@ Po utworzeniu alertu możesz go zaznaczyć i wykonać następujące czynności:
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../azure-monitor/platform/alerts-webhooks.md).
-* Zapoznaj się z [omówieniem kolekcji metryk](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) , aby upewnić się, że usługa jest dostępna i odpowiada.
+* Zapoznaj się z [omówieniem kolekcji metryk](../azure-monitor/platform/data-platform.md) , aby upewnić się, że usługa jest dostępna i odpowiada.

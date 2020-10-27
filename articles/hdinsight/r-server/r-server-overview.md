@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: a8d164dd50ac190d2bc14fea70cde20bfdb89361
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3a6fc2ff45d61d63118edc23f40f69f16db9131
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85849918"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536151"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Co to jest usługa ML w usłudze Azure HDInsight
 
-Microsoft Machine Learning Server jest dostępna jako opcja wdrażania podczas tworzenia klastrów usługi HDInsight na platformie Azure. Typ klastra, który zapewnia tę opcję, nosi nazwę **usługi ml**. Ta funkcja zapewnia dostęp na żądanie do dostosowywalnych, dystrybuowanych metod analizy w usłudze HDInsight.
+Microsoft Machine Learning Server jest dostępna jako opcja wdrażania podczas tworzenia klastrów usługi HDInsight na platformie Azure. Typ klastra, który zapewnia tę opcję, nosi nazwę **usługi ml** . Ta funkcja zapewnia dostęp na żądanie do dostosowywalnych, dystrybuowanych metod analizy w usłudze HDInsight.
 
 Usługi ML w usłudze HDInsight zapewniają najnowsze możliwości analizy opartej na języku R na zestawach danych praktycznie dowolnym rozmiarze. Zestawy danych mogą być ładowane do usługi Azure Blob lub magazynu Data Lake. Aplikacje bazujące na języku R mogą korzystać z pakietów języka R o 8000 + Open Source. Dostępne są również procedury w ramach skalowania, czyli pakiet do analizy danych Big Data firmy Microsoft.
 
 Węzeł brzegowy zapewnia wygodne miejsce do łączenia się z klastrem i uruchamiania skryptów języka R. Węzeł brzegowy umożliwia uruchamianie równoległych funkcji skalowania w obrębie rdzeni serwera. Można je również uruchamiać w węzłach klastra przy użyciu mapy usługi Hadoop skalowania w poziomie. Można również użyć kontekstów obliczeniowych Apache Spark.
 
-Modele lub przewidywania powstałe w wyniku analizy mogą być pobierane do użytku lokalnego. Mogą one również znajdować się `operationalized` w innym miejscu na platformie Azure. W szczególności za poorednictwem [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net)i [usługi sieci Web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
+Modele lub przewidywania powstałe w wyniku analizy mogą być pobierane do użytku lokalnego. Mogą one również znajdować się `operationalized` w innym miejscu na platformie Azure. W szczególności za poorednictwem [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net)i [usługi sieci Web](../../machine-learning/classic/deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Wprowadzenie do usługi l Services w usłudze HDInsight
 
@@ -35,7 +35,7 @@ Usługi ML w usłudze HDInsight zapewniają następujące korzyści:
 
 ### <a name="ai-innovation-from-microsoft-and-open-source"></a>Innowacje AI firmy Microsoft i Open-Source
 
-  Usługi ML obejmują wysoce dostosowywalny, rozproszony zestaw algorytmów, takich jak [kolekcję funkcji revoscaler](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [biblioteki revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package)i [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package). Algorytmy te mogą korzystać z rozmiarów danych większych niż rozmiar pamięci fizycznej. Są one również uruchamiane na wielu platformach w sposób rozproszony. Dowiedz się więcej na temat kolekcji niestandardowych [pakietów języka R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) firmy Microsoft i [pakietów Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) zawartych w produkcie.
+  Usługi ML obejmują wysoce dostosowywalny, rozproszony zestaw algorytmów, takich jak [kolekcję funkcji revoscaler](/machine-learning-server/r-reference/revoscaler/revoscaler), [biblioteki revoscalepy](/machine-learning-server/python-reference/revoscalepy/revoscalepy-package)i [microsoftML](/machine-learning-server/python-reference/microsoftml/microsoftml-package). Algorytmy te mogą korzystać z rozmiarów danych większych niż rozmiar pamięci fizycznej. Są one również uruchamiane na wielu platformach w sposób rozproszony. Dowiedz się więcej na temat kolekcji niestandardowych [pakietów języka R](/machine-learning-server/r-reference/introducing-r-server-r-package-reference) firmy Microsoft i [pakietów Python](/machine-learning-server/python-reference/introducing-python-package-reference) zawartych w produkcie.
   
   Usługi ML mostkuje te innowacje i wkłady firmy Microsoft pochodzące z społeczności typu Open Source (zestawu narzędzi języka R, Python i AI). Wszystko to na jednej platformie klasy korporacyjnej. Każdy pakiet uczenia maszynowego "open source" w języku R lub Python może współpracować ze wszystkimi zastrzeżonymi innowacyjnymi firmy Microsoft.
 
@@ -43,7 +43,7 @@ Usługi ML w usłudze HDInsight zapewniają następujące korzyści:
 
   Przedsiębiorstwa opierają się na tradycyjnych odmianach i środowiskach inwestycji dużo czasu i wysiłku na operacjonalizacji. Ta akcja skutkuje niepełnymi kosztami i opóźnieniami, w tym czasem tłumaczenia dla: modele, iteracje, aby zachować ich ważność i bieżące, zatwierdzanie prawne i zarządzanie uprawnieniami.
 
-  Usługi ML oferują [operacjonalizacji](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)klasy korporacyjnej. Po zakończeniu działania modelu uczenia maszynowego program klika kilka kliknięć, aby generować interfejsy API usług sieci Web. Te [usługi sieci Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services) są hostowane w sieci na serwerze w chmurze i mogą być zintegrowane z aplikacjami biznesowymi. Możliwość wdrażania w elastycznej siatce umożliwia bezproblemowe skalowanie z potrzebami firmy zarówno w przypadku partii, jak i w czasie rzeczywistym. Aby uzyskać instrukcje, zobacz [OPERACJONALIZOWAĆ ml Services w usłudze HDInsight](r-server-operationalize.md).
+  Usługi ML oferują [operacjonalizacji](/machine-learning-server/what-is-operationalization)klasy korporacyjnej. Po zakończeniu działania modelu uczenia maszynowego program klika kilka kliknięć, aby generować interfejsy API usług sieci Web. Te [usługi sieci Web](/machine-learning-server/operationalize/concept-what-are-web-services) są hostowane w sieci na serwerze w chmurze i mogą być zintegrowane z aplikacjami biznesowymi. Możliwość wdrażania w elastycznej siatce umożliwia bezproblemowe skalowanie z potrzebami firmy zarówno w przypadku partii, jak i w czasie rzeczywistym. Aby uzyskać instrukcje, zobacz [OPERACJONALIZOWAĆ ml Services w usłudze HDInsight](r-server-operationalize.md).
 
 <!---
 * **Deep ecosystem engagements to deliver customer success with optimal total cost of ownership**
@@ -60,9 +60,9 @@ Poniższe funkcje są zawarte w usłudze ML w usłudze HDInsight.
 
 | Kategoria funkcji | Opis |
 |------------------|-------------|
-| Język R — włączony | [Pakiety języka r](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) dla rozwiązań utworzonych w języku r, z dystrybucją języka r typu open source i infrastruktury czasu wykonywania na potrzeby wykonywania skryptów. |
-| Python — włączono | [Moduły języka Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) dla rozwiązań utworzonych w języku Python, z dystrybucją typu "open source" w języku Python i infrastruktury środowiska uruchomieniowego na potrzeby wykonywania skryptów.
-| [Modele wstępnie nauczone](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | Na potrzeby analizy wizualizacji i tekstu tonacji można przystąpić do oceny danych, które zapewniasz. |
+| Język R — włączony | [Pakiety języka r](/machine-learning-server/r-reference/introducing-r-server-r-package-reference) dla rozwiązań utworzonych w języku r, z dystrybucją języka r typu open source i infrastruktury czasu wykonywania na potrzeby wykonywania skryptów. |
+| Python — włączono | [Moduły języka Python](/machine-learning-server/python-reference/introducing-python-package-reference) dla rozwiązań utworzonych w języku Python, z dystrybucją typu "open source" w języku Python i infrastruktury środowiska uruchomieniowego na potrzeby wykonywania skryptów.
+| [Modele wstępnie nauczone](/machine-learning-server/install/microsoftml-install-pretrained-models) | Na potrzeby analizy wizualizacji i tekstu tonacji można przystąpić do oceny danych, które zapewniasz. |
 | [Wdrażanie i korzystanie z](r-server-operationalize.md) | `Operationalize` Twój serwer i Wdróż rozwiązania jako usługę sieci Web. |
 | [Zdalne wykonywanie](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Uruchom sesje zdalne w klastrze usługi ML w sieci z poziomu stacji roboczej klienta. |
 
@@ -96,7 +96,7 @@ Aby wypróbować Azure Machine Learning, Użyj pakietu języka R "Open Azure Mac
 
 ### <a name="score-on-premises"></a>Ocena w środowisku lokalnym
 
-Aby wypróbować lokalnie po utworzeniu modelu: serializować model w języku R, Pobierz go, a następnie użyj go do oceniania nowych danych. Nowe dane można wystawić przy użyciu opisanego wcześniej podejścia do oceny usługi HDInsight lub [usług sieci Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+Aby wypróbować lokalnie po utworzeniu modelu: serializować model w języku R, Pobierz go, a następnie użyj go do oceniania nowych danych. Nowe dane można wystawić przy użyciu opisanego wcześniej podejścia do oceny usługi HDInsight lub [usług sieci Web](/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Obsługa klastra
 
@@ -112,7 +112,7 @@ Dodatkowe pakiety można zainstalować z akcją skryptu utworzoną po utworzeniu
 
 Po uruchomieniu zadania MapReduce można modyfikować dostępną pamięć do usługi ML. Aby zmodyfikować klaster, należy użyć interfejsu użytkownika Apache Ambari dla klastra. Instrukcje dotyczące interfejsu użytkownika Ambari znajdują się w temacie [Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu użytkownika sieci Web Ambari](../hdinsight-hadoop-manage-ambari.md).
 
-Dostępną pamięć do usługi ML można zmienić przy użyciu przełączników Hadoop w wywołaniu **RxHadoopMR**:
+Dostępną pamięć do usługi ML można zmienić przy użyciu przełączników Hadoop w wywołaniu **RxHadoopMR** :
 
 ```r
 hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"

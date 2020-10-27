@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2b7522e4c1074c3c52e62453e815cce859a86148
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbadc3262ee6baa383d3b572c021beaa58993f3f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435766"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541234"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure: PowerShell
 
@@ -30,7 +30,7 @@ Natywne połączenia uwierzytelniania certyfikatów platformy Azure typu punkt-l
 * Certyfikat klienta generowany na podstawie certyfikatu głównego. Certyfikat klienta instalowany na każdym komputerze klienckim, który będzie łączyć się z siecią wirtualną. Ten certyfikat jest używany do uwierzytelniania klientów.
 * Konfiguracja klienta sieci VPN. Pliki konfiguracji klienta sieci VPN zawierają informacje niezbędne klientowi do połączenia się z siecią wirtualną. Pliki te służą do konfigurowania istniejącego, natywnego dla systemu operacyjnego klienta sieci VPN . Każdy klient, który nawiązuje połączenie, musi być skonfigurowany przy użyciu ustawień w tych plikach konfiguracji.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial).
 
@@ -100,7 +100,7 @@ Zadeklaruj zmienne, których chcesz użyć. Użyj poniższego przykładu, podsta
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG -Location $Location
    ```
-2. Utwórz konfiguracje podsieci dla sieci wirtualnej, nadając im nazwy *FrontEnd*, *BackEnd* i *GatewaySubnet*. Prefiksy te muszą być częścią zadeklarowanej przestrzeni adresowej sieci wirtualnej.
+2. Utwórz konfiguracje podsieci dla sieci wirtualnej, nadając im nazwy *FrontEnd* , *BackEnd* i *GatewaySubnet* . Prefiksy te muszą być częścią zadeklarowanej przestrzeni adresowej sieci wirtualnej.
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
@@ -133,8 +133,8 @@ Zadeklaruj zmienne, których chcesz użyć. Użyj poniższego przykładu, podsta
 
 Skonfiguruj i utwórz bramę sieci wirtualnej dla sieci wirtualnej.
 
-* Zmienna - GatewayType musi przyjąć wartość **Vpn**, a zmienna - VpnType musi przyjąć wartość **RouteBased**.
-* Parametr -VpnClientProtocol służy do określania typów tuneli, które mają zostać włączone. Dostępne są opcje tunelu **OpenVPN, SSTP** i **IKEv2**. Możesz włączyć jedną z nich lub dowolną obsługiwaną kombinację. Jeśli chcesz włączyć wiele typów, określ nazwy oddzielone przecinkami. Nie można jednocześnie włączyć OpenVPN i SSTP. Klient strongSwan w systemach Android i Linux oraz natywny klient sieci VPN IKEv2 w systemach iOS i OSX będą używać do łączenia się tylko tuneli IKEv2. Klienci w systemie Windows będą najpierw próbowali użyć protokołu IKEv2, a jeśli połączenie nie zostanie nawiązane, użyją protokołu SSTP. Klienta OpenVPN można użyć do nawiązania połączenia z typem tunelu OpenVPN.
+* Zmienna - GatewayType musi przyjąć wartość **Vpn** , a zmienna - VpnType musi przyjąć wartość **RouteBased** .
+* Parametr -VpnClientProtocol służy do określania typów tuneli, które mają zostać włączone. Dostępne są opcje tunelu **OpenVPN, SSTP** i **IKEv2** . Możesz włączyć jedną z nich lub dowolną obsługiwaną kombinację. Jeśli chcesz włączyć wiele typów, określ nazwy oddzielone przecinkami. Nie można jednocześnie włączyć OpenVPN i SSTP. Klient strongSwan w systemach Android i Linux oraz natywny klient sieci VPN IKEv2 w systemach iOS i OSX będą używać do łączenia się tylko tuneli IKEv2. Klienci w systemie Windows będą najpierw próbowali użyć protokołu IKEv2, a jeśli połączenie nie zostanie nawiązane, użyją protokołu SSTP. Klienta OpenVPN można użyć do nawiązania połączenia z typem tunelu OpenVPN.
 * Jednostka SKU bramy sieci wirtualnej "podstawowa" nie obsługuje uwierzytelniania IKEv2, OpenVPN ani usługi RADIUS. Jeśli planujesz, aby klienci z systemem Mac mogli łączyć się z siecią wirtualną, nie używaj podstawowej jednostki SKU.
 * Tworzenie bramy sieci VPN może zająć do 45 minut, zależnie od wybranej [jednostki sku bramy](vpn-gateway-about-vpn-gateway-settings.md). W tym przykładzie użyto protokołu IKEv2.
 
@@ -216,8 +216,8 @@ Pliki konfiguracji klienta sieci VPN zawierają ustawienia do konfigurowania urz
 >
 >
 
-1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Kliknij przycisk **Połącz**. Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Kliknij przycisk **Kontynuuj**, aby skorzystać z podwyższonego poziomu uprawnień. 
-2. Na stronie stanu **Połączenie** kliknij przycisk **Połącz**, aby rozpocząć połączenie. Jeśli widzisz ekran **Wybierz certyfikat**, sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli nie, kliknij strzałkę na liście rozwijanej, aby wybrać właściwy certyfikat, a następnie kliknij przycisk **OK**.
+1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Kliknij przycisk **Podłącz** . Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Kliknij przycisk **Kontynuuj** , aby skorzystać z podwyższonego poziomu uprawnień. 
+2. Na stronie stanu **Połączenie** kliknij przycisk **Połącz** , aby rozpocząć połączenie. Jeśli widzisz ekran **Wybierz certyfikat** , sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli nie, kliknij strzałkę na liście rozwijanej, aby wybrać właściwy certyfikat, a następnie kliknij przycisk **OK** .
 
    ![Łączenie klienta sieci VPN z platformą Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
 3. Połączenie zostało ustanowione.
@@ -230,7 +230,7 @@ Pliki konfiguracji klienta sieci VPN zawierają ustawienia do konfigurowania urz
 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Aby połączyć się z klienta sieci VPN na komputerze Mac
 
-W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a następnie kliknij polecenie **Połącz**.
+W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a następnie kliknij polecenie **Połącz** .
 Aby uzyskać szczegółowe instrukcje, sprawdź [Install-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) . Jeśli występują problemy z połączeniem, sprawdź, czy Brama sieci wirtualnej nie używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie jest obsługiwana w przypadku klientów na komputery Mac.
 
   ![Połączenie z komputerem Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
@@ -239,7 +239,7 @@ Aby uzyskać szczegółowe instrukcje, sprawdź [Install-Mac (OS X)](https://doc
 
 Te instrukcje dotyczą klientów w systemie Windows.
 
-1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all*.
+1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all* .
 2. Przejrzyj wyniki. Zwróć uwagę na fakt, że otrzymany adres IP należy do określonej podczas konfiguracji połączenia punkt-lokacja puli adresów klienta sieci VPN. Wyniki są podobne, jak w następującym przykładzie:
 
    ```
@@ -259,7 +259,11 @@ Te instrukcje dotyczą klientów w systemie Windows.
 
 Te instrukcje dotyczą klientów w systemie Windows.
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
+
+* Sprawdź, czy pakiet konfiguracji klienta sieci VPN został wygenerowany po określeniu adresów IP serwera DNS dla sieci wirtualnej. Jeśli adresy IP serwera DNS zostały zaktualizowane, wygeneruj i zainstaluj nowy pakiet konfiguracji klienta sieci VPN.
+
+* Użyj narzędzia „ipconfig”, aby sprawdzić adres IPv4 przypisany do karty Ethernet na komputerze, z którego jest nawiązywane połączenie. Jeśli adres IP znajduje się w zakresie adresów sieci wirtualnej, z którą jest nawiązywane połączenie, lub w zakresie adresów puli VPNClientAddressPool, jest to określane jako nakładająca się przestrzeń adresowa. Kiedy przestrzeń adresowa nakłada się w ten sposób, ruch sieciowy nie dociera do platformy Azure, tylko pozostaje w sieci lokalnej.
 
 ## <a name="to-add-or-remove-a-root-certificate"></a><a name="addremovecert"></a>Dodawanie lub usuwanie certyfikatu głównego
 

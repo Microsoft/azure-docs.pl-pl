@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 2f2ab3c55c5532b76c45a18054fd653dd8fe8137
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504078"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547694"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Przydziały IoT Hub i ograniczanie przepustowości
 
@@ -43,7 +43,7 @@ W poniższej tabeli przedstawiono wymuszone ograniczenia. Wartości odnoszą si�
 | Ograniczenie | Bezpłatna, B1 i S1 | B2 i S2 | B3 i S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operacje na rejestrze tożsamości](#identity-registry-operations-throttle) (tworzenie, pobieranie, wyświetlanie listy, aktualizowanie, usuwanie) | 1.67/sek/jednostkę (100/min/jednostka) | 1.67/sek/jednostkę (100/min/jednostka) | 83.33/sek/jednostkę (5000/min/jednostka) |
-| [Nowe połączenia urządzeń](#device-connections-throttle) (ten limit dotyczy stawki _nowych połączeń_, a nie łącznej liczby połączeń) | Wyższa z 100/s lub 12/sek/jednostkę <br/> Na przykład dwie jednostki S1 są 2 \* 12 = 24 nowe połączenia/s, ale masz co najmniej 100 nowych połączeń/s w poszczególnych jednostkach. W przypadku dziewięciu jednostek S1 masz 108 nowych połączeń/s (9 \* 12) w poszczególnych jednostkach. | 120 nowych połączeń/s/jednostka | 6 000 nowych połączeń/s/jednostka |
+| [Nowe połączenia urządzeń](#device-connections-throttle) (ten limit dotyczy stawki _nowych połączeń_ , a nie łącznej liczby połączeń) | Wyższa z 100/s lub 12/sek/jednostkę <br/> Na przykład dwie jednostki S1 są 2 \* 12 = 24 nowe połączenia/s, ale masz co najmniej 100 nowych połączeń/s w poszczególnych jednostkach. W przypadku dziewięciu jednostek S1 masz 108 nowych połączeń/s (9 \* 12) w poszczególnych jednostkach. | 120 nowych połączeń/s/jednostka | 6 000 nowych połączeń/s/jednostka |
 | Liczba elementów wysłanych z urządzenia do chmury | Ponad 100 operacji wysyłania/s lub 12 operacji wysyłania/s/jednostkę <br/> Na przykład dwie jednostki S1 są 2 \* 12 = 24/s, ale masz co najmniej 100 operacji wysyłania na sekundę w poszczególnych jednostkach. W przypadku dziewięciu jednostek S1 masz 108 operacji wysyłania/s (9 \* 12) w poszczególnych jednostkach. | 120 operacji wysyłania/s/jednostkę | 6 000 operacji wysyłania/s/jednostkę |
 | Wysłane z chmury do urządzenia<sup>1</sup> | 1,67 operacji wysyłania/s/jednostkę (100 komunikatów/min/jednostka) | 1,67 operacji wysyłania/s/jednostkę (100 operacji wysyłania/min/jednostka) | 83,33 operacji wysyłania/s/jednostkę (5 000 operacji wysyłania/min/jednostka) |
 | Odebrane z chmury do urządzenia<sup>1</sup> <br/> (tylko w przypadku, gdy urządzenie używa protokołu HTTPS)| 16,67 operacji odbioru/s/jednostkę (1 000 operacji odbioru/min/jednostka) | 16,67 operacji odbioru/s/jednostkę (1 000 operacji odbioru/min/jednostka) | 833,33 operacji odbioru/s/jednostkę (50 000 operacji odbioru/min/jednostka) |
@@ -71,7 +71,7 @@ W poniższej tabeli przedstawiono wymuszone ograniczenia. Wartości odnoszą si�
 
 *  W przypadku *zadań związanych z operacjami na urządzeniach (aktualizacja sznurów, metoda wywołania bezpośredniego)* dla warstwy S2, 50/SEK/jednostka ma zastosowanie tylko w przypadku wywołania metod przy użyciu zadań. W przypadku bezpośredniego wywoływania bezpośrednich metod można zastosować pierwotny limit ograniczenia równy 24 MB/s/jednostka (dla S2).
 
-*  **Limit przydziału** to zagregowana liczba komunikatów, które można wysłać w Twoim centrum *na dzień*. Limit przydziału centrum można znaleźć w kolumnie **łączna liczba komunikatów/dzień** na [stronie cennika IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
+*  **Limit przydziału** to zagregowana liczba komunikatów, które można wysłać w Twoim centrum *na dzień* . Limit przydziału centrum można znaleźć w kolumnie **łączna liczba komunikatów/dzień** na [stronie cennika IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 *  Ograniczenia między chmurą i urządzeniem a chmurą określają maksymalną *szybkość* , z jaką można wysyłać komunikaty — liczba komunikatów niezależnie od fragmentów 4 KB. Każdy komunikat może mieć do 256 KB, który jest [maksymalnym rozmiarem komunikatu](iot-hub-devguide-quotas-throttling.md#other-limits).
 
@@ -79,9 +79,9 @@ W poniższej tabeli przedstawiono wymuszone ograniczenia. Wartości odnoszą si�
 
 ### <a name="traffic-shaping"></a>Kształtowanie ruchu
 
-W celu uwzględnienia ruchu sieciowego, IoT Hub akceptuje żądania powyżej ograniczenia przez ograniczony czas. Pierwsze kilka z tych żądań jest przetwarzanych od razu. Jeśli jednak liczba żądań będzie nadal naruszać ograniczenie przepustowości, IoT Hub zaczyna umieszczać żądania w kolejce i przetwarzać je z szybkością limitu. Ten efekt nazywa się *kształtem ruchu*. Ponadto rozmiar tej kolejki jest ograniczony. W przypadku kontynuowania naruszenia ograniczenia przepustowości kolejka jest wypełniana, a IoT Hub rozpoczyna Odrzucanie żądań za pomocą `429 ThrottlingException` .
+W celu uwzględnienia ruchu sieciowego, IoT Hub akceptuje żądania powyżej ograniczenia przez ograniczony czas. Pierwsze kilka z tych żądań jest przetwarzanych od razu. Jeśli jednak liczba żądań będzie nadal naruszać ograniczenie przepustowości, IoT Hub zaczyna umieszczać żądania w kolejce i przetwarzać je z szybkością limitu. Ten efekt nazywa się *kształtem ruchu* . Ponadto rozmiar tej kolejki jest ograniczony. W przypadku kontynuowania naruszenia ograniczenia przepustowości kolejka jest wypełniana, a IoT Hub rozpoczyna Odrzucanie żądań za pomocą `429 ThrottlingException` .
 
-Na przykład można użyć symulowanego urządzenia do 200 wysyłania komunikatów z urządzenia do chmury na sekundę do IoT Hub S1 (ma limit 100/s D2C). W pierwszej minucie lub dwóch komunikaty są przetwarzane od razu. Ponieważ jednak urządzenie nadal wysyła więcej komunikatów niż limit ograniczania przepustowości, IoT Hub rozpoczyna tylko przetwarzanie komunikatów 100 na sekundę i umieszczenie reszty w kolejce. Obserwowanie zwiększony czas oczekiwania. Wreszcie rozpoczyna się to, `429 ThrottlingException` gdy kolejka jest wypełniana, a [metryki w IoT Hub](iot-hub-metrics.md) zaczynają coraz więcej.
+Na przykład można użyć symulowanego urządzenia do 200 wysyłania komunikatów z urządzenia do chmury na sekundę do IoT Hub S1 (ma limit 100/s D2C). W pierwszej minucie lub dwóch komunikaty są przetwarzane od razu. Ponieważ jednak urządzenie nadal wysyła więcej komunikatów niż limit ograniczania przepustowości, IoT Hub rozpoczyna tylko przetwarzanie komunikatów 100 na sekundę i umieszczenie reszty w kolejce. Obserwowanie zwiększony czas oczekiwania. Wreszcie rozpoczyna się to, `429 ThrottlingException` gdy kolejka jest wypełniana, a [wartość "liczba błędów ograniczania" IoT Hub](monitor-iot-hub-reference.md#device-telemetry-metrics) się zwiększać. Aby dowiedzieć się, jak tworzyć alerty i wykresy na podstawie metryk, zobacz [Monitor IoT Hub](monitor-iot-hub.md).
 
 ### <a name="identity-registry-operations-throttle"></a>Ograniczanie przepustowości operacji rejestru tożsamości
 
@@ -139,3 +139,4 @@ Szczegółowe omówienie działania związanego z ograniczaniem IoT Hub można z
 Inne tematy referencyjne w tym IoT Hub przewodniku dla deweloperów obejmują:
 
 * [Punkty końcowe centrum IoT Hub](iot-hub-devguide-endpoints.md)
+* [Monitoruj IoT Hub](monitor-iot-hub.md)

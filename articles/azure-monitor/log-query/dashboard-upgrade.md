@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988252"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547133"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Uaktualnianie wizualizacji pulpitu nawigacyjnego Log Analytics
 
@@ -47,7 +47,7 @@ Po uaktualnieniu Log Analyticsej przypiętej części do Log Analytics przypięt
  
 ![—](media/dashboard-upgrade/update-message-1.png)
  
-![—](media/dashboard-upgrade/update-message-2.png)
+![Zrzut ekranu pokazujący sposób aktualizowania wizualizacji kafelka.](media/dashboard-upgrade/update-message-2.png)
 
 > [!WARNING]
 > Po opublikowaniu pulpitu nawigacyjnego uaktualnienie jest nieodwracalne. Jednak zmiany są odrzucane, jeśli przejdziesz do pulpitu nawigacyjnego bez ponownego publikowania.  
@@ -56,7 +56,7 @@ Po kliknięciu Wizualizacja zostanie zaktualizowana do nowej technologii. Delika
 
 Po uaktualnieniu wizualizacji należy ponownie opublikować pulpit nawigacyjny, aby zmiany zaczęły obowiązywać.
 
-![—](media/dashboard-upgrade/update-message-3.png)
+![Zrzut ekranu przedstawiający uaktualnione wizualizacje.](media/dashboard-upgrade/update-message-3.png)
 
 ## <a name="stage-2---migration-of-all-dashboards"></a>Etap 2 — Migracja wszystkich pulpitów nawigacyjnych
 
@@ -74,7 +74,7 @@ Pulpity nawigacyjne mogą zawierać wiele wizualizacji z wielu zapytań, dlatego
 
 Pulpity nawigacyjne mogą być wizualnie gęste i złożone. Aby zmniejszyć obciążenie poznawcze podczas wyświetlania pulpitu nawigacyjnego, optymalizujemy wizualizacje poprzez ograniczenie wyświetlania do 25 różnych typów danych. Jeśli jest więcej niż 25, Log Analytics optymalizuje dane. Każdy z nich osobno pokazuje 25 typów z większością danych, a następnie grupuje pozostałe wartości do wartości "inne". Na poniższym wykresie przedstawiono takie przypadki.  
 
-![—](media/dashboard-upgrade/values-25-limit.png)
+![Zrzut ekranu przedstawiający pulpit nawigacyjny z 25 różnymi typami danych.](media/dashboard-upgrade/values-25-limit.png)
 
 ### <a name="dashboard-refresh-on-load"></a>Odświeżanie pulpitu nawigacyjnego przy ładowaniu
 

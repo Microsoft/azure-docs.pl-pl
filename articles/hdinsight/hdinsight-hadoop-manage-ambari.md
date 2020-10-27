@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f21b72cd519c1615d8273bf316a8d0ccad039672
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281394"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546164"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Zarządzanie klastrami HDInsight przy użyciu internetowego interfejsu użytkownika systemu Apache Ambari
 
@@ -68,9 +68,9 @@ Gdy zostanie otwarta strona, zanotuj pasek u góry. Ten pasek zawiera następuj�
 Poniższa lista zawiera typowe Stany alertów używane przez Ambari:
 
 * **OK**
-* **Wyświetlania**
+* **Ostrzeżenie**
 * **NAJISTOTNIEJSZ**
-* **UNKNOWN**
+* **ZNANA**
 
 Alerty inne niż **OK** powodują wyświetlenie liczby alertów w pozycji **# alerty** w górnej części strony. Wybranie tej pozycji spowoduje wyświetlenie alertów i ich stanu.
 
@@ -78,21 +78,21 @@ Alerty są zorganizowane w kilka domyślnych grup, które mogą być wyświetlan
 
 ![Podsumowanie strony alertów Apache Ambari](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
-Grupami można zarządzać za pomocą menu **Akcje** i wybierając pozycję **Zarządzaj grupami alertów**.
+Grupami można zarządzać za pomocą menu **Akcje** i wybierając pozycję **Zarządzaj grupami alertów** .
 
 ![Zarządzanie grupami alertów w usłudze Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-Możesz zarządzać metodami alertów i tworzyć powiadomienia o alertach z menu **Akcje** , wybierając pozycję __Zarządzaj powiadomieniami__. Wyświetlane są wszystkie bieżące powiadomienia. W tym miejscu Utwórz powiadomienia. Powiadomienia mogą być wysyłane za pośrednictwem **poczty e-mail** lub **SNMP** , gdy wystąpią określone kombinacje alertów/ważności. Na przykład możesz wysłać wiadomość e-mail, gdy dowolne z alertów w grupie **domyślnej przędzy** ma wartość **krytyczne**.
+Możesz zarządzać metodami alertów i tworzyć powiadomienia o alertach z menu **Akcje** , wybierając pozycję __Zarządzaj powiadomieniami__ . Wyświetlane są wszystkie bieżące powiadomienia. W tym miejscu Utwórz powiadomienia. Powiadomienia mogą być wysyłane za pośrednictwem **poczty e-mail** lub **SNMP** , gdy wystąpią określone kombinacje alertów/ważności. Na przykład możesz wysłać wiadomość e-mail, gdy dowolne z alertów w grupie **domyślnej przędzy** ma wartość **krytyczne** .
 
 ![Powiadomienie o utworzeniu alertu dotyczącego oprogramowania Apache Ambari](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
 Na koniec wybranie opcji __Zarządzaj ustawieniami alertów__ z menu __Akcje__ pozwala określić, ile razy alert musi nastąpić przed wysłaniem powiadomienia. Tego ustawienia można użyć, aby uniemożliwić powiadomienia dotyczące błędów przejściowych.
 
-Aby zapoznać się z samouczkiem powiadomienia o alercie przy użyciu bezpłatnego [konta usługi SendGrid](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email), zobacz [Konfigurowanie powiadomień e-mail Apache Ambari w usłudze Azure HDInsight](./apache-ambari-email.md).
+Aby zapoznać się z samouczkiem powiadomienia o alercie przy użyciu bezpłatnego [konta usługi SendGrid](../sendgrid-dotnet-how-to-send-email.md), zobacz [Konfigurowanie powiadomień e-mail Apache Ambari w usłudze Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Klaster
 
-Karta **metryki** pulpitu nawigacyjnego zawiera serię elementów widget, które ułatwiają szybkie monitorowanie stanu klastra. Kilka widżetów, takich jak **użycie procesora CPU**, udostępnia dodatkowe informacje po kliknięciu.
+Karta **metryki** pulpitu nawigacyjnego zawiera serię elementów widget, które ułatwiają szybkie monitorowanie stanu klastra. Kilka widżetów, takich jak **użycie procesora CPU** , udostępnia dodatkowe informacje po kliknięciu.
 
 ![Pulpit nawigacyjny Apache Ambari z metrykami](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
@@ -100,7 +100,7 @@ Na karcie **map cieplnych** są wyświetlane metryki jako kolorowe map cieplnych
 
 ![Pulpit nawigacyjny Apache Ambari z map cieplnych](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
-Aby uzyskać więcej informacji na temat węzłów w klastrze, wybierz pozycję **hosty**. Następnie wybierz konkretny wybrany węzeł.
+Aby uzyskać więcej informacji na temat węzłów w klastrze, wybierz pozycję **hosty** . Następnie wybierz konkretny wybrany węzeł.
 
 ![Szczegóły podsumowania hosta Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
@@ -200,7 +200,7 @@ Aby skonfigurować usługę, wykonaj następujące czynności:
 
     ![Konfiguracja usługi Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
-3. Użyj wyświetlanych pól, aby zmodyfikować konfigurację, a następnie wybierz pozycję **Zapisz**. Lub wybierz poprzednią konfigurację, a następnie wybierz pozycję **Ustaw jako bieżącą** , aby przywrócić poprzednie ustawienia.
+3. Użyj wyświetlanych pól, aby zmodyfikować konfigurację, a następnie wybierz pozycję **Zapisz** . Lub wybierz poprzednią konfigurację, a następnie wybierz pozycję **Ustaw jako bieżącą** , aby przywrócić poprzednie ustawienia.
 
 ## <a name="ambari-views"></a>Widoki Ambari
 
@@ -214,7 +214,7 @@ Widoki Ambari umożliwiają deweloperom podłączenie elementów interfejsu uży
 
 Następujące operacje Ambari nie są obsługiwane w usłudze HDInsight:
 
-* __Przeniesienie usługi modułu zbierającego metryki__. Podczas wyświetlania informacji dotyczących usługi modułu zbierającego metryk, jedną z akcji dostępnych w menu Akcje usługi jest __przeniesienie modułu zbierającego metryki__. Ta akcja nie jest obsługiwana w usłudze HDInsight.
+* __Przeniesienie usługi modułu zbierającego metryki__ . Podczas wyświetlania informacji dotyczących usługi modułu zbierającego metryk, jedną z akcji dostępnych w menu Akcje usługi jest __przeniesienie modułu zbierającego metryki__ . Ta akcja nie jest obsługiwana w usłudze HDInsight.
 
 ## <a name="next-steps"></a>Następne kroki
 

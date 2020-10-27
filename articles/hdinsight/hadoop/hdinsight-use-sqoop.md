@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076882"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545229"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Korzystanie z programu Apache Sqoop za pomocą platformy Hadoop w usłudze HDInsight
 
@@ -97,9 +97,9 @@ Klaster, baza danych SQL i inne obiekty są tworzone za pośrednictwem Azure Por
 
     Nazwa [serwera logicznego SQL](../../azure-sql/database/logical-servers.md)  `<ClusterName>dbserver` . Nazwa bazy danych `<ClusterName>db` . Domyślną nazwą konta magazynu będzie `e6qhezrh2pdqu` .
 
-3. Wybierz opcję **Akceptuję warunki i postanowienia podane powyżej**.
+3. Wybierz opcję **Akceptuję warunki i postanowienia podane powyżej** .
 
-4. Wybierz pozycję **Kup**. Zostanie wyświetlony nowy kafelek zatytułowany przesyłanie wdrożenia dla Template deployment. Utworzenie klastra i bazy danych SQL trwa około 20 minut.
+4. Wybierz pozycję **Kup** . Zostanie wyświetlony nowy kafelek zatytułowany przesyłanie wdrożenia dla Template deployment. Utworzenie klastra i bazy danych SQL trwa około 20 minut.
 
 ## <a name="run-sqoop-jobs"></a>Uruchamianie zadań Sqoop
 
@@ -120,6 +120,6 @@ Usługa HDInsight może uruchamiać zadania Sqoop przy użyciu różnych metod. 
 
 Teraz wiesz już, jak używać programu Sqoop. Aby dowiedzieć się więcej, zobacz:
 
-* [Korzystanie z programu Apache Hive z usługą HDInsight](../hdinsight-use-hive.md)
+* [Korzystanie z programu Apache Hive z usługą HDInsight](./hdinsight-use-hive.md)
 * [Przekazywanie danych do usługi HDInsight](../hdinsight-upload-data.md): Znajdź inne metody przekazywania danych do magazynu HDInsight/Azure Blob Storage.
 * [Importowanie i eksportowanie danych między narzędziem Apache Hadoop w usłudze HDInsight i usługą SQL Database przy użyciu narzędzia Apache Sqoop](./apache-hadoop-use-sqoop-mac-linux.md)

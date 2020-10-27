@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871970"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535029"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z platformą YARN usługi Apache Hadoop za pomocą usługi Azure HDInsight
 
@@ -24,7 +24,7 @@ Poznaj najważniejsze problemy i ich rozwiązania podczas pracy z Apache Hadoop 
 
 Wykonaj następujące kroki w programie Ambari, aby utworzyć nową kolejkę PRZĘDZy, a następnie Zrównoważ alokację pojemności między wszystkimi kolejkami.
 
-W tym przykładzie dwie istniejące kolejki (**domyślne** i **thriftsvr**) są zmieniane z pojemności 50% na 25% pojemności, która zapewnia nową kolejkę (Spark) 50% pojemności.
+W tym przykładzie dwie istniejące kolejki ( **domyślne** i **thriftsvr** ) są zmieniane z pojemności 50% na 25% pojemności, która zapewnia nową kolejkę (Spark) 50% pojemności.
 
 | Kolejka | Pojemność | Maksymalna pojemność |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ W tym przykładzie dwie istniejące kolejki (**domyślne** i **thriftsvr**) są 
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
-1. Wybierz ikonę **widoki Ambari** , a następnie wybierz wzorzec siatki. Następnie wybierz pozycję **Menedżer kolejki przędzy**.
+1. Wybierz ikonę **widoki Ambari** , a następnie wybierz wzorzec siatki. Następnie wybierz pozycję **Menedżer kolejki przędzy** .
 
     ![Menedżer kolejki PRZĘDZy Ambari pulpitu nawigacyjnego Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Wybierz kolejkę **domyślną** .
@@ -41,7 +41,7 @@ W tym przykładzie dwie istniejące kolejki (**domyślne** i **thriftsvr**) są 
 3. Dla kolejki **domyślnej** Zmień **pojemność** z 50% na 25%. W przypadku kolejki **thriftsvr** Zmień **pojemność** na 25%.
 
     ![Zmień pojemność na 25% dla kolejek domyślnych i thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
-4. Aby utworzyć nową kolejkę, wybierz pozycję **Dodaj kolejkę**.
+4. Aby utworzyć nową kolejkę, wybierz pozycję **Dodaj kolejkę** .
 
     ![Kolejka dodawania pulpitu nawigacyjnego PRZĘDZy Ambari Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
@@ -52,7 +52,7 @@ W tym przykładzie dwie istniejące kolejki (**domyślne** i **thriftsvr**) są 
 6. Pozostaw wartości **wydajności** o 50%, a następnie wybierz przycisk **Akcje** .
 
     ![Akcja wybierania nici Ambari Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
-7. Wybierz pozycję **Zapisz i Odśwież kolejki**.
+7. Wybierz pozycję **Zapisz i Odśwież kolejki** .
 
     ![Wybierz kolejno pozycje Zapisz i Odśwież kolejki](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
@@ -131,7 +131,7 @@ Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘ
 
 ### <a name="additional-reading"></a><a name="additional-reading-2"></a>Materiały uzupełniające
 
-- [Nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop koncepcji i aplikacji PRZĘDZy](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 ## <a name="next-steps"></a>Następne kroki
@@ -142,4 +142,4 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 - Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

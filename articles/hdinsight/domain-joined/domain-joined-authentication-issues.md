@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: 6473b6b69ba45138c30e4f2c8a7f1ba1a7f2ae7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633b6b33bc044b28628cc444227021cd0b4ff377
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816851"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544906"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemy z uwierzytelnianiem w usłudze Azure HDInsight
 
@@ -154,7 +154,7 @@ Sposoby znajdowania `sAMAccountName` :
 
 * Jeśli możesz zalogować się do usługi Ambari przy użyciu lokalnego administratora usługi Ambari, zapoznaj się z listą użytkowników.
 
-* Jeśli masz [przyłączoną do domeny maszynę z systemem Windows](../../active-directory-domain-services/manage-domain.md), możesz użyć standardowych narzędzi Windows AD do przeglądania. Wymaga to konta działającego w domenie.
+* Jeśli masz [przyłączoną do domeny maszynę z systemem Windows](../../active-directory-domain-services/tutorial-create-management-vm.md), możesz użyć standardowych narzędzi Windows AD do przeglądania. Wymaga to konta działającego w domenie.
 
 * W węźle głównym można wyszukiwać za pomocą poleceń SAMBA. Wymaga to prawidłowej sesji protokołu Kerberos (pomyślne narzędzie kinit). Wyszukiwanie w usłudze net AD "(userPrincipalName = Robert *)"
 
@@ -220,4 +220,4 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

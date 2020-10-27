@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 032c25969bf477e1163b8db2aca631044c457939
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887210"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539976"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Nie można uruchomić oprogramowania Apache HBase Master (serwera hmaster) w usłudze Azure HDInsight
 
@@ -83,7 +83,7 @@ Ten problem może wystąpić, jeśli masz wiele tabel i regionów, które nie zo
 
 ### <a name="resolution"></a>Rozwiązanie
 
-1. W interfejsie użytkownika Apache Ambari przejdź do pozycji **HBase**  >  **configs**. W pliku niestandardowym `hbase-site.xml` Dodaj następujące ustawienie:
+1. W interfejsie użytkownika Apache Ambari przejdź do pozycji **HBase**  >  **configs** . W pliku niestandardowym `hbase-site.xml` Dodaj następujące ustawienie:
 
     ```
     Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -113,7 +113,7 @@ Długotrwałe `regionserver` wstrzymywanie JVM GC. Wstrzymanie spowoduje `region
 
 Zmień limit czasu sesji dozorcy, `hbase-site` `zookeeper.session.timeout` ale również ustawienie dozorcy `zoo.cfg` `maxSessionTimeout` należy zmienić.
 
-1. Dostęp do interfejsu użytkownika Ambari, przejdź do **HBase-> configs-> ustawienia**, w sekcji Limity czasu, Zmień wartość limitu czasu sesji dozorcy.
+1. Dostęp do interfejsu użytkownika Ambari, przejdź do **HBase-> configs-> ustawienia** , w sekcji Limity czasu, Zmień wartość limitu czasu sesji dozorcy.
 
 1. Dostęp do interfejsu użytkownika Ambari, przejdź do **dozorcy-> configs-> Custom** `zoo.cfg` , Dodaj/Zmień następujące ustawienie. Upewnij się, że wartość jest taka sama jak HBase `zookeeper.session.timeout` .
 
@@ -149,4 +149,4 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

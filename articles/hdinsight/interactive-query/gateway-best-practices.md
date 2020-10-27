@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3db411df69a754857220867865522f8e4fa24030
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80586979"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546011"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Głębokie szczegółowe i najlepsze praktyki dotyczące bramy dla Apache Hive w usłudze Azure HDInsight
 
@@ -46,7 +46,7 @@ Na poniższym diagramie przedstawiono kroki, które są uwzględnione w zapytani
 
 Apache Hive to relacyjna Abstrakcja na bazie systemu plików zgodnej z systemem HDFS. Streszczenie oznacza, że instrukcje **SELECT** w gałęziach odpowiadają operacjom **odczytu** w systemie plików. Operacje **odczytu** są tłumaczone na odpowiedni schemat przed wysłaniem go do użytkownika. Opóźnienie tego procesu zwiększa się wraz z rozmiarem danych i łącznym przeskokami wymaganym do uzyskania dostępu do użytkownika końcowego.
 
-Podobne zachowanie może wystąpić podczas wykonywania instrukcji **Create** lub **INSERT** w przypadku dużych ilości danych, ponieważ te polecenia będą odpowiadać na operacje **zapisu** w podstawowym systemie plików. Rozważ zapisanie danych, takich jak RAW ORC, do systemu plików/datalake zamiast ładowania go przy użyciu funkcji **INSERT** lub **Load**.
+Podobne zachowanie może wystąpić podczas wykonywania instrukcji **Create** lub **INSERT** w przypadku dużych ilości danych, ponieważ te polecenia będą odpowiadać na operacje **zapisu** w podstawowym systemie plików. Rozważ zapisanie danych, takich jak RAW ORC, do systemu plików/datalake zamiast ładowania go przy użyciu funkcji **INSERT** lub **Load** .
 
 W klastrach z włączonym pakietem zabezpieczeń przedsiębiorstwa wystarczająco złożone zasady Apache Ranger mogą powodować spowolnienie w czasie kompilacji kwerendy, co może prowadzić do przekroczenia limitu czasu bramy. Jeśli w klastrze ESP zauważono limit czasu bramy, należy rozważyć zmniejszenie lub połączenie liczby zasad rangerymi.
 
@@ -54,11 +54,11 @@ W klastrach z włączonym pakietem zabezpieczeń przedsiębiorstwa wystarczając
 
 Istnieje wiele miejsc, aby ograniczyć i zrozumieć problemy z wydajnością, które zostały spełnione w ramach powyższego zachowania. Użyj poniższej listy kontrolnej, gdy wystąpi spadek wydajności zapytania w ramach bramy usługi HDInsight:
 
-* Użyj klauzuli **Limit** podczas wykonywania dużych zapytań **SELECT** . Klauzula **Limit** zmniejsza łączną liczbę wierszy raportowanych do hosta klienta. Klauzula **Limit** wpływa tylko na generowanie wyników i nie zmienia planu zapytania. Aby zastosować klauzulę **limitu** do planu zapytania, użyj konfiguracji `hive.limit.optimize.enable` . **Limit** może być połączony z przesunięciem przy użyciu argumentu w postaci **limitu x, y**.
+* Użyj klauzuli **Limit** podczas wykonywania dużych zapytań **SELECT** . Klauzula **Limit** zmniejsza łączną liczbę wierszy raportowanych do hosta klienta. Klauzula **Limit** wpływa tylko na generowanie wyników i nie zmienia planu zapytania. Aby zastosować klauzulę **limitu** do planu zapytania, użyj konfiguracji `hive.limit.optimize.enable` . **Limit** może być połączony z przesunięciem przy użyciu argumentu w postaci **limitu x, y** .
 
-* Nazwij interesujące Cię kolumny podczas uruchamiania **wybranych** zapytań zamiast używać **opcji Select \* **. Wybranie mniejszej liczby kolumn spowoduje zmniejszenie ilości odczytanych danych.
+* Nazwij interesujące Cię kolumny podczas uruchamiania **wybranych** zapytań zamiast używania znaku * *SELECT \** _. Wybranie mniejszej liczby kolumn spowoduje zmniejszenie ilości odczytanych danych.
 
-* Spróbuj uruchomić zapytanie o zainteresowanie za pomocą platformy Apache Z usługi Beeline. Jeśli pobieranie wyników za pośrednictwem platformy Apache Z usługi Beeline trwa dłuższy czas, oczekiwanie na opóźnienia podczas pobierania tych samych wyników za pośrednictwem zewnętrznych narzędzi.
+_ Spróbuj uruchomić zapytanie o zainteresowanie za pomocą platformy Apache Z usługi Beeline. Jeśli pobieranie wyników za pośrednictwem platformy Apache Z usługi Beeline trwa dłuższy czas, oczekiwanie na opóźnienia podczas pobierania tych samych wyników za pośrednictwem zewnętrznych narzędzi.
 
 * Przetestuj podstawowe zapytanie programu Hive, aby upewnić się, że można nawiązać połączenie z bramą usługi HDInsight. Spróbuj uruchomić podstawowe zapytanie z poziomu dwóch lub więcej zewnętrznych narzędzi, aby upewnić się, że żadne narzędzie nie działa w problemach.
 
@@ -80,7 +80,7 @@ Istnieje wiele miejsc, aby ograniczyć i zrozumieć problemy z wydajnością, kt
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Apache Z usługi Beeline w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline)
-* [Kroki rozwiązywania problemów z limitem czasu bramy usługi HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/troubleshoot-gateway-timeout)
-* [Sieci wirtualne dla usługi HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
-* [HDInsight z usługą Express Route](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)
+* [Apache Z usługi Beeline w usłudze HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md)
+* [Kroki rozwiązywania problemów z limitem czasu bramy usługi HDInsight](./troubleshoot-gateway-timeout.md)
+* [Sieci wirtualne dla usługi HDInsight](../hdinsight-plan-virtual-network-deployment.md)
+* [HDInsight z usługą Express Route](../connect-on-premises-network.md)

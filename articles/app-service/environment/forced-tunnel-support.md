@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8a4b6998d1471a79dd789ed6528e22b07f2015c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830863"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540979"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurowanie wymuszonego tunelowania środowiska App Service Environment
 
@@ -73,7 +73,7 @@ Aby przekierować cały ruch wychodzący ze środowiska ASE, z wyjątkiem tego w
 
 2. Włączanie punktów końcowych w usługach Azure SQL i Azure Storage dla podsieci środowiska ASE.  Po wykonaniu tego kroku można skonfigurować sieć wirtualną przy użyciu wymuszonego tunelowania.
 
-Aby utworzyć środowisko ASE w sieci wirtualnej, która została już skonfigurowana do kierowania ruchu lokalnie, należy utworzyć środowisko ASE przy użyciu szablonu usługi Resource Manager.  Środowiska ASE nie można utworzyć przy użyciu portalu we wcześniej istniejącej podsieci.  W przypadku wdrażania środowiska ASE w sieci wirtualnej, która została już skonfigurowana do lokalnego kierowania ruchu wychodzącego, należy utworzyć środowisko ASE przy użyciu szablonu usługi Resource Manager, który nie zezwala na wybranie wcześniej istniejącej podsieci. Szczegółowe informacje o wdrażaniu środowiska ASE przy użyciu szablonu można znaleźć w temacie [Tworzenie środowiska App Service Environment przy użyciu szablonu][template].
+Szczegółowe informacje o wdrażaniu środowiska ASE przy użyciu szablonu można znaleźć w temacie [Tworzenie środowiska App Service Environment przy użyciu szablonu][template].
 
 Punkty końcowe usługi pozwalają ograniczyć dostęp do usług wielodostępnych do zestawu sieci wirtualnych i podsieci platformy Azure. Więcej informacji na temat punktów końcowych usługi zawiera dokumentacja [punktów końcowych usługi dla sieci wirtualnej][serviceendpoints]. 
 
@@ -95,7 +95,7 @@ Aby tunelować cały ruch wychodzący ze środowiska ASE, z wyjątkiem tego wych
 
 3. Pobierz adres, który będzie używany dla całego ruchu wychodzącego ze środowiska App Service Environment do Internetu. Jeśli ruch jest przekierowywany lokalnie, te adresy pochodzą z translatora adresów sieciowych (NAT) lub są adresami IP bramy. Jeśli ruch wychodzący środowiska App Service Environment ma być kierowany przez urządzenie NVA, adres ruchu wychodzącego to publiczny adres IP urządzenia NVA.
 
-4. _Aby ustawić adresy ruchu wychodzącego w istniejącym App Service Environment:_ Przejdź do resources.azure.com i przejdź do pozycji subskrypcja/ \<subscription id> /ResourceGroups/ \<ase resource group> /providers/Microsoft.Web/hostingEnvironments/ \<ase name> . Znajdziesz tam informacje w formacie JSON z opisem Twojego środowiska App Service Environment. Upewnij się, że u góry jest wyświetlana informacja **read/write** (odczyt/zapis). Kliknij pozycję **Edytuj**. Przewiń do samego dołu. Zmień ustawienie pozycji **userWhitelistedIpRanges** z wartości **null** na wartość podobną do następującej. Użyj adresów, które chcesz ustawić jako zakres adresów ruchu wychodzącego. 
+4. _Aby ustawić adresy ruchu wychodzącego w istniejącym App Service Environment:_ Przejdź do resources.azure.com i przejdź do pozycji subskrypcja/ \<subscription id> /ResourceGroups/ \<ase resource group> /providers/Microsoft.Web/hostingEnvironments/ \<ase name> . Znajdziesz tam informacje w formacie JSON z opisem Twojego środowiska App Service Environment. Upewnij się, że u góry jest wyświetlana informacja **read/write** (odczyt/zapis). Wybierz pozycję **Edytuj** . Przewiń do samego dołu. Zmień ustawienie pozycji **userWhitelistedIpRanges** z wartości **null** na wartość podobną do następującej. Użyj adresów, które chcesz ustawić jako zakres adresów ruchu wychodzącego. 
 
     ```json
     "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
@@ -103,7 +103,7 @@ Aby tunelować cały ruch wychodzący ze środowiska ASE, z wyjątkiem tego wych
 
    Wybierz pozycję **PUT** u góry. Ta opcja wyzwala operację skalowania środowiska App Service Environment i dostosowanie zapory.
 
-_Aby utworzyć środowisko ASE z adresami ruchu wychodzącego_: postępuj zgodnie z instrukcjami podanymi w temacie [Create an App Service Environment with a template][template] (Tworzenie środowiska App Service Environment przy użyciu szablonu) i uzyskaj odpowiedni szablon.  Edytuj sekcję „zasoby” w pliku azuredeploy.json, ale nie w bloku „properties”, i dołącz wiersz dla elementu **userWhitelistedIpRanges** z własnymi wartościami.
+_Aby utworzyć środowisko ASE z adresami ruchu wychodzącego_ : postępuj zgodnie z instrukcjami podanymi w temacie [Create an App Service Environment with a template][template] (Tworzenie środowiska App Service Environment przy użyciu szablonu) i uzyskaj odpowiedni szablon.  Edytuj sekcję „zasoby” w pliku azuredeploy.json, ale nie w bloku „properties”, i dołącz wiersz dla elementu **userWhitelistedIpRanges** z własnymi wartościami.
 
 ```json
 "resources": [

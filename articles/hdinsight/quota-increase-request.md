@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93c07b47e03bde20d494feb1c86179cd9a24ba26
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409718"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539415"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Zwiększanie limitu przydziału dla usługi Azure HDInsight
 
@@ -30,7 +30,7 @@ Jeśli wystąpił błąd wskazujący, że osiągnięto limit przydziału, Użyj 
 
     1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
     1. Przejdź do strony **Przegląd** klastra usługi HDInsight.
-    1. W menu po lewej stronie wybierz pozycję **limity przydziału**. Na stronie zostanie wyświetlona liczba używanych rdzeni, liczba dostępnych rdzeni i łączna liczba rdzeni.
+    1. W menu po lewej stronie wybierz pozycję **limity przydziału** . Na stronie zostanie wyświetlona liczba używanych rdzeni, liczba dostępnych rdzeni i łączna liczba rdzeni.
 
 Aby zażądać zwiększenia limitu przydziału, wykonaj następujące czynności:
 
@@ -39,16 +39,16 @@ Aby zażądać zwiększenia limitu przydziału, wykonaj następujące czynności
 
     ![przycisk Pomoc i obsługa techniczna](./media/quota-increase-request/help-support-button.png)
 
-1. Wybierz pozycję **Nowe żądanie obsługi**.
+1. Wybierz pozycję **Nowe żądanie obsługi** .
 1. Na stronie **Nowy wniosek o pomoc techniczną** na karcie **Podstawowe** wybierz następujące opcje:
 
-   - **Typ problemu**: **limity usług i subskrypcji (przydziały)**
-   - **Subskrypcja**: subskrypcja, którą chcesz zmodyfikować
-   - **Typ limitu przydziału**: **HDInsight**
+   - **Typ problemu** : **limity usług i subskrypcji (przydziały)**
+   - **Subskrypcja** : subskrypcja, którą chcesz zmodyfikować
+   - **Typ limitu przydziału** : **HDInsight**
 
      ![Utwórz żądanie obsługi, aby zwiększyć limit przydziału rdzeni usługi HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
 
-1. Wybierz pozycję **Dalej: rozwiązania >>**.
+1. Wybierz pozycję **Dalej: rozwiązania >>** .
 1. Na stronie **szczegóły** wprowadź opis problemu, wybierz ważność problemu, preferowaną metodę kontaktu i inne wymagane pola. Użyj szablonu wymienionego poniżej, aby upewnić się, że podajesz wymagane informacje. Żądania zwiększenia limitu przydziału są oceniane przez zespół pojemności platformy Azure, a nie przez zespół produktu HDInsight. Im więcej informacji podano, tym bardziej prawdopodobnie Twoje żądanie zostanie zatwierdzone.
 
     ```
@@ -61,15 +61,15 @@ Aby zażądać zwiększenia limitu przydziału, wykonaj następujące czynności
 
     ![Szczegóły problemu](./media/quota-increase-request/problem-details.png)
 
-1. Wybierz kolejno pozycje **Dalej: recenzja + utwórz >>**.
-1. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
+1. Wybierz kolejno pozycje **Dalej: recenzja + utwórz >>** .
+1. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz** .
 
 > [!NOTE]  
 > Jeśli potrzebujesz zwiększyć przydział rdzenia usługi HDInsight w regionie prywatnym, [Prześlij żądanie zatwierdzenia listy](https://aka.ms/canaryintwhitelist).
 
-Możesz [skontaktować się z pomocą techniczną, aby zażądać zwiększenia limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Możesz [skontaktować się z pomocą techniczną, aby zażądać zwiększenia limitu przydziału](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-Istnieją pewne stałe limity przydziału. Na przykład jedna subskrypcja platformy Azure może mieć co najwyżej 10 000 rdzeni. Aby uzyskać szczegółowe informacje dotyczące tych limitów, zobacz [limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Istnieją pewne stałe limity przydziału. Na przykład jedna subskrypcja platformy Azure może mieć co najwyżej 10 000 rdzeni. Aby uzyskać szczegółowe informacje dotyczące tych limitów, zobacz [limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
