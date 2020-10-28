@@ -3,12 +3,12 @@ title: Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych prze
 description: Dowiedz się, jak Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378291"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895991"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
 
@@ -25,15 +25,15 @@ W tym artykule omówiono następujące zagadnienia:
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- Ta funkcja umożliwia szyfrowanie **tylko nowych magazynów Recovery Services**. Wszystkie magazyny zawierające istniejące elementy zarejestrowane lub próby zarejestrowania w niej nie są obsługiwane.
+- Ta funkcja umożliwia szyfrowanie **tylko nowych magazynów Recovery Services** . Wszystkie magazyny zawierające istniejące elementy zarejestrowane lub próby zarejestrowania w niej nie są obsługiwane.
 
 - Po włączeniu obsługi magazynu Recovery Services szyfrowanie przy użyciu kluczy zarządzanych przez klienta nie może zostać przywrócone do korzystania z kluczy zarządzanych przez platformę (domyślnie). Klucze szyfrowania można zmienić zgodnie z wymaganiami.
 
-- Ta funkcja obecnie **nie obsługuje tworzenia kopii zapasowych przy użyciu agenta Mars**i może nie być możliwe użycie magazynu CMK-Encrypted. Agent MARS używa szyfrowania opartego na hasłach użytkownika. Ta funkcja nie obsługuje także tworzenia kopii zapasowych klasycznych maszyn wirtualnych.
+- Ta funkcja obecnie **nie obsługuje tworzenia kopii zapasowych przy użyciu agenta Mars** i może nie być możliwe użycie magazynu CMK-Encrypted. Agent MARS używa szyfrowania opartego na hasłach użytkownika. Ta funkcja nie obsługuje także tworzenia kopii zapasowych klasycznych maszyn wirtualnych.
 
 - Ta funkcja nie odnosi się do [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), która korzysta z szyfrowania na podstawie gościa dysków maszyny wirtualnej za pomocą funkcji BitLocker (dla systemu Windows) i DM-Crypt (w systemie Linux)
 
-- Magazyn Recovery Services może być szyfrowany tylko z kluczami przechowywanymi w Azure Key Vault, które znajdują się w **tym samym regionie**. Ponadto klucze muszą zawierać tylko **klucze RSA 2048** i powinny być w stanie **włączony** .
+- Magazyn Recovery Services może być szyfrowany tylko z kluczami przechowywanymi w Azure Key Vault, które znajdują się w **tym samym regionie** . Ponadto klucze muszą zawierać tylko **klucze RSA 2048** i powinny być w stanie **włączony** .
 
 - Przeniesienie CMK szyfrowanego magazynu Recovery Services między grupami zasobów i subskrypcjami nie jest obecnie obsługiwane.
 
@@ -66,7 +66,7 @@ Azure Backup używa tożsamości zarządzanej przypisanej przez system do uwierz
 
     ![Ustawienia tożsamości](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Zmień **stan** na **włączone** i wybierz pozycję **Zapisz**.
+1. Zmień **stan** na **włączone** i wybierz pozycję **Zapisz** .
 
 1. Generowany jest identyfikator obiektu, który jest zarządzaną przez system tożsamością magazynową.
 
@@ -74,11 +74,11 @@ Azure Backup używa tożsamości zarządzanej przypisanej przez system do uwierz
 
 Teraz musisz zezwolić magazynowi Recovery Services na dostęp do Azure Key Vault, który zawiera klucz szyfrowania. Jest to realizowane przez umożliwienie zarządzanej tożsamości magazynu Recovery Services dostępu do Key Vault.
 
-1. Przejdź do **zasad dostępu**> Azure Key Vault. Kontynuuj **i Dodaj zasady dostępu**.
+1. Przejdź do **zasad dostępu** > Azure Key Vault. Kontynuuj **i Dodaj zasady dostępu** .
 
     ![Dodawanie zasad dostępu](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. W **obszarze uprawnienia klucza**wybierz pozycję **Pobierz**, **Wyświetl**, **Cofnij Zawijanie klucza** i **Zawijaj kluczowe** operacje. Określa akcje dla klucza, które będą dozwolone.
+1. W **obszarze uprawnienia klucza** wybierz pozycję **Pobierz** , **Wyświetl** , **Cofnij Zawijanie klucza** i **Zawijaj kluczowe** operacje. Określa akcje dla klucza, które będą dozwolone.
 
     ![Przypisywanie uprawnień klucza](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
@@ -94,7 +94,7 @@ Teraz musisz zezwolić magazynowi Recovery Services na dostęp do Azure Key Vaul
 
 Musisz **włączyć nietrwałe usuwanie i przeczyszczanie ochrony** na Azure Key Vault, w którym jest przechowywany klucz szyfrowania. Można to zrobić z poziomu interfejsu użytkownika Azure Key Vault, jak pokazano poniżej. (Można również ustawić te właściwości podczas tworzenia Key Vault). Więcej informacji na temat tych Key Vaultch właściwości można znaleźć [tutaj](../key-vault/general/soft-delete-overview.md).
 
-![Włącz trwałe usuwanie i przeczyszczanie ochrony](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
+![Włączanie usuwania nietrwałego i ochrony przed przeczyszczaniem](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
 Możesz również włączyć nietrwałe usuwanie i ochronę przed przeczyszczaniem za pomocą programu PowerShell, wykonując poniższe kroki:
 
@@ -148,7 +148,7 @@ Aby przypisać klucz:
 
     ![Ustawienia szyfrowania](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Wybierz pozycję **Aktualizuj** w obszarze **Ustawienia szyfrowania**.
+1. Wybierz pozycję **Aktualizuj** w obszarze **Ustawienia szyfrowania** .
 
 1. W okienku ustawienia szyfrowania wybierz opcję **Użyj własnego klucza** i Kontynuuj, aby określić klucz przy użyciu jednego z następujących sposobów. **Upewnij się, że klucz, którego chcesz użyć, jest kluczem RSA 2048, który jest w stanie włączonym.**
 
@@ -160,9 +160,9 @@ Aby przypisać klucz:
 
         ![Wybierz klucz z magazynu kluczy](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz** .
 
-1. **Śledzenie postępu aktualizacji klucza szyfrowania:** Postęp przypisania klucza można śledzić przy użyciu **dziennika aktywności** w magazynie Recovery Services. Stan powinien wkrótce ulec zmianie na **powodzenie**. Magazyn będzie teraz szyfrować wszystkie dane z określonym kluczem jako KEK.
+1. **Śledzenie postępu aktualizacji klucza szyfrowania:** Postęp przypisania klucza można śledzić przy użyciu **dziennika aktywności** w magazynie Recovery Services. Stan powinien wkrótce ulec zmianie na **powodzenie** . Magazyn będzie teraz szyfrować wszystkie dane z określonym kluczem jako KEK.
 
     ![Śledzenie postępu przy użyciu dziennika aktywności](./media/encryption-at-rest-with-cmk/activity-log.png)
 
@@ -184,7 +184,6 @@ Przed przystąpieniem do konfigurowania ochrony zdecydowanie zalecamy upewnienie
 >[!IMPORTANT]
 > Przed przystąpieniem do konfigurowania ochrony należy **pomyślnie** wykonać następujące czynności:
 >
->1. Włączono subskrypcję, aby używać kluczy zarządzanych przez klienta dla magazynu kopii zapasowych.
 >1. Tworzenie magazynu kopii zapasowych
 >1. Włączono tożsamość zarządzaną przez magazyn kopii zapasowych przypisanej do systemu
 >1. Przypisano uprawnienia do magazynu kopii zapasowych w celu uzyskania dostępu do kluczy szyfrowania z Key Vault
@@ -193,7 +192,7 @@ Przed przystąpieniem do konfigurowania ochrony zdecydowanie zalecamy upewnienie
 >
 >Jeśli wszystkie powyższe kroki zostały potwierdzone, dopiero wtedy kontynuuj konfigurowanie kopii zapasowej.
 
-Proces konfigurowania i wykonywania kopii zapasowych w magazynie Recovery Services szyfrowanym przy użyciu kluczy zarządzanych przez klienta jest taki sam jak w przypadku magazynu korzystającego z kluczy zarządzanych przez platformę, **bez wprowadzania zmian w środowisku**. Jest to prawdziwe w przypadku [tworzenia kopii zapasowych maszyn wirtualnych platformy Azure](./quick-backup-vm-portal.md) , a także tworzenia kopii zapasowych obciążeń uruchomionych wewnątrz maszyny wirtualnej (na przykład [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) baz danych).
+Proces konfigurowania i wykonywania kopii zapasowych w magazynie Recovery Services szyfrowanym przy użyciu kluczy zarządzanych przez klienta jest taki sam jak w przypadku magazynu korzystającego z kluczy zarządzanych przez platformę, **bez wprowadzania zmian w środowisku** . Jest to prawdziwe w przypadku [tworzenia kopii zapasowych maszyn wirtualnych platformy Azure](./quick-backup-vm-portal.md) , a także tworzenia kopii zapasowych obciążeń uruchomionych wewnątrz maszyny wirtualnej (na przykład [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) baz danych).
 
 ## <a name="restoring-data-from-backup"></a>Przywracanie danych z kopii zapasowej
 
@@ -215,7 +214,7 @@ Przywrócony dysk/maszynę wirtualną można zaszyfrować po zakończeniu przywr
 
 Zestaw szyfrowanie dysków jest określony w obszarze Ustawienia szyfrowania w okienku przywracanie, jak pokazano poniżej:
 
-1. Na stronie **szyfrowanie dysków przy użyciu klucza**wybierz pozycję **tak**.
+1. Na stronie **szyfrowanie dysków przy użyciu klucza** wybierz pozycję **tak** .
 
 1. Z listy rozwijanej wybierz pozycję DES, która ma być używana dla przywróconych dysków. **Upewnij się, że masz dostęp do algorytmu DES.**
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2ff176d7569f6f67c8f0dd37e0073314a07289
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e46dabc665d383279a12fc6bd8eb67475d88a2ea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441627"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896076"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Dodawanie niestandardowego przepływu pracy zatwierdzenia do rejestracji samoobsługowej
 
@@ -32,25 +32,25 @@ Ten artykuł zawiera przykład integracji z systemem zatwierdzania. W tym przyk�
 Musisz zarejestrować system zatwierdzania jako aplikację w dzierżawie usługi Azure AD, aby można było uwierzytelnić się w usłudze Azure AD i mieć uprawnienia do tworzenia użytkowników. Dowiedz się więcej [na temat podstawy uwierzytelniania i autoryzacji dla Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD.
-2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure Active Directory**.
-3. W menu po lewej stronie wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
-4. Wprowadź **nazwę** aplikacji, na przykład _zatwierdzenia rejestracji_.
+2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory** .
+3. W menu po lewej stronie wybierz pozycję **rejestracje aplikacji** , a następnie wybierz pozycję **Nowa rejestracja** .
+4. Wprowadź **nazwę** aplikacji, na przykład _zatwierdzenia rejestracji_ .
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
-5. Wybierz pozycję **Zarejestruj**. W ustawieniach domyślnych można pozostawić inne pola.
+5. Wybierz pozycję **Zarejestruj** . W ustawieniach domyślnych można pozostawić inne pola.
 
-   ![Rejestrowanie strony aplikacji](media/self-service-sign-up-add-approvals/register-approvals-app.png)
+   ![Zrzut ekranu, który podświetla przycisk Zarejestruj.](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
-6. W obszarze **Zarządzaj** w menu po lewej stronie wybierz pozycję **uprawnienia interfejsu API**, a następnie wybierz pozycję **Dodaj uprawnienie**.
-7. Na stronie **uprawnienia interfejsu API żądania** wybierz pozycję **Microsoft Graph**, a następnie wybierz pozycję **uprawnienia aplikacji**.
-8. W obszarze **Wybierz uprawnienia**rozwiń pozycję **użytkownik**, a następnie zaznacz pole wyboru **User. ReadWrite. All** . To uprawnienie umożliwia systemowi zatwierdzania Tworzenie użytkownika po zatwierdzeniu. Następnie wybierz pozycję **Dodaj uprawnienia**.
+6. W obszarze **Zarządzaj** w menu po lewej stronie wybierz pozycję **uprawnienia interfejsu API** , a następnie wybierz pozycję **Dodaj uprawnienie** .
+7. Na stronie **uprawnienia interfejsu API żądania** wybierz pozycję **Microsoft Graph** , a następnie wybierz pozycję **uprawnienia aplikacji** .
+8. W obszarze **Wybierz uprawnienia** rozwiń pozycję **użytkownik** , a następnie zaznacz pole wyboru **User. ReadWrite. All** . To uprawnienie umożliwia systemowi zatwierdzania Tworzenie użytkownika po zatwierdzeniu. Następnie wybierz pozycję **Dodaj uprawnienia** .
 
    ![Rejestrowanie strony aplikacji](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
-9. Na stronie **uprawnienia interfejsu API** wybierz opcję **Przyznaj zgodę administratora na nazwę dzierżawy**, a następnie wybierz pozycję **tak**.
-10. W obszarze **Zarządzaj** w menu po lewej stronie wybierz pozycję **Certyfikaty & wpisy tajne**, a następnie wybierz pozycję **nowy klucz tajny klienta**.
-11. Wprowadź **Opis** wpisu tajnego, na przykład _zatwierdzenie klucza tajnego klienta_i wybierz czas **wygaśnięcia**klucza tajnego klienta. Następnie wybierz pozycję **Dodaj**.
+9. Na stronie **uprawnienia interfejsu API** wybierz opcję **Przyznaj zgodę administratora na nazwę dzierżawy** , a następnie wybierz pozycję **tak** .
+10. W obszarze **Zarządzaj** w menu po lewej stronie wybierz pozycję **Certyfikaty & wpisy tajne** , a następnie wybierz pozycję **nowy klucz tajny klienta** .
+11. Wprowadź **Opis** wpisu tajnego, na przykład _zatwierdzenie klucza tajnego klienta_ i wybierz czas **wygaśnięcia** klucza tajnego klienta. Następnie wybierz pozycję **Dodaj** .
 12. Skopiuj wartość klucza tajnego klienta.
 
     ![Skopiuj klucz tajny klienta do użycia w systemie zatwierdzania](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -61,7 +61,7 @@ Musisz zarejestrować system zatwierdzania jako aplikację w dzierżawie usługi
 
 Następnie utworzysz [Łączniki interfejsu API](self-service-sign-up-add-api-connector.md#create-an-api-connector) dla przepływu użytkownika samoobsługowego tworzenia konta. Interfejs API systemu zatwierdzania wymaga dwóch łączników i odpowiednich punktów końcowych, takich jak Przykłady przedstawione poniżej. Te łączniki interfejsu API są następujące:
 
-- **Sprawdź stan zatwierdzenia**. Wyślij wywołanie do systemu zatwierdzania natychmiast po zalogowaniu się użytkownika przy użyciu dostawcy tożsamości w celu sprawdzenia, czy użytkownik ma istniejące żądanie zatwierdzenia lub zostało już odrzucone. Jeśli system zatwierdzania tylko podejmuje decyzje dotyczące automatycznego zatwierdzania, ten łącznik interfejsu API może nie być wymagany. Przykład łącznika interfejsu API "Sprawdzanie stanu zatwierdzenia".
+- **Sprawdź stan zatwierdzenia** . Wyślij wywołanie do systemu zatwierdzania natychmiast po zalogowaniu się użytkownika przy użyciu dostawcy tożsamości w celu sprawdzenia, czy użytkownik ma istniejące żądanie zatwierdzenia lub zostało już odrzucone. Jeśli system zatwierdzania tylko podejmuje decyzje dotyczące automatycznego zatwierdzania, ten łącznik interfejsu API może nie być wymagany. Przykład łącznika interfejsu API "Sprawdzanie stanu zatwierdzenia".
 
   ![Sprawdź konfigurację łącznika interfejsu API stanu zatwierdzenia](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
@@ -76,17 +76,17 @@ Aby utworzyć te łączniki, wykonaj kroki opisane w temacie [Tworzenie łączni
 Teraz można dodać łączniki interfejsu API do samoobsługowego przepływu użytkownika przy użyciu następujących kroków:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator usługi Azure AD.
-2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure Active Directory**.
-3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
-4. Wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**, a następnie wybierz przepływ użytkownika, dla którego chcesz włączyć łącznik interfejsu API.
-5. Wybierz pozycję **Łączniki interfejsu API**, a następnie wybierz punkty końcowe interfejsu API, które mają być wywoływane, w następujących krokach przepływu użytkownika:
+2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory** .
+3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne** .
+4. Wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)** , a następnie wybierz przepływ użytkownika, dla którego chcesz włączyć łącznik interfejsu API.
+5. Wybierz pozycję **Łączniki interfejsu API** , a następnie wybierz punkty końcowe interfejsu API, które mają być wywoływane, w następujących krokach przepływu użytkownika:
 
-   - **Po zalogowaniu się przy użyciu dostawcy tożsamości**: wybierz łącznik interfejsu API stanu zatwierdzenia, na przykład _Sprawdź stan zatwierdzenia_.
-   - **Przed utworzeniem użytkownika**: wybierz łącznik interfejsu API żądania zatwierdzenia, na przykład _Zażądaj zatwierdzenia_.
+   - **Po zalogowaniu się przy użyciu dostawcy tożsamości** : wybierz łącznik interfejsu API stanu zatwierdzenia, na przykład _Sprawdź stan zatwierdzenia_ .
+   - **Przed utworzeniem użytkownika** : wybierz łącznik interfejsu API żądania zatwierdzenia, na przykład _Zażądaj zatwierdzenia_ .
 
    ![Dodawanie interfejsów API do przepływu użytkownika](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
-6. Wybierz pozycję **Zapisz**.
+6. Wybierz pozycję **Zapisz** .
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>Sterowanie przepływem rejestracji przy użyciu odpowiedzi interfejsu API
 
@@ -207,7 +207,7 @@ Dokładne oświadczenia wysyłane do interfejsu API są zależne od tego, które
 
 Punkt końcowy interfejsu API **zatwierdzania żądań** powinien zwrócić odpowiedź kontynuacji, jeśli:
 
-- Użytkownik może zostać **_automatycznie zatwierdzony_**.
+- Użytkownik może zostać **_automatycznie zatwierdzony_** .
 
 Przykład odpowiedzi kontynuacji:
 

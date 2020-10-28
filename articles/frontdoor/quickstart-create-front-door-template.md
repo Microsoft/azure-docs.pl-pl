@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088928"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896059"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Szybki Start: Tworzenie drzwi z przodu przy użyciu szablonu ARM
 
@@ -27,7 +27,7 @@ W tym przewodniku szybki start opisano, jak używać szablonu Azure Resource Man
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-front-door-create-basic%2Fazuredeploy.json)
 
@@ -40,7 +40,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
 
-W tym przewodniku szybki start utworzysz konfigurację dla drzwi z pojedynczym zapleczem i jedną domyślną ścieżkę pasującą do "/*". 
+W tym przewodniku szybki start utworzysz konfigurację dla drzwi z pojedynczym zapleczem i jedną domyślną ścieżkę `/*` .
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
@@ -50,7 +50,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 ## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
-1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure. 
+1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -69,11 +69,11 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 1. Wybierz pozycję **Kopiuj** z poprzedniego bloku kodu, aby skopiować skrypt programu PowerShell.
 
-1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz polecenie **Wklej**.
+1. Kliknij prawym przyciskiem myszy okienko konsoli powłoki, a następnie wybierz polecenie **Wklej** .
 
 1. Wprowadź wartości.
 
-    Wdrożenie szablonu tworzy drzwi tylne z pojedynczym zapleczem. W tym przykładzie * <span>firma Microsoft.</span> Model com* jest używany jako **backendAddress**.
+    Wdrożenie szablonu tworzy drzwi tylne z pojedynczym zapleczem. W tym przykładzie `microsoft.com` jest używany jako **backendAddress** .
 
     Nazwa grupy zasobów jest nazwą projektu z dołączoną **RG** .
 
@@ -110,8 +110,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono:
-* Front Door
+W tym przewodniku szybki start utworzono drzwi z przodu.
 
 Aby dowiedzieć się, jak dodać domenę niestandardową do swoich drzwi, przejdź do samouczków dotyczących drzwi.
 

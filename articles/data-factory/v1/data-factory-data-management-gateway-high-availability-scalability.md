@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80065206"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896042"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Zarządzanie danymi Gateway — wysoka dostępność i skalowalność (wersja zapoznawcza)
 > [!NOTE]
@@ -29,10 +29,10 @@ Ten artykuł ułatwia skonfigurowanie rozwiązania wysokiej dostępności i skal
 > [!NOTE]
 > W tym artykule założono, że znasz już podstawy Integration Runtime (wcześniejsza Zarządzanie danymi Gateway). Jeśli nie, zobacz [Zarządzanie danymi Gateway](data-factory-data-management-gateway.md).
 > 
-> **Ta funkcja w wersji zapoznawczej jest oficjalnie obsługiwana w usłudze Zarządzanie danymi Gateway 2.12. xxxx. x lub nowszej**. Upewnij się, że używasz wersji 2.12. xxxx. x lub nowszej. Pobierz najnowszą wersję Zarządzanie danymi Gateway [tutaj](https://www.microsoft.com/download/details.aspx?id=39717).
+> **Ta funkcja w wersji zapoznawczej jest oficjalnie obsługiwana w usłudze Zarządzanie danymi Gateway 2.12. xxxx. x lub nowszej** . Upewnij się, że używasz wersji 2.12. xxxx. x lub nowszej. Pobierz najnowszą wersję Zarządzanie danymi Gateway [tutaj](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Omówienie
-Bramy zarządzania danymi, które są zainstalowane na wielu maszynach lokalnych z jedną bramą logiczną, można kojarzyć z portalem. Te komputery są nazywane **węzłami**. Do bramy logicznej można skojarzyć maksymalnie **cztery węzły** . Zalety posiadania wielu węzłów (maszyn lokalnych z zainstalowaną bramą) dla bramy logicznej są następujące:  
+Bramy zarządzania danymi, które są zainstalowane na wielu maszynach lokalnych z jedną bramą logiczną, można kojarzyć z portalem. Te komputery są nazywane **węzłami** . Do bramy logicznej można skojarzyć maksymalnie **cztery węzły** . Zalety posiadania wielu węzłów (maszyn lokalnych z zainstalowaną bramą) dla bramy logicznej są następujące:  
 
 - Poprawa wydajności przenoszenia danych między lokalnymi i magazynami danych w chmurze.  
 - Jeśli jeden z węzłów ulegnie awarii z jakiegoś powodu, inne węzły są nadal dostępne do przeniesienia danych. 
@@ -47,13 +47,13 @@ Na poniższym diagramie przedstawiono przegląd architektury funkcji skalowalno�
 
 ![Zarządzanie danymi Gateway — wysoka dostępność i skalowalność](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
 
-**Brama logiczna** jest bramą dodawaną do fabryki danych w Azure Portal. Wcześniej można było skojarzyć tylko jedną lokalną maszynę z systemem Windows z usługą Zarządzanie danymi Gateway zainstalowaną z bramą logiczną. Ta lokalna maszyna Gateway jest nazywana węzłem. Teraz można skojarzyć maksymalnie **cztery węzły fizyczne** z bramą logiczną. Brama logiczna z wieloma węzłami nosi nazwę **bramy wielowęzłowej**.  
+**Brama logiczna** jest bramą dodawaną do fabryki danych w Azure Portal. Wcześniej można było skojarzyć tylko jedną lokalną maszynę z systemem Windows z usługą Zarządzanie danymi Gateway zainstalowaną z bramą logiczną. Ta lokalna maszyna Gateway jest nazywana węzłem. Teraz można skojarzyć maksymalnie **cztery węzły fizyczne** z bramą logiczną. Brama logiczna z wieloma węzłami nosi nazwę **bramy wielowęzłowej** .  
 
-Wszystkie te węzły są **aktywne**. Wszystkie mogą przetwarzać zadania przenoszenia danych w celu przenoszenia danych między lokalnymi i magazynami danych w chmurze. Jeden z węzłów działa zarówno jako Dyspozytor, jak i proces roboczy. Innymi węzłami w grupach są węzły procesu roboczego. Węzeł **dyspozytora** pobiera zadania/zadania przenoszenia danych z usługi w chmurze i wysyła je do węzłów procesu roboczego (w tym samego siebie). Węzeł **procesu roboczego** wykonuje zadania przenoszenia danych w celu przenoszenia danych między lokalnymi i magazynami danych w chmurze. Wszystkie węzły są pracownikami. Tylko jeden węzeł może być wysyłany i proces roboczy.    
+Wszystkie te węzły są **aktywne** . Wszystkie mogą przetwarzać zadania przenoszenia danych w celu przenoszenia danych między lokalnymi i magazynami danych w chmurze. Jeden z węzłów działa zarówno jako Dyspozytor, jak i proces roboczy. Innymi węzłami w grupach są węzły procesu roboczego. Węzeł **dyspozytora** pobiera zadania/zadania przenoszenia danych z usługi w chmurze i wysyła je do węzłów procesu roboczego (w tym samego siebie). Węzeł **procesu roboczego** wykonuje zadania przenoszenia danych w celu przenoszenia danych między lokalnymi i magazynami danych w chmurze. Wszystkie węzły są pracownikami. Tylko jeden węzeł może być wysyłany i proces roboczy.    
 
 Zazwyczaj może zaczynać się jeden węzeł i **skalować w poziomie** , aby dodać więcej węzłów, ponieważ istniejące węzły są przeciążone przy użyciu obciążenia przenoszenia danych. Możesz również **skalować w górę** możliwości przenoszenia danych w węźle bramy, zwiększając liczbę współbieżnych zadań, które mogą być uruchamiane w węźle. Ta funkcja jest również dostępna w przypadku bramy z jednym węzłem (nawet wtedy, gdy funkcja skalowalności i dostępności nie jest włączona). 
 
-Brama z wieloma węzłami przechowuje poświadczenia magazynu danych w synchronizacji między wszystkimi węzłami. Jeśli występuje problem z łącznością między węzłami, poświadczenia mogą nie być zsynchronizowane. Po ustawieniu poświadczeń dla lokalnego magazynu danych korzystającego z bramy program zapisuje poświadczenia w węźle dyspozytora/procesu roboczego. Węzeł dyspozytora jest synchronizowany z innymi węzłami procesu roboczego. Ten proces jest nazywany **synchronizacją poświadczeń**. Kanał komunikacji między węzłami może być **szyfrowany** za pomocą publicznego certyfikatu SSL/TLS. 
+Brama z wieloma węzłami przechowuje poświadczenia magazynu danych w synchronizacji między wszystkimi węzłami. Jeśli występuje problem z łącznością między węzłami, poświadczenia mogą nie być zsynchronizowane. Po ustawieniu poświadczeń dla lokalnego magazynu danych korzystającego z bramy program zapisuje poświadczenia w węźle dyspozytora/procesu roboczego. Węzeł dyspozytora jest synchronizowany z innymi węzłami procesu roboczego. Ten proces jest nazywany **synchronizacją poświadczeń** . Kanał komunikacji między węzłami może być **szyfrowany** za pomocą publicznego certyfikatu SSL/TLS. 
 
 ## <a name="set-up-a-multi-node-gateway"></a>Konfigurowanie bramy wielowęzłowej
 W tej sekcji założono, że przeniesiono następujące dwa artykuły lub zapoznaj się z pojęciami w tych artykułach: 
@@ -79,16 +79,16 @@ W tej sekcji założono, że przeniesiono następujące dwa artykuły lub zapozn
         ![Zarządzanie danymi Gateway — powodzenie instalacji ekspresowej](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
     2. Uruchom Zarządzanie danymi Configuration Manager dla bramy, wykonując [te instrukcje](data-factory-data-management-gateway.md#configuration-manager). Zobaczysz nazwę bramy, nazwę węzła, stan itp.
 
-        ![Zarządzanie danymi Gateway — instalacja powiodła się](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
-4. W przypadku wybrania opcji **Konfiguracja ręczna**:
+        ![Zrzut ekranu pokazujący, gdzie można zobaczyć nazwę bramy, nazwę węzła i stan.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+4. W przypadku wybrania opcji **Konfiguracja ręczna** :
     1. Pobierz pakiet instalacyjny z centrum pobierania Microsoft, uruchom go, aby zainstalować bramę na maszynie.
     2. Użyj **klucza uwierzytelniania** ze strony **Konfiguruj** , aby zarejestrować bramę.
     
-        ![Zarządzanie danymi Gateway — instalacja powiodła się](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
+        ![Zrzut ekranu pokazujący, gdzie używać klucza uwierzytelniania.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
     3. Na stronie **nowy węzeł bramy** można podać niestandardową **nazwę** węzła bramy. Domyślnie nazwa węzła jest taka sama jak nazwa komputera.    
 
         ![Zarządzanie danymi Gateway — Określ nazwę](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
-    4. Na następnej stronie można zdecydować, czy **włączyć szyfrowanie na potrzeby komunikacji między**węzłami. Kliknij przycisk **Pomiń** , aby wyłączyć szyfrowanie (domyślnie).
+    4. Na następnej stronie można zdecydować, czy **włączyć szyfrowanie na potrzeby komunikacji między** węzłami. Kliknij przycisk **Pomiń** , aby wyłączyć szyfrowanie (domyślnie).
 
         ![Zarządzanie danymi Gateway — Włączanie szyfrowania](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png)  
     
@@ -99,16 +99,16 @@ W tej sekcji założono, że przeniesiono następujące dwa artykuły lub zapozn
     5. Po pomyślnym zainstalowaniu bramy kliknij przycisk Uruchom Configuration Manager:
     
         ![Konfiguracja ręczna — Uruchamianie programu Configuration Manager](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
-    6. na węźle (lokalnym komputerze z systemem Windows) widzisz Zarządzanie danymi Configuration Manager Gateway, który pokazuje stan łączności, **nazwę bramy**i **nazwę węzła**.  
+    6. na węźle (lokalnym komputerze z systemem Windows) widzisz Zarządzanie danymi Configuration Manager Gateway, który pokazuje stan łączności, **nazwę bramy** i **nazwę węzła** .  
 
         ![Zarządzanie danymi Gateway — instalacja powiodła się](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
         > W przypadku aprowizacji bramy na maszynie wirtualnej platformy Azure można użyć [tego szablonu Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). Ten skrypt tworzy bramę logiczną, konfiguruje maszyny wirtualne z zainstalowanym oprogramowaniem bramy Zarządzanie danymi i rejestruje je za pomocą bramy logicznej. 
 6. W Azure Portal Uruchom stronę **bramy** : 
-    1. Na stronie głównej fabryki danych w portalu kliknij pozycję **połączone usługi**.
+    1. Na stronie głównej fabryki danych w portalu kliknij pozycję **połączone usługi** .
     
-        ![Strona główna fabryki danych](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
+        ![Zrzut ekranu, który podświetla kafelek połączone usługi.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
     2. Wybierz **bramę** , aby wyświetlić stronę **bramy** :
     
         ![Strona główna fabryki danych](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
@@ -133,7 +133,7 @@ W tej sekcji założono, że przeniesiono następujące dwa artykuły lub zapozn
 Możesz uaktualnić istniejącą bramę, aby korzystać z funkcji wysokiej dostępności i skalowalności. Ta funkcja działa tylko z węzłami z bramą zarządzania danymi w wersji >= 2.12. xxxx. Wersja bramy zarządzania danymi zainstalowaną na komputerze można sprawdzić na karcie **Pomoc** w Configuration Manager zarządzanie danymi bramy. 
 
 1. Zaktualizuj bramę na maszynie lokalnej do najnowszej wersji, wykonując następujące czynności, pobierając i uruchamiając pakiet instalacyjny MSI z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Aby uzyskać szczegółowe informacje, zobacz sekcję dotyczącą [instalacji](data-factory-data-management-gateway.md#installation) .  
-2. Przejdź do witryny Azure Portal. Uruchom **stronę Data Factory** dla fabryki danych. Kliknij kafelek połączone usługi, aby uruchomić **stronę połączone usługi**. Wybierz bramę, aby uruchomić **stronę bramy**. Kliknij i Włącz **funkcję Podgląd** , jak pokazano na poniższej ilustracji: 
+2. Przejdź do witryny Azure Portal. Uruchom **stronę Data Factory** dla fabryki danych. Kliknij kafelek połączone usługi, aby uruchomić **stronę połączone usługi** . Wybierz bramę, aby uruchomić **stronę bramy** . Kliknij i Włącz **funkcję Podgląd** , jak pokazano na poniższej ilustracji: 
 
     ![Zarządzanie danymi Gateway — Włącz funkcję wersji zapoznawczej](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. Po włączeniu funkcji wersji zapoznawczej w portalu Zamknij wszystkie strony. Ponownie Otwórz **stronę bramy** , aby wyświetlić nowy interfejs użytkownika w wersji zapoznawczej.
@@ -144,7 +144,7 @@ Możesz uaktualnić istniejącą bramę, aby korzystać z funkcji wysokiej dost�
 
     > [!NOTE]
     > Podczas uaktualniania nazwa pierwszego węzła jest nazwą komputera. 
-3. Teraz Dodaj węzeł. Na stronie **brama** kliknij przycisk **Dodaj węzeł**.  
+3. Teraz Dodaj węzeł. Na stronie **brama** kliknij przycisk **Dodaj węzeł** .  
 
     ![Zarządzanie danymi Gateway — Dodaj węzeł menu](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 
@@ -164,8 +164,8 @@ Poniżej przedstawiono wymagania dotyczące certyfikatu TLS/SSL, który jest uż
 - Każdy węzeł Integration Runtime musi ufać temu certyfikatowi, a także komputerowi klienckiemu z uruchomioną aplikacją Menedżer poświadczeń. 
   > [!NOTE]
   > Aplikacja Menedżera poświadczeń jest używana podczas bezpiecznego ustawiania poświadczeń z Kreatora kopiowania lub witryny Azure Portal. Może to być wywoływane z dowolnego komputera w tej samej sieci, w którym znajduje się magazyn danych lokalnych/prywatnych.
-- Obsługiwane są certyfikaty z użyciem symboli wieloznacznych. Jeśli nazwa FQDN to **Node1.domain.contoso.com**, można użyć ***. domain.contoso.com** jako nazwę podmiotu certyfikatu.
-- Certyfikaty sieci SAN nie są zalecane, ponieważ zostanie użyty tylko ostatni element alternatywnych nazw podmiotu, a wszystkie pozostałe zostaną zignorowane ze względu na bieżące ograniczenie. Na przykład masz certyfikat sieci SAN, którego SAN to **Node1.domain.contoso.com** i **Node2.domain.contoso.com**, możesz użyć tego certyfikatu tylko na komputerze, którego nazwa FQDN to **Node2.domain.contoso.com**.
+- Obsługiwane są certyfikaty z użyciem symboli wieloznacznych. Jeśli nazwa FQDN to **Node1.domain.contoso.com** , można użyć * *_. domain.contoso.com_* jako nazwę podmiotu certyfikatu.
+- Certyfikaty sieci SAN nie są zalecane, ponieważ zostanie użyty tylko ostatni element alternatywnych nazw podmiotu, a wszystkie pozostałe zostaną zignorowane ze względu na bieżące ograniczenie. Na przykład masz certyfikat sieci SAN, którego SAN to **Node1.domain.contoso.com** i **Node2.domain.contoso.com** , możesz użyć tego certyfikatu tylko na komputerze, którego nazwa FQDN to **Node2.domain.contoso.com** .
 - Obsługuje wszystkie rozmiary kluczy obsługiwane przez system Windows Server 2012 R2 dla certyfikatów TLS/SSL.
 - Certyfikat używający kluczy CNG nie jest obsługiwany.
 
@@ -181,7 +181,7 @@ W Azure Portal można wyświetlić migawkę wykorzystania zasobów (procesor CPU
 
 ![Zarządzanie danymi Gateway — monitorowanie wielu węzłów](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-Na stronie **brama** można włączyć **Ustawienia zaawansowane** , aby wyświetlić metryki zaawansowane, takie jak **Sieć**(WE/out), **& stanu poświadczeń**, co jest przydatne w debugowaniu problemów z bramą i **współbieżnych zadań** (uruchomionych/ograniczających), które można odpowiednio modyfikować i zmieniać podczas dostrajania wydajności. Poniższa tabela zawiera opisy kolumn na liście **węzły bramy** :  
+Na stronie **brama** można włączyć **Ustawienia zaawansowane** , aby wyświetlić metryki zaawansowane, takie jak **Sieć** (WE/out), **& stanu poświadczeń** , co jest przydatne w debugowaniu problemów z bramą i **współbieżnych zadań** (uruchomionych/ograniczających), które można odpowiednio modyfikować i zmieniać podczas dostrajania wydajności. Poniższa tabela zawiera opisy kolumn na liście **węzły bramy** :  
 
 Właściwość monitorowania | Opis
 :------------------ | :---------- 
@@ -198,7 +198,7 @@ Rola | Istnieją dwa typy ról — Dyspozytor i proces roboczy. Wszystkie węzł
 
 ### <a name="gateway-status"></a>Stan bramy
 
-W poniższej tabeli przedstawiono możliwe stany **węzła bramy**: 
+W poniższej tabeli przedstawiono możliwe stany **węzła bramy** : 
 
 Stan  | Komentarze/scenariusze
 :------- | :------------------
@@ -209,7 +209,7 @@ Ograniczone | Z powodu problemu z łącznością. Może to być spowodowane prob
 Nieaktywne | Węzeł jest w konfiguracji innej niż Konfiguracja innych węzłów większości.<br/><br/> Węzeł może być nieaktywny, jeśli nie może połączyć się z innymi węzłami. 
 
 
-W poniższej tabeli przedstawiono możliwe stany **bramy logicznej**. Stan bramy zależy od stanu węzłów bramy. 
+W poniższej tabeli przedstawiono możliwe stany **bramy logicznej** . Stan bramy zależy od stanu węzłów bramy. 
 
 Stan | Komentarze
 :----- | :-------
@@ -228,7 +228,7 @@ Azure Portal zapewnia środowisko monitorowania potoku z szczegółowymi szczeg�
 ## <a name="scale-considerations"></a>Zagadnienia dotyczące skalowania
 
 ### <a name="scale-out"></a>Skalowanie w poziomie
-Gdy **ilość dostępnej pamięci jest niska** i **użycie procesora CPU jest wysokie**, dodanie nowego węzła ułatwia skalowanie obciążenia między maszynami. Jeśli działania zakończą się niepowodzeniem z powodu przekroczenia limitu czasu lub węzła bramy w trybie offline, można to zrobić, jeśli dodasz węzeł do bramy.
+Gdy **ilość dostępnej pamięci jest niska** i **użycie procesora CPU jest wysokie** , dodanie nowego węzła ułatwia skalowanie obciążenia między maszynami. Jeśli działania zakończą się niepowodzeniem z powodu przekroczenia limitu czasu lub węzła bramy w trybie offline, można to zrobić, jeśli dodasz węzeł do bramy.
  
 ### <a name="scale-up"></a>Skalowanie w górę
 Gdy dostępna pamięć i procesor CPU nie są używane prawidłowo, ale bezczynna wydajność jest równa 0, należy skalować ją w górę, zwiększając liczbę współbieżnych zadań, które mogą być uruchamiane w węźle. Można również skalować w górę, gdy działania są przekroczenia limitu czasu, ponieważ Brama jest przeciążona. Jak pokazano na poniższej ilustracji, można zwiększyć maksymalną pojemność dla węzła. Sugerujemy, aby zacząć od.  

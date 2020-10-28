@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361538"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895940"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Błędy i ostrzeżenia dotyczące konwersji rysunków
 
-[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) pozwala skonwertować przekazane pakiety rysowania na dane mapy. Pakiety rysowania muszą być zgodne z [wymaganiami dotyczącymi pakietów rysowania](drawing-requirements.md). Jeśli co najmniej jedno wymaganie nie jest spełnione, usługa konwersji zwróci błędy lub ostrzeżenia. Ten artykuł zawiera informacje o błędach konwersji i kodach ostrzeżeń wraz z zaleceniami dotyczącymi ich rozwiązywania. Zawiera również przykłady rysunków, które mogą spowodować zwrócenie tych kodów przez usługę konwersji.
+[Usługa konwersji Azure Maps](/rest/api/maps/conversion) pozwala skonwertować przekazane pakiety rysowania na dane mapy. Pakiety rysowania muszą być zgodne z [wymaganiami dotyczącymi pakietów rysowania](drawing-requirements.md). Jeśli co najmniej jedno wymaganie nie jest spełnione, usługa konwersji zwróci błędy lub ostrzeżenia. Ten artykuł zawiera informacje o błędach konwersji i kodach ostrzeżeń wraz z zaleceniami dotyczącymi ich rozwiązywania. Zawiera również przykłady rysunków, które mogą spowodować zwrócenie tych kodów przez usługę konwersji.
 
 Usługa konwersji powiedzie się, jeśli wystąpią jakieś ostrzeżenia dotyczące konwersji. Zaleca się jednak przejrzenie i rozwiązanie wszystkich ostrzeżeń. Ostrzeżenie oznacza, że część konwersji została zignorowana lub automatycznie naprawiona. Niepowodzenie rozpoznania ostrzeżeń może spowodować błędy w ostatnim procesie.
 
@@ -159,7 +159,7 @@ Ostrzeżenie **redundantAttribution** występuje, gdy manifest zawiera nadmiarow
 
 #### <a name="how-to-fix-redundantattribution"></a>*Jak naprawić redundantAttribution*
 
-Aby naprawić **redundantAttribution* ostrzeżenie, Usuń nadmiarowe lub sprzeczne właściwości obiektu.
+Aby naprawić * *redundantAttribution* ostrzeżenie, Usuń nadmiarowe lub sprzeczne właściwości obiektu.
 
 ### <a name="manifestwarning"></a>**manifestWarning**
 
@@ -175,7 +175,7 @@ Aby naprawić **redundantAttribution* ostrzeżenie, Usuń nadmiarowe lub sprzecz
 
 #### <a name="how-to-fix-manifestwarning"></a>*Jak naprawić manifestWarning*
 
-Aby naprawić **manifestWarning**, Usuń nieużywane `unitProperties` lub `zoneProperties` obiekt z manifestu lub Dodaj etykietę jednostki/strefy do rysunku, aby obiekt właściwości był używany podczas konwersji.
+Aby naprawić **manifestWarning** , Usuń nieużywane `unitProperties` lub `zoneProperties` obiekt z manifestu lub Dodaj etykietę jednostki/strefy do rysunku, aby obiekt właściwości był używany podczas konwersji.
 
 ## <a name="wall-warnings"></a>Ostrzeżenia ściany
 
@@ -267,7 +267,7 @@ Na poniższej ilustracji przedstawiono strefę, która nie zawiera etykiety.
 
 #### <a name="how-to-fix-zonewarning"></a>*Jak naprawić zoneWarning*
 
-Aby naprawić **zoneWarning**, upewnij się, że każda strefa ma jedną etykietę.
+Aby naprawić **zoneWarning** , upewnij się, że każda strefa ma jedną etykietę.
 
 ## <a name="label-warnings"></a>Ostrzeżenia etykiet
 
@@ -291,7 +291,7 @@ Na poniższej ilustracji przedstawiono etykietę, która znajduje się wewnątrz
 
 #### <a name="how-to-fix-labelwarning"></a>*Jak naprawić labelWarning*
 
-Aby naprawić **labelWarning**, upewnij się, że:
+Aby naprawić **labelWarning** , upewnij się, że:
 
 * Wszystkie etykiety jednostek są w jednostkach.
 * Wszystkie etykiety stref znajdują się wewnątrz stref.
@@ -311,7 +311,7 @@ Błąd **invalidArchiveFormat** również występuje, gdy archiwum zip jest pust
 
 Aby naprawić błąd **invalidArchiveFormat** , sprawdź, czy:
 
-* Nazwa pliku archiwum zostanie zakończona na _. zip_.
+* Nazwa pliku archiwum zostanie zakończona na _. zip_ .
 * Archiwum ZIP zawiera dane.
 * Możesz otworzyć archiwum ZIP.
 
@@ -347,7 +347,7 @@ Aby naprawić błąd **invalidUserData** , sprawdź, czy:
 
 #### <a name="how-to-fix-dwgerror"></a>*Jak naprawić dwgError*
 
-Aby naprawić **dwgError**, sprawdź, czy _manifest.jsw_ pliku upewnij się, że:
+Aby naprawić **dwgError** , sprawdź, czy _manifest.jsw_ pliku upewnij się, że:
 
 * Wszystkie pliki DWG w archiwum ZIP są prawidłowymi rysunkami formatu AutoCAD DWG, otwierają je w programie AutoCAD. Usuń lub Napraw wszystkie nieprawidłowe rysunki.
 * Lista plików DWG w _manifest.jsna_  dopasowuje się do plików DWG w archiwum zip.
