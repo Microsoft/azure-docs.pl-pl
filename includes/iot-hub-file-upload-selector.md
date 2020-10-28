@@ -12,7 +12,7 @@ ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183343"
 ---
 > [!div class="op_single_selector"]
-> * [Azure Portal](../articles/iot-hub/iot-hub-configure-file-upload.md)
+> * [Witryna Azure Portal](../articles/iot-hub/iot-hub-configure-file-upload.md)
 > * [Program PowerShell](../articles/iot-hub/iot-hub-configure-file-upload-powershell.md)
 > * [Interfejs wiersza polecenia](../articles/iot-hub/iot-hub-configure-file-upload-cli.md)
 
