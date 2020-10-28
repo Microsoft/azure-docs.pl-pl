@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84324400"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791719"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostyka rozwiązywania problemów z wydajnością w ramach skalowania SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,13 +97,13 @@ Stosunek liczby odczytów wykonanych na RBPEX do zagregowanych odczytów wykonan
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>Operacje we/wy danych w statystyce wykorzystania zasobów
 
-W przypadku bazy danych bez skalowania połączone operacje odczytu i zapisu dla plików danych w odniesieniu do limitu liczby operacji we/wy danych [zarządzania zasobami](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) są raportowane w [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) widokach w `avg_data_io_percent` kolumnie. Ta sama wartość jest raportowana w Azure Portal jako _procent operacji we/wy danych_.
+W przypadku bazy danych bez skalowania połączone operacje odczytu i zapisu dla plików danych w odniesieniu do limitu liczby operacji we/wy danych [zarządzania zasobami](./resource-limits-logical-server.md#resource-governance) są raportowane w [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) widokach w `avg_data_io_percent` kolumnie. Ta sama wartość jest raportowana w Azure Portal jako _procent operacji we/wy danych_ .
 
 W bazie danych w ramach wieloskali ta kolumna zawiera raporty dotyczące użycia operacji we/wy na sekundę w odniesieniu do limitu magazynu lokalnego tylko w przypadku repliki obliczeniowej, a w przypadku RBPEX i `tempdb` . Wartość 100% w tej kolumnie wskazuje, że zarządzanie zasobami ogranicza liczbę operacji wejścia/wyjścia magazynu lokalnego. Jeśli jest to skorelowane z problemem z wydajnością, Dostosuj obciążenie w celu wygenerowania mniejszej wartości we/wy lub Zwiększ cel usługi bazy danych, aby zwiększyć maksymalny [Limit](resource-limits-vcore-single-databases.md)liczby _IOPS danych_ na potrzeby zarządzania zasobami. W przypadku nadzoru zasobów RBPEX odczytuje i zapisuje system liczy pojedyncze 8 KB systemu IOs, a nie do większych systemu IOs, które mogą być wystawiane przez aparat bazy danych SQL Server.
 
 Operacje we/wy danych względem zdalnych serwerów stron nie są zgłaszane w widokach wykorzystania zasobów lub w portalu, ale są raportowane w [sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF zgodnie z wcześniejszym opisem.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - W przypadku limitów zasobów rdzeń wirtualny dla pojedynczej bazy danych na potrzeby skalowania w poziomie można zobaczyć [limity rdzeń wirtualny warstwy usługi](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) .
 - Aby uzyskać Azure SQL Database dostrajania wydajności, zobacz [wydajność zapytań w Azure SQL Database](performance-guidance.md)

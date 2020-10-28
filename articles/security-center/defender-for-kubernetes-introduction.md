@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: dd92e1529b889671bc29939f7e9611eceac7ee20
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370512"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791923"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Wprowadzenie do usługi Azure Defender dla Kubernetes
 
@@ -20,7 +20,7 @@ Usługa Azure Kubernetes Service (AKS) to usługa zarządzana przez firmę Micro
 
 Azure Security Center i AKS tworzą najlepszą natywną ofertę bezpieczeństwa Kubernetes w chmurze, a razem zapewniają ochronę środowiska, ochronę obciążeń i ochrony w czasie wykonywania, jak opisano poniżej.
 
-W celu wykrywania zagrożeń dla klastrów Kubernetes Włącz **usługę Azure Defender dla Kubernetes**.
+W celu wykrywania zagrożeń dla klastrów Kubernetes Włącz **usługę Azure Defender dla Kubernetes** .
 
 Wykrywanie zagrożeń na poziomie hosta dla węzłów AKS systemu Linux jest dostępne po włączeniu [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md).
 
@@ -72,7 +72,7 @@ Można zobaczyć, że elementy otrzymane i przeanalizowane przez Security Center
 - Inspekcja dzienników z serwera interfejsu API
 - nieprzetworzone zdarzenia zabezpieczeń z agenta Log Analytics
 - Informacje o konfiguracji klastra z klastra AKS
-- Konfiguracja obciążenia z Azure Policy (za pośrednictwem **Azure Policy dodatku dla Kubernetes**). [Dowiedz się więcej o najlepszych rozwiązaniach dotyczących ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- Konfiguracja obciążenia z Azure Policy (za pośrednictwem **Azure Policy dodatku dla Kubernetes** ). [Dowiedz się więcej o najlepszych rozwiązaniach dotyczących ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 :::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Architektura wysokiego poziomu interakcji między Azure Security Center, usługą Azure Kubernetes i Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 
@@ -114,5 +114,5 @@ W tym artykule przedstawiono informacje na temat Security Center ochrony Kuberne
 W przypadku pokrewnego materiału zapoznaj się z następującymi artykułami: 
 
 - [Włączanie usługi Azure Defender](security-center-pricing.md)
-- [Eksportowanie alertów do platformy Azure lub SIEM innej firmy](continuous-export.md)
+- [Przesyłanie strumieniowe alertów do rozwiązania SIEM, o lub zarządzania usługami IT](export-to-siem.md)
 - [Tabela referencyjna alertów](alerts-reference.md)

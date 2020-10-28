@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617761"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791634"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania użytkownika na wystąpienie zarządzane SQL
 
@@ -62,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Użyj polecenia programu PowerShell [Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) z następującym przykładem, aby zainicjować tryb failover węzła podstawowego, który ma zastosowanie do warstwy usługi BC i GP.
+Użyj polecenia programu PowerShell [Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) z następującym przykładem, aby zainicjować tryb failover węzła podstawowego, który ma zastosowanie do warstwy usługi BC i GP.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -96,7 +96,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### <a name="using-rest-api"></a>Korzystanie z interfejsu API
 
-Użytkownicy zaawansowani, którzy chcą potrzebować zautomatyzować pracę w trybie failover swoich wystąpień zarządzanych przez SQL w celu zaimplementowania potoku ciągłego testowania lub zautomatyzowanego łagodzenia wydajności, ta funkcja może być realizowana poprzez inicjowanie trybu failover za poorednictwem wywołania interfejsu API. Aby uzyskać szczegółowe informacje, zobacz [wystąpienia zarządzane — interfejs API REST trybu failover](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) .
+Użytkownicy zaawansowani, którzy chcą potrzebować zautomatyzować pracę w trybie failover swoich wystąpień zarządzanych przez SQL w celu zaimplementowania potoku ciągłego testowania lub zautomatyzowanego łagodzenia wydajności, ta funkcja może być realizowana poprzez inicjowanie trybu failover za poorednictwem wywołania interfejsu API. Aby uzyskać szczegółowe informacje, zobacz [wystąpienia zarządzane — interfejs API REST trybu failover](/rest/api/sql/managed%20instances%20-%20failover/failover) .
 
 Aby zainicjować tryb failover przy użyciu wywołania interfejsu API REST, najpierw Wygeneruj token uwierzytelniania przy użyciu wybranego klienta interfejsu API. Wygenerowany token uwierzytelniania jest używany jako właściwość autoryzacji w nagłówku żądania interfejsu API i jest obowiązkowy.
 
@@ -140,7 +140,7 @@ Nie będzie można zobaczyć tych samych danych wyjściowych z warstwą usługi 
 
 > [!IMPORTANT]
 > Ograniczenia funkcjonalne ręcznego przełączania trybu failover są następujące:
-> - Może istnieć jeden (1) tryb failover zainicjowany w tym samym wystąpieniu zarządzanym co **30 minut**.
+> - Może istnieć jeden (1) tryb failover zainicjowany w tym samym wystąpieniu zarządzanym co **30 minut** .
 > - W przypadku wystąpień usługi BC musi istnieć kworum replik dla żądania trybu failover, które ma zostać zaakceptowane.
 > - W przypadku wystąpień usługi BC nie można określić, która odczytana replika pomocnicza ma inicjować tryb failover.
 

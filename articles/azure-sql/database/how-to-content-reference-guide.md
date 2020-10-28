@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: 9b151e566f0cc3e086277c101a796e7dde059ef9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19cec1deeef344ea5897061db0fec88066b90b05
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442570"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791770"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>Konfigurowanie i zarządzanie odwołaniem do zawartości — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,7 @@ Ten artykuł zawiera informacje dotyczące różnych przewodników, skryptów i 
 
 - [Ręczne dostrajanie](performance-guidance.md)
 - [Korzystanie z widoków DMV do monitorowania wydajności](monitoring-with-dmvs.md)
-- [Korzystanie z magazynu zapytań do monitorowania wydajności](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Korzystanie z magazynu zapytań do monitorowania wydajności](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Włącz automatyczne dostrajanie](automatic-tuning-enable.md) , aby umożliwić Azure SQL Database optymalizację wydajności obciążeń.
 - [Włącz powiadomienia e-mail na potrzeby dostrajania automatycznego](automatic-tuning-email-notifications-configure.md) , aby uzyskać informacje o zaleceniach dostrajania.
 - [Stosuj zalecenia dotyczące wydajności](database-advisor-find-recommendations-portal.md) i Optymalizuj bazę danych.
@@ -84,7 +84,7 @@ Ten artykuł zawiera informacje dotyczące różnych przewodników, skryptów i 
 - [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
 - [Agent synchronizacji danych](sql-data-sync-agent-overview.md)
 - [Replikowanie zmian schematu](sql-data-sync-update-sync-schema.md)
-- [Monitorowanie za pomocą usługi OMS](sql-data-sync-monitor-sync.md)
+- [Monitorowanie za pomocą usługi OMS](./monitor-tune-overview.md)
 - [Najlepsze rozwiązania dotyczące funkcji Data Sync](sql-data-sync-best-practices.md)
 - [Rozwiązywanie problemów z usługą Data Sync](sql-data-sync-troubleshoot.md)
 
@@ -111,7 +111,7 @@ Ten artykuł zawiera informacje dotyczące różnych przewodników, skryptów i 
 
 ## <a name="develop-applications"></a>Tworzenie aplikacji
 
-- [Łączność](connect-query-content-reference-guide.md#libraries)
+- [Połączenia](connect-query-content-reference-guide.md#libraries)
 - [Korzystanie z łącznika Spark](spark-connector.md)
 - [Uwierzytelnianie aplikacji](application-authentication-get-client-id-keys.md)
 - [Korzystanie z usługi Batch w celu uzyskania lepszej wydajności](../performance-improve-use-batching.md)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103003"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793181"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Warstwy usług w modelu zakupów opartym na jednostkach DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ Wybór warstwy usług zależy głównie od ciągłości biznesowej, magazynu i w
 >
 
 > [!TIP]
-> Aby wyświetlić rzeczywiste limity [ładu zasobów](resource-limits-logical-server.md#resource-governance) dla bazy danych lub puli elastycznej, wykonaj zapytanie do widoku [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) .
+> Aby wyświetlić rzeczywiste limity [ładu zasobów](resource-limits-logical-server.md#resource-governance) dla bazy danych lub puli elastycznej, wykonaj zapytanie do widoku [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) .
 
 > [!NOTE]
 > Możesz uzyskać bezpłatną bazę danych w Azure SQL Database w podstawowej warstwie usług w połączeniu z bezpłatnym kontem platformy Azure, aby poznać platformę Azure. Aby uzyskać więcej informacji, zobacz [Tworzenie zarządzanej bazy danych w chmurze przy użyciu bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/services/sql-database/).
@@ -73,7 +73,7 @@ Rozmiary obliczeń są wyrażone w kategoriach jednostek transakcji bazy danych 
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Limity liczby jednostek eDTU puli elastycznej, magazynu i bazy danych w puli
 
-|| **Podstawowe** | **Standardowy** | **Premium** |
+|| **Podstawowe** | **Standardowa** | **Tytułu** |
 | :-- | --: | --: | --: |
 | **Maksymalny rozmiar magazynu na bazę danych**  | 2 GB | 1 TB | 1 TB |
 | **Maksymalny rozmiar magazynu na pulę** | 156 GB | 4 TB | 4 TB |
@@ -177,7 +177,7 @@ Kluczowe metryki testu porównawczego to przepływność i czas odpowiedzi.
 | --- | --- | --- |
 | Premium |Liczba transakcji na sekundę |używany 95. percentyl o 0,5 sekund |
 | Standardowa |Liczba transakcji na minutę |90 percentyl o 1,0 s |
-| Podstawowy |Liczba transakcji na godzinę |80th percentyl o 2,0 sekund |
+| Podstawowa |Liczba transakcji na godzinę |80th percentyl o 2,0 sekund |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35738db5b7bd4a1ac7aaf94e2dc5f1d26a075cdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056343"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791838"
 ---
 # <a name="repairing-an-export-job"></a>Naprawianie zadania eksportu
 Po zakończeniu zadania eksportu można uruchomić narzędzie Microsoft Azure Import/Export lokalnie, aby:  
@@ -24,11 +24,11 @@ Po zakończeniu zadania eksportu można uruchomić narzędzie Microsoft Azure Im
   
 Aby korzystać z tej funkcji, musisz mieć połączenie z usługą Azure Storage.  
   
-Polecenie naprawy zadania importowania to **RepairExport**.
+Polecenie naprawy zadania importowania to **RepairExport** .
 
 ## <a name="repairexport-parameters"></a>Parametry RepairExport
 
-Następujące parametry można określić za pomocą **RepairExport**:  
+Następujące parametry można określić za pomocą **RepairExport** :  
   
 |Parametr|Opis|  
 |---------------|-----------------|  
@@ -81,7 +81,7 @@ Plik dziennika kopiowania wskazuje, że wystąpił błąd podczas pobierania prz
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Weryfikowanie zawartości dysku przy użyciu RepairExport  
 Możesz również użyć opcji importowania/eksportowania platformy Azure z opcją **RepairExport** , aby sprawdzić, czy zawartość na dysku jest poprawna. Plik manifestu na każdym dysku eksportu zawiera MD5s dla zawartości dysku.  
   
-Usługa Azure Import/Export umożliwia także zapisanie plików manifestu na koncie magazynu podczas procesu eksportowania. Lokalizacja plików manifestu jest dostępna za pośrednictwem operacji [Pobierz zadanie](/rest/api/storageimportexport/jobs) , gdy zadanie zostało ukończone. Aby uzyskać więcej informacji o formacie pliku manifestu dysku, zobacz [plik manifestu usługi Import/Export](storage-import-export-file-format-metadata-and-properties.md).  
+Usługa Azure Import/Export umożliwia także zapisanie plików manifestu na koncie magazynu podczas procesu eksportowania. Lokalizacja plików manifestu jest dostępna za pośrednictwem operacji [Pobierz zadanie](/rest/api/storageimportexport/jobs) , gdy zadanie zostało ukończone. Aby uzyskać więcej informacji o formacie pliku manifestu dysku, zobacz [plik manifestu usługi Import/Export](/previous-versions/azure/storage/common/storage-import-export-file-format-metadata-and-properties).  
   
 Poniższy przykład pokazuje, jak uruchomić narzędzie Azure Import/Export z parametrami **/MANIFESTFILE** i **/CopyLogFile** :  
   
@@ -153,6 +153,6 @@ Każdy składnik niepowodzenia weryfikacji zostanie pobrany przez narzędzie i p
 ## <a name="next-steps"></a>Następne kroki
  
 * [Konfigurowanie narzędzia Azure Import/Export](storage-import-export-tool-setup-v1.md)   
-* [Przygotowywanie dysków twardych do zadania importu](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Przygotowywanie dysków twardych do zadania importu](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Sprawdzanie stanu zadania za pomocą plików dziennika kopiowania](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Naprawianie zadania importu](storage-import-export-tool-repairing-an-import-job-v1.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 429883a1bd9bc4df270e6a9f2965087fa3fba2dc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fc44b7a49785a24460ea11f07e5248b266f5dfad
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488864"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793011"
 ---
 # <a name="storage-account-overview"></a>Omówienie kont magazynu
 
@@ -32,7 +32,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 obsługują najnowsze funkcje 
 
 - Obiekty blob (wszystkie typy: Block, append, Page)
 - Data Lake Gen2
-- Pliki
+- Files
 - Dyski
 - Kolejki
 - Tabele
@@ -49,7 +49,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 oferują wiele warstw dostępu
 Konta magazynu ogólnego przeznaczenia w wersji 1 zapewniają dostęp do wszystkich usług Azure Storage, ale mogą nie mieć najnowszych funkcji lub najniższych cen za gigabajt. Konta magazynu ogólnego przeznaczenia w wersji 1 obsługują te usługi Azure Storage:
 
 - Obiekty blob (wszystkie typy)
-- Pliki
+- Files
 - Dyski
 - Kolejki
 - Tabele
@@ -60,7 +60,7 @@ W większości przypadków należy używać kont ogólnego przeznaczenia w wersj
 
 - Aplikacje zajmują wiele transakcji lub wykorzystują znaczną przepustowość replikacji geograficznej, ale nie wymagają dużej pojemności. W takim przypadku, ogólnego przeznaczenia w wersji 1 może być najbardziej ekonomiczny.
 
-- Używana jest wersja [interfejsu API REST usług Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) , która jest wcześniejsza niż 2014-02-14 lub Biblioteka kliencka o wersji niższej niż 4. x. Nie można uaktualnić aplikacji.
+- Używana jest wersja [interfejsu API REST usług Storage](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) , która jest wcześniejsza niż 2014-02-14 lub Biblioteka kliencka o wersji niższej niż 4. x. Nie można uaktualnić aplikacji.
 
 ### <a name="blockblobstorage-accounts"></a>Konta BlockBlobStorage
 
@@ -108,7 +108,7 @@ Dostępne są następujące warstwy dostępu:
 
 - Warstwa dostępu **gorąca** . Ta warstwa jest zoptymalizowana pod kątem częstego dostępu do obiektów na koncie magazynu. Uzyskiwanie dostępu do danych w warstwie gorąca jest najbardziej opłacalne, natomiast koszty magazynu są wyższe. Nowe konta magazynu są domyślnie tworzone w warstwie gorąca.
 - Warstwa dostępu **chłodna** . Ta warstwa jest zoptymalizowana pod kątem przechowywania dużych ilości danych, które są rzadko używane i są przechowywane przez co najmniej 30 dni. Przechowywanie danych w warstwie chłodna jest tańsze, ale dostęp do tych danych może być droższy niż dostęp do danych w warstwie gorąca.
-- Warstwa **Archiwum**. Ta warstwa jest dostępna tylko dla pojedynczych blokowych obiektów BLOB. Warstwa archiwum jest zoptymalizowana pod kątem danych, które mogą tolerować kilka godzin opóźnienia pobierania i które pozostaną w warstwie archiwum przez co najmniej 180 dni. Warstwa archiwum jest najtańszą opcją do przechowywania danych. Jednak dostęp do tych danych jest droższy niż dostęp do danych w warstwach gorąca lub chłodna.
+- Warstwa **Archiwum** . Ta warstwa jest dostępna tylko dla pojedynczych blokowych obiektów BLOB. Warstwa archiwum jest zoptymalizowana pod kątem danych, które mogą tolerować kilka godzin opóźnienia pobierania i które pozostaną w warstwie archiwum przez co najmniej 180 dni. Warstwa archiwum jest najtańszą opcją do przechowywania danych. Jednak dostęp do tych danych jest droższy niż dostęp do danych w warstwach gorąca lub chłodna.
 
 W przypadku zmiany wzorca użycia danych można w dowolnym momencie przełączyć się między tymi warstwami dostępu. Aby uzyskać więcej informacji o warstwach dostępu, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](../blobs/storage-blob-storage-tiers.md).
 
@@ -127,18 +127,18 @@ Wszystkie dane na koncie magazynu są szyfrowane po stronie usługi. Aby uzyska�
 
 Konto magazynu zapewnia unikatową przestrzeń nazw na platformie Azure dla danych użytkownika. Każdy obiekt przechowywany w usłudze Azure Storage ma adres, który zawiera unikatową nazwę konta. Kombinacja nazwy konta i punktu końcowego usługi Azure Storage stanowi punkty końcowe konta magazynu.
 
-Na przykład jeśli Twoje konto magazynu ogólnego przeznaczenia ma nazwę *mojekontomagazynu*, domyślne punkty końcowe dla tego konta są następujące:
+Na przykład jeśli Twoje konto magazynu ogólnego przeznaczenia ma nazwę *mojekontomagazynu* , domyślne punkty końcowe dla tego konta są następujące:
 
 - Magazyn obiektów blob: `https://*mystorageaccount*.blob.core.windows.net`
 - Magazyn tabel: `https://*mystorageaccount*.table.core.windows.net`
 - Kolejka magazynu: `https://*mystorageaccount*.queue.core.windows.net`
 - Azure Files: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (używa [sterownika ABFS zoptymalizowanego pod kątem danych Big Data](/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)).
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (używa [sterownika ABFS zoptymalizowanego pod kątem danych Big Data](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2)).
 
 > [!NOTE]
 > Blokowe obiekty blob i BLOB Storage uwidaczniają tylko Blob service punkt końcowy.
 
-Utwórz adres URL do uzyskiwania dostępu do obiektu na koncie magazynu, dołączając lokalizację obiektu na koncie magazynu do punktu końcowego. Przykładowo adres obiektu Blob może mieć następujący format: http://*mojekontomagazynu*.blob.core.windows.net/*mojkontener*/*mojblob*.
+Utwórz adres URL do uzyskiwania dostępu do obiektu na koncie magazynu, dołączając lokalizację obiektu na koncie magazynu do punktu końcowego. Przykładowo adres obiektu Blob może mieć następujący format: http:// *mojekontomagazynu* .blob.core.windows.net/ *mojkontener*/*mojblob* .
 
 Możesz również skonfigurować konto magazynu tak, aby korzystało z domeny niestandardowej dla obiektów BLOB. Aby uzyskać więcej informacji, zobacz [Konfigurowanie niestandardowej nazwy domeny dla konta usługi Azure Storage](../blobs/storage-custom-domain-name.md).  
 
@@ -165,9 +165,9 @@ Firma Microsoft udostępnia narzędzia i biblioteki do importowania danych z lok
 
 Po uaktualnieniu do konta ogólnego przeznaczenia w wersji 2 z poziomu konta ogólnego przeznaczenia w wersji 1 lub magazynu obiektów BLOB dane zostaną automatycznie zmigrowane. Firma Microsoft zaleca tej ścieżki do uaktualnienia konta. Jeśli jednak zdecydujesz się przenieść dane z konta ogólnego przeznaczenia w wersji 1 do konta usługi BLOB Storage, Przeprowadź migrację danych ręcznie przy użyciu narzędzi i bibliotek opisanych poniżej.
 
-### <a name="azcopy"></a>Narzędzie AzCopy
+### <a name="azcopy"></a>AzCopy
 
-Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Można użyć AzCopy do kopiowania danych do konta usługi BLOB Storage z istniejącego konta magazynu ogólnego zastosowania lub do przekazywania danych z lokalnych urządzeń magazynujących. Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Można użyć AzCopy do kopiowania danych do konta usługi BLOB Storage z istniejącego konta magazynu ogólnego zastosowania lub do przekazywania danych z lokalnych urządzeń magazynujących. Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ### <a name="data-movement-library"></a>Biblioteka przenoszenia danych
 

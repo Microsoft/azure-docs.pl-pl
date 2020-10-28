@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: afd36eb079b6e5f29fa664050cded3c5ddd17d8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad991974df30060e552d21a44d5796cd2ba165e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669467"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792552"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Często zadawane pytania dotyczące SQL Server on Linux maszyn wirtualnych
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +61,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Jak mogę zainstalować moją licencjonowaną kopię programu SQL Server na maszynie wirtualnej platformy Azure?**
 
-   Najpierw utwórz maszynę wirtualną obsługującą system operacyjny Linux. Następnie uruchom [SQL Server kroki instalacji](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) dla dystrybucji systemu Linux. Jeśli nie instalujesz jednej z licencjonowanych wersji SQL Server, musisz także mieć licencję SQL Server i [Przenośność licencji w ramach programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/).
+   Najpierw utwórz maszynę wirtualną obsługującą system operacyjny Linux. Następnie uruchom [SQL Server kroki instalacji](/sql/linux/sql-server-linux-setup#platforms) dla dystrybucji systemu Linux. Jeśli nie instalujesz jednej z licencjonowanych wersji SQL Server, musisz także mieć licencję SQL Server i [Przenośność licencji w ramach programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 1. **Czy istnieją obrazy maszyn wirtualnych z systemem Linux (BYOL) dla SQL Server?**
 
@@ -75,7 +75,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Czy mogę zarządzać maszyną wirtualną z systemem Linux, SQL Server z SQL Server Management Studio (SSMS)?**
 
-   Tak, ale program SSMS jest obecnie narzędziem wyłącznie dla systemu Windows. Musisz połączyć się zdalnie z komputera z systemem Windows, aby używać programu SSMS z maszynami wirtualnymi z systemem Linux, na których działa SQL Server W systemie Linux w nowym narzędziu [MSSQL-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) można wykonywać wiele zadań administracyjnych. Aby uzyskać międzyplatformowe narzędzie do zarządzania bazami danych, zobacz [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
+   Tak, ale program SSMS jest obecnie narzędziem wyłącznie dla systemu Windows. Musisz połączyć się zdalnie z komputera z systemem Windows, aby używać programu SSMS z maszynami wirtualnymi z systemem Linux, na których działa SQL Server W systemie Linux w nowym narzędziu [MSSQL-conf](/sql/linux/sql-server-linux-configure-mssql-conf) można wykonywać wiele zadań administracyjnych. Aby uzyskać międzyplatformowe narzędzie do zarządzania bazami danych, zobacz [Azure Data Studio](/sql/azure-data-studio/what-is).
 
 1. **Czy mogę usunąć całkowicie program SQL Server z maszyny wirtualnej z programem SQL Server?**
 
@@ -85,7 +85,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Jak mogę uaktualnić do nowej wersji lub wydania SQL Server na maszynie wirtualnej platformy Azure?**
 
-   obecnie nie są dostępne żadne uaktualnienia w miejscu dla programu SQL Server uruchomionego na maszynie wirtualnej platformy Azure. Utwórz nową maszynę wirtualną platformy Azure z odpowiednią wersją programu SQL Server, a następnie migruj bazy danych na nowy serwer przy użyciu [standardowych technik migracji danych](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
+   obecnie nie są dostępne żadne uaktualnienia w miejscu dla programu SQL Server uruchomionego na maszynie wirtualnej platformy Azure. Utwórz nową maszynę wirtualną platformy Azure z odpowiednią wersją programu SQL Server, a następnie migruj bazy danych na nowy serwer przy użyciu [standardowych technik migracji danych](/sql/linux/sql-server-linux-migrate-overview).
 
 ## <a name="general"></a>Ogólne
 
@@ -95,13 +95,13 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 ## <a name="resources"></a>Zasoby
 
-**Maszyny wirtualne z systemem Linux**:
+**Maszyny wirtualne z systemem Linux** :
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Linux](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Linux](sql-vm-create-portal-quickstart.md)
-* [Dokumentacja SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Dokumentacja SQL Server on Linux](/sql/linux/sql-server-linux-overview)
 
-**Maszyny wirtualne z systemem Windows**:
+**Maszyny wirtualne z systemem Windows** :
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Windows](../windows/sql-vm-create-portal-quickstart.md)

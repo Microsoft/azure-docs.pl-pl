@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: addccf337f82b1695c76ae975c4a33f44ba50f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c62534acdbfbff7fd4e718bad1f07a92c641626
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448145"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792399"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Dodawanie Key Vault do aplikacji sieci Web przy użyciu usług połączonych programu Visual Studio
 
@@ -24,7 +24,7 @@ Aby uzyskać szczegółowe informacje o zmianach, które są połączone przez u
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji, zarejestruj się w celu uzyskania [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
+- **Subskrypcja platformy Azure** . Jeśli nie masz subskrypcji, zarejestruj się w celu uzyskania [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
 - **Program Visual Studio 2019 w wersji 16,3** lub nowszej [pobierze go teraz](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 
@@ -32,15 +32,15 @@ Aby uzyskać szczegółowe informacje o zmianach, które są połączone przez u
 
 Przed rozpoczęciem upewnij się, że jesteś zalogowany w programie Visual Studio. Zaloguj się przy użyciu tego samego konta, które jest używane w ramach subskrypcji platformy Azure. Następnie otwórz ASP.NET 4.7.1 lub nowszy lub ASP.NET Core projekt sieci Web 2,0 i wykonaj następujące czynności:
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, do którego chcesz dodać obsługę Key Vault, a następnie wybierz polecenie **Dodaj**  >  **podłączoną usługę**  >  **Dodaj**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, do którego chcesz dodać obsługę Key Vault, a następnie wybierz polecenie **Dodaj**  >  **podłączoną usługę**  >  **Dodaj** .
    Zostanie wyświetlona strona Usługa połączona zawierająca usługi, które możesz dodać do projektu.
-1. W menu dostępne usługi wybierz **Azure Key Vault** i kliknij przycisk **dalej**.
+1. W menu dostępne usługi wybierz **Azure Key Vault** i kliknij przycisk **dalej** .
 
    ![Wybierz pozycję "Azure Key Vault"](../media/vs-key-vault-add-connected-service/key-vault-connected-service.png)
 
-1. Wybierz subskrypcję, której chcesz użyć, a następnie wybierz istniejącą Key Vault i kliknij przycisk **Zakończ**. 
+1. Wybierz subskrypcję, której chcesz użyć, a następnie wybierz istniejącą Key Vault i kliknij przycisk **Zakończ** . 
 
-   ![Wybierz swoją subskrypcję](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
+   ![Wybieranie subskrypcji](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
 Teraz nawiązano połączenie z usługą Key Vault i masz dostęp do wpisów tajnych w kodzie. Następne kroki są różne w zależności od tego, czy używasz ASP.NET 4.7.1 czy ASP.NET Core.
 
@@ -115,7 +115,7 @@ Konfigurację można skonfigurować tak, aby plik web.config miał wartość fik
          <add key="<secretNameInYourKeyVault>" value="dummy"/>
         ```
 
-1. Edytuj `About` metodę w *HomeController.cs*, aby wyświetlić wartość potwierdzenia.
+1. Edytuj `About` metodę w *HomeController.cs* , aby wyświetlić wartość potwierdzenia.
 
    ```csharp
    public ActionResult About()
@@ -131,12 +131,12 @@ Jeśli Key Vault jest uruchomiony na innym konto Microsoft niż ten, który jest
 
 1. Przejdź do [Azure Portal](https://portal.azure.com) i Otwórz Key Vault.
 
-1. Wybierz pozycję **zasady dostępu**, a następnie **Dodaj zasady dostępu**i wybierz konto, za pomocą którego użytkownik jest zalogowany jako podmiot zabezpieczeń.
+1. Wybierz pozycję **zasady dostępu** , a następnie **Dodaj zasady dostępu** i wybierz konto, za pomocą którego użytkownik jest zalogowany jako podmiot zabezpieczeń.
 
-1. W programie Visual Studio wybierz **File**pozycję  >  **Ustawienia konta**pliku.
+1. W programie Visual Studio wybierz **File** pozycję  >  **Ustawienia konta** pliku.
 Wybierz pozycję **Dodaj konto** z sekcji **wszystkie konta** . Zaloguj się przy użyciu konta wybranego jako podmiot zabezpieczeń zasad dostępu.
 
-1. Wybierz pozycję **Narzędzia**  >  **Opcje**i Wyszukaj pozycję **uwierzytelnianie usługi platformy Azure**. Następnie wybierz konto, które właśnie zostało dodane do programu Visual Studio.
+1. Wybierz pozycję **Narzędzia**  >  **Opcje** i Wyszukaj pozycję **uwierzytelnianie usługi platformy Azure** . Następnie wybierz konto, które właśnie zostało dodane do programu Visual Studio.
 
 Teraz podczas debugowania aplikacji program Visual Studio nawiązuje połączenie z kontem, na którym znajduje się Key Vault.
 
@@ -148,7 +148,7 @@ W tej sekcji przedstawiono dokładne zmiany wprowadzone w projekcie ASP.NET podc
 
 Ma wpływ na odwołania do pliku projektu i odwołania do pakietu NuGet.
 
-| Type | Tematy pomocy |
+| Typ | Dokumentacja |
 | --- | --- |
 | NuGet | Microsoft. AspNetCore. AzureKeyVault. HostingStartup |
 
@@ -184,7 +184,7 @@ W tej sekcji przedstawiono dokładne zmiany wprowadzone w projekcie ASP.NET podc
 
 Ma wpływ na odwołania do pliku projektu i `packages.config` (odwołania NuGet).
 
-| Type | Tematy pomocy |
+| Typ | Dokumentacja |
 | --- | --- |
 | Waga NuGet | Azure. Identity |
 | Waga NuGet | Azure. Security. Keys — klucze |
@@ -204,6 +204,6 @@ Ma wpływ na odwołania do pliku projektu i `packages.config` (odwołania NuGet)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli wykonano ten samouczek, Twoje uprawnienia Key Vault są skonfigurowane do uruchamiania w ramach własnej subskrypcji platformy Azure, ale mogą nie być pożądane w scenariuszu produkcyjnym. Możesz utworzyć zarządzaną tożsamość, aby zarządzać dostępem Key Vault do aplikacji. Zobacz [Jak przeprowadzić uwierzytelnianie, aby Key Vault](/azure/key-vault/general/authentication) i [przypisać zasady dostępu Key Vault](/azure/key-vault/general/assign-access-policy-portal).
+Jeśli wykonano ten samouczek, Twoje uprawnienia Key Vault są skonfigurowane do uruchamiania w ramach własnej subskrypcji platformy Azure, ale mogą nie być pożądane w scenariuszu produkcyjnym. Możesz utworzyć zarządzaną tożsamość, aby zarządzać dostępem Key Vault do aplikacji. Zobacz [Jak przeprowadzić uwierzytelnianie, aby Key Vault](./authentication.md) i [przypisać zasady dostępu Key Vault](./assign-access-policy-portal.md).
 
 Dowiedz się więcej na temat opracowywania Key Vault, odczytując [przewodnik dewelopera Key Vault](developers-guide.md).

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 09498587ad65a8de0935a3a4455bb3b66ed6c3ec
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a0efc6f6f6d4ae6355fbb42fbc7e13ad7c078cf3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491261"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792892"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Rozwiązania do okresowego transferu danych
  
@@ -42,7 +42,7 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Transfer danych przez skrypt/program programistyczny
 
-| Możliwość                  | Narzędzie AzCopy                                 | Interfejsy API REST usługi Azure Storage       |
+| Możliwość                  | AzCopy                                 | Interfejsy API REST usługi Azure Storage       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Współczynnik postaci                 | Narzędzie wiersza polecenia firmy Microsoft       | Klienci opracowują magazyn <br> Interfejsy API REST przy użyciu bibliotek klienckich platformy Azure |
 | Początkowa konfiguracja jednorazowa     | Minimalny                                | Umiarkowany, zmienny nakład pracy programistycznej    |
@@ -52,12 +52,12 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
 ### <a name="continuous-data-ingestion-over-network"></a>Ciągłe pozyskiwanie danych za pośrednictwem sieci
 
-| Promowanie                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
+| Cechy                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Współczynnik postaci                                   | Urządzenie wirtualne             | Urządzenie fizyczne          | Usługa w Azure Portal, Agent lokalny                                                            |
 | Sprzęt                                      | Funkcja hypervisor            | Dostarczone przez firmę Microsoft    | Nie dotyczy                                                            |
 | Wstępny nakład pracy konfiguracji                          | Niska (<30 minut)            | Umiarkowane (~ kilka godzin) | Duże (~ dni)                                                 |
-| Format danych                                   | Obiekty blob platformy Azure, Azure Files   | Obiekty blob platformy Azure, Azure Files | [Obsługuje ponad 70 łączników danych dla magazynów danych i formatów](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| Format danych                                   | Obiekty blob platformy Azure, Azure Files   | Obiekty blob platformy Azure, Azure Files | [Obsługuje ponad 70 łączników danych dla magazynów danych i formatów](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)|
 | Przetwarzanie wstępne danych                           | Nie                         | Tak, za pomocą obliczeń brzegowych    | Tak                                                           |
 | Lokalna pamięć podręczna<br>(do przechowywania danych lokalnych)    | Tak                        | Tak                      | Nie                                                            |
 | Transfer z innych chmur                    | Nie                         | Nie                       | Tak                                                           |
@@ -65,9 +65,9 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Transfer danych za pomocą AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Transfer danych za pomocą AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json).
 - [Więcej informacji na temat transferu danych za pomocą interfejsów API REST magazynu](/dotnet/api/overview/azure/storage).
 - Zapoznaj się z tematem:
-    - [Transferuj dane przy użyciu Data Box Gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Przekształć dane przy użyciu Data Box Edge przed wysłaniem do platformy Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Dowiedz się, jak transferować dane za pomocą Azure Data Factory](/azure/data-factory/tutorial-bulk-copy-portal).
+    - [Transferuj dane przy użyciu Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Przekształć dane przy użyciu Data Box Edge przed wysłaniem do platformy Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Dowiedz się, jak transferować dane za pomocą Azure Data Factory](../../data-factory/tutorial-bulk-copy-portal.md).

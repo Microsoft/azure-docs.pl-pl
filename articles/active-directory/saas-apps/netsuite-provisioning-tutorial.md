@@ -10,16 +10,21 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: faf66b9a261fd4e8f63779b3d254de4c44d1d731
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8406ee5647d02cc917a0fdb1daf2355611bb781d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513906"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792212"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie pakietu dla automatycznej aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w pakietach OneWorld i Azure AD w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników z usługi Azure AD do pakietu.
+
+> [!NOTE]
+> Ta integracja jest obecnie uwierzytelniana przy użyciu uwierzytelniania podstawowego (nazwa użytkownika i hasło). W ramach pakietu zaimplementowano wymaganie usługi uwierzytelniania wieloskładnikowego, które uniemożliwia klientom korzystanie z tej integracji, chyba że wystąpiło wykluczenie z tego wymagania. Pracujemy z pakietem servicesuite, aby zaktualizować tę integrację do nowszej metody uwierzytelniania, aby umożliwić klientom bez wykluczania do ponownego użycia. Ten dokument zostanie zaktualizowany o EZT, gdy jest on dostępny.
+
+Zalecana akcja: Zaczekaj na wydanie aktualizacji zachowania uwierzytelniania dla tej integracji lub skontaktuj się z pomocą techniczną, aby dowiedzieć się więcej o wykluczeniu wymagania dotyczącego uwierzytelniania wieloskładnikowego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,7 +33,7 @@ W scenariuszu opisanym w tym samouczku założono, że masz już następujące e
 *   Dzierżawa usługi Azure Active Directory.
 *   Subskrypcja OneWorld pakietu. Należy pamiętać, że automatyczne Inicjowanie obsługi użytkowników jest obecnie obsługiwane tylko z pakietem OneWorld.
 *   Konto użytkownika w pakiecie z uprawnieniami administratora.
-*   Integracja z usługą Azure AD wymaga wykluczenia funkcji 2FA. Aby uzyskać ten wyjątek, skontaktuj się z zespołem pomocy technicznej dla pakietu.
+*   Integracja z usługą Azure AD wymaga wykluczenia funkcji 2FA. Aby zażądać tego wykluczenia, skontaktuj się z zespołem pomocy technicznej dla pakietu.
 
 ## <a name="assigning-users-to-netsuite-oneworld"></a>Przypisywanie użytkowników do pakietu OneWorld
 
@@ -61,7 +66,7 @@ Celem tej sekcji jest zaprojektowanie sposobu włączania obsługi administracyj
 
 1. Wybierz swoje wystąpienie z pakietu, a następnie wybierz kartę **aprowizacji** .
 
-1. Ustaw **Tryb aprowizacji** na **Automatyczny**. 
+1. Ustaw **Tryb aprowizacji** na **Automatyczny** . 
 
     ![Zrzut ekranu przedstawia stronę aprowizacji pakietu, z trybem aprowizacji ustawionym na automatyczne i inne wartości, które można ustawić.](./media/netsuite-provisioning-tutorial/provisioning.png)
 
@@ -89,7 +94,7 @@ Rozpocznie się początkową synchronizację wszystkich użytkowników i/lub gru
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

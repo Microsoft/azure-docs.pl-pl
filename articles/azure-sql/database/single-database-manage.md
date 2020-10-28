@@ -4,19 +4,19 @@ description: Dowiedz się więcej na temat tworzenia serwerów i pojedynczych ba
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c487b5bc5c8d5fa01388b2942a70defa0001253
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254994"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791532"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Tworzenie serwerów i pojedynczych baz danych w programie Azure SQL Database oraz zarządzanie nimi
 
@@ -58,7 +58,7 @@ Aby zarządzać istniejącą bazą danych, przejdź do strony **bazy danych SQL*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
 Aby utworzyć serwery, pojedyncze i w puli baz danych oraz zapory na poziomie serwera z Azure PowerShell, należy użyć następujących poleceń cmdlet programu PowerShell. Jeśli musisz zainstalować lub uaktualnić program PowerShell, zobacz [install Azure PowerShell module](/powershell/azure/install-az-ps).
 
@@ -74,7 +74,7 @@ Aby utworzyć serwery, pojedyncze i w puli baz danych oraz zapory na poziomie se
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Tworzy grupę zasobów|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Tworzy serwer|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Zwraca informacje o serwerach|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Modyfikuje właściwości serwera|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Modyfikuje właściwości serwera|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Usuwa serwer|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Tworzy regułę zapory na poziomie serwera |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Pobiera reguły zapory dla serwera|
@@ -84,7 +84,7 @@ Aby utworzyć serwery, pojedyncze i w puli baz danych oraz zapory na poziomie se
 
 ## <a name="the-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby utworzyć serwery, bazy danych i zapory za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure)i zarządzać nimi, użyj następujących poleceń [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/db) . Używaj usługi [Cloud Shell](/azure/cloud-shell/overview), aby uruchamiać interfejs wiersza polecenia w przeglądarce, albo [zainstaluj](/cli/azure/install-azure-cli) go w systemie macOS, Linux lub Windows. Aby utworzyć pule elastyczne i zarządzać nimi, zobacz [Pule elastyczne](elastic-pool-overview.md).
+Aby utworzyć serwery, bazy danych i zapory za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure)i zarządzać nimi, użyj następujących poleceń [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/db) . Używaj usługi [Cloud Shell](../../cloud-shell/overview.md), aby uruchamiać interfejs wiersza polecenia w przeglądarce, albo [zainstaluj](/cli/azure/install-azure-cli) go w systemie macOS, Linux lub Windows. Aby utworzyć pule elastyczne i zarządzać nimi, zobacz [Pule elastyczne](elastic-pool-overview.md).
 
 > [!TIP]
 > Aby uzyskać szybki start interfejs wiersza polecenia platformy Azure, zobacz [Tworzenie jednego Azure SQL Database przy użyciu interfejsu wiersza polecenia platformy Azure](az-cli-script-samples-content-guide.md). Przykładowe skrypty interfejsu wiersza polecenia platformy Azure znajdują [się w temacie Używanie interfejsu wiersza polecenia do tworzenia bazy danych w Azure SQL Database i konfigurowania reguły zapory SQL Database](scripts/create-and-configure-database-cli.md) i [używania interfejsu wiersza polecenia do monitorowania i skalowania bazy danych w Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
@@ -144,22 +144,22 @@ Do tworzenia serwerów, baz danych i zapór oraz zarządzania nimi należy używ
 
 | Polecenie | Opis |
 | --- | --- |
-|[Serwery — Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Tworzy lub aktualizuje nowy serwer.|
-|[Serwery — usuwanie](https://docs.microsoft.com/rest/api/sql/servers/delete)|Usuwa program SQL Server.|
-|[Serwery — Pobierz](https://docs.microsoft.com/rest/api/sql/servers/get)|Pobiera serwer.|
-|[Serwery — lista](https://docs.microsoft.com/rest/api/sql/servers/list)|Zwraca listę serwerów w ramach subskrypcji.|
-|[Serwery — lista według grupy zasobów](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Zwraca listę serwerów w grupie zasobów.|
-|[Serwery — aktualizacja](https://docs.microsoft.com/rest/api/sql/servers/update)|Aktualizuje istniejący serwer.|
-|[Bazy danych — Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Tworzy nową bazę danych lub aktualizuje istniejącą bazę danych.|
-|[Bazy danych — usuwanie](https://docs.microsoft.com/rest/api/sql/databases/delete)|Usuwa bazę danych.|
-|[Bazy danych — Pobierz](https://docs.microsoft.com/rest/api/sql/databases/get)|Pobiera bazę danych.|
-|[Bazy danych — lista według elastycznej puli](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Zwraca listę baz danych w puli elastycznej.|
-|[Bazy danych — lista według serwera](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Zwraca listę baz danych na serwerze.|
-|[Bazy danych — aktualizacja](https://docs.microsoft.com/rest/api/sql/databases/update)|Aktualizuje istniejącą bazę danych.|
-|[Reguły zapory — Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Tworzy lub aktualizuje regułę zapory.|
-|[Reguły zapory — usuwanie](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Usuwa regułę zapory.|
-|[Reguły zapory — Pobierz](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Pobiera regułę zapory.|
-|[Reguły zapory — lista według serwera](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Zwraca listę reguł zapory.|
+|[Serwery — Utwórz lub zaktualizuj](/rest/api/sql/servers/createorupdate)|Tworzy lub aktualizuje nowy serwer.|
+|[Serwery — usuwanie](/rest/api/sql/servers/delete)|Usuwa program SQL Server.|
+|[Serwery — Pobierz](/rest/api/sql/servers/get)|Pobiera serwer.|
+|[Serwery — lista](/rest/api/sql/servers/list)|Zwraca listę serwerów w ramach subskrypcji.|
+|[Serwery — lista według grupy zasobów](/rest/api/sql/servers/listbyresourcegroup)|Zwraca listę serwerów w grupie zasobów.|
+|[Serwery — aktualizacja](/rest/api/sql/servers/update)|Aktualizuje istniejący serwer.|
+|[Bazy danych — Utwórz lub zaktualizuj](/rest/api/sql/databases/createorupdate)|Tworzy nową bazę danych lub aktualizuje istniejącą bazę danych.|
+|[Bazy danych — usuwanie](/rest/api/sql/databases/delete)|Usuwa bazę danych.|
+|[Bazy danych — Pobierz](/rest/api/sql/databases/get)|Pobiera bazę danych.|
+|[Bazy danych — lista według elastycznej puli](/rest/api/sql/databases/listbyelasticpool)|Zwraca listę baz danych w puli elastycznej.|
+|[Bazy danych — lista według serwera](/rest/api/sql/databases/listbyserver)|Zwraca listę baz danych na serwerze.|
+|[Bazy danych — aktualizacja](/rest/api/sql/databases/update)|Aktualizuje istniejącą bazę danych.|
+|[Reguły zapory — Utwórz lub zaktualizuj](/rest/api/sql/firewallrules/createorupdate)|Tworzy lub aktualizuje regułę zapory.|
+|[Reguły zapory — usuwanie](/rest/api/sql/firewallrules/delete)|Usuwa regułę zapory.|
+|[Reguły zapory — Pobierz](/rest/api/sql/firewallrules/get)|Pobiera regułę zapory.|
+|[Reguły zapory — lista według serwera](/rest/api/sql/firewallrules/listbyserver)|Zwraca listę reguł zapory.|
 
 ## <a name="next-steps"></a>Następne kroki
 

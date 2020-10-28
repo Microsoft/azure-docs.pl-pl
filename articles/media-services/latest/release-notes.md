@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4a741834637900ec0c78105790bac2453d759e2f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514490"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791600"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -46,6 +46,16 @@ Ustawienie wstępne analizy audio zawiera teraz warstwę cenową w trybie podsta
 Klienci korzystający z indeksatora V1 i indeksator v2 powinni migrować do podstawowego ustawienia wstępnego analizy dźwięku.
 
 Aby uzyskać więcej informacji na temat podstawowego trybu analizatora dźwięku, zobacz [Analizowanie plików wideo i audio](analyzing-video-audio-files-concept.md).  Aby dowiedzieć się, jak używać podstawowego trybu analizatora dźwięku za pomocą interfejsu API REST, zobacz [jak utworzyć podstawową transformację audio](how-to-create-basic-audio-transform.md).
+
+## <a name="live-events"></a>Wydarzenia na żywo
+
+Aktualizacje większości właściwości są teraz dozwolone po zatrzymaniu zdarzeń na żywo. Ponadto użytkownicy mogą określić prefiks dla statycznej nazwy hosta dla danych wejściowych i w wersji zapoznawczej zdarzenia na żywo. VanityUrl jest teraz wywoływana `useStaticHostName` w celu lepszego odzwierciedlenia zamiaru właściwości.
+
+Zdarzenia na żywo mają teraz stan wstrzymania.  Zobacz [zdarzenia na żywo i wyjście na żywo w Media Services](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
+
+Zdarzenie na żywo obsługuje otrzymywanie różnych współczynników proporcji. Tryb rozciągania umożliwia klientom określenie zachowania rozciągnięcia danych wyjściowych.
+
+Funkcja kodowania na żywo umożliwia teraz dodanie fragmentów interwału stałych klatek kluczowych między 0,5 a 20 sekund.
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -99,7 +109,7 @@ Azure Media Player dokumenty zostały zmigrowane do [dokumentacji platformy Azur
 
 ### <a name="azure-government-cloud-updates"></a>Azure Government aktualizacje w chmurze
 
-Media Services GA'ed w następujących Azure Government regionach: *USGov Arizona* i *USGov Texas*.
+Media Services GA'ed w następujących Azure Government regionach: *USGov Arizona* i *USGov Texas* .
 
 ## <a name="december-2019"></a>Grudzień 2019 r.
 
@@ -151,7 +161,7 @@ Dodano obsługę następujących nowych zalecanych koderów partnerów dla przes
 
 - Ramki kluczowe wyodrębnione przy użyciu ustawień wstępnych VideoAnalyzer są teraz w oryginalnej rozdzielczości wideo zamiast zmiany rozmiaru. Funkcja wyodrębniania klatek kluczowych o wysokiej rozdzielczości zapewnia oryginalne obrazy z jakością i pozwala korzystać z sztucznych modeli analizy opartych na obrazach udostępnianych przez usługi Microsoft przetwarzanie obrazów i Custom Vision, aby uzyskać jeszcze więcej szczegółowych informacji na temat wideo.
 
-## <a name="september-2019"></a>Wrzesień 2019
+## <a name="september-2019"></a>Wrzesień 2019 r.
 
 ###  <a name="media-services-v3"></a>Media Services v3  
 
@@ -163,11 +173,11 @@ Media Services v3 zapowiedźuje Podgląd 24 godzin x 365 dni aktywnego kodowania
 
 #### <a name="deprecation-of-media-processors"></a>Wycofanie procesorów multimediów
 
-Ogłaszamy przestarzałe *Azure Media Indexer* i *Azure Media Indexer 2 wersji zapoznawczej*. Aby uzyskać daty wycofania, zobacz artykuł dotyczący  [składników ze starszych wersji](../previous/legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje te starsze procesory nośników.
+Ogłaszamy przestarzałe *Azure Media Indexer* i *Azure Media Indexer 2 wersji zapoznawczej* . Aby uzyskać daty wycofania, zobacz artykuł dotyczący  [składników ze starszych wersji](../previous/legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje te starsze procesory nośników.
 
 Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 ###  <a name="media-services-v3"></a>Media Services v3  
 
@@ -185,7 +195,7 @@ Ogłaszamy przestarzałe procesory nośników z *systemami Windows Azure Media E
 
 Aby uzyskać szczegółowe informacje, zobacz [Migrowanie WAME do Media Encoder Standard](../previous/migrate-windows-azure-media-encoder.md) i [Migrowanie azwa do Media Encoder Standard](../previous/migrate-azure-media-encoder.md).
  
-## <a name="july-2019"></a>Lipiec 2019
+## <a name="july-2019"></a>Lipiec 2019 r.
 
 ### <a name="content-protection"></a>Ochrona zawartości
 
@@ -227,7 +237,7 @@ Media Services jest teraz dostępna w regionach Korei Środkowej i Korei Połudn
 
 Aby uzyskać więcej informacji, zobacz [chmury i regiony, w których istnieje Media Services v3](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Usprawnienia wydajności
+### <a name="performance-improvements"></a>Ulepszenia wydajności
 
 Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
@@ -241,7 +251,7 @@ Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 * [FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset) został dodany do wbudowanych ustawień wstępnych analizatora.
 * [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) został dodany do wbudowanych ustawień wstępnych kodera. Aby uzyskać więcej informacji, zobacz [kodowanie z uwzględnieniem zawartości](content-aware-encoding.md). 
 
-## <a name="march-2019"></a>Marzec 2019
+## <a name="march-2019"></a>Marzec 2019 r.
 
 Pakowanie dynamiczne obsługuje teraz technologię Dolby Atmos. Aby uzyskać więcej informacji, zobacz [kodery-dekoder audio obsługiwane przez pakowanie dynamiczne](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
@@ -261,16 +271,16 @@ Gdy kodowanie przy użyciu Media Encoder Standard do tworzenia plików MP4, nowy
 
 Nie należy modyfikować ani usuwać pliku MPI ani korzystać z jakichkolwiek zależności w usłudze w przypadku istnienia takiego pliku.
 
-## <a name="december-2018"></a>Grudzień 2018
+## <a name="december-2018"></a>Grudzień 2018 r.
 
 Aktualizacje z wersji GA interfejsu API v3 obejmują:
        
-* Właściwości **PresentationTimeRange** nie są już "wymagane" dla **filtrów zasobów** i **filtrów konta**. 
+* Właściwości **PresentationTimeRange** nie są już "wymagane" dla **filtrów zasobów** i **filtrów konta** . 
 * Opcje zapytania $top i $skip dotyczące **zadań** i **transformacji** zostały usunięte, a $OrderBy został dodany. W ramach dodawania nowych funkcji określania kolejności okazało się, że opcje $top i $skip zostały przypadkowo ujawnione, mimo że nie zostały zaimplementowane.
 * Rozszerzalność wyliczenia została włączona jeszcze raz. Ta funkcja została włączona w wersji zapoznawczej zestawu SDK i została przypadkowo wyłączona w wersji GA.
-* Zmieniono nazwy dwóch wstępnie zdefiniowanych zasad przesyłania strumieniowego. **SecureStreaming** jest teraz **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** jest teraz **Predefined_MultiDrmStreaming**.
+* Zmieniono nazwy dwóch wstępnie zdefiniowanych zasad przesyłania strumieniowego. **SecureStreaming** jest teraz **MultiDrmCencStreaming** . **SecureStreamingWithFairPlay** jest teraz **Predefined_MultiDrmStreaming** .
 
-## <a name="november-2018"></a>Listopad 2018
+## <a name="november-2018"></a>Listopad 2018 r.
 
 Moduł interfejsu wiersza polecenia 2,0 jest teraz dostępny dla [Azure Media Services v3 ga](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
 
@@ -375,7 +385,7 @@ Można wyświetlić następujące ulepszenia Event Grid wsparcia:
 
 Obsługa szyfrowania CMAF i "cbcs" dla odtwarzaczy Apple HLS (iOS 11 +) i MPEG-PAUZ, które obsługują CMAF.
 
-### <a name="video-indexer"></a>Indeksator wideo
+### <a name="video-indexer"></a>Video Indexer
 
 Video Indexer wersja GA została ogłoszona w sierpniu. Aby uzyskać nowe informacje o aktualnie obsługiwanych funkcjach, zobacz [co to jest Video Indexer](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
 
@@ -412,7 +422,7 @@ Zestaw SDK platformy .NET zawiera następujące funkcje:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md#known-issues).
 

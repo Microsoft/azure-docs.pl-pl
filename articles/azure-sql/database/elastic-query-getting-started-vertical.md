@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 089cc8f22248a2b7152afaf951f6028a05682648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd8a30c60c81ef2761d5dc051d2dfeb300e1bac4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443323"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792127"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Wprowadzenie do zapytań między bazami danych (partycjonowanie pionowe) (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ Wymagane jest uprawnienie Zmień każde zewnętrzne źródło danych. To uprawni
 
 ## <a name="create-the-sample-databases"></a>Tworzenie przykładowych baz danych
 
-Aby rozpocząć pracę z programem, Utwórz dwie bazy danych, **klientów** i **zamówień**w tym samym lub różnych serwerach.
+Aby rozpocząć pracę z programem, Utwórz dwie bazy danych, **klientów** i **zamówień** w tym samym lub różnych serwerach.
 
 Wykonaj następujące zapytania w bazie danych **Orders** , aby utworzyć tabelę **OrderInformation** i wprowadzić przykładowe dane.
 
@@ -117,7 +117,7 @@ INNER JOIN CustomerInformation
 ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 ```
 
-## <a name="cost"></a>Koszty
+## <a name="cost"></a>Koszt
 
 Obecnie funkcja zapytania Elastic Database jest uwzględniana w kosztach Azure SQL Database.  
 
@@ -129,4 +129,4 @@ Aby uzyskać informacje o cenach, zobacz [Cennik usługi SQL Database](https://a
 * Aby poznać składnię i przykładowe zapytania dotyczące danych partycjonowanych pionowo, zobacz [wykonywanie zapytań dotyczących partycjonowanych danych w pionie.](elastic-query-vertical-partitioning.md)
 * Aby zapoznać się z samouczkiem dotyczącym partycjonowania poziomego (fragmentowania), zobacz [wprowadzenie do elastycznego zapytania na potrzeby partycjonowania poziomego (fragmentowania)](elastic-query-getting-started.md).
 * Aby poznać składnię i przykładowe zapytania dla danych z podziałem na partycje, zobacz [wykonywanie zapytań o dane partycjonowane w poziomie.](elastic-query-horizontal-partitioning.md)
-* Zapoznaj się z artykułem [SP \_ Execute \_ Remote](https://msdn.microsoft.com/library/mt703714) dla procedury składowanej, która wykonuje instrukcję języka Transact-SQL w ramach jednego zdalnego Azure SQL Database lub zestawu baz danych służących jako fragmentów w poziomym schemacie partycjonowania.
+* Zapoznaj się z artykułem [SP \_ Execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) dla procedury składowanej, która wykonuje instrukcję języka Transact-SQL w ramach jednego zdalnego Azure SQL Database lub zestawu baz danych służących jako fragmentów w poziomym schemacie partycjonowania.

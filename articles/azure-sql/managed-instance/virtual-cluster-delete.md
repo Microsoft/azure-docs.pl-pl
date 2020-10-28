@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 0b8ceee1260e4209420778d7f327d771b858a899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed8f6dc90debddd17282f8f96962ffd78055030
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617727"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791668"
 ---
 # <a name="delete-a-subnet-after-deleting-a-managed-instance-of-sql-managed-instance"></a>Usuń podsieć po usunięciu zarządzanego wystąpienia wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -29,7 +29,7 @@ Jeśli nie chcesz czekać 12 godzin i wolisz usunąć klaster wirtualny i jego p
 
 > [!IMPORTANT]
 > - Klaster wirtualny nie powinien zawierać żadnych wystąpień zarządzanych, aby usuwanie powiodło się. 
-> - Usuwanie klastra wirtualnego jest długotrwałą operacją długotrwałą przez około 1,5 godzin (zobacz [operacje zarządzania wystąpieniami zarządzanymi](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) dla aktualnego czasu usuwania klastra wirtualnego). Klaster wirtualny będzie nadal widoczny w portalu do momentu zakończenia tego procesu.
+> - Usuwanie klastra wirtualnego jest długotrwałą operacją długotrwałą przez około 1,5 godzin (zobacz [operacje zarządzania wystąpieniami zarządzanymi](./sql-managed-instance-paas-overview.md#management-operations) dla aktualnego czasu usuwania klastra wirtualnego). Klaster wirtualny będzie nadal widoczny w portalu do momentu zakończenia tego procesu.
 
 ## <a name="delete-a-virtual-cluster-from-the-azure-portal"></a>Usuwanie klastra wirtualnego z Azure Portal
 
@@ -37,7 +37,7 @@ Aby usunąć klaster wirtualny przy użyciu Azure Portal, wyszukaj zasoby klastr
 
 ![Zrzut ekranu przedstawiający Azure Portal z wyróżnionym polem wyszukiwania](./media/virtual-cluster-delete/virtual-clusters-search.png)
 
-Po znalezieniu klastra wirtualnego, który chcesz usunąć, wybierz pozycję ten zasób, a następnie wybierz pozycję **Usuń**. Zostanie wyświetlony monit o potwierdzenie usunięcia klastra wirtualnego.
+Po znalezieniu klastra wirtualnego, który chcesz usunąć, wybierz pozycję ten zasób, a następnie wybierz pozycję **Usuń** . Zostanie wyświetlony monit o potwierdzenie usunięcia klastra wirtualnego.
 
 ![Zrzut ekranu pulpitu nawigacyjnego Azure Portal klastrów wirtualnych z wyróżnioną opcją usuwania](./media/virtual-cluster-delete/virtual-clusters-delete.png)
 
@@ -48,7 +48,7 @@ W przypadku powiadomień Azure Portal zostanie wyświetlone potwierdzenie, że �
 
 ## <a name="delete-a-virtual-cluster-by-using-the-api"></a>Usuwanie klastra wirtualnego za pomocą interfejsu API
 
-Aby usunąć klaster wirtualny za pomocą interfejsu API, użyj parametrów identyfikatora URI określonych w [metodzie Delete klastrów wirtualnych](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
+Aby usunąć klaster wirtualny za pomocą interfejsu API, użyj parametrów identyfikatora URI określonych w [metodzie Delete klastrów wirtualnych](/rest/api/sql/virtualclusters/delete).
 
 ## <a name="next-steps"></a>Następne kroki
 

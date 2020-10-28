@@ -6,15 +6,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 10/08/2020
-ms.openlocfilehash: cb02b29c100da7b8d63f214acc78906a757344c0
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.date: 10/25/2020
+ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096100"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791583"
 ---
-# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z opóźnieniem replikacji w Azure Database for MySQL
+# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z opóźnieniami replikacji w usłudze Azure Database for MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
 
 Funkcja [Read Replica](concepts-read-replicas.md) umożliwia replikowanie danych z serwera Azure Database for MySQL do serwera repliki tylko do odczytu. Obciążenia można skalować w poziomie przez kierowanie zapytań odczytu i raportowania z aplikacji na serwery repliki. Ta konfiguracja zmniejsza nacisk na serwer źródłowy. Zwiększa również ogólną wydajność i opóźnienie aplikacji w miarę skalowania. 
 
@@ -31,9 +33,9 @@ W tym artykule dowiesz się, jak rozwiązywać problemy z opóźnieniem replikac
 
 ## <a name="replication-concepts"></a>Pojęcia związane z replikacją
 
-Po włączeniu dziennika binarnego serwer źródłowy zapisuje zatwierdzone transakcje do dziennika binarnego. Dziennik binarny jest używany na potrzeby replikacji. Jest on domyślnie włączony dla wszystkich nowo zainicjowanych serwerów, które obsługują do 16 TB pamięci masowej. Na serwerach replik dwa wątki są uruchamiane na każdym serwerze repliki. Jeden wątek jest *wątkiem we/wy*, a drugi jest *wątkiem SQL*:
+Po włączeniu dziennika binarnego serwer źródłowy zapisuje zatwierdzone transakcje do dziennika binarnego. Dziennik binarny jest używany na potrzeby replikacji. Jest on domyślnie włączony dla wszystkich nowo zainicjowanych serwerów, które obsługują do 16 TB pamięci masowej. Na serwerach replik dwa wątki są uruchamiane na każdym serwerze repliki. Jeden wątek jest *wątkiem we/wy* , a drugi jest *wątkiem SQL* :
 
-- Wątek we/wy nawiązuje połączenie z serwerem źródłowym i żąda zaktualizowanych dzienników binarnych. Ten wątek otrzymuje aktualizacje dzienników binarnych. Aktualizacje te są zapisywane na serwerze repliki, w dzienniku lokalnym o nazwie *Dziennik przekaźnika*.
+- Wątek we/wy nawiązuje połączenie z serwerem źródłowym i żąda zaktualizowanych dzienników binarnych. Ten wątek otrzymuje aktualizacje dzienników binarnych. Aktualizacje te są zapisywane na serwerze repliki, w dzienniku lokalnym o nazwie *Dziennik przekaźnika* .
 - Wątek SQL odczytuje dziennik przekaźnika, a następnie stosuje zmiany danych na serwerach repliki.
 
 ## <a name="monitoring-replication-latency"></a>Monitorowanie opóźnienia replikacji

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073320"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791651"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Możliwości wielomodelowe Azure SQL Database & wystąpienia zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ Rodzina produktów SQL platformy Azure udostępnia następujące funkcje wielomo
 - [Pary klucz-wartość](#key-value-pairs) nie są jawnie obsługiwane jako funkcje specjalne, ponieważ pary klucz-wartość mogą być natywnie modelowane jako tabele dwukolumnowe.
 
   > [!Note]
-  > Można użyć wyrażenia ścieżki JSON, wyrażeń XQuery/XPath, funkcji przestrzennych i wyrażeń kwerend grafu w tym samym zapytaniu języka Transact-SQL, aby uzyskać dostęp do wszystkich danych przechowywanych w bazie danych. Ponadto wszystkie narzędzia i języki programowania, które mogą wykonywać zapytania Transact-SQL, mogą również używać tego interfejsu zapytania do uzyskiwania dostępu do danych z wielu modeli. Jest to kluczowa różnica w porównaniu z wielomodelowymi bazami danych, takimi jak [Azure Cosmos DB](/azure/cosmos-db/) , które udostępnia WYSPECJALIZOWANY interfejs API dla różnych modeli danych.
+  > Można użyć wyrażenia ścieżki JSON, wyrażeń XQuery/XPath, funkcji przestrzennych i wyrażeń kwerend grafu w tym samym zapytaniu języka Transact-SQL, aby uzyskać dostęp do wszystkich danych przechowywanych w bazie danych. Ponadto wszystkie narzędzia i języki programowania, które mogą wykonywać zapytania Transact-SQL, mogą również używać tego interfejsu zapytania do uzyskiwania dostępu do danych z wielu modeli. Jest to kluczowa różnica w porównaniu z wielomodelowymi bazami danych, takimi jak [Azure Cosmos DB](../cosmos-db/index.yml) , które udostępnia WYSPECJALIZOWANY interfejs API dla różnych modeli danych.
 
 W poniższych sekcjach znajdują się informacje o najważniejszych funkcjach dla wielu modeli oferowanych przez usługę Azure SQL.
 
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 Tę strukturę klucz-wartość można dostosować do własnych potrzeb bez ograniczeń. Przykładowo wartością może być dokument XML, a nie `nvarchar(max)` Typ, jeśli wartość jest dokumentu JSON, można umieścić `CHECK` ograniczenie, które weryfikuje ważność zawartości JSON. Można umieścić dowolną liczbę wartości związanych z jednym kluczem w dodatkowych kolumnach, dodać kolumny obliczane i indeksy, aby uprościć i zoptymalizować dostęp do danych, zdefiniować tabelę jako pamięć/zoptymalizowaną pod względem schematu tabelę, aby uzyskać lepszą wydajność itd.
 
-Zobacz, [jak BWin korzysta z In-Memory OLTP, aby osiągnąć niespotykaną wydajność i skalę](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) dla swojego rozwiązania pamięci podręcznej ASP.NET, które osiągnęło 1.200.000 partie w ciągu kilku sekund, jak na przykład model relacyjny może być efektywnie używany jako rozwiązanie par klucz-wartość w praktyce.
+Zobacz, [jak BWin korzysta z In-Memory OLTP, aby osiągnąć niespotykaną wydajność i skalę](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale) dla swojego rozwiązania pamięci podręcznej ASP.NET, które osiągnęło 1.200.000 partie w ciągu kilku sekund, jak na przykład model relacyjny może być efektywnie używany jako rozwiązanie par klucz-wartość w praktyce.
 
 ## <a name="next-steps"></a>Następne kroki
 

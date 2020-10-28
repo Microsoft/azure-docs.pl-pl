@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426453"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792756"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
 
@@ -111,11 +111,12 @@ Istnieje cztery aspekty, które należy wziąć pod uwagę na wychodzącym serwe
 
 Zezwól na dostęp do następujących adresów URL:
 
-| Adres URL | Zastosowanie |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | Komunikacja między łącznikiem a usługą serwera proxy aplikacji w chmurze |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | Łącznik używa tych adresów URL do weryfikowania certyfikatów. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com <br> *. microsoftonline-p.com<br>*. msauth.NET <br> *. msauthimages.net<br>*. msecnd.NET <br> *. msftauth.net<br>*. msftauthimages.NET <br> *. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Łącznik używa tych adresów URL podczas procesu rejestracji. |
+| Adres URL | Port |  Zastosowanie |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Komunikacja między łącznikiem a usługą serwera proxy aplikacji w chmurze |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | Łącznik używa tych adresów URL do weryfikowania certyfikatów. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;. microsoftonline-p.com<br>&ast;. msauth.net<br>&ast;. msauthimages.net<br>&ast;. msecnd.net<br>&ast;. msftauth.net<br>&ast;. msftauthimages.net<br>&ast;. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | Łącznik używa tych adresów URL podczas procesu rejestracji. |
+| ctldl.windowsupdate.com | 80/HTTP | Łącznik używa tego adresu URL podczas procesu rejestracji. |
 
 Jeśli zapora lub serwer proxy umożliwia skonfigurowanie list dozwolonych DNS, można zezwolić na połączenia z \* . msappproxy.NET i \* . ServiceBus.Windows.NET.
 
@@ -178,7 +179,7 @@ W celu wstępnego rozwiązywania problemów wykonaj następujące czynności:
    ![Usługa łącznika usługi Azure serwer proxy aplikacji usługi Azure AD w usługach Services. msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 1. Uruchom analizatora komunikatów jako administrator.
-1. Wybierz pozycję **Rozpocznij śledzenie lokalne**.
+1. Wybierz pozycję **Rozpocznij śledzenie lokalne** .
 1. Uruchom usługę łącznika usługi Azure serwer proxy aplikacji usługi Azure AD.
 1. Zatrzymaj przechwytywanie sieci.
 
@@ -188,7 +189,7 @@ W celu wstępnego rozwiązywania problemów wykonaj następujące czynności:
 
 W przypadku skonfigurowania łącznika serwera proxy aplikacji w celu obejścia serwerów proxy i nawiązania bezpośredniego połączenia z usługą serwera proxy aplikacji należy wyszukać funkcję przechwytywania sieci pod kątem nieudanych prób nawiązania połączenia TCP.
 
-Użyj filtru analizatora komunikatów, aby zidentyfikować te próby. Wprowadź `property.TCPSynRetransmit` wartość w polu Filtr i wybierz pozycję **Zastosuj**.
+Użyj filtru analizatora komunikatów, aby zidentyfikować te próby. Wprowadź `property.TCPSynRetransmit` wartość w polu Filtr i wybierz pozycję **Zastosuj** .
 
 Pakiet SYN to pierwszy pakiet wysyłany w celu nawiązania połączenia TCP. Jeśli ten pakiet nie zwraca odpowiedzi, zostanie podjęta ponowna próba wykonania operacji SYN. Możesz użyć poprzedniego filtru, aby zobaczyć wszystkie reprzesłane SYNs. Następnie można sprawdzić, czy te SYNs odpowiadają jakimkolwiek ruchowi związanym z łącznikiem.
 

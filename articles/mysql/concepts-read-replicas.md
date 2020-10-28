@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 10/26/2020
+ms.openlocfilehash: c66845a801b93db4ba718bc0aba5c39eabdd24b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537970"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791974"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliki do odczytu w usłudze Azure Database for MySQL
 
@@ -36,9 +36,6 @@ Typowy scenariusz polega na tym, że obciążenia analizy biznesowej i analizy u
 Ponieważ repliki są tylko do odczytu, nie zmniejszają bezpośrednio obciążeń związanych z pojemnością zapisu na serwerze głównym. Ta funkcja nie jest przeznaczona dla obciążeń intensywnie korzystających z zapisu.
 
 Funkcja odczytu repliki korzysta z replikacji asynchronicznej MySQL. Ta funkcja nie jest przeznaczona do scenariuszy replikacji synchronicznej. Nastąpi wymierne opóźnienie między źródłem a repliką. Dane z repliki ostatecznie staną się spójne z danymi na serwerze głównym. Użyj tej funkcji dla obciążeń, które mogą obsłużyć to opóźnienie.
-
-> [!IMPORTANT]
-> W usłudze Azure Database for MySQL stosowane jest rejestrowanie binarne oparte na **WIERSZACH** . Jeśli tabela nie zawiera klucza podstawowego, wszystkie wiersze w tej tabeli są skanowane pod kątem operacji DML. Zwiększa to opóźnienie replikacji. Aby zapewnić, że replika na bieżąco odzwierciedla zmiany w źródle, zalecane na ogół jest dodanie klucza podstawowego do tabel na serwerze źródłowym przed utworzeniem serwera repliki lub ponowne utworzenie serwera repliki, jeśli już istnieje.
 
 ## <a name="cross-region-replication"></a>Replikacja między regionami
 Replikę odczytu można utworzyć w innym regionie niż na serwerze źródłowym. Replikacja między regionami może być przydatna w scenariuszach takich jak planowanie odzyskiwania po awarii lub umieszczenie danych bliżej użytkowników.
@@ -95,7 +92,7 @@ W wierszu polecenia wprowadź hasło dla konta użytkownika.
 
 Azure Database for MySQL zapewnia wartość **opóźnienia replikacji w sekundach** w Azure monitor. Ta Metryka jest dostępna tylko dla replik. Ta Metryka jest obliczana przy użyciu `seconds_behind_master` metryki dostępnej w `SHOW SLAVE STATUS` poleceniu programu MySQL. Ustaw Alert, aby poinformować Cię, gdy zwłoka replikacji osiągnie wartość, która nie jest akceptowalna dla obciążenia.
 
-Jeśli widzisz zwiększone opóźnienia replikacji, zapoznaj się z tematem [opóźnienie replikacji](howto-troubleshoot-replication-latency.md) , aby rozwiązać problemy i zrozumieć możliwe przyczyny.
+Jeśli widzisz zwiększone opóźnienie replikacji, zapoznaj się z tematem [Rozwiązywanie problemów z opóźnieniem replikacji](howto-troubleshoot-replication-latency.md) , aby rozwiązać problemy i zrozumieć możliwe przyczyny.
 
 ## <a name="stop-replication"></a>Zatrzymywanie replikacji
 

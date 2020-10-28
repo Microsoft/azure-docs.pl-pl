@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 50e7e597a4fb02919739633529abdbf772bcecea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efab0234d428a8283845946289cdd1e8a17ded26
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443063"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792059"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Dodawanie fragmentu przy użyciu narzędzi Elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Jeśli nowy zakres wartości klucza nie jest już częścią istniejącego mapow
 
 ### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Przykład: Dodawanie elementu fragmentu i jego zakresu do istniejącej mapy fragmentu
 
-Ten przykład używa TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))) CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) Methods i tworzy wystąpienie klasy ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)). W poniższym przykładzie baza danych o nazwie **sample_shard_2** i wszystkie niezbędne obiekty schematu wewnątrz niej zostały utworzone w celu przechowania zakresu [300, 400).  
+Ten przykład używa TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](/previous-versions/azure/dn823929(v=azure.100))) CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) Methods i tworzy wystąpienie klasy ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)). W poniższym przykładzie baza danych o nazwie **sample_shard_2** i wszystkie niezbędne obiekty schematu wewnątrz niej zostały utworzone w celu przechowania zakresu [300, 400).  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -79,6 +79,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Ważne**: Użyj tej techniki tylko wtedy, gdy masz pewność, że zakres zaktualizowanego mapowania jest pusty.  Powyższe metody nie sprawdzają danych dla przenoszonego przedziału, dlatego najlepiej dołączyć sprawdzenia w kodzie.  Jeśli istnieją wiersze w przenoszeniu przedziału, rzeczywista Dystrybucja danych nie będzie zgodna ze zaktualizowaną mapą fragmentu. Użyj [Narzędzia Split-Merge](elastic-scale-overview-split-and-merge.md) do wykonania operacji zamiast tego w takich przypadkach.  
+**Ważne** : Użyj tej techniki tylko wtedy, gdy masz pewność, że zakres zaktualizowanego mapowania jest pusty.  Powyższe metody nie sprawdzają danych dla przenoszonego przedziału, dlatego najlepiej dołączyć sprawdzenia w kodzie.  Jeśli istnieją wiersze w przenoszeniu przedziału, rzeczywista Dystrybucja danych nie będzie zgodna ze zaktualizowaną mapą fragmentu. Użyj [Narzędzia Split-Merge](elastic-scale-overview-split-and-merge.md) do wykonania operacji zamiast tego w takich przypadkach.  
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332988"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791447"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Best practices for Azure SQL Data Sync (Najlepsze rozwiązania dotyczące korzystania z usługi Azure SQL Data Sync) 
 
@@ -41,11 +41,11 @@ Omówienie usługi SQL Data Sync zawiera temat [Sync data across multiple cloud 
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Konta bazy danych z najmniej wymaganymi uprawnieniami
 
--   **Dla konfiguracji synchronizacji**. Utwórz/Zmień tabelę; ALTER DATABASE; Utwórz procedurę; Wybierz/Zmień schemat; Utwórz typ User-Defined.
+-   **Dla konfiguracji synchronizacji** . Utwórz/Zmień tabelę; ALTER DATABASE; Utwórz procedurę; Wybierz/Zmień schemat; Utwórz typ User-Defined.
 
--   **Dla trwającej synchronizacji**. Wybierz/Wstaw/Aktualizuj/Usuń w tabelach wybranych do synchronizowania oraz w metadanych synchronizacji i tabelach śledzenia; Uprawnienie EXECUTE w procedurach składowanych utworzonych przez usługę; Uprawnienie EXECUTE dla typów tabel zdefiniowanych przez użytkownika.
+-   **Dla trwającej synchronizacji** . Wybierz/Wstaw/Aktualizuj/Usuń w tabelach wybranych do synchronizowania oraz w metadanych synchronizacji i tabelach śledzenia; Uprawnienie EXECUTE w procedurach składowanych utworzonych przez usługę; Uprawnienie EXECUTE dla typów tabel zdefiniowanych przez użytkownika.
 
--   **W celu anulowania**aprowizacji. Modyfikuj w tabelach część synchronizacji; Zaznacz/Usuń w tabelach metadanych synchronizacji; Kontrola nad tabelami śledzenia synchronizacji, procedurami składowanymi i typami zdefiniowanymi przez użytkownika.
+-   **W celu anulowania** aprowizacji. Modyfikuj w tabelach część synchronizacji; Zaznacz/Usuń w tabelach metadanych synchronizacji; Kontrola nad tabelami śledzenia synchronizacji, procedurami składowanymi i typami zdefiniowanymi przez użytkownika.
 
 Azure SQL Database obsługuje tylko jeden zestaw poświadczeń. Aby wykonać te zadania w ramach tego ograniczenia, należy wziąć pod uwagę następujące opcje:
 
@@ -168,7 +168,7 @@ Regularnie Monitoruj grupę synchronizacji i kondycję bazy danych za pomocą po
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Unikaj nieaktualnych baz danych i grup synchronizacji
 
-Grupa synchronizacji lub baza danych w grupie synchronizacji mogą stać się nieaktualne. Gdy stan grupy synchronizacji jest **nieaktualny**, przestaje działać. Jeśli stan bazy **danych jest nieaktualny,** dane mogą zostać utracone. Najlepszym rozwiązaniem jest uniknięcie tego scenariusza zamiast próby odzyskania z niego.
+Grupa synchronizacji lub baza danych w grupie synchronizacji mogą stać się nieaktualne. Gdy stan grupy synchronizacji jest **nieaktualny** , przestaje działać. Jeśli stan bazy **danych jest nieaktualny,** dane mogą zostać utracone. Najlepszym rozwiązaniem jest uniknięcie tego scenariusza zamiast próby odzyskania z niego.
 
 #### <a name="avoid-out-of-date-databases"></a>Unikaj nieaktualnych baz danych
 
@@ -238,7 +238,7 @@ Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz:
         -  [Synchronizowanie wielu baz danych w Azure SQL Database przy użyciu programu PowerShell](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Używanie programu PowerShell do synchronizowania bazy danych w SQL Database i bazy danych w wystąpieniu SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Agent synchronizacji danych — [Data Sync Agent for Azure SQL Data Sync](sql-data-sync-agent-overview.md) (Agent synchronizacji danych dla usługi Azure SQL Data Sync)
--   Monitor- [monitor SQL Data Sync z dziennikami Azure monitor](sql-data-sync-monitor-sync.md)
+-   Monitor- [monitor SQL Data Sync z dziennikami Azure monitor](./monitor-tune-overview.md)
 -   Rozwiązywanie problemów — [Troubleshoot issues with Azure SQL Data Sync](sql-data-sync-troubleshoot.md) (Rozwiązywanie problemów z usługą Azure SQL Data Sync)
 -   Aktualizowanie schematu synchronizacji
     -   Za pomocą języka Transact-SQL — [Automate the replication of schema changes in Azure SQL Data Sync](sql-data-sync-update-sync-schema.md) (Automatyzowanie replikacji zmian schematu w usłudze Azure SQL Data Sync)
@@ -247,4 +247,4 @@ Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz:
 Aby uzyskać więcej informacji na temat SQL Database, zobacz:
 
 -   [Przegląd SQL Database](sql-database-paas-overview.md)
--   [Zarządzanie cyklem życia bazy danych](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Zarządzanie cyklem życia bazy danych](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

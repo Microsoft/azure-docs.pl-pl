@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: f3711352d18b0f225ed94c0b09ec17b7a90917ac
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: cf53b3165863c6f22ce4c9a74d002eafd2dcc329
+  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91653081"
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92792348"
 highlightedContent:
   items:
   - title: Wprowadzenie do usługi Azure Key Vault
@@ -153,7 +153,7 @@ conceptualContent:
       text: Magazyn kluczy z zestawami skalowania maszyn wirtualnych
   - title: Integracja usługi Key Vault
     links:
-    - url: https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault
+    - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml&view=azure-devops#link-secrets-from-an-azure-key-vault
       itemType: overview
       text: Azure Dev Ops — dokumentacja dotycząca wpisów tajnych usługi Key Vault w usłudze Azure Pipelines
     - url: ../app-service/app-service-key-vault-references.md
@@ -165,6 +165,6 @@ conceptualContent:
     - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
       itemType: overview
       text: Azure Kubernetes Service — korzystanie z wpisów tajnych, certyfikatów usługi Key Vault i kluczy w usłudze AKS
-    - url: https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes
+    - url: /azure/databricks/security/secrets/secret-scopes
       itemType: overview
       text: Azure Databricks — zarządzanie wpisami tajnymi za pomocą usługi Key Vault

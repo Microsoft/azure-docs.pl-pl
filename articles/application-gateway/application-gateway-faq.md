@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278638"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791549"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -69,7 +69,7 @@ Zobacz [kolejność przetwarzania odbiornika](https://docs.microsoft.com/azure/a
 
 Jeśli używasz publicznego adresu IP jako punktu końcowego, możesz znaleźć informacje dotyczące adresów IP i DNS w zasobie publicznego adresu IP. Lub znajdź je w portalu, na stronie Przegląd usługi Application Gateway. Jeśli używasz wewnętrznych adresów IP, Znajdź informacje na stronie Przegląd.
 
-W przypadku jednostki SKU v2 Otwórz zasób publicznego adresu IP i wybierz pozycję **Konfiguracja**. Pole **etykieta nazwy DNS (opcjonalnie)** jest dostępne do skonfigurowania nazwy DNS.
+W przypadku jednostki SKU v2 Otwórz zasób publicznego adresu IP i wybierz pozycję **Konfiguracja** . Pole **etykieta nazwy DNS (opcjonalnie)** jest dostępne do skonfigurowania nazwy DNS.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Jakie są ustawienia limitu czasu Keep-Alive i limitu czasu bezczynności protokołu TCP?
 
@@ -138,7 +138,7 @@ Nie. Application Gateway v2 nie obsługuje jeszcze żądań proxy z uwierzytelni
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Czy Application Gateway plik cookie koligacji jest obsługiwany?
 Tak. [Aktualizacja V80](https://chromiumdash.appspot.com/schedule) [przeglądarki chromu](https://www.chromium.org/Home) wprowadziła upoważnienie dla plików cookie protokołu HTTP bez atrybutu SameSite, który ma być traktowany jako SameSite = swobodny. Oznacza to, że plik cookie koligacji Application Gateway nie będzie wysyłany przez przeglądarkę w kontekście innej firmy. 
 
-Aby obsłużyć ten scenariusz, Application Gateway dodaje do istniejącego pliku cookie *ApplicationGatewayAffinity* inny plik cookie o nazwie *ApplicationGatewayAffinityCORS* .  Te pliki cookie są podobne, ale plik cookie *ApplicationGatewayAffinityCORS* ma dwa więcej atrybutów: *SameSite = none; Zabezpiecz*. Te atrybuty utrzymują sesje programu Sticky Notes nawet w przypadku żądań między źródłami. Aby uzyskać więcej informacji, zobacz [sekcję koligacja na podstawie plików cookie](configuration-http-settings.md#cookie-based-affinity) .
+Aby obsłużyć ten scenariusz, Application Gateway dodaje do istniejącego pliku cookie *ApplicationGatewayAffinity* inny plik cookie o nazwie *ApplicationGatewayAffinityCORS* .  Te pliki cookie są podobne, ale plik cookie *ApplicationGatewayAffinityCORS* ma dwa więcej atrybutów: *SameSite = none; Zabezpiecz* . Te atrybuty utrzymują sesje programu Sticky Notes nawet w przypadku żądań między źródłami. Aby uzyskać więcej informacji, zobacz [sekcję koligacja na podstawie plików cookie](configuration-http-settings.md#cookie-based-affinity) .
 
 ## <a name="performance"></a>Wydajność
 
@@ -249,11 +249,11 @@ Jeśli jednak chcesz używać Application Gateway v2 tylko z prywatnym adresem I
 2. Nie należy tworzyć żadnych odbiorników dla publicznego adresu IP frontonu. Application Gateway nie nasłuchuje ruchu na publicznym adresie IP, jeśli dla niego nie zostały utworzone żadne odbiorniki.
 3. Utwórz i Dołącz [grupę zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/security-overview) dla podsieci Application Gateway z następującą konfiguracją w kolejności priorytetu:
     
-    a. Zezwalaj na ruch ze źródła jako tag usługi **gatewaymanager** i miejsce docelowe jako **dowolny** port docelowy AS **65200-65535**. Ten zakres portów jest wymagany w przypadku komunikacji infrastruktury platformy Azure. Te porty są chronione (zablokowane) przez uwierzytelnianie przy użyciu certyfikatu. Jednostki zewnętrzne, w tym Administratorzy użytkowników bramy, nie mogą inicjować zmian w tych punktach końcowych bez odpowiednich certyfikatów
+    a. Zezwalaj na ruch ze źródła jako tag usługi **gatewaymanager** i miejsce docelowe jako **dowolny** port docelowy AS **65200-65535** . Ten zakres portów jest wymagany w przypadku komunikacji infrastruktury platformy Azure. Te porty są chronione (zablokowane) przez uwierzytelnianie przy użyciu certyfikatu. Jednostki zewnętrzne, w tym Administratorzy użytkowników bramy, nie mogą inicjować zmian w tych punktach końcowych bez odpowiednich certyfikatów
     
     b. Zezwalaj na ruch ze źródła jako tag usługi **AzureLoadBalancer** oraz port docelowy i docelowy jako **dowolne**
     
-    c. Odrzuć cały ruch przychodzący ze źródła jako tag usługi **internetowej** oraz port docelowy i docelowy jako **dowolny**. Nadaj tej regule *minimalny priorytet* w regułach ruchu przychodzącego
+    c. Odrzuć cały ruch przychodzący ze źródła jako tag usługi **internetowej** oraz port docelowy i docelowy jako **dowolny** . Nadaj tej regule *minimalny priorytet* w regułach ruchu przychodzącego
     
     d. Zachowaj domyślne reguły, takie jak Zezwalanie na VirtualNetwork przychodzące, aby dostęp do prywatnego adresu IP nie był blokowany
     
@@ -350,7 +350,7 @@ Członkowie przeglądarki urzędu certyfikacji ostatnio opublikowały raporty za
 * [Usterka 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
 * [Usterka 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
 
-Zgodnie z wymaganiami dotyczącymi zgodności w branży dostawcy urzędu certyfikacji rozpoczęły odwoływanie niezgodnych urzędów certyfikacji i wystawiają zgodne urzędy certyfikacji, które wymagają od klientów ponownego wystawienia certyfikatów.Firma Microsoft ściśle współpracuje z tymi dostawcami, aby zminimalizować potencjalny wpływ na usługi platformy Azure, **jednak wystawione certyfikaty lub certyfikaty używane w scenariuszach "Przenieś własny certyfikat" (BYOC) nadal są zagrożone**.
+Zgodnie z wymaganiami dotyczącymi zgodności w branży dostawcy urzędu certyfikacji rozpoczęły odwoływanie niezgodnych urzędów certyfikacji i wystawiają zgodne urzędy certyfikacji, które wymagają od klientów ponownego wystawienia certyfikatów.Firma Microsoft ściśle współpracuje z tymi dostawcami, aby zminimalizować potencjalny wpływ na usługi platformy Azure, **jednak wystawione certyfikaty lub certyfikaty używane w scenariuszach "Przenieś własny certyfikat" (BYOC) nadal są zagrożone** .
 
 Aby sprawdzić, czy certyfikaty używane przez aplikację zostały odwołane do odwołania [DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) oraz do [śledzenia odwołań certyfikatów](https://misissued.com/#revoked). Jeśli certyfikaty zostały odwołane lub zostaną odwołane, musisz zażądać nowych certyfikatów od dostawcy urzędu certyfikacji, który będzie używany w aplikacjach. Aby uniknąć przerwania dostępności aplikacji z powodu nieoczekiwanego odwołania certyfikatów lub zaktualizowania certyfikatu, który został odwołany, zapoznaj się z naszym wpisem w usłudze Azure Update, aby uzyskać linki do korygowania różnych usług platformy Azure, które obsługują usługę BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
@@ -434,9 +434,9 @@ Nie, dodatek AGIC jest usługą zarządzaną, co oznacza, że firma Microsoft b�
 
 Application Gateway udostępnia trzy dzienniki: 
 
-* **ApplicationGatewayAccessLog**: Dziennik dostępu zawiera wszystkie żądania przesłane do frontonu bramy aplikacji. Dane obejmują adres IP obiektu wywołującego, żądanie adresu URL, opóźnienie odpowiedzi, Kod powrotu i bajty. Zawiera jeden rekord na bramę aplikacji.
-* **ApplicationGatewayPerformanceLog**: Dziennik wydajności przechwytuje informacje o wydajności dla każdej bramy aplikacji. Informacje obejmują przepływność w bajtach, Łączna Liczba obsłużonych żądań, liczbę żądań zakończonych niepowodzeniem oraz liczbę wystąpień zaplecza w dobrej kondycji
-* **ApplicationGatewayFirewallLog**: w przypadku bram aplikacji skonfigurowanych za pomocą usługi WAF Dziennik zapory zawiera żądania, które są rejestrowane w trybie wykrywania lub w trybie zapobiegania.
+* **ApplicationGatewayAccessLog** : Dziennik dostępu zawiera wszystkie żądania przesłane do frontonu bramy aplikacji. Dane obejmują adres IP obiektu wywołującego, żądanie adresu URL, opóźnienie odpowiedzi, Kod powrotu i bajty. Zawiera jeden rekord na bramę aplikacji.
+* **ApplicationGatewayPerformanceLog** : Dziennik wydajności przechwytuje informacje o wydajności dla każdej bramy aplikacji. Informacje obejmują przepływność w bajtach, Łączna Liczba obsłużonych żądań, liczbę żądań zakończonych niepowodzeniem oraz liczbę wystąpień zaplecza w dobrej kondycji
+* **ApplicationGatewayFirewallLog** : w przypadku bram aplikacji skonfigurowanych za pomocą usługi WAF Dziennik zapory zawiera żądania, które są rejestrowane w trybie wykrywania lub w trybie zapobiegania.
 
 Wszystkie dzienniki są zbierane co 60 sekund. Aby uzyskać więcej informacji, zobacz temat [kondycja zaplecza, dzienniki diagnostyczne i metryki dla Application Gateway](application-gateway-diagnostics.md).
 
@@ -472,6 +472,10 @@ Tak. Jeśli konfiguracja pasuje do poniższego scenariusza, w dziennikach przep�
 - Wdrożono Application Gateway v2
 - Masz sieciowej grupy zabezpieczeń w podsieci bramy aplikacji
 - Włączono dzienniki przepływu sieciowej grupy zabezpieczeń na tym sieciowej grupy zabezpieczeń
+
+### <a name="does-application-gateway-store-customer-data"></a>Czy Application Gateway przechowywać dane klienta?
+
+Nie, Application Gateway nie przechowuje danych klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 

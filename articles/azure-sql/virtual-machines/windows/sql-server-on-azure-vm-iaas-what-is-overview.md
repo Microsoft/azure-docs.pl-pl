@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae00703805bef6f5e9758bafcb781eda91cd93f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272161"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793096"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Co to jest SQL Server w usłudze Azure Virtual Machines (system Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "91272161"
 
 [SQL Server na platformie Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) umożliwia korzystanie z pełnych wersji SQL Server w chmurze bez konieczności zarządzania sprzętem lokalnym. SQL Server maszyny wirtualne (VM) upraszczają także koszty licencjonowania, gdy płacisz zgodnie z rzeczywistym użyciem.
 
-Maszyny wirtualne platformy Azure działają w wielu różnych [regionach geograficznych](https://azure.microsoft.com/regions/) na świecie. Oferują one także szereg różnych [rozmiarów maszyn](../../../virtual-machines/windows/sizes.md). Galeria obrazów maszyn wirtualnych umożliwia utworzenie maszyny wirtualnej z programem SQL Server we właściwej wersji i edycji oraz z odpowiednim systemem operacyjnym. Dzięki temu maszyny wirtualne są dobrym rozwiązaniem dla wielu różnych obciążeń SQL Server.
+Maszyny wirtualne platformy Azure działają w wielu różnych [regionach geograficznych](https://azure.microsoft.com/regions/) na świecie. Oferują one także szereg różnych [rozmiarów maszyn](../../../virtual-machines/sizes.md). Galeria obrazów maszyn wirtualnych umożliwia utworzenie maszyny wirtualnej z programem SQL Server we właściwej wersji i edycji oraz z odpowiednim systemem operacyjnym. Dzięki temu maszyny wirtualne są dobrym rozwiązaniem dla wielu różnych obciążeń SQL Server.
 
 Jeśli dopiero zaczynasz SQL Server na maszynach wirtualnych platformy Azure, zapoznaj się z *tematem SQL Server na temat* usługi Azure VM — Omówienie z naszej szczegółowej [serii wideo Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
@@ -42,7 +42,7 @@ SQL Server na platformie Azure Virtual Machines mogą korzystać z [zautomatyzow
 
 SQL Server na platformie Azure Virtual Machines mogą korzystać z [zautomatyzowanej kopii zapasowej](automated-backup.md), która regularnie tworzy kopie zapasowe bazy danych w usłudze BLOB Storage. Tej techniki można również używać ręcznie. Aby uzyskać więcej informacji, zobacz [Use Azure Storage for SQL Server Backup and Restore](azure-storage-sql-server-backup-restore-use.md) (Używanie usługi Azure Storage do tworzenia kopii zapasowych programu SQL Server i ich przywracania).
 
-Platforma Azure oferuje również rozwiązanie do tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server działających na maszynach wirtualnych platformy Azure. W pełni zarządzane rozwiązanie do tworzenia kopii zapasowych obsługuje zawsze włączone grupy dostępności, długoterminowe przechowywanie danych, odzyskiwanie do punktu w czasie oraz centralne zarządzanie i monitorowanie. Aby uzyskać więcej informacji, zobacz [Azure Backup SQL Server na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+Platforma Azure oferuje również rozwiązanie do tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server działających na maszynach wirtualnych platformy Azure. W pełni zarządzane rozwiązanie do tworzenia kopii zapasowych obsługuje zawsze włączone grupy dostępności, długoterminowe przechowywanie danych, odzyskiwanie do punktu w czasie oraz centralne zarządzanie i monitorowanie. Aby uzyskać więcej informacji, zobacz [Azure Backup SQL Server na maszynach wirtualnych platformy Azure](../../../backup/backup-azure-sql-database.md).
   
 
 ## <a name="high-availability"></a>Wysoka dostępność
@@ -80,7 +80,7 @@ Aby wyświetlić dostępne SQL Server on Linux obrazy maszyn wirtualnych, zobacz
 ### <a name="bring-your-own-license"></a><a id="BYOL"></a> Bring your own license
 Możesz również skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL). W tym scenariuszu płacisz wyłącznie za maszynę wirtualną i nie ponosisz żadnych dodatkowych kosztów licencjonowania programu SQL Server.  Użycie własnej licencji może w dłuższym okresie przynieść oszczędności w przypadku ciągłych obciążeń produkcyjnych. Wymagania dotyczące korzystania z tej opcji zawiera artykuł [Pricing guidance for SQL Server Azure VMs (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server)](pricing-guidance.md#byol).
 
-Aby zapewnić własną licencję, możesz przekonwertować istniejącą maszynę wirtualną z opcją płatność za użycie SQL Server lub wdrożyć obraz z prefiksem **{BYOL}**. Aby uzyskać więcej informacji na temat przełączania modelu licencjonowania między opcją płatność za użycie i BYOL, zobacz [jak zmienić model licencjonowania dla maszyny wirtualnej SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Aby zapewnić własną licencję, możesz przekonwertować istniejącą maszynę wirtualną z opcją płatność za użycie SQL Server lub wdrożyć obraz z prefiksem **{BYOL}** . Aby uzyskać więcej informacji na temat przełączania modelu licencjonowania między opcją płatność za użycie i BYOL, zobacz [jak zmienić model licencjonowania dla maszyny wirtualnej SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 | Wersja | System operacyjny | Wersja |
 | --- | --- | --- |
@@ -116,11 +116,11 @@ Aby uzyskać dostęp do strony **zasoby SQL platformy Azure** , wybierz pozycję
 > [!NOTE]
 > Usługa Azure SQL umożliwia szybkie i łatwe uzyskiwanie dostępu do wszystkich baz danych SQL platformy Azure, pul elastycznych, serwerów logicznych, wystąpień zarządzanych i maszyn wirtualnych. Usługa Azure SQL nie jest usługą ani zasobem. 
 
-Aby zarządzać istniejącymi zasobami, wybierz żądany element z listy. Aby utworzyć nowe zasoby Azure SQL, wybierz pozycję **+ Dodaj**. 
+Aby zarządzać istniejącymi zasobami, wybierz żądany element z listy. Aby utworzyć nowe zasoby Azure SQL, wybierz pozycję **+ Dodaj** . 
 
 ![Tworzenie zasobu usługi Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
-Po wybraniu **+ Dodaj**Wyświetl dodatkowe informacje o różnych opcjach, wybierając pozycję **Pokaż szczegóły** na dowolnym kafelku.
+Po wybraniu **+ Dodaj** Wyświetl dodatkowe informacje o różnych opcjach, wybierając pozycję **Pokaż szczegóły** na dowolnym kafelku.
 
 ![Szczegóły kafelka bazy danych](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
@@ -135,7 +135,7 @@ Aby uzyskać szczegółowe informacje, zobacz:
 Platforma Azure utrzymuje tylko jeden obraz maszyny wirtualnej dla każdego połączenia obsługiwanego systemu operacyjnego, wersji i wydania. Oznacza to, że z czasem obrazy będą odświeżane, a ich starsze wersje usuwane. Aby uzyskać więcej informacji, zobacz sekcję **Obrazy** w temacie [Często zadawane pytania dotyczące maszyn wirtualnych programu SQL Server](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Program poprawy jakości obsługi klienta
-Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on okresowo raporty do firmy Microsoft w celu umożliwienia doskonalenia programu SQL Server. Program poprawy jakości obsługi klienta nie wymaga przeprowadzenia żadnych czynności związanych z zarządzaniem. Wyjątek stanowi sytuacja, gdy ma on zostać wyłączony po ukończeniu aprowizacji. Program poprawy jakości obsługi klienta możesz dostosować lub wyłączyć, łącząc się z maszyną wirtualną za pomocą pulpitu zdalnego. Następnie uruchom narzędzie **SQL Server Error and Usage Reporting**. Postępuj zgodnie z instrukcjami, aby wyłączyć raportowanie. Aby uzyskać więcej informacji na temat zbierania danych, zobacz [Zasady zachowania poufności informacji programu SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-privacy).
+Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on okresowo raporty do firmy Microsoft w celu umożliwienia doskonalenia programu SQL Server. Program poprawy jakości obsługi klienta nie wymaga przeprowadzenia żadnych czynności związanych z zarządzaniem. Wyjątek stanowi sytuacja, gdy ma on zostać wyłączony po ukończeniu aprowizacji. Program poprawy jakości obsługi klienta możesz dostosować lub wyłączyć, łącząc się z maszyną wirtualną za pomocą pulpitu zdalnego. Następnie uruchom narzędzie **SQL Server Error and Usage Reporting** . Postępuj zgodnie z instrukcjami, aby wyłączyć raportowanie. Aby uzyskać więcej informacji na temat zbierania danych, zobacz [Zasady zachowania poufności informacji programu SQL Server](/sql/sql-server/sql-server-privacy).
 
 ## <a name="related-products-and-services"></a>Powiązane produkty i usługi
 ### <a name="windows-virtual-machines"></a>Maszyny wirtualne z systemem Windows
@@ -150,7 +150,7 @@ Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on
 * [Tworzenie w pełni kwalifikowanej nazwy domeny w witrynie Azure Portal](../../../virtual-machines/linux/portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
-* [Dokumentacja SQL Server](https://docs.microsoft.com/sql/index)
+* [Dokumentacja SQL Server](/sql/index)
 * [Porównanie usługi Azure SQL Database](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
@@ -165,5 +165,5 @@ Uzyskaj odpowiedzi na często zadawane pytania dotyczące SQL Server maszyn wirt
 
 Wyświetlanie architektur referencyjnych na potrzeby uruchamiania aplikacji N-warstwowych na SQL Server w IaaS
 
-* [Aplikacja N-warstwowa systemu Windows na platformie Azure z SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Uruchamianie aplikacji N-warstwowej w wielu regionach platformy Azure w celu zapewnienia wysokiej dostępności](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Aplikacja N-warstwowa systemu Windows na platformie Azure z SQL Server](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Uruchamianie aplikacji N-warstwowej w wielu regionach platformy Azure w celu zapewnienia wysokiej dostępności](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

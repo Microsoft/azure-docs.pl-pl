@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443097"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792093"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Wykonywanie zapytań w bazach danych w chmurze z różnymi schematami (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,10 +36,10 @@ Bazy danych partycjonowane w pionie korzystają z różnych zestawów tabel w r�
 > W przeciwieństwie do partycjonowania poziomego te instrukcje DDL nie zależą od definiowania warstwy danych za pomocą mapy fragmentu za pomocą biblioteki klienta Elastic Database.
 >
 
-1. [UTWÓRZ KLUCZ GŁÓWNY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [UTWÓRZ POŚWIADCZENIA W ZAKRESIE BAZY DANYCH](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [TWORZENIE TABELI ZEWNĘTRZNEJ](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [UTWÓRZ KLUCZ GŁÓWNY](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [UTWÓRZ POŚWIADCZENIA W ZAKRESIE BAZY DANYCH](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [TWORZENIE TABELI ZEWNĘTRZNEJ](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Utwórz klucz główny i poświadczenia w zakresie bazy danych
 
@@ -63,7 +63,7 @@ Składnia:
     CREDENTIAL = <credential_name>) [;]
 
 > [!IMPORTANT]
-> Parametr typu musi być ustawiony na wartość **RDBMS**.
+> Parametr typu musi być ustawiony na wartość **RDBMS** .
 
 ### <a name="example"></a>Przykład
 
@@ -120,8 +120,8 @@ select * from sys.external_tables;
 
 Zapytanie elastyczne rozszerza istniejącą składnię tabeli zewnętrznej w celu zdefiniowania tabel zewnętrznych, które używają zewnętrznych źródeł danych typu RDBMS. Definicja tabeli zewnętrznej dla partycjonowania pionowego obejmuje następujące aspekty:
 
-* **Schemat**: tabela zewnętrzna DDL definiuje schemat, którego mogą używać zapytania. Schemat podany w definicji tabeli zewnętrznej musi pasować do schematu tabel w zdalnej bazie danych, w której przechowywane są rzeczywiste dane.
-* **Odwołanie do zdalnej bazy danych**: tablica zewnętrzna DDL odwołuje się do zewnętrznego źródła danych. Zewnętrzne źródło danych określa nazwę serwera i nazwę bazy danych, w której przechowywane są rzeczywiste dane tabeli.
+* **Schemat** : tabela zewnętrzna DDL definiuje schemat, którego mogą używać zapytania. Schemat podany w definicji tabeli zewnętrznej musi pasować do schematu tabel w zdalnej bazie danych, w której przechowywane są rzeczywiste dane.
+* **Odwołanie do zdalnej bazy danych** : tablica zewnętrzna DDL odwołuje się do zewnętrznego źródła danych. Zewnętrzne źródło danych określa nazwę serwera i nazwę bazy danych, w której przechowywane są rzeczywiste dane tabeli.
 
 Korzystając z zewnętrznego źródła danych, jak opisano w poprzedniej sekcji, Składnia służąca do tworzenia tabel zewnętrznych jest następująca:
 
@@ -135,7 +135,7 @@ Poniższa instrukcja języka DDL powoduje porzucanie istniejącej definicji tabe
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Uprawnienia do tworzenia/upuszczania tabeli zewnętrznej**: należy zmienić wszystkie uprawnienia zewnętrznych źródeł danych w przypadku kodu DDL tabeli zewnętrznej, który jest również konieczny do odwoływania się do bazowego źródła danych.  
+**Uprawnienia do tworzenia/upuszczania tabeli zewnętrznej** : należy zmienić wszystkie uprawnienia zewnętrznych źródeł danych w przypadku kodu DDL tabeli zewnętrznej, który jest również konieczny do odwoływania się do bazowego źródła danych.  
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
@@ -163,7 +163,7 @@ Następujące zapytanie wykonuje sprzężenie trójwymiarowe między dwiema loka
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Procedura składowana dla zdalnego wykonywania T-SQL: SP \_ execute_remote
 
-W przypadku zapytań elastycznych wprowadzono również procedurę składowaną, która zapewnia bezpośredni dostęp do zdalnej bazy danych. Procedura składowana jest nazywana [SP \_ Execute \_ Remote](https://msdn.microsoft.com/library/mt703714) i może służyć do wykonywania zdalnych procedur składowanych lub kodu T-SQL w zdalnej bazie danych. Przyjmuje następujące parametry:
+W przypadku zapytań elastycznych wprowadzono również procedurę składowaną, która zapewnia bezpośredni dostęp do zdalnej bazy danych. Procedura składowana jest nazywana [SP \_ Execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) i może służyć do wykonywania zdalnych procedur składowanych lub kodu T-SQL w zdalnej bazie danych. Przyjmuje następujące parametry:
 
 * Nazwa źródła danych (nvarchar): Nazwa zewnętrznego źródła danych typu RDBMS.
 * Query (nvarchar): zapytanie T-SQL, które ma zostać wykonane na zdalnej bazie danych.
@@ -195,7 +195,7 @@ Za pomocą regularnych SQL Server parametrów połączenia można łączyć narz
 * Aby zapoznać się z pionowym samouczkiem partycjonowania, zobacz [Rozpoczynanie pracy z kwerendą między bazami danych (partycjonowanie pionowe)](elastic-query-getting-started-vertical.md).
 * Aby zapoznać się z samouczkiem dotyczącym partycjonowania poziomego (fragmentowania), zobacz [wprowadzenie do elastycznego zapytania na potrzeby partycjonowania poziomego (fragmentowania)](elastic-query-getting-started.md).
 * Aby poznać składnię i przykładowe zapytania dla danych z podziałem na partycje, zobacz [wykonywanie zapytań o dane partycjonowane w poziomie.](elastic-query-horizontal-partitioning.md)
-* Zapoznaj się z artykułem [SP \_ Execute \_ Remote](https://msdn.microsoft.com/library/mt703714) dla procedury składowanej, która wykonuje instrukcję języka Transact-SQL w ramach jednego zdalnego Azure SQL Database lub zestawu baz danych służących jako fragmentów w poziomym schemacie partycjonowania.
+* Zapoznaj się z artykułem [SP \_ Execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) dla procedury składowanej, która wykonuje instrukcję języka Transact-SQL w ramach jednego zdalnego Azure SQL Database lub zestawu baz danych służących jako fragmentów w poziomym schemacie partycjonowania.
 
 <!--Image references-->
 [1]: ./media/elastic-query-vertical-partitioning/verticalpartitioning.png

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: dd4a7537e01c9e97997be64bb478e86a64f4325b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340890"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792263"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Dodatkowa ochrona przed zagrożeniami w Azure Security Center
 Również wbudowane funkcje [ochrony usługi Azure Defender](azure-defender.md)Azure Security Center oferują również następujące możliwości ochrony przed zagrożeniami.
@@ -48,10 +48,10 @@ Aby uzyskać listę alertów Azure Resource Manager (wersja zapoznawcza), zobacz
 >[!NOTE]
 > Niektóre z powyższych analiz są obsługiwane przez Microsoft Cloud App Security. Aby skorzystać z tych analiz, należy aktywować licencję Cloud App Securityową. Jeśli masz licencję na Cloud App Security, te alerty są domyślnie włączone. Aby wyłączyć alerty:
 >
-> 1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
+> 1. W menu Security Center wybierz pozycję **cennik & ustawienia** .
 > 1. Wybierz subskrypcję, którą chcesz zmienić.
-> 1. Wybierz pozycję **wykrywanie zagrożeń**.
-> 1. Wyczyść pole wyboru **zezwalaj Microsoft Cloud App Security na dostęp do danych**i wybierz pozycję **Zapisz**.
+> 1. Wybierz pozycję **wykrywanie zagrożeń** .
+> 1. Wyczyść pole wyboru **zezwalaj Microsoft Cloud App Security na dostęp do danych** i wybierz pozycję **Zapisz** .
 
 
 >[!NOTE]
@@ -59,7 +59,7 @@ Aby uzyskać listę alertów Azure Resource Manager (wersja zapoznawcza), zobacz
 
 1. Ustaw obszar roboczy, w którym jest instalowany Agent. Upewnij się, że obszar roboczy znajduje się w tej samej subskrypcji, której używasz w Security Center i że masz uprawnienia do odczytu/zapisu w obszarze roboczym.
 
-1. Włącz **usługę Azure Defender**i wybierz pozycję **Zapisz**.
+1. Włącz **usługę Azure Defender** i wybierz pozycję **Zapisz** .
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Ochrona przed zagrożeniami dla Azure Cosmos DB (wersja zapoznawcza)<a name="cosmos-db"></a>
@@ -101,4 +101,4 @@ Aby dowiedzieć się więcej na temat alertów zabezpieczeń z tych funkcji ochr
 * [Tabela referencyjna dla wszystkich alertów Azure Security Center](alerts-reference.md)
 * [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](security-center-alerts-overview.md)
 * [Zarządzanie alertami zabezpieczeń i reagowanie na nie w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Eksportowanie alertów zabezpieczeń i zaleceń (wersja zapoznawcza)](continuous-export.md)
+* [Ciągłe eksportowanie danych Security Center](continuous-export.md)

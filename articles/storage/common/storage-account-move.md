@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488830"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792994"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Przenoszenie konta usługi Azure Storage do innego regionu
 
 Aby przenieść konto magazynu, utwórz kopię konta magazynu w innym regionie. Następnie Przenieś dane do tego konta za pomocą AzCopy lub innego wybranego narzędzia.
 
-W tym artykule dowiesz się, jak:
+Ten artykuł obejmuje następujące zagadnienia:
 
 > [!div class="checklist"]
 > 
@@ -51,11 +51,11 @@ Ten szablon zawiera ustawienia opisujące Twoje konto magazynu.
 
 Aby wyeksportować szablon przy użyciu witryny Azure Portal:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
 
 2. Wybierz pozycję **wszystkie zasoby** , a następnie wybierz swoje konto magazynu.
 
-3. Wybierz pozycję > **Ustawienia**  >  **Eksportuj szablon**.
+3. Wybierz pozycję > **Ustawienia**  >  **Eksportuj szablon** .
 
 4. Wybierz pozycję **Pobierz** w bloku **Eksportuj szablon** .
 
@@ -63,7 +63,7 @@ Aby wyeksportować szablon przy użyciu witryny Azure Portal:
 
    Ten plik zip zawiera pliki. JSON, które składają się na szablon i skrypty do wdrożenia szablonu.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby wyeksportować szablon przy użyciu programu PowerShell:
 
@@ -101,19 +101,19 @@ Zmodyfikuj szablon, zmieniając nazwę i region konta magazynu.
 
 Aby wdrożyć szablon przy użyciu Azure Portal:
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób** .
 
-2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
+2. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu** , a następnie naciśnij klawisz **Enter** .
 
-3. Wybierz **Template Deployment**.
+3. Wybierz **Template Deployment** .
 
     ![Biblioteka szablonów usługi Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz** .
 
-5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
+5. Wybierz opcję **Kompiluj własny szablon w edytorze** .
 
-6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** pliku pobranego w ostatniej sekcji.
+6. Wybierz pozycję **Załaduj plik** , a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** pliku pobranego w ostatniej sekcji.
 
 7. W **template.jsw** pliku Nazwij docelowe konto magazynu, ustawiając wartość domyślną nazwy konta magazynu. W tym przykładzie ustawiono wartość domyślną nazwy konta magazynu na `mytargetaccount` .
     
@@ -137,9 +137,9 @@ Aby wdrożyć szablon przy użyciu Azure Portal:
          "location": "centralus"
          }]          
     ```
-    Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod regionu to nazwa regionu bez spacji, **środkowe stany USA**  =  **centralus**.
+    Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod regionu to nazwa regionu bez spacji, **środkowe stany USA**  =  **centralus** .
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby wdrożyć szablon przy użyciu programu PowerShell:
 
@@ -186,15 +186,15 @@ Wdróż szablon, aby utworzyć nowe konto magazynu w regionie docelowym.
 
 2. Wprowadź lub wybierz wartości właściwości:
 
-- **Subskrypcja**: wybierz subskrypcję platformy Azure.
+- **Subskrypcja** : wybierz subskrypcję platformy Azure.
 
-- **Grupa zasobów**: wybierz pozycję **Utwórz nową** i nadaj nazwę grupie zasobów.
+- **Grupa zasobów** : wybierz pozycję **Utwórz nową** i nadaj nazwę grupie zasobów.
 
-- **Lokalizacja**: Wybierz lokalizację platformy Azure.
+- **Lokalizacja** : Wybierz lokalizację platformy Azure.
 
 3. Kliknij pole wyboru **Zgadzam się na powyższe warunki i postanowienia** , a następnie kliknij przycisk **Wybierz zakup** .
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Uzyskaj identyfikator subskrypcji, w której chcesz wdrożyć docelowy publiczny adres IP za pomocą [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
@@ -219,7 +219,7 @@ Niektóre funkcje nie są eksportowane do szablonu, dlatego konieczne będzie do
 
 W poniższej tabeli wymieniono te funkcje wraz ze wskazówkami dotyczącymi dodania ich do nowego konta magazynu.
 
-| Promowanie    | Wskazówki    |
+| Cechy    | Wskazówki    |
 |--------|-----------|
 | **Zasady zarządzania cyklem życia** | [Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](../blobs/storage-lifecycle-management-concepts.md) |
 | **Statyczne witryny internetowe** | [Hostowanie statycznej witryny sieci Web w usłudze Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
@@ -255,11 +255,11 @@ Aby usunąć konto magazynu przy użyciu witryny Azure Portal:
 
 1. W Azure Portal rozwiń menu po lewej stronie, aby otworzyć menu usług, a następnie wybierz pozycję **konta magazynu** , aby wyświetlić listę kont magazynu.
 
-2. Znajdź docelowe konto magazynu do usunięcia, a następnie kliknij prawym przyciskiem myszy przycisk **więcej** (**...**) po prawej stronie listy.
+2. Znajdź docelowe konto magazynu do usunięcia, a następnie kliknij prawym przyciskiem myszy przycisk **więcej** ( **...** ) po prawej stronie listy.
 
-3. Wybierz pozycję **Usuń**i potwierdź.
+3. Wybierz pozycję **Usuń** i potwierdź.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby usunąć grupę zasobów i skojarzone z nią zasoby, w tym nowe konto magazynu, użyj polecenia [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) :
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 W tym samouczku przeniesiono konto usługi Azure Storage z jednego regionu do innego i wyczyszczono zasoby źródłowe.  Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zobacz:
 
 
-- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](/azure/azure-resource-manager/resource-group-move-resources)
-- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](../../site-recovery/azure-to-azure-tutorial-migrate.md)

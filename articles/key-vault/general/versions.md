@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2396aac67a17352987d9d6e3b49535c19ffe8917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86230829"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792382"
 ---
 # <a name="key-vault-versions"></a>Wersje usługi Key Vault
 
@@ -33,7 +33,7 @@ Prywatne punkty końcowe są teraz dostępne w wersji zapoznawczej. Usługa link
 ## <a name="2019"></a>2019
 
 - Wydanie zestawów SDK Azure Key Vault nowej generacji. Przykłady ich użycia znajdują się w temacie Azure Key Vaulte Przewodniki Szybki Start dla języka [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md)i [Node.js](../secrets/quick-create-node.md)
-- Nowe zasady platformy Azure do zarządzania certyfikatami magazynu kluczy. Zapoznaj się z [Azure Policy wbudowanymi definicjami Key Vault](../policy-samples.md).
+- Nowe zasady platformy Azure do zarządzania certyfikatami magazynu kluczy. Zapoznaj się z [Azure Policy wbudowanymi definicjami Key Vault](../policy-reference.md).
 - Azure Key Vault rozszerzenie maszyny wirtualnej jest teraz ogólnie dostępne.  Zobacz [Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux](../../virtual-machines/extensions/key-vault-linux.md) i [Key Vault rozszerzenie maszyny wirtualnej w systemie Windows](../../virtual-machines/extensions/key-vault-windows.md).
 - Zarządzanie kluczami tajnymi opartymi na zdarzeniach dla Azure Key Vault jest teraz dostępne w programie Azure Event Grid. Aby uzyskać więcej informacji, zobacz [schemat Event Grid dla zdarzeń w Azure Key Vault] (.. /.. /Event-Grid/Event-Schema-Key-Vault.MD] i Dowiedz się, jak [odbierać powiadomienia magazynu kluczy i odpowiadać na nie za pomocą Azure Event Grid](event-grid-tutorial.md).
 
@@ -49,8 +49,8 @@ Nowe funkcje i integracje wydane w tym roku:
 
 Nowe funkcje wydane w tym roku:
 
-- Zarządzane klucze konta magazynu. Funkcja kluczy konta magazynu ułatwia integrację z usługą Azure Storage. Aby uzyskać więcej informacji, zobacz temat Omówienie [zarządzanych kluczy kont magazynu](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Usuwanie nietrwałe. Funkcja usuwania nietrwałego usprawnia ochronę danych magazynów kluczy i obiektów magazynu kluczy. Aby uzyskać więcej informacji, zobacz temat Omówienie [usuwania nietrwałego](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Zarządzane klucze konta magazynu. Funkcja kluczy konta magazynu ułatwia integrację z usługą Azure Storage. Aby uzyskać więcej informacji, zobacz temat Omówienie [zarządzanych kluczy kont magazynu](../secrets/overview-storage-keys.md).
+- Usuwanie nietrwałe. Funkcja usuwania nietrwałego usprawnia ochronę danych magazynów kluczy i obiektów magazynu kluczy. Aby uzyskać więcej informacji, zobacz temat Omówienie [usuwania nietrwałego](./soft-delete-overview.md).
 
 ## <a name="2015"></a>2015
 
@@ -64,7 +64,7 @@ Ogólna dostępność (wersja 2015-06-01) została ogłoszona 24 czerwca 2015. W
 - Przywróć klucz — usunięte pole "use".     
 - Zmieniono "RSA_OAEP" na "RSA-OAEP" dla algorytmów RSA. Zobacz [Informacje o kluczach, wpisach tajnych i certyfikatach](about-keys-secrets-certificates.md).    
  
-Druga wersja zapoznawcza (wersja 2015-02-01-Preview) została ogłoszona 20 kwietnia 2015. Aby uzyskać więcej informacji, zobacz wpis w blogu [interfejsu API REST](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) . Zaktualizowano następujące zadania:
+Druga wersja zapoznawcza (wersja 2015-02-01-Preview) została ogłoszona 20 kwietnia 2015. Aby uzyskać więcej informacji, zobacz wpis w blogu [interfejsu API REST](/archive/blogs/kv/rest-api-update) . Zaktualizowano następujące zadania:
  
 - Wyświetl listę kluczy w magazynie — dodaliśmy obsługę dzielenia na strony.
 - Aby wyświetlić listę wersji klucza, Wyświetl listę wersji operacji dodanej do klucza.  

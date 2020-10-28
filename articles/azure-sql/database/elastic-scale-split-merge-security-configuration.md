@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829438"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793436"
 ---
 # <a name="split-merge-security-configuration"></a>Konfiguracja zabezpieczeń Split-Merge
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,18 +32,18 @@ Certyfikaty są konfigurowane na dwa sposoby.
 
 ## <a name="to-obtain-certificates"></a>Aby uzyskać certyfikaty
 
-Certyfikaty mogą być uzyskiwane z publicznych urzędów certyfikacji lub z [usługi certyfikatów systemu Windows](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Są to preferowane metody uzyskiwania certyfikatów.
+Certyfikaty mogą być uzyskiwane z publicznych urzędów certyfikacji lub z [usługi certyfikatów systemu Windows](/windows/win32/seccrypto/certificate-services). Są to preferowane metody uzyskiwania certyfikatów.
 
-Jeśli te opcje nie są dostępne, można generować certyfikaty z podpisem **własnym**.
+Jeśli te opcje nie są dostępne, można generować certyfikaty z podpisem **własnym** .
 
 ## <a name="tools-to-generate-certificates"></a>Narzędzia do generowania certyfikatów
 
-* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](/previous-versions/dotnet/netframework-4.0/bfsktky3(v=vs.100))
+* [pvk2pfx.exe](/windows-hardware/drivers/devtest/pvk2pfx)
 
 ### <a name="to-run-the-tools"></a>Aby uruchomić narzędzia
 
-* W wiersz polecenia dla deweloperów dla programu Visual Studios zobacz [wiersz polecenia programu Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) . 
+* W wiersz polecenia dla deweloperów dla programu Visual Studios zobacz [wiersz polecenia programu Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs) . 
   
     Jeśli jest zainstalowany, przejdź do:
   
@@ -124,7 +124,7 @@ Konfiguracja domyślna odrzuca cały dostęp do punktu końcowego HTTP. Jest to 
 Konfiguracja domyślna zezwala na dostęp do punktu końcowego HTTPS. To ustawienie może być ograniczone.
 
 ### <a name="changing-the-configuration"></a>Zmiana konfiguracji
-Grupa reguł kontroli dostępu, które dotyczą i punkt końcowy są skonfigurowane w **\<EndpointAcls>** sekcji w **pliku konfiguracji usługi**.
+Grupa reguł kontroli dostępu, które dotyczą i punkt końcowy są skonfigurowane w **\<EndpointAcls>** sekcji w **pliku konfiguracji usługi** .
 
 ```xml
 <EndpointAcls>
@@ -441,31 +441,31 @@ Wykonaj następujące kroki:
 
 1. Uruchom mmc.exe.
 2. Plik-> Dodaj/Usuń przystawkę...
-3. wybierz opcję **Certyfikaty**.
-4. Kliknij pozycję **Dodaj**.
+3. wybierz opcję **Certyfikaty** .
+4. Kliknij pozycję **Dodaj** .
 5. Wybierz lokalizację magazynu certyfikatów.
 6. Kliknij przycisk **Finish** (Zakończ).
-7. Kliknij przycisk **OK**.
-8. Rozwiń węzeł **Certyfikaty**.
+7. Kliknij pozycję **OK** .
+8. Rozwiń węzeł **Certyfikaty** .
 9. Rozwiń węzeł Magazyn certyfikatów.
 10. Rozwiń węzeł podrzędny certyfikatu.
 11. Wybierz certyfikat z listy.
 
 ## <a name="export-certificate"></a>Eksportowanie certyfikatu
-W **Kreatorze eksportu certyfikatów**:
+W **Kreatorze eksportu certyfikatów** :
 
-1. Kliknij przycisk **Dalej**.
-2. Wybierz opcję **tak**, a następnie **wyeksportuj klucz prywatny**.
-3. Kliknij przycisk **Dalej**.
+1. Kliknij przycisk **Dalej** .
+2. Wybierz opcję **tak** , a następnie **wyeksportuj klucz prywatny** .
+3. Kliknij przycisk **Dalej** .
 4. Wybierz żądany format pliku wyjściowego.
 5. Sprawdź odpowiednie opcje.
-6. Sprawdź **hasło**.
+6. Sprawdź **hasło** .
 7. Wprowadź silne hasło i potwierdź je.
-8. Kliknij przycisk **Dalej**.
+8. Kliknij przycisk **Dalej** .
 9. Wpisz lub Przeglądaj nazwę pliku, w którym ma być przechowywany certyfikat (Użyj. Rozszerzenie PFX).
-10. Kliknij przycisk **Dalej**.
+10. Kliknij przycisk **Dalej** .
 11. Kliknij przycisk **Finish** (Zakończ).
-12. Kliknij przycisk **OK**.
+12. Kliknij pozycję **OK** .
 
 ## <a name="import-certificate"></a>Importowanie certyfikatu
 W Kreatorze importu certyfikatów:
@@ -474,26 +474,26 @@ W Kreatorze importu certyfikatów:
    
    * Wybierz **bieżącego użytkownika** , jeśli tylko procesy działające w ramach bieżącego użytkownika będą miały dostęp do usługi
    * Wybierz **maszynę lokalną** , jeśli inne procesy na tym komputerze będą uzyskiwać dostęp do usługi
-2. Kliknij przycisk **Dalej**.
+2. Kliknij przycisk **Dalej** .
 3. W przypadku importowania z pliku Potwierdź ścieżkę pliku.
 4. W przypadku importowania a. Plik PFX:
    1. Wprowadź hasło chroniące klucz prywatny
    2. Wybierz opcje importu
 5. Wybierz pozycję "Umieść" certyfikatów w następującym magazynie
-6. Kliknij pozycję **Browse (Przeglądaj)**.
+6. Kliknij pozycję **Browse (Przeglądaj)** .
 7. Wybierz żądany magazyn.
 8. Kliknij przycisk **Finish** (Zakończ).
    
-   * Jeśli wybrano magazyn zaufanych głównych urzędów certyfikacji, kliknij przycisk **tak**.
+   * Jeśli wybrano magazyn zaufanych głównych urzędów certyfikacji, kliknij przycisk **tak** .
 9. Kliknij przycisk **OK** we wszystkich oknach okna dialogowego.
 
 ## <a name="upload-certificate"></a>Przekazywanie certyfikatu
 W [Azure Portal](https://portal.azure.com/)
 
-1. Wybierz **Cloud Services**.
+1. Wybierz **Cloud Services** .
 2. Wybierz usługę w chmurze.
-3. W górnym menu kliknij pozycję **Certyfikaty**.
-4. Na dolnym pasku kliknij pozycję **Przekaż**.
+3. W górnym menu kliknij pozycję **Certyfikaty** .
+4. Na dolnym pasku kliknij pozycję **Przekaż** .
 5. Wybierz plik certyfikatu.
 6. Jeśli jest to. Plik PFX, wprowadź hasło dla klucza prywatnego.
 7. Po zakończeniu Skopiuj odcisk palca certyfikatu z nowej pozycji na liście.
@@ -508,4 +508,3 @@ Ustawienia protokołu TLS opisane w tym dokumencie szyfrują komunikację międz
 Poświadczenia przechowywane w tej bazie danych są szyfrowane. Jednak najlepszym rozwiązaniem jest upewnienie się, że role sieci Web i procesu roboczego wdrożeń usług są aktualne i są bezpieczne, ponieważ oba mają dostęp do bazy danych metadanych i certyfikat używany do szyfrowania i odszyfrowywania przechowywanych poświadczeń. 
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
-

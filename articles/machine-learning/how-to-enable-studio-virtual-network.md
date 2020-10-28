@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503219"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792025"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure
 
@@ -36,7 +36,7 @@ Zapoznaj się z innymi artykułami w tej serii:
 
 
 > [!IMPORTANT]
-> Jeśli obszar roboczy znajduje się w __chmurze suwerennej__, takiej jak Azure Government lub Azure Chiny 21Vianet, zintegrowane notesy _nie_ obsługują używania magazynu znajdującego się w sieci wirtualnej. Zamiast tego można użyć notesów Jupyter z wystąpienia obliczeniowego. Aby uzyskać więcej informacji, zobacz sekcję [dostęp do danych w notesie wystąpienia obliczeniowego](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
+> Jeśli obszar roboczy znajduje się w __chmurze suwerennej__ , takiej jak Azure Government lub Azure Chiny 21Vianet, zintegrowane notesy _nie_ obsługują używania magazynu znajdującego się w sieci wirtualnej. Zamiast tego można użyć notesów Jupyter z wystąpienia obliczeniowego. Aby uzyskać więcej informacji, zobacz sekcję [dostęp do danych w notesie wystąpienia obliczeniowego](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -53,7 +53,7 @@ Zapoznaj się z innymi artykułami w tej serii:
 
 Jeśli uzyskujesz dostęp do programu Studio z zasobu w sieci wirtualnej (na przykład wystąpienie obliczeniowe lub maszyna wirtualna), musisz zezwolić na ruch wychodzący z sieci wirtualnej do programu Studio. 
 
-Na przykład, jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) w celu ograniczenia ruchu wychodzącego, Dodaj regułę do miejsca docelowego __tagu usługi__ __AzureFrontDoor. frontonu__.
+Na przykład, jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) w celu ograniczenia ruchu wychodzącego, Dodaj regułę do miejsca docelowego __tagu usługi__ __AzureFrontDoor. frontonu__ .
 
 ## <a name="access-data-using-the-studio"></a>Uzyskiwanie dostępu do danych przy użyciu programu Studio
 
@@ -66,27 +66,28 @@ Jeśli nie włączysz tożsamości zarządzanej, zostanie wyświetlony następuj
 * Prześlij eksperyment AutoML.
 * Rozpocznij projekt etykietowania.
 
-> [!NOTE]
-> [Oznakowanie danych wspomaganych przez ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) nie obsługuje domyślnych kont magazynu zabezpieczonych za siecią wirtualną. Musisz użyć konta magazynu innego niż domyślne do etykietowania danych z asystą w ML. Konto magazynu inne niż domyślne można zabezpieczyć za siecią wirtualną. 
-
 Program Virtual Machines obsługuje odczytywanie danych z następujących typów magazynów w sieci wirtualnej:
 
 * Obiekt bob Azure
 * Usługa Azure Data Lake Storage 1. generacji
 * Usługa Azure Data Lake Storage 2. generacji
-* Azure SQL Database
+* Usługa Azure SQL Database
 
-### <a name="configure-datastores-to-use-managed-identity"></a>Konfigurowanie magazynów danych do korzystania z tożsamości zarządzanej
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Przyznaj dostęp do __czytnika__ tożsamości zarządzanego obszaru roboczego do prywatnego linku do magazynu
+
+Ten krok jest wymagany tylko wtedy, gdy dodano konto usługi Azure Storage do sieci wirtualnej przy użyciu [prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). Aby uzyskać więcej informacji, zobacz wbudowana rola [czytnika](../role-based-access-control/built-in-roles.md#reader) .
+
+### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Konfigurowanie magazynów danych do korzystania z tożsamości zarządzanej obszaru roboczego
 
 Azure Machine Learning używa [magazynów](concept-data.md#datastores) danych do łączenia się z kontami magazynu. Wykonaj następujące kroki, aby skonfigurować magazyny danych do korzystania z tożsamości zarządzanej. 
 
-1. W programie Studio wybierz pozycję __magazyny__danych.
+1. W programie Studio wybierz pozycję __magazyny__ danych.
 
-1. Aby utworzyć nowy magazyn danych, wybierz pozycję __+ nowy magazyn__danych.
+1. Aby utworzyć nowy magazyn danych, wybierz pozycję __+ nowy magazyn__ danych.
 
-    Aby zaktualizować istniejący magazyn danych, wybierz magazyn danych i wybierz pozycję __Aktualizuj poświadczenia__.
+    Aby zaktualizować istniejący magazyn danych, wybierz magazyn danych i wybierz pozycję __Aktualizuj poświadczenia__ .
 
-1. W ustawieniach magazynu danych wybierz opcję __tak__ , aby  __umożliwić usłudze Azure Machine Learning dostęp do magazynu przy użyciu tożsamości zarządzanej przez obszar roboczy__.
+1. W ustawieniach magazynu danych wybierz opcję __tak__ , aby  __umożliwić usłudze Azure Machine Learning dostęp do magazynu przy użyciu tożsamości zarządzanej przez obszar roboczy__ .
 
 
 Te kroki umożliwiają dodanie tożsamości zarządzanej przez obszar roboczy jako __czytnika__ do usługi magazynu przy użyciu funkcji kontroli dostępu opartej na zasobach platformy Azure (Azure RBAC). Dostęp __czytnika__ umożliwia pobranie ustawień zapory przez obszar roboczy i upewnienie się, że dane nie opuszczają sieci wirtualnej.
@@ -100,7 +101,7 @@ Korzystanie z tożsamości zarządzanej w celu uzyskiwania dostępu do usług ma
 
 ### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
 
-W przypadku __usługi Azure Blob Storage__tożsamość zarządzana przez obszar roboczy jest również dodawana jako [czytnik danych obiektów BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) , dzięki czemu może odczytywać dane z magazynu obiektów BLOB.
+W przypadku __usługi Azure Blob Storage__ tożsamość zarządzana przez obszar roboczy jest również dodawana jako [czytnik danych obiektów BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) , dzięki czemu może odczytywać dane z magazynu obiektów BLOB.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 kontroli dostępu
 
@@ -127,15 +128,15 @@ Projektant używa konta magazynu dołączonego do obszaru roboczego do przechowy
 Aby ustawić nowy magazyn domyślny dla potoku:
 
 1. W wersji roboczej potoku wybierz **ikonę koła zębatego** obok tytułu potoku.
-1. Wybierz **pozycję Wybierz domyślny magazyn**danych.
+1. Wybierz **pozycję Wybierz domyślny magazyn** danych.
 1. Określ nowy magazyn danych.
 
 Możesz również zastąpić domyślny magazyn danych dla każdego modułu. Zapewnia to kontrolę nad lokalizacją przechowywania poszczególnych modułów.
 
 1. Wybierz moduł, którego dane wyjściowe chcesz określić.
 1. Rozwiń sekcję **Ustawienia wyjściowe** .
-1. Wybierz opcję **Zastąp domyślne ustawienia wyjściowe**.
-1. Wybierz pozycję **Ustaw ustawienia wyjściowe**.
+1. Wybierz opcję **Zastąp domyślne ustawienia wyjściowe** .
+1. Wybierz pozycję **Ustaw ustawienia wyjściowe** .
 1. Określ nowy magazyn danych.
 
 ## <a name="next-steps"></a>Następne kroki

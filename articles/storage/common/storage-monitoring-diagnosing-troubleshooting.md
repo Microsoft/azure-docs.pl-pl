@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 43c8f3dc0df41d9322edbe2e0c763de12b787ed6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f8b555c4022fcf2532a7350839d2357c96562f4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479803"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791855"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -59,8 +59,8 @@ Aby zarządzać takimi aplikacjami, należy monitorować je aktywnie i zrozumie�
   * [Problem wynika z używania emulatora magazynu na potrzeby tworzenia i testowania]
   * [Występują problemy z instalacją zestawu Azure SDK dla platformy .NET]
   * [Istnieje inny problem dotyczący usługi magazynu]
-  * [Rozwiązywanie problemów dotyczących dysków VHD na maszynach wirtualnych z systemem Windows](../../virtual-machines/windows/troubleshoot-vhds.md)   
-  * [Rozwiązywanie problemów dotyczących dysków VHD na maszynach wirtualnych z systemem Linux](../../virtual-machines/linux/troubleshoot-vhds.md)
+  * [Rozwiązywanie problemów dotyczących dysków VHD na maszynach wirtualnych z systemem Windows](../../virtual-machines/troubleshooting/index.yml)   
+  * [Rozwiązywanie problemów dotyczących dysków VHD na maszynach wirtualnych z systemem Linux](../../virtual-machines/troubleshooting/index.yml)
   * [Rozwiązywanie problemów z Azure Filesmi w systemie Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Rozwiązywanie problemów z Azure Filesymi przy użyciu systemu Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Dodatki]
@@ -92,9 +92,9 @@ Sekcja "[wskazówki dotyczące rozwiązywania problemów]" zawiera wskazówki do
 "[Dodatki]" zawierają informacje dotyczące korzystania z innych narzędzi, takich jak Wireshark i NetMon do analizowania danych pakietów sieciowych oraz programu Fiddler do analizowania komunikatów http/https.
 
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Monitorowanie usługi magazynu
-Jeśli wiesz już, jak działa program Windows Performance Monitoring, możesz traktować metryki magazynu jako odpowiednik usługi Azure Storage w zakresie liczników wydajności systemu Windows. W metrykach magazynu znajduje się kompleksowy zestaw metryk (liczniki w terminologii monitora wydajności systemu Windows), takie jak dostępność usługi, Łączna liczba żądań do obsługi lub procent pomyślnych żądań do usługi. Aby uzyskać pełną listę dostępnych metryk, zobacz [analityka magazynu metryk tabeli schematu](https://msdn.microsoft.com/library/azure/hh343264.aspx). Można określić, czy usługa magazynu ma zbierać i agregowanie metryk co godzinę, czy co minutę. Aby uzyskać więcej informacji o sposobie włączania metryk i monitorowania kont magazynu, zobacz [Włączanie metryk magazynu i wyświetlanie danych metryk](https://go.microsoft.com/fwlink/?LinkId=510865).
+Jeśli wiesz już, jak działa program Windows Performance Monitoring, możesz traktować metryki magazynu jako odpowiednik usługi Azure Storage w zakresie liczników wydajności systemu Windows. W metrykach magazynu znajduje się kompleksowy zestaw metryk (liczniki w terminologii monitora wydajności systemu Windows), takie jak dostępność usługi, Łączna liczba żądań do obsługi lub procent pomyślnych żądań do usługi. Aby uzyskać pełną listę dostępnych metryk, zobacz [analityka magazynu metryk tabeli schematu](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema). Można określić, czy usługa magazynu ma zbierać i agregowanie metryk co godzinę, czy co minutę. Aby uzyskać więcej informacji o sposobie włączania metryk i monitorowania kont magazynu, zobacz [Włączanie metryk magazynu i wyświetlanie danych metryk](../blobs/monitor-blob-storage.md).
 
-Możesz wybrać metryki godzinowe, które mają być wyświetlane w [Azure Portal](https://portal.azure.com) i skonfigurować reguły, które powiadamiają administratorów pocztą e-mail za każdym razem, gdy Metryka godzinowa przekroczy określony próg. Aby uzyskać więcej informacji, zobacz [Odbieranie powiadomień o alertach](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
+Możesz wybrać metryki godzinowe, które mają być wyświetlane w [Azure Portal](https://portal.azure.com) i skonfigurować reguły, które powiadamiają administratorów pocztą e-mail za każdym razem, gdy Metryka godzinowa przekroczy określony próg. Aby uzyskać więcej informacji, zobacz [Odbieranie powiadomień o alertach](../../azure-monitor/platform/alerts-overview.md).
 
 Zalecamy zapoznanie się [Azure monitor z magazynem](../../azure-monitor/insights/storage-insights-overview.md) (wersja zapoznawcza). Jest to funkcja Azure Monitor, która oferuje kompleksowe monitorowanie kont usługi Azure Storage, zapewniając ujednolicony wgląd w wydajność, wydajność i dostępność usług Azure Storage. Nie wymaga to włączania ani konfigurowania niczego i można od razu wyświetlać te metryki ze wstępnie zdefiniowanych wykresów interaktywnych i innych wizualizacji.
 
@@ -124,7 +124,7 @@ Uwaga: te informacje były wcześniej dostępne wraz z danymi historycznymi na [
 [Azure Portal](https://portal.azure.com) zbiera informacje o kondycji z wnętrza centrów danych platformy Azure (monitorowanie wewnątrz zewnątrz), ale można również rozważyć wdrożenie podejścia zewnętrznego w celu wygenerowania transakcji syntetycznych, które okresowo uzyskują dostęp do aplikacji sieci Web hostowanej na platformie Azure z wielu lokalizacji. Przykładami tego podejścia są usługi oferowane przez [dynaTrace](https://www.dynatrace.com/en/synthetic-monitoring) i Application Insights dla usługi Azure DevOps. Aby uzyskać więcej informacji na temat Application Insights usługi Azure DevOps, zobacz dodatek "[dodatek 5: monitorowanie za pomocą Application Insights dla platformy Azure DevOps](#appendix-5)".
 
 ### <a name="monitoring-capacity"></a><a name="monitoring-capacity"></a>Monitorowanie wydajności
-Metryki magazynu przechowują tylko metryki pojemności dla usługi BLOB Service, ponieważ obiekty blob zwykle uwzględniają największą część przechowywanych danych (w czasie pisania nie można używać metryk magazynu do monitorowania pojemności tabel i kolejek). Te dane można znaleźć w tabeli **$MetricsCapacityBlob** , jeśli włączono monitorowanie BLOB Service. Metryki magazynu zapisują te dane raz dziennie i można użyć wartości **RowKey** , aby określić, czy wiersz zawiera jednostkę, która odnosi się do danych użytkownika ( **dane**wartości) czy danych analitycznych ( **Analiza**wartości). Każda składowana jednostka zawiera informacje o ilości używanej pamięci (**pojemność** mierzona w bajtach) oraz o bieżącej liczbie kontenerów (**ContainerCount**) i obiektów BLOB (**ObjectCount**) używanych na koncie magazynu. Aby uzyskać więcej informacji na temat metryk pojemności przechowywanych w tabeli **$MetricsCapacityBlob** , zobacz [analityka magazynu metryk tabeli schematu](https://msdn.microsoft.com/library/azure/hh343264.aspx).
+Metryki magazynu przechowują tylko metryki pojemności dla usługi BLOB Service, ponieważ obiekty blob zwykle uwzględniają największą część przechowywanych danych (w czasie pisania nie można używać metryk magazynu do monitorowania pojemności tabel i kolejek). Te dane można znaleźć w tabeli **$MetricsCapacityBlob** , jeśli włączono monitorowanie BLOB Service. Metryki magazynu zapisują te dane raz dziennie i można użyć wartości **RowKey** , aby określić, czy wiersz zawiera jednostkę, która odnosi się do danych użytkownika ( **dane** wartości) czy danych analitycznych ( **Analiza** wartości). Każda składowana jednostka zawiera informacje o ilości używanej pamięci ( **pojemność** mierzona w bajtach) oraz o bieżącej liczbie kontenerów ( **ContainerCount** ) i obiektów BLOB ( **ObjectCount** ) używanych na koncie magazynu. Aby uzyskać więcej informacji na temat metryk pojemności przechowywanych w tabeli **$MetricsCapacityBlob** , zobacz [analityka magazynu metryk tabeli schematu](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
 
 > [!NOTE]
 > Należy monitorować te wartości, aby uzyskać wczesne ostrzeżenie, że zbliżasz się do limitów pojemności konta magazynu. W Azure Portal można dodać reguły alertów w celu powiadomienia, jeśli zagregowane użycie magazynu przekracza lub spadnie poniżej progów określonych przez użytkownika.
@@ -134,9 +134,9 @@ Metryki magazynu przechowują tylko metryki pojemności dla usługi BLOB Service
 Aby uzyskać pomoc w szacowaniu rozmiaru różnych obiektów magazynu, takich jak obiekty blob, zobacz wpis w blogu [Informacje o rozliczeniach usługi Azure Storage — przepustowości, transakcjach i pojemności](/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Monitorowanie dostępności
-Dostępność usług magazynu na koncie magazynu należy monitorować przez monitorowanie wartości w kolumnie **dostępność** w tabelach metryk godzinowych lub minutowych — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. Kolumna **dostępności** zawiera wartość procentową wskazującą dostępność usługi lub operacji interfejsu API reprezentowanej przez wiersz ( **RowKey** pokazuje, czy wiersz zawiera metryki dla usługi jako całość lub dla konkretnej operacji interfejsu API).
+Dostępność usług magazynu na koncie magazynu należy monitorować przez monitorowanie wartości w kolumnie **dostępność** w tabelach metryk godzinowych lub minutowych — **$MetricsHourPrimaryTransactionsBlob** , **$MetricsHourPrimaryTransactionsTable** , **$MetricsHourPrimaryTransactionsQueue** , **$MetricsMinutePrimaryTransactionsBlob** , **$MetricsMinutePrimaryTransactionsTable** , **$MetricsMinutePrimaryTransactionsQueue** , **$MetricsCapacityBlob** . Kolumna **dostępności** zawiera wartość procentową wskazującą dostępność usługi lub operacji interfejsu API reprezentowanej przez wiersz ( **RowKey** pokazuje, czy wiersz zawiera metryki dla usługi jako całość lub dla konkretnej operacji interfejsu API).
 
-Każda wartość mniejsza niż 100% wskazuje, że niektóre żądania magazynu kończą się niepowodzeniem. Możesz sprawdzić, dlaczego są one zakończone niepowodzeniem, badając inne kolumny w danych metryk, które pokazują liczbę żądań z różnymi typami błędów, takimi jak **ServerTimeoutError**. Należy oczekiwać, że **dostępność** przekroczy mniej niż 100% z powodów, takich jak przejściowe limity czasu serwera, podczas gdy usługa przenosi partycje w celu lepszego żądania równoważenia obciążenia; Logika ponowień w aplikacji klienckiej powinna obsługiwać takie sporadyczne warunki. Artykuł [analityka magazynu zarejestrowanymi operacjami i komunikatami o stanie](https://msdn.microsoft.com/library/azure/hh343260.aspx) zawiera listę typów transakcji, które metryki magazynu obejmują w ich obliczeniach **dostępności** .
+Każda wartość mniejsza niż 100% wskazuje, że niektóre żądania magazynu kończą się niepowodzeniem. Możesz sprawdzić, dlaczego są one zakończone niepowodzeniem, badając inne kolumny w danych metryk, które pokazują liczbę żądań z różnymi typami błędów, takimi jak **ServerTimeoutError** . Należy oczekiwać, że **dostępność** przekroczy mniej niż 100% z powodów, takich jak przejściowe limity czasu serwera, podczas gdy usługa przenosi partycje w celu lepszego żądania równoważenia obciążenia; Logika ponowień w aplikacji klienckiej powinna obsługiwać takie sporadyczne warunki. Artykuł [analityka magazynu zarejestrowanymi operacjami i komunikatami o stanie](/rest/api/storageservices/Storage-Analytics-Logged-Operations-and-Status-Messages) zawiera listę typów transakcji, które metryki magazynu obejmują w ich obliczeniach **dostępności** .
 
 W [Azure Portal](https://portal.azure.com)można dodać reguły alertów w celu powiadomienia, jeśli **dostępność** usługi spadnie poniżej progu określonego przez użytkownika.
 
@@ -183,7 +183,7 @@ Po zidentyfikowaniu najprawdopodobniej lokalizacji przyczyny problemu z wydajno�
 Sekcja "[wskazówki dotyczące rozwiązywania problemów]" w dalszej części tego przewodnika zawiera więcej informacji na temat niektórych typowych problemów związanych z wydajnością, które mogą wystąpić.
 
 ### <a name="diagnosing-errors"></a><a name="diagnosing-errors"></a>Diagnozowanie błędów
-Użytkownicy Twojej aplikacji mogą powiadomić użytkownika o błędach raportowanych przez aplikację kliencką. Metryki magazynu rejestrują także liczbę różnych typów błędów z usług magazynu, takich jak **NetworkError**, **ClientTimeoutError**lub **AuthorizationError**. Chociaż metryki magazynu rejestrują tylko liczbę różnych typów błędów, można uzyskać więcej szczegółowych informacji o poszczególnych żądaniach, przeglądając dzienniki po stronie serwera, klienta i sieci. Zazwyczaj kod stanu HTTP zwracany przez usługę Storage wskazuje dlaczego żądanie nie powiodło się.
+Użytkownicy Twojej aplikacji mogą powiadomić użytkownika o błędach raportowanych przez aplikację kliencką. Metryki magazynu rejestrują także liczbę różnych typów błędów z usług magazynu, takich jak **NetworkError** , **ClientTimeoutError** lub **AuthorizationError** . Chociaż metryki magazynu rejestrują tylko liczbę różnych typów błędów, można uzyskać więcej szczegółowych informacji o poszczególnych żądaniach, przeglądając dzienniki po stronie serwera, klienta i sieci. Zazwyczaj kod stanu HTTP zwracany przez usługę Storage wskazuje dlaczego żądanie nie powiodło się.
 
 > [!NOTE]
 > Należy pamiętać, że powinny być widoczne błędy sporadyczne: na przykład błędy z powodu przejściowych warunków sieciowych lub błędy aplikacji.
@@ -192,11 +192,11 @@ Użytkownicy Twojej aplikacji mogą powiadomić użytkownika o błędach raporto
 
 Przydatne dla zrozumienia kodów stanu i błędów związanych z magazynem są następujące zasoby:
 
-* [Typowe kody błędów interfejsu API REST](https://msdn.microsoft.com/library/azure/dd179357.aspx)
-* [Kody błędów usługi BLOB](https://msdn.microsoft.com/library/azure/dd179439.aspx)
-* [Kody błędów usługi kolejki](https://msdn.microsoft.com/library/azure/dd179446.aspx)
-* [Kody błędów usługi Table Service](https://msdn.microsoft.com/library/azure/dd179438.aspx)
-* [Kody błędów usługi plików](https://msdn.microsoft.com/library/azure/dn690119.aspx)
+* [Typowe kody błędów interfejsu API REST](/rest/api/storageservices/Common-REST-API-Error-Codes)
+* [Kody błędów usługi BLOB](/rest/api/storageservices/Blob-Service-Error-Codes)
+* [Kody błędów usługi kolejki](/rest/api/storageservices/Queue-Service-Error-Codes)
+* [Kody błędów usługi Table Service](/rest/api/storageservices/Table-Service-Error-Codes)
+* [Kody błędów usługi plików](/rest/api/storageservices/File-Service-Error-Codes)
 
 ### <a name="storage-emulator-issues"></a><a name="storage-emulator-issues"></a>Problemy emulatora magazynu
 Zestaw Azure SDK zawiera emulator magazynu, który można uruchomić na stacji roboczej deweloperskiej. Ten emulator symuluje większość zachowań usług Azure Storage i jest przydatny podczas tworzenia i testowania, umożliwiając uruchamianie aplikacji korzystających z usług Azure Storage bez potrzeby subskrypcji platformy Azure i konta usługi Azure Storage.
@@ -204,9 +204,9 @@ Zestaw Azure SDK zawiera emulator magazynu, który można uruchomić na stacji r
 W sekcji "[wskazówki dotyczące rozwiązywania problemów]" w tym przewodniku opisano niektóre typowe problemy występujące podczas korzystania z emulatora magazynu.
 
 ### <a name="storage-logging-tools"></a><a name="storage-logging-tools"></a>Narzędzia rejestrowania magazynu
-Rejestrowanie magazynu umożliwia rejestrowanie żądań magazynu po stronie serwera na koncie usługi Azure Storage. Aby uzyskać więcej informacji na temat włączania rejestrowania po stronie serwera i uzyskiwania dostępu do danych dziennika, zobacz [Włączanie rejestrowania magazynu i uzyskiwanie dostępu do danych dziennika](https://go.microsoft.com/fwlink/?LinkId=510867).
+Rejestrowanie magazynu umożliwia rejestrowanie żądań magazynu po stronie serwera na koncie usługi Azure Storage. Aby uzyskać więcej informacji na temat włączania rejestrowania po stronie serwera i uzyskiwania dostępu do danych dziennika, zobacz [Włączanie rejestrowania magazynu i uzyskiwanie dostępu do danych dziennika](./storage-analytics-logging.md).
 
-Biblioteka klienta usługi Storage dla platformy .NET umożliwia zbieranie danych dziennika po stronie klienta, które odnoszą się do operacji magazynu wykonywanych przez aplikację. Aby uzyskać więcej informacji, zobacz [Client-side Logging with the .NET Storage Client Library](https://go.microsoft.com/fwlink/?LinkId=510868) (Logowanie po stronie klienta przy użyciu biblioteki klienckiej usługi .NET Storage).
+Biblioteka klienta usługi Storage dla platformy .NET umożliwia zbieranie danych dziennika po stronie klienta, które odnoszą się do operacji magazynu wykonywanych przez aplikację. Aby uzyskać więcej informacji, zobacz [Client-side Logging with the .NET Storage Client Library](/rest/api/storageservices/Client-side-Logging-with-the-.NET-Storage-Client-Library) (Logowanie po stronie klienta przy użyciu biblioteki klienckiej usługi .NET Storage).
 
 > [!NOTE]
 > W niektórych sytuacjach (takich jak błędy autoryzacji sygnatury dostępu współdzielonego) użytkownik może zgłosić błąd, dla którego nie można znaleźć danych żądania w dziennikach magazynu po stronie serwera. Możesz użyć funkcji rejestrowania w bibliotece klienta magazynu, aby sprawdzić, czy przyczyną problemu jest klient, czy też użyć narzędzi do monitorowania sieci do zbadania sieci.
@@ -218,7 +218,7 @@ Możesz przechwytywać ruch między klientem a serwerem, aby podać szczegółow
 
 * [Programu Fiddler](https://www.telerik.com/fiddler) to bezpłatny serwer proxy debugowania sieci Web, który umożliwia badanie nagłówków i danych ładunku komunikatów i żądań HTTP i https. Aby uzyskać więcej informacji, zobacz [dodatek 1: używanie programu Fiddler do przechwytywania ruchu HTTP i https](#appendix-1).
 * [Microsoft Network Monitor (netmon)](https://download.cnet.com/s/network-monitor/) i [Wireshark](https://www.wireshark.org/) to bezpłatne analizatory protokołów sieciowych, które umożliwiają wyświetlanie szczegółowych informacji o pakiecie dla szerokiego zakresu protokołów sieciowych. Aby uzyskać więcej informacji na temat programu Wireshark, zobacz "[dodatek 2: korzystanie z programu Wireshark do przechwytywania ruchu sieciowego](#appendix-2)".
-* Jeśli chcesz przeprowadzić podstawowy test łączności, aby sprawdzić, czy komputer kliencki może połączyć się z usługą Azure Storage za pośrednictwem sieci, nie możesz wykonać tego czynności przy użyciu standardowego narzędzia **ping** na kliencie. Można jednak sprawdzić łączność przy użyciu [narzędzia **tcping** ](https://www.elifulkerson.com/projects/tcping.php) .
+* Jeśli chcesz przeprowadzić podstawowy test łączności, aby sprawdzić, czy komputer kliencki może połączyć się z usługą Azure Storage za pośrednictwem sieci, nie możesz wykonać tego czynności przy użyciu standardowego narzędzia **ping** na kliencie. Można jednak sprawdzić łączność przy użyciu [narzędzia **tcping**](https://www.elifulkerson.com/projects/tcping.php) .
 
 W wielu przypadkach dane dziennika z rejestrowania magazynu i biblioteki klienta usługi Storage będą wystarczające do zdiagnozowania problemu, ale w niektórych scenariuszach może być konieczne wprowadzenie bardziej szczegółowych informacji, które mogą być używane przez te narzędzia rejestrowania sieciowego. Na przykład za pomocą programu Fiddler do wyświetlania komunikatów HTTP i HTTPS można wyświetlać dane nagłówka i ładunku wysyłane do i z usług magazynu, co umożliwi sprawdzenie, jak aplikacja kliencka ponawia operacje magazynu. Analizatory protokołu, takie jak program Wireshark, działają na poziomie pakietu, umożliwiając wyświetlanie danych TCP, co umożliwia rozwiązywanie problemów z utraconymi pakietami i problemami z łącznością. 
 
@@ -348,11 +348,11 @@ Czy problem odnosi się do dostępności jednego z usług magazynu?
 
 ---
 ### <a name="metrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Metryki wskazują wysoką wartość AverageE2ELatency i niską wartość AverageServerLatency
-Na poniższej ilustracji [Azure Portal](https://portal.azure.com) narzędzia do monitorowania przedstawiono przykład, w którym **niską averagee2elatency** jest znacznie większa niż **wartość averageserverlatency**.
+Na poniższej ilustracji [Azure Portal](https://portal.azure.com) narzędzia do monitorowania przedstawiono przykład, w którym **niską averagee2elatency** jest znacznie większa niż **wartość averageserverlatency** .
 
 ![Ilustracja z Azure Portal, który pokazuje przykład, gdzie niską averagee2elatency jest znacznie wyższy niż wartość averageserverlatency.][4]
 
-Usługa magazynu oblicza tylko **niską averagee2elatency** metryk dla pomyślnych żądań i, w przeciwieństwie do **wartość averageserverlatency**, obejmuje czas wymagany przez klienta do wysłania danych i otrzymania potwierdzenia z usługi magazynu. W związku z tym różnica między **niską averagee2elatency** i **wartość averageserverlatency** może być spowodowana powolnej reakcji aplikacji klienckiej lub ze względu na warunki w sieci.
+Usługa magazynu oblicza tylko **niską averagee2elatency** metryk dla pomyślnych żądań i, w przeciwieństwie do **wartość averageserverlatency** , obejmuje czas wymagany przez klienta do wysłania danych i otrzymania potwierdzenia z usługi magazynu. W związku z tym różnica między **niską averagee2elatency** i **wartość averageserverlatency** może być spowodowana powolnej reakcji aplikacji klienckiej lub ze względu na warunki w sieci.
 
 > [!NOTE]
 > Można również wyświetlać **E2ELatency** i **ServerLatency** dla poszczególnych operacji magazynu w danych dziennika rejestrowania magazynu.
@@ -362,7 +362,7 @@ Usługa magazynu oblicza tylko **niską averagee2elatency** metryk dla pomyślny
 #### <a name="investigating-client-performance-issues"></a>Badanie problemów z wydajnością klienta
 Możliwe przyczyny, dla których klient odpowie wolno, obejmują ograniczoną liczbę dostępnych połączeń lub wątków lub niską ilość zasobów, takich jak procesor CPU, pamięć lub przepustowość sieci. Można rozwiązać ten problem, modyfikując kod klienta, aby był bardziej wydajny (na przykład za pomocą wywołań asynchronicznych usługi Storage) lub przy użyciu większej maszyny wirtualnej (z większą liczbą rdzeni i więcej pamięci).
 
-W przypadku usług tabel i kolejek algorytm nagle może również spowodować duże **niską averagee2elatency** w porównaniu z **wartość averageserverlatency**: Aby uzyskać więcej informacji, zobacz Algorytm post [nagle nie jest przyjazny do małych żądań](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). Algorytm nagle można wyłączyć w kodzie przy użyciu klasy **ServicePointManager** w przestrzeni nazw **System.NET** . Należy to zrobić przed wprowadzeniem jakichkolwiek wywołań do usług Table lub Queue w aplikacji, ponieważ nie ma to wpływu na połączenia, które są już otwarte. Poniższy przykład pochodzi z metody **Application_Start** w roli procesu roboczego.
+W przypadku usług tabel i kolejek algorytm nagle może również spowodować duże **niską averagee2elatency** w porównaniu z **wartość averageserverlatency** : Aby uzyskać więcej informacji, zobacz Algorytm post [nagle nie jest przyjazny do małych żądań](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). Algorytm nagle można wyłączyć w kodzie przy użyciu klasy **ServicePointManager** w przestrzeni nazw **System.NET** . Należy to zrobić przed wprowadzeniem jakichkolwiek wywołań do usług Table lub Queue w aplikacji, ponieważ nie ma to wpływu na połączenia, które są już otwarte. Poniższy przykład pochodzi z metody **Application_Start** w roli procesu roboczego.
 
 # <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
@@ -378,7 +378,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 ---
 
-Należy sprawdzić dzienniki po stronie klienta, aby zobaczyć liczbę żądań przesyłanych przez aplikację kliencką, a także sprawdzić ogólne wąskie gardła wydajności związane z platformą .NET na kliencie, takie jak procesor CPU, wyrzucanie elementów bezużytecznych platformy .NET, wykorzystanie sieci lub pamięć. Jako punkt wyjścia do rozwiązywania problemów z aplikacjami klienckimi platformy .NET, zobacz [debugowanie, śledzenie i profilowanie](https://msdn.microsoft.com/library/7fe0dd2y).
+Należy sprawdzić dzienniki po stronie klienta, aby zobaczyć liczbę żądań przesyłanych przez aplikację kliencką, a także sprawdzić ogólne wąskie gardła wydajności związane z platformą .NET na kliencie, takie jak procesor CPU, wyrzucanie elementów bezużytecznych platformy .NET, wykorzystanie sieci lub pamięć. Jako punkt wyjścia do rozwiązywania problemów z aplikacjami klienckimi platformy .NET, zobacz [debugowanie, śledzenie i profilowanie](/dotnet/framework/debug-trace-profile/).
 
 #### <a name="investigating-network-latency-issues"></a>Badanie problemów z opóźnieniem sieci
 Zwykle wysokie opóźnienie spowodowane przez sieć wynika z przejściowych warunków. Można zbadać zarówno przejściowe, jak i trwałe problemy z siecią, takie jak pakiety porzucone, przy użyciu narzędzi takich jak Wireshark.
@@ -408,7 +408,7 @@ Jeśli widzisz wysokie **wartość averageserverlatency** żądań pobrania obie
 Wysokie **wartość averageserverlatency** wartości mogą również być objawami niewłaściwie zaprojektowanych tabel lub zapytań, które powodują operacje skanowania lub które są zgodne ze standardem dołączania/dopasowywania. Aby uzyskać więcej informacji, zobacz "[metryki pokazują wzrost w wzrost percentthrottlingerror]".
 
 > [!NOTE]
-> Wyczerpującą listę kontrolną wydajności można znaleźć w tym miejscu: [Microsoft Azure Storage listy kontrolnej wydajności i skalowalności](storage-performance-checklist.md).
+> Wyczerpującą listę kontrolną wydajności można znaleźć w tym miejscu: [Microsoft Azure Storage listy kontrolnej wydajności i skalowalności](../blobs/storage-performance-checklist.md).
 >
 >
 
@@ -459,21 +459,21 @@ Twoje metryki pokazują wzrost **wzrost percenttimeouterror** dla jednej z usłu
 >
 >
 
-Metryka **wzrost percenttimeouterror** jest agregacją następujących metryk: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError**i **SASServerTimeoutError**.
+Metryka **wzrost percenttimeouterror** jest agregacją następujących metryk: **ClientTimeoutError** , **AnonymousClientTimeoutError** , **SASClientTimeoutError** , **ServerTimeoutError** , **AnonymousServerTimeoutError** i **SASServerTimeoutError** .
 
 Limity czasu serwera są spowodowane błędem na serwerze. Limity czasu klienta zachodzą, ponieważ operacja na serwerze przekroczyła limit czasu określony przez klienta; na przykład klient korzystający z biblioteki klienta magazynu może ustawić limit czasu dla operacji za pomocą właściwości **ServerTimeout** klasy **QueueRequestOptions** .
 
 Limity czasu serwera wskazują na problem z usługą magazynu, która wymaga dalszych badań. Metryk można użyć, aby sprawdzić, czy obowiązują limity skalowalności dla usługi i zidentyfikować wszelkie skoki w ruchu, który może powodować występowanie tego problemu. Jeśli problem występuje sporadycznie, może to być spowodowane działaniem równoważenia obciążenia w usłudze. Jeśli problem jest trwały i nie jest spowodowany przez aplikację, która osiąga limity skalowalności usługi, należy zgłosić problem z pomocą techniczną. W przypadku przekroczenia limitu czasu klienta należy zdecydować, czy limit czasu jest ustawiony na odpowiednią wartość w kliencie, i zmienić wartość limitu czasu ustawioną w kliencie lub zbadać, jak można poprawić wydajność operacji w usłudze magazynu, na przykład przez optymalizację zapytań tabel lub zmniejszenie rozmiaru komunikatów.
 
 ### <a name="metrics-show-an-increase-in-percentnetworkerror"></a><a name="metrics-show-an-increase-in-PercentNetworkError"></a>Metryki wskazują wzrost wartości PercentNetworkError
-Twoje metryki pokazują wzrost **wzrost percentnetworkerror** dla jednej z usług magazynu. Metryka **wzrost percentnetworkerror** jest agregacją następujących metryk: **NetworkError**, **AnonymousNetworkError**i **SASNetworkError**. Są one wykonywane, gdy usługa magazynu wykryje błąd sieciowy, gdy klient wysyła żądanie magazynu.
+Twoje metryki pokazują wzrost **wzrost percentnetworkerror** dla jednej z usług magazynu. Metryka **wzrost percentnetworkerror** jest agregacją następujących metryk: **NetworkError** , **AnonymousNetworkError** i **SASNetworkError** . Są one wykonywane, gdy usługa magazynu wykryje błąd sieciowy, gdy klient wysyła żądanie magazynu.
 
 Najbardziej typową przyczyną tego błędu jest odłączenie klienta przed upływem limitu czasu w usłudze Storage. Zbadaj kod w kliencie, aby zrozumieć, dlaczego i kiedy klient rozłącza się z usługą magazynu. Aby zbadać problemy z łącznością sieciową z poziomu klienta, można również użyć programu Wireshark lub Tcping. Te narzędzia są opisane w [dodatkach].
 
 ### <a name="the-client-is-receiving-http-403-forbidden-messages"></a><a name="the-client-is-receiving-403-messages"></a>Klient odbiera komunikaty HTTP 403 (zabronione)
 Jeśli aplikacja kliencka zgłasza błędy HTTP 403 (zabronione), prawdopodobną przyczyną jest to, że klient używa wygasłej sygnatury dostępu współdzielonego podczas wysyłania żądania magazynu (chociaż inne możliwe przyczyny to niedokładność zegara, nieprawidłowe klucze i puste nagłówki). Jeśli przyczyną jest wygasły klucz sygnatury dostępu współdzielonego, nie będą widoczne żadne wpisy w danych dziennika rejestrowania danych magazynu po stronie serwera. W poniższej tabeli przedstawiono przykład z dziennika po stronie klienta wygenerowanego przez bibliotekę klienta usługi Storage, która ilustruje ten problem:
 
-| Element źródłowy | Szczegółowość | Szczegółowość | Identyfikator żądania klienta | Tekst operacji |
+| Źródło | Szczegółowość | Szczegółowość | Identyfikator żądania klienta | Tekst operacji |
 | --- | --- | --- | --- | --- |
 | Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Rozpoczynanie operacji przy użyciu lokalizacji podstawowej dla trybu lokalizacji PrimaryOnly. |
 | Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Uruchamianie żądania synchronicznego do <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests#Synchronous_request> |
@@ -489,10 +489,10 @@ W tym scenariuszu należy zbadać, dlaczego token sygnatury dostępu współdzie
 
 * Zazwyczaj nie należy ustawiać czasu rozpoczęcia, tworząc sygnaturę dostępu współdzielonego dla klienta przeznaczoną do natychmiastowego użycia. Jeśli istnieją małe różnice zegara między hostem generującym sygnaturę dostępu współdzielonego przy użyciu bieżącej godziny a usługą magazynu jest możliwe, że usługa magazynu otrzyma sygnaturę dostępu współdzielonego, która nie jest jeszcze ważna.
 * Nie należy ustawiać bardzo krótkiego czasu wygaśnięcia w sygnaturze dostępu współdzielonego. W tym przypadku niewielkie różnice zegara między hostem generującym sygnaturę dostępu współdzielonego a usługą magazynu mogą prowadzić do tego, że sygnatura dostępu współdzielonego wygasa wcześniej, niż zakładano.
-* Czy parametr Version w kluczu sygnatury dostępu współdzielonego (na przykład **OHR = 2015-04-05**) jest zgodny z wersją używanej biblioteki klienta magazynu? Zalecamy, aby zawsze używać najnowszej wersji [biblioteki klienta magazynu](https://www.nuget.org/packages/WindowsAzure.Storage/).
+* Czy parametr Version w kluczu sygnatury dostępu współdzielonego (na przykład **OHR = 2015-04-05** ) jest zgodny z wersją używanej biblioteki klienta magazynu? Zalecamy, aby zawsze używać najnowszej wersji [biblioteki klienta magazynu](https://www.nuget.org/packages/WindowsAzure.Storage/).
 * Jeśli ponownie wygenerujesz klucze dostępu do magazynu, wszelkie istniejące tokeny SAS mogą zostać unieważnione. Ten problem może wystąpić, jeśli generujesz tokeny SAS z długim czasem wygaśnięcia dla aplikacji klienckich do przechowywania w pamięci podręcznej.
 
-Jeśli używasz biblioteki klienta usługi magazynu do generowania tokenów SAS, utworzenie prawidłowego tokenu jest łatwe. Jeśli jednak korzystasz z interfejsu API REST magazynu i ręcznie konstruujesz tokeny SAS, zobacz [delegowanie dostępu przy użyciu sygnatury dostępu współdzielonego](https://msdn.microsoft.com/library/azure/ee395415.aspx).
+Jeśli używasz biblioteki klienta usługi magazynu do generowania tokenów SAS, utworzenie prawidłowego tokenu jest łatwe. Jeśli jednak korzystasz z interfejsu API REST magazynu i ręcznie konstruujesz tokeny SAS, zobacz [delegowanie dostępu przy użyciu sygnatury dostępu współdzielonego](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 ### <a name="the-client-is-receiving-http-404-not-found-messages"></a><a name="the-client-is-receiving-404-messages"></a>Klient odbiera komunikaty HTTP 404 (nie znaleziono)
 Jeśli aplikacja kliencka odbiera komunikat HTTP 404 (nie znaleziono) z serwera, oznacza to, że obiekt, którego klient próbował użyć (np. jednostka, tabela, obiekt blob, kontener lub kolejka) nie istnieje w usłudze magazynu. Istnieje kilka możliwych przyczyn tej sytuacji, takich jak:
@@ -598,7 +598,7 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 
 Te błędy występują, ponieważ przeglądarka sieci Web implementuje te same ograniczenia zabezpieczeń [zasad pochodzenia](https://www.w3.org/Security/wiki/Same_Origin_Policy) , które uniemożliwiają wywoływanie przez stronę sieci Web interfejsu API w innej domenie z domeny, z której pochodzi strona.
 
-Aby obejść problem z JavaScript, można skonfigurować udostępnianie zasobów między źródłami (CORS) dla usługi magazynu, do której uzyskuje dostęp klient. Aby uzyskać więcej informacji, zobacz [Obsługa udostępniania zasobów między źródłami (CORS) dla usług Azure Storage](https://msdn.microsoft.com/library/azure/dn535601.aspx).
+Aby obejść problem z JavaScript, można skonfigurować udostępnianie zasobów między źródłami (CORS) dla usługi magazynu, do której uzyskuje dostęp klient. Aby uzyskać więcej informacji, zobacz [Obsługa udostępniania zasobów między źródłami (CORS) dla usług Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).
 
 Poniższy przykład kodu pokazuje, jak skonfigurować usługę BLOB Service, aby zezwolić JavaScript działaniu w domenie contoso na dostęp do obiektu BLOB w usłudze BLOB Storage:
 
@@ -633,7 +633,7 @@ Szczegóły wyjątku w kliencie obejmują identyfikator żądania (7e84f12d...) 
 
 Dziennik po stronie serwera zawiera również inny wpis z tą samą wartością **Client-Request-ID** (813ea74f...) dla pomyślnego usunięcia operacji usuwania dla tej samej jednostki oraz z tego samego klienta. Ta operacja usuwania została wykonana bardzo krótko przed żądaniem usunięcia zakończonego niepowodzeniem.
 
-Najbardziej prawdopodobną przyczyną tego scenariusza jest to, że klient wysłał żądanie usunięcia dla jednostki do usługi Table Service, która zakończyła się powodzeniem, ale nie otrzymała potwierdzenia z serwera (prawdopodobnie z powodu tymczasowego problemu z siecią). Klient automatycznie ponowi próbę wykonania operacji (przy użyciu tego samego **identyfikatora Client-Request-ID**) i nie powiodła się, ponieważ jednostka została już usunięta.
+Najbardziej prawdopodobną przyczyną tego scenariusza jest to, że klient wysłał żądanie usunięcia dla jednostki do usługi Table Service, która zakończyła się powodzeniem, ale nie otrzymała potwierdzenia z serwera (prawdopodobnie z powodu tymczasowego problemu z siecią). Klient automatycznie ponowi próbę wykonania operacji (przy użyciu tego samego **identyfikatora Client-Request-ID** ) i nie powiodła się, ponieważ jednostka została już usunięta.
 
 Jeśli ten problem występuje często, należy zbadać, dlaczego klient nie otrzymuje potwierdzeń z usługi Table Service. Jeśli problem występuje sporadycznie, należy zastosować pułapki "HTTP (404) nie znaleziono" i zalogować się na kliencie, ale zezwolić na kontynuowanie działania klienta.
 
@@ -652,7 +652,7 @@ Kod w aplikacji klienckiej usuwa, a następnie natychmiast ponownie tworzy konte
 Aplikacja kliencka powinna używać unikatowych nazw kontenerów za każdym razem, gdy tworzy nowe kontenery, jeśli wzorzec usuń/utwórz ponownie jest typowy.
 
 ### <a name="metrics-show-low-percentsuccess-or-analytics-log-entries-have-operations-with-transaction-status-of-clientothererrors"></a><a name="metrics-show-low-percent-success"></a>Metryki pokazujące niskie PercentSuccess lub wpisy dziennika analizy zawierają operacje ze stanem transakcji ClientOtherErrors
-Metryka **PercentSuccess** przechwytuje procent operacji zakończonych powodzeniem na podstawie ich kodu stanu HTTP. Operacje o kodach stanu 2XX są jak pomyślne, natomiast operacje o kodach stanu w 3XX, 4XX i 5XX zakresy są liczone jako niepowodzenie i niższe wartości metryki **PercentSuccess** . W plikach dziennika magazynu po stronie serwera te operacje są rejestrowane ze stanem transakcji **ClientOtherErrors**.
+Metryka **PercentSuccess** przechwytuje procent operacji zakończonych powodzeniem na podstawie ich kodu stanu HTTP. Operacje o kodach stanu 2XX są jak pomyślne, natomiast operacje o kodach stanu w 3XX, 4XX i 5XX zakresy są liczone jako niepowodzenie i niższe wartości metryki **PercentSuccess** . W plikach dziennika magazynu po stronie serwera te operacje są rejestrowane ze stanem transakcji **ClientOtherErrors** .
 
 Należy pamiętać, że te operacje zostały wykonane pomyślnie i dlatego nie wpływają na inne metryki, takie jak dostępność. Niektóre przykłady operacji, które zostały wykonane pomyślnie, ale mogą spowodować niepowodzenie kodów stanu HTTP:
 
@@ -660,7 +660,7 @@ Należy pamiętać, że te operacje zostały wykonane pomyślnie i dlatego nie w
 * **ResourceAlreadyExists** (konflikt 409), na przykład z operacji **CreateIfNotExist** , w której zasób już istnieje.
 * **ConditionNotMet** (niezmodyfikowana 304), na przykład z operacji warunkowej, takiej jak gdy klient wysyła wartość **ETag** i nagłówek HTTP **If-None-Match** , aby zażądać obrazu tylko wtedy, gdy został on zaktualizowany od czasu ostatniej operacji.
 
-Można znaleźć listę typowych kodów błędów interfejsu API REST, które zwracają usługi magazynu na stronie [kody błędów interfejsu API REST](https://msdn.microsoft.com/library/azure/dd179357.aspx).
+Można znaleźć listę typowych kodów błędów interfejsu API REST, które zwracają usługi magazynu na stronie [kody błędów interfejsu API REST](/rest/api/storageservices/Common-REST-API-Error-Codes).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase-in-storage-capacity-usage"></a><a name="capacity-metrics-show-an-unexpected-increase"></a>Metryki pojemności pokazują nieoczekiwany wzrost użycia pojemności magazynu
 Jeśli widzisz nagłe, nieoczekiwane zmiany zużycia pojemności na koncie magazynu, możesz zbadać przyczyny, najpierw sprawdzając metryki dostępności. na przykład wzrost liczby żądań usunięcia zakończonych niepowodzeniem może prowadzić do zwiększenia ilości magazynu obiektów blob, który jest używany jako operacje oczyszczania specyficzne dla aplikacji, może się zdarzyć, że nie będzie działać w oczekiwany sposób (na przykład ponieważ tokeny sygnatury dostępu współdzielonego użyte do zwolnienia miejsca wygasły).
@@ -733,7 +733,7 @@ Ten dodatek zawiera krótki przewodnik konfigurowania programu Fiddler do przech
 Po uruchomieniu programu programu Fiddler rozpocznie się przechwytywanie ruchu HTTP i HTTPS na komputerze lokalnym. Oto kilka przydatnych poleceń do kontrolowania programu Fiddler:
 
 * Zatrzymywanie i uruchamianie przechwytywania ruchu. W menu głównym przejdź do **pliku** , a następnie kliknij pozycję **Przechwyć ruch** , aby włączyć i wyłączyć przechwytywanie.
-* Zapisz przechwycone dane ruchu. W menu głównym przejdź do **pliku**, kliknij pozycję **Zapisz**, a następnie kliknij pozycję **wszystkie sesje**: umożliwia to zapisanie ruchu w pliku archiwum sesji. Można ponownie załadować archiwum sesji w celu przeprowadzenia analizy lub wysłać je w razie potrzeby do pomocy technicznej firmy Microsoft.
+* Zapisz przechwycone dane ruchu. W menu głównym przejdź do **pliku** , kliknij pozycję **Zapisz** , a następnie kliknij pozycję **wszystkie sesje** : umożliwia to zapisanie ruchu w pliku archiwum sesji. Można ponownie załadować archiwum sesji w celu przeprowadzenia analizy lub wysłać je w razie potrzeby do pomocy technicznej firmy Microsoft.
 
 Aby ograniczyć ilość ruchu przechwytywanego przez programu Fiddler, można użyć filtrów skonfigurowanych na karcie **filtry** . Poniższy zrzut ekranu przedstawia filtr, który przechwytuje tylko ruch wysyłany do punktu końcowego magazynu **contosoemaildist.Table.Core.Windows.NET** :
 
@@ -746,19 +746,19 @@ Poniższa procedura przedstawia sposób przechwytywania szczegółowych informac
 
 1. Uruchom aplikację Wireshark na komputerze lokalnym.
 2. W sekcji **Start** wybierz lokalny interfejs sieciowy lub interfejsy, które są połączone z Internetem.
-3. Kliknij pozycję **Opcje przechwytywania**.
+3. Kliknij pozycję **Opcje przechwytywania** .
 4. Dodaj filtr do pola tekstowego **Filtr przechwytywania** . Na przykład **host contosoemaildist.Table.Core.Windows.NET** skonfiguruje program Wireshark do przechwytywania tylko pakietów wysyłanych do lub z punktu końcowego usługi Table Service na koncie magazynu **contosoemaildist** . Zapoznaj się z [pełną listą filtrów przechwytywania](https://wiki.wireshark.org/CaptureFilters).
 
    ![Zrzut ekranu, który pokazuje, jak dodać filtr do pola tekstowego filtr przechwytywania.][6]
-5. Kliknij przycisk **Uruchom**. Program Wireshark przechwytuje teraz wszystkie pakiety wysyłane do lub z punktu końcowego usługi Table Service podczas korzystania z aplikacji klienckiej na komputerze lokalnym.
-6. Po zakończeniu w menu głównym kliknij polecenie **Przechwytuj** , a następnie **Zatrzymaj**.
-7. Aby zapisać przechwycone dane w pliku przechwytywania programu Wireshark, w menu głównym kliknij **plik** , a następnie **Zapisz**.
+5. Kliknij przycisk **Uruchom** . Program Wireshark przechwytuje teraz wszystkie pakiety wysyłane do lub z punktu końcowego usługi Table Service podczas korzystania z aplikacji klienckiej na komputerze lokalnym.
+6. Po zakończeniu w menu głównym kliknij polecenie **Przechwytuj** , a następnie **Zatrzymaj** .
+7. Aby zapisać przechwycone dane w pliku przechwytywania programu Wireshark, w menu głównym kliknij **plik** , a następnie **Zapisz** .
 
-W programie WireShark zostaną wyróżnione wszystkie błędy, które istnieją w oknie **packetlist** . Możesz również użyć okna **informacje specjalistyczne** ( **Analizuj**, a następnie uzyskać **Informacje o ekspertu**), aby wyświetlić podsumowanie błędów i ostrzeżeń.
+W programie WireShark zostaną wyróżnione wszystkie błędy, które istnieją w oknie **packetlist** . Możesz również użyć okna **informacje specjalistyczne** ( **Analizuj** , a następnie uzyskać **Informacje o ekspertu** ), aby wyświetlić podsumowanie błędów i ostrzeżeń.
 
 ![Zrzut ekranu pokazujący okno informacji o ekspertach, w którym można wyświetlić podsumowanie błędów i ostrzeżeń.][7]
 
-Możesz również wyświetlić dane TCP, gdy warstwa aplikacji widzi ją, klikając prawym przyciskiem myszy dane TCP i wybierając pozycję **Śledź strumień TCP**. Jest to przydatne w przypadku przechwycenia zrzutu bez filtru przechwytywania. Aby uzyskać więcej informacji, zobacz [następujące strumienie TCP](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+Możesz również wyświetlić dane TCP, gdy warstwa aplikacji widzi ją, klikając prawym przyciskiem myszy dane TCP i wybierając pozycję **Śledź strumień TCP** . Jest to przydatne w przypadku przechwycenia zrzutu bez filtru przechwytywania. Aby uzyskać więcej informacji, zobacz [następujące strumienie TCP](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![Zrzut ekranu pokazujący sposób wyświetlania danych TCP jako warstwy aplikacji.][8]
 
@@ -768,15 +768,15 @@ Możesz również wyświetlić dane TCP, gdy warstwa aplikacji widzi ją, klikaj
 >
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>Dodatek 4: używanie programu Excel do wyświetlania metryk i danych dzienników
-Wiele narzędzi umożliwia pobieranie danych metryk magazynu z usługi Azure Table Storage w formacie rozdzielanym, który ułatwia ładowanie danych do programu Excel na potrzeby przeglądania i analizowania. Dane rejestrowania magazynu z usługi Azure Blob Storage mają już format rozdzielany, który można załadować do programu Excel. Należy jednak dodać odpowiednie nagłówki kolumn na podstawie informacji w [formacie dziennika analityka magazynu](https://msdn.microsoft.com/library/azure/hh343259.aspx) i [schematu tabeli metryk analityka magazynu](https://msdn.microsoft.com/library/azure/hh343264.aspx).
+Wiele narzędzi umożliwia pobieranie danych metryk magazynu z usługi Azure Table Storage w formacie rozdzielanym, który ułatwia ładowanie danych do programu Excel na potrzeby przeglądania i analizowania. Dane rejestrowania magazynu z usługi Azure Blob Storage mają już format rozdzielany, który można załadować do programu Excel. Należy jednak dodać odpowiednie nagłówki kolumn na podstawie informacji w [formacie dziennika analityka magazynu](/rest/api/storageservices/Storage-Analytics-Log-Format) i [schematu tabeli metryk analityka magazynu](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
 
 Aby zaimportować dane rejestrowania magazynu do programu Excel po ich pobraniu z magazynu obiektów blob:
 
-* W menu **dane** kliknij **tekst z tekstu**.
-* Przejdź do pliku dziennika, który chcesz wyświetlić, a następnie kliknij przycisk **Importuj**.
-* W kroku 1 **Kreatora importu tekstu**wybierz opcję **rozdzielone**.
+* W menu **dane** kliknij **tekst z tekstu** .
+* Przejdź do pliku dziennika, który chcesz wyświetlić, a następnie kliknij przycisk **Importuj** .
+* W kroku 1 **Kreatora importu tekstu** wybierz opcję **rozdzielone** .
 
-W kroku 1 **Kreatora importu tekstu**wybierz **średnik** jako jedyny ogranicznik i wybierz podwójne cudzysłowy jako **kwalifikator tekstu**. Następnie kliknij przycisk **Zakończ** i wybierz miejsce umieszczenia danych w skoroszycie.
+W kroku 1 **Kreatora importu tekstu** wybierz **średnik** jako jedyny ogranicznik i wybierz podwójne cudzysłowy jako **kwalifikator tekstu** . Następnie kliknij przycisk **Zakończ** i wybierz miejsce umieszczenia danych w skoroszycie.
 
 ### <a name="appendix-5-monitoring-with-application-insights-for-azure-devops"></a><a name="appendix-5"></a>Dodatek 5: monitorowanie za pomocą Application Insights platformy Azure DevOps
 Możesz również użyć funkcji Application Insights dla usługi Azure DevOps w ramach monitorowania wydajności i dostępności. To narzędzie może:

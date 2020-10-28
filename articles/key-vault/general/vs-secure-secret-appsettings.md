@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96b6b262765a361befeadd9b5a42d37ca5e66497
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57cda5104551f8b62d157e443a42c5e3c75e4ddf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372059"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792416"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Bezpieczne Zapisywanie ustawień tajnych aplikacji dla aplikacji sieci Web
 
@@ -30,7 +30,7 @@ Aby upewnić się, że proces tworzenia jest bezpieczny, biblioteki narzędzi i 
 ## <a name="aspnet-and-net-core-applications"></a>Aplikacje ASP.NET i .NET Core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Zapisz ustawienia tajne w magazynie kluczy tajnych użytkownika, który znajduje się poza folderem kontroli źródła
-Jeśli wykonujesz szybki prototyp lub nie masz dostępu do Internetu, Rozpocznij od przeniesienia ustawień tajnych poza folder kontroli źródła do magazynu kluczy tajnych użytkownika. Magazyn kluczy tajnych użytkownika to plik zapisany w folderze profilera użytkownika, więc wpisy tajne nie są zaewidencjonowane do kontroli źródła. Na poniższym diagramie przedstawiono sposób działania [klucza tajnego użytkownika](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) .
+Jeśli wykonujesz szybki prototyp lub nie masz dostępu do Internetu, Rozpocznij od przeniesienia ustawień tajnych poza folder kontroli źródła do magazynu kluczy tajnych użytkownika. Magazyn kluczy tajnych użytkownika to plik zapisany w folderze profilera użytkownika, więc wpisy tajne nie są zaewidencjonowane do kontroli źródła. Na poniższym diagramie przedstawiono sposób działania [klucza tajnego użytkownika](/aspnet/core/security/app-secrets?tabs=visual-studio) .
 
 ![Klucz tajny użytkownika utrzymuje ustawienia tajne poza kontrolą źródła](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -43,7 +43,7 @@ Jeśli opracowujesz projekt i chcesz bezpiecznie udostępniać kod źródłowy, 
 
     ![Utwórz Azure Key Vault](../media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Udziel użytkownikowi i członkom zespołu dostępu do Key Vault. Jeśli masz duży zespół, możesz utworzyć [grupę Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) i dodać tę grupę zabezpieczeń do Key Vault. Na liście rozwijanej uprawnienia do wpisów *tajnych* Sprawdź pozycję *Pobierz* i *wystaw* w obszarze *operacje zarządzania kluczami tajnymi*.
+2. Udziel użytkownikowi i członkom zespołu dostępu do Key Vault. Jeśli masz duży zespół, możesz utworzyć [grupę Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) i dodać tę grupę zabezpieczeń do Key Vault. Na liście rozwijanej uprawnienia do wpisów *tajnych* Sprawdź pozycję *Pobierz* i *wystaw* w obszarze *operacje zarządzania kluczami tajnymi* .
 Jeśli masz już utworzoną aplikację sieci Web, przyznaj aplikacji sieci Web dostęp do Key Vault, aby mógł uzyskać dostęp do magazynu kluczy bez zapisywania wpisu tajnego w ustawieniach lub plikach aplikacji. Wyszukaj swoją aplikację sieci Web według jej nazwy i Dodaj ją w taki sam sposób, jak przyznano użytkownikom dostęp.
 
     ![Dodawanie zasad dostępu Key Vault](../media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
@@ -103,7 +103,7 @@ Aby to zrobić, [Pobierz program .NET 4.7.1](https://www.microsoft.com/download/
 ### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>Zapisz ustawienia tajne w pliku tajnym, który znajduje się poza folderem kontroli źródła
 Jeśli piszesz krótki prototyp i nie chcesz udostępniać zasobów platformy Azure, przejdź do tej opcji.
 
-1. Kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Zarządzaj kluczami tajnymi użytkownika**. Spowoduje to zainstalowanie pakietu NuGet **Microsoft.Configuration.ConfigurationBuilders. UserSecrets** , utworzenie pliku do zapisania ustawień tajnych poza plikiem web.config i dodanie sekcji **ConfigBuilders** w pliku web.config.
+1. Kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Zarządzaj kluczami tajnymi użytkownika** . Spowoduje to zainstalowanie pakietu NuGet **Microsoft.Configuration.ConfigurationBuilders. UserSecrets** , utworzenie pliku do zapisania ustawień tajnych poza plikiem web.config i dodanie sekcji **ConfigBuilders** w pliku web.config.
 
 2. Umieść ustawienia wpisu tajnego w obszarze głównym elementu. Poniżej znajduje się przykład
 

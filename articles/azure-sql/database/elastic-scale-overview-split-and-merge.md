@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84047524"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793470"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Przenoszenie danych między skalowanymi bazami danych w chmurze
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -220,7 +220,7 @@ Usługa Split-Merge używa Diagnostyka Azure w oparciu o zestaw Azure SDK 2,5 na
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
 Aby włączyć monitorowanie i diagnostykę przy użyciu konfiguracji diagnostyki dla ról sieci Web i procesów roboczych dostarczonych przez pakiet NuGet, uruchom następujące polecenia przy użyciu Azure PowerShell:
 
@@ -244,7 +244,7 @@ Więcej informacji na temat sposobu konfigurowania i wdrażania ustawień diagno
 
 ## <a name="retrieve-diagnostics"></a>Pobierz diagnostykę
 
-Możesz łatwo uzyskać dostęp do danych diagnostycznych z programu Visual Studio Eksplorator serwera w części Azure drzewa Eksplorator serwera. Otwórz wystąpienie programu Visual Studio, a następnie na pasku menu kliknij pozycję Widok, a Eksplorator serwera. Kliknij ikonę platformy Azure, aby nawiązać połączenie z subskrypcją platformy Azure. Następnie przejdź do usługi Azure-> Storage-> `<your storage account>` -> tabele — > WADLogsTable. Aby uzyskać więcej informacji, zobacz [Eksplorator serwera](https://msdn.microsoft.com/library/x603htbk.aspx).
+Możesz łatwo uzyskać dostęp do danych diagnostycznych z programu Visual Studio Eksplorator serwera w części Azure drzewa Eksplorator serwera. Otwórz wystąpienie programu Visual Studio, a następnie na pasku menu kliknij pozycję Widok, a Eksplorator serwera. Kliknij ikonę platformy Azure, aby nawiązać połączenie z subskrypcją platformy Azure. Następnie przejdź do usługi Azure-> Storage-> `<your storage account>` -> tabele — > WADLogsTable. Aby uzyskać więcej informacji, zobacz [Eksplorator serwera](/previous-versions/x603htbk(v=vs.140)).
 
 ![WADLogsTable][2]
 

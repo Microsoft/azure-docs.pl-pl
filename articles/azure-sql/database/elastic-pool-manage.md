@@ -9,20 +9,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: bd3917c42859d4240fbb3a75f951ff38a548e204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
+ms.openlocfilehash: 5916a687c4eff4c6c8890b14a8c204cbabc145ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330812"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792195"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Zarządzanie pulami elastycznymi w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 W przypadku puli elastycznej można określić ilość zasobów wymaganych przez pulę elastyczną do obsługi obciążenia jego baz danych oraz ilość zasobów dla każdej bazy danych w puli.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Witryna Azure Portal
 
 Wszystkie ustawienia puli można znaleźć w jednym miejscu: w bloku **Konfigurowanie puli** . Aby rozpocząć, Znajdź pulę elastyczną w Azure Portal a następnie kliknij pozycję **Konfiguruj pulę** w górnej części bloku lub w menu zasób po lewej stronie.
 
@@ -36,11 +36,11 @@ W tym miejscu możesz wprowadzić dowolną kombinację następujących zmian i z
 
 ![Blok konfiguracji elastycznej puli](./media/elastic-pool-manage/configure-pool.png)
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
 Aby tworzyć i zarządzać SQL Database elastycznymi pulami i bazami danych w puli za pomocą Azure PowerShell, należy użyć następujących poleceń cmdlet programu PowerShell. Jeśli musisz zainstalować lub uaktualnić program PowerShell, zobacz [install Azure PowerShell module](/powershell/azure/install-az-ps). Aby utworzyć serwery i zarządzać nimi dla puli elastycznej, zobacz [Tworzenie serwerów i zarządzanie nimi](logical-servers.md). Aby utworzyć reguły zapory i zarządzać nimi, zobacz [Tworzenie reguł zapory i zarządzanie nimi przy użyciu programu PowerShell](firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
 
@@ -65,7 +65,7 @@ Aby tworzyć i zarządzać SQL Database elastycznymi pulami i bazami danych w pu
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby tworzyć pule elastyczne SQL Database i zarządzać nimi za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure), użyj następujących poleceń [SQL Database interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/db) . Używaj usługi [Cloud Shell](/azure/cloud-shell/overview), aby uruchamiać interfejs wiersza polecenia w przeglądarce, albo [zainstaluj](/cli/azure/install-azure-cli) go w systemie macOS, Linux lub Windows.
+Aby tworzyć pule elastyczne SQL Database i zarządzać nimi za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure), użyj następujących poleceń [SQL Database interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/db) . Używaj usługi [Cloud Shell](../../cloud-shell/overview.md), aby uruchamiać interfejs wiersza polecenia w przeglądarce, albo [zainstaluj](/cli/azure/install-azure-cli) go w systemie macOS, Linux lub Windows.
 
 > [!TIP]
 > Przykładowe skrypty interfejsu wiersza polecenia platformy Azure można znaleźć w temacie [Używanie interfejsu wiersza polecenia do przenoszenia bazy danych w SQL Database w elastycznej puli SQL](scripts/move-database-between-elastic-pools-cli.md) i [Używanie interfejsu wiersza polecenia platformy Azure do skalowania elastycznej puli sql w programie Azure SQL Database](scripts/scale-pool-cli.md).
@@ -102,18 +102,18 @@ Aby tworzyć i zarządzać SQL Database elastycznymi pulami i bazami danych w pu
 
 | Polecenie | Opis |
 | --- | --- |
-|[Pule elastyczne — Tworzenie lub aktualizowanie](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Tworzy nową pulę elastyczną lub aktualizuje istniejącą pulę elastyczną.|
-|[Pule elastyczne — usuwanie](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Usuwa pulę elastyczną.|
-|[Pule elastyczne — pobieranie](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Pobiera pulę elastyczną.|
-|[Pule elastyczne — lista według serwera](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Zwraca listę pul elastycznych na serwerze.|
-|[Pule elastyczne — aktualizacja](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Aktualizuje istniejącą pulę elastyczną.|
-|[Działania puli elastycznej](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Zwraca działania puli elastycznej.|
-|[Działania bazy danych puli elastycznej](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Zwraca aktywność dla baz danych w puli elastycznej.|
-|[Bazy danych — Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Tworzy nową bazę danych lub aktualizuje istniejącą bazę danych.|
-|[Bazy danych — Pobierz](https://docs.microsoft.com/rest/api/sql/databases/get)|Pobiera bazę danych.|
-|[Bazy danych — lista według elastycznej puli](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Zwraca listę baz danych w puli elastycznej.|
-|[Bazy danych — lista według serwera](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Zwraca listę baz danych na serwerze.|
-|[Bazy danych — aktualizacja](https://docs.microsoft.com/rest/api/sql/databases/update)|Aktualizuje istniejącą bazę danych.|
+|[Pule elastyczne — Tworzenie lub aktualizowanie](/rest/api/sql/elasticpools/createorupdate)|Tworzy nową pulę elastyczną lub aktualizuje istniejącą pulę elastyczną.|
+|[Pule elastyczne — usuwanie](/rest/api/sql/elasticpools/delete)|Usuwa pulę elastyczną.|
+|[Pule elastyczne — pobieranie](/rest/api/sql/elasticpools/get)|Pobiera pulę elastyczną.|
+|[Pule elastyczne — lista według serwera](/rest/api/sql/elasticpools/listbyserver)|Zwraca listę pul elastycznych na serwerze.|
+|[Pule elastyczne — aktualizacja](/rest/api/sql/elasticpools/listbyserver)|Aktualizuje istniejącą pulę elastyczną.|
+|[Działania puli elastycznej](/rest/api/sql/elasticpoolactivities)|Zwraca działania puli elastycznej.|
+|[Działania bazy danych puli elastycznej](/rest/api/sql/elasticpooldatabaseactivities)|Zwraca aktywność dla baz danych w puli elastycznej.|
+|[Bazy danych — Utwórz lub zaktualizuj](/rest/api/sql/databases/createorupdate)|Tworzy nową bazę danych lub aktualizuje istniejącą bazę danych.|
+|[Bazy danych — Pobierz](/rest/api/sql/databases/get)|Pobiera bazę danych.|
+|[Bazy danych — lista według elastycznej puli](/rest/api/sql/databases/listbyelasticpool)|Zwraca listę baz danych w puli elastycznej.|
+|[Bazy danych — lista według serwera](/rest/api/sql/databases/listbyserver)|Zwraca listę baz danych na serwerze.|
+|[Bazy danych — aktualizacja](/rest/api/sql/databases/update)|Aktualizuje istniejącą bazę danych.|
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: fa471c201965096c4a0f022ab1199d4853128319
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272025"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793079"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfiguracja usługi Storage dla maszyn wirtualnych programu SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,21 +40,21 @@ Aby można było korzystać z ustawień konfiguracji automatycznego magazynu, ma
 
 W poniższych sekcjach opisano sposób konfigurowania magazynu dla nowych maszyn wirtualnych SQL Server.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Podczas aprowizacji maszyny wirtualnej platformy Azure przy użyciu obrazu galerii SQL Server wybierz pozycję **Zmień konfigurację** na karcie **Ustawienia SQL Server** , aby otworzyć stronę Konfiguracja magazynu zoptymalizowanego pod kątem wydajności. Możesz pozostawić wartości domyślne lub zmodyfikować typ konfiguracji dysku, który najlepiej odpowiada Twoim potrzebom, na podstawie obciążenia. 
 
 ![SQL Server konfigurację magazynu maszyny wirtualnej podczas aprowizacji](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Wybierz typ obciążenia, które wdrażasz SQL Server na potrzeby **optymalizacji magazynu**. W przypadku opcji **ogólnej** optymalizacji domyślnie istnieje jeden dysk z danymi o pojemności 5000 maks. liczba IOPS i ten sam dysk jest używany do przechowywania danych, dzienników transakcji i magazynu tempdb. Wybranie opcji **przetwarzanie transakcyjne** (OLTP) lub **Magazyn danych** spowoduje utworzenie oddzielnego dysku dla danych, oddzielnego dysku dla dziennika transakcji i użycie lokalnego SSD dla bazy tempdb. Nie istnieją różnice między **przetwarzaniem transakcyjnym** i **magazynem danych**, ale zmieniają [konfigurację rozłożenia i flagi śledzenia](#workload-optimization-settings). Wybranie usługi Premium Storage ustawia buforowanie do *odczytu* dla dysku danych i *Brak* dla dysku dziennika jako SQL Server najlepszych rozwiązań dotyczących [wydajności maszyn wirtualnych](performance-guidelines-best-practices.md). 
+Wybierz typ obciążenia, które wdrażasz SQL Server na potrzeby **optymalizacji magazynu** . W przypadku opcji **ogólnej** optymalizacji domyślnie istnieje jeden dysk z danymi o pojemności 5000 maks. liczba IOPS i ten sam dysk jest używany do przechowywania danych, dzienników transakcji i magazynu tempdb. Wybranie opcji **przetwarzanie transakcyjne** (OLTP) lub **Magazyn danych** spowoduje utworzenie oddzielnego dysku dla danych, oddzielnego dysku dla dziennika transakcji i użycie lokalnego SSD dla bazy tempdb. Nie istnieją różnice między **przetwarzaniem transakcyjnym** i **magazynem danych** , ale zmieniają [konfigurację rozłożenia i flagi śledzenia](#workload-optimization-settings). Wybranie usługi Premium Storage ustawia buforowanie do *odczytu* dla dysku danych i *Brak* dla dysku dziennika jako SQL Server najlepszych rozwiązań dotyczących [wydajności maszyn wirtualnych](performance-guidelines-best-practices.md). 
 
 ![SQL Server konfigurację magazynu maszyny wirtualnej podczas aprowizacji](./media/storage-configuration/sql-vm-storage-configuration.png)
 
-Konfiguracja dysku jest w pełni dostosowywana, co pozwala na skonfigurowanie topologii magazynu, typu dysku i liczby IOPs potrzebnych dla SQL Server obciążenia maszyny wirtualnej. Istnieje również możliwość korzystania z UltraSSD (wersja zapoznawcza) jako opcji dla **typu dysku** , jeśli maszyna wirtualna SQL Server znajduje się w jednym z obsługiwanych regionów (Wschodnie stany USA 2, Azja Południowo-Wschodnia i Europa Północna) i włączono [dla niej Ultra disks](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+Konfiguracja dysku jest w pełni dostosowywana, co pozwala na skonfigurowanie topologii magazynu, typu dysku i liczby IOPs potrzebnych dla SQL Server obciążenia maszyny wirtualnej. Istnieje również możliwość korzystania z UltraSSD (wersja zapoznawcza) jako opcji dla **typu dysku** , jeśli maszyna wirtualna SQL Server znajduje się w jednym z obsługiwanych regionów (Wschodnie stany USA 2, Azja Południowo-Wschodnia i Europa Północna) i włączono [dla niej Ultra disks](../../../virtual-machines/disks-enable-ultra-ssd.md).  
 
-Ponadto można ustawić buforowanie dla dysków. Maszyny wirtualne platformy Azure mają wielowarstwową technologię buforowania o nazwie [BLOB cache](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) , gdy jest używana z [dyskami w warstwie Premium](/azure/virtual-machines/windows/disks-types#premium-ssd). Pamięć podręczna obiektów BLOB używa kombinacji pamięci RAM maszyny wirtualnej i lokalnego dysku SSD na potrzeby buforowania. 
+Ponadto można ustawić buforowanie dla dysków. Maszyny wirtualne platformy Azure mają wielowarstwową technologię buforowania o nazwie [BLOB cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) , gdy jest używana z [dyskami w warstwie Premium](../../../virtual-machines/disks-types.md#premium-ssd). Pamięć podręczna obiektów BLOB używa kombinacji pamięci RAM maszyny wirtualnej i lokalnego dysku SSD na potrzeby buforowania. 
 
-Buforowanie dysków dla SSD w warstwie Premium może być *tylko do odczytu*, *ReadWrite* lub *none*. 
+Buforowanie dysków dla SSD w warstwie Premium może być *tylko do odczytu* , *ReadWrite* lub *none* . 
 
 - Buforowanie *tylko do odczytu* jest wysoce korzystne dla SQL Server plików danych przechowywanych w Premium Storage. Buforowanie w trybie *tylko* do odczytu umożliwia opóźnienie w przypadku małych odczytów, dużą liczbę operacji we/wy odczytu i przepływność, co oznacza, że operacje odczytu są wykonywane z pamięci podręcznej, która jest w pamięci Te odczyty są znacznie szybsze niż odczyt z dysku danych, który pochodzi z usługi Azure Blob Storage. Usługa Premium Storage nie zlicza odczytów obsługiwanych z pamięci podręcznej do operacji we/wy na dysku. W związku z tym, Twoje zastosowanie ma możliwość osiągnięcia wyższej całkowitej liczby operacji we/wy na sekundę. 
 - *Nie należy* używać konfiguracji pamięci podręcznej dla dysków hostującym SQL Server pliku dziennika, ponieważ plik dziennika jest pisany sekwencyjnie i nie korzysta z buforowania *tylko do odczytu* . 
@@ -94,14 +94,14 @@ Poniższy szablon szybkiego startu umożliwia wdrożenie maszyny wirtualnej SQL 
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-W przypadku istniejących maszyn wirtualnych SQL Server można zmodyfikować niektóre ustawienia magazynu w Azure Portal. Otwórz [zasób usługi SQL Virtual Machines](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)i wybierz pozycję **Przegląd**. Na stronie Przegląd SQL Server jest wyświetlane bieżące użycie magazynu dla maszyny wirtualnej. Na tym wykresie są wyświetlane wszystkie dyski, które znajdują się na maszynie wirtualnej. Dla każdego dysku jest wyświetlana w czterech sekcjach:
+W przypadku istniejących maszyn wirtualnych SQL Server można zmodyfikować niektóre ustawienia magazynu w Azure Portal. Otwórz [zasób usługi SQL Virtual Machines](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)i wybierz pozycję **Przegląd** . Na stronie Przegląd SQL Server jest wyświetlane bieżące użycie magazynu dla maszyny wirtualnej. Na tym wykresie są wyświetlane wszystkie dyski, które znajdują się na maszynie wirtualnej. Dla każdego dysku jest wyświetlana w czterech sekcjach:
 
 * Dane SQL
 * Dziennik SQL
 * Inne (magazyn inny niż SQL)
 * Dostępne
 
-Aby zmodyfikować ustawienia magazynu, wybierz pozycję **Konfiguruj** w obszarze **Ustawienia**. 
+Aby zmodyfikować ustawienia magazynu, wybierz pozycję **Konfiguruj** w obszarze **Ustawienia** . 
 
 ![Konfigurowanie magazynu dla istniejącej maszyny wirtualnej SQL Server](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 

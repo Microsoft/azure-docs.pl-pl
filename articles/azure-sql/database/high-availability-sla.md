@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 93e9ad28b14a51432fd9ccd32d1a155eaff2e190
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c616ba1971fcbb0674a42583b30c25f6ccda6874
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427135"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791787"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -63,7 +63,7 @@ Strefa z nadmiarową wersją architektury wysokiej dostępności dla warstwy us�
 > Aby uzyskać aktualne informacje o regionach, które obsługują nadmiarowe bazy danych strefy, zobacz temat [Obsługa usług według regionów](../../availability-zones/az-region.md). Konfiguracja nadmiarowa strefy jest dostępna tylko wtedy, gdy wybrano sprzęt obliczeniowy 5 rdzeń. Ta funkcja jest niedostępna w wystąpieniu zarządzanym SQL.
 
 > [!NOTE]
-> Ogólnego przeznaczenia bazy danych o rozmiarze 80 rdzeń wirtualny mogą powodować spadek wydajności dzięki konfiguracji nadmiarowej strefy. Operacje, takie jak tworzenie kopii zapasowej, przywracanie, Kopiowanie bazy danych i Konfigurowanie relacji Geo-DR mogą mieć mniejszą wydajność dla pojedynczych baz danych większych niż 1 TB. 
+> Ogólnego przeznaczenia bazy danych o rozmiarze 80 rdzeń wirtualny mogą powodować spadek wydajności dzięki konfiguracji nadmiarowej strefy. Ponadto operacje, takie jak tworzenie kopii zapasowej, przywracanie, Kopiowanie bazy danych i Konfigurowanie relacji Geo-DR mogą mieć mniejszą wydajność dla wszystkich baz danych większych niż 1 TB. 
 
 ## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>Warstwa usług premium i Krytyczne dla działania firmy lokalnie nadmiarowa dostępność
 
@@ -71,7 +71,7 @@ Warstwy usług premium i Krytyczne dla działania firmy wykorzystują model dost
 
 ![Klaster węzłów aparatu bazy danych](./media/high-availability-sla/business-critical-service-tier.png)
 
-Bazowe pliki bazy danych (. mdf/. ldf) są umieszczane w podłączonym magazynie SSD w celu zapewnienia bardzo małych opóźnień we/wy dla obciążenia. Wysoka dostępność jest implementowana przy użyciu technologii podobnego do SQL Server [zawsze włączonymi grupami dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klaster zawiera jedną replikę podstawową, która jest dostępna do obsługi obciążeń klientów odczytu i zapisu, oraz do trzech replik pomocniczych (obliczeniowych i magazynowych) zawierających kopie danych. Węzeł podstawowy ciągle przekazuje zmiany do węzłów pomocniczych w kolejności i gwarantuje, że dane są synchronizowane z co najmniej jedną repliką pomocniczą przed zatwierdzeniem każdej transakcji. Ten proces gwarantuje, że jeśli węzeł podstawowy ulegnie awarii z jakiegokolwiek powodu, zawsze jest w pełni zsynchronizowany węzeł w celu przełączenia w tryb failover. Przełączenie w tryb failover jest inicjowane przez Service Fabric platformy Azure. Gdy replika pomocnicza zostanie nowym węzłem podstawowym, zostanie utworzona inna replika pomocnicza, aby upewnić się, że klaster ma wystarczającą liczbę węzłów (zestaw kworum). Po zakończeniu pracy w trybie failover połączenia SQL platformy Azure są automatycznie przekierowywane do nowego węzła podstawowego.
+Bazowe pliki bazy danych (. mdf/. ldf) są umieszczane w podłączonym magazynie SSD w celu zapewnienia bardzo małych opóźnień we/wy dla obciążenia. Wysoka dostępność jest implementowana przy użyciu technologii podobnego do SQL Server [zawsze włączonymi grupami dostępności](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klaster zawiera jedną replikę podstawową, która jest dostępna do obsługi obciążeń klientów odczytu i zapisu, oraz do trzech replik pomocniczych (obliczeniowych i magazynowych) zawierających kopie danych. Węzeł podstawowy ciągle przekazuje zmiany do węzłów pomocniczych w kolejności i gwarantuje, że dane są synchronizowane z co najmniej jedną repliką pomocniczą przed zatwierdzeniem każdej transakcji. Ten proces gwarantuje, że jeśli węzeł podstawowy ulegnie awarii z jakiegokolwiek powodu, zawsze jest w pełni zsynchronizowany węzeł w celu przełączenia w tryb failover. Przełączenie w tryb failover jest inicjowane przez Service Fabric platformy Azure. Gdy replika pomocnicza zostanie nowym węzłem podstawowym, zostanie utworzona inna replika pomocnicza, aby upewnić się, że klaster ma wystarczającą liczbę węzłów (zestaw kworum). Po zakończeniu pracy w trybie failover połączenia SQL platformy Azure są automatycznie przekierowywane do nowego węzła podstawowego.
 
 W ramach dodatkowych korzyści model dostępności Premium obejmuje możliwość przekierowania połączeń usługi Azure SQL tylko do odczytu do jednej z replik pomocniczych. Ta funkcja jest nazywana [skalowaniem do odczytu](read-scale-out.md). Zapewnia 100% dodatkowej pojemności obliczeniowej bez dodatkowej opłaty za magazyn operacji tylko do odczytu, na przykład obciążenia analityczne, z repliki podstawowej.
 
@@ -82,7 +82,7 @@ Domyślnie klaster węzłów dla modelu dostępności Premium jest tworzony w ty
 Ze względu na to, że nadmiarowe bazy danych strefy mają repliki w różnych centrach, z odległości między nimi, zwiększone opóźnienie sieci może wydłużyć czas zatwierdzania i w ten sposób mieć wpływ na wydajność niektórych obciążeń OLTP. Zawsze możesz wrócić do konfiguracji pojedynczej strefy, wyłączając ustawienie nadmiarowości strefy. Ten proces jest operacją online podobną do zwykłego uaktualnienia warstwy usług. Na końcu procesu baza danych lub Pula jest migrowana ze strefy nadmiarowego pierścień do pojedynczego pierścienia strefy lub odwrotnie.
 
 > [!IMPORTANT]
-> Nadmiarowe bazy danych stref i pule elastyczne są obecnie obsługiwane tylko w warstwach usług premium i Krytyczne dla działania firmy w wybranych regionach. W przypadku korzystania z warstwy Krytyczne dla działania firmy konfiguracja nadmiarowa strefy jest dostępna tylko po wybraniu sprzętu obliczeniowego 5 rdzeń. Aby uzyskać aktualne informacje o regionach, które obsługują nadmiarowe bazy danych strefy, zobacz temat [Obsługa usług według regionów](../../availability-zones/az-region.md).
+> W przypadku korzystania z warstwy Krytyczne dla działania firmy konfiguracja nadmiarowa strefy jest dostępna tylko po wybraniu sprzętu obliczeniowego 5 rdzeń. Aby uzyskać aktualne informacje o regionach, które obsługują nadmiarowe bazy danych strefy, zobacz temat [Obsługa usług według regionów](../../availability-zones/az-region.md).
 
 > [!NOTE]
 > Ta funkcja jest niedostępna w wystąpieniu zarządzanym SQL.
@@ -122,9 +122,9 @@ Przejście w tryb failover można zainicjować przy użyciu programu PowerShell,
 
 |Typ wdrożenia|PowerShell|Interfejs API REST| Interfejs wiersza polecenia platformy Azure|
 |:---|:---|:---|:---|
-|baza danych|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Tryb failover bazy danych](/rest/api/sql/databases(failover)/failover/)|[AZ REST](https://docs.microsoft.com/cli/azure/reference-index#az-rest) może służyć do wywoływania interfejsu API REST z interfejsu wiersza polecenia platformy Azure|
-|Pula elastyczna|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Tryb failover puli elastycznej](/rest/api/sql/elasticpools(failover)/failover/)|[AZ REST](https://docs.microsoft.com/cli/azure/reference-index#az-rest) może służyć do wywoływania interfejsu API REST z interfejsu wiersza polecenia platformy Azure|
-|Wystąpienie zarządzane|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Wystąpienia zarządzane — tryb failover](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[AZ SQL mi tryb failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|baza danych|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Tryb failover bazy danych](/rest/api/sql/databases(failover)/failover/)|[AZ REST](/cli/azure/reference-index#az-rest) może służyć do wywoływania interfejsu API REST z interfejsu wiersza polecenia platformy Azure|
+|Pula elastyczna|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Tryb failover puli elastycznej](/rest/api/sql/elasticpools(failover)/failover/)|[AZ REST](/cli/azure/reference-index#az-rest) może służyć do wywoływania interfejsu API REST z interfejsu wiersza polecenia platformy Azure|
+|Wystąpienie zarządzane|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Wystąpienia zarządzane — tryb failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[AZ SQL mi tryb failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > Polecenie przełączenia w tryb failover nie jest dostępne do odczytu pomocniczych replik baz danych.

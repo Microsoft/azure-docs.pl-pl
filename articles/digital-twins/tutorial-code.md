@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e44fe44285a6693583c1b16645ad0d023428c72b
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dd7c5da84d6330e0214404f55aad9487c71b0a29
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494688"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792433"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -41,11 +41,11 @@ Co należy zrobić:
 
 Gdy wszystko będzie gotowe do pracy z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji, Rozpocznij Konfigurowanie projektu aplikacji klienckiej. 
 
-Otwórz wiersz polecenia lub inne okno konsoli na maszynie i Utwórz pusty katalog projektu, w którym chcesz przechowywać swoją służbę w trakcie tego samouczka. Nazwij katalog, którego chcesz dotyczyć (na przykład *DigitalTwinsCodeTutorial*).
+Otwórz wiersz polecenia lub inne okno konsoli na maszynie i Utwórz pusty katalog projektu, w którym chcesz przechowywać swoją służbę w trakcie tego samouczka. Nazwij katalog, którego chcesz dotyczyć (na przykład *DigitalTwinsCodeTutorial* ).
 
 Przejdź do nowego katalogu.
 
-W katalogu projektu Utwórz pusty projekt aplikacji konsoli .NET. W oknie polecenia Uruchom następujące polecenie, aby utworzyć minimalny projekt w języku C# dla konsoli programu:
+W katalogu projektu **Utwórz pusty projekt aplikacji konsoli .NET** . W oknie polecenia można uruchomić następujące polecenie, aby utworzyć minimalny projekt w języku C# dla konsoli programu:
 
 ```cmd/sh
 dotnet new console
@@ -53,16 +53,11 @@ dotnet new console
 
 Spowoduje to utworzenie kilku plików znajdujących się w katalogu, w tym jeden o nazwie *program.cs* , w którym będzie można napisać większość kodu.
 
-Następnie Dodaj dwa niezbędne zależności do pracy z usługą Azure Digital bliźniaczych reprezentacji:
-
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
-```
-
-Pierwsza zależność to [usługa Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). Druga zależność zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
-
 Pozostaw otwarte okno polecenia, ponieważ będziesz nadal korzystać z niego w całym samouczku.
+
+Następnie **Dodaj dwie zależności do projektu** , które będą konieczne do pracy z usługą Azure Digital bliźniaczych reprezentacji. Możesz użyć linków poniżej, aby przejść do pakietów w pakiecie NuGet, gdzie można znaleźć polecenia konsoli (w tym dla interfejsu wiersza polecenia platformy .NET), aby dodać najnowszą wersję każdej do projektu.
+* [**Azure. DigitalTwins. Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Jest to pakiet dla [zestawu SDK Digital bliźniaczych reprezentacji systemu Azure dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+* [**Azure. Identity**](https://www.nuget.org/packages/Azure.Identity). Ta biblioteka zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
 
 ## <a name="get-started-with-project-code"></a>Wprowadzenie do kodu projektu
 
@@ -108,7 +103,7 @@ W pierwszej kolejności aplikacja musi być uwierzytelniana w usłudze Azure Dig
 
 Aby można było przeprowadzić uwierzytelnianie, potrzebna jest *Nazwa hosta* wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-W *program.cs*wklej poniższy kod poniżej "Hello, World!" Linia wydruku w `Main` metodzie. Ustaw wartość `adtInstanceUrl` na *nazwę hosta*usługi Azure Digital bliźniaczych reprezentacji.
+W *program.cs* wklej poniższy kod poniżej "Hello, World!" Linia wydruku w `Main` metodzie. Ustaw wartość `adtInstanceUrl` na *nazwę hosta* usługi Azure Digital bliźniaczych reprezentacji.
 
 ```csharp
 string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
@@ -126,16 +121,16 @@ dotnet run
 ```
 
 Spowoduje to przywrócenie zależności od pierwszego uruchomienia, a następnie wykonanie programu. 
-* Jeśli wystąpi błąd, program drukuje *klienta usługi, który został utworzony — gotowy do użycia*.
+* Jeśli wystąpi błąd, program drukuje *klienta usługi, który został utworzony — gotowy do użycia* .
 * Ponieważ nie ma jeszcze żadnej obsługi błędów w tym projekcie, jeśli coś się nie dzieje, zobaczysz wyjątek zgłoszony przez kod.
 
 ### <a name="upload-a-model"></a>Przekaż model
 
-Usługa Azure Digital bliźniaczych reprezentacji nie ma słownika domeny wewnętrznej. Typy elementów w środowisku, które można reprezentować w usłudze Azure Digital bliźniaczych reprezentacji, są definiowane przez użytkownika przy użyciu **modeli**. [Modele](concepts-models.md) są podobne do klas w języku programowania zorientowanym na obiekty; udostępniają one szablony zdefiniowane przez użytkownika na potrzeby [cyfrowego bliźniaczych reprezentacji](concepts-twins-graph.md) i tworzenia wystąpienia w przyszłości. Są one zapisywane w języku podobnym do notacji JSON o nazwie **Digital bliźniaczych reprezentacji Definition Language (DTDL)**.
+Usługa Azure Digital bliźniaczych reprezentacji nie ma słownika domeny wewnętrznej. Typy elementów w środowisku, które można reprezentować w usłudze Azure Digital bliźniaczych reprezentacji, są definiowane przez użytkownika przy użyciu **modeli** . [Modele](concepts-models.md) są podobne do klas w języku programowania zorientowanym na obiekty; udostępniają one szablony zdefiniowane przez użytkownika na potrzeby [cyfrowego bliźniaczych reprezentacji](concepts-twins-graph.md) i tworzenia wystąpienia w przyszłości. Są one zapisywane w języku podobnym do notacji JSON o nazwie **Digital bliźniaczych reprezentacji Definition Language (DTDL)** .
 
 Pierwszym krokiem tworzenia rozwiązania Digital bliźniaczych reprezentacji na platformie Azure jest zdefiniowanie co najmniej jednego modelu w pliku DTDL.
 
-W katalogu, w którym został utworzony projekt, Utwórz nowy plik *JSON* o nazwie *SampleModel.json*. Wklej w następującej treści pliku: 
+W katalogu, w którym został utworzony projekt, Utwórz nowy plik *JSON* o nazwie *SampleModel.json* . Wklej w następującej treści pliku: 
 
 ```json
 {
@@ -158,7 +153,7 @@ W katalogu, w którym został utworzony projekt, Utwórz nowy plik *JSON* o nazw
 ```
 
 > [!TIP]
-> Jeśli używasz programu Visual Studio na potrzeby tego samouczka, możesz chcieć wybrać nowo utworzony plik JSON i ustawić właściwość *Kopiuj do katalogu wyjściowego* w Inspektorze właściwości, aby *skopiować w przypadku, gdy nowszy* lub *Kopiuj zawsze*. Umożliwi to programowi Visual Studio znalezienie pliku JSON z domyślną ścieżką podczas uruchamiania programu przy użyciu klawisza **F5** w pozostałej części tego samouczka.
+> Jeśli używasz programu Visual Studio na potrzeby tego samouczka, możesz chcieć wybrać nowo utworzony plik JSON i ustawić właściwość *Kopiuj do katalogu wyjściowego* w Inspektorze właściwości, aby *skopiować w przypadku, gdy nowszy* lub *Kopiuj zawsze* . Umożliwi to programowi Visual Studio znalezienie pliku JSON z domyślną ścieżką podczas uruchamiania programu przy użyciu klawisza **F5** w pozostałej części tego samouczka.
 
 > [!TIP] 
 > Istnieje [przykład modułu sprawdzania poprawności](/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [*: analizowanie i weryfikowanie modeli*](how-to-parse-models.md).
@@ -263,7 +258,7 @@ Od tego momentu samouczek umieści wszystkie wywołania metod usługi w obsłudz
 
 ### <a name="create-digital-twins"></a>Utwórz cyfrowy bliźniaczych reprezentacji
 
-Po przekazaniu modelu do usługi Azure Digital bliźniaczych reprezentacji można użyć tej definicji modelu do utworzenia **cyfrowego bliźniaczych reprezentacji**. [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) to wystąpienia modelu i reprezentujące jednostki w środowisku biznesowym — takie jak czujniki w farmie, pokoje w budynku lub lampy w kabinie. Ta sekcja tworzy kilka bliźniaczych reprezentacji cyfrowych na podstawie przekazanego wcześniej modelu.
+Po przekazaniu modelu do usługi Azure Digital bliźniaczych reprezentacji można użyć tej definicji modelu do utworzenia **cyfrowego bliźniaczych reprezentacji** . [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) to wystąpienia modelu i reprezentujące jednostki w środowisku biznesowym — takie jak czujniki w farmie, pokoje w budynku lub lampy w kabinie. Ta sekcja tworzy kilka bliźniaczych reprezentacji cyfrowych na podstawie przekazanego wcześniej modelu.
 
 Dodaj te nowe `using` instrukcje u góry, ponieważ przykład kodu używa wbudowanego serializatora JSON programu .NET w systemie `System.Text.Json` i `Serialization` przestrzeni nazw z [zestawu Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [link zmodyfikowany dla wersji zapoznawczej]:
 
@@ -304,7 +299,7 @@ Należy zauważyć, że żaden błąd nie jest zgłaszany, gdy bliźniaczych rep
 
 ### <a name="create-relationships"></a>Utwórz relacje
 
-Następnie można utworzyć **relacje** między utworzonym bliźniaczych reprezentacji, aby połączyć je z **wykresem bliźniaczym**. [Wykresy bliźniaczy](concepts-twins-graph.md) są używane do reprezentowania całego środowiska.
+Następnie można utworzyć **relacje** między utworzonym bliźniaczych reprezentacji, aby połączyć je z **wykresem bliźniaczym** . [Wykresy bliźniaczy](concepts-twins-graph.md) są używane do reprezentowania całego środowiska.
 
 Aby ułatwić tworzenie relacji, Ten przykładowy kod używa `Azure.DigitalTwins.Core.Serialization` przestrzeni nazw. Dodano ten projekt do projektu wcześniej w sekcji [*Create Digital bliźniaczych reprezentacji*](#create-digital-twins) .
 

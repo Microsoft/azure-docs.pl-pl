@@ -11,12 +11,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152161"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792467"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Strumienie urządzeń IoT Hub (wersja zapoznawcza)
 
@@ -56,7 +57,7 @@ Programowe tworzenie strumienia urządzeń za pomocą zestawu SDK obejmuje nast�
 
 1. Aplikacja urządzenia rejestruje wywołanie zwrotne z wyprzedzeniem, aby otrzymywać powiadomienia o tym, kiedy nowy strumień urządzenia zostanie zainicjowany do urządzenia. Ten krok zazwyczaj odbywa się podczas uruchamiania urządzenia i łączenia się z IoT Hub.
 
-2. Program po stronie usługi inicjuje strumień urządzenia w razie konieczności, podając identyfikator urządzenia (_nie_ adres IP).
+2. Program po stronie usługi inicjuje strumień urządzenia w razie konieczności, podając identyfikator urządzenia ( _nie_ adres IP).
 
 3. Centrum IoT powiadamia program po stronie urządzenia przez wywołanie wywołania zwrotnego zarejestrowanego w kroku 1. Urządzenie może zaakceptować lub odrzucić żądanie zainicjowania strumienia. Ta logika może być specyficzna dla scenariusza aplikacji. Jeśli żądanie strumienia zostało odrzucone przez urządzenie, IoT Hub informuje odpowiednio usługę; w przeciwnym razie wykonaj poniższe kroki.
 
@@ -103,7 +104,7 @@ Dane wyjściowe to obiekt JSON wszystkich punktów końcowych, do których może
 ```
 
 > [!NOTE]
-> Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.57 lub nowszej. Najnowszą wersję można pobrać ze strony [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.57 lub nowszej. Najnowszą wersję można pobrać ze strony [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) .
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Zezwalaj na połączenia wychodzące z punktami końcowymi przesyłania strumieniowego urządzeń
@@ -119,28 +120,28 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.57 lub nowszej. Najnowszą wersję można pobrać ze strony [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.57 lub nowszej. Najnowszą wersję można pobrać ze strony [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) .
 >
 
-## <a name="troubleshoot-via-device-streams-activity-logs"></a>Rozwiązywanie problemów za pomocą dzienników aktywności strumieni urządzeń
+## <a name="troubleshoot-via-device-streams-resource-logs"></a>Rozwiązywanie problemów za pomocą dzienników zasobów strumieni urządzeń
 
-Dzienniki Azure Monitor można skonfigurować w celu zebrania dziennika aktywności strumieni urządzeń w IoT Hub. Może to być bardzo przydatne w scenariuszach rozwiązywania problemów.
+Można skonfigurować Azure Monitor do zbierania [dzienników zasobów dla strumieni urządzeń](monitor-iot-hub-reference.md#device-streams-preview) emitowanych przez IoT Hub. Może to być bardzo przydatne w scenariuszach rozwiązywania problemów.
 
-Postępuj zgodnie z poniższymi instrukcjami, aby skonfigurować Azure Monitor dzienników dla działań związanych z przesyłaniem strumieniowym urządzeń IoT Hub:
+Wykonaj poniższe kroki, aby utworzyć ustawienie diagnostyki umożliwiające wysyłanie dzienników strumieni urządzeń dla IoT Hub do Azure Monitor dzienników:
 
-1. Przejdź do karty *Ustawienia diagnostyczne* w IoT Hub, a następnie kliknij pozycję *Włącz link diagnostyczny* .
+1. W Azure Portal przejdź do centrum IoT Hub. W okienku po lewej stronie w obszarze **monitorowanie** wybierz pozycję **Ustawienia diagnostyczne** . Następnie wybierz pozycję **Dodaj ustawienie diagnostyczne** .
 
-   !["Włączanie dzienników diagnostycznych"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+2. Podaj nazwę dla ustawienia diagnostyki i wybierz pozycję **DeviceStreams** z listy dzienników. Następnie wybierz pozycję **Wyślij do log Analytics** . Będziesz mieć możliwość wybrania istniejącego obszaru roboczego Log Analytics lub utworzenia nowego.
 
-2. Podaj nazwę ustawień diagnostycznych i wybierz opcję *Wyślij do log Analytics* . Nastąpi wybranie istniejącego zasobu obszaru roboczego Log Analytics lub utworzenie nowego. Ponadto sprawdź *DeviceStreams* z listy.
+    :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Włączanie dzienników strumieni urządzeń":::
 
-    !["Włączanie dzienników strumieni urządzeń"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
-
-3. Teraz możesz uzyskiwać dostęp do dzienników strumieni urządzeń na karcie *dzienniki* w portalu IoT Hub. Dzienniki aktywności strumienia urządzeń będą widoczne w `AzureDiagnostics` tabeli i mają `Category=DeviceStreams` .
+3. Po utworzeniu ustawienia diagnostycznego w celu wysłania dzienników strumieni urządzeń do obszaru roboczego Log Analytics można uzyskać dostęp do dzienników, wybierając pozycję **dzienniki** w obszarze **monitorowanie** w lewym okienku centrum IoT w programie Azure Portal. Dzienniki strumieni urządzeń będą widoczne w `AzureDiagnostics` tabeli i mają `Category=DeviceStreams` . Należy pamiętać, że może upłynąć kilka minut po operacji, w której dzienniki będą widoczne w tabeli.
 
    Jak pokazano poniżej, tożsamość urządzenia docelowego i wynik operacji są również dostępne w dziennikach.
 
    !["Dostęp do dzienników strumieni urządzeń"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
+
+Aby dowiedzieć się więcej o korzystaniu z Azure Monitor z IoT Hub, zobacz [Monitor IoT Hub](monitor-iot-hub.md). Informacje o wszystkich dziennikach zasobów, metrykach i tabelach dostępnych dla IoT Hub można znaleźć w temacie [monitoring Azure IoT Hub Data Reference](monitor-iot-hub-reference.md).
 
 ## <a name="regional-availability"></a>Dostępność regionalna
 
@@ -182,7 +183,7 @@ W przykładzie lokalnego serwera proxy przedstawiono sposób włączania tunelow
 
 W tej sekcji opisano użycie strumieni urządzeń w celu umożliwienia użytkownikowi SSH na urządzeniu za pośrednictwem strumieni urządzeń (przypadek dla protokołu RDP lub innej aplikacji klienta/serwera jest podobny przy użyciu odpowiedniego portu protokołu).
 
-Instalator korzysta z dwóch *lokalnych programów serwera proxy* przedstawionych na poniższym rysunku, mianowicie *serwera proxy lokalnego urządzenia* i *lokalnego serwera proxy usługi*. Lokalne programy proxy są odpowiedzialne za wykonywanie [uzgadniania inicjacji strumienia urządzenia](#device-stream-creation-flow) z IoT Hub i współdziałanie z klientem SSH oraz demonem SSH przy użyciu zwykłych gniazd klienta/serwera.
+Instalator korzysta z dwóch *lokalnych programów serwera proxy* przedstawionych na poniższym rysunku, mianowicie *serwera proxy lokalnego urządzenia* i *lokalnego serwera proxy usługi* . Lokalne programy proxy są odpowiedzialne za wykonywanie [uzgadniania inicjacji strumienia urządzenia](#device-stream-creation-flow) z IoT Hub i współdziałanie z klientem SSH oraz demonem SSH przy użyciu zwykłych gniazd klienta/serwera.
 
 !["Konfiguracja serwera proxy usługi Device Stream dla protokołu SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
-ms.openlocfilehash: c1f60888a3d1fda50e63c7d11ea5d871f7c1e9fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33c63ffc4220da6d98c462039897067e4ba69491
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321343"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793164"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database i warstwy usługi wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ W poniższej tabeli opisano kluczowe różnice między warstwami usług dla najn
 | **Rozmiar obliczeń**| Baza danych SQL | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych |
 | | Wystąpienie zarządzane SQL | 4, 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Nie dotyczy | 4, 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
 | | Pule wystąpień zarządzanych przez program SQL | 2, 4, 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | NIE DOTYCZY | NIE DOTYCZY |
-| **Typ magazynu** | Wszystkie | Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
+| **Typ magazynu** | Wszystko | Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
 | **Rozmiar bazy danych** | Baza danych SQL | 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
 | | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Nie dotyczy | 32 GB – 4 TB |
 | **Rozmiar magazynu** | Baza danych SQL | 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
@@ -53,8 +53,8 @@ W poniższej tabeli opisano kluczowe różnice między warstwami usług dla najn
 | | Wystąpienie zarządzane SQL  | [24 GB na rdzeń wirtualny](../managed-instance/resource-limits.md#service-tier-characteristics) | Nie dotyczy | Do 4 TB — [ograniczone przez rozmiar magazynu](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Przepływność zapisu dziennika** | Baza danych SQL | [1,875 MB/s na rdzeń wirtualny (maksymalnie 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s na rdzeń wirtualny (maksymalnie 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Wystąpienie zarządzane SQL | [3 MB/s na rdzeń wirtualny (maksymalnie 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | Nie dotyczy | [4 MB/s na rdzeń wirtualny (maksymalnie 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
-|**Dostępność**|Wszystkie| 99,99% |  [99,95% z jedną repliką pomocniczą, 99,99% z więcej replik](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% ze strefą nadmiarową pojedynczą bazą danych](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Tworzenie kopii zapasowych**|Wszystkie|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
+|**Dostępność**|Wszystko| 99,99% |  [99,95% z jedną repliką pomocniczą, 99,99% z więcej replik](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% ze strefą nadmiarową pojedynczą bazą danych](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**Tworzenie kopii zapasowych**|Wszystko|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
 |**Przetwarzanie OLTP w pamięci** | | NIE DOTYCZY | NIE DOTYCZY | Dostępne |
 |**Repliki tylko do odczytu**| | 0 wbudowane <br> 0-4 przy użyciu [replikacji geograficznej](active-geo-replication-overview.md) | 0-4 wbudowane | 1 wbudowana, uwzględniona w cenie <br> 0-4 przy użyciu [replikacji geograficznej](active-geo-replication-overview.md) |
 |**Cennik/rozliczenia** | Baza danych SQL | [rdzeń wirtualny, zarezerwowany magazyn i magazyn kopii zapasowych](https://azure.microsoft.com/pricing/details/sql-database/single/) są rozliczone. <br/>Liczba operacji we/wy nie jest naliczana. | [rdzeń wirtualny dla każdej repliki i używanej pamięci masowej](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Liczba operacji we/wy nie została jeszcze obciążona. | [rdzeń wirtualny, zarezerwowany magazyn i magazyn kopii zapasowych](https://azure.microsoft.com/pricing/details/sql-database/single/) są rozliczone. <br/>Liczba operacji we/wy nie jest naliczana. |
@@ -84,7 +84,7 @@ Poniższe czynniki wpływają na ilość miejsca do magazynowania używanego dla
 > [!IMPORTANT]
 > Opłaty są naliczane za łączny magazyn przeznaczony dla plików MDF i LDF.
 
-Aby monitorować bieżący łączny rozmiar plików MDF i LDF, użyj [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Aby monitorować bieżący rozmiar poszczególnych plików MDF i LDF, użyj [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+Aby monitorować bieżący łączny rozmiar plików MDF i LDF, użyj [sp_spaceused](/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Aby monitorować bieżący rozmiar poszczególnych plików MDF i LDF, użyj [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
 > W pewnych okolicznościach może być konieczne zmniejszenie bazy danych w celu Odbierz nieużywanej przestrzeni. Aby uzyskać więcej informacji, zobacz [Zarządzanie obszarem plików w Azure SQL Database](file-space-manage.md).
@@ -93,8 +93,8 @@ Aby monitorować bieżący łączny rozmiar plików MDF i LDF, użyj [sp_spaceus
 
 Magazyn dla kopii zapasowych bazy danych jest przypisywany do obsługi funkcji przywracania do punktu w czasie (kopie) oraz [długoterminowego przechowywania (LTR)](long-term-retention-overview.md) SQL Database i wystąpienia zarządzanego SQL. Ten magazyn jest przypisywany osobno dla każdej bazy danych i rozliczany jako dwa oddzielne opłaty za bazę danych.
 
-- **Kopie**: kopie zapasowe pojedynczych baz danych są kopiowane do [magazynu geograficznie nadmiarowego (RA-GRS) z dostępem do odczytu](../../storage/common/geo-redundant-design.md) . Rozmiar magazynu jest zwiększany dynamicznie w miarę tworzenia nowych kopii zapasowych. Magazyn jest używany przez cotygodniowe pełne kopie zapasowe, codzienne różnicowe kopie zapasowe i kopie zapasowe dziennika transakcji, które są kopiowane co 5 minut. Użycie magazynu zależy od szybkości zmiany bazy danych i okresu przechowywania kopii zapasowych. Dla każdej bazy danych można skonfigurować oddzielny okres przechowywania od 7 do 35 dni. Minimalna wielkość magazynu równa 100% (1x) rozmiaru bazy danych jest zapewniana bez dodatkowych opłat. W przypadku większości baz danych ta kwota jest wystarczająca do przechowywania 7 dni wykonywania kopii zapasowych.
-- **Ltr**: masz również możliwość skonfigurowania długoterminowego przechowywania pełnych kopii zapasowych przez maksymalnie 10 lat (Ta funkcja jest w [ograniczonej publicznej wersji zapoznawczej dla wystąpienia zarządzanego SQL](long-term-retention-overview.md#sql-managed-instance-support). W przypadku skonfigurowania zasad LTR te kopie zapasowe są przechowywane w magazynie RA-GRS automatycznie, ale można kontrolować, jak często są kopiowane kopie zapasowe. Aby spełnić inne wymagania dotyczące zgodności, można wybrać różne okresy przechowywania dla cotygodniowych, comiesięcznych i/lub corocznych kopii zapasowych. Wybrana konfiguracja określa, ile miejsca do magazynowania będzie używany do tworzenia kopii zapasowych. Aby oszacować koszt magazynu LTR, możesz użyć kalkulatora cen. Aby uzyskać więcej informacji, zobacz [SQL Database okres przechowywania długoterminowego](long-term-retention-overview.md).
+- **Kopie** : kopie zapasowe pojedynczych baz danych są kopiowane do [magazynu geograficznie nadmiarowego (RA-GRS) z dostępem do odczytu](../../storage/common/geo-redundant-design.md) . Rozmiar magazynu jest zwiększany dynamicznie w miarę tworzenia nowych kopii zapasowych. Magazyn jest używany przez cotygodniowe pełne kopie zapasowe, codzienne różnicowe kopie zapasowe i kopie zapasowe dziennika transakcji, które są kopiowane co 5 minut. Użycie magazynu zależy od szybkości zmiany bazy danych i okresu przechowywania kopii zapasowych. Dla każdej bazy danych można skonfigurować oddzielny okres przechowywania od 7 do 35 dni. Minimalna wielkość magazynu równa 100% (1x) rozmiaru bazy danych jest zapewniana bez dodatkowych opłat. W przypadku większości baz danych ta kwota jest wystarczająca do przechowywania 7 dni wykonywania kopii zapasowych.
+- **Ltr** : masz również możliwość skonfigurowania długoterminowego przechowywania pełnych kopii zapasowych przez maksymalnie 10 lat (Ta funkcja jest w [ograniczonej publicznej wersji zapoznawczej dla wystąpienia zarządzanego SQL](long-term-retention-overview.md#sql-managed-instance-support). W przypadku skonfigurowania zasad LTR te kopie zapasowe są przechowywane w magazynie RA-GRS automatycznie, ale można kontrolować, jak często są kopiowane kopie zapasowe. Aby spełnić inne wymagania dotyczące zgodności, można wybrać różne okresy przechowywania dla cotygodniowych, comiesięcznych i/lub corocznych kopii zapasowych. Wybrana konfiguracja określa, ile miejsca do magazynowania będzie używany do tworzenia kopii zapasowych. Aby oszacować koszt magazynu LTR, możesz użyć kalkulatora cen. Aby uzyskać więcej informacji, zobacz [SQL Database okres przechowywania długoterminowego](long-term-retention-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -102,5 +102,4 @@ Aby uzyskać szczegółowe informacje o określonych rozmiarach obliczeniowych i
 
 - [limity zasobów opartych na rdzeń wirtualny Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [limity zasobów opartych na rdzeń wirtualny dla baz danych w puli w Azure SQL Database](resource-limits-vcore-elastic-pools.md).
-- [limity zasobów opartych na rdzeń wirtualny dla wystąpienia zarządzanego Azure SQL](../managed-instance/resource-limits.md). 
-
+- [limity zasobów opartych na rdzeń wirtualny dla wystąpienia zarządzanego Azure SQL](../managed-instance/resource-limits.md).

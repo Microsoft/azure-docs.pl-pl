@@ -11,14 +11,14 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: dbf5c06adcddb5b3dfa3cdf2e0127f8a36c59885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5a2336728d4507544fa621961c2f346746c2bb9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620107"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792654"
 ---
-# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Tworzenie alertów dla wystąpienia zarządzanego Azure SQL przy użyciu Azure Portal
+# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Tworzenie alertów dla wystąpienia zarządzanego usługi Azure SQL przy użyciu witryny Azure Portal
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 W tym artykule opisano sposób konfigurowania alertów dla baz danych w bazie danych wystąpienia zarządzanego Azure SQL przy użyciu Azure Portal. Alerty mogą wysłać wiadomość e-mail, wywołać element webhook, wykonać funkcję usługi Azure Functions, wykonać element runbook, wywołać zewnętrzny system obsługi biletów zgodny z narzędziem ITSM, nawiązać połączenie telefoniczne lub wysłać wiadomość tekstową, gdy dana metryka, na przykład rozmiar magazynu wystąpienia lub użycie procesora CPU, osiągnie wstępnie zdefiniowany próg. W tym artykule przedstawiono również najlepsze rozwiązania dotyczące ustawiania okresów alertów.
@@ -145,5 +145,5 @@ Aby wyświetlać, wstrzymywać, uaktywniać, modyfikować i usuwać istniejące 
 * Informacje o systemie Azure Monitor alertów można znaleźć [w temacie Omówienie alertów w programie Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
 * Dowiedz się więcej na temat alertów metryk, zobacz [Opis działania alertów metryk w Azure monitor](../../azure-monitor/platform/alerts-metric-overview.md)
 * Dowiedz się więcej o konfigurowaniu elementu webhook w alertach, zobacz [wywoływanie elementu webhook przy użyciu klasycznego alertu metryki](../../azure-monitor/platform/alerts-webhooks.md)
-* Informacje na temat konfigurowania alertów i zarządzania nimi przy użyciu programu PowerShell, zobacz [reguły akcji](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)
-* Informacje na temat konfigurowania alertów i zarządzania nimi za pomocą interfejsu API, zobacz [Azure monitor dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/) 
+* Informacje na temat konfigurowania alertów i zarządzania nimi przy użyciu programu PowerShell, zobacz [reguły akcji](/powershell/module/az.monitor/add-azmetricalertrulev2)
+* Informacje na temat konfigurowania alertów i zarządzania nimi za pomocą interfejsu API, zobacz [Azure monitor dokumentacja interfejsu API REST](/rest/api/monitor/)

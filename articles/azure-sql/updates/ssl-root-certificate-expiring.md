@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: a273b9aaae083bb4566d289e9680b50c686d4e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346065"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792535"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dla Azure SQL Database & wystąpienia zarządzanego SQL
 
@@ -79,4 +79,4 @@ Ponieważ ta aktualizacja jest zmianą po stronie klienta, jeśli klient używan
 Ponieważ ta konfiguracja jest po stronie klienta, informacje nie są dostępne po stronie serwera.
 
 ### <a name="what-if-i-have-further-questions"></a>Co zrobić, jeśli mam więcej pytań?
-Jeśli masz plan pomocy technicznej i potrzebujesz pomocy technicznej, Utwórz żądanie pomocy technicznej platformy Azure, patrz [jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+Jeśli masz plan pomocy technicznej i potrzebujesz pomocy technicznej, Utwórz żądanie pomocy technicznej platformy Azure, patrz [jak utworzyć żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).

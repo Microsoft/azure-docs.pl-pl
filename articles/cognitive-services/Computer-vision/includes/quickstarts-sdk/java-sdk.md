@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/13/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: d93356265b930b2943d74a58379c7eb74a96b366
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ac0d09ea1641688dc59df1bbdbe19712d0cebe4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548056"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886675"
 ---
 <a name="HOLTop"></a>
 
@@ -130,8 +130,8 @@ W nowej metodzie Utwórz wystąpienie obiektu [ComputerVisionClient](https://doc
 
 Poniższy kod definiuje metodę, `AnalyzeLocalImage` która używa obiektu klienta do analizowania obrazu lokalnego i drukowania wyników. Metoda zwraca opis tekstowy, kategoryzację, listę tagów, wykrytych twarzy, flag zawartości dla dorosłych, kolory główne i typ obrazu.
 
-> [!NOTE]
-> Możesz również analizować obraz zdalny przy użyciu adresu URL. Zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) , aby poznać scenariusze związane z obrazami zdalnymi.
+> [!TIP]
+> Możesz również analizować obraz zdalny przy użyciu adresu URL. Zobacz metody [ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable) , takie jak **AnalyzeImage** . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) , aby poznać scenariusze dotyczące obrazów zdalnych.
 
 ### <a name="set-up-test-image"></a>Konfigurowanie obrazu testu
 
@@ -210,8 +210,8 @@ Poniższy kod drukuje informacje o typie obrazu, niezależnie od tego, &mdash; c
 
 Przetwarzanie obrazów może odczytać widoczny tekst w obrazie i przekonwertować go na strumień znaków. Ta sekcja definiuje metodę, `ReadFromFile` która pobiera ścieżkę do pliku lokalnego i drukuje tekst obrazu do konsoli programu.
 
-> [!NOTE]
-> Możesz również odczytać tekst w obrazie zdalnym przy użyciu jego adresu URL. Zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) , aby poznać scenariusze związane z obrazami zdalnymi.
+> [!TIP]
+> Możesz również odczytać tekst w obrazie zdalnym, do którego odwołuje się adres URL. Zobacz metody [ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable) , takie jak **Read** . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) , aby poznać scenariusze dotyczące obrazów zdalnych.
 
 ### <a name="set-up-test-image"></a>Konfigurowanie obrazu testu
 

@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 09/30/2020
-ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4473ea304176615c35205494f342922869b71ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614431"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793147"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Rdzeń wirtualny model — Omówienie — Azure SQL Database i wystąpienie zarządzane Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,8 +34,8 @@ Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia
 |-|**Ogólnego przeznaczenia**|**Krytyczne dla działania firmy**|**Hiperskala**|
 |---|---|---|---|
 |Optymalne zastosowanie|Większość obciążeń firmowych. Oferuje zorientowane na budżet, zrównoważone i skalowalne opcje zasobów obliczeniowych i magazynowych. |Oferuje aplikacjom biznesowym największą odporność na błędy przy użyciu kilku izolowanych replik i zapewnia największą wydajność operacji we/wy na replikę bazy danych.|Większość obciążeń firmowych z wysoce skalowalnym magazynem i wymaganiami dotyczącymi skali odczytu.  Zapewnia wyższą odporność na błędy, umożliwiając konfigurację wielu izolowanych replik baz danych. |
-|Magazyn|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
-|Operacje we/wy i przepływność (przybliżona)|**SQL Database**: Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).<br/>**Wystąpienie zarządzane SQL**: zobacz [Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).|Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy i przepływność będą zależeć od obciążenia.|
+|Magazyn|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane** :<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe** :<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL** : 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane** :<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL** :<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
+|Operacje we/wy i przepływność (przybliżona)|**SQL Database** : Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).<br/>**Wystąpienie zarządzane SQL** : zobacz [Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).|Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy i przepływność będą zależeć od obciążenia.|
 |Dostępność|1 replika, brak replik w skali odczytu|3 repliki, 1 [replika w skali odczytu](read-scale-out.md),<br/>Strefa — nadmiarowa wysoka dostępność (HA)|1 replika odczytu i zapisu oraz 0-4 [replik w skali odczytu](read-scale-out.md)|
 |Tworzenie kopii zapasowych|[Magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 dni (domyślnie 7 dni)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 dni (domyślnie 7 dni)|Tworzenie kopii zapasowych opartych na migawce w magazynie zdalnym platformy Azure. Przywraca używanie tych migawek do szybkiego odzyskiwania. Kopie zapasowe są natychmiast i nie wpływają na wydajność obliczeń we/wy. Przywracanie odbywa się szybko i nie jest operacją o rozmiarze danych (w minutach, a nie w godzinach lub dniach).|
 |W pamięci|Nieobsługiwane|Obsługiwane|Nieobsługiwane|
@@ -104,14 +104,14 @@ To enable M-series hardware for a subscription and region, a support request mus
 ### <a name="compute-and-memory-specifications"></a>Specyfikacje obliczeniowe i pamięci
 
 
-|Generowanie sprzętu  |Compute  |Pamięć  |
+|Generowanie sprzętu  |Wystąpienia obliczeniowe  |Pamięć  |
 |:---------|:---------|:---------|
 |Obliczenia     |-Intel® E5-2673 v3 (Haswell) procesory 2,4 GHz<br>— Zapewnij do 24 rdzeni wirtualnych (1 rdzeń wirtualny = 1 rdzeń fizyczny)  |-7 GB na rdzeń wirtualny<br>— Zapewnij do 168 GB|
 |5 rdzeń     |**Zainicjowane obliczenie**<br>-Intel® E5-2673 v4 (Broadwell) 2,3-GHz, Intel® SP-8160 (Skylake) \* i intel® 8272CL (Kaskada Lake) 2,5 GHz \*<br>— Inicjowanie obsługi administracyjnej do 80 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Intel® E5-2673 v4 (Broadwell) 2,3-GHz i Intel® SP-8160 (Skylake) * procesory<br>-Automatyczne skalowanie do 40 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|**Zainicjowane obliczenie**<br>-5,1 GB na rdzeń wirtualny<br>— Zapewnij do 408 GB<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Automatyczne skalowanie do 24 GB na rdzeń wirtualny<br>— Automatyczne skalowanie do maksymalnie 120 GB|
 |Seria Fsv2     |-Procesory Intel® 8168 (Skylake)<br>— Dzięki stałej szybkości taktu Turbo o częstotliwości 3,4 GHz i maksymalnej pojedynczej podstawowej prędkości zegarka Turbo o godz. 3,7 GHz.<br>— Inicjowanie obsługi administracyjnej do 72 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-1,9 GB na rdzeń wirtualny<br>— Zapewnij do 136 GB|
 |Seria M     |-Procesory Intel® E7-8890 v3 2,5 GHz i Intel® 8280M 2,7 GHz (Kaskada Lake)<br>— Inicjowanie obsługi administracyjnej do 128 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-29 GB na rdzeń wirtualny<br>— Zapewnij do 3,7 TB|
 
-\* W [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamicznym widoku zarządzania generowanie sprzętu dla baz danych przy użyciu procesorów Intel® SP-8160 (Skylake) pojawia się jako Gen6, podczas gdy generowanie sprzętu dla baz danych przy użyciu technologii Intel® 8272CL (Kaskada Lake) pojawia się jako Gen7. Limity zasobów dla wszystkich baz danych 5 rdzeń są takie same, niezależnie od typu procesora (Broadwell, Skylake lub Kaskada Lake).
+\* W [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamicznym widoku zarządzania generowanie sprzętu dla baz danych przy użyciu procesorów Intel® SP-8160 (Skylake) pojawia się jako Gen6, podczas gdy generowanie sprzętu dla baz danych przy użyciu technologii Intel® 8272CL (Kaskada Lake) pojawia się jako Gen7. Limity zasobów dla wszystkich baz danych 5 rdzeń są takie same, niezależnie od typu procesora (Broadwell, Skylake lub Kaskada Lake).
 
 Aby uzyskać więcej informacji na temat limitów zasobów, zobacz [limity zasobów dla pojedynczych baz danych (rdzeń wirtualny)](resource-limits-vcore-single-databases.md)lub [limity zasobów dla pul elastycznych (rdzeń wirtualny)](resource-limits-vcore-elastic-pools.md).
 
@@ -138,7 +138,7 @@ W przypadku bazy danych na stronie Przegląd wybierz łącze **warstwa cenowa** 
 
   ![Zmień sprzęt](./media/service-tiers-vcore/change-hardware.png)
 
-W przypadku puli na stronie Przegląd wybierz pozycję **Konfiguruj**.
+W przypadku puli na stronie Przegląd wybierz pozycję **Konfiguruj** .
 
 Postępuj zgodnie z instrukcjami, aby zmienić konfigurację, i wybierz Generowanie sprzętu zgodnie z opisem w poprzednich krokach.
 
@@ -160,7 +160,7 @@ Na stronie wystąpienie zarządzane SQL Wybierz pozycję **warstwa cenowa** link
 
 Na stronie warstwa cenowa będzie można zmienić generowanie sprzętu zgodnie z opisem w poprzednich krokach.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Użyj poniższego skryptu programu PowerShell:
 
@@ -168,7 +168,7 @@ Użyj poniższego skryptu programu PowerShell:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Aby uzyskać więcej informacji, sprawdź polecenie [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) .
+Aby uzyskać więcej informacji, sprawdź polecenie [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) .
 
 # <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -178,7 +178,7 @@ Wykonaj następujące polecenie interfejsu wiersza polecenia:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-Aby uzyskać więcej informacji, sprawdź polecenie [AZ SQL mi Update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) .
+Aby uzyskać więcej informacji, sprawdź polecenie [AZ SQL mi Update](/cli/azure/sql/mi#az-sql-mi-update) .
 
 ---
 
@@ -238,5 +238,4 @@ Aby uzyskać szczegółowe informacje o określonych rozmiarach obliczeniowych i
 
 - [limity zasobów opartych na rdzeń wirtualny Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [limity zasobów opartych na rdzeń wirtualny dla Azure SQL Database w puli](resource-limits-vcore-elastic-pools.md).
-- [limity zasobów opartych na rdzeń wirtualny dla wystąpienia zarządzanego Azure SQL](../managed-instance/resource-limits.md). 
-
+- [limity zasobów opartych na rdzeń wirtualny dla wystąpienia zarządzanego Azure SQL](../managed-instance/resource-limits.md).

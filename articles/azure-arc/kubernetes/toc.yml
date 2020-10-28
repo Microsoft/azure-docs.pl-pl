@@ -28,8 +28,12 @@
           href: deploy-azure-iot-edge-workloads.md
     - name: Rozwiązywanie problemów
       href: Troubleshooting.md
-- name: Tematy pomocy
+- name: Dokumentacja
   items:
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: policy-reference.md
+- name: Zasoby
+  items:
+    - name: Szybkie rozpoczynanie pracy z usługą Azure Arc
+      href: 'https://github.com/microsoft/azure_arc'

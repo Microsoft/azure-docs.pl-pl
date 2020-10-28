@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042800"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793062"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Jak podłączyć przykład IoT Plug and Play Bridge działającego w systemie Linux lub Windows do IoT Hub
 
@@ -30,14 +30,14 @@ W tym przewodniku szybki start przyjęto założenie, że używasz Ubuntu Linux.
 
 Aby ukończyć ten przewodnik Szybki Start w systemie Linux, Zainstaluj następujące oprogramowanie w lokalnym środowisku systemu Linux:
 
-Zainstaluj oprogramowanie w **zatoce**, **git**, **CMAKE**i wszystkie wymagane zależności przy użyciu `apt-get` polecenia:
+Zainstaluj oprogramowanie w **zatoce** , **git** , **CMAKE** i wszystkie wymagane zależności przy użyciu `apt-get` polecenia:
 
 ```sh
 sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Sprawdź, czy wersja programu `cmake` jest powyżej **2.8.12** , a wersja **tej** wersji jest większa niż **4.4.7**.
+Sprawdź, czy wersja programu `cmake` jest powyżej **2.8.12** , a wersja **tej** wersji jest większa niż **4.4.7** .
 
 ```sh
 cmake --version
@@ -107,9 +107,13 @@ Oczekiwanie na ukończenie tej operacji.
 
 Po sklonowaniu repozytorium usługi IoT Plug and Play do maszyny przejdź do `pnpbridge/docs/schema` katalogu sklonowanego repozytorium, w którym można znaleźć [konfigurację JSON](https://aka.ms/iot-pnp-bridge-env-config) lub `config.json` próbkowanie czujnika środowiska mostka. Więcej informacji na temat plików konfiguracji można znaleźć w [dokumencie koncepcje dotyczące programu IoT Plug and Play Bridge](concepts-iot-pnp-bridge.md).
 
-W przypadku `root-_interface_model_id` pola należy SKOPIOWAĆ Identyfikator modelu Plug and Play IoT, który identyfikuje model dla urządzenia. W tym przykładzie jest to `dtmi:com:example:SampleDevice;1`. Zmodyfikuj następujące parametry w węźle **pnp_bridge_parameters** w `config.json` pliku ":
+W przypadku `root-_interface_model_id` pola należy SKOPIOWAĆ Identyfikator modelu Plug and Play IoT, który identyfikuje model dla urządzenia. W tym przykładzie jest to `dtmi:com:example:SampleDevice;1`. Zmodyfikuj następujące parametry w węźle **pnp_bridge_parameters** w `config.json` pliku:
 
-  Używanie parametrów połączenia (Uwaga: symmetric_key musi być zgodna z kluczem sygnatury dostępu współdzielonego w parametrach połączenia):
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> Symmetric_key musi być zgodna z kluczem sygnatury dostępu współdzielonego w parametrach połączenia.
 
   ```JSON
     {
@@ -126,7 +130,7 @@ W przypadku `root-_interface_model_id` pola należy SKOPIOWAĆ Identyfikator mod
   }
   ```
 
- Po wprowadzeniu `config.json` pliku plik powinien wyglądać podobnie do następującego:
+ Po wypełnieniu `config.json` plik powinien wyglądać podobnie do następującego:
 
    ```JSON
     {

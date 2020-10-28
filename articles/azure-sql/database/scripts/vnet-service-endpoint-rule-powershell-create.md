@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.date: 04/17/2019
 ms.custom: sqldbrb=1
 tags: azure-synapse
-ms.openlocfilehash: ae92d2000bb2c0dfd7e7a42c6070c143e5b787e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f32599c9d289c8fc5e86eb8c7b0574d9703a6dd4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84170872"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792671"
 ---
 # <a name="powershell-create-a-virtual-service-endpoint-and-vnet-rule-for-azure-sql-database"></a>PowerShell: Tworzenie punktu końcowego usługi wirtualnej i reguły sieci wirtualnej dla Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "84170872"
 W tym artykule przedstawiono skrypt programu PowerShell, który wykonuje następujące czynności:
 
 1. Tworzy *punkt końcowy usługi wirtualnej* Microsoft Azure w podsieci.
-2. Dodaje punkt końcowy do zapory serwera, aby utworzyć *regułę sieci wirtualnej*.
+2. Dodaje punkt końcowy do zapory serwera, aby utworzyć *regułę sieci wirtualnej* .
 
 Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi wirtualnej dla Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
@@ -40,20 +40,20 @@ Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi wirtualnej dla 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla [ `Az.Sql` poleceń cmdlet](/powershell/module/az.sql). W przypadku starszego modułu zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla [ `Az.Sql` poleceń cmdlet](/powershell/module/az.sql). W przypadku starszego modułu zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
 ## <a name="major-cmdlets"></a>Główne polecenia cmdlet
 
-W tym artykule wyróżnia się [polecenie cmdlet **New-AzSqlServerVirtualNetworkRule** ](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) , które dodaje punkt końcowy podsieci do listy kontroli dostępu (ACL) serwera, tworząc regułę.
+W tym artykule wyróżnia się [polecenie cmdlet **New-AzSqlServerVirtualNetworkRule**](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) , które dodaje punkt końcowy podsieci do listy kontroli dostępu (ACL) serwera, tworząc regułę.
 
-Na poniższej liście przedstawiono sekwencję innych *najważniejszych* poleceń cmdlet, które należy wykonać, aby przygotować się do wywołania polecenia **New-AzSqlServerVirtualNetworkRule**. W tym artykule te wywołania występują w [skrypcie 3 "reguła sieci wirtualnej"](#a-script-30):
+Na poniższej liście przedstawiono sekwencję innych *najważniejszych* poleceń cmdlet, które należy wykonać, aby przygotować się do wywołania polecenia **New-AzSqlServerVirtualNetworkRule** . W tym artykule te wywołania występują w [skrypcie 3 "reguła sieci wirtualnej"](#a-script-30):
 
-1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): tworzy obiekt podsieci.
-2. Polecenie [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): tworzy sieć wirtualną, podając ją w podsieci.
-3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): przypisuje wirtualny punkt końcowy usługi do podsieci.
-4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): utrzymuje aktualizacje dokonane w sieci wirtualnej.
-5. Polecenie [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): gdy podsieć jest punktem końcowym, program dodaje podsieć jako regułę sieci wirtualnej do listy kontroli dostępu serwera programu.
-   - To polecenie cmdlet oferuje parametr **-IgnoreMissingVNetServiceEndpoint**, zaczynając od modułu Azure RM PowerShell w wersji 5.1.1.
+1. [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig): tworzy obiekt podsieci.
+2. Polecenie [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork): tworzy sieć wirtualną, podając ją w podsieci.
+3. [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): przypisuje wirtualny punkt końcowy usługi do podsieci.
+4. [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork): utrzymuje aktualizacje dokonane w sieci wirtualnej.
+5. Polecenie [New-AzSqlServerVirtualNetworkRule](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): gdy podsieć jest punktem końcowym, program dodaje podsieć jako regułę sieci wirtualnej do listy kontroli dostępu serwera programu.
+   - To polecenie cmdlet oferuje parametr **-IgnoreMissingVNetServiceEndpoint** , zaczynając od modułu Azure RM PowerShell w wersji 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Wymagania wstępne dotyczące uruchamiania programu PowerShell
 
@@ -382,7 +382,7 @@ Możesz też nie upewnić się, czy podsieć ma nazwę typu **Microsoft. SQL** .
 
 1. Sprawdź, czy podsieć ma nazwę typu **Microsoft. SQL** .
 2. Opcjonalnie można przypisać nazwę typu, jeśli jest nieobecny.
-    - Skrypt prosi o *potwierdzenie*przed zastosowaniem nieobecnej nazwy typu.
+    - Skrypt prosi o *potwierdzenie* przed zastosowaniem nieobecnej nazwy typu.
 
 ### <a name="phases-of-the-script"></a>Fazy skryptu
 
@@ -391,7 +391,7 @@ Poniżej przedstawiono etapy skryptu programu PowerShell:
 1. Zaloguj się do konta platformy Azure, które jest konieczne tylko raz na sesję PS.  Przypisz zmienne.
 2. Wyszukaj sieć wirtualną, a następnie dla podsieci.
 3. Czy podsieć jest oznaczona jako typ **Microsoft. SQL** Endpoint Server?
-4. Dodaj punkt końcowy usługi wirtualnej o nazwie **Microsoft. SQL**w podsieci.
+4. Dodaj punkt końcowy usługi wirtualnej o nazwie **Microsoft. SQL** w podsieci.
 
 > [!IMPORTANT]
 > Przed uruchomieniem tego skryptu należy edytować wartości przypisane do zmiennych $, w górnej części skryptu.

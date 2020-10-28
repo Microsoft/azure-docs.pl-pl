@@ -12,12 +12,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: sstein
   ms.date: 05/27/2020
-  ms.openlocfilehash: 5e5cb6e8ea2b09272ffcf0387312260fc2a6bf1d
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: c951ab3d68b7ad6920941b54b1eb939f88f61e79
+  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91293700"
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92792501"
 landingContent:
 - title: Program SQL Server na maszynie wirtualnej platformy Azure
   linkLists:
@@ -82,7 +82,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Grupa dostępności (Az CLI)
-      url: windows/availability-group-az-cli-configure.md
+      url: ./windows/availability-group-az-commandline-configure.md
     - text: Bezklastrowa grupa dostępności
       url: windows/availability-group-clusterless-workgroup-configure.md
     - text: FCI (Bezpośrednie miejsca do magazynowania)
@@ -104,7 +104,7 @@ landingContent:
     - text: Usługa Azure SQL dla początkujących
       url: https://aka.ms/azuresql4beginners
     - text: Podstawy usługi Azure SQL
-      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+      url: /learn/paths/azure-sql-fundamentals/
     - text: Warsztaty dotyczące usługi Azure SQL
       url: https://aka.ms/asqlworkshop
     - text: Szkolenie typu bootcamp dotyczące usługi Azure SQL
@@ -140,8 +140,8 @@ landingContent:
     - text: Transact-SQL (T-SQL)
       url: /sql/t-sql/language-reference
     - text: Interfejs wiersza polecenia platformy Azure
-      url: https://docs.microsoft.com/cli/azure/sql
+      url: /cli/azure/sql
     - text: PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.sql
+      url: /powershell/module/az.sql
     - text: Interfejs API REST
-      url: https://docs.microsoft.com/rest/api/sql/
+      url: /rest/api/sql/

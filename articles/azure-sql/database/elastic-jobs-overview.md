@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 2aa2c0c8cbd8b826444dc5420685aaa9731cddab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409593"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792178"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Twórz i Konfiguruj zadania elastyczne oraz zarządzaj nimi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,11 +50,11 @@ Za pomocą [poświadczeń o zakresie bazy danych](/sql/t-sql/statements/create-d
 
 Konfigurowanie odpowiednich poświadczeń służących do uruchamiania zadania może wydawać się nieco mylące, więc należy mieć na uwadze następujące kwestie:
 
-- Poświadczenia o zakresie bazy danych należy utworzyć w *bazie danych zadań*.
-- Aby zadanie zostało pomyślnie ukończone (na poniższym diagramie), **wszystkie docelowe bazy danych muszą mieć uprawnienia do logowania z [odpowiednimi uprawnieniami](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) ** `jobuser` .
+- Poświadczenia o zakresie bazy danych należy utworzyć w *bazie danych zadań* .
+- Aby zadanie zostało pomyślnie ukończone (na poniższym diagramie), **wszystkie docelowe bazy danych muszą mieć uprawnienia do logowania z [odpowiednimi uprawnieniami](/sql/relational-databases/security/permissions-database-engine)** `jobuser` .
 - Poświadczenia mogą być ponownie używane między zadaniami, a hasła poświadczeń są szyfrowane i zabezpieczone przez użytkowników, którzy mają dostęp tylko do odczytu do obiektów zadań.
 
-Poniższa ilustracja ułatwia zrozumienie i ustawienie odpowiednich poświadczeń zadań. **Pamiętaj, aby utworzyć użytkownika w każdej bazie danych (wszystkie *docelowe bazy danych użytkowników*), w której ma być uruchamiane zadanie**.
+Poniższa ilustracja ułatwia zrozumienie i ustawienie odpowiednich poświadczeń zadań. **Pamiętaj, aby utworzyć użytkownika w każdej bazie danych (wszystkie *docelowe bazy danych użytkowników* ), w której ma być uruchamiane zadanie** .
 
 ![Poświadczenia zadań elastycznych](./media/elastic-jobs-overview/job-credentials.png)
 
@@ -63,7 +63,7 @@ Poniższa ilustracja ułatwia zrozumienie i ustawienie odpowiednich poświadcze�
 Kilka uwag dotyczących najlepszych rozwiązań podczas pracy z zadaniami elastycznymi:
 
 - Ogranicz użycie interfejsów API do tych zaufanych.
-- Poświadczenia powinny mieć możliwie najmniejsze uprawnienia niezbędne do wykonania kroku zadania. Aby uzyskać więcej informacji, zobacz [autoryzacja i uprawnienia](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- Poświadczenia powinny mieć możliwie najmniejsze uprawnienia niezbędne do wykonania kroku zadania. Aby uzyskać więcej informacji, zobacz [autoryzacja i uprawnienia](/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
 - W przypadku korzystania z elementu członkowskiego serwera i/lub grupy docelowej puli zdecydowanie zaleca się utworzenie oddzielnego poświadczenia z prawami w bazie danych Master, aby wyświetlić/wyświetlić bazy danych, które są używane do rozszerzania listy baz danych serwerów i/lub pul przed wykonaniem zadania.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Wydajność agenta, pojemność i ograniczenia

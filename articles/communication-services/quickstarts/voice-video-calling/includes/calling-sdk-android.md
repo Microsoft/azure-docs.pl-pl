@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 99a038b23eb0978b6e1d8a65b061c2f744852def
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126805"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886691"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -114,11 +114,21 @@ Call groupCall = callAgent.call(participants, startCallOptions);
 > Obecnie tylko jeden wychodzący lokalny strumień wideo jest obsługiwany w przypadku wywołania z filmem wideo, aby wyliczyć aparaty lokalne przy użyciu `deviceManager` `getCameraList` interfejsu API.
 Po wybraniu odpowiedniego aparatu Użyj go, aby skonstruować `LocalVideoStream` wystąpienie i przekazać je do `videoOptions` jako element w `localVideoStream` tablicy do `call` metody.
 Po nawiązaniu połączenia zostanie automatycznie rozpoczęte wysyłanie strumienia wideo z wybranego aparatu do innych uczestników.
+
+> [!NOTE]
+> Ze względu na kwestie związane z ochroną prywatności film wideo nie zostanie udostępniony w wywołaniu, jeśli nie jest on przeglądany lokalnie.
+Aby uzyskać więcej informacji, zobacz temat [Local Camera Preview](#local-camera-preview) .
 ```java
 Context appContext = this.getApplicationContext();
 VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
 LocalVideoStream currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
 VideoOptions videoOptions = new VideoOptions(currentVideoStream);
+
+// Render a local preview of video so the user knows that their video is being shared
+Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
+View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+// Attach the uiView to a viewable location on the app at this point
+layout.addView(uiView);
 
 CommunicationUser[] participants = new CommunicationUser[]{ new CommunicationUser("<acs user id>") };
 StartCallOptions startCallOptions = new StartCallOptions();
@@ -146,7 +156,7 @@ Mobilne powiadomienia wypychane są wyskakującymi powiadomieniami wyświetlanym
 Konto Firebase jest skonfigurowane z włączoną obsługą usługi Cloud Messaging (FCM) oraz z usługą obsługi wiadomości w chmurze Firebase połączoną z wystąpieniem centrum powiadomień platformy Azure. Aby uzyskać więcej informacji, zobacz [powiadomienia usług komunikacyjnych](https://docs.microsoft.com/azure/communication-services/concepts/notifications) .
 Ponadto w samouczku założono, że używasz Android Studio w wersji 3,6 lub nowszej do kompilowania aplikacji.
 
-Zestaw uprawnień jest wymagany dla aplikacji systemu Android, aby można było odbierać komunikaty powiadomień z usługi Firebase Cloud Messaging. W `AndroidManifest.xml` pliku Dodaj następujący zestaw uprawnień bezpośrednio po * manifeście<... >* lub poniżej *</application>* tagu
+Zestaw uprawnień jest wymagany dla aplikacji systemu Android, aby można było odbierać komunikaty powiadomień z usługi Firebase Cloud Messaging. W `AndroidManifest.xml` pliku Dodaj następujący zestaw uprawnień bezpośrednio po *manifeście<... >* lub poniżej *</application>* tagu
 
 ```XML
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -607,9 +617,9 @@ currentVideoStream = new LocalVideoStream(videoDevice, appContext);
 videoOptions = new VideoOptions(currentVideoStream);
 
 Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
-View uiView previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
 
-// Attach the renderingSurface to a viewable location on the app at this point
+// Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 ```
 

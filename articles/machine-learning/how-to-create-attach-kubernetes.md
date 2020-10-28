@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1126798bdf07f54811c83b932af9928f3e3115dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667864"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792008"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Tworzenie i dołączanie klastra usługi Azure Kubernetes Service
 
@@ -54,12 +54,12 @@ Azure Machine Learning można wdrożyć przeszkolone modele uczenia maszynowego 
    
  - Jeśli chcesz wdrożyć modele na węzłach **GPU** lub węzłach **FPGA** (lub dowolnej określonej jednostce SKU), należy utworzyć klaster z określoną jednostką SKU. Nie jest obsługiwane tworzenie puli węzłów pomocniczych w istniejącym klastrze i wdrażanie modeli w puli węzłów pomocniczych.
  
-- Podczas tworzenia lub dołączania klastra możesz wybrać, czy chcesz utworzyć klaster na potrzeby programowania i __testowania__ czy __produkcji__. Jeśli chcesz utworzyć klaster AKS na potrzeby tworzenia, __sprawdzania poprawności__i __testowania__ zamiast __środowiska__produkcyjnego, ustaw __cel klastra__ na __Dev-Test__. Jeśli nie określisz celu klastra, tworzony jest klaster __produkcyjny__ . 
+- Podczas tworzenia lub dołączania klastra możesz wybrać, czy chcesz utworzyć klaster na potrzeby programowania i __testowania__ czy __produkcji__ . Jeśli chcesz utworzyć klaster AKS na potrzeby tworzenia, __sprawdzania poprawności__ i __testowania__ zamiast __środowiska__ produkcyjnego, ustaw __cel klastra__ na __Dev-Test__ . Jeśli nie określisz celu klastra, tworzony jest klaster __produkcyjny__ . 
 
     > [!IMPORTANT]
     > Klaster __deweloperski-test__ nie jest odpowiedni dla ruchu na poziomie produkcyjnym i może zwiększyć czas wnioskowania. Klastry deweloperskie i testowe nie gwarantują odporności na uszkodzenia.
 
-- W przypadku tworzenia lub dołączania klastra, Jeśli klaster będzie używany do __produkcji__, musi on zawierać co najmniej 12 __wirtualnych procesorów CPU__. Liczbę wirtualnych procesorów CPU można obliczyć przez pomnożenie __liczby węzłów__ w klastrze przez __liczbę rdzeni__ zapewnioną przez wybrany rozmiar maszyny wirtualnej. Na przykład jeśli używasz rozmiaru maszyny wirtualnej "Standard_D3_v2", który ma 4 rdzenie wirtualne, należy wybrać 3 lub większą liczbę węzłów.
+- W przypadku tworzenia lub dołączania klastra, Jeśli klaster będzie używany do __produkcji__ , musi on zawierać co najmniej 12 __wirtualnych procesorów CPU__ . Liczbę wirtualnych procesorów CPU można obliczyć przez pomnożenie __liczby węzłów__ w klastrze przez __liczbę rdzeni__ zapewnioną przez wybrany rozmiar maszyny wirtualnej. Na przykład jeśli używasz rozmiaru maszyny wirtualnej "Standard_D3_v2", który ma 4 rdzenie wirtualne, należy wybrać 3 lub większą liczbę węzłów.
 
     W przypadku klastra __deweloperskiego-testowego__ polecenie jest używane co najmniej 2 wirtualne procesory CPU.
 
@@ -124,7 +124,7 @@ Result
 1.16.13
 ```
 
-Jeśli chcesz **programowo sprawdzić dostępne wersje**, użyj interfejsu API REST [usługi Container Service Client](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) . Aby znaleźć dostępne wersje, należy zapoznać się z wpisami, gdzie `orchestratorType` jest `Kubernetes` . Skojarzone `orchestrationVersion` wpisy zawierają dostępne wersje, które można **dołączyć** do obszaru roboczego.
+Jeśli chcesz **programowo sprawdzić dostępne wersje** , użyj interfejsu API REST [usługi Container Service Client](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) . Aby znaleźć dostępne wersje, należy zapoznać się z wpisami, gdzie `orchestratorType` jest `Kubernetes` . Skojarzone `orchestrationVersion` wpisy zawierają dostępne wersje, które można **dołączyć** do obszaru roboczego.
 
 Aby znaleźć domyślną wersję używaną podczas **tworzenia** klastra za pomocą Azure Machine Learning, Znajdź wpis, gdzie `orchestratorType` jest `Kubernetes` i `default` jest `true` . Skojarzona `orchestratorVersion` wartość jest wersją domyślną. Poniższy fragment kodu JSON przedstawia przykładowy wpis:
 
@@ -147,7 +147,7 @@ Aby znaleźć domyślną wersję używaną podczas **tworzenia** klastra za pomo
 
 ## <a name="create-a-new-aks-cluster"></a>Tworzenie nowego klastra AKS
 
-**Szacowany czas**: około 10 minut.
+**Szacowany czas** : około 10 minut.
 
 Tworzenie i dołączanie klastra AKS jest jednym procesem czasu dla Twojego obszaru roboczego. Można ponownie użyć tego klastra dla wielu wdrożeń. W przypadku usunięcia klastra lub grupy zasobów, która zawiera tę usługę, należy utworzyć nowy klaster przy następnym wdrożeniu. Do obszaru roboczego można dołączyć wiele klastrów AKS.
 
@@ -284,7 +284,7 @@ Aby uzyskać informacje na temat dołączania klastra AKS w portalu, zobacz [Two
 Aby odłączyć klaster od obszaru roboczego, należy użyć jednej z następujących metod:
 
 > [!WARNING]
-> Korzystając z Azure Machine Learning Studio, SDK lub rozszerzenia interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning w celu odłączenia klastra AKS nie **powoduje usunięcia klastra AKS**. Aby usunąć klaster, zobacz [Korzystanie z interfejsu wiersza polecenia platformy Azure z AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+> Korzystając z Azure Machine Learning Studio, SDK lub rozszerzenia interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning w celu odłączenia klastra AKS nie **powoduje usunięcia klastra AKS** . Aby usunąć klaster, zobacz [Korzystanie z interfejsu wiersza polecenia platformy Azure z AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -302,7 +302,7 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-W Azure Machine Learning Studio wybierz pozycję __obliczenia__, __klastry wnioskowania__i klaster, który chcesz usunąć. Użyj linku __Odłącz__ , aby odłączyć klaster.
+W Azure Machine Learning Studio wybierz pozycję __obliczenia__ , __klastry wnioskowania__ i klaster, który chcesz usunąć. Użyj linku __Odłącz__ , aby odłączyć klaster.
 
 ## <a name="next-steps"></a>Następne kroki
 

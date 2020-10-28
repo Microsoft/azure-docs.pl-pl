@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d537ba74dad55ea1cb980ea04d20fd0c8494ed0b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: de587483f5dc15b17fa32e044b569ef9d7f007f7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479446"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792960"
 ---
 # <a name="azure-storage-samples"></a>Przykłady usługi Azure Storage
 
@@ -60,7 +60,7 @@ Aby zapoznać się z przykładami języka C++, Pobierz [bibliotekę klienta usł
 Aby poznać przykłady interfejsu wiersza polecenia platformy Azure, najpierw [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 * [Rozpocznij pracę z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli)
-* [Przykłady usługi Azure Storage korzystające z interfejsu wiersza polecenia platformy Azure](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Przykłady usługi Azure Storage korzystające z interfejsu wiersza polecenia platformy Azure](../blobs/storage-samples-blobs-cli.md)
 * [Popularne artykuły dotyczące korzystania z interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
 ## <a name="api-reference-and-source-code"></a>Dokumentacja interfejsu API i kod źródłowy
@@ -83,4 +83,4 @@ Poniższe artykuły indeksuje poszczególne przykłady według usługi (BLOB, Fi
 * [Przykłady usługi Azure Storage korzystające z języka JavaScript](storage-samples-javascript.md)
 * [Przykłady usługi Azure Storage przy użyciu języka Python](storage-samples-python.md)
 * [Przykłady usługi Azure Storage korzystające z języka C++](storage-samples-c-plus-plus.md)
-* [Przykłady usługi Azure Storage korzystające z interfejsu wiersza polecenia platformy Azure](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Przykłady usługi Azure Storage korzystające z interfejsu wiersza polecenia platformy Azure](../blobs/storage-samples-blobs-cli.md)

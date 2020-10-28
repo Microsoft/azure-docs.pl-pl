@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d67046f799e60db3101dfeb27dee10f92f9aad79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0454e7bcc81c71cdffcddcd859bb6d335cc8aef2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052430"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791821"
 ---
 # <a name="repairing-an-import-job"></a>Naprawianie zadania importu
 Usługa Microsoft Azure Import/Export może nie móc skopiować niektórych plików lub części pliku do usługi Windows Azure Blob. Przyczyny niepowodzeń mogą być następujące:  
@@ -28,19 +28,19 @@ Narzędzie Microsoft Azure Import/Export można uruchomić za pomocą plików dz
   
 ## <a name="repairimport-parameters"></a>Parametry RepairImport
 
-Następujące parametry można określić za pomocą **RepairImport**: 
+Następujące parametry można określić za pomocą **RepairImport** : 
   
 |||  
 |-|-|  
-|**/r:**<RepairFile\>|**Wymagane.** Ścieżka do pliku naprawy, która śledzi postęp naprawy i pozwala na wznowienie przerwanej naprawy. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po rozpoczęciu naprawy danego dysku Przekaż ścieżkę do pliku naprawy, który jeszcze nie istnieje. Aby wznowić przerwaną naprawę, należy przekazać nazwę istniejącego pliku naprawy. Zawsze określaj plik naprawy odpowiadający dyskowi docelowemu.|  
-|**/logdir:**<LogDirectory\>|**Obowiązkowe.** Katalog dzienników. Pełne pliki dziennika są zapisywane w tym katalogu. Jeśli nie określono katalogu dziennika, bieżący katalog jest używany jako katalog dziennika.|  
-|**/d:**<TargetDirectories\>|**Wymagane.** Jeden lub więcej katalogów rozdzielonych średnikami, które zawierają oryginalne pliki, które zostały zaimportowane. Można również użyć dysku importu, ale nie jest to wymagane, jeśli są dostępne alternatywne lokalizacje plików oryginalnych.|  
-|**/BK:**<BitLockerKey\>|**Obowiązkowe.** Określ klucz funkcji BitLocker, jeśli chcesz, aby narzędzie odblokowało zaszyfrowany dysk, na którym są dostępne pliki oryginalne.|  
-|**/SN:**<StorageAccountName\>|**Wymagane.** Nazwa konta magazynu dla zadania importu.|  
-|**/sk:**<StorageAccountKey\>|**Wymagane** , jeśli i tylko wtedy, gdy nie określono sygnatury dostępu współdzielonego kontenera. Klucz konta magazynu dla zadania importu.|  
-|**/CSAS:**<ContainerSas\>|**Wymagane** , jeśli i tylko wtedy, gdy nie określono klucza konta magazynu. Kontener SAS kontenera do uzyskiwania dostępu do obiektów BLOB skojarzonych z zadaniem importu.|  
-|**/CopyLogFile:**<DriveCopyLogFile\>|**Wymagane.** Ścieżka do pliku dziennika kopiowania dysku (pełny dziennik lub dziennik błędów). Plik jest generowany przez usługę Import/Export systemu Windows Azure i można go pobrać z magazynu obiektów BLOB skojarzonego z zadaniem. Plik dziennika kopiowania zawiera informacje dotyczące niezakończonych obiektów blob lub plików, które mają zostać naprawione.|  
-|**/PathMapFile:**<DrivePathMapFile\>|**Obowiązkowe.** Ścieżka do pliku tekstowego, który służy do rozpoznawania niejasności, jeśli istnieje wiele plików o tej samej nazwie, która została zaimportowana w ramach tego samego zadania. Gdy narzędzie jest uruchamiane po raz pierwszy, może wypełnić ten plik wszystkimi niejednoznacznymi nazwami. Późniejsze uruchomienia narzędzia używają tego pliku do rozwiązania niejasności.|  
+|**/r:** <RepairFile\>|**Wymagane.** Ścieżka do pliku naprawy, która śledzi postęp naprawy i pozwala na wznowienie przerwanej naprawy. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po rozpoczęciu naprawy danego dysku Przekaż ścieżkę do pliku naprawy, który jeszcze nie istnieje. Aby wznowić przerwaną naprawę, należy przekazać nazwę istniejącego pliku naprawy. Zawsze określaj plik naprawy odpowiadający dyskowi docelowemu.|  
+|**/logdir:** <LogDirectory\>|**Obowiązkowe.** Katalog dzienników. Pełne pliki dziennika są zapisywane w tym katalogu. Jeśli nie określono katalogu dziennika, bieżący katalog jest używany jako katalog dziennika.|  
+|**/d:** <TargetDirectories\>|**Wymagane.** Jeden lub więcej katalogów rozdzielonych średnikami, które zawierają oryginalne pliki, które zostały zaimportowane. Można również użyć dysku importu, ale nie jest to wymagane, jeśli są dostępne alternatywne lokalizacje plików oryginalnych.|  
+|**/BK:** <BitLockerKey\>|**Obowiązkowe.** Określ klucz funkcji BitLocker, jeśli chcesz, aby narzędzie odblokowało zaszyfrowany dysk, na którym są dostępne pliki oryginalne.|  
+|**/SN:** <StorageAccountName\>|**Wymagane.** Nazwa konta magazynu dla zadania importu.|  
+|**/sk:** <StorageAccountKey\>|**Wymagane** , jeśli i tylko wtedy, gdy nie określono sygnatury dostępu współdzielonego kontenera. Klucz konta magazynu dla zadania importu.|  
+|**/CSAS:** <ContainerSas\>|**Wymagane** , jeśli i tylko wtedy, gdy nie określono klucza konta magazynu. Kontener SAS kontenera do uzyskiwania dostępu do obiektów BLOB skojarzonych z zadaniem importu.|  
+|**/CopyLogFile:** <DriveCopyLogFile\>|**Wymagane.** Ścieżka do pliku dziennika kopiowania dysku (pełny dziennik lub dziennik błędów). Plik jest generowany przez usługę Import/Export systemu Windows Azure i można go pobrać z magazynu obiektów BLOB skojarzonego z zadaniem. Plik dziennika kopiowania zawiera informacje dotyczące niezakończonych obiektów blob lub plików, które mają zostać naprawione.|  
+|**/PathMapFile:** <DrivePathMapFile\>|**Obowiązkowe.** Ścieżka do pliku tekstowego, który służy do rozpoznawania niejasności, jeśli istnieje wiele plików o tej samej nazwie, która została zaimportowana w ramach tego samego zadania. Gdy narzędzie jest uruchamiane po raz pierwszy, może wypełnić ten plik wszystkimi niejednoznacznymi nazwami. Późniejsze uruchomienia narzędzia używają tego pliku do rozwiązania niejasności.|  
   
 ## <a name="using-the-repairimport-command"></a>Przy użyciu polecenia RepairImport  
 Aby naprawić dane importu przez przesyłanie strumieniowe danych za pośrednictwem sieci, należy określić katalogi zawierające oryginalne pliki, które zostały zaimportowane przy użyciu `/d` parametru. Określ również plik dziennika kopiowania pobrany z konta magazynu. Typowy wiersz polecenia służący do naprawy zadania importu z błędami częściowymi wygląda następująco:  
@@ -100,6 +100,6 @@ Po udostępnieniu niezbędnych plików dla narzędzia lub zaktualizowaniu pliku 
 ## <a name="next-steps"></a>Następne kroki
  
 * [Konfigurowanie narzędzia Azure Import/Export](storage-import-export-tool-setup-v1.md)   
-* [Przygotowywanie dysków twardych do zadania importu](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Przygotowywanie dysków twardych do zadania importu](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Sprawdzanie stanu zadania za pomocą plików dziennika kopiowania](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Naprawianie zadania eksportu](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Naprawianie zadania eksportu](./storage-import-export-tool-repairing-an-export-job-v1.md)

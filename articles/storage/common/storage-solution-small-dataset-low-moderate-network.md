@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: a95361dda74c145e435a7e122339fb5945fed0f6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491227"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792909"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transfer małych zestawów danych w przypadku niskiej lub umiarkowanej przepustowości sieci
  
@@ -49,7 +49,7 @@ W tym scenariuszu zalecane są następujące opcje:
 
 Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
-| Promowanie | Eksplorator usługi Azure Storage | Azure Portal | Narzędzie AzCopy<br>Azure PowerShell<br>Interfejs wiersza polecenia platformy Azure | Interfejsy API REST usługi Azure Storage lub zestawy SDK |
+| Cechy | Eksplorator usługi Azure Storage | Witryna Azure Portal | AzCopy<br>Azure PowerShell<br>Interfejs wiersza polecenia platformy Azure | Interfejsy API REST usługi Azure Storage lub zestawy SDK |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Dostępność | Pobieranie i instalowanie <br>Autonomiczne narzędzie | Narzędzia eksploracji oparte na sieci Web w Azure Portal | Narzędzie wiersza polecenia |Interfejsy programowalne w językach .NET, Java, Python, JavaScript, C++, go, Ruby i PHP |
 | Interfejs graficzny | Tak | Tak | Nie | Nie |
@@ -63,6 +63,5 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [transferować dane za pomocą Eksplorator usługi Azure Storage](/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
-- [Transferowanie danych za pomocą narzędzia AzCopy](/azure/storage/common/storage-use-azcopy-v10)
-
+- Dowiedz się, jak [transferować dane za pomocą Eksplorator usługi Azure Storage](../../machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md).
+- [Transferowanie danych za pomocą narzędzia AzCopy](./storage-use-azcopy-v10.md)

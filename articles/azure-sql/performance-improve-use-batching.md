@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840493"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792603"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Korzystanie z usługi Batch w celu usprawnienia Azure SQL Database i wydajności aplikacji wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ W pierwszej części tego artykułu są badane różne techniki wsadowe dla apli
 ### <a name="note-about-timing-results-in-this-article"></a>Uwaga dotycząca chronometrażu wyników w tym artykule
 
 > [!NOTE]
-> Wyniki nie są wzorcem, ale są przeznaczone do wyświetlania **względnej wydajności**. Chronometraż jest oparty na średniej z co najmniej 10 przebiegów testowych. Operacje są wstawiane do pustej tabeli. Te testy zostały zmierzone przed V12 i nie muszą odpowiadać przepływności, które można napotkać w bazie danych V12 przy użyciu nowych [warstw usług DTU](database/service-tiers-dtu.md) lub [rdzeń wirtualny usługi](database/service-tiers-vcore.md). Względne korzyści wynikające z techniki wsadowej powinny być podobne.
+> Wyniki nie są wzorcem, ale są przeznaczone do wyświetlania **względnej wydajności** . Chronometraż jest oparty na średniej z co najmniej 10 przebiegów testowych. Operacje są wstawiane do pustej tabeli. Te testy zostały zmierzone przed V12 i nie muszą odpowiadać przepływności, które można napotkać w bazie danych V12 przy użyciu nowych [warstw usług DTU](database/service-tiers-dtu.md) lub [rdzeń wirtualny usługi](database/service-tiers-vcore.md). Względne korzyści wynikające z techniki wsadowej powinny być podobne.
 
 ### <a name="transactions"></a>Transakcje
 
@@ -93,11 +93,11 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Transakcje są faktycznie używane w obu tych przykładach. W pierwszym przykładzie każde pojedyncze wywołanie jest niejawną transakcją. W drugim przykładzie transakcja jawna otacza wszystkie wywołania. Zgodnie z dokumentacją [dziennika transakcji zapisu](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)rekordy dziennika są opróżniane do dysku podczas zatwierdzania transakcji. Tak więc, dołączając więcej wywołań w transakcji, zapis w dzienniku transakcji może opóźnić się do momentu zatwierdzenia transakcji. W efekcie w dzienniku transakcji serwera jest włączana partia operacji zapisu.
+Transakcje są faktycznie używane w obu tych przykładach. W pierwszym przykładzie każde pojedyncze wywołanie jest niejawną transakcją. W drugim przykładzie transakcja jawna otacza wszystkie wywołania. Zgodnie z dokumentacją [dziennika transakcji zapisu](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)rekordy dziennika są opróżniane do dysku podczas zatwierdzania transakcji. Tak więc, dołączając więcej wywołań w transakcji, zapis w dzienniku transakcji może opóźnić się do momentu zatwierdzenia transakcji. W efekcie w dzienniku transakcji serwera jest włączana partia operacji zapisu.
 
 W poniższej tabeli przedstawiono niektóre wyniki testów ad hoc. Testy przeprowadzono te same sekwencyjne Wstawianie z i bez transakcji. W celu uzyskania większej perspektywy pierwszy zestaw testów działał zdalnie z poziomu laptopa do bazy danych w Microsoft Azure. Drugi zestaw testów został uruchomiony z poziomu usługi w chmurze i bazy danych, która znajduje się w tym samym Microsoft Azure Datacenter (Zachodnie stany USA). W poniższej tabeli przedstawiono czas trwania operacji wstawiania sekwencyjnego z i bez transakcji w milisekundach.
 
-**Lokalne na platformę Azure**:
+**Lokalne na platformę Azure** :
 
 | Operacje | Brak transakcji (MS) | Transakcja (MS) |
 | --- | --- | --- |
@@ -106,7 +106,7 @@ W poniższej tabeli przedstawiono niektóre wyniki testów ad hoc. Testy przepro
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure na platformę Azure (to samo centrum danych)**:
+**Azure na platformę Azure (to samo centrum danych)** :
 
 | Operacje | Brak transakcji (MS) | Transakcja (MS) |
 | --- | --- | --- |
@@ -120,7 +120,7 @@ W poniższej tabeli przedstawiono niektóre wyniki testów ad hoc. Testy przepro
 
 W oparciu o poprzednie wyniki testów, otoka pojedynczej operacji w transakcji w rzeczywistości zmniejsza wydajność. Ale w miarę zwiększania liczby operacji w ramach pojedynczej transakcji zwiększenie wydajności zostanie wyróżnione. Różnica wydajności jest również bardziej zauważalna, gdy wszystkie operacje są wykonywane w ramach Microsoft Azure centrum danych. Zwiększony czas oczekiwania na użycie Azure SQL Database lub wystąpienia zarządzanego usługi Azure SQL z zewnątrz poza centrum danych Microsoft Azure przesłonięcia wydajności przez korzystanie z transakcji.
 
-Chociaż użycie transakcji może zwiększyć wydajność, nadal należy [przestrzegać najlepszych rozwiązań dotyczących transakcji i połączeń](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Zachowaj transakcję jak najszybciej i Zamknij połączenie z bazą danych po zakończeniu pracy. Instrukcja Using w poprzednim przykładzie gwarantuje, że połączenie jest zamknięte po zakończeniu kolejnego bloku kodu.
+Chociaż użycie transakcji może zwiększyć wydajność, nadal należy [przestrzegać najlepszych rozwiązań dotyczących transakcji i połączeń](/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Zachowaj transakcję jak najszybciej i Zamknij połączenie z bazą danych po zakończeniu pracy. Instrukcja Using w poprzednim przykładzie gwarantuje, że połączenie jest zamknięte po zakończeniu kolejnego bloku kodu.
 
 W poprzednim przykładzie pokazano, że można dodać transakcję lokalną do dowolnego kodu ADO.NET z dwoma wierszami. Transakcje oferują szybki sposób na zwiększenie wydajności kodu, który wykonuje sekwencyjne operacje wstawiania, aktualizowania i usuwania. Jednak w celu uzyskania najszybszej wydajności Rozważ zmianę kodu w celu wykorzystania operacji wsadowych po stronie klienta, takich jak parametry z wartościami przechowywanymi w tabeli.
 
@@ -128,7 +128,7 @@ Aby uzyskać więcej informacji o transakcjach w programie ADO.NET, zobacz [loka
 
 ### <a name="table-valued-parameters"></a>Parametry z wartościami przechowywanymi w tabeli
 
-Parametry z wartościami przechowywanymi w tabeli obsługują typy tabel zdefiniowane przez użytkownika jako parametry w instrukcjach języka Transact-SQL, procedurach składowanych i funkcjach. Ta technika wsadowa po stronie klienta umożliwia wysyłanie wielu wierszy danych w ramach parametru z wartościami przechowywanymi w tabeli. Aby użyć parametrów z wartościami przechowywanymi w tabeli, należy najpierw zdefiniować typ tabeli. Poniższa instrukcja języka Transact-SQL tworzy typ tabeli o nazwie **Webtabletype**.
+Parametry z wartościami przechowywanymi w tabeli obsługują typy tabel zdefiniowane przez użytkownika jako parametry w instrukcjach języka Transact-SQL, procedurach składowanych i funkcjach. Ta technika wsadowa po stronie klienta umożliwia wysyłanie wielu wierszy danych w ramach parametru z wartościami przechowywanymi w tabeli. Aby użyć parametrów z wartościami przechowywanymi w tabeli, należy najpierw zdefiniować typ tabeli. Poniższa instrukcja języka Transact-SQL tworzy typ tabeli o nazwie **Webtabletype** .
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-W poprzednim przykładzie obiekt **SqlCommand** wstawia wiersze z parametru z wartościami przechowywanymi w tabeli, ** \@ TestTvp**. Wcześniej utworzony obiekt **DataTable** jest przypisany do tego parametru za pomocą metody **SqlCommand. Parameters. Add** . Przetwarzanie wsadowe operacji wstawiania w jednym wywołaniu znacznie zwiększa wydajność nad wstawianiem sekwencyjnym.
+W poprzednim przykładzie obiekt **SqlCommand** wstawia wiersze z parametru z wartościami przechowywanymi w tabeli, **\@ TestTvp** . Wcześniej utworzony obiekt **DataTable** jest przypisany do tego parametru za pomocą metody **SqlCommand. Parameters. Add** . Przetwarzanie wsadowe operacji wstawiania w jednym wywołaniu znacznie zwiększa wydajność nad wstawianiem sekwencyjnym.
 
 Aby dodatkowo poprawić poprzedni przykład, użyj procedury składowanej zamiast polecenia tekstowego. Poniższe polecenie języka Transact-SQL tworzy procedurę składowaną, która przyjmuje **SimpleTestTableType** parametr z wartościami przechowywanymi w tabeli.
 
@@ -212,7 +212,7 @@ Aby uzyskać więcej informacji na temat parametrów z wartościami przechowywan
 
 ### <a name="sql-bulk-copy"></a>Kopia Zbiorcza SQL
 
-Kopiowanie masowe SQL to inny sposób wstawiania dużych ilości danych do docelowej bazy danych. Aplikacje platformy .NET mogą używać klasy **SqlBulkCopy** do wykonywania operacji wstawiania zbiorczego. **SqlBulkCopy** jest podobna do narzędzia wiersza polecenia, **Bcp.exe**lub instrukcji języka Transact-SQL, **BULK INSERT**. Poniższy przykład kodu pokazuje, jak zbiorczo kopiować wiersze ze źródłowej tabeli **DataTable**do tabeli docelowej, MyTable.
+Kopiowanie masowe SQL to inny sposób wstawiania dużych ilości danych do docelowej bazy danych. Aplikacje platformy .NET mogą używać klasy **SqlBulkCopy** do wykonywania operacji wstawiania zbiorczego. **SqlBulkCopy** jest podobna do narzędzia wiersza polecenia, **Bcp.exe** lub instrukcji języka Transact-SQL, **BULK INSERT** . Poniższy przykład kodu pokazuje, jak zbiorczo kopiować wiersze ze źródłowej tabeli **DataTable** do tabeli docelowej, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -293,9 +293,9 @@ Klasa **DataAdapter** pozwala modyfikować obiekt **DataSet** , a następnie prz
 
 ### <a name="entity-framework"></a>Entity Framework
 
-[Entity Framework Core](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) obsługuje przetwarzanie wsadowe.
+[Entity Framework Core](/ef/efcore-and-ef6/#saving-data) obsługuje przetwarzanie wsadowe.
 
-### <a name="xml"></a>XML
+### <a name="xml"></a>Plik XML
 
 W celu zapewnienia kompletności należy zwrócić uwagę na informacje dotyczące XML jako strategię przetwarzania wsadowego. Jednak użycie kodu XML nie ma żadnych korzyści w porównaniu z innymi metodami i kilkoma wadami. Podejście jest podobne do parametrów z wartościami przechowywanymi w tabeli, ale plik XML lub ciąg jest przesyłany do procedury składowanej zamiast tabeli zdefiniowanej przez użytkownika. Procedura składowana analizuje polecenia w procedurze składowanej.
 
@@ -380,7 +380,7 @@ Chociaż istnieją pewne scenariusze, które są oczywistym kandydatem do tworze
 
 Rozważmy na przykład aplikację sieci Web, która śledzi historię przeglądania poszczególnych użytkowników. Na każdym żądaniu strony aplikacja może nawiązać połączenie z bazą danych, aby zarejestrować widok strony użytkownika. Jednak wyższą wydajność i skalowalność można osiągnąć, buforując działania nawigacyjne użytkowników, a następnie wysyłając je do bazy danych w partiach. Można wyzwolić aktualizację bazy danych według czasu, który upłynął i/lub rozmiar buforu. Na przykład reguła może określić, że partia powinna być przetwarzana po 20 sekundach lub gdy bufor osiągnie 1000 elementów.
 
-Poniższy przykład kodu używa [reaktywnych rozszerzeń-RX](https://docs.microsoft.com/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) , aby przetwarzać zdarzenia buforowane wywoływane przez klasę monitorowania. Po osiągnięciu lub przekroczeniu limitu czasu buforu dane użytkownika są wysyłane do bazy danych za pomocą parametru z wartościami przechowywanymi w tabeli.
+Poniższy przykład kodu używa [reaktywnych rozszerzeń-RX](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) , aby przetwarzać zdarzenia buforowane wywoływane przez klasę monitorowania. Po osiągnięciu lub przekroczeniu limitu czasu buforu dane użytkownika są wysyłane do bazy danych za pomocą parametru z wartościami przechowywanymi w tabeli.
 
 Poniższe klasy NavHistoryData modelują szczegóły nawigacji użytkownika. Zawiera podstawowe informacje, takie jak identyfikator użytkownika, dostęp do adresu URL i czas dostępu.
 

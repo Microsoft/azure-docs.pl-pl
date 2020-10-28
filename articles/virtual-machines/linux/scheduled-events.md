@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 265b99fb985602604eefee27d722b4dc8d7593a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 99528d1575056917b68bcb38f41a24d065822827
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970388"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792807"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events for Linux VMs (usługa podrzędna Scheduled Events dla maszyn wirtualnych z systemem Linux)
 
@@ -75,12 +75,12 @@ Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe; Bieżąca wersj
 
 | Wersja | Typ wydania | Regiony | Uwagi do wersji | 
 | - | - | - | - | 
-| 2019-08-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę elementu EventSource |
-| 2019-04-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę opisu zdarzenia |
-| 2019-01-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
-| 2017-11-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
-| 2017-08-01 | Ogólna dostępność | Wszystkie | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
-| 2017-03-01 | Wersja zapoznawcza | Wszystkie | <li>Wersja początkowa |
+| 2019-08-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventSource |
+| 2019-04-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę opisu zdarzenia |
+| 2019-01-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
+| 2017-11-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
+| 2017-08-01 | Ogólna dostępność | Wszystko | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
+| 2017-03-01 | Wersja zapoznawcza | Wszystko | <li>Wersja początkowa |
 
 
 > [!NOTE] 
@@ -154,6 +154,10 @@ Każde zdarzenie ma zaplanowaną minimalną ilość czasu w przyszłości w opar
 
 > [!NOTE] 
 > W niektórych przypadkach platforma Azure może przewidzieć awarię hosta z powodu nieprawidłowego sprzętu i podejmuje próbę ograniczenia zakłócenia usługi przez zaplanowanie migracji. Na maszynach wirtualnych, których to dotyczy, zostanie odebrane zaplanowane zdarzenie `NotBefore` , które jest zwykle kilka dni w przyszłości. Rzeczywisty czas zależy od przewidywanej oceny ryzyka niepowodzeń. Platforma Azure podejmuje próbę wydawania z wyprzedzeniem 7 dni, ale rzeczywisty czas jest różny i może być mniejszy, jeśli przewidywane jest, że nastąpi bezpośrednie awaria sprzętu. Aby zminimalizować ryzyko dla usługi na wypadek awarii sprzętu przed migracją zainicjowaną przez system, zalecamy, aby szybko wdrożyć maszynę wirtualną jak najszybciej.
+
+### <a name="polling-frequency"></a>Częstotliwość sondowania
+
+W punkcie końcowym można sondować aktualizacje tak często, jak chcesz. Jednak dłuższy czas między żądaniami, tym więcej czasu można utracić w celu reagowania na nadchodzące wydarzenie. Większość zdarzeń ma od 5 do 15 minut, w których zawarto powiadomienie, ale w niektórych przypadkach powiadomienie z wyprzedzeniem może być nawet 30-sekundowe. Aby zapewnić, że masz tyle czasu, jak to możliwe, aby podejmować działania zaradcze, zalecamy sondowanie usługi raz na sekundę.
 
 ### <a name="start-an-event"></a>Rozpocznij zdarzenie 
 

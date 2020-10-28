@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/26/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: be421cc0bb00018b32ee63f2b486c11300627a01
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7ef06bb9c5b5010f3fbbe413f98d77cc8519de00
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488558"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791804"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Przeglądanie stanu zadania importowania/eksportowania platformy Azure przy użyciu plików dziennika kopiowania
 Gdy usługa Microsoft Azure Import/Export przetwarza dyski skojarzone z zadaniem importu lub eksportu, zapisuje pliki dziennika kopiowania na koncie magazynu użytym do zaimportowania lub wyeksportowania obiektów BLOB. Plik dziennika zawiera szczegółowy stan każdego importowanego lub wyeksportowanego pliku. Usługa zwraca adres URL każdego pliku dziennika kopiowania podczas wykonywania zapytania o stan ukończonego zadania. Aby uzyskać więcej informacji, zobacz [pobieranie zadania](/rest/api/storageimportexport/Jobs/Get).  
@@ -26,11 +26,11 @@ Poniżej przedstawiono przykładowe adresy URL dla plików dziennika kopiowania 
 
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
 
- Zobacz Format [pliku dziennika usługi Import/Export](../storage-import-export-file-format-log.md) , aby zapoznać się z formatem kopiowania dzienników i pełną listą kodów stanu.  
+ Zobacz Format [pliku dziennika usługi Import/Export](/previous-versions/azure/storage/common/storage-import-export-file-format-log) , aby zapoznać się z formatem kopiowania dzienników i pełną listą kodów stanu.  
 
 ## <a name="next-steps"></a>Następne kroki
 
  * [Konfigurowanie narzędzia Azure Import/Export](storage-import-export-tool-setup-v1.md)   
- * [Przygotowywanie dysków twardych do zadania importu](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- * [Naprawianie zadania importu](../storage-import-export-tool-repairing-an-import-job-v1.md)   
- * [Naprawianie zadania eksportu](../storage-import-export-tool-repairing-an-export-job-v1.md)
+ * [Przygotowywanie dysków twardych do zadania importu](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+ * [Naprawianie zadania importu](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+ * [Naprawianie zadania eksportu](./storage-import-export-tool-repairing-an-export-job-v1.md)

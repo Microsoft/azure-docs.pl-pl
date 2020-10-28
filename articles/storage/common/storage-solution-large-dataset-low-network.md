@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 60b322cc0c1a50df7f8946fa1047bdc58ea92d77
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8afedec224fed55f617340af512485726ff44326
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488541"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792943"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transfer dużych zestawów danych w przypadku niskiej przepustowości sieci lub jej braku
  
@@ -66,6 +66,6 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
 - Zapoznaj się z tematem
 
-    - [Transferuj dane przy użyciu Data Box Disk](/azure/databox/data-box-disk-quickstart-portal).
-    - [Transferuj dane przy użyciu urządzenie Data Box](/azure/databox/data-box-quickstart-portal).
-    - [Transferuj dane przy użyciu importu/eksportu](/azure/storage/common/storage-import-export-data-to-blobs).
+    - [Transferuj dane przy użyciu Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+    - [Transferuj dane przy użyciu urządzenie Data Box](../../databox/data-box-quickstart-portal.md).
+    - [Transferuj dane przy użyciu importu/eksportu](./storage-import-export-data-to-blobs.md).
