@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: af31ab04653beb440655c4ab1a75946bed17c01b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31e4004379340912051204786da592fe33a5bd63
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285098"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890755"
 ---
 # <a name="get-information-from-a-coordinate"></a>Uzyskiwanie informacji na podstawie współrzędnych
 
 W tym artykule pokazano, jak utworzyć wyszukiwanie odwrotnego adresu, które pokazuje adres klikniętej lokalizacji podręcznej.
 
-Istnieją dwa sposoby przeszukiwania adresów odwrotnych. Jednym ze sposobów jest zbadanie [interfejsu API wyszukiwania odwrotnego adresu Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) za pomocą modułu usługi. Innym sposobem jest użycie [interfejsu API pobierania](https://fetch.spec.whatwg.org/) w celu żądania do [Azure Maps interfejsu API wyszukiwania wstecznego adresu](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) w celu znalezienia adresu. Oba sposoby zostały przedstawione poniżej.
+Istnieją dwa sposoby przeszukiwania adresów odwrotnych. Jednym ze sposobów jest zbadanie [interfejsu API wyszukiwania odwrotnego adresu Azure Maps](/rest/api/maps/search/getsearchaddressreverse) za pomocą modułu usługi. Innym sposobem jest użycie [interfejsu API pobierania](https://fetch.spec.whatwg.org/) w celu żądania do [Azure Maps interfejsu API wyszukiwania wstecznego adresu](/rest/api/maps/search/getsearchaddressreverse) w celu znalezienia adresu. Oba sposoby zostały przedstawione poniżej.
 
 ## <a name="make-a-reverse-search-request-via-service-module"></a>Utwórz żądanie wyszukiwania wstecznego za pośrednictwem modułu usługi
 
@@ -29,15 +29,15 @@ Istnieją dwa sposoby przeszukiwania adresów odwrotnych. Jednym ze sposobów je
 
 W powyższym kodzie, pierwszy blok konstruuje obiekt mapy i ustawia mechanizm uwierzytelniania do korzystania z tokenu dostępu. Aby uzyskać instrukcje, zobacz [Tworzenie mapy](./map-create.md) .
 
-Drugi blok kodu tworzy `TokenCredential` do uwierzytelniania żądań HTTP do Azure Maps przy użyciu tokenu dostępu. Następnie przekazuje `TokenCredential` do `atlas.service.MapsURL.newPipeline()` i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) . `searchURL`Reprezentuje adres URL służący do Azure Maps operacji [wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) .
+Drugi blok kodu tworzy `TokenCredential` do uwierzytelniania żądań HTTP do Azure Maps przy użyciu tokenu dostępu. Następnie przekazuje `TokenCredential` do `atlas.service.MapsURL.newPipeline()` i tworzy wystąpienie [potoku](/javascript/api/azure-maps-rest/atlas.service.pipeline) . `searchURL`Reprezentuje adres URL służący do Azure Maps operacji [wyszukiwania](/rest/api/maps/search) .
 
-Trzeci blok kodu aktualizuje styl kursora myszy do wskaźnika i tworzy obiekt [podręczny](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#open) . Aby uzyskać instrukcje, zobacz sekcję [Dodawanie okna podręcznego na mapie](./map-add-popup.md) .
+Trzeci blok kodu aktualizuje styl kursora myszy do wskaźnika i tworzy obiekt [podręczny](/javascript/api/azure-maps-control/atlas.popup#open) . Aby uzyskać instrukcje, zobacz sekcję [Dodawanie okna podręcznego na mapie](./map-add-popup.md) .
 
-Czwarty blok kodu dodaje [odbiornik zdarzeń](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events)kliknięcia myszą. Gdy jest wyzwalane, tworzy zapytanie wyszukiwania ze współrzędnymi klikniętego punktu. Następnie używa metody [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-), aby wykonać zapytanie dotyczące [zwrotnego interfejsu API uzyskiwania adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) dla adresu współrzędnych. Kolekcja funkcji GEOJSON jest następnie wyodrębniana przy użyciu `geojson.getFeatures()` metody z odpowiedzi.
+Czwarty blok kodu dodaje [odbiornik zdarzeń](/javascript/api/azure-maps-control/atlas.map#events)kliknięcia myszą. Gdy jest wyzwalane, tworzy zapytanie wyszukiwania ze współrzędnymi klikniętego punktu. Następnie używa metody [getSearchAddressReverse](/javascript/api/azure-maps-rest/atlas.service.searchurl#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-), aby wykonać zapytanie dotyczące [zwrotnego interfejsu API uzyskiwania adresu wyszukiwania](/rest/api/maps/search/getsearchaddressreverse) dla adresu współrzędnych. Kolekcja funkcji GEOJSON jest następnie wyodrębniana przy użyciu `geojson.getFeatures()` metody z odpowiedzi.
 
 Piąty blok kodu konfiguruje zawartość HTML podręczną, aby wyświetlić adres odpowiedzi dla klikniętej pozycji współrzędnej.
 
-Wszystkie zmiany dotyczące kursora, obiektu podręcznego i zdarzenia kliknięcia są tworzone w [detektorze zdarzeń ładowania](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events)mapy. Ta struktura kodu zapewnia pełną załadowanie mapy przed pobraniem informacji o współrzędnych.
+Wszystkie zmiany dotyczące kursora, obiektu podręcznego i zdarzenia kliknięcia są tworzone w [detektorze zdarzeń ładowania](/javascript/api/azure-maps-control/atlas.map#events)mapy. Ta struktura kodu zapewnia pełną załadowanie mapy przed pobraniem informacji o współrzędnych.
 
 ## <a name="make-a-reverse-search-request-via-fetch-api"></a>Utwórz żądanie wyszukiwania wstecznego za pośrednictwem interfejsu API pobierania
 
@@ -48,11 +48,11 @@ Kliknij mapę, aby przetworzyć żądanie odwrotnego kodu dla tej lokalizacji pr
 
 W powyższym kodzie pierwszy blok kodu konstruuje obiekt mapy i ustawia mechanizm uwierzytelniania do korzystania z tokenu dostępu. Aby uzyskać instrukcje, zobacz [Tworzenie mapy](./map-create.md) .
 
-Drugi blok kodu aktualizuje styl kursora myszy do wskaźnika. Tworzy wystąpienie obiektu [podręcznego](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#open) . Aby uzyskać instrukcje, zobacz sekcję [Dodawanie okna podręcznego na mapie](./map-add-popup.md) .
+Drugi blok kodu aktualizuje styl kursora myszy do wskaźnika. Tworzy wystąpienie obiektu [podręcznego](/javascript/api/azure-maps-control/atlas.popup#open) . Aby uzyskać instrukcje, zobacz sekcję [Dodawanie okna podręcznego na mapie](./map-add-popup.md) .
 
-Trzeci blok kodu dodaje odbiornik zdarzeń do kliknięć myszą. Gdy klikniesz myszą, użyje [interfejsu API pobierania](https://fetch.spec.whatwg.org/) , aby wysłać zapytanie do [interfejsu API wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) dla klikniętego adresu Azure Maps. W przypadku pomyślnej odpowiedzi zbierany jest adres dla klikniętej lokalizacji. Definiuje zawartość podręczną i położenie przy użyciu funkcji [SetOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-) klasy popup.
+Trzeci blok kodu dodaje odbiornik zdarzeń do kliknięć myszą. Gdy klikniesz myszą, użyje [interfejsu API pobierania](https://fetch.spec.whatwg.org/) , aby wysłać zapytanie do [interfejsu API wyszukiwania](/rest/api/maps/search/getsearchaddressreverse) dla klikniętego adresu Azure Maps. W przypadku pomyślnej odpowiedzi zbierany jest adres dla klikniętej lokalizacji. Definiuje zawartość podręczną i położenie przy użyciu funkcji [SetOptions](/javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-) klasy popup.
 
-Wszystkie zmiany dotyczące kursora, obiektu podręcznego i zdarzenia kliknięcia są tworzone w [detektorze zdarzeń ładowania](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events)mapy. Ta struktura kodu gwarantuje całkowite załadowanie mapy przed pobraniem informacji o współrzędnych.
+Wszystkie zmiany dotyczące kursora, obiektu podręcznego i zdarzenia kliknięcia są tworzone w [detektorze zdarzeń ładowania](/javascript/api/azure-maps-control/atlas.map#events)mapy. Ta struktura kodu gwarantuje całkowite załadowanie mapy przed pobraniem informacji o współrzędnych.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -62,10 +62,10 @@ Wszystkie zmiany dotyczące kursora, obiektu podręcznego i zdarzenia kliknięci
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mapa](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Okno podręczne](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [Okno podręczne](/javascript/api/azure-maps-control/atlas.popup)
 
 Zobacz następujące artykuły, aby zapoznać się z pełnymi przykładami kodu:
 

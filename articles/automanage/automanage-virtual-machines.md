@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519660"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891506"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
 
@@ -44,11 +44,13 @@ Przed próbą włączenia usługi Azure automanage na maszynach wirtualnych nale
 - Tylko maszyny wirtualne z systemem Windows Server
 - Maszyny wirtualne muszą być uruchomione
 - Maszyny wirtualne muszą znajdować się w obsługiwanym regionie
-- Użytkownik musi mieć odpowiednie uprawnienia
-- Maszyny wirtualne nie mogą łączyć się z obszarem roboczym usługi log Analytics w innej subskrypcji
+- Użytkownik musi mieć odpowiednie uprawnienia (patrz akapit poniżej)
 - W tej chwili usługa autozarządzania nie obsługuje subskrypcji piaskownicy
 
-Musisz mieć rolę **współautor** , aby włączyć Autozarządzanie przy użyciu istniejącego konta autozarządzania. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
+Aby włączyć funkcję autozarządzania na maszynach wirtualnych przy użyciu istniejącego konta Autozarządzanie, musisz mieć rolę **współautor** w grupie zasobów zawierającej swoje maszyny wirtualne. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia do subskrypcji: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** . 
+
+> [!NOTE]
+> Jeśli chcesz używać autozarządzania na maszynie wirtualnej, która jest połączona z obszarem roboczym w innej subskrypcji, musisz mieć uprawnienia opisane powyżej dla każdej subskrypcji.
 
 Należy również pamiętać, że Autozarządzanie obsługuje tylko maszyny wirtualne z systemem Windows, które znajdują się w następujących regionach: Europa Zachodnia, Wschodnie stany USA, zachodnie stany USA 2, Kanada środkowa, zachodnio-środkowe stany USA.
 
@@ -67,7 +69,7 @@ W przypadku wszystkich tych usług będziemy automatycznie dołączać, konfigur
 
 W Azure Portal można włączyć Autozarządzanie na istniejącej maszynie wirtualnej lub podczas tworzenia nowej maszyny wirtualnej. Zwięzłe kroki tego procesu można znaleźć w sekcji [Autozarządzanie dla maszyn wirtualnych — szybki start](quick-create-virtual-machines-portal.md).
 
-Jeśli po raz pierwszy włączysz Autozarządzanie dla maszyny wirtualnej, możesz wyszukać w Azure Portal do **autozarządzania — najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure**. Kliknij pozycję **Włącz na istniejącej maszynie wirtualnej**, wybierz maszyny wirtualne, które chcesz dołączyć, kliknij pozycję **Wybierz**, kliknij pozycję **Włącz**, a wszystko gotowe.
+Jeśli po raz pierwszy włączysz Autozarządzanie dla maszyny wirtualnej, możesz wyszukać w Azure Portal do **autozarządzania — najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure** . Kliknij pozycję **Włącz na istniejącej maszynie wirtualnej** , wybierz maszyny wirtualne, które chcesz dołączyć, kliknij pozycję **Wybierz** , kliknij pozycję **Włącz** , a wszystko gotowe.
 
 Jedyną czynnością, którą należy wykonać, aby móc korzystać z tej maszyny wirtualnej w celu zarządzania tymi usługami, jest to, że podjęto próbę skorygowania maszyny wirtualnej, ale to nie powiodło się. W przypadku pomyślnego skorygowania maszyny wirtualnej nastąpi powrót do zgodności bez nawet powiadamiania użytkownika.
 
@@ -105,7 +107,7 @@ Konto autozarządzaj jest kontekstem zabezpieczeń lub tożsamością, w której
 W Azure Portal środowiska, gdy włączasz funkcję autozarządzania na maszynach wirtualnych, istnieje zaawansowana lista rozwijana w bloku **Włączanie usługi Azure VM Best Practice** , który umożliwia przypisanie lub ręczne utworzenie konta Autozarządzanie.
 
 > [!NOTE]
-> Musisz mieć rolę **współautor** , aby włączyć Autozarządzanie przy użyciu istniejącego konta autozarządzania. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
+> Musisz mieć rolę **współautor** w grupie zasobów zawierającej swoje maszyny wirtualne, aby włączyć funkcję autozarządzania na maszynach wirtualnych przy użyciu istniejącego konta autozarządzania. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia do subskrypcji: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
 
 
 ## <a name="status-of-vms"></a>Stan maszyn wirtualnych
@@ -121,7 +123,7 @@ W kolumnie **stan** można wyświetlić następujące stany:
 - *Skonfigurowane* — maszyna wirtualna jest skonfigurowana i nie wykryto dryfu
 - *Niepowodzenie* — maszyna wirtualna została przedryfna i nie można jej skorygować
 
-Jeśli zobaczysz **stan** jako *Niepowodzenie*, możesz rozwiązać problemy ze wdrożeniem za pomocą grupy zasobów, w której znajduje się maszyna wirtualna. Przejdź do pozycji **grupy zasobów**, wybierz grupę zasobów, kliknij pozycję **wdrożenia** , a następnie *Failed* Zobacz szczegóły błędu.
+Jeśli zobaczysz **stan** jako *Niepowodzenie* , możesz rozwiązać problemy ze wdrożeniem za pomocą grupy zasobów, w której znajduje się maszyna wirtualna. Przejdź do pozycji **grupy zasobów** , wybierz grupę zasobów, kliknij pozycję **wdrożenia** , a następnie *Failed* Zobacz szczegóły błędu.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Wyłączanie autozarządzania dla maszyn wirtualnych
@@ -132,7 +134,7 @@ Aby to zrobić, w Azure Portal przejdź do strony **Autozarządzanie — najleps
 
 :::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Usługi inteligentnego dołączania.":::
 
-Uważnie przeczytaj wiadomości w wyskakującym okienku, aby wyrazić zgodę na **wyłączenie**.
+Uważnie przeczytaj wiadomości w wyskakującym okienku, aby wyrazić zgodę na **wyłączenie** .
 
 > [!NOTE]
 > Wyłączenie autozarządzania w maszynie wirtualnej powoduje następujące zachowanie:

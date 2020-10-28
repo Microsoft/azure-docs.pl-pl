@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/15/2020
-ms.openlocfilehash: 5845ab6419d6914b9221df1ae1280d31aba0ae7a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 10/27/2020
+ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737524"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891402"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformacja ujścia w przepływie danych mapowania
 
@@ -68,6 +68,10 @@ Poniższy film wideo wyjaśnia różne opcje ujścia dla typów plików rozdziel
 **Dryfowanie schematu** : [dryfowanie schematu](concepts-data-flow-schema-drift.md) jest możliwością Data Factory natywnie obsługiwać elastyczne schematy w przepływach danych bez konieczności jawnego definiowania zmian w kolumnach. Włącz funkcję **Zezwalaj na dryfowanie schematu** w celu zapisania dodatkowych kolumn na podstawie zawartości zdefiniowanej w schemacie danych ujścia.
 
 **Sprawdź poprawność schematu** : Jeśli wybrano opcję Weryfikuj schemat, przepływ danych zakończy się niepowodzeniem, jeśli w projekcji źródłowej nie zostanie znaleziona żadna kolumna przychodzącego schematu źródłowego lub typy danych nie są zgodne. Użyj tego ustawienia, aby wymusić, że dane źródłowe spełniają kontrakt zdefiniowanej projekcji. Jest to przydatne w scenariuszach ze źródłami danych w celu sygnalizowania, że nazwy kolumn lub typy zostały zmienione.
+
+**Użyj bazy danych tempdb:** Domyślnie Data Factory będzie używać globalnej tabeli tymczasowej do przechowywania danych w ramach procesu ładowania. Można również usunąć zaznaczenie opcji "Użyj bazy danych TempDB", a zamiast tego polecić Data Factory przechowywanie tymczasowej tabeli w bazie danych użytkownika, która znajduje się w bazie danych, która jest używana dla tego ujścia.
+
+![TempDB](media/data-flow/tempdb.png "TempDB")
 
 ## <a name="field-mapping"></a>Mapowanie pola
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: a67fad5d0980730eb73f4219f12eaf3a7b9ec7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 903574a8c8696f10d9903a685bab8d12b3e6395f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310479"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891040"
 ---
 # <a name="add-a-popup-to-the-map"></a>Dodawanie okna podręcznego do mapy
 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób dodawania okna podręcznego do punktu na mapie.
 
 ## <a name="understand-the-code"></a>Zrozumienie kodu
 
-Poniższy kod dodaje funkcję punktu, która ma `name` i `description` właściwości, do mapy za pomocą warstwy symboli. Wystąpienie [klasy popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) jest tworzone, ale nie jest wyświetlane. Zdarzenia myszy są dodawane do warstwy symboli, aby wyzwolić otwieranie i zamykanie okna podręcznego. Gdy symbol znacznika jest aktywowany, właściwość podręcznej `position` jest aktualizowana przy użyciu pozycji znacznika, a `content` opcja jest aktualizowana przy użyciu kodu HTML, który otacza  `name` właściwości i funkcji punktu, który jest `description` aktywowany. Następnie zostanie wyświetlone okno podręczne na mapie przy użyciu `open` funkcji.
+Poniższy kod dodaje funkcję punktu, która ma `name` i `description` właściwości, do mapy za pomocą warstwy symboli. Wystąpienie [klasy popup](/javascript/api/azure-maps-control/atlas.popup) jest tworzone, ale nie jest wyświetlane. Zdarzenia myszy są dodawane do warstwy symboli, aby wyzwolić otwieranie i zamykanie okna podręcznego. Gdy symbol znacznika jest aktywowany, właściwość podręcznej `position` jest aktualizowana przy użyciu pozycji znacznika, a `content` opcja jest aktualizowana przy użyciu kodu HTML, który otacza  `name` właściwości i funkcji punktu, który jest `description` aktywowany. Następnie zostanie wyświetlone okno podręczne na mapie przy użyciu `open` funkcji.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -279,13 +279,13 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>zdarzenia wyskakujące
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Okno podręczne](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [Okno podręczne](/javascript/api/azure-maps-control/atlas.popup)
 
 > [!div class="nextstepaction"]
-> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
+> [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 > [!div class="nextstepaction"]
-> [PopupTemplate](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
+> [PopupTemplate](/javascript/api/azure-maps-control/atlas.popuptemplate)
 
 Zobacz następujące wspaniałe artykuły dotyczące pełnych przykładów kodu:
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: ecefac68a4348eeae23860d542f949b1c7ff23a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddb8009e544ede82d1c56d112950ff247a87380c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310208"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890704"
 ---
 # <a name="get-shape-data"></a>Pobieranie danych kształtów
 
-W tym artykule pokazano, jak uzyskać dane kształtów, które są rysowane na mapie. Używamy funkcji **drawingmanager. GetSource ()** wewnątrz [Menedżera rysowania](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). Istnieją różne scenariusze, w których można wyodrębnić dane GEOJSON rysowanego kształtu i korzystać z niego w innym miejscu.  
+W tym artykule pokazano, jak uzyskać dane kształtów, które są rysowane na mapie. Używamy funkcji **drawingmanager. GetSource ()** wewnątrz [Menedżera rysowania](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). Istnieją różne scenariusze, w których można wyodrębnić dane GEOJSON rysowanego kształtu i korzystać z niego w innym miejscu.  
 
 
 ## <a name="get-data-from-drawn-shape"></a>Pobierz dane z rysowanego kształtu
@@ -54,10 +54,10 @@ Dowiedz się, jak używać dodatkowych funkcji modułu narzędzi do rysowania:
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mapa](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Menedżer rysowania](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Menedżer rysowania](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Rysowanie paska narzędzi](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Rysowanie paska narzędzi](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 858bf042593045059c988ae1b2796b063b33bb6e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 1a57660733b7257b224c38a55059f1bf069495a0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047577"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890247"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>Co to jest klasyfikator metryk (wersja zapoznawcza)? 
 
@@ -53,16 +53,14 @@ Analizuj anomalie wykryte w metrykach wielowymiarowych i Generuj [inteligentne i
 Przepływ pracy jest prosty: po dodaniu danych możesz dostosować wykrywanie anomalii i utworzyć konfiguracje zgodne z Twoim scenariuszem.
 
 1. [Utwórz zasób platformy Azure dla usługi](../cognitive-services-apis-create-account.md) Metric Advisor. 
-2. Wypróbuj witrynę demonstracyjną, aby zobaczyć przykładowe wystąpienie usługi Advisor metryk z wstępnie skonfigurowanymi przykładowymi danymi. 
-3. Kompiluj swój pierwszy monitor przy użyciu portalu sieci Web.
+2. Kompiluj swój pierwszy monitor przy użyciu portalu sieci Web.
     1. Dołączanie danych
     2. Dostrajanie wykrywania anomalii
     3. Subskrybowanie alertów
     4. Wyświetlanie szczegółowych informacji diagnostycznych
-1. Aby dostosować wystąpienie, użyj interfejsu API REST.
+3. Aby dostosować wystąpienie, użyj interfejsu API REST.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Wypróbuj [witrynę demonstracyjną](quickstarts/explore-demo.md).
 * Zapoznaj się z przewodnikiem Szybki Start: [Monitoruj swoją pierwszą metrykę w sieci Web](quickstarts/web-portal.md).
 * Zapoznaj się z przewodnikiem Szybki Start: [Użyj interfejsów API REST, aby dostosować rozwiązanie](quickstarts/rest-api.md).

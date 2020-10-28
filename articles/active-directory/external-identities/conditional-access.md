@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47ec082daa6eee4ab593fdb5523087f9eb5b038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eccbbb22814788aaf06fa6fd10d8c376203c1d49
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274150"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892455"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Dostęp warunkowy dla użytkowników współpracy B2B
 
@@ -110,5 +110,5 @@ Obecnie zasady logowania oparte na ryzyku nie mogą być stosowane do użytkowni
 Zapoznaj się z następującymi artykułami dotyczącymi współpracy B2B w usłudze Azure AD:
 
 * [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
-* [Licencjonowanie funkcji współpracy B2B w usłudze Azure AD](licensing-guidance.md)
+* [Cennik tożsamości zewnętrznych](external-identities-pricing.md)
 * [Współpraca B2B w usłudze Active Directory Azure — często zadawane pytania](faq.md)

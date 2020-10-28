@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 74c8ba4ed1f228b9b3ba90b46c47f538d71ff409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96553e75d4b982cfe67d03961d4356a3844f253c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310462"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891001"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Dodawanie warstwy wielokąta do mapy
 
-W tym artykule pokazano, jak renderować obszary `Polygon` i `MultiPolygon` funkcje geometrie na mapie przy użyciu warstwy wielokąta. Zestaw SDK sieci Web Azure Maps obsługuje również tworzenie okręgów geometrie zgodnie z definicją w [schemacie rozszerzonego kodu JSON](extend-geojson.md#circle). Te okręgi są przekształcane na wielokąty, gdy są renderowane na mapie. Wszystkie funkcje geometrie można łatwo aktualizować po zapakowaniu z [Atlasem. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) — Klasa.
+W tym artykule pokazano, jak renderować obszary `Polygon` i `MultiPolygon` funkcje geometrie na mapie przy użyciu warstwy wielokąta. Zestaw SDK sieci Web Azure Maps obsługuje również tworzenie okręgów geometrie zgodnie z definicją w [schemacie rozszerzonego kodu JSON](extend-geojson.md#circle). Te okręgi są przekształcane na wielokąty, gdy są renderowane na mapie. Wszystkie funkcje geometrie można łatwo aktualizować po zapakowaniu z [Atlasem. Shape](/javascript/api/azure-maps-control/atlas.shape) — Klasa.
 
 ## <a name="use-a-polygon-layer"></a>Użyj warstwy wielokąta 
 
-Gdy warstwa wielokątów jest połączona ze źródłem danych i załadowana na mapie, renderuje obszar z `Polygon` i `MultiPolygon` funkcjami. Aby utworzyć wielokąt, Dodaj go do źródła danych i Renderuj go za pomocą warstwy wielokąta przy użyciu klasy [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer) .
+Gdy warstwa wielokątów jest połączona ze źródłem danych i załadowana na mapie, renderuje obszar z `Polygon` i `MultiPolygon` funkcjami. Aby utworzyć wielokąt, Dodaj go do źródła danych i Renderuj go za pomocą warstwy wielokąta przy użyciu klasy [PolygonLayer](/javascript/api/azure-maps-control/atlas.layer.polygonlayer) .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -115,7 +115,7 @@ Zestaw SDK sieci Web Azure Maps konwertuje te `Point` funkcje na `Polygon` funkc
 
 ## <a name="make-a-geometry-easy-to-update"></a>Łatwa aktualizacja geometrii
 
-`Shape`Klasa otacza [geometrię](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry) lub [funkcję](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) , ułatwiając aktualizowanie i obsługę tych funkcji. Aby utworzyć wystąpienie zmiennej Shape, Przekaż geometrię lub zestaw właściwości do konstruktora kształtu.
+`Shape`Klasa otacza [geometrię](/javascript/api/azure-maps-control/atlas.data.geometry) lub [funkcję](/javascript/api/azure-maps-control/atlas.data.feature) , ułatwiając aktualizowanie i obsługę tych funkcji. Aby utworzyć wystąpienie zmiennej Shape, Przekaż geometrię lub zestaw właściwości do konstruktora kształtu.
 
 ```javascript
 //Creating a shape by passing in a geometry and a object containing properties.
@@ -137,10 +137,10 @@ Poniższy przykład kodu pokazuje, jak otoczyć obiekt GEOJSON koła z klasą Sh
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Wielokąt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Wielokąt](/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer)
+> [PolygonLayer](/javascript/api/azure-maps-control/atlas.layer.polygonlayer)
 
 > [!div class="nextstepaction"]
 > [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)

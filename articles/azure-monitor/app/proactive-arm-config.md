@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 169ad40e32f688ae20a9d02f61db161844b1254a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87309345"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890517"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Zarządzanie Application Insights regułami wykrywania inteligentnego przy użyciu szablonów Azure Resource Manager
 
@@ -21,18 +21,18 @@ Tej metody można użyć podczas wdrażania nowych zasobów Application Insights
 ## <a name="smart-detection-rule-configuration"></a>Konfiguracja reguły wykrywania inteligentnego
 
 Dla reguły wykrywania inteligentnego można skonfigurować następujące ustawienia:
-- Jeśli reguła jest włączona (wartość domyślna to **true**).
-- Jeśli wiadomości e-mail powinny być wysyłane do użytkowników skojarzonych z [czytnikiem monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader) subskrypcji i [monitorować role współautor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) po znalezieniu wykrywania (wartość domyślna to **true**).
+- Jeśli reguła jest włączona (wartość domyślna to **true** ).
+- Jeśli wiadomości e-mail powinny być wysyłane do użytkowników skojarzonych z [czytnikiem monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader) subskrypcji i [monitorować role współautor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) po znalezieniu wykrywania (wartość domyślna to **true** ).
 - Wszyscy dodatkowi Adresaci poczty e-mail, którzy powinni otrzymać powiadomienie po znalezieniu wykrywania.
-    -  Konfiguracja poczty e-mail nie jest dostępna dla reguł wykrywania inteligentnego oznaczonych jako _wersja zapoznawcza_.
+    -  Konfiguracja poczty e-mail nie jest dostępna dla reguł wykrywania inteligentnego oznaczonych jako _wersja zapoznawcza_ .
 
-Aby umożliwić Konfigurowanie ustawień reguły za pośrednictwem Azure Resource Manager, Konfiguracja reguły wykrywania inteligentnego jest teraz dostępna jako zasób wewnętrzny w ramach zasobu Application Insights o nazwie **ProactiveDetectionConfigs**.
+Aby umożliwić Konfigurowanie ustawień reguły za pośrednictwem Azure Resource Manager, Konfiguracja reguły wykrywania inteligentnego jest teraz dostępna jako zasób wewnętrzny w ramach zasobu Application Insights o nazwie **ProactiveDetectionConfigs** .
 W celu uzyskania maksymalnej elastyczności Każda reguła wykrywania inteligentnego może być skonfigurowana przy użyciu unikatowych ustawień powiadomień.
 
 ## <a name="examples"></a>Przykłady
 
 Poniżej przedstawiono kilka przykładów, które pokazują, jak skonfigurować ustawienia reguł wykrywania inteligentnego za pomocą szablonów Azure Resource Manager.
-Wszystkie przykłady odnoszą się do zasobu Application Insights o nazwie _"moja aplikacja"_ i do "reguły wykrywania" długiego czasu trwania zależności ", która jest wewnętrznie nazywana _" longdependencyduration "_.
+Wszystkie przykłady odnoszą się do zasobu Application Insights o nazwie _"moja aplikacja"_ i do "reguły wykrywania" długiego czasu trwania zależności ", która jest wewnętrznie nazywana _" longdependencyduration "_ .
 Pamiętaj, aby zastąpić nazwę zasobu Application Insights i określić odpowiednią nazwę wewnętrzną reguły wykrywania inteligentnego. Zapoznaj się z poniższą tabelą, aby wyświetlić listę odpowiednich wewnętrznych nazw Azure Resource Manager dla każdej reguły wykrywania inteligentnego.
 
 ### <a name="disable-a-smart-detection-rule"></a>Wyłącz regułę wykrywania inteligentnego
@@ -44,7 +44,7 @@ Pamiętaj, aby zastąpić nazwę zasobu Application Insights i określić odpowi
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -75,7 +75,7 @@ Pamiętaj, aby zastąpić nazwę zasobu Application Insights i określić odpowi
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -106,7 +106,7 @@ Pamiętaj, aby zastąpić nazwę zasobu Application Insights i określić odpowi
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -120,7 +120,7 @@ Pamiętaj, aby zastąpić nazwę zasobu Application Insights i określić odpowi
           "properties": {
             "name": "longdependencyduration",
             "sendEmailsToSubscriptionOwners": true,
-            "customEmails": ['alice@contoso.com', 'bob@contoso.com'],
+            "customEmails": ["alice@contoso.com", "bob@contoso.com"],
             "enabled": true
           }
         }

@@ -3,18 +3,18 @@ title: Wdrażanie aplikacji .NET w kontenerze na platformie Azure Service Fabric
 description: Dowiedz się, jak konteneryzować istniejącą aplikację platformy .NET przy użyciu programu Visual Studio i jak debugować kontenery lokalnie w usłudze Service Fabric. Konteneryzowana aplikacja jest wypychana do usługi Azure Container Registry i wdrażana w klastrze usługi Service Fabric. Po wdrożeniu na platformie Azure aplikacja utrwala dane za pomocą usługi Azure SQL DB.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: c2e44db9bc813b346493b4d23b9f48b279e245b3
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b7c841c1185cb2e289a230eb1078a13d4ccd48f8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122067"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889939"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Samouczek: wdrażanie aplikacji .NET w kontenerze systemu Windows w usłudze Azure Service Fabric
 
 W tym samouczku przedstawiono sposób konteneryzacji istniejącej aplikacji ASP.NET i tworzenia z niej pakietu będącego aplikacją usługi Service Fabric.  Uruchom kontenery lokalnie w klastrze programistycznym usługi Service Fabric, a następnie wdróż aplikację na platformie Azure.  Aplikacja będzie utrwalać dane w usłudze [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -35,19 +35,19 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Pobieranie i uruchamianie aplikacji Fabrikam Fiber CallCenter
 
-1. Pobierz aplikację przykładową [Fabrikam Fiber CallCenter][link-fabrikam-github].  Kliknij link **pobierania archiwum**.  Z katalogu *sourceCode* w pliku *fabrikam.zip* wyodrębnij plik *sourceCode.zip*, a następnie katalog *VS2015* na komputerze.
+1. Pobierz aplikację przykładową [Fabrikam Fiber CallCenter][link-fabrikam-github].  Kliknij link **pobierania archiwum** .  Z katalogu *sourceCode* w pliku *fabrikam.zip* wyodrębnij plik *sourceCode.zip* , a następnie katalog *VS2015* na komputerze.
 
-2. Sprawdź, czy aplikację Fabrikam Fiber CallCenter można skompilować i uruchomić bez błędów.  Uruchom program Visual Studio jako **administrator**, a następnie otwórz plik [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Naciśnij klawisz F5, aby debugować i uruchomić aplikację.
+2. Sprawdź, czy aplikację Fabrikam Fiber CallCenter można skompilować i uruchomić bez błędów.  Uruchom program Visual Studio jako **administrator** , a następnie otwórz plik [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Naciśnij klawisz F5, aby debugować i uruchomić aplikację.
 
    ![Zrzut ekranu przedstawiający stronę główną aplikacji Fabrikam Fiber CallCenter działającą na hoście lokalnym. Na stronie zostanie wyświetlony pulpit nawigacyjny z listą wywołań obsługi.][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>Konteneryzowanie aplikacji
 
-1. Kliknij prawym przyciskiem myszy projekt **FabrikamFiber.Web** i wybierz pozycję **Dodaj** > **Obsługa orkiestratora kontenerów**.  Wybierz pozycję **Service Fabric** jako orkiestratora kontenerów i kliknij pozycję **OK**.
+1. Kliknij prawym przyciskiem myszy projekt **FabrikamFiber.Web** i wybierz pozycję **Dodaj** > **Obsługa orkiestratora kontenerów** .  Wybierz pozycję **Service Fabric** jako orkiestratora kontenerów i kliknij pozycję **OK** .
 
 2. Jeśli zostanie wyświetlony monit, kliknij przycisk **tak** , aby przełączyć teraz kontenery platformy Docker do systemu Windows.
 
-   Nowy projekt aplikacji usługi Service Fabric **FabrikamFiber.CallCenterApplication** zostanie utworzony w rozwiązaniu.  Plik Dockerfile zostanie dodany do istniejącego projektu **FabrikamFiber.Web**.  Katalog **PackageRoot** także zostanie dodany do projektu **FabrikamFiber.Web**. Zawiera on manifest usługi i ustawienia dla nowej usługi FabrikamFiber.Web.
+   Nowy projekt aplikacji usługi Service Fabric **FabrikamFiber.CallCenterApplication** zostanie utworzony w rozwiązaniu.  Plik Dockerfile zostanie dodany do istniejącego projektu **FabrikamFiber.Web** .  Katalog **PackageRoot** także zostanie dodany do projektu **FabrikamFiber.Web** . Zawiera on manifest usługi i ustawienia dla nowej usługi FabrikamFiber.Web.
 
    Kontener jest teraz gotowy do skompilowania i spakowania w aplikację usługi Service Fabric. Po skompilowaniu obrazu kontenera na komputerze możesz wypchnąć go do dowolnego rejestru kontenerów, a następnie ściągnąć na dowolny host w celu uruchomienia.
 
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>Aktualizowanie konfiguracji internetowej
 
-W projekcie **FabrikamFiber.Web** zaktualizuj parametry połączenia w pliku **web.config**, aby wskazywały na program SQL Server w kontenerze.  Zaktualizuj część *Server* parametrów połączenia do poziomu nazwy serwera utworzonej przez poprzedni skrypt. Powinna to być informacja podobna do „fab-fiber-751718376.database.windows.net”. W poniższym kodzie XML należy zaktualizować tylko `connectionString` atrybut; `providerName` `name` atrybuty i nie muszą być zmieniane.
+W projekcie **FabrikamFiber.Web** zaktualizuj parametry połączenia w pliku **web.config** , aby wskazywały na program SQL Server w kontenerze.  Zaktualizuj część *Server* parametrów połączenia do poziomu nazwy serwera utworzonej przez poprzedni skrypt. Powinna to być informacja podobna do „fab-fiber-751718376.database.windows.net”. W poniższym kodzie XML należy zaktualizować tylko `connectionString` atrybut; `providerName` `name` atrybuty i nie muszą być zmieniane.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -118,11 +118,11 @@ W projekcie **FabrikamFiber.Web** zaktualizuj parametry połączenia w pliku **w
 ```
 
 >[!NOTE]
->Na potrzeby lokalnego debugowania można używać dowolnego programu SQL Server, ale musi on być dostępny z hosta. Baza danych **localdb** nie obsługuje jednak komunikacji typu `container -> host`. Jeśli podczas tworzenia kompilacji wydania aplikacji internetowej ma zostać użyta inna usługa SQL Database, dodaj kolejne parametry połączenia do pliku *web.release.config*.
+>Na potrzeby lokalnego debugowania można używać dowolnego programu SQL Server, ale musi on być dostępny z hosta. Baza danych **localdb** nie obsługuje jednak komunikacji typu `container -> host`. Jeśli podczas tworzenia kompilacji wydania aplikacji internetowej ma zostać użyta inna usługa SQL Database, dodaj kolejne parametry połączenia do pliku *web.release.config* .
 
 ## <a name="run-the-containerized-application-locally"></a>Uruchamianie aplikacji konteneryzowanych lokalnie
 
-Naciśnij klawisz **F5**, aby uruchomić i debugować aplikację w kontenerze w lokalnym klastrze programistycznym usługi Service Fabric. Kliknij przycisk **Tak**, jeśli zostanie wyświetlone pole komunikatu z prośbą o nadanie grupie „ServiceFabricAllowedUsers” uprawnień do odczytu i wykonywania do katalogu projektu programu Visual Studio.
+Naciśnij klawisz **F5** , aby uruchomić i debugować aplikację w kontenerze w lokalnym klastrze programistycznym usługi Service Fabric. Kliknij przycisk **Tak** , jeśli zostanie wyświetlone pole komunikatu z prośbą o nadanie grupie „ServiceFabricAllowedUsers” uprawnień do odczytu i wykonywania do katalogu projektu programu Visual Studio.
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
@@ -144,23 +144,23 @@ $registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Na
 
 Aplikacje usługi Service Fabric działają w klastrze — połączonym z siecią zestawie maszyn wirtualnych lub fizycznych.  Przed wdrożeniem aplikacji na platformie Azure utwórz klaster usługi Service Fabric na platformie Azure.
 
-Można:
+Oto co możesz zrobić:
 
 * Utworzyć klaster testowy z poziomu programu Visual Studio. Ta opcja służy do tworzenia bezpiecznego klastra bezpośrednio z poziomu programu Visual Studio z preferowaną konfiguracją.
 * [Utworzyć zabezpieczony klaster na podstawie szablonu](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
 W ramach tego samouczka klaster jest tworzony za pomocą programu Visual Studio, co jest bardzo przydatne w przypadku scenariuszy testowych. Jeśli utworzono klaster w inny sposób lub jest używany istniejący klaster, możesz skopiować i wkleić punkt końcowy połączenia lub wybrać go z subskrypcji.
 
-Zanim rozpoczniesz, w Eksploratorze rozwiązań otwórz plik FabrikamFiber.Web -> PackageRoot -> ServiceManifest.xml. Zwróć uwagę na numer portu frontonu internetowego podany w polu **Punkt końcowy**.
+Zanim rozpoczniesz, w Eksploratorze rozwiązań otwórz plik FabrikamFiber.Web -> PackageRoot -> ServiceManifest.xml. Zwróć uwagę na numer portu frontonu internetowego podany w polu **Punkt końcowy** .
 
 Podczas tworzenia klastra:
 
-1. Kliknij prawym przyciskiem myszy projekt aplikacji **FabrikamFiber.CallCenterApplication** w Eksploratorze rozwiązań i wybierz polecenie **Publikuj**.
+1. Kliknij prawym przyciskiem myszy projekt aplikacji **FabrikamFiber.CallCenterApplication** w Eksploratorze rozwiązań i wybierz polecenie **Publikuj** .
 2. Zaloguj się przy użyciu konta platformy Azure, aby uzyskać dostęp do subskrypcji.
-3. Pod listą rozwijaną **punktu końcowego połączenia**wybierz opcję **Utwórz nowy klaster...** .
+3. Pod listą rozwijaną **punktu końcowego połączenia** wybierz opcję **Utwórz nowy klaster...** .
 4. W oknie dialogowym **Tworzenie klastra** zmodyfikuj następujące ustawienia:
 
-    a. Określ nazwę klastra w polu **Nazwa klastra**, a także subskrypcję i lokalizację, których chcesz użyć. Zanotuj nazwę grupy zasobów klastra.
+    a. Określ nazwę klastra w polu **Nazwa klastra** , a także subskrypcję i lokalizację, których chcesz użyć. Zanotuj nazwę grupy zasobów klastra.
 
     b. Opcjonalnie możesz zmodyfikować liczbę węzłów. Domyślne ustawienie to trzy węzły, czyli minimalna liczba wymagana do testowania scenariuszy usługi Service Fabric.
 
@@ -169,11 +169,11 @@ Podczas tworzenia klastra:
     d. Wybierz kartę **Szczegóły maszyny wirtualnej** . Określ hasło, którego chcesz użyć dla Virtual Machines (VM) tworzącego klaster. Za pomocą nazwy użytkownika i hasła można zdalnie łączyć się z maszynami wirtualnymi. Należy również wybrać rozmiar maszyny wirtualnej oraz zmienić obraz maszyny wirtualnej, jeśli jest to konieczne.
 
     > [!IMPORTANT]
-    > Wybierz jednostkę SKU, która obsługuje uruchomione kontenery. System operacyjny Windows Server na węzłach klastra musi być zgodny z systemem operacyjnym Windows Server kontenera. Aby dowiedzieć się więcej, zobacz temat [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) (Zgodność między systemami operacyjnymi Windows Server kontenera i hosta). Domyślnie w tym samouczku zostanie utworzony obraz platformy Docker opartej na systemie Windows Server 2016 LTSC. Kontenery oparte na tym obrazie zostaną uruchomione na klastrach utworzonych za pomocą Windows Server 2016 Datacenter with Containers. Jednak jeśli utworzysz klaster lub użyjesz istniejącego klastra w oparciu o Windows Server Datacenter Core 1709 with Containers, zmień obraz systemu operacyjnego Windows Server, na którym jest oparty kontener. Otwórz plik **Dockerfile** w projekcie **FabrikamFiber.Web**, usuń komentarz dotyczący istniejącej instrukcji akcji `FROM` (na podstawie `windowsservercore-ltsc`) i usuń komentarz dotyczący instrukcji akcji `FROM` na podstawie `windowsservercore-1709`.
+    > Wybierz jednostkę SKU, która obsługuje uruchomione kontenery. System operacyjny Windows Server na węzłach klastra musi być zgodny z systemem operacyjnym Windows Server kontenera. Aby dowiedzieć się więcej, zobacz temat [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility) (Zgodność między systemami operacyjnymi Windows Server kontenera i hosta). Domyślnie w tym samouczku zostanie utworzony obraz platformy Docker opartej na systemie Windows Server 2016 LTSC. Kontenery oparte na tym obrazie zostaną uruchomione na klastrach utworzonych za pomocą Windows Server 2016 Datacenter with Containers. Jeśli jednak tworzysz klaster lub korzystasz z istniejącego klastra opartego na innej wersji systemu Windows Server, musisz zmienić obraz systemu operacyjnego, na którym bazuje kontener. Otwórz **pliku dockerfile** w projekcie **FabrikamFiber. Web** , Dodaj komentarz do dowolnej istniejącej `FROM` instrukcji w oparciu o poprzednią wersję systemu Windows Server, a następnie dodawaj `FROM` instrukcję na podstawie tagu żądanej wersji na [stronie DockerHub systemu Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore). Aby uzyskać dodatkowe informacje na temat wydań systemu Windows Server Core, osi czasu pomocy technicznej i przechowywania wersji, zapoznaj się z [informacjami o wersji systemu Windows Server Core](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info). 
 
     e. Na karcie **Zaawansowane** wyświetl port aplikacji otwierany w module równoważenia obciążenia przy wdrażaniu klastra. Jest to port zanotowany przed rozpoczęciem tworzenia klastra. Można również dodać istniejący klucz usługi Application Insights, do którego mają być kierowane pliki dziennika aplikacji.
 
-    f. Po zakończeniu modyfikowania ustawień wybierz przycisk **Utwórz**.
+    f. Po zakończeniu modyfikowania ustawień wybierz przycisk **Utwórz** .
 
 5. Tworzenie klastra może zająć kilka minut. Informacja o ukończeniu tworzenia klastra pojawi się w oknie danych wyjściowych.
 
@@ -229,7 +229,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 ## <a name="deploy-the-application-to-azure"></a>Wdrożenie aplikacji na platformie Azure
 
-Kiedy aplikacja jest gotowa, można wdrożyć ją w klastrze platformy Azure bezpośrednio z programu Visual Studio.  W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji **FabrikamFiber.CallCenterApplication** i wybierz polecenie **Publikuj**.  W polu **Punkt końcowy połączenia** wybierz punkt końcowy klastra, który został utworzony wcześniej.  W polu **Azure Container Registry** wybierz rejestr kontenerów utworzony wcześniej.  Kliknij polecenie **Publikuj**, aby wdrożyć aplikację w klastrze platformy Azure.
+Kiedy aplikacja jest gotowa, można wdrożyć ją w klastrze platformy Azure bezpośrednio z programu Visual Studio.  W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji **FabrikamFiber.CallCenterApplication** i wybierz polecenie **Publikuj** .  W polu **Punkt końcowy połączenia** wybierz punkt końcowy klastra, który został utworzony wcześniej.  W polu **Azure Container Registry** wybierz rejestr kontenerów utworzony wcześniej.  Kliknij polecenie **Publikuj** , aby wdrożyć aplikację w klastrze platformy Azure.
 
 ![Publikowanie aplikacji][publish-app]
 

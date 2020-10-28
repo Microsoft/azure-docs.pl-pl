@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 54a196cc8323e676dfb054a5fad260302833fa53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d0197a16c8074ce961c2b403724149929f566f7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090690"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890721"
 ---
 # <a name="show-directions-from-a-to-b"></a>Wyświetlanie instrukcji dotyczących trasy z punktu A do punktu B
 
 W tym artykule pokazano, jak utworzyć żądanie trasy i wyświetlić trasę na mapie.
 
-Istnieją dwa sposoby, aby to zrobić. Pierwszy sposób polega na wysyłaniu zapytań do [interfejsu API tras Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) za pomocą modułu usługi. Drugi sposób polega na użyciu [interfejsu API pobierania](https://fetch.spec.whatwg.org/) do przesyłania żądania wyszukiwania do [Azure Maps interfejsu API tras](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Obie metody omówiono poniżej.
+Istnieją dwa sposoby, aby to zrobić. Pierwszy sposób polega na wysyłaniu zapytań do [interfejsu API tras Azure Maps](/rest/api/maps/route/getroutedirections) za pomocą modułu usługi. Drugi sposób polega na użyciu [interfejsu API pobierania](https://fetch.spec.whatwg.org/) do przesyłania żądania wyszukiwania do [Azure Maps interfejsu API tras](/rest/api/maps/route/getroutedirections). Obie metody omówiono poniżej.
 
 ## <a name="query-the-route-via-service-module"></a>Wykonywanie zapytań dotyczących trasy za pośrednictwem modułu usługi
 
@@ -29,21 +29,21 @@ Istnieją dwa sposoby, aby to zrobić. Pierwszy sposób polega na wysyłaniu zap
 
 W powyższym kodzie, pierwszy blok konstruuje obiekt mapy i ustawia mechanizm uwierzytelniania do korzystania z tokenu dostępu. Aby uzyskać instrukcje, zobacz [Tworzenie mapy](./map-create.md) .
 
-Drugi blok kodu tworzy `TokenCredential` do uwierzytelniania żądań HTTP do Azure Maps z tokenem dostępu. Następnie przekazuje `TokenCredential` do `atlas.service.MapsURL.newPipeline()` i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) . `routeURL`Reprezentuje adres URL służący do Azure Maps operacji [routingu](https://docs.microsoft.com/rest/api/maps/route) .
+Drugi blok kodu tworzy `TokenCredential` do uwierzytelniania żądań HTTP do Azure Maps z tokenem dostępu. Następnie przekazuje `TokenCredential` do `atlas.service.MapsURL.newPipeline()` i tworzy wystąpienie [potoku](/javascript/api/azure-maps-rest/atlas.service.pipeline) . `routeURL`Reprezentuje adres URL służący do Azure Maps operacji [routingu](/rest/api/maps/route) .
 
-Trzeci blok kodu tworzy i dodaje obiekt [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) do mapy.
+Trzeci blok kodu tworzy i dodaje obiekt [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) do mapy.
 
-Czwarty blok kodu tworzy obiekty [punktów](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point) początkowych i końcowych i dodaje je do obiektu DataSource.
+Czwarty blok kodu tworzy obiekty [punktów](/javascript/api/azure-maps-control/atlas.data.point) początkowych i końcowych i dodaje je do obiektu DataSource.
 
-Wiersz jest [funkcją](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) dla LineString. [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) renderuje obiekty liniowe otoczone w [źródle danych](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) jako linie na mapie. Czwarty blok kodu tworzy i dodaje warstwę linii do mapy. Zobacz właściwości warstwy linii pod adresem [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions).
+Wiersz jest [funkcją](/javascript/api/azure-maps-control/atlas.data.feature) dla LineString. [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) renderuje obiekty liniowe otoczone w [źródle danych](/javascript/api/azure-maps-control/atlas.source.datasource) jako linie na mapie. Czwarty blok kodu tworzy i dodaje warstwę linii do mapy. Zobacz właściwości warstwy linii pod adresem [LinestringLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions).
 
-[Warstwa symboli](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) używa tekstów lub ikon do renderowania danych opartych na punkcie, które są opakowane w [źródle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource). Teksty lub ikony są renderowane jako symbole na mapie. Piąty blok kodu tworzy i dodaje warstwę symboli do mapy.
+[Warstwa symboli](/javascript/api/azure-maps-control/atlas.layer.symbollayer) używa tekstów lub ikon do renderowania danych opartych na punkcie, które są opakowane w [źródle](/javascript/api/azure-maps-control/atlas.source.datasource). Teksty lub ikony są renderowane jako symbole na mapie. Piąty blok kodu tworzy i dodaje warstwę symboli do mapy.
 
-Szósty blok kodu wysyła zapytania do usługi routingu Azure Maps, która jest częścią [modułu usługi](how-to-use-services-module.md). Metoda [CalculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl#methods) RouteURL jest używana do uzyskiwania trasy między punktem początkowym i końcowym. Kolekcja funkcji GEOJSON z odpowiedzi jest wyodrębniana przy użyciu `geojson.getFeatures()` metody i jest dodawana do źródła danych. Następnie renderuje odpowiedź jako trasę na mapie. Aby uzyskać więcej informacji na temat dodawania linii do mapy, zobacz [Dodawanie linii na mapie](map-add-line-layer.md).
+Szósty blok kodu wysyła zapytania do usługi routingu Azure Maps, która jest częścią [modułu usługi](how-to-use-services-module.md). Metoda [CalculateRouteDirections](/javascript/api/azure-maps-rest/atlas.service.routeurl#methods) RouteURL jest używana do uzyskiwania trasy między punktem początkowym i końcowym. Kolekcja funkcji GEOJSON z odpowiedzi jest wyodrębniana przy użyciu `geojson.getFeatures()` metody i jest dodawana do źródła danych. Następnie renderuje odpowiedź jako trasę na mapie. Aby uzyskać więcej informacji na temat dodawania linii do mapy, zobacz [Dodawanie linii na mapie](map-add-line-layer.md).
 
-Ostatni blok kodu ustawia granice mapy przy użyciu właściwości [Setcamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) mapy.
+Ostatni blok kodu ustawia granice mapy przy użyciu właściwości [Setcamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) mapy.
 
-Kwerenda trasy, źródło danych, symbol, warstwy liniowe i granice aparatu są tworzone wewnątrz [odbiornika zdarzeń](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events). Ta struktura kodu gwarantuje, że wyniki są wyświetlane tylko po całkowitym załadowaniu mapy.
+Kwerenda trasy, źródło danych, symbol, warstwy liniowe i granice aparatu są tworzone wewnątrz [odbiornika zdarzeń](/javascript/api/azure-maps-control/atlas.map#events). Ta struktura kodu gwarantuje, że wyniki są wyświetlane tylko po całkowitym załadowaniu mapy.
 
 ## <a name="query-the-route-via-fetch-api"></a>Wykonywanie zapytań dotyczących trasy za pośrednictwem interfejsu API pobierania
 
@@ -52,19 +52,19 @@ Kwerenda trasy, źródło danych, symbol, warstwy liniowe i granice aparatu są 
 
 W powyższym kodzie pierwszy blok kodu konstruuje obiekt mapy i ustawia mechanizm uwierzytelniania do korzystania z tokenu dostępu. Aby uzyskać instrukcje, zobacz [Tworzenie mapy](./map-create.md) .
 
-Drugi blok kodu tworzy i dodaje obiekt [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) do mapy.
+Drugi blok kodu tworzy i dodaje obiekt [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) do mapy.
 
-Trzeci blok kodu tworzy punkty początkowy i docelowy dla trasy. Następnie dodaje je do źródła danych. Aby uzyskać instrukcje dotyczące korzystania z funkcji [Addpinys](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map), [na mapie można zobaczyć kod PIN](map-add-pin.md) .
+Trzeci blok kodu tworzy punkty początkowy i docelowy dla trasy. Następnie dodaje je do źródła danych. Aby uzyskać instrukcje dotyczące korzystania z funkcji [Addpinys](/javascript/api/azure-maps-control/atlas.map), [na mapie można zobaczyć kod PIN](map-add-pin.md) .
 
-[LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) renderuje obiekty liniowe otoczone w [źródle danych](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) jako linie na mapie. Czwarty blok kodu tworzy i dodaje warstwę linii do mapy. Zobacz właściwości warstwy linii pod adresem [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions).
+[LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) renderuje obiekty liniowe otoczone w [źródle danych](/javascript/api/azure-maps-control/atlas.source.datasource) jako linie na mapie. Czwarty blok kodu tworzy i dodaje warstwę linii do mapy. Zobacz właściwości warstwy linii pod adresem [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions).
 
-[Warstwa symboli](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) używa tekstu lub ikon do renderowania danych opartych na punkcie [w postaci symboli](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) na mapie. Piąty blok kodu tworzy i dodaje warstwę symboli do mapy. Zobacz właściwości warstwy symboli w [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions).
+[Warstwa symboli](/javascript/api/azure-maps-control/atlas.layer.symbollayer) używa tekstu lub ikon do renderowania danych opartych na punkcie [w postaci symboli](/javascript/api/azure-maps-control/atlas.source.datasource) na mapie. Piąty blok kodu tworzy i dodaje warstwę symboli do mapy. Zobacz właściwości warstwy symboli w [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions).
 
-Następny blok kodu tworzy `SouthWest` i `NorthEast` wskazuje od punktów początkowych i docelowych oraz określa granice mapy za pomocą właściwości [setcamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) mapy.
+Następny blok kodu tworzy `SouthWest` i `NorthEast` wskazuje od punktów początkowych i docelowych oraz określa granice mapy za pomocą właściwości [setcamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) mapy.
 
-Ostatni blok kodu używa [interfejsu API pobierania](https://fetch.spec.whatwg.org/) do żądania wyszukiwania do [Azure Maps interfejsu API tras](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Odpowiedź jest następnie analizowana. Jeśli odpowiedź zakończyła się pomyślnie, informacje o szerokości i długości geograficznej są używane do tworzenia tablicy a linii przez połączenie tych punktów. Dane wiersza są następnie dodawane do źródła danych w celu renderowania trasy na mapie. Aby uzyskać instrukcje, można zobaczyć [, jak dodać wiersz na mapie](map-add-line-layer.md) .
+Ostatni blok kodu używa [interfejsu API pobierania](https://fetch.spec.whatwg.org/) do żądania wyszukiwania do [Azure Maps interfejsu API tras](/rest/api/maps/route/getroutedirections). Odpowiedź jest następnie analizowana. Jeśli odpowiedź zakończyła się pomyślnie, informacje o szerokości i długości geograficznej są używane do tworzenia tablicy a linii przez połączenie tych punktów. Dane wiersza są następnie dodawane do źródła danych w celu renderowania trasy na mapie. Aby uzyskać instrukcje, można zobaczyć [, jak dodać wiersz na mapie](map-add-line-layer.md) .
 
-Kwerenda trasy, źródło danych, symbol, warstwy liniowe i granice aparatu są tworzone wewnątrz [odbiornika zdarzeń](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events). W tym przypadku chcemy upewnić się, że wyniki są wyświetlane po całkowitym załadowaniu mapy.
+Kwerenda trasy, źródło danych, symbol, warstwy liniowe i granice aparatu są tworzone wewnątrz [odbiornika zdarzeń](/javascript/api/azure-maps-control/atlas.map#events). W tym przypadku chcemy upewnić się, że wyniki są wyświetlane po całkowitym załadowaniu mapy.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -74,7 +74,7 @@ Kwerenda trasy, źródło danych, symbol, warstwy liniowe i granice aparatu są 
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mapa](/javascript/api/azure-maps-control/atlas.map)
 
 Zobacz następujące artykuły, aby zapoznać się z pełnymi przykładami kodu:
 

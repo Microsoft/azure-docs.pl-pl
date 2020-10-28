@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 1b947ad28283912e0ba75debd8f4471d693be888
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fe241a3fd74e1421f1bd3d39087fe776ee7b61d9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675523"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym SAML dla JIRA przez rozwiązanie GmbH
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne przy użyciu protokołu SAML SSO dla JI
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjowania **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje na temat domeny i adresów URL usługi logowania jednokrotnego SAML dla aplikacji Jira firmy resolution GmbH](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący sekcję "podstawowa S A M L" konfiguracji z wyróżnionymi polami tekstowymi "identifier" i "reply U R L" i wybranym przyciskiem "Zapisz".](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -124,37 +124,37 @@ Aby skonfigurować Logowanie jednokrotne przy użyciu protokołu SAML SSO dla JI
 
 2. Umieść kursor nad koło zębate po prawej stronie, a następnie kliknij pozycję **Zarządzaj aplikacjami** .
     
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/addon1.png)
+    ![Zrzut ekranu, który pokazuje strzałkę wskazującą na ikonie "koło zębate" i opcję "Zarządzaj aplikacjami" wybraną z listy rozwijanej.](./media/samlssojira-tutorial/addon1.png)
 
 3. Jeśli nastąpi przekierowanie do strony dostępu administratora, wprowadź **hasło** i kliknij przycisk **Potwierdź** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/addon2.png)
+    ![Zrzut ekranu przedstawiający stronę "dostęp administratora".](./media/samlssojira-tutorial/addon2.png)
 
 4. JIRA zwykle przekierowuje Cię do portalu Atlassian. Jeśli nie, kliknij przycisk **Znajdź nowe aplikacje** w lewym panelu. Wyszukaj pozycję Logowanie jednokrotne **(SSO) dla usługi JIRA** , a następnie kliknij przycisk **Instaluj** , aby zainstalować wtyczkę SAML.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/store.png)
+    ![Zrzut ekranu przedstawiający stronę "Atlassian Marketplace for JIRA" za pomocą strzałki wskazującej na przycisk "Zainstaluj" w przypadku logowania jednokrotnego "S A M L" (S S) JIRA, S A M/S "s".](./media/samlssojira-tutorial/store.png)
 
 5. Rozpocznie się instalacja wtyczki. Gdy skończysz, kliknij przycisk **Zamknij** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/store-2.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "Instalowanie".](./media/samlssojira-tutorial/store-2.png)
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/store-3.png)
+    ![Zrzut ekranu pokazujący "zainstalowane i gotowe do użycia!" okno dialogowe z wybranym przyciskiem "Zamknij".](./media/samlssojira-tutorial/store-3.png)
 
 6. Następnie kliknij pozycję **Zarządzaj** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/store-4.png)
+    ![Zrzut ekranu, na którym jest wyświetlany przycisk "S A M L logowania jednokrotnego (S S O) JIRA, S A M/S S" z wybraną opcją "Zarządzaj".](./media/samlssojira-tutorial/store-4.png)
     
 8. Następnie kliknij pozycję **Konfiguruj** , aby skonfigurować zainstalowaną wtyczkę.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/store-5.png)
+    ![Zrzut ekranu przedstawiający stronę "Zarządzanie aplikacjami" z wybranym przyciskiem "Konfiguruj" dla aplikacji "S A M L SingleSignOn for JIRA".](./media/samlssojira-tutorial/store-5.png)
 
 9. W kreatorze **konfiguracji wtyczki SAML SingleSignon** kliknij pozycję **Dodaj nowe dostawcy tożsamości** , aby skonfigurować usługę Azure AD jako nowego dostawcę tożsamości.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/addon4.png) 
+    ![Zrzut ekranu przedstawia stronę "Welcome" z wybranym przyciskiem "Dodaj nowe I d P".](./media/samlssojira-tutorial/addon4.png) 
 
 10. Na stronie **Wybierz dostawcę tożsamości SAML** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/addon5a.png)
+    ![Zrzut ekranu przedstawiający stronę "wybieranie dostawcy tożsamości S A M" z wyróżnionymi polami tekstowymi "i d" i "nazwa" oraz wybranym przyciskiem "dalej".](./media/samlssojira-tutorial/addon5a.png)
  
     a. W polu IdP type (Typ dostawcy tożsamości) wybierz pozycję **Azure AD** .
     
@@ -166,11 +166,11 @@ Aby skonfigurować Logowanie jednokrotne przy użyciu protokołu SAML SSO dla JI
     
 11. Na stronie **Konfiguracja dostawcy tożsamości** kliknij przycisk **dalej** .
  
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/addon5b.png)
+    ![Zrzut ekranu przedstawiający stronę "Konfiguracja dostawcy tożsamości".](./media/samlssojira-tutorial/addon5b.png)
 
 12. Na stronie **Import SAML IdP Metadata** (Importuj metadane dostawcy tożsamości protokołu SAML) wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/addon5c.png)
+    ![Zrzut ekranu, na którym jest zaznaczona akcja "Importuj S A M g I d P" z "Select Metadata X M L".](./media/samlssojira-tutorial/addon5c.png)
 
     a. Kliknij przycisk **Wybierz plik XML metadanych** i wybierz pobrany wcześniej plik **XML metadanych Federacji** .
 
@@ -182,19 +182,19 @@ Aby skonfigurować Logowanie jednokrotne przy użyciu protokołu SAML SSO dla JI
     
 13. Na stronie **ATRYBUT identyfikatora użytkownika i transformacja** kliknij przycisk **dalej** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/addon5d.png)
+    ![Zrzut ekranu przedstawiający stronę "atrybut i przekształcenie użytkownika" z wybranym przyciskiem "dalej".](./media/samlssojira-tutorial/addon5d.png)
     
 14. Na stronie **Tworzenie i aktualizowanie użytkownika** kliknij przycisk **Zapisz & dalej** , aby zapisać ustawienia.
     
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/addon6a.png)
+    ![Zrzut ekranu przedstawiający stronę "Tworzenie i aktualizowanie użytkownika" z wybranym przyciskiem Zapisz & dalej.](./media/samlssojira-tutorial/addon6a.png)
     
 15. Na stronie **testowanie ustawień** kliknij przycisk **Pomiń test & Skonfiguruj ręcznie** , aby pominąć test użytkownika. Zostanie to wykonane w następnej sekcji i będzie wymagało pewnych ustawień w Azure Portal.
     
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/addon6b.png)
+    ![Zrzut ekranu przedstawiający stronę "Testowanie ustawień" z wybranym przyciskiem "Pomiń test & Skonfiguruj ręcznie".](./media/samlssojira-tutorial/addon6b.png)
     
 16. Kliknij przycisk **OK** , aby pominąć ostrzeżenie.
     
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssojira-tutorial/addon6c.png)
+    ![Zrzut ekranu pokazujący okno dialogowe ostrzeżenia z wybranym przyciskiem "O K".](./media/samlssojira-tutorial/addon6c.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -256,15 +256,15 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do logowania jedno
 
 2. Umieść kursor nad koło zębate i wybierz pozycję **Zarządzanie użytkownikami** .
 
-   ![Dodawanie pracownika](./media/samlssojira-tutorial/user1.png)
+   ![Zrzut ekranu przedstawiający strzałkę wskazującą ikonę "koło zębate" z opcją "Zarządzanie użytkownikami" wybraną z listy rozwijanej.](./media/samlssojira-tutorial/user1.png)
 
 3. Jeśli nastąpi przekierowanie do strony dostępu administratora, wprowadź **hasło** i kliknij przycisk **Potwierdź** .
 
-    ![Dodawanie pracownika](./media/samlssojira-tutorial/user2.png) 
+    ![Zrzut ekranu przedstawiający stronę "dostęp administratora" z wyróżnioną polem tekstowym "hasło".](./media/samlssojira-tutorial/user2.png) 
 
 4. Na karcie **Zarządzanie użytkownikami** kliknij pozycję **Utwórz użytkownika** .
 
-    ![Dodawanie pracownika](./media/samlssojira-tutorial/user3-new.png) 
+    ![Zrzut ekranu pokazujący kartę "Zarządzanie użytkownikami" z wybranym przyciskiem "Utwórz użytkownika".](./media/samlssojira-tutorial/user3-new.png) 
 
 5. Na stronie **"Tworzenie nowego użytkownika"** wykonaj następujące czynności. Musisz utworzyć użytkownika tak samo jak w usłudze Azure AD:
 

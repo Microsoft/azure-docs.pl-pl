@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e047f11cc243ab1a36a8c61dd1b229d9e115115
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905956"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892489"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Samouczek: używanie programu PowerShell do zbiorczego zapraszania użytkowników współpracy B2B usługi Azure AD
 
@@ -63,7 +63,7 @@ W zależności od rezultatu wykonaj jedną z następujących czynności:
    Install-Module AzureADPreview
    ```
 
-Może zostać wyświetlony monit z informacją, że instalujesz moduł z niezaufanego repozytorium. Dzieje się tak w sytuacji, gdy repozytorium PSGallery nie zostało ustawione wcześniej jako zaufane. Naciśnij klawisz **Y**, aby zainstalować moduł.
+Może zostać wyświetlony monit z informacją, że instalujesz moduł z niezaufanego repozytorium. Dzieje się tak w sytuacji, gdy repozytorium PSGallery nie zostało ustawione wcześniej jako zaufane. Naciśnij klawisz **Y** , aby zainstalować moduł.
 
 ### <a name="get-test-email-accounts"></a>Uzyskiwanie testowych kont e-mail
 
@@ -77,7 +77,7 @@ Na przykład utwórz arkusz w następującym formacie:
 
 ![Rezultat w programie PowerShell przedstawiający oczekiwanie na zaakceptowanie przez użytkownika](media/tutorial-bulk-invite/AddUsersExcel.png)
 
-Zapisz plik jako **C:\BulkInvite\Invitations.csv**. 
+Zapisz plik jako **C:\BulkInvite\Invitations.csv** . 
 
 Jeśli nie masz programu Excel, możesz utworzyć plik CSV w dowolnym edytorze tekstów, takim jak Notatnik. Oddziel poszczególne wartości przecinkami, a poszczególne wiersze znakami nowego wiersza. 
 
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 Skrypt wysyła zaproszenie na adresy e-mail podane w pliku Invitations.csv. Dla każdego użytkownika powinny zostać wyświetlone dane wyjściowe podobne do następujących:
 
-![Rezultat w programie PowerShell przedstawiający oczekiwanie na zaakceptowanie przez użytkownika](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Zrzut ekranu przedstawiający dane wyjściowe programu PowerShell, które obejmują oczekujące akceptacje użytkownika.](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>Sprawdzanie, czy użytkownicy istnieją w katalogu
 
@@ -126,7 +126,7 @@ Aby sprawdzić, czy zaproszeni użytkownicy zostali dodani do usługi Azure AD, 
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Zobaczysz użytkowników, którzy zaprosił, z główną nazwą użytkownika (UPN) w formacie *emailaddress*#EXT # \@ *Domain*. Na przykład *lstokes_fabrikam. com # EXT # \@ contoso.onmicrosoft.com*, gdzie contoso.onmicrosoft.com jest organizacją, z której wysłano zaproszenia.
+Zobaczysz użytkowników, którzy zaprosił, z główną nazwą użytkownika (UPN) w formacie *emailaddress* #EXT # \@ *Domain* . Na przykład *lstokes_fabrikam. com # EXT # \@ contoso.onmicrosoft.com* , gdzie contoso.onmicrosoft.com jest organizacją, z której wysłano zaproszenia.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

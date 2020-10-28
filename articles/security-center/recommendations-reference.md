@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 09de05325ed6c85954b4661a30113562bb98ea86
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e793985f483d94238becce1e2321084e2e65a6ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370495"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891635"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny
 
 Ten artykuł zawiera listę zaleceń, które mogą być widoczne w Azure Security Center. Zalecenia przedstawione w danym środowisku zależą od chronionych zasobów i dostosowanej konfiguracji.
 
-Zalecenia dotyczące Security Center są oparte na najlepszych rozwiązaniach. Niektóre z nich są wyrównane przy użyciu **testu porównawczego zabezpieczeń platformy Azure**, opartych na systemie Azure wytycznych dotyczących zabezpieczeń i zgodności w oparciu o typowe struktury zgodności. [Dowiedz się więcej o teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
+Zalecenia dotyczące usługi Security Center są oparte na najlepszych rozwiązaniach. Niektóre są zgodne z **testem porównawczym zabezpieczeń platformy Azure** , czyli opracowanymi przez firmę Microsoft specyficznymi dla platformy Azure wytycznymi dotyczącymi najlepszych rozwiązań w zakresie zabezpieczeń i zgodności opartymi na popularnych strukturach zapewnienia zgodności. [Dowiedz się więcej o teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
 
 Aby dowiedzieć się, jak odpowiedzieć na te zalecenia, zobacz temat [korygowanie zaleceń w Azure Security Center](security-center-remediate-recommendations.md).
 
@@ -38,7 +38,7 @@ Twój bezpieczny wynik jest oparty na liczbie Security Center zaleceń, które z
 |----|----|----|----|----|
 |**Zalecane zalecenia dotyczące ograniczania przepustowości sieci powinny być stosowane w przypadku maszyn wirtualnych mających dostęp do Internetu.**|Azure Security Center przeanalizować wzorców komunikacji ruchu internetowego na maszynach wirtualnych wymienionych poniżej i ustaliły, że istniejące reguły w sieciowych grup zabezpieczeń, które są skojarzone z nimi są zbyt niezależne, co spowodowało zwiększenie potencjalnej podatności na ataki.<br>Zwykle jest to spowodowane tym, że ten adres IP nie komunikuje się regularnie z tym zasobem. Alternatywnie adres IP został oflagowany jako złośliwy przez Security Center źródłami analizy zagrożeń.<br>(Powiązane zasady: zalecenia dotyczące ograniczania przepustowości sieci powinny być stosowane w przypadku maszyn wirtualnych mających dostęp do Internetu)|Wys.|N|Maszyna wirtualna|
 |**Cały ruch internetowy powinien być kierowany przy użyciu wdrożonej zapory platformy Azure**|Azure Security Center zidentyfikował, że niektóre podsieci nie są chronione przez zaporę nowej generacji. Ochrona podsieci przed potencjalnymi zagrożeniami przez ograniczenie dostępu do nich za pomocą zapory platformy Azure lub obsługiwanej zapory nowej generacji.<br>(Powiązane zasady: [wersja zapoznawcza] cały ruch internetowy powinien być kierowany za pośrednictwem wdrożonej zapory platformy Azure)|Wys.|N|Podsieć|
-|**Wszystkie porty sieciowe powinny być ograniczone do sieciowej grupy zabezpieczeń skojarzonych z maszyną wirtualną**|Podwyższenie poziomu bezpieczeństwa sieci maszyn wirtualnych połączonych z Internetem przez ograniczenie dostępu do istniejących reguł zezwalania.<br>To zalecenie jest wyzwalane, gdy dowolny port zostanie otwarty *we wszystkich* źródłach (z wyjątkiem portów 22, 3389, 5985, 5986, 80 i 1443).<br>(Powiązane zasady: dostęp za poorednictwem punktu końcowego połączonego z Internetem powinien być ograniczony)|Wys.|N|Maszyna wirtualna|
+|**Wszystkie porty sieciowe powinny być ograniczone do sieciowych grup zabezpieczeń skojarzonych z maszyną wirtualną**|Podwyższenie poziomu bezpieczeństwa sieci maszyn wirtualnych połączonych z Internetem przez ograniczenie dostępu do istniejących reguł zezwalania.<br>To zalecenie jest wyzwalane, gdy dowolny port zostanie otwarty *we wszystkich* źródłach (z wyjątkiem portów 22, 3389, 5985, 5986, 80 i 1443).<br>(Powiązane zasady: wszystkie porty sieciowe powinny być ograniczone do sieciowych grup zabezpieczeń skojarzonych z maszyną wirtualną)|Wys.|N|Maszyna wirtualna|
 |**Należy włączyć Standard DDoS Protection**|Ochrona sieci wirtualnych zawierających aplikacje z publicznymi adresami IP przez włączenie usługi DDoS Protection Standard. Ochrona DDoS umożliwia łagodzenie ataków między pomiarami i protokołami sieciowymi.<br>(Powiązane zasady: Standard DDoS Protection powinien być włączony)|Wys.|N|Sieć wirtualna|
 |**aplikacja funkcji powinna być dostępna tylko za pośrednictwem protokołu HTTPS**|Włącz dostęp tylko do protokołu HTTPS dla aplikacji funkcji. Użycie protokołu HTTPS zapewnia uwierzytelnianie serwera/usługi i chroni dane podczas przesyłania przed atakami polegającymi na podsłuchu w warstwie sieciowej.<br>(Powiązane zasady: aplikacja funkcji powinny być dostępne tylko za pośrednictwem protokołu HTTPS)|Średniaa|**Y**|Aplikacja funkcji|
 |**Maszyny wirtualne dostępne z Internetu powinny być chronione za pomocą sieciowych grup zabezpieczeń**|Włącz sieciowe grupy zabezpieczeń, aby kontrolować dostęp sieciowy do maszyn wirtualnych.<br>(Powiązane zasady: maszyny wirtualne dostępne z Internetu powinny być chronione przy użyciu sieciowych grup zabezpieczeń)|Wysoki/średni|N|Maszyna wirtualna|

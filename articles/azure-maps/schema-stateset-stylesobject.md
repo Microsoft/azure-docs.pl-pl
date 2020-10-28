@@ -8,16 +8,16 @@ ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4b085fbc6e330d38b59fce0c494f672b00c712b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eb4e49e6c0e3f011015d40b8eca036d5218674c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85120521"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891703"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Styleobject schemat referencyjny dla map dynamicznych
 
-Ten artykuł zawiera Przewodnik referencyjny dotyczący schematu i składni JSON dla programu `StylesObject` . `StylesObject`Jest `StyleObject` tablicą reprezentującą style stateset. Użyj [usługi stanu funkcji](https://docs.microsoft.com/rest/api/maps/featurestate) twórcy Azure Maps, aby zastosować style stateset do funkcji danych mapy pomieszczeń. Po utworzeniu stylów stateset i skojarzeniu ich z funkcjami mapy pomieszczeń, można użyć ich do utworzenia dynamicznych map pomieszczeń. Aby uzyskać więcej informacji na temat tworzenia dynamicznych map pomieszczeń, zobacz [Implementuj style dynamiczne dla map pomieszczeń dla twórców](indoor-map-dynamic-styling.md).
+Ten artykuł zawiera Przewodnik referencyjny dotyczący schematu i składni JSON dla programu `StylesObject` . `StylesObject`Jest `StyleObject` tablicą reprezentującą style stateset. Użyj [usługi stanu funkcji](/rest/api/maps/featurestate) twórcy Azure Maps, aby zastosować style stateset do funkcji danych mapy pomieszczeń. Po utworzeniu stylów stateset i skojarzeniu ich z funkcjami mapy pomieszczeń, można użyć ich do utworzenia dynamicznych map pomieszczeń. Aby uzyskać więcej informacji na temat tworzenia dynamicznych map pomieszczeń, zobacz [Implementuj style dynamiczne dla map pomieszczeń dla twórców](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>Styleobject
 

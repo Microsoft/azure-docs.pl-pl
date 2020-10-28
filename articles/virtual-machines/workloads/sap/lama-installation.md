@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361368"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890483"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Łącznik SAP LaMa dla platformy Azure
 
@@ -181,7 +181,7 @@ Utwórz nową maszynę wirtualną z jednym z obsługiwanych systemów operacyjny
 
 Baza danych Oracle wymaga dysków dla/Oracle,/Home/oraod1 i/Home/Oracle
 
-![Baza danych Oracle w systemie Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagram przedstawiający bazę danych Oracle w systemie Linux i potrzebne dyski.](media/lama/sap-lama-db-ora-lnx.png)
 
 #### <a name="manual-deployment-for-microsoft-sql-server"></a>Ręczne wdrożenie dla Microsoft SQL Server
 
@@ -274,7 +274,7 @@ Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zai
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-ascs -n 255.255.255.128
 ```
 
-Uruchom SWPM i Użyj *AH1-ASCS* dla *nazwy hosta wystąpienia ASCS*.
+Uruchom SWPM i Użyj *AH1-ASCS* dla *nazwy hosta wystąpienia ASCS* .
 
 ![Logo systemu Linux.][Logo_Linux] Linux  
 Dodaj następujący parametr profilu do profilu agenta hosta SAP, który znajduje się w/usr/SAP/hostctrl/exe/host_profile. Aby uzyskać więcej informacji, zobacz temat SAP Note [2628497].
@@ -319,7 +319,7 @@ W ramach konta NetApp Pula pojemności określa rozmiar i typ dysków dla każde
 
 ![Utworzono pulę pojemności SAP LaMa NetApp ](media/lama/sap-lama-capacitypool-list.png)
 
-Można teraz definiować woluminy NFS. Ponieważ w jednej puli będą woluminy z wieloma systemami, należy wybrać schemat nazewnictwa samodzielnego. Dodanie identyfikatora SID pomaga zgrupować powiązane woluminy. W przypadku ASCS i wystąpienia as są wymagany następujące instalacje: */sapmnt/ \<SID\> *, */usr/SAP/ \<SID\> *i */Home/ \<sid\> adm*. Opcjonalnie */usr/SAP/Trans* jest wymagany dla centralnego katalogu transportowego, który jest co najmniej używany przez wszystkie systemy o jednej poziomej.
+Można teraz definiować woluminy NFS. Ponieważ w jednej puli będą woluminy z wieloma systemami, należy wybrać schemat nazewnictwa samodzielnego. Dodanie identyfikatora SID pomaga zgrupować powiązane woluminy. W przypadku ASCS i wystąpienia as są wymagany następujące instalacje: */sapmnt/ \<SID\>* , */usr/SAP/ \<SID\>* i */Home/ \<sid\> adm* . Opcjonalnie */usr/SAP/Trans* jest wymagany dla centralnego katalogu transportowego, który jest co najmniej używany przez wszystkie systemy o jednej poziomej.
 
 > [!NOTE]
 > W fazie BETA nazwa woluminów musi być unikatowa w ramach subskrypcji.
@@ -381,7 +381,7 @@ Dodaj kolejną wirtualną nazwę hosta i adres IP dla nazwy, która jest używan
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-db -n 255.255.255.128
 ```
 
-Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej serwera aplikacji, a nie na maszynie wirtualnej HANA. Użyj *AH1-DB* dla *hosta bazy danych* w *bazie danych okna dialogowego dla systemu SAP*.
+Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej serwera aplikacji, a nie na maszynie wirtualnej HANA. Użyj *AH1-DB* dla *hosta bazy danych* w *bazie danych okna dialogowego dla systemu SAP* .
 
 #### <a name="install-sap-netweaver-application-server-for-sap-hana"></a>Zainstaluj serwer aplikacji SAP NetWeaver dla SAP HANA
 
@@ -417,7 +417,7 @@ W przypadku ustawienia ręcznie należy również utworzyć nowe wpisy HDB users
 /usr/sap/AH1/hdbclient/hdbuserstore SET DEFAULT ah1-db:35041@AH1 SAPABAP1 <password>
 ```
 
-W *wystąpieniu podstawowego serwera aplikacji*okna dialogowego Użyj *AH1-di-0* dla *nazwy hosta wystąpienia pas* .
+W *wystąpieniu podstawowego serwera aplikacji* okna dialogowego Użyj *AH1-di-0* dla *nazwy hosta wystąpienia pas* .
 
 #### <a name="post-installation-steps-for-sap-hana"></a>Kroki po instalacji dla SAP HANA
 
@@ -436,7 +436,7 @@ Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zai
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-ascs -n 255.255.255.128
 ```
 
-Uruchom SWPM i Użyj *AS1-ASCS* dla *nazwy hosta wystąpienia ASCS*.
+Uruchom SWPM i Użyj *AS1-ASCS* dla *nazwy hosta wystąpienia ASCS* .
 
 #### <a name="install-sql-server"></a>Instalacja programu SQL Server
 
@@ -447,9 +447,9 @@ Należy dodać adres IP wirtualnej nazwy hosta bazy danych do interfejsu sieciow
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej programu SQL Server. Użyj SAPINST_USE_HOSTNAME =*AS1-DB* , aby zastąpić nazwę hosta używaną do nawiązywania połączenia z SQL Server. Jeśli maszyna wirtualna została wdrożona przy użyciu szablonu Azure Resource Manager, upewnij się, że ustawisz katalog używany dla plików danych bazy danych do *C:\sql\data* i pliku dziennika bazy danych na *C:\sql\log*.
+Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej programu SQL Server. Użyj SAPINST_USE_HOSTNAME = *AS1-DB* , aby zastąpić nazwę hosta używaną do nawiązywania połączenia z SQL Server. Jeśli maszyna wirtualna została wdrożona przy użyciu szablonu Azure Resource Manager, upewnij się, że ustawisz katalog używany dla plików danych bazy danych do *C:\sql\data* i pliku dziennika bazy danych na *C:\sql\log* .
 
-Upewnij się, że użytkownik *NT NT\SYSTEM* ma dostęp do SQL Server i ma rolę serwera *sysadmin*. Aby uzyskać więcej informacji, zobacz uwagi dotyczące oprogramowania SAP [1877727] i [2562184].
+Upewnij się, że użytkownik *NT NT\SYSTEM* ma dostęp do SQL Server i ma rolę serwera *sysadmin* . Aby uzyskać więcej informacji, zobacz uwagi dotyczące oprogramowania SAP [1877727] i [2562184].
 
 #### <a name="install-sap-netweaver-application-server"></a>Zainstaluj serwer aplikacji SAP NetWeaver
 
@@ -460,7 +460,7 @@ Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zai
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di-0 -n 255.255.255.128
 ```
 
-W *wystąpieniu podstawowego serwera aplikacji*okna dialogowego Użyj *AS1-di-0* dla *nazwy hosta wystąpienia pas* .
+W *wystąpieniu podstawowego serwera aplikacji* okna dialogowego Użyj *AS1-di-0* dla *nazwy hosta wystąpienia pas* .
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

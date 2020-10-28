@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714965"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891465"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Często zadawane pytania dotyczące usługi Azure automanage dla maszyn wirtualnych
 
 Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące [usługi Azure automanage dla maszyn wirtualnych](automanage-virtual-machines.md).
 
-Jeśli problem z platformą Azure nie został rozwiązany w tym artykule, odwiedź fora platformy Azure w [witrynie MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Możesz ogłosić swój problem na tych forach lub opublikować go w serwisie [ @AzureSupport Twitter](https://twitter.com/AzureSupport). Możesz również przesłać żądanie pomocy technicznej platformy Azure. Aby przesłać żądanie pomocy technicznej, na [stronie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/)wybierz pozycję **Uzyskaj pomoc techniczną**.
+Jeśli problem z platformą Azure nie został rozwiązany w tym artykule, odwiedź fora platformy Azure w [witrynie MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Możesz ogłosić swój problem na tych forach lub opublikować go w serwisie [ @AzureSupport Twitter](https://twitter.com/AzureSupport). Możesz również przesłać żądanie pomocy technicznej platformy Azure. Aby przesłać żądanie pomocy technicznej, na [stronie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/)wybierz pozycję **Uzyskaj pomoc techniczną** .
 
 
 ## <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
@@ -32,7 +32,6 @@ Poniżej przedstawiono wymagania wstępne dotyczące włączania usługi Azure a
 - Maszyny wirtualne muszą znajdować się w obsługiwanym regionie
 - Użytkownik musi mieć odpowiednie uprawnienia
 - Tylko maszyny wirtualne z zestawami nieskalowanymi
-- Maszyny wirtualne nie mogą łączyć się z obszarem roboczym usługi log Analytics w innej subskrypcji
 - W tej chwili usługa autozarządzania nie obsługuje subskrypcji piaskownicy
 
 **Jakie uprawnienia RBAC platformy Azure są potrzebne do włączenia autozarządzania?**
@@ -106,7 +105,7 @@ Nie, Autozarządzanie nie spowoduje jego ponownego skonfigurowania. Rozpocznie s
 
 **Dlaczego moja maszyna wirtualna ma stan niepowodzenia w portalu autozarządzania?**
 
-Jeśli zobaczysz stan jako *Niepowodzenie*, możesz rozwiązać problemy ze wdrożeniem za pomocą grupy zasobów, w której znajduje się maszyna wirtualna. Przejdź do pozycji **grupy zasobów**, wybierz grupę zasobów, kliknij pozycję **wdrożenia** , a następnie *Failed* Zobacz szczegóły błędu.
+Jeśli zobaczysz stan jako *Niepowodzenie* , możesz rozwiązać problemy ze wdrożeniem za pomocą grupy zasobów, w której znajduje się maszyna wirtualna. Przejdź do pozycji **grupy zasobów** , wybierz grupę zasobów, kliknij pozycję **wdrożenia** , a następnie *Failed* Zobacz szczegóły błędu.
 
 **Jak mogę uzyskać pomoc techniczną dotyczącą rozwiązywania problemów z autozarządzaniem?**
 

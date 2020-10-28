@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 6d0cb0c6a9cc3080ec4b2fbd2c4b707a52a88319
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecde4cb0c8a3bfe3dd8fb2edb59423838e0751c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285115"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889871"
 ---
 # <a name="clustering-point-data"></a>Dane punktu klastrowania
 
@@ -92,7 +92,7 @@ Zapoznaj się <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>z Azure Maps</a
 
 Gdy zdarzenia myszy wystąpią na warstwie zawierającej klastrowane punkty danych, klastrowany punkt danych wraca do zdarzenia jako obiekt funkcji punktu GEOJSON. Ta funkcja wskazuje następujące właściwości:
 
-| Nazwa właściwości             | Type    | Opis   |
+| Nazwa właściwości             | Typ    | Opis   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Wskazuje, czy funkcja reprezentuje klaster. |
 | `cluster_id`              | ciąg  | Unikatowy identyfikator klastra, który może być używany ze źródłem danych `getClusterExpansionZoom` , `getClusterChildren` i `getClusterLeaves` metodami. |
@@ -132,13 +132,13 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>agregaty klastra</a> p
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [DataSource — Klasa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
+> [DataSource — Klasa](/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [Obiekt DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
+> [Obiekt DataSourceOptions](/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [Atlas. Math — przestrzeń nazw](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)
+> [Atlas. Math — przestrzeń nazw](/javascript/api/azure-maps-control/atlas.math)
 
 Zobacz przykłady kodu, aby dodać funkcje do aplikacji:
 

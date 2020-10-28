@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 25ed41be53c114c258e5c63437ff2b5df875af75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c4367e2a649f4e239e2dab374afc4fb867e517b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310734"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891197"
 ---
 # <a name="add-html-markers-to-the-map"></a>Dodawanie znaczników HTML do mapy
 
 W tym artykule opisano sposób dodawania niestandardowego kodu HTML, takiego jak plik obrazu do mapy, jako znacznika HTML.
 
 > [!NOTE]
-> Znaczniki HTML nie łączą się ze źródłami danych. Zamiast tego informacje o pozycji są dodawane bezpośrednio do znacznika i znacznik jest dodawany do właściwości mapss, `markers` która jest [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager).
+> Znaczniki HTML nie łączą się ze źródłami danych. Zamiast tego informacje o pozycji są dodawane bezpośrednio do znacznika i znacznik jest dodawany do właściwości mapss, `markers` która jest [HtmlMarkerManager](/javascript/api/azure-maps-control/atlas.htmlmarkermanager).
 
 > [!IMPORTANT]
 > W przeciwieństwie do większości warstw w Azure Maps formancie sieci Web, który używa WebGL do renderowania, znaczniki HTML używają tradycyjnych elementów DOM do renderowania. W związku z tym więcej znaczników HTML dodanych do strony, więcej elementów DOM. Wydajność może być gorsza po dodaniu kilku tysięcy znaczników HTML. W przypadku większych zestawów danych należy wziąć pod uwagę klastrowanie danych lub użycie symbolu lub warstwy bąbelkowej.
 
 ## <a name="add-an-html-marker"></a>Dodawanie znacznika HTML
 
-Klasa [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker) ma styl domyślny. Znacznik można dostosować, ustawiając opcje koloru i tekstu znacznika. Domyślny styl klasy znaczników HTML jest szablon SVG, który ma `{color}` `{text}` symbol zastępczy i. Ustaw właściwości koloru i tekstu w opcjach znacznika HTML, aby szybko dostosowywać. 
+Klasa [HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker) ma styl domyślny. Znacznik można dostosować, ustawiając opcje koloru i tekstu znacznika. Domyślny styl klasy znaczników HTML jest szablon SVG, który ma `{color}` `{text}` symbol zastępczy i. Ustaw właściwości koloru i tekstu w opcjach znacznika HTML, aby szybko dostosowywać. 
 
 Poniższy kod tworzy znacznik HTML i ustawia właściwość Color na wartość "DodgerBlue" i właściwość Text na "10". Do znacznika i `click` zdarzenia służy do przełączania widoczności okna podręcznego.
 
@@ -103,13 +103,13 @@ Te przykłady pokazują, jak dodać mysz i przeciągnąć zdarzenia do znacznika
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+> [HtmlMarkerOptions](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager)
+> [HtmlMarkerManager](/javascript/api/azure-maps-control/atlas.htmlmarkermanager)
 
 Aby uzyskać więcej przykładów kodu do dodania do usługi Maps, zobacz następujące artykuły:
 

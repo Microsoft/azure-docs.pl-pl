@@ -1,21 +1,21 @@
 ---
 title: Otwieranie portów do maszyny wirtualnej przy użyciu Azure PowerShell
-description: Dowiedz się, jak otworzyć port/utworzyć punkt końcowy na maszynie wirtualnej z systemem Windows przy użyciu trybu wdrażania usługi Azure Resource Manager i Azure PowerShell
+description: Dowiedz się, jak otworzyć port/utworzyć punkt końcowy na maszynie wirtualnej przy użyciu Azure PowerShell
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a417c271c16aabe91836f425f26c0a55e7103557
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a432ce978f6fa9e3a472cb15e9ef9241bc41004d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973941"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891758"
 ---
-# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Jak otworzyć porty i punkty końcowe na maszynie wirtualnej na platformie Azure przy użyciu programu PowerShell
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-using-powershell"></a>Jak otworzyć porty i punkty końcowe na maszynie wirtualnej przy użyciu programu PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Szybkie polecenia
@@ -27,9 +27,9 @@ Zaloguj się do konta platformy Azure:
 Connect-AzAccount
 ```
 
-W poniższych przykładach Zastąp nazwy parametrów własnymi wartościami. Przykładowe nazwy parametrów dołączone do *zasobów*, *myNetworkSecurityGroup*i *myVnet*.
+W poniższych przykładach Zastąp nazwy parametrów własnymi wartościami. Przykładowe nazwy parametrów dołączone do *zasobów* , *myNetworkSecurityGroup* i *myVnet* .
 
-Utwórz regułę przy użyciu elementu [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). Poniższy przykład tworzy regułę o nazwie *myNetworkSecurityGroupRule* , aby zezwalać na ruch *tcp* na porcie *80*:
+Utwórz regułę przy użyciu elementu [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). Poniższy przykład tworzy regułę o nazwie *myNetworkSecurityGroupRule* , aby zezwalać na ruch *tcp* na porcie *80* :
 
 ```powershell
 $httprule = New-AzNetworkSecurityRuleConfig `
@@ -45,7 +45,7 @@ $httprule = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Następnie utwórz sieciową grupę zabezpieczeń z poleceniem [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) i przypisz utworzoną właśnie regułę protokołu HTTP w następujący sposób. Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup*:
+Następnie utwórz sieciową grupę zabezpieczeń z poleceniem [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) i przypisz utworzoną właśnie regułę protokołu HTTP w następujący sposób. Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup* :
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 1193bfe74e8b5e20d2189c143f6ca0cb09abfd49
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: fc9c5e1f5922543ea14b13e3e5b424190dbbfb7a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329648"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892200"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Linux
 
@@ -110,12 +110,15 @@ Poniższy kod JSON przedstawia schemat rozszerzenia agenta Log Analytics. Rozsze
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft. EnterpriseCloud. Monitoring |
 | typ | OmsAgentForLinux |
-| typeHandlerVersion | 1,7 |
+| typeHandlerVersion | 1.13 |
 | Identyfikator obszaru roboczego (np.) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (np.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
+
+>[!NOTE]
+>Niektóre składniki rozszerzenia maszyny wirtualnej Log Analytics są również dostarczane w [rozszerzeniu maszyny wirtualnej diagnostyki](./diagnostics-linux.md). Ze względu na tę architekturę mogą wystąpić konflikty w przypadku wystąpienia obu rozszerzeń w tym samym szablonie usługi ARM. Aby uniknąć tych konfliktów w czasie instalacji, należy użyć [ `dependsOn` dyrektywy](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) , aby upewnić się, że rozszerzenia są zainstalowane sekwencyjnie. Rozszerzenia można zainstalować w dowolnej kolejności.
 
 Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szablonów Azure Resource Manager. Szablony są idealnym rozwiązaniem podczas wdrażania co najmniej jednej maszyny wirtualnej, która wymaga konfiguracji po wdrożeniu, takiej jak dołączanie do dzienników Azure Monitor. Przykładowy szablon Menedżer zasobów zawierający rozszerzenie maszyny wirtualnej agenta Log Analytics można znaleźć w [galerii szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
@@ -135,7 +138,7 @@ W poniższym przykładzie przyjęto założenie, że rozszerzenie maszyny wirtua
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -160,7 +163,7 @@ Podczas umieszczania kodu JSON rozszerzenia w katalogu głównym szablonu nazwa 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -173,7 +176,7 @@ Podczas umieszczania kodu JSON rozszerzenia w katalogu głównym szablonu nazwa 
 
 ## <a name="azure-cli-deployment"></a>Wdrożenie interfejsu wiersza polecenia platformy Azure
 
-Za pomocą interfejsu wiersza polecenia platformy Azure można wdrożyć rozszerzenie maszyny wirtualnej Log Analytics Agent na istniejącej maszynie wirtualnej. Zastąp wartość *myWorkspaceKey* poniżej kluczem obszaru roboczego i wartość *myWorkspaceId* identyfikatorem obszaru roboczego. Te wartości można znaleźć w obszarze roboczym Log Analytics w obszarze Azure Portal *Ustawienia zaawansowane*. 
+Za pomocą interfejsu wiersza polecenia platformy Azure można wdrożyć rozszerzenie maszyny wirtualnej Log Analytics Agent na istniejącej maszynie wirtualnej. Zastąp wartość *myWorkspaceKey* poniżej kluczem obszaru roboczego i wartość *myWorkspaceId* identyfikatorem obszaru roboczego. Te wartości można znaleźć w obszarze roboczym Log Analytics w obszarze Azure Portal *Ustawienia zaawansowane* . 
 
 ```azurecli
 az vm extension set \
@@ -181,7 +184,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
   --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 

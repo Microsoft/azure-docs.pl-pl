@@ -6,18 +6,18 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: d2a936a6acb6491c57cb1460c83ec0253561b102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae2bc6e87f0b694e949057280233c19e0b98132c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445665"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892234"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Nawiązywanie połączenia z maszyną wirtualną przy użyciu Remote Desktop Protocol na Chromebook
 W tej sekcji pokazano, jak student może połączyć się z maszyną wirtualną laboratorium z Chromebook za pomocą protokołu RDP.
 
 ## <a name="install-microsoft-remote-desktop-on-a-chromebook"></a>Instalowanie Pulpit zdalny Microsoft na Chromebook
-1. Otwórz sklep App Store w Chromebook i Wyszukaj **pulpit zdalny Microsoft**.
+1. Otwórz sklep App Store w Chromebook i Wyszukaj **pulpit zdalny Microsoft** .
 
     ![Pulpit zdalny firmy Microsoft](./media/how-to-use-classroom-lab/install-ms-remote-desktop-chromebook.png)
 1. Zainstaluj najnowszą wersję programu Pulpit zdalny Microsoft. 
@@ -28,7 +28,7 @@ W tej sekcji pokazano, jak student może połączyć się z maszyną wirtualną 
     ![Łączenie z maszyną wirtualną](./media/how-to-use-classroom-lab/connect-vm-chromebook.png)
 
 1. Po wyświetleniu monitu wprowadź hasło.
-    ![Łączenie z maszyną wirtualną](./media/how-to-use-classroom-lab/password-chromebook.png)
+    ![Zrzut ekranu przedstawiający ekran logowania, w którym wprowadzasz nazwę użytkownika i hasło.](./media/how-to-use-classroom-lab/password-chromebook.png)
 
 
 1. Wybierz pozycję **Kontynuuj** , jeśli zostanie wyświetlone następujące ostrzeżenie. 

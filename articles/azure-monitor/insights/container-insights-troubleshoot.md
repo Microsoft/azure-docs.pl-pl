@@ -3,14 +3,14 @@ title: Jak rozwiązywać problemy z Azure Monitorami dla kontenerów | Microsoft
 description: W tym artykule opisano, jak rozwiązywać problemy z Azure Monitorami dla kontenerów i je rozwiązać.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092834"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890364"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>Azure Monitor rozwiązywania problemów z kontenerami
+# <a name="troubleshooting-azure-monitor-for-containers"></a>Rozwiązywanie problemów z usługą Azure Monitor dla kontenerów
 
 Podczas konfigurowania monitorowania klastra usługi Azure Kubernetes Service (AKS) za pomocą Azure Monitor dla kontenerów może wystąpić problem uniemożliwiający zbieranie danych lub raportowanie stanu. W tym artykule opisano niektóre typowe problemy i kroki rozwiązywania problemów.
 
@@ -23,9 +23,9 @@ Podczas procesu dołączania lub aktualizacji należy podjąć próbę przypisan
 Możesz również ręcznie udzielić tej roli z Azure Portal, wykonując następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W witrynie Azure Portal kliknij pozycję **Wszystkie usługi** w lewym górnym rogu. Na liście zasobów wpisz **Kubernetes**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Azure Kubernetes**.
+2. W witrynie Azure Portal kliknij pozycję **Wszystkie usługi** w lewym górnym rogu. Na liście zasobów wpisz **Kubernetes** . Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Azure Kubernetes** .
 3. Na liście klastrów Kubernetes wybierz jedną z listy.
-2. W menu po lewej stronie kliknij pozycję **Kontrola dostępu (IAM)**.
+2. W menu po lewej stronie kliknij pozycję **Kontrola dostępu (IAM)** .
 3. Wybierz pozycję **+ Dodaj** , aby dodać przypisanie roli i wybierz rolę **wydawcy metryk monitorowania** i w obszarze **Wybierz** typ **AKS** , aby filtrować wyniki tylko do podmiotów usługi klastrów zdefiniowanych w ramach subskrypcji. Wybierz z listy odpowiedni dla tego klastra.
 4. Wybierz pozycję **Zapisz** , aby zakończyć Przypisywanie roli.
 
@@ -92,7 +92,7 @@ Poniższa tabela zawiera podsumowanie znanych błędów, które mogą wystąpić
 | Komunikat o błędzie `Error retrieving data` | Podczas konfigurowania klastra usługi Azure Kubernetes na potrzeby monitorowania kondycji i wydajności jest nawiązywane połączenie między klastrem i obszarem roboczym usługi Azure Log Analytics. Obszar roboczy Log Analytics służy do przechowywania wszystkich danych monitorowania dla klastra. Ten błąd może wystąpić, gdy obszar roboczy Log Analytics został usunięty. Sprawdź, czy obszar roboczy został usunięty, a jeśli był, należy ponownie włączyć monitorowanie klastra przy użyciu Azure Monitor dla kontenerów i określić istniejący lub utworzyć nowy obszar roboczy. Aby ponownie włączyć, należy [wyłączyć](container-insights-optout.md) monitorowanie klastra i ponownie [włączyć](container-insights-enable-new-cluster.md) Azure monitor dla kontenerów. |
 | `Error retrieving data` Po dodaniu Azure Monitor kontenerów za za poorednictwem interfejsu wiersza polecenia AZ AKS | Po włączeniu monitorowania za pomocą programu `az aks cli` Azure monitor dla kontenerów mogą nie być poprawnie wdrożone. Sprawdź, czy rozwiązanie zostało wdrożone. Aby sprawdzić, przejdź do obszaru roboczego Log Analytics i sprawdź, czy rozwiązanie jest dostępne, wybierając pozycję **rozwiązania** z okienka po lewej stronie. Aby rozwiązać ten problem, należy ponownie wdrożyć rozwiązanie, postępując zgodnie z instrukcjami dotyczącymi [wdrażania Azure monitor dla kontenerów](container-insights-onboard.md) |
 
-Aby ułatwić zdiagnozowanie problemu, w [tym miejscu](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1)udostępniono skrypt rozwiązywania problemów.
+Aby ułatwić zdiagnozowanie problemu, podano [skrypt rozwiązywania problemów](https://aka.ms/troubleshooting-script).
 
 ## <a name="azure-monitor-for-containers-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>Azure Monitor dla ReplicaSet kontenerów agentów nie są zaplanowani w klastrze Kubernetes innym niż Azure
 
@@ -112,7 +112,7 @@ Azure Monitor dla programu Containers Agent, który zbiera metryki wydajności, 
 
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>Klaster Kubernetes spoza platformy Azure nie jest wyświetlany w Azure Monitor dla kontenerów
 
-Aby wyświetlić klaster programu spoza platformy Azure Kubernetes w Azure Monitor dla kontenerów, należy uzyskać dostęp do odczytu w obszarze roboczym Log Analytics, który obsługuje tę usługę Insights, oraz na platformie Azure Insights Resource **ContainerInsights (*obszar roboczy*)**.
+Aby wyświetlić klaster programu spoza platformy Azure Kubernetes w Azure Monitor dla kontenerów, należy uzyskać dostęp do odczytu w obszarze roboczym Log Analytics, który obsługuje tę usługę Insights, oraz na platformie Azure Insights Resource **ContainerInsights ( *obszar roboczy* )** .
 
 ## <a name="next-steps"></a>Następne kroki
 

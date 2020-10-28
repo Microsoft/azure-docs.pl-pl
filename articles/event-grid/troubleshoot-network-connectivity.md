@@ -5,16 +5,16 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119008"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892319"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Rozwiązywanie problemów z łącznością — Azure Event Grid
 
-Istnieją różne przyczyny, dla których aplikacje klienckie nie mogą nawiązać połączenia z Event Grid tematem/domeną. Problemy z łącznością mogą być stałe lub przejściowe. Jeśli problem występuje przez cały czas (stały), możesz chcieć sprawdzić ustawienia zapory w organizacji, ustawienia zapory protokołu IP, Tagi usług, prywatne punkty końcowe i inne. W przypadku problemów przejściowych uruchamianie poleceń w celu sprawdzenia pakietów porzuconych i uzyskanie śladów sieci może pomóc w rozwiązywaniu problemów.
+Istnieją różne przyczyny, dla których aplikacje klienckie nie mogą nawiązać połączenia z Event Grid tematem/domeną. Problemy z łącznością mogą być stałe lub przejściowe. Jeśli problem występuje przez cały czas (trwały), możesz sprawdzić ustawienia zapory w organizacji, ustawienia zapory protokołu IP, Tagi usług, prywatne punkty końcowe i inne. W przypadku problemów przejściowych uruchamianie poleceń w celu sprawdzenia pakietów porzuconych i uzyskanie śladów sieci może pomóc w rozwiązywaniu problemów.
 
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów z łącznością z usługą Azure Event Grid.
 
@@ -22,7 +22,7 @@ Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów z łączno�
 
 Jeśli aplikacja nie może nawiązać połączenia z siatką zdarzeń w ogóle, wykonaj kroki opisane w tej sekcji, aby rozwiązać problem.
 
-### <a name="check-if-there-is-a-service-outage"></a>Sprawdź, czy występuje awaria usługi
+### <a name="check-if-theres-a-service-outage"></a>Sprawdź, czy wystąpiła awaria usługi
 
 Sprawdź, czy usługa Azure Event Grid przestoje w [witrynie stanu usługi platformy Azure](https://azure.microsoft.com/status/).
 
@@ -50,6 +50,8 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 Podczas pracy z platformą Azure czasami trzeba zezwolić na określone zakresy adresów IP lub adresy URL w firmowej zaporze lub serwerze proxy, aby uzyskać dostęp do wszystkich usług platformy Azure, których używasz lub których próbujesz użyć. Sprawdź, czy ruch jest dozwolony dla adresów IP używanych przez Event Grid. Adresy IP używane przez Azure Event Grid: zobacz [zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519) i [tag usługi — AzureEventGrid](network-security.md#service-tags).
 
+[Zakresy adresów IP platformy Azure i Tagi usług — dokument w chmurze publicznej](https://www.microsoft.com/download/details.aspx?id=56519) zawiera również adresy IP **według regionów** . Można zezwolić na zakresy adresów dla **regionu tematu** i **sparowanego regionu** w firmowej zaporze lub serwerze proxy. W przypadku sparowanego regionu dla regionu Zobacz temat [ciągłość działania i odzyskiwanie po awarii (BCDR): wieloelementowe regiony platformy Azure](/azure/best-practices-availability-paired-regions). 
+
 > [!NOTE]
 > Nowe adresy IP można dodać do tagu usługi AzureEventGrid, chociaż nie jest to normalne. Dlatego warto wykonać cotygodniowe sprawdzanie tagów usługi.
 
@@ -63,13 +65,13 @@ Sprawdź, czy publiczny adres IP komputera, na którym uruchomiona jest aplikacj
 
 Domyślnie tematy Event Grid/domeny są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją tylko do zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
-Reguły zapory adresów IP są stosowane na poziomie tematu/domeny Event Grid. W związku z tym reguły są stosowane do wszystkich połączeń z klientów przy użyciu dowolnego obsługiwanego protokołu. Dowolna próba połączenia z adresu IP, który nie jest zgodny z dozwoloną regułą adresów IP w temacie/domenie Event Grid jest odrzucana jako zabronione. Odpowiedź nie zawiera wzmianki o regule adresów IP.
+Reguły zapory adresów IP są stosowane na poziomie tematu/domeny Event Grid. W związku z tym reguły są stosowane do wszystkich połączeń z klientów przy użyciu dowolnego obsługiwanego protokołu. Dowolna próba połączenia z adresu IP, który nie jest zgodny z dozwoloną regułą adresów IP w temacie/domenie Event Grid, jest odrzucana jako zabronione. Odpowiedź nie zawiera wzmianki o regule adresów IP.
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie reguł zapory adresów IP dla tematu Azure Event Grid/domeny](configure-firewall.md).
 
 #### <a name="find-the-ip-addresses-blocked-by-ip-firewall"></a>Znajdź adresy IP blokowane przez zaporę IP
 
-Włączanie dzienników diagnostycznych dla Event Grid tematu/domeny [Włączanie dzienników diagnostycznych](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). Zostanie wyświetlony adres IP dla niedozwolonego połączenia.
+Włączanie dzienników diagnostycznych dla Event Grid tematu/domeny [Włączanie dzienników diagnostycznych](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). Zobaczysz adres IP dla niedozwolonego połączenia.
 
 ```json
 {
