@@ -1,19 +1,19 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
 ms.date: 05/01/2019
 ms.author: juliako
-ms.custom: include file
-ms.openlocfilehash: 9d8de8826fc3dfcc2360eb3b6c82b3ff8d65d845
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 9a9aaf723b7b89b5b9c5611cea05c22c4003b99a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79461235"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755511"
 ---
 ### <a name="access-the-media-services-api"></a>Uzyskiwanie dostępu do interfejsu API usługi Media Services
 

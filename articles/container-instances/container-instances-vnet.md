@@ -3,13 +3,13 @@ title: Wdrażanie grupy kontenerów w usłudze Azure Virtual Network
 description: Dowiedz się, jak wdrożyć grupę kontenerów w nowej lub istniejącej sieci wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518130"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746897"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure
 
@@ -77,13 +77,13 @@ az container show --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv
 ```
 
-W danych wyjściowych zostanie wyświetlony adres IP grupy kontenerów w podsieci prywatnej. Przykład:
+W danych wyjściowych zostanie wyświetlony adres IP grupy kontenerów w podsieci prywatnej. Na przykład:
 
 ```console
 10.0.0.4
 ```
 
-Teraz ustaw `CONTAINER_GROUP_IP` adres IP pobrany z `az container show` poleceniem i wykonaj następujące `az container create` polecenie. Ten drugi kontener, *commchecker*, uruchamia obraz oparty na systemie Linux i jest wykonywany `wget` w odniesieniu do pierwszego adresu IP podsieci prywatnej grupy kontenerów.
+Teraz ustaw `CONTAINER_GROUP_IP` adres IP pobrany z `az container show` poleceniem i wykonaj następujące `az container create` polecenie. Ten drugi kontener, *commchecker* , uruchamia obraz oparty na systemie Linux i jest wykonywany `wget` w odniesieniu do pierwszego adresu IP podsieci prywatnej grupy kontenerów.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-address>
@@ -139,7 +139,7 @@ Przykładowe dane wyjściowe:
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Gdy masz identyfikator profilu sieciowego, Skopiuj następujący YAML do nowego pliku o nazwie *VNET-Deploy-ACI. YAML*. W obszarze `networkProfile` , Zastąp `id` wartość identyfikatorem, który właśnie został pobrany, a następnie Zapisz plik. Ta YAML tworzy grupę kontenerów o nazwie *appcontaineryaml* w sieci wirtualnej.
+Gdy masz identyfikator profilu sieciowego, Skopiuj następujący YAML do nowego pliku o nazwie *VNET-Deploy-ACI. YAML* . W obszarze `networkProfile` , Zastąp `id` wartość identyfikatorem, który właśnie został pobrany, a następnie Zapisz plik. Ta YAML tworzy grupę kontenerów o nazwie *appcontaineryaml* w sieci wirtualnej.
 
 ```YAML
 apiVersion: '2019-12-01'
@@ -204,7 +204,7 @@ Ta funkcja wymaga obecnie kilku dodatkowych poleceń w celu usunięcia utworzony
 Przed wykonaniem skryptu Ustaw `RES_GROUP` zmienną na nazwę grupy zasobów zawierającej sieć wirtualną i podsieć, która ma zostać usunięta. Zaktualizuj nazwę sieci wirtualnej, jeśli nie używasz `aci-vnet` sugerowanej wcześniej nazwy. Skrypt jest sformatowany dla powłoki bash. Jeśli wolisz innej powłoki, takiej jak PowerShell lub wiersz polecenia, musisz odpowiednio dostosować przypisanie zmiennych i metody dostępu.
 
 > [!WARNING]
-> Ten skrypt usuwa zasoby! Usuwa sieć wirtualną i wszystkie podsieci, które zawiera. Upewnij się, że nie potrzebujesz już *żadnych* zasobów w sieci wirtualnej, w tym wszystkich podsieci, które zawiera, przed uruchomieniem tego skryptu. Po usunięciu **te zasoby są nieodwracalne**.
+> Ten skrypt usuwa zasoby! Usuwa sieć wirtualną i wszystkie podsieci, które zawiera. Upewnij się, że nie potrzebujesz już *żadnych* zasobów w sieci wirtualnej, w tym wszystkich podsieci, które zawiera, przed uruchomieniem tego skryptu. Po usunięciu **te zasoby są nieodwracalne** .
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie Azure Files StorageClass na platformie Azure Red Hat OpenShift 4
+title: Tworzenie klasy Azure Files StorageClass w usłudze Azure Red Hat OpenShift 4
 description: Dowiedz się, jak utworzyć Azure Files StorageClass na platformie Azure Red Hat OpenShift
 ms.service: container-service
 ms.topic: article
@@ -8,14 +8,14 @@ author: grantomation
 ms.author: b-grodel
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI, plik platformy Azure
 ms.custom: mvc
-ms.openlocfilehash: c0d809324baa095b2ce8262170289e0dfec8bfd1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a7415a481b133c2f528ba4636c0297ce5cfa23a7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428952"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747891"
 ---
-# <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Tworzenie Azure Files StorageClass na platformie Azure Red Hat OpenShift 4
+# <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Tworzenie klasy Azure Files StorageClass w usłudze Azure Red Hat OpenShift 4
 
 W tym artykule utworzysz StorageClass dla platformy Azure Red Hat OpenShift 4, który dynamicznie obsługuje magazyn ReadWriteMany (RWX) przy użyciu Azure Files. Omawiane tematy:
 
@@ -32,7 +32,7 @@ Wdróż klaster usługi Azure Red Hat OpenShift 4 w ramach subskrypcji, zobacz [
 
 ### <a name="set-up-azure-storage-account"></a>Konfigurowanie konta usługi Azure Storage
 
-Ten krok spowoduje utworzenie grupy zasobów poza grupą zasobów klastra usługi Azure Red Hat OpenShift. Ta grupa zasobów będzie zawierać udziały Azure Files, które są tworzone przez dynamiczną prowizję usługi Azure Red Hat OpenShift.
+Ten krok spowoduje utworzenie grupy zasobów poza grupą zasobów klastra Red Hat OpenShift (ARO) platformy Azure. Ta grupa zasobów będzie zawierać udziały Azure Files, które są tworzone przez dynamiczną prowizję usługi Azure Red Hat OpenShift.
 
 ```bash
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files

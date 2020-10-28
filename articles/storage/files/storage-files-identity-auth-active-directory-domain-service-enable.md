@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: contperfq1
-ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperfq1, devx-track-azurecli
+ms.openlocfilehash: 906ec80ecc198675fdb5b163403267be1d13de00
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500321"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746855"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Włącz uwierzytelnianie Azure Active Directory Domain Services na Azure Files
 
@@ -39,7 +39,7 @@ Przed włączeniem usługi Azure AD za pośrednictwem protokołu SMB dla udział
 
     Aby zapewnić obsługę uwierzytelniania przy użyciu poświadczeń usługi Azure AD, musisz włączyć Azure AD Domain Services dla dzierżawy usługi Azure AD. Jeśli nie jesteś administratorem dzierżawy usługi Azure AD, skontaktuj się z administratorem i postępuj zgodnie ze wskazówkami krok po kroku, aby [włączyć Azure Active Directory Domain Services przy użyciu Azure Portal](../../active-directory-domain-services/tutorial-create-instance.md).
 
-    Ukończenie wdrożenia usługi Azure AD DS zwykle trwa około 15 minut. Przed przejściem do następnego kroku Sprawdź, czy stan kondycji usługi Azure AD DS jest **uruchomiony**z włączoną funkcją synchronizacji skrótów haseł.
+    Ukończenie wdrożenia usługi Azure AD DS zwykle trwa około 15 minut. Przed przejściem do następnego kroku Sprawdź, czy stan kondycji usługi Azure AD DS jest **uruchomiony** z włączoną funkcją synchronizacji skrótów haseł.
 
 1.  **Przyłączanie domeny do maszyny wirtualnej platformy Azure przy użyciu usługi Azure AD DS.**
 
@@ -87,19 +87,19 @@ Pamiętaj, że możesz włączyć uwierzytelnianie na platformie Azure AD DS za 
 Aby włączyć uwierzytelnianie AD DS platformy Azure za pośrednictwem protokołu SMB przy użyciu [Azure Portal](https://portal.azure.com), wykonaj następujące czynności:
 
 1. W Azure Portal przejdź do istniejącego konta magazynu lub [Utwórz konto magazynu](../common/storage-account-create.md).
-1. W sekcji **Ustawienia** wybierz pozycję **Konfiguracja**.
-1. W obszarze **dostęp oparty na tożsamościach dla udziałów plików** Przełącz przełącznik dla **Azure Active Directory Domain Service (AAD DS)** na wartość **włączone**.
-1. Wybierz pozycję **Zapisz**.
+1. W sekcji **Ustawienia** wybierz pozycję **Konfiguracja** .
+1. W obszarze **dostęp oparty na tożsamościach dla udziałów plików** Przełącz przełącznik dla **Azure Active Directory Domain Service (AAD DS)** na wartość **włączone** .
+1. Wybierz pozycję **Zapisz** .
 
 Na poniższej ilustracji przedstawiono sposób włączania uwierzytelniania AD DS platformy Azure za pośrednictwem protokołu SMB dla konta magazynu.
 
 ![Włącz uwierzytelnianie AD DS platformy Azure za pośrednictwem protokołu SMB w Azure Portal](media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby włączyć uwierzytelnianie AD DS platformy Azure za pośrednictwem protokołu SMB z Azure PowerShell, zainstaluj najnowszą wersję AZ module (2,4 lub nowszą) lub moduł AZ. Storage (1,5 lub nowszy). Aby uzyskać więcej informacji na temat instalowania programu PowerShell, zobacz [Install Azure PowerShell in Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-Aby utworzyć nowe konto magazynu, wywołaj polecenie [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), a następnie ustaw **EnableAzureActiveDirectoryDomainServicesForFile** dla parametru EnableAzureActiveDirectoryDomainServicesForFile **wartość true**. W poniższym przykładzie Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami. (Jeśli używasz poprzedniego modułu w wersji zapoznawczej, parametr służący do włączania funkcji to **EnableAzureFilesAadIntegrationForSMB**).
+Aby utworzyć nowe konto magazynu, wywołaj polecenie [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), a następnie ustaw **EnableAzureActiveDirectoryDomainServicesForFile** dla parametru EnableAzureActiveDirectoryDomainServicesForFile **wartość true** . W poniższym przykładzie Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami. (Jeśli używasz poprzedniego modułu w wersji zapoznawczej, parametr służący do włączania funkcji to **EnableAzureFilesAadIntegrationForSMB** ).
 
 ```powershell
 # Create a new storage account
@@ -125,7 +125,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 Aby włączyć uwierzytelnianie usługi Azure AD za pośrednictwem protokołu SMB przy użyciu interfejsu wiersza polecenia platformy Azure, zainstaluj najnowszą wersję interfejsu wiersza polecenia (w wersji 2.0.70 lub nowszej). Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Aby utworzyć nowe konto magazynu, wywołaj polecenie [AZ Storage account Create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)i ustaw `--enable-files-aadds` Właściwość na **wartość true**. W poniższym przykładzie Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami. (Jeśli korzystasz z poprzedniego modułu w wersji zapoznawczej, parametr do włączenia funkcji to **File-AAD**).
+Aby utworzyć nowe konto magazynu, wywołaj polecenie [AZ Storage account Create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)i ustaw `--enable-files-aadds` Właściwość na **wartość true** . W poniższym przykładzie Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami. (Jeśli korzystasz z poprzedniego modułu w wersji zapoznawczej, parametr do włączenia funkcji to **File-AAD** ).
 
 ```azurecli-interactive
 # Create a new storage account

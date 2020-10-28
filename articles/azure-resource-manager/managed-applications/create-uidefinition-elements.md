@@ -3,14 +3,14 @@ title: Tworzenie elementów definicji interfejsu użytkownika
 description: Opisuje elementy, które mają być używane podczas konstruowania definicji interfejsu użytkownika dla Azure Portal.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 10/27/2020
 ms.author: tomfitz
-ms.openlocfilehash: 8b6c6e78c64f83ca39a29f319a103e893d8d8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3ba36fc3aaa98aec54b6c70cd416c589be27cfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88923725"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747351"
 ---
 # <a name="createuidefinition-elements"></a>Elementy CreateUiDefinition
 
@@ -63,6 +63,7 @@ Dokumentacja dla każdego elementu zawiera przykładowy interfejs użytkownika, 
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [Microsoft. KeyVaultCertificateSelector — magazyn.](microsoft-keyvault-keyvaultcertificateselector.md)
 - [Microsoft. ManagedIdentity. IdentitySelector](microsoft-managedidentity-identityselector.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
@@ -70,6 +71,7 @@ Dokumentacja dla każdego elementu zawiera przykładowy interfejs użytkownika, 
 - [Microsoft. Solutions. ResourceSelector](microsoft-solutions-resourceselector.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
+- [Microsoft. Storage. StorageBlobSelector](microsoft-storage-storageblobselector.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

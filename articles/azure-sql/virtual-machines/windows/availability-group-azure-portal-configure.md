@@ -12,13 +12,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: 9e7a9beec101354672bffd558bdb0714eaf97ece
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164571"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746757"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Użyj Azure Portal, aby skonfigurować grupę dostępności (wersja zapoznawcza) dla SQL Server na maszynie wirtualnej platformy Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +61,7 @@ Jeśli nie masz jeszcze istniejącego klastra, utwórz go przy użyciu Azure Por
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 1. Przejdź do zasobu [maszyny wirtualnej SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. W obszarze **Ustawienia**wybierz pozycję **wysoka dostępność** . 
+1. W obszarze **Ustawienia** wybierz pozycję **wysoka dostępność** . 
 1. Wybierz pozycję **+ nowy klaster trybu failover systemu Windows Server** , aby otworzyć stronę **Konfigurowanie klastra trybu failover systemu Windows** .  
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
@@ -85,7 +85,7 @@ W tym celu wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 1. Przejdź do zasobu [maszyny wirtualnej SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. W obszarze **Ustawienia**wybierz pozycję **wysoka dostępność** . 
+1. W obszarze **Ustawienia** wybierz pozycję **wysoka dostępność** . 
 1. Wybierz pozycję Dołącz **istniejący klaster trybu failover systemu Windows Server** , aby otworzyć stronę **klastra trybu failover systemu Windows Server** . 
 
    :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
@@ -102,7 +102,7 @@ Po utworzeniu lub dołączeniu klastra utwórz grupę dostępności przy użyciu
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 1. Przejdź do zasobu [maszyny wirtualnej SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. W obszarze **Ustawienia**wybierz pozycję **wysoka dostępność** . 
+1. W obszarze **Ustawienia** wybierz pozycję **wysoka dostępność** . 
 1. Wybierz pozycję **+ Nowa zawsze włączona Grupa dostępności** , aby otworzyć stronę **Tworzenie grupy dostępności** .
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
@@ -138,8 +138,8 @@ Aby dodać bazy danych do grupy dostępności przy użyciu SQL Server Management
 1. Nawiąż połączenie z jedną z maszyn wirtualnych SQL Server przy użyciu preferowanej metody, takiej jak Podłączanie pulpitu zdalnego (RDP). 
 1. Otwórz SQL Server Management Studio (SSMS).
 1. Nawiąż połączenie z wystąpieniem SQL Server. 
-1. Rozwiń pozycję **zawsze w przypadku wysokiej dostępności** w **Eksplorator obiektów**.
-1. Rozwiń węzeł **grupy dostępności**, kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz polecenie **Dodaj bazę danych.**...
+1. Rozwiń pozycję **zawsze w przypadku wysokiej dostępności** w **Eksplorator obiektów** .
+1. Rozwiń węzeł **grupy dostępności** , kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz polecenie **Dodaj bazę danych.** ...
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
@@ -157,14 +157,14 @@ Aby dodać więcej SQL Server maszyn wirtualnych do klastra, wykonaj następują
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 1. Przejdź do zasobu [maszyny wirtualnej SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. W obszarze **Ustawienia**wybierz pozycję **wysoka dostępność** . 
+1. W obszarze **Ustawienia** wybierz pozycję **wysoka dostępność** . 
 1. Wybierz pozycję **Konfiguruj klaster trybu failover systemu Windows Server** , aby otworzyć stronę **Konfigurowanie klastra trybu failover systemu Windows Server** . 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 1. Rozwiń pozycję **poświadczenia klastra trybu failover systemu Windows Server** i wprowadź konta używane dla usług SQL Server, operatora klastra i kont Bootstrap klastra. 
 1. Wybierz Maszyny wirtualne SQL Server, które chcesz dodać do klastra. 
-1. Wybierz przycisk **Zastosuj**. 
+1. Wybierz przycisk **Zastosuj** . 
 
 Stan wdrożenia można sprawdzić w **dzienniku aktywności** , który jest dostępny z ikony dzwonka na górnym pasku nawigacyjnym. 
 
@@ -172,7 +172,7 @@ Stan wdrożenia można sprawdzić w **dzienniku aktywności** , który jest dost
 ## <a name="modify-availability-group"></a>Modyfikuj grupę dostępności 
 
 
-Możesz **dodać więcej replik** do grupy dostępności, **skonfigurować odbiornik**lub **usunąć odbiornik** ze strony **wysokiej dostępności** w Azure Portal, wybierając wielokropek (...) obok grupy dostępności: 
+Możesz **dodać więcej replik** do grupy dostępności, **skonfigurować odbiornik** lub **usunąć odbiornik** ze strony **wysokiej dostępności** w Azure Portal, wybierając wielokropek (...) obok grupy dostępności: 
 
 :::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
@@ -203,7 +203,7 @@ Następnie usuń metadane klastra z dostawcy zasobów maszyny wirtualnej SQL:
 az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Najpierw usuń wszystkie SQL Server maszyny wirtualne z klastra. Spowoduje to fizyczne usunięcie węzłów z klastra i zniszczenie klastra: 
 
@@ -245,7 +245,7 @@ Aby wyświetlić dzienniki wdrożenia i sprawdzić historię wdrożenia, wykonaj
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Przejdź do grupy zasobów.
-1. Wybierz pozycję **wdrożenia** w obszarze **Ustawienia**.
+1. Wybierz pozycję **wdrożenia** w obszarze **Ustawienia** .
 1. Wybierz wdrożenie zainteresowania, aby dowiedzieć się więcej o wdrożeniu. 
 
 

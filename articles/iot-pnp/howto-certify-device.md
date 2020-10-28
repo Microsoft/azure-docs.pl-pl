@@ -5,15 +5,15 @@ author: konichi3
 ms.author: koichih
 ms.date: 08/21/2020
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5cdee274ebc815b23b8ce59e8b9eca90d00e3818
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042970"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748476"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Jak przeprowadzić certyfikację urządzenia IoT Plug and Play
 
@@ -182,7 +182,7 @@ Informacje o profilu firmy są używane w opisie urządzenia zaprezentowanym w k
 
 Aby zatwierdzić urządzenie, należy najpierw utworzyć nowy projekt.
 
-Przejdź do [portalu certyfikacji](https://aka.ms/acdp). Na stronie **projekty** wybierz pozycję *+ Utwórz nowy projekt*. Następnie wprowadź nazwę projektu, nazwę urządzenia i wybierz klasę urządzeń.
+Przejdź do [portalu certyfikacji](https://aka.ms/acdp). Na stronie **projekty** wybierz pozycję *+ Utwórz nowy projekt* . Następnie wprowadź nazwę projektu, nazwę urządzenia i wybierz klasę urządzeń.
 
 Informacje o produkcie, które podano podczas procesu certyfikacji, są podzielone na cztery kategorie:
 

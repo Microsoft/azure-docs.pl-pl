@@ -3,14 +3,14 @@ title: Tworzenie Azure Functions w systemie Linux przy użyciu obrazu niestandar
 description: Informacje o sposobie tworzenia usługi Azure Functions działającej w niestandardowym obrazie systemu Linux.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 4de4f52dae236502a087116aa72424641220c628
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517088"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747107"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
@@ -20,7 +20,7 @@ Wdrożenie kodu funkcji w niestandardowym kontenerze systemu Linux wymaga [planu
 
 Można również użyć domyślnego kontenera Azure App Service, zgodnie z opisem w temacie [Tworzenie pierwszej funkcji hostowanej w systemie Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Obsługiwane obrazy podstawowe dla Azure Functions są dostępne w [repozytorium Azure Functions obrazów podstawowych](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz aplikację funkcji i pliku dockerfile przy użyciu Azure Functions Core Tools.
@@ -85,7 +85,7 @@ W pustym folderze uruchom następujące polecenie, aby wygenerować projekt usł
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
 ```
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
 mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
@@ -112,7 +112,7 @@ Po wyświetleniu monitu podaj następujące wartości:
 
 Wpisz `Y` lub naciśnij klawisz ENTER, aby potwierdzić.
 
-Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, w tym przykładzie `fabrikam-functions` . 
+Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_ , w tym przykładzie `fabrikam-functions` . 
 ::: zone-end
 `--docker`Opcja generuje `Dockerfile` dla projektu, który definiuje odpowiedni kontener niestandardowy do użycia z Azure Functions i wybranym środowiskiem uruchomieniowym.
 
@@ -128,7 +128,7 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new` Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json*.
+Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new` Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json* .
 
 ```
 func new --name HttpExample --template "HTTP trigger"
@@ -180,7 +180,7 @@ docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-Gdy obraz jest uruchomiony w lokalnym kontenerze, Otwórz przeglądarkę do, w `http://localhost:8080` której powinien zostać wyświetlony obraz zastępczy poniżej. Obraz jest wyświetlany w tym momencie, ponieważ funkcja jest uruchomiona w kontenerze lokalnym, tak jak w przypadku platformy Azure, co oznacza, że jest chroniona przez klucz dostępu zdefiniowany w *function.jsna* z `"authLevel": "function"` właściwością. Kontener nie został jeszcze opublikowany w aplikacji funkcji na platformie Azure, więc klucz nie jest jeszcze dostępny. Jeśli chcesz przeprowadzić test w odniesieniu do lokalnego kontenera, Zatrzymaj platformę Docker, Zmień właściwość autoryzacji na `"authLevel": "anonymous"` , Odbuduj obraz i ponownie uruchom platformę Docker. Następnie zresetuj `"authLevel": "function"` w *function.jsna*. Aby uzyskać więcej informacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
+Gdy obraz jest uruchomiony w lokalnym kontenerze, Otwórz przeglądarkę do, w `http://localhost:8080` której powinien zostać wyświetlony obraz zastępczy poniżej. Obraz jest wyświetlany w tym momencie, ponieważ funkcja jest uruchomiona w kontenerze lokalnym, tak jak w przypadku platformy Azure, co oznacza, że jest chroniona przez klucz dostępu zdefiniowany w *function.jsna* z `"authLevel": "function"` właściwością. Kontener nie został jeszcze opublikowany w aplikacji funkcji na platformie Azure, więc klucz nie jest jeszcze dostępny. Jeśli chcesz przeprowadzić test w odniesieniu do lokalnego kontenera, Zatrzymaj platformę Docker, Zmień właściwość autoryzacji na `"authLevel": "anonymous"` , Odbuduj obraz i ponownie uruchom platformę Docker. Następnie zresetuj `"authLevel": "function"` w *function.jsna* . Aby uzyskać więcej informacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ![Obraz zastępczy wskazujący, że kontener jest uruchomiony lokalnie](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -189,7 +189,7 @@ Gdy obraz jest uruchomiony w lokalnym kontenerze, Otwórz przeglądarkę do, w `
 Gdy obraz jest uruchomiony w lokalnym kontenerze, przejdź do `http://localhost:8080/api/HttpExample?name=Functions` , który powinien wyświetlać ten sam komunikat "Hello" jak wcześniej. Ponieważ Maven Archetype generuje funkcję wyzwalaną przez protokół HTTP, która korzysta z anonimowej autoryzacji, można nadal wywołać funkcję, mimo że jest uruchomiona w kontenerze. 
 ::: zone-end  
 
-Po zweryfikowaniu aplikacji funkcji w kontenerze Zatrzymaj platformę Docker z **klawiszem Ctrl** + **C**.
+Po zweryfikowaniu aplikacji funkcji w kontenerze Zatrzymaj platformę Docker z **klawiszem Ctrl** + **C** .
 
 ## <a name="push-the-image-to-docker-hub"></a>Wypchnij obraz do centrum Docker
 
@@ -302,16 +302,16 @@ W przypadku obrazu wdrożonego w aplikacji funkcji na platformie Azure można te
 
     # <a name="portal"></a>[Portal](#tab/portal)
 
-    1. Zaloguj się do Azure Portal, a następnie wyszukaj i wybierz pozycję **aplikacja funkcji**.
+    1. Zaloguj się do Azure Portal, a następnie wyszukaj i wybierz pozycję **aplikacja funkcji** .
 
     1. Wybierz funkcję, którą chcesz zweryfikować.
 
-    1. W lewym panelu nawigacyjnym wybierz pozycję **funkcje**, a następnie wybierz funkcję, którą chcesz zweryfikować.
+    1. W lewym panelu nawigacyjnym wybierz pozycję **funkcje** , a następnie wybierz funkcję, którą chcesz zweryfikować.
 
         ![Wybierz funkcję w Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
-    1. Wybierz pozycję **Pobierz adres URL funkcji**.
+    1. Wybierz pozycję **Pobierz adres URL funkcji** .
 
         ![Pobierz adres URL funkcji z Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
@@ -375,7 +375,7 @@ Możesz włączyć Azure Functions, aby automatycznie aktualizować wdrożenie o
 
 1. Skopiuj adres URL elementu webhook wdrożenia do Schowka.
 
-1. Otwórz [centrum platformy Docker](https://hub.docker.com/), zaloguj się i wybierz pozycję **repozytoria** na pasku nawigacyjnym. Znajdź i wybierz pozycję obraz, wybierz kartę elementy **webhook** , określ **nazwę elementu webhook**, wklej adres URL w **adresie URL elementu webhook**, a następnie wybierz pozycję **Utwórz**:
+1. Otwórz [centrum platformy Docker](https://hub.docker.com/), zaloguj się i wybierz pozycję **repozytoria** na pasku nawigacyjnym. Znajdź i wybierz pozycję obraz, wybierz kartę elementy **webhook** , określ **nazwę elementu webhook** , wklej adres URL w **adresie URL elementu webhook** , a następnie wybierz pozycję **Utwórz** :
 
     ![Dodawanie elementu webhook w repozytorium DockerHub](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -441,7 +441,7 @@ Protokół SSH umożliwia bezpieczną komunikację między kontenerem i klientem
 
 ## <a name="write-to-an-azure-storage-queue"></a>Zapisywanie w kolejce usługi Azure Storage
 
-Azure Functions umożliwia łączenie funkcji z innymi usługami i zasobami platformy Azure bez konieczności pisania kodu integracji. Te *powiązania*, które reprezentują zarówno dane wejściowe, jak i wyjściowe, są zadeklarowane w definicji funkcji. Dane z powiązań są podawane do funkcji jako parametry. *Wyzwalacz* jest specjalnym typem powiązania danych wejściowych. Chociaż funkcja ma tylko jeden wyzwalacz, może mieć wiele powiązań wejściowych i wyjściowych. Aby dowiedzieć się więcej, zobacz temat [Azure Functions wyzwalacze i koncepcje powiązań](functions-triggers-bindings.md).
+Azure Functions umożliwia łączenie funkcji z innymi usługami i zasobami platformy Azure bez konieczności pisania kodu integracji. Te *powiązania* , które reprezentują zarówno dane wejściowe, jak i wyjściowe, są zadeklarowane w definicji funkcji. Dane z powiązań są podawane do funkcji jako parametry. *Wyzwalacz* jest specjalnym typem powiązania danych wejściowych. Chociaż funkcja ma tylko jeden wyzwalacz, może mieć wiele powiązań wejściowych i wyjściowych. Aby dowiedzieć się więcej, zobacz temat [Azure Functions wyzwalacze i koncepcje powiązań](functions-triggers-bindings.md).
 
 W tej sekcji pokazano, jak zintegrować funkcję z kolejką usługi Azure Storage. Powiązanie danych wyjściowych dodawane do tej funkcji zapisuje dane z żądania HTTP do wiadomości w kolejce.
 

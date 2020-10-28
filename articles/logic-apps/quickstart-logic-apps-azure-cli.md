@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e6e53755d9231008d0f48c755ff9da297d7305d7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499555"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747176"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Szybki Start: Tworzenie aplikacji logiki i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym przewodniku szybki start pokazano, jak tworzyć aplikacje logiki i zarządzać nimi za pomocą [rozszerzenia Logic Apps interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/logic/logic?view=azure-cli-latest) ( `az logic` ). W wierszu polecenia można utworzyć aplikację logiki przy użyciu pliku JSON dla definicji przepływu pracy aplikacji logiki. Następnie możesz zarządzać aplikacją logiki, uruchamiając operacje, takie jak `list` , `show` ( `get` ), `update` i `delete` z wiersza polecenia.
 
 > [!WARNING]
-> Rozszerzenie interfejsu wiersza polecenia platformy Azure Logic Apps jest obecnie *eksperymentalne* i *nie jest objęte pomocą techniczną klienta*. Użyj tego rozszerzenia interfejsu wiersza polecenia z zachowaniem ostrożności, zwłaszcza jeśli zdecydujesz się użyć rozszerzenia w środowiskach produkcyjnych.
+> Rozszerzenie interfejsu wiersza polecenia platformy Azure Logic Apps jest obecnie *eksperymentalne* i *nie jest objęte pomocą techniczną klienta* . Użyj tego rozszerzenia interfejsu wiersza polecenia z zachowaniem ostrożności, zwłaszcza jeśli zdecydujesz się użyć rozszerzenia w środowiskach produkcyjnych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -61,7 +61,7 @@ Dane wyjściowe pokazują, `provisioningState` jak `Succeeded` po pomyślnym utw
 
 ## <a name="workflow-definition"></a>Definicja przepływu pracy
 
-Przed [utworzeniem nowej aplikacji logiki](#create-logic-apps-from-cli) lub [zaktualizowaniem istniejącej aplikacji logiki](#update-logic-apps-from-cli) przy użyciu interfejsu wiersza polecenia platformy Azure potrzebna jest definicja przepływu pracy dla aplikacji logiki. W Azure Portal można wyświetlić podstawową definicję przepływu pracy aplikacji logiki w formacie JSON, przełączając się z widoku **projektanta** do **widoku kodu**.
+Przed [utworzeniem nowej aplikacji logiki](#create-logic-apps-from-cli) lub [zaktualizowaniem istniejącej aplikacji logiki](#update-logic-apps-from-cli) przy użyciu interfejsu wiersza polecenia platformy Azure potrzebna jest definicja przepływu pracy dla aplikacji logiki. W Azure Portal można wyświetlić podstawową definicję przepływu pracy aplikacji logiki w formacie JSON, przełączając się z widoku **projektanta** do **widoku kodu** .
 
 Po uruchomieniu poleceń w celu utworzenia lub zaktualizowania aplikacji logiki, definicja przepływu pracy zostanie przekazana jako wymagany parametr ( `--definition` ). Należy utworzyć definicję przepływu pracy jako plik JSON, który następuje po [schemacie języka definicji przepływu pracy](./logic-apps-workflow-definition-language.md).
 
@@ -241,7 +241,7 @@ az logic workflow list --resource-group "testResourceGroup" --filter "(State eq 
 
 ```
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>błędy
 
 Następujący błąd wskazuje, że rozszerzenie interfejsu wiersza polecenia Azure Logic Apps nie jest zainstalowane. Wykonaj kroki opisane w sekcji wymagania wstępne, aby [zainstalować rozszerzenie Logic Apps](#prerequisites) na komputerze.
 

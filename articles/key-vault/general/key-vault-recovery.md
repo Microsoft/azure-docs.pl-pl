@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: a0fe5c2af42e8d8095963e29149e1338cc064c90
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495191"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748505"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Włączanie trwałego usuwania i przeczyszczania ochrony
 
@@ -23,11 +23,11 @@ W tym artykule opisano dwie funkcje odzyskiwania Azure Key Vault, nietrwałego u
 
 Nietrwałe usuwanie i ochrona przed czyszczeniem to dwie różne funkcje odzyskiwania magazynu kluczy.
 > [!IMPORTANT]
-> Ochrona usuwania nietrwałego musi być włączona we wszystkich magazynach kluczy. Możliwość wyłączenia ochrony przed usunięciem nietrwałego zostanie wycofana z grudnia 2020. Więcej informacji można znaleźć [ **tutaj**.](soft-delete-change.md)
+> Ochrona usuwania nietrwałego musi być włączona we wszystkich magazynach kluczy. Możliwość wyłączenia ochrony przed usunięciem nietrwałego zostanie wycofana z grudnia 2020. Więcej informacji można znaleźć [ **tutaj** .](soft-delete-change.md)
 
 **Usuwanie nietrwałe** zostało zaprojektowane, aby zapobiec przypadkowemu usunięciu magazynu kluczy oraz kluczy, wpisów tajnych i certyfikatów przechowywanych w magazynie kluczy. Pomyśl o usuwaniu nietrwałego, podobnie jak kosz. Po usunięciu magazynu kluczy lub obiektu magazynu kluczy pozostanie on odwracalny dla konfigurowanego okresu przechowywania użytkownika lub domyślnego 90 dni. Magazyny kluczy w stanie usuniętej nietrwałe mogą być również **przeczyszczane** , co oznacza, że są trwale usuwane. Pozwala to na ponowne utworzenie magazynów kluczy i obiektów magazynu kluczy o tej samej nazwie. Zarówno odzyskiwanie, jak i usunięcie magazynów kluczy i obiektów wymagają podniesionych uprawnień zasad dostępu. **Po włączeniu usuwania nietrwałego nie można go wyłączyć.**
 
-Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe**, dlatego nie będzie można utworzyć magazynu kluczy o takiej samej nazwie jak Magazyn kluczy w stanie usunięte nietrwałe. Podobnie nazwy kluczy, wpisów tajnych i certyfikatów są unikatowe w ramach magazynu kluczy. Nie będzie można utworzyć wpisu tajnego, klucza lub certyfikatu o takiej samej nazwie jak w stanie usunięte nietrwałe.
+Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe** , dlatego nie będzie można utworzyć magazynu kluczy o takiej samej nazwie jak Magazyn kluczy w stanie usunięte nietrwałe. Podobnie nazwy kluczy, wpisów tajnych i certyfikatów są unikatowe w ramach magazynu kluczy. Nie będzie można utworzyć wpisu tajnego, klucza lub certyfikatu o takiej samej nazwie jak w stanie usunięte nietrwałe.
 
 **Ochrona przed przeczyszczeniem** została zaprojektowana, aby zapobiec usunięciu magazynu kluczy, kluczy, wpisów tajnych i certyfikatów przez złośliwego użytkownika. Należy zastanowić się, że jest to kosz z blokadą opartą na czasie. W dowolnym momencie można odzyskać elementy w ramach konfigurowalnego okresu przechowywania. **Nie będzie możliwe trwałe usunięcie lub przeczyszczenie magazynu kluczy do momentu, gdy upłynie okres przechowywania.** Gdy okres przechowywania upływający z magazynu kluczy lub obiekt magazynu kluczy zostanie automatycznie przeczyszczony.
 
@@ -241,14 +241,6 @@ Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe**, dla
 
     ```powershell
     Get-AzKeyVault -VaultName "ContosoVault"
-    ```
-
-* Włączanie usuwania nietrwałego w magazynie kluczy
-
-    ```powershell
-    ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
-
-    Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
 * Usuń Magazyn kluczy

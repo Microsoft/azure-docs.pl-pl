@@ -5,13 +5,13 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Dowiedz się, jak skonfigurować Azure Dev Spaces, aby użyć niestandardowego kontrolera NGINXal i skonfigurować protokół HTTPS za pomocą tego kontrolera
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
-ms.custom: devx-track-js
-ms.openlocfilehash: 1ef462171199ce818b6146efbe705cca30b24564
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: e1918b5ce9c0fdba81174f0b36fd1ce51d0df70a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973091"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748818"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Korzystanie z niestandardowego kontrolera NGINX Ingres i Konfigurowanie protokołu HTTPS
 
@@ -100,8 +100,8 @@ cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
 Otwórz [wartość. YAML][values-yaml] i wprowadź następujące aktualizacje:
-* Zamień wszystkie wystąpienia *<REPLACE_ME_WITH_HOST_SUFFIX>* z *Nginx. MY_CUSTOM_DOMAIN* przy użyciu domeny *MY_CUSTOM_DOMAIN*. 
-* Zastąp *Kubernetes.IO/Ingress.Class: traefik-azds # dev Spaces-swoisty* dla *Kubernetes.IO/Ingress.Class: Nginx # Custom*. 
+* Zamień wszystkie wystąpienia *<REPLACE_ME_WITH_HOST_SUFFIX>* z *Nginx. MY_CUSTOM_DOMAIN* przy użyciu domeny *MY_CUSTOM_DOMAIN* . 
+* Zastąp *Kubernetes.IO/Ingress.Class: traefik-azds # dev Spaces-swoisty* dla *Kubernetes.IO/Ingress.Class: Nginx # Custom* . 
 
 Poniżej znajduje się przykład zaktualizowanego `values.yaml` pliku:
 
@@ -210,7 +210,7 @@ spec:
 ```
 
 > [!NOTE]
-> W przypadku testowania istnieje również [serwer przejściowy][letsencrypt-staging-issuer] , którego można użyć do *ClusterIssuer*.
+> W przypadku testowania istnieje również [serwer przejściowy][letsencrypt-staging-issuer] , którego można użyć do *ClusterIssuer* .
 
 Użyj `kubectl` , aby zastosować `letsencrypt-clusterissuer.yaml` .
 

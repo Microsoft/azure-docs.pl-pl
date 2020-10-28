@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
-ms.custom: mvc
-ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 03ecd0e11df5fa20f134b6fd87baf788078a2203
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469426"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748040"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Konfigurowanie uwierzytelniania Azure Active Directory na potrzeby klastra usługi Azure Red Hat OpenShift 4 (CLI)
 
@@ -21,7 +21,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 Pobierz adresy URL specyficzne dla klastra, które będą używane do konfigurowania aplikacji Azure Active Directory.
 
-Utwórz adres URL wywołania zwrotnego protokołu OAuth klastra i Zapisz go w zmiennej **oauthCallbackURL**. Pamiętaj, aby zastąpić **ciąg ARO-RG** nazwą grupy zasobów i **wystawić klaster** z nazwą klastra.
+Utwórz adres URL wywołania zwrotnego protokołu OAuth klastra i Zapisz go w zmiennej **oauthCallbackURL** . Pamiętaj, aby zastąpić **ciąg ARO-RG** nazwą grupy zasobów i **wystawić klaster** z nazwą klastra.
 
 > [!NOTE]
 > `AAD`Sekcja w adresie URL wywołania zwrotnego OAuth powinna być zgodna z nazwą dostawcy tożsamości OAuth, który zostanie później skonfigurowany.
@@ -210,6 +210,6 @@ oauth.config.openshift.io/cluster configured
 
 ## <a name="verify-login-through-azure-active-directory"></a>Weryfikuj logowanie za Azure Active Directory
 
-Jeśli teraz wylogujesz konsolę sieci Web OpenShift i spróbujesz się zalogować ponownie, zostanie wyświetlona nowa opcja logowania za pomocą usługi **AAD**. Może być konieczne poczekanie przez kilka minut.
+Jeśli teraz wylogujesz konsolę sieci Web OpenShift i spróbujesz się zalogować ponownie, zostanie wyświetlona nowa opcja logowania za pomocą usługi **AAD** . Może być konieczne poczekanie przez kilka minut.
 
 ![Ekran logowania przy użyciu opcji Azure Active Directory](media/aro4-login-2.png)

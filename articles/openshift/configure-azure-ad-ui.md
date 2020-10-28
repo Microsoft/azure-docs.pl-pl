@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
-ms.custom: mvc
-ms.openlocfilehash: 4eab701d22f579a816aa95bd43a74fd9ea07d9e4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 1b9e4d1f1b989caa317384292d013af255530f11
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490241"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748076"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Konfigurowanie uwierzytelniania Azure Active Directory na potrzeby klastra usługi Azure Red Hat OpenShift 4 (Portal)
 
@@ -36,7 +36,7 @@ echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.
 
 Zaloguj się do Azure Portal i przejdź do [bloku rejestracje aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade), a następnie kliknij pozycję **Nowa rejestracja** , aby utworzyć nową aplikację.
 
-Podaj nazwę aplikacji, na przykład **ARO-azuread-auth**, i wypełnij **Identyfikator URI przekierowania** , używając wartości pobranego wcześniej adresu URL wywołania zwrotnego protokołu OAuth.
+Podaj nazwę aplikacji, na przykład **ARO-azuread-auth** , i wypełnij **Identyfikator URI przekierowania** , używając wartości pobranego wcześniej adresu URL wywołania zwrotnego protokołu OAuth.
 
 ![Rejestrowanie nowej aplikacji](media/aro4-ad-registerapp.png)
 
@@ -44,7 +44,7 @@ Przejdź do pola **certyfikaty & wpisy tajne** i kliknij pozycję **nowy klucz t
 
 ![Utwórz klucz tajny](media/aro4-ad-clientsecret.png)
 
-Przejdź do **omówienia** i zanotuj identyfikator **aplikacji (klienta) identyfikator** i **katalog (dzierżawa)**. Będziesz ich potrzebować na późniejszym etapie.
+Przejdź do **omówienia** i zanotuj identyfikator **aplikacji (klienta) identyfikator** i **katalog (dzierżawa)** . Będziesz ich potrzebować na późniejszym etapie.
 
 ![Pobieranie identyfikatorów aplikacji (klienta) i katalogów (dzierżawców)](media/aro4-ad-ids.png)
 
@@ -60,7 +60,7 @@ Opcjonalne oświadczenia można używać do:
 
 Skonfigurujemy OpenShift do korzystania z tego `email` żądania i wrócisz do `upn` Ustawienia preferowanej nazwy użytkownika, dodając `upn` jako część tokenu identyfikatora zwróconego przez Azure Active Directory.
 
-Przejdź do obszaru **Konfiguracja tokenu (wersja zapoznawcza)** i kliknij pozycję **Dodaj opcjonalne**pole. Wybierz pozycję **Identyfikator** , a następnie sprawdź oświadczenia **adresu e-mail** i **nazwy UPN** .
+Przejdź do obszaru **Konfiguracja tokenu (wersja zapoznawcza)** i kliknij pozycję **Dodaj opcjonalne** pole. Wybierz pozycję **Identyfikator** , a następnie sprawdź oświadczenia **adresu e-mail** i **nazwy UPN** .
 
 ![Zrzut ekranu pokazujący dodane oświadczenia e-mail i nazwy UPN.](media/aro4-ad-tokens.png)
 
@@ -100,12 +100,12 @@ Adres URL konsoli klastra można znaleźć, uruchamiając następujące poleceni
 
 Uruchom w przeglądarce adres URL konsoli i zaloguj się przy użyciu `kubeadmin` poświadczeń.
 
-Przejdź do opcji **Administracja**, kliknij pozycję **Ustawienia klastra**, a następnie wybierz kartę **Konfiguracja globalna** . Przewiń, aby wybrać protokół **OAuth**.
+Przejdź do opcji **Administracja** , kliknij pozycję **Ustawienia klastra** , a następnie wybierz kartę **Konfiguracja globalna** . Przewiń, aby wybrać protokół **OAuth** .
 
-Przewiń w dół do pozycji **Dodaj** w obszarze **dostawcy tożsamości** i wybierz pozycję **OpenID Connect Connect (Połącz**).
+Przewiń w dół do pozycji **Dodaj** w obszarze **dostawcy tożsamości** i wybierz pozycję **OpenID Connect Connect (Połącz** ).
 ![Wybierz pozycję OpenID Connect Połącz z listy rozwijanej dostawcy tożsamości](media/aro4-oauth-idpdrop.png)
 
-Podaj nazwę usługi **AAD**, **Identyfikator klienta** jako **Identyfikator aplikacji** i **klucz tajny klienta**. **Adres URL wystawcy** jest sformatowany w taki sposób: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . Zastąp symbol zastępczy wcześniej pobranym IDENTYFIKATORem dzierżawy.
+Podaj nazwę usługi **AAD** , **Identyfikator klienta** jako **Identyfikator aplikacji** i **klucz tajny klienta** . **Adres URL wystawcy** jest sformatowany w taki sposób: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . Zastąp symbol zastępczy wcześniej pobranym IDENTYFIKATORem dzierżawy.
 
 ![Wypełnij szczegóły protokołu OAuth](media/aro4-oauth-idp-1.png)
 
@@ -115,6 +115,6 @@ Przewiń w dół do sekcji **oświadczenia** i zaktualizuj **preferowaną nazwę
 
 ## <a name="verify-login-through-azure-active-directory"></a>Weryfikuj logowanie za Azure Active Directory
 
-Jeśli teraz wylogujesz konsolę sieci Web OpenShift i spróbujesz ponownie zalogować się, zostanie wyświetlona nowa opcja logowania za pomocą usługi **AAD**. Może być konieczne poczekanie przez kilka minut.
+Jeśli teraz wylogujesz konsolę sieci Web OpenShift i spróbujesz ponownie zalogować się, zostanie wyświetlona nowa opcja logowania za pomocą usługi **AAD** . Może być konieczne poczekanie przez kilka minut.
 
 ![Ekran logowania z opcją Azure Active Directory](media/aro4-login-2.png)

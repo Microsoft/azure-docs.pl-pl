@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: e89676505bc211d01a4327f8816a048218e579fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91829281"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755628"
 ---
 Do maszyny wirtualnej platformy Azure można dołączyć wiele dysków z danymi. Na podstawie celów skalowalności i wydajności dla dysków danych maszyny wirtualnej można określić liczbę i typ dysku, który trzeba spełnić wymagania dotyczące wydajności i pojemności.
 
@@ -18,7 +18,7 @@ Do maszyny wirtualnej platformy Azure można dołączyć wiele dysków z danymi.
 
 **W przypadku usługi Azure Managed disks:**
 
-W poniższej tabeli przedstawiono domyślne i maksymalne limity liczby zasobów na region na subskrypcję. Nie ma żadnego limitu liczby Managed Disks, migawek i obrazów na grupę zasobów.  
+W poniższej tabeli przedstawiono domyślne i maksymalne limity liczby zasobów na region na subskrypcję. Limity pozostają takie same niezależnie od dysków zaszyfrowanych przy użyciu kluczy zarządzanych przez platformę lub kluczy zarządzanych przez klienta. Nie ma żadnego limitu liczby Managed Disks, migawek i obrazów na grupę zasobów.  
 
 > | Zasób | Limit |
 > | --- | --- |

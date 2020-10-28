@@ -14,12 +14,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+- devx-track-azurecli
+ms.openlocfilehash: 74d5e5395853bcba20b2012e54dd8f9fea03afe6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842771"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748556"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -27,7 +28,7 @@ ms.locfileid: "91842771"
 
 Oprócz odbierania telemetrii z urządzeń być może trzeba je będzie skonfigurować z poziomu usługi zaplecza. Jeśli wysyłasz żądaną konfiguracje do urządzeń, możesz również odbierać aktualizacje stanu i zgodności z tych urządzeń. Możesz na przykład ustawić docelowy zakres temperatur działania urządzenia lub zbierać informacje o wersji oprogramowania układowego z urządzeń.
 
-Aby synchronizować informacje o stanie między urządzeniem i centrum IoT Hub, należy użyć _bliźniaczych reprezentacji urządzenia_. [Bliźniacza reprezentacja urządzenia](iot-hub-devguide-device-twins.md) to dokument JSON skojarzony z określonym urządzeniem i przechowywany przez usługę IoT Hub w chmurze, w której można [wykonywać zapytania](iot-hub-devguide-query-language.md) dotyczące tego urządzenia. Bliźniacza reprezentacja urządzenia zawiera _żądane właściwości_, _zgłaszane właściwości_ i _tagi_. Żądana właściwość jest ustawiana przez aplikację zaplecza i odczytywana przez urządzenie. Zgłaszana właściwość jest ustawiana przez urządzenie i odczytywana przez aplikację zaplecza. Tag jest ustawiany przez aplikację zaplecza, ale nie jest nigdy wysyłany do urządzenia. Tagi są używane do organizowania urządzeń. W tym samouczku przedstawiono sposób używania właściwości żądanych i zgłaszanych do synchronizowania informacji o stanie:
+Aby synchronizować informacje o stanie między urządzeniem i centrum IoT Hub, należy użyć _bliźniaczych reprezentacji urządzenia_ . [Bliźniacza reprezentacja urządzenia](iot-hub-devguide-device-twins.md) to dokument JSON skojarzony z określonym urządzeniem i przechowywany przez usługę IoT Hub w chmurze, w której można [wykonywać zapytania](iot-hub-devguide-query-language.md) dotyczące tego urządzenia. Bliźniacza reprezentacja urządzenia zawiera _żądane właściwości_ , _zgłaszane właściwości_ i _tagi_ . Żądana właściwość jest ustawiana przez aplikację zaplecza i odczytywana przez urządzenie. Zgłaszana właściwość jest ustawiana przez urządzenie i odczytywana przez aplikację zaplecza. Tag jest ustawiany przez aplikację zaplecza, ale nie jest nigdy wysyłany do urządzenia. Tagi są używane do organizowania urządzeń. W tym samouczku przedstawiono sposób używania właściwości żądanych i zgłaszanych do synchronizowania informacji o stanie:
 
 ![Podsumowanie bliźniaczej reprezentacji](media/tutorial-device-twins/DeviceTwins.png)
 
@@ -62,7 +63,7 @@ Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym 
 
 Do ukończenia czynności z tego samouczka niezbędna jest subskrypcja platformy Azure zawierająca centrum IoT Hub z urządzeniem dodanym do rejestru tożsamości urządzeń. Wpis w rejestrze tożsamości urządzeń umożliwia łączenie urządzenia symulowanego uruchamianego w tym samouczku z centrum.
 
-Jeśli nie masz jeszcze skonfigurowanej usługi IoT Hub w ramach subskrypcji, możesz ją skonfigurować przy użyciu następującego skryptu interfejsu wiersza polecenia. Ten skrypt używa nazwy **tutorial-iot-hub** dla centrum IoT Hub. Po uruchomieniu skryptu zastąp tę nazwę własną unikatową nazwą. Skrypt tworzy grupę zasobów i centrum w regionie **Środkowe stany USA**, który można zmienić na bliższy. Skrypt pobiera parametry połączenia usługi IoT Hub używane w przykładowym zapleczu w celi połączenia z centrum IoT Hub:
+Jeśli nie masz jeszcze skonfigurowanej usługi IoT Hub w ramach subskrypcji, możesz ją skonfigurować przy użyciu następującego skryptu interfejsu wiersza polecenia. Ten skrypt używa nazwy **tutorial-iot-hub** dla centrum IoT Hub. Po uruchomieniu skryptu zastąp tę nazwę własną unikatową nazwą. Skrypt tworzy grupę zasobów i centrum w regionie **Środkowe stany USA** , który można zmienić na bliższy. Skrypt pobiera parametry połączenia usługi IoT Hub używane w przykładowym zapleczu w celi połączenia z centrum IoT Hub:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -82,7 +83,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-W tym samouczku jest używane urządzenie symulowane o nazwie **MyTwinDevice**. Poniższy skrypt dodaje to urządzenie do rejestru tożsamości i pobiera odpowiednie parametry połączenia:
+W tym samouczku jest używane urządzenie symulowane o nazwie **MyTwinDevice** . Poniższy skrypt dodaje to urządzenie do rejestru tożsamości i pobiera odpowiednie parametry połączenia:
 
 ```azurecli-interactive
 # Set the name of your IoT hub:
@@ -119,7 +120,7 @@ Poniższy kod pobiera bliźniaczą reprezentację z obiektu klienta:
 
 ### <a name="sample-desired-properties"></a>Przykładowe żądane właściwości
 
-Strukturę żądanych właściwości można definiować w dowolny sposób wygodny dla aplikacji. W tym przykładzie jest używana jedna właściwość najwyższego poziomu o nazwie **fanOn**, która grupuje pozostałe właściwości w postaci oddzielnych elementów **components**. Poniższy fragment kodu JSON pokazuje strukturę żądanych właściwości używanych w tym samouczku:
+Strukturę żądanych właściwości można definiować w dowolny sposób wygodny dla aplikacji. W tym przykładzie jest używana jedna właściwość najwyższego poziomu o nazwie **fanOn** , która grupuje pozostałe właściwości w postaci oddzielnych elementów **components** . Poniższy fragment kodu JSON pokazuje strukturę żądanych właściwości używanych w tym samouczku:
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 
@@ -129,15 +130,15 @@ Procedury obsługi można tworzyć w przypadku aktualizacji żądanych właściw
 
 [!code-javascript[Handle all properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=allproperties&highlight=2 "Handle all properties")]
 
-Poniższa procedura obsługi reaguje tylko na zmiany wprowadzone w żądanej właściwości **fanOn**:
+Poniższa procedura obsługi reaguje tylko na zmiany wprowadzone w żądanej właściwości **fanOn** :
 
 [!code-javascript[Handle fan property](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=fanproperty&highlight=2 "Handle fan property")]
 
 ### <a name="handlers-for-multiple-properties"></a>Procedury obsługi dla wielu właściwości
 
-W przedstawionym wcześniej przykładzie notacji JSON żądanych właściwości węzeł **climate** w obszarze **components** zawiera dwie właściwości: **minTemperature** i ** maxTemperature**.
+W przedstawionym wcześniej przykładzie notacji JSON żądanych właściwości węzeł **climate** w obszarze **components** zawiera dwie właściwości: **minTemperature** i **maxTemperature** .
 
-Lokalny obiekt **twin** urządzenia przechowuje kompletny zestaw właściwości żądanych i zgłaszanych. Zmienna **delta** wysłana z zaplecza może zaktualizować tylko podzestaw żądanych właściwości. W poniższym fragmencie kodu, gdy urządzenie symulowane odbiera aktualizację tylko z jednej wartości: **minTemperature** lub **maxTemperature**, używa wartości w lokalnym obiekcie twin dla innej wartości w celu skonfigurowania urządzenia:
+Lokalny obiekt **twin** urządzenia przechowuje kompletny zestaw właściwości żądanych i zgłaszanych. Zmienna **delta** wysłana z zaplecza może zaktualizować tylko podzestaw żądanych właściwości. W poniższym fragmencie kodu, gdy urządzenie symulowane odbiera aktualizację tylko z jednej wartości: **minTemperature** lub **maxTemperature** , używa wartości w lokalnym obiekcie twin dla innej wartości w celu skonfigurowania urządzenia:
 
 [!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
 
@@ -147,7 +148,7 @@ Lokalny obiekt **twin** przechowuje kompletny zestaw właściwości żądanych i
 
 Żądane właściwości wysyłane z zaplecza nie wskazują, jaka operacja jest wykonywana na określonej żądanej właściwości. Operacja wykonywana przez kod musi pochodzić z bieżącego zestawu żądanych właściwości przechowywanych lokalnie i zmian wysyłanych z centrum.
 
-Poniższy fragment kodu pokazuje, jak urządzenie symulowane obsługuje operacje wstawiania, aktualizowania i usuwania na liście elementów **components** w żądanych właściwościach. Możesz sprawdzić, jak używać wartości **null**, aby wskazać, że składnik powinien zostać usunięty:
+Poniższy fragment kodu pokazuje, jak urządzenie symulowane obsługuje operacje wstawiania, aktualizowania i usuwania na liście elementów **components** w żądanych właściwościach. Możesz sprawdzić, jak używać wartości **null** , aby wskazać, że składnik powinien zostać usunięty:
 
 [!code-javascript[Handle components](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]
 
@@ -189,11 +190,11 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji urządzenia symulowanego i prezentuje sposób obsługi aktualizacji żądanej właściwości **maxTemperature**. Możesz zapoznać się ze sposobem uruchamiania procedury obsługi najwyższego poziomu oraz procedur obsługi składnika climate:
+Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji urządzenia symulowanego i prezentuje sposób obsługi aktualizacji żądanej właściwości **maxTemperature** . Możesz zapoznać się ze sposobem uruchamiania procedury obsługi najwyższego poziomu oraz procedur obsługi składnika climate:
 
 ![Zrzut ekranu pokazujący, jak działa program obsługi najwyższego poziomu i programy obsługi składników klimatycznych.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
-Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i prezentuje sposób wysłania aktualizacji do żądanej właściwości **maxTemperature**:
+Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i prezentuje sposób wysłania aktualizacji do żądanej właściwości **maxTemperature** :
 
 ![Zrzut ekranu pokazujący dane wyjściowe aplikacji zaplecza oraz informacje o sposobie wysyłania aktualizacji.](./media/tutorial-device-twins/BackEnd1.png)
 
@@ -251,7 +252,7 @@ Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i wyró�
 
 Jeśli planujesz ukończyć następny samouczek, pozostaw grupę zasobów i centrum IoT Hub, aby użyć ich później.
 
-Jeśli nie potrzebujesz już tego centrum IoT, usuń je oraz grupę zasobów z poziomu portalu. Aby to zrobić, wybierz grupę zasobów **tutorial-iot-hub-rg** zawierającą centrum IoT Hub, a następnie kliknij przycisk **Usuń**.
+Jeśli nie potrzebujesz już tego centrum IoT, usuń je oraz grupę zasobów z poziomu portalu. Aby to zrobić, wybierz grupę zasobów **tutorial-iot-hub-rg** zawierającą centrum IoT Hub, a następnie kliknij przycisk **Usuń** .
 
 Alternatywnie możesz użyć interfejsu wiersza polecenia:
 

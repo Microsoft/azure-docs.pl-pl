@@ -14,18 +14,19 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: a1410b9e8287b34c8b40e841ff513de784e1730a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: 432cc733ee31bdaa18d555d9a6aeb6aee9879a44
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150543"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748532"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Samouczek: wdrażanie procesu aktualizacji oprogramowania układowego urządzenia
 
 Może zaistnieć potrzeba zaktualizowania oprogramowania układowego na urządzeniach podłączonych do centrum IoT. Na przykład możesz chcieć dodać nowe funkcje do oprogramowania układowego lub zastosować poprawki zabezpieczeń. W wielu scenariuszach IoT fizyczne odwiedzanie urządzeń, a następnie ręczne stosowanie do nich aktualizacji oprogramowania układowego, jest niepraktyczne. W tym samouczku pokazano, jak uruchomić i monitorować proces aktualizacji oprogramowania układowego zdalnie przy użyciu aplikacji zaplecza podłączonej do centrum.
 
-Aby utworzyć i monitorować proces aktualizacji oprogramowania układowego, aplikacja zaplecza w tym samouczku tworzy _konfigurację_ w centrum IoT. Funkcja [automatycznego zarządzania urządzeniami](./iot-hub-automatic-device-management.md) usługi IoT Hub używa tej konfiguracji do aktualizacji zestawu _żądanych właściwości bliźniaczej reprezentacji urządzenia_ na wszystkich urządzeniach typu „chiller” (chłodziarka). Żądane właściwości określają szczegóły wymaganej aktualizacji oprogramowania układowego. Podczas wykonywania procesu aktualizacji oprogramowania układowego urządzeń typu „chiller” (chłodziarek) urządzenia te wysyłają raporty o swoim stanie do aplikacji zaplecza za pomocą _zgłoszonych właściwości bliźniaczej reprezentacji urządzenia_. Aplikacja zaplecza może przy użyciu konfiguracji monitorować zgłoszone właściwości wysyłane z urządzenia i śledzić proces aktualizacji oprogramowania układowego do jego ukończenia:
+Aby utworzyć i monitorować proces aktualizacji oprogramowania układowego, aplikacja zaplecza w tym samouczku tworzy _konfigurację_ w centrum IoT. Funkcja [automatycznego zarządzania urządzeniami](./iot-hub-automatic-device-management.md) usługi IoT Hub używa tej konfiguracji do aktualizacji zestawu _żądanych właściwości bliźniaczej reprezentacji urządzenia_ na wszystkich urządzeniach typu „chiller” (chłodziarka). Żądane właściwości określają szczegóły wymaganej aktualizacji oprogramowania układowego. Podczas wykonywania procesu aktualizacji oprogramowania układowego urządzeń typu „chiller” (chłodziarek) urządzenia te wysyłają raporty o swoim stanie do aplikacji zaplecza za pomocą _zgłoszonych właściwości bliźniaczej reprezentacji urządzenia_ . Aplikacja zaplecza może przy użyciu konfiguracji monitorować zgłoszone właściwości wysyłane z urządzenia i śledzić proces aktualizacji oprogramowania układowego do jego ukończenia:
 
 ![Proces aktualizacji oprogramowania układowego](media/tutorial-firmware-update/Process.png)
 
@@ -61,7 +62,7 @@ Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym 
 
 Do ukończenia tego samouczka niezbędna jest subskrypcja platformy Azure zawierająca centrum IoT z urządzeniem dodanym do rejestru tożsamości urządzeń. Wpis w rejestrze tożsamości urządzeń umożliwia łączenie urządzenia symulowanego uruchamianego w tym samouczku z centrum.
 
-Jeśli nie masz jeszcze centrum IoT Hub w subskrypcji, możesz skonfigurować je przy użyciu poniższego skryptu interfejsu wiersza polecenia. Ten skrypt używa nazwy **tutorial-iot-hub** dla centrum IoT Hub. Po uruchomieniu skryptu zastąp tę nazwę własną unikatową nazwą. Skrypt tworzy grupę zasobów i centrum w regionie **Środkowe stany USA**, który można zmienić na bliższy. Skrypt pobiera parametry połączenia usługi IoT Hub używane w przykładowej aplikacji zaplecza w celu nawiązania połączenia z centrum IoT:
+Jeśli nie masz jeszcze centrum IoT Hub w subskrypcji, możesz skonfigurować je przy użyciu poniższego skryptu interfejsu wiersza polecenia. Ten skrypt używa nazwy **tutorial-iot-hub** dla centrum IoT Hub. Po uruchomieniu skryptu zastąp tę nazwę własną unikatową nazwą. Skrypt tworzy grupę zasobów i centrum w regionie **Środkowe stany USA** , który można zmienić na bliższy. Skrypt pobiera parametry połączenia usługi IoT Hub używane w przykładowej aplikacji zaplecza w celu nawiązania połączenia z centrum IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -81,7 +82,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-W tym samouczku jest używane urządzenie symulowane o nazwie **MyFirmwareUpdateDevice**. Poniższy skrypt dodaje to urządzenie do rejestru tożsamości urządzeń, ustawia wartość tagu i pobiera odpowiednie parametry połączenia:
+W tym samouczku jest używane urządzenie symulowane o nazwie **MyFirmwareUpdateDevice** . Poniższy skrypt dodaje to urządzenie do rejestru tożsamości urządzeń, ustawia wartość tagu i pobiera odpowiednie parametry połączenia:
 
 ```azurecli-interactive
 # Set the name of your IoT hub
@@ -198,7 +199,7 @@ Ponieważ automatyczne konfiguracje urządzeń są uruchamiane podczas tworzenia
 
 Jeśli planujesz ukończyć następny samouczek, pozostaw grupę zasobów i centrum IoT Hub, aby użyć ich później.
 
-Jeśli nie potrzebujesz już tego centrum IoT, usuń je oraz grupę zasobów z poziomu portalu. Aby to zrobić, wybierz grupę zasobów **tutorial-iot-hub-rg** zawierającą centrum IoT Hub, a następnie kliknij przycisk **Usuń**.
+Jeśli nie potrzebujesz już tego centrum IoT, usuń je oraz grupę zasobów z poziomu portalu. Aby to zrobić, wybierz grupę zasobów **tutorial-iot-hub-rg** zawierającą centrum IoT Hub, a następnie kliknij przycisk **Usuń** .
 
 Alternatywnie możesz użyć interfejsu wiersza polecenia:
 

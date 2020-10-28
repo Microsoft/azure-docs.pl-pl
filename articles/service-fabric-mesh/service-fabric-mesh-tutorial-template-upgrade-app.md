@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: eea00fe80b71f97ea280a3a76de5012175bcd61c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 331830c50206d14f7894aa837b483656de4222f2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841989"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747854"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Samouczek: uaktualnianie aplikacji usługi Service Fabric uruchomionej w usłudze Service Fabric Mesh
 
@@ -50,7 +50,7 @@ W tym samouczku jako przykładu użyto listy zadań do wykonania, którą [wcze�
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-W szablonie wdrażania dla zasobu aplikacji każda usługa ma właściwość *cpu*, która może służyć do ustawiania żądanych zasobów procesora. Aplikacja może składać się z wielu usług, z których każda ma unikatowe ustawienie *cpu* oraz które są razem wdrażane i zarządzane. Aby zwiększyć ilość zasobów procesora usługi frontonu internetowego, zmodyfikuj wartość *cpue* w szablonie wdrożenia lub pliku parametrów.  Następnie uaktualnij aplikację.
+W szablonie wdrażania dla zasobu aplikacji każda usługa ma właściwość *cpu* , która może służyć do ustawiania żądanych zasobów procesora. Aplikacja może składać się z wielu usług, z których każda ma unikatowe ustawienie *cpu* oraz które są razem wdrażane i zarządzane. Aby zwiększyć ilość zasobów procesora usługi frontonu internetowego, zmodyfikuj wartość *cpue* w szablonie wdrożenia lub pliku parametrów.  Następnie uaktualnij aplikację.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modyfikowanie parametrów szablonu wdrożenia
 
@@ -80,7 +80,7 @@ Parametr *frontEndCpu* jest deklarowany w sekcji *parameters*[szablonu wdrożeni
 }
 ```
 
-Właściwość *codePackages->resources->requests->cpu* usługi WebFrontEnd odwołuje się do parametru *frontEndCpu*:
+Właściwość *codePackages->resources->requests->cpu* usługi WebFrontEnd odwołuje się do parametru *frontEndCpu* :
 
 ```json
     "services": [

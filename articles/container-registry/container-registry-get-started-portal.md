@@ -3,13 +3,13 @@ title: Szybki Start — tworzenie rejestru w portalu
 description: Szybka nauka tworzenia prywatnego rejestru kontenerów platformy Azure przy użyciu Azure Portal.
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031828"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746676"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Szybki Start: Tworzenie usługi Azure Container Registry przy użyciu Azure Portal
 
@@ -25,23 +25,23 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
-Wybierz pozycję **Utwórz**  >  **kontenery**zasobów  >  **Container Registry**.
+Wybierz pozycję **Utwórz**  >  **kontenery** zasobów  >  **Container Registry** .
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Przejdź do rejestru kontenerów w portalu":::
 
-Na karcie **podstawy** wprowadź wartości dla **grupy zasobów** i **nazwy rejestru**. Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. Na potrzeby tego przewodnika Szybki start utwórz w lokalizacji `West US` nową grupę zasobów o nazwie `myResourceGroup`, a dla opcji **SKU** wybierz wartość „Podstawowa”.
+Na karcie **podstawy** wprowadź wartości dla **grupy zasobów** i **nazwy rejestru** . Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. Na potrzeby tego przewodnika Szybki start utwórz w lokalizacji `West US` nową grupę zasobów o nazwie `myResourceGroup`, a dla opcji **SKU** wybierz wartość „Podstawowa”.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Przejdź do rejestru kontenerów w portalu":::
 
-Zaakceptuj wartości domyślne pozostałych ustawień. Następnie wybierz pozycję **Przegląd + Utwórz**. Po przejrzeniu ustawień wybierz pozycję **Utwórz**.
+Zaakceptuj wartości domyślne pozostałych ustawień. Następnie wybierz pozycję **Przegląd + Utwórz** . Po przejrzeniu ustawień wybierz pozycję **Utwórz** .
 
-W tym przewodniku Szybki start utworzysz rejestr *Podstawowy*, który jest zoptymalizowaną pod względem kosztów opcją dla deweloperów poznających usługę Azure Container Registry. Aby uzyskać szczegółowe informacje na temat dostępnych warstw usług (SKU), zobacz temat [warstwy usługi Container Registry][container-registry-skus].
+W tym przewodniku Szybki start utworzysz rejestr *Podstawowy* , który jest zoptymalizowaną pod względem kosztów opcją dla deweloperów poznających usługę Azure Container Registry. Aby uzyskać szczegółowe informacje na temat dostępnych warstw usług (SKU), zobacz temat [warstwy usługi Container Registry][container-registry-skus].
 
-Kiedy pojawi się komunikat **Wdrażanie zakończyło się pomyślnie**, wybierz rejestr kontenerów w portalu. 
+Kiedy pojawi się komunikat **Wdrażanie zakończyło się pomyślnie** , wybierz rejestr kontenerów w portalu. 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Przejdź do rejestru kontenerów w portalu":::
 
-Zanotuj nazwę rejestru i wartość **serwera logowania**. Te wartości są używane w poniższych krokach podczas wypychania i ściągania obrazów przy użyciu platformy Docker.
+Zanotuj nazwę rejestru i wartość **serwera logowania** . Te wartości są używane w poniższych krokach podczas wypychania i ściągania obrazów przy użyciu platformy Docker.
 
 ## <a name="log-in-to-registry"></a>Logowanie do rejestru
 
@@ -63,11 +63,11 @@ Po ukończeniu polecenie zwraca ciąg `Login Succeeded`.
 
 ## <a name="list-container-images"></a>Tworzenie listy obrazów kontenerów
 
-Aby wyświetlić listę obrazów w rejestrze, przejdź do rejestru w portalu i wybierz pozycję **repozytoria**, a następnie wybierz repozytorium  **Hello-World** utworzone za pomocą `docker push` .
+Aby wyświetlić listę obrazów w rejestrze, przejdź do rejestru w portalu i wybierz pozycję **repozytoria** , a następnie wybierz repozytorium  **Hello-World** utworzone za pomocą `docker push` .
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Przejdź do rejestru kontenerów w portalu":::
 
-Po wybraniu repozytorium **Hello-World** zobaczysz `v1` oznakowany obraz w obszarze **Tagi**.
+Po wybraniu repozytorium **Hello-World** zobaczysz `v1` oznakowany obraz w obszarze **Tagi** .
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 

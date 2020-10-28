@@ -3,13 +3,13 @@ title: Przychodzące/wychodzące adresy IP
 description: Dowiedz się, w jaki sposób przychodzący i wychodzący adres IP są używane w Azure App Service, gdy zmieniają się i jak znaleźć adresy dla aplikacji.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18
-ms.openlocfilehash: 8fa9fec9219cfd85a8a0b25f50835425766d9043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050696"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746154"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Przychodzące i wychodzące adresy IP w Azure App Service
 
@@ -51,7 +51,7 @@ Zestaw wychodzących adresów IP dla aplikacji zmienia się podczas wykonywania 
 
 - Usuń aplikację i utwórz ją ponownie w innej grupie zasobów (może się zmienić jednostka wdrożenia).
 - Usuń ostatnią aplikację w kombinacji grupy zasobów _i_ regionu i utwórz ją ponownie (jednostka wdrożenia może ulec zmianie).
-- Skaluj aplikację między niższą warstwą (**podstawowa**, **standardowa**i **Premium**) i warstwą **Premium v2** (adresy IP mogą być dodawane lub odejmowane z zestawu).
+- Skaluj aplikację między niższą warstwą ( **podstawowa** , **standardowa** i **Premium** ) i warstwą **Premium v2** (adresy IP mogą być dodawane lub odejmowane z zestawu).
 
 Można znaleźć zestaw wszystkich możliwych wychodzących adresów IP, które mogą być używane przez aplikację, niezależnie od warstw cenowych, szukając `possibleOutboundIpAddresses` właściwości lub w polu **dodatkowe wychodzące adresy IP** w bloku **Właściwości** w Azure Portal. Zobacz [Znajdź wychodzące adresy IP](#find-outbound-ips).
 

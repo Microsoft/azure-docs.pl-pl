@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: d4b31eb59ed0bae2afe408546ece66eacade9ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: c4d6de1b3406e6d82bdac5ff9b5c72a2286da988
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603836"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747746"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Powiadomienie o przerwaniu dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
 Wystąpienia zestawu skalowania mogą zrezygnować z otrzymywania powiadomień o zakończeniu wystąpienia i ustawiać wstępnie zdefiniowany limit czasu opóźnienia dla operacji przerywania. Powiadomienie o wygaśnięciu jest wysyłane za pomocą usługi Azure Metadata Service — [Scheduled Events](../virtual-machines/windows/scheduled-events.md), która zapewnia powiadomienia i opóźniać wpływ na operacje, takie jak ponowny rozruch i ponowne wdrażanie. Rozwiązanie dodaje kolejne zdarzenie — Zakończ — do listy Scheduled Events, a skojarzone opóźnienie zdarzenia zakończenia będzie zależeć od limitu opóźnienia określonego przez użytkowników w konfiguracjach modelu zestawu skalowania.
@@ -24,15 +24,15 @@ Po zarejestrowaniu w funkcji wystąpienia zestawu skalowania nie muszą czekać,
 ## <a name="enable-terminate-notifications"></a>Włącz powiadomienia o zakończeniu
 Istnieje wiele sposobów włączania powiadomień o zakończeniu dla wystąpień zestawu skalowania, jak opisano w poniższych przykładach.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Poniższe kroki umożliwiają powiadomienie o przerwaniu podczas tworzenia nowego zestawu skalowania. 
 
-1. Przejdź do **zestawu skalowania maszyn wirtualnych**.
+1. Przejdź do **zestawu skalowania maszyn wirtualnych** .
 1. Wybierz pozycję **+ Dodaj** , aby utworzyć nowy zestaw skalowania.
 1. Przejdź do karty **Zarządzanie** . 
 1. Znajdź sekcję **zakończenie wystąpienia** .
-1. W przypadku **powiadomienia o zakończeniu wystąpienia**wybierz pozycję **włączone**.
+1. W przypadku **powiadomienia o zakończeniu wystąpienia** wybierz pozycję **włączone** .
 1. W przypadku **opóźnienia zakończenia (w minutach)** Ustaw żądany domyślny limit czasu.
 1. Po zakończeniu tworzenia nowego zestawu skalowania wybierz pozycję **Recenzja + Utwórz** . 
 
@@ -63,9 +63,9 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 
 ```
 
-Powyższy blok Określa opóźnienie limitu czasu wynoszący 5 minut (wskazywane przez *PT5M*) dla każdej operacji przerywania dla wszystkich wystąpień w zestawie skalowania. Pole *notBeforeTimeout* może przyjmować dowolną wartość z przedziału od 5 do 15 minut w formacie ISO 8601. Można zmienić domyślny limit czasu dla operacji przerwania, modyfikując właściwość *notBeforeTimeout* w obszarze *terminateNotificationProfile* opisany powyżej.
+Powyższy blok Określa opóźnienie limitu czasu wynoszący 5 minut (wskazywane przez *PT5M* ) dla każdej operacji przerywania dla wszystkich wystąpień w zestawie skalowania. Pole *notBeforeTimeout* może przyjmować dowolną wartość z przedziału od 5 do 15 minut w formacie ISO 8601. Można zmienić domyślny limit czasu dla operacji przerwania, modyfikując właściwość *notBeforeTimeout* w obszarze *terminateNotificationProfile* opisany powyżej.
 
-Po włączeniu *scheduledEventsProfile* na modelu zestawu skalowania i ustawieniu *notBeforeTimeout*należy zaktualizować poszczególne wystąpienia do [najnowszego modelu](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , aby odzwierciedlić zmiany.
+Po włączeniu *scheduledEventsProfile* na modelu zestawu skalowania i ustawieniu *notBeforeTimeout* należy zaktualizować poszczególne wystąpienia do [najnowszego modelu](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , aby odzwierciedlić zmiany.
 
 > [!NOTE]
 >Powiadomienia o przerwaniu dla wystąpień zestawu skalowania można włączyć tylko przy użyciu interfejsu API w wersji 2019-03-01 lub nowszej.
@@ -197,7 +197,7 @@ Jeśli nie otrzymujesz żadnych zdarzeń **przerwania** za pomocą Scheduled Eve
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Trwa pobieranie zdarzenia przerwania z nieprawidłowym czasem NotBefore  
-Po włączeniu *scheduledEventsProfile* na modelu zestawu skalowania i ustawieniu *notBeforeTimeout*należy zaktualizować poszczególne wystąpienia do [najnowszego modelu](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , aby odzwierciedlić zmiany.
+Po włączeniu *scheduledEventsProfile* na modelu zestawu skalowania i ustawieniu *notBeforeTimeout* należy zaktualizować poszczególne wystąpienia do [najnowszego modelu](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , aby odzwierciedlić zmiany.
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się, jak [wdrożyć aplikację](virtual-machine-scale-sets-deploy-app.md) w zestawach skalowania maszyn wirtualnych.

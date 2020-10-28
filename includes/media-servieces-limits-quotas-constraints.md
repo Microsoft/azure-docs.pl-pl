@@ -1,39 +1,39 @@
 ---
-author: Juliako
+author: IngridAtMicrosoft
 ms.service: media-services
 ms.topic: include
-ms.date: 03/31/2020
-ms.author: juliako
-ms.openlocfilehash: d6ff823951e6474a35a514036f02c0aabb17bf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.author: inhenkel
+ms.openlocfilehash: 84aa07ef282dd7100043f7e9bfcc97cb3b3673a5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997666"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755363"
 ---
 > [!NOTE]
 > W przypadku zasobów, które nie zostały naprawione, należy otworzyć bilet pomocy technicznej w celu poproszenia o zwiększenie limitów przydziału. Nie należy tworzyć dodatkowych kont Azure Media Services próbujących uzyskać wyższe limity.
 
 ### <a name="account-limits"></a>Limity kont
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
-| Media Services kont w ramach jednej subskrypcji | 25 (stały) |
+| Zasób | Limit domyślny |
+| --- | --- |
+| Media Services kont w ramach jednej subskrypcji | 100 (stałe) |
 
 ### <a name="asset-limits"></a>Limity zasobów
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
+| Zasób | Limit domyślny |
+| --- | --- |
 | Zasoby na konto Media Services | 1 000 000|
 
 ### <a name="storage-media-limits"></a>Limity magazynu (multimediów)
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
+| Zasób | Limit domyślny |
+| --- | --- |
 | Rozmiar pliku| W niektórych scenariuszach obowiązuje limit maksymalnego rozmiaru pliku, który jest obsługiwany przez przetwarzanie w Media Services. <sup>jedno</sup> |
 | Konta magazynu | 100<sup>(2)</sup> (stałe) |
 
-<sup>1</sup> maksymalny rozmiar obsługiwany przez pojedynczy obiekt BLOB jest obecnie do 5 TB na platformie Azure Blob Storage. Dodatkowe limity są stosowane w Media Services na podstawie rozmiarów maszyn wirtualnych używanych przez usługę. Limit rozmiaru dotyczy przekazywanych plików, a także plików, które są generowane w wyniku przetwarzania Media Services (kodowanie lub analizowanie). Jeśli rozmiar pliku źródłowego przekracza 260 GB, prawdopodobnie zadanie zakończy się niepowodzeniem. 
+<sup>1</sup> maksymalny rozmiar obsługiwany przez pojedynczy obiekt BLOB jest obecnie do 5 TB na platformie Azure Blob Storage. Dodatkowe limity są stosowane w Media Services na podstawie rozmiarów maszyn wirtualnych używanych przez usługę. Limit rozmiaru dotyczy przekazywanych plików, a także plików, które są generowane w wyniku przetwarzania Media Services (kodowanie lub analizowanie). Jeśli rozmiar pliku źródłowego przekracza 260 GB, prawdopodobnie zadanie zakończy się niepowodzeniem.
 
 W poniższej tabeli przedstawiono limity jednostek zarezerwowanych multimediów S1, S2 i S3. Jeśli plik źródłowy jest większy niż limity zdefiniowane w tabeli, zadanie kodowania kończy się niepowodzeniem. Jeśli zakodujesz źródła rozpoznawania 4 KB o długim czasie trwania, musisz użyć jednostek zarezerwowanych multimediów S3, aby osiągnąć potrzebną wydajność. Jeśli masz zawartość 4K o rozmiarze większym niż limit 260 GB w jednostkach zarezerwowanych multimediów S3, Otwórz bilet pomocy technicznej.
 
@@ -47,8 +47,8 @@ W poniższej tabeli przedstawiono limity jednostek zarezerwowanych multimediów 
 
 ### <a name="jobs-encoding--analyzing-limits"></a>Limity zadań (analizowanie & kodowania)
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
+| Zasób | Limit domyślny |
+| --- | --- |
 | Zadania na konto Media Services | 500 000 <sup>(3)</sup> (stałe)|
 | Dane wejściowe zadania na zadanie | 50 (stałe)|
 | Dane wyjściowe zadania na zadanie | 20 (stałe) |
@@ -62,8 +62,8 @@ Każdy rekord zadania na koncie starszej niż 90 dni zostanie automatycznie usun
 
 ### <a name="live-streaming-limits"></a>Limity przesyłania strumieniowego na żywo
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
+| Zasób | Limit domyślny |
+| --- | --- |
 | Zdarzenia na żywo <sup>(4)</sup> na konto Media Services |5|
 | Dane wyjściowe na żywo na żywo |3 <sup>(5)</sup> |
 | Maksymalny czas trwania danych wyjściowych na żywo | [Rozmiar okna DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
@@ -74,9 +74,9 @@ Każdy rekord zadania na koncie starszej niż 90 dni zostanie automatycznie usun
 
 ### <a name="packaging--delivery-limits"></a>& limity dostarczania pakietów
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
-| Punkty końcowe przesyłania strumieniowego (zatrzymane lub uruchomione) dla konta Media Services|2 (stałe)|
+| Zasób | Limit domyślny |
+| --- | --- |
+| Punkty końcowe przesyłania strumieniowego (zatrzymane lub uruchomione) dla konta Media Services| 2 |
 | Filtry manifestów dynamicznych|100|
 | Zasady przesyłania strumieniowego | 100 <sup>(6)</sup> |
 | Unikatowe lokalizatory przesyłania strumieniowego skojarzone z elementem zawartości w jednym momencie | 100<sup>(7)</sup> (stałe) |
@@ -87,9 +87,9 @@ Każdy rekord zadania na koncie starszej niż 90 dni zostanie automatycznie usun
 
 ### <a name="protection-limits"></a>Limity ochrony
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
-| Opcje dla zasad klucza zawartości |30 | 
+| Zasób | Limit domyślny |
+| --- | --- |
+| Opcje dla zasad klucza zawartości | 30 |
 | Licencje na miesiąc dla każdego z typów DRM w usłudze Media Services Key Delivery na konto|1 000 000|
 
 ### <a name="support-ticket"></a>Bilet pomocy technicznej

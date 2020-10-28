@@ -4,19 +4,19 @@ description: Użyj przykładowego skryptu interfejsu wiersza polecenia platformy
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 01ccf7117cd17118941a00cc0480216bc436bc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30d462dec8c65252afbde0c4d2eee171891a64ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86514768"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747299"
 ---
 # <a name="use-the-azure-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Używanie interfejsu wiersza polecenia platformy Azure do skalowania elastycznej puli w Azure SQL Database
 
@@ -28,7 +28,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azur
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

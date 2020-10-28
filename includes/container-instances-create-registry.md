@@ -1,25 +1,25 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: include
 ms.date: 08/13/2020
 ms.author: danlep
-ms.custom: include file
-ms.openlocfilehash: 2b1d9b7f9ff07a3e0c7745191decc3e82181553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 173c9156f253e43111299b53287e97ab7b2c0aa5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708023"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746932"
 ---
 ## <a name="create-azure-container-registry"></a>Tworzenie rejestru kontenerów platformy Azure
 
-Przed utworzeniem rejestru kontenerów należy zapewnić *grupę zasobów*, w której zostanie wdrożony. Grupa zasobów to kolekcja logiczna przeznaczona do wdrażania wszystkich zasobów platformy Azure i zarządzania nimi.
+Przed utworzeniem rejestru kontenerów należy zapewnić *grupę zasobów* , w której zostanie wdrożony. Grupa zasobów to kolekcja logiczna przeznaczona do wdrażania wszystkich zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. W poniższym przykładzie grupa zasobów o nazwie *myResourceGroup* zostanie utworzona w regionie *eastus*:
+Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. W poniższym przykładzie grupa zasobów o nazwie *myResourceGroup* zostanie utworzona w regionie *eastus* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -31,7 +31,7 @@ Po utworzeniu grupy zasobów utwórz rejestr kontenerów platformy Azure za pomo
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Oto częściowe dane wyjściowe dla nowego rejestru kontenerów platformy Azure o nazwie *mycontainerregistry082*:
+Oto częściowe dane wyjściowe dla nowego rejestru kontenerów platformy Azure o nazwie *mycontainerregistry082* :
 
 ```output
 {

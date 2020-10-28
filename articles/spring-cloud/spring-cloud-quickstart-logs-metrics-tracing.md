@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2af9608006eac37ccdfe76d66e619d5a64cad9f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093059"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746640"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia
 
@@ -63,7 +63,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. W Azure Portal przejdź do **usługi | ** Na stronie Omówienie i wybierz pozycję **dzienniki** w sekcji **monitorowanie** . Wybierz pozycję **Uruchom** na jednym z przykładowych zapytań dotyczących chmury wiosennej platformy Azure.
+1. W Azure Portal przejdź do **usługi |** Na stronie Omówienie i wybierz pozycję **dzienniki** w sekcji **monitorowanie** . Wybierz pozycję **Uruchom** na jednym z przykładowych zapytań dotyczących chmury wiosennej platformy Azure.
 
    [![Wpis ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) usługi Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -75,7 +75,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ## <a name="metrics"></a>Metryki
 
-1. W Azure Portal przejdź do **usługi | ** Na stronie Przegląd wybierz pozycję **metryki** w sekcji **monitorowanie** . Dodaj pierwszą metrykę, wybierając jedną z metryk platformy .NET w obszarze **wydajność (.NET)** lub **żądanie (.NET)** na liście rozwijanej **Metryka** , a następnie pozycję `Avg` **agregacji** , aby wyświetlić oś czasu dla tej metryki.
+1. W Azure Portal przejdź do **usługi |** Na stronie Przegląd wybierz pozycję **metryki** w sekcji **monitorowanie** . Dodaj pierwszą metrykę, wybierając jedną z metryk platformy .NET w obszarze **wydajność (.NET)** lub **żądanie (.NET)** na liście rozwijanej **Metryka** , a następnie pozycję `Avg` **agregacji** , aby wyświetlić oś czasu dla tej metryki.
 
    [![Wpis metryk — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
     
@@ -83,13 +83,13 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [![Używanie filtru w metrykach — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
 
-1. Odrzuć filtr utworzony w poprzednim kroku, wybierz pozycję **Zastosuj podział**, a następnie wybierz pozycję `App` **wartości** , aby wyświetlić użycie procesora przez różne aplikacje.
+1. Odrzuć filtr utworzony w poprzednim kroku, wybierz pozycję **Zastosuj podział** , a następnie wybierz pozycję `App` **wartości** , aby wyświetlić użycie procesora przez różne aplikacje.
 
    [![Zastosuj podział w metrykach — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png#lightbox)
 
 ## <a name="distributed-tracing"></a>Rozproszone śledzenie
 
-1. W Azure Portal przejdź do **usługi | ** Na stronie Omówienie i wybierz opcję **śledzenie rozproszone** w sekcji **monitorowanie** . Następnie wybierz kartę **Wyświetl mapę aplikacji** po prawej stronie.
+1. W Azure Portal przejdź do **usługi |** Na stronie Omówienie i wybierz opcję **śledzenie rozproszone** w sekcji **monitorowanie** . Następnie wybierz kartę **Wyświetl mapę aplikacji** po prawej stronie.
 
    [![Wpis śledzenia rozproszonego — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png)](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 
@@ -142,7 +142,7 @@ Zostaną wyświetlone następujące dzienniki:
 
 Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
-1. Wybierz opcję **Eksplorator platformy Azure**, a następnie pozycję **chmura Wiosenna**.
+1. Wybierz opcję **Eksplorator platformy Azure** , a następnie pozycję **chmura Wiosenna** .
 
 1. Kliknij prawym przyciskiem myszy działającą aplikację.
 
@@ -150,7 +150,7 @@ Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
    ![Wybieranie dzienników przesyłania strumieniowego](media/spring-cloud-intellij-howto/streaming-logs.png)
     
-1. Wybierz **wystąpienie**.
+1. Wybierz **wystąpienie** .
 
    ![Wybierz wystąpienie](media/spring-cloud-intellij-howto/select-instance.png)
     
@@ -161,7 +161,7 @@ Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 ---
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Przejdź do **usługi | ** Na stronie Omówienie i wybierz pozycję **dzienniki** w sekcji **monitorowanie** . Kliknij przycisk **Uruchom** na jednym z przykładowych zapytań dotyczących chmury wiosennej platformy Azure. 
+1. Przejdź do **usługi |** Na stronie Omówienie i wybierz pozycję **dzienniki** w sekcji **monitorowanie** . Kliknij przycisk **Uruchom** na jednym z przykładowych zapytań dotyczących chmury wiosennej platformy Azure. 
 
    [![Wpis ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) usługi Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -171,7 +171,7 @@ Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
 ## <a name="metrics"></a>Metryki
 
-1. Przejdź do **usługi | ** Na stronie Przegląd wybierz pozycję **metryki** w sekcji **monitorowanie** . Dodaj pierwszą metrykę, wybierając `system.cpu.usage` opcję **Metryka** i `Avg` **agregację** , aby wyświetlić oś czasu dla ogólnego użycia procesora.
+1. Przejdź do **usługi |** Na stronie Przegląd wybierz pozycję **metryki** w sekcji **monitorowanie** . Dodaj pierwszą metrykę, wybierając `system.cpu.usage` opcję **Metryka** i `Avg` **agregację** , aby wyświetlić oś czasu dla ogólnego użycia procesora.
 
    [![Wpis ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png) metryk](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png#lightbox)
     
@@ -185,7 +185,7 @@ Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
 ## <a name="distributed-tracing"></a>Rozproszone śledzenie
 
-1. Przejdź do **usługi | ** Na stronie Omówienie i wybierz opcję **śledzenie rozproszone** w sekcji **monitorowanie** . Następnie kliknij kartę **Wyświetl mapę aplikacji** po prawej stronie.
+1. Przejdź do **usługi |** Na stronie Omówienie i wybierz opcję **śledzenie rozproszone** w sekcji **monitorowanie** . Następnie kliknij kartę **Wyświetl mapę aplikacji** po prawej stronie.
 
    [![Wpis ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) śledzenia rozproszonego](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 

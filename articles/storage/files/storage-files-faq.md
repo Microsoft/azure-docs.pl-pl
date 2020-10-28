@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563696"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746823"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) i [protokołu sieciowego systemu plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (wersja zapoznawcza). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -22,7 +22,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 1. Sekcja komentarzy w tym artykule.
 2. [Microsoft Q&stronie pytania dotyczącej usługi Azure Storage](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie obsługi, w Azure Portal na karcie **Pomoc** wybierz przycisk **Pomoc i obsługa techniczna** , a następnie wybierz pozycję **nowe żądanie obsługi**.
+4. pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie obsługi, w Azure Portal na karcie **Pomoc** wybierz przycisk **Pomoc i obsługa techniczna** , a następnie wybierz pozycję **nowe żądanie obsługi** .
 
 ## <a name="general"></a>Ogólne
 * <a id="why-files-useful"></a>
@@ -107,7 +107,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     Wydajność będzie się różnić w zależności od ustawień środowiska, konfiguracji i tego, czy jest to synchronizacja początkowa czy ciągła synchronizacja. Aby uzyskać więcej informacji, zobacz [Azure File Sync metryki wydajności](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**Jeśli ten sam plik zostanie zmieniony na dwóch serwerach w tym samym czasie, co się dzieje?**  
-    Azure File Sync korzysta z prostej strategii rozwiązywania konfliktów: zachowujemy zmiany w plikach, które są zmieniane w dwóch punktach końcowych w tym samym czasie. Ostatnio zapisywana zmiana zachowuje oryginalną nazwę pliku. Starszy plik (określony przez LastWriteTime) ma nazwę punktu końcowego i numer konfliktu dołączony do nazwy pliku. W przypadku punktów końcowych serwera nazwa punktu końcowego jest nazwą serwera. W przypadku punktów końcowych w chmurze nazwa punktu końcowego to **chmura**. Nazwa jest zgodna z tą taksonomią: 
+    Azure File Sync korzysta z prostej strategii rozwiązywania konfliktów: zachowujemy zmiany w plikach, które są zmieniane w dwóch punktach końcowych w tym samym czasie. Ostatnio zapisywana zmiana zachowuje oryginalną nazwę pliku. Starszy plik (określony przez LastWriteTime) ma nazwę punktu końcowego i numer konfliktu dołączony do nazwy pliku. W przypadku punktów końcowych serwera nazwa punktu końcowego jest nazwą serwera. W przypadku punktów końcowych w chmurze nazwa punktu końcowego to **chmura** . Nazwa jest zgodna z tą taksonomią: 
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -257,7 +257,25 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 * <a id="ad-multiple-forest"></a>
 **Czy lokalne uwierzytelnianie AD DS dla udziałów plików platformy Azure obsługuje integrację ze środowiskiem AD DS przy użyciu wielu lasów?**    
 
-    Azure Files lokalnego uwierzytelniania AD DS integruje się tylko z lasem usługi domeny, w której zarejestrowano konto magazynu. Aby można było obsługiwać uwierzytelnianie z innego lasu, środowisko musi mieć prawidłowo skonfigurowane zaufanie lasu. Sposób Azure Files rejestrowania w AD DS niemal taki sam jak zwykły serwer plików, w którym tworzy tożsamość (konto logowania komputera lub usługi) w AD DS na potrzeby uwierzytelniania. Jedyną różnicą jest to, że zarejestrowana nazwa SPN konta magazynu jest zakończona ciągiem "file.core.windows.net", który jest niezgodny z sufiksem domeny. Skontaktuj się z administratorem domeny, aby sprawdzić, czy dowolna aktualizacja zasad routingu DNS jest wymagana w celu umożliwienia uwierzytelniania wielu lasów ze względu na inny sufiks domeny.
+    Azure Files lokalnego uwierzytelniania AD DS integruje się tylko z lasem usługi domeny, w której zarejestrowano konto magazynu. Aby można było obsługiwać uwierzytelnianie z innego lasu, środowisko musi mieć prawidłowo skonfigurowane zaufanie lasu. Sposób Azure Files rejestrowania w AD DS niemal taki sam jak zwykły serwer plików, w którym tworzy tożsamość (konto logowania komputera lub usługi) w AD DS na potrzeby uwierzytelniania. Jedyną różnicą jest to, że zarejestrowana nazwa SPN konta magazynu jest zakończona ciągiem "file.core.windows.net", który jest niezgodny z sufiksem domeny. Skontaktuj się z administratorem domeny, aby sprawdzić, czy dowolna aktualizacja zasad routingu sufiksu jest wymagana, aby umożliwić uwierzytelnianie wielu lasów ze względu na inny sufiks domeny. Poniżej przedstawiono przykład konfigurowania zasad routingu sufiksów.
+    
+    Przykład: gdy użytkownicy w lesie domeny chcą dotrzeć do udziału plików przy użyciu konta magazynu zarejestrowanego w domenie w lesie B, to nie będzie automatycznie działała, ponieważ nazwa główna usługi konta magazynu nie ma sufiksu pasującego do sufiksu dowolnej domeny w lesie A. Aby rozwiązać ten problem, należy ręcznie skonfigurować regułę routingu sufiksu z lasu A do lasu B dla niestandardowego sufiksu "file.core.windows.net".
+    Najpierw należy dodać nowy sufiks niestandardowy w lesie B. Upewnij się, że masz odpowiednie uprawnienia administracyjne, aby zmienić konfigurację, a następnie wykonaj następujące kroki:   
+    1. Logowanie do domeny komputera przyłączonej do lasu B
+    2.  Otwórz konsolę "Active Directory domeny i relacje zaufania"
+    3.  Kliknij prawym przyciskiem myszy pozycję "Active Directory domeny i relacje zaufania"
+    4.  Kliknij pozycję "właściwości".
+    5.  Kliknij pozycję "Dodaj"
+    6.  Dodaj "file.core.windows.net" jako sufiksy nazw UPN
+    7.  Kliknij przycisk "Zastosuj", a następnie "OK", aby zamknąć kreatora
+    
+    Następnie Dodaj regułę routingu sufiksów w lesie A, aby przekierować ją do lasu B.
+    1.  Logowanie do domeny komputera przyłączonej do lasu A
+    2.  Otwórz konsolę "Active Directory domeny i relacje zaufania"
+    3.  Kliknij prawym przyciskiem myszy domenę, do której chcesz uzyskać dostęp do udziału plików, a następnie kliknij kartę "relacje zaufania" i wybierz domenę lasu B z zaufania wychodzącego. Jeśli nie skonfigurowano zaufania między tymi dwoma lasami, należy najpierw skonfigurować zaufanie
+    4.  Kliknij pozycję "właściwości..." następnie "Nazwa routingu sufiksów"
+    5.  Sprawdź, czy surffix "*. file.core.windows.net" jest wyświetlany. Jeśli nie, kliknij przycisk "Odśwież"
+    6.  Wybierz pozycję "*. file.core.windows.net", a następnie kliknij pozycję "Włącz" i "Zastosuj"
 
 * <a id=""></a>
 **Jakie regiony są dostępne do Azure Files AD DS uwierzytelniania?**
@@ -450,7 +468,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Jak mogę użyć Azure Files z IBM MQ?**  
     Firma IBM wydała dokument, który pomaga klientom firmy IBM MQ skonfigurować Azure Files z usługą firmy IBM. Aby uzyskać więcej informacji, zobacz [jak skonfigurować usługę zarządzania wieloma wystąpieniami programu IBM MQ z usługą Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Rozwiązywanie problemów z usługą Azure File Sync](storage-sync-files-troubleshoot.md)

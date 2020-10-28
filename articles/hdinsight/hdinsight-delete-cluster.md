@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
-ms.openlocfilehash: 97aa37d5bc99295de7b827467b8c6db551c34ef7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 49a43f821a159af6944abb9509c24a8dd081be43
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547541"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748807"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Usuwanie klastra usługi HDInsight przy użyciu przeglądarki, programu PowerShell lub interfejsu wiersza polecenia platformy Azure
 
@@ -22,9 +22,9 @@ Naliczanie opłat rozpoczyna się w momencie utworzenia klastra usługi HDInsigh
 > [!IMPORTANT]  
 > Usunięcie klastra usługi HDInsight nie powoduje usunięcia kont magazynu Azure ani Data Lake Storage skojarzonych z klastrem. W przyszłości możesz ponownie użyć danych przechowywanych w tych usługach.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Witryna Azure Portal
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
 
 2. Z menu po lewej stronie wybierz kolejno pozycje **wszystkie usługi**  >  **Analiza** usług  >  **HDInsight** i klaster.
 

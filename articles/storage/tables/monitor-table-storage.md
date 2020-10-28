@@ -5,16 +5,16 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8104d1d1f8864f8b7c5a6add6c602007f2d04822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9dd12c05f4fcf6d7afb9b4e881106ae89a89117
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711510"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748005"
 ---
 # <a name="monitoring-azure-table-storage"></a>Monitorowanie usługi Azure Table Storage
 
@@ -52,23 +52,204 @@ Jeśli chcesz, możesz nadal korzystać z klasycznych metryk i dzienników. W rz
 
 ## <a name="collection-and-routing"></a>Kolekcja i Routing
 
-Metryki platformy i dziennik aktywności są zbierane automatycznie, ale mogą być kierowane do innych lokalizacji przy użyciu ustawień diagnostycznych. Aby zbierać dzienniki zasobów, należy utworzyć ustawienie diagnostyczne. 
+Metryki platformy i dziennik aktywności są zbierane automatycznie, ale mogą być kierowane do innych lokalizacji przy użyciu ustawień diagnostycznych. 
 
-Aby utworzyć ustawienie diagnostyczne przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md). 
-
-Aby wyświetlić szablon Azure Resource Manager, który tworzy ustawienie diagnostyczne, zobacz [ustawienie diagnostyczne dla usługi Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
-
-Podczas tworzenia ustawienia diagnostycznego wybierz typ magazynu, dla którego chcesz włączyć dzienniki, takie jak obiekt BLOB, kolejka, tabela lub plik. W obszarze magazyn tabel wybierz pozycję **tabela**. 
-
-W przypadku utworzenia ustawienia diagnostycznego w Azure Portal można wybrać zasób z listy. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz użyć identyfikatora zasobu punktu końcowego magazynu tabel. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
-
-Należy również określić jedną z następujących kategorii operacji, dla których mają być zbierane dzienniki. 
+Aby zbierać dzienniki zasobów, należy utworzyć ustawienie diagnostyczne. Po utworzeniu ustawienia wybierz opcję **tabela** jako typ magazynu, dla którego chcesz włączyć dzienniki. Następnie należy określić jedną z następujących kategorii operacji, dla których mają być zbierane dzienniki. 
 
 | Kategoria | Opis |
 |:---|:---|
 | StorageRead | Operacje odczytu na obiektach. |
 | StorageWrite | Operacje zapisu w obiektach. |
 | StorageDelete | Operacje usuwania obiektów. |
+
+## <a name="creating-a-diagnostic-setting"></a>Tworzenie ustawień diagnostycznych
+
+Ustawienie diagnostyczne można utworzyć przy użyciu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonu Azure Resource Manager. 
+
+Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
+
+> [!NOTE]
+> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Aby zarejestrować się w wersji zapoznawczej, zobacz [Tę stronę](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Ta wersja zapoznawcza umożliwia korzystanie z dzienników dla obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek i tabel. Ta funkcja jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Zobacz [Omówienie konta magazynu](../common/storage-account-overview.md).
+
+### <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
+
+1. Zaloguj się w witrynie Azure Portal.
+
+2. Przejdź do konta magazynu.
+
+3. W sekcji **monitorowanie** kliknij pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Portal — dzienniki diagnostyki](media/monitor-table-storage/diagnostic-logs-settings-pane.png)   
+
+4. Wybierz **tabelę** jako typ magazynu, dla którego chcesz włączyć dzienniki.
+
+5. Kliknij pozycję **Dodaj ustawienie diagnostyczne** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Portal — dzienniki zasobów — Dodaj ustawienie diagnostyczne](media/monitor-table-storage/diagnostic-logs-settings-pane-2.png)
+
+   Zostanie wyświetlona strona **Ustawienia diagnostyczne** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Strona dzienniki zasobów](media/monitor-table-storage/diagnostic-logs-page.png)
+
+6. W polu **Nazwa** strony wprowadź nazwę tego ustawienia dziennika zasobów. Następnie wybierz operacje, które mają być rejestrowane (operacje odczytu, zapisu i usuwania) i miejsce, w którym mają być wysyłane dzienniki.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archiwizowanie dzienników na koncie magazynu
+
+1. Zaznacz pole wyboru **Archiwizuj do konta magazynu** , a następnie kliknij przycisk **Konfiguruj** .
+
+   > [!div class="mx-imgBorder"]   
+   > ![Magazyn archiwum stron ustawień diagnostycznych](media/monitor-table-storage/diagnostic-logs-settings-pane-archive-storage.png)
+
+2. Z listy rozwijanej **konto magazynu** wybierz konto magazynu, w którym mają być archiwizowane dzienniki, kliknij przycisk **OK** , a następnie kliknij przycisk **Zapisz** .
+
+   > [!NOTE]
+   > Przed wybraniem konta magazynu jako miejsca docelowego eksportu Zobacz sekcję [Archiwizowanie dzienników zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) , aby poznać wymagania wstępne na koncie magazynu.
+
+#### <a name="stream-logs-to-azure-event-hubs"></a>Przesyłanie strumieniowe dzienników do usługi Azure Event Hubs
+
+1. Zaznacz pole wyboru **strumień do centrum zdarzeń** , a następnie kliknij przycisk **Konfiguruj** .
+
+2. W okienku **Wybierz centrum zdarzeń** wybierz przestrzeń nazw, nazwę i nazwę zasad centrum zdarzeń, do którego chcesz przesyłać strumieniowo dzienniki. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Centrum zdarzeń strony ustawień diagnostycznych](media/monitor-table-storage/diagnostic-logs-settings-pane-event-hub.png)
+
+3. Kliknij przycisk **OK** , a następnie kliknij przycisk **Zapisz** .
+
+#### <a name="send-logs-to-azure-log-analytics"></a>Wyślij dzienniki do usługi Azure Log Analytics
+
+1. Zaznacz pole wyboru **Wyślij do log Analytics** wybierz obszar roboczy usługi log Analytics, a następnie kliknij przycisk **Zapisz** .
+
+   > [!div class="mx-imgBorder"]   
+   > ![Analiza dzienników strony ustawień diagnostycznych](media/monitor-table-storage/diagnostic-logs-settings-pane-log-analytics.png)
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. Otwórz okno polecenia programu Windows PowerShell i zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia. Następnie postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Ustaw aktywną subskrypcję na konto magazynu, dla którego chcesz włączyć rejestrowanie.
+
+   ```powershell
+   Set-AzContext -SubscriptionId <subscription-id>
+   ```
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archiwizowanie dzienników na koncie magazynu
+
+Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell wraz z `StorageAccountId` parametrem.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Zastąp `<storage-service-resource--id>` symbol zastępczy w tym fragmencie kodu identyfikatorem zasobu usługi Table Service. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
+
+Można użyć `StorageRead` , `StorageWrite` i `StorageDelete` dla wartości parametru **kategorii** .
+
+Oto przykład:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
+
+Opis każdego z parametrów można znaleźć w temacie [Archiwizowanie dzienników zasobów platformy Azure za pośrednictwem Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Przesyłanie strumieniowe dzienników do centrum zdarzeń
+
+Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell z `EventHubAuthorizationRuleId` parametrem.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Oto przykład:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
+
+Aby uzyskać opis każdego z parametrów, zobacz [dane strumienia do Event Hubs za pomocą poleceń cmdlet programu PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+
+#### <a name="send-logs-to-log-analytics"></a>Wysyłanie dzienników do usługi Log Analytics
+
+Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell z `WorkspaceId` parametrem.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Oto przykład:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
+
+Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników zasobów platformy Azure do obszaru roboczego log Analytics w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+1. Najpierw Otwórz [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
+
+2. Jeśli Twoja tożsamość jest skojarzona z więcej niż jedną subskrypcją, ustaw aktywną subskrypcję na konto magazynu, dla którego chcesz włączyć dzienniki.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Archiwizowanie dzienników na koncie magazynu
+
+Włącz dzienniki przy użyciu polecenia [AZ monitor Diagnostic-Settings Create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Zastąp `<storage-service-resource--id>` symbol zastępczy w tym fragmencie kodu usługą Table ID usługi Storage. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
+
+Można użyć `StorageRead` , `StorageWrite` i `StorageDelete` dla wartości parametru **kategorii** .
+
+Oto przykład:
+
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+
+Aby zapoznać się z opisem każdego parametru, zobacz [archiwum dzienników zasobów za pośrednictwem interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Przesyłanie strumieniowe dzienników do centrum zdarzeń
+
+Włącz dzienniki przy użyciu polecenia [AZ monitor Diagnostic-Settings Create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Oto przykład:
+
+`az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
+
+Aby uzyskać opis każdego z parametrów, zobacz [dane strumienia do Event Hubs za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
+
+#### <a name="send-logs-to-log-analytics"></a>Wysyłanie dzienników do usługi Log Analytics
+
+Włącz dzienniki przy użyciu polecenia [AZ monitor Diagnostic-Settings Create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+```
+
+Oto przykład:
+
+`az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
+
+ Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników zasobów platformy Azure do obszaru roboczego log Analytics w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="template"></a>[Szablon](#tab/template)
+
+Aby wyświetlić szablon Azure Resource Manager, który tworzy ustawienie diagnostyczne, zobacz [ustawienie diagnostyczne dla usługi Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+
+---
+
 
 ## <a name="analyzing-metrics"></a>Analizowanie metryk
 
@@ -97,7 +278,7 @@ Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, w tym A
 > [!TIP]
 > Aby wyświetlić przykłady interfejsu wiersza polecenia platformy Azure lub platformy .NET, wybierz odpowiednie karty wymienione w tym miejscu.
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 #### <a name="list-the-metric-definition"></a>Lista definicji metryk
 
@@ -139,7 +320,7 @@ Można odczytać wartości metryk konta magazynu lub usługi Table Storage. Uży
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+### <a name="net"></a>[.NET](#tab/azure-portal)
 
 Azure Monitor udostępnia [zestaw .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) do odczytywania definicji metryk i wartości. [Przykładowy kod](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) pokazuje, jak używać zestawu SDK z innymi parametrami. Aby `0.18.0-preview` uzyskać metryki magazynu, należy użyć lub nowszej wersji.
  
@@ -279,6 +460,10 @@ Poniższy przykład pokazuje, jak odczytywać dane metryki z obsługą wielowymi
 
 ```
 
+### <a name="template"></a>[Szablon](#tab/template)
+
+Nie dotyczy.
+
 ---
 
 ## <a name="analyzing-logs"></a>Analizowanie dzienników
@@ -395,7 +580,7 @@ Użyj tych zapytań, aby ułatwić monitorowanie kont usługi Azure Storage:
     | sort by count_ desc 
     | render piechart
     ```
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Czy usługa Azure Storage obsługuje metryki dla dysków Managed Disks lub niezarządzanych?**
 

@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: aad0da53dc667039a62d2115c1afe4e2c6662bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840170"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747867"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Samouczek: skalowanie aplikacji uruchomionej w usłudze Service Fabric Mesh
 
@@ -56,7 +56,7 @@ Aby wyświetlić liczbę uruchomionych replik usługi ToDoService, uruchom nast�
 az mesh service show --resource-group myResourceGroup --name ToDoService --app-name todolistapp --query "replicaCount"
 ```
 
-W szablonie wdrażania dla zasobu aplikacji każda usługa ma właściwość *replicaCount*, która może służyć do ustawiania liczby wdrożeń usługi. Aplikacja może składać się z wielu usług, z których każda ma unikatową liczbę właściwości *replicaCount* oraz które są razem wdrażane i zarządzane. Aby skalować liczbę replik usług, zmodyfikuj wartość *replicaCount* dla każdej usługi, którą chcesz skalować, w szablonie wdrożenia lub pliku parametrów.  Następnie uaktualnij aplikację.
+W szablonie wdrażania dla zasobu aplikacji każda usługa ma właściwość *replicaCount* , która może służyć do ustawiania liczby wdrożeń usługi. Aplikacja może składać się z wielu usług, z których każda ma unikatową liczbę właściwości *replicaCount* oraz które są razem wdrażane i zarządzane. Aby skalować liczbę replik usług, zmodyfikuj wartość *replicaCount* dla każdej usługi, którą chcesz skalować, w szablonie wdrożenia lub pliku parametrów.  Następnie uaktualnij aplikację.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modyfikowanie parametrów szablonu wdrożenia
 
@@ -88,7 +88,7 @@ Zapisz zmiany w pliku parametrów.  Parametry *frontEndReplicaCount* i *serviceR
     }
 ```
 
-Właściwość *replicaCount* usługi WebFrontEnd odwołuje się do parametru *frontEndReplicaCount*, a właściwość *replicaCount* usługi ToDoService odwołuje się do parametru *serviceReplicaCount*:
+Właściwość *replicaCount* usługi WebFrontEnd odwołuje się do parametru *frontEndReplicaCount* , a właściwość *replicaCount* usługi ToDoService odwołuje się do parametru *serviceReplicaCount* :
 
 ```json
     "services": [

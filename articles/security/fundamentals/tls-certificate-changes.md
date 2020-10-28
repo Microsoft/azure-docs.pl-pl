@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9337349914748a38152b97cab50e15afbab3040e
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 45cad20a2e32640cabf4c57ce6411fcd5ab67da3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495866"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748228"
 ---
 # <a name="azure-tls-certificate-changes"></a>Zmiany certyfikatu protokołu TLS platformy Azure  
 
@@ -27,7 +27,7 @@ Firma Microsoft aktualizuje usługi platformy Azure, aby używać certyfikatów 
 - Istniejące punkty końcowe platformy Azure będą przenoszone w sposób fazowy od 13 sierpnia 2020.
 - [Usługi Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) i [DPS](/azure/iot-dps/) POzostaną w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Usługa Azure Storage](/azure/storage) pozostanie w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-
+- [Usługa Azure cache for Redis](/azure/azure-cache-for-redis) pozostanie w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](../../azure-cache-for-redis/cache-whats-new.md).
 > [!IMPORTANT]
 > Aby uniknąć błędów łączności podczas próby nawiązania połączenia z usługami platformy Azure, klienci mogą wymagać aktualizacji aplikacji po tej zmianie.
 
@@ -67,11 +67,11 @@ Oto kilka sposobów na wykrycie, czy ma to wpływ na aplikację:
 - Jeśli masz aplikację, która integruje się z interfejsami API platformy Azure lub innymi usługami platformy Azure i nie masz pewności, czy używa ona przypinania certyfikatów, skontaktuj się z dostawcą aplikacji.
 
 - Różne systemy operacyjne i środowiska uruchomieniowe języka, które komunikują się z usługami platformy Azure, mogą wymagać dodatkowych kroków w celu poprawnego skompilowania łańcucha certyfikatów przy użyciu tych nowych katalogów głównych:
-    - **Linux**: wiele dystrybucji wymaga dodania urzędów certyfikacji do/etc/SSL/certs. Aby uzyskać szczegółowe instrukcje, zapoznaj się z dokumentacją dystrybucji.
-    - **Java**: Upewnij się, że magazyn kluczy Java zawiera wymienione powyżej urzędy certyfikacji.
-    - **System Windows działający w odłączonych środowiskach**: systemy działające w środowiskach odłączonych muszą mieć dodane nowe katalogi główne do magazynu zaufanych głównych urzędów certyfikacji, a następnie pośrednicy dodani do magazynu pośrednich urzędów certyfikacji.
-    - **Android**: Zapoznaj się z dokumentacją urządzenia i wersji systemu Android.
-    - **Inne urządzenia sprzętowe, zwłaszcza IoT**: skontaktuj się z producentem urządzenia.
+    - **Linux** : wiele dystrybucji wymaga dodania urzędów certyfikacji do/etc/SSL/certs. Aby uzyskać szczegółowe instrukcje, zapoznaj się z dokumentacją dystrybucji.
+    - **Java** : Upewnij się, że magazyn kluczy Java zawiera wymienione powyżej urzędy certyfikacji.
+    - **System Windows działający w odłączonych środowiskach** : systemy działające w środowiskach odłączonych muszą mieć dodane nowe katalogi główne do magazynu zaufanych głównych urzędów certyfikacji, a następnie pośrednicy dodani do magazynu pośrednich urzędów certyfikacji.
+    - **Android** : Zapoznaj się z dokumentacją urządzenia i wersji systemu Android.
+    - **Inne urządzenia sprzętowe, zwłaszcza IoT** : skontaktuj się z producentem urządzenia.
 
 - Jeśli masz środowisko, w którym reguły zapory są ustawione tak, aby zezwalały na połączenia wychodzące tylko na pobieranie określonych list odwołania certyfikatów (CRL) i/lub lokalizacje weryfikacyjne protokołu stanu certyfikatów (OCSP). Musisz zezwolić na następującą listę CRL i adresy URL protokołu OCSP:
 

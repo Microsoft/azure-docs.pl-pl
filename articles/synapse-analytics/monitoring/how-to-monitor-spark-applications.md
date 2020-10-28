@@ -6,15 +6,15 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 2b8dbd20e79b9a6f48ca2d39079ebb452a3b46b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72fe7965f3e2b7ce0cdd53e4ec6e122e5bcbc6ee
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530815"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746254"
 ---
 # <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Użyj programu Synapse Studio (wersja zapoznawcza) do monitorowania aplikacji Apache Spark
 
@@ -34,7 +34,7 @@ Po otwarciu obszaru roboczego wybierz sekcję **monitorowanie** po lewej stronie
 
 Wybierz pozycję **Apache Spark aplikacje** , aby wyświetlić listę aplikacji Apache Spark.
 
- ![Wybierz aplikacje platformy Spark](./media/how-to-monitor-spark-applications/monitor-hub-nav-sparkapplications.png)
+ ![Wybierz aplikacje platformy Spark](./media/how-to-monitor-spark-applications/monitor-hub-nav-spark-applications.png)
 
 ## <a name="filter-your-apache-spark-applications"></a>Filtrowanie aplikacji Apache Spark
 

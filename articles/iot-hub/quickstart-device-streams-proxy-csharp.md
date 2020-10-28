@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 97551ac63066f7064c16a001d9ce1f6bc31465ec
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e53937122b8721aff5db435ac447b686ea16643
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80586583"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748689"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Szybki Start: Włączanie protokołu SSH i RDP przez strumień urządzenia IoT Hub przy użyciu aplikacji serwera proxy języka C# (wersja zapoznawcza)
 
@@ -81,7 +81,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 * Prawidłowe konto użytkownika i poświadczenie na urządzeniu (Windows lub Linux) używane do uwierzytelniania użytkownika.
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -195,7 +195,7 @@ Dane wyjściowe konsoli po stronie usługi (aplikacja lokalnego serwera proxy na
 
 ![Usługa — dane wyjściowe aplikacji lokalnego serwera proxy](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
-Dane wyjściowe konsoli na urządzeniu lokalnego serwera proxy, który łączy się z demonem SSH w *IP_address: 22*:
+Dane wyjściowe konsoli na urządzeniu lokalnego serwera proxy, który łączy się z demonem SSH w *IP_address: 22* :
 
 ![Dane wyjściowe aplikacji lokalnego serwera proxy](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 

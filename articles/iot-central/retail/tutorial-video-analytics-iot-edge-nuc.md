@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: c41a6679009f1467c5bcd04d9629ef9256238e00
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127049"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748643"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (Intel NUC)
 
@@ -27,7 +27,7 @@ W IoT Edge te usługi działają bezpośrednio na międzyplatformowych urządzen
 
 W tym samouczku pokazano, jak zainstalować i skonfigurować środowisko uruchomieniowe IoT Edge na urządzeniu Intel NUC.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Aktualizowanie i Konfigurowanie IoT Edge
 > * Skonfiguruj bramę IoT Edge
@@ -117,7 +117,7 @@ Skonfiguruj IoT Edge, aby zarejestrować aplikację IoT Central i nawiązać z n
 
 1. Zamień na `{scope_id}` **zakres identyfikatorów** , które zostały zanotowane w pliku *scratchpad.txt* w poprzednim samouczku.
 
-1. Zamień `{registration_id}` na urządzenie *LVA-Gateway-001*, które zostało utworzone w poprzednim samouczku.
+1. Zamień `{registration_id}` na urządzenie *LVA-Gateway-001* , które zostało utworzone w poprzednim samouczku.
 
 1. Zamień na `{symmetric_key}` **klucz podstawowy** urządzenia **LVA-Gateway-001** zanotowano w pliku *scratchpad.txt* w poprzednim samouczku.
 
@@ -140,7 +140,7 @@ Skonfiguruj IoT Edge, aby zarejestrować aplikację IoT Central i nawiązać z n
 
 Jeśli moduły IoT Edge nie są uruchamiane prawidłowo, zobacz [Rozwiązywanie problemów z urządzeniem IoT Edge](../../iot-edge/troubleshoot.md).
 
-## <a name="collect-the-rstp-stream-from-your-camera"></a>Zbieranie strumienia RSTP z aparatu
+## <a name="collect-the-rtsp-stream-from-your-camera"></a>Zbieranie strumienia RTSP z aparatu
 
 Zidentyfikuj adresy URL strumieni RTSP dla kamer podłączonych do urządzenia IoT Edge, na przykład:
 

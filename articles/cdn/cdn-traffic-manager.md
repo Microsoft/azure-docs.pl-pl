@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: b75643d0d526bae4d7b2879dffab3d90dbcbe1eb
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875873"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777745"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Tryb failover w wielu punktach końcowych za pomocą usługi Azure Traffic Manager
 
@@ -60,22 +60,22 @@ Utwórz co najmniej dwa profile Azure CDN i punkty końcowe z różnymi dostawca
 ## <a name="create-traffic-manager-profile"></a>Utwórz profil Menedżera ruchu
 Utwórz profil Traffic Manager platformy Azure i skonfiguruj Równoważenie obciążenia dla punktów końcowych usługi CDN. 
 
-1. Utwórz profil Traffic Manager platformy Azure, wykonując kroki opisane w temacie [Tworzenie profilu Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile). 
+1. Utwórz profil Traffic Manager platformy Azure, wykonując kroki opisane w temacie [Tworzenie profilu Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md). 
 
-    * **Metoda routingu**, wybierz pozycję **priorytet**.
+    * **Metoda routingu** , wybierz pozycję **priorytet** .
 
-2. Dodaj punkty końcowe usługi CDN w profilu Traffic Manager, wykonując czynności opisane w sekcji [dodawanie Traffic Manager punktów końcowych](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
+2. Dodaj punkty końcowe usługi CDN w profilu Traffic Manager, wykonując czynności opisane w sekcji [dodawanie Traffic Manager punktów końcowych](../traffic-manager/quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints)
 
-    * **Type**Wybierz pozycję **zewnętrzne punkty końcowe**.
-    * **Priorytet**, wprowadź liczbę.
+    * **Type** Wybierz pozycję **zewnętrzne punkty końcowe** .
+    * **Priorytet** , wprowadź liczbę.
 
-    Na przykład Utwórz **cdndemo101akamai.azureedge.NET** z priorytetem **1** i **cdndemo101verizon.azureedge.NET** o priorytecie **2**.
+    Na przykład Utwórz **cdndemo101akamai.azureedge.NET** z priorytetem **1** i **cdndemo101verizon.azureedge.NET** o priorytecie **2** .
 
    ![Punkty końcowe usługi Traffic Manager](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
 
 
 ## <a name="configure-custom-domain-on-azure-cdn-and-azure-traffic-manager"></a>Skonfiguruj domenę niestandardową na Azure CDN i na platformie Azure Traffic Manager
-Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące kroki, aby dodać mapowanie DNS i zarejestrować domenę niestandardową do punktów końcowych usługi CDN. W tym przykładzie niestandardowa nazwa domeny to **cdndemo101. dustydogpetcare. online**.
+Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące kroki, aby dodać mapowanie DNS i zarejestrować domenę niestandardową do punktów końcowych usługi CDN. W tym przykładzie niestandardowa nazwa domeny to **cdndemo101. dustydogpetcare. online** .
 
 1. Przejdź do witryny sieci Web dostawcy domeny niestandardowej, takiej jak GoDaddy, i Utwórz dwa wpisy CNAME DNS. 
 
@@ -96,7 +96,7 @@ Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące k
     >
 
 
-2.  Z poziomu profilu Azure CDN wybierz pierwszy punkt końcowy usługi CDN (Akamai). Wybierz pozycję **Dodaj domenę niestandardową** i wprowadź **cdndemo101. dustydogpetcare. online**. Sprawdź, czy znacznik wyboru weryfikacji domeny niestandardowej jest zielony. 
+2.  Z poziomu profilu Azure CDN wybierz pierwszy punkt końcowy usługi CDN (Akamai). Wybierz pozycję **Dodaj domenę niestandardową** i wprowadź **cdndemo101. dustydogpetcare. online** . Sprawdź, czy znacznik wyboru weryfikacji domeny niestandardowej jest zielony. 
 
     Azure CDN używa poddomeny **cdnverify** do sprawdzania poprawności mapowania DNS w celu ukończenia tego procesu rejestracji. Aby uzyskać więcej informacji, zobacz [Tworzenie rekordu DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Ten krok umożliwia Azure CDN rozpoznawania domeny niestandardowej, aby mogła ona odpowiadać na żądania.
     
@@ -110,7 +110,7 @@ Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące k
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. W profilu Azure CDN wybierz drugi punkt końcowy usługi CDN (Verizon) i powtórz krok 2. Wybierz pozycję **Dodaj domenę niestandardową**, a następnie wprowadź **cdndemo101. dustydogpetcare. online**.
+4. W profilu Azure CDN wybierz drugi punkt końcowy usługi CDN (Verizon) i powtórz krok 2. Wybierz pozycję **Dodaj domenę niestandardową** , a następnie wprowadź **cdndemo101. dustydogpetcare. online** .
  
 Po wykonaniu tych kroków usługa wiele sieci CDN z możliwością pracy w trybie failover jest konfigurowana przy użyciu usługi Azure Traffic Manager. 
 
@@ -121,7 +121,4 @@ Aby przetestować funkcje, wyłącz podstawowy punkt końcowy usługi CDN i spra
 ## <a name="next-steps"></a>Następne kroki
 Można skonfigurować inne metody routingu, takie jak geograficzne, aby zrównoważyć obciążenie między różnymi punktami końcowymi usługi CDN. 
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie metody routingu ruchu geograficznego przy użyciu Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
-
-
-
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie metody routingu ruchu geograficznego przy użyciu Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).

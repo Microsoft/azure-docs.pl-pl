@@ -5,13 +5,13 @@ author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
-ms.custom: mvc
-ms.openlocfilehash: a4834ece4741b14981c08721e28bf528cab1da89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 319107127b79383fc3b49f0eeb856a0e6c5b09f8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91368893"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747769"
 ---
 # <a name="using-openfaas-on-aks"></a>Korzystanie z OpenFaaS na AKS
 
@@ -132,7 +132,7 @@ echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 
 Teraz, gdy OpenFaaS działa, Utwórz funkcję przy użyciu portalu OpenFaas.
 
-Kliknij pozycję **Wdróż nową funkcję** i Wyszukaj **FIGlet**. Wybierz funkcję FIGlet, a następnie kliknij pozycję **Wdróż**.
+Kliknij pozycję **Wdróż nową funkcję** i Wyszukaj **FIGlet** . Wybierz funkcję FIGlet, a następnie kliknij pozycję **Wdróż** .
 
 ![Zrzut ekranu przedstawia okno dialogowe Wdróż nową funkcję z tekstem FIGlet w wierszu wyszukiwania.](media/container-service-serverless/figlet.png)
 

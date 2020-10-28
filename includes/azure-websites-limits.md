@@ -4,18 +4,18 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 800dc50f82fa47228f1a88a143c5b515168812a6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91745710"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755577"
 ---
-| Zasób | Bezpłatna | Shared | Podstawowa | Standardowa (Standard) | Premium (V3) | Izolowana </th> |
+| Zasób | Bezpłatna | Udostępniona | Podstawowa | Standardowa (Standard) | Premium (V3) | Izolowana </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplikacje internetowe, mobilne lub API](https://azure.microsoft.com/services/app-service/) na [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Bez ograniczeń<sup>2</sup> |Bez ograniczeń<sup>2</sup> |Bez ograniczeń<sup>2</sup> |Bez ograniczeń<sup>2</sup>|
 | [Plan App Service](../articles/app-service/overview-hosting-plans.md) |10 na region |10 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów|
-| Typ wystąpienia obliczeniowego |Shared |Shared |Dedykowane<sup>3</sup> |Dedykowane<sup>3</sup> |Dedykowane<sup>3</sup></p> |Dedykowane<sup>3</sup>|
+| Typ wystąpienia obliczeniowego |Udostępniona |Udostępniona |Dedykowane<sup>3</sup> |Dedykowane<sup>3</sup> |Dedykowane<sup>3</sup></p> |Dedykowane<sup>3</sup>|
 | [Skalowanie w poziomie](../articles/app-service/manage-scale-up.md) (maksymalna liczba wystąpień) |1 udostępniony |1 udostępniony |3 dedykowane<sup>3</sup> |10 dedykowanych<sup>3</sup> |30 dedykowanych<sup>3</sup>|100 dedykowany<sup>4</sup>|
 | Magazyn<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> <br/><br/> Przez ponad 250 GB przesłanie żądania pomocy technicznej. |1 TB<sup>5</sup> <br/><br/> Przydział dostępnego magazynu to 999 GB. |
 | Czas procesora CPU (5 minut)<sup>6</sup> |3 minuty |3 minuty |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a>|
@@ -32,6 +32,7 @@ ms.locfileid: "91745710"
 | Połączenia hybrydowe | | | 5 na plan | 25 na plan | 200 na aplikację | 200 na aplikację |
 | [Integracja Virtual Network](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Zintegrowana usługa równoważenia obciążenia | |X |X |X |X |X<sup>10</sup> |
+| [Ograniczenia dostępu](../articles/app-service/networking-features.md#access-restrictions) | 512 reguł na aplikację | 512 reguł na aplikację | 512 reguł na aplikację | 512 reguł na aplikację | 512 reguł na aplikację | 512 reguł na aplikację |
 | [Zawsze włączone](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Zaplanowane kopie zapasowe](../articles/app-service/manage-backup.md) | | | | Zaplanowane kopie zapasowe co 2 godziny, maksymalnie 12 kopii zapasowych dziennie (ręczna + zaplanowana) | Zaplanowane kopie zapasowe co godzinę, maksymalnie 50 kopii zapasowych dziennie (ręczna + zaplanowana) | Zaplanowane kopie zapasowe co godzinę, maksymalnie 50 kopii zapasowych dziennie (ręczna + zaplanowana) |
 | [Automatyczne skalowanie](../articles/app-service/manage-scale-up.md) | | | |X |X |X |

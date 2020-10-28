@@ -7,13 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 91e4e7de73d820c345b2973896d07d3479e49f9e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91297151"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748083"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Szybki Start: Konfigurowanie IoT Hub Device Provisioning Service przy użyciu szablonu Azure Resource Manager
 
@@ -113,7 +113,7 @@ Użyj szablonu JSON, aby utworzyć usługę inicjowania i połączone centrum Io
 
    ```
 
-4. Aby utworzyć centrum IoT, dodaj następujące wiersze do kolekcji **resources**. KOD JSON określa minimalne właściwości wymagane do utworzenia Centrum IoT Hub. Wartości **nazwy** i **lokalizacji** zostaną przesłane jako parametry z innego pliku. Aby dowiedzieć się więcej o właściwościach, które można określić dla Centrum IoT w szablonie, zobacz [Microsoft. Devices/IotHubs Template Reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. Aby utworzyć centrum IoT, dodaj następujące wiersze do kolekcji **resources** . KOD JSON określa minimalne właściwości wymagane do utworzenia Centrum IoT Hub. Wartości **nazwy** i **lokalizacji** zostaną przesłane jako parametry z innego pliku. Aby dowiedzieć się więcej o właściwościach, które można określić dla Centrum IoT w szablonie, zobacz [Microsoft. Devices/IotHubs Template Reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -133,7 +133,7 @@ Użyj szablonu JSON, aby utworzyć usługę inicjowania i połączone centrum Io
 
    ``` 
 
-5. Aby utworzyć usługę aprowizacji, dodaj następujące wiersze po specyfikacji centrum IoT w kolekcji **resources**. **Nazwa** i **Lokalizacja** usługi aprowizacji zostaną przesłane jako parametry. Kolekcja **iotHubs** określa centra IoT, które mają zostać połączone z usługą aprowizacji. Należy co najmniej określić właściwości **connectionString** i **location** dla każdego połączonego centrum IoT. Można również ustawić właściwości, takie jak **allocationWeight** i **applyAllocationPolicy** dla każdego centrum IoT, a także właściwości, takie jak **allocationPolicy** i ** authorizationPolicies**, dla usługi aprowizacji. Więcej informacji zawiera dokumentacja dotycząca szablonów [Microsoft.Devices/provisioningServices](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
+5. Aby utworzyć usługę aprowizacji, dodaj następujące wiersze po specyfikacji centrum IoT w kolekcji **resources** . **Nazwa** i **Lokalizacja** usługi aprowizacji zostaną przesłane jako parametry. Kolekcja **iotHubs** określa centra IoT, które mają zostać połączone z usługą aprowizacji. Należy co najmniej określić właściwości **connectionString** i **location** dla każdego połączonego centrum IoT. Można również ustawić właściwości, takie jak **allocationWeight** i **applyAllocationPolicy** dla każdego centrum IoT, a także właściwości, takie jak **allocationPolicy** i **authorizationPolicies** , dla usługi aprowizacji. Więcej informacji zawiera dokumentacja dotycząca szablonów [Microsoft.Devices/provisioningServices](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
 
    Właściwość **dependsOn** służy do zapewnienia, że usługa Resource Manager utworzy centrum IoT zanim utworzy usługę aprowizacji. Szablon wymaga parametrów połączenia z centrum IoT, aby móc określić połączenie z usługą, dlatego centrum i jego klucze muszą zostać utworzone w pierwszej kolejności. Szablon używa funkcji, takich jak **concat** i **listKeys** , do tworzenia parametrów połączenia z zmiennych sparametryzowanych. Więcej informacji zawiera dokumentacja [funkcji szablonów usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 
@@ -296,7 +296,7 @@ Szablon zdefiniowany w ostatnim kroku używa parametrów, aby określić nazwę 
 > Centrum IoT i usługa aprowizacji będą publicznie wykrywalne jako punkty końcowe DNS, dlatego unikaj wprowadzania jakichkolwiek poufnych informacji podczas nadawania im nazw.
 >
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Użyj następujących poleceń interfejsu wiersza polecenia Azure, aby wdrożyć szablony i zweryfikować wdrożenie.
 

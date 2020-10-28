@@ -1,19 +1,19 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 05/04/2020
+ms.date: 10/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95c55f92304ddd3ec2b3d44d4f07fb64ab815c6d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86276122"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755616"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Które regiony są dostępne?
 
@@ -45,6 +45,10 @@ Protokoły RDP i SSH są protokołem opartym na użyciu. Wysokie użycie sesji s
 
 Obecnie obsługiwane jest tylko kopiowanie/wklejanie tekstu. Funkcje takie jak kopiowanie plików nie są obsługiwane. Możesz przekazać nam swoją opinię na temat nowych funkcji na [stronie opinii o usłudze Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
+### <a name="does-bastion-hardening-work-with-aadj-vm-extension-joined-vms"></a><a name="aadj"></a>Czy bastionu zapewnianie zaostrzonych zadań z maszynami wirtualnymi AADJ dołączonymi do rozszerzenia?
+
+Ta funkcja nie działa z komputerami przyłączonymi do rozszerzenia maszyny wirtualnej AADJ przy użyciu użytkowników usługi Azure AD. Aby uzyskać więcej informacji, zobacz [maszyny wirtualne platformy Microsoft Azure i usługi Azure AD](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Które przeglądarki są obsługiwane?
 
 Użyj przeglądarki Microsoft Edge lub Google Chrome w systemie Windows. W przypadku komputerów Mac firmy Apple należy użyć przeglądarki Google Chrome. Program Microsoft Edge chrom jest również obsługiwany odpowiednio w systemach Windows i Mac.
@@ -66,7 +70,7 @@ Aby można było nawiązać połączenie, wymagane są następujące role:
 Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://aka.ms/BastionHostPricing).
 
 ### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>Czy usługa Azure bastionu wymaga RDS CAL do celów administracyjnych na maszynach wirtualnych hostowanych na platformie Azure?
-Nie, dostęp do maszyn wirtualnych z systemem Windows Server za pomocą usługi Azure bastionu nie wymaga [RDS CAL](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) , gdy jest używany wyłącznie do celów administracyjnych.
+Nie, dostęp do maszyn wirtualnych z systemem Windows Server za pomocą usługi Azure bastionu nie wymaga [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) , gdy jest używany wyłącznie do celów administracyjnych.
 
 ### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Jakie układy klawiatury są obsługiwane podczas sesji zdalnej bastionu?
 

@@ -4,13 +4,13 @@ description: Dowiedz się, jak pobrać aplikację Ruby systemu Linux działając
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
-ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c2baccec75c7b525c0837cebd9d828dff3a79543
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150179"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747142"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji w języku Ruby i korzystającej z bazy danych Postgres w usłudze Azure App Service w systemie Linux
 
@@ -18,7 +18,7 @@ ms.locfileid: "92150179"
 
 :::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="Zrzut ekranu przedstawiający przykład zadań aplikacji języka Ruby on-Szyns.":::
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych PostgreSQL na platformie Azure
@@ -125,7 +125,7 @@ W tej sekcji utworzysz serwer Azure Database for PostgreSQL i bazę danych. Aby 
 az extension add --name db-up
 ```
 
-Utwórz bazę danych Postgres na platformie Azure przy użyciu [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) polecenia, jak pokazano w poniższym przykładzie. Zamień na *\<postgresql-name>* *unikatową* nazwę (punkt końcowy serwera to *https:// \<postgresql-name> . Postgres.Database.Azure.com*). Dla programu *\<admin-username>* i *\<admin-password>* Określ poświadczenia, aby utworzyć użytkownika administratora dla tego serwera Postgres.
+Utwórz bazę danych Postgres na platformie Azure przy użyciu [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) polecenia, jak pokazano w poniższym przykładzie. Zamień na *\<postgresql-name>* *unikatową* nazwę (punkt końcowy serwera to *https:// \<postgresql-name> . Postgres.Database.Azure.com* ). Dla programu *\<admin-username>* i *\<admin-password>* Określ poświadczenia, aby utworzyć użytkownika administratora dla tego serwera Postgres.
 
 <!-- Issue: without --location -->
 ```azurecli
@@ -257,7 +257,7 @@ W tym kroku wdrożysz aplikację platformy Rails połączoną z bazą danych Pos
 
 W usłudze App Service zmienne środowiskowe ustawia się jako _ustawienia aplikacji_ za pomocą polecenia [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) w usłudze Cloud Shell.
 
-Następujące polecenie usługi Cloud Shell konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` i `DB_PASSWORD`. Zastąp symbole zastępcze _ &lt; nazwa_aplikacji>_ i _ &lt; postgres-Server-Name>_.
+Następujące polecenie usługi Cloud Shell konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` i `DB_PASSWORD`. Zastąp symbole zastępcze _&lt; nazwa_aplikacji>_ i _&lt; postgres-Server-Name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="root@<postgres-server-name>" DB_PASSWORD="Sampledb1"
@@ -273,7 +273,7 @@ rails secret
 
 Skonfiguruj zmienne wymagane przez środowisko produkcyjne platformy Rails.
 
-W poniższym poleceniu Cloud Shell Zastąp dwa symbole zastępcze _ &lt; danych wyjściowych-Secret>_ z nowym kluczem tajnym wygenerowanym w lokalnym terminalu.
+W poniższym poleceniu Cloud Shell Zastąp dwa symbole zastępcze _&lt; danych wyjściowych-Secret>_ z nowym kluczem tajnym wygenerowanym w lokalnym terminalu.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
@@ -336,7 +336,7 @@ Wygeneruj nową migrację, która doda kolumnę logiczną o nazwie `Done` do tab
 rails generate migration AddDoneToTasks Done:boolean
 ```
 
-To polecenie wygeneruje plik nowej migracji w katalogu _db/migrate_.
+To polecenie wygeneruje plik nowej migracji w katalogu _db/migrate_ .
 
 
 W terminalu uruchom migracje baz danych platformy Rails, aby wprowadzić zmianę w lokalnej bazie danych.
@@ -347,7 +347,7 @@ rake db:migrate
 
 ### <a name="update-application-logic"></a>Aktualizowanie logiki aplikacji
 
-Otwórz plik *app/controllers/tasks_controller.rb*. Na końcu pliku dodaj następujący wiersz:
+Otwórz plik *app/controllers/tasks_controller.rb* . Na końcu pliku dodaj następujący wiersz:
 
 ```rb
 params.require(:task).permit(:Description)
@@ -361,7 +361,7 @@ params.require(:task).permit(:Description, :Done)
 
 ### <a name="update-the-views"></a>Aktualizowanie widoków
 
-Otwórz plik *app/views/tasks/_form.html.erb*, który jest formularzem edycji.
+Otwórz plik *app/views/tasks/_form.html.erb* , który jest formularzem edycji.
 
 Znajdź wiersz `<%=f.error_span(:Description) %>` i wstaw bezpośrednio pod nim następujący kod:
 
@@ -372,7 +372,7 @@ Znajdź wiersz `<%=f.error_span(:Description) %>` i wstaw bezpośrednio pod nim 
 </div>
 ```
 
-Otwórz plik *app/views/tasks/show.html.erb*, który jest stroną widoku z pojedynczym rekordem. 
+Otwórz plik *app/views/tasks/show.html.erb* , który jest stroną widoku z pojedynczym rekordem. 
 
 Znajdź wiersz `<dd><%= @task.Description %></dd>` i wstaw bezpośrednio pod nim następujący kod:
 
@@ -381,7 +381,7 @@ Znajdź wiersz `<dd><%= @task.Description %></dd>` i wstaw bezpośrednio pod nim
   <dd><%= check_box "task", "Done", {:checked => @task.Done, :disabled => true}%></dd>
 ```
 
-Otwórz plik *app/views/tasks/index.html.erb*, który jest stroną indeksu dla wszystkich rekordów.
+Otwórz plik *app/views/tasks/index.html.erb* , który jest stroną indeksu dla wszystkich rekordów.
 
 Znajdź wiersz `<th><%= model_class.human_attribute_name(:Description) %></th>` i wstaw bezpośrednio pod nim następujący kod:
 
@@ -439,7 +439,7 @@ Jeśli dodano jakiekolwiek zadania, zostaną one zachowane w bazie danych. Aktua
 
 Przejdź do witryny [Azure Portal](https://portal.azure.com), aby zarządzać utworzoną aplikacją.
 
-W menu po lewej stronie kliknij pozycję **App Services**, a następnie kliknij nazwę swojej aplikacji platformy Azure.
+W menu po lewej stronie kliknij pozycję **App Services** , a następnie kliknij nazwę swojej aplikacji platformy Azure.
 
 ![Nawigacja w portalu do aplikacji platformy Azure](./media/tutorial-php-mysql-app/access-portal.png)
 

@@ -3,13 +3,13 @@ title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać typowe problemy związane z wdrażaniem, uruchamianiem i zarządzaniem Azure Container Instances
 ms.topic: article
 ms.date: 06/25/2020
-ms.custom: mvc
-ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148608"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746910"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Rozwiązywanie typowych problemów w usłudze Azure Container Instances
 
@@ -99,7 +99,7 @@ Ten błąd wskazuje, że ze względu na duże obciążenie w regionie, w którym
 ## <a name="issues-during-container-group-runtime"></a>Problemy podczas środowiska uruchomieniowego grupy kontenerów
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Kontener ciągle kończy działanie i uruchamia się ponownie (brak długotrwałego procesu)
 
-Grupy kontenerów domyślnie mają [zasady ponownego uruchamiania](container-instances-restart-policy.md) **zawsze**, dlatego kontenery w grupie kontenerów zawsze są ponownie uruchamiane po ich zakończeniu. Może być konieczne jej zmianę na **OnFailure** lub **nigdy** , jeśli zamierzasz uruchomić kontenery oparte na zadaniach. Jeśli określisz wartość **OnFailure** i nadal widzisz ciągłe ponowne uruchomienia, może wystąpić problem z aplikacją lub skryptem wykonywanym w kontenerze.
+Grupy kontenerów domyślnie mają [zasady ponownego uruchamiania](container-instances-restart-policy.md) **zawsze** , dlatego kontenery w grupie kontenerów zawsze są ponownie uruchamiane po ich zakończeniu. Może być konieczne jej zmianę na **OnFailure** lub **nigdy** , jeśli zamierzasz uruchomić kontenery oparte na zadaniach. Jeśli określisz wartość **OnFailure** i nadal widzisz ciągłe ponowne uruchomienia, może wystąpić problem z aplikacją lub skryptem wykonywanym w kontenerze.
 
 W przypadku uruchamiania grup kontenerów bez długotrwałych procesów mogą pojawić się powtórzone wyjścia i ponowne uruchomienia z obrazami, takimi jak Ubuntu lub Alpine. Łączenie za pośrednictwem programu [exec](container-instances-exec.md) nie będzie działało, ponieważ kontener nie ma żadnego procesu utrzymywania aktywności. Aby rozwiązać ten problem, należy dodać polecenie uruchomienia podobne do następującego w przypadku wdrożenia grupy kontenerów w celu zachowania uruchomionego kontenera.
 
@@ -213,7 +213,7 @@ Jeśli chcesz potwierdzić, że Azure Container Instances może nasłuchiwać na
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Znajdź adres IP grupy kontenerów w danych wyjściowych polecenia `az container create` . Poszukaj wartości **IP**. 
+1. Znajdź adres IP grupy kontenerów w danych wyjściowych polecenia `az container create` . Poszukaj wartości **IP** . 
 1. Po pomyślnym zainicjowaniu kontenera przejdź do adresu IP i portu aplikacji kontenera w przeglądarce, na przykład: `192.0.2.0:9000` . 
 
     Powinna zostać wyświetlona wartość "Witamy w Azure Container Instances!" komunikat wyświetlany przez aplikację internetową.

@@ -4,13 +4,13 @@ description: W tym samouczku dotyczącym usługi Azure Kubernetes Service (AKS) 
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: a9a8a73e2208f7efe01f43fa87e196ffd8c64f14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: e700934a965f836456458cb33dc46125bef4ab72
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576306"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747009"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Samouczek: Skalowanie aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Aby ręcznie zmienić liczbę zasobników w ramach wdrożenia aplikacji *azure-vote-front*, użyj polecenia [kubectl scale][kubectl-scale]. W poniższym przykładzie liczba zasobników frontonu jest zwiększana do *5*:
+Aby ręcznie zmienić liczbę zasobników w ramach wdrożenia aplikacji *azure-vote-front* , użyj polecenia [kubectl scale][kubectl-scale]. W poniższym przykładzie liczba zasobników frontonu jest zwiększana do *5* :
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -74,7 +74,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Jeśli klaster AKS jest mniejszy niż *1,10*, serwer metryk nie jest instalowany automatycznie. Manifesty instalacji serwera metryk są dostępne jako elementy `components.yaml` zawartości w wydaniach serwera metryk, co oznacza, że można je zainstalować za pośrednictwem adresu URL. Aby dowiedzieć się więcej o tych definicjach YAML, zobacz sekcję [Deployment (wdrażanie][metrics-server-github] ) w pliku Readme.
+> Jeśli klaster AKS jest mniejszy niż *1,10* , serwer metryk nie jest instalowany automatycznie. Manifesty instalacji serwera metryk są dostępne jako elementy `components.yaml` zawartości w wydaniach serwera metryk, co oznacza, że można je zainstalować za pośrednictwem adresu URL. Aby dowiedzieć się więcej o tych definicjach YAML, zobacz sekcję [Deployment (wdrażanie][metrics-server-github] ) w pliku Readme.
 > 
 > Przykładowa instalacja:
 > ```console
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-W poniższym przykładzie użyto polecenia [kubectl autoscale][kubectl-autoscale] w celu przeprowadzenia automatycznego skalowania liczby zasobników we wdrożeniu aplikacji *azure-vote-front*. Jeśli średnie użycie procesora CPU we wszystkich jednostkach dziennych przekroczy 50% żądanego użycia, Skalowanie automatyczne zwiększy się do *10* wystąpień. Dla wdrożenia zostaną następnie zdefiniowane przynajmniej *3* wystąpienia:
+W poniższym przykładzie użyto polecenia [kubectl autoscale][kubectl-autoscale] w celu przeprowadzenia automatycznego skalowania liczby zasobników we wdrożeniu aplikacji *azure-vote-front* . Jeśli średnie użycie procesora CPU we wszystkich jednostkach dziennych przekroczy 50% żądanego użycia, Skalowanie automatyczne zwiększy się do *10* wystąpień. Dla wdrożenia zostaną następnie zdefiniowane przynajmniej *3* wystąpienia:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

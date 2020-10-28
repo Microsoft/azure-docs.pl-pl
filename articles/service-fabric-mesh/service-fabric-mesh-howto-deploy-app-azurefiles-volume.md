@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 01cee3dc3f6b67aba1e6f8455ed7b538a44fc6f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter , devx-track-azurecli
+ms.openlocfilehash: 00addbe992bc113c67df08f73414107d51b3bce5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842791"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748209"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Zainstaluj wolumin oparty na Azure Files w aplikacji Service Fabric siatkę 
 
@@ -75,9 +75,9 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 ```
 
 Te wartości można również znaleźć w [Azure Portal](https://portal.azure.com):
-* `<storageAccountName>` -W obszarze **konta magazynu**nazwa konta magazynu użytego do utworzenia udziału plików.
-* `<storageAccountKey>` -Wybierz konto magazynu w obszarze **konta magazynu** , a następnie wybierz pozycję **klucze dostępu** i użyj wartości w obszarze **Klucz1**.
-* `<fileShareName>` — Wybierz konto magazynu w obszarze  **konta magazynu** , a następnie wybierz pozycję **pliki**. Nazwa do użycia to nazwa utworzonego udziału plików.
+* `<storageAccountName>` -W obszarze **konta magazynu** nazwa konta magazynu użytego do utworzenia udziału plików.
+* `<storageAccountKey>` -Wybierz konto magazynu w obszarze **konta magazynu** , a następnie wybierz pozycję **klucze dostępu** i użyj wartości w obszarze **Klucz1** .
+* `<fileShareName>` — Wybierz konto magazynu w obszarze  **konta magazynu** , a następnie wybierz pozycję **pliki** . Nazwa do użycia to nazwa utworzonego udziału plików.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Deklarowanie zasobu woluminu i aktualizowanie zasobu usługi (JSON)
 

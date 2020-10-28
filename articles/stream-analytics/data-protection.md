@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812866"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746398"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Ochrona danych w Azure Stream Analytics 
 
@@ -59,24 +59,20 @@ Aby dowiedzieć się, jak zapewnić zgodność z wymaganiami dotyczącymi zgodno
 
 Wykonaj poniższe kroki, aby skonfigurować konto magazynu dla prywatnych zasobów danych. Ta konfiguracja została wykonana z zadania Stream Analytics, a nie z konta magazynu.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure portal](https://portal.azure.com/).
 
-1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Utwórz zasób**. 
+1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Utwórz zasób** . 
 
 1. Wybierz pozycję **Analiza**   >  **Stream Analytics zadania**   z listy wyników. 
 
 1. Wypełnij stronę Stream Analytics zadania, aby uzyskać niezbędne szczegóły, takie jak nazwa, region i skala. 
 
-1. Zaznacz pole wyboru informujące o *zabezpieczeniu wszystkich prywatnych zasobów danych wymaganych przez to zadanie na koncie magazynu*.
+1. Zaznacz pole wyboru informujące o *zabezpieczeniu wszystkich prywatnych zasobów danych wymaganych przez to zadanie na koncie magazynu* .
 
 1. Wybierz konto magazynu z subskrypcji. Należy pamiętać, że tego ustawienia nie można modyfikować w całym cyklu życia zadania. 
 
    ![Ustawienia konta prywatnego magazynu danych](./media/data-protection/storage-account-create.png)
 
-
-
-### <a name="known-issues"></a>Znane problemy
-Obecnie istnieje znane ograniczenie, w którym zadanie wykorzystujące klucz zarządzany przez klienta działa w niepowodzeń podczas korzystania z tożsamości zarządzanej do uwierzytelniania w dowolnych danych wejściowych lub wyjściowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

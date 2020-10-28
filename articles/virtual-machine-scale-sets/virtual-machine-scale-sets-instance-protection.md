@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 8c4944da8ffcaa75e6448483918a29809c32830b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 59720a3e89db29ba3eb0829084dd5252e27e9cc9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83124061"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746790"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Ochrona wystąpienia dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
 
@@ -45,16 +45,16 @@ Ochronę wystąpienia można zastosować do wystąpień zestawów skalowania po 
 
 Istnieje wiele sposobów zastosowania ochrony skalowania w Twoich wystąpieniach zestawu skalowania zgodnie z opisem w poniższych przykładach.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Możesz zastosować ochronę skalowania w Azure Portal do wystąpienia w zestawie skalowania. Nie można jednocześnie dopasować więcej niż jednego wystąpienia. Powtórz kroki dla każdego wystąpienia, które chcesz chronić.
  
 1. Przejdź do istniejącego zestawu skalowania maszyn wirtualnych.
-1. Wybierz pozycję **wystąpienia** z menu po lewej stronie, w obszarze **Ustawienia**.
+1. Wybierz pozycję **wystąpienia** z menu po lewej stronie, w obszarze **Ustawienia** .
 1. Wybierz nazwę wystąpienia, które chcesz chronić.
 1. Wybierz kartę **Zasady ochrony** .
 1. W bloku **Zasady ochrony** wybierz opcję **Chroń przed skalowaniem** .
-1. Wybierz pozycję **Zapisz**. 
+1. Wybierz pozycję **Zapisz** . 
 
 ### <a name="rest-api"></a>Interfejs API REST
 
@@ -113,16 +113,16 @@ Ochrona wystąpienia z poziomu akcji zestawu skalowania chroni również wystąp
 
 Istnieje wiele sposobów stosowania ochrony akcji zestawu skalowania w wystąpieniach zestawu skalowania, jak opisano w poniższych przykładach.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Możesz zastosować ochronę przed akcjami zestawu skalowania za pośrednictwem Azure Portal do wystąpienia w zestawie skalowania. Nie można jednocześnie dopasować więcej niż jednego wystąpienia. Powtórz kroki dla każdego wystąpienia, które chcesz chronić.
  
 1. Przejdź do istniejącego zestawu skalowania maszyn wirtualnych.
-1. Wybierz pozycję **wystąpienia** z menu po lewej stronie, w obszarze **Ustawienia**.
+1. Wybierz pozycję **wystąpienia** z menu po lewej stronie, w obszarze **Ustawienia** .
 1. Wybierz nazwę wystąpienia, które chcesz chronić.
 1. Wybierz kartę **Zasady ochrony** .
 1. W bloku **Zasady ochrony** wybierz opcję **Chroń przed zestawem skalowania** .
-1. Wybierz pozycję **Zapisz**. 
+1. Wybierz pozycję **Zapisz** . 
 
 ### <a name="rest-api"></a>Interfejs API REST
 

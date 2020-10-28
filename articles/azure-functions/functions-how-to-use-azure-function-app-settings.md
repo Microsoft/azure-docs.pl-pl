@@ -4,13 +4,13 @@ description: Dowiedz się, jak skonfigurować ustawienia aplikacji funkcji platf
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cc996988-fb4f-47, devx-track-azurecli
+ms.openlocfilehash: f597e58c70d6ac9daff753f5c0a54199c2383c42
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83122305"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746171"
 ---
 # <a name="manage-your-function-app"></a>Zarządzanie aplikacją funkcji 
 
@@ -29,11 +29,11 @@ W tym artykule opisano sposób konfigurowania aplikacji funkcji i zarządzania n
 
 1. Aby rozpocząć, przejdź do [Azure Portal] i zaloguj się na koncie platformy Azure. Na pasku wyszukiwania w górnej części portalu wprowadź nazwę aplikacji funkcji i wybierz ją z listy. 
 
-2. W obszarze **Ustawienia** w okienku po lewej stronie wybierz pozycję **Konfiguracja**.
+2. W obszarze **Ustawienia** w okienku po lewej stronie wybierz pozycję **Konfiguracja** .
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Przegląd aplikacji funkcji w Azure Portal":::
 
-Możesz przejść do wszystkiego, czego potrzebujesz do zarządzania aplikacją funkcji, na stronie przeglądu, w szczególności z **[ustawieniami aplikacji](#settings)** i **[funkcjami platformy](#platform-features)**.
+Możesz przejść do wszystkiego, czego potrzebujesz do zarządzania aplikacją funkcji, na stronie przeglądu, w szczególności z **[ustawieniami aplikacji](#settings)** i **[funkcjami platformy](#platform-features)** .
 
 ## <a name="application-settings"></a><a name="settings"></a>Ustawienia aplikacji
 
@@ -136,7 +136,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 
 Użyj [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) polecenia, aby wyświetlić listę bieżących dozwolonych źródeł.
 
-### <a name="authentication"></a><a name="auth"></a>Uwierzytelnianie
+### <a name="authentication"></a><a name="auth"></a>Authentication
 
 ![Konfigurowanie uwierzytelniania dla aplikacji funkcji](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
@@ -149,4 +149,4 @@ Gdy funkcje używają wyzwalacza HTTP, można wymagać, aby wywołania były naj
 + [Ciągłe wdrażanie dla Azure Functions](functions-continuous-deployment.md)
 
 [Interfejs wiersza polecenia platformy Azure]: /cli/azure/
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/27/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387323"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746395"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Monitorowanie uruchomień potoku obszaru roboczego za pomocą programu Synapse Studio
 
-Usługa Azure Synapse Analytics umożliwia tworzenie złożonych potoków, które mogą zautomatyzować i zorganizować przenoszenie danych, Przekształcanie danych i działania obliczeniowe w ramach rozwiązania. Możesz tworzyć i monitorować te potoki przy użyciu programu Synapse Studio (wersja zapoznawcza).
+Usługa Azure Synapse Analytics umożliwia tworzenie złożonych potoków, które umożliwiają automatyzację i integrację przenoszenia danych, transformacji danych i działań obliczeniowych w ramach rozwiązania. Możesz tworzyć i monitorować te potoki przy użyciu programu Synapse Studio (wersja zapoznawcza).
 
 W tym artykule wyjaśniono, jak monitorować uruchomienia potoków, co pozwala na śledzenie najnowszego stanu, problemów i postępu potoku.
 

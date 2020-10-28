@@ -3,13 +3,13 @@ title: Samouczek — przywracanie maszyny wirtualnej przy użyciu interfejsu wie
 description: Dowiedz się, jak przywrócić dysk i utworzyć odzyskaną maszynę wirtualną na platformie Azure przy użyciu usługi Backup i Recovery Services.
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.custom: mvc
-ms.openlocfilehash: 861c911e84c9de02467d443751902e71d2504422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2d8ce7ab6d5a3ab244d0292ffe52847f18ea8795
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324993"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746741"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Przywracanie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -74,7 +74,7 @@ Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywróc
         --sku Standard_LRS
     ```
 
-2. Przywróć dysk z punktu odzyskiwania, uruchamiając polecenie [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Zastąp ciąg *mystorageaccount* nazwą konta magazynu utworzonego przy użyciu poprzedniego polecenia. Zastąp *ciąg myrecoverypointname nazwą* nazwą punktu odzyskiwania uzyskaną w danych wyjściowych z poprzedniego polecenia [AZ Backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) . ***Podaj również docelową grupę zasobów, do której zostaną przywrócone dyski zarządzane***.
+2. Przywróć dysk z punktu odzyskiwania, uruchamiając polecenie [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Zastąp ciąg *mystorageaccount* nazwą konta magazynu utworzonego przy użyciu poprzedniego polecenia. Zastąp *ciąg myrecoverypointname nazwą* nazwą punktu odzyskiwania uzyskaną w danych wyjściowych z poprzedniego polecenia [AZ Backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) . ***Podaj również docelową grupę zasobów, do której są przywracane dyski zarządzane, do** _.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -88,7 +88,7 @@ Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywróc
     ```
 
     > [!WARNING]
-    > Jeśli nie podano **grupy Target-Resource-Group** , dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Skorzystaj z zalet natychmiastowego przywrócenia tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. Jeśli zamiarem jest przywrócenie dysków zarządzanych jako niezarządzanych, nie należy podawać parametru **Target-Resource-Group** i zamiast tego podać parametr **"Przywracanie jako niezarządzany-dysk"** , jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
+    > Jeśli nie podano *wartości _-Resource-Group* *, dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Skorzystaj z zalet natychmiastowego przywrócenia tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. Jeśli zamiarem jest przywrócenie dysków zarządzanych jako niezarządzanych, nie należy podawać parametru **Target-Resource-Group** i zamiast tego podać parametr **"Przywracanie jako niezarządzany-dysk"** , jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -154,7 +154,7 @@ az backup job list \
     --output table
 ```
 
-Dane wyjściowe są podobne do następującego przykładu informującego, że zadanie przywracania jest w toku (*InProgress*):
+Dane wyjściowe są podobne do następującego przykładu informującego, że zadanie przywracania jest w toku ( *InProgress* ):
 
 ```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -164,7 +164,7 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Po ukończeniu *stanu* zadania przywracania wymagane informacje ( *Completed*konfiguracja maszyny wirtualnej i szablon wdrożenia) zostały przywrócone do konta magazynu.
+Po ukończeniu *stanu* zadania przywracania wymagane informacje ( *Completed* konfiguracja maszyny wirtualnej i szablon wdrożenia) zostały przywrócone do konta magazynu.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Tworzenie maszyny wirtualnej na podstawie przywróconego dysku
 

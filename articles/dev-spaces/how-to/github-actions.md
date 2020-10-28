@@ -6,13 +6,13 @@ ms.topic: conceptual
 description: Przejrzyj i przetestuj zmiany z żądania ściągnięcia bezpośrednio w usłudze Azure Kubernetes za pomocą akcji usługi GitHub i Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery, akcje GitHub, Helm, Siatka usług, routing w sieci usług, polecenia kubectl, k8s
 manager: gwallace
-ms.custom: devx-track-js
-ms.openlocfilehash: 8c11150105db7a7bb48d20992dcc259cb5d87752
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973108"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748139"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Akcje GitHub & usługi Azure Kubernetes (wersja zapoznawcza)
 
@@ -88,31 +88,31 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 > [!IMPORTANT]
 > Musisz mieć włączone akcje usługi GitHub dla repozytorium. Aby włączyć akcje usługi GitHub dla repozytorium, przejdź do repozytorium w serwisie GitHub, kliknij kartę akcje, a następnie Włącz akcje dla tego repozytorium.
 
-Przejdź do repozytorium z rozwidleniem, a następnie kliknij pozycję *Ustawienia*. Kliknij pozycję wpisy *tajne* na lewym pasku bocznym. Kliknij pozycję *Dodaj nowy klucz tajny* , aby dodać każde nowe hasło poniżej:
+Przejdź do repozytorium z rozwidleniem, a następnie kliknij pozycję *Ustawienia* . Kliknij pozycję wpisy *tajne* na lewym pasku bocznym. Kliknij pozycję *Dodaj nowy klucz tajny* , aby dodać każde nowe hasło poniżej:
 
-1. *AZURE_CREDENTIALS*: wszystkie dane wyjściowe z tworzenia jednostki usługi.
-1. *RESOURCE_GROUP*: Grupa zasobów dla klastra AKS, która w tym przykładzie jest grupą *zasobów*.
-1. *CLUSTER_NAME*: Nazwa klastra AKS, która jest w tym przykładzie *MyAKS*.
-1. *CONTAINER_REGISTRY*: *loginServer* dla ACR.
-1. *Host*: Host dla obszaru deweloperskiego, który przyjmuje formularz *<MASTER_SPACE>. <APP_NAME>. <HOST_SUFFIX *>, który jest w tym przykładzie *dev.bikesharingweb.fedcab0987.EUS.azds.IO*.
-1. *IMAGE_PULL_SECRET*: Nazwa klucza tajnego, którego chcesz użyć, na przykład *Demonstracja-wpis tajny*.
-1. *MASTER_SPACE*: Nazwa nadrzędnego obszaru deweloperskiego, który w tym przykładzie jest *deweloperem*.
-1. *REGISTRY_USERNAME*: *clientId* z danych wyjściowych JSON z tworzenia jednostki usługi.
-1. *REGISTRY_PASSWORD*: *clientSecret* z danych wyjściowych JSON z tworzenia jednostki usługi.
+1. *AZURE_CREDENTIALS* : wszystkie dane wyjściowe z tworzenia jednostki usługi.
+1. *RESOURCE_GROUP* : Grupa zasobów dla klastra AKS, która w tym przykładzie jest grupą *zasobów* .
+1. *CLUSTER_NAME* : Nazwa klastra AKS, która jest w tym przykładzie *MyAKS* .
+1. *CONTAINER_REGISTRY* : *loginServer* dla ACR.
+1. *Host* : Host dla obszaru deweloperskiego, który przyjmuje formularz *<MASTER_SPACE>. <APP_NAME>. <HOST_SUFFIX* >, który jest w tym przykładzie *dev.bikesharingweb.fedcab0987.EUS.azds.IO* .
+1. *IMAGE_PULL_SECRET* : Nazwa klucza tajnego, którego chcesz użyć, na przykład *Demonstracja-wpis tajny* .
+1. *MASTER_SPACE* : Nazwa nadrzędnego obszaru deweloperskiego, który w tym przykładzie jest *deweloperem* .
+1. *REGISTRY_USERNAME* : *clientId* z danych wyjściowych JSON z tworzenia jednostki usługi.
+1. *REGISTRY_PASSWORD* : *clientSecret* z danych wyjściowych JSON z tworzenia jednostki usługi.
 
 > [!NOTE]
 > Wszystkie te wpisy tajne są używane przez akcję GitHub i są konfigurowane w serwisie [GitHub/Workflows/Bikes. yml][github-action-yaml].
 
-Opcjonalnie, jeśli chcesz zaktualizować miejsce główne po scaleniu żądania ściągnięcia, Dodaj *GATEWAY_HOST* klucz tajny, który pobiera formularz *<MASTER_SPACE>. Gateway. <* HOST_SUFFIX>, który w tym przykładzie jest *dev.Gateway.fedcab0987.EUS.azds.IO*. Po scaleniu zmian w gałęzi głównej w rozwidleniu zostanie uruchomiona kolejna Akcja w celu odbudowania i uruchomienia całej aplikacji w głównym obszarze dev. W tym przykładzie obszarem głównym jest *dev*. Ta akcja jest konfigurowana w witrynie [GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Opcjonalnie, jeśli chcesz zaktualizować miejsce główne po scaleniu żądania ściągnięcia, Dodaj *GATEWAY_HOST* klucz tajny, który pobiera formularz *<MASTER_SPACE>. Gateway. <* HOST_SUFFIX>, który w tym przykładzie jest *dev.Gateway.fedcab0987.EUS.azds.IO* . Po scaleniu zmian w gałęzi głównej w rozwidleniu zostanie uruchomiona kolejna Akcja w celu odbudowania i uruchomienia całej aplikacji w głównym obszarze dev. W tym przykładzie obszarem głównym jest *dev* . Ta akcja jest konfigurowana w witrynie [GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
-Ponadto jeśli chcesz, aby zmiany w żądaniu ściągnięcia były uruchamiane w miejscu grandchild, zaktualizuj *MASTER_SPACE* i wpisy tajne *hosta* . Na przykład jeśli aplikacja działa w środowisku *deweloperskim* z przestrzenią podrzędną *dev/azureuser1*, aby można było uruchomić żądanie ściągnięcia w miejscu podrzędnym *dev/azureuser1*:
+Ponadto jeśli chcesz, aby zmiany w żądaniu ściągnięcia były uruchamiane w miejscu grandchild, zaktualizuj *MASTER_SPACE* i wpisy tajne *hosta* . Na przykład jeśli aplikacja działa w środowisku *deweloperskim* z przestrzenią podrzędną *dev/azureuser1* , aby można było uruchomić żądanie ściągnięcia w miejscu podrzędnym *dev/azureuser1* :
 
-* Zaktualizuj *MASTER_SPACE* do obszaru podrzędnego, który ma być miejscem nadrzędnym, w tym przykładzie *azureuser1*.
-* Zaktualizuj *hosta* do *<GRANDPARENT_SPACE>. <APP_NAME>. <* HOST_SUFFIX>, w tym przykładzie *dev.bikesharingweb.fedcab0987.EUS.azds.IO*.
+* Zaktualizuj *MASTER_SPACE* do obszaru podrzędnego, który ma być miejscem nadrzędnym, w tym przykładzie *azureuser1* .
+* Zaktualizuj *hosta* do *<GRANDPARENT_SPACE>. <APP_NAME>. <* HOST_SUFFIX>, w tym przykładzie *dev.bikesharingweb.fedcab0987.EUS.azds.IO* .
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Utwórz nową gałąź dla zmian kodu
 
-Przejdź do `BikeSharingApp/` i Utwórz nowe rozgałęzienie o nazwie *rower-images*.
+Przejdź do `BikeSharingApp/` i Utwórz nowe rozgałęzienie o nazwie *rower-images* .
 
 ```cmd
 cd dev-spaces/samples/BikeSharingApp/
@@ -162,7 +162,7 @@ Po zakończeniu akcji zobaczysz komentarz z adresem URL do nowego miejsca podrz�
 
 Przejdź do usługi *bikesharingweb* , otwierając adres URL z komentarza. Wybierz pozycję *Aurelia Briggs (Customer)* jako użytkownik, a następnie wybierz rower do wynajęcia. Sprawdź, czy obraz symbolu zastępczego dla roweru nie jest już widoczny.
 
-W przypadku scalenia zmian w gałęzi *głównej* w rozwidleniu zostanie uruchomiona kolejna Akcja w celu odbudowania i uruchomienia całej aplikacji w nadrzędnym obszarze dev. W tym przykładzie przestrzeń nadrzędna jest *deweloperem*. Ta akcja jest konfigurowana w witrynie [GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
+W przypadku scalenia zmian w gałęzi *głównej* w rozwidleniu zostanie uruchomiona kolejna Akcja w celu odbudowania i uruchomienia całej aplikacji w nadrzędnym obszarze dev. W tym przykładzie przestrzeń nadrzędna jest *deweloperem* . Ta akcja jest konfigurowana w witrynie [GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Czyszczenie zasobów platformy Azure
 

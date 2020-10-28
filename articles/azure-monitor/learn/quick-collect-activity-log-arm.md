@@ -3,20 +3,20 @@ title: Wyślij dziennik aktywności platformy Azure do Log Analytics obszaru rob
 description: Użyj szablonów ARM, aby utworzyć obszar roboczy Log Analytics i ustawienia diagnostyczne do wysyłania dziennika aktywności do Azure Monitor dzienników.
 ms.subservice: logs
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 552df72901b9fde7acedd554b429f3a2ce0f671b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: abcaee8cffd36e22c918b9d82f37370df1d61c26
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631855"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747029"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Szybki Start: wysyłanie dziennika aktywności platformy Azure do Log Analytics obszaru roboczego przy użyciu szablonu ARM
 
-Dziennik aktywności to dziennik platformy na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Obejmuje to takie informacje, jak w przypadku zmodyfikowania zasobu lub uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. W tym przewodniku szybki start pokazano, jak używać szablonów Azure Resource Manager (szablony ARM) do tworzenia Log Analytics obszaru roboczego i ustawienia diagnostycznego w celu wysyłania dziennika aktywności do dzienników Azure Monitor, w których można je analizować przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) i włączyć inne funkcje, takie jak [alerty dzienników](../platform/alerts-log-query.md) i [skoroszyty](../platform/workbooks-overview.md).
+Dziennik aktywności jest to dziennik platformy Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. W tym przewodniku szybki start pokazano, jak używać szablonów Azure Resource Manager (szablony ARM) do tworzenia Log Analytics obszaru roboczego i ustawienia diagnostycznego w celu wysyłania dziennika aktywności do dzienników Azure Monitor, w których można je analizować przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) i włączyć inne funkcje, takie jak [alerty dzienników](../platform/alerts-log-query.md) i [skoroszyty](../platform/workbooks-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,7 +29,7 @@ Dziennik aktywności to dziennik platformy na platformie Azure, który zapewnia 
 
 ### <a name="review-the-template"></a>Przegląd szablonu
 
-Poniższy szablon tworzy pusty obszar roboczy Log Analytics. Zapisz ten szablon jako *CreateWorkspace.js*.
+Poniższy szablon tworzy pusty obszar roboczy Log Analytics. Zapisz ten szablon jako *CreateWorkspace.js* .
 
 ```json
 {
@@ -132,9 +132,9 @@ Ten szablon definiuje jeden zasób:
 
 - [Microsoft. OperationalInsights/obszary robocze](/azure/templates/microsoft.operationalinsights/workspaces)
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+### <a name="deploy-the-template"></a>Wdrażanie szablonu
 
-Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów**, **obszaru roboczegoname**i **lokalizacji** odpowiednimi wartościami dla danego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
+Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów** , **obszaru roboczegoname** i **lokalizacji** odpowiednimi wartościami dla danego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -180,7 +180,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 
 ### <a name="review-the-template"></a>Przegląd szablonu
 
-Poniższy szablon tworzy ustawienie diagnostyczne, które wysyła dziennik aktywności do obszaru roboczego Log Analytics. Zapisz ten szablon jako *CreateDiagnosticSetting.js*.
+Poniższy szablon tworzy ustawienie diagnostyczne, które wysyła dziennik aktywności do obszaru roboczego Log Analytics. Zapisz ten szablon jako *CreateDiagnosticSetting.js* .
 
 ```json
 {
@@ -246,9 +246,9 @@ Ten szablon definiuje jeden zasób:
 
 - [Microsoft. Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+### <a name="deploy-the-template"></a>Wdrażanie szablonu
 
-Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów**, **obszaru roboczegoname**i **lokalizacji** odpowiednimi wartościami dla danego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
+Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów** , **obszaru roboczegoname** i **lokalizacji** odpowiednimi wartościami dla danego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -281,15 +281,15 @@ Tylko nowe wpisy dziennika aktywności będą wysyłane do obszaru roboczego Log
 
 ## <a name="retrieve-data-with-a-log-query"></a>Pobieranie danych przy użyciu zapytania dziennika
 
-Użyj Azure Portal, aby użyć Log Analytics do pobierania danych z obszaru roboczego. W Azure Portal Wyszukaj, a następnie wybierz pozycję **Monitoruj**.
+Użyj Azure Portal, aby użyć Log Analytics do pobierania danych z obszaru roboczego. W Azure Portal Wyszukaj, a następnie wybierz pozycję **Monitoruj** .
 
-![Azure Portal](media/quick-collect-activity-log/azure-portal-monitor.png)
+![Witryna Azure Portal](media/quick-collect-activity-log/azure-portal-monitor.png)
 
 Wybierz pozycję **dzienniki** w menu **Azure monitor** . Zamknij **przykładową stronę zapytań** . Jeśli zakres nie jest ustawiony w utworzonym obszarze roboczym, kliknij pozycję **Wybierz zakres** i Znajdź go.
 
 ![Zakres Log Analytics](media/quick-collect-activity-log/log-analytics-scope.png)
 
-W oknie zapytania wpisz, `AzureActivity` a następnie kliknij przycisk **Uruchom**. Jest to proste zapytanie, które zwraca wszystkie rekordy w tabeli *usługi Azure* , która zawiera wszystkie rekordy wysyłane z dziennika aktywności.
+W oknie zapytania wpisz, `AzureActivity` a następnie kliknij przycisk **Uruchom** . Jest to proste zapytanie, które zwraca wszystkie rekordy w tabeli *usługi Azure* , która zawiera wszystkie rekordy wysyłane z dziennika aktywności.
 
 ![Proste zapytanie](media/quick-collect-activity-log/query-01.png)
 
