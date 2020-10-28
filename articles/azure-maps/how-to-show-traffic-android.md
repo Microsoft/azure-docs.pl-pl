@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272960"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895532"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Wyświetlanie danych o ruchu na mapie przy użyciu Azure Maps Android SDK
 
@@ -21,7 +21,7 @@ Dane przepływu i dane zdarzeń to dwa typy danych ruchu, które mogą być wyś
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było wyświetlić ruch na mapie, należy [utworzyć konto platformy Azure](quick-demo-map-app.md#create-an-azure-maps-account)i [uzyskać klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account). Następnie należy zainstalować [Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) i załadować mapę.
+Aby można było wyświetlić ruch na mapie, należy [utworzyć konto platformy Azure](quick-demo-map-app.md#create-an-azure-maps-account)i [uzyskać klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account). Następnie należy zainstalować [Android SDK Azure Maps](./how-to-use-android-map-control-library.md) i załadować mapę.
 
 ## <a name="incidents-traffic-data"></a>Zdarzenia danych ruchu
 
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Aby uzyskać zdarzenia dotyczące konkretnej funkcji, można użyć poniższego kodu. Po kliknięciu funkcji logika kodu sprawdza zdarzenia i kompiluje komunikat o zdarzeniu. W dolnej części ekranu zostanie wyświetlony komunikat z informacjami.
 
-1. Najpierw należy edytować **> > układu zasobów activity_main.xml**, tak aby wyglądał wyglądać jak poniżej. Licencjobiorca może zastąpić `mapcontrol_centerLat` odpowiednie `mapcontrol_centerLng` `mapcontrol_zoom` wartości. Odwołaj, poziom powiększenia jest wartością z zakresu od 0 do 22. Na poziomie powiększenia 0 cały świat mieści się na jednym kafelku.
+1. Najpierw należy edytować **> > układu zasobów activity_main.xml** , tak aby wyglądał wyglądać jak poniżej. Licencjobiorca może zastąpić `mapcontrol_centerLat` odpowiednie `mapcontrol_centerLng` `mapcontrol_zoom` wartości. Odwołaj, poziom powiększenia jest wartością z zakresu od 0 do 22. Na poziomie powiększenia 0 cały świat mieści się na jednym kafelku.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>

@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: be6d508da15b7c403259bd66c86c3b3e72ff2f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647a8fc25f27ef7f441ed7459ecd543d4f35581e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089277"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895277"
 ---
 # <a name="show-search-results-on-the-map"></a>Pokaż wyniki wyszukiwania na mapie
 
 W tym artykule pokazano, jak wyszukiwać interesujące lokalizacje i wyświetlać wyniki wyszukiwania na mapie.
 
-Istnieją dwa sposoby wyszukiwania interesujących lokalizacji. Jednym ze sposobów jest użycie modułu usługi do żądania wyszukiwania. Druga metoda polega na tym, że żądanie wyszukiwania [Azure Maps interfejs API wyszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) za pomocą [interfejsu API pobierania](https://fetch.spec.whatwg.org/). Obie metody omówiono poniżej.
+Istnieją dwa sposoby wyszukiwania interesujących lokalizacji. Jednym ze sposobów jest użycie modułu usługi do żądania wyszukiwania. Druga metoda polega na tym, że żądanie wyszukiwania [Azure Maps interfejs API wyszukiwania rozmytego](/rest/api/maps/search/getsearchfuzzy) za pomocą [interfejsu API pobierania](https://fetch.spec.whatwg.org/). Obie metody omówiono poniżej.
 
 ## <a name="make-a-search-request-via-service-module"></a>Utwórz żądanie wyszukiwania za pomocą modułu usługi
 
@@ -29,15 +29,15 @@ Istnieją dwa sposoby wyszukiwania interesujących lokalizacji. Jednym ze sposob
 
 W powyższym kodzie, pierwszy blok konstruuje obiekt mapy i ustawia mechanizm uwierzytelniania do korzystania z tokenu dostępu. Aby uzyskać instrukcje, zobacz [Tworzenie mapy](./map-create.md) .
 
-Drugi blok kodu tworzy `TokenCredential` do uwierzytelniania żądań HTTP do Azure Maps z tokenem dostępu. Następnie przekazuje `TokenCredential` do `atlas.service.MapsURL.newPipeline()` i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) . `searchURL`Reprezentuje adres URL służący do Azure Maps operacji [wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) .
+Drugi blok kodu tworzy `TokenCredential` do uwierzytelniania żądań HTTP do Azure Maps z tokenem dostępu. Następnie przekazuje `TokenCredential` do `atlas.service.MapsURL.newPipeline()` i tworzy wystąpienie [potoku](/javascript/api/azure-maps-rest/atlas.service.pipeline) . `searchURL`Reprezentuje adres URL służący do Azure Maps operacji [wyszukiwania](/rest/api/maps/search) .
 
-Trzeci blok kodu tworzy obiekt źródła danych przy użyciu klasy [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) i dodaje do niego wyniki wyszukiwania. [Warstwa symboli](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) używa tekstu lub ikon do renderowania danych opartych na punkcie [w postaci symboli](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) na mapie.  Następnie zostanie utworzona warstwa symboli. Źródło danych jest dodawane do warstwy symboli, która jest następnie dodawana do mapy.
+Trzeci blok kodu tworzy obiekt źródła danych przy użyciu klasy [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) i dodaje do niego wyniki wyszukiwania. [Warstwa symboli](/javascript/api/azure-maps-control/atlas.layer.symbollayer) używa tekstu lub ikon do renderowania danych opartych na punkcie [w postaci symboli](/javascript/api/azure-maps-control/atlas.source.datasource) na mapie.  Następnie zostanie utworzona warstwa symboli. Źródło danych jest dodawane do warstwy symboli, która jest następnie dodawana do mapy.
 
-Czwarty blok kodu używa metody [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) w [module usługi](how-to-use-services-module.md). Umożliwia ona wykonywanie bezpłatnych wyszukiwań tekstowych za pośrednictwem [interfejsu API REST usługi Get Search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) w celu wyszukiwania punktów zainteresowania. Żądania GET w interfejsie API wyszukiwania rozmytego mogą obsługiwać dowolną kombinację danych wejściowych rozmytych. Kolekcje funkcji GEOJSON z odpowiedzi są następnie wyodrębniane przy użyciu `geojson.getFeatures()` metody i dodawane do źródła danych, co powoduje automatyczne wyniki renderowania danych na mapie za pośrednictwem warstwy symboli.
+Czwarty blok kodu używa metody [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) w [module usługi](how-to-use-services-module.md). Umożliwia ona wykonywanie bezpłatnych wyszukiwań tekstowych za pośrednictwem [interfejsu API REST usługi Get Search](/rest/api/maps/search/getsearchfuzzy) w celu wyszukiwania punktów zainteresowania. Żądania GET w interfejsie API wyszukiwania rozmytego mogą obsługiwać dowolną kombinację danych wejściowych rozmytych. Kolekcje funkcji GEOJSON z odpowiedzi są następnie wyodrębniane przy użyciu `geojson.getFeatures()` metody i dodawane do źródła danych, co powoduje automatyczne wyniki renderowania danych na mapie za pośrednictwem warstwy symboli.
 
-Ostatni blok kodu dostosowuje granice aparatu dla mapy za pomocą właściwości [Setcamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) mapy.
+Ostatni blok kodu dostosowuje granice aparatu dla mapy za pomocą właściwości [Setcamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) mapy.
 
-Żądanie wyszukiwania, źródło danych, warstwa symboli i granice aparatu znajdują się wewnątrz [odbiornika zdarzeń](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) mapy. Chcemy mieć pewność, że wyniki są wyświetlane po całkowitym załadowaniu mapy.
+Żądanie wyszukiwania, źródło danych, warstwa symboli i granice aparatu znajdują się wewnątrz [odbiornika zdarzeń](/javascript/api/azure-maps-control/atlas.map#events) mapy. Chcemy mieć pewność, że wyniki są wyświetlane po całkowitym załadowaniu mapy.
 
 
 ## <a name="make-a-search-request-via-fetch-api"></a>Utwórz żądanie wyszukiwania za pomocą interfejsu API pobierania
@@ -49,28 +49,28 @@ W powyższym kodzie pierwszy blok kodu konstruuje obiekt mapy. Ustawia mechanizm
 
 Drugi blok kodu tworzy adres URL, na który zostanie wysłane żądanie wyszukiwania. Tworzy także dwie tablice do przechowywania granic i kodów PIN dla wyników wyszukiwania.
 
-Trzeci blok kodu używa [interfejsu API pobierania](https://fetch.spec.whatwg.org/). [Interfejs API pobierania](https://fetch.spec.whatwg.org/) służy do żądania [Azure Maps interfejsu API wyszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) w celu wyszukiwania interesujących punktów. Interfejs API wyszukiwania rozmytego może obsługiwać dowolną kombinację danych wejściowych rozmytych. Następnie obsługuje i analizuje odpowiedź wyszukiwania i dodaje numery PIN wyników do tablicy searchPins.
+Trzeci blok kodu używa [interfejsu API pobierania](https://fetch.spec.whatwg.org/). [Interfejs API pobierania](https://fetch.spec.whatwg.org/) służy do żądania [Azure Maps interfejsu API wyszukiwania rozmytego](/rest/api/maps/search/getsearchfuzzy) w celu wyszukiwania interesujących punktów. Interfejs API wyszukiwania rozmytego może obsługiwać dowolną kombinację danych wejściowych rozmytych. Następnie obsługuje i analizuje odpowiedź wyszukiwania i dodaje numery PIN wyników do tablicy searchPins.
 
-Czwarty blok kodu tworzy obiekt źródła danych przy użyciu klasy [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) . W kodzie dodamy wyniki wyszukiwania do obiektu źródłowego. [Warstwa symboli](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) używa tekstu lub ikon do renderowania danych opartych na punkcie [w postaci symboli](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) na mapie. Następnie zostanie utworzona warstwa symboli. Źródło danych jest dodawane do warstwy symboli, która jest następnie dodawana do mapy.
+Czwarty blok kodu tworzy obiekt źródła danych przy użyciu klasy [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) . W kodzie dodamy wyniki wyszukiwania do obiektu źródłowego. [Warstwa symboli](/javascript/api/azure-maps-control/atlas.layer.symbollayer) używa tekstu lub ikon do renderowania danych opartych na punkcie [w postaci symboli](/javascript/api/azure-maps-control/atlas.source.datasource) na mapie. Następnie zostanie utworzona warstwa symboli. Źródło danych jest dodawane do warstwy symboli, która jest następnie dodawana do mapy.
 
-Ostatni blok kodu tworzy obiekt [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox) . Używa tablicy wyników, a następnie dostosowuje granice aparatu dla mapy za pomocą [Setcamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)mapy. Następnie renderuje to numery PIN wyników.
+Ostatni blok kodu tworzy obiekt [BoundingBox](/javascript/api/azure-maps-control/atlas.data.boundingbox) . Używa tablicy wyników, a następnie dostosowuje granice aparatu dla mapy za pomocą [Setcamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)mapy. Następnie renderuje to numery PIN wyników.
 
-Żądanie wyszukiwania, źródło danych, warstwa symboli i granice aparatu są ustawiane w obrębie [odbiornika zdarzeń](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) mapy, aby upewnić się, że wyniki są wyświetlane po całkowitym załadowaniu mapy.
+Żądanie wyszukiwania, źródło danych, warstwa symboli i granice aparatu są ustawiane w obrębie [odbiornika zdarzeń](/javascript/api/azure-maps-control/atlas.map#events) mapy, aby upewnić się, że wyniki są wyświetlane po całkowitym załadowaniu mapy.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Najlepsze rozwiązania dotyczące korzystania z usługi wyszukiwania](how-to-use-best-practices-for-search.md)
 
-Dowiedz się więcej na temat **wyszukiwania rozmytego**:
+Dowiedz się więcej na temat **wyszukiwania rozmytego** :
 
 > [!div class="nextstepaction"]
-> [Azure Maps interfejsu API wyszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+> [Azure Maps interfejsu API wyszukiwania rozmytego](/rest/api/maps/search/getsearchfuzzy)
 
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mapa](/javascript/api/azure-maps-control/atlas.map)
 
 Zobacz następujące artykuły, aby zapoznać się z pełnymi przykładami kodu:
 

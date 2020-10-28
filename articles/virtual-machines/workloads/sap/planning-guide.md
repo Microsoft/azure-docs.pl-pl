@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: a0347e76a39be8bada9ec59eb8accef17e784951
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738121"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894104"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -695,7 +695,7 @@ Jeśli składniki warstwy aplikacji systemów DBMS i SAP można uruchamiać na m
 
 ## <a name="managing-azure-assets"></a>Zarządzanie zasobami platformy Azure
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal to jeden z trzech interfejsów do zarządzania wdrożeniami maszyn wirtualnych platformy Azure. Podstawowe zadania zarządzania, takie jak wdrażanie maszyn wirtualnych z obrazów, można wykonać za pomocą Azure Portal. Ponadto można również wykonać zadania tworzenia kont magazynu, sieci wirtualnych i innych składników platformy Azure Azure Portal. Jednak funkcje takie jak przekazywanie dysków VHD ze środowiska lokalnego na platformę Azure lub kopiowanie dysku VHD na platformie Azure to zadania, które wymagają narzędzi innych firm lub ich administracji za pośrednictwem programu PowerShell lub interfejsu wiersza polecenia.
 
@@ -1832,7 +1832,7 @@ Usługa Azure Managed disks jest automatycznie umieszczana w domenie błędów m
 
 Przykładowa architektura systemu SAP NetWeaver, która korzysta z usług Azure Infrastructure HA i Storage, może wyglądać następująco:
 
-![Wykorzystanie infrastruktury platformy Azure HA do osiągnięcia wyższej dostępności aplikacji SAP][planning-guide-figure-2900]
+![Diagram przedstawiający system SAP NetWeaver, który używa kont usługi Azure Infrastructure HA i Storage.][planning-guide-figure-2900]
 
 Przykładowa architektura systemu SAP NetWeaver, która używa infrastruktury platformy Azure o wysokiej dostępności i Managed Disks może wyglądać następująco:
 
@@ -1892,7 +1892,7 @@ Tylko dyski niezarządzane: poniższe koncepcje mogą wymagać naruszenia bezpie
 
 ##### <a name="windows-logologo_windows-ha-on-windows"></a>![Logo Windows.][Logo_Windows] HA w systemie Windows
 
-![Architektura HA aplikacji SAP NetWeaver z SQL Server na platformie Azure IaaS][planning-guide-figure-3200]
+![Diagram przedstawiający architekturę aplikacji SAP NetWeaver w SQL Server systemie Azure IaaS.][planning-guide-figure-3200]
 
 Następujące konstrukcje platformy Azure są używane dla systemu SAP NetWeaver, aby zminimalizować wpływ na problemy z infrastrukturą i stosowanie poprawek hosta:
 

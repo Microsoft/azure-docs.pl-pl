@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: f43c0086cfd6e51e0fbcd5d30911aa6c8e9a6518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f455a1132a0f63e1ba3eb5d2a57a1f9bfa9a867
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335555"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895685"
 ---
 # <a name="how-to-use-image-templates"></a>Jak używać szablonów obrazów
 
@@ -24,7 +24,7 @@ Obrazy mogą być używane ze znacznikami HTML i różnymi warstwami w Azure Map
  - Warstwy wielokątów mogą być renderowane przy użyciu obrazu deseniu wypełnienia. 
  - Znaczniki HTML mogą renderować punkty przy użyciu obrazów i innych elementów HTML.
 
-Aby zapewnić dobrą wydajność przy użyciu warstw, Załaduj obrazy do zasobu mapy Sprite Image przed renderowaniem. [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions), SymbolLayer, wstępnie ładuje kilka obrazów znaczników w kilkuie kolorów do ikon obrazu mapy. Te obrazy znaczników i inne są dostępne jako szablony SVG. Mogą służyć do tworzenia obrazów z niestandardowymi skalami lub używany jako kolor podstawowy i pomocniczy klienta. W sumie dostępne są 42 szablony obrazów: 27 ikon symboli i 15 wielokątów wypełnienia.
+Aby zapewnić dobrą wydajność przy użyciu warstw, Załaduj obrazy do zasobu mapy Sprite Image przed renderowaniem. [IconOptions](/javascript/api/azure-maps-control/atlas.iconoptions), SymbolLayer, wstępnie ładuje kilka obrazów znaczników w kilkuie kolorów do ikon obrazu mapy. Te obrazy znaczników i inne są dostępne jako szablony SVG. Mogą służyć do tworzenia obrazów z niestandardowymi skalami lub używany jako kolor podstawowy i pomocniczy klienta. W sumie dostępne są 42 szablony obrazów: 27 ikon symboli i 15 wielokątów wypełnienia.
 
 Szablony obrazów można dodawać do zasobów obrazu mapy Sprite przy użyciu `map.imageSprite.createFromTemplate` funkcji. Ta funkcja umożliwia przekazanie maksymalnie pięciu parametrów;
 
@@ -514,10 +514,10 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Opcje szablonu ikony</
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
+> [ImageSpriteManager](/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [Przestrzeń nazw atlasu](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#functions
+> [Przestrzeń nazw atlasu](/javascript/api/azure-maps-control/atlas#functions
 )
 
 Zobacz następujące artykuły, aby uzyskać więcej przykładów kodu, w których można używać szablonów obrazów:

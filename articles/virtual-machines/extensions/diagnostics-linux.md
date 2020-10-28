@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448196"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893407"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników
 
@@ -39,6 +39,9 @@ To rozszerzenie współpracuje z modelami wdrażania platformy Azure.
 ## <a name="installing-the-extension-in-your-vm"></a>Instalowanie rozszerzenia na maszynie wirtualnej
 
 To rozszerzenie można włączyć za pomocą poleceń cmdlet Azure PowerShell, skryptów interfejsu wiersza polecenia platformy Azure, szablonów ARM lub Azure Portal. Aby uzyskać więcej informacji, zobacz [rozszerzenia funkcji](features-linux.md).
+
+>[!NOTE]
+>Niektóre składniki rozszerzenia maszyny wirtualnej diagnostyki są również dostarczane przy użyciu [rozszerzenia maszyny wirtualnej log Analytics](./oms-linux.md). Ze względu na tę architekturę mogą wystąpić konflikty w przypadku wystąpienia obu rozszerzeń w tym samym szablonie usługi ARM. Aby uniknąć tych konfliktów w czasie instalacji, należy użyć [ `dependsOn` dyrektywy](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) , aby upewnić się, że rozszerzenia są zainstalowane sekwencyjnie. Rozszerzenia można zainstalować w dowolnej kolejności.
 
 Te instrukcje dotyczące instalacji i [pobieranie przykładowej konfiguracji](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) konfigurowania lad 3,0 do:
 
@@ -67,8 +70,8 @@ Obsługiwane dystrybucje i wersje:
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* **Agent systemu Linux w wersji 2.2.0 lub nowszej**. Większość obrazów z galerii maszyn wirtualnych systemu Linux platformy Azure obejmuje wersję 2.2.7 lub nowszą. Uruchom `/usr/sbin/waagent -version` w celu potwierdzenia wersji zainstalowanej na maszynie wirtualnej. Jeśli na maszynie wirtualnej jest uruchomiona Starsza wersja agenta gościa, postępuj zgodnie z [tymi instrukcjami](./update-linux-agent.md) , aby je zaktualizować.
-* **Interfejs wiersza polecenia platformy Azure**. [Skonfiguruj środowisko interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) na komputerze.
+* **Agent systemu Linux w wersji 2.2.0 lub nowszej** . Większość obrazów z galerii maszyn wirtualnych systemu Linux platformy Azure obejmuje wersję 2.2.7 lub nowszą. Uruchom `/usr/sbin/waagent -version` w celu potwierdzenia wersji zainstalowanej na maszynie wirtualnej. Jeśli na maszynie wirtualnej jest uruchomiona Starsza wersja agenta gościa, postępuj zgodnie z [tymi instrukcjami](./update-linux-agent.md) , aby je zaktualizować.
+* **Interfejs wiersza polecenia platformy Azure** . [Skonfiguruj środowisko interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) na komputerze.
 * Wget polecenie, jeśli nie jest jeszcze: Uruchom `sudo apt-get install wget` .
 * Istniejąca subskrypcja platformy Azure i istniejące konto magazynu ogólnego przeznaczenia, w którym są przechowywane dane.  Konta magazynu ogólnego przeznaczenia obsługują magazyn tabel, który jest wymagany.  Konto magazynu obiektów BLOB nie będzie działało.
 
@@ -172,7 +175,7 @@ Po zmianie ustawień chronionych lub publicznych należy wdrożyć je na maszyni
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>Migracja z poprzednich wersji rozszerzenia
 
-Najnowsza wersja rozszerzenia to **3,0**. **Wszystkie stare wersje (2. x) są przestarzałe i mogą być cofnięte w dniu 31 lipca 2018**.
+Najnowsza wersja rozszerzenia to **3,0** . **Wszystkie stare wersje (2. x) są przestarzałe i mogą być cofnięte w dniu 31 lipca 2018** .
 
 > [!IMPORTANT]
 > To rozszerzenie wprowadza istotne zmiany w konfiguracji rozszerzenia. Wprowadzono taką zmianę w celu poprawy bezpieczeństwa rozszerzenia; w związku z tym nie można utrzymywać zgodności z poprzednimi wersjami z 2. x. Ponadto Wydawca rozszerzenia dla tego rozszerzenia różni się od wydawcy dla wersji 2. x.
@@ -461,7 +464,7 @@ Element | Wartość
 ------- | -----
 namespace | obowiązkowe Przestrzeń nazw OMI, w której należy wykonać zapytanie. Jeśli nie zostanie określony, wartością domyślną jest "root/SCX" wdrożoną przez [dostawców międzyplatformowych programu System Center](https://github.com/Microsoft/SCXcore).
 query | Zapytanie OMI, które ma zostać wykonane.
-tabela | obowiązkowe Tabela usługi Azure Storage na wyznaczynym koncie magazynu (zobacz [Ustawienia chronione](#protected-settings)).
+table (stolik) | obowiązkowe Tabela usługi Azure Storage na wyznaczynym koncie magazynu (zobacz [Ustawienia chronione](#protected-settings)).
 frequency | obowiązkowe Liczba sekund między wykonaniem zapytania. Wartość domyślna to 300 (5 minut); wartość minimalna to 15 sekund.
 ujścia | obowiązkowe Rozdzielana przecinkami lista nazw dodatkowych obiektów ujścia, do których należy opublikować nieprzetworzone przykładowe wyniki metryki. Żadne agregacje tych nieprzetworzonych próbek nie są obliczane przez rozszerzenie ani za pomocą metryk platformy Azure.
 
@@ -487,7 +490,7 @@ Steruje przechwytywaniem plików dziennika. LAD przechwytuje nowe wiersze tekstu
 Element | Wartość
 ------- | -----
  — plik | Pełna nazwa ścieżki pliku dziennika do obserwowania i przechwycenia. Nazwa ścieżki musi mieć nazwę pojedynczego pliku; nie może to być nazwa katalogu ani zawierać symboli wieloznacznych. Konto użytkownika "omsagent" musi mieć dostęp do odczytu do ścieżki pliku.
-tabela | obowiązkowe Tabela usługi Azure Storage w wyznaczonym koncie magazynu (zgodnie z konfiguracją chronioną), do której zapisywane są nowe wiersze z "ogona" pliku.
+table (stolik) | obowiązkowe Tabela usługi Azure Storage w wyznaczonym koncie magazynu (zgodnie z konfiguracją chronioną), do której zapisywane są nowe wiersze z "ogona" pliku.
 ujścia | obowiązkowe Rozdzielana przecinkami lista nazw dodatkowych obiektów ujścia, do których są wysyłane wiersze dziennika.
 
 Należy określić "Table" lub "ujścia" albo oba te elementy.
@@ -578,7 +581,7 @@ TransfersPerSecond | Operacje odczytu lub zapisu na sekundę
 
 Zagregowane wartości we wszystkich systemach plików można uzyskać przez ustawienie `"condition": "IsAggregate=True"` . Wartości dla określonego zainstalowanego systemu plików, na przykład "/mnt", można uzyskać przez ustawienie `"condition": 'Name="/mnt"'` . 
 
-**Uwaga**: w przypadku korzystania z witryny Azure Portal zamiast JSON, prawidłowy warunek jest w postaci nazwa = "/mnt"
+**Uwaga** : w przypadku korzystania z witryny Azure Portal zamiast JSON, prawidłowy warunek jest w postaci nazwa = "/mnt"
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>metryki wbudowane dla klasy Disk
 
@@ -611,7 +614,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 
 W poleceniu przyjęto założenie, że używasz trybu zarządzania zasobami platformy Azure dla interfejsu wiersza polecenia platformy Azure. Aby skonfigurować LAD dla maszyn wirtualnych z modelem wdrożenia klasycznego (ASM), przełącz się do trybu "ASM" ( `azure config mode asm` ) i Pomiń nazwę grupy zasobów w poleceniu. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu wiersza polecenia dla wielu platform](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 Przy założeniu, że chronione ustawienia znajdują się w `$protectedSettings` zmiennej, a informacje o konfiguracji publicznej są w `$publicSettings` zmiennej, uruchom następujące polecenie:
 

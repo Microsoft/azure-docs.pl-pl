@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: be3634ea051c99acf7b706da266179c93a1be861
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2d87be085331c174b58e2a475e18efa54a78cfea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676671"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Samouczek: integracja Azure Active Directory z platformą SAP w chmurze
 
@@ -150,7 +150,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD na platformie SAP Clou
 
 3. W sekcji Trust Management (Zarządzanie relacjami zaufania) w obszarze **Local Service Provider** (Lokalny dostawca usług), wykonaj następujące kroki:
 
-    ![Zarządzanie zaufaniem](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Zarządzanie zaufaniem")
+    ![Zrzut ekranu przedstawiający sekcję "Zarządzanie zaufaniem" z wybraną kartą "dostawca usług lokalnych" i wszystkie pola tekstowe wyróżnione.](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Zarządzanie zaufaniem")
    
     a. Kliknij pozycję **Edytuj** .
 
@@ -178,7 +178,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD na platformie SAP Clou
 
 5. Kliknij kartę **Trusted Identity Provider** (Zaufany dostawca tożsamości), a następnie kliknij pozycję **Add Trusted Identity Provider** (Dodaj zaufanego dostawcę tożsamości).
    
-    ![Zarządzanie zaufaniem](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Zarządzanie zaufaniem")
+    ![Zrzut ekranu przedstawiający stronę "Zarządzanie zaufaniem" z wybraną kartą "zaufany dostawca tożsamości".](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Zarządzanie zaufaniem")
    
     >[!NOTE]
     >Aby zarządzać listą zaufanych dostawców tożsamości, należy wybrać niestandardowy typ konfiguracji w sekcji Local Service Provider (Lokalny dostawca usług). W przypadku domyślnego typu konfiguracji relacja zaufania z usługą identyfikatora SAP jest nieedytowalna i niejawna. W przypadku braku konfiguracji nie istnieją żadne ustawienia relacji zaufania.

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6d8a2bfe20d0e7b52dcd60127b3666f0c21a792
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83677952"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895804"
 ---
 # <a name="manage-azure-maps-creator"></a>Zarządzaj twórcą Azure Maps
 
@@ -25,19 +25,19 @@ W tym artykule opisano kroki tworzenia i usuwania zasobu twórcy na koncie Azure
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
-2. Wybierz konto Azure Maps. Jeśli nie widzisz konta Azure Maps w obszarze **ostatnie zasoby**, przejdź do menu Azure Portal. Wybierz pozycję **Wszystkie zasoby**. Znajdź i wybierz swoje konto Azure Maps.
+2. Wybierz konto Azure Maps. Jeśli nie widzisz konta Azure Maps w obszarze **ostatnie zasoby** , przejdź do menu Azure Portal. Wybierz pozycję **Wszystkie zasoby** . Znajdź i wybierz swoje konto Azure Maps.
 
     ![Strona główna portalu Azure Maps](./media/how-to-manage-creator/select-maps-account.png)
 
-3. Gdy jesteś na stronie konta Azure Maps, przejdź do opcji **Przegląd** w obszarze **Creator**(Tworzenie). Kliknij przycisk  **Utwórz**  , aby utworzyć zasób twórcy Azure Maps.
+3. Gdy jesteś na stronie konta Azure Maps, przejdź do opcji **Przegląd** w obszarze **Creator** (Tworzenie). Kliknij przycisk  **Utwórz**  , aby utworzyć zasób twórcy Azure Maps.
 
     ![Tworzenie strony kreatora Azure Maps](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Wprowadź nazwę i lokalizację zasobu twórcy. Obecnie Kreator jest obsługiwany tylko w Stany Zjednoczone. Kliknij pozycję **Przejrzyj i utwórz**.
+4. Wprowadź nazwę i lokalizację zasobu twórcy. Obecnie Kreator jest obsługiwany tylko w Stany Zjednoczone. Kliknij pozycję **Przejrzyj i utwórz** .
 
    ![Wprowadź stronę informacji o koncie twórcy](./media/how-to-manage-creator/creator-creation-dialog.png)
 
-5. Przejrzyj ustawienia i kliknij przycisk **Utwórz**.
+5. Przejrzyj ustawienia i kliknij przycisk **Utwórz** .
 
     ![Strona Potwierdzanie ustawień konta twórcy](./media/how-to-manage-creator/creator-create-dialog.png)
 
@@ -45,7 +45,7 @@ W tym artykule opisano kroki tworzenia i usuwania zasobu twórcy na koncie Azure
 
    ![Strona stanu wdrożenia zasobu](./media/how-to-manage-creator/creator-resource-created.png)
 
-7. Kliknij opcję **Przejdź do zasobu**. Na stronie widok zasobów twórcy zostanie wyświetlony stan zasobu twórcy i wybrany region demograficzny.
+7. Kliknij opcję **Przejdź do zasobu** . Na stronie widok zasobów twórcy zostanie wyświetlony stan zasobu twórcy i wybrany region demograficzny.
 
     ![Strona stanu twórcy](./media/how-to-manage-creator/creator-resource-view.png)
 
@@ -54,7 +54,7 @@ W tym artykule opisano kroki tworzenia i usuwania zasobu twórcy na koncie Azure
 
 ## <a name="delete-creator-resource"></a>Usuwanie zasobu twórcy
 
-Aby usunąć zasób twórcy, przejdź do swojego konta Azure Maps. Wybierz pozycję **Przegląd** w obszarze **twórca**. Kliknij przycisk **Usuń**.
+Aby usunąć zasób twórcy, przejdź do swojego konta Azure Maps. Wybierz pozycję **Przegląd** w obszarze **twórca** . Kliknij przycisk **Usuń** .
 
 >[!WARNING]
 >Usunięcie zasobu twórcy konta Azure Maps spowoduje również usunięcie zestawów danych, tilesets i funkcji statesets utworzonych przy użyciu usług Creator Services.
@@ -65,11 +65,11 @@ Kliknij przycisk **Usuń** i wpisz swoją nazwę twórcy, aby potwierdzić usuni
 
 ![Strona twórcy z potwierdzeniem usunięcia](./media/how-to-manage-creator/creator-confirmdelete.png)
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Twórca dziedziczy ustawienia Azure Maps Access Control (IAM). Wszystkie wywołania interfejsu API do uzyskiwania dostępu do danych muszą być wysyłane z regułami uwierzytelniania i autoryzacji.
 
-Dane użycia twórcy są zawarte w Azure Maps wykresy użycia i dziennik aktywności.  Aby uzyskać więcej informacji, zobacz [Zarządzanie uwierzytelnianiem w Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Dane użycia twórcy są zawarte w Azure Maps wykresy użycia i dziennik aktywności.  Aby uzyskać więcej informacji, zobacz [Zarządzanie uwierzytelnianiem w Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="access-to-creator-services"></a>Dostęp do usług Creator
 
@@ -88,7 +88,7 @@ Wprowadzenie do kreatora dla mapowania pomieszczeń:
 > [Konwersja danych](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Zestaw danych](creator-indoor-maps.md#datasets)
+> [Zestawu](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)

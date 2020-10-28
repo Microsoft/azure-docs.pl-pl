@@ -10,12 +10,12 @@ ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 9615dc358b1c5bed0e48c07c2571ccce05fcdf2e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 97f3a8f79e503b8870baf67ee982b0091d926b1e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637211"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895345"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Jak utworzyć i skonfigurować Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Wykonaj następujące kroki, aby utworzyć Azure IR przy użyciu Azure Data Fact
 
 1. W lewym okienku wybierz pozycję **Integration Runtimes** , a następnie wybierz pozycję **+ Nowy** .
 
-   ![Tworzenie środowiska Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
+   ![Zrzut ekranu, który wyróżnia środowisko Integration Runtimes w lewym okienku i przycisk + Nowy.](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny** , a następnie wybierz pozycję **Kontynuuj** . 
 

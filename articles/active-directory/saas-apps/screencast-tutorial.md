@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/15/2019
 ms.author: jeedes
-ms.openlocfilehash: eae60ba9aabe417e986c7637ce700302bfe6c7bf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2b0c42046df716c8ae65046e5f3314817da0a17e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676564"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893800"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-screencast-o-matic"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą zrzut ekranu przedstawiający-O-Matic
 
@@ -137,15 +137,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Subskrypcja](./media/screencast-tutorial/tutorial_screencast_sub.png)
 
-1. W obszarze **Strona dostępu** , kliknij przycisk **Setup (Konfiguracja** ).
+1. W sekcji **Strona dostępu** kliknij pozycję **Konfiguracja** .
 
-    ![Dostęp](./media/screencast-tutorial/tutorial_screencast_setup.png)
+    ![Zrzut ekranu pokazujący sekcję "Strona dostępu" z wybranym przyciskiem "Zainstaluj".](./media/screencast-tutorial/tutorial_screencast_setup.png)
 
 1. Na **stronie dostęp do Instalatora** wykonaj następujące czynności.
 
-1. W obszarze **adres URL dostępu** , wpisz InstanceName w określonym polu tekstowym.
+1. W sekcji **adres URL dostępu** wpisz swoją InstanceName w określonym polu tekstowym.
 
-    ![Dostęp](./media/screencast-tutorial/tutorial_screencast_access.png)
+    ![Zrzut ekranu pokazujący sekcję "dostęp U R L" z wyróżnioną polem tekstowym Nazwa wystąpienia.](./media/screencast-tutorial/tutorial_screencast_access.png)
 
 1. Wybierz pozycję **Wymagaj użytkownika domeny** w sekcji **ograniczenie użytkownika protokołu SAML (opcjonalnie)** .
 

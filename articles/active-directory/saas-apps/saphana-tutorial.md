@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d3a3a068a4efb2dea7d7df4bc2b88e2c33dc18b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 748566cf5b25157fcb8a2938a3f4bd307c930874
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672130"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895164"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Samouczek: integracja Azure Active Directory z SAP HANA
 
@@ -121,13 +121,13 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w oprogramowaniu SAP H
 
 5. Aplikacja SAP HANA oczekuje asercji SAML w konkretnym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij przycisk **Edytuj** , aby otworzyć okno dialogowe **Atrybuty użytkownika** .
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący sekcję "atrybuty użytkownika" z wybraną ikoną "Edytuj".](common/edit-attribute.png)
 
 6. W sekcji **atrybuty użytkownika** w oknie dialogowym **atrybuty użytkownika & oświadczenia** wykonaj następujące czynności:
  
     a. Kliknij **ikonę Edytuj** , aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika** .
 
-    ![image (obraz)](./media/saphana-tutorial/tutorial_usermail.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "atrybuty użytkownika & oświadczenia" z wybraną ikoną "Edytuj".](./media/saphana-tutorial/tutorial_usermail.png)
 
     ![image (obraz)](./media/saphana-tutorial/tutorial_usermailedit.png)
 
@@ -154,7 +154,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w oprogramowaniu SAP H
 
     a. W okienku **Add Identity Provider Info** (Dodawanie informacji o dostawcy tożsamości) wklej kod XML metadanych (pobrany z witryny Azure Portal) w polu **Metadata** (Metadane).
 
-    ![Dodawanie ustawień dostawcy tożsamości](./media/saphana-tutorial/sap2.png)
+    ![Zrzut ekranu przedstawiający okienko "Dodawanie informacji o dostawcy tożsamości" z wyróżnionymi polami "Metadata" i "name".](./media/saphana-tutorial/sap2.png)
 
     b. Jeśli zawartość dokumentu XML jest prawidłowa, proces analizy wyodrębni informacje wymagane dla pól **Subject (Podmiot), Entity ID (Identyfikator jednostki) i Issuer (Wystawca)** w obszarze ekranu **General data** (Dane ogólne). Wyodrębni także informacje niezbędne dla pól adresu URL w obszarze ekranu **Destination** (Cel), na przykład **Base URL (Podstawowy adres URL) i SingleSignOn URL (Adres URL logowania jednokrotnego) (*)** .
 

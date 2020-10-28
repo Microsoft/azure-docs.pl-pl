@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba9a227956e7879a7c0f49e0534146fa01a49759
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd8f6bb8ce93d1d423019f792624d8bdac56ecf8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442222"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892643"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Jak użytkownicy w organizacji mogą zapraszać użytkowników-Gości do aplikacji
 
@@ -35,7 +35,7 @@ Po dodaniu użytkownika-gościa do katalogu w usłudze Azure AD właściciel apl
 Po skonfigurowaniu aplikacji do samoobsługi właściciele aplikacji mogą korzystać z własnego panelu dostępu, aby zapraszać użytkownika-gościa do aplikacji, którą chcą udostępnić. Użytkownik-Gość nie musi być koniecznie dodawany do usługi Azure AD z wyprzedzeniem. 
 
 1. Otwórz panel dostępu, przechodząc do `https://myapps.microsoft.com` .
-2. Wskaż aplikację, wybierz wielokropek (**...**), a następnie wybierz pozycję **Zarządzaj aplikacją**.
+2. Wskaż aplikację, wybierz wielokropek ( **...** ), a następnie wybierz pozycję **Zarządzaj aplikacją** .
  
    ![Zrzut ekranu przedstawiający podmenu Zarządzaj aplikacjami dla aplikacji Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
@@ -58,7 +58,7 @@ Po skonfigurowaniu aplikacji do samoobsługi właściciele aplikacji mogą zapra
    
    ![Zrzut ekranu przedstawiający aplikację grupy w panelu dostępu](media/add-users-iw/access-panel-groups.png)
    
-4. W obszarze **grupy I**wybierz grupę, która ma dostęp do aplikacji, którą chcesz udostępnić.
+4. W obszarze **grupy I** wybierz grupę, która ma dostęp do aplikacji, którą chcesz udostępnić.
    
    ![Zrzut ekranu przedstawiający miejsce wybrania grupy w grupie I](media/add-users-iw/access-panel-groups-i-own.png)
    
@@ -82,36 +82,36 @@ Samoobsługowe zarządzanie aplikacjami wymaga wprowadzenia wstępnej konfigurac
 
 ### <a name="enable-self-service-group-management-for-your-tenant"></a>Włącz Samoobsługowe zarządzanie grupami dla Twojej dzierżawy
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny.
-2. W panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
-3. Wybierz pozycję **grupy**.
-4. W obszarze **Ustawienia**wybierz pozycję **Ogólne**.
-5. W obszarze samoobsługowe **Zarządzanie grupami**obok **właścicieli można zarządzać żądaniami członkostwa w grupach w panelu dostępu**, wybierz opcję **tak**.
-6. Wybierz pozycję **Zapisz**.
+2. W panelu nawigacyjnym wybierz pozycję **Azure Active Directory** .
+3. Wybierz pozycję **grupy** .
+4. W obszarze **Ustawienia** wybierz pozycję **Ogólne** .
+5. W obszarze samoobsługowe **Zarządzanie grupami** obok **właścicieli można zarządzać żądaniami członkostwa w grupach w panelu dostępu** , wybierz opcję **tak** .
+6. Wybierz pozycję **Zapisz** .
 
 ### <a name="create-a-group-to-assign-to-the-app-and-make-the-user-an-owner"></a>Tworzenie grupy do przypisania do aplikacji i nadaje użytkownikowi właściciela
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD lub Administrator globalny.
-2. W panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
-3. Wybierz pozycję **grupy**.
-4. Wybierz pozycję **Nowa grupa**.
-5. W obszarze **Typ grupy**wybierz pozycję **zabezpieczenia**.
-6. Wpisz odpowiedni tekst w polach **Nazwa grupy** i **Opis grupy**.
-7. W obszarze **Typ członkostwa**wybierz pozycję **przypisano**.
-8. Wybierz pozycję **Utwórz**, a następnie zamknij stronę **grupy** .
+2. W panelu nawigacyjnym wybierz pozycję **Azure Active Directory** .
+3. Wybierz pozycję **grupy** .
+4. Wybierz pozycję **Nowa grupa** .
+5. W obszarze **Typ grupy** wybierz pozycję **zabezpieczenia** .
+6. Wpisz odpowiedni tekst w polach **Nazwa grupy** i **Opis grupy** .
+7. W obszarze **Typ członkostwa** wybierz pozycję **przypisano** .
+8. Wybierz pozycję **Utwórz** , a następnie zamknij stronę **grupy** .
 9. Na stronie **grupy — wszystkie grupy** Otwórz grupę. 
-10. W obszarze **Zarządzanie**wybierz pozycję **właściciele**  >  **Dodaj właścicieli**. Wyszukaj użytkownika, który powinien zarządzać dostępem do aplikacji. Wybierz użytkownika, a następnie kliknij przycisk **Wybierz**.
+10. W obszarze **Zarządzanie** wybierz pozycję **właściciele**  >  **Dodaj właścicieli** . Wyszukaj użytkownika, który powinien zarządzać dostępem do aplikacji. Wybierz użytkownika, a następnie kliknij przycisk **Wybierz** .
 
 ### <a name="configure-the-app-for-self-service-and-assign-the-group-to-the-app"></a>Skonfiguruj aplikację do samoobsługi i Przypisz grupę do aplikacji
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD lub Administrator globalny.
-2. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
-3. W obszarze **Zarządzaj**wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
+2. W okienku nawigacji wybierz pozycję **Azure Active Directory** .
+3. W obszarze **Zarządzaj** wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje** .
 4. Znajdź aplikację i otwórz ją na liście aplikacji.
-5. W obszarze **Zarządzaj**wybierz pozycję **Logowanie jednokrotne**i skonfiguruj aplikację do logowania jednokrotnego. (Aby uzyskać szczegółowe informacje, zobacz [jak zarządzać logowaniem jednokrotnym dla aplikacji przedsiębiorstwa](../manage-apps/view-applications-portal.md)).
-6. W obszarze **Zarządzanie**wybierz pozycję **samoobsługa**i Skonfiguruj dostęp do aplikacji samoobsługowej. (Aby uzyskać szczegółowe informacje, zobacz jak używać samoobsługowego [dostępu do aplikacji](../manage-apps/access-panel-manage-self-service-access.md)). 
+5. W obszarze **Zarządzaj** wybierz pozycję **Logowanie jednokrotne** i skonfiguruj aplikację do logowania jednokrotnego. (Aby uzyskać szczegółowe informacje, zobacz [jak zarządzać logowaniem jednokrotnym dla aplikacji przedsiębiorstwa](../manage-apps/add-application-portal-setup-sso.md)).
+6. W obszarze **Zarządzanie** wybierz pozycję **samoobsługa** i Skonfiguruj dostęp do aplikacji samoobsługowej. (Aby uzyskać szczegółowe informacje, zobacz jak używać samoobsługowego [dostępu do aplikacji](../manage-apps/access-panel-manage-self-service-access.md)). 
 
     > [!NOTE]
     > Aby określić, **do której grupy mają być dodawane użytkownicy?** wybierz grupę utworzoną w poprzedniej sekcji.
-7. W obszarze **Zarządzaj**wybierz pozycję **Użytkownicy i grupy**, a następnie sprawdź, czy utworzona grupa samoobsługi zostanie wyświetlona na liście.
-8. Aby dodać aplikację do panelu dostępu właściciela grupy, wybierz pozycję **Dodaj**  >  **użytkowników i grupy**użytkowników. Wyszukaj właściciela grupy i wybierz użytkownika, kliknij pozycję **Wybierz**, a następnie kliknij pozycję **Przypisz** , aby dodać użytkownika do aplikacji.
+7. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy i grupy** , a następnie sprawdź, czy utworzona grupa samoobsługi zostanie wyświetlona na liście.
+8. Aby dodać aplikację do panelu dostępu właściciela grupy, wybierz pozycję **Dodaj**  >  **użytkowników i grupy** użytkowników. Wyszukaj właściciela grupy i wybierz użytkownika, kliknij pozycję **Wybierz** , a następnie kliknij pozycję **Przypisz** , aby dodać użytkownika do aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -120,4 +120,4 @@ Zapoznaj się z następującymi artykułami dotyczącymi współpracy B2B w usł
 - [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
 - [Jak Administratorzy Azure Active Directory dodawać użytkowników współpracy B2B?](add-users-administrator.md)
 - [Realizacja zaproszenia do współpracy B2B](redemption-experience.md)
-- [Licencjonowanie funkcji współpracy B2B w usłudze Azure AD](licensing-guidance.md)
+- [Cennik tożsamości zewnętrznych](external-identities-pricing.md)

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089455"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895770"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Zarządzanie uwierzytelnianiem w Azure Maps
 
@@ -22,16 +22,16 @@ Po utworzeniu konta Azure Maps, identyfikator klienta i klucze są tworzone w ce
 
 ## <a name="view-authentication-details"></a>Wyświetlanie szczegółów uwierzytelniania
 
-Po utworzeniu konta Azure Maps są generowane klucze podstawowe i pomocnicze. Zalecamy używanie klucza podstawowego jako klucza subskrypcji podczas [korzystania z uwierzytelniania za pomocą klucza współużytkowanego do wywoływania Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Klucza pomocniczego można używać w scenariuszach, takich jak stopniowe zmiany klawiszy. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie w Azure Maps](https://aka.ms/amauth).
+Po utworzeniu konta Azure Maps są generowane klucze podstawowe i pomocnicze. Zalecamy używanie klucza podstawowego jako klucza subskrypcji podczas [korzystania z uwierzytelniania za pomocą klucza współużytkowanego do wywoływania Azure Maps](./azure-maps-authentication.md#shared-key-authentication). Klucza pomocniczego można używać w scenariuszach, takich jak stopniowe zmiany klawiszy. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie w Azure Maps](./azure-maps-authentication.md).
 
-Szczegóły uwierzytelniania można wyświetlić w Azure Portal. Na Twoim koncie w menu **Ustawienia** wybierz pozycję **uwierzytelnianie**.
+Szczegóły uwierzytelniania można wyświetlić w Azure Portal. Na Twoim koncie w menu **Ustawienia** wybierz pozycję **uwierzytelnianie** .
 
 > [!div class="mx-imgBorder"]
 > ![Szczegóły uwierzytelniania](./media/how-to-manage-authentication/how-to-view-auth.png)
 
 ## <a name="discover-category-and-scenario"></a>Odkryj kategorię i scenariusz
 
-W zależności od potrzeb aplikacji istnieją konkretne ścieżki zabezpieczania aplikacji. Usługa Azure AD definiuje kategorie do obsługi szerokiego zakresu przepływów uwierzytelniania. Zobacz [Kategorie aplikacji](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories) , aby zrozumieć, która kategoria mieści się w aplikacji.
+W zależności od potrzeb aplikacji istnieją konkretne ścieżki zabezpieczania aplikacji. Usługa Azure AD definiuje kategorie do obsługi szerokiego zakresu przepływów uwierzytelniania. Zobacz [Kategorie aplikacji](../active-directory/develop/authentication-flows-app-scenarios.md#application-categories) , aby zrozumieć, która kategoria mieści się w aplikacji.
 
 > [!NOTE]
 > Nawet jeśli używasz uwierzytelniania opartego na kluczu udostępnionym, zrozumienie kategorii i scenariuszy pomaga zabezpieczyć aplikację.
@@ -56,14 +56,14 @@ Linki w tabeli prowadzą do szczegółowych informacji o konfiguracji dla każde
 
 ## <a name="view-role-definitions"></a>Wyświetlanie definicji ról
 
-Aby wyświetlić role platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)**. Wybierz pozycję **role**, a następnie wyszukaj role zaczynające się od *Azure Maps*. Te role Azure Maps są rolami, do których można udzielić dostępu.
+Aby wyświetlić role platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)** . Wybierz pozycję **role** , a następnie wyszukaj role zaczynające się od *Azure Maps* . Te role Azure Maps są rolami, do których można udzielić dostępu.
 
 > [!div class="mx-imgBorder"]
 > ![Wyświetl dostępne role](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 ## <a name="view-role-assignments"></a>Wyświetlanie przypisań ról
 
-Aby wyświetlić użytkowników i aplikacje, którym udzielono dostępu do Azure Maps, przejdź do pozycji **Access Control (IAM)**. W tym miejscu wybierz pozycję **przypisania ról**, a następnie Przefiltruj według **Azure Maps**.
+Aby wyświetlić użytkowników i aplikacje, którym udzielono dostępu do Azure Maps, przejdź do pozycji **Access Control (IAM)** . W tym miejscu wybierz pozycję **przypisania ról** , a następnie Przefiltruj według **Azure Maps** .
 
 > [!div class="mx-imgBorder"]
 > ![Wyświetlanie użytkowników i aplikacji, którym udzielono dostępu](./media/how-to-manage-authentication/how-to-view-amrbac.png)
@@ -77,11 +77,11 @@ Zażądaj tokenu z punktu końcowego tokenu usługi Azure AD. W żądaniu usług
 | Chmura publiczna Azure     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Azure Government Cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-Aby uzyskać więcej informacji na temat żądania tokenów dostępu z usługi Azure AD dla użytkowników i jednostek usługi, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) i Wyświetl konkretne scenariusze w tabeli [scenariuszy](./how-to-manage-authentication.md#determine-authentication-and-authorization).
+Aby uzyskać więcej informacji na temat żądania tokenów dostępu z usługi Azure AD dla użytkowników i jednostek usługi, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../active-directory/develop/authentication-vs-authorization.md) i Wyświetl konkretne scenariusze w tabeli [scenariuszy](./how-to-manage-authentication.md#determine-authentication-and-authorization).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [Azure AD i Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Aby uzyskać więcej informacji, zobacz [Azure AD i Azure Maps Web SDK](./how-to-use-map-control.md).
 
 Znajdź metryki użycia interfejsu API dla konta usługi Azure Maps:
 > [!div class="nextstepaction"]

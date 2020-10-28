@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 7d22226721d4fc09b4f5affc15047b6799ed0d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1772a61f45d88e0b63346c41d557cfddf35ab4a7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409480"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892625"
 ---
 # <a name="test-drive-technical-configuration"></a>Wersja testowa konfiguracji technicznej
 
@@ -22,19 +22,19 @@ Jeśli nie chcesz już podawać dysku testowego dla swojej oferty, Wróć do str
 
 ## <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager dysk testowy
 
-Jest to jedyna opcja dysku testowego dla usług Virtual Machines lub Azure App, a także wymaga dość szczegółowej konfiguracji. Zapoznaj się z poniższymi sekcjami dotyczącymi [szczegółów subskrypcji wdrożenia](#deployment-subscription-details) i [list na dyskach testowych](#test-drive-listings), a następnie przejdź do oddzielnego tematu [Azure Resource Manager konfiguracji dysku testowego](azure-resource-manager-test-drive.md).
+Jest to jedyna opcja dysku testowego dla usług Virtual Machines lub Azure App, która wymaga dość szczegółowej konfiguracji. Zapoznaj się z poniższymi sekcjami dotyczącymi [szczegółów subskrypcji wdrożenia](#deployment-subscription-details) i [list na dyskach testowych](#test-drive-listings), a następnie przejdź do oddzielnego tematu [Azure Resource Manager konfiguracji dysku testowego](azure-resource-manager-test-drive.md).
 
 ## <a name="hosted-test-drive"></a>Hostowany dysk testowy
 
-Firma Microsoft może usunąć złożoność konfigurowania dysku testowego, udostępniając i utrzymując obsługę administracyjną i wdrożenie usługi przy użyciu tego typu dysku testowego. Konfiguracja dla tego typu hostowanego dysku testowego jest taka sama niezależnie od tego, czy dysk testowy jest przeznaczony dla użytkowników systemu Dynamics 365 Business Central, Dynamics 365 Customer Engagement, czy Dynamics 365 Operations.
+Firma Microsoft może usunąć złożoność konfigurowania dysku testowego, udostępniając i utrzymując obsługę administracyjną oraz anulowania aprowizacji. Konfiguracja dla tego typu dysku testowego jest taka sama niezależnie od tego, czy dysk testowy jest przeznaczony dla użytkowników usługi Dynamics 365 klienta lub Dynamics 365 Operations Manager.
 
 - **Maksymalna liczba współbieżnych dysków testowych** (wymagane) — Ustaw maksymalną liczbę klientów, którzy mogą jednocześnie używać danego dysku testowego. Każdy użytkownik współbieżny będzie korzystał z licencji Dynamics 365, gdy test jest aktywny, więc upewnij się, że masz wystarczającą liczbę licencji na obsługę maksymalnego ustawionego limitu. Zalecana wartość to 3-5.
 
-- **Czas trwania dysku testowego** (wymagane) — wprowadź liczbę godzin aktywności dysku testowego (co najmniej jedną godzinę). Po upływie tego czasu sesja zostanie zakończona i nie będzie już korzystać z jednej z Twoich licencji. Zalecamy użycie wartości 2-24 godzin w zależności od złożoności oferty. Ten czas trwania może być ustawiony tylko w ciągu całych godzin (na przykład "2" godziny jest prawidłowy; "1,5" nie jest). Użytkownik może zażądać nowej sesji, jeśli są one nieaktualne i chcą ponownie uzyskać dostęp do dysku testowego.
+- **Czas trwania dysku testowego** (wymagane) — wprowadź liczbę godzin aktywności dysku testowego dla każdego klienta. Po upływie tego czasu sesja zostanie zakończona i nie będzie już korzystać z jednej z Twoich licencji. Zalecamy użycie wartości 2-24 godzin w zależności od złożoności oferty. Ten czas trwania można ustawić tylko w pełnych godzinach (na przykład "2 godziny" jest prawidłowy; "1,5 godz." nie jest). Użytkownik może zażądać nowej sesji, jeśli są one nieaktualne i chcą ponownie uzyskać dostęp do dysku testowego.
 
 - **Adres URL wystąpienia** (wymagany) — adres URL, pod którym klient będzie rozpoczynać swój dysk testowy. Zwykle jest to adres URL wystąpienia usługi Dynamics 365 z uruchomioną aplikacją z zainstalowanymi przykładowymi danymi (na przykład `https://testdrive.crm.dynamics.com` ).
 
-- **Adres URL internetowego interfejsu API wystąpienia** (wymagany) — Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do dostosowywania **ustawień**  >  **Customization**  >  wystąpienia**zasobów deweloperskich**  >  **Web API (główny adres URL usługi)**, skopiuj adres URL znaleziony tutaj (na przykład `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
+- **Adres URL internetowego interfejsu API wystąpienia** (wymagany) — Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do dostosowywania **ustawień**  >  **Customization**  >  wystąpienia **zasobów deweloperskich**  >  **Web API (główny adres URL usługi)** , skopiuj adres URL znaleziony tutaj (na przykład `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Nazwa roli** (wymagana) — podaj nazwę roli zabezpieczeń, która została zdefiniowana w niestandardowym dysku testowym Dynamics 365, która zostanie przypisana do użytkownika podczas testu na dysku (na przykład "rola stacji testowych").
 
@@ -48,7 +48,7 @@ Ten typ dysku testowego nie jest hostowany przez firmę Microsoft. Służy do na
 
 - **Maksymalna liczba współbieżnych dysków testowych** (wymagane) — Ustaw maksymalną liczbę klientów, którzy mogą jednocześnie używać danego dysku testowego. Te stacje testowe są już wdrożone, umożliwiając klientom natychmiastowe uzyskiwanie dostępu do nich bez oczekiwania na wdrożenie.
 
-- **Czas trwania dysku testowego** (wymagane) — wprowadź liczbę godzin aktywności dysku testowego (co najmniej jedną godzinę). Po upływie tego czasu test kończy się automatycznie.
+- **Czas trwania dysku testowego** (wymagane) — Wprowadź czas aktywności dysku testowego w ciągu kilku godzin. Po upływie tego czasu test kończy się automatycznie.
 
 - **Nazwa grupy zasobów platformy Azure** (wymagana) — wprowadź nazwę [grupy zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md#resource-groups), w której jest zapisywany dysk testowy aplikacji logiki.
 
@@ -68,13 +68,13 @@ Aby umożliwić firmie Microsoft wdrożenie dysku testowego w Twoim imieniu, Utw
 
 - **Identyfikator subskrypcji platformy Azure** (wymagany dla Azure Resource Manager i aplikacji logiki) — wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure na potrzeby raportowania użycia zasobów i rozliczeń. Zalecamy [utworzenie oddzielnej subskrypcji platformy Azure](../cost-management-billing/manage/create-subscription.md) , która ma być używana na potrzeby dysków testowych, jeśli jeszcze jej nie masz. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [Azure Portal](https://portal.azure.com/) i przechodząc do karty **subskrypcje** w menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (na przykład "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu nazwy domeny w lokalizacji [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+- **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości** , a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu nazwy domeny w lokalizacji [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 - **Nazwa dzierżawy usługi Azure AD** (wymagana dla dynamicznego 365) — wprowadź nazwę Azure Active Directory (AD). Aby znaleźć tę nazwę, zaloguj się do [Azure Portal](https://portal.azure.com/), w prawym górnym rogu nazwa dzierżawy zostanie wyświetlona w polu Nazwa konta.
 
-- **Identyfikator aplikacji usługi Azure AD** (wymagany) — wprowadź [Identyfikator aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Identyfikator aplikacji usługi Azure AD** (wymagany) — wprowadź [Identyfikator aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji** , a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Wpis tajny klienta aplikacji usługi Azure AD** (wymagane) — wprowadź [klucz tajny klienta](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne**, wybierz pozycję **Nowy wpis tajny klienta**, wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie**, a następnie wybierz pozycję **Dodaj**. Należy pamiętać o skopiowaniu wartości. Przed skopiowaniem wartości nie opuszczaj strony.
+- **Wpis tajny klienta aplikacji usługi Azure AD** (wymagane) — wprowadź [klucz tajny klienta](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji** , a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne** , wybierz pozycję **Nowy wpis tajny klienta** , wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie** , a następnie wybierz pozycję **Dodaj** . Należy pamiętać o skopiowaniu wartości. Przed skopiowaniem wartości nie opuszczaj strony.
 
 ## <a name="test-drive-listings"></a>Aukcje na dysku testowym
 
@@ -93,6 +93,14 @@ Opcja **listy** dla wersji testowych znajduje się na karcie **dysk testowy** w 
 
 Jeśli obecnie tworzysz dysk testowy w centrum partnerskim, wybierz opcję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="next-step"></a>Następny krok
+## <a name="next-steps"></a>Następne kroki
 
+- [Najlepsze rozwiązania dotyczące wersji testowej](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Przegląd](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF; upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 - [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](partner-center-portal/update-existing-offer.md)
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+## <a name="feedback"></a>Opinia
+
+Prześlij i Wyświetl opinię dla [tego produktu](https://feedback.azure.com/forums/216369-azure-marketplace)

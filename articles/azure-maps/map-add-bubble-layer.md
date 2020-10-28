@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 446a70a4399b7ec0e16fed2d33c9ec711acfe200
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae29dcc0d334a2296199da0d8e3bc4562e275d3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310836"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895332"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Dodawanie warstwy bąbelkowej do mapy
 
@@ -25,7 +25,7 @@ W tym artykule przedstawiono sposób renderowania danych punktu ze źródła dan
 
 ## <a name="add-a-bubble-layer"></a>Dodawanie warstwy bąbelkowej
 
-Poniższy kod ładuje tablicę punktów do źródła danych. Następnie łączy punkty danych z [warstwą bąbelkową](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer). Warstwa bąbelkowa renderuje promień każdego bąbelka z pięcioma pikselami i kolorem wypełnienia bieli. Kolor obrysu niebieskiego i szerokość obrysu wynoszącego sześć pikseli. 
+Poniższy kod ładuje tablicę punktów do źródła danych. Następnie łączy punkty danych z [warstwą bąbelkową](/javascript/api/azure-maps-control/atlas.layer.bubblelayer). Warstwa bąbelkowa renderuje promień każdego bąbelka z pięcioma pikselami i kolorem wypełnienia bieli. Kolor obrysu niebieskiego i szerokość obrysu wynoszącego sześć pikseli. 
 
 ```javascript
 //Add point locations.
@@ -83,10 +83,10 @@ Warstwa bąbelków zawiera tylko kilka opcji stylów. Oto narzędzie do wypróbo
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
+> [BubbleLayer](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
 
 > [!div class="nextstepaction"]
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów kodu do dodania do Twoich map:
 
@@ -100,4 +100,4 @@ Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów k
 > [Korzystanie z wyrażeń stylu opartych na danych](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Przykłady kodu](/samples/browse/?products=azure-maps)

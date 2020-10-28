@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: cf43875be0088f9f9c8c8f209f97c8443bd305bb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3816239798290318404980ded388b726d8134395
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676605"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Samouczek: integracja Azure Active Directory z usługą ScreenSteps
 
@@ -130,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ScreenSteps
 
 1. Kliknij pozycję **Logowanie jednokrotne** .
 
-    ![Zdalne uwierzytelnianie](./media/screensteps-tutorial/ic778524.png "Zdalne uwierzytelnianie")
+    ![Zrzut ekranu przedstawiający wybraną wartość "Logowanie jednokrotne".](./media/screensteps-tutorial/ic778524.png "Zdalne uwierzytelnianie")
 
 1. Kliknij pozycję **Utwórz punkt końcowy logowania** jednokrotnego.
 

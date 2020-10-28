@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322299"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893985"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla reguł alertów dotyczących metryk w programie Azure Monitor
 
@@ -712,10 +712,10 @@ W tym przykładzie reguła alertu służy do monitorowania kombinacji wartości 
 2. **ApiName** — inna seria czasowa jest monitorowana tylko dla wartości wymiarów **GetBlob** i **PutBlob** .
 
 Przykładowo kilka potencjalnych szeregów czasowych monitorowanych przez tę regułę alertu są następujące:
-- Metric = *Transactions*, responsetype = *Success*, ApiName = *GetBlob*
-- Metric = *Transactions*, responsetype = *Success*, ApiName = *PutBlob*
-- Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *GetBlob*
-- Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *PutBlob*
+- Metric = *Transactions* , responsetype = *Success* , ApiName = *GetBlob*
+- Metric = *Transactions* , responsetype = *Success* , ApiName = *PutBlob*
+- Metric = *Transactions* , responsetype = *limit czasu serwera* , ApiName = *GetBlob*
+- Metric = *Transactions* , responsetype = *limit czasu serwera* , ApiName = *PutBlob*
 
 ### <a name="template-file"></a>Plik szablonu
 
@@ -903,10 +903,10 @@ W tym przykładzie reguła alertu służy do monitorowania kombinacji wartości 
 2. **ApiName** — inna seria czasowa jest monitorowana tylko dla wartości wymiarów **GetBlob** i **PutBlob** .
 
 Przykładowo kilka potencjalnych szeregów czasowych monitorowanych przez tę regułę alertu są następujące:
-- Metric = *Transactions*, responsetype = *Success*, ApiName = *GetBlob*
-- Metric = *Transactions*, responsetype = *Success*, ApiName = *PutBlob*
-- Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *GetBlob*
-- Metric = *Transactions*, responsetype = *limit czasu serwera*, ApiName = *PutBlob*
+- Metric = *Transactions* , responsetype = *Success* , ApiName = *GetBlob*
+- Metric = *Transactions* , responsetype = *Success* , ApiName = *PutBlob*
+- Metric = *Transactions* , responsetype = *limit czasu serwera* , ApiName = *GetBlob*
+- Metric = *Transactions* , responsetype = *limit czasu serwera* , ApiName = *PutBlob*
 
 >[!NOTE]
 > W przypadku reguł alertów dotyczących metryk korzystających z progów dynamicznych nie są obecnie obsługiwane różne kryteria.
@@ -3132,7 +3132,7 @@ Ten przykład tworzy regułę alertu metryki dynamicznej, która monitoruje proc
 > [!NOTE]
 > `&amp`; jest odwołaniem do jednostki HTML dla &. Parametry adresu URL są nadal oddzielone pojedynczym &, ale jeśli adres URL jest wymieniany w formacie HTML, należy go zakodować. Tak więc, jeśli masz jakiekolwiek "&" w wartości parametru pingURL, musisz je zmienić na " `&amp` ;"
 
-### <a name="parameter-file"></a>Plik parametrów
+### <a name="template-file"></a>Plik szablonu
 
 ```json
 {
@@ -3234,8 +3234,6 @@ Ten przykład tworzy regułę alertu metryki dynamicznej, która monitoruje proc
 }
 ```
 
-
-
 ### <a name="parameter-file"></a>Plik parametrów
 
 ```json
@@ -3254,12 +3252,53 @@ Ten przykład tworzy regułę alertu metryki dynamicznej, która monitoruje proc
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+Dodatkowa konfiguracja parametru Content-Match `pingText` jest kontrolowana w `Configuration/Webtest` części pliku szablonu. W sekcji poniżej:
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
+### <a name="test-locations"></a>Lokalizacje testów
+
+|Id                  | Region           |
+|:-------------------|:-----------------|
+| `emea-nl-ams-azr`  | West Europe      |
+| `us-ca-sjc-azr`    | Zachodnie stany USA          |
+| `emea-ru-msa-edge` | Południowe Zjednoczone Królestwo         |
+| `emea-se-sto-edge` | Zachodnie Zjednoczone Królestwo          |
+| `apac-sg-sin-azr`  | Southeast Asia   |
+| `us-tx-sn1-azr`    | South Central US |
+| `us-il-ch1-azr`    | Północno-środkowe stany USA |
+| `emea-gb-db3-azr`  | Europa Północna     |
+| `apac-jp-kaw-edge` | Japan East       |
+| `emea-fr-pra-edge` | Francja Środkowa   |
+| `emea-ch-zrh-edge` | Francja Południowa     |
+| `us-va-ash-azr`    | East US          |
+| `apac-hk-hkn-azr`  | Azja Wschodnia        |
+| `us-fl-mia-edge`   | Środkowe stany USA       |
+| `latam-br-gru-edge`| Brazil South      |
+| `emea-au-syd-edge` | Australia Wschodnia   |
+
+### <a name="us-government-test-locations"></a>Lokalizacje testów dla instytucji rządowych USA
+
+|Id                    | Region           |
+|----------------------|------------------|
+| `usgov-va-azr`       | `USGov Virginia` |
+| `usgov-phx-azr`      | `USGov Arizona`  |
+| `usgov-tx-azr`       | `USGov Texas`    |
+| `usgov-ddeast-azr`   | `USDoD East`     |
+| `usgov-ddcentral-azr`| `USDoD Central`  |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335300"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895396"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Jak używać przestrzennego modułu we/wy Azure Maps
 
-Zestaw SDK sieci Web Azure Maps udostępnia **moduł operacji we/wy**, który integruje dane przestrzenne z zestawem SDK Azure Maps sieci Web przy użyciu języka JavaScript lub TypeScript. Niezawodne funkcje w tym module umożliwiają deweloperom:
+Zestaw SDK sieci Web Azure Maps udostępnia **moduł operacji we/wy** , który integruje dane przestrzenne z zestawem SDK Azure Maps sieci Web przy użyciu języka JavaScript lub TypeScript. Niezawodne funkcje w tym module umożliwiają deweloperom:
 
 - [Odczytuj i zapisuj pliki wspólnych danych przestrzennych](spatial-io-read-write-spatial-data.md). Obsługiwane formaty plików to: KML, KMZ, GPX, GeoRSS, GML, GEOJSON i pliki CSV zawierające kolumny z informacjami przestrzennymi. Obsługuje również Well-Known Text (WKT).
 - [Łączenie się z usługami Open Geospatial Consortium (OGC) i integrację z programem Azure Maps Web SDK. Nałóż usługi mapy sieci Web (WMS) i usługi kafelków mapy sieci Web (WMTS) jako warstwy na mapie](spatial-io-add-ogc-map-layer.md).
@@ -40,7 +40,7 @@ Ten film wideo zawiera przegląd modułu operacji we/wy w Azure Maps Web SDK.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było używać przestrzennego modułu we/wy, należy [utworzyć konto Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) i [uzyskać podstawowy klucz subskrypcji dla Twojego konta](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Aby można było używać przestrzennego modułu we/wy, należy [utworzyć konto Azure Maps](./quick-demo-map-app.md#create-an-azure-maps-account) i [uzyskać podstawowy klucz subskrypcji dla Twojego konta](./quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 ## <a name="installing-the-spatial-io-module"></a>Instalowanie przestrzennego modułu we/wy
 
@@ -68,7 +68,7 @@ Moduł operacji we/wy można załadować Azure Maps przy użyciu jednej z dwóch
 
 1. Utwórz nowy plik HTML.
 
-2. Załaduj zestaw SDK sieci Web Azure Maps i zainicjuj formant mapy. Szczegóły można znaleźć w przewodniku [kontroli mapy Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) . Po wykonaniu tego kroku plik HTML powinien wyglądać następująco:
+2. Załaduj zestaw SDK sieci Web Azure Maps i zainicjuj formant mapy. Szczegóły można znaleźć w przewodniku [kontroli mapy Azure Maps](./how-to-use-map-control.md) . Po wykonaniu tego kroku plik HTML powinien wyglądać następująco:
 
     ```html
     <!DOCTYPE html>
@@ -256,4 +256,4 @@ Ta funkcja jest dostępna w tym miejscu jest tylko jedną z wielu funkcji dostę
 Zapoznaj się z dokumentacją dotyczącą operacji we/wy Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Azure Maps pakiet operacji we/wy](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Azure Maps pakiet operacji we/wy](/javascript/api/azure-maps-spatial-io/)

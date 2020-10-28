@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d8bf94bf0048efee05864b951429239de2def87a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a2065286581b6e7de61e4d1a29382b98563cdbb8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669389"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895063"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą ScaleX Enterprise
 
@@ -148,11 +148,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     > [!NOTE]
     > Firma Contoso jest tylko przykładem. Powinna to być rzeczywista nazwa firmy.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/scalex-enterprise-tutorial/Test_Admin.png)
+    ![Zrzut ekranu pokazujący przykładową nazwę firmy wybraną z menu w prawym górnym rogu.](./media/scalex-enterprise-tutorial/Test_Admin.png)
 
 1. Wybierz opcję **integracji** z górnego menu i wybierz pozycję **Logowanie jednokrotne** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/scalex-enterprise-tutorial/admin_sso.png) 
+    ![Zrzut ekranu pokazujący, że wybrano opcję "integracje" i "Logowanie jednokrotne" wybrane z menu rozwijanego.](./media/scalex-enterprise-tutorial/admin_sso.png) 
 
 1. Wypełnij formularz w następujący sposób:
 

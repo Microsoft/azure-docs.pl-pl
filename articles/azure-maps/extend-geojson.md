@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: e6cfbef3751a7b4256f689af0e5b3524ae6fa878
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87a5dec2582796c6703bfb37b76e26e53a1192c0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037460"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895787"
 ---
 # <a name="extended-geojson-geometries"></a>Rozszerzony geometrie GEOJSON
 
@@ -29,7 +29,7 @@ Azure Maps zawiera listę zaawansowanych interfejsów API do wyszukiwania w funk
 * Moment
 * Wielokąt
 
-Niektóre Azure Maps interfejsy API akceptują geometrie, które nie są częścią [specyfikacji GEOJSON][1]. Na przykład [Wyszukiwanie w](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) interfejsie API geometry akceptuje okrąg i wielokąty.
+Niektóre Azure Maps interfejsy API akceptują geometrie, które nie są częścią [specyfikacji GEOJSON][1]. Na przykład [Wyszukiwanie w](/rest/api/maps/search/postsearchinsidegeometry) interfejsie API geometry akceptuje okrąg i wielokąty.
 
 Ten artykuł zawiera szczegółowy opis sposobu, w jaki Azure Maps rozszerza [specyfikację GEOJSON][1] , aby reprezentować niektóre geometrie.
 

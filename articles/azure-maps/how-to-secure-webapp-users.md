@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 1668c7ccad75771a598aaa55f5403f070ea2dff8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ebdc4b219e0840c18e6bef8ebfe9b8eefa8faf3b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090220"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895584"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Zabezpieczanie aplikacji sieci Web przy użyciu logowania użytkownika
 
@@ -27,36 +27,36 @@ Poniższy przewodnik dotyczy aplikacji hostowanej na serwerach sieci Web, obsłu
 
 Aby użytkownicy mogli się zalogować, musisz utworzyć aplikację sieci Web w usłudze Azure AD. Ta aplikacja sieci Web będzie następnie delegować dostęp użytkowników do Azure Maps interfejsów API REST.
 
-1. W Azure Portal na liście usług platformy Azure wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.  
+1. W Azure Portal na liście usług platformy Azure wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja** .  
 
     > [!div class="mx-imgBorder"]
     > ![Rejestrowanie aplikacji](./media/how-to-manage-authentication/app-registration.png)
 
-2. Wprowadź **nazwę**, wybierz **Typ konta pomocy technicznej**, podaj identyfikator URI przekierowania, który będzie reprezentować adres URL, który będzie WYSTAWIAŁ token usługi Azure AD, a także adres URL, pod którym jest hostowany formant mapy. Aby uzyskać więcej informacji, zobacz scenariusz usługi Azure AD [: aplikacja sieci Web, która umożliwia użytkownikom logowanie](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview)się. Wykonaj podane kroki w scenariuszu usługi Azure AD.  
+2. Wprowadź **nazwę** , wybierz **Typ konta pomocy technicznej** , podaj identyfikator URI przekierowania, który będzie reprezentować adres URL, który będzie WYSTAWIAŁ token usługi Azure AD, a także adres URL, pod którym jest hostowany formant mapy. Aby uzyskać więcej informacji, zobacz scenariusz usługi Azure AD [: aplikacja sieci Web, która umożliwia użytkownikom logowanie](../active-directory/develop/scenario-web-app-sign-user-overview.md)się. Wykonaj podane kroki w scenariuszu usługi Azure AD.  
 
 3. Po zakończeniu rejestracji aplikacji upewnij się, że zalogowanie aplikacji jest obsługiwane dla użytkowników. Po zalogowaniu aplikacja może otrzymać delegowany dostęp do Azure Maps interfejsów API REST.
     
-4.  Aby przypisać delegowane uprawnienia interfejsu API do Azure Maps, przejdź do aplikacji. Następnie wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**. W obszarze interfejsy API, które są **wykorzystywane przez moją organizację**, Wyszukaj i wybierz **Azure Maps**.
+4.  Aby przypisać delegowane uprawnienia interfejsu API do Azure Maps, przejdź do aplikacji. Następnie wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie** . W obszarze interfejsy API, które są **wykorzystywane przez moją organizację** , Wyszukaj i wybierz **Azure Maps** .
 
     > [!div class="mx-imgBorder"]
     > ![Dodawanie uprawnień interfejsu API aplikacji](./media/how-to-manage-authentication/app-permissions.png)
 
-5. Zaznacz pole wyboru obok pozycji **dostęp Azure Maps**, a następnie wybierz pozycję **Dodaj uprawnienia**.
+5. Zaznacz pole wyboru obok pozycji **dostęp Azure Maps** , a następnie wybierz pozycję **Dodaj uprawnienia** .
 
     > [!div class="mx-imgBorder"]
     > ![Wybieranie uprawnień interfejsu API aplikacji](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Umożliwienie aplikacji sieci Web wywoływania Azure Maps interfejsów API REST przez skonfigurowanie rejestracji aplikacji przy użyciu klucza tajnego aplikacji. Aby uzyskać szczegółowe instrukcje, zobacz [aplikację sieci Web, która wywołuje interfejsy API sieci Web: Rejestracja aplikacji](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-app-registration). Wpis tajny jest wymagany do uwierzytelnienia w usłudze Azure AD w imieniu użytkownika. Certyfikat rejestracji aplikacji lub wpis tajny powinien być przechowywany w bezpiecznym magazynie dla aplikacji sieci Web do pobrania w celu uwierzytelnienia w usłudze Azure AD. 
+6. Umożliwienie aplikacji sieci Web wywoływania Azure Maps interfejsów API REST przez skonfigurowanie rejestracji aplikacji przy użyciu klucza tajnego aplikacji. Aby uzyskać szczegółowe instrukcje, zobacz [aplikację sieci Web, która wywołuje interfejsy API sieci Web: Rejestracja aplikacji](../active-directory/develop/scenario-web-app-call-api-app-registration.md). Wpis tajny jest wymagany do uwierzytelnienia w usłudze Azure AD w imieniu użytkownika. Certyfikat rejestracji aplikacji lub wpis tajny powinien być przechowywany w bezpiecznym magazynie dla aplikacji sieci Web do pobrania w celu uwierzytelnienia w usłudze Azure AD. 
    
    * Jeśli aplikacja ma już skonfigurowaną rejestrację aplikacji usługi Azure AD i wpis tajny, ten krok może zostać pominięty.
 
 > [!Tip]
-> Jeśli aplikacja jest hostowana w środowisku platformy Azure, zalecamy użycie [tożsamości zarządzanych dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) i wystąpienia Azure Key Vault w celu uzyskania dostępu do kluczy tajnych przez [uzyskanie tokenu dostępu](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) w celu uzyskania dostępu do Azure Key Vault Secret lub certyfikatów. Aby nawiązać połączenie z usługą Azure Key Vault w celu pobrania wpisów tajnych, zobacz [Samouczek dotyczący nawiązywania połączenia przez zarządzaną tożsamość](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
+> Jeśli aplikacja jest hostowana w środowisku platformy Azure, zalecamy użycie [tożsamości zarządzanych dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) i wystąpienia Azure Key Vault w celu uzyskania dostępu do kluczy tajnych przez [uzyskanie tokenu dostępu](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) w celu uzyskania dostępu do Azure Key Vault Secret lub certyfikatów. Aby nawiązać połączenie z usługą Azure Key Vault w celu pobrania wpisów tajnych, zobacz [Samouczek dotyczący nawiązywania połączenia przez zarządzaną tożsamość](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
    
 7. Zaimplementuj bezpieczny punkt końcowy tokenu dla Azure Maps Web SDK, aby uzyskać dostęp do tokenu. 
    
    * Aby zapoznać się z przykładowym kontrolerem tokenów, zobacz [Azure Maps Azure AD Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/blob/master/src/OpenIdConnect/AzureMapsOpenIdConnectv1/AzureMapsOpenIdConnect/Controllers/TokenController.cs). 
-   * Aby uzyskać implementację inną niż AspNetCore lub inną, zobacz [pozyskiwanie tokenu dla aplikacji](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token) z dokumentacji usługi Azure AD.
+   * Aby uzyskać implementację inną niż AspNetCore lub inną, zobacz [pozyskiwanie tokenu dla aplikacji](../active-directory/develop/scenario-web-app-call-api-acquire-token.md) z dokumentacji usługi Azure AD.
    * Bezpieczny punkt końcowy tokenu jest odpowiedzialny za zwracanie tokenu dostępu uwierzytelnionego i autoryzowanego użytkownika do wywoływania Azure Maps interfejsów API REST.
 
 8. Skonfiguruj kontrolę dostępu opartą na rolach (Azure RBAC) dla użytkowników lub grup. Zobacz [udzielanie użytkownikom dostępu opartego na rolach](#grant-role-based-access-for-users-to-azure-maps).
@@ -100,7 +100,7 @@ var map = new atlas.Map("map", {
 
 Dalsze informacje na temat scenariusza aplikacji sieci Web:
 > [!div class="nextstepaction"]
-> [Scenariusz: aplikacja sieci Web, która loguje użytkowników](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview)
+> [Scenariusz: aplikacja sieci Web, która loguje użytkowników](../active-directory/develop/scenario-web-app-sign-user-overview.md)
 
 Znajdź metryki użycia interfejsu API dla konta usługi Azure Maps:
 > [!div class="nextstepaction"]

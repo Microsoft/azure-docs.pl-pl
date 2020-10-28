@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4442d7cb83ef28b1483c5156e2655deb793b3b16
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a9bcda4affa19cf8793cd078fdc5b96d842eb42b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678415"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893618"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sd-elements"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z elementami SD
 
@@ -143,7 +143,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W menu u góry kliknij pozycję **system** , a następnie opcję **Logowanie jednokrotne** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
+    ![Zrzut ekranu pokazujący wybraną wartość "system" i "Logowanie jednokrotne" wybraną z listy rozwijanej.](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
 
 1. W oknie dialogowym **pojedyncze ustawienia Sign-On** wykonaj następujące czynności:
 
@@ -167,11 +167,11 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w elementach SD.
 
 1. W menu u góry kliknij pozycje **Zarządzanie** użytkownikami, a następnie **Użytkownicy** .
 
-    ![Tworzenie użytkownika testowego elementów SD](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
+    ![Zrzut ekranu pokazujący, że wybrano "Użytkownicy" z listy rozwijanej "Zarządzanie użytkownikami".](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
 
 1. Kliknij pozycję **Dodaj nowego użytkownika** .
 
-    ![Tworzenie użytkownika testowego elementów SD](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
+    ![Zrzut ekranu pokazujący wybrany przycisk "Dodaj nowego użytkownika".](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
 
 1. W oknie dialogowym **Dodawanie nowego użytkownika** wykonaj następujące czynności:
 

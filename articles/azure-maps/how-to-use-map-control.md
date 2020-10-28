@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335334"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895447"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Jak używać kontrolki mapy usługi Azure Maps
 
@@ -26,7 +26,7 @@ Aby użyć kontrolka mapy na stronie sieci Web, musisz mieć jeden z następują
 
 * [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account) i [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
 
-* Uzyskaj poświadczenia usługi Azure Active Directory (AAD) z [opcjami uwierzytelniania](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+* Uzyskaj poświadczenia usługi Azure Active Directory (AAD) z [opcjami uwierzytelniania](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
 ## <a name="create-a-new-map-in-a-web-page"></a>Utwórz nową mapę na stronie sieci Web
 
@@ -75,7 +75,7 @@ Mapę można osadzić na stronie sieci Web przy użyciu kontrolka mapy bibliotek
     </style>
    ```
 
-4. W treści strony Dodaj `<div>` element i nadaj mu `id` **myMap**.
+4. W treści strony Dodaj `<div>` element i nadaj mu `id` **myMap** .
 
    ```HTML
     <body onload="InitMap()">
@@ -83,7 +83,7 @@ Mapę można osadzić na stronie sieci Web przy użyciu kontrolka mapy bibliotek
     </body>
    ```
 
-5. Teraz zostanie zainicjowany formant mapy. Aby można było uwierzytelnić kontrolkę, należy podać klucz subskrypcji Azure Maps lub użyć poświadczeń Azure Active Directory (AAD) z [opcjami uwierzytelniania](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+5. Teraz zostanie zainicjowany formant mapy. Aby można było uwierzytelnić kontrolkę, należy podać klucz subskrypcji Azure Maps lub użyć poświadczeń Azure Active Directory (AAD) z [opcjami uwierzytelniania](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
     Jeśli używasz klucza subskrypcji do uwierzytelniania, skopiuj i wklej następujący element skryptu wewnątrz `<head>` elementu i poniżej pierwszego `<script>` elementu. Zamień `<Your Azure Maps Key>` na klucz subskrypcji Azure Maps podstawowej.
 
@@ -279,7 +279,7 @@ Aby dodać więcej danych do mapy:
 > [Tworzenie mapy](map-create.md)
 
 > [!div class="nextstepaction"]
-> [Przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Przykłady kodu](/samples/browse/?products=azure-maps)
 
 Aby uzyskać listę przykładów pokazujących, jak zintegrować Azure Active Directory (AAD) z Azure Maps, zobacz:
 

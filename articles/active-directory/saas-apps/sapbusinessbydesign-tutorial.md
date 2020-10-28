@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 91c0eaf5b1e614e185747cd9ae2c32e7f4f7a707
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6d04601cb11e57f50c82680077793aef1b816bfa
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672070"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Samouczek: integracja usługi Azure Active Directory z oprogramowaniem SAP Business ByDesign
 
@@ -110,11 +110,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramo
 
 5. Aplikacja SAP Business ByDesign oczekuje potwierdzeń SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij przycisk **Edytuj** , aby otworzyć okno dialogowe **Atrybuty użytkownika** .
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący okno dialogowe "atrybuty użytkownika" z wybranym przyciskiem "Edytuj".](common/edit-attribute.png)
 
 6. Kliknij ikonę **Edytuj** , aby edytować **wartość identyfikatora nazwy** .
 
-    ![image (obraz)](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
+    ![Zrzut ekranu przedstawiający stronę "atrybuty użytkownika & oświadczenia" z wybraną ikoną "Edytuj".](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
 
 7. W sekcji **Zarządzanie oświadczeniami użytkowników** wykonaj następujące czynności:  ![ obraz](media/sapbusinessbydesign-tutorial/mail-prefix2.png)
 
@@ -148,7 +148,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramo
 
 3. Kliknij pozycję **Nowy dostawca tożsamości** i wybierz plik XML metadanych pobrany z Azure Portal. Przez zaimportowanie tych metadanych system automatycznie przekaże wymagany certyfikat podpisywania i certyfikat szyfrowania.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
+    ![Zrzut ekranu przedstawiający stronę "Konfigurowanie logowania jednokrotnego" z wybraną kartą "dostawca tożsamości" i wybraną akcją "nowy dostawca tożsamości".](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
 
 4. Aby dołączyć **adres URL usługi konsumenckej potwierdzenia** do żądania SAML, wybierz pozycję **Dołącz adres URL usługi potwierdzenia odbiorcy** .
 
@@ -158,7 +158,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramo
 
 7. Kliknij kartę **My System** (Mój system).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
+    ![Zrzut ekranu przedstawiający stronę "Konfigurowanie logowania jednokrotnego" z wybraną kartą "mój system".](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
 
 8. W polu tekstowym **adres URL logowania do usługi Azure AD** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 

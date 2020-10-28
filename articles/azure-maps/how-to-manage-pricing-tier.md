@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8e62734e039d0f6ceff836947519ef71ee9b8497
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9934a2660d18fdcbada1cda86f957345b2d1a8c8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311057"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895736"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Zarządzaj warstwą cenową konta Azure Maps
 
 Możesz zarządzać warstwą cenową konta Azure Maps przy użyciu Azure Portal. Możesz również wyświetlić lub zmienić warstwę cenową konta po utworzeniu [konta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Uzyskaj więcej informacji na temat [wybierania odpowiedniej warstwy cenowej w Azure Maps](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier).
+Uzyskaj więcej informacji na temat [wybierania odpowiedniej warstwy cenowej w Azure Maps](./choose-pricing-tier.md).
 
 ## <a name="view-your-pricing-tier"></a>Wyświetlanie warstwy cenowej
 

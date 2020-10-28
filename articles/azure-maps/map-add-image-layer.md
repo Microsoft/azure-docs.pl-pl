@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 4116028cc8c4668c897d7de7bbffb607b5e5daba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43de832095e2c2dd674a156da914ed26f1e472d0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310547"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892948"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Dodawanie warstwy obrazu do mapy
 
@@ -27,7 +27,7 @@ W tym artykule pokazano, jak nałożyć obraz na stały zestaw współrzędnych.
 * Obrazy radaru pogody
 
 > [!TIP]
-> [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) to prosty sposób nakładki obrazu na mapie. Należy pamiętać, że przeglądarki mogą mieć problemy z ładowaniem dużego obrazu. W takim przypadku Rozważ przerwanie obrazu na kafelkach i załadowanie ich do mapy jako [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer).
+> [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) to prosty sposób nakładki obrazu na mapie. Należy pamiętać, że przeglądarki mogą mieć problemy z ładowaniem dużego obrazu. W takim przypadku Rozważ przerwanie obrazu na kafelkach i załadowanie ich do mapy jako [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer).
 
 Warstwa obrazu obsługuje następujące formaty obrazów:
 
@@ -38,7 +38,7 @@ Warstwa obrazu obsługuje następujące formaty obrazów:
 
 ## <a name="add-an-image-layer"></a>Dodawanie warstwy obrazów
 
-Poniższy kod nakłada obraz [mapy Newark, nowej Jersey, z 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) na mapie. [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) jest tworzony przez przekazanie adresu URL do obrazu i współrzędne dla czterech rogów w formacie `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
+Poniższy kod nakłada obraz [mapy Newark, nowej Jersey, z 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) na mapie. [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) jest tworzony przez przekazanie adresu URL do obrazu i współrzędne dla czterech rogów w formacie `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -64,7 +64,7 @@ Oto kompletny przykładowy kod dla poprzedniego kodu.
 
 Ten przykład pokazuje, jak dodać informacje o nakładce KML ziemi jako warstwę obrazu na mapie. Nakładki naziemne KML zapewniają współrzędne północne, Południowe, wschodnie i zachodnie oraz obrót w prawo. Jednak warstwa obrazu oczekuje współrzędnych dla każdego rogu obrazu. Nakładka uziemienia KML w tym przykładzie jest dla Cathedral Chartres i jest źródłem z [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-Kod używa funkcji statycznej `getCoordinatesFromEdges` z klasy [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) . Oblicza cztery rogi obrazu przy użyciu informacji o północy, południe, wschód, zachód i rotacji nakładki naziemnej KML.
+Kod używa funkcji statycznej `getCoordinatesFromEdges` z klasy [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) . Oblicza cztery rogi obrazu przy użyciu informacji o północy, południe, wschód, zachód i rotacji nakładki naziemnej KML.
 
 <br/>
 
@@ -85,10 +85,10 @@ Warstwa obrazu ma wiele opcji stylów. Oto narzędzie do wypróbowania.
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer)
+> [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
 > [!div class="nextstepaction"]
-> [ImageLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagelayeroptions)
+> [ImageLayerOptions](/javascript/api/azure-maps-control/atlas.imagelayeroptions)
 
 Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów kodu do dodania do Twoich map:
 

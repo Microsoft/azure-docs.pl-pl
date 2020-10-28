@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3f5dfcafe1c7b08a2c8320f807bf809107197d40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9b732bd25e7ef8aa084c98d5b059d422f86a4b0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335283"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895413"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Wyświetlanie metryk użycia interfejsu API usługi Azure Maps
 
@@ -21,7 +21,7 @@ W tym artykule pokazano, jak wyświetlić metryki użycia interfejsu API dla kon
 
 ## <a name="view-metric-snapshot"></a>Wyświetl migawkę metryki
 
-Niektóre typowe metryki można zobaczyć na stronie **Przegląd** konta Maps. Obecnie pokazuje *łączne żądania*, *łączne błędy*i *dostępność* w czasie trwania możliwego do wyboru czasu.
+Niektóre typowe metryki można zobaczyć na stronie **Przegląd** konta Maps. Obecnie pokazuje *łączne żądania* , *łączne błędy* i *dostępność* w czasie trwania możliwego do wyboru czasu.
 
 ![Przegląd metryk użycia Azure Maps](media/how-to-view-api-usage/portal-overview.png)
 
@@ -31,7 +31,7 @@ Przejdź do następnej sekcji, jeśli chcesz dostosować te wykresy do konkretne
 
 1. Zaloguj się do subskrypcji platformy Azure w [portalu](https://portal.azure.com).
 
-2. Kliknij element menu **wszystkie zasoby** po lewej stronie i przejdź do *konta Azure Maps*.
+2. Kliknij element menu **wszystkie zasoby** po lewej stronie i przejdź do *konta Azure Maps* .
 
 3. Po otwarciu konta Maps kliknij menu **metryki** po lewej stronie.
 
@@ -42,7 +42,7 @@ Przejdź do następnej sekcji, jeśli chcesz dostosować te wykresy do konkretne
 
       ![Okienko metryk użycia Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Następnie możesz wybrać *zakres czasu* , klikając **ostatnie 24 godziny (automatyczne)**. Domyślnie zakres czasu jest ustawiany na 24 godziny. Po kliknięciu zobaczysz wszystkie wybrane zakresy czasu. Możesz wybrać *stopień szczegółowości czasu* i wybrać opcję wyświetlania czasu jako *lokalnego* lub *GMT* w tej samej liście rozwijanej. Kliknij pozycję **Zastosuj**.
+5. Następnie możesz wybrać *zakres czasu* , klikając **ostatnie 24 godziny (automatyczne)** . Domyślnie zakres czasu jest ustawiany na 24 godziny. Po kliknięciu zobaczysz wszystkie wybrane zakresy czasu. Możesz wybrać *stopień szczegółowości czasu* i wybrać opcję wyświetlania czasu jako *lokalnego* lub *GMT* w tej samej liście rozwijanej. Kliknij przycisk **Zastosuj** .
 
     ![Zakres czasu metryk Azure Maps](media/how-to-view-api-usage/time-range.png)
 
@@ -66,4 +66,4 @@ Dowiedz się więcej na temat Azure Maps interfejsów API, dla których chcesz �
 > [Azure Maps Android SDK](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API REST Azure Maps](https://docs.microsoft.com/rest/api/maps)
+> [Dokumentacja interfejsu API REST Azure Maps](/rest/api/maps)

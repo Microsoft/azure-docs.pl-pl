@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 000f6a80a2cee14abc3d954de479dd87b1edf876
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c39104912c99b199d38cf489bb61d64e83b89286
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090254"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895600"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Jak zabezpieczyć aplikację jednostronicową z logowaniem nieinterakcyjnym
 
@@ -30,15 +30,15 @@ Poniższy przewodnik dotyczy aplikacji korzystającej z Azure Active Directory (
 
 Utwórz bezpieczną aplikację usługi sieci Web, która jest odpowiedzialna za uwierzytelnianie w usłudze Azure AD. 
 
-1. Utwórz funkcję w Azure Portal. Aby uzyskać więcej informacji, zobacz [Tworzenie funkcji platformy Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
+1. Utwórz funkcję w Azure Portal. Aby uzyskać więcej informacji, zobacz [Tworzenie funkcji platformy Azure](../azure-functions/functions-create-first-azure-function.md).
 
-2. Skonfiguruj zasady CORS w funkcji platformy Azure, aby były dostępne dla jednostronicowej aplikacji sieci Web. Dzięki temu klienci przeglądarki będą zabezpieczeni z dozwolonymi źródłami aplikacji sieci Web. Zobacz [Dodawanie funkcji CORS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality).
+2. Skonfiguruj zasady CORS w funkcji platformy Azure, aby były dostępne dla jednostronicowej aplikacji sieci Web. Dzięki temu klienci przeglądarki będą zabezpieczeni z dozwolonymi źródłami aplikacji sieci Web. Zobacz [Dodawanie funkcji CORS](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
-3. [Dodaj tożsamość przypisaną do systemu](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) w funkcji platformy Azure, aby umożliwić tworzenie jednostki usługi w celu uwierzytelniania w usłudze Azure AD.  
+3. [Dodaj tożsamość przypisaną do systemu](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) w funkcji platformy Azure, aby umożliwić tworzenie jednostki usługi w celu uwierzytelniania w usłudze Azure AD.  
 
 4. Udziel dostępu opartego na rolach dla tożsamości przypisanej do systemu do konta Azure Maps. Zobacz [udzielanie dostępu opartego na rolach](#grant-role-based-access) , aby uzyskać szczegółowe informacje.
 
-5. Napisz kod dla funkcji platformy Azure, aby uzyskać Azure Maps tokeny dostępu przy użyciu tożsamości przypisanej do systemu z jednym z obsługiwanych mechanizmów lub protokołu REST. Zobacz [Uzyskiwanie tokenów dla zasobów platformy Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
+5. Napisz kod dla funkcji platformy Azure, aby uzyskać Azure Maps tokeny dostępu przy użyciu tożsamości przypisanej do systemu z jednym z obsługiwanych mechanizmów lub protokołu REST. Zobacz [Uzyskiwanie tokenów dla zasobów platformy Azure](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
     Przykładowy przykład protokołu REST:
 
@@ -64,8 +64,8 @@ Utwórz bezpieczną aplikację usługi sieci Web, która jest odpowiedzialna za 
 
 6. Konfigurowanie zabezpieczeń funkcji platformy Azure HttpTrigger
 
-   * [Utwórz klucz dostępu do funkcji](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys)
-   * [Bezpieczny punkt końcowy HTTP](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) dla funkcji platformy Azure w środowisku produkcyjnym.
+   * [Utwórz klucz dostępu do funkcji](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
+   * [Bezpieczny punkt końcowy HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) dla funkcji platformy Azure w środowisku produkcyjnym.
    
 7. Skonfiguruj aplikację sieci Web Azure Maps Web SDK. 
 
@@ -102,25 +102,25 @@ Utwórz bezpieczną aplikację usługi sieci Web, która jest odpowiedzialna za 
 
 ## <a name="grant-role-based-access"></a>Udzielanie dostępu opartego na rolach
 
-Dostęp do *kontroli dostępu opartej na rolach (Azure RBAC)* jest udzielany przez przypisanie tożsamości przypisanej do systemu do co najmniej jednej definicji roli platformy Azure. Aby wyświetlić definicje ról platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)**. Wybierz pozycję **role**, a następnie wyszukaj role zaczynające się od *Azure Maps*.
+Dostęp do *kontroli dostępu opartej na rolach (Azure RBAC)* jest udzielany przez przypisanie tożsamości przypisanej do systemu do co najmniej jednej definicji roli platformy Azure. Aby wyświetlić definicje ról platformy Azure, które są dostępne dla Azure Maps, przejdź do obszaru **Kontrola dostępu (IAM)** . Wybierz pozycję **role** , a następnie wyszukaj role zaczynające się od *Azure Maps* .
 
-1. Przejdź do swojego **konta Azure Maps**. Wybierz pozycję **Kontrola dostępu (IAM)**  >  **przypisanie roli**.
+1. Przejdź do swojego **konta Azure Maps** . Wybierz pozycję **Kontrola dostępu (IAM)**  >  **przypisanie roli** .
 
     > [!div class="mx-imgBorder"]
     > ![Udzielanie dostępu przy użyciu funkcji RBAC platformy Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Na karcie **przypisania roli** w obszarze **rola**wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do**wybierz pozycję **aplikacja funkcji**. Wybierz nazwę główną według nazwy. Następnie wybierz pozycję **Zapisz**.
+2. Na karcie **przypisania roli** w obszarze **rola** wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych** . W obszarze **Przypisz dostęp do** wybierz pozycję **aplikacja funkcji** . Wybierz nazwę główną według nazwy. Następnie wybierz pozycję **Zapisz** .
 
-   * Zobacz szczegóły dotyczące [dodawania lub usuwania przypisań ról](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+   * Zobacz szczegóły dotyczące [dodawania lub usuwania przypisań ról](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
-> Azure Maps wbudowane definicje ról zapewniają bardzo duże uprawnienia dostępu do wielu Azure Maps interfejsów API REST. Aby ograniczyć dostęp interfejsów API do minimum, zobacz [Tworzenie niestandardowej definicji roli i przypisywanie tożsamości przypisanej do systemu](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) do definicji roli niestandardowej. Spowoduje to włączenie najniższych uprawnień niezbędnych do uzyskania dostępu do Azure Maps przez aplikację.
+> Azure Maps wbudowane definicje ról zapewniają bardzo duże uprawnienia dostępu do wielu Azure Maps interfejsów API REST. Aby ograniczyć dostęp interfejsów API do minimum, zobacz [Tworzenie niestandardowej definicji roli i przypisywanie tożsamości przypisanej do systemu](../role-based-access-control/custom-roles.md) do definicji roli niestandardowej. Spowoduje to włączenie najniższych uprawnień niezbędnych do uzyskania dostępu do Azure Maps przez aplikację.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dalsze informacje na temat scenariusza aplikacji jednostronicowej:
 > [!div class="nextstepaction"]
-> [Aplikacja jednostronicowa](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [Aplikacja jednostronicowa](../active-directory/develop/scenario-spa-overview.md)
 
 Znajdź metryki użycia interfejsu API dla konta usługi Azure Maps:
 > [!div class="nextstepaction"]

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761451"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893690"
 ---
 # <a name="receipt-concepts"></a>Pojęcia dotyczące rachunków
 
@@ -437,7 +437,7 @@ Dane wyodrębnione za pomocą interfejsu API paragonów mogą służyć do wykon
 
 Często wydatki biznesowe obejmują czas poświęcany na ręczne wprowadzanie danych z obrazów przyjęć. Korzystając z interfejsu API paragonów, można użyć wyodrębnionych pól, aby częściowo zautomatyzować ten proces i szybko analizować swoje wpłaty.  
 
-Ponieważ interfejs API paragonów zawiera proste dane wyjściowe JSON, można użyć wyodrębnionych wartości pól na wiele sposobów. Integruj z wewnętrznymi aplikacjami do wydatków, aby wstępnie wypełnić raporty dotyczące wydatków. Aby uzyskać więcej informacji na ten temat, Przeczytaj o tym, jak Acumatica korzysta z interfejsu API odbioru w celu [raportowania wydatków na mniej bolesnym proces](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure).  
+Ponieważ interfejs API paragonów zawiera proste dane wyjściowe JSON, można użyć wyodrębnionych wartości pól na wiele sposobów. Integruj z wewnętrznymi aplikacjami do wydatków, aby wstępnie wypełnić raporty dotyczące wydatków. Aby uzyskać więcej informacji na ten temat, Przeczytaj o tym, jak Acumatica korzysta z interfejsu API odbioru w celu [raportowania wydatków na mniej bolesnym proces](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
 ### <a name="auditing-and-accounting"></a>Inspekcja i ewidencjonowanie aktywności 
 
@@ -456,7 +456,7 @@ Interfejs API paragonów zapewnia również [funkcję przetwarzania AIBuilder](h
 - Wykonaj kroki z [przewodnikiem Szybki Start dla biblioteki klienta aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania paragonów za pomocą aparatu rozpoznawania formularzy w wybranym języku.
 - Lub postępuj zgodnie z [przewodnikiem Szybki start interfejsu API usługi Paragon](./quickstarts/python-receipts.md) , aby rozpoznawać potwierdzenia przy użyciu interfejsu API REST.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)
 * [Dokumentacja interfejsu API REST](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)

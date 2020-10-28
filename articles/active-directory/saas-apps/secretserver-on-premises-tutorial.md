@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9540922619864b0c239a22422bab5f6bf178e5fe
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a87bf24c3555f2e6a259064b56b1b630f4abfe27
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678396"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895000"
 ---
 # <a name="tutorial-integrate-secret-server-on-premises-with-azure-active-directory"></a>Samouczek: integracja Secret Server (On-Premises) z Azure Active Directory
 
@@ -98,7 +98,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe **certyfikatu podpisywania SAML** .
 
-    ![Opcje podpisywania](./media/secretserver-on-premises-tutorial/edit-saml-signon.png)
+    ![Zrzut ekranu przedstawiający sekcję "S A M L Signing Certificate" z wybraną akcją "Certificate (base64").](./media/secretserver-on-premises-tutorial/edit-saml-signon.png)
 
 1. Wybierz **opcję podpisywania** , aby **podpisać odpowiedź i potwierdzenie SAML** .
 

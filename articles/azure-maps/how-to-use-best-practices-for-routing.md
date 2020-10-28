@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874598"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895549"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Najlepsze rozwiązania dotyczące usługi Azure Maps Route Service
 
-Wskazówki dotyczące trasy i interfejsy API macierzy trasy w Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) mogą służyć do obliczania szacowanego czasu przybycia (ETAs) dla każdej żądanej trasy. Interfejsy API tras uwzględniają takie czynniki jak informacje o ruchu w czasie rzeczywistym i historyczne dane o ruchu, takie jak typowe szybkości podróży w dniu tygodnia i o porze dnia. Interfejsy API zwracają najkrótsze lub najszybsze trasy dostępne dla wielu miejsc docelowych jednocześnie w sekwencji lub w kolejności zoptymalizowanej na podstawie czasu lub odległości. Użytkownicy mogą również zażądać wyspecjalizowanych tras i szczegółów dla podejść, rowerzystów i pojazdów komercyjnych, takich jak samochody. W tym artykule udostępnimy najlepsze rozwiązania w zakresie wywoływania Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route)i dowiesz się, jak:
+Wskazówki dotyczące trasy i interfejsy API macierzy trasy w Azure Maps [Route Service](/rest/api/maps/route) mogą służyć do obliczania szacowanego czasu przybycia (ETAs) dla każdej żądanej trasy. Interfejsy API tras uwzględniają takie czynniki jak informacje o ruchu w czasie rzeczywistym i historyczne dane o ruchu, takie jak typowe szybkości podróży w dniu tygodnia i o porze dnia. Interfejsy API zwracają najkrótsze lub najszybsze trasy dostępne dla wielu miejsc docelowych jednocześnie w sekwencji lub w kolejności zoptymalizowanej na podstawie czasu lub odległości. Użytkownicy mogą również zażądać wyspecjalizowanych tras i szczegółów dla podejść, rowerzystów i pojazdów komercyjnych, takich jak samochody. W tym artykule udostępnimy najlepsze rozwiązania w zakresie wywoływania Azure Maps [Route Service](/rest/api/maps/route)i dowiesz się, jak:
 
  * Wybieranie między interfejsami API wskazówek dotyczących tras i interfejsem API routingu macierzy
  * Tworzenie żądań dotyczących historycznych i przewidywanych czasów podróży na podstawie historycznych oraz aktualnych danych o ruchu
@@ -27,7 +27,7 @@ Wskazówki dotyczące trasy i interfejsy API macierzy trasy w Azure Maps [Route 
  * Zażądaj trasy, która składa się z co najmniej jednego zatrzymania (waypoints)
  * Optymalizacja trasy jednego lub większej liczby przerw w celu uzyskania najlepszej kolejności do odwiedzania każdego zatrzymania (punkt nawigacyjny)
  * Optymalizuj alternatywne trasy przy użyciu punktów pomocniczych. Można na przykład oferować alternatywne trasy, które przechodzą przez stację ładowania pojazdu elektrycznego.
- * Używanie [Route Service](https://docs.microsoft.com/rest/api/maps/route) z zestawem SDK Azure Maps sieci Web
+ * Używanie [Route Service](/rest/api/maps/route) z zestawem SDK Azure Maps sieci Web
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -113,7 +113,7 @@ W drugim przykładzie występuje żądanie routingu w czasie rzeczywistym, w kt�
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-Odpowiedź zawiera podsumowanie, jak pokazano poniżej. Ze względu na przeciążenia wartość **trafficDelaysInSeconds** jest większa od zera. Jest ona również większa niż **historicTrafficTravelTimeInSeconds**.
+Odpowiedź zawiera podsumowanie, jak pokazano poniżej. Ze względu na przeciążenia wartość **trafficDelaysInSeconds** jest większa od zera. Jest ona również większa niż **historicTrafficTravelTimeInSeconds** .
 
 ```json
 "summary": {
@@ -140,7 +140,7 @@ Rozwiń `point` element, aby wyświetlić listę współrzędnych ścieżki:
 
 ![Elementy rozwiniętych punktów](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-Interfejsy API wskazówek dotyczących trasy obsługują różne formaty instrukcji, które mogą być używane przez określenie parametru **instructiontype** . Aby sformatować instrukcje dotyczące łatwego przetwarzania komputera, użyj **instrukcji instructiontype = kodowane**. Użyj **instrukcji instructiontype = Tagged** , aby wyświetlić instrukcje jako tekst dla użytkownika. Ponadto instrukcje można sformatować jako tekst, w którym są oznaczone niektóre elementy instrukcji, a instrukcja jest prezentowana z formatowaniem specjalnym. Aby uzyskać więcej informacji, zobacz [listę obsługiwanych typów instrukcji](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
+Interfejsy API wskazówek dotyczących trasy obsługują różne formaty instrukcji, które mogą być używane przez określenie parametru **instructiontype** . Aby sformatować instrukcje dotyczące łatwego przetwarzania komputera, użyj **instrukcji instructiontype = kodowane** . Użyj **instrukcji instructiontype = Tagged** , aby wyświetlić instrukcje jako tekst dla użytkownika. Ponadto instrukcje można sformatować jako tekst, w którym są oznaczone niektóre elementy instrukcji, a instrukcja jest prezentowana z formatowaniem specjalnym. Aby uzyskać więcej informacji, zobacz [listę obsługiwanych typów instrukcji](/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 Gdy wymagane są instrukcje, odpowiedź zwraca nowy element o nazwie `guidance` . `guidance`Element zawiera dwie części informacji: instrukcje włączania i podsumowywania instrukcji.
 
@@ -186,7 +186,7 @@ Poniższa odpowiedź dotyczy ciężarówki przewożącej materiał niebezpieczny
 
 ## <a name="request-traffic-information-along-a-route"></a>Żądaj informacji o ruchu na trasie
 
-Dzięki interfejsom API kierunku trasy Azure Maps deweloperzy mogą żądać szczegółowych informacji dla każdego typu sekcji przez uwzględnienie `sectionType` parametru w żądaniu. Na przykład można zażądać informacji o szybkości dla każdego segmentu zakleszczenia ruchu. Zapoznaj się z [listą wartości dla klucza sectiontype](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) , aby dowiedzieć się więcej o różnych szczegółach, które można zażądać.
+Dzięki interfejsom API kierunku trasy Azure Maps deweloperzy mogą żądać szczegółowych informacji dla każdego typu sekcji przez uwzględnienie `sectionType` parametru w żądaniu. Na przykład można zażądać informacji o szybkości dla każdego segmentu zakleszczenia ruchu. Zapoznaj się z [listą wartości dla klucza sectiontype](/rest/api/maps/route/getroutedirections#sectiontype) , aby dowiedzieć się więcej o różnych szczegółach, które można zażądać.
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
@@ -208,13 +208,13 @@ Ta opcja umożliwia kolorowanie sekcji podczas renderowania mapy, jak na poniżs
 
 Azure Maps obecnie oferuje dwie formy optymalizacji tras:
 
-* Optymalizacje oparte na żądanym typie trasy, bez zmiany kolejności waypoints. [Obsługiwane typy tras](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routetype) można znaleźć tutaj
+* Optymalizacje oparte na żądanym typie trasy, bez zmiany kolejności waypoints. [Obsługiwane typy tras](/rest/api/maps/route/postroutedirections#routetype) można znaleźć tutaj
 
 * Salesman Optymalizacja, która zmienia kolejność waypoints w celu uzyskania najlepszej kolejności do odwiedzania każdego zatrzymania
 
 W przypadku routingu z obsługą wiele tras do 150 waypoints można określić w jednym żądaniu trasy. Lokalizacje współrzędnych początkowych i końcowych mogą być takie same, jak w przypadku rundy. Należy jednak podać co najmniej jedną dodatkową punkt nawigacyjnyą, aby umożliwić Obliczanie trasy. Waypoints można dodać do zapytania między współrzędne źródłowe i docelowe.
 
-Aby zoptymalizować najlepszą kolejność do odwiedzania danego waypoints, należy określić **computeBestOrder = true**. Ten scenariusz jest również znany jako problem z optymalizacją Salesman.
+Aby zoptymalizować najlepszą kolejność do odwiedzania danego waypoints, należy określić **computeBestOrder = true** . Ten scenariusz jest również znany jako problem z optymalizacją Salesman.
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
@@ -262,11 +262,11 @@ Optymalna trasa ma następującą kolejność punkt nawigacyjny: 0, 5, 1, 2, 4, 
 Mogą wystąpić sytuacje, w których chcesz odtworzyć trasę, aby obliczyć zero lub więcej tras alternatywnych dla trasy referencyjnej. Na przykład możesz chcieć pokazać klientom alternatywne trasy, które przechodzą w sklepie detalicznym. W takim przypadku należy rozrównać lokalizację przy użyciu punktów pomocniczych. Poniżej przedstawiono kroki, które należy wykonać w celu rozdzielenia lokalizacji:
 
 1. Obliczanie trasy jako-is i pobieranie ścieżki z odpowiedzi trasy
-2. Użyj ścieżki trasy, aby znaleźć odpowiednie lokalizacje lub blisko ścieżki trasy. Można na przykład użyć [interfejsu API punktu](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) Azure Maps lub zapytania do własnych danych w bazie danych.  
+2. Użyj ścieżki trasy, aby znaleźć odpowiednie lokalizacje lub blisko ścieżki trasy. Można na przykład użyć [interfejsu API punktu](/rest/api/maps/search/getsearchpoi) Azure Maps lub zapytania do własnych danych w bazie danych.  
 3. Kolejność lokalizacji na podstawie odległości od początku trasy
-4. Dodaj te lokalizacje jako punkty pomocnicze w nowym żądaniu trasy do [interfejsu API wskazówek dotyczących trasy](https://docs.microsoft.com/rest/api/maps/route/postroutedirections). Aby dowiedzieć się więcej o punktach pomocniczych, zapoznaj się z [dokumentacją interfejsu API dotyczącej instrukcji post Route](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints). 
+4. Dodaj te lokalizacje jako punkty pomocnicze w nowym żądaniu trasy do [interfejsu API wskazówek dotyczących trasy](/rest/api/maps/route/postroutedirections). Aby dowiedzieć się więcej o punktach pomocniczych, zapoznaj się z [dokumentacją interfejsu API dotyczącej instrukcji post Route](/rest/api/maps/route/postroutedirections#supportingpoints). 
 
-Podczas wywoływania [interfejsu API wskazówek dotyczących trasy](https://docs.microsoft.com/rest/api/maps/route/postroutedirections), można ustawić minimalny czas odchylenia lub ograniczenia odległości wraz z punktami pomocniczymi. Użyj tych parametrów, jeśli chcesz oferować alternatywne trasy, ale chcesz również ograniczyć czas podróży. Gdy te ograniczenia są używane, trasy alternatywne będą podążać za trasą odniesienia od punktu początkowego dla danego czasu lub odległości. Innymi słowy, pozostałe trasy są rozbieżne względem trasy odwołania według danego ograniczenia.
+Podczas wywoływania [interfejsu API wskazówek dotyczących trasy](/rest/api/maps/route/postroutedirections), można ustawić minimalny czas odchylenia lub ograniczenia odległości wraz z punktami pomocniczymi. Użyj tych parametrów, jeśli chcesz oferować alternatywne trasy, ale chcesz również ograniczyć czas podróży. Gdy te ograniczenia są używane, trasy alternatywne będą podążać za trasą odniesienia od punktu początkowego dla danego czasu lub odległości. Innymi słowy, pozostałe trasy są rozbieżne względem trasy odwołania według danego ograniczenia.
 
 Poniższy obraz przedstawia przykład renderowania alternatywnych tras z określonymi limitami odchyleń dla czasu i odległości.
 
@@ -274,20 +274,20 @@ Poniższy obraz przedstawia przykład renderowania alternatywnych tras z określ
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Korzystanie z usługi routingu w aplikacji sieci Web
 
-Zestaw SDK sieci Web Azure Maps udostępnia [moduł usługi](https://docs.microsoft.com/javascript/api/azure-maps-rest/). Ten moduł jest biblioteką pomocniczą, która ułatwia korzystanie z Azure Maps interfejsów API REST w aplikacjach sieci Web lub Node.js za pomocą języka JavaScript lub TypeScript. Moduł usługi może służyć do renderowania zwracanych tras na mapie. Moduł automatycznie określa, który interfejs API ma być używany z żądaniami GET i POST.
+Zestaw SDK sieci Web Azure Maps udostępnia [moduł usługi](/javascript/api/azure-maps-rest/). Ten moduł jest biblioteką pomocniczą, która ułatwia korzystanie z Azure Maps interfejsów API REST w aplikacjach sieci Web lub Node.js za pomocą języka JavaScript lub TypeScript. Moduł usługi może służyć do renderowania zwracanych tras na mapie. Moduł automatycznie określa, który interfejs API ma być używany z żądaniami GET i POST.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej, zobacz:
 
 > [!div class="nextstepaction"]
-> [Usługa wyznaczania tras usługi Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
+> [Usługa wyznaczania tras usługi Azure Maps](/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
-> [Jak używać modułu usługi](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
+> [Jak używać modułu usługi](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Pokaż trasę na mapie](https://docs.microsoft.com/azure/azure-maps/map-route)
+> [Pokaż trasę na mapie](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps pakiet NPM](https://www.npmjs.com/package/azure-maps-rest  )

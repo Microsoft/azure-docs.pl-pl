@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 85428f682b5a5e179b5c501982749611131c6aed
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fe8acfd1bfd14f339a0109cab215b8a9ab65256f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674426"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893900"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z segmentem
 
@@ -136,19 +136,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **ikonę Ustawienia** i przewiń w dół do **uwierzytelniania** , a następnie kliknij pozycję **połączenia** .
 
-    ![Konfiguracja segmentu](./media/segment-tutorial/segment1.PNG)
+    ![Zrzut ekranu pokazujący wybraną ikonę "Ustawienia" i "połączenia" wybrane z menu "Uwierzytelnianie".](./media/segment-tutorial/segment1.PNG)
 
 1. Kliknij pozycję **Dodaj nowe połączenie** .
 
-    ![Konfiguracja segmentu](./media/segment-tutorial/segment2.PNG)
+    ![Zrzut ekranu pokazujący sekcję "Connections" z wybranym przyciskiem "Dodaj nowe połączenie".](./media/segment-tutorial/segment2.PNG)
 
 1. Wybierz pozycję **SAML 2,0** jako połączenie, aby skonfigurować, a następnie kliknij przycisk **Wybierz połączenie** .
 
-    ![Konfiguracja segmentu](./media/segment-tutorial/segment3.PNG)
+    ![Zrzut ekranu pokazujący sekcję "Wybieranie połączenia" z opcją "S A M L 2,0" i wybranym przyciskiem "Wybierz połączenie".](./media/segment-tutorial/segment3.PNG)
 
 1. Na następującej stronie wykonaj następujące czynności:
 
-    ![Konfiguracja segmentu](./media/segment-tutorial/segment4.PNG)
+    ![Zrzut ekranu przedstawiający stronę "Konfigurowanie dostawcy tożsamości" z wyróżnionymi polami tekstowymi "Single Sign-On U R L" i "odbiorcy U R L" oraz wybranym przyciskiem "dalej".](./media/segment-tutorial/segment4.PNG)
 
     a. Skopiuj wartość **adresu URL Single Sign-On** i wklej ją do pola **adres URL odpowiedzi** w oknie dialogowym **podstawowe konfiguracje SAML** w Azure Portal.
 

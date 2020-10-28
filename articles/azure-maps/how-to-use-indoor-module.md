@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: d006ec692a2345f6b79c4be29446340cf4af6095
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d852d17bdf11ea45f833e3d59cacb435166827fe
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335351"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895464"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Korzystanie z Azure Maps module Maps
 
@@ -56,7 +56,7 @@ Aby używać globalnie hostowanej wersji platformy Azure Content Delivery Networ
 
 ## <a name="instantiate-the-map-object"></a>Tworzenie wystąpienia obiektu mapy
 
-Najpierw Utwórz *obiekt mapy*. *Obiekt mapy* zostanie użyty w następnym kroku w celu utworzenia wystąpienia obiektu *Menedżera pomieszczeń* .  Poniższy kod pokazuje, jak utworzyć wystąpienie *obiektu mapy*:
+Najpierw Utwórz *obiekt mapy* . *Obiekt mapy* zostanie użyty w następnym kroku w celu utworzenia wystąpienia obiektu *Menedżera pomieszczeń* .  Poniższy kod pokazuje, jak utworzyć wystąpienie *obiektu mapy* :
 
 ```javascript
 const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
@@ -77,7 +77,7 @@ const map = new atlas.Map("map-id", {
 
 ## <a name="instantiate-the-indoor-manager"></a>Tworzenie wystąpienia kierownika pomieszczeń
 
-Aby załadować tilesetsowy i styl mapy kafelków, należy utworzyć wystąpienie *kierownika pomieszczeń*. Utwórz wystąpienie *kierownika pomieszczeń* , dostarczając *obiekt mapy* i odpowiednie `tilesetId` . Jeśli chcesz obsługiwać [Style mapy dynamicznej](indoor-map-dynamic-styling.md), musisz przekazać `statesetId` . W `statesetId` nazwie zmiennej jest rozróżniana wielkość liter. Kod powinien wyglądać podobnie do poniższego kodu JavaScript.
+Aby załadować tilesetsowy i styl mapy kafelków, należy utworzyć wystąpienie *kierownika pomieszczeń* . Utwórz wystąpienie *kierownika pomieszczeń* , dostarczając *obiekt mapy* i odpowiednie `tilesetId` . Jeśli chcesz obsługiwać [Style mapy dynamicznej](indoor-map-dynamic-styling.md), musisz przekazać `statesetId` . W `statesetId` nazwie zmiennej jest rozróżniana wielkość liter. Kod powinien wyglądać podobnie do poniższego kodu JavaScript.
 
 ```javascript
 const tilesetId = "";
@@ -89,7 +89,7 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 });
 ```
 
-Aby włączyć sondowanie danych stanu, które zapewniasz, należy podać `statesetId` wywołanie i `indoorManager.setDynamicStyling(true)` . Dane stanu sondowania umożliwiają dynamiczne aktualizowanie stanu właściwości dynamicznych lub *Stanów*. Na przykład funkcja, taka jak pomieszczenie, może mieć wywołaną Właściwość dynamiczną (*State*) `occupancy` . Aplikacja może chcieć przeprowadzić sondowanie w poszukiwaniu zmian *stanu* , aby odzwierciedlić zmiany wewnątrz mapy wizualizacji. Poniższy kod pokazuje, jak włączyć sondowanie stanu:
+Aby włączyć sondowanie danych stanu, które zapewniasz, należy podać `statesetId` wywołanie i `indoorManager.setDynamicStyling(true)` . Dane stanu sondowania umożliwiają dynamiczne aktualizowanie stanu właściwości dynamicznych lub *Stanów* . Na przykład funkcja, taka jak pomieszczenie, może mieć wywołaną Właściwość dynamiczną ( *State* ) `occupancy` . Aplikacja może chcieć przeprowadzić sondowanie w poszukiwaniu zmian *stanu* , aby odzwierciedlić zmiany wewnątrz mapy wizualizacji. Poniższy kod pokazuje, jak włączyć sondowanie stanu:
 
 ```javascript
 const tilesetId = "";
@@ -107,7 +107,7 @@ if (statesetId.length > 0) {
 
 ## <a name="indoor-level-picker-control"></a>Kontrolka selektora poziomu pośredniego
 
- Kontrolka *selektora poziomu wewnątrz* umożliwia zmianę poziomu renderowanej mapy. Opcjonalnie można zainicjować kontrolkę *selektora poziomu* pośredniego za pośrednictwem *Menedżera pomieszczeń*. Oto kod, aby zainicjować selektor kontroli poziomu:
+ Kontrolka *selektora poziomu wewnątrz* umożliwia zmianę poziomu renderowanej mapy. Opcjonalnie można zainicjować kontrolkę *selektora poziomu* pośredniego za pośrednictwem *Menedżera pomieszczeń* . Oto kod, aby zainicjować selektor kontroli poziomu:
 
 ```javascript
 const levelControl = new atlas.control.LevelControl({ position: "top-right" });
@@ -116,7 +116,7 @@ indoorManager.setOptions({ levelControl });
 
 ## <a name="indoor-events"></a>Zdarzenia wewnętrzne
 
- Moduł *Azure Mapsa obmieszczeń* obsługuje zdarzenia *obiektów map* . Detektory zdarzeń *obiektu mapy* są wywoływane, gdy poziom lub obiekt został zmieniony. Jeśli chcesz uruchomić kod w przypadku zmiany poziomu lub obiektu, umieść swój kod wewnątrz odbiornika zdarzeń. Poniższy kod pokazuje, jak można dodawać detektory zdarzeń do *obiektu mapy*.
+ Moduł *Azure Mapsa obmieszczeń* obsługuje zdarzenia *obiektów map* . Detektory zdarzeń *obiektu mapy* są wywoływane, gdy poziom lub obiekt został zmieniony. Jeśli chcesz uruchomić kod w przypadku zmiany poziomu lub obiektu, umieść swój kod wewnątrz odbiornika zdarzeń. Poniższy kod pokazuje, jak można dodawać detektory zdarzeń do *obiektu mapy* .
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
@@ -144,10 +144,10 @@ W tym przykładzie pokazano, jak używać modułu *obAzure Mapsego* w aplikacji 
 
 3. W nagłówku HTML odwołują się do *Azure Maps* stylu JavaScript i style arkusza stylów.
 
-4. Zainicjuj *obiekt mapy*. *Obiekt mapy* obsługuje następujące opcje:
+4. Zainicjuj *obiekt mapy* . *Obiekt mapy* obsługuje następujące opcje:
     - `Subscription key` jest Azure Maps podstawowym kluczem subskrypcji.
     - `center` definiuje szerokość geograficzną i długość geograficzną dla lokalizacji centralnego centrum mapy. Podaj wartość dla `center` , jeśli nie chcesz podawać wartości dla `bounds` . Format powinien wyglądać następująco `center` : [-122,13315, 47,63637].
-    - `bounds` jest najmniejszym prostokątnym kształtem, który zawiera dane mapy tileset. Ustaw wartość dla `bounds` opcji, jeśli nie chcesz ustawiać wartości dla `center` . Granice mapy można znaleźć, wywołując [interfejs API listy tileset](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). Interfejs API listy tileset zwraca `bbox` , który można analizować i przypisywać do `bounds` . Format powinien wyglądać następująco `bounds` : [# zachód, # południe, # wschód, # północ].
+    - `bounds` jest najmniejszym prostokątnym kształtem, który zawiera dane mapy tileset. Ustaw wartość dla `bounds` opcji, jeśli nie chcesz ustawiać wartości dla `center` . Granice mapy można znaleźć, wywołując [interfejs API listy tileset](/rest/api/maps/tileset/listpreview). Interfejs API listy tileset zwraca `bbox` , który można analizować i przypisywać do `bounds` . Format powinien wyglądać następująco `bounds` : [# zachód, # południe, # wschód, # północ].
     - `style` umożliwia ustawienie koloru tła. Aby wyświetlić białe tło, zdefiniuj `style` jako "puste".
     - `zoom` umożliwia określenie minimalnych i maksymalnych poziomów powiększenia dla mapy.
 
@@ -257,4 +257,4 @@ Dowiedz się więcej na temat dodawania większej ilości danych do mapy:
 > [Dynamiczne style map](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
-> [Przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Przykłady kodu](/samples/browse/?products=azure-maps)

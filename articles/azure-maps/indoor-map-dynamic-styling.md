@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86517301"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895379"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Zaimplementuj dynamiczne style dla map pomieszczeń dla twórców
 
-[Usługa stanu funkcji](https://docs.microsoft.com/rest/api/maps/featurestate) Azure Maps Creator umożliwia stosowanie stylów na podstawie właściwości dynamicznych funkcji danych mapy.  Można na przykład renderować Pokoje spotkań funkcji z określonym kolorem w celu odzwierciedlenia stanu zajętości. W tym artykule przedstawiono sposób dynamicznego renderowania funkcji mapy pomieszczeń przy użyciu [usługi stanu funkcji](https://docs.microsoft.com/rest/api/maps/featurestate) i pozostałego [modułu sieci Web](how-to-use-indoor-module.md).
+[Usługa stanu funkcji](/rest/api/maps/featurestate) Azure Maps Creator umożliwia stosowanie stylów na podstawie właściwości dynamicznych funkcji danych mapy.  Można na przykład renderować Pokoje spotkań funkcji z określonym kolorem w celu odzwierciedlenia stanu zajętości. W tym artykule przedstawiono sposób dynamicznego renderowania funkcji mapy pomieszczeń przy użyciu [usługi stanu funkcji](/rest/api/maps/featurestate) i pozostałego [modułu sieci Web](how-to-use-indoor-module.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -66,9 +66,9 @@ W następnej sekcji ustawimy *stan* zajętości pakietu Office `UNIT26` na `true
 
  Teraz będziemy aktualizować stan dwóch biur `UNIT26` i `UNIT27` :
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
 
-2. Użyj [interfejsu API Stany aktualizacji funkcji](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) , aby zaktualizować stan. Przekaż identyfikator stateset i `UNIT26` jedną z dwóch jednostek. Dołącz swój klucz subskrypcji Azure Maps. Oto adres URL żądania **post** , aby zaktualizować stan:
+2. Użyj [interfejsu API Stany aktualizacji funkcji](/rest/api/maps/featurestate/updatestatespreview) , aby zaktualizować stan. Przekaż identyfikator stateset i `UNIT26` jedną z dwóch jednostek. Dołącz swój klucz subskrypcji Azure Maps. Oto adres URL żądania **post** , aby zaktualizować stan:
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -124,7 +124,7 @@ Zobacz odwołania do interfejsów API wymienionych w tym artykule:
 > [Konwersja danych](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Zestaw danych](creator-indoor-maps.md#datasets)
+> [Zestawu](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)
@@ -134,4 +134,3 @@ Zobacz odwołania do interfejsów API wymienionych w tym artykule:
 
 > [!div class="nextstepaction"]
 > [Usługa WFS](creator-indoor-maps.md#web-feature-service-api)
-

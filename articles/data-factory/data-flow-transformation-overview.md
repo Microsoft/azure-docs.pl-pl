@@ -6,13 +6,13 @@ ms.author: daperlov
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: 6fe85db6612a16099f61cb52fe9c5864882f35b3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606282"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892931"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Mapowanie transformacji przepływu danych — omówienie
 
@@ -33,6 +33,7 @@ Poniżej znajduje się lista transformacji, które są obecnie obsługiwane w ma
 | [Wyszukiwanie](data-flow-lookup.md) | Wiele danych wejściowych/wyjściowych | Dane referencyjne z innego źródła. |
 | [Nowa gałąź](data-flow-new-branch.md) | Wiele danych wejściowych/wyjściowych | Zastosuj wiele zestawów operacji i transformacji dla tego samego strumienia danych. |
 | [Przestawianie](data-flow-pivot.md) | Modyfikator schematu | Agregacja, w której co najmniej jedna kolumna grupowania ma swoje unikatowe wartości wierszy przekształcone w pojedyncze kolumny. |
+| [Ranga](data-flow-rank.md) | Modyfikator schematu | Generowanie uporządkowanej klasyfikacji na podstawie warunków sortowania |
 | [Wybierz](data-flow-select.md) | Modyfikator schematu | Kolumny aliasów i nazwy strumieni oraz upuszczanie lub zmiana kolejności kolumn |
 | [Ujście](data-flow-sink.md) | - | Ostateczne miejsce docelowe dla danych |
 | [Sortowanie](data-flow-sort.md) | Modyfikator wiersza | Sortuj wiersze przychodzące w bieżącym strumieniu danych |

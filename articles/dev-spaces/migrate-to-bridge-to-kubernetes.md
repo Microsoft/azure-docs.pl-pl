@@ -5,21 +5,21 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Opisuje proces migracji z Azure Dev Spaces do mostka do Kubernetes
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers to Kubernetes
-ms.openlocfilehash: 6a6fe2367fca3d2068bb7d9a8e1a157fd2e5ca9b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7a7642d986d8490c5d0dc3c413e658b21b010798
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329802"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895260"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrowanie do rozszerzenia Bridge to Kubernetes
 
 > [!IMPORTANT]
-> Azure Dev Spaces zostanie wycofana 31 października 2023. Deweloperzy powinni przejść do korzystania z usługi Bridge do Kubernetes, narzędzia dla deweloperów klienta.
+> Azure Dev Spaces zostanie wycofana 31 października 2023. Klienci powinni przejść do korzystania z usługi Bridge do Kubernetes, narzędzia dla deweloperów klienta.
 >
-> Celem Azure Dev Spaces był rozwój i programowanie na Kubernetes. Istotnym kompromisem w podejściu Azure Dev Spaces było naliczenie dodatkowych obciążeń dla deweloperów w celu zrozumienia konfiguracji platformy Docker i Kubernetes, a także koncepcji wdrożenia Kubernetes. Z upływem czasu nastąpiło również jasne, że podejście Azure Dev Spaces nie skutecznie obniżyć szybkości tworzenia pętli wewnętrznej w Kubernetes. Mostek do Kubernetes skutecznie zmniejsza prędkość tworzenia pętli wewnętrznej i unika niepotrzebnych obciążeń dla deweloperów.
+> Celem Azure Dev Spacesu jest to, że użytkownicy będą mogli rozwijać Kubernetes. Istotnym kompromisem w podejściu Azure Dev Spaces było nałożenie dodatkowego obciążenia dla użytkowników w celu zrozumienia konfiguracji platformy Docker i Kubernetes, a także koncepcji wdrożenia Kubernetes. Z upływem czasu nastąpiło również jasne, że podejście Azure Dev Spaces nie skutecznie obniżyć szybkości tworzenia pętli wewnętrznej w Kubernetes. Mostek do Kubernetes skutecznie zmniejsza szybkość tworzenia pętli wewnętrznej i unika niepotrzebnych obciążeń dla użytkowników.
 >
-> Główna misja pozostaje niezmieniona: Utwórz najlepsze środowiska deweloperskie do tworzenia, testowania i debugowania kodu mikrousług w kontekście większej aplikacji.
+> Główna misja pozostaje niezmieniona: Utwórz najlepsze środowisko do tworzenia, testowania i debugowania kodu mikrousług w kontekście większej aplikacji.
 
 Mostek do Kubernetes zapewnia jaśniejszą wagę alternatywy dla wielu scenariuszy programistycznych, które współpracują z Azure Dev Spaces. Mostek do Kubernetes to środowisko tylko po stronie klienta przy użyciu rozszerzeń w programie [Visual Studio][vs]   i [Visual Studio Code][vsc].  
 
@@ -85,7 +85,7 @@ Mostek do Kubernetes zapewnia elastyczność pracy z aplikacjami działającymi 
 1. Jeśli używasz programu Visual Studio, zaktualizuj środowisko IDE programu Visual Studio do wersji 16,7 lub nowszej i zainstaluj mostek do rozszerzenia Kubernetes z [Visual Studio Marketplace][vs-marketplace]. Jeśli używasz Visual Studio Code, zainstaluj [mostek do rozszerzenia Kubernetes][vsc-marketplace].
 1. Wyłącz kontroler Azure Dev Spaces przy użyciu Azure Portal lub [interfejsu wiersza polecenia Azure dev Spaces][azds-delete].
 1. Użyj [Azure Cloud Shell](https://shell.azure.com). Lub na komputerach Mac, Linux lub Windows z zainstalowanym programem bash Otwórz wiersz polecenia powłoki bash. Upewnij się, że następujące narzędzia są dostępne w środowisku wiersza polecenia: Azure CLI, Docker, polecenia kubectl, zwinięcie, tar i gunzip.
-1. Utwórz rejestr kontenerów lub Użyj istniejącego. Rejestr kontenerów można utworzyć na platformie Azure przy użyciu [Azure Container Registry](../container-registry/index.yml) lub przy użyciu narzędzia [Docker Hub](https://hub.docker.com/).
+1. Utwórz rejestr kontenerów lub Użyj istniejącego. Rejestr kontenerów można utworzyć na platformie Azure przy użyciu [Azure Container Registry](../container-registry/index.yml) lub przy użyciu narzędzia [Docker Hub](https://hub.docker.com/). W przypadku korzystania z Azure Cloud Shell tylko Azure Container Registry jest dostępny do hostowania obrazów platformy Docker.
 1. Uruchom skrypt migracji w celu przekonwertowania Azure Dev Spaces zasobów na mostek do zasobów Kubernetes. Skrypt kompiluje nowy obraz zgodny z mostkiem Kubernetes, przekazuje go do wyoznaczonego rejestru, a następnie używa [Helm](https://helm.sh) do aktualizowania klastra przy użyciu obrazu. Należy podać grupę zasobów, nazwę klastra AKS oraz rejestr kontenerów. Dostępne są inne opcje wiersza polecenia, jak pokazano poniżej:
 
    ```azure-cli
@@ -102,6 +102,7 @@ Mostek do Kubernetes zapewnia elastyczność pracy z aplikacjami działającymi 
     -r Path to root of the project that needs to be migrated (default = current working directory)
     -t Image name & tag in format 'name:tag' (default is 'projectName:stable')
     -i Enable a public endpoint to access your service over internet. (default is false)
+    -c Docker build context path. (default = project root path passed to '-r' option)
     -y Doesn't prompt for non-tty terminals
     -d Helm Debug switch
    ```
@@ -116,7 +117,7 @@ Mostek do Kubernetes zapewnia elastyczność pracy z aplikacjami działającymi 
 
 Można również użyć routingu specyficznego dla deweloperów z mostkiem do Kubernetes. Scenariusz opracowywania zespołu Azure Dev Spaces używa wielu przestrzeni nazw Kubernetes do izolowania usługi od reszty aplikacji przy użyciu koncepcji nadrzędnych i podrzędnych przestrzeni nazw. Mostek do Kubernetes oferuje tę samą funkcję, ale z ulepszonymi charakterystykami wydajności i w obrębie tej samej przestrzeni nazw aplikacji.
 
-Oba mostki do Kubernetes i Azure Dev Spaces wymagają, aby nagłówki HTTP były obecne i propagowane w całej aplikacji. Jeśli aplikacja została już skonfigurowana do obsługi propagacji nagłówków dla Azure Dev Spaces, należy zaktualizować nagłówek. Aby przejść do programu Bridge do Kubernetes z Azure Dev Spaces, zaktualizuj skonfigurowany nagłówek z *azds-Route-as* do *Kubernetes-Route-as*.
+Oba mostki do Kubernetes i Azure Dev Spaces wymagają, aby nagłówki HTTP były obecne i propagowane w całej aplikacji. Jeśli aplikacja została już skonfigurowana do obsługi propagacji nagłówków dla Azure Dev Spaces, należy zaktualizować nagłówek. Aby przejść do programu Bridge do Kubernetes z Azure Dev Spaces, zaktualizuj skonfigurowany nagłówek z *azds-Route-as* do *Kubernetes-Route-as* .
 
 ## <a name="evaluate-bridge-to-kubernetes"></a>Oceń mostek do Kubernetes
 
@@ -146,9 +147,9 @@ Dowiedz się więcej o tym, jak działa mostek Kubernetes.
 
 [azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli
 [kubernetes-extension]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools
-[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#install-the-sample-application
+[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes#install-the-sample-application
 [how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
-[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#connect-to-your-cluster-and-debug-a-service
+[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes#connect-to-your-cluster-and-debug-a-service
 [use-btk-vsc]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
 [vs]: https://visualstudio.microsoft.com/
 [vsc-marketplace]: https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro

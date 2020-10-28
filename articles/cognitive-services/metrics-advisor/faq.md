@@ -10,22 +10,18 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131687"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893581"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Często zadawane pytania dotyczące klasyfikatora metryk
 
 ### <a name="what-is-the-cost-of-my-instance"></a>Jaki jest koszt mojego wystąpienia?
 
 Nie ma obecnie kosztu na korzystanie z Twojego wystąpienia w wersji zapoznawczej.
-
-### <a name="why-is-the-demo-website-readonly"></a>Dlaczego demonstracyjna witryna sieci Web jest tylko do odczytu?
-
-[Demonstracyjna witryna sieci Web](https://anomaly-detector.azurewebsites.net/) jest publicznie dostępna. To wystąpienie jest tylko do odczytu, aby zapobiec przypadkowemu przekazywaniu jakichkolwiek danych.
 
 ### <a name="why-cant-i-create-the-resource-the-pricing-tier-is-unavailable-and-it-says-you-have-already-created-1-s0-for-this-subscription"></a>Dlaczego nie mogę utworzyć zasobu? "Warstwa cenowa" jest niedostępna i mówi "utworzono już 1 S0 dla tej subskrypcji"?
 
@@ -141,9 +137,8 @@ Narzędzie **drzewo zdarzeń** na stronie Diagnostyka zawiera tylko węzły, w k
  
 Na przykład jeśli wystąpi anomalia `Service = S2 | Data Center = DC2 | Machine = M5` , odchylenie anomalii wpływa na węzeł nadrzędny `Service= S2` , który również wykrył anomalię, ale anomalia nie ma wpływu na całe centrum danych na `DC2` i wszystkie usługi na `M5` . Drzewo zdarzeń zostanie skompilowane jak na poniższym zrzucie ekranu, Górna anomalia zostanie przechwycona `Service = S2` , a główna przyczyna może zostać przeanalizowana w dwóch ścieżkach, do których oba powodują `Service = S2 | Data Center = DC2 | Machine = M5` .
 
- :::image type="content" source="media/root-cause-paths.png" alt-text="5 oznaczone wierzchołkami z dwiema unikatowymi ścieżkami połączonymi przez krawędzie ze wspólnym węzłem o nazwie S2. Najczęstsze anomalie są przechwytywane w usłudze = S2, a główna przyczyna może być analizowana przez dwie ścieżki, które prowadzą do usługi = S2 | Centrum danych = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 oznaczone wierzchołkami z dwiema unikatowymi ścieżkami połączonymi przez krawędzie ze wspólnym węzłem z etykietą S2. Najczęstsze anomalie są przechwytywane w usłudze = S2, a główna przyczyna może być analizowana przez dwie ścieżki, które prowadzą do usługi = S2 | Centrum danych = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 - [Omówienie klasyfikatora metryk](overview.md)
-- [Wypróbuj witrynę demonstracyjną](quickstarts/explore-demo.md)
 - [Używanie portalu internetowego](quickstarts/web-portal.md)

@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ec62461e5a12f0c566becdfc7d9a1464433ee656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311023"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895753"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderowanie niestandardowych danych na mapie rastrowej
 
-W tym artykule wyjaśniono, jak używać [usługi obrazu statycznego](https://docs.microsoft.com/rest/api/maps/render/getmapimage)z funkcją kompozycji obrazu, aby zezwolić na nakładki na górze mapy rastrowej. Kompozycja obrazów obejmuje możliwość uzyskania kafelka rastrowego, z dodatkowymi danymi, takimi jak niestandardowe pinezki, etykiety i nakładki geometryczne.
+W tym artykule wyjaśniono, jak używać [usługi obrazu statycznego](/rest/api/maps/render/getmapimage)z funkcją kompozycji obrazu, aby zezwolić na nakładki na górze mapy rastrowej. Kompozycja obrazów obejmuje możliwość uzyskania kafelka rastrowego, z dodatkowymi danymi, takimi jak niestandardowe pinezki, etykiety i nakładki geometryczne.
 
-Aby renderować niestandardowe pinezki, etykiety i nakładki geometryczne, można użyć aplikacji programu Poster. Za pomocą [interfejsów API usługi danych](https://docs.microsoft.com/rest/api/maps/data) Azure Maps można przechowywać i renderować nakładki.
+Aby renderować niestandardowe pinezki, etykiety i nakładki geometryczne, można użyć aplikacji programu Poster. Za pomocą [interfejsów API usługi danych](/rest/api/maps/data) Azure Maps można przechowywać i renderować nakładki.
 
 > [!Tip]
 > Często jest znacznie bardziej kosztowne użycie zestawu SDK sieci Web Azure Maps do wyświetlania prostej mapy na stronie sieci Web niż w przypadku korzystania z usługi obrazu statycznego. Zestaw SDK sieci Web używa kafelków mapy, chyba że użytkownik Pans i powiększa mapę, często generują jedynie część transakcji na obciążenie mapy. Należy pamiętać, że zestaw SDK sieci Web Azure Maps zawiera opcje wyłączania panoramowania i powiększania. Ponadto zestaw SDK sieci Web Azure Maps zapewnia bogatszy zestaw opcji wizualizacji danych niż usługa sieci Web mapy statycznej.  
@@ -41,9 +41,9 @@ Warstwa S0 konta Azure Maps obsługuje tylko jedno wystąpienie `pins` parametru
 
 Aby renderować pinezki z etykietami i obrazem niestandardowym, wykonaj następujące kroki:
 
-1. Utwórz kolekcję, w której mają być przechowywane żądania. W aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja**. Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** . 
+1. Utwórz kolekcję, w której mają być przechowywane żądania. W aplikacji Poster wybierz pozycję **Nowy** . W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja** . Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** . 
 
-2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla pinezki. Wybierz kolekcję utworzoną w poprzednim kroku jako lokalizację, w której ma zostać zapisane żądanie. Następnie wybierz pozycję **Zapisz**.
+2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla pinezki. Wybierz kolekcję utworzoną w poprzednim kroku jako lokalizację, w której ma zostać zapisane żądanie. Następnie wybierz pozycję **Zapisz** .
     
     ![Utwórz żądanie w programie Poster](./media/how-to-render-custom-data/postman-new.png)
 
@@ -62,7 +62,7 @@ Aby renderować pinezki z etykietami i obrazem niestandardowym, wykonaj następu
 > [!Note]
 > Procedura opisana w tej sekcji wymaga konta Azure Maps w warstwie cenowej S1.
 
-Możesz również uzyskać informacje o ścieżce i lokalizacji numeru PIN przy użyciu [interfejsu API przekazywania danych](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Wykonaj poniższe kroki, aby przekazać dane ścieżki i pinezki.
+Możesz również uzyskać informacje o ścieżce i lokalizacji numeru PIN przy użyciu [interfejsu API przekazywania danych](/rest/api/maps/data/uploadpreview). Wykonaj poniższe kroki, aby przekazać dane ścieżki i pinezki.
 
 1. W aplikacji Poster Otwórz nową kartę w kolekcji utworzonej w poprzedniej sekcji. Wybierz metodę POST HTTP na karcie Konstruktor i wprowadź następujący adres URL, aby wykonać żądanie POST:
 
@@ -172,7 +172,7 @@ Możesz również uzyskać informacje o ścieżce i lokalizacji numeru PIN przy 
 > Procedura opisana w tej sekcji wymaga konta Azure Maps w warstwie cenowej S1.
 
 
-Możesz zmodyfikować wygląd wielokąta, używając modyfikatorów stylu z [parametrem Path](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Możesz zmodyfikować wygląd wielokąta, używając modyfikatorów stylu z [parametrem Path](/rest/api/maps/render/getmapimage#uri-parameters).
 
 1. W aplikacji Poster Otwórz nową kartę w utworzonej wcześniej kolekcji. Wybierz metodę GET HTTP na karcie Konstruktor i wprowadź następujący adres URL w celu skonfigurowania żądania GET w celu renderowania wielokąta z kolorami i nieprzezroczystością:
     
@@ -192,7 +192,7 @@ Możesz zmodyfikować wygląd wielokąta, używając modyfikatorów stylu z [par
 > Procedura opisana w tej sekcji wymaga konta Azure Maps w warstwie cenowej S1.
 
 
-Możesz zmodyfikować wygląd pinów przez dodanie modyfikatorów stylów. Na przykład aby zwiększyć lub zmniejszyć pinezki i ich etykiety, użyj `sc` modyfikatora "Style skalowania". Ten modyfikator przyjmuje wartość większą od zera. Wartość 1 jest skalą standardową. Wartości większe niż 1 spowodują, że numery PIN będą większe, a wartości mniejsze od 1 staną się mniejsze. Aby uzyskać więcej informacji na temat modyfikatorów stylu, zobacz [Parametry ścieżki usługi obrazu statycznego](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Możesz zmodyfikować wygląd pinów przez dodanie modyfikatorów stylów. Na przykład aby zwiększyć lub zmniejszyć pinezki i ich etykiety, użyj `sc` modyfikatora "Style skalowania". Ten modyfikator przyjmuje wartość większą od zera. Wartość 1 jest skalą standardową. Wartości większe niż 1 spowodują, że numery PIN będą większe, a wartości mniejsze od 1 staną się mniejsze. Aby uzyskać więcej informacji na temat modyfikatorów stylu, zobacz [Parametry ścieżki usługi obrazu statycznego](/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Wykonaj następujące kroki, aby renderować okrąg i pinezki z etykietami niestandardowymi:
@@ -222,6 +222,5 @@ Analogicznie, można zmieniać, dodawać i usuwać inne Modyfikatory stylów.
 ## <a name="next-steps"></a>Następne kroki
 
 
-* Zapoznaj się z dokumentacją [interfejsu API pobierania obrazu Azure Maps](https://docs.microsoft.com/rest/api/maps/render/getmapimage) .
-* Aby dowiedzieć się więcej na temat usługi danych Azure Maps, zapoznaj się z [dokumentacją usługi](https://docs.microsoft.com/rest/api/maps/data).
-
+* Zapoznaj się z dokumentacją [interfejsu API pobierania obrazu Azure Maps](/rest/api/maps/render/getmapimage) .
+* Aby dowiedzieć się więcej na temat usługi danych Azure Maps, zapoznaj się z [dokumentacją usługi](/rest/api/maps/data).
