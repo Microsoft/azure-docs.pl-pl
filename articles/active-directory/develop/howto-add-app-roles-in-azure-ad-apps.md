@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: be5cb1c1e6ff428b3c4d4305c915e07d3880839c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c29e1e3fd42702e0eb02531f995c550738839a9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258391"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673710"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
@@ -34,12 +34,12 @@ Te role aplikacji są zdefiniowane w [Azure Portal](https://portal.azure.com) w 
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Deklarowanie ról aplikacji przy użyciu Azure Portal
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
 1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** .
 1. Z listy **Ulubione** lub **wszystkie katalogi** wybierz Active Directory dzierżawy, w której chcesz zarejestrować aplikację.
-1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory** .
 1. W okienku  **Azure Active Directory** wybierz pozycję **rejestracje aplikacji** , aby wyświetlić listę wszystkich aplikacji.
-1. Wybierz aplikację, w której chcesz zdefiniować role aplikacji. Następnie wybierz pozycję **manifest**.
+1. Wybierz aplikację, w której chcesz zdefiniować role aplikacji. Następnie wybierz pozycję **manifest** .
 1. Edytuj manifest aplikacji, lokalizując `appRoles` ustawienie i dodając wszystkie role aplikacji.
 
      > [!NOTE]
@@ -76,7 +76,7 @@ Poniższy przykład pokazuje `appRoles` , że można przypisać do `users` .
 > [!NOTE]
 >`displayName`Może zawierać spacje.
 
-Można zdefiniować role aplikacji, które mają być docelowe `users` , `applications` lub obie. Gdy jest to możliwe `applications` , role aplikacji są wyświetlane jako uprawnienia aplikacji w obszarze **zarządzaj** sekcja > **uprawnienia interfejsu api > Dodawanie uprawnień > moich interfejsów API > wybierz interfejs API > uprawnienia aplikacji**. Poniższy przykład przedstawia rolę aplikacji ukierunkowaną na `Application` .
+Można zdefiniować role aplikacji, które mają być docelowe `users` , `applications` lub obie. Gdy jest to możliwe `applications` , role aplikacji są wyświetlane jako uprawnienia aplikacji w obszarze **zarządzaj** sekcja > **uprawnienia interfejsu api > Dodawanie uprawnień > moich interfejsów API > wybierz interfejs API > uprawnienia aplikacji** . Poniższy przykład przedstawia rolę aplikacji ukierunkowaną na `Application` .
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -126,7 +126,7 @@ Gdy użytkownicy przypisani do różnych ról aplikacji logują się do aplikacj
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dodawanie autoryzacji przy użyciu ról aplikacji & oświadczenia ról do aplikacji sieci Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Implementowanie autoryzacji w aplikacjach przy użyciu platformy tożsamości firmy Microsoft (wideo)](https://www.youtube.com/watch?v=LRoc-na27l0)
+- [Implementowanie autoryzacji w aplikacjach przy użyciu platformy tożsamości firmy Microsoft (wideo)](https://www.youtube.com/watch?v=HdBSBSbgYQQ)
 - [Azure Active Directory, teraz z oświadczeniami grupy i rolami aplikacji](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifest aplikacji usługi Azure Active Directory](./reference-app-manifest.md)
 - [Tokeny dostępu usługi Azure AD](access-tokens.md)

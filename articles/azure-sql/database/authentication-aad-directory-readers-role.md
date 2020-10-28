@@ -9,19 +9,19 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 0f9b6e0250acb53899ab0443a62db7c9cc51f992
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2374b1fb7f355b336c713a8a3240eacc8b1f188c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370104"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675067"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rola czytelnicy Directory w Azure Active Directory dla usługi Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Ta funkcja jest dostępna w **publicznej wersji zapoznawczej**.
+> Ta funkcja jest dostępna w **publicznej wersji zapoznawczej** .
 
 Usługa Azure Active Directory (Azure AD) została wprowadzona [przy użyciu grup w chmurze do zarządzania przypisaniami ról w Azure Active Directory (wersja zapoznawcza)](../../active-directory/roles/groups-concept.md). Dzięki temu można przypisywać role usługi Azure AD do grup.
 
@@ -31,7 +31,7 @@ Rola **czytelnicy Directory** jest wymagana do:
 
 - Tworzenie nazw logowania usługi Azure AD dla wystąpienia zarządzanego SQL
 - Personifikowanie użytkowników usługi Azure AD w usłudze Azure SQL
-- Migrowanie SQL Server użytkowników korzystających z uwierzytelniania systemu Windows do wystąpienia zarządzanego SQL przy użyciu uwierzytelniania usługi Azure AD (za pomocą polecenia [ALTER User (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) )
+- Migrowanie SQL Server użytkowników korzystających z uwierzytelniania systemu Windows do wystąpienia zarządzanego SQL przy użyciu uwierzytelniania usługi Azure AD (za pomocą polecenia [ALTER User (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) )
 - Zmień administratora usługi Azure AD dla wystąpienia zarządzanego SQL
 - Zezwalaj [podmiotom usługi (Applications)](authentication-aad-service-principal.md) na tworzenie użytkowników usługi Azure AD w usłudze Azure SQL
 
@@ -45,7 +45,7 @@ Przypisanie roli **czytniki katalogów** do tożsamości serwera nie jest wymaga
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Przyznawanie roli czytniki katalogów do grupy usługi Azure AD
 
-Obecnie w **publicznej wersji zapoznawczej**można mieć uprawnienia administratora [globalnego](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) lub [administratora roli uprzywilejowanej](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) , aby utworzyć grupę usługi Azure AD i przypisać do niej uprawnienie do [**odczytywania katalogów**](../../active-directory/roles/permissions-reference.md#directory-readers) . Umożliwi to dostęp do interfejs API programu Graph usługi Azure AD dla członków tej grupy. Ponadto użytkownicy usługi Azure AD będący właścicielami tej grupy mogą przypisywać nowych członków tej grupy, w tym tożsamości serwerów logicznych usługi Azure SQL.
+Obecnie w **publicznej wersji zapoznawczej** można mieć uprawnienia administratora [globalnego](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) lub [administratora roli uprzywilejowanej](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) , aby utworzyć grupę usługi Azure AD i przypisać do niej uprawnienie do [**odczytywania katalogów**](../../active-directory/roles/permissions-reference.md#directory-readers) . Umożliwi to dostęp do interfejs API programu Graph usługi Azure AD dla członków tej grupy. Ponadto użytkownicy usługi Azure AD będący właścicielami tej grupy mogą przypisywać nowych członków tej grupy, w tym tożsamości serwerów logicznych usługi Azure SQL.
 
 To rozwiązanie nadal wymaga, aby użytkownik o wysokim poziomie uprawnień (Administrator globalny lub administrator ról uprzywilejowanych) utworzył grupę i przypisał użytkowników jako jednorazowe działanie, ale właściciele grup usługi Azure AD będą mogli przypisywać dodatkowe elementy członkowskie do przodu. Eliminuje to konieczność poniesienia wysokiego uprawnienia użytkownikowi w przyszłości, aby skonfigurować wszystkie bazy danych SQL, wystąpienia zarządzane SQL lub serwery Azure Synapse w swojej dzierżawie usługi Azure AD.
 

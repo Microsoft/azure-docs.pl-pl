@@ -8,12 +8,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2743efa5a9067f0667d54be0b7df75a627e60fcd
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652010"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674035"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Uruchamianie zadań w tle za pomocą zadań WebJob w Azure App Service
 
@@ -61,13 +61,16 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
+> [!IMPORTANT]
+> Jeśli masz kontrolę źródła skonfigurowaną z aplikacją, Zadania WebJob powinny zostać wdrożone w ramach integracji kontroli źródła. Po skonfigurowaniu kontroli źródła za pomocą aplikacji Zadania WebJob nie można dodać do witryny Azure Portal.
+
 1. W [Azure Portal](https://portal.azure.com)przejdź do strony **App Service** aplikacji sieci Web App Service, aplikacji interfejsu API lub aplikacji mobilnej.
 
-2. Wybierz pozycję **Zadania WebJob**.
+2. Wybierz pozycję **Zadania WebJob** .
 
    ![Wybieranie zadań WebJob](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na stronie **Zadania WebJob** wybierz pozycję **Dodaj**.
+2. Na stronie **Zadania WebJob** wybierz pozycję **Dodaj** .
 
     ![Strona Zadania WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -75,20 +78,20 @@ when making changes in one don't forget the other two.
 
    ![Zrzut ekranu pokazujący Dodawanie ustawień zadania WebJob, które należy skonfigurować.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Ustawienie      | Wartość przykładowa   | Opis  |
+   | Ustawienie      | Wartość przykładowa   | Opis  |
    | ------------ | ----------------- | ------------ |
    | **Nazwa** | myContinuousWebJob | Nazwa, która jest unikatowa w ramach aplikacji App Service. Musi zaczynać się literą lub cyfrą i nie może zawierać znaków specjalnych innych niż "-" i "_". |
    | **Przekazywanie plików** | ConsoleApp.zip | Plik *. zip* , który zawiera plik wykonywalny lub skrypt, a także wszystkie pliki pomocnicze potrzebne do uruchomienia programu lub skryptu. Obsługiwane typy plików wykonywalnych i skryptów są wymienione w sekcji [obsługiwane typy plików](#acceptablefiles) . |
    | **Typ** | Ciągłe | [Typy zadań WebJob](#webjob-types) zostały opisane wcześniej w tym artykule. |
    | **Skalowanie** | Wiele wystąpień | Dostępne tylko w przypadku ciągłych zadań WebJob. Określa, czy program lub skrypt jest uruchamiany we wszystkich wystąpieniach, czy tylko w jednym wystąpieniu. Opcja uruchamiania na wielu wystąpieniach nie ma zastosowania do [warstw cenowych](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)bezpłatna lub współdzielona. | 
 
-4. Kliknij przycisk **OK**.
+4. Kliknij pozycję **OK** .
 
    Nowe zadanie WebJob pojawia się na stronie **WebJobs** .
 
    ![Lista zadań WebJob](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-2. Aby zatrzymać lub uruchomić ponownie ciągłe zadanie WebJob, kliknij prawym przyciskiem myszy zadanie WebJob na liście, a następnie kliknij przycisk **Zatrzymaj** lub **Uruchom**.
+2. Aby zatrzymać lub uruchomić ponownie ciągłe zadanie WebJob, kliknij prawym przyciskiem myszy zadanie WebJob na liście, a następnie kliknij przycisk **Zatrzymaj** lub **Uruchom** .
 
     ![Zatrzymywanie ciągłego Zadania WebJob](./media/web-sites-create-web-jobs/continuousstop.png)
 
@@ -101,11 +104,11 @@ when making changes in one don't forget the other two.
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do strony **App Service** aplikacji sieci Web App Service, aplikacji interfejsu API lub aplikacji mobilnej.
 
-2. Wybierz pozycję **Zadania WebJob**.
+2. Wybierz pozycję **Zadania WebJob** .
 
    ![Wybieranie zadań WebJob](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na stronie **Zadania WebJob** wybierz pozycję **Dodaj**.
+2. Na stronie **Zadania WebJob** wybierz pozycję **Dodaj** .
 
     ![Strona Zadania WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -113,20 +116,20 @@ when making changes in one don't forget the other two.
 
    ![Zrzut ekranu pokazujący ustawienia, które należy ustawić w celu utworzenia ręcznie wyzwalanego Zadania WebJob.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Ustawienie      | Wartość przykładowa   | Opis  |
+   | Ustawienie      | Wartość przykładowa   | Opis  |
    | ------------ | ----------------- | ------------ |
    | **Nazwa** | myTriggeredWebJob | Nazwa, która jest unikatowa w ramach aplikacji App Service. Musi zaczynać się literą lub cyfrą i nie może zawierać znaków specjalnych innych niż "-" i "_".|
    | **Przekazywanie plików** | ConsoleApp.zip | Plik *. zip* , który zawiera plik wykonywalny lub skrypt, a także wszystkie pliki pomocnicze potrzebne do uruchomienia programu lub skryptu. Obsługiwane typy plików wykonywalnych i skryptów są wymienione w sekcji [obsługiwane typy plików](#acceptablefiles) . |
    | **Typ** | Wyzwalane | [Typy zadań WebJob](#webjob-types) zostały opisane wcześniej w tym artykule. |
    | **Wyzwalacze** | Ręcznie | |
 
-4. Kliknij przycisk **OK**.
+4. Kliknij pozycję **OK** .
 
    Nowe zadanie WebJob pojawia się na stronie **WebJobs** .
 
    ![Lista zadań WebJob](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-7. Aby uruchomić zadanie WebJob, kliknij prawym przyciskiem myszy jego nazwę na liście i kliknij polecenie **Uruchom**.
+7. Aby uruchomić zadanie WebJob, kliknij prawym przyciskiem myszy jego nazwę na liście i kliknij polecenie **Uruchom** .
    
     ![Uruchom zadanie WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
@@ -139,11 +142,11 @@ when making changes in one don't forget the other two.
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do strony **App Service** aplikacji sieci Web App Service, aplikacji interfejsu API lub aplikacji mobilnej.
 
-2. Wybierz pozycję **Zadania WebJob**.
+2. Wybierz pozycję **Zadania WebJob** .
 
    ![Wybieranie zadań WebJob](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na stronie **Zadania WebJob** wybierz pozycję **Dodaj**.
+2. Na stronie **Zadania WebJob** wybierz pozycję **Dodaj** .
 
    ![Strona Zadania WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -151,7 +154,7 @@ when making changes in one don't forget the other two.
 
    ![Dodawanie strony zadania WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Ustawienie      | Wartość przykładowa   | Opis  |
+   | Ustawienie      | Wartość przykładowa   | Opis  |
    | ------------ | ----------------- | ------------ |
    | **Nazwa** | myScheduledWebJob | Nazwa, która jest unikatowa w ramach aplikacji App Service. Musi zaczynać się literą lub cyfrą i nie może zawierać znaków specjalnych innych niż "-" i "_". |
    | **Przekazywanie plików** | ConsoleApp.zip | Plik *. zip* , który zawiera plik wykonywalny lub skrypt, a także wszystkie pliki pomocnicze potrzebne do uruchomienia programu lub skryptu. Obsługiwane typy plików wykonywalnych i skryptów są wymienione w sekcji [obsługiwane typy plików](#acceptablefiles) . |
@@ -159,7 +162,7 @@ when making changes in one don't forget the other two.
    | **Wyzwalacze** | Zaplanowana | Aby planowanie działało niezawodne, Włącz funkcję zawsze włączone. Opcję zawsze włączone są dostępne tylko w warstwach cenowych podstawowa, standardowa i Premium.|
    | **Wyrażenie CRON** | 0 0/20 * * * * | [Wyrażenia CRONUS](#ncrontab-expressions) są opisane w następnej sekcji. |
 
-4. Kliknij przycisk **OK**.
+4. Kliknij pozycję **OK** .
 
    Nowe zadanie WebJob pojawia się na stronie **WebJobs** .
 
@@ -193,7 +196,7 @@ Aby dowiedzieć się więcej, zobacz [Planowanie wyzwalanego Zadania WebJob](web
    
     ![Szczegóły przebiegu zadania sieci Web](./media/web-sites-create-web-jobs/webjobrundetails.png)
 
-   Aby wyświetlić tekst wyjściowy w osobnym oknie przeglądarki, wybierz pozycję **Pobierz**. Aby pobrać sam tekst, kliknij prawym przyciskiem myszy pozycję **Pobierz** i użyj opcji przeglądarki, aby zapisać zawartość pliku.
+   Aby wyświetlić tekst wyjściowy w osobnym oknie przeglądarki, wybierz pozycję **Pobierz** . Aby pobrać sam tekst, kliknij prawym przyciskiem myszy pozycję **Pobierz** i użyj opcji przeglądarki, aby zapisać zawartość pliku.
    
 5. Aby przejść do listy zadań WebJob, wybierz link do obszaru nawigacyjnego **Zadania WebJob** w górnej części strony.
 

@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461003"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672863"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
@@ -34,7 +34,7 @@ W tym artykule dowiesz się, jak włączyć następujące zasoby obszarów roboc
 > - Obszar roboczy usługi Azure Machine Learning
 > - Konta usługi Azure Storage
 > - Azure Machine Learning magazyny i zestawy danych
-> - W usłudze Azure Key Vault
+> - Azure Key Vault
 > - Azure Container Registry
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -74,23 +74,28 @@ Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej,
 
    [![Magazyn połączony z obszarem roboczym Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Na stronie konto usługi magazynu wybierz pozycję __zapory i sieci wirtualne__.
+1. Na stronie konto usługi magazynu wybierz pozycję __zapory i sieci wirtualne__ .
 
    ![Obszar "zapory i sieci wirtualne" na stronie usługi Azure Storage w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
 1. Na stronie __zapory i sieci wirtualne__ wykonaj następujące czynności:
-    1. Wybierz pozycję __Wybrane sieci__.
-    1. W obszarze __sieci wirtualne__wybierz łącze __Dodaj istniejące sieci wirtualne__ . Ta akcja powoduje dodanie sieci wirtualnej, w której znajdują się obliczenia (zobacz krok 1).
+    1. Wybierz pozycję __Wybrane sieci__ .
+    1. W obszarze __sieci wirtualne__ wybierz łącze __Dodaj istniejące sieci wirtualne__ . Ta akcja powoduje dodanie sieci wirtualnej, w której znajdują się obliczenia (zobacz krok 1).
 
         > [!IMPORTANT]
         > Konto magazynu musi znajdować się w tej samej sieci wirtualnej i podsieci co wystąpienia obliczeniowe lub klastry używane do uczenia lub wnioskowania.
 
-    1. Zaznacz pole wyboru __Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu__ .
+    1. Zaznacz pole wyboru __Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu__ . Nie spowoduje to przyznania dostępu do konta magazynu wszystkim usługom platformy Azure.
+    
+        * Zasoby niektórych usług, **zarejestrowane w ramach subskrypcji** , mogą uzyskiwać dostęp do konta magazynu **w ramach tej samej subskrypcji** dla operacji wyboru. Na przykład zapisywanie dzienników lub tworzenie kopii zapasowych.
+        * Do zasobów niektórych usług można uzyskać jawny dostęp do konta magazynu, __przypisując rolę platformy Azure__ do zarządzanej tożsamości przypisanej do systemu.
+
+        Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
     > [!IMPORTANT]
     > Podczas pracy z zestawem SDK Azure Machine Learning środowisko programistyczne musi mieć możliwość nawiązania połączenia z kontem usługi Azure Storage. Gdy konto magazynu znajduje się w sieci wirtualnej, zapora musi zezwalać na dostęp ze swojego adresu IP środowiska deweloperskiego.
     >
-    > Aby włączyć dostęp do konta magazynu, odwiedź __zapory i sieci wirtualne__ dla konta magazynu *z przeglądarki sieci Web na kliencie deweloperskim*. Następnie użyj pola wyboru __Dodaj adres IP klienta__ , aby dodać adres IP klienta do __zakresu adresów__. Możesz również użyć pola __zakres adresów__ , aby ręcznie wprowadzić adres IP środowiska deweloperskiego. Po dodaniu adresu IP klienta może on uzyskać dostęp do konta magazynu przy użyciu zestawu SDK.
+    > Aby włączyć dostęp do konta magazynu, odwiedź __zapory i sieci wirtualne__ dla konta magazynu *z przeglądarki sieci Web na kliencie deweloperskim* . Następnie użyj pola wyboru __Dodaj adres IP klienta__ , aby dodać adres IP klienta do __zakresu adresów__ . Możesz również użyć pola __zakres adresów__ , aby ręcznie wprowadzić adres IP środowiska deweloperskiego. Po dodaniu adresu IP klienta może on uzyskać dostęp do konta magazynu przy użyciu zestawu SDK.
 
    [![Okienko "zapory i sieci wirtualne" w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -123,7 +128,7 @@ Domyślnie Azure Machine Learning sprawdza ważność danych i sprawdzanie pośw
 - Usługa Azure Blob Storage
 - Udział plików platformy Azure
 - PostgreSQL
-- Azure SQL Database
+- Usługa Azure SQL Database
 
 Poniższy przykład kodu tworzy nowy magazyn danych obiektów blob platformy Azure `skip_validation=True` .
 
@@ -170,12 +175,12 @@ Aby korzystać z funkcji eksperymentowania Azure Machine Learning z Azure Key Va
 
 1. Przejdź do Key Vault, która jest skojarzona z obszarem roboczym.
 
-1. Na stronie __Key Vault__ w lewym okienku wybierz pozycję __Sieć__.
+1. Na stronie __Key Vault__ w lewym okienku wybierz pozycję __Sieć__ .
 
 1. Na karcie __zapory i sieci wirtualne__ wykonaj następujące czynności:
-    1. W obszarze __Zezwalaj na dostęp z__, wybierz pozycję __prywatny punkt końcowy i wybrane sieci__.
-    1. W obszarze __sieci wirtualne__wybierz pozycję __Dodaj istniejące sieci wirtualne__ , aby dodać sieć wirtualną, w której znajduje się obliczenie eksperymentu.
-    1. W obszarze __Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory?__ wybierz pozycję __tak__.
+    1. W obszarze __Zezwalaj na dostęp z__ , wybierz pozycję __prywatny punkt końcowy i wybrane sieci__ .
+    1. W obszarze __sieci wirtualne__ wybierz pozycję __Dodaj istniejące sieci wirtualne__ , aby dodać sieć wirtualną, w której znajduje się obliczenie eksperymentu.
+    1. W obszarze __Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory?__ wybierz pozycję __tak__ .
 
    [![Sekcja "zapory i sieci wirtualne" w okienku Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 

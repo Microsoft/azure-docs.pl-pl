@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2b7a72b76c3ea028580a642a6a9f634c162edb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 011b50449f0a02b128bc000535f93e1809fd9777
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369730"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673885"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Przypisywanie ról zasobów platformy Azure w Privileged Identity Management
 
@@ -39,13 +39,13 @@ Usługa Azure Active Directory (Azure AD) Privileged Identity Management (PIM) m
 
 Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli zasobów platformy Azure.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który jest członkiem roli [administrator ról uprzywilejowanych](../roles/permissions-reference.md#privileged-role-administrator) .
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu uprawnień roli administrator dostępu użytkownika lub właściciela.
 
     Aby uzyskać informacje na temat udzielania innym administratorom dostępu do zarządzania Privileged Identity Management, zobacz [udzielanie dostępu innym administratorom w celu zarządzania Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
-1. Otwórz **Azure AD Privileged Identity Management**.
+1. Otwórz **Azure AD Privileged Identity Management** .
 
-1. Wybierz pozycję **zasoby platformy Azure**.
+1. Wybierz pozycję **zasoby platformy Azure** .
 
 1. Użyj filtru zasobów, aby znaleźć zarządzane zasoby, których szukasz.
 
@@ -53,7 +53,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli z
 
 1. Wybierz zasób, którym chcesz zarządzać, aby otworzyć stronę przegląd zasobów.
 
-1. W obszarze **Zarządzanie**wybierz pozycję **role** , aby wyświetlić listę ról dla zasobów platformy Azure.
+1. W obszarze **Zarządzanie** wybierz pozycję **role** , aby wyświetlić listę ról dla zasobów platformy Azure.
 
     ![Role zasobów platformy Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
@@ -63,15 +63,15 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli z
 
     ![Nowe okienko przypisania](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-1. Wybierz rolę, którą chcesz przypisać, a następnie kliknij przycisk **Wybierz**.
+1. Wybierz rolę, którą chcesz przypisać, a następnie kliknij przycisk **Wybierz** .
 
     Zostanie otwarte okienko **Wybierz członka lub grupę** .
 
-1. Wybierz członka lub grupę, która ma zostać przypisana do roli, a następnie kliknij przycisk **Wybierz**.
+1. Wybierz członka lub grupę, która ma zostać przypisana do roli, a następnie kliknij przycisk **Wybierz** .
 
     ![Wybierz okienko elementu członkowskiego lub grupy](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-1. Na karcie **Ustawienia** na liście **Typ przypisania** wybierz pozycję **kwalifikujące się** lub **aktywne**.
+1. Na karcie **Ustawienia** na liście **Typ przypisania** wybierz pozycję **kwalifikujące się** lub **aktywne** .
 
     ![Okienko ustawień członkostw](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -83,7 +83,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli z
 
 1. Aby określić określony czas trwania przypisania, Zmień datę i godzinę rozpoczęcia i zakończenia.
 
-1. Po zakończeniu wybierz pozycję **Przypisz**.
+1. Po zakończeniu wybierz pozycję **Przypisz** .
 
 1. Po utworzeniu nowego przypisania roli zostanie wyświetlone powiadomienie o stanie.
 
@@ -93,13 +93,13 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli z
 
 Wykonaj następujące kroki, aby zaktualizować lub usunąć istniejące przypisanie roli.
 
-1. Otwórz **Azure AD Privileged Identity Management**.
+1. Otwórz **Azure AD Privileged Identity Management** .
 
-1. Wybierz pozycję **zasoby platformy Azure**.
+1. Wybierz pozycję **zasoby platformy Azure** .
 
 1. Wybierz zasób, którym chcesz zarządzać, aby otworzyć jego stronę przeglądu.
 
-1. W obszarze **Zarządzanie**wybierz pozycję **role** , aby wyświetlić listę ról dla zasobów platformy Azure.
+1. W obszarze **Zarządzanie** wybierz pozycję **role** , aby wyświetlić listę ról dla zasobów platformy Azure.
 
     ![Role zasobów platformy Azure — Wybieranie roli](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

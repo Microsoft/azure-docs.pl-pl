@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a57de3d6beda5336f480f20137a9ccaa014b012d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444431"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675095"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Użyj uwierzytelniania Azure Active Directory
 
@@ -153,21 +153,21 @@ Następujące metody uwierzytelniania są obsługiwane dla podmiotów zabezpiecz
   - Dodanie podmiotów zabezpieczeń serwera usługi Azure AD dla wystąpienia zarządzanego SQL umożliwia tworzenie wielu podmiotów nazw (Logins) serwera usługi Azure AD, które można dodać do `sysadmin` roli.
 - Tylko administrator usługi Azure AD dla serwera może początkowo połączyć się z serwerem lub wystąpieniem zarządzanym przy użyciu konta Azure Active Directory. Administrator Active Directory może skonfigurować kolejnych użytkowników bazy danych usługi Azure AD.
 - Zalecamy ustawienie limitu czasu połączenia na 30 sekund.
-- SQL Server 2016 Management Studio i SQL Server Data Tools for Visual Studio 2015 (wersja 14.0.60311.1 kwietnia 2016 lub nowszy) obsługuje Azure Active Directory uwierzytelnianie. (Uwierzytelnianie usługi Azure AD jest obsługiwane przez **.NET Framework dostawca danych dla programu SqlServer**; co najmniej w wersji .NET Framework 4,6). W związku z tym najnowsze wersje tych narzędzi i aplikacji warstwy danych (DAC i BACPAC) mogą korzystać z uwierzytelniania usługi Azure AD.
+- SQL Server 2016 Management Studio i SQL Server Data Tools for Visual Studio 2015 (wersja 14.0.60311.1 kwietnia 2016 lub nowszy) obsługuje Azure Active Directory uwierzytelnianie. (Uwierzytelnianie usługi Azure AD jest obsługiwane przez **.NET Framework dostawca danych dla programu SqlServer** ; co najmniej w wersji .NET Framework 4,6). W związku z tym najnowsze wersje tych narzędzi i aplikacji warstwy danych (DAC i BACPAC) mogą korzystać z uwierzytelniania usługi Azure AD.
 - Począwszy od wersji 15.0.1, [narzędzia sqlcmd](/sql/tools/sqlcmd-utility) i obsługi [narzędzia bcp](/sql/tools/bcp-utility) Active Directory interakcyjnego uwierzytelniania z Multi-Factor Authentication.
-- Narzędzia SQL Server Data Tools for Visual Studio 2015 wymagają co najmniej wersji 2016 z kwietnia (wersja za14.0.60311.1na). Obecnie użytkownicy usługi Azure AD nie są wyświetlani w SSDT Eksplorator obiektów. Aby obejść ten sposób, Wyświetl użytkowników w [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+- Narzędzia SQL Server Data Tools for Visual Studio 2015 wymagają co najmniej wersji 2016 z kwietnia (wersja za14.0.60311.1na). Obecnie użytkownicy usługi Azure AD nie są wyświetlani w SSDT Eksplorator obiektów. Aby obejść ten sposób, Wyświetl użytkowników w [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 - [Sterownik Microsoft JDBC 6,0 dla SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) obsługuje uwierzytelnianie w usłudze Azure AD. Ponadto zobacz [Ustawianie właściwości połączenia](/sql/connect/jdbc/setting-the-connection-properties).
 - Nie można uwierzytelnić przy użyciu uwierzytelniania usługi Azure AD.
 - Uwierzytelnianie za pomocą usługi Azure AD jest obsługiwane dla Azure SQL Database i usługi Azure Synapse przy użyciu Azure Portal **importowania bazy danych** i **eksportowania baz danych** . Importowanie i eksportowanie przy użyciu uwierzytelniania usługi Azure AD jest również obsługiwane przez polecenie programu PowerShell.
-- Uwierzytelnianie usługi Azure AD jest obsługiwane w przypadku SQL Database, wystąpienia zarządzanego SQL i platformy Azure Synapse przy użyciu interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie i Zarządzanie uwierzytelnianiem w usłudze Azure AD za pomocą SQL Database lub Azure Synapse](authentication-aad-configure.md) i [SQL Server-AZ SQL Server](https://docs.microsoft.com/cli/azure/sql/server).
+- Uwierzytelnianie usługi Azure AD jest obsługiwane w przypadku SQL Database, wystąpienia zarządzanego SQL i platformy Azure Synapse przy użyciu interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie i Zarządzanie uwierzytelnianiem w usłudze Azure AD za pomocą SQL Database lub Azure Synapse](authentication-aad-configure.md) i [SQL Server-AZ SQL Server](/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się, jak utworzyć i wypełnić wystąpienie usługi Azure AD, a następnie skonfigurować je przy użyciu Azure SQL Database, wystąpienia zarządzanego SQL lub Azure Synapse, zobacz [Konfigurowanie uwierzytelniania Azure Active Directory i zarządzanie nim za pomocą SQL Database, wystąpienia zarządzanego SQL lub usługi Azure Synapse](authentication-aad-configure.md).
 - Aby zapoznać się z samouczkiem dotyczącym używania podmiotów zabezpieczeń serwera usługi Azure AD (logowania) z wystąpieniem zarządzanym SQL, zobacz [nazwy główne serwera usługi Azure AD (nazwy logowania) z wystąpieniem zarządzanym SQL](../managed-instance/aad-security-configure-tutorial.md)
 - Aby zapoznać się z omówieniem nazw logowania, użytkowników, ról bazy danych i uprawnień w SQL Database, zobacz [logowania, użytkowników, role bazy danych i uprawnienia](logins-create-manage.md).
-- Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń bazy danych, zobacz [Principals](https://msdn.microsoft.com/library/ms181127.aspx) (Podmioty zabezpieczeń).
-- Aby uzyskać więcej informacji na temat ról bazy danych, zobacz [Database roles](https://msdn.microsoft.com/library/ms189121.aspx) (Role bazy danych).
+- Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń bazy danych, zobacz [Principals](/sql/relational-databases/security/authentication-access/principals-database-engine) (Podmioty zabezpieczeń).
+- Aby uzyskać więcej informacji na temat ról bazy danych, zobacz [Database roles](/sql/relational-databases/security/authentication-access/database-level-roles) (Role bazy danych).
 - Aby zapoznać się ze składnią tworzenia podmiotów zabezpieczeń serwera usługi Azure AD (logowania) dla wystąpienia zarządzanego SQL, zobacz  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Aby uzyskać więcej informacji na temat reguł zapory w usłudze SQL Database, zobacz [Omówienie reguł zapory usługi SQL Database](firewall-configure.md).
 

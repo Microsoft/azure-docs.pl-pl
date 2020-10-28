@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 92a0c7fd3733b5e27c34c6fd0fe157bfb466a0fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 317b530fbaa34ca5689bb505126892e4eba06bd9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444895"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674795"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Konfigurowanie zabezpieczeń Azure SQL Database i zarządzanie nimi na potrzeby przywracania geograficznego lub przełączenia w tryb failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ W tym artykule opisano wymagania dotyczące uwierzytelniania w celu skonfigurowa
 
 ## <a name="disaster-recovery-with-contained-users"></a>Odzyskiwanie po awarii z zawartymi użytkownikami
 
-W przeciwieństwie do tradycyjnych użytkowników, które muszą być mapowane na nazwy logowania w bazie danych Master, zawarty użytkownik jest całkowicie zarządzany przez samą bazę danych. Ma to dwie korzyści. W scenariuszu odzyskiwania po awarii użytkownicy mogą nadal łączyć się z nową podstawową bazą danych lub bazą danych odzyskaną przy użyciu funkcji przywracania geograficznego bez żadnej dodatkowej konfiguracji, ponieważ baza danych zarządza użytkownikami. Istnieją także potencjalne korzyści z skalowalności i wydajności z tej konfiguracji z perspektywy logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
+W przeciwieństwie do tradycyjnych użytkowników, które muszą być mapowane na nazwy logowania w bazie danych Master, zawarty użytkownik jest całkowicie zarządzany przez samą bazę danych. Ma to dwie korzyści. W scenariuszu odzyskiwania po awarii użytkownicy mogą nadal łączyć się z nową podstawową bazą danych lub bazą danych odzyskaną przy użyciu funkcji przywracania geograficznego bez żadnej dodatkowej konfiguracji, ponieważ baza danych zarządza użytkownikami. Istnieją także potencjalne korzyści z skalowalności i wydajności z tej konfiguracji z perspektywy logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
 
 Głównym kompromisem jest to, że zarządzanie procesem odzyskiwania po awarii w dużej skali jest trudniejsze. Jeśli masz wiele baz danych korzystających z tego samego logowania, obsługa poświadczeń przy użyciu zawartych użytkowników w wielu bazach danych może Negate korzyści dla zawartych użytkowników. Na przykład zasady rotacji haseł wymagają spójnego wprowadzania zmian w wielu bazach danych zamiast zmiany hasła logowania jednokrotnego w bazie danych Master. Z tego powodu, jeśli masz wiele baz danych, które używają tej samej nazwy użytkownika i hasła, korzystanie z zawartych użytkowników nie jest zalecane.
 
@@ -34,7 +34,7 @@ Głównym kompromisem jest to, że zarządzanie procesem odzyskiwania po awarii 
 Jeśli używasz nazw logowania i użytkowników (a nie zawartych użytkowników), musisz wykonać dodatkowe czynności, aby upewnić się, że te same nazwy logowania istnieją w bazie danych Master. W poniższych sekcjach opisano kroki i dodatkowe zagadnienia.
 
   >[!NOTE]
-  > Możliwe jest również korzystanie z nazw logowania Azure Active Directory (AAD) do zarządzania bazami danych. Aby uzyskać więcej informacji, zobacz temat [logowania i użytkownicy usługi Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+  > Możliwe jest również korzystanie z nazw logowania Azure Active Directory (AAD) do zarządzania bazami danych. Aby uzyskać więcej informacji, zobacz temat [logowania i użytkownicy usługi Azure SQL](./logins-create-manage.md).
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Konfigurowanie dostępu użytkowników do pomocniczej lub odzyskiwanej bazy danych
 
@@ -82,7 +82,7 @@ WHERE [type_desc] = 'SQL_USER'
 ```
 
 > [!NOTE]
-> Użytkownicy **INFORMATION_SCHEMA** i **sys** mają *null* identyfikatorów SID, a identyfikator SID **gościa** to **0x00**. Identyfikator SID **dbo** może zaczynać się od *0x01060000000001648000000000048454*, jeśli twórca bazy danych był administratorem serwera, a nie członkiem programu **DBManager**.
+> Użytkownicy **INFORMATION_SCHEMA** i **sys** mają *null* identyfikatorów SID, a identyfikator SID **gościa** to **0x00** . Identyfikator SID **dbo** może zaczynać się od *0x01060000000001648000000000048454* , jeśli twórca bazy danych był administratorem serwera, a nie członkiem programu **DBManager** .
 
 #### <a name="3-create-the-logins-on-the-target-server"></a>3. Utwórz identyfikatory logowania na serwerze docelowym
 
@@ -106,7 +106,7 @@ SID = <desired login SID>
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać więcej informacji na temat zarządzania dostępem do bazy danych i logowaniem, zobacz [SQL Database Security: zarządzanie dostępem do bazy danych i zabezpieczeniami logowania](logins-create-manage.md).
-* Aby uzyskać więcej informacji o użytkownikach zawartej bazy danych, zobacz [Użytkownicy zawartej bazy danych — Tworzenie przenośnej bazy danych](https://msdn.microsoft.com/library/ff929188.aspx).
+* Aby uzyskać więcej informacji o użytkownikach zawartej bazy danych, zobacz [Użytkownicy zawartej bazy danych — Tworzenie przenośnej bazy danych](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 * Aby dowiedzieć się więcej o aktywnej replikacji geograficznej, zobacz [aktywną replikację geograficzną](active-geo-replication-overview.md).
 * Aby dowiedzieć się więcej na temat grup autotrybu failover, zobacz [grupy autopraca awaryjna](auto-failover-group-overview.md).
 * Aby uzyskać informacje o korzystaniu z przywracania geograficznego, zobacz [geograficznie przywracanie](recovery-using-backups.md#geo-restore)

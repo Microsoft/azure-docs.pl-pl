@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e9444291c40ef504a674ee18351ba581695d1dd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00f98a5086b9a9bf21054138cf01d26a550338da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394521"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673845"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurowanie wymuszonego tunelowania przy użyciu modelu wdrażania usługi Azure Resource Manager
 
@@ -53,6 +53,7 @@ Wymuszone tunelowanie na platformie Azure jest konfigurowane za pośrednictwem t
 * Ta procedura powoduje użycie tras zdefiniowanych przez użytkownika (UDR) w celu utworzenia tabeli routingu w celu dodania trasy domyślnej, a następnie skojarzenie tabeli routingu z podsieciami sieci wirtualnej w celu włączenia wymuszonego tunelowania w tych podsieciach.
 * Wymuszone tunelowanie musi być skojarzone z siecią wirtualną, która ma bramę sieci VPN opartą na trasach. Należy ustawić "domyślną lokację" między lokacjami lokalnymi między różnymi lokalizacjami połączonymi z siecią wirtualną. Ponadto lokalne urządzenie sieci VPN musi być skonfigurowane przy użyciu 0.0.0.0/0 jako selektorów ruchu. 
 * Wymuszone tunelowanie ExpressRoute nie jest konfigurowane za pośrednictwem tego mechanizmu, ale zamiast tego jest włączane poprzez anonsowanie trasy domyślnej za pośrednictwem sesji komunikacji równorzędnej BGP ExpressRoute. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+* Jeśli zarówno VPN Gateway, jak i Brama ExpressRoute wdrożona w tej samej sieci wirtualnej, trasy zdefiniowane przez użytkownika (UDR) nie są już potrzebne, ponieważ Brama ExpressRoute będzie anonsowana skonfigurowana "Witryna domyślna" w sieci wirtualnej.
 
 ## <a name="configuration-overview"></a>Przegląd konfiguracji
 
@@ -60,7 +61,7 @@ Poniższa procedura ułatwia utworzenie grupy zasobów i sieci wirtualnej. Nast�
 
 Kroki procedury ustawiają "DefaultSiteHQ" jako domyślne połączenie z lokacją dla wymuszonego tunelowania i konfiguruje podsieci "MidTier" i "zaplecza", aby używać tunelowania wymuszonego.
 
-## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
 
 Zainstaluj najnowszą wersję poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azure/) (Instalowanie i konfigurowanie programu Azure PowerShell).
 

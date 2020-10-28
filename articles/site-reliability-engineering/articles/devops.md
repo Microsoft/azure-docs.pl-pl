@@ -8,12 +8,12 @@ ms.service: site-reliability-engineering
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 3d0698f2780a4ccc41eedbde70fddea1766c5f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62872443c386c45d9821053dc901ad8e0055b74f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090333"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674269"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Często zadawane pytania: Jaka jest relacja między SRE i DevOps?
 
@@ -50,7 +50,7 @@ Jeśli korzystamy z tej definicji SRE z [centrum niezawodności lokacji](../inde
 
 w takim przypadku można łatwo wypowiedzieć, że słowo for SRE ma wartość "niezawodność". Posiadanie odpowiednich środków w środku nazwy również zapewnia pewne doskonałe dowody dla tego żądania.
 
-Jeśli korzystamy z tej definicji DevOps z [Centrum zasobów Azure DevOps](https://docs.microsoft.com/azure/devops/learn/):
+Jeśli korzystamy z tej definicji DevOps z [Centrum zasobów Azure DevOps](/azure/devops/learn/):
 
 > DevOps to związek ludzi, procesów i produktów umożliwiający ciągłe dostarczanie wartości użytkownikom końcowym.
 
@@ -80,4 +80,4 @@ Mamy nadzieję, że poprzednie odpowiedzi zapewnią, że te dwie działania są 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Chcesz dowiedzieć się więcej o niezawodności witryny lub DevOps? Zapoznaj się z naszą [witryną centrum inżynierów](../index.yml) ds. niezawodności i [Centrum zasobów Azure DevOps](https://docs.microsoft.com/azure/devops/learn/).
+Chcesz dowiedzieć się więcej o niezawodności witryny lub DevOps? Zapoznaj się z naszą [witryną centrum inżynierów](../index.yml) ds. niezawodności i [Centrum zasobów Azure DevOps](/azure/devops/learn/).

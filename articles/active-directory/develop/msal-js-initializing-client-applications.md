@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87027040"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674092"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicjuj aplikacje klienckie przy użyciu MSAL.js
 
@@ -37,8 +37,8 @@ Po zarejestrowaniu aplikacji będą potrzebne niektóre lub wszystkie poniższe 
 | Wartość | Wymagane | Opis |
 |:----- | :------: | :---------- |
 | Identyfikator aplikacji (klienta) | Wymagane | Identyfikator GUID, który jednoznacznie identyfikuje aplikację w ramach platformy tożsamości firmy Microsoft. |
-| Urząd | Opcjonalne | Adres URL dostawcy tożsamości ( *wystąpienie*) i *odbiorca logowania* dla aplikacji. W przypadku łączenia się z wystąpieniem i logowaniem, należy utworzyć *Urząd*. |
-| Identyfikator katalogu (dzierżawcy) | Opcjonalne | Określ tę opcję, jeśli tworzysz aplikację biznesową tylko dla organizacji, która jest często określana jako *aplikacja z jedną dzierżawą*. |
+| Urząd | Opcjonalne | Adres URL dostawcy tożsamości ( *wystąpienie* ) i *odbiorca logowania* dla aplikacji. W przypadku łączenia się z wystąpieniem i logowaniem, należy utworzyć *Urząd* . |
+| Identyfikator katalogu (dzierżawcy) | Opcjonalne | Określ tę opcję, jeśli tworzysz aplikację biznesową tylko dla organizacji, która jest często określana jako *aplikacja z jedną dzierżawą* . |
 | Identyfikator URI przekierowania | Opcjonalne | Jeśli tworzysz aplikację sieci Web, `redirectUri` określa miejsce, w którym dostawca tożsamości (platforma tożsamości firmy Microsoft) powinien zwrócić tokeny zabezpieczające, które wystawiły. |
 
 ## <a name="initialize-msaljs-2x-apps"></a>Inicjowanie aplikacji MSAL.js 2. x

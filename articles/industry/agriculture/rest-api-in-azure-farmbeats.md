@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536576"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674517"
 ---
 # <a name="azure-farmbeats-apis"></a>Interfejsy API usługi Azure FarmBeats
 
@@ -143,23 +143,23 @@ W tym przykładzie podczas tworzenia farmy nie określono obowiązkowego pola "n
 
 Dostęp do interfejsów API platformy Azure FarmBeats można uzyskać za pomocą użytkownika lub rejestracji aplikacji w Azure Active Directory. Aby utworzyć rejestrację aplikacji w Azure Active Directory, wykonaj następujące kroki:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com)i wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**. Alternatywnie możesz użyć istniejącego konta.
+1. Przejdź do [Azure Portal](https://portal.azure.com)i wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja** . Alternatywnie możesz użyć istniejącego konta.
 2. W przypadku nowego konta wykonaj następujące czynności:
 
     - Wprowadź nazwę.
-    - Wybierz **konta tylko w tym katalogu organizacji (pojedynczy dzierżawca)**.
+    - Wybierz **konta tylko w tym katalogu organizacji (pojedynczy dzierżawca)** .
     - Użyj wartości domyślnych w pozostałych polach.
-    - Wybierz pozycję **Zarejestruj**.
+    - Wybierz pozycję **Zarejestruj** .
 
 3. W okienku **Przegląd** nowych i istniejących aplikacji wykonaj następujące czynności:
 
-    - Przechwyć **Identyfikator klienta** i **Identyfikator dzierżawy**.
-    - Przejdź do pozycji **Certyfikaty i wpisy tajne** , aby wygenerować nowy klucz tajny klienta i przechwycić **wpis tajny klienta**.
-    - Wróć do **omówienia**i wybierz link obok pozycji **Zarządzaj aplikacją w katalogu lokalnym**.
-    - Przejdź do pozycji **Właściwości** , aby przechwycić **Identyfikator obiektu**.
+    - Przechwyć **Identyfikator klienta** i **Identyfikator dzierżawy** .
+    - Przejdź do pozycji **Certyfikaty i wpisy tajne** , aby wygenerować nowy klucz tajny klienta i przechwycić **wpis tajny klienta** .
+    - Wróć do **omówienia** i wybierz link obok pozycji **Zarządzaj aplikacją w katalogu lokalnym** .
+    - Przejdź do pozycji **Właściwości** , aby przechwycić **Identyfikator obiektu** .
 
 4. Przejdź do Datahub Swagger (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) i wykonaj następujące czynności:
-    - Przejdź do **interfejsu API RoleAssignment**.
+    - Przejdź do **interfejsu API RoleAssignment** .
     - Wykonaj wpis, aby utworzyć obiekt **RoleAssignment** dla właśnie utworzonego **identyfikatora obiektu** .
  
 ```json
@@ -172,7 +172,7 @@ Dostęp do interfejsów API platformy Azure FarmBeats można uzyskać za pomocą
 ```
 
   > [!NOTE]
-  > Aby uzyskać więcej informacji na temat dodawania użytkowników i rejestrowania Active Directory, zobacz [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+  > Aby uzyskać więcej informacji na temat dodawania użytkowników i rejestrowania Active Directory, zobacz [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 Po wykonaniu powyższych kroków Rejestracja aplikacji (klienta) może wywołać interfejsy API usługi Azure FarmBeats przy użyciu tokenu dostępu za pośrednictwem uwierzytelniania okaziciela.
 

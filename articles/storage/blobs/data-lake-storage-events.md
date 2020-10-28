@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8df4de01750de92222bfa9021b66828927804e85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b4b86656e7b1b4dfd8b69cbc8386f5b6ff6a8c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005483"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674935"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Samouczek: implementowanie wzorca przechwytywania danych w celu zaktualizowania tabeli różnicowej datakostki
 
@@ -54,13 +54,13 @@ Skompilujemy to rozwiązanie w odwrotnej kolejności, rozpoczynając od obszaru 
 
 Najpierw utwórz plik CSV, który opisuje zamówienie sprzedaży, a następnie Przekaż ten plik na konto magazynu. Później będziesz używać danych z tego pliku do wypełniania pierwszego wiersza w tabeli różnicowej datakostek.
 
-1. Otwórz Eksplorator usługi Azure Storage. Następnie przejdź do swojego konta magazynu i w sekcji **kontenery obiektów BLOB** Utwórz nowy kontener o nazwie **dane**.
+1. Otwórz Eksplorator usługi Azure Storage. Następnie przejdź do swojego konta magazynu i w sekcji **kontenery obiektów BLOB** Utwórz nowy kontener o nazwie **dane** .
 
    ![folder danych](./media/data-lake-storage-events/data-container.png "folder danych")
 
    Aby uzyskać więcej informacji o sposobach korzystania z Eksplorator usługi Storage, zobacz [używanie Eksplorator usługi Azure Storage do zarządzania danymi w ramach konta Azure Data Lake Storage Gen2](data-lake-storage-explorer.md).
 
-2. W kontenerze **dane** Utwórz folder o nazwie **Input**.
+2. W kontenerze **dane** Utwórz folder o nazwie **Input** .
 
 3. Wklej następujący tekst do edytora tekstu.
 
@@ -69,7 +69,7 @@ Najpierw utwórz plik CSV, który opisuje zamówienie sprzedaży, a następnie P
    536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
    ```
 
-4. Zapisz ten plik na komputerze lokalnym i nadaj mu nazwę **data.csv**.
+4. Zapisz ten plik na komputerze lokalnym i nadaj mu nazwę **data.csv** .
 
 5. W Eksplorator usługi Storage Przekaż ten plik do folderu **Input** .  
 
@@ -87,7 +87,7 @@ W tej sekcji wykonasz następujące zadania:
 
 W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witryny Azure Portal.
 
-1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks**analizy zasobów.
+1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks** analizy zasobów.
 
     ![Datakostki na Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Datakostki na Azure Portal")
 
@@ -99,9 +99,9 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witr
 
 ### <a name="create-a-spark-cluster-in-databricks"></a>Tworzenie klastra Spark w usłudze Databricks
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do utworzonego obszaru roboczego Azure Databricks, a następnie wybierz pozycję **Uruchom obszar roboczy**.
+1. W [Azure Portal](https://portal.azure.com)przejdź do utworzonego obszaru roboczego Azure Databricks, a następnie wybierz pozycję **Uruchom obszar roboczy** .
 
-2. Nastąpi przekierowanie do portalu usługi Azure Databricks. W portalu wybierz pozycję **Nowy**  >  **klaster**.
+2. Nastąpi przekierowanie do portalu usługi Azure Databricks. W portalu wybierz pozycję **Nowy**  >  **klaster** .
 
     ![Datakostki na platformie Azure](./media/data-lake-storage-events/databricks-on-azure.png "Datakostki na platformie Azure")
 
@@ -114,21 +114,21 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witr
     * Wprowadź nazwę klastra.
     * Upewnij się, że pole wyboru **Zakończ po 120 min aktywności** zostało zaznaczone. Podaj czas (w minutach), po jakim działanie klastra ma zostać zakończone, jeśli nie jest używany.
 
-4. Wybierz pozycję **Utwórz klaster**. Po uruchomieniu klastra możesz dołączyć do niego notesy i uruchamiać zadania Spark.
+4. Wybierz pozycję **Utwórz klaster** . Po uruchomieniu klastra możesz dołączyć do niego notesy i uruchamiać zadania Spark.
 
 Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Tworzenie klastra Spark w usłudze Azure Databricks).
 
 ### <a name="create-a-notebook"></a>Tworzenie notesu
 
-1. W lewym okienku wybierz pozycję **Obszar roboczy**. Z listy rozwijanej **Obszar roboczy** wybierz pozycję **Utwórz** > **Notes**.
+1. W lewym okienku wybierz pozycję **Obszar roboczy** . Z listy rozwijanej **Obszar roboczy** wybierz pozycję **Utwórz** > **Notes** .
 
     ![Tworzenie notesu w kostkach](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Tworzenie notesu w kostkach")
 
-2. W oknie dialogowym**Tworzenie notesu** wprowadź nazwę notesu. Jako język wybierz pozycję **Python**, a następnie wybierz utworzony wcześniej klaster Spark.
+2. W oknie dialogowym **Tworzenie notesu** wprowadź nazwę notesu. Jako język wybierz pozycję **Python** , a następnie wybierz utworzony wcześniej klaster Spark.
 
-    ![Tworzenie notesu w kostkach](./media/data-lake-storage-events/new-databricks-notebook.png "Tworzenie notesu w kostkach")
+    ![Zrzut ekranu pokazujący okno dialogowe Tworzenie notesu i miejsce, w którym można wybrać język Python w języku.](./media/data-lake-storage-events/new-databricks-notebook.png "Tworzenie notesu w kostkach")
 
-    Wybierz przycisk **Utwórz**.
+    Wybierz pozycję **Utwórz** .
 
 ### <a name="create-and-populate-a-databricks-delta-table"></a>Tworzenie i wypełnianie tabeli różnicowej datakostki
 
@@ -150,12 +150,12 @@ Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a S
     customerTablePath = adlsPath + 'delta-tables/customers'
     ```
 
-    Ten kod tworzy widżet o nazwie **source_file**. Później utworzysz funkcję platformy Azure, która wywoła ten kod i przekaże ścieżkę pliku do tego widżetu.  Ten kod uwierzytelnia również nazwę główną usługi przy użyciu konta magazynu i tworzy pewne zmienne, które będą używane w innych komórkach.
+    Ten kod tworzy widżet o nazwie **source_file** . Później utworzysz funkcję platformy Azure, która wywoła ten kod i przekaże ścieżkę pliku do tego widżetu.  Ten kod uwierzytelnia również nazwę główną usługi przy użyciu konta magazynu i tworzy pewne zmienne, które będą używane w innych komórkach.
 
     > [!NOTE]
     > W środowisku produkcyjnym rozważ przechowywanie klucza uwierzytelniania w usłudze Azure Databricks. Następnie dodaj do bloku kodu klucz wyszukiwania zamiast klucza uwierzytelniania. <br><br>Na przykład zamiast korzystania z tego wiersza kodu: należy `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")` użyć następującego wiersza kodu: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` . <br><br>Po ukończeniu tego samouczka zapoznaj się z artykułem [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) w witrynie internetowej Azure Databricks, aby zobaczyć przykłady tego podejścia.
 
-2. Naciśnij klawisze **SHIFT+ENTER**, aby uruchomić kod w tym bloku.
+2. Naciśnij klawisze **SHIFT+ENTER** , aby uruchomić kod w tym bloku.
 
 3. Skopiuj i wklej poniższy blok kodu do innej komórki, a następnie naciśnij klawisze **SHIFT + ENTER** , aby uruchomić kod w tym bloku.
 
@@ -238,9 +238,9 @@ Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a S
 
 Utwórz zadanie z uruchomionym wcześniej utworzonym notesem. Później utworzysz funkcję platformy Azure, która uruchamia to zadanie, gdy zostanie zgłoszone zdarzenie.
 
-1. Kliknij pozycję **zadania**.
+1. Kliknij pozycję **zadania** .
 
-2. Na stronie **zadania** kliknij przycisk **Utwórz zadanie**.
+2. Na stronie **zadania** kliknij przycisk **Utwórz zadanie** .
 
 3. Nadaj nazwę zadaniu, a następnie wybierz `upsert-order-data` skoroszyt.
 
@@ -250,7 +250,7 @@ Utwórz zadanie z uruchomionym wcześniej utworzonym notesem. Później utworzys
 
 Utwórz funkcję platformy Azure, która uruchamia zadanie.
 
-1. W górnym rogu obszaru roboczego datakostki wybierz ikonę osoby, a następnie wybierz pozycję **Ustawienia użytkownika**.
+1. W górnym rogu obszaru roboczego datakostki wybierz ikonę osoby, a następnie wybierz pozycję **Ustawienia użytkownika** .
 
    ![Zarządzanie kontem](./media/data-lake-storage-events/generate-token.png "Ustawienia użytkownika")
 
@@ -258,7 +258,7 @@ Utwórz funkcję platformy Azure, która uruchamia zadanie.
 
    Pamiętaj, aby skopiować token do bezpiecznego miejsca. Funkcja platformy Azure wymaga tego tokenu do uwierzytelniania za pomocą datakostki, aby można było uruchomić zadanie.
   
-3. Wybierz przycisk **Utwórz zasób** znajdujący się w lewym górnym rogu Azure Portal, a następnie wybierz pozycję **COMPUTE > aplikacja funkcji**.
+3. Wybierz przycisk **Utwórz zasób** znajdujący się w lewym górnym rogu Azure Portal, a następnie wybierz pozycję **COMPUTE > aplikacja funkcji** .
 
    ![Tworzenie funkcji platformy Azure](./media/data-lake-storage-events/function-app-create-flow.png "Utwórz funkcję platformy Azure")
 
@@ -266,9 +266,9 @@ Utwórz funkcję platformy Azure, która uruchamia zadanie.
 
    ![Konfigurowanie aplikacji funkcji](./media/data-lake-storage-events/new-function-app.png "Konfigurowanie aplikacji funkcji")
 
-5. Na stronie **przegląd** aplikacja funkcji kliknij pozycję **Konfiguracja**.
+5. Na stronie **przegląd** aplikacja funkcji kliknij pozycję **Konfiguracja** .
 
-   ![Konfigurowanie aplikacji funkcji](./media/data-lake-storage-events/configure-function-app.png "Konfigurowanie aplikacji funkcji")
+   ![Zrzut ekranu, który wyróżnia opcję konfiguracji w obszarze skonfigurowane funkcje.](./media/data-lake-storage-events/configure-function-app.png "Konfigurowanie aplikacji funkcji")
 
 6. Na stronie **Ustawienia aplikacji** wybierz przycisk **Ustawienia nowej aplikacji** , aby dodać każde ustawienie.
 
@@ -285,13 +285,13 @@ Utwórz funkcję platformy Azure, która uruchamia zadanie.
 
    ![Nowa funkcja](./media/data-lake-storage-events/new-function.png "Nowa funkcja")
 
-8. Wybierz **wyzwalacz Azure Event Grid**.
+8. Wybierz **wyzwalacz Azure Event Grid** .
 
    Zainstaluj rozszerzenie **Microsoft. Azure. WebJobs. Extensions. EventGrid** , jeśli zostanie wyświetlony odpowiedni monit. W razie potrzeby instalacji należy ponownie wybrać **Azure Event Grid wyzwalacza** , aby utworzyć funkcję.
 
    Zostanie wyświetlone **nowe okienko funkcji** .
 
-9. W okienku **Nowa funkcja** Nazwij funkcję **UpsertOrder**, a następnie kliknij przycisk **Utwórz** .
+9. W okienku **Nowa funkcja** Nazwij funkcję **UpsertOrder** , a następnie kliknij przycisk **Utwórz** .
 
 10. Zastąp zawartość pliku kodu tym kodem, a następnie kliknij przycisk **Zapisz** :
 
@@ -345,13 +345,13 @@ W tej sekcji utworzysz subskrypcję Event Grid, która wywołuje funkcję platfo
 
 1. Na stronie kod funkcji kliknij przycisk **Dodaj subskrypcję Event Grid** .
 
-   ![Nowa subskrypcja zdarzeń](./media/data-lake-storage-events/new-event-subscription.png "Nowa subskrypcja zdarzeń")
+   ![Zrzut ekranu, który wyróżnia przycisk Dodaj subskrypcję Event Grid.](./media/data-lake-storage-events/new-event-subscription.png "Nowa subskrypcja zdarzeń")
 
 2. Na stronie **Tworzenie subskrypcji zdarzeń** Nazwij subskrypcję, a następnie Użyj pól na stronie, aby wybrać konto magazynu.
 
    ![Nowa subskrypcja zdarzeń](./media/data-lake-storage-events/new-event-subscription-2.png "Nowa subskrypcja zdarzeń")
 
-3. Z listy rozwijanej **Filtruj do typów zdarzeń** wybierz pozycję **utworzony obiekt BLOB**, a następnie pozycję **usunięte** obiekty blob, a następnie kliknij przycisk **Utwórz** .
+3. Z listy rozwijanej **Filtruj do typów zdarzeń** wybierz pozycję **utworzony obiekt BLOB** , a następnie pozycję **usunięte** obiekty blob, a następnie kliknij przycisk **Utwórz** .
 
 ## <a name="test-the-event-grid-subscription"></a>Testowanie subskrypcji Event Grid
 
@@ -409,7 +409,7 @@ W tej sekcji utworzysz subskrypcję Event Grid, która wywołuje funkcję platfo
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. W tym celu zaznacz grupę zasobów konta magazynu i wybierz pozycję **Usuń**.
+Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. W tym celu zaznacz grupę zasobów konta magazynu i wybierz pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

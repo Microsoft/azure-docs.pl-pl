@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 1fb90c106c334073cea18cf014edce491029edec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2de48946088316e9070e13396f124148a4ff6099
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596174"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675015"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurowanie uwierzytelniania wieloskładnikowego dla SQL Server Management Studio i usługi Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,10 +29,10 @@ W tym artykule pokazano, jak używać usługi uwierzytelniania wieloskładnikowe
 
 ## <a name="configuration-steps"></a>Kroki konfiguracji
 
-1. **Skonfiguruj Azure Active Directory** — Aby uzyskać więcej informacji, zobacz [administrowanie katalogiem usługi Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [integrowanie tożsamości lokalnych z usługą Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Dodawanie własnej nazwy domeny do usługi Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure obsługuje teraz federacyjnego z systemem Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)i [Zarządzanie usługą Azure AD przy użyciu programu Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
-2. **Konfigurowanie usługi MFA** — Aby uzyskać instrukcje krok po kroku, zobacz artykuł [co to jest platforma Azure Multi-Factor Authentication?](../../active-directory/authentication/multi-factor-authentication.md), [dostęp warunkowy (MFA) z usługą Azure SQL Database i magazynem danych](conditional-access-configure.md). (Pełny dostęp warunkowy wymaga Azure Active Directory w warstwie Premium. Ograniczone uwierzytelnianie MFA jest dostępne w przypadku standardowej usługi Azure AD.
+1. **Skonfiguruj Azure Active Directory** — Aby uzyskać więcej informacji, zobacz [administrowanie katalogiem usługi Azure AD](/previous-versions/azure/azure-services/hh967611(v=azure.100)), [integrowanie tożsamości lokalnych z usługą Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Dodawanie własnej nazwy domeny do usługi Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure obsługuje teraz federacyjnego z systemem Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)i [Zarządzanie usługą Azure AD przy użyciu programu Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)).
+2. **Konfigurowanie usługi MFA** — Aby uzyskać instrukcje krok po kroku, zobacz artykuł [co to jest platforma Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md), [dostęp warunkowy (MFA) z usługą Azure SQL Database i magazynem danych](conditional-access-configure.md). (Pełny dostęp warunkowy wymaga Azure Active Directory w warstwie Premium. Ograniczone uwierzytelnianie MFA jest dostępne w przypadku standardowej usługi Azure AD.
 3. **Konfigurowanie uwierzytelniania usługi Azure AD** — Aby uzyskać instrukcje krok po kroku, zobacz [nawiązywanie połączenia z usługą SQL Database, wystąpieniem zarządzanym SQL lub usługą Azure Synapse przy użyciu uwierzytelniania Azure Active Directory](authentication-aad-overview.md).
-4. **Pobierz program SSMS** — na komputerze klienckim Pobierz najnowszą wersję programu ssms z [SQL Server Management Studio pobierania (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+4. **Pobierz program SSMS** — na komputerze klienckim Pobierz najnowszą wersję programu ssms z [SQL Server Management Studio pobierania (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="connecting-by-using-universal-authentication-with-ssms"></a>Nawiązywanie połączenia przy użyciu uwierzytelniania uniwersalnego za pomocą programu SSMS
 
@@ -40,7 +40,7 @@ Poniższe kroki pokazują, jak nawiązać połączenie przy użyciu najnowszego 
 
 [!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
 
-1. Aby nawiązać połączenie przy użyciu uwierzytelniania uniwersalnego, w oknie dialogowym **łączenie z serwerem** w SQL Server Management Studio (SSMS) wybierz pozycję **Active Directory — uniwersalna z obsługą usługi MFA**. (Jeśli widzisz **Active Directory uniwersalnego uwierzytelniania** , nie jesteś w najnowszej wersji programu SSMS).
+1. Aby nawiązać połączenie przy użyciu uwierzytelniania uniwersalnego, w oknie dialogowym **łączenie z serwerem** w SQL Server Management Studio (SSMS) wybierz pozycję **Active Directory — uniwersalna z obsługą usługi MFA** . (Jeśli widzisz **Active Directory uniwersalnego uwierzytelniania** , nie jesteś w najnowszej wersji programu SSMS).
 
    ![Zrzut ekranu karty właściwości połączenia w oknie dialogowym Łączenie z serwerem w S S M S. "Moja baza danych" została wybrana z listy rozwijanej Połącz z bazą danych.](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 2. Wypełnij pole **Nazwa użytkownika** z poświadczeniami Azure Active Directory w formacie `user_name@domain.com` .
@@ -50,7 +50,7 @@ Poniższe kroki pokazują, jak nawiązać połączenie przy użyciu najnowszego 
 
    ![Zrzut ekranu karty właściwości połączenia w oknie dialogowym Łączenie z serwerem w S S M S. "Moja baza danych" została wybrana z listy rozwijanej Połącz z bazą danych.](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)
 
-   Jeśli jednak łączysz się jako użytkownik Gość przy użyciu programu SSMS 17. x lub starszej wersji, musisz kliknąć przycisk **Opcje**, a następnie w oknie dialogowym **Właściwości połączenia** wprowadzić wartość w polu **nazwa domeny usługi AD lub identyfikator dzierżawy** .
+   Jeśli jednak łączysz się jako użytkownik Gość przy użyciu programu SSMS 17. x lub starszej wersji, musisz kliknąć przycisk **Opcje** , a następnie w oknie dialogowym **Właściwości połączenia** wprowadzić wartość w polu **nazwa domeny usługi AD lub identyfikator dzierżawy** .
 
    ![Zrzut ekranu karty właściwości połączenia w oknie dialogowym Łączenie z serwerem w S S M S. opcja nazwa domeny usługi AD lub właściwość identyfikatora dzierżawy jest wypełniana.](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
@@ -70,7 +70,7 @@ Poniższe kroki pokazują, jak nawiązać połączenie przy użyciu najnowszego 
 7. Drugie możliwe okno dialogowe jednorazowe pozwala wybrać szczegóły metody uwierzytelniania. Możliwe opcje są konfigurowane przez administratora.
 
    ![Zrzut ekranu przedstawiający okno dialogowe dodatkowa Weryfikacja zabezpieczeń z opcjami wyboru i konfigurowania metody uwierzytelniania.](./media/authentication-mfa-ssms-configure/4mfa-verify-1.png)  
-8. Azure Active Directory wysyła do Ciebie informacje potwierdzające. Po otrzymaniu kodu weryfikacyjnego wprowadź go w polu **Wprowadź kod weryfikacyjny** , a następnie kliknij przycisk **Zaloguj**.
+8. Azure Active Directory wysyła do Ciebie informacje potwierdzające. Po otrzymaniu kodu weryfikacyjnego wprowadź go w polu **Wprowadź kod weryfikacyjny** , a następnie kliknij przycisk **Zaloguj** .
 
    ![Zrzut ekranu przedstawiający okno dialogowe logowania do konta dla Azure SQL Database i magazynu danych z monitem o wprowadzenie kodu weryfikacyjnego.](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
 
@@ -80,5 +80,5 @@ Po zakończeniu weryfikacji program SSMS nawiązuje połączenie zwykle z zało�
 
 - Aby zapoznać się z omówieniem uwierzytelniania wieloskładnikowego, zobacz [uniwersalne uwierzytelnianie przy użyciu SQL Database, wystąpienia zarządzanego SQL i Azure Synapse (Obsługa programu SSMS dla usługi MFA)](../database/authentication-mfa-ssms-overview.md).  
 - Przyznaj innym osobom dostęp do bazy danych: [SQL Database uwierzytelniania i autoryzacji: udzielanie dostępu](logins-create-manage.md)  
-- Upewnij się, że inne osoby mogą łączyć się za pośrednictwem zapory: [Skonfiguruj regułę zapory na poziomie serwera przy użyciu Azure Portal](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure)  
-- W przypadku korzystania **z Active Directory — uniwersalne z** uwierzytelnianiem MFA, śledzenie ADAL jest dostępne od programu [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Domyślnie wyłączone jest śledzenie ADAL przy użyciu **narzędzi**, menu **opcji** , w obszarze **usługi platformy Azure**, **Azure Cloud**, **ADAL okno dane wyjściowe poziom śledzenia**, a następnie przez włączenie **danych wyjściowych**  w menu **Widok** . Ślady są dostępne w oknie danych wyjściowych w przypadku wybrania **opcji Azure Active Directory**.
+- Upewnij się, że inne osoby mogą łączyć się za pośrednictwem zapory: [Skonfiguruj regułę zapory na poziomie serwera przy użyciu Azure Portal](./firewall-configure.md)  
+- W przypadku korzystania **z Active Directory — uniwersalne z** uwierzytelnianiem MFA, śledzenie ADAL jest dostępne od programu [SSMS 17,3](/sql/ssms/download-sql-server-management-studio-ssms). Domyślnie wyłączone jest śledzenie ADAL przy użyciu **narzędzi** , menu **opcji** , w obszarze **usługi platformy Azure** , **Azure Cloud** , **ADAL okno dane wyjściowe poziom śledzenia** , a następnie przez włączenie **danych wyjściowych**  w menu **Widok** . Ślady są dostępne w oknie danych wyjściowych w przypadku wybrania **opcji Azure Active Directory** .

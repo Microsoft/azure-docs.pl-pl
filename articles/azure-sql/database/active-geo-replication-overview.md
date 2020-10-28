@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 35aff26eac3dd456db55204b662cb9b8a6bb9f2b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426318"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672983"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Tworzenie i używanie aktywnej replikacji geograficznej — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Aktywna replikacja geograficzna to Azure SQL Database funkcja, która umożliwia
 Aktywna replikacja geograficzna została zaprojektowana jako rozwiązanie do ciągłej ciągłości biznesowej, które pozwala aplikacji na szybkie odzyskiwanie awaryjne poszczególnych baz danych w przypadku awarii regionalnej lub dużej skali. Jeśli włączono replikację geograficzną, aplikacja może zainicjować przejście w tryb failover do pomocniczej bazy danych w innym regionie świadczenia usługi Azure. Do czterech serwerów pomocniczych są obsługiwane w tym samym lub różnych regionach, a serwery pomocnicze mogą być również używane na potrzeby zapytań dostępu tylko do odczytu. Praca w trybie failover musi zostać zainicjowana ręcznie przez aplikację lub użytkownika. Po przejściu w tryb failover nowy element podstawowy ma inny punkt końcowy połączenia.
 
 > [!NOTE]
-> Aktywna replikacja geograficzna replikuje zmiany przez dziennik transakcji bazy danych przesyłania strumieniowego. Nie jest on związany z [replikacją transakcyjną](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication), która replikuje zmiany przez wykonywanie poleceń DML (INSERT, Update i Delete).
+> Aktywna replikacja geograficzna replikuje zmiany przez dziennik transakcji bazy danych przesyłania strumieniowego. Nie jest on związany z [replikacją transakcyjną](/sql/relational-databases/replication/transactional/transactional-replication), która replikuje zmiany przez wykonywanie poleceń DML (INSERT, Update i Delete).
 
 Na poniższym diagramie przedstawiono typową konfigurację geograficznie nadmiarowej aplikacji w chmurze przy użyciu aktywnej replikacji geograficznej.
 
@@ -46,15 +46,15 @@ Można zarządzać replikacją i trybem failover pojedynczej bazy danych lub zes
 - [PowerShell: pojedyncza baza danych](scripts/setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: Pula elastyczna](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - [Transact-SQL: pojedyncza baza danych lub Pula elastyczna](/sql/t-sql/statements/alter-database-azure-sql-database)
-- [Interfejs API REST: pojedyncza baza danych](https://docs.microsoft.com/rest/api/sql/replicationlinks)
+- [Interfejs API REST: pojedyncza baza danych](/rest/api/sql/replicationlinks)
 
-Aktywna replikacja geograficzna wykorzystuje technologię [zawsze włączone](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) dla aparatu bazy danych, aby asynchronicznie replikować zatwierdzone transakcje z podstawowej bazy danych do pomocniczej bazy danych przy użyciu izolacji migawek. Grupy autotrybu failover zapewniają semantykę grupy na aktywnej replikacji geograficznej, ale jest używany ten sam mechanizm replikacji asynchronicznej. W dowolnym momencie pomocnicza baza danych może być nieco poza podstawową bazą danych, a dane pomocnicze nigdy nie mają transakcji częściowych. Nadmiarowość między regionami umożliwia aplikacjom szybkie odzyskiwanie po trwałej utracie całego centrum danych lub jego części z powodu klęsk żywiołowych, katastrofalnych błędów ludzkich lub złośliwych działań. Konkretne dane celu punktu odzyskiwania można znaleźć w temacie [Omówienie ciągłości działania firmy](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+Aktywna replikacja geograficzna wykorzystuje technologię [zawsze włączone](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) dla aparatu bazy danych, aby asynchronicznie replikować zatwierdzone transakcje z podstawowej bazy danych do pomocniczej bazy danych przy użyciu izolacji migawek. Grupy autotrybu failover zapewniają semantykę grupy na aktywnej replikacji geograficznej, ale jest używany ten sam mechanizm replikacji asynchronicznej. W dowolnym momencie pomocnicza baza danych może być nieco poza podstawową bazą danych, a dane pomocnicze nigdy nie mają transakcji częściowych. Nadmiarowość między regionami umożliwia aplikacjom szybkie odzyskiwanie po trwałej utracie całego centrum danych lub jego części z powodu klęsk żywiołowych, katastrofalnych błędów ludzkich lub złośliwych działań. Konkretne dane celu punktu odzyskiwania można znaleźć w temacie [Omówienie ciągłości działania firmy](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 > [!NOTE]
 > Jeśli wystąpi awaria sieci między dwoma regionami, ponawiamy próbę co 10 sekund, aby ponownie ustanowić połączenia.
 
 > [!IMPORTANT]
-> W celu zagwarantowania, że krytyczna zmiana podstawowej bazy danych jest replikowana na pomocniczą przed przełączeniem w tryb failover, można wymusić synchronizację, aby zapewnić replikację krytycznych zmian (na przykład aktualizacje haseł). Wymuszona synchronizacja ma wpływ na wydajność, ponieważ blokuje wątek wywołujący do momentu replikowania wszystkich zatwierdzonych transakcji. Aby uzyskać szczegółowe informacje, zobacz [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Aby monitorować opóźnienie replikacji między podstawową bazą danych i lokacją geograficzną, zobacz [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+> W celu zagwarantowania, że krytyczna zmiana podstawowej bazy danych jest replikowana na pomocniczą przed przełączeniem w tryb failover, można wymusić synchronizację, aby zapewnić replikację krytycznych zmian (na przykład aktualizacje haseł). Wymuszona synchronizacja ma wpływ na wydajność, ponieważ blokuje wątek wywołujący do momentu replikowania wszystkich zatwierdzonych transakcji. Aby uzyskać szczegółowe informacje, zobacz [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Aby monitorować opóźnienie replikacji między podstawową bazą danych i lokacją geograficzną, zobacz [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
 
 Na poniższej ilustracji przedstawiono przykład aktywnej replikacji geograficznej skonfigurowanej przy użyciu podstawowego w regionie Północno-środkowe stany USA i dodatkowe w regionie Południowo-środkowe stany USA.
 
@@ -64,8 +64,8 @@ Ponieważ pomocnicze bazy danych są odczytywane, mogą one służyć do odcią�
 
 Oprócz odzyskiwania po awarii aktywnej replikacji geograficznej można użyć w następujących scenariuszach:
 
-- **Migracja bazy danych**: można użyć aktywnej replikacji geograficznej w celu migrowania bazy danych z jednego serwera do drugiego w trybie online z minimalnym przestojem.
-- **Uaktualnienia aplikacji**: można utworzyć dodatkową kopię zapasową jako nieudaną podczas uaktualniania aplikacji.
+- **Migracja bazy danych** : można użyć aktywnej replikacji geograficznej w celu migrowania bazy danych z jednego serwera do drugiego w trybie online z minimalnym przestojem.
+- **Uaktualnienia aplikacji** : można utworzyć dodatkową kopię zapasową jako nieudaną podczas uaktualniania aplikacji.
 
 Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości bazy danych między centrami elementów jest tylko częścią rozwiązania. Odzyskiwanie aplikacji (usługi) od końca do końca po katastrofalnym błędzie wymaga odzyskania wszystkich składników wchodzących w skład usługi i usług zależnych. Przykładowe składniki obejmują oprogramowanie klienta (na przykład przeglądarkę z niestandardowym językiem JavaScript), frontony sieci Web, magazyn i system DNS. Należy pamiętać, że wszystkie składniki są odporne na te same awarie i stają się dostępne w ramach celu czasu odzyskiwania (RTO) aplikacji. W związku z tym należy zidentyfikować wszystkie usługi zależne i zrozumieć gwarancje i funkcje, które zapewnia. Następnie należy wykonać odpowiednie czynności, aby upewnić się, że usługa działa w trybie failover usług, na których jest ona zależna. Aby uzyskać więcej informacji na temat projektowania rozwiązań na potrzeby odzyskiwania po awarii, zobacz [projektowanie rozwiązań w chmurze na potrzeby odzyskiwania po awarii przy użyciu aktywnej replikacji geograficznej](designing-cloud-solutions-for-disaster-recovery.md).
 
@@ -244,7 +244,7 @@ Aby zmierzyć zwłokę w odniesieniu do zmian w podstawowej bazie danych, która
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Programowe zarządzanie aktywną replikacją geograficzną
 
-Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również zarządzana programowo przy użyciu Azure PowerShell i interfejsu API REST. W poniższych tabelach opisano zestaw dostępnych poleceń. Aktywna replikacja geograficzna obejmuje zestaw Azure Resource Manager interfejsów API do zarządzania, w tym [Azure SQL Database interfejsu API REST](https://docs.microsoft.com/rest/api/sql/) i [poleceń cmdlet Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Te interfejsy API wymagają użycia grup zasobów i obsługują zabezpieczenia oparte na rolach (RBAC). Aby uzyskać więcej informacji na temat implementowania ról dostępu, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/overview.md).
+Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również zarządzana programowo przy użyciu Azure PowerShell i interfejsu API REST. W poniższych tabelach opisano zestaw dostępnych poleceń. Aktywna replikacja geograficzna obejmuje zestaw Azure Resource Manager interfejsów API do zarządzania, w tym [Azure SQL Database interfejsu API REST](/rest/api/sql/) i [poleceń cmdlet Azure PowerShell](/powershell/azure/). Te interfejsy API wymagają użycia grup zasobów i obsługują zabezpieczenia oparte na rolach (RBAC). Aby uzyskać więcej informacji na temat implementowania ról dostępu, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: zarządzanie trybem failover dla jednej i puli baz danych
 
@@ -253,9 +253,9 @@ Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również 
 
 | Polecenie | Opis |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Użyj argumentu Dodaj dodatkową na serwerze, aby utworzyć pomocniczą bazę danych dla istniejącej bazy danych i rozpocząć replikację danych |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Użyj trybu FAILOVER lub FORCE_FAILOVER_ALLOW_DATA_LOSS, aby przełączyć pomocniczą bazę danych jako główną w celu zainicjowania trybu failover |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Użyj Usuń POMOCNICZy serwer na serwerze, aby zakończyć replikację danych między SQL Database a określoną pomocniczą bazą danych. |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Użyj argumentu Dodaj dodatkową na serwerze, aby utworzyć pomocniczą bazę danych dla istniejącej bazy danych i rozpocząć replikację danych |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Użyj trybu FAILOVER lub FORCE_FAILOVER_ALLOW_DATA_LOSS, aby przełączyć pomocniczą bazę danych jako główną w celu zainicjowania trybu failover |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Użyj Usuń POMOCNICZy serwer na serwerze, aby zakończyć replikację danych między SQL Database a określoną pomocniczą bazą danych. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Zwraca informacje o wszystkich istniejących łączach replikacji dla każdej bazy danych na serwerze. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Pobiera czas ostatniej replikacji, ostatnie opóźnienie replikacji i inne informacje o łączu replikacji danej bazy danych. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Przedstawia stan wszystkich operacji bazy danych, w tym stan łączy replikacji. |
@@ -266,15 +266,15 @@ Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
 | Polecenie cmdlet | Opis |
 | --- | --- |
-| [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Pobiera co najmniej jedną bazę danych. |
-| [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Tworzy pomocniczą bazę danych dla istniejącej bazy danych i rozpoczyna replikację danych. |
-| [Set-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesecondary) |Przełącza pomocniczą bazę danych jako główną w celu zainicjowania trybu failover. |
-| [Remove-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesecondary) |Przerywa replikację danych między bazą danych SQL Database i wybraną pomocniczą bazą danych. |
-| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Pobiera linki replikacji geograficznej między Azure SQL Database i grupą zasobów lub logicznym serwerem SQL. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Pobiera co najmniej jedną bazę danych. |
+| [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary) |Tworzy pomocniczą bazę danych dla istniejącej bazy danych i rozpoczyna replikację danych. |
+| [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary) |Przełącza pomocniczą bazę danych jako główną w celu zainicjowania trybu failover. |
+| [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) |Przerywa replikację danych między bazą danych SQL Database i wybraną pomocniczą bazą danych. |
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Pobiera linki replikacji geograficznej między Azure SQL Database i grupą zasobów lub logicznym serwerem SQL. |
 |  | |
 
 > [!IMPORTANT]
@@ -284,13 +284,13 @@ Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również 
 
 | Interfejs API | Opis |
 | --- | --- |
-| [Utwórz lub zaktualizuj bazę danych (createmode = Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Tworzy, aktualizuje lub przywraca podstawową lub pomocniczą bazę danych. |
-| [Pobieranie lub aktualizowanie stanu bazy danych](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Zwraca stan podczas operacji tworzenia. |
-| [Ustaw pomocniczą bazę danych jako podstawową (planowana praca w trybie failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Ustawia pomocniczą bazę danych jako podstawową przez przechodzenie w tryb failover z bieżącej podstawowej bazy danych. **Ta opcja nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL.**|
-| [Ustaw pomocniczą bazę danych jako podstawową (nieplanowaną pracę w trybie failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Ustawia pomocniczą bazę danych jako podstawową przez przechodzenie w tryb failover z bieżącej podstawowej bazy danych. Ta operacja może spowodować utratę danych. **Ta opcja nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL.**|
-| [Pobierz łącze replikacji](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Pobiera określone łącze replikacji dla danej bazy danych w ramach powiązania z replikacją geograficzną. Pobiera informacje widoczne w widoku wykazu sys.geo_replication_links. **Ta opcja nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL.**|
-| [Linki replikacji — lista według bazy danych](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Pobiera wszystkie linki replikacji dla danej bazy danych w ramach powiązania z replikacją geograficzną. Pobiera informacje widoczne w widoku wykazu sys.geo_replication_links. |
-| [Usuń łącze replikacji](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Usuwa łącze replikacji bazy danych. Nie można wykonać operacji w trybie failover. |
+| [Utwórz lub zaktualizuj bazę danych (createmode = Restore)](/rest/api/sql/databases/createorupdate) |Tworzy, aktualizuje lub przywraca podstawową lub pomocniczą bazę danych. |
+| [Pobieranie lub aktualizowanie stanu bazy danych](/rest/api/sql/databases/createorupdate) |Zwraca stan podczas operacji tworzenia. |
+| [Ustaw pomocniczą bazę danych jako podstawową (planowana praca w trybie failover)](/rest/api/sql/replicationlinks/failover) |Ustawia pomocniczą bazę danych jako podstawową przez przechodzenie w tryb failover z bieżącej podstawowej bazy danych. **Ta opcja nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL.**|
+| [Ustaw pomocniczą bazę danych jako podstawową (nieplanowaną pracę w trybie failover)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Ustawia pomocniczą bazę danych jako podstawową przez przechodzenie w tryb failover z bieżącej podstawowej bazy danych. Ta operacja może spowodować utratę danych. **Ta opcja nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL.**|
+| [Pobierz łącze replikacji](/rest/api/sql/replicationlinks/get) |Pobiera określone łącze replikacji dla danej bazy danych w ramach powiązania z replikacją geograficzną. Pobiera informacje widoczne w widoku wykazu sys.geo_replication_links. **Ta opcja nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL.**|
+| [Linki replikacji — lista według bazy danych](/rest/api/sql/replicationlinks/listbydatabase) | Pobiera wszystkie linki replikacji dla danej bazy danych w ramach powiązania z replikacją geograficzną. Pobiera informacje widoczne w widoku wykazu sys.geo_replication_links. |
+| [Usuń łącze replikacji](/rest/api/sql/replicationlinks/delete) | Usuwa łącze replikacji bazy danych. Nie można wykonać operacji w trybie failover. |
 |  | |
 
 ## <a name="next-steps"></a>Następne kroki

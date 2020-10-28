@@ -6,17 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638333"
+ms.locfileid: "92674746"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitoruj kondycję obszaru roboczego Log Analytics w Azure Monitor
 Aby zachować wydajność i dostępność obszaru roboczego Log Analytics w Azure Monitor, musisz mieć możliwość aktywnego wykrywania wszelkich powstających problemów. W tym artykule opisano sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli [operacje](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) . Ta tabela jest uwzględniona w każdym obszarze roboczym Log Analytics i zawiera błędy i ostrzeżenia, które występują w obszarze roboczym. Należy regularnie przeglądać te dane i tworzyć alerty w celu ich aktywnego powiadamiania o wszelkich ważnych zdarzeniach w obszarze roboczym.
 
 ## <a name="_logoperation-function"></a>Funkcja _LogOperation
+
 Dzienniki Azure Monitor wysyłają szczegóły wszelkich problemów do tabeli [operacji](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) w obszarze roboczym, w którym wystąpił problem. Funkcja system **_LogOperation** jest oparta na tabeli **operacji** i zawiera uproszczony zestaw informacji na potrzeby analizy i generowania alertów.
 
 ## <a name="columns"></a>Kolumny
@@ -36,6 +37,7 @@ Funkcja **_LogOperation** zwraca kolumny w poniższej tabeli.
 
 
 ## <a name="categories"></a>Kategorie
+
 W poniższej tabeli opisano kategorie z funkcji _LogOperation. 
 
 | Kategoria | Opis |

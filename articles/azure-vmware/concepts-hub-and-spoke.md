@@ -1,18 +1,18 @@
 ---
 title: Koncepcja — Integruj wdrożenie rozwiązania Azure VMware z architekturą Hub i szprychy
-description: Zapoznaj się z zaleceniami dotyczącymi integrowania wdrożenia rozwiązania Azure VMware w istniejącej lub nowej architekturze Hub i szprych na platformie Azure.
+description: Dowiedz się więcej na temat integrowania wdrożenia rozwiązania Azure VMware w architekturze gwiazdy i szprych na platformie Azure.
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 66c6cc4841b4b36775fda89b29dc588100c3ad87
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/26/2020
+ms.openlocfilehash: 93c11ad9253fe78e1935da7b40e7251788f1f037
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058475"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674708"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązań VMware platformy Azure z architekturą Hub i szprychy
 
-W tym artykule udostępniamy zalecenia dotyczące integrowania wdrożenia rozwiązania Azure VMware w istniejącej lub nowej [architekturze Hub i szprych](/azure/architecture/reference-architectures/hybrid-networking/shared-services) na platformie Azure. 
+Ten artykuł zawiera zalecenia dotyczące integrowania wdrożenia rozwiązania Azure VMware w istniejącej lub nowej [architekturze Hub i szprych](/azure/architecture/reference-architectures/hybrid-networking/shared-services) na platformie Azure. 
 
 
 Scenariusz Hub i szprych zakłada środowisko chmury hybrydowej z obciążeniami w:
@@ -81,9 +81,9 @@ Więcej informacji na temat rozwiązań dotyczących sieci i łączności VMware
 
 ### <a name="traffic-segmentation"></a>Segmentacja ruchu
 
-[Zapora systemu Azure](../firewall/index.yml) jest centralną częścią topologii gwiazdy, wdrożoną w centralnej sieci wirtualnej. Użyj zapory platformy Azure lub innego sieciowego urządzenia wirtualnego platformy Azure do ustanowienia reguł ruchu i segmentacji komunikacji między różnymi szprychami i obciążeniami rozwiązań VMware platformy Azure.
+[Zapora systemu Azure](../firewall/index.yml) to centralny element topologii piasty i szprych wdrożony w sieci wirtualnej centrum. Użyj zapory platformy Azure lub innego sieciowego urządzenia wirtualnego platformy Azure do ustanowienia reguł ruchu i segmentacji komunikacji między różnymi szprychami i obciążeniami rozwiązań VMware platformy Azure.
 
-Utwórz tabele tras, aby skierować ruch do zapory platformy Azure.  W przypadku sieci wirtualnych szprych Utwórz trasę, która ustawia domyślną trasę do wewnętrznego interfejsu zapory platformy Azure, w ten sposób, gdy obciążenie w Virtual Network musi dotrzeć do przestrzeni adresowej rozwiązania VMware platformy Azure, a Zapora może ją oszacować i zastosować odpowiednią regułę ruchu, aby zezwolić na dostęp lub go zabronić.  
+Utwórz tabele tras, aby skierować ruch do zapory platformy Azure.  W przypadku sieci wirtualnych szprych Utwórz trasę, która ustawia domyślną trasę do wewnętrznego interfejsu zapory platformy Azure. W ten sposób, gdy obciążenie w Virtual Network musi dotrzeć do przestrzeni adresowej rozwiązań VMware platformy Azure, Zapora może ją oszacować i zastosować odpowiednią regułę ruchu w celu zezwolenia lub odmowy.  
 
 :::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
 
@@ -91,7 +91,7 @@ Utwórz tabele tras, aby skierować ruch do zapory platformy Azure.  W przypadku
 > [!IMPORTANT]
 > Trasa z prefiksem adresu 0.0.0.0/0 w ustawieniu **GatewaySubnet** nie jest obsługiwana.
 
-Ustaw trasy dla określonych sieci w odpowiedniej tabeli tras. Na przykład trasy docierające do usługi Azure VMware Solution Management i obciążenia prefiksy adresów IP z obciążeń szprych i na odwrót.
+Ustaw trasy dla określonych sieci w odpowiedniej tabeli tras. Na przykład trasy docierające do usługi Azure VMware Solution Management i obciążenia prefiksy adresów IP z obciążeń szprych i inne sposoby.
 
 :::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
 
@@ -104,7 +104,7 @@ Drugi poziom segmentacji ruchu przy użyciu sieciowych grup zabezpieczeń w szpr
 
 Platformy Azure Application Gateway V1 i v2 zostały przetestowane przy użyciu aplikacji sieci Web, które działają na maszynach wirtualnych rozwiązań VMware platformy Azure jako Pula zaplecza. Application Gateway jest obecnie jedyną obsługiwaną metodą udostępniania aplikacji sieci Web działających na maszynach wirtualnych rozwiązań VMware platformy Azure do Internetu. Może również bezpiecznie udostępnić aplikacje użytkownikom wewnętrznym.
 
-Zapoznaj się z artykułem dotyczącym rozwiązań VMware platformy Azure w [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) , aby uzyskać szczegółowe informacje i wymagania.
+Zapoznaj się z artykułami dotyczącymi rozwiązań VMware platformy Azure w [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) , aby uzyskać szczegółowe informacje i wymagania.
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false":::
 
@@ -127,7 +127,7 @@ Najlepszym rozwiązaniem w zakresie zabezpieczeń jest wdrożenie [Microsoft Azu
 
 ## <a name="azure-dns-resolution-considerations"></a>Zagadnienia dotyczące rozwiązywania problemów Azure DNS
 
-Aby uzyskać Azure DNS rozwiązanie, dostępne są dwie opcje:
+W przypadku Azure DNS rozpoznawania dostępne są dwie opcje:
 
 -   Użyj kontrolerów domeny Azure Active Directory (Azure AD) wdrożonych w centrum (opisanego w temacie [uwagi dotyczące tożsamości](#identity-considerations)) jako serwerów nazw.
 
@@ -137,7 +137,7 @@ Najlepszym podejściem jest łączenie obu rozwiązań w celu zapewnienia niezaw
 
 Zgodnie z ogólnym zaleceniem projektowym należy używać istniejącej infrastruktury Azure DNS (w tym przypadku Active Directory zintegrowanej DNS) wdrożonej na co najmniej dwóch maszynach wirtualnych platformy Azure wdrożonych w sieci wirtualnej Hub i skonfigurowanych w sieciach wirtualnych szprych do używania tych serwerów Azure DNS w ustawieniach DNS.
 
-Nadal można używać platformy Azure Prywatna strefa DNS, w której strefa Prywatna strefa DNS platformy Azure jest połączona z sieciami wirtualnymi, a serwery DNS są używane jako resolvery hybrydowe z warunkowym przekazywaniem do rozwiązania do lokalnego/platformy Azure VMware działającego w systemie DNS i infrastruktury Prywatna strefa DNS klienta platformy Azure.
+Możesz użyć usługi Azure Prywatna strefa DNS, w której strefa Prywatna strefa DNS platformy Azure łączy się z siecią wirtualną.  Serwery DNS są używane jako resolvery hybrydowe z warunkowym przekazywaniem do lokalnego lub rozwiązania VMware platformy Azure, na którym działa system DNS, wykorzystując infrastrukturę usługi Azure Prywatna strefa DNS. 
 
 Istnieje kilka zagadnień, które należy wziąć pod uwagę w przypadku Azure DNS stref prywatnych:
 
@@ -149,7 +149,7 @@ Serwery rozwiązań lokalnych i platformy Azure VMware można skonfigurować za 
 
 ## <a name="identity-considerations"></a>Zagadnienia dotyczące tożsamości
 
-Najlepszym rozwiązaniem jest wdrożenie co najmniej jednego kontrolera domeny usługi Active Directory w centrum przy użyciu podsieci usługi udostępnionej, idealnie do dwóch z nich w sposób dystrybuowany w ramach stref lub zestawu dostępności maszyn wirtualnych. Zobacz [centrum architektury platformy Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) , aby rozszerzyć lokalną domenę usługi AD na platformę Azure.
+Najlepszym rozwiązaniem jest wdrożenie co najmniej jednego kontrolera domeny usługi AD w centrum. Użyj dwóch podsieci usługi udostępnionej w ramach rozproszonej strefy lub zestawu dostępności maszyny wirtualnej. Zobacz [centrum architektury platformy Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) , aby rozszerzyć lokalną domenę usługi AD na platformę Azure.
 
 Ponadto Wdróż inny kontroler domeny na stronie rozwiązania VMware platformy Azure, aby działać jako tożsamość i źródło DNS w środowisku vSphere.
 
