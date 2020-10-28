@@ -8,13 +8,13 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
-ms.custom: subject-armqs
-ms.openlocfilehash: 3b21353c7e5338c78b9d56e79ac5da3fa7e9af84
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 7d93bd757a39247302a6bc09009a1a814425c32f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687590"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745375"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Szybki start: Tworzenie budżetu przy użyciu szablonu usługi ARM
 
@@ -22,7 +22,7 @@ Budżety w usłudze Cost Management ułatwiają planowanie poprawy odpowiedzialn
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
 
@@ -84,27 +84,27 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
    :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Szablon usługi Resource Manager, tworzenie budżetu, wdrażanie portalu" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
    
-    * **Subskrypcja**: wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów**: jeśli jest wymagana, wybierz istniejącą grupę zasobów lub **Utwórz nową**.
-    * **Region**: wybierz region platformy Azure. Na przykład **Środkowe stany USA**.
-    * **Nazwa budżetu**: wprowadź nazwę budżetu. Nazwa powinna być unikatowa w obrębie grupy zasobów. Dozwolone są tylko znaki alfanumeryczne, podkreślenia i łączniki.
-    * **Kwota**: wprowadź łączną kwotę kosztu do śledzenia w ramach budżetu.
-    * **Ziarno czasu**: wprowadź czas objęty budżetem. Dozwolone wartości to Miesięcznie, Kwartalnie i Rocznie. Budżet jest resetowany na koniec ziarna czasu.
-    * **Data rozpoczęcia**: wprowadź datę początkową pierwszego dnia miesiąca w formacie RRRR-MM-DD. Data rozpoczęcia w przyszłości nie powinna być późniejsza niż trzy miesiące od dzisiaj. Dla okresu ziarna czasu możesz określić datę rozpoczęcia z przeszłości.
-    * **Data zakończenia**: wprowadź datę końcową budżetu w formacie RRRR-MM-DD. 
-    * **Pierwszy próg**: wprowadź wartość progową pierwszego powiadomienia. Powiadomienie jest wysyłane, gdy koszt przekroczy wartość progową. Jest to zawsze wartość procentowa z zakresu od 0 do 1000.
-    * **Drugi próg**: wprowadź wartość progową drugiego powiadomienia. Powiadomienie jest wysyłane, gdy koszt przekroczy wartość progową. Jest to zawsze wartość procentowa z zakresu od 0 do 1000.
-    * **Role do kontaktu**: wprowadź listę ról do kontaktu, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Wartości domyślne to Owner (Właściciel), Contributor (Współautor) i Reader (Czytelnik). Oczekiwany format to `["Owner","Contributor","Reader"]`.
-    * **Adresy e-mail do kontaktu**: wprowadź listę adresów e-mail, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Oczekiwany format to `["user1@domain.com","user2@domain.com"]`.
-    * **Grupy do kontaktu**: wprowadź listę identyfikatorów zasobów grup akcji, w postaci pełnych identyfikatorów URI zasobów, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Akceptowana jest tablica ciągów. Oczekiwany format to `["action group resource ID1","action group resource ID2"]`. Jeśli nie chcesz używać grup akcji, wprowadź `[]`.
+    * **Subskrypcja** : wybierz subskrypcję platformy Azure.
+    * **Grupa zasobów** : jeśli jest wymagana, wybierz istniejącą grupę zasobów lub **Utwórz nową** .
+    * **Region** : wybierz region platformy Azure. Na przykład **Środkowe stany USA** .
+    * **Nazwa budżetu** : wprowadź nazwę budżetu. Nazwa powinna być unikatowa w obrębie grupy zasobów. Dozwolone są tylko znaki alfanumeryczne, podkreślenia i łączniki.
+    * **Kwota** : wprowadź łączną kwotę kosztu do śledzenia w ramach budżetu.
+    * **Ziarno czasu** : wprowadź czas objęty budżetem. Dozwolone wartości to Miesięcznie, Kwartalnie i Rocznie. Budżet jest resetowany na koniec ziarna czasu.
+    * **Data rozpoczęcia** : wprowadź datę początkową pierwszego dnia miesiąca w formacie RRRR-MM-DD. Data rozpoczęcia w przyszłości nie powinna być późniejsza niż trzy miesiące od dzisiaj. Dla okresu ziarna czasu możesz określić datę rozpoczęcia z przeszłości.
+    * **Data zakończenia** : wprowadź datę końcową budżetu w formacie RRRR-MM-DD. 
+    * **Pierwszy próg** : wprowadź wartość progową pierwszego powiadomienia. Powiadomienie jest wysyłane, gdy koszt przekroczy wartość progową. Jest to zawsze wartość procentowa z zakresu od 0 do 1000.
+    * **Drugi próg** : wprowadź wartość progową drugiego powiadomienia. Powiadomienie jest wysyłane, gdy koszt przekroczy wartość progową. Jest to zawsze wartość procentowa z zakresu od 0 do 1000.
+    * **Role do kontaktu** : wprowadź listę ról do kontaktu, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Wartości domyślne to Owner (Właściciel), Contributor (Współautor) i Reader (Czytelnik). Oczekiwany format to `["Owner","Contributor","Reader"]`.
+    * **Adresy e-mail do kontaktu** : wprowadź listę adresów e-mail, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Oczekiwany format to `["user1@domain.com","user2@domain.com"]`.
+    * **Grupy do kontaktu** : wprowadź listę identyfikatorów zasobów grup akcji, w postaci pełnych identyfikatorów URI zasobów, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Akceptowana jest tablica ciągów. Oczekiwany format to `["action group resource ID1","action group resource ID2"]`. Jeśli nie chcesz używać grup akcji, wprowadź `[]`.
     * **Wartości filtru grupy zasobów** wprowadź listę nazw grup zasobów do filtrowania. Oczekiwany format to `["Resource Group Name1","Resource Group Name2"]`. Jeśli nie chcesz stosować filtru, wprowadź `[]`. 
     * **Wartości filtru kategorii miernika** wprowadź listę kategorii miernika usług platformy Azure. Oczekiwany format to `["Meter Category1","Meter Category2"]`. Jeśli nie chcesz stosować filtru, wprowadź `[]`.
    
 3. W zależności od typu subskrypcji platformy Azure wykonaj jedną z następujących czynności:
-   - Wybierz pozycję **Przegląd + utwórz**.
-   - Przeczytaj warunki i postanowienia, a następnie wybierz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia**, a następnie wybierz pozycję **Kup**.
+   - Wybierz pozycję **Przegląd + utwórz** .
+   - Przeczytaj warunki i postanowienia, a następnie wybierz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia** , a następnie wybierz pozycję **Kup** .
 
-4. Jeśli wybrano pozycję **Przegląd + tworzenie**, szablon zostanie zweryfikowany. Wybierz pozycję **Utwórz**.  
+4. Jeśli wybrano pozycję **Przegląd + tworzenie** , szablon zostanie zweryfikowany. Wybierz pozycję **Utwórz** .  
 
    ![Szablon usługi Resource Manager, budżet, wdrażanie powiadomienia w portalu](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -112,7 +112,7 @@ Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz witryny Azure Po
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
-W witrynie Azure Portal możesz sprawdzić, czy szablon został utworzony. W tym celu przejdź do pozycji **Zarządzanie kosztami i rozliczenia**, wybierz zakres, a następnie wybierz pozycję **Budżety**. Do wyświetlenia budżetów możesz też użyć następujących skryptów interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell.
+W witrynie Azure Portal możesz sprawdzić, czy szablon został utworzony. W tym celu przejdź do pozycji **Zarządzanie kosztami i rozliczenia** , wybierz zakres, a następnie wybierz pozycję **Budżety** . Do wyświetlenia budżetów możesz też użyć następujących skryptów interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -134,7 +134,7 @@ Jeśli nie potrzebujesz już budżetu, usuń go, używając jednej z następują
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Przejdź do obszaru **Zarządzanie kosztami i rozliczenia**, wybierz zakres rozliczeniowy, wybierz pozycję **Budżety**, wybierz odpowiedni budżet, a następnie wybierz pozycję **Usuń budżet**.
+Przejdź do obszaru **Zarządzanie kosztami i rozliczenia** , wybierz zakres rozliczeniowy, wybierz pozycję **Budżety** , wybierz odpowiedni budżet, a następnie wybierz pozycję **Usuń budżet** .
 
 ### <a name="command-line"></a>Wiersz polecenia
 
