@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: fd1a25e3fae49feb731cd1b472c99da679eee4f4
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 733a5c899e72809d979dfeeb60e4157c0d587bcf
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495666"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633709"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi 
 
@@ -80,13 +80,13 @@ Aby uzyskać więcej informacji, zobacz [Dokumentacja zestawu SDK obszaru robocz
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu poświadczeń dla subskrypcji platformy Azure. 
 
-1. W lewym górnym rogu Azure Portal wybierz pozycję **+ Utwórz zasób**.
+1. W lewym górnym rogu Azure Portal wybierz pozycję **+ Utwórz zasób** .
 
       ![Tworzenie nowego zasobu](./media/how-to-manage-workspace/create-workspace.gif)
 
-1. Użyj paska wyszukiwania, aby znaleźć **Machine Learning**.
+1. Użyj paska wyszukiwania, aby znaleźć **Machine Learning** .
 
-1. Wybierz **Machine Learning**.
+1. Wybierz **Machine Learning** .
 
 1. W okienku **Machine Learning** wybierz pozycję **Utwórz** , aby rozpocząć.
 
@@ -94,23 +94,23 @@ Aby uzyskać więcej informacji, zobacz [Dokumentacja zestawu SDK obszaru robocz
 
    Pole|Opis 
    ---|---
-   Nazwa obszaru roboczego |Wprowadź unikatową nazwę identyfikującą obszar roboczy. W tym przykładzie używamy **dokumentów-WS**. Nazwy muszą być unikatowe w ramach grupy zasobów. Użyj nazwy, która jest łatwa do odzyskania i odróżniania od obszarów roboczych utworzonych przez inne osoby. W nazwie obszaru roboczego nie jest rozróżniana wielkość liter.
+   Nazwa obszaru roboczego |Wprowadź unikatową nazwę identyfikującą obszar roboczy. W tym przykładzie używamy **dokumentów-WS** . Nazwy muszą być unikatowe w ramach grupy zasobów. Użyj nazwy, która jest łatwa do odzyskania i odróżniania od obszarów roboczych utworzonych przez inne osoby. W nazwie obszaru roboczego nie jest rozróżniana wielkość liter.
    Subskrypcja |Wybierz subskrypcję platformy Azure, której chcesz użyć.
-   Grupa zasobów | Użyj grupy zasobów istniejącej w Twojej subskrypcji lub wprowadź nazwę, aby utworzyć nową grupę zasobów. Grupa zasobów zawiera powiązane zasoby dla rozwiązania platformy Azure. W tym przykładzie używane są **dokumenty-AML**. Aby korzystać z istniejącej grupy zasobów, musisz mieć rolę *współautora* lub *właściciela* .  Aby uzyskać więcej informacji na temat dostępu, zobacz [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md).
+   Grupa zasobów | Użyj grupy zasobów istniejącej w Twojej subskrypcji lub wprowadź nazwę, aby utworzyć nową grupę zasobów. Grupa zasobów zawiera powiązane zasoby dla rozwiązania platformy Azure. W tym przykładzie używane są **dokumenty-AML** . Aby korzystać z istniejącej grupy zasobów, musisz mieć rolę *współautora* lub *właściciela* .  Aby uzyskać więcej informacji na temat dostępu, zobacz [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md).
    Region | Wybierz region platformy Azure znajdujący się najbliżej Twoich użytkowników i zasoby danych, aby utworzyć obszar roboczy.
 
     ![Konfigurowanie obszaru roboczego](./media/how-to-manage-workspace/create-workspace-form.png)
 
-1. Po zakończeniu konfigurowania obszaru roboczego wybierz pozycję **Przegląd + Utwórz**. Opcjonalnie możesz użyć sekcji [Sieć](#networking) i [Zaawansowane](#advanced) , aby skonfigurować więcej ustawień obszaru roboczego.
+1. Po zakończeniu konfigurowania obszaru roboczego wybierz pozycję **Przegląd + Utwórz** . Opcjonalnie możesz użyć sekcji [Sieć](#networking) i [Zaawansowane](#advanced) , aby skonfigurować więcej ustawień obszaru roboczego.
 
-1. Sprawdź ustawienia i wprowadź wszelkie dodatkowe zmiany lub poprawki. Gdy ustawienia są zadowalające, wybierz pozycję **Utwórz**.
+1. Sprawdź ustawienia i wprowadź wszelkie dodatkowe zmiany lub poprawki. Gdy ustawienia są zadowalające, wybierz pozycję **Utwórz** .
 
    > [!Warning] 
    > Tworzenie obszaru roboczego w chmurze może potrwać kilka minut.
 
    Po zakończeniu procesu zostanie wyświetlony komunikat o powodzeniu wdrożenia. 
  
- 1. Aby wyświetlić nowy obszar roboczy, wybierz pozycję **Przejdź do zasobu**.
+ 1. Aby wyświetlić nowy obszar roboczy, wybierz pozycję **Przejdź do zasobu** .
  
 ---
 
@@ -126,7 +126,7 @@ Zestaw Azure Machine Learning Python SDK udostępnia klasę [PrivateEndpointConf
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Domyślną konfiguracją sieci jest użycie __publicznego punktu końcowego__, który jest dostępny w publicznej sieci Internet. Aby ograniczyć dostęp do obszaru roboczego do utworzonego Virtual Network platformy Azure, zamiast tego możesz wybrać opcję __prywatny punkt końcowy__ (wersja zapoznawcza) jako __metodę połączenia__, a następnie użyć opcji __+ Dodaj__ , aby skonfigurować punkt końcowy.   
+1. Domyślną konfiguracją sieci jest użycie __publicznego punktu końcowego__ , który jest dostępny w publicznej sieci Internet. Aby ograniczyć dostęp do obszaru roboczego do utworzonego Virtual Network platformy Azure, zamiast tego możesz wybrać opcję __prywatny punkt końcowy__ (wersja zapoznawcza) jako __metodę połączenia__ , a następnie użyć opcji __+ Dodaj__ , aby skonfigurować punkt końcowy.   
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Wybór prywatnego punktu końcowego":::  
 
@@ -134,7 +134,7 @@ Zestaw Azure Machine Learning Python SDK udostępnia klasę [PrivateEndpointConf
 
    :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Wybór prywatnego punktu końcowego":::   
 
-1. Po zakończeniu konfigurowania sieci możesz wybrać pozycję __Przegląd + Utwórz__lub przejdź do opcjonalnej __zaawansowanej__ konfiguracji.
+1. Po zakończeniu konfigurowania sieci możesz wybrać pozycję __Przegląd + Utwórz__ lub przejdź do opcjonalnej __zaawansowanej__ konfiguracji.
 
 ---
 
@@ -147,8 +147,8 @@ Zestaw Azure Machine Learning Python SDK udostępnia klasę [PrivateEndpointConf
 Podczas tworzenia prywatnego punktu końcowego zostanie utworzona nowa Prywatna strefa DNS strefa o nazwie __privatelink.API.azureml.MS__ . Zawiera link do sieci wirtualnej. Jeśli utworzysz wiele obszarów roboczych z prywatnymi punktami końcowymi w tej samej grupie zasobów, do strefy DNS może zostać dodany tylko sieć wirtualna dla pierwszego prywatnego punktu końcowego. Aby dodać wpisy dla sieci wirtualnych używanych przez dodatkowe obszary robocze/prywatne punkty końcowe, wykonaj następujące czynności:
 
 1. W [Azure Portal](https://portal.azure.com)wybierz grupę zasobów, która zawiera obszar roboczy. Następnie wybierz zasób strefy Prywatna strefa DNS o nazwie __privatelink.API.azureml.MS__
-2. W obszarze __Ustawienia__wybierz pozycję __linki sieci wirtualnej__.
-3. Wybierz pozycję __Dodaj__. Na stronie __Dodawanie łącza do sieci wirtualnej__ Podaj unikatową __nazwę łącza__, a następnie wybierz __sieć wirtualną__ , która ma zostać dodana. Wybierz __przycisk OK__ , aby dodać łącze sieciowe.
+2. W obszarze __Ustawienia__ wybierz pozycję __linki sieci wirtualnej__ .
+3. Wybierz pozycję __Dodaj__ . Na stronie __Dodawanie łącza do sieci wirtualnej__ Podaj unikatową __nazwę łącza__ , a następnie wybierz __sieć wirtualną__ , która ma zostać dodana. Wybierz __przycisk OK__ , aby dodać łącze sieciowe.
 
 Aby uzyskać więcej informacji, zobacz [Konfiguracja DNS prywatnego punktu końcowego platformy Azure](/azure/private-link/private-endpoint-dns).
 
@@ -167,7 +167,11 @@ Aby ograniczyć dane gromadzone przez firmę Microsoft w obszarze roboczym, wybi
 
 #### <a name="use-your-own-key"></a>Użyj własnego klucza
 
-Możesz podać własny klucz szyfrowania danych. Spowoduje to utworzenie wystąpienia Azure Cosmos DB, które przechowuje metryki i metadane w ramach subskrypcji platformy Azure. Wykonaj następujące kroki, aby podać własny klucz:
+Możesz podać własny klucz szyfrowania danych. Spowoduje to utworzenie wystąpienia Azure Cosmos DB, które przechowuje metryki i metadane w ramach subskrypcji platformy Azure.
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
+
+Wykonaj następujące kroki, aby podać własny klucz:
 
 > [!IMPORTANT]  
 > Przed wykonaniem tych kroków należy najpierw wykonać następujące czynności:   
@@ -201,7 +205,7 @@ from azureml.core import Workspace
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Wybierz pozycję __klucze zarządzane przez klienta__, a następnie wybierz __pozycję kliknij, aby wybrać klucz__.
+1. Wybierz pozycję __klucze zarządzane przez klienta__ , a następnie wybierz __pozycję kliknij, aby wybrać klucz__ .
 
     :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Wybór prywatnego punktu końcowego":::
 
@@ -231,7 +235,7 @@ Jeśli planujesz używać kodu w środowisku lokalnym, który odwołuje się do 
 
 ---
 
-Umieść plik w strukturze katalogów za pomocą skryptów języka Python lub notesów Jupyter. Może znajdować się w tym samym katalogu, podkatalogu o nazwie *. Azure*lub w katalogu nadrzędnym. Podczas tworzenia wystąpienia obliczeniowego ten plik jest dodawany do poprawnego katalogu na maszynie wirtualnej.
+Umieść plik w strukturze katalogów za pomocą skryptów języka Python lub notesów Jupyter. Może znajdować się w tym samym katalogu, podkatalogu o nazwie *. Azure* lub w katalogu nadrzędnym. Podczas tworzenia wystąpienia obliczeniowego ten plik jest dodawany do poprawnego katalogu na maszynie wirtualnej.
 
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Znajdowanie obszaru roboczego
@@ -250,11 +254,11 @@ Workspace.list('<subscription-id>')
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się do [Azure portal](https://portal.azure.com/).
 
-1. W górnym polu wyszukiwania wpisz **Machine Learning**.  
+1. W górnym polu wyszukiwania wpisz **Machine Learning** .  
 
-1. Wybierz **Machine Learning**.
+1. Wybierz **Machine Learning** .
 
    ![Wyszukaj Azure Machine Learning obszar roboczy](./media/how-to-manage-workspace/find-workspaces.png)
 

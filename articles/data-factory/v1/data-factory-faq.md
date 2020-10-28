@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3ae12355dddbae40eb84730549ccebcd004ff6be
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: de4661bcfd7106d515480e39dc4660f44f469a3d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371770"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631703"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory — często zadawane pytania
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "92371770"
 
 ## <a name="general-questions"></a>Pytania ogólne
 ### <a name="what-is-azure-data-factory"></a>Co to jest usługa Azure Data Factory?
-Data Factory to oparta na chmurze usługa integracji danych, która **automatyzuje przenoszenie i transformację danych**. Tak jak w przypadku fabryki, która uruchamia sprzęt, aby pobierać surowce i przekształcić je w gotowe towary, Data Factory organizować istniejące usługi, które zbierają dane pierwotne i przekształcają je w gotowe do użycia informacje.
+Data Factory to oparta na chmurze usługa integracji danych, która **automatyzuje przenoszenie i transformację danych** . Tak jak w przypadku fabryki, która uruchamia sprzęt, aby pobierać surowce i przekształcić je w gotowe towary, Data Factory organizować istniejące usługi, które zbierają dane pierwotne i przekształcają je w gotowe do użycia informacje.
 
 Data Factory umożliwia tworzenie przepływów pracy opartych na danych w celu przenoszenia danych między magazynami danych zarówno lokalnymi, jak i w chmurze, a także przetwarzaniem/przekształcaniem danych przy użyciu usług obliczeniowych, takich jak Azure HDInsight i Azure Data Lake Analytics. Po utworzeniu potoku, który wykonuje potrzebną akcję, można zaplanować okresowe uruchamianie (co godzinę, codziennie, co tydzień itd.).   
 
@@ -41,7 +41,7 @@ Szczegóły cennika Azure Data Factory można znaleźć na [stronie Szczegóły 
 * Aby zapoznać się z samouczkiem dotyczącym **przekształcania danych** przy użyciu działania programu Hive w usłudze HDInsight. Zobacz [przetwarzanie danych przez uruchomienie skryptu programu Hive w klastrze usługi Hadoop](data-factory-build-your-first-pipeline.md)
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>Co to jest dostępność regionu Data Factory?
-Data Factory jest dostępny w regionie **zachodnie stany USA** i **Europa Północna**. Usługi obliczeniowe i magazynowe używane przez fabrykę danych mogą znajdować się w innych regionach. Zobacz [Obsługiwane regiony](data-factory-introduction.md#supported-regions).
+Data Factory jest dostępny w regionie **zachodnie stany USA** i **Europa Północna** . Usługi obliczeniowe i magazynowe używane przez fabrykę danych mogą znajdować się w innych regionach. Zobacz [Obsługiwane regiony](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Jakie są limity dotyczące liczby fabryk danych/potoków/działań/zestawów DataSet?
 Zapoznaj się z sekcją **limity Azure Data Factory** w artykule dotyczącym [limitów subskrypcji i usług, przydziałów i ograniczeń usługi](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
@@ -141,7 +141,7 @@ W powyższym przykładzie otherLinkedServiceName1 i otherLinkedServiceName2 repr
 ### <a name="why-are-my-input-slices-not-in-ready-state"></a>Dlaczego moje wycinki wejściowe nie są w stanie gotowe?
 Typowy błąd nie powoduje ustawienia właściwości **zewnętrznej** na **wartość true** w wejściowym zestawie danych, gdy dane wejściowe są zewnętrzne względem fabryki danych (nie są tworzone przez fabrykę danych).
 
-W poniższym przykładzie wystarczy ustawić **zewnętrzny** na true w **pozycję DataSet1**.  
+W poniższym przykładzie wystarczy ustawić **zewnętrzny** na true w **pozycję DataSet1** .  
 
 **DataFactory1** Potok 1: pozycję DataSet1-> zakończeniu-> DataSet2-> Activity2-> dataset3 potok 2: dataset3-> działanie activity3-> dataset4
 
@@ -205,4 +205,4 @@ Jeśli na pewno chcesz natychmiast przerwać wykonywanie wszystkich wykonań, je
 [adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: https://docs.microsoft.com/archive/blogs/cindygross/use-additional-storage-accounts-with-hdinsight-hive
+[hdinsight-alternate-storage-2]: /archive/blogs/cindygross/use-additional-storage-accounts-with-hdinsight-hive

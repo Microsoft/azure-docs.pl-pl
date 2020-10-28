@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 6b79b2722438403e29851d3a87929ddc67eef727
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123753"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632808"
 ---
 # <a name="managed-identity-for-data-factory"></a>Tożsamość zarządzana dla usługi Data Factory
 
@@ -39,9 +39,9 @@ Tożsamość zarządzana dla Data Factory korzysta z następujących funkcji:
 
 Tożsamość zarządzana dla Data Factory jest generowana w następujący sposób:
 
-- Podczas tworzenia fabryki danych za poorednictwem **Azure Portal lub programu PowerShell**, tożsamość zarządzana zawsze zostanie utworzona automatycznie.
-- Podczas tworzenia fabryki danych za pomocą **zestawu SDK**tożsamość zarządzana zostanie utworzona tylko wtedy, gdy w obiekcie fabryki zostanie określona wartość "Identity = New FactoryIdentity ()". Zobacz przykład w programie [.NET — szybki start — tworzenie fabryki danych](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Podczas tworzenia fabryki danych przy użyciu **interfejsu API REST**tożsamość zarządzana zostanie utworzona tylko wtedy, gdy w treści żądania określono sekcję "Identity". Zobacz przykład w temacie [Szybki Start — tworzenie fabryki danych](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- Podczas tworzenia fabryki danych za poorednictwem **Azure Portal lub programu PowerShell** , tożsamość zarządzana zawsze zostanie utworzona automatycznie.
+- Podczas tworzenia fabryki danych za pomocą **zestawu SDK** tożsamość zarządzana zostanie utworzona tylko wtedy, gdy w obiekcie fabryki zostanie określona wartość "Identity = New FactoryIdentity ()". Zobacz przykład w programie [.NET — szybki start — tworzenie fabryki danych](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Podczas tworzenia fabryki danych przy użyciu **interfejsu API REST** tożsamość zarządzana zostanie utworzona tylko wtedy, gdy w treści żądania określono sekcję "Identity". Zobacz przykład w temacie [Szybki Start — tworzenie fabryki danych](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 Jeśli okaże się, że Fabryka danych nie jest skojarzona z tożsamością [zarządzaną](#retrieve-managed-identity) , można ją jawnie wygenerować, aktualizując jednocześnie fabrykę danych przy użyciu inicjatora tożsamości:
 
@@ -79,7 +79,7 @@ Wywołaj poniżej interfejsu API z sekcją "Identity" w treści żądania:
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Treść żądania**: Dodaj "tożsamość": {"Type": "SystemAssigned"}.
+**Treść żądania** : Dodaj "tożsamość": {"Type": "SystemAssigned"}.
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Odpowiedź**: tożsamość zarządzana jest tworzona automatycznie, a sekcja "Identity" jest odpowiednio wypełniana.
+**Odpowiedź** : tożsamość zarządzana jest tworzona automatycznie, a sekcja "Identity" jest odpowiednio wypełniana.
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Generuj zarządzaną tożsamość przy użyciu szablonu Azure Resource Manager
 
-**Szablon**: Dodaj "Identity": {"Type": "SystemAssigned"}.
+**Szablon** : Dodaj "Identity": {"Type": "SystemAssigned"}.
 
 ```json
 {
@@ -201,7 +201,7 @@ Wywołaj poniżej interfejsu API w żądaniu:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**Odpowiedź**: otrzymasz odpowiedź, jak pokazano w poniższym przykładzie. Sekcja "tożsamość" jest odpowiednio wypełniana.
+**Odpowiedź** : otrzymasz odpowiedź, jak pokazano w poniższym przykładzie. Sekcja "tożsamość" jest odpowiednio wypełniana.
 
 ```json
 {
@@ -252,4 +252,4 @@ Zapoznaj się z następującymi tematami, które wprowadzają, kiedy i jak używ
 - [Przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md)
 - [Kopiowanie danych z/do Azure Data Lake Store przy użyciu tożsamości zarządzanych na potrzeby uwierzytelniania zasobów platformy Azure](connector-azure-data-lake-store.md)
 
-Zobacz [zarządzane tożsamości dla zasobów platformy Azure — omówienie](/azure/active-directory/managed-identities-azure-resources/overview) , aby uzyskać więcej informacji na temat tożsamości zarządzanych dla zasobów platformy Azure, na podstawie których jest oparta tożsamość zarządzana w usłudze Data Factory. 
+Zobacz [zarządzane tożsamości dla zasobów platformy Azure — omówienie](../active-directory/managed-identities-azure-resources/overview.md) , aby uzyskać więcej informacji na temat tożsamości zarządzanych dla zasobów platformy Azure, na podstawie których jest oparta tożsamość zarządzana w usłudze Data Factory.

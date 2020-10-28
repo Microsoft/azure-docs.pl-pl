@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/28/2020
-ms.openlocfilehash: 4ff1a793b3e8c4fe642aa304f1aa59bd8edefb8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8937cfa5a48903ab53f3015b056a4915240bc525
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405624"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633131"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Kopiuj dane do i z Azure Databricks delty Lake przy użyciu Azure Data Factory
 
@@ -46,19 +46,19 @@ Aby użyć tego Azure Databricks różnicowego, należy skonfigurować klaster w
 
 Klaster datakostki musi mieć dostęp do obiektu blob platformy Azure lub konta Azure Data Lake Storage Gen2, kontenera/systemu plików używanego dla źródła/ujścia/przemieszczania oraz kontenera/systemu plików, w którym mają zostać zapisane tabele różnicowych Lake.
 
-- Aby skorzystać z **Azure Data Lake Storage Gen2**, można skonfigurować jednostkę **usługi** lub **klucz dostępu konta magazynu** w klastrze datakostki jako część konfiguracji Apache Spark. Postępuj zgodnie z instrukcjami [dostępnymi bezpośrednio z](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) użyciem jednostki usługi lub [uzyskaj dostęp bezpośrednio przy użyciu klucza dostępu konta magazynu](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
+- Aby skorzystać z **Azure Data Lake Storage Gen2** , można skonfigurować jednostkę **usługi** lub **klucz dostępu konta magazynu** w klastrze datakostki jako część konfiguracji Apache Spark. Postępuj zgodnie z instrukcjami [dostępnymi bezpośrednio z](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) użyciem jednostki usługi lub [uzyskaj dostęp bezpośrednio przy użyciu klucza dostępu konta magazynu](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
 
-- Aby korzystać z **usługi Azure Blob Storage**, można skonfigurować **klucz dostępu konta magazynu** lub **token SAS** w klastrze datakostki jako część konfiguracji Apache Spark. Wykonaj kroki opisane w temacie [dostęp do usługi Azure Blob Storage za pomocą interfejsu API RDD](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
+- Aby korzystać z **usługi Azure Blob Storage** , można skonfigurować **klucz dostępu konta magazynu** lub **token SAS** w klastrze datakostki jako część konfiguracji Apache Spark. Wykonaj kroki opisane w temacie [dostęp do usługi Azure Blob Storage za pomocą interfejsu API RDD](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
 
 W trakcie wykonywania działania kopiowania, jeśli skonfigurowany klaster został zakończony, Data Factory automatycznie go uruchamia. Jeśli tworzysz potok przy użyciu interfejsu użytkownika Data Factory tworzenia, w przypadku operacji takich jak Data Preview, musisz mieć klaster na żywo, Data Factory nie uruchomi klastra w Twoim imieniu.
 
 #### <a name="specify-the-cluster-configuration"></a>Określ konfigurację klastra
 
-1. Z listy rozwijanej **tryb klastra** wybierz pozycję **Standardowy**.
+1. Z listy rozwijanej **tryb klastra** wybierz pozycję **Standardowy** .
 
 2. Z listy rozwijanej **wersja Databricks Runtime** wybierz wersję środowiska uruchomieniowego datakosteks.
 
-3. Włącz funkcję [automatycznej optymalizacji](https://docs.microsoft.com/azure/databricks/delta/optimizations/auto-optimize) , dodając następujące właściwości do [konfiguracji platformy Spark](https://docs.microsoft.com/azure/databricks/clusters/configure#spark-config):
+3. Włącz funkcję [automatycznej optymalizacji](/azure/databricks/delta/optimizations/auto-optimize) , dodając następujące właściwości do [konfiguracji platformy Spark](/azure/databricks/clusters/configure#spark-config):
 
    ```
    spark.databricks.delta.optimizeWrite.enabled true
@@ -67,9 +67,9 @@ W trakcie wykonywania działania kopiowania, jeśli skonfigurowany klaster zosta
 
 4. Skonfiguruj klaster w zależności od potrzeb związanych z integracją i skalowaniem.
 
-Aby uzyskać szczegółowe informacje o konfiguracji klastra, zobacz [Konfigurowanie klastrów](https://docs.microsoft.com/azure/databricks/clusters/configure).
+Aby uzyskać szczegółowe informacje o konfiguracji klastra, zobacz [Konfigurowanie klastrów](/azure/databricks/clusters/configure).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -81,10 +81,10 @@ Następujące właściwości są obsługiwane dla usługi Azure Databricks róż
 
 | Właściwość    | Opis                                                  | Wymagane |
 | :---------- | :----------------------------------------------------------- | :------- |
-| typ        | Właściwość Type musi być ustawiona na wartość **AzureDatabricksDeltaLake**. | Tak      |
+| typ        | Właściwość Type musi być ustawiona na wartość **AzureDatabricksDeltaLake** . | Tak      |
 | domena      | Określ adres URL obszaru Azure Databricks, np. `https://adb-xxxxxxxxx.xx.azuredatabricks.net` . |          |
-| clusterId   | Określ identyfikator klastra istniejącego klastra. Powinien to być już utworzony interaktywny klaster. <br>Identyfikator klastra interaktywnego klastra można znaleźć w obszarze roboczym datakosteks — > klastrów — > Interactive Nazwa klastra — > Configuration-> Tagi. [Dowiedz się więcej](https://docs.microsoft.com/azure/databricks/clusters/configure#cluster-tags). |          |
-| accessToken | Token dostępu jest wymagany do uwierzytelniania Data Factory Azure Databricks. Token dostępu musi być wygenerowany z obszaru roboczego datakostki. Bardziej szczegółowe kroki znajdowania tokenu dostępu można znaleźć [tutaj](https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/authentication#generate-token). |          |
+| clusterId   | Określ identyfikator klastra istniejącego klastra. Powinien to być już utworzony interaktywny klaster. <br>Identyfikator klastra interaktywnego klastra można znaleźć w obszarze roboczym datakosteks — > klastrów — > Interactive Nazwa klastra — > Configuration-> Tagi. [Dowiedz się więcej](/azure/databricks/clusters/configure#cluster-tags). |          |
+| accessToken | Token dostępu jest wymagany do uwierzytelniania Data Factory Azure Databricks. Token dostępu musi być wygenerowany z obszaru roboczego datakostki. Bardziej szczegółowe kroki znajdowania tokenu dostępu można znaleźć [tutaj](/azure/databricks/dev-tools/api/latest/authentication#generate-token). |          |
 | Właściwością connectvia  | [Środowisko Integration Runtime](concepts-integration-runtime.md) , które jest używane do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, używa domyślnego środowiska Azure Integration Runtime. | Nie       |
 
 **Przykład:**
@@ -114,9 +114,9 @@ Następujące właściwości są obsługiwane dla Azure Databricks różnicowego
 
 | Właściwość  | Opis                                                  | Wymagane                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| typ      | Właściwość Type zestawu danych musi być ustawiona na wartość **AzureDatabricksDeltaLakeDataset**. | Tak                         |
+| typ      | Właściwość Type zestawu danych musi być ustawiona na wartość **AzureDatabricksDeltaLakeDataset** . | Tak                         |
 | database | Nazwa bazy danych. |Nie dla źródła, tak dla ujścia  |
-| tabela | Nazwa tabeli różnicowej. |Nie dla źródła, tak dla ujścia  |
+| table (stolik) | Nazwa tabeli różnicowej. |Nie dla źródła, tak dla ujścia  |
 
 **Przykład:**
 
@@ -148,11 +148,11 @@ Aby skopiować dane z Azure Databricks delty Lake, w sekcji **Źródło** dział
 
 | Właściwość                     | Opis                                                  | Wymagane |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| typ                         | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AzureDatabricksDeltaLakeSource**. | Tak      |
+| typ                         | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AzureDatabricksDeltaLakeSource** . | Tak      |
 | query          | Określ zapytanie SQL do odczytu danych. W przypadku kontroli podróży czasowej postępuj zgodnie z poniższym wzorcem:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | Nie       |
 | exportSettings | Ustawienia zaawansowane używane do pobierania danych z tabeli różnicowej. | Nie       |
-| ***W obszarze `exportSettings` :*** |  |  |
-| typ | Typ polecenia eksportu, ustawiony na **AzureDatabricksDeltaLakeExportCommand**. | Tak |
+| ***W obszarze `exportSettings` :** _ |  |  |
+| typ | Typ polecenia eksportu, ustawiony na _ * AzureDatabricksDeltaLakeExportCommand * *. | Tak |
 | dateFormat | Sformatuj typ daty na ciąg o formacie daty. Niestandardowe formaty dat są zgodne z formatami we [wzorcu DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Jeśli nie zostanie określony, zostanie użyta wartość domyślna `yyyy-MM-dd` . | Nie |
 | timestampFormat | Sformatuj typ sygnatury czasowej na ciąg z formatem sygnatury czasowej. Niestandardowe formaty dat są zgodne z formatami we [wzorcu DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Jeśli nie zostanie określony, zostanie użyta wartość domyślna `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | Nie |
 
@@ -162,14 +162,14 @@ Jeśli magazyn danych ujścia i format spełniają kryteria opisane w tej sekcji
 
 - **Połączona usługa ujścia** to [Magazyn obiektów blob platformy Azure](connector-azure-blob-storage.md) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). Poświadczenia konta należy wstępnie skonfigurować w konfiguracji klastra Azure Databricks, dowiedzieć się więcej z [wymagań wstępnych](#prerequisites).
 
-- **Format danych ujścia** to **Parquet**, **rozdzielany tekstem**lub **Avro** z poniższymi konfiguracjami, a następnie wskazuje folder, a nie plik.
+- **Format danych ujścia** to **Parquet** , **rozdzielany tekstem** lub **Avro** z poniższymi konfiguracjami, a następnie wskazuje folder, a nie plik.
 
-    - W przypadku formatu **Parquet** kompresji koder-dekoder ma **Brak**, **przyciąganie**lub **gzip**.
+    - W przypadku formatu **Parquet** kompresji koder-dekoder ma **Brak** , **przyciąganie** lub **gzip** .
     - Format **tekstu rozdzielanego** :
         - `rowDelimiter` jest pojedynczym znakiem.
-        - `compression` może to być **none**, **bzip2**, **gzip**.
+        - `compression` może to być **none** , **bzip2** , **gzip** .
         - `encodingName` Kodowanie UTF-7 nie jest obsługiwane.
-    - W przypadku formatu **Avro** kompresji koder-dekoder ma **wartość None**, **Wklęśnięcie**lub **przyciąganie**.
+    - W przypadku formatu **Avro** kompresji koder-dekoder ma **wartość None** , **Wklęśnięcie** lub **przyciąganie** .
 
 - W źródle działania kopiowania `additionalColumns` nie określono.
 - W przypadku kopiowania danych do rozdzielanego tekstu, w ujścia działania kopiowania `fileExtension` musi być ". csv".
@@ -262,11 +262,11 @@ Aby skopiować dane do Azure Databricks delty Lake, w sekcji **ujścia** działa
 
 | Właściwość      | Opis                                                  | Wymagane |
 | :------------ | :----------------------------------------------------------- | :------- |
-| typ          | Właściwość Type ujścia działania Copy ustawiona na wartość **AzureDatabricksDeltaLakeSink**. | Tak      |
+| typ          | Właściwość Type ujścia działania Copy ustawiona na wartość **AzureDatabricksDeltaLakeSink** . | Tak      |
 | preCopyScript | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych w tabeli różnicowej datakostki w każdym uruchomieniu. Tej właściwości można użyć do oczyszczenia wstępnie załadowanych danych lub dodania instrukcji TRUNCATE TABLE lub próżniowej. | Nie       |
 | importSettings | Ustawienia zaawansowane używane do zapisywania danych w tabeli różnicowej. | Nie |
-| ***W obszarze `importSettings` :*** |                                                              |  |
-| typ | Typ polecenia importowania, ustawiony na **AzureDatabricksDeltaLakeImportCommand**. | Tak |
+| **_W obszarze `importSettings` :_* _ |                                                              |  |
+| typ | Typ polecenia importowania, ustawiony na _ * AzureDatabricksDeltaLakeImportCommand * *. | Tak |
 | dateFormat | Sformatuj ciąg jako typ daty z formatem daty. Niestandardowe formaty dat są zgodne z formatami we [wzorcu DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Jeśli nie zostanie określony, zostanie użyta wartość domyślna `yyyy-MM-dd` . | Nie |
 | timestampFormat | Sformatuj ciąg do typu sygnatury czasowej z formatem sygnatury czasowej. Niestandardowe formaty dat są zgodne z formatami we [wzorcu DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Jeśli nie zostanie określony, zostanie użyta wartość domyślna `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | Nie |
 
@@ -276,14 +276,14 @@ Jeśli źródłowy magazyn danych i format są zgodne z kryteriami opisanymi w t
 
 - **Połączona usługa** jest usługą [Azure Blob Storage](connector-azure-blob-storage.md) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). Poświadczenia konta należy wstępnie skonfigurować w konfiguracji klastra Azure Databricks, dowiedzieć się więcej z [wymagań wstępnych](#prerequisites).
 
-- **Format danych źródłowych** jest **Parquet**, **rozdzielany tekstem**lub **Avro** z następującymi konfiguracjami, a następnie wskazuje folder, a nie plik.
+- **Format danych źródłowych** jest **Parquet** , **rozdzielany tekstem** lub **Avro** z następującymi konfiguracjami, a następnie wskazuje folder, a nie plik.
 
-    - W przypadku formatu **Parquet** kompresji koder-dekoder ma **Brak**, **przyciąganie**lub **gzip**.
+    - W przypadku formatu **Parquet** kompresji koder-dekoder ma **Brak** , **przyciąganie** lub **gzip** .
     - Format **tekstu rozdzielanego** :
         - `rowDelimiter` jest wartością domyślną lub pojedynczym znakiem.
-        - `compression` może to być **none**, **bzip2**, **gzip**.
+        - `compression` może to być **none** , **bzip2** , **gzip** .
         - `encodingName` Kodowanie UTF-7 nie jest obsługiwane.
-    - W przypadku formatu **Avro** kompresji koder-dekoder ma **wartość None**, **Wklęśnięcie**lub **przyciąganie**.
+    - W przypadku formatu **Avro** kompresji koder-dekoder ma **wartość None** , **Wklęśnięcie** lub **przyciąganie** .
 
 - W źródle działania kopiowania: 
 
@@ -374,7 +374,7 @@ Aby użyć tej funkcji, należy utworzyć [połączoną usługę Azure Blob Stor
 
 ## <a name="monitoring"></a>Monitorowanie
 
-Azure Data Factory zapewnia takie samo [środowisko monitorowania działania kopiowania](copy-activity-monitoring.md) jak inne łączniki. Ponadto, ponieważ ładowanie danych z/do Delty Lake jest uruchomione w klastrze Azure Databricks, można [wyświetlić szczegółowe dzienniki klastrów](https://docs.microsoft.com/azure/databricks/clusters/clusters-manage#--view-cluster-logs) i [monitorować wydajność](https://docs.microsoft.com/azure/databricks/clusters/clusters-manage#--monitor-performance).
+Azure Data Factory zapewnia takie samo [środowisko monitorowania działania kopiowania](copy-activity-monitoring.md) jak inne łączniki. Ponadto, ponieważ ładowanie danych z/do Delty Lake jest uruchomione w klastrze Azure Databricks, można [wyświetlić szczegółowe dzienniki klastrów](/azure/databricks/clusters/clusters-manage#--view-cluster-logs) i [monitorować wydajność](/azure/databricks/clusters/clusters-manage#--monitor-performance).
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

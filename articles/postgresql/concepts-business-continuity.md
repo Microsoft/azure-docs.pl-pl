@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939872"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629344"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Przegląd ciągłości działania z Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -29,9 +29,9 @@ W poniższej tabeli porównano RTO i cel punktu odzyskiwania w typowym scenarius
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Przywracanie do punktu w czasie z kopii zapasowej | Dowolny punkt przywracania w okresie przechowywania | Dowolny punkt przywracania w okresie przechowywania | Dowolny punkt przywracania w okresie przechowywania |
 | Przywracanie geograficzne z kopii zapasowych replikowanych geograficznie | Nieobsługiwane | RTO — różne <br/>Cel punktu odzyskiwania < 1 h | RTO — różne <br/>Cel punktu odzyskiwania < 1 h |
-| Repliki do odczytu | RTO — minuty <br/>Cel punktu odzyskiwania < 5 min * | RTO — minuty <br/>Cel punktu odzyskiwania < 5 min *| RTO — minuty <br/>Cel punktu odzyskiwania < 5 min *|
+| Repliki do odczytu | RTO — minuty * <br/>Cel punktu odzyskiwania < 5 min * | RTO — minuty * <br/>Cel punktu odzyskiwania < 5 min *| RTO — minuty * <br/>Cel punktu odzyskiwania < 5 min *|
 
-\* Cel punktu odzyskiwania może być wyższy w niektórych przypadkach w zależności od różnych czynników, takich jak obciążenie podstawowej bazy danych i opóźnienie między regionami. 
+\* RTO i cel punktu odzyskiwania mogą być znacznie wyższe w niektórych przypadkach, w zależności od różnych czynników, takich jak obciążenie podstawowej bazy danych i opóźnienie między regionami. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Odzyskiwanie serwera po błędzie użytkownika lub aplikacji
 
@@ -58,7 +58,7 @@ Funkcja przywracania geograficznego przywraca serwer przy użyciu geograficznie 
 ## <a name="cross-region-read-replicas"></a>Repliki odczytu między regionami
 Za pomocą replik odczytu między regionami można usprawnić planowanie ciągłości działania i odzyskiwania po awarii. Repliki odczytu są aktualizowane asynchronicznie za pomocą technologii replikacji fizycznej PostgreSQL. Dowiedz się więcej na temat odczytywania replik, dostępnych regionów i sposobu przełączenia w tryb failover z [artykułu pojęć dotyczących replik](concepts-read-replicas.md). 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Gdzie usługa Azure Database for PostgreSQL przechowywać dane klienta?
 Domyślnie Azure Database for PostgreSQL nie przenosi ani nie zapisuje danych klienta poza regionem, w którym jest wdrożony. Jednak klienci mogą opcjonalnie wybrać, aby włączyć [geograficznie nadmiarowe kopie zapasowe](concepts-backup.md#backup-redundancy-options) lub utworzyć [replikę odczytu między regionami](concepts-read-replicas.md#cross-region-replication) do przechowywania danych w innym regionie.
 

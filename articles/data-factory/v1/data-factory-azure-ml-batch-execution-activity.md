@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 6f8a4d3de5fc7c0919b54d037de393c07c0a832d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce3175a015b7a5813f62c639fdadbeea367bbc22
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368846"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631771"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Tworzenie potoków predykcyjnych przy użyciu Azure Machine Learning Studio (klasyczny) i Azure Data Factory
 
@@ -26,8 +26,8 @@ ms.locfileid: "92368846"
 > * [Działanie MapReduce](data-factory-map-reduce.md)
 > * [Działanie przesyłania strumieniowego Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Działanie platformy Spark](data-factory-spark.md)
-> * [Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Działanie aktualizacji zasobów Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-update-resource-activity.md)
+> * [Działanie wykonywania wsadowego w usłudze Azure Machine Learning Studio (wersja klasyczna)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Działanie aktualizacji zasobów w usłudze Azure Machine Learning Studio (wersja klasyczna)](data-factory-azure-ml-update-resource-activity.md)
 > * [Działania procedur składowanych](data-factory-stored-proc-activity.md)
 > * [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 > * [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
@@ -40,9 +40,9 @@ ms.locfileid: "92368846"
 ### <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (klasyczny)
 [Azure Machine Learning Studio (klasyczny)](https://azure.microsoft.com/documentation/services/machine-learning/) umożliwia tworzenie, testowanie i wdrażanie rozwiązań do analizy predykcyjnej. Z punktu widzenia wysokiego poziomu można wykonać trzy kroki:
 
-1. **Utwórz eksperyment szkoleniowy**. Ten krok można wykonać przy użyciu Azure Machine Learning Studio (klasyczne). Studio (klasyczny) to wspólne środowisko programistyczne wizualne, które służy do uczenia i testowania modelu analizy predykcyjnej przy użyciu danych szkoleniowych.
-2. **Przekonwertuj go na eksperyment predykcyjny**. Po przeszkoleniu modelu z istniejących danych i przygotowaniu go do oceny nowych danych możesz przygotować i usprawnić eksperyment do oceniania.
-3. **Wdróż go jako usługę sieci Web**. Eksperyment oceniania można opublikować jako usługę sieci Web platformy Azure. Dane można wysyłać do modelu za pośrednictwem tego punktu końcowego usługi sieci Web i odbierać przewidywania wyników z modelem.
+1. **Utwórz eksperyment szkoleniowy** . Ten krok można wykonać przy użyciu Azure Machine Learning Studio (klasyczne). Studio (klasyczny) to wspólne środowisko programistyczne wizualne, które służy do uczenia i testowania modelu analizy predykcyjnej przy użyciu danych szkoleniowych.
+2. **Przekonwertuj go na eksperyment predykcyjny** . Po przeszkoleniu modelu z istniejących danych i przygotowaniu go do oceny nowych danych możesz przygotować i usprawnić eksperyment do oceniania.
+3. **Wdróż go jako usługę sieci Web** . Eksperyment oceniania można opublikować jako usługę sieci Web platformy Azure. Dane można wysyłać do modelu za pośrednictwem tego punktu końcowego usługi sieci Web i odbierać przewidywania wyników z modelem.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Data Factory to oparta na chmurze usługa integracji danych, która organizuje i automatyzuje **przenoszenie** i **transformację** danych. Możesz tworzyć rozwiązania integracji danych za pomocą Azure Data Factory, które mogą pozyskiwanie danych z różnych magazynów danych, przekształcać/przetwarzać dane i publikować dane wynikowe w magazynach danych.
@@ -59,7 +59,7 @@ W miarę upływu czasu modele predykcyjne w eksperymentach oceniania w programie
 1. Opublikuj eksperyment szkoleniowy (nie eksperyment predykcyjny) jako usługę sieci Web. Ten krok można wykonać w programie Studio (klasyczny), ponieważ udało Ci się uwidocznić eksperyment predykcyjny jako usługę sieci Web w poprzednim scenariuszu.
 2. Użyj działania wykonywania wsadowego programu Studio (klasycznej), aby wywołać usługę sieci Web dla eksperymentu szkoleniowego. W zasadzie możesz użyć działania wykonywania wsadowego programu Studio (klasycznej), aby wywołać usługę sieci Web szkoleń i usługi sieci Web oceniania.
 
-Po wykonaniu ponownych szkoleń zaktualizuj usługę sieci Web oceniania (eksperyment predykcyjny uwidoczniony jako usługa sieci Web) z nowym przeszkolonym modelem przy użyciu **działania aktualizacji zasobów Azure Machine Learning Studio (klasyczny)**. Aby uzyskać szczegółowe informacje, zobacz [aktualizowanie modeli za pomocą artykułu aktualizowanie zasobów](data-factory-azure-ml-update-resource-activity.md) .
+Po wykonaniu ponownych szkoleń zaktualizuj usługę sieci Web oceniania (eksperyment predykcyjny uwidoczniony jako usługa sieci Web) z nowym przeszkolonym modelem przy użyciu **działania aktualizacji zasobów Azure Machine Learning Studio (klasyczny)** . Aby uzyskać szczegółowe informacje, zobacz [aktualizowanie modeli za pomocą artykułu aktualizowanie zasobów](data-factory-azure-ml-update-resource-activity.md) .
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Wywoływanie usługi sieci Web przy użyciu działania wykonywania wsadowego
 Azure Data Factory służy do organizowania przenoszenia i przetwarzania danych, a następnie wykonywania zadań wsadowych przy użyciu programu Studio (klasycznego). Poniżej przedstawiono kroki najwyższego poziomu:
@@ -78,9 +78,9 @@ Azure Data Factory służy do organizowania przenoszenia i przetwarzania danych,
 W tym scenariuszu usługa sieci Web Studio (klasyczna) dokonuje prognozowania przy użyciu danych z pliku w magazynie obiektów blob platformy Azure i zapisuje wyniki prognozowania w magazynie obiektów BLOB. Poniższy kod JSON definiuje potok Data Factory za pomocą działania AzureMLBatchExecution. Działanie ma zestaw danych **DecisionTreeInputBlob** jako dane wejściowe i **DecisionTreeResultBlob** jako dane wyjściowe. **DecisionTreeInputBlob** jest przenoszona jako dane wejściowe do usługi sieci Web przy użyciu właściwości JSON **webServiceInput** . **DecisionTreeResultBlob** jest przekazywane jako dane wyjściowe do usługi sieci Web przy użyciu właściwości JSON **webServiceOutputs** .
 
 > [!IMPORTANT]
-> Jeśli usługa sieci Web przyjmuje wiele danych wejściowych, użyj właściwości **webServiceInputs** zamiast opcji **webServiceInput**. Aby zapoznać się z przykładem użycia właściwości webServiceInputs, [Usługa sieci Web wymaga wielu danych wejściowych](#web-service-requires-multiple-inputs) .
+> Jeśli usługa sieci Web przyjmuje wiele danych wejściowych, użyj właściwości **webServiceInputs** zamiast opcji **webServiceInput** . Aby zapoznać się z przykładem użycia właściwości webServiceInputs, [Usługa sieci Web wymaga wielu danych wejściowych](#web-service-requires-multiple-inputs) .
 >
-> Zestawy danych, do których odwołują się właściwości **webServiceInput** / **webServiceInputs** i **webServiceOutputs** (w **typeProperties**), muszą również znajdować się w **danych wejściowych** i **wyjściowych**działania.
+> Zestawy danych, do których odwołują się właściwości **webServiceInput** / **webServiceInputs** i **webServiceOutputs** (w **typeProperties** ), muszą również znajdować się w **danych wejściowych** i **wyjściowych** działania.
 >
 > W przypadku eksperymentu programu Studio (klasycznego) porty wejściowe i wyjściowe usługi sieci Web oraz parametry globalne mają nazwy domyślne ("INPUT1", "input2"), które można dostosować. Nazwy używane dla ustawień webServiceInputs, webServiceOutputs i globalParameters muszą dokładnie pasować do nazw eksperymentów. Przykładowy ładunek żądania można wyświetlić na stronie pomocy wykonywania wsadowego dla punktu końcowego programu Studio (klasycznego), aby sprawdzić oczekiwane mapowanie.
 >
@@ -137,7 +137,7 @@ Ten przykład używa usługi Azure Storage do przechowywania danych wejściowych
 
 Zalecamy zapoznanie się z samouczkiem [Kompilowanie pierwszego potoku przy użyciu Data Factory][adf-build-1st-pipeline] . Użyj edytora Data Factory, aby utworzyć Data Factory artefaktów (połączone usługi, zestawy danych, potok) w tym przykładzie.
 
-1. Utwórz **połączoną usługę** dla usługi **Azure Storage**. Jeśli pliki wejściowe i wyjściowe znajdują się na różnych kontach magazynu, potrzebne są dwie połączone usługi. Oto przykład kodu JSON:
+1. Utwórz **połączoną usługę** dla usługi **Azure Storage** . Jeśli pliki wejściowe i wyjściowe znajdują się na różnych kontach magazynu, potrzebne są dwie połączone usługi. Oto przykład kodu JSON:
 
     ```JSON
     {
@@ -182,7 +182,7 @@ Zalecamy zapoznanie się z samouczkiem [Kompilowanie pierwszego potoku przy uży
     }
     ```
 
-    Wejściowy plik CSV musi mieć wiersz nagłówka kolumny. Jeśli używasz **działania kopiowania** do tworzenia/przenoszenia woluminu CSV do magazynu obiektów blob, należy ustawić właściwość ujścia **blobWriterAddHeader** na **wartość true**. Na przykład:
+    Wejściowy plik CSV musi mieć wiersz nagłówka kolumny. Jeśli używasz **działania kopiowania** do tworzenia/przenoszenia woluminu CSV do magazynu obiektów blob, należy ustawić właściwość ujścia **blobWriterAddHeader** na **wartość true** . Na przykład:
 
     ```JSON
     sink:
@@ -192,7 +192,7 @@ Zalecamy zapoznanie się z samouczkiem [Kompilowanie pierwszego potoku przy uży
     }
     ```
 
-    Jeśli plik CSV nie ma wiersza nagłówka, może zostać wyświetlony następujący błąd: **błąd w działaniu: błąd podczas odczytywania ciągu. Nieoczekiwany token: StartObject. Ścieżka "", wiersz 1, pozycja 1**.
+    Jeśli plik CSV nie ma wiersza nagłówka, może zostać wyświetlony następujący błąd: **błąd w działaniu: błąd podczas odczytywania ciągu. Nieoczekiwany token: StartObject. Ścieżka "", wiersz 1, pozycja 1** .
 3. Utwórz **zestaw danych** **wyjściowych** Azure Data Factory. Ten przykład używa partycjonowania, aby utworzyć unikatową ścieżkę wyjściową dla każdego wykonywania wycinków. Bez partycjonowania działanie spowoduje zastąpienie pliku.
 
     ```JSON
@@ -234,7 +234,7 @@ Zalecamy zapoznanie się z samouczkiem [Kompilowanie pierwszego potoku przy uży
       }
     }
     ```
-4. Utwórz **połączoną usługę** typu: **połączenie**, podając klucz interfejsu API i adres URL wykonania partii modelu.
+4. Utwórz **połączoną usługę** typu: **połączenie** , podając klucz interfejsu API i adres URL wykonania partii modelu.
 
     ```JSON
     {
@@ -301,7 +301,7 @@ Zalecamy zapoznanie się z samouczkiem [Kompilowanie pierwszego potoku przy uży
       }
       ```
 
-      **Początkowe** i **końcowe** daty i godziny muszą być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: 2014-10-14T16:32:41Z. Czas **zakończenia** jest opcjonalny. Jeśli nie określisz wartości właściwości **End** , zostanie ona obliczona jako "**Start + 48 godzin".** Aby uruchomić potok bezterminowo, określ **9999-09-09** jako wartość właściwości **end**. Szczegółowe informacje dotyczące właściwości kodu JSON znajdują się w artykule [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) (Dokumentacja dotycząca skryptów JSON).
+      **Początkowe** i **końcowe** daty i godziny muszą być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: 2014-10-14T16:32:41Z. Czas **zakończenia** jest opcjonalny. Jeśli nie określisz wartości właściwości **End** , zostanie ona obliczona jako " **Start + 48 godzin".** Aby uruchomić potok bezterminowo, określ **9999-09-09** jako wartość właściwości **end** . Szczegółowe informacje dotyczące właściwości kodu JSON znajdują się w artykule [JSON Scripting Reference](/previous-versions/azure/dn835050(v=azure.100)) (Dokumentacja dotycząca skryptów JSON).
 
       > [!NOTE]
       > Określanie danych wejściowych dla działania AzureMLBatchExecution jest opcjonalne.
@@ -309,7 +309,7 @@ Zalecamy zapoznanie się z samouczkiem [Kompilowanie pierwszego potoku przy uży
       >
 
 ### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scenariusz: eksperymenty używające modułów czytnika/składnika zapisywania do odwoływania się do danych w różnych magazynach
-Innym typowym scenariuszem podczas tworzenia programu Studio (klasycznego) jest używanie modułów czytnika i modułu zapisywania. Moduł czytnika służy do ładowania danych do eksperymentu, a Moduł zapisywania służy do zapisywania danych z eksperymentów. Aby uzyskać szczegółowe informacje na temat modułów czytnika i składnika zapisywania, zobacz tematy dotyczące [czytelnika](https://msdn.microsoft.com/library/azure/dn905997.aspx) i [składnika zapisywania](https://msdn.microsoft.com/library/azure/dn905984.aspx) w bibliotece MSDN.
+Innym typowym scenariuszem podczas tworzenia programu Studio (klasycznego) jest używanie modułów czytnika i modułu zapisywania. Moduł czytnika służy do ładowania danych do eksperymentu, a Moduł zapisywania służy do zapisywania danych z eksperymentów. Aby uzyskać szczegółowe informacje na temat modułów czytnika i składnika zapisywania, zobacz tematy dotyczące [czytelnika](/azure/machine-learning/studio-module-reference/import-data) i [składnika zapisywania](/azure/machine-learning/studio-module-reference/export-data) w bibliotece MSDN.
 
 W przypadku korzystania z modułów czytnika i składnika zapisywania warto użyć parametru usługi sieci Web dla każdej właściwości tych modułów czytnika/składnika zapisywania. Te parametry sieci Web umożliwiają skonfigurowanie wartości w czasie wykonywania. Można na przykład utworzyć eksperyment z modułem czytnika korzystającym z Azure SQL Database: XXX.database.windows.net. Po wdrożeniu usługi sieci Web należy umożliwić użytkownikom usługi sieci Web określenie innego logicznego serwera SQL o nazwie YYY.database.windows.net. Możesz użyć parametru usługi sieci Web, aby umożliwić skonfigurowanie tej wartości.
 
@@ -347,7 +347,7 @@ Możesz również użyć [funkcji Data Factory](data-factory-functions-variables
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Używanie modułu czytnika do odczytywania danych z wielu plików w obiekcie blob platformy Azure
 Potoki danych Big Data z działaniami, takimi jak świnie i Hive, mogą generować jeden lub więcej plików wyjściowych bez rozszerzeń. Na przykład podczas określania zewnętrznej tabeli programu Hive dane dla zewnętrznej tabeli programu Hive mogą być przechowywane w usłudze Azure Blob Storage o następującej nazwie 000000_0. Możesz użyć modułu czytnika w eksperymentie, aby odczytać wiele plików i użyć ich do przewidywania.
 
-W przypadku korzystania z modułu czytnika w doświadczeniu programu Studio (klasycznego) można określić obiekt blob platformy Azure jako dane wejściowe. Pliki w magazynie obiektów blob platformy Azure mogą być plikami wyjściowymi (przykład: 000000_0), które są tworzone przez skrypt trzody chlewnej i Hive działający w usłudze HDInsight. Moduł czytnika umożliwia odczytywanie plików (bez rozszerzeń) przez skonfigurowanie **ścieżki do kontenera, katalogu/obiektu BLOB**. **Ścieżka do kontenerów** wskazuje kontener i **Katalog/obiekt BLOB** do folderu, który zawiera pliki, jak pokazano na poniższej ilustracji. Gwiazdka oznacza, że \* **wszystkie pliki w kontenerze/folderze (czyli dane/aggregateddata/Year = 2014/miesiąc-6/ \* )** są odczytywane w ramach eksperymentu.
+W przypadku korzystania z modułu czytnika w doświadczeniu programu Studio (klasycznego) można określić obiekt blob platformy Azure jako dane wejściowe. Pliki w magazynie obiektów blob platformy Azure mogą być plikami wyjściowymi (przykład: 000000_0), które są tworzone przez skrypt trzody chlewnej i Hive działający w usłudze HDInsight. Moduł czytnika umożliwia odczytywanie plików (bez rozszerzeń) przez skonfigurowanie **ścieżki do kontenera, katalogu/obiektu BLOB** . **Ścieżka do kontenerów** wskazuje kontener i **Katalog/obiekt BLOB** do folderu, który zawiera pliki, jak pokazano na poniższej ilustracji. Gwiazdka oznacza, że \* **wszystkie pliki w kontenerze/folderze (czyli dane/aggregateddata/Year = 2014/miesiąc-6/ \* )** są odczytywane w ramach eksperymentu.
 
 ![Właściwości obiektów blob platformy Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -405,11 +405,11 @@ W przypadku korzystania z modułu czytnika w doświadczeniu programu Studio (kla
 W powyższym przykładzie JSON:
 
 * Wdrożona usługa sieci Web programu Studio (klasyczna) korzysta z czytnika i modułu składnika zapisywania do odczytu/zapisu danych z/do Azure SQL Database. Ta usługa sieci Web udostępnia następujące cztery parametry: Nazwa serwera bazy danych, nazwa bazy danych, nazwa konta użytkownika serwera i hasło konta użytkownika serwera.
-* **Początkowe** i **końcowe** daty i godziny muszą być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: 2014-10-14T16:32:41Z. Czas **zakończenia** jest opcjonalny. Jeśli nie określisz wartości właściwości **End** , zostanie ona obliczona jako "**Start + 48 godzin".** Aby uruchomić potok bezterminowo, określ **9999-09-09** jako wartość właściwości **end**. Szczegółowe informacje dotyczące właściwości kodu JSON znajdują się w artykule [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) (Dokumentacja dotycząca skryptów JSON).
+* **Początkowe** i **końcowe** daty i godziny muszą być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: 2014-10-14T16:32:41Z. Czas **zakończenia** jest opcjonalny. Jeśli nie określisz wartości właściwości **End** , zostanie ona obliczona jako " **Start + 48 godzin".** Aby uruchomić potok bezterminowo, określ **9999-09-09** jako wartość właściwości **end** . Szczegółowe informacje dotyczące właściwości kodu JSON znajdują się w artykule [JSON Scripting Reference](/previous-versions/azure/dn835050(v=azure.100)) (Dokumentacja dotycząca skryptów JSON).
 
 ### <a name="other-scenarios"></a>Inne scenariusze
 #### <a name="web-service-requires-multiple-inputs"></a>Usługa sieci Web wymaga wielu danych wejściowych
-Jeśli usługa sieci Web przyjmuje wiele danych wejściowych, użyj właściwości **webServiceInputs** zamiast opcji **webServiceInput**. Zestawy danych, do których odwołuje się **webServiceInputs** , muszą być również zawarte w **danych wejściowych**działania.
+Jeśli usługa sieci Web przyjmuje wiele danych wejściowych, użyj właściwości **webServiceInputs** zamiast opcji **webServiceInput** . Zestawy danych, do których odwołuje się **webServiceInputs** , muszą być również zawarte w **danych wejściowych** działania.
 
 W ramach eksperymentu Azure Machine Learning Studio (klasycznego) porty wejściowe i wyjściowe usługi sieci Web oraz parametry globalne mają nazwy domyślne ("INPUT1", "input2"), które można dostosować. Nazwy używane dla ustawień webServiceInputs, webServiceOutputs i globalParameters muszą dokładnie pasować do nazw eksperymentów. Przykładowy ładunek żądania można wyświetlić na stronie pomocy wykonywania wsadowego dla punktu końcowego programu Studio (klasycznego), aby sprawdzić oczekiwane mapowanie.
 
@@ -545,12 +545,12 @@ Moduły czytnika i modułu zapisywania usługi sieci Web Azure Machine Learning 
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>Aktualizowanie modeli przy użyciu działania Update Resource
-Po wykonaniu ponownych szkoleń zaktualizuj usługę sieci Web oceniania (eksperyment predykcyjny uwidoczniony jako usługa sieci Web) z nowym przeszkolonym modelem przy użyciu **działania aktualizacji zasobów Azure Machine Learning Studio (klasyczny)**. Aby uzyskać szczegółowe informacje, zobacz [aktualizowanie modeli za pomocą artykułu aktualizowanie zasobów](data-factory-azure-ml-update-resource-activity.md) .
+Po wykonaniu ponownych szkoleń zaktualizuj usługę sieci Web oceniania (eksperyment predykcyjny uwidoczniony jako usługa sieci Web) z nowym przeszkolonym modelem przy użyciu **działania aktualizacji zasobów Azure Machine Learning Studio (klasyczny)** . Aby uzyskać szczegółowe informacje, zobacz [aktualizowanie modeli za pomocą artykułu aktualizowanie zasobów](data-factory-azure-ml-update-resource-activity.md) .
 
 ### <a name="reader-and-writer-modules"></a>Moduły czytnika i składnika zapisywania
 Typowym scenariuszem korzystania z parametrów usługi sieci Web jest korzystanie z czytelników i autorów usługi Azure SQL. Moduł czytnika służy do ładowania danych do eksperymentu z usług zarządzania danymi poza programem Studio (wersja klasyczna). Moduł zapisywania służy do zapisywania danych z eksperymentów w usługach zarządzania danymi poza Studio (klasyczne).
 
-Aby uzyskać szczegółowe informacje na temat usługi Azure Blob/czytnika lub składnika zapisywania usługi Azure SQL, zobacz tematy dotyczące [czytnika](https://msdn.microsoft.com/library/azure/dn905997.aspx) i [zapisywania](https://msdn.microsoft.com/library/azure/dn905984.aspx) w bibliotece MSDN. W przykładzie w poprzedniej sekcji użyto czytnika obiektów blob platformy Azure i składnika zapisywania obiektów blob platformy Azure. W tej sekcji omówiono korzystanie z usługi Azure SQL Reader i składnika zapisywania usługi Azure SQL.
+Aby uzyskać szczegółowe informacje na temat usługi Azure Blob/czytnika lub składnika zapisywania usługi Azure SQL, zobacz tematy dotyczące [czytnika](/azure/machine-learning/studio-module-reference/import-data) i [zapisywania](/azure/machine-learning/studio-module-reference/export-data) w bibliotece MSDN. W przykładzie w poprzedniej sekcji użyto czytnika obiektów blob platformy Azure i składnika zapisywania obiektów blob platformy Azure. W tej sekcji omówiono korzystanie z usługi Azure SQL Reader i składnika zapisywania usługi Azure SQL.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 **P:** Mam wiele plików, które są generowane przez moje potoki danych Big Data. Czy mogę użyć działania AzureMLBatchExecution do pracy nad wszystkimi plikami?

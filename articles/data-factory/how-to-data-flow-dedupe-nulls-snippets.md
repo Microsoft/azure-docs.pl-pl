@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
-ms.openlocfilehash: 1c630cdd66fa4f8e609524feb9c3f0bcad9711a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cdb522cc4be83eadd2c60c91c7fee33e7ccc039b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458170"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632451"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Deduplikowanie wierszy i znajdowanie wartości null przy użyciu fragmentów danych przepływu
 
@@ -25,7 +25,7 @@ Korzystając z fragmentów kodu w mapowaniu przepływów danych, można łatwo w
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 
-1. Wybierz pozycję **Nowy potok**.
+1. Wybierz pozycję **Nowy potok** .
 
 1. Dodaj działanie przepływu danych.
 
@@ -35,9 +35,9 @@ Korzystając z fragmentów kodu w mapowaniu przepływów danych, można łatwo w
 
     Fragmenty kodu deduplikowane i puste używają wzorców ogólnych, które wykorzystują dryfowanie schematu przepływu danych. Fragmenty kodu działają ze wszystkimi schematami z zestawu danych lub zestawami danych, które nie mają wstępnie zdefiniowanego schematu.
 
-1. W sekcji "DISTINCT wiersz using wszystkie kolumny" [skryptu przepływu danych (DFS)](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns)skopiuj fragment kodu dotyczący DistinctRows.
+1. W sekcji "DISTINCT wiersz using wszystkie kolumny" [skryptu przepływu danych (DFS)](./data-flow-script.md#distinct-row-using-all-columns)skopiuj fragment kodu dotyczący DistinctRows.
 
-1. W interfejsie użytkownika projektanta przepływu danych wybierz przycisk **skryptu** w prawym górnym rogu, aby otworzyć Edytor skryptów za wykresem przepływu danych.
+1. [Przejdź do strony dokumentacji skryptu przepływu danych i skopiuj fragment kodu dotyczący odrębnych wierszy.](./data-flow-script.md#distinct-row-using-all-columns)
 
     ![Zrzut ekranu przedstawiający fragment kodu źródła.](media/data-flow/snippet-adf-3.png)
 
@@ -55,7 +55,7 @@ Korzystając z fragmentów kodu w mapowaniu przepływów danych, można łatwo w
     
 1. Dodaj fragment kodu dotyczący dzielenia danych na jeden strumień zawierający wiersze z wartościami null i inny strumień bez wartości null. W tym celu:
 
-   a. Wróć do [biblioteki fragmentów](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns), a następnie skopiuj kod dla testów o wartości null.
+1. [Wróć do biblioteki fragmentów i ten czas kopiuje kod dla testów o wartości NULL.](./data-flow-script.md#check-for-nulls-in-all-columns)
 
    b. W Projektancie przepływu danych wybierz pozycję **skrypt** ponownie, a następnie wklej nowy kod przekształcenia u dołu. Ta akcja łączy skrypt z poprzednią transformację przez umieszczenie nazwy tego przekształcenia przed wklejonym fragmentem kodu.
 

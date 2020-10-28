@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 811ba2398b5245be74fd991611ea6a631e0e2b5b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 021497fa7766b7eecfa935d4186ecc98edef8d61
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519192"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633692"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whosoffice"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą WhosOffice
 
@@ -51,15 +51,15 @@ Aby skonfigurować integrację programu WhosOffice z usługą Azure AD, musisz d
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** .
 1. W sekcji **Dodaj z galerii** wpisz **WhosOffice** w polu wyszukiwania.
 1. Wybierz pozycję **WhosOffice** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-whosoffice"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla WhosOffice
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą WhosOffice przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w WhosOffice.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą WhosOffice przy użyciu użytkownika testowego o nazwie **B. Simon** . Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w WhosOffice.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą WhosOffice, wykonaj następujące bloki konstrukcyjne:
 
@@ -74,8 +74,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **WhosOffice** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **WhosOffice** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne** .
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML** .
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
@@ -103,25 +103,25 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło** .
+   1. Kliknij pozycję **Utwórz** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi WhosOffice.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **WhosOffice**.
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Na liście Aplikacje wybierz pozycję **WhosOffice** .
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy** .
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz pozycję **Dodaj użytkownika** , a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
     ![Link Dodaj użytkownika](common/add-assign-user.png)
 
@@ -133,37 +133,37 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny internetowej WhosOffice jako administrator.
 
-1. Kliknij pozycję **Ustawienia** i wybierz pozycję **firma**.
+1. Kliknij pozycję **Ustawienia** i wybierz pozycję **firma** .
 
-    ![Konfiguracja WhosOffice](./media/whosoffice-tutorial/configuration1.png)
+    ![Zrzut ekranu przedstawia firmę wybraną z ustawień.](./media/whosoffice-tutorial/configuration1.png)
 
-1. Kliknij pozycję **aplikacje/integracje**.
+1. Kliknij pozycję **aplikacje/integracje** .
 
-    ![Konfiguracja WhosOffice](./media/whosoffice-tutorial/configuration2.png)
+    ![Zrzut ekranu przedstawia aplikacje/integracje wybrane z ustawień firmy.](./media/whosoffice-tutorial/configuration2.png)
 
-1. Wybierz pozycję **Microsoft Azure** z listy rozwijanej dostawca, a następnie kliknij pozycję **Aktywuj dostawcę logowania**.
+1. Wybierz pozycję **Microsoft Azure** z listy rozwijanej dostawca, a następnie kliknij pozycję **Aktywuj dostawcę logowania** .
 
-    ![Konfiguracja WhosOffice](./media/whosoffice-tutorial/configuration3.png)
+    ![Zrzut ekranu przedstawia dostawcę logowania wybranego dla Microsoft Azure.](./media/whosoffice-tutorial/configuration3.png)
 
 1. Przekaż pobrany plik metadanych Federacji z Azure Portal, klikając opcję **Przekaż** .
     
-    ![Konfiguracja WhosOffice](./media/whosoffice-tutorial/configuration4.png)
+    ![Zrzut ekranu przedstawia opcję przekazywania dla pliku metadanych.](./media/whosoffice-tutorial/configuration4.png)
 
 ### <a name="create-whosoffice-test-user"></a>Utwórz użytkownika testowego WhosOffice
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny internetowej WhosOffice jako administrator.
 
-1. Kliknij pozycję **Ustawienia** i wybierz pozycję **Użytkownicy**.
+1. Kliknij pozycję **Ustawienia** i wybierz pozycję **Użytkownicy** .
 
-    ![Konfiguracja WhosOffice](./media/whosoffice-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia użytkowników wybranych z ustawień.](./media/whosoffice-tutorial/user1.png)
 
-1. Wybierz pozycję **Utwórz nowego użytkownika**.
+1. Wybierz pozycję **Utwórz nowego użytkownika** .
 
-    ![Konfiguracja WhosOffice](./media/whosoffice-tutorial/user2.png)
+    ![Zrzut ekranu pokazuje, że wybrano Utwórz nowego użytkownika.](./media/whosoffice-tutorial/user2.png)
 
 1. Podaj niezbędne szczegóły dotyczące użytkownika zgodnie z wymaganiami organizacji.
 
-    ![Konfiguracja WhosOffice](./media/whosoffice-tutorial/user3.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Nowy użytkownik, w którym można wprowadzać dane użytkownika.](./media/whosoffice-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -171,7 +171,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka WhosOffice w panelu dostępu należy automatycznie zalogować się do WhosOffice, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

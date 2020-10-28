@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8734247a913bdf6a44a9156f6f87705b618f7228
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136052"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632893"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Utwórz udostępnione środowisko Integration Runtime w Azure Data Factory
 
@@ -55,9 +55,9 @@ Aby utworzyć udostępniony samoobsługowy środowisko IR przy użyciu Azure Pow
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/). 
+- **Subskrypcja platformy Azure** . Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/). 
 
-- Zainstalowanie programu **Azure PowerShell**. Postępuj zgodnie z instrukcjami w temacie [Install Azure PowerShell in Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Program PowerShell służy do uruchamiania skryptu w celu utworzenia własnego środowiska Integration Runtime, które może być współużytkowane z innymi fabrykami danych. 
+- Zainstalowanie programu **Azure PowerShell** . Postępuj zgodnie z instrukcjami w temacie [Install Azure PowerShell in Windows with PowerShellGet](/powershell/azure/install-az-ps). Program PowerShell służy do uruchamiania skryptu w celu utworzenia własnego środowiska Integration Runtime, które może być współużytkowane z innymi fabrykami danych. 
 
 > [!NOTE]  
 > Aby zapoznać się z listą regionów świadczenia usługi Azure, w których Data Factory są obecnie dostępne, wybierz regiony, które interesują Cię z  [produktami dostępnymi według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -66,7 +66,7 @@ Aby utworzyć udostępniony samoobsługowy środowisko IR przy użyciu Azure Pow
 
 1. Uruchom środowisko Windows PowerShell Integrated Scripting Environment (ISE).
 
-1. Utwórz zmienne. Skopiuj i wklej poniższy skrypt. Zastąp zmienne, takie jak **subscriptionname** i **ResourceGroupName**, wartościami rzeczywistymi: 
+1. Utwórz zmienne. Skopiuj i wklej poniższy skrypt. Zastąp zmienne, takie jak **subscriptionname** i **ResourceGroupName** , wartościami rzeczywistymi: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -99,7 +99,7 @@ Aby utworzyć udostępniony samoobsługowy środowisko IR przy użyciu Azure Pow
     > [!NOTE]  
     > Ta czynność jest opcjonalna. Jeśli masz już fabrykę danych, Pomiń ten krok. 
 
-    Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) za pomocą polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy. Poniższy przykład tworzy grupę zasobów o nazwie `myResourceGroup` w lokalizacji WestEurope: 
+    Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy. Poniższy przykład tworzy grupę zasobów o nazwie `myResourceGroup` w lokalizacji WestEurope: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -155,7 +155,7 @@ Odpowiedź zawiera klucz uwierzytelniania dla własnego środowiska Integration 
 #### <a name="create-another-data-factory"></a>Tworzenie innej fabryki danych
 
 > [!NOTE]  
-> Ta czynność jest opcjonalna. Jeśli masz już fabrykę danych, którą chcesz udostępnić, Pomiń ten krok. Jednak w celu dodania lub usunięcia przypisań ról do innej fabryki danych wymagane są `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) lub [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
+> Ta czynność jest opcjonalna. Jeśli masz już fabrykę danych, którą chcesz udostępnić, Pomiń ten krok. Jednak w celu dodania lub usunięcia przypisań ról do innej fabryki danych wymagane są `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](../role-based-access-control/built-in-roles.md#user-access-administrator) lub [właściciel](../role-based-access-control/built-in-roles.md#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -216,6 +216,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 ### <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj [się z tematami dotyczącymi środowiska Integration Runtime w Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
+- Zapoznaj [się z tematami dotyczącymi środowiska Integration Runtime w Azure Data Factory](./concepts-integration-runtime.md).
 
-- Dowiedz się [, jak utworzyć własne środowisko Integration Runtime w Azure Portal](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+- Dowiedz się [, jak utworzyć własne środowisko Integration Runtime w Azure Portal](./create-self-hosted-integration-runtime.md).

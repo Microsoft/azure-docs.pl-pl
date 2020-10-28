@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 0332b9aab0db456ed4517c09e541bee1b9884d04
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e84f7a2ee8c2f7a57ce1734ad3392a217d6de5fe
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368999"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632111"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 
@@ -36,7 +36,7 @@ Aby przenieść dane do/z magazynu danych, który Data Factory nie obsługuje, l
 Jeśli jesteś nowym usługą Azure Batch Service, zobacz następujące artykuły:
 
 * [Azure Batch podstawy](../batch/batch-technical-overview.md) dotyczące omówienia usługi Azure Batch.
-* Polecenie cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) służące do tworzenia konta Azure Batch (lub) [Azure Portal](../batch/batch-account-create-portal.md) do tworzenia konta Azure Batch przy użyciu Azure Portal. Szczegółowe instrukcje dotyczące korzystania z polecenia cmdlet można znaleźć w artykule [Używanie programu PowerShell do zarządzania artykułem konta Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) .
+* Polecenie cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) służące do tworzenia konta Azure Batch (lub) [Azure Portal](../batch/batch-account-create-portal.md) do tworzenia konta Azure Batch przy użyciu Azure Portal. Szczegółowe instrukcje dotyczące korzystania z polecenia cmdlet można znaleźć w artykule [Używanie programu PowerShell do zarządzania artykułem konta Azure Batch](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) .
 * Polecenie cmdlet [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) w celu utworzenia puli Azure Batch.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch połączona usługa
@@ -103,8 +103,8 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 | Właściwość              | Opis                              | Wymagane |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | Nazwa działania w potoku     | Tak      |
-| description           | Tekst opisujący działanie działania.  | Nie       |
-| typ                  | W przypadku działania niestandardowego typem działania jest **niestandardowy**. | Tak      |
+| description (opis)           | Tekst opisujący działanie działania.  | Nie       |
+| typ                  | W przypadku działania niestandardowego typem działania jest **niestandardowy** . | Tak      |
 | linkedServiceName     | Połączona usługa do Azure Batch. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) .  | Tak      |
 | command               | Polecenie aplikacji niestandardowej do wykonania. Jeśli aplikacja jest już dostępna w węźle puli Azure Batch, można pominąć resourceLinkedService i folderPath. Na przykład możesz określić polecenie `cmd /c dir` , które ma być natywnie obsługiwane przez węzeł puli usługi Windows Batch. | Tak      |
 | resourceLinkedService | Połączona usługa Azure Storage z kontem magazynu, w którym jest przechowywana aplikacja niestandardowa | Brak &#42;       |
@@ -310,7 +310,7 @@ Możesz wysyłać niestandardowe wartości z kodu w niestandardowym działaniu z
 
 ## <a name="retrieve-securestring-outputs"></a>Pobieranie danych wyjściowych SecureString
 
-Poufne wartości właściwości wyznaczono jako typ *SecureString*, jak pokazano w niektórych przykładach w tym artykule, są maskowane na karcie monitorowanie w interfejsie użytkownika Data Factory.  Jednak w rzeczywistym wykonaniu potoku Właściwość *SecureString* jest serializowana jako kod JSON w `activity.json` pliku jako zwykły tekst. Na przykład:
+Poufne wartości właściwości wyznaczono jako typ *SecureString* , jak pokazano w niektórych przykładach w tym artykule, są maskowane na karcie monitorowanie w interfejsie użytkownika Data Factory.  Jednak w rzeczywistym wykonaniu potoku Właściwość *SecureString* jest serializowana jako kod JSON w `activity.json` pliku jako zwykły tekst. Na przykład:
 
 ```json
 "extendedProperties": {
@@ -356,7 +356,7 @@ Jeśli masz już zapisany kod platformy .NET dla działania programu DotNet w we
   - Pakiet NuGet Microsoft. Azure. Management. datafactors nie jest już wymagany.
   - Skompiluj swój kod, Przekaż plik wykonywalny wraz z jego zależnościami do usługi Azure Storage i zdefiniuj ścieżkę we `folderPath` właściwości.
 
-Pełny przykład sposobu, w jaki kompleksowa Biblioteka DLL i potok potoku opisane w artykule Data Factory w wersji 1 [używają działań niestandardowych w potoku Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) , można je zapisać jako działanie niestandardowe Data Factory, zobacz [Data Factory aktywność niestandardowa](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
+Pełny przykład sposobu, w jaki kompleksowa Biblioteka DLL i potok potoku opisane w artykule Data Factory w wersji 1 [używają działań niestandardowych w potoku Azure Data Factory](./v1/data-factory-use-custom-activities.md) , można je zapisać jako działanie niestandardowe Data Factory, zobacz [Data Factory aktywność niestandardowa](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatyczne skalowanie Azure Batch
 
@@ -376,7 +376,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 Aby uzyskać szczegółowe informacje [, zobacz Automatyczne skalowanie węzłów obliczeniowych w puli Azure Batch](../batch/batch-automatic-scaling.md) .
 
-Jeśli pula używa domyślnej [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), przed uruchomieniem działania niestandardowego może upłynąć 15-30 minut, aby przygotować maszynę wirtualną. Jeśli pula korzysta z innego autoScaleEvaluationInterval, usługa Batch może wykonać autoScaleEvaluationInterval + 10 minut.
+Jeśli pula używa domyślnej [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale), przed uruchomieniem działania niestandardowego może upłynąć 15-30 minut, aby przygotować maszynę wirtualną. Jeśli pula korzysta z innego autoScaleEvaluationInterval, usługa Batch może wykonać autoScaleEvaluationInterval + 10 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z następującymi artykułami, które wyjaśniają sposób przekształcania danych w inny sposób:

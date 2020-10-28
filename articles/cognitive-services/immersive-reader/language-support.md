@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
-ms.author: metan
-ms.openlocfilehash: c4aa9c22a0350c5d946d2fd45a983eac34681512
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: metang
+ms.openlocfilehash: 80da6776412e0df7b5b9ae5759ac770c04673992
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91320935"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631074"
 ---
 # <a name="language-support-for-immersive-reader"></a>Obsługa języków w czytniku immersyjny
 
@@ -62,7 +62,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Angielski (Irlandia) | EN-IE |
 | Angielski (Nowa Zelandia) | EN-NZ |
 | Angielski (Zjednoczone Królestwo) | en-GB |
-| Angielski (Stany Zjednoczone) | pl-PL |
+| Angielski (Stany Zjednoczone) | en-US |
 | Fiński | fi |
 | Fiński (Finlandia) | fi-FI |
 | Francuski | fr |
@@ -168,7 +168,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Angielski (Irlandia) | EN-IE |
 | Angielski (Nowa Zelandia) | EN-NZ |
 | Angielski (Zjednoczone Królestwo) | en-GB |
-| Angielski (Stany Zjednoczone) | pl-PL |
+| Angielski (Stany Zjednoczone) | en-US |
 | Estoński | staw |
 | Fijian | FJ |
 | Filipino | PLI |
@@ -300,7 +300,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Angielski (Irlandia) | EN-IE |
 | Angielski (Nowa Zelandia) | EN-NZ |
 | Angielski (Zjednoczone Królestwo) | en-GB |
-| Angielski (Stany Zjednoczone) | pl-PL |
+| Angielski (Stany Zjednoczone) | en-US |
 | Estoński | staw |
 | Fiński | fi |
 | Fiński (Finlandia) | fi-FI |
@@ -397,7 +397,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Angielski (Irlandia) | EN-IE |
 | Angielski (Nowa Zelandia) | EN-NZ |
 | Angielski (Zjednoczone Królestwo) | en-GB |
-| Angielski (Stany Zjednoczone) | pl-PL |
+| Angielski (Stany Zjednoczone) | en-US |
 | Estoński | staw |
 | Fiński | fi |
 | Fiński (Finlandia) | fi-FI |
@@ -466,7 +466,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Angielski (Irlandia) | EN-IE |
 | Angielski (Nowa Zelandia) | EN-NZ |
 | Angielski (Zjednoczone Królestwo) | en-GB |
-| Angielski (Stany Zjednoczone) | pl-PL |
+| Angielski (Stany Zjednoczone) | en-US |
 | Fiński | fi |
 | Fiński (Finlandia) | fi-FI |
 | Francuski | fr |
@@ -516,7 +516,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Angielski (Irlandia) | EN-IE |
 | Angielski (Nowa Zelandia) | EN-NZ |
 | Angielski (Zjednoczone Królestwo) | en-GB |
-| Angielski (Stany Zjednoczone) | pl-PL |
+| Angielski (Stany Zjednoczone) | en-US |
 | Fiński | fi |
 | Fiński (Finlandia) | fi-FI |
 | Francuski | fr |
@@ -561,7 +561,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Angielski (Irlandia) | EN-IE |
 | Angielski (Nowa Zelandia) | EN-NZ |
 | Angielski (Zjednoczone Królestwo) | en-GB |
-| Angielski (Stany Zjednoczone) | pl-PL |
+| Angielski (Stany Zjednoczone) | en-US |
 | Francuski | fr |
 | francuski (Kanada) | fr — CA |
 | Francuski (Francja) | fr-FR |

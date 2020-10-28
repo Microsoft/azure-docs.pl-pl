@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 4d9ab8b7a3aa95b5283f63753cc9885246b77176
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: de7c1d037ce19f591829c340282facbd70a7258a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520221"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631499"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu produktu Workday
 
@@ -49,14 +49,14 @@ Aby skonfigurować integrację programu Workday z usługą Azure AD, musisz doda
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** .
 1. W sekcji **Dodaj z galerii** wpisz **Workday** w polu wyszukiwania.
 1. Wybierz pozycję **Workday** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-workday"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla produktu Workday
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą produktu Workday przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Workday.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą produktu Workday przy użyciu użytkownika testowego o nazwie **B. Simon** . Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Workday.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą produktu Workday, wykonaj następujące bloki konstrukcyjne:
 
@@ -71,8 +71,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Workday** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Workday** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne** .
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML** .
 1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
@@ -89,9 +89,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > Te wartości nie są rzeczywiste. Zaktualizuj te wartości przy użyciu rzeczywistego adresu URL logowania i adresu URL odpowiedzi. Adres URL odpowiedzi musi mieć poddomenę na przykład: www, WD2, WD3, WD3-Impl, WD5, WD5-Impl).
     > Użycie podobnej do `http://www.myworkday.com` programu Works, ale nie `http://myworkday.com` . Skontaktuj się z [zespołem obsługi klienta Workday](https://www.workday.com/en-us/partners-services/services/support.html) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-6. Aplikacja Workday oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname**. Aplikacja Workday oczekuje, że **NameIdentifier** ma być mapowany z **użytkownikiem. mail**, **UPN**itp., dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
+6. Aplikacja Workday oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname** . Aplikacja Workday oczekuje, że **NameIdentifier** ma być mapowany z **użytkownikiem. mail** , **UPN** itp., dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika z wybraną ikoną Edytuj.](common/edit-attribute.png)
 
     > [!NOTE]
     > W tym miejscu zamapowano identyfikator nazwy z nazwą UPN (User. userPrincipalName) jako domyślną. Aby pomyślnie pracować z logowaniem jednokrotnym, należy zmapować identyfikator nazwy z rzeczywistym IDENTYFIKATORem użytkownika na koncie w usłudze Workday (adres e-mail, nazwę UPN itp.).
@@ -102,11 +102,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aby zmodyfikować opcje **podpisywania** zgodnie z wymaganiami, kliknij przycisk **Edytuj** , aby otworzyć okno dialogowe **certyfikatu podpisywania SAML** .
 
-    ![image (obraz)](common/edit-certificate.png) 
+    ![Zrzut ekranu przedstawia stronę certyfikatu podpisywania SAML z wybraną ikoną Edytuj.](common/edit-certificate.png) 
 
-    ![image (obraz)](./media/workday-tutorial/signing-option.png)
+    ![Zrzut ekranu przedstawia stronę certyfikatu podpisywania SAML, na której można wybrać opcję podpisywania.](./media/workday-tutorial/signing-option.png)
 
-    a. Wybierz opcję **Podpisz odpowiedź SAML i potwierdzenie** dla **podpisywania**.
+    a. Wybierz opcję **Podpisz odpowiedź SAML i potwierdzenie** dla **podpisywania** .
 
     b. Kliknij pozycję **Zapisz**
 
@@ -118,25 +118,25 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło** .
+   1. Kliknij pozycję **Utwórz** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do produktu Workday.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **Workday**.
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Na liście Aplikacje wybierz pozycję **Workday** .
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy** .
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz pozycję **Dodaj użytkownika** , a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
     ![Link Dodaj użytkownika](common/add-assign-user.png)
 
@@ -156,9 +156,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Adresy URL przekierowania](./media/workday-tutorial/IC7829581.png "Adresy URL przekierowania")
 
-    a. Kliknij przycisk **Dodaj wiersz**.
+    a. Kliknij przycisk **Dodaj wiersz** .
 
-    b. W polu tekstowym **adres URL przekierowania logowania**, **adres URL przekierowania limitu czasu** i **adres URL przekierowania urządzenia przenośnego** , wklej **adres URL logowania** skopiowany z sekcji **Konfigurowanie produktu Workday** Azure Portal.
+    b. W polu tekstowym **adres URL przekierowania logowania** , **adres URL przekierowania limitu czasu** i **adres URL przekierowania urządzenia przenośnego** , wklej **adres URL logowania** skopiowany z sekcji **Konfigurowanie produktu Workday** Azure Portal.
 
     c. W polu tekstowym **adres URL przekierowania Wyloguj** wklej **adres URL wylogowania** , który został skopiowany z sekcji **Konfigurowanie produktu Workday** Azure Portal.
 
@@ -166,26 +166,26 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
    > [!NOTE]
    > Wartość atrybutu Environment jest powiązana z wartością adresu URL dzierżawcy:  
-   > — Jeśli nazwa domeny adresu URL dzierżawy produktu Workday zaczyna się od Impl na przykład: * https://www.myworkday.com/ "dzierżawca"/login-saml2.htmLD*), atrybut **Environment** musi być ustawiony na implementację.  
+   > — Jeśli nazwa domeny adresu URL dzierżawy produktu Workday zaczyna się od Impl na przykład: *https://www.myworkday.com/ "dzierżawca"/login-saml2.htmLD* ), atrybut **Environment** musi być ustawiony na implementację.  
    > — Jeśli nazwa domeny zaczyna się od czegoś innego, należy skontaktować się z [zespołem obsługi klienta](https://www.workday.com/en-us/partners-services/services/support.html) w programie Workday w celu uzyskania pasującej wartości **środowiska** .
 
 4. W sekcji **Instalator języka SAML** wykonaj następujące czynności:
 
     ![Konfiguracja protokołu SAML](./media/workday-tutorial/IC782926.png "Konfiguracja protokołu SAML")
 
-    a.  Wybierz pozycję **Włącz uwierzytelnianie SAML**.
+    a.  Wybierz pozycję **Włącz uwierzytelnianie SAML** .
 
-    b.  Kliknij przycisk **Dodaj wiersz**.
+    b.  Kliknij przycisk **Dodaj wiersz** .
 
 5. W sekcji **dostawcy tożsamości SAML** wykonaj następujące czynności:
 
-    ![Dostawcy tożsamości języka SAML](./media/workday-tutorial/IC7829271.png "Dostawcy tożsamości języka SAML")
+    ![Zrzut ekranu przedstawia stronę dostawcy tożsamości SAML, na której można wykonać te kroki.](./media/workday-tutorial/IC7829271.png "Dostawcy tożsamości języka SAML")
 
-    a. W polu tekstowym **Nazwa dostawcy tożsamości** wpisz nazwę dostawcy (na przykład: *SPInitiatedSSO*).
+    a. W polu tekstowym **Nazwa dostawcy tożsamości** wpisz nazwę dostawcy (na przykład: *SPInitiatedSSO* ).
 
     b. W Azure Portal w sekcji **Konfigurowanie produktu Workday** skopiuj wartość **Identyfikator usługi Azure AD** , a następnie wklej ją do pola tekstowego **wystawcy** .
 
-    ![Dostawcy tożsamości języka SAML](./media/workday-tutorial/IC7829272.png "Dostawcy tożsamości języka SAML")
+    ![Zrzut ekranu pokazuje, gdzie można wprowadzić wartość wystawcy.](./media/workday-tutorial/IC7829272.png "Dostawcy tożsamości języka SAML")
 
     c. W Azure Portal w sekcji **Konfigurowanie produktu Workday** skopiuj wartość **adres URL wylogowania** , a następnie wklej ją do pola tekstowego **adres URL odpowiedzi na wylogowanie** .
 
@@ -193,19 +193,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e. W polu tekstowym **używane dla środowisk** wybierz nazwę środowiska.
 
-    f. Kliknij pozycję **certyfikat klucza publicznego dostawcy tożsamości**, a następnie kliknij przycisk **Utwórz**.
+    f. Kliknij pozycję **certyfikat klucza publicznego dostawcy tożsamości** , a następnie kliknij przycisk **Utwórz** .
 
-    ![Utwórz](./media/workday-tutorial/IC782928.png "Utwórz")
+    ![Zrzut ekranu przedstawia link tworzenie.](./media/workday-tutorial/IC782928.png "Utwórz")
 
-    przykład Kliknij pozycję **Utwórz klucz publiczny x509**.
+    przykład Kliknij pozycję **Utwórz klucz publiczny x509** .
 
-    ![Utwórz](./media/workday-tutorial/IC782929.png "Utwórz")
+    ![Zrzut ekranu przedstawia opcję tworzenia klucza publicznego x509.](./media/workday-tutorial/IC782929.png "Utwórz")
 
 6. W sekcji **Wyświetl klucz publiczny x509** wykonaj następujące czynności:
 
     ![Wyświetl klucz publiczny x509](./media/workday-tutorial/IC782930.png "Wyświetl klucz publiczny x509")
 
-    a. W polu tekstowym **Nazwa** wpisz nazwę certyfikatu (na przykład: *ŚOI \_ SP*).
+    a. W polu tekstowym **Nazwa** wpisz nazwę certyfikatu (na przykład: *ŚOI \_ SP* ).
 
     b. W polu tekstowym **prawidłowy** typ wpisz prawidłową wartość z atrybutu certyfikatu.
 
@@ -220,7 +220,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e.  W polu tekstowym **certyfikat** wklej zawartość schowka.
 
-    f.  Kliknij pozycję **OK**.
+    f.  Kliknij pozycję **OK** .
 
 7. Wykonaj następujące czynności:
 
@@ -228,13 +228,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     a.  W polu tekstowym **Identyfikator dostawcy usług** wpisz **http://www.workday.com** .
 
-    b. Wybierz pozycję **nie rób korekt w zainicjowanym programie Sp żądanie uwierzytelniania**.
+    b. Wybierz pozycję **nie rób korekt w zainicjowanym programie Sp żądanie uwierzytelniania** .
 
-    c. Jako **metodę podpisu żądania uwierzytelniania**wybierz pozycję **SHA256**.
+    c. Jako **metodę podpisu żądania uwierzytelniania** wybierz pozycję **SHA256** .
 
     ![Metoda podpisu żądania uwierzytelniania](./media/workday-tutorial/WorkdaySSOConfiguration.png "Metoda podpisu żądania uwierzytelniania")
 
-    d. Kliknij pozycję **OK**.
+    d. Kliknij pozycję **OK** .
 
     ![OK](./media/workday-tutorial/IC782933.png "OK")
 
@@ -249,7 +249,7 @@ W tej sekcji utworzysz użytkownika o nazwie B. Simon w usłudze Workday. Wspó�
 
 Po wybraniu kafelka Workday w panelu dostępu należy automatycznie zalogować się do dnia roboczego, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 

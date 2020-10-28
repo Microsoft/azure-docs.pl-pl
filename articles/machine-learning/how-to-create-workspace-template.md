@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 1978cfe6ea117a0d30df938c9e4ba1aeb48314fc
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057845"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631052"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -28,14 +28,14 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji przy użyciu szabl
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure**. Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
+* **Subskrypcja platformy Azure** . Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Aby użyć szablonu z interfejsu wiersza polecenia, musisz mieć [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) lub [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 * Niektóre scenariusze wymagają otwarcia biletu pomocy technicznej. Te scenariusze są następujące:
 
     * __Prywatny obszar roboczy z obsługą linku z kluczem zarządzanym przez klienta (CMK)__
-    * __Azure Container Registry obszaru roboczego za siecią wirtualną__
+    * __Usługa Azure Container Registry w przypadku obszaru roboczego poza Twoją siecią wirtualną__
 
     Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
@@ -46,7 +46,7 @@ Szablon Azure Resource Manager używany w tym dokumencie znajduje się w katalog
 Ten szablon umożliwia utworzenie następujących usług platformy Azure:
 
 * Konto usługi Azure Storage
-* W usłudze Azure Key Vault
+* Azure Key Vault
 * Azure Application Insights
 * Azure Container Registry
 * Obszar roboczy usługi Azure Machine Learning
@@ -59,7 +59,7 @@ Przykładowy szablon ma dwa **wymagane** parametry:
 
     Szablon będzie korzystać z lokalizacji wybranej dla większości zasobów. Wyjątkiem jest usługa Application Insights, która nie jest dostępna we wszystkich lokalizacjach, w których znajdują się inne usługi. W przypadku wybrania lokalizacji, w której jest ona niedostępna, usługa zostanie utworzona w lokalizacji Południowo-środkowe stany USA.
 
-* **Obszar roboczyname**, który jest przyjazną nazwą obszaru roboczego Azure Machine Learning.
+* **Obszar roboczyname** , który jest przyjazną nazwą obszaru roboczego Azure Machine Learning.
 
     > [!NOTE]
     > W nazwie obszaru roboczego nie jest rozróżniana wielkość liter.
@@ -161,9 +161,11 @@ New-AzResourceGroupDeployment `
 
 Poniższy przykładowy szablon pokazuje, jak utworzyć obszar roboczy z trzema ustawieniami:
 
-* Włącz ustawienia wysokiej poufności dla obszaru roboczego
-* Włącz szyfrowanie dla obszaru roboczego
-* Używa istniejącego Azure Key Vault do pobierania kluczy zarządzanych przez klienta
+* Włącz ustawienia wysokiej poufności dla obszaru roboczego. Spowoduje to utworzenie nowego wystąpienia Cosmos DB.
+* Włącz szyfrowanie dla obszaru roboczego.
+* Używa istniejącej Azure Key Vault do pobierania kluczy zarządzanych przez klienta. Klucze zarządzane przez klienta służą do tworzenia nowego wystąpienia Cosmos DB dla obszaru roboczego.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > Po utworzeniu obszaru roboczego nie można zmienić ustawień poufnych danych, szyfrowania, identyfikatora magazynu kluczy ani identyfikatorów kluczy. Aby zmienić te wartości, należy utworzyć nowy obszar roboczy przy użyciu nowych wartości.
@@ -217,7 +219,7 @@ __Aby uzyskać wartości__ dla `cmk_keyvault` (identyfikatora Key Vault) i `reso
 
 Aby włączyć korzystanie z kluczy zarządzanych przez klienta, należy ustawić następujące parametry podczas wdrażania szablonu:
 
-* **encryption_status** do **włączenia**.
+* **encryption_status** do **włączenia** .
 * **cmk_keyvault** `cmk_keyvault` wartość uzyskaną w poprzednich krokach.
 * **resource_cmk_uri** `resource_cmk_uri` wartość uzyskaną w poprzednich krokach.
 
@@ -252,7 +254,7 @@ New-AzResourceGroupDeployment `
 
 W przypadku korzystania z klucza zarządzanego przez klienta Azure Machine Learning tworzy pomocniczą grupę zasobów zawierającą wystąpienie Cosmos DB. Aby uzyskać więcej informacji, zobacz [szyfrowanie w Cosmos DB REST](concept-enterprise-security.md#encryption-at-rest).
 
-Dodatkową konfiguracją, którą można podać dla danych, jest ustawienie dla parametru **confidential_data** **wartości true**. W tym celu program wykonuje następujące czynności:
+Dodatkową konfiguracją, którą można podać dla danych, jest ustawienie dla parametru **confidential_data** **wartości true** . W tym celu program wykonuje następujące czynności:
 
 * Program uruchamia szyfrowanie lokalnego dysku zapasowego dla Azure Machine Learning klastrów obliczeniowych, co zapewnia, że nie utworzono żadnych wcześniejszych klastrów w ramach subskrypcji. Jeśli wcześniej utworzono klaster w ramach subskrypcji, należy otworzyć bilet pomocy technicznej, aby umożliwić szyfrowanie dysku zapasowego dla klastrów obliczeniowych.
 * Czyści lokalny dysk magazynujący między przebiegami.
@@ -547,8 +549,8 @@ New-AzResourceGroupDeployment `
    * Region: Wybierz region świadczenia usługi Azure, w którym zostaną utworzone zasoby.
    * Nazwa obszaru roboczego: Nazwa do użycia dla obszaru roboczego Azure Machine Learning, który zostanie utworzony. Nazwa obszaru roboczego musi zawierać od 3 do 33 znaków. Może zawierać tylko znaki alfanumeryczne i znak "-".
    * Lokalizacja: Wybierz lokalizację, w której zostaną utworzone zasoby.
-1. Wybierz pozycję __Przejrzyj i utwórz__.
-1. Na ekranie __Recenzja + tworzenie__ Zaakceptuj wymienione warunki i postanowienia, a następnie wybierz pozycję __Utwórz__.
+1. Wybierz pozycję __Przeglądanie + tworzenie__ .
+1. Na ekranie __Recenzja + tworzenie__ Zaakceptuj wymienione warunki i postanowienia, a następnie wybierz pozycję __Utwórz__ .
 
 Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -653,7 +655,7 @@ Aby uniknąć tego problemu, zalecamy zastosowanie jednej z następujących meto
 
 ### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Sieć wirtualna nie jest połączona z prywatną strefą DNS
 
-Podczas tworzenia obszaru roboczego za pomocą prywatnego punktu końcowego szablon tworzy strefę Prywatna strefa DNS o nazwie __privatelink.API.azureml.MS__. __Łącze sieci wirtualnej__ jest automatycznie dodawane do tej prywatnej strefy DNS. Łącze jest dodawane tylko do pierwszego obszaru roboczego i prywatnego punktu końcowego tworzonego w grupie zasobów. w przypadku utworzenia innej sieci wirtualnej i obszaru roboczego z prywatnym punktem końcowym w tej samej grupie zasobów druga sieć wirtualna może nie zostać dodana do prywatnej strefy DNS.
+Podczas tworzenia obszaru roboczego za pomocą prywatnego punktu końcowego szablon tworzy strefę Prywatna strefa DNS o nazwie __privatelink.API.azureml.MS__ . __Łącze sieci wirtualnej__ jest automatycznie dodawane do tej prywatnej strefy DNS. Łącze jest dodawane tylko do pierwszego obszaru roboczego i prywatnego punktu końcowego tworzonego w grupie zasobów. w przypadku utworzenia innej sieci wirtualnej i obszaru roboczego z prywatnym punktem końcowym w tej samej grupie zasobów druga sieć wirtualna może nie zostać dodana do prywatnej strefy DNS.
 
 Aby wyświetlić linki sieci wirtualnej, które już istnieją dla prywatnej strefy DNS, użyj następującego polecenia platformy Azure:
 

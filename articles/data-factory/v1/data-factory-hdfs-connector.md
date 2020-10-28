@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e3f158bb4e8208d00fdfbc44b4afaf067183b6d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f22d5ddd35d5d0cba48f0d236b28fabae02a966a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087320"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631601"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Przenoszenie danych z lokalnego systemu plików HDFS przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -47,9 +47,9 @@ Aby zainstalować bramę na tej samej maszynie lokalnej lub w maszynie wirtualne
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok za pomocą działania kopiowania, które przenosi dane ze źródła HDFS przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
+Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania** . Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
 
-Za pomocą następujących narzędzi można także utworzyć potok: **Azure Portal**, **Visual Studio**, **Azure POWERSHELL**, **szablon Azure Resource Manager**, **interfejs API platformy .NET**i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Za pomocą następujących narzędzi można także utworzyć potok: **Azure Portal** , **Visual Studio** , **Azure POWERSHELL** , **szablon Azure Resource Manager** , **interfejs API platformy .NET** i **interfejs API REST** . Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia:
 
@@ -72,7 +72,7 @@ Połączona usługa łączy magazyn danych z fabryką danych. Utworzysz połącz
 | userName |Nazwa użytkownika dla uwierzytelniania systemu Windows. W przypadku uwierzytelniania Kerberos Określ `<username>@<domain>.com` . |Tak (w przypadku uwierzytelniania systemu Windows) |
 | hasło |Hasło do uwierzytelniania systemu Windows. |Tak (w przypadku uwierzytelniania systemu Windows) |
 | gatewayName |Nazwa bramy, która ma być używana przez usługę Data Factory do łączenia się z systemem plików HDFS. |Tak |
-| encryptedCredential |[Nowe-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) dane wyjściowe poświadczeń dostępu. |Nie |
+| encryptedCredential |[Nowe-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) dane wyjściowe poświadczeń dostępu. |Nie |
 
 ### <a name="using-anonymous-authentication"></a>Korzystanie z uwierzytelniania anonimowego
 
@@ -122,8 +122,8 @@ Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera i
 | folderPath |Ścieżka do folderu. Przykład: `myfolder`<br/><br/>Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Na przykład: dla folder\subfolder określ podfolder folderu \\ \\ i dla d:\samplefolder, określ d: \\ \\ samplefolder.<br/><br/>Możesz połączyć tę właściwość z **partitionBy** , aby mieć ścieżki folderu na podstawie daty rozpoczęcia/zakończenia wycinka. |Tak |
 | fileName |Określ nazwę pliku w **folderPath** , jeśli chcesz, aby tabela odnosiła się do określonego pliku w folderze. Jeśli nie określisz żadnej wartości dla tej właściwości, tabela wskazuje wszystkie pliki w folderze.<br/><br/>Jeśli nie określono nazwy pliku wyjściowego zestawu danych, nazwa wygenerowanego pliku będzie w następującym formacie: <br/><br/>`Data.<Guid>.txt` (na przykład:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nie |
 | partitionedBy |partitionedBy można użyć, aby określić dynamiczny folderPath, filename dla danych szeregów czasowych. Przykład: folderPath sparametryzowane dla każdej godziny danych. |Nie |
-| format | Obsługiwane są następujące typy formatów: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw właściwość **Type** w polu Format na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz [format tekstowy](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format)i sekcje [formatu Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Jeśli chcesz **skopiować pliki** między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych. |Nie |
-| kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy to: **gzip**, **Wklęśnięcie**, **BZip2**i **ZipDeflate**. Obsługiwane poziomy to: **optymalne** i **najszybszy**. Aby uzyskać więcej informacji, zobacz [formaty plików i kompresji w Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie |
+| format | Obsługiwane są następujące typy formatów: **TextFormat** , **formatu jsonformat** , **AvroFormat** , **OrcFormat** , **ParquetFormat** . Ustaw właściwość **Type** w polu Format na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz [format tekstowy](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format)i sekcje [formatu Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Jeśli chcesz **skopiować pliki** między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych. |Nie |
+| kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy to: **gzip** , **Wklęśnięcie** , **BZip2** i **ZipDeflate** . Obsługiwane poziomy to: **optymalne** i **najszybszy** . Aby uzyskać więcej informacji, zobacz [formaty plików i kompresji w Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie |
 
 > [!NOTE]
 > nazwy pliku i fileFilter nie można jednocześnie używać.
@@ -308,7 +308,7 @@ Dane są zapisywane w nowym obiekcie blob co godzinę (częstotliwość: godzina
 
 **Działanie kopiowania w potoku ze źródłem systemu plików i obiektem sink obiektów blob:**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do używania tych wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **FileSystemSource** , a typ **ujścia** to **wartość blobsink**. Zapytanie SQL określone dla właściwości **zapytania** wybiera dane w ciągu ostatniej godziny do skopiowania.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do używania tych wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **FileSystemSource** , a typ **ujścia** to **wartość blobsink** . Zapytanie SQL określone dla właściwości **zapytania** wybiera dane w ciągu ostatniej godziny do skopiowania.
 
 ```JSON
 {
@@ -457,7 +457,7 @@ Dostępne są dwie opcje konfigurowania środowiska lokalnego w taki sposób, ab
     C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
     ```
 
-2.  Ustanów relację zaufania z domeny systemu Windows do obszaru Kerberos. [hasło] jest hasłem dla głównego elementu **KRBTGT/obszaru. COM \@ AD.com**.
+2.  Ustanów relację zaufania z domeny systemu Windows do obszaru Kerberos. [hasło] jest hasłem dla głównego elementu **KRBTGT/obszaru. COM \@ AD.com** .
 
     ```cmd
     C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
@@ -467,7 +467,7 @@ Dostępne są dwie opcje konfigurowania środowiska lokalnego w taki sposób, ab
 
     1. Przejdź do Menedżer serwera > zasady grupy zarządzanie > domeny > zasady grupy obiektów > domyślnych lub aktywnych zasad domeny i Edytuj.
 
-    2. W oknie podręcznym **Edytor zarządzania zasadami grupy** przejdź do pozycji konfiguracja komputera > zasady > ustawienia systemu Windows > ustawienia zabezpieczeń > zasady lokalne > opcje zabezpieczeń i skonfiguruj **zabezpieczenia sieci: Skonfiguruj typy szyfrowania dozwolone dla protokołu Kerberos**.
+    2. W oknie podręcznym **Edytor zarządzania zasadami grupy** przejdź do pozycji konfiguracja komputera > zasady > ustawienia systemu Windows > ustawienia zabezpieczeń > zasady lokalne > opcje zabezpieczeń i skonfiguruj **zabezpieczenia sieci: Skonfiguruj typy szyfrowania dozwolone dla protokołu Kerberos** .
 
     3. Wybierz algorytm szyfrowania, który ma być używany podczas nawiązywania połączenia z centrum dystrybucji kluczy. Zazwyczaj można po prostu wybrać wszystkie opcje.
 
@@ -481,9 +481,9 @@ Dostępne są dwie opcje konfigurowania środowiska lokalnego w taki sposób, ab
 
 4.  Utwórz mapowanie między kontem domeny i podmiotem zabezpieczeń protokołu Kerberos, aby użyć podmiotu zabezpieczeń Kerberos w domenie systemu Windows.
 
-    1. Uruchom narzędzia administracyjne > **Active Directory Użytkownicy i komputery**.
+    1. Uruchom narzędzia administracyjne > **Active Directory Użytkownicy i komputery** .
 
-    2. Skonfiguruj funkcje zaawansowane, klikając pozycję **Wyświetl**  >  **Zaawansowane funkcje**.
+    2. Skonfiguruj funkcje zaawansowane, klikając pozycję **Wyświetl**  >  **Zaawansowane funkcje** .
 
     3. Znajdź konto, do którego chcesz utworzyć mapowania, a następnie kliknij prawym przyciskiem myszy, aby wyświetlić **mapowania nazw** > kliknij kartę **nazwy Kerberos** .
 

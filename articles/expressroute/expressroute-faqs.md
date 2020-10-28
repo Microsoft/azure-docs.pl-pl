@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202212"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631278"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
-## <a name="what-is-expressroute"></a>Co to jest ExpressRoute?
+## <a name="what-is-expressroute"></a>Co to jest usługa ExpressRoute?
 
 ExpressRoute to usługa platformy Azure, która umożliwia tworzenie prywatnych połączeń między centrami danych firmy Microsoft i infrastrukturą lokalną lub międzylokalizacyjną. Połączenia ExpressRoute nie przechodzą przez publiczny Internet i oferują wyższe opóźnienia niż typowe połączenia przez Internet.
 
@@ -40,9 +40,10 @@ Sprawdź [szczegóły cennika](https://azure.microsoft.com/pricing/details/expre
 
 Nie. Możesz zakupić połączenie sieci VPN z dowolną szybkością od dostawcy usług. Jednak połączenie z platformą Azure jest ograniczone do zakupionej przepustowości obwodu usługi ExpressRoute.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Czy w przypadku skorzystania z obwodu usługi ExpressRoute o danej przepustowości czy można w razie potrzeby przeprowadzić szeregowanie do większej szybkości?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Czy jeśli płacisz za obwód usługi ExpressRoute o danej przepustowości, czy mogę korzystać z większej przepustowości?
 
-Tak. Obwody usługi ExpressRoute są skonfigurowane tak, aby umożliwiały wielokrotne przekroczenie limitu przepustowości, który został pozyskany bez dodatkowych kosztów. Skontaktuj się z dostawcą usług, aby sprawdzić, czy obsługują tę funkcję. Nie jest to przez dłuższy czas i nie jest gwarantowane.  Jeśli ruch przepływów przez bramę ExpressRoute, przepustowość dla jednostki SKU jest stała i nie można jej przełączać.
+Tak, można użyć maksymalnie dwa razy ograniczenia przepustowości, korzystając z przepustowości dostępnej na pomocniczym połączeniu obwodu usługi ExpressRoute. Wbudowana nadmiarowość obwodu jest konfigurowana przy użyciu podstawowych i pomocniczych połączeń, a każda z nich jest przystosowana do dwóch routerów brzegowych firmy Microsoft (MSEE). Przepustowość dostępna za pomocą połączenia pomocniczego może być używana w przypadku dodatkowego ruchu w razie potrzeby. Ponieważ połączenie pomocnicze jest przeznaczone do nadmiarowości, ale nie jest gwarantowane i nie powinno być używane dla dodatkowego ruchu przez dłuższy czas. Aby dowiedzieć się więcej o tym, jak używać obu połączeniach do przesyłania ruchu, zobacz [tutaj](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending).
+Jeśli zamierzasz używać połączenia podstawowego do przesyłania ruchu, przepustowość połączenia jest stała i próba jego anulowania spowoduje zwiększenie liczby porzucanych pakietów. Jeśli ruch przepływów przez bramę ExpressRoute, przepustowość dla jednostki SKU jest stała i nie można jej przełączać.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Czy można jednocześnie używać tego samego połączenia sieci prywatnej z siecią wirtualną i innymi usługami platformy Azure?
 
@@ -86,7 +87,7 @@ Jeśli obwód usługi ExpressRoute jest włączony dla komunikacji równorzędne
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * Power BI — dostępne za pośrednictwem społeczności regionalnej platformy Azure, zobacz [tutaj](/power-bi/service-admin-where-is-my-tenant-located) , jak sprawdzić region dzierżawy Power BI.
-* Azure Active Directory
+* Usługa Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (społeczność usług globalnych platformy Azure)
 * Publiczne adresy IP platformy Azure dla IaaS (Virtual Machines, bram Virtual Network, modułów równoważenia obciążenia itp.)  
 * Obsługiwane są również większość innych usług platformy Azure. Skontaktuj się bezpośrednio z usługą, która ma zostać użyta, aby zweryfikować pomoc techniczną.

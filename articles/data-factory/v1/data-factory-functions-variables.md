@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbc7fd22915af1c9645d915a9898679a3a7c30d0
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73667648"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631516"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory — funkcje i zmienne systemowe
 > [!NOTE]
@@ -61,7 +61,7 @@ Można używać funkcji w usłudze Fabryka danych wraz z zmiennymi systemowymi d
    
     $ $ nie jest wymagany do określenia wejściowych wyrażeń zależności.     
 
-W poniższym przykładzie właściwość **sqlReaderQuery** w pliku JSON jest przypisana do wartości zwracanej przez `Text.Format` funkcję. Ten przykład używa również zmiennej systemowej o nazwie **WindowStart**, która reprezentuje godzinę rozpoczęcia okna uruchomienia działania.
+W poniższym przykładzie właściwość **sqlReaderQuery** w pliku JSON jest przypisana do wartości zwracanej przez `Text.Format` funkcję. Ten przykład używa również zmiennej systemowej o nazwie **WindowStart** , która reprezentuje godzinę rozpoczęcia okna uruchomienia działania.
 
 ```json
 {
@@ -70,7 +70,7 @@ W poniższym przykładzie właściwość **sqlReaderQuery** w pliku JSON jest pr
 }
 ```
 
-Zobacz temat [Niestandardowe ciągi formatujące datę i godzinę](https://msdn.microsoft.com/library/8kb3ddd4.aspx) , które opisują różne opcje formatowania, których można użyć (na przykład: AY a rrrr). 
+Zobacz temat [Niestandardowe ciągi formatujące datę i godzinę](/dotnet/standard/base-types/custom-date-and-time-format-strings) , które opisują różne opcje formatowania, których można użyć (na przykład: AY a rrrr). 
 
 ### <a name="functions"></a>Funkcje
 W poniższej tabeli wymieniono wszystkie funkcje w Azure Data Factory:
@@ -80,18 +80,18 @@ W poniższej tabeli wymieniono wszystkie funkcje w Azure Data Factory:
 | Godzina |Addgodz. (X, Y) |X: DateTime <br/><br/>Y: int |Dodaje Y godz. do danego czasu X. <br/><br/>Przykład: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Godzina |Addminut (X, Y) |X: DateTime <br/><br/>Y: int |Dodaje Y minuty do X.<br/><br/>Przykład: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
 | Godzina |Początek godziny (X) |X: DateTime |Pobiera godzinę rozpoczęcia dla godziny reprezentowanej przez składnik godziny X. <br/><br/>Przykład: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Data |AddDays (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y dni do X. <br/><br/>Przykład: 9/15/2013 12:00:00 PM + 2 dni = 9/17/2013 12:00:00 PM.<br/><br/>Liczbę dni można odjąć za pomocą wartości Y jako liczby ujemnej.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Data |Addmiesiącach (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y miesiące do X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Za pomocą wartości Y można odjąć liczbę miesięcy.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Data |Addćwiartki (X, Y) |X: DateTime <br/><br/>Y: int |Dodaje Y * 3 miesiące do X.<br/><br/>Przykład: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Data |Addtygodnie (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y * 7 dni do X<br/><br/>Przykład: 9/15/2013 12:00:00 PM + 1 tydzień = 9/22/2013 12:00:00 PM<br/><br/>Można odjąć tygodnie zbyt, określając wartość Y jako liczbę ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Data |AddYears (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y lata do X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Za pomocą wartości Y można odjąć liczbę lat.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Data |Dzień (X) |X: DateTime |Pobiera składnik Day X.<br/><br/>Przykład: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Data |DayOfWeek (X) |X: DateTime |Pobiera składnik dnia tygodnia X.<br/><br/>Przykład: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Data |Dzieńroku (X) |X: DateTime |Pobiera dzień w roku reprezentowany przez składnik Year X.<br/><br/>Przykłady:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Data |DaysInMonth (X) |X: DateTime |Pobiera dni w miesiącu reprezentowane przez składnik miesiąca parametru X.<br/><br/>Przykład: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Data |EndOfDay (X) |X: DateTime |Pobiera datę i godzinę reprezentującą koniec dnia (składnik dnia) X.<br/><br/>Przykład: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Data |EndOfMonth (X) |X: DateTime |Pobiera koniec miesiąca reprezentowanego przez składnik miesiąca parametru X. <br/><br/>Przykład: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (Data i godzina reprezentująca koniec miesiąca z września) |
-| Data |StartOfDay (X) |X: DateTime |Pobiera początek dnia reprezentowanego przez składnik dnia parametru X.<br/><br/>Przykład: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| Date |AddDays (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y dni do X. <br/><br/>Przykład: 9/15/2013 12:00:00 PM + 2 dni = 9/17/2013 12:00:00 PM.<br/><br/>Liczbę dni można odjąć za pomocą wartości Y jako liczby ujemnej.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Date |Addmiesiącach (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y miesiące do X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Za pomocą wartości Y można odjąć liczbę miesięcy.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |Addćwiartki (X, Y) |X: DateTime <br/><br/>Y: int |Dodaje Y * 3 miesiące do X.<br/><br/>Przykład: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |Addtygodnie (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y * 7 dni do X<br/><br/>Przykład: 9/15/2013 12:00:00 PM + 1 tydzień = 9/22/2013 12:00:00 PM<br/><br/>Można odjąć tygodnie zbyt, określając wartość Y jako liczbę ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Date |AddYears (X, Y) |X: DateTime<br/><br/>Y: int |Dodaje Y lata do X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Za pomocą wartości Y można odjąć liczbę lat.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Date |Dzień (X) |X: DateTime |Pobiera składnik Day X.<br/><br/>Przykład: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Date |DayOfWeek (X) |X: DateTime |Pobiera składnik dnia tygodnia X.<br/><br/>Przykład: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Date |Dzieńroku (X) |X: DateTime |Pobiera dzień w roku reprezentowany przez składnik Year X.<br/><br/>Przykłady:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DaysInMonth (X) |X: DateTime |Pobiera dni w miesiącu reprezentowane przez składnik miesiąca parametru X.<br/><br/>Przykład: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Date |EndOfDay (X) |X: DateTime |Pobiera datę i godzinę reprezentującą koniec dnia (składnik dnia) X.<br/><br/>Przykład: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Date |EndOfMonth (X) |X: DateTime |Pobiera koniec miesiąca reprezentowanego przez składnik miesiąca parametru X. <br/><br/>Przykład: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (Data i godzina reprezentująca koniec miesiąca z września) |
+| Date |StartOfDay (X) |X: DateTime |Pobiera początek dnia reprezentowanego przez składnik dnia parametru X.<br/><br/>Przykład: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
 | DateTime |Od (X) |X: ciąg |Przeanalizuj ciąg X do daty i godziny. |
 | DateTime |Takty (X) |X: DateTime |Pobiera właściwość Ticks parametru X. Jeden takt jest równy 100 nanosekund. Wartość tej właściwości reprezentuje liczbę taktów, które upłynęły od 12:00:00 północy, 1 stycznia 0001. |
 | Tekst |Format (X) |X: zmienna ciągu |Formatuje tekst (Użyj `\\'` kombinacji do znaku ucieczki `'` ).|
@@ -227,5 +227,4 @@ Aby odczytać dane z poprzedniego dnia zamiast dnia reprezentowanego przez param
 }
 ```
 
-Zapoznaj się z tematami [niestandardowego formatu daty i godziny](https://msdn.microsoft.com/library/8kb3ddd4.aspx) , który opisuje różne opcje formatowania, których można użyć (na przykład: yy a rrrr). 
-
+Zapoznaj się z tematami [niestandardowego formatu daty i godziny](/dotnet/standard/base-types/custom-date-and-time-format-strings) , który opisuje różne opcje formatowania, których można użyć (na przykład: yy a rrrr).
