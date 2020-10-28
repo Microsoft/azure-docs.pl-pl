@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 26d4080e20fb8d00ec4d276e56e09170001d2b8e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166543"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789917"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Zawsze włączona Grupa dostępności na SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Na poniższym diagramie przedstawiono grupę dostępności dla SQL Server na mas
 
 ## <a name="vm-redundancy"></a>Nadmiarowość maszyny wirtualnej 
 
-Aby zwiększyć nadmiarowość i wysoką dostępność, SQL Server maszyny wirtualne powinny znajdować się w tym samym [zestawie dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)lub w różnych [strefach dostępności](/azure/availability-zones/az-overview).
+Aby zwiększyć nadmiarowość i wysoką dostępność, SQL Server maszyny wirtualne powinny znajdować się w tym samym [zestawie dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)lub w różnych [strefach dostępności](../../../availability-zones/az-overview.md).
 
 Zestaw dostępności to grupa zasobów, które są skonfigurowane tak, aby nie były dwa tereny w tej samej strefie dostępności. Zapobiega to wpływowi wielu zasobów w grupie podczas wdrażania. 
 
@@ -49,7 +49,7 @@ W tradycyjnym wdrożeniu lokalnym klienci nawiązują połączenie z odbiornikie
 W SQL Server na maszynach wirtualnych platformy Azure Skonfiguruj [moduł równoważenia obciążenia](availability-group-vnn-azure-load-balancer-configure.md) , aby kierować ruchem do odbiornika grupy dostępności, lub jeśli korzystasz z SQL Server 2019 CU8 i nowszych, możesz skonfigurować [odbiornik nazwy sieci rozproszonej (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) w celu zastąpienia odbiornika tradycyjnej grupy dostępności VNN. 
 
 
-### <a name="vnn-listener"></a>Odbiornik VNN 
+### <a name="vnn-listener"></a>Odbiornik nazwy sieci wirtualnej 
 
 Użyj [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) , aby skierować ruch z klienta do tradycyjnego odbiornika nazw sieci wirtualnej (VNN) w sieci platformy Azure. 
 
@@ -57,7 +57,7 @@ Moduł równoważenia obciążenia przechowuje adresy IP dla odbiornika VNN. Je�
 
 Aby rozpocząć, zobacz [Konfigurowanie modułu równoważenia obciążenia](availability-group-vnn-azure-load-balancer-configure.md). 
 
-### <a name="dnn-listener"></a>Odbiornik DNN
+### <a name="dnn-listener"></a>Odbiornik nazwy sieci rozproszonej
 
 SQL Server 2019 CU8 wprowadza obsługę odbiornika nazwy sieci rozproszonej (DNN). Odbiornik DNN zastępuje tradycyjną funkcję odbiornika grupy dostępności, negację modułu równoważenia obciążenia platformy Azure, aby kierować ruchem w sieci platformy Azure. 
 
@@ -68,13 +68,13 @@ Użyj odbiornika DNN, aby zastąpić istniejący odbiornik VNN lub użyć go w p
 Aby rozpocząć, zobacz [Konfigurowanie odbiornika DNN](availability-group-distributed-network-name-dnn-listener-configure.md).
 
 
-## <a name="deployment"></a>Wdrożenie 
+## <a name="deployment"></a>wdrażania 
 
 Istnieje wiele opcji wdrażania grupy dostępności do SQL Server na maszynach wirtualnych platformy Azure, a w przypadku większej automatyzacji niż inne. 
 
 Poniższa tabela zawiera porównanie dostępnych opcji: 
 
-| |**[Azure Portal](availability-group-azure-portal-configure.md)**|**[Interfejs wiersza polecenia platformy Azure/PowerShell](availability-group-az-cli-configure.md)**|**[Szablony szybkiego startu](availability-group-quickstart-template-configure.md)**|**[Ręczne](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Witryna Azure Portal](availability-group-azure-portal-configure.md)**|**[Interfejs wiersza polecenia platformy Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Szablony szybkiego startu](availability-group-quickstart-template-configure.md)**|**[Ręcznie](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**Wersja programu SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Wydanie programu SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, standard|
@@ -83,7 +83,7 @@ Poniższa tabela zawiera porównanie dostępnych opcji:
 |**Tworzy grupę dostępności dla Ciebie** |Tak |Nie|Nie|Nie|
 |**Tworzy odbiornik i moduł równoważenia obciążenia niezależnie** |Nie|Nie|Nie|Tak|
 |**Czy możliwe jest utworzenie odbiornika DNN przy użyciu tej metody?**|Nie|Nie|Nie|Tak|
-|**Konfiguracja kworum usługi WSFC**n|Monitor w chmurze|Monitor w chmurze|Monitor w chmurze|Wszystko|
+|**Konfiguracja kworum usługi WSFC** n|Monitor w chmurze|Monitor w chmurze|Monitor w chmurze|Wszystko|
 |**Odzyskiwanie po awarii z wieloma regionami** |Nie|Nie|Nie|Tak|
 |**Obsługa wielosieciowa** |Tak|Tak|Tak|Tak|
 |**Obsługa istniejącej usługi AD**|Tak|Tak|Tak|Tak|
@@ -94,12 +94,12 @@ Poniższa tabela zawiera porównanie dostępnych opcji:
 
 
 
-## <a name="considerations"></a>Zagadnienia do rozważenia 
+## <a name="considerations"></a>Kwestie do rozważenia 
 
 W klastrze trybu failover gościa maszyny wirtualnej IaaS platformy Azure zaleca się korzystanie z jednej karty sieciowej na serwerze (w węźle klastra) i pojedynczej podsieci. Sieć platformy Azure ma fizyczną nadmiarowość, co sprawia, że dodatkowe karty sieciowe i podsieci nie są potrzebne w klastrze gościa maszyny wirtualnej Azure IaaS. Mimo że raport z weryfikacji klastra wyświetli ostrzeżenie, że węzły są dostępne tylko w ramach jednej sieci, to ostrzeżenie można zignorować w klastrach trybu failover gościa maszyny wirtualnej IaaS platformy Azure. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [najlepszymi rozwiązaniami HADR Cluster](hadr-cluster-best-practices.md) , a następnie Rozpocznij pracę z wdrażaniem grupy dostępności przy użyciu [Azure Portal](availability-group-azure-portal-configure.md), [interfejsu wiersza polecenia platformy Azure/programu PowerShell](availability-group-az-cli-configure.md), [szablonów szybkiego startu](availability-group-quickstart-template-configure.md) lub [ręcznie](availability-group-manually-configure-prerequisites-tutorial.md).
+Zapoznaj się z [najlepszymi rozwiązaniami HADR Cluster](hadr-cluster-best-practices.md) , a następnie Rozpocznij pracę z wdrażaniem grupy dostępności przy użyciu [Azure Portal](availability-group-azure-portal-configure.md), [interfejsu wiersza polecenia platformy Azure/programu PowerShell](./availability-group-az-commandline-configure.md), [szablonów szybkiego startu](availability-group-quickstart-template-configure.md) lub [ręcznie](availability-group-manually-configure-prerequisites-tutorial.md).
 
-Alternatywnie można wdrożyć [grupę dostępności bezklastrową](availability-group-clusterless-workgroup-configure.md) lub grupę dostępności w [wielu regionach](availability-group-manually-configure-multiple-regions.md). 
+Alternatywnie można wdrożyć [grupę dostępności bezklastrową](availability-group-clusterless-workgroup-configure.md) lub grupę dostępności w [wielu regionach](availability-group-manually-configure-multiple-regions.md).

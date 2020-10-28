@@ -11,14 +11,14 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619818"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791277"
 ---
-# <a name="extended-events-in-azure-sql-database"></a>Zdarzenia rozszerzone w Azure SQL Database 
+# <a name="extended-events-in-azure-sql-database"></a>Zdarzenia rozszerzone w usłudze Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -36,7 +36,7 @@ Dodatkowe informacje na temat zdarzeń rozszerzonych są dostępne pod adresem:
 
 W tym temacie założono, że masz już pewną wiedzę na temat:
 
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [Baza danych SQL Azure](https://azure.microsoft.com/services/sql-database/)
 - [Zdarzenia rozszerzone](/sql/relational-databases/extended-events/extended-events)
 
 - Obszerna dokumentacja dotycząca zdarzeń rozszerzonych ma zastosowanie do SQL Server, Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL.
@@ -71,7 +71,7 @@ Tematy pokrewne zawierają dwa przykłady kodu:
 
 ## <a name="new-catalog-views"></a>Nowe widoki wykazu
 
-Funkcja zdarzeń rozszerzonych jest obsługiwana przez kilka [widoków wykazu](https://msdn.microsoft.com/library/ms174365.aspx). Widoki wykazu informują o *metadanych lub definicjach* sesji zdarzeń utworzonych przez użytkownika w bieżącej bazie danych. Widoki nie zwracają informacji o wystąpieniach aktywnych sesji zdarzeń.
+Funkcja zdarzeń rozszerzonych jest obsługiwana przez kilka [widoków wykazu](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql). Widoki wykazu informują o *metadanych lub definicjach* sesji zdarzeń utworzonych przez użytkownika w bieżącej bazie danych. Widoki nie zwracają informacji o wystąpieniach aktywnych sesji zdarzeń.
 
 | Nazwa<br/>Widok wykazu | Opis |
 |:--- |:--- |
@@ -81,11 +81,11 @@ Funkcja zdarzeń rozszerzonych jest obsługiwana przez kilka [widoków wykazu](h
 | **sys.database_event_session_targets** |Zwraca wiersz dla każdego obiektu docelowego zdarzenia dla sesji zdarzeń. |
 | **sys.database_event_sessions** |Zwraca wiersz dla każdej sesji zdarzeń w bazie danych. |
 
-W Microsoft SQL Server podobne widoki wykazu mają nazwy, które obejmują *. serwer \_ * zamiast *. baza danych \_ *. Wzorzec nazwy jest taki jak **sys.server_event_%**.
+W Microsoft SQL Server podobne widoki wykazu mają nazwy, które obejmują *. serwer \_* zamiast *. baza danych \_* . Wzorzec nazwy jest taki jak **sys.server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvs"></a>Nowe dynamiczne widoki zarządzania [(widoków DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>Nowe dynamiczne widoki zarządzania [(widoków DMV)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
-Azure SQL Database ma [dynamiczne widoki zarządzania (widoków DMV)](https://msdn.microsoft.com/library/bb677293.aspx) , które obsługują zdarzenia rozszerzone. Widoków DMV informacje o *aktywnych* sesjach zdarzeń.
+Azure SQL Database ma [dynamiczne widoki zarządzania (widoków DMV)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views) , które obsługują zdarzenia rozszerzone. Widoków DMV informacje o *aktywnych* sesjach zdarzeń.
 
 | Nazwa DMV | Opis |
 |:--- |:--- |
@@ -95,9 +95,9 @@ Azure SQL Database ma [dynamiczne widoki zarządzania (widoków DMV)](https://ms
 | **sys.dm_xe_database_session_targets** |Zwraca informacje o celach docelowych sesji. |
 | **sys.dm_xe_database_sessions** |Zwraca wiersz dla każdej sesji zdarzeń, który jest objęty zakresem bieżącej bazy danych. |
 
-W Microsoft SQL Server podobne widoki wykazu są nazwane bez części nazwy * \_ bazy danych* , takiej jak:
+W Microsoft SQL Server podobne widoki wykazu są nazwane bez części nazwy *\_ bazy danych* , takiej jak:
 
-- **sys.dm_xe_sessions**, zamiast nazwy<br/>**sys.dm_xe_database_sessions**.
+- **sys.dm_xe_sessions** , zamiast nazwy<br/>**sys.dm_xe_database_sessions** .
 
 ### <a name="dmvs-common-to-both"></a>Widoków DMV wspólne dla obu
 
@@ -140,11 +140,11 @@ SELECT
 
 Poniżej znajdują się elementy docelowe, które mogą przechwytywać wyniki z sesji zdarzeń na Azure SQL Database:
 
-- [Docelowy bufora pierścieniowego](https://msdn.microsoft.com/library/ff878182.aspx) — krótko przechowuje dane zdarzenia w pamięci.
-- [Obiekt docelowy licznika zdarzeń](https://msdn.microsoft.com/library/ff878025.aspx) — zlicza wszystkie zdarzenia występujące podczas sesji zdarzeń rozszerzonych.
-- [Docelowy plik zdarzeń](https://msdn.microsoft.com/library/ff878115.aspx) — zapisuje kompletne bufory do kontenera usługi Azure Storage.
+- [Docelowy bufora pierścieniowego](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) — krótko przechowuje dane zdarzenia w pamięci.
+- [Obiekt docelowy licznika zdarzeń](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) — zlicza wszystkie zdarzenia występujące podczas sesji zdarzeń rozszerzonych.
+- [Docelowy plik zdarzeń](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) — zapisuje kompletne bufory do kontenera usługi Azure Storage.
 
-Interfejs API [śledzenia zdarzeń systemu Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) nie jest dostępny dla zdarzeń rozszerzonych w Azure SQL Database.
+Interfejs API [śledzenia zdarzeń systemu Windows (ETW)](/dotnet/framework/wcf/samples/etw-tracing) nie jest dostępny dla zdarzeń rozszerzonych w Azure SQL Database.
 
 ## <a name="restrictions"></a>Ograniczenia
 
@@ -183,11 +183,11 @@ W **celu przechowywania danych w obiektach** BLOB usługi Azure Storage może wy
 ## <a name="related-links"></a>Linki pokrewne
 
 - [Używanie Azure PowerShell z usługą Azure Storage](/powershell/module/az.storage/).
-- [Polecenia cmdlet usługi Azure Storage](https://docs.microsoft.com/powershell/module/Azure.Storage)
+- [Polecenia cmdlet usługi Azure Storage](/powershell/module/Azure.Storage)
 - [Używanie programu Azure PowerShell z usługą Azure Storage](/powershell/module/az.storage/)
 - [Jak używać usługi BLOB Storage z platformy .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [Utwórz sesję zdarzeń (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
+- [Utwórz sesję zdarzeń (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
 - [Wpisy w blogu Jonathana Kehayias na temat zdarzeń rozszerzonych w Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 - Strona sieci Web *aktualizacji usługi* platformy Azure, zawężana przez parametr do Azure SQL Database:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
@@ -195,6 +195,6 @@ W **celu przechowywania danych w obiektach** BLOB usługi Azure Storage może wy
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

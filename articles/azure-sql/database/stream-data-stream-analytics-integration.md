@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 640dcfc49d1b467cbb852e8b07b113c1180daf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b796d6689db143cf59ae4ca0a180c2c7c317b7bd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617098"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789441"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Przesyłanie strumieniowe danych do Azure SQL Database przy użyciu integracji Azure Stream Analytics (wersja zapoznawcza)
 
@@ -43,22 +43,22 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
 ## <a name="configure-stream-analytics-integration"></a>Konfigurowanie integracji usługi Stream Analytics
 
-1. Zaloguj się do Portalu Azure.
-2. Przejdź do bazy danych, w której chcesz pozyskać dane przesyłane strumieniowo. Wybierz pozycję **Stream Analytics (wersja zapoznawcza)**.
+1. Zaloguj się w witrynie Azure Portal.
+2. Przejdź do bazy danych, w której chcesz pozyskać dane przesyłane strumieniowo. Wybierz pozycję **Stream Analytics (wersja zapoznawcza)** .
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
-3. Aby rozpocząć pozyskiwanie danych przesyłanych strumieniowo do tej bazy danych, wybierz pozycję **Utwórz** i nadaj jej nazwę zadanie przesyłania strumieniowego, a następnie wybierz kolejno pozycje **Dalej: dane wejściowe**.
+3. Aby rozpocząć pozyskiwanie danych przesyłanych strumieniowo do tej bazy danych, wybierz pozycję **Utwórz** i nadaj jej nazwę zadanie przesyłania strumieniowego, a następnie wybierz kolejno pozycje **Dalej: dane wejściowe** .
 
     ![Skonfiguruj podstawowe informacje o zadaniach Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
 
-4. Wprowadź szczegóły źródła zdarzeń, a następnie wybierz pozycję **Dalej: dane wyjściowe**.
+4. Wprowadź szczegóły źródła zdarzeń, a następnie wybierz pozycję **Dalej: dane wyjściowe** .
 
-   - **Typ danych wejściowych**: centrum zdarzeń/IoT Hub
-   - **Alias wejściowy**: Wprowadź nazwę identyfikującą źródło zdarzeń
-   - **Subskrypcja**: taka sama jak subskrypcja Azure SQL Database
-   - **Przestrzeń nazw centrum zdarzeń**: nazwa dla przestrzeni nazw
-   - **Nazwa centrum zdarzeń**: nazwa centrum zdarzeń w wybranej przestrzeni nazw
+   - **Typ danych wejściowych** : centrum zdarzeń/IoT Hub
+   - **Alias wejściowy** : Wprowadź nazwę identyfikującą źródło zdarzeń
+   - **Subskrypcja** : taka sama jak subskrypcja Azure SQL Database
+   - **Przestrzeń nazw centrum zdarzeń** : nazwa dla przestrzeni nazw
+   - **Nazwa centrum zdarzeń** : nazwa centrum zdarzeń w wybranej przestrzeni nazw
    - **Nazwa zasad centrum zdarzeń** (domyślnie tworzenia nowej): nadaj nazwę zasadom
    - **Grupa konsumentów centrum zdarzeń** (domyślnie do utworzenia nowego): nadaj nazwę grupie odbiorców  
 
@@ -66,10 +66,10 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
      ![Konfigurowanie danych wyjściowych zadania Stream Analytics](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
-5. Wybierz tabelę, do której chcesz pozyskać dane przesyłane strumieniowo. Po zakończeniu wybierz pozycję **Utwórz**.
+5. Wybierz tabelę, do której chcesz pozyskać dane przesyłane strumieniowo. Po zakończeniu wybierz pozycję **Utwórz** .
 
-   - **Nazwa użytkownika**, **hasło**: Wprowadź poświadczenia dla uwierzytelniania programu SQL Server. Wybierz przycisk **Weryfikuj**.
-   - **Tabela**: wybierz pozycję **Utwórz nową** lub **Użyj istniejącej**. W tym przepływie Wybierzmy pozycję **Utwórz**. Spowoduje to utworzenie nowej tabeli podczas uruchamiania zadania usługi Stream Analytics.
+   - **Nazwa użytkownika** , **hasło** : Wprowadź poświadczenia dla uwierzytelniania programu SQL Server. Wybierz przycisk **Weryfikuj** .
+   - **Tabela** : wybierz pozycję **Utwórz nową** lub **Użyj istniejącej** . W tym przepływie Wybierzmy pozycję **Utwórz** . Spowoduje to utworzenie nowej tabeli podczas uruchamiania zadania usługi Stream Analytics.
 
      ![Tworzenie zadania Stream Analytics](./media/stream-data-stream-analytics-integration/create.png)
 
@@ -78,7 +78,7 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
    - Twoje dane **wejściowe** (Źródło zdarzeń wejściowych), z którego będą pozyskiwane dane  
    - Dane **wyjściowe** (Tabela wyjściowa), w której będą przechowywane przekształcone dane
    - Przykładowe [zapytanie SAQL](../../stream-analytics/stream-analytics-stream-analytics-query-patterns.md) z instrukcją SELECT.
-   - **Podgląd danych wejściowych**: zawiera migawkę najnowszych danych przychodzących ze źródła zdarzeń wejściowych.
+   - **Podgląd danych wejściowych** : zawiera migawkę najnowszych danych przychodzących ze źródła zdarzeń wejściowych.
      - Typ serializacji w danych jest wykrywany automatycznie (JSON/CSV). Można ją zmienić ręcznie również na format JSON/CSV/AVRO.
      - Dane przychodzące można wyświetlać w formacie tabeli lub w formacie nieprzetworzonym.
      - Jeśli wyświetlane dane nie są aktualne, wybierz pozycję **Odśwież** , aby wyświetlić najnowsze zdarzenia.
@@ -87,43 +87,42 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
      ![zapytanie testowe](./media/stream-data-stream-analytics-integration/test-query.png)
 
-   - **Wyniki testu**: Wybierz **kwerendę testową** i możesz zobaczyć wyniki zapytania przesyłania strumieniowego
+   - **Wyniki testu** : Wybierz **kwerendę testową** i możesz zobaczyć wyniki zapytania przesyłania strumieniowego
 
      ![wyniki testu](./media/stream-data-stream-analytics-integration/test-results.png)
 
-   - **Schemat wyników testu**: pokazuje schemat wyników zapytania przesyłania strumieniowego po przetestowaniu. Upewnij się, że schemat wyników testu jest zgodny z schematem wyjściowym.
+   - **Schemat wyników testu** : pokazuje schemat wyników zapytania przesyłania strumieniowego po przetestowaniu. Upewnij się, że schemat wyników testu jest zgodny z schematem wyjściowym.
 
      ![Schemat wyników testu](./media/stream-data-stream-analytics-integration/test-results-schema.png)
 
-   - **Schemat wyjściowy**: zawiera schemat tabeli wybranej w kroku 5 (nowy lub istniejący).
+   - **Schemat wyjściowy** : zawiera schemat tabeli wybranej w kroku 5 (nowy lub istniejący).
 
       - Utwórz nowy: w przypadku wybrania tej opcji w kroku 5 schemat nie będzie jeszcze widoczny do momentu uruchomienia zadania przesyłania strumieniowego. Podczas tworzenia nowej tabeli wybierz odpowiedni indeks tabeli. Aby uzyskać więcej informacji na temat indeksowania tabeli, zobacz [opisane indeksy klastrowane i nieklastrowane](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described/).
       - Użyj istniejącej: Jeśli w kroku 5 wybrano tę opcję, zostanie wyświetlony schemat wybranej tabeli.
 
-7. Po zakończeniu tworzenia & przetestowaniu zapytania wybierz pozycję **Zapisz zapytanie**. Wybierz pozycję **rozpocznij Stream Analytics zadanie** , aby rozpocząć pozyskiwanie przekształconych danych do tabeli SQL. Po sfinalizowaniu poniższych pól **Uruchom** zadanie.
-   - **Godzina rozpoczęcia produkcji**: definiuje godzinę pierwszego wyjścia zadania.  
+7. Po zakończeniu tworzenia & przetestowaniu zapytania wybierz pozycję **Zapisz zapytanie** . Wybierz pozycję **rozpocznij Stream Analytics zadanie** , aby rozpocząć pozyskiwanie przekształconych danych do tabeli SQL. Po sfinalizowaniu poniższych pól **Uruchom** zadanie.
+   - **Godzina rozpoczęcia produkcji** : definiuje godzinę pierwszego wyjścia zadania.  
      - Teraz: zadanie zostanie uruchomione teraz i przetworzy nowe przychodzące dane.
      - Niestandardowo: zadanie zostanie uruchomione teraz, ale będzie przetwarzać dane z określonego punktu w czasie (może to być w przeszłości lub w przyszłości). Aby uzyskać więcej informacji, zobacz [jak uruchomić zadanie Azure Stream Analytics](../../stream-analytics/start-job.md).
-   - **Jednostki przesyłania strumieniowego**: Azure Stream Analytics są wyceniane według liczby jednostek przesyłania strumieniowego wymaganych do przetworzenia danych w usłudze. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/).
-   - **Obsługa błędów danych wyjściowych**:  
+   - **Jednostki przesyłania strumieniowego** : Azure Stream Analytics są wyceniane według liczby jednostek przesyłania strumieniowego wymaganych do przetworzenia danych w usłudze. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/).
+   - **Obsługa błędów danych wyjściowych** :  
      - Ponów próbę: w przypadku wystąpienia błędu Azure Stream Analytics ponawianie próby zapisu zdarzenia przez czas do momentu pomyślnego zapisu. Nie ma limitu czasu dla ponownych prób. Ostatecznie wszystkie kolejne zdarzenia są blokowane przed przetwarzaniem przez zdarzenie, które jest ponawiane. Ta opcja jest domyślną zasadą obsługi błędów wyjścia.
      - Upuść: Azure Stream Analytics spowoduje porzucenie zdarzenia wyjściowego, które powoduje błąd konwersji danych. Nie można odzyskać porzuconych zdarzeń w celu późniejszego przetworzenia. Wszystkie błędy przejściowe (na przykład błędy sieciowe) są ponawiane niezależnie od konfiguracji wyjściowych zasad obsługi błędów.
-   - **SQL Database Ustawienia wyjściowe**: opcja dziedziczenia schematu partycjonowania poprzedniego kroku zapytania, aby włączyć w pełni równoległą topologię z wieloma składnikami zapisywania do tabeli. Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics danych wyjściowych Azure SQL Database](../../stream-analytics/stream-analytics-sql-output-perf.md).
-   - **Maksymalna liczba partii**: zalecany górny limit liczby rekordów wysyłanych z każdą zbiorczą transakcją wstawiania.  
+   - **SQL Database Ustawienia wyjściowe** : opcja dziedziczenia schematu partycjonowania poprzedniego kroku zapytania, aby włączyć w pełni równoległą topologię z wieloma składnikami zapisywania do tabeli. Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics danych wyjściowych Azure SQL Database](../../stream-analytics/stream-analytics-sql-output-perf.md).
+   - **Maksymalna liczba partii** : zalecany górny limit liczby rekordów wysyłanych z każdą zbiorczą transakcją wstawiania.  
     Aby uzyskać więcej informacji na temat obsługi błędów wyjściowych, zobacz [wyjściowe zasady błędów w Azure Stream Analytics](../../stream-analytics/stream-analytics-output-error-policy.md).  
 
      ![Uruchom zadanie](./media/stream-data-stream-analytics-integration/start-job.png)
 
 8. Po rozpoczęciu zadania zobaczysz uruchomione zadanie na liście i możesz wykonać następujące czynności:
-   - **Uruchom/Zatrzymaj zadanie**: Jeśli zadanie jest uruchomione, możesz zatrzymać zadanie. Jeśli zadanie zostało zatrzymane, można je uruchomić.
-   - **Edytuj zadanie**: można edytować zapytanie. Jeśli chcesz wprowadzić więcej zmian w zadaniu, Dodaj więcej danych wejściowych/wyjściowych, a następnie otwórz zadanie w Stream Analytics. Opcja Edytuj jest wyłączona, gdy zadanie jest uruchomione.
-   - **Wyświetl podgląd tabeli wyjściowej**: można wyświetlić podgląd tabeli w edytorze zapytań SQL.
-   - **Otwórz w Stream Analytics**: Otwórz zadanie w Stream Analytics, aby wyświetlić monitorowanie, szczegóły debugowania zadania.
+   - **Uruchom/Zatrzymaj zadanie** : Jeśli zadanie jest uruchomione, możesz zatrzymać zadanie. Jeśli zadanie zostało zatrzymane, można je uruchomić.
+   - **Edytuj zadanie** : można edytować zapytanie. Jeśli chcesz wprowadzić więcej zmian w zadaniu, Dodaj więcej danych wejściowych/wyjściowych, a następnie otwórz zadanie w Stream Analytics. Opcja Edytuj jest wyłączona, gdy zadanie jest uruchomione.
+   - **Wyświetl podgląd tabeli wyjściowej** : można wyświetlić podgląd tabeli w edytorze zapytań SQL.
+   - **Otwórz w Stream Analytics** : Otwórz zadanie w Stream Analytics, aby wyświetlić monitorowanie, szczegóły debugowania zadania.
 
      ![zadania usługi Stream Analytics](./media/stream-data-stream-analytics-integration/jobs.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dokumentacja usługi Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)
+- [Dokumentacja usługi Azure Stream Analytics](../../stream-analytics/index.yml)
 - [Wzorce rozwiązań usługi Azure Stream Analytics](../../stream-analytics/stream-analytics-solution-patterns.md)
- 

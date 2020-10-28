@@ -12,12 +12,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: 61160943fc5762fd492f61a75a44159f2ef9cab2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b76390efaed94003a792b04836d6850e6b7a7ead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448791"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789560"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorowanie wydajności usługi Microsoft Azure SQL Database i Azure SQL Managed Instance przy użyciu dynamicznych widoków zarządzania
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ Microsoft Azure SQL Database i wystąpienie zarządzane usługi Azure SQL częś
 - Dynamiczne widoki zarządzania powiązane z wykonywaniem.
 - Dynamiczne widoki zarządzania powiązane z transakcjami.
 
-Aby uzyskać szczegółowe informacje o widokach zarządzania dynamicznego, zobacz [dynamiczne widoki zarządzania i funkcje (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+Aby uzyskać szczegółowe informacje o widokach zarządzania dynamicznego, zobacz [dynamiczne widoki zarządzania i funkcje (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 ## <a name="permissions"></a>Uprawnienia
 
@@ -94,7 +94,7 @@ GO
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>Wystąpił problem z procesorem CPU w przeszłości
 
-Jeśli problem wystąpił w przeszłości i chcesz przeprowadzić analizę głównej przyczyny, użyj [magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Użytkownicy z dostępem do bazy danych mogą używać języka T-SQL do wykonywania zapytań dotyczących danych magazynu zapytań. Domyślne konfiguracje magazynu zapytań korzystają z stopnia szczegółowości 1 godziny. Użyj następującego zapytania, aby przyjrzeć się działaniu w przypadku dużych zapytań zużywających procesor CPU. To zapytanie zwraca 15 najważniejszych zapytań zużywających procesor CPU. Pamiętaj, aby zmienić `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()` :
+Jeśli problem wystąpił w przeszłości i chcesz przeprowadzić analizę głównej przyczyny, użyj [magazynu zapytań](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Użytkownicy z dostępem do bazy danych mogą używać języka T-SQL do wykonywania zapytań dotyczących danych magazynu zapytań. Domyślne konfiguracje magazynu zapytań korzystają z stopnia szczegółowości 1 godziny. Użyj następującego zapytania, aby przyjrzeć się działaniu w przypadku dużych zapytań zużywających procesor CPU. To zapytanie zwraca 15 najważniejszych zapytań zużywających procesor CPU. Pamiętaj, aby zmienić `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()` :
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -119,7 +119,7 @@ Po zidentyfikowaniu problemów z zapytaniami czasowo dostroić te zapytania, aby
 
 ## <a name="identify-io-performance-issues"></a>Identyfikowanie problemów z wydajnością we/wy
 
-Podczas identyfikowania problemów dotyczących wydajności operacji we/wy najważniejsze typy oczekiwania skojarzone z problemami we/wy są następujące:
+Podczas identyfikowania problemów z wydajnością operacji we/wy najczęstsze typy oczekiwania skojarzone z problemami operacji we/wy są następujące:
 
 - `PAGEIOLATCH_*`
 
@@ -131,7 +131,7 @@ Podczas identyfikowania problemów dotyczących wydajności operacji we/wy najwa
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Jeśli problem we/wy występuje już teraz
 
-Użyj [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) lub [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) , aby zobaczyć `wait_type` i `wait_time` .
+Użyj [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) lub [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) , aby zobaczyć `wait_type` i `wait_time` .
 
 #### <a name="identify-data-and-log-io-usage"></a>Identyfikowanie użycia operacji we/wy danych i dziennika
 
@@ -145,7 +145,7 @@ ORDER BY end_time DESC;
 
 Jeśli limit operacji we/wy został osiągnięty, dostępne są dwie opcje:
 
-- Opcja 1: uaktualnianie rozmiaru obliczeń lub warstwy usług
+- Opcja 1: Uaktualnij rozmiar obliczeniowy lub warstwę usługi
 - Opcja 2: Identyfikowanie i dostrajanie zapytań zużywających najwięcej operacji we/wy.
 
 #### <a name="view-buffer-related-io-using-the-query-store"></a>Wyświetlanie operacji we/wy związanych z buforem przy użyciu magazynu zapytań
@@ -252,15 +252,15 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identyfikowanie `tempdb` problemów z wydajnością
 
-W przypadku identyfikowania problemów dotyczących wydajności operacji we/wy najważniejsze typy oczekiwania skojarzone z `tempdb` problemami to `PAGELATCH_*` (nie `PAGEIOLATCH_*` ). Jednak `PAGELATCH_*` oczekiwania nie zawsze oznaczają `tempdb` rywalizację.  Taka odczekanie może również oznaczać, że masz zawartość strony danych obiektu użytkownika z powodu współbieżnych żądań przeznaczonych dla tej samej strony danych. Aby dodatkowo potwierdzić `tempdb` rywalizację, użyj [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) , aby potwierdzić, że wait_resource wartość zaczyna się od, `2:x:y` gdzie 2 jest `tempdb` identyfikatorem bazy danych, `x` jest identyfikatorem pliku i jest identyfikatorem `y` strony.  
+W przypadku identyfikowania problemów dotyczących wydajności operacji we/wy najważniejsze typy oczekiwania skojarzone z `tempdb` problemami to `PAGELATCH_*` (nie `PAGEIOLATCH_*` ). Jednak `PAGELATCH_*` oczekiwania nie zawsze oznaczają `tempdb` rywalizację.  To oczekiwanie może również oznaczać występowanie rywalizacji o stronę danych obiektu użytkownika z powodu współbieżnych żądań przeznaczonych dla tej samej strony danych. Aby dodatkowo potwierdzić `tempdb` rywalizację, użyj [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) , aby potwierdzić, że wait_resource wartość zaczyna się od, `2:x:y` gdzie 2 jest `tempdb` identyfikatorem bazy danych, `x` jest identyfikatorem pliku i jest identyfikatorem `y` strony.  
 
 W przypadku rywalizacji o bazę danych tempdb wspólna metoda polega na zmniejszeniu lub ponownym zapisaniu kodu aplikacji, na którym bazuje `tempdb` .  Typowe `tempdb` obszary użycia obejmują:
 
 - Tabele tymczasowe
 - Zmienne tabeli
 - Parametry z wartościami przechowywanymi w tabeli
-- Użycie magazynu wersji (powiązane z długotrwałymi transakcjami)
-- Zapytania z planami zapytania, które używają sortowania, sprzężeń skrótów i buforów
+- Użycie magazynu wersji (powiązane w szczególności z długotrwałymi transakcjami)
+- Zapytania z planami, które używają sortowania, sprzężeń skrótów i buforów
 
 ### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Najpopularniejsze zapytania, które używają zmiennych tabeli i tabel tymczasowych
 
@@ -474,7 +474,7 @@ FROM sys.dm_exec_requests AS r
 ORDER BY mg.granted_memory_kb DESC;
 ```
 
-## <a name="calculating-database-and-objects-sizes"></a>Obliczanie rozmiarów baz danych i obiektów
+## <a name="calculating-database-and-objects-sizes"></a>Obliczanie rozmiaru bazy danych i obiektów
 
 Następujące zapytanie zwraca rozmiar bazy danych (w megabajtach):
 
@@ -517,21 +517,21 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> W przypadku wykonywania widoków **sys.dm_exec_requests** i **sys.dm_exec_sessions**, jeśli w bazie danych masz uprawnienia do **wyświetlania stanu bazy** danych, zobaczysz wszystkie wykonywane sesje w bazie danych. w przeciwnym razie zostanie wyświetlona tylko bieżąca sesja.
+> W przypadku wykonywania widoków **sys.dm_exec_requests** i **sys.dm_exec_sessions** , jeśli w bazie danych masz uprawnienia do **wyświetlania stanu bazy** danych, zobaczysz wszystkie wykonywane sesje w bazie danych. w przeciwnym razie zostanie wyświetlona tylko bieżąca sesja.
 
 ## <a name="monitor-resource-use"></a>Monitoruj użycie zasobów
 
-Korzystając z [SQL Database szczegółowe informacje o wydajności zapytań](query-performance-insight-use.md), można monitorować użycie zasobów Azure SQL Database. W przypadku Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL można monitorować przy użyciu [magazynu zapytań](https://msdn.microsoft.com/library/dn817826.aspx).
+Korzystając z [SQL Database szczegółowe informacje o wydajności zapytań](query-performance-insight-use.md), można monitorować użycie zasobów Azure SQL Database. W przypadku Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL można monitorować przy użyciu [magazynu zapytań](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 Możesz również monitorować użycie przy użyciu następujących widoków:
 
 - Azure SQL Database: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - Wystąpienie zarządzane Azure SQL: [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
-- Zarówno Azure SQL Database, jak i wystąpienie zarządzane usługi Azure SQL: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- Zarówno Azure SQL Database, jak i wystąpienie zarządzane usługi Azure SQL: [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 
 ### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
-W każdej bazie danych można używać widoku [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) . W widoku **sys.dm_db_resource_stats** są wyświetlane ostatnie dane dotyczące użycia zasobów względem warstwy usług. Średnia wartość procentowa dla procesora CPU, operacji we/wy danych, zapisów dziennika i pamięci są rejestrowane co 15 sekund i są przechowywane przez 1 godzinę.
+W każdej bazie danych można używać widoku [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) . W widoku **sys.dm_db_resource_stats** są wyświetlane ostatnie dane dotyczące użycia zasobów względem warstwy usług. Średnia wartość procentowa dla procesora CPU, operacji we/wy danych, zapisów dziennika i pamięci są rejestrowane co 15 sekund i są przechowywane przez 1 godzinę.
 
 Ponieważ ten widok zapewnia bardziej szczegółowy wgląd w użycie zasobów, należy najpierw użyć **sys.dm_db_resource_stats** dla każdej analizy bieżącego stanu lub rozwiązywania problemów. Na przykład to zapytanie pokazuje średnie i maksymalne użycie zasobów dla bieżącej bazy danych w ciągu ostatniej godziny:
 
@@ -548,7 +548,7 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-Inne zapytania można znaleźć w przykładach w [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Inne zapytania można znaleźć w przykładach w [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).
 
 ### <a name="sysserver_resource_stats"></a>sys.server_resource_stats
 
@@ -568,7 +568,7 @@ HAVING AVG(avg_cpu_percent) >= 80
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
-Widok [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) w bazie danych **Master** zawiera dodatkowe informacje, które mogą ułatwić monitorowanie wydajności bazy danych w określonej warstwie usług i rozmiarze obliczeniowym. Dane są zbierane co 5 minut i są przechowywane przez około 14 dni. Ten widok jest przydatny do długoterminowej analizy historycznej, w jaki sposób baza danych używa zasobów.
+Widok [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) w bazie danych **Master** zawiera dodatkowe informacje, które mogą ułatwić monitorowanie wydajności bazy danych w określonej warstwie usług i rozmiarze obliczeniowym. Dane są zbierane co 5 minut i są przechowywane przez około 14 dni. Ten widok jest przydatny do długoterminowej analizy historycznej, w jaki sposób baza danych używa zasobów.
 
 Na poniższym wykresie przedstawiono użycie zasobów procesora CPU dla bazy danych w warstwie Premium z wielkością obliczeniową P2 dla każdej godziny w tygodniu. Ten wykres zaczyna się w poniedziałek, pokazuje 5 dni roboczych, a następnie pokazuje weekend, gdy jest znacznie mniejszy w aplikacji.
 
@@ -743,11 +743,11 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Monitorowanie zablokowanych zapytań
 
-Wykonywanie wolnych lub długotrwałych zapytań może współtworzyć nadmierne zużycie zasobów i być konsekwencją zablokowanych zapytań. Przyczyną blokowania może być słaba konstrukcja aplikacji, złe plany zapytań, brak przydatnych indeksów i tak dalej. Możesz użyć widoku sys.dm_tran_locks, aby uzyskać informacje o bieżącym działaniu blokowania w bazie danych. Na przykład kod, zobacz [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
+Wykonywanie wolnych lub długotrwałych zapytań może współtworzyć nadmierne zużycie zasobów i być konsekwencją zablokowanych zapytań. Przyczyną blokowania może być słaba konstrukcja aplikacji, złe plany zapytań, brak przydatnych indeksów i tak dalej. Możesz użyć widoku sys.dm_tran_locks, aby uzyskać informacje o bieżącym działaniu blokowania w bazie danych. Na przykład kod, zobacz [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
 
 ### <a name="monitoring-query-plans"></a>Monitorowanie planów zapytań
 
-Nieefektywny plan zapytania może również zwiększyć użycie procesora CPU. Poniższy przykład używa widoku [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) , aby określić, które zapytanie używa najbardziej SKUMULOWANEGO procesora CPU.
+Nieefektywny plan zapytania może również zwiększyć użycie procesora CPU. Poniższy przykład używa widoku [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql) , aby określić, które zapytanie używa najbardziej SKUMULOWANEGO procesora CPU.
 
 ```sql
 SELECT
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Wprowadzenie do Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL](sql-database-paas-overview.md)

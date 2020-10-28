@@ -12,26 +12,26 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: d2ea14356bf85c795769f1d406f1571f36adaa38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a47b9032ac014fa4eedde343d03d4fd343ff02
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617923"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790665"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Skonfiguruj zaawansowaną ochronę przed zagrożeniami w wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[Zaawansowana ochrona przed zagrożeniami](../database/threat-detection-overview.md) dla [wystąpienia zarządzanego usługi Azure SQL](sql-managed-instance-paas-overview.md) wykrywa nietypowe działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania. Zaawansowana ochrona przed zagrożeniami może identyfikować **potencjalną iniekcję kodu SQL**, **uzyskiwać dostęp z nietypowej lokalizacji lub centrum danych**, **uzyskiwać dostęp z nieznanego podmiotu zabezpieczeń lub potencjalnie szkodliwej aplikacji**oraz **wymuszać poświadczenia SQL** — Zobacz więcej szczegółów w temacie [Advanced Threat Protection](../database/threat-detection-overview.md#alerts)
+[Zaawansowana ochrona przed zagrożeniami](../database/threat-detection-overview.md) dla [wystąpienia zarządzanego usługi Azure SQL](sql-managed-instance-paas-overview.md) wykrywa nietypowe działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania. Zaawansowana ochrona przed zagrożeniami może identyfikować **potencjalną iniekcję kodu SQL** , **uzyskiwać dostęp z nietypowej lokalizacji lub centrum danych** , **uzyskiwać dostęp z nieznanego podmiotu zabezpieczeń lub potencjalnie szkodliwej aplikacji** oraz **wymuszać poświadczenia SQL** — Zobacz więcej szczegółów w temacie [Advanced Threat Protection](../database/threat-detection-overview.md#alerts)
 
 Powiadomienia dotyczące wykrytych zagrożeń można odbierać za pośrednictwem [powiadomień e-mail](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) lub [Azure Portal](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
 [Zaawansowana ochrona przed zagrożeniami](../database/threat-detection-overview.md) jest częścią [usługi Azure Defender dla oferty SQL](../database/azure-defender-for-sql.md)  , która jest ujednoliconym pakietem dla zaawansowanych możliwości zabezpieczeń SQL. Dostęp do zaawansowanej ochrony przed zagrożeniami można uzyskać i zarządzać nimi za pośrednictwem centralnej usługi Azure Defender dla programu SQL Portal.
 
-##  <a name="azure-portal"></a>Azure Portal
+##  <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Zaloguj się do  [Azure Portal](https://portal.azure.com). 
-2. Przejdź do strony Konfiguracja wystąpienia wystąpienia zarządzanego SQL, które chcesz chronić. W obszarze **zabezpieczenia**wybierz pozycję **Centrum zabezpieczeń**.
+2. Przejdź do strony Konfiguracja wystąpienia wystąpienia zarządzanego SQL, które chcesz chronić. W obszarze **zabezpieczenia** wybierz pozycję **Centrum zabezpieczeń** .
 3. Na stronie Konfiguracja usługi Azure Defender dla programu SQL Server
    - Włącz **usługę Azure Defender** dla języka SQL.
    - Skonfiguruj **listę wiadomości e-mail** , aby otrzymywać alerty zabezpieczeń po wykryciu nietypowych działań bazy danych.
@@ -44,5 +44,5 @@ Powiadomienia dotyczące wykrytych zagrożeń można odbierać za pośrednictwem
 - Dowiedz się więcej na temat [zaawansowanej ochrony przed zagrożeniami](../database/threat-detection-overview.md).
 - Dowiedz się więcej o wystąpieniach zarządzanych, zobacz [co to jest wystąpienie zarządzane usługi Azure SQL](sql-managed-instance-paas-overview.md).
 - Dowiedz się więcej [na temat zaawansowanej ochrony przed zagrożeniami dla Azure SQL Database](../database/threat-detection-configure.md).
-- Dowiedz się więcej na temat [inspekcji wystąpienia zarządzanego SQL](https://go.microsoft.com/fwlink/?linkid=869430).
-- Dowiedz się więcej o [usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).
+- Dowiedz się więcej na temat [inspekcji wystąpienia zarządzanego SQL](./auditing-configure.md).
+- Dowiedz się więcej o [usłudze Azure Security Center](../../security-center/security-center-introduction.md).

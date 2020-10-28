@@ -11,17 +11,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 1d4c29cdb9cf24f87df4acc3556b318a1079810a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f8c296860fc36772a85039e27c86a72614c2a50
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443614"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791056"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Rozpocznij pracę z SQL Database dynamiczną maskowanie danych przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-W tym artykule pokazano, jak zaimplementować [Dynamiczne maskowanie danych](dynamic-data-masking-overview.md) przy użyciu Azure Portal. Możesz również zaimplementować Dynamiczne maskowanie danych za pomocą [poleceń cmdlet Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) lub [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/).
+W tym artykule pokazano, jak zaimplementować [Dynamiczne maskowanie danych](dynamic-data-masking-overview.md) przy użyciu Azure Portal. Możesz również zaimplementować Dynamiczne maskowanie danych za pomocą [poleceń cmdlet Azure SQL Database](/powershell/module/az.sql/) lub [interfejsu API REST](/rest/api/sql/).
 
 > [!NOTE]
 > Nie można ustawić tej funkcji przy użyciu portalu dla platformy Azure Synapse (Użyj programu PowerShell lub interfejsu API REST) ani wystąpienia zarządzanego SQL. Aby uzyskać więcej informacji, zobacz [Dynamiczne maskowanie danych](/sql/relational-databases/security/dynamic-data-masking).
@@ -42,7 +42,7 @@ W tym artykule pokazano, jak zaimplementować [Dynamiczne maskowanie danych](dyn
 
     ![Zrzut ekranu przedstawiający stronę Dodawanie konfiguracji reguły maskowania.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
-6. Wybierz **schemat**, **tabelę** i **kolumnę** , aby zdefiniować wyznaczono pole do maskowania.
+6. Wybierz **schemat** , **tabelę** i **kolumnę** , aby zdefiniować wyznaczono pole do maskowania.
 7. **Wybierz sposób maskowania** z listy kategorii poufne maskowanie danych.
 
     ![Zrzut ekranu przedstawiający kategorie z maską danych poufnych w sekcji Wybierz sposób maskowania.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
@@ -60,4 +60,4 @@ W tym artykule pokazano, jak zaimplementować [Dynamiczne maskowanie danych](dyn
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z omówieniem dynamicznego maskowania danych, zobacz [Dynamiczne maskowanie danych](dynamic-data-masking-overview.md).
-- Możesz również zaimplementować Dynamiczne maskowanie danych za pomocą [poleceń cmdlet Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) lub [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/).
+- Możesz również zaimplementować Dynamiczne maskowanie danych za pomocą [poleceń cmdlet Azure SQL Database](/powershell/module/az.sql/) lub [interfejsu API REST](/rest/api/sql/).

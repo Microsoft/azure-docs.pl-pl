@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d1f758390a270f072bc08e13d1d542e08e4df553
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425537"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791141"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Wykonywanie operacji usługi Azure Queue Storage przy użyciu programu Azure PowerShell
 
@@ -35,7 +35,7 @@ Brak poleceń cmdlet programu PowerShell dla płaszczyzny danych dla kolejek. Ab
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się do subskrypcji platformy Azure za pomocą polecenia `Connect-AzAccount` i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
@@ -45,7 +45,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Pobierz listę lokalizacji
 
-Jeśli nie wiesz, której lokalizacji użyć, możesz wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znajdź lokalizację, której chcesz użyć. W tym ćwiczeniu zostanie użyta **Wschodnia**. Zapisz ją w **lokalizacji** zmiennej do użycia w przyszłości.
+Jeśli nie wiesz, której lokalizacji użyć, możesz wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znajdź lokalizację, której chcesz użyć. W tym ćwiczeniu zostanie użyta **Wschodnia** . Zapisz ją w **lokalizacji** zmiennej do użycia w przyszłości.
 
 ```powershell
 Get-AzLocation | Select-Object Location
@@ -86,7 +86,7 @@ $queueName = "howtoqueue"
 $queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
-Aby uzyskać informacje dotyczące konwencji nazewnictwa usługi Azure Queue Service, zobacz [nazywanie kolejek i metadanych](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+Aby uzyskać informacje dotyczące konwencji nazewnictwa usługi Azure Queue Service, zobacz [nazywanie kolejek i metadanych](/rest/api/storageservices/Naming-Queues-and-Metadata).
 
 ## <a name="retrieve-a-queue"></a>Pobieranie kolejki
 
@@ -133,7 +133,7 @@ Ten **limit czasu niewidoczności** określa, jak długo komunikat pozostaje nie
 
 Kod odczytuje komunikat z kolejki w dwóch krokach. Po wywołaniu metody [Microsoft. Azure. Storage. Queue. CloudQueue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) zostanie wyświetlony następny komunikat w kolejce. Komunikat zwrócony z funkcji **GetMessage** staje się niewidoczny dla innego kodu odczytującego komunikaty z tej kolejki. Aby zakończyć usuwanie komunikatu z kolejki, należy wywołać metodę [Microsoft. Azure. Storage. Queue. CloudQueue. DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) .
 
-W poniższym przykładzie przeczytasz trzy komunikaty w kolejce, a następnie zaczekaj 10 sekund (limit czasu niewglądu). Następnie należy ponownie przeczytać trzy komunikaty, usuwając komunikaty po ich przeczytaniu przez wywołanie **DeleteMessage**. Jeśli spróbujesz odczytać kolejkę po usunięciu wiadomości, $queueMessage zostanie zwrócona jako wartość NULL.
+W poniższym przykładzie przeczytasz trzy komunikaty w kolejce, a następnie zaczekaj 10 sekund (limit czasu niewglądu). Następnie należy ponownie przeczytać trzy komunikaty, usuwając komunikaty po ich przeczytaniu przez wywołanie **DeleteMessage** . Jeśli spróbujesz odczytać kolejkę po usunięciu wiadomości, $queueMessage zostanie zwrócona jako wartość NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue

@@ -13,6 +13,7 @@
     - name: Tworzenie obwodu usługi ExpressRoute — interfejs wiersza polecenia
       href: howto-circuit-cli.md
     - name: Tworzenie obwodu usługi ExpressRoute — szablon usługi ARM
+      displayName: Resource Manager
       href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Samouczki

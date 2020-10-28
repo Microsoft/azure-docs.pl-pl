@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 61ccc0231989589836e00088b9ca03d0cb49baca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533958"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790954"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Ograniczenia dostępu Azure App Service
 
@@ -24,7 +24,11 @@ Gdy żądanie zostanie wysłane do aplikacji, adres od jest oceniany pod kątem 
 
 Funkcja ograniczeń dostępu jest implementowana w ramach ról frontonu App Service, które są nadrzędne w stosunku do hostów procesów roboczych, na których działa kod. W związku z tym ograniczenia dostępu są skutecznymi listami ACL sieci.
 
-Możliwość ograniczenia dostępu do aplikacji sieci Web z usługi Azure Virtual Network (VNet) nazywa się [punktami końcowymi usługi][serviceendpoints]. Punkty końcowe usługi umożliwiają ograniczenie dostępu do usługi z obsługą wielu dzierżawców z wybranych podsieci. Musi być włączona zarówno po stronie sieci, jak i w usłudze, w której jest włączona. Nie działa w sposób ograniczający ruch do aplikacji hostowanych w App Service Environment. Jeśli jesteś w App Service Environment, możesz kontrolować dostęp do aplikacji przy użyciu reguł adresów IP.
+Możliwość ograniczenia dostępu do aplikacji sieci Web z usługi Azure Virtual Network (VNet) nazywa się [punktami końcowymi usługi][serviceendpoints]. Punkty końcowe usługi umożliwiają ograniczenie dostępu do usługi z obsługą wielu dzierżawców z wybranych podsieci. Nie działa w sposób ograniczający ruch do aplikacji hostowanych w App Service Environment. Jeśli jesteś w App Service Environment, możesz kontrolować dostęp do aplikacji przy użyciu reguł adresów IP.
+
+> [!NOTE]
+> Punkty końcowe usługi muszą być włączone zarówno po stronie sieci, jak i dla usługi platformy Azure, z którą jest włączona. Aby uzyskać listę usług platformy Azure, które obsługują punkty końcowe usługi, zobacz [Virtual Network punkty końcowe usługi](../virtual-network/virtual-network-service-endpoints-overview.md).
+>
 
 ![przepływ ograniczeń dostępu](media/app-service-ip-restrictions/access-restrictions-flow.png)
 

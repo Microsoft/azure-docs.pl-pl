@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 1442ca7957a458e1458c4815033bf5e79c67c32a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1e1de694b6333a350d034b08225aeea117ae703
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448920"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790478"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurowanie eksportu przesyłania strumieniowego Azure SQL Database i diagnostyki wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,25 +50,25 @@ Oprócz przesyłania strumieniowego eksportu dziennika Intelligent Insights moż
 | [SQLInsights](#intelligent-insights-dataset): zawiera Intelligent Insights do wydajności bazy danych. Aby dowiedzieć się więcej, zobacz [Intelligent Insights](intelligent-insights-overview.md). | Tak | Tak |
 
 > [!NOTE]
-> Nie można skonfigurować ustawień diagnostycznych dla **systemowych baz danych**, takich jak bazy danych Master, msdb, model, Resource i tempdb.
+> Nie można skonfigurować ustawień diagnostycznych dla **systemowych baz danych** , takich jak bazy danych Master, msdb, model, Resource i tempdb.
 
 ## <a name="streaming-export-destinations"></a>Miejsca docelowe eksportu strumieniowego
 
 Dane telemetryczne diagnostyki mogą być przesyłane strumieniowo do jednego z następujących zasobów platformy Azure w celu przeprowadzenia analizy.
 
-- **[Log Analytics obszar roboczy](#stream-into-sql-analytics)**:
+- **[Log Analytics obszar roboczy](#stream-into-sql-analytics)** :
 
-  Dane przesyłane strumieniowo do [obszaru roboczego log Analytics](../../azure-monitor/platform/resource-logs-collect-workspace.md) mogą być używane przez usługę [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Analiza SQL to rozwiązanie monitorujące tylko w chmurze, które zapewnia inteligentne monitorowanie baz danych, które obejmują raporty wydajności, alerty i zalecenia dotyczące ograniczenia. Dane przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być analizowane przy użyciu innych zebranych danych monitorowania, a także umożliwiają korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje
-- **[Event Hubs platformy Azure](#stream-into-event-hubs)**:
+  Dane przesyłane strumieniowo do [obszaru roboczego log Analytics](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) mogą być używane przez usługę [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Analiza SQL to rozwiązanie monitorujące tylko w chmurze, które zapewnia inteligentne monitorowanie baz danych, które obejmują raporty wydajności, alerty i zalecenia dotyczące ograniczenia. Dane przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być analizowane przy użyciu innych zebranych danych monitorowania, a także umożliwiają korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje
+- **[Event Hubs platformy Azure](#stream-into-event-hubs)** :
 
-  Dane przesyłane strumieniowo do [centrum zdarzeń platformy Azure](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)zapewniają następujące funkcje:
+  Dane przesyłane strumieniowo do [centrum zdarzeń platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)zapewniają następujące funkcje:
 
-  - **Przesyłaj strumieniowo dzienniki do systemów rejestrowania i telemetrii innej firmy**: Prześlij strumieniowo wszystkie metryki i dzienniki zasobów do jednego centrum zdarzeń w celu przełączenia danych dziennika do narzędzia Siem lub log Analytics innej firmy.
-  - **Utwórz niestandardową platformę telemetrii i rejestrowania**: wysoce skalowalna natura publikowania/subskrybowania centrów zdarzeń umożliwia elastyczne pozyskiwanie metryk i dzienników zasobów na niestandardową platformę telemetrii. Aby uzyskać szczegółowe informacje [, zobacz Projektowanie i ustalanie rozmiaru globalnej platformy telemetrii w usłudze Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
-  - **Wyświetl informacje o kondycji usługi przez przesyłanie strumieniowe danych do Power BI**: Użyj Event Hubs, Stream Analytics i Power BI do przekształcania danych diagnostycznych na szczegółowe informacje w czasie rzeczywistym w ramach usług platformy Azure. Zobacz [Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym na potrzeby przesyłania strumieniowego danych](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-power-bi-dashboard) w celu uzyskania szczegółowych informacji dotyczących tego rozwiązania.
-- **[Usługa Azure Storage](#stream-into-azure-storage)**:
+  - **Przesyłaj strumieniowo dzienniki do systemów rejestrowania i telemetrii innej firmy** : Prześlij strumieniowo wszystkie metryki i dzienniki zasobów do jednego centrum zdarzeń w celu przełączenia danych dziennika do narzędzia Siem lub log Analytics innej firmy.
+  - **Utwórz niestandardową platformę telemetrii i rejestrowania** : wysoce skalowalna natura publikowania/subskrybowania centrów zdarzeń umożliwia elastyczne pozyskiwanie metryk i dzienników zasobów na niestandardową platformę telemetrii. Aby uzyskać szczegółowe informacje [, zobacz Projektowanie i ustalanie rozmiaru globalnej platformy telemetrii w usłudze Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
+  - **Wyświetl informacje o kondycji usługi przez przesyłanie strumieniowe danych do Power BI** : Użyj Event Hubs, Stream Analytics i Power BI do przekształcania danych diagnostycznych na szczegółowe informacje w czasie rzeczywistym w ramach usług platformy Azure. Zobacz [Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym na potrzeby przesyłania strumieniowego danych](../../stream-analytics/stream-analytics-power-bi-dashboard.md) w celu uzyskania szczegółowych informacji dotyczących tego rozwiązania.
+- **[Usługa Azure Storage](#stream-into-azure-storage)** :
 
-  Dane przesyłane strumieniowo do [usługi Azure Storage](../../azure-monitor/platform/resource-logs-collect-storage.md) umożliwiają archiwizowanie ogromnych ilości danych telemetrycznych diagnostyki w przypadku części kosztów poprzednich dwóch opcji przesyłania strumieniowego.
+  Dane przesyłane strumieniowo do [usługi Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) umożliwiają archiwizowanie ogromnych ilości danych telemetrycznych diagnostyki w przypadku części kosztów poprzednich dwóch opcji przesyłania strumieniowego.
 
 To dane telemetryczne diagnostyki przesyłane do jednego z tych miejsc docelowych mogą służyć do oceny użycia zasobów i statystyk wykonywania zapytań w celu ułatwienia monitorowania wydajności.
 
@@ -76,7 +76,7 @@ To dane telemetryczne diagnostyki przesyłane do jednego z tych miejsc docelowyc
 
 ## <a name="enable-and-configure-the-streaming-export-of-diagnostic-telemetry"></a>Włącz i skonfiguruj eksport strumieniowy danych telemetrycznych diagnostyki
 
-Za pomocą jednej z następujących metod można włączyć i zarządzać metrykami oraz rejestrowaniem danych telemetrycznych diagnostyki.
+Za pomocą jednej z następujących metod można włączyć metryki i rejestrowanie telemetrii diagnostyki oraz zarządzać nimi:
 
 - Azure Portal
 - PowerShell
@@ -85,18 +85,18 @@ Za pomocą jednej z następujących metod można włączyć i zarządzać metryk
 - Szablon usługi Azure Resource Manager
 
 > [!NOTE]
-> Aby włączyć przesyłanie strumieniowe danych telemetrycznych usługi Security log w dzienniku inspekcji, zobacz [Konfigurowanie inspekcji dla usługi Database](../../sql-database/sql-database-auditing.md#setup-auditing) i [dzienników inspekcji w dziennikach Azure Monitor i Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Aby włączyć przesyłanie strumieniowe danych telemetrycznych usługi Security log w dzienniku inspekcji, zobacz [Konfigurowanie inspekcji dla usługi Database](./auditing-overview.md#setup-auditing) i [dzienników inspekcji w dziennikach Azure Monitor i Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>Konfiguruj eksport przesyłania danych telemetrycznych diagnostyki
 
-Możesz użyć menu **Ustawienia diagnostyczne** w Azure Portal, aby włączyć i skonfigurować przesyłanie strumieniowe telemetrii diagnostyki. Ponadto można użyć programu PowerShell, [interfejsu](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)wiersza polecenia platformy Azure oraz [szablonów Menedżer zasobów](../../azure-monitor/platform/diagnostic-settings-template.md) w celu skonfigurowania przesyłania strumieniowego danych telemetrycznych diagnostyki. Można ustawić następujące miejsca docelowe, aby przesyłać strumieniowo dane telemetryczne diagnostyki: Azure Storage, Azure Event Hubs i Azure Monitor logs.
+Możesz użyć menu **Ustawienia diagnostyczne** w Azure Portal, aby włączyć i skonfigurować przesyłanie strumieniowe telemetrii diagnostyki. Ponadto można użyć programu PowerShell, [interfejsu](/rest/api/monitor/diagnosticsettings)wiersza polecenia platformy Azure oraz [szablonów Menedżer zasobów](../../azure-monitor/samples/resource-manager-diagnostic-settings.md) w celu skonfigurowania przesyłania strumieniowego danych telemetrycznych diagnostyki. Można ustawić następujące miejsca docelowe, aby przesyłać strumieniowo dane telemetryczne diagnostyki: Azure Storage, Azure Event Hubs i Azure Monitor logs.
 
 > [!IMPORTANT]
 > Eksport przesyłania strumieniowego diagnostyki danych diagnostycznych nie jest domyślnie włączony.
 
 Wybierz jedną z następujących kart, aby uzyskać wskazówki krok po kroku dotyczące konfigurowania eksportu danych telemetrycznych diagnostyki w Azure Portal i skryptów na potrzeby wykonywania tych samych kroków przy użyciu programu PowerShell i interfejsu wiersza polecenia platformy Azure.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
 ### <a name="elastic-pools-in-azure-sql-database"></a>Pule elastyczne w Azure SQL Database
 
@@ -116,18 +116,18 @@ Kontener elastycznej puli ma własne dane telemetryczne oddzielone od poszczegó
 Aby włączyć przesyłanie strumieniowe danych telemetrycznych diagnostyki dla zasobu puli elastycznej, wykonaj następujące kroki:
 
 1. Przejdź do zasobu **puli elastycznej** w Azure Portal.
-2. Wybierz pozycję **Ustawienia diagnostyki**.
+2. Wybierz pozycję **Ustawienia diagnostyki** .
 3. Wybierz opcję **Włącz diagnostykę** , jeśli nie istnieją poprzednie ustawienia lub wybierz opcję **Edytuj ustawienie** , aby edytować poprzednie ustawienie.
 
    ![Włączanie diagnostyki dla pul elastycznych](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-enable.png)
 
 4. Wprowadź nazwę ustawienia dla własnego odwołania.
-5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu**, **przesyła strumieniowo do centrum zdarzeń**lub **wysyłając do log Analytics**.
-6. W przypadku usługi log Analytics wybierz pozycję **Konfiguruj** i Utwórz nowy obszar roboczy, wybierając pozycję **+ Utwórz nowy obszar roboczy**lub wybierz istniejący obszar roboczy.
+5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu** , **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics** .
+6. W przypadku usługi log Analytics wybierz pozycję **Konfiguruj** i Utwórz nowy obszar roboczy, wybierając pozycję **+ Utwórz nowy obszar roboczy** lub wybierz istniejący obszar roboczy.
 7. Zaznacz pole wyboru dla telemetrii diagnostyki puli elastycznej: metryki **podstawowe** .
    ![Konfigurowanie diagnostyki dla pul elastycznych](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-selection.png)
 
-8. Wybierz pozycję **Zapisz**.
+8. Wybierz pozycję **Zapisz** .
 9. Ponadto należy skonfigurować przesyłanie strumieniowe telemetrii diagnostyki dla każdej bazy danych w puli elastycznej, którą chcesz monitorować, wykonując czynności opisane w następnej sekcji.
 
 > [!IMPORTANT]
@@ -144,19 +144,19 @@ Można skonfigurować zasób bazy danych, aby zebrać następujące dane telemet
 Aby włączyć przesyłanie strumieniowe telemetrii diagnostyki dla jednej bazy danych lub w puli, wykonaj następujące kroki:
 
 1. Przejdź do zasobu usługi Azure **SQL Database** .
-2. Wybierz pozycję **Ustawienia diagnostyki**.
+2. Wybierz pozycję **Ustawienia diagnostyki** .
 3. Wybierz opcję **Włącz diagnostykę** , jeśli nie istnieją poprzednie ustawienia lub wybierz opcję **Edytuj ustawienie** , aby edytować poprzednie ustawienie. Do telemetrii diagnostyki strumienia można utworzyć maksymalnie trzy połączenia równoległe.
 4. Wybierz pozycję **Dodaj ustawienie diagnostyczne** , aby skonfigurować równoległe przesyłanie strumieniowe danych diagnostycznych do wielu zasobów.
 
    ![Włącz diagnostykę dla baz danych z pojedynczym i pulą](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-enable.png)
 
 5. Wprowadź nazwę ustawienia dla własnego odwołania.
-6. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu**, **przesyła strumieniowo do centrum zdarzeń**lub **wysyłając do log Analytics**.
-7. W przypadku standardowego środowiska monitorowania opartego na zdarzeniach zaznacz następujące pola wyboru dla telemetrii dzienników diagnostyki bazy danych: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Błędy**, **DatabaseWaitStatistics**, **limity czasu**, **bloki**i **zakleszczenia**.
+6. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu** , **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics** .
+7. W przypadku standardowego środowiska monitorowania opartego na zdarzeniach zaznacz następujące pola wyboru dla telemetrii dzienników diagnostyki bazy danych: **SQLInsights** , **AutomaticTuning** , **QueryStoreRuntimeStatistics** , **QueryStoreWaitStatistics** , **Błędy** , **DatabaseWaitStatistics** , **limity czasu** , **bloki** i **zakleszczenia** .
 8. W przypadku zaawansowanego, opartego na minutę środowiska monitorowania zaznacz pole wyboru dla metryk **podstawowych** .
 
    ![Konfigurowanie diagnostyki dla Azure SQL Database](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-selection.png)
-9. Wybierz pozycję **Zapisz**.
+9. Wybierz pozycję **Zapisz** .
 10. Powtórz te kroki dla każdej bazy danych, która ma być monitorowana.
 
 > [!TIP]
@@ -180,19 +180,19 @@ Kontener wystąpienia zarządzanego ma własne dane telemetryczne oddzielone od 
 Aby włączyć przesyłanie strumieniowe danych telemetrycznych diagnostyki dla zasobu wystąpienia zarządzanego, wykonaj następujące czynności:
 
 1. Przejdź do zasobu **wystąpienia zarządzanego** w Azure Portal.
-2. Wybierz pozycję **Ustawienia diagnostyki**.
+2. Wybierz pozycję **Ustawienia diagnostyki** .
 3. Wybierz opcję **Włącz diagnostykę** , jeśli nie istnieją poprzednie ustawienia lub wybierz opcję **Edytuj ustawienie** , aby edytować poprzednie ustawienie.
 
    ![Włącz diagnostykę dla wystąpienia zarządzanego](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-mi-enable.png)
 
 4. Wprowadź nazwę ustawienia dla własnego odwołania.
-5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu**, **przesyła strumieniowo do centrum zdarzeń**lub **wysyłając do log Analytics**.
-6. W przypadku usługi log Analytics wybierz pozycję **Konfiguruj** i Utwórz nowy obszar roboczy, wybierając pozycję **+ Utwórz nowy obszar roboczy**lub korzystając z istniejącego obszaru roboczego.
-7. Zaznacz pole wyboru dla telemetrii diagnostyki wystąpienia: **ResourceUsageStats**.
+5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu** , **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics** .
+6. W przypadku usługi log Analytics wybierz pozycję **Konfiguruj** i Utwórz nowy obszar roboczy, wybierając pozycję **+ Utwórz nowy obszar roboczy** lub korzystając z istniejącego obszaru roboczego.
+7. Zaznacz pole wyboru dla telemetrii diagnostyki wystąpienia: **ResourceUsageStats** .
 
    ![Konfigurowanie diagnostyki dla wystąpienia zarządzanego](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-mi-selection.png)
 
-8. Wybierz pozycję **Zapisz**.
+8. Wybierz pozycję **Zapisz** .
 9. Ponadto należy skonfigurować przesyłanie strumieniowe telemetrii diagnostyki dla każdej bazy danych wystąpienia w zarządzanym wystąpieniu, które chcesz monitorować, wykonując kroki opisane w następnej sekcji.
 
 > [!IMPORTANT]
@@ -209,7 +209,7 @@ Można skonfigurować zasób bazy danych wystąpienia, aby zebrać następujące
 Aby włączyć przesyłanie strumieniowe telemetrii diagnostyki dla bazy danych wystąpienia, wykonaj następujące kroki:
 
 1. Przejdź do zasobu **wystąpienia bazy danych** w ramach wystąpienia zarządzanego.
-2. Wybierz pozycję **Ustawienia diagnostyki**.
+2. Wybierz pozycję **Ustawienia diagnostyki** .
 3. Wybierz opcję **Włącz diagnostykę** , jeśli nie istnieją poprzednie ustawienia lub wybierz opcję **Edytuj ustawienie** , aby edytować poprzednie ustawienie.
    - Można utworzyć maksymalnie trzy (3) połączenia równoległe do telemetrii diagnostyki strumienia.
    - Wybierz pozycję **+ Dodaj ustawienie diagnostyczne** , aby skonfigurować równoległe przesyłanie strumieniowe danych diagnostycznych do wielu zasobów.
@@ -217,21 +217,21 @@ Aby włączyć przesyłanie strumieniowe telemetrii diagnostyki dla bazy danych 
    ![Włącz diagnostykę baz danych wystąpień](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-enable.png)
 
 4. Wprowadź nazwę ustawienia dla własnego odwołania.
-5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu**, **przesyła strumieniowo do centrum zdarzeń**lub **wysyłając do log Analytics**.
-6. Zaznacz pola wyboru dla telemetrii diagnostyki bazy danych: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**i **Errors**.
+5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwizuj na koncie magazynu** , **przesyła strumieniowo do centrum zdarzeń** lub **wysyłając do log Analytics** .
+6. Zaznacz pola wyboru dla telemetrii diagnostyki bazy danych: **SQLInsights** , **QueryStoreRuntimeStatistics** , **QueryStoreWaitStatistics** i **Errors** .
    ![Konfigurowanie diagnostyki dla baz danych wystąpień](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-selection.png)
-7. Wybierz pozycję **Zapisz**.
+7. Wybierz pozycję **Zapisz** .
 8. Powtórz te kroki dla każdej bazy danych wystąpienia, która ma być monitorowana.
 
 > [!TIP]
 > Powtórz te kroki dla każdej bazy danych wystąpienia, która ma być monitorowana.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
 Można włączyć funkcję rejestrowania metryk i diagnostyki przy użyciu programu PowerShell.
 
@@ -271,7 +271,7 @@ Można połączyć te parametry, aby uaktywnić wiele opcji danych wyjściowych.
 
 **Aby skonfigurować wiele zasobów platformy Azure**
 
-Aby obsługiwać wiele subskrypcji, Użyj skryptu programu PowerShell z okna [Włączanie rejestrowania metryk zasobów platformy Azure przy użyciu programu PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
+Aby obsługiwać wiele subskrypcji, Użyj skryptu programu PowerShell z okna [Włączanie rejestrowania metryk zasobów platformy Azure przy użyciu programu PowerShell](/archive/blogs/msoms/enable-azure-resource-metrics-logging-using-powershell).
 
 Podaj identyfikator zasobu obszaru roboczego \<$WSID\> jako parametr podczas wykonywania skryptu `Enable-AzureRMDiagnostics.ps1` w celu wysyłania danych diagnostycznych z wielu zasobów do obszaru roboczego.
 
@@ -335,7 +335,7 @@ Kolekcję baz danych i kolekcji baz danych można monitorować za pomocą Azure 
 2. Utwórz obszar roboczy Log Analytics w rozwiązaniu.
 3. Skonfiguruj bazy danych do przesyłania strumieniowego telemetrii diagnostyki do obszaru roboczego.
 
-Eksport przesyłania strumieniowego tej diagnostyki diagnostycznej można skonfigurować przy użyciu wbudowanej opcji **Wyślij do log Analytics** na karcie Ustawienia diagnostyki w Azure Portal. Możesz również włączyć przesyłanie strumieniowe do obszaru roboczego Log Analytics przy użyciu ustawień diagnostycznych za pośrednictwem [poleceń cmdlet programu PowerShell](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), interfejsu [wiersza polecenia platformy Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), [Azure Monitor API REST](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)lub [szablonów Menedżer zasobów](../../azure-monitor/platform/diagnostic-settings-template.md).
+Eksport przesyłania strumieniowego tej diagnostyki diagnostycznej można skonfigurować przy użyciu wbudowanej opcji **Wyślij do log Analytics** na karcie Ustawienia diagnostyki w Azure Portal. Możesz również włączyć przesyłanie strumieniowe do obszaru roboczego Log Analytics przy użyciu ustawień diagnostycznych za pośrednictwem [poleceń cmdlet programu PowerShell](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), interfejsu [wiersza polecenia platformy Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), [Azure Monitor API REST](/rest/api/monitor/diagnosticsettings)lub [szablonów Menedżer zasobów](../../azure-monitor/samples/resource-manager-diagnostic-settings.md).
 
 ### <a name="create-an-azure-sql-analytics-resource"></a>Tworzenie zasobu Azure SQL Analytics
 
@@ -349,7 +349,7 @@ Eksport przesyłania strumieniowego tej diagnostyki diagnostycznej można skonfi
 
    ![Konfigurowanie Azure SQL Analytics w portalu](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/sql-analytics-configuration-blade.png)
 
-4. Wybierz **przycisk OK** , aby potwierdzić, a następnie wybierz pozycję **Utwórz**.
+4. Wybierz **przycisk OK** , aby potwierdzić, a następnie wybierz pozycję **Utwórz** .
 
 ### <a name="configure-the-resource-to-record-metrics-and-resource-logs"></a>Konfigurowanie zasobu do rejestrowania metryk i dzienników zasobów
 
@@ -383,7 +383,7 @@ Metryki przesyłane strumieniowo można używać w Event Hubs do:
 
   Za pomocą Event Hubs Streaming można uzyskać metryki i dzienniki zasobów w różnych rozwiązaniach do monitorowania i analizy dzienników innych firm.
 
-- **Utwórz niestandardową platformę telemetrii i rejestrowania**
+- **Tworzenie niestandardowej platformy telemetrii i rejestrowania**
 
   Czy masz już utworzoną niestandardową platformę telemetrii lub rozważamy kompilację? Wysoce skalowalny charakter publikowania/subskrybowania Event Hubs umożliwia elastyczne pozyskiwanie metryk i dzienników zasobów. Zobacz [Rosanova, aby korzystać z Event Hubs na platformie telemetrii na skalę globalną](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
@@ -424,11 +424,11 @@ W przypadku wybrania Event Hubs lub konta magazynu można określić zasady prze
 > [!IMPORTANT]
 > Aktywne bazy danych z większymi obciążeniami pobierają więcej danych niż bezczynne bazy danych. Aby uzyskać więcej informacji, zobacz [Cennik usługi log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
 
-Jeśli używasz Azure SQL Analytics, możesz monitorować użycie pozyskiwania danych, wybierając **obszar roboczy OMS** w menu nawigacji Azure SQL Analytics, a następnie wybierając pozycję **użycie** i **szacowane koszty**.
+Jeśli używasz Azure SQL Analytics, możesz monitorować użycie pozyskiwania danych, wybierając **obszar roboczy OMS** w menu nawigacji Azure SQL Analytics, a następnie wybierając pozycję **użycie** i **szacowane koszty** .
 
 ## <a name="metrics-and-logs-available"></a>Dostępne metryki i dzienniki
 
-Dane telemetryczne monitorowania dostępne dla pojedynczych baz danych, baz danych w puli, pul elastycznych, wystąpienia zarządzanego i baz danych wystąpień zostały udokumentowane w tej części artykułu. Zebrane dane telemetryczne monitorowania w usłudze SQL Analytics mogą służyć do własnej niestandardowej analizy i opracowywania aplikacji przy użyciu języka [zapytań dzienników Azure monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) .
+Dane telemetryczne monitorowania dostępne dla pojedynczych baz danych, baz danych w puli, pul elastycznych, wystąpienia zarządzanego i baz danych wystąpień zostały udokumentowane w tej części artykułu. Zebrane dane telemetryczne monitorowania w usłudze SQL Analytics mogą służyć do własnej niestandardowej analizy i opracowywania aplikacji przy użyciu języka [zapytań dzienników Azure monitor](../../azure-monitor/log-query/get-started-queries.md) .
 
 ### <a name="basic-metrics"></a>Metryki podstawowe
 
@@ -476,7 +476,7 @@ Szczegółowe informacje o telemetrii dostępne dla wszystkich dzienników zosta
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure|
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Type|Zawsze: AzureDiagnostics |
+|Typ|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: ResourceUsageStats |
 |Zasób|Nazwa zasobu |
@@ -501,7 +501,7 @@ Szczegółowe informacje o telemetrii dostępne dla wszystkich dzienników zosta
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Type|Zawsze: AzureDiagnostics |
+|Typ|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: QueryStoreRuntimeStatistics |
 |OperationName|Nazwa operacji. Zawsze: QueryStoreRuntimeStatisticsEvent |
@@ -543,7 +543,7 @@ Szczegółowe informacje o telemetrii dostępne dla wszystkich dzienników zosta
 |query_id_d|Identyfikator zapytania w magazynie zapytań |
 |plan_id_d|Identyfikator planu w magazynie zapytań |
 
-Dowiedz się więcej o [danych statystyk środowiska uruchomieniowego magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Dowiedz się więcej o [danych statystyk środowiska uruchomieniowego magazynu zapytań](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 #### <a name="query-store-wait-statistics"></a>Statystyka oczekiwania magazynu zapytań
 
@@ -552,7 +552,7 @@ Dowiedz się więcej o [danych statystyk środowiska uruchomieniowego magazynu z
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Type|Zawsze: AzureDiagnostics |
+|Typ|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: QueryStoreWaitStatistics |
 |OperationName|Nazwa operacji. Zawsze: QueryStoreWaitStatisticsEvent |
@@ -581,7 +581,7 @@ Dowiedz się więcej o [danych statystyk środowiska uruchomieniowego magazynu z
 |query_id_d|Identyfikator zapytania w magazynie zapytań |
 |plan_id_d|Identyfikator planu w magazynie zapytań |
 
-Dowiedz się więcej na temat [danych statystycznych oczekiwania magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Dowiedz się więcej na temat [danych statystycznych oczekiwania magazynu zapytań](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 #### <a name="errors-dataset"></a>Zestaw danych błędów
 
@@ -590,7 +590,7 @@ Dowiedz się więcej na temat [danych statystycznych oczekiwania magazynu zapyta
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Type|Zawsze: AzureDiagnostics |
+|Typ|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: Błędy |
 |OperationName|Nazwa operacji. Zawsze: ErrorEvent |
@@ -610,7 +610,7 @@ Dowiedz się więcej na temat [danych statystycznych oczekiwania magazynu zapyta
 |query_hash_s|Wartość skrótu zapytania zakończonego niepowodzeniem, jeśli jest dostępna |
 |query_plan_hash_s|Wartość skrótu planu zapytania zakończonego niepowodzeniem, jeśli jest dostępna |
 
-Dowiedz się więcej o [komunikatach o błędach SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors).
+Dowiedz się więcej o [komunikatach o błędach SQL](/sql/relational-databases/errors-events/database-engine-events-and-errors).
 
 #### <a name="database-wait-statistics-dataset"></a>Zestaw danych statystyki oczekiwania bazy danych
 
@@ -619,7 +619,7 @@ Dowiedz się więcej o [komunikatach o błędach SQL](https://docs.microsoft.com
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Type|Zawsze: AzureDiagnostics |
+|Typ|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: DatabaseWaitStatistics |
 |OperationName|Nazwa operacji. Zawsze: DatabaseWaitStatisticsEvent |
@@ -639,7 +639,7 @@ Dowiedz się więcej o [komunikatach o błędach SQL](https://docs.microsoft.com
 |delta_wait_time_ms_d|Łączny czas oczekiwania w okresie |
 |delta_waiting_tasks_count_d|Liczba oczekujących zadań |
 
-Dowiedz się więcej na temat [statystyk oczekiwania bazy danych](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Dowiedz się więcej na temat [statystyk oczekiwania bazy danych](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 #### <a name="time-outs-dataset"></a>Zestaw danych przekroczenia czasu
 
@@ -648,7 +648,7 @@ Dowiedz się więcej na temat [statystyk oczekiwania bazy danych](https://docs.m
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Type|Zawsze: AzureDiagnostics |
+|Typ|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: przekroczenia limitu czasu |
 |OperationName|Nazwa operacji. Zawsze: TimeoutEvent |
@@ -671,7 +671,7 @@ Dowiedz się więcej na temat [statystyk oczekiwania bazy danych](https://docs.m
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Type|Zawsze: AzureDiagnostics |
+|Typ|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: bloki |
 |OperationName|Nazwa operacji. Zawsze: BlockEvent |
@@ -695,7 +695,7 @@ Dowiedz się więcej na temat [statystyk oczekiwania bazy danych](https://docs.m
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC] |Sygnatura czasowa rejestrowania dziennika |
-|Type|Zawsze: AzureDiagnostics |
+|Typ|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: zakleszczenia |
 |OperationName|Nazwa operacji. Zawsze: DeadlockEvent |
@@ -716,7 +716,7 @@ Dowiedz się więcej na temat [statystyk oczekiwania bazy danych](https://docs.m
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Type|Zawsze: AzureDiagnostics |
+|Typ|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: AutomaticTuning |
 |Zasób|Nazwa zasobu |

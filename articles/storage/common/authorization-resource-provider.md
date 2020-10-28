@@ -9,16 +9,16 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822271"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789679"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania
 
-Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Dostawca zasobów usługi Azure Storage to usługa oparta na Azure Resource Manager i zapewniająca dostęp do zasobów zarządzania dla usługi Azure Storage. Dostawcy zasobów usługi Azure Storage można użyć do tworzenia, aktualizowania, zarządzania i usuwania zasobów, takich jak konta magazynu, prywatne punkty końcowe i klucze dostępu do konta. Aby uzyskać więcej informacji na temat Azure Resource Manager, zobacz [Azure Resource Manager omówienie](/azure/azure-resource-manager/resource-group-overview).
+Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Dostawca zasobów usługi Azure Storage to usługa oparta na Azure Resource Manager i zapewniająca dostęp do zasobów zarządzania dla usługi Azure Storage. Dostawcy zasobów usługi Azure Storage można użyć do tworzenia, aktualizowania, zarządzania i usuwania zasobów, takich jak konta magazynu, prywatne punkty końcowe i klucze dostępu do konta. Aby uzyskać więcej informacji na temat Azure Resource Manager, zobacz [Azure Resource Manager omówienie](../../azure-resource-manager/management/overview.md).
 
 Dostawcy zasobów usługi Azure Storage można używać do wykonywania akcji, takich jak tworzenie lub usuwanie konta magazynu lub pobieranie listy kont magazynu w ramach subskrypcji. Aby autoryzować żądania względem dostawcy zasobów usługi Azure Storage, użyj Azure Active Directory (Azure AD). W tym artykule opisano sposób przypisywania uprawnień do zasobów zarządzania i wskazuje przykłady, które pokazują, jak wykonywać żądania względem dostawcy zasobów usługi Azure Storage.
 
@@ -32,9 +32,9 @@ Usługa Azure Storage obsługuje używanie usługi Azure AD do autoryzowania ż�
 
 ## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Przypisywanie uprawnień zarządzania przy użyciu kontroli dostępu opartej na rolach (Azure RBAC)
 
-Każda subskrypcja platformy Azure ma skojarzoną Azure Active Directory, która zarządza użytkownikami, grupami i aplikacjami. Użytkownik, Grupa lub aplikacja jest również nazywana podmiotem zabezpieczeń w kontekście [platformy tożsamości firmy Microsoft](/azure/active-directory/develop/). Dostęp do zasobów w ramach subskrypcji można udzielić podmiotowi zabezpieczeń, który jest zdefiniowany w Active Directory przy użyciu kontroli dostępu opartej na rolach (Azure RBAC).
+Każda subskrypcja platformy Azure ma skojarzoną Azure Active Directory, która zarządza użytkownikami, grupami i aplikacjami. Użytkownik, Grupa lub aplikacja jest również nazywana podmiotem zabezpieczeń w kontekście [platformy tożsamości firmy Microsoft](../../active-directory/develop/index.yml). Dostęp do zasobów w ramach subskrypcji można udzielić podmiotowi zabezpieczeń, który jest zdefiniowany w Active Directory przy użyciu kontroli dostępu opartej na rolach (Azure RBAC).
 
-Po przypisaniu roli platformy Azure do podmiotu zabezpieczeń należy również wskazać zakres, w którym obowiązują uprawnienia przyznane przez rolę. W przypadku operacji zarządzania można przypisać rolę na poziomie subskrypcji, grupy zasobów lub konta magazynu. Rolę platformy Azure można przypisać do podmiotu zabezpieczeń za pomocą [Azure Portal](https://portal.azure.com/), [narzędzi interfejsu wiersza polecenia platformy Azure](../../cli-install-nodejs.md), [programu PowerShell](/powershell/azure/)lub [interfejsu API REST dostawcy zasobów usługi Azure Storage](/rest/api/storagerp).
+Po przypisaniu roli platformy Azure do podmiotu zabezpieczeń należy również wskazać zakres, w którym obowiązują uprawnienia przyznane przez rolę. W przypadku operacji zarządzania można przypisać rolę na poziomie subskrypcji, grupy zasobów lub konta magazynu. Rolę platformy Azure można przypisać do podmiotu zabezpieczeń za pomocą [Azure Portal](https://portal.azure.com/), [narzędzi interfejsu wiersza polecenia platformy Azure](/cli/azure/install-classic-cli), [programu PowerShell](/powershell/azure/)lub [interfejsu API REST dostawcy zasobów usługi Azure Storage](/rest/api/storagerp).
 
 Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md) role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -53,7 +53,7 @@ Wbudowane role, które przyznają uprawnienia do wywoływania operacji zarządza
 | **Administrator dostępu użytkowników** | Może zarządzać dostępem do konta magazynu.   | Tak, umożliwia podmiotowi zabezpieczeń przypisanie wszelkich uprawnień do siebie i innych. |
 | **Współautor maszyny wirtualnej** | Może zarządzać maszynami wirtualnymi, ale nie z konta magazynu, z którym są połączone.   | Tak, zapewnia uprawnienia do wyświetlania i ponownego generowania kluczy konta magazynu. |
 
-Trzecia kolumna w tabeli wskazuje, czy wbudowana rola obsługuje **Microsoft. Storage/storageAccounts/ListKeys/Action**. Ta akcja przyznaje uprawnienia do odczytu i ponownego wygenerowania kluczy konta magazynu. Uprawnienia dostępu do zasobów usługi Azure Storage Management nie obejmują również uprawnień dostępu do danych. Jeśli jednak użytkownik ma dostęp do kluczy konta, może używać kluczy konta do uzyskiwania dostępu do danych usługi Azure Storage za pomocą autoryzacji klucza współużytkowanego.
+Trzecia kolumna w tabeli wskazuje, czy wbudowana rola obsługuje **Microsoft. Storage/storageAccounts/ListKeys/Action** . Ta akcja przyznaje uprawnienia do odczytu i ponownego wygenerowania kluczy konta magazynu. Uprawnienia dostępu do zasobów usługi Azure Storage Management nie obejmują również uprawnień dostępu do danych. Jeśli jednak użytkownik ma dostęp do kluczy konta, może używać kluczy konta do uzyskiwania dostępu do danych usługi Azure Storage za pomocą autoryzacji klucza współużytkowanego.
 
 ### <a name="custom-roles-for-management-operations"></a>Role niestandardowe dla operacji zarządzania
 
@@ -76,6 +76,6 @@ Aby uzyskać więcej informacji na temat modeli wdrażania platformy Azure, zoba
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+- [Przegląd Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Elementy docelowe skalowalności dla dostawcy zasobów usługi Azure Storage](scalability-targets-resource-provider.md)

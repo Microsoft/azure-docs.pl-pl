@@ -8,18 +8,18 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f969c30033604cb4b331b5ed86d992af371f9c75
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490819"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791192"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Samouczek: Migrowanie danych lokalnych do magazynu w chmurze za pomocą usługi AzCopy
 
 Narzędzie AzCopy to narzędzie wiersza polecenia służące do kopiowania danych do lub z magazynu Azure Blob Storage, Azure Files lub Azure Table przy użyciu prostych poleceń. Polecenia te zostały zaprojektowane w celu uzyskania optymalnej wydajności. Za pomocą narzędzia AzCopy można kopiować dane między systemem plików i kontem magazynu lub między kontami magazynu. Narzędzia AzCopy można użyć do skopiowania danych lokalnych do konta magazynu.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 Aby ukończyć ten samouczek, Pobierz najnowszą wersję programu AzCopy. Zobacz Rozpoczynanie [pracy z usługą AzCopy](storage-use-azcopy-v10.md).
 
-W systemie Windows konieczne będzie użycie polecenia [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx), ponieważ w tym samouczku jest ono używane w celu zaplanowania zadania. Użytkownicy systemu Linux zamiast tego użyją polecenia crontab.
+W systemie Windows konieczne będzie użycie polecenia [Schtasks](/windows/win32/taskschd/schtasks), ponieważ w tym samouczku jest ono używane w celu zaplanowania zadania. Użytkownicy systemu Linux zamiast tego użyją polecenia crontab.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -44,7 +44,7 @@ Pierwszym krokiem jest utworzenie kontenera, ponieważ obiekty blob należy zaws
 Wykonaj następujące kroki, aby utworzyć kontener:
 
 1. Wybierz przycisk **Konta magazynu** ze strony głównej, a następnie wybierz utworzone konto magazynu.
-2. Wybierz pozycję **Obiekty blob** w obszarze **Usługi**, a następnie wybierz pozycję **Kontener**.
+2. Wybierz pozycję **Obiekty blob** w obszarze **Usługi** , a następnie wybierz pozycję **Kontener** .
 
    ![Zrzut ekranu przedstawiający tworzenie kontenera](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
@@ -62,7 +62,7 @@ Umieść plik AzCopy w dowolnym miejscu na komputerze. Dodaj lokalizację pliku 
 
 ## <a name="authenticate-with-azure-ad"></a>Uwierzytelnianie za pomocą usługi Azure AD
 
-Najpierw Przypisz rolę [współautor danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) do swojej tożsamości. Zobacz [używanie Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](/azure/storage/common/storage-auth-aad-rbac-portal).
+Najpierw Przypisz rolę [współautor danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) do swojej tożsamości. Zobacz [używanie Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](./storage-auth-aad-rbac-portal.md).
 
 Następnie otwórz wiersz polecenia, wpisz poniższe polecenie i naciśnij klawisz ENTER.
 
@@ -78,7 +78,7 @@ Zostanie wyświetlone okno logowania. W tym oknie Zaloguj się do konta platform
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Przekazywanie zawartości folderu do magazynu obiektów blob
 
-Za pomocą narzędzia AzCopy możesz przekazać wszystkie pliki w folderze do magazynu obiektów blob w systemie [Windows](/azure/storage/common/storage-use-azcopy) lub [Linux](/azure/storage/common/storage-use-azcopy-linux). Aby przekazać wszystkie obiekty blob w folderze, wprowadź następujące polecenie narzędzia AzCopy:
+Za pomocą narzędzia AzCopy możesz przekazać wszystkie pliki w folderze do magazynu obiektów blob w systemie [Windows](./storage-use-azcopy-v10.md) lub [Linux](./storage-use-azcopy-v10.md). Aby przekazać wszystkie obiekty blob w folderze, wprowadź następujące polecenie narzędzia AzCopy:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -135,7 +135,7 @@ azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycont
 
 ---
 
-W tym samouczku polecenie [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) jest używane do utworzenia zaplanowanego zadania w systemie Windows. Polecenie [Crontab](http://crontab.org/) służy do tworzenia zadania cron w systemie Linux.
+W tym samouczku polecenie [Schtasks](/windows/win32/taskschd/schtasks) jest używane do utworzenia zaplanowanego zadania w systemie Windows. Polecenie [Crontab](http://crontab.org/) służy do tworzenia zadania cron w systemie Linux.
 
  Polecenie **Schtasks** umożliwia administratorowi tworzenie, usuwanie, zmienianie, uruchamianie i kończenie zaplanowanych zadań oraz wykonywanie względem nich zapytań na komputerze lokalnym lub zdalnym. Zadanie **cron** umożliwia użytkownikom systemów Linux i Unix uruchamianie poleceń lub skryptów w określonym dniu i godzinie za pomocą [wyrażeń cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
@@ -166,7 +166,7 @@ Polecenie używa:
 - Parametru `/TN` w celu określenia nazwy zadania.
 - Parametru `/TR` w celu określenia ścieżki do pliku `script.bat`.
 
-Aby dowiedzieć się więcej o tworzeniu zaplanowanego zadania w systemie Windows, zobacz [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes).
+Aby dowiedzieć się więcej o tworzeniu zaplanowanego zadania w systemie Windows, zobacz [Schtasks](/previous-versions/orphan-topics/ws.10/cc772785(v=ws.10)#BKMK_minutes).
 
 ---
 
@@ -176,7 +176,7 @@ Aby sprawdzić, czy zaplanowane zadanie lub zadanie cron jest działa poprawnie,
 
 Aby dowiedzieć się więcej o sposobach przenoszenia danych lokalnych do usługi Azure Storage i na odwrót, kliknij następujący link:
 
-* [Przenoszenie danych do i z usługi Azure Storage](/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Przenoszenie danych do i z usługi Azure Storage](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
 
 Aby uzyskać więcej informacji na temat AzCopy, zobacz dowolny z następujących artykułów:
 

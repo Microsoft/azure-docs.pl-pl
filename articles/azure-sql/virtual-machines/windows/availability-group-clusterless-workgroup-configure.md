@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 43b0f64a1d88a71b221fac240392dc71b93eef76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bfea42c6fca3369485ccf7a47158f7420df9c9c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298834"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790036"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurowanie grupy dostępności grupy roboczej 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,14 +53,14 @@ W tym kroku Skonfiguruj sufiks DNS dla obu serwerów. Na przykład `ag.wgcluster
 Aby skonfigurować sufiks DNS, wykonaj następujące kroki:
 
 1. Protokół RDP w pierwszym węźle i otwiera Menedżer serwera. 
-1. Wybierz pozycję **serwer lokalny** , a następnie wybierz nazwę maszyny wirtualnej w polu **Nazwa komputera**. 
-1. Wybierz pozycję **Zmień...** **, aby zmienić nazwę tego komputera..**. 
+1. Wybierz pozycję **serwer lokalny** , a następnie wybierz nazwę maszyny wirtualnej w polu **Nazwa komputera** . 
+1. Wybierz pozycję **Zmień...** **, aby zmienić nazwę tego komputera..** . 
 1. Zmień nazwę grupy roboczej tak, aby była znacząca, na przykład `AGWORKGROUP` : 
 
    ![Zmień nazwę grupy roboczej](./media/availability-group-clusterless-workgroup-configure/1-change-workgroup-name.png)
 
 1. Wybierz pozycję **więcej...** , aby otworzyć okno dialogowe **sufiks DNS i nazwa NetBIOS komputera** . 
-1. Wpisz nazwę sufiksu DNS w obszarze **sufiks podstawowej domeny DNS tego komputera**, na przykład, `ag.wgcluster.example.com` a następnie wybierz przycisk **OK**: 
+1. Wpisz nazwę sufiksu DNS w obszarze **sufiks podstawowej domeny DNS tego komputera** , na przykład, `ag.wgcluster.example.com` a następnie wybierz przycisk **OK** : 
 
    ![Dodawanie sufiksu DNS](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
@@ -107,20 +107,20 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 W tym kroku utworzysz klaster trybu failover. Jeśli nie znasz tych kroków, możesz je wykonać przy użyciu [samouczka klastra trybu failover](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 Istotne różnice między samouczkiem i co należy zrobić w przypadku klastra grupy roboczej:
-- Usuń zaznaczenie pozycji **Magazyn**i **bezpośrednie miejsca do magazynowania** podczas wykonywania walidacji klastra. 
+- Usuń zaznaczenie pozycji **Magazyn** i **bezpośrednie miejsca do magazynowania** podczas wykonywania walidacji klastra. 
 - Podczas dodawania węzłów do klastra Dodaj w pełni kwalifikowaną nazwę, na przykład:
    - `AGNode1.ag.wgcluster.example.com`
    - `AGNode2.ag.wgcluster.example.com`
-- Usuń zaznaczenie pola wyboru **Dodaj wszystkie odpowiednie magazyny do klastra**. 
+- Usuń zaznaczenie pola wyboru **Dodaj wszystkie odpowiednie magazyny do klastra** . 
 
-Po utworzeniu klastra Przypisz statyczny adres IP klastra. Aby to zrobić, wykonaj następujące kroki:
+Po utworzeniu klastra Przypisz statyczny adres IP klastra. W tym celu wykonaj następujące czynności:
 
-1. Na jednym z węzłów Otwórz **Menedżer klastra trybu failover**, wybierz klaster, kliknij prawym przyciskiem myszy **nazwę: \<ClusterNam> ** w obszarze **zasoby klastra podstawowe** , a następnie wybierz polecenie **Właściwości**. 
+1. Na jednym z węzłów Otwórz **Menedżer klastra trybu failover** , wybierz klaster, kliknij prawym przyciskiem myszy **nazwę: \<ClusterNam>** w obszarze **zasoby klastra podstawowe** , a następnie wybierz polecenie **Właściwości** . 
 
    ![Właściwości uruchamiania dla nazwy klastra](./media/availability-group-clusterless-workgroup-configure/5-launch-cluster-name-properties.png)
 
-1. Wybierz adres IP w obszarze **adresy IP** , a następnie wybierz pozycję **Edytuj**. 
-1. Wybierz pozycję **Użyj statyczne**, podaj adres IP klastra, a następnie wybierz przycisk **OK**: 
+1. Wybierz adres IP w obszarze **adresy IP** , a następnie wybierz pozycję **Edytuj** . 
+1. Wybierz pozycję **Użyj statyczne** , podaj adres IP klastra, a następnie wybierz przycisk **OK** : 
 
    ![Podaj statyczny adres IP dla klastra](./media/availability-group-clusterless-workgroup-configure/6-provide-static-ip-for-cluster.png)
 
@@ -184,7 +184,7 @@ Aby skonfigurować pierwszy węzeł, wykonaj następujące kroki:
 
 Aby skonfigurować drugi węzeł, wykonaj następujące kroki: 
 
-1. Połącz się z drugim węzłem za pomocą **SQL Server Management Studio**, takich jak `AGNode2` . 
+1. Połącz się z drugim węzłem za pomocą **SQL Server Management Studio** , takich jak `AGNode2` . 
 1. W **nowym oknie zapytania** uruchom następującą instrukcję Transact-SQL (T-SQL) po uaktualnieniu do złożonego i bezpiecznego hasła: 
 
    ```sql
@@ -291,6 +291,4 @@ W tym ostatnim kroku Skonfiguruj moduł równoważenia obciążenia przy użyciu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby skonfigurować grupę dostępności, można również użyć [polecenia AZ SQL VM CLI](availability-group-az-cli-configure.md) . 
-
-
+Aby skonfigurować grupę dostępności, można również użyć [polecenia AZ SQL VM CLI](./availability-group-az-commandline-configure.md) .

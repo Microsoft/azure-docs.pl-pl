@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b57303a1c9fdba2bea8637bef6c148622087a8d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88660211"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789781"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Szybki Start: Tworzenie maszyny wirtualnej SQL Server przy użyciu szablonu ARM
 
@@ -20,7 +20,7 @@ Ten szablon Azure Resource Manager (szablon ARM) służy do wdrażania SQL Serve
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -58,26 +58,26 @@ Więcej SQL Server na temat szablonów maszyn wirtualnych platformy Azure można
 
 2. Wybierz lub wprowadź następujące wartości.
 
-    * **Subskrypcja**: wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów**: przygotowana Grupa zasobów dla maszyny wirtualnej SQL Server. 
-    * **Region**: Wybierz region.  Na przykład **Środkowe stany USA**.
-    * **Nazwa maszyny wirtualnej**: Wprowadź nazwę maszyny wirtualnej SQL Server. 
-    * **Rozmiar maszyny wirtualnej**: wybierz odpowiedni rozmiar maszyny wirtualnej z listy rozwijanej.
-    * **Istniejąca nazwa Virtual Network**: Wprowadź nazwę przygotowanej sieci wirtualnej dla maszyny wirtualnej SQL Server. 
-    * **Istniejąca Grupa zasobów sieci wirtualnej**: wprowadź grupę zasobów, w której została przygotowana Sieć wirtualna. 
-    * **Istniejąca nazwa podsieci**: Nazwa przygotowanej podsieci. 
-    * **Oferta obrazu**: wybierz obraz SQL Server i systemu Windows Server, który najlepiej odpowiada potrzebom biznesowym. 
-    * **Jednostka SKU SQL**: wybierz wersję SQL Server SKU, która najlepiej odpowiada potrzebom biznesowym. 
-    * **Nazwa użytkownika administratora**: Nazwa użytkownika administratora maszyny wirtualnej. 
-    * **Hasło administratora**: hasło używane przez konto administratora maszyny wirtualnej. 
-    * **Typ obciążenia magazynu**: typ magazynu dla obciążenia, które najlepiej pasuje do Twojej firmy. 
-    * **Liczba dysków z danymi SQL**: liczba dysków SQL Server używanych dla plików danych.  
-    * **Ścieżka danych**: ścieżka do plików danych SQL Server. 
-    * **Liczba dysków dziennika SQL**: liczba dysków SQL Server używanych dla plików dziennika. 
-    * **Ścieżka dziennika**: ścieżka do SQL Server plików dziennika. 
-    * **Lokalizacja**: lokalizacja dla wszystkich zasobów, ta wartość powinna pozostać wartością domyślną `[resourceGroup().location]` . 
+    * **Subskrypcja** : wybierz subskrypcję platformy Azure.
+    * **Grupa zasobów** : przygotowana Grupa zasobów dla maszyny wirtualnej SQL Server. 
+    * **Region** : Wybierz region.  Na przykład **Środkowe stany USA** .
+    * **Nazwa maszyny wirtualnej** : Wprowadź nazwę maszyny wirtualnej SQL Server. 
+    * **Rozmiar maszyny wirtualnej** : wybierz odpowiedni rozmiar maszyny wirtualnej z listy rozwijanej.
+    * **Istniejąca nazwa Virtual Network** : Wprowadź nazwę przygotowanej sieci wirtualnej dla maszyny wirtualnej SQL Server. 
+    * **Istniejąca Grupa zasobów sieci wirtualnej** : wprowadź grupę zasobów, w której została przygotowana Sieć wirtualna. 
+    * **Istniejąca nazwa podsieci** : Nazwa przygotowanej podsieci. 
+    * **Oferta obrazu** : wybierz obraz SQL Server i systemu Windows Server, który najlepiej odpowiada potrzebom biznesowym. 
+    * **Jednostka SKU SQL** : wybierz wersję SQL Server SKU, która najlepiej odpowiada potrzebom biznesowym. 
+    * **Nazwa użytkownika administratora** : Nazwa użytkownika administratora maszyny wirtualnej. 
+    * **Hasło administratora** : hasło używane przez konto administratora maszyny wirtualnej. 
+    * **Typ obciążenia magazynu** : typ magazynu dla obciążenia, które najlepiej pasuje do Twojej firmy. 
+    * **Liczba dysków z danymi SQL** : liczba dysków SQL Server używanych dla plików danych.  
+    * **Ścieżka danych** : ścieżka do plików danych SQL Server. 
+    * **Liczba dysków dziennika SQL** : liczba dysków SQL Server używanych dla plików dziennika. 
+    * **Ścieżka dziennika** : ścieżka do SQL Server plików dziennika. 
+    * **Lokalizacja** : lokalizacja dla wszystkich zasobów, ta wartość powinna pozostać wartością domyślną `[resourceGroup().location]` . 
 
-3. Wybierz pozycję **Przeglądanie + tworzenie**. Po pomyślnym wdrożeniu maszyny wirtualnej SQL Server otrzymujesz powiadomienie.
+3. Wybierz pozycję **Przeglądanie + tworzenie** . Po pomyślnym wdrożeniu maszyny wirtualnej SQL Server otrzymujesz powiadomienie.
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również używać Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -120,10 +120,10 @@ Write-Host "Press [ENTER] to continue..."
 Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
 
 > [!div class="nextstepaction"]
-> [ Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Aby poznać inne sposoby wdrażania SQL Server maszyny wirtualnej, zobacz: 
 - [Witryna Azure Portal](create-sql-vm-portal.md)
-- [Program PowerShell](create-sql-vm-powershell.md)
+- [PowerShell](create-sql-vm-powershell.md)
 
 Aby dowiedzieć się więcej, zobacz [omówienie SQL Server na maszynach wirtualnych platformy Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).

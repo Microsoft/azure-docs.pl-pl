@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 082f246437cdd99b844d1ed8010d8dc846fc4d47
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341944"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789220"
 ---
 # <a name="security-alerts-schemas"></a>Schematy alertów zabezpieczeń
 
@@ -25,7 +25,7 @@ Jeśli subskrypcja ma włączoną usługę Azure Defender, otrzymasz alerty zabe
 Te alerty zabezpieczeń można wyświetlić na stronach Azure Security Center **ochrony przed zagrożeniami** lub za poorednictwem narzędzi zewnętrznych, takich jak:
 
 - [Wskaźnik platformy Azure](../sentinel/index.yml) — natywny Siem w chmurze firmy Microsoft. Łącznik wskaźnikowego otrzymuje alerty z Azure Security Center i wysyła je do [obszaru roboczego log Analytics](../azure-monitor/learn/quick-create-workspace.md) dla platformy Azure.
-- Rozwiązań Siem [narzędzi innych](continuous-export.md) firm, które umożliwiają wysyłanie danych do [usługi Azure Event Hubs](../event-hubs/index.yml)Security Center. Następnie Zintegruj dane centrum zdarzeń z SIEMem innej firmy.
+- Rozwiązań Siem innych firm — Wysyłaj dane do [usługi Azure Event Hubs](../event-hubs/index.yml). Następnie Zintegruj dane centrum zdarzeń z SIEMem innej firmy. Dowiedz się więcej w temacie [alerty przesyłania strumieniowego do rozwiązania do zarządzania usługami Siem, o i IT](export-to-siem.md).
 - [Interfejs API REST](/rest/api/securitycenter/) — Jeśli używasz interfejsu API REST do uzyskiwania dostępu do alertów, zobacz [dokumentację interfejsu API alertów online](/rest/api/securitycenter/alerts).
 
 Jeśli używasz jakichkolwiek metod programistycznych do korzystania z alertów, potrzebujesz poprawnego schematu, aby znaleźć pola, które są dla Ciebie istotne. Ponadto, Jeśli eksportujesz do centrum zdarzeń lub próbujesz wyzwolić automatyzację przepływu pracy za pomocą ogólnych łączników HTTP, użyj schematów, aby prawidłowo przeanalizować obiekty JSON.
@@ -46,8 +46,9 @@ Poniżej znajdziesz schemat zdarzeń alertów przesłanych do:
 - Wystąpienia aplikacji logiki platformy Azure, które zostały skonfigurowane w automatyzacji przepływu pracy Security Center
 - Centrum zdarzeń platformy Azure korzystające z funkcji ciągłego eksportu Security Center
 
-Aby uzyskać więcej informacji na temat funkcji automatyzacji przepływu pracy, zobacz [Automatyzowanie odpowiedzi na alerty i zalecenia](workflow-automation.md).
-Aby uzyskać więcej informacji na temat eksportu ciągłego, zobacz temat [Eksportowanie alertów i zaleceń](continuous-export.md).
+Aby uzyskać więcej informacji na temat funkcji automatyzacji przepływu pracy, zobacz [Automatyzowanie odpowiedzi na wyzwalacze Security Center](workflow-automation.md).
+
+Aby uzyskać więcej informacji na temat eksportu ciągłego, zobacz [ciągły eksport danych Security Center](continuous-export.md).
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
@@ -185,5 +186,5 @@ Aby uzyskać więcej informacji na temat sposobów uzyskiwania dostępu do alert
 
 - [Wskaźnik platformy Azure](../sentinel/index.yml) — natywny Siem w chmurze firmy Microsoft
 - [Azure Event Hubs](../event-hubs/index.yml) — w pełni zarządzana usługa pozyskiwania danych w czasie rzeczywistym firmy Microsoft
-- [Funkcja eksportu ciągłego](continuous-export.md) Security Center
+- [Ciągłe eksportowanie danych Security Center](continuous-export.md)
 - [Log Analytics obszary robocze](../azure-monitor/learn/quick-create-workspace.md) — Azure monitor przechowuje dane dziennika w log Analytics obszarze roboczym, kontener zawierający dane i informacje o konfiguracji

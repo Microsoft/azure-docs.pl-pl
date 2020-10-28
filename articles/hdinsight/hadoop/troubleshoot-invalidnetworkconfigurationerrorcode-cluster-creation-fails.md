@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: f30f92df505abeff108f8d1c503cb33162d2e409
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533550"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790920"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Tworzenie klastra kończy się niepowodzeniem z InvalidNetworkConfigurationErrorCode w usłudze Azure HDInsight
 
@@ -68,6 +68,19 @@ Usługi Azure Storage i SQL nie mają stałych adresów IP, dlatego musimy zezwo
 
     Jeśli istnieją zdefiniowane trasy, upewnij się, że istnieją trasy dla adresów IP dla regionu, w którym wdrożono klaster, a **NextHopType** dla każdej trasy to **Internet** . Powinna istnieć trasa zdefiniowana dla każdego wymaganego adresu IP opisanego w wymienionym artykule.
 
+## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>"Nie można nawiązać połączenia wychodzącego z klastra w celu komunikacji z dostawcą zasobów usługi HDInsight. Upewnij się, że łączność wychodząca jest dozwolona. "
+
+### <a name="issue"></a>Problem
+
+Opis błędu zawiera "nie można nawiązać połączenia wychodzącego z klastra w celu komunikacji z dostawcą zasobów usługi HDInsight. Upewnij się, że łączność wychodząca jest dozwolona. "
+
+### <a name="cause"></a>Przyczyna
+
+W przypadku korzystania z prywatnych połączonych klastrów usługi HDInsight dostęp wychodzący z klastra musi być skonfigurowany tak, aby zezwalał na nawiązywanie połączeń z dostawcą zasobów usługi HDInsight.
+
+### <a name="resolution"></a>Rozwiązanie
+
+* Aby rozwiązać ten problem, zapoznaj się z instrukcjami w sekcji Konfigurowanie linku prywatnego usługi HDInsight w [ustawieniach linku prywatnego](../hdinsight-private-link.md)
 ---
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>"Konfiguracja sieci wirtualnej jest niezgodna z wymaganiem usługi HDInsight"

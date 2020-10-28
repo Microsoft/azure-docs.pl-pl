@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503338"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791430"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -44,9 +44,9 @@ Synchronizacja danych używa topologii gwiazdy do synchronizowania danych. Jedn�
 Grupa synchronizacji ma następujące właściwości:
 
 - **Schemat synchronizacji** opisuje, które dane są synchronizowane.
-- **Kierunek synchronizacji** może być dwukierunkowy lub może przepływać tylko w jednym kierunku. Oznacza to, że kierunek synchronizacji może być *centrum do elementu członkowskiego*lub *składowej lub z*obu tych elementów.
+- **Kierunek synchronizacji** może być dwukierunkowy lub może przepływać tylko w jednym kierunku. Oznacza to, że kierunek synchronizacji może być *centrum do elementu członkowskiego* lub *składowej lub z* obu tych elementów.
 - **Interwał synchronizacji** opisuje, jak często odbywa się synchronizacja.
-- **Zasady rozwiązywania konfliktów** są zasadami na poziomie grupy, które mogą być *centrami WINS* lub *członkowskimi*.
+- **Zasady rozwiązywania konfliktów** są zasadami na poziomie grupy, które mogą być *centrami WINS* lub *członkowskimi* .
 
 ## <a name="when-to-use"></a>Kiedy stosować
 
@@ -62,7 +62,7 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 |----------|----------------------------|
 | Odzyskiwanie po awarii | [Geograficznie nadmiarowe platformy Azure](automated-backups-overview.md) |
 | Skala odczytu | [Używanie replik tylko do odczytu do równoważenia obciążenia obciążeń zapytań tylko do odczytu (wersja zapoznawcza)](read-scale-out.md) |
-| ETL (OLTP do OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) lub [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| ETL (OLTP do OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) lub [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | Migracja z SQL Server do Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -72,9 +72,9 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 
 - **Śledzenie zmian danych:** Synchronizacja danych śledzi zmiany przy użyciu wyzwalaczy INSERT, Update i DELETE. Zmiany są rejestrowane w tabeli bocznej w bazie danych użytkownika. Należy zauważyć, że BULK INSERT domyślnie nie uruchamia wyzwalaczy. Jeśli FIRE_TRIGGERS nie jest określony, żadne wyzwalacze wstawiania nie są wykonywane. Dodaj opcję FIRE_TRIGGERS, aby synchronizacja danych mogła śledzić te operacje wstawiania. 
 - **Synchronizowanie danych:** Synchronizacja danych została zaprojektowana w modelu gwiazdy. Koncentrator synchronizuje się z każdym członkiem indywidualnie. Zmiany z centrum są pobierane do elementu członkowskiego, a następnie zmiany z elementu członkowskiego są przekazywane do centrum.
-- **Rozwiązywanie konfliktów:** Synchronizacja danych oferuje dwie opcje rozwiązywania konfliktów, *centrum WINS* lub *członka usługi WINS*.
-  - W przypadku wybrania *usługi Hub WINS*zmiany w centrum zawsze zastępują zmiany w elemencie członkowskim.
-  - W przypadku wybrania *elementu członkowskiego usługi WINS*zmiany wprowadzone w elemencie członkowskim zastępują zmiany w centrum. Jeśli istnieje więcej niż jeden element członkowski, końcowa wartość zależy od tego, który element członkowski synchronizuje najpierw.
+- **Rozwiązywanie konfliktów:** Synchronizacja danych oferuje dwie opcje rozwiązywania konfliktów, *centrum WINS* lub *członka usługi WINS* .
+  - W przypadku wybrania *usługi Hub WINS* zmiany w centrum zawsze zastępują zmiany w elemencie członkowskim.
+  - W przypadku wybrania *elementu członkowskiego usługi WINS* zmiany wprowadzone w elemencie członkowskim zastępują zmiany w centrum. Jeśli istnieje więcej niż jeden element członkowski, końcowa wartość zależy od tego, który element członkowski synchronizuje najpierw.
 
 ## <a name="compare-with-transactional-replication"></a>Porównanie z replikacją transakcyjną
 
@@ -101,7 +101,7 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 
 ### <a name="did-something-go-wrong"></a>Wystąpił problem
 
-- [Troubleshoot issues with Azure SQL Data Sync (Rozwiązywanie problemów z usługą Azure SQL Data Sync)](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Troubleshoot issues with Azure SQL Data Sync (Rozwiązywanie problemów z usługą Azure SQL Data Sync)](./sql-data-sync-troubleshoot.md)
 
 ## <a name="consistency-and-performance"></a>Spójność i wydajność
 
@@ -126,7 +126,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 > - Dane między centrami i elementami członkowskimi mogą zostać utracone nawet wtedy, gdy synchronizacja nie zgłasza żadnego problemu.
 > - Synchronizacja może zakończyć się niepowodzeniem, ponieważ tabela śledzenia ma nieistniejący wiersz ze źródła ze względu na zmianę klucza podstawowego.
 
-- Izolacja migawki musi być włączona zarówno dla elementów członkowskich synchronizacji, jak i dla centrum. Aby uzyskać więcej informacji, zobacz [Izolacja migawki w programie SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- Izolacja migawki musi być włączona zarówno dla elementów członkowskich synchronizacji, jak i dla centrum. Aby uzyskać więcej informacji, zobacz [Izolacja migawki w programie SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Ogólne ograniczenia
 
@@ -150,7 +150,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 
 #### <a name="unsupported-column-types"></a>Nieobsługiwane typy kolumn
 
-Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Przykład:
+Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Na przykład:
 
 - Kolumny obliczane.
 - Kolumny danych czasowych generowane przez system.
@@ -175,8 +175,8 @@ Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub gene
 
 Po ustanowieniu grupy synchronizacji usługa synchronizacji danych musi nawiązać połączenie z bazą danych centrum. Podczas ustanawiania grupy synchronizacji w ustawieniach programu Azure SQL Server musi znajdować się następująca konfiguracja `Firewalls and virtual networks` :
 
- * *Odmowa dostępu do sieci publicznej* musi być ustawiona na *off*.
- * *Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera* musi być ustawiona wartość *Yes (tak*) lub należy utworzyć reguły adresów IP dla [adresów IP używanych przez usługę synchronizacji danych](network-access-controls-overview.md#data-sync).
+ * *Odmowa dostępu do sieci publicznej* musi być ustawiona na *off* .
+ * *Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera* musi być ustawiona wartość *Yes (tak* ) lub należy utworzyć reguły adresów IP dla [adresów IP używanych przez usługę synchronizacji danych](network-access-controls-overview.md#data-sync).
 
 Po utworzeniu i udostępnieniu grupy synchronizacji można wyłączyć te ustawienia. Agent synchronizacji będzie łączył się bezpośrednio z centralną bazą danych i można użyć [reguł IP zapory](firewall-configure.md) serwera lub [prywatnych punktów końcowych](private-endpoint-overview.md) , aby umożliwić agentowi dostęp do serwera centrum.
 
@@ -240,7 +240,7 @@ Główna baza danych Federacji może być używana w usłudze SQL Data Sync bez 
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Czy można używać funkcji synchronizacji danych do synchronizowania danych wyeksportowanych z systemu Dynamics 365 przy użyciu narzędzia do przenoszenia własnych baz danych (BYOD)?
 
-Funkcja Dynamics 365 umożliwia administratorom eksportowanie jednostek danych z aplikacji do własnych Microsoft Azure bazy danych SQL. Synchronizacja danych może służyć do synchronizowania tych danych z innymi bazami danych, jeśli dane są eksportowane przy użyciu **wypychania przyrostowego** (pełna wypychanie nie jest obsługiwana), a **wyzwalacze włączania w docelowej bazie danych** są ustawione na **wartość tak**.
+Funkcja Dynamics 365 umożliwia administratorom eksportowanie jednostek danych z aplikacji do własnych Microsoft Azure bazy danych SQL. Synchronizacja danych może służyć do synchronizowania tych danych z innymi bazami danych, jeśli dane są eksportowane przy użyciu **wypychania przyrostowego** (pełna wypychanie nie jest obsługiwana), a **wyzwalacze włączania w docelowej bazie danych** są ustawione na **wartość tak** .
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -248,20 +248,19 @@ Funkcja Dynamics 365 umożliwia administratorom eksportowanie jednostek danych z
 
 Czy musisz zaktualizować schemat bazy danych w grupie synchronizacji? Zmiany schematu nie są automatycznie replikowane. W przypadku niektórych rozwiązań zapoznaj się z następującymi artykułami:
 
-- [Automatyzowanie replikacji zmian schematu przy użyciu SQL Data Sync na platformie Azure](../../sql-database/sql-database-update-sync-schema.md)
+- [Automatyzowanie replikacji zmian schematu przy użyciu SQL Data Sync na platformie Azure](./sql-data-sync-update-sync-schema.md)
 - [Używanie programu PowerShell do zaktualizowania schematu synchronizacji w istniejącej grupie synchronizacji](scripts/update-sync-schema-in-sync-group.md)
 
 ### <a name="monitor-and-troubleshoot"></a>Monitorowanie i rozwiązywanie problemów
 
 Czy SQL Data Sync działa zgodnie z oczekiwaniami? Aby monitorować aktywność i rozwiązywać problemy, zobacz następujące artykuły:
 
-- [Monitorowanie SQL Data Sync przy użyciu dzienników Azure Monitor](../../sql-database/sql-database-sync-monitor-oms.md)
-- [Troubleshoot issues with Azure SQL Data Sync (Rozwiązywanie problemów z usługą Azure SQL Data Sync)](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Monitorowanie SQL Data Sync przy użyciu dzienników Azure Monitor](./monitor-tune-overview.md)
+- [Troubleshoot issues with Azure SQL Data Sync (Rozwiązywanie problemów z usługą Azure SQL Data Sync)](./sql-data-sync-troubleshoot.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Dowiedz się więcej o Azure SQL Database
 
 Aby uzyskać więcej informacji na temat Azure SQL Database, zobacz następujące artykuły:
 
 - [Omówienie usługi SQL Database](sql-database-paas-overview.md)
-- [Database Lifecycle Management (Zarządzanie cyklem życia bazy danych)](https://msdn.microsoft.com/library/jj907294.aspx)
- 
+- [Database Lifecycle Management (Zarządzanie cyklem życia bazy danych)](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

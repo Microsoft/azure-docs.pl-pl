@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168243"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789764"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Wdróż zarządzany dysk SSD w warstwie Premium z włączoną funkcją dysku udo
 Dodaj dysk udostępniony platformy Azure, wykonując następujące czynności: 
 
 
-1. Zapisz następujący skrypt jako *SharedDiskConfig.jsw*: 
+1. Zapisz następujący skrypt jako *SharedDiskConfig.jsw* : 
 
    ```JSON
    { 
@@ -151,17 +151,17 @@ Sprawdź poprawność klastra w interfejsie użytkownika lub za pomocą programu
 
 Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykonaj następujące czynności na jednej z maszyn wirtualnych:
 
-1. W obszarze **Menedżer serwera**wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
-1. W obszarze **Menedżer klastra trybu failover**wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
-1. Wybierz pozycję **Dalej**.
-1. W obszarze **Wybierz serwery lub klaster**wprowadź nazwy obu maszyn wirtualnych.
-1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. 
-1. Wybierz pozycję **Dalej**.
-1. W obszarze **wybór testu**zaznacz wszystkie testy *poza* **magazynem**
+1. W obszarze **Menedżer serwera** wybierz pozycję **Narzędzia** , a następnie wybierz pozycję **Menedżer klastra trybu failover** .
+1. W obszarze **Menedżer klastra trybu failover** wybierz pozycję **Akcja** , a następnie wybierz pozycję **Weryfikuj konfigurację** .
+1. Wybierz pozycję **Dalej** .
+1. W obszarze **Wybierz serwery lub klaster** wprowadź nazwy obu maszyn wirtualnych.
+1. W obszarze **opcje testowania** wybierz opcję **Uruchom tylko wybrane testy** . 
+1. Wybierz pozycję **Dalej** .
+1. W obszarze **wybór testu** zaznacz wszystkie testy *poza* **magazynem**
 
 ## <a name="test-cluster-failover"></a>Testowanie trybu failover klastra
 
-Przetestuj tryb failover klastra. W **Menedżer klastra trybu failover**kliknij prawym przyciskiem myszy klaster, wybierz pozycję **więcej akcji**  >  **Przenieś zasób klastra podstawowego**  >  **Wybierz węzeł**, a następnie wybierz inny węzeł klastra. Przenieś zasób podstawowego klastra do każdego węzła klastra, a następnie przenieś go z powrotem do węzła podstawowego. Jeśli możesz pomyślnie przenieść klaster do każdego węzła, możesz zainstalować SQL Server.  
+Przetestuj tryb failover klastra. W **Menedżer klastra trybu failover** kliknij prawym przyciskiem myszy klaster, wybierz pozycję **więcej akcji**  >  **Przenieś zasób klastra podstawowego**  >  **Wybierz węzeł** , a następnie wybierz inny węzeł klastra. Przenieś zasób podstawowego klastra do każdego węzła klastra, a następnie przenieś go z powrotem do węzła podstawowego. Jeśli możesz pomyślnie przenieść klaster do każdego węzła, możesz zainstalować SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testowanie trybu failover klastra przez przeniesienie zasobu podstawowego do innych węzłów":::
 
@@ -171,15 +171,15 @@ Po skonfigurowaniu klastra trybu failover i wszystkich składników klastra, w t
 
 1. Połącz się z pierwszą maszyną wirtualną przy użyciu Remote Desktop Protocol (RDP).
 
-1. W **Menedżer klastra trybu failover**upewnij się, że wszystkie podstawowe zasoby klastra znajdują się na pierwszej maszynie wirtualnej. W razie potrzeby Przenieś wszystkie zasoby na tę maszynę wirtualną.
+1. W **Menedżer klastra trybu failover** upewnij się, że wszystkie podstawowe zasoby klastra znajdują się na pierwszej maszynie wirtualnej. W razie potrzeby Przenieś wszystkie zasoby na tę maszynę wirtualną.
 
 1. Znajdź nośnik instalacyjny. Jeśli maszyna wirtualna używa jednego z obrazów portalu Azure Marketplace, nośnik znajduje się w lokalizacji `C:\SQLServer_<version number>_Full` . 
 
-1. Wybierz pozycję **Konfiguracja**.
+1. Wybierz pozycję **Konfiguracja** .
 
-1. W **SQL Server centrum instalacji**wybierz opcję **Instalacja**.
+1. W **SQL Server centrum instalacji** wybierz opcję **Instalacja** .
 
-1. Wybierz pozycję **nowa SQL Server Instalacja klastra trybu failover**. Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server FCI.
+1. Wybierz pozycję **nowa SQL Server Instalacja klastra trybu failover** . Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server FCI.
 
 Katalogi danych FCI muszą znajdować się na udostępnionych dyskach platformy Azure. 
 
@@ -187,12 +187,12 @@ Katalogi danych FCI muszą znajdować się na udostępnionych dyskach platformy 
 
 1. Po zainstalowaniu przez Instalatora FCI na pierwszym węźle Nawiąż połączenie z drugim węzłem przy użyciu protokołu RDP.
 
-1. Otwórz **centrum instalacji programu SQL Server**, a następnie wybierz pozycję **Instalacja**.
+1. Otwórz **centrum instalacji programu SQL Server** , a następnie wybierz pozycję **Instalacja** .
 
-1. Wybierz pozycję **Dodaj węzeł do klastra trybu failover SQL Server**. Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server i dodać serwer do FCI.
+1. Wybierz pozycję **Dodaj węzeł do klastra trybu failover SQL Server** . Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server i dodać serwer do FCI.
 
    >[!NOTE]
-   >W przypadku korzystania z obrazu galerii portalu Azure Marketplace zawierającego SQL Server narzędzia SQL Server zostały dołączone do obrazu. Jeśli nie korzystasz z jednego z tych obrazów, zainstaluj SQL Server narzędzia osobno. Aby uzyskać więcej informacji, zobacz [pobieranie SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >W przypadku korzystania z obrazu galerii portalu Azure Marketplace zawierającego SQL Server narzędzia SQL Server zostały dołączone do obrazu. Jeśli nie korzystasz z jednego z tych obrazów, zainstaluj SQL Server narzędzia osobno. Aby uzyskać więcej informacji, zobacz [pobieranie SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
    >
 
 ## <a name="register-with-the-sql-vm-rp"></a>Rejestrowanie w ramach jednostki odzyskiwania maszyny wirtualnej SQL

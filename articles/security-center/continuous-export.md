@@ -6,16 +6,16 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: ffc74e05d6cbe7722b9bf293c1a1e75a7de1b879
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342063"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789186"
 ---
-# <a name="continuously-export-security-alerts-and-recommendations"></a>Nieustanne eksportowanie alertów zabezpieczeń i zaleceń
+# <a name="continuously-export-security-center-data"></a>Ciągłe eksportowanie danych Security Center
 
 Azure Security Center generuje szczegółowe alerty zabezpieczeń i zalecenia. Można je wyświetlać w portalu lub za pomocą narzędzi programistycznych. Może być również konieczne wyeksportowanie niektórych lub wszystkich tych informacji do śledzenia za pomocą innych narzędzi do monitorowania w danym środowisku. 
 
@@ -28,7 +28,7 @@ Azure Security Center generuje szczegółowe alerty zabezpieczeń i zalecenia. M
 W tym artykule opisano sposób konfigurowania eksportu ciągłego do Log Analytics obszarów roboczych lub Event Hubs platformy Azure.
 
 > [!NOTE]
-> Jeśli musisz zintegrować Security Center z SIEM, przejrzyj [alerty strumienia w Siem](export-to-siem.md) dla opcji.
+> Jeśli musisz zintegrować Security Center z usługą SIEM, zobacz [przesyłanie alertów w usłudze Siem, o lub rozwiązania do zarządzania usługami IT](export-to-siem.md).
 
 > [!TIP]
 > Security Center oferuje także opcję jednorazowego, ręcznego eksportowania do woluminu CSV. Dowiedz się więcej w [ręcznym wywozie alertów i zaleceń](#manual-one-time-export-of-alerts-and-recommendations).
@@ -52,15 +52,15 @@ W tym artykule opisano sposób konfigurowania eksportu ciągłego do Log Analyti
 
 Można skonfigurować eksport ciągły ze stron Security Center w Azure Portal, za pośrednictwem interfejsu API REST Security Center lub na skalę przy użyciu dostarczonych szablonów Azure Policy. Wybierz odpowiednią kartę poniżej, aby uzyskać szczegółowe informacje o każdej z nich.
 
-### <a name="use-the-azure-portal"></a>[**Użyj Azure Portal**](#tab/azure-portal)
+### <a name="use-the-azure-portal"></a>[**Korzystanie z witryny Azure Portal**](#tab/azure-portal)
 
 ### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Skonfiguruj eksport ciągły na stronach Security Center w Azure Portal
 
 Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły eksport do Log Analytics obszaru roboczego czy Event Hubs platformy Azure.
 
-1. Na pasku bocznym Security Center wybierz pozycję **cennik & ustawienia**.
+1. Na pasku bocznym Security Center wybierz pozycję **cennik & ustawienia** .
 1. Wybierz określoną subskrypcję, dla której chcesz skonfigurować eksportowanie danych.
-1. Na pasku bocznym strony Ustawienia dla tej subskrypcji wybierz pozycję **eksport ciągły**.
+1. Na pasku bocznym strony Ustawienia dla tej subskrypcji wybierz pozycję **eksport ciągły** .
     [ ![ Opcje eksportowania w Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) tym miejscu są wyświetlane opcje eksportowania. Dla każdego dostępnego elementu docelowego eksportu istnieje karta. 
 1. Wybierz typ danych, który chcesz wyeksportować, i wybierz spośród filtrów dla każdego typu (na przykład wyeksportuj tylko alerty o wysokiej ważności).
 1. Opcjonalnie, jeśli wybór obejmuje jedno z czterech zaleceń, można dołączyć do nich wyniki oceny luk w zabezpieczeniach:
@@ -74,7 +74,7 @@ Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń&quot; :::
 
 1. W obszarze &quot;Eksportuj element docelowy" Wybierz miejsce, w którym chcesz zapisać dane. Dane można zapisywać w miejscu docelowym w innej subskrypcji (na przykład w centralnym wystąpieniu centrum zdarzeń lub w centralnym obszarze roboczym Log Analytics).
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz** .
 
 ### <a name="use-the-rest-api"></a>[**Korzystanie z interfejsu API REST**](#tab/rest-api)
 
@@ -129,7 +129,7 @@ Aby wdrożyć konfiguracje eksportu ciągłego w całej organizacji, należy uż
 1. W obszarze &quot;Eksportuj element docelowy":::
     > 2. Z menu Azure Policy wybierz pozycję **definicje** i wyszukaj je według nazwy. 
 
-1. Na odpowiedniej stronie Azure Policy wybierz pozycję **Przypisz**.
+1. Na odpowiedniej stronie Azure Policy wybierz pozycję **Przypisz** .
     :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń&quot; :::
 
 1. W obszarze &quot;Eksportuj element docelowy":::
@@ -145,7 +145,7 @@ Aby wdrożyć konfiguracje eksportu ciągłego w całej organizacji, należy uż
 
 1. W obszarze &quot;Eksportuj element docelowy" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Opcjonalnie, aby zastosować to przypisanie do istniejących subskrypcji, Otwórz kartę **korygowanie** i wybierz opcję utworzenia zadania korygowania.
-1. Przejrzyj stronę Podsumowanie i wybierz pozycję **Utwórz**.
+1. Przejrzyj stronę Podsumowanie i wybierz pozycję **Utwórz** .
 
 --- 
 
@@ -160,7 +160,7 @@ Alerty zabezpieczeń i zalecenia są przechowywane odpowiednio w tabelach *Secur
 Nazwa rozwiązania Log Analytics zawierającego te tabele zależy od tego, czy usługa Azure Defender jest włączona: zabezpieczenia ("Security and Audit") czy SecurityCenterFree. 
 
 > [!TIP]
-> Aby wyświetlić dane w docelowym obszarze roboczym, należy włączyć jedno z tych rozwiązań **Security and Audit** lub **SecurityCenterFree**.
+> Aby wyświetlić dane w docelowym obszarze roboczym, należy włączyć jedno z tych rozwiązań **Security and Audit** lub **SecurityCenterFree** .
 
 ![Tabela * SecurityAlert * w Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
@@ -175,15 +175,15 @@ Azure Monitor zapewnia ujednolicone środowisko alertów dla różnych alertów 
 
 Aby wyświetlić alerty i zalecenia z Security Center w Azure Monitor, skonfiguruj regułę alertu na podstawie zapytań Log Analytics (alert dziennika):
 
-1. Na stronie **alerty** Azure Monitor wybierz pozycję **Nowa reguła alertu**.
+1. Na stronie **alerty** Azure Monitor wybierz pozycję **Nowa reguła alertu** .
 
     ![Strona alertów Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
 1. Na stronie Tworzenie reguły Skonfiguruj nową regułę (w taki sam sposób jak w przypadku konfigurowania [reguły alertu dziennika w Azure monitor](../azure-monitor/platform/alerts-unified-log.md)):
 
-    * W obszarze **zasób**wybierz obszar roboczy log Analytics, do którego wyeksportowano alerty zabezpieczeń i zalecenia.
+    * W obszarze **zasób** wybierz obszar roboczy log Analytics, do którego wyeksportowano alerty zabezpieczeń i zalecenia.
 
-    * W obszarze **warunek**wybierz opcję **Wyszukiwanie w dzienniku niestandardowym**. Na wyświetlonej stronie Skonfiguruj zapytanie, okres lookback i okres częstotliwości. W zapytaniu wyszukiwania można wpisać *SecurityAlert* lub *SecurityRecommendation* , aby wykonać zapytanie dotyczące typów danych, które Security Center ciągle eksportować w miarę włączania eksportu ciągłego do log Analytics funkcji. 
+    * W obszarze **warunek** wybierz opcję **Wyszukiwanie w dzienniku niestandardowym** . Na wyświetlonej stronie Skonfiguruj zapytanie, okres lookback i okres częstotliwości. W zapytaniu wyszukiwania można wpisać *SecurityAlert* lub *SecurityRecommendation* , aby wykonać zapytanie dotyczące typów danych, które Security Center ciągle eksportować w miarę włączania eksportu ciągłego do log Analytics funkcji. 
     
     * Opcjonalnie Skonfiguruj [grupę akcji](../azure-monitor/platform/action-groups.md) , którą chcesz wyzwolić. Grupy akcji mogą wyzwalać wysyłanie wiadomości e-mail, bilety narzędzia ITSM, elementy webhook i inne elementy.
     ![Reguła alertu Azure Monitor](./media/continuous-export/azure-monitor-alert-rule.png)
@@ -210,6 +210,29 @@ Dowiedz się więcej o [cenniku obszaru roboczego log Analytics](https://azure.m
 
 Dowiedz się więcej na temat [cennika usługi Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/).
 
+
+### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>Czy eksport obejmuje dane dotyczące bieżącego stanu wszystkich zasobów?
+
+Nie. Eksport ciągły jest zbudowany na potrzeby przesyłania strumieniowego **zdarzeń** :
+
+- **Alerty** otrzymane przed włączeniem eksportu nie zostaną wyeksportowane.
+- **Zalecenia** są wysyłane po każdym zmianie stanu zgodności zasobu. Na przykład gdy zasób zmieni się z zdrowe na zła kondycja. W związku z tym, zgodnie z alertami, zalecenia dotyczące zasobów, które nie zmieniły stanu od momentu włączenia eksportu, nie zostaną wyeksportowane.
+
+
+### <a name="why-are-recommendations-sent-at-different-intervals"></a>Dlaczego zalecenia są wysyłane w różnych odstępach czasu?
+
+Różne zalecenia mają różne interwały oceny zgodności, które mogą się różnić od kilku minut do co kilka dni. W związku z tym zalecenia różnią się w czasie, w jakim będą one widoczne w wywozie.
+
+### <a name="does-continuous-export-support-any-business-continuity-or-disaster-recovery-bcdr-scenarios"></a>Czy ciągły eksport obsługuje wszystkie scenariusze prowadzenia ciągłości działania lub odzyskiwania po awarii (BCDR)?
+
+Podczas przygotowywania środowiska pod kątem scenariuszy BCDR, w którym zasób docelowy występuje awaria lub inna awaria, jest odpowiedzialnością organizacji, aby zapobiec utracie danych, ustanawiając kopie zapasowe zgodnie z wytycznymi z platformy Azure Event Hubs, Log Analytics obszaru roboczego i aplikacji logiki.
+
+Dowiedz się więcej na [platformie Azure Event Hubs — odzyskiwanie geograficzne po awarii](../event-hubs/event-hubs-geo-dr.md).
+
+
+### <a name="is-continuous-export-available-with-azure-security-center-free"></a>Czy eksport ciągły jest dostępny z Azure Security Center bezpłatnie?
+
+Tak! Należy pamiętać, że wiele alertów Security Center jest dostępnych tylko po włączeniu usługi Azure Defender. Dobrym sposobem na wyświetlenie podglądu alertów, które uzyskasz w wyeksportowanych danych, jest wyświetlenie alertów pokazanych na stronach Security Center w Azure Portal.
 
 
 

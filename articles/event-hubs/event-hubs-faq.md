@@ -2,13 +2,13 @@
 title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
-ms.date: 10/23/2020
-ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 10/27/2020
+ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518028"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789373"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -184,8 +184,19 @@ Jeśli całkowita przepływność transferu danych wychodzących **lub całkowit
 
 Limity przydziałów ruchu przychodzącego i wychodzącego są wymuszane oddzielnie, dzięki czemu żaden nadawca nie może spowodować spowolnienia użycia zdarzenia, a odbiorca nie może uniemożliwić wysyłania zdarzeń do centrum zdarzeń.
 
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Czy istnieje ograniczenie liczby jednostek przepływności (TUs), które mogą być zarezerwowane lub wybrane?
-W przypadku oferty z wieloma dzierżawcami jednostki przepływności mogą wzrosnąć do 40 TUs (można wybrać do 20 TUs w portalu i zgłosić bilet pomocy technicznej, aby zgłosić go do 40 TUs w tej samej przestrzeni nazw). Poza 40 TUs, Event Hubs oferuje model oparty na zasobach i pojemności nazywany **klastrami Event Hubs — warstwa dedykowana**. Dedykowane klastry są sprzedawane w jednostkach pojemności.
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-reservedselected"></a>Czy istnieje ograniczenie liczby jednostek przepływności, które mogą być zarezerwowane lub wybrane?
+
+Podczas tworzenia przestrzeni nazw w warstwie Podstawowa lub standardowa w Azure Portal można wybrać do 20 TUs dla przestrzeni nazw. Aby podnieść poziom do **dokładnie** 40 TUs, Prześlij  [żądanie pomocy technicznej](../azure-portal/supportability/how-to-create-azure-support-request.md).  
+
+1. Na stronie **przestrzeń nazw magistrali zdarzeń** wybierz pozycję **nowe żądanie obsługi** w menu po lewej stronie. 
+1. Na stronie **nowe żądanie obsługi** wykonaj następujące czynności:
+    1. Aby uzyskać **Podsumowanie** , opisz problem za pomocą kilku wyrazów. 
+    1. W obszarze **typ problemu** wybierz pozycję **przydział** . 
+    1. W przypadku **problemu z podtypem** wybierz pozycję **Żądaj zwiększenia lub zmniejszenia jednostki przepływności** . 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Strona Support request":::
+
+Poza 40 TUs, Event Hubs oferuje model oparty na zasobach i pojemności nazywany klastrami Event Hubs — warstwa Dedykowana. Dedykowane klastry są sprzedawane w jednostkach pojemności. Aby uzyskać więcej informacji, zobacz [Event Hubs — warstwa dedykowana — przegląd](event-hubs-dedicated-overview.md).
 
 ## <a name="dedicated-clusters"></a>Dedykowane klastry
 
@@ -199,7 +210,7 @@ Aby uzyskać instrukcje krok po kroku i więcej informacji na temat konfigurowan
 [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 
-## <a name="best-practices"></a>Najlepsze rozwiązania
+## <a name="partitions"></a>Partycje
 
 ### <a name="how-many-partitions-do-i-need"></a>Ile partycji potrzebuję?
 Liczba partycji jest określana podczas tworzenia i musi należeć do zakresu od 1 do 32. Liczba partycji nie jest zmieniana, dlatego należy rozważyć długoterminową skalę podczas ustawiania liczby partycji. Partycje stanowią mechanizm organizacji danych powiązany z równoległością podrzędną wymaganą w aplikacjach korzystających z tych danych. Liczba partycji w centrum zdarzeń jest bezpośrednio związana z oczekiwaną liczbą jednoczesnych czytników. Aby uzyskać więcej informacji o partycjach, zobacz [partycje](event-hubs-features.md#partitions).
@@ -209,6 +220,21 @@ Może być konieczne ustawienie najwyższej możliwej wartości, która jest 32 
 Event Hubs jest zaprojektowana tak, aby zezwalała na pojedynczy czytnik partycji dla każdej grupy odbiorców. W większości przypadków użycia wystarcza domyślnie cztery partycje. Jeśli chcesz skalować przetwarzanie zdarzeń, warto rozważyć dodanie dodatkowych partycji. Nie ma określonego limitu przepływności dla partycji, ale agregowana przepływność w przestrzeni nazw jest ograniczona przez liczbę jednostek przepływności. W miarę zwiększania liczby jednostek przepływności w przestrzeni nazw mogą być potrzebne dodatkowe partycje pozwalające współbieżnym czytelnikom na osiąganie ich maksymalnej przepływności.
 
 Jeśli jednak masz model, w którym aplikacja ma koligację z określoną partycją, zwiększenie liczby partycji może nie mieć żadnej korzyści. Aby uzyskać więcej informacji, zobacz [dostępność i spójność](event-hubs-availability-and-consistency.md).
+
+### <a name="increase-partitions"></a>Zwiększ partycje
+Możesz poprosić o zwiększenie liczby partycji do 40 (dokładne) przez przesłanie żądania pomocy technicznej. 
+
+1. Na stronie **przestrzeń nazw magistrali zdarzeń** wybierz pozycję **nowe żądanie obsługi** w menu po lewej stronie. 
+1. Na stronie **nowe żądanie obsługi** wykonaj następujące czynności:
+    1. Aby uzyskać **Podsumowanie** , opisz problem za pomocą kilku wyrazów. 
+    1. W obszarze **typ problemu** wybierz pozycję **przydział** . 
+    1. W przypadku **problemu z podtypem** wybierz pozycję **Żądaj zmiany partycji** . 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Strona Support request":::
+
+Liczbę partycji można zwiększyć do dokładnie 40. W takim przypadku liczbę TUs należy również zwiększyć do 40. Jeśli zdecydujesz się później obniżyć limit jednostek PRZEPŁYWNOŚCI z powrotem do <= 20, maksymalny limit partycji zostanie również obniżony do 32. 
+
+Zmniejszenie partycji nie ma wpływu na istniejące Centra zdarzeń, ponieważ partycje są stosowane na poziomie centrum zdarzeń i są niezmienne po utworzeniu centrum. 
 
 ## <a name="pricing"></a>Cennik
 

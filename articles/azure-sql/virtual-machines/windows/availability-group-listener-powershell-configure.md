@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3a715538afba181a067e4cecd8c1941a76ae36d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb55274800b239cf0e1e942647ae0c65b321b862
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298868"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790053"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Skonfiguruj co najmniej jeden odbiornik grupy dostępności — Menedżer zasobów
 
@@ -30,7 +30,7 @@ W tym dokumencie przedstawiono sposób użycia programu PowerShell w celu wykona
 
 Odbiornik grupy dostępności to nazwa sieci wirtualnej, z którą łączą się klienci w celu uzyskania dostępu do bazy danych. W usłudze Azure Virtual Machines moduł równoważenia obciążenia przechowuje adres IP odbiornika. Moduł równoważenia obciążenia kieruje ruch do wystąpienia SQL Server, które nasłuchuje na porcie sondy. Zwykle Grupa dostępności używa wewnętrznego modułu równoważenia obciążenia. Wewnętrzny moduł równoważenia obciążenia platformy Azure może obsługiwać jeden lub wiele adresów IP. Każdy adres IP używa określonego portu sondowania. 
 
-Możliwość przypisania wielu adresów IP do wewnętrznego modułu równoważenia obciążenia jest nowa na platformie Azure i jest dostępna tylko w modelu Menedżer zasobów. Aby wykonać to zadanie, należy mieć SQL Server grupę dostępności wdrożoną na platformie Azure Virtual Machines w modelu Menedżer zasobów. Obie SQL Server maszyny wirtualne muszą należeć do tego samego zestawu dostępności. Możesz użyć [szablonu Microsoft](availability-group-azure-marketplace-template-configure.md) , aby automatycznie utworzyć grupę dostępności w Azure Resource Manager. Ten szablon automatycznie tworzy grupę dostępności wraz z wewnętrznym modułem równoważenia obciążenia. Jeśli wolisz, możesz [ręcznie skonfigurować grupę dostępności zawsze włączona](availability-group-manually-configure-tutorial.md).
+Możliwość przypisania wielu adresów IP do wewnętrznego modułu równoważenia obciążenia jest nowa na platformie Azure i jest dostępna tylko w modelu Menedżer zasobów. Aby wykonać to zadanie, należy mieć SQL Server grupę dostępności wdrożoną na platformie Azure Virtual Machines w modelu Menedżer zasobów. Obie SQL Server maszyny wirtualne muszą należeć do tego samego zestawu dostępności. Możesz użyć [szablonu Microsoft](./availability-group-quickstart-template-configure.md) , aby automatycznie utworzyć grupę dostępności w Azure Resource Manager. Ten szablon automatycznie tworzy grupę dostępności wraz z wewnętrznym modułem równoważenia obciążenia. Jeśli wolisz, możesz [ręcznie skonfigurować grupę dostępności zawsze włączona](availability-group-manually-configure-tutorial.md).
 
 Aby wykonać kroki opisane w tym artykule, Twoje grupy dostępności muszą być już skonfigurowane.  
 
@@ -49,11 +49,11 @@ Przykłady w tym artykule są testowane przy użyciu modułu Azure PowerShell w 
 
 Sprawdź, czy moduł programu PowerShell to 5.4.1 lub nowszy.
 
-Zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="configure-the-windows-firewall"></a>Konfigurowanie zapory systemu Windows
 
-Skonfiguruj zaporę systemu Windows tak, aby zezwalała na dostęp SQL Server. Reguły zapory zezwalają na połączenia TCP z portami używanymi przez wystąpienie SQL Server i sondy odbiornika. Aby uzyskać szczegółowe instrukcje, zobacz [Konfigurowanie zapory systemu Windows pod kątem dostępu do aparatu bazy danych](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Utwórz regułę ruchu przychodzącego dla portu SQL Server i dla portu sondowania.
+Skonfiguruj zaporę systemu Windows tak, aby zezwalała na dostęp SQL Server. Reguły zapory zezwalają na połączenia TCP z portami używanymi przez wystąpienie SQL Server i sondy odbiornika. Aby uzyskać szczegółowe instrukcje, zobacz [Konfigurowanie zapory systemu Windows pod kątem dostępu do aparatu bazy danych](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access#Anchor_1). Utwórz regułę ruchu przychodzącego dla portu SQL Server i dla portu sondowania.
 
 W przypadku ograniczania dostępu za pomocą grupy zabezpieczeń sieci platformy Azure upewnij się, że reguły zezwalania zawierają SQL Server adresy IP maszyny wirtualnej, a moduł równoważenia obciążenia — adresy IP dla odbiornika AG i podstawowy adres IP klastra, jeśli ma zastosowanie.
 
@@ -61,10 +61,10 @@ W przypadku ograniczania dostępu za pomocą grupy zabezpieczeń sieci platformy
 
 [Moduł równoważenia obciążenia platformy Azure](../../../load-balancer/load-balancer-overview.md) jest dostępny w dwóch jednostkach SKU: Basic & Standard. Zalecany jest standardowy moduł równoważenia obciążenia. Jeśli maszyny wirtualne znajdują się w zestawie dostępności, dozwolony jest podstawowy moduł równoważenia obciążenia. Jeśli maszyny wirtualne znajdują się w strefie dostępności, wymagany jest standardowy moduł równoważenia obciążenia. Moduł równoważenia obciążenia w warstwie Standardowa wymaga, aby wszystkie adresy IP maszyn wirtualnych używały standardowych adresów IP.
 
-Bieżący [szablon firmy Microsoft](availability-group-azure-marketplace-template-configure.md) dla grupy dostępności używa podstawowego modułu równoważenia obciążenia z podstawowymi adresami IP.
+Bieżący [szablon firmy Microsoft](./availability-group-quickstart-template-configure.md) dla grupy dostępności używa podstawowego modułu równoważenia obciążenia z podstawowymi adresami IP.
 
    > [!NOTE]
-   > Jeśli używasz standardowego modułu równoważenia obciążenia i usługi Azure Storage dla monitora chmury, musisz skonfigurować [punkt końcowy usługi](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) . 
+   > Jeśli używasz standardowego modułu równoważenia obciążenia i usługi Azure Storage dla monitora chmury, musisz skonfigurować [punkt końcowy usługi](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network) . 
    > 
 
 W przykładach w tym artykule określono moduł równoważenia obciążenia w warstwie Standardowa. W przykładach skrypt zawiera `-sku Standard` .
@@ -82,7 +82,7 @@ $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Przykładowy skrypt: Tworzenie wewnętrznego modułu równoważenia obciążenia za pomocą programu PowerShell
 
 > [!NOTE]
-> Jeśli grupa dostępności została utworzona przy użyciu [szablonu Microsoft](availability-group-azure-marketplace-template-configure.md), wewnętrzna usługa równoważenia obciążenia została już utworzona.
+> Jeśli grupa dostępności została utworzona przy użyciu [szablonu Microsoft](./availability-group-quickstart-template-configure.md), wewnętrzna usługa równoważenia obciążenia została już utworzona.
 
 Poniższy skrypt programu PowerShell tworzy wewnętrzny moduł równoważenia obciążenia, konfiguruje reguły równoważenia obciążenia i ustawia adres IP dla modułu równoważenia obciążenia. Aby uruchomić skrypt, Otwórz Windows PowerShell ISE, a następnie wklej skrypt w okienku Skrypt. Użyj polecenia `Connect-AzAccount` , aby zalogować się do programu PowerShell. Jeśli masz wiele subskrypcji platformy Azure, użyj, `Select-AzSubscription` Aby ustawić subskrypcję. 
 
@@ -144,7 +144,7 @@ Port frontonu to port używany przez aplikacje do łączenia się z wystąpienie
 > W przypadku grup dostępności SQL Server każdy adres IP wymaga określonego portu sondowania. Na przykład jeśli jeden adres IP w module równoważenia obciążenia używa portu sondy 59999, żadne inne adresy IP w tym module równoważenia obciążenia nie mogą korzystać z portu sondy 59999.
 
 * Aby uzyskać informacje na temat limitów modułu równoważenia obciążenia, zobacz **prywatny adres IP frontonu dla modułu równoważenia obciążenia** w obszarze [limity sieciowe — Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
-* Aby uzyskać informacje na temat limitów grup dostępności, zobacz [ograniczenia (grupy dostępności)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
+* Aby uzyskać informacje na temat limitów grup dostępności, zobacz [ograniczenia (grupy dostępności)](/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability#RestrictionsAG).
 
 Poniższy skrypt dodaje nowy adres IP do istniejącego modułu równoważenia obciążenia. ILB używa portu odbiornika dla portu frontonu równoważenia obciążenia. Port ten może być portem, na którym nasłuchuje SQL Server. Dla domyślnych wystąpień SQL Server Port to 1433. Reguła równoważenia obciążenia dla grupy dostępności wymaga swobodnego adresu IP (bezpośredni zwrot serwera), dlatego port zaplecza jest taki sam jak port frontonu. Aktualizowanie zmiennych dla środowiska. 
 
@@ -195,11 +195,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Uruchom SQL Server Management Studio i Połącz się z repliką podstawową.
 
-1. Przejdź do funkcji AlwaysOn grup dostępności dla grup dostępności **o wysokiej dostępności**  >  **Availability Groups**  >  **Availability Group Listeners**. 
+1. Przejdź do funkcji AlwaysOn grup dostępności dla grup dostępności **o wysokiej dostępności**  >  **Availability Groups**  >  **Availability Group Listeners** . 
 
-1. Powinna zostać wyświetlona nazwa odbiornika utworzona w Menedżer klastra trybu failover. Kliknij prawym przyciskiem myszy nazwę odbiornika i wybierz pozycję **Właściwości**.
+1. Powinna zostać wyświetlona nazwa odbiornika utworzona w Menedżer klastra trybu failover. Kliknij prawym przyciskiem myszy nazwę odbiornika i wybierz pozycję **Właściwości** .
 
-1. W polu **port** Określ numer portu dla odbiornika grupy dostępności przy użyciu użytej wcześniej $EndpointPort (1433 była domyślna), a następnie wybierz **przycisk OK**.
+1. W polu **port** Określ numer portu dla odbiornika grupy dostępności przy użyciu użytej wcześniej $EndpointPort (1433 była domyślna), a następnie wybierz **przycisk OK** .
 
 ## <a name="test-the-connection-to-the-listener"></a>Testowanie połączenia z odbiornikiem
 
@@ -222,7 +222,7 @@ Aby przetestować połączenie:
 Połączenie SQLCMD jest automatycznie nawiązywane z niezależnym wystąpieniem SQL Server hostuje replikę podstawową. 
 
 > [!NOTE]
-> Upewnij się, że określony port jest otwarty na zaporze obu serwerów SQL. Oba serwery wymagają reguły ruchu przychodzącego dla używanego portu TCP. Aby uzyskać więcej informacji, zobacz [Dodawanie lub Edytowanie reguły zapory](https://technet.microsoft.com/library/cc753558.aspx). 
+> Upewnij się, że określony port jest otwarty na zaporze obu serwerów SQL. Oba serwery wymagają reguły ruchu przychodzącego dla używanego portu TCP. Aby uzyskać więcej informacji, zobacz [Dodawanie lub Edytowanie reguły zapory](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)). 
 > 
 
 ## <a name="guidelines-and-limitations"></a>Wytyczne i ograniczenia
@@ -236,7 +236,7 @@ Zwróć uwagę na następujące wytyczne dotyczące odbiornika grupy dostępnoś
   - Przestawne adresy IP modułu równoważenia obciążenia dla odbiornika AG
   - Podstawowy adres IP klastra, jeśli ma zastosowanie.
 
-* Utwórz punkt końcowy usługi przy użyciu standardowego modułu równoważenia obciążenia z usługą Azure Storage dla monitora chmury. Aby uzyskać więcej informacji, zobacz [udzielanie dostępu z sieci wirtualnej](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+* Utwórz punkt końcowy usługi przy użyciu standardowego modułu równoważenia obciążenia z usługą Azure Storage dla monitora chmury. Aby uzyskać więcej informacji, zobacz [udzielanie dostępu z sieci wirtualnej](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Więcej informacji
 
@@ -246,9 +246,9 @@ Aby uzyskać więcej informacji, zobacz [Ręczne konfigurowanie zawsze włączon
 
 Użyj następujących poleceń cmdlet programu PowerShell, aby utworzyć wewnętrzny moduł równoważenia obciążenia dla Virtual Machines platformy Azure.
 
-* [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) tworzy moduł równoważenia obciążenia. 
-* [New-AzLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) tworzy konfigurację adresu IP frontonu dla modułu równoważenia obciążenia. 
-* [New-AzLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) tworzy konfigurację reguły dla modułu równoważenia obciążenia. 
-* [New-AzLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) tworzy konfigurację puli adresów zaplecza dla modułu równoważenia obciążenia. 
-* [New-AzLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) tworzy konfigurację sondy dla modułu równoważenia obciążenia.
-* Wartość [Remove-AzLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) powoduje usunięcie modułu równoważenia obciążenia z grupy zasobów platformy Azure.
+* [New-AzLoadBalancer](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancer) tworzy moduł równoważenia obciążenia. 
+* [New-AzLoadBalancerFrontendIpConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerFrontendIpConfig) tworzy konfigurację adresu IP frontonu dla modułu równoważenia obciążenia. 
+* [New-AzLoadBalancerRuleConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerRuleConfig) tworzy konfigurację reguły dla modułu równoważenia obciążenia. 
+* [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerBackendAddressPoolConfig) tworzy konfigurację puli adresów zaplecza dla modułu równoważenia obciążenia. 
+* [New-AzLoadBalancerProbeConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerProbeConfig) tworzy konfigurację sondy dla modułu równoważenia obciążenia.
+* Wartość [Remove-AzLoadBalancer](/powershell/module/Azurerm.Network/Remove-AzureRmLoadBalancer) powoduje usunięcie modułu równoważenia obciążenia z grupy zasobów platformy Azure.

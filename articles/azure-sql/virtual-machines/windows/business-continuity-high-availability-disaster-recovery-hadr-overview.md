@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 8459ab364fc0af15dd1a1b0035e4ce27d192f7a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfc3abd30fad3e86544430e5a4ecb8510e77c9e5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293462"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789934"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Ciągłość działania i HADR Cluster SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -54,7 +54,7 @@ Możesz mieć rozwiązanie o wysokiej dostępności dla SQL Server na poziomie b
 
 | Technologia | Przykładowe architektury |
 | --- | --- |
-| **Grupy dostępności** |Repliki dostępności działające na maszynach wirtualnych platformy Azure w tym samym regionie zapewniają wysoką dostępność. Musisz skonfigurować maszynę wirtualną kontrolera domeny, ponieważ klaster trybu failover systemu Windows wymaga domeny Active Directory.<br/><br/> Aby zapewnić większą nadmiarowość i dostępność, maszyny wirtualne platformy Azure można wdrażać w różnych [strefach dostępności](../../../availability-zones/az-overview.md) zgodnie z opisem w temacie [Omówienie grupy dostępności](availability-group-overview.md). Jeśli SQL Server maszyny wirtualne w grupie dostępności są wdrożone w strefach dostępności, użyj [Usługa Load Balancer w warstwie Standardowa platformy Azure](../../../load-balancer/load-balancer-standard-overview.md) dla odbiornika, zgodnie z opisem w artykule [interfejs wiersza polecenia usługi Azure SQL VM](availability-group-az-cli-configure.md) i [Szablony szybkiego startu platformy Azure](availability-group-quickstart-template-configure.md) .<br/> ![Grupy dostępności](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>Aby uzyskać więcej informacji, zobacz [Konfigurowanie grup dostępności na platformie Azure (GUI)](availability-group-azure-marketplace-template-configure.md). |
+| **Grupy dostępności** |Repliki dostępności działające na maszynach wirtualnych platformy Azure w tym samym regionie zapewniają wysoką dostępność. Musisz skonfigurować maszynę wirtualną kontrolera domeny, ponieważ klaster trybu failover systemu Windows wymaga domeny Active Directory.<br/><br/> Aby zapewnić większą nadmiarowość i dostępność, maszyny wirtualne platformy Azure można wdrażać w różnych [strefach dostępności](../../../availability-zones/az-overview.md) zgodnie z opisem w temacie [Omówienie grupy dostępności](availability-group-overview.md). Jeśli SQL Server maszyny wirtualne w grupie dostępności są wdrożone w strefach dostępności, użyj [Usługa Load Balancer w warstwie Standardowa platformy Azure](../../../load-balancer/load-balancer-overview.md) dla odbiornika, zgodnie z opisem w artykule [interfejs wiersza polecenia usługi Azure SQL VM](./availability-group-az-commandline-configure.md) i [Szablony szybkiego startu platformy Azure](availability-group-quickstart-template-configure.md) .<br/> ![Grupy dostępności](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>Aby uzyskać więcej informacji, zobacz [Konfigurowanie grup dostępności na platformie Azure (GUI)](./availability-group-quickstart-template-configure.md). |
 | **Wystąpienia klastra trybu failover** |Wystąpienia klastra trybu failover są obsługiwane na maszynach wirtualnych SQL Server. Ponieważ funkcja FCI wymaga magazynu udostępnionego, pięć rozwiązań będzie współpracowało z SQL Server na maszynach wirtualnych platformy Azure: <br/><br/> — Używanie [dysków udostępnionych platformy Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) dla systemu Windows Server 2019. Udostępnione dyski zarządzane są produktami platformy Azure, które umożliwiają równoczesne dołączanie dysku zarządzanego do wielu maszyn wirtualnych. Maszyny wirtualne w klastrze mogą odczytywać lub zapisywać na dołączonym dysku na podstawie rezerwacji wybranych przez aplikację klastrowaną za pośrednictwem trwałych rezerwacji SCSI (SCSI PR). SCSI PR to standardowe rozwiązanie do magazynowania, które jest używane przez aplikacje działające w sieci magazynowania (SAN) w środowisku lokalnym. Włączenie żądania ściągnięcia SCSI na dysku zarządzanym umożliwia migrowanie tych aplikacji na platformę Azure zgodnie z oczekiwaniami. <br/><br/>— Używanie [funkcji \( S2D \) bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md) w celu zapewnienia wirtualnej sieci San opartej na oprogramowaniu dla systemu Windows Server 2016 i nowszych.<br/><br/>— Korzystanie z [udziału plików w warstwie Premium](failover-cluster-instance-premium-file-share-manually-configure.md) dla systemu Windows Server 2012 i nowszych wersji. Udziały plików w warstwie Premium są oparte na dyskach SSD, mają ciągle małe opóźnienia i są w pełni obsługiwane do użycia z FCI.<br/><br/>— Używanie magazynu obsługiwanego przez rozwiązanie partnerskie na potrzeby klastrowania. Aby zapoznać się z konkretnym przykładem, który używa oprogramowanie SIOS DataKeeper, zapoznaj się z wpisem w blogu obsługa [klastrów trybu failover i usługi oprogramowanie SIOS](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>— Używanie magazynu bloków udostępnionych dla zdalnego obiektu docelowego iSCSI za pośrednictwem usługi Azure ExpressRoute. Na przykład NetApp prywatny Storage (NPS) ujawnia obiekt docelowy iSCSI za pośrednictwem ExpressRoute z Equinixem do maszyn wirtualnych platformy Azure.<br/><br/>W przypadku udostępnionych rozwiązań magazynu i replikacji danych od partnerów firmy Microsoft należy skontaktować się z dostawcą, aby uzyskać wszelkie problemy związane z dostępem do danych w trybie failover.<br/><br/>||
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Tylko platforma Azure: rozwiązania do odzyskiwania po awarii
@@ -90,7 +90,7 @@ Na poniższej ilustracji Instalator używa SQL Server uruchomionego na maszynie 
 
 Aby uzyskać więcej informacji, zobacz [postanowienia dotyczące licencjonowania produktów](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Aby włączyć tę korzyść, przejdź do [zasobu maszyny wirtualnej SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Wybierz opcję **Konfiguruj** w obszarze **Ustawienia**, a następnie wybierz opcję **odzyskiwanie awaryjne** w obszarze **SQL Server licencji**. Zaznacz to pole wyboru, aby potwierdzić, że ta SQL Server maszyna wirtualna będzie używana jako replika pasywna, a następnie wybierz pozycję **Zastosuj** , aby zapisać ustawienia. 
+Aby włączyć tę korzyść, przejdź do [zasobu maszyny wirtualnej SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Wybierz opcję **Konfiguruj** w obszarze **Ustawienia** , a następnie wybierz opcję **odzyskiwanie awaryjne** w obszarze **SQL Server licencji** . Zaznacz to pole wyboru, aby potwierdzić, że ta SQL Server maszyna wirtualna będzie używana jako replika pasywna, a następnie wybierz pozycję **Zastosuj** , aby zapisać ustawienia. 
 
 ![Konfigurowanie repliki odzyskiwania po awarii na platformie Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 
@@ -101,12 +101,12 @@ Maszyny wirtualne, magazyn i sieci platformy Azure mają różne cechy operacyjn
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Węzły wysokiej dostępności w zestawie dostępności
 Zestawy dostępności na platformie Azure umożliwiają umieszczenie węzłów o wysokiej dostępności w oddzielnych domenach błędów i domenach aktualizacji. Platforma Azure przypisuje domenę aktualizacji i domenę błędów do każdej maszyny wirtualnej w zestawie dostępności. Ta konfiguracja w centrum danych gwarantuje, że podczas planowanego lub nieplanowanego zdarzenia konserwacji co najmniej jedna maszyna wirtualna będzie dostępna i spełnia warunki umowy SLA platformy Azure wynoszącą 99,95% czasu. 
 
-Aby skonfigurować konfigurację wysokiej dostępności, należy umieścić wszystkie uczestniczące SQL Server maszyny wirtualne w tym samym zestawie dostępności, aby uniknąć utraty dostępu do aplikacji lub danych podczas zdarzenia konserwacji. Tylko węzły w tej samej usłudze w chmurze mogą uczestniczyć w tym samym zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Manage the availability of virtual machines](../../../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych).
+Aby skonfigurować konfigurację wysokiej dostępności, należy umieścić wszystkie uczestniczące SQL Server maszyny wirtualne w tym samym zestawie dostępności, aby uniknąć utraty dostępu do aplikacji lub danych podczas zdarzenia konserwacji. Tylko węzły w tej samej usłudze w chmurze mogą uczestniczyć w tym samym zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Węzły wysokiej dostępności w strefie dostępności
 Strefy dostępności są unikatowymi lokalizacjami fizycznymi w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależną moc, chłodzenie i sieci. Fizyczne rozdzielenie stref dostępności w regionie pomaga chronić aplikacje i dane przed awariami centrów danych, co zapewnia, że co najmniej jedna maszyna wirtualna jest dostępna i spełnia warunki umowy SLA platformy Azure wynoszącą 99,99% czasu. 
 
-Aby skonfigurować wysoką dostępność, należy umieścić udział SQL Server maszyn wirtualnych w różnych strefach dostępności w regionie. Są naliczane dodatkowe opłaty za transfer sieciowy do sieci między strefami dostępności. Aby uzyskać więcej informacji, zobacz [strefy dostępności](/azure/availability-zones/az-overview). 
+Aby skonfigurować wysoką dostępność, należy umieścić udział SQL Server maszyn wirtualnych w różnych strefach dostępności w regionie. Są naliczane dodatkowe opłaty za transfer sieciowy do sieci między strefami dostępności. Aby uzyskać więcej informacji, zobacz [strefy dostępności](../../../availability-zones/az-overview.md). 
 
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Zachowanie klastra trybu failover w sieci platformy Azure
@@ -123,7 +123,7 @@ Zastanów się nad scenariuszem tworzenia klastra z dwoma węzłami i przełącz
 
 Możesz uniknąć tego scenariusza, przypisując nieużywany statyczny adres IP do nazwy sieci klastra w celu przełączenia nazwy sieciowej klastra w tryb online. Na przykład można użyć adresu IP połączenia lokalnego, takiego jak 169.254.1.1. Aby uprościć ten proces, zobacz [Konfigurowanie klastra trybu failover systemu Windows na platformie Azure dla grup dostępności](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie grup dostępności na platformie Azure (GUI)](availability-group-azure-marketplace-template-configure.md).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie grup dostępności na platformie Azure (GUI)](./availability-group-quickstart-template-configure.md).
 
 ### <a name="support-for-availability-group-listeners"></a>Obsługa odbiorników grup dostępności
 Odbiorniki grup dostępności są obsługiwane na maszynach wirtualnych platformy Azure z systemem Windows Server 2012 lub nowszym. Jest to możliwe dzięki użyciu punktów końcowych z równoważeniem obciążenia, które są włączone na maszynach wirtualnych platformy Azure, które są węzłami grupy dostępności. Należy wykonać specjalne czynności konfiguracyjne, aby detektory działały zarówno dla aplikacji klienckich działających na platformie Azure, jak i działających lokalnie.
@@ -136,7 +136,7 @@ Jeśli grupa dostępności obejmuje wiele podsieci platformy Azure (na przykład
 Można nadal łączyć się z każdą repliką dostępności oddzielnie, łącząc się bezpośrednio z wystąpieniem usługi. Ponadto, ponieważ grupy dostępności są zgodne z poprzednimi wersjami klientów funkcji dublowania baz danych, można łączyć się z replikami dostępności, takimi jak partnerzy funkcji dublowania baz danych, o ile repliki są skonfigurowane w podobny sposób do dublowania baz danych:
 
 * Istnieje jedna replika podstawowa i jedna replika pomocnicza.
-* Replika pomocnicza jest skonfigurowana jako nie do odczytu (opcja**pomocnicza do odczytu** jest ustawiona na wartość **no**).
+* Replika pomocnicza jest skonfigurowana jako nie do odczytu (opcja **pomocnicza do odczytu** jest ustawiona na wartość **no** ).
 
 Oto przykładowe parametry połączenia klienta, które odpowiadają tej konfiguracji podobnej do dublowania bazy danych, przy użyciu ADO.NET lub SQL Server Native Client:
 
@@ -146,11 +146,11 @@ Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=Avail
 
 Aby uzyskać więcej informacji na temat łączności klienta, zobacz:
 
-* [Używanie słów kluczowych parametrów połączenia z SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
-* [Łączenie klientów z sesją dublowania baz danych (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-* [Łączenie z odbiornikiem grupy dostępności w hybrydowym](https://docs.microsoft.com/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
-* [Odbiorniki grup dostępności, łączność z klientem i tryb failover aplikacji (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
-* [Używanie Database-Mirroring parametrów połączenia z grupami dostępności](https://technet.microsoft.com/library/hh213417.aspx)
+* [Używanie słów kluczowych parametrów połączenia z SQL Server Native Client](/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client)
+* [Łączenie klientów z sesją dublowania baz danych (SQL Server)](/sql/database-engine/database-mirroring/connect-clients-to-a-database-mirroring-session-sql-server)
+* [Łączenie z odbiornikiem grupy dostępności w hybrydowym](/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
+* [Odbiorniki grup dostępności, łączność z klientem i tryb failover aplikacji (SQL Server)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
+* [Używanie Database-Mirroring parametrów połączenia z grupami dostępności](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
 
 ### <a name="network-latency-in-hybrid-it"></a>Opóźnienie sieci w hybrydowym
 Wdróż rozwiązanie HADR Cluster z założeniem, że mogą istnieć okresy wysokiego opóźnienia sieci między siecią lokalną a platformą Azure. Podczas wdrażania replik na platformie Azure Użyj zatwierdzenia asynchronicznego zamiast synchronicznego zatwierdzania w trybie synchronizacji. Wdrażając serwery dublowania baz danych zarówno lokalnie, jak i na platformie Azure, użyj trybu wysokiej wydajności, a nie trybu wysokiego poziomu zabezpieczeń.
@@ -162,8 +162,4 @@ Jeśli nie masz opcji wyłączenia replikacji geograficznej na koncie magazynu, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zdecyduj, czy [Grupa dostępności](availability-group-overview.md) lub [wystąpienie klastra trybu failover](failover-cluster-instance-overview.md) są najlepszym rozwiązaniem w zakresie ciągłości biznesowej dla Twojej firmy. Następnie zapoznaj się z [najlepszymi rozwiązaniami](hadr-cluster-best-practices.md) dotyczącymi konfigurowania środowiska pod kątem wysokiej dostępności i odzyskiwania po awarii. 
-
-
-
-
+Zdecyduj, czy [Grupa dostępności](availability-group-overview.md) lub [wystąpienie klastra trybu failover](failover-cluster-instance-overview.md) są najlepszym rozwiązaniem w zakresie ciągłości biznesowej dla Twojej firmy. Następnie zapoznaj się z [najlepszymi rozwiązaniami](hadr-cluster-best-practices.md) dotyczącymi konfigurowania środowiska pod kątem wysokiej dostępności i odzyskiwania po awarii.

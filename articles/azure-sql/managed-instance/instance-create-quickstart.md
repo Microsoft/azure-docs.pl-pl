@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 09/26/2019
-ms.openlocfilehash: 2f2e8c6be128e5004769dca2f42a6c8013510cde
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf606af0425c04873dadcf47932c806a1099942a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91325236"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788710"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Szybki Start: Tworzenie wystąpienia zarządzanego wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,10 +34,10 @@ Aby utworzyć wystąpienie zarządzane, wykonaj następujące kroki:
 
 Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie w polu wyszukiwania wpisz **SQL Azure** .
+1. Zaloguj się do [Azure portal](https://portal.azure.com/).
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi** , a następnie w polu wyszukiwania wpisz **SQL Azure** .
 1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje na temat wystąpienia zarządzanego Azure SQL, wybierz pozycję **Pokaż szczegóły** na kafelku **wystąpienia zarządzane SQL** .
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz** .
 
    ![Tworzenie wystąpienia zarządzanego](./media/instance-create-quickstart/create-managed-instance.png)
 
@@ -64,7 +64,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
 
    ![Formularz wystąpienia zarządzanego](./media/instance-create-quickstart/mi-create-tab-configure-performance.png)
 
-- Aby przejrzeć wybory przed utworzeniem wystąpienia zarządzanego SQL, możesz wybrać pozycję **Przegląd + Utwórz**. Lub skonfiguruj opcje sieci, wybierając pozycję **Dalej: sieć**.
+- Aby przejrzeć wybory przed utworzeniem wystąpienia zarządzanego SQL, możesz wybrać pozycję **Przegląd + Utwórz** . Lub skonfiguruj opcje sieci, wybierając pozycję **Dalej: sieć** .
 
 ### <a name="networking-tab"></a>Karta Sieć
 
@@ -78,10 +78,10 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
    | ------ | --------------- | ----------- |
    | **Sieć wirtualna** | Wybierz opcję **Utwórz nową sieć wirtualną** lub prawidłową sieć wirtualną i podsieć.| Jeśli sieć lub podsieć jest niedostępna, należy ją [zmodyfikować, aby spełniała wymagania sieciowe](vnet-existing-add-subnet.md) przed wybraniem jej jako docelowej dla nowego wystąpienia zarządzanego. Aby uzyskać informacje o wymaganiach dotyczących konfigurowania środowiska sieciowego dla wystąpienia zarządzanego SQL, zobacz [Konfigurowanie sieci wirtualnej dla wystąpienia zarządzanego SQL](connectivity-architecture-overview.md). |
    | **Connection type** (Typ połączenia) | Wybierz między serwerem proxy a typem połączenia przekierowania.|Aby uzyskać więcej informacji na temat typów połączeń, zobacz [Typ połączenia wystąpienia zarządzanego Azure SQL](../database/connectivity-architecture.md#connection-policy).|
-   | **Publiczny punkt końcowy**  | Wybierz pozycję **Włącz**. | Aby wystąpienie zarządzane było dostępne za pomocą publicznego punktu końcowego danych, należy włączyć tę opcję. | 
-   | **Zezwalaj na dostęp z** (Jeśli **publiczny punkt końcowy** jest włączony) | Wybierz jedną z opcji.   |Środowisko portalu umożliwia skonfigurowanie grupy zabezpieczeń z publicznym punktem końcowym. </br> </br> Na podstawie Twojego scenariusza wybierz jedną z następujących opcji: </br> <ul> <li>**Usługi platformy Azure**: zalecamy korzystanie z tej opcji w przypadku łączenia się z Power BI lub z innej usługi wielodostępnej. </li> <li> **Internet**: służy do celów testowych, gdy chcesz szybko utworzyć wystąpienie zarządzane. Nie zalecamy jej w środowiskach produkcyjnych. </li> <li> **Brak dostępu**: Ta opcja tworzy regułę zabezpieczeń **Odmów** . Zmodyfikuj tę regułę, aby umożliwić dostęp do wystąpienia zarządzanego za pomocą publicznego punktu końcowego. </li> </ul> </br> Aby uzyskać więcej informacji o zabezpieczeniach publicznego punktu końcowego, zobacz [bezpieczne używanie wystąpienia zarządzanego usługi Azure SQL z publicznym punktem końcowym](public-endpoint-overview.md).|
+   | **Publiczny punkt końcowy**  | Wybierz pozycję **Włącz** . | Aby wystąpienie zarządzane było dostępne za pomocą publicznego punktu końcowego danych, należy włączyć tę opcję. | 
+   | **Zezwalaj na dostęp z** (Jeśli **publiczny punkt końcowy** jest włączony) | Wybierz jedną z opcji.   |Środowisko portalu umożliwia skonfigurowanie grupy zabezpieczeń z publicznym punktem końcowym. </br> </br> Na podstawie Twojego scenariusza wybierz jedną z następujących opcji: </br> <ul> <li>**Usługi platformy Azure** : zalecamy korzystanie z tej opcji w przypadku łączenia się z Power BI lub z innej usługi wielodostępnej. </li> <li> **Internet** : służy do celów testowych, gdy chcesz szybko utworzyć wystąpienie zarządzane. Nie zalecamy jej w środowiskach produkcyjnych. </li> <li> **Brak dostępu** : Ta opcja tworzy regułę zabezpieczeń **Odmów** . Zmodyfikuj tę regułę, aby umożliwić dostęp do wystąpienia zarządzanego za pomocą publicznego punktu końcowego. </li> </ul> </br> Aby uzyskać więcej informacji o zabezpieczeniach publicznego punktu końcowego, zobacz [bezpieczne używanie wystąpienia zarządzanego usługi Azure SQL z publicznym punktem końcowym](public-endpoint-overview.md).|
 
-- Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje przed utworzeniem wystąpienia zarządzanego. Lub skonfiguruj więcej ustawień niestandardowych, wybierając pozycję **Dalej: Ustawienia dodatkowe**.
+- Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje przed utworzeniem wystąpienia zarządzanego. Lub skonfiguruj więcej ustawień niestandardowych, wybierając pozycję **Dalej: Ustawienia dodatkowe** .
 
 ### <a name="additional-settings"></a>Ustawienia dodatkowe
 
@@ -93,10 +93,10 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
 
    | Ustawienie| Sugerowana wartość | Opis |
    | ------ | --------------- | ----------- |
-   | **Sortowanie** | Wybierz sortowanie, które ma być używane dla wystąpienia zarządzanego. W przypadku migrowania baz danych z SQL Server sprawdź sortowanie źródłowe za pomocą `SELECT SERVERPROPERTY(N'Collation')` i Użyj tej wartości.| Aby uzyskać informacje o sortowaniu, zobacz [Ustawianie lub zmienianie sortowania serwera](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Sortowanie** | Wybierz sortowanie, które ma być używane dla wystąpienia zarządzanego. W przypadku migrowania baz danych z SQL Server sprawdź sortowanie źródłowe za pomocą `SELECT SERVERPROPERTY(N'Collation')` i Użyj tej wartości.| Aby uzyskać informacje o sortowaniu, zobacz [Ustawianie lub zmienianie sortowania serwera](/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Strefa czasowa** | Wybierz strefę czasową, której będzie przestrzegać wystąpienie zarządzane.|Aby uzyskać więcej informacji, zobacz [strefy czasowe](timezones-overview.md).|
-   | **Użyj jako dodatkowego trybu failover** | Wybierz pozycję **Tak**. | Włącz tę opcję, aby użyć wystąpienia zarządzanego jako dodatkowej grupy trybu failover.|
-   | **Główne wystąpienie zarządzane SQL** (jeśli jest **używane jako pomocnicza praca awaryjna** jest ustawiona na **wartość tak**) | Wybierz istniejące podstawowe wystąpienie zarządzane, które zostanie przyłączone do tej samej strefy DNS z tworzonym wystąpieniem zarządzanym. | W tym kroku zostanie włączona konfiguracja po utworzeniu grupy trybu failover. Aby uzyskać więcej informacji, zobacz [Samouczek: dodawanie wystąpienia zarządzanego do grupy trybu failover](failover-group-add-instance-tutorial.md).|
+   | **Użyj jako dodatkowego trybu failover** | Wybierz pozycję **Tak** . | Włącz tę opcję, aby użyć wystąpienia zarządzanego jako dodatkowej grupy trybu failover.|
+   | **Główne wystąpienie zarządzane SQL** (jeśli jest **używane jako pomocnicza praca awaryjna** jest ustawiona na **wartość tak** ) | Wybierz istniejące podstawowe wystąpienie zarządzane, które zostanie przyłączone do tej samej strefy DNS z tworzonym wystąpieniem zarządzanym. | W tym kroku zostanie włączona konfiguracja po utworzeniu grupy trybu failover. Aby uzyskać więcej informacji, zobacz [Samouczek: dodawanie wystąpienia zarządzanego do grupy trybu failover](failover-group-add-instance-tutorial.md).|
 
 ## <a name="review--create"></a>Przeglądanie i tworzenie
 
@@ -120,7 +120,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
 > [!TIP]
 > Jeśli zamknięto przeglądarkę internetową lub przeniesiono ją z ekranu postęp wdrażania, wykonaj następujące kroki, aby zlokalizować ekran postępu wdrażania:
 > 1. W Azure Portal Otwórz grupę zasobów (na karcie **podstawowe** ), do której jest wdrażane wystąpienie zarządzane SQL.
-> 2. Wybierz pozycję **wdrożenia**.
+> 2. Wybierz pozycję **wdrożenia** .
 > 3. Wybierz operację wdrażania wystąpienia zarządzanego SQL w toku.
 
 > [!IMPORTANT]
@@ -173,7 +173,7 @@ Aby nawiązać połączenie z wystąpieniem zarządzanym SQL, wykonaj następuj�
 
    ![Nazwa hosta](./media/instance-create-quickstart/host-name.png)
 
-   Skopiowana wartość reprezentuje w pełni kwalifikowaną nazwę domeny (FQDN), która może być używana do nawiązywania połączenia z wystąpieniem zarządzanym SQL. Jest podobny do następującego przykładu adresu: *your_host_name. a1b2c3d4e5f6. Database. Windows. NET*.
+   Skopiowana wartość reprezentuje w pełni kwalifikowaną nazwę domeny (FQDN), która może być używana do nawiązywania połączenia z wystąpieniem zarządzanym SQL. Jest podobny do następującego przykładu adresu: *your_host_name. a1b2c3d4e5f6. Database. Windows. NET* .
 
 ## <a name="next-steps"></a>Następne kroki
 

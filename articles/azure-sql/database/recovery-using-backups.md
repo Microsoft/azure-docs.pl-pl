@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 334495eeef410c42fb45445c400a86ff1b777061
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448794"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790342"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Odzyskiwanie przy użyciu zautomatyzowanych kopii zapasowych bazy danych — Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Poniższe opcje są dostępne do odzyskiwania bazy danych przy użyciu [zautomatyzowanych kopii zapasowych bazy danych](automated-backups-overview.md). Dostępne możliwości:
+Poniższe opcje są dostępne do odzyskiwania bazy danych przy użyciu [zautomatyzowanych kopii zapasowych bazy danych](automated-backups-overview.md). Oto co możesz zrobić:
 
 - Utwórz nową bazę danych na tym samym serwerze, a następnie Odzyskaj ją do określonego punktu w czasie w okresie przechowywania.
 - Utwórz bazę danych na tym samym serwerze, a następnie Odzyskaj do czasu usunięcia usuniętej bazy danych.
@@ -64,7 +64,7 @@ Nie ma wbudowanej metody przywracania całego serwera. Aby zapoznać się z przy
 
 ## <a name="point-in-time-restore"></a>Przywracanie do określonego momentu
 
-Za pomocą Azure Portal, [programu PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)lub [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.)można przywrócić autonomiczną, w puli lub bazę danych wystąpienia do wcześniejszego punktu w czasie. Żądanie może określać dowolną warstwę usług lub rozmiar obliczeń dla przywróconej bazy danych. Upewnij się, że na serwerze, na którym jest przywracana baza danych, jest wystarczająca ilość zasobów. 
+Za pomocą Azure Portal, [programu PowerShell](/powershell/module/az.sql/restore-azsqldatabase)lub [interfejsu API REST](/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.)można przywrócić autonomiczną, w puli lub bazę danych wystąpienia do wcześniejszego punktu w czasie. Żądanie może określać dowolną warstwę usług lub rozmiar obliczeń dla przywróconej bazy danych. Upewnij się, że na serwerze, na którym jest przywracana baza danych, jest wystarczająca ilość zasobów. 
 
 Po zakończeniu przywracania tworzy nową bazę danych na tym samym serwerze, na którym znajduje się oryginalna baza danych. Przywrócona baza danych jest naliczana według normalnych stawek na podstawie jej warstwy usług i rozmiaru obliczeniowego. Nie są naliczane opłaty do momentu zakończenia przywracania bazy danych.
 
@@ -99,7 +99,7 @@ Aby odzyskać bazę danych wystąpienia zarządzanego do punktu w czasie za pomo
 
 ## <a name="deleted-database-restore"></a>Przywracanie usuniętej bazy danych
 
-Usuniętą bazę danych można przywrócić do czasu usunięcia lub do wcześniejszego punktu w czasie na tym samym serwerze lub w tym samym wystąpieniu zarządzanym. Można to zrobić za pomocą Azure Portal, [programu PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)lub [reszty (createmode = Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Usunięta baza danych zostanie przywrócona przez utworzenie nowej bazy danych z kopii zapasowej.
+Usuniętą bazę danych można przywrócić do czasu usunięcia lub do wcześniejszego punktu w czasie na tym samym serwerze lub w tym samym wystąpieniu zarządzanym. Można to zrobić za pomocą Azure Portal, [programu PowerShell](/powershell/module/az.sql/restore-azsqldatabase)lub [reszty (createmode = Restore)](/rest/api/sql/databases/createorupdate). Usunięta baza danych zostanie przywrócona przez utworzenie nowej bazy danych z kopii zapasowej.
 
 > [!IMPORTANT]
 > Usunięcie serwera lub wystąpienia zarządzanego spowoduje również usunięcie wszystkich jego baz danych i nie można go odzyskać. Nie można przywrócić usuniętego serwera lub wystąpienia zarządzanego.
@@ -110,13 +110,13 @@ Przywrócono usunięte bazy danych z Azure Portal z serwera lub zasobu wystąpie
 
 #### <a name="sql-database"></a>Baza danych SQL
 
-Aby odzyskać usuniętą bazę danych do czasu usunięcia przy użyciu Azure Portal, Otwórz stronę przegląd serwera i wybierz pozycję **usunięte bazy danych**. Wybierz usuniętą bazę danych, którą chcesz przywrócić, a następnie wpisz nazwę nowej bazy danych, która zostanie utworzona z przywróconymi danymi z kopii zapasowej.
+Aby odzyskać usuniętą bazę danych do czasu usunięcia przy użyciu Azure Portal, Otwórz stronę przegląd serwera i wybierz pozycję **usunięte bazy danych** . Wybierz usuniętą bazę danych, którą chcesz przywrócić, a następnie wpisz nazwę nowej bazy danych, która zostanie utworzona z przywróconymi danymi z kopii zapasowej.
 
   ![Zrzut ekranu przywracania usuniętej bazy danych](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>Wystąpienie zarządzane SQL
 
-Aby odzyskać zarządzaną bazę danych przy użyciu Azure Portal, Otwórz stronę Omówienie wystąpienia zarządzanego i wybierz pozycję **usunięte bazy danych**. Wybierz usuniętą bazę danych, którą chcesz przywrócić, a następnie wpisz nazwę nowej bazy danych, która zostanie utworzona z przywróconymi danymi z kopii zapasowej.
+Aby odzyskać zarządzaną bazę danych przy użyciu Azure Portal, Otwórz stronę Omówienie wystąpienia zarządzanego i wybierz pozycję **usunięte bazy danych** . Wybierz usuniętą bazę danych, którą chcesz przywrócić, a następnie wpisz nazwę nowej bazy danych, która zostanie utworzona z przywróconymi danymi z kopii zapasowej.
 
   ![Zrzut ekranu przedstawiający przywracanie usuniętej bazy danych wystąpienia zarządzanego Azure SQL](./media/recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -154,10 +154,10 @@ Z Azure Portal można utworzyć nową bazę danych wystąpienia pojedynczego lub
 
 Aby przywrócić geograficzną pojedynczą bazę danych z Azure Portal w wybranym regionie i serwerze, wykonaj następujące kroki:
 
-1. Z poziomu **pulpitu nawigacyjnego**wybierz pozycję **Dodaj**  >  **Utwórz SQL Database**. Na karcie **podstawowe** wprowadź wymagane informacje.
-2. Wybierz **dodatkowe ustawienia**.
-3. W obszarze **Użyj istniejących danych**wybierz pozycję **kopia zapasowa**.
-4. W obszarze **kopia zapasowa**wybierz pozycję Kopia zapasowa z listy dostępnych kopii zapasowych przywracania geograficznego.
+1. Z poziomu **pulpitu nawigacyjnego** wybierz pozycję **Dodaj**  >  **Utwórz SQL Database** . Na karcie **podstawowe** wprowadź wymagane informacje.
+2. Wybierz **dodatkowe ustawienia** .
+3. W obszarze **Użyj istniejących danych** wybierz pozycję **kopia zapasowa** .
+4. W obszarze **kopia zapasowa** wybierz pozycję Kopia zapasowa z listy dostępnych kopii zapasowych przywracania geograficznego.
 
     ![Zrzut ekranu przedstawiający opcje tworzenia SQL Database](./media/recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
@@ -167,9 +167,9 @@ Ukończ proces tworzenia nowej bazy danych z kopii zapasowej. Podczas tworzenia 
 
 Aby przywrócić geograficznie bazę danych wystąpienia zarządzanego z Azure Portal do istniejącego wystąpienia zarządzanego w wybranym regionie, wybierz wystąpienie zarządzane, na którym ma zostać przywrócona baza danych. Wykonaj następujące kroki:
 
-1. Wybierz pozycję **Nowa baza danych**.
+1. Wybierz pozycję **Nowa baza danych** .
 2. Wpisz żądaną nazwę bazy danych.
-3. W obszarze **Użyj istniejących danych**wybierz pozycję **kopia zapasowa**.
+3. W obszarze **Użyj istniejących danych** wybierz pozycję **kopia zapasowa** .
 4. Wybierz kopię zapasową z listy dostępnych kopii zapasowych przywracania geograficznego.
 
     ![Zrzut ekranu przedstawiający opcje nowej bazy danych](./media/recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
@@ -201,11 +201,11 @@ Nie można wykonać przywracania do punktu w czasie dla pomocniczej bazy danych.
 
 Można również użyć Azure PowerShell lub interfejsu API REST do odzyskiwania. W poniższych tabelach opisano zestaw dostępnych poleceń.
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez wystąpienia zarządzane SQL Database i SQL, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach Azure Resource Manager są dokładnie takie same.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez wystąpienia zarządzane SQL Database i SQL, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach Azure Resource Manager są dokładnie takie same.
 
 #### <a name="sql-database"></a>Baza danych SQL
 
@@ -237,8 +237,8 @@ Aby przywrócić bazę danych przy użyciu interfejsu API REST:
 
 | Interfejs API | Opis |
 | --- | --- |
-| [REST (createmode = Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Przywraca bazę danych. |
-| [Pobieranie lub aktualizowanie stanu bazy danych](https://docs.microsoft.com/rest/api/sql/operations) |Zwraca stan podczas operacji przywracania. |
+| [REST (createmode = Recovery)](/rest/api/sql/databases) |Przywraca bazę danych. |
+| [Pobieranie lub aktualizowanie stanu bazy danych](/rest/api/sql/operations) |Zwraca stan podczas operacji przywracania. |
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

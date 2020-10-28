@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af98811e158b9613e41389e08e19cb36797aa272
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271192"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790597"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Wywoływanie punktów końcowych REST przy użyciu Azure Logic Apps
 
@@ -27,6 +27,8 @@ Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowaneg
   Zwykle punkt końcowy REST musi spełniać te kryteria, aby łącznik działał:
 
   * Plik struktury Swagger musi być hostowany na adresie URL protokołu HTTPS, który jest dostępny publicznie.
+  
+  * Plik struktury Swagger musi zawierać `operationID` dla każdej operacji w definicji. Jeśli nie, łącznik pokazuje tylko ostatnią operację w pliku struktury Swagger. 
 
   * Plik struktury Swagger musi mieć włączoną funkcję [udostępniania zasobów między źródłami (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) .
 
@@ -42,13 +44,13 @@ Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowaneg
 
 Ten wbudowany wyzwalacz wysyła żądanie HTTP do adresu URL pliku struktury Swagger opisującego interfejs API REST i zwraca odpowiedź zawierającą zawartość tego pliku.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Otwórz pustą aplikację logiki w Projektancie aplikacji logiki.
+1. Zaloguj się do [Azure portal](https://portal.azure.com). Otwórz pustą aplikację logiki w Projektancie aplikacji logiki.
 
 1. W projektancie w polu wyszukiwania wprowadź ciąg "Swagger" jako filtr. Z listy **wyzwalacze** Wybierz wyzwalacz **http + Swagger** .
 
    ![Wybieranie wyzwalacza HTTP + Swagger](./media/connectors-native-http-swagger/select-http-swagger-trigger.png)
 
-1. W polu **adres URL punktu końcowego struktury Swagger** wprowadź adres URL pliku struktury Swagger, a następnie wybierz przycisk **dalej**.
+1. W polu **adres URL punktu końcowego struktury Swagger** wprowadź adres URL pliku struktury Swagger, a następnie wybierz przycisk **dalej** .
 
    Ten przykład używa adresu URL programu Swagger, który znajduje się w regionie zachodnie stany USA dla [Cognitive Services interfejs API rozpoznawania twarzy](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
 
@@ -72,23 +74,23 @@ Ten wbudowany wyzwalacz wysyła żądanie HTTP do adresu URL pliku struktury Swa
 
 1. Kontynuuj tworzenie przepływu pracy aplikacji logiki przy użyciu akcji uruchamianych podczas uruchamiania wyzwalacza.
 
-1. Po zakończeniu Pamiętaj, aby zapisać aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
+1. Po zakończeniu Pamiętaj, aby zapisać aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz** .
 
 ## <a name="add-an-http--swagger-action"></a>Dodawanie akcji protokołu HTTP + Swagger
 
 Ta wbudowana akcja wysyła żądanie HTTP do adresu URL pliku struktury Swagger opisującego interfejs API REST i zwraca odpowiedź zawierającą zawartość tego pliku.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Otwórz aplikację logiki w Projektancie aplikacji logiki.
+1. Zaloguj się do [Azure portal](https://portal.azure.com). Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. W kroku, w którym chcesz dodać akcję protokołu HTTP + Swagger, wybierz pozycję **nowy krok**.
+1. W kroku, w którym chcesz dodać akcję protokołu HTTP + Swagger, wybierz pozycję **nowy krok** .
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję** .
 
 1. W projektancie w polu wyszukiwania wprowadź ciąg "Swagger" jako filtr. Z listy **Akcje** wybierz akcję **http + Swagger** .
 
     ![Wybieranie akcji protokołu HTTP + Swagger](./media/connectors-native-http-swagger/select-http-swagger-action.png)
 
-1. W polu **adres URL punktu końcowego struktury Swagger** wprowadź adres URL pliku struktury Swagger, a następnie wybierz przycisk **dalej**.
+1. W polu **adres URL punktu końcowego struktury Swagger** wprowadź adres URL pliku struktury Swagger, a następnie wybierz przycisk **dalej** .
 
    Ten przykład używa adresu URL programu Swagger, który znajduje się w regionie zachodnie stany USA dla [Cognitive Services interfejs API rozpoznawania twarzy](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
 
@@ -110,7 +112,7 @@ Ta wbudowana akcja wysyła żądanie HTTP do adresu URL pliku struktury Swagger 
 
    Aby uzyskać więcej informacji o typach uwierzytelniania dostępnych dla protokołu HTTP + Swagger, zobacz [Dodawanie uwierzytelniania do połączeń wychodzących](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. Po zakończeniu Pamiętaj, aby zapisać aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
+1. Po zakończeniu Pamiętaj, aby zapisać aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz** .
 
 <a name="host-swagger"></a>
 
@@ -120,7 +122,7 @@ Można odwołać się do pliku struktury Swagger, który nie jest hostowany lub 
 
 1. [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md).
 
-1. Teraz Włącz funkcję CORS dla obiektu BLOB. W menu konta magazynu wybierz pozycję **CORS**. Na karcie **BLOB Service** Określ te wartości, a następnie wybierz pozycję **Zapisz**.
+1. Teraz Włącz funkcję CORS dla obiektu BLOB. W menu konta magazynu wybierz pozycję **CORS** . Na karcie **BLOB Service** Określ te wartości, a następnie wybierz pozycję **Zapisz** .
 
    | Właściwość | Wartość |
    |----------|-------|
@@ -133,7 +135,7 @@ Można odwołać się do pliku struktury Swagger, który nie jest hostowany lub 
 
    Chociaż w tym przykładzie użyto [Azure Portal](https://portal.azure.com), można użyć narzędzia, takiego jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/)lub automatycznie skonfigurować to ustawienie przy użyciu tego przykładowego [skryptu programu PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
 
-1. [Utwórz kontener obiektów BLOB](../storage/blobs/storage-quickstart-blobs-portal.md). W okienku **Przegląd** kontenera wybierz pozycję **Zmień poziom dostępu**. Z listy **poziom dostępu publicznego** wybierz pozycję **obiekt BLOB (Anonimowy dostęp do odczytu tylko dla obiektów BLOB)**, a następnie wybierz **przycisk OK**.
+1. [Utwórz kontener obiektów BLOB](../storage/blobs/storage-quickstart-blobs-portal.md). W okienku **Przegląd** kontenera wybierz pozycję **Zmień poziom dostępu** . Z listy **poziom dostępu publicznego** wybierz pozycję **obiekt BLOB (Anonimowy dostęp do odczytu tylko dla obiektów BLOB)** , a następnie wybierz **przycisk OK** .
 
 1. [Przekaż plik Swagger do kontenera obiektów BLOB](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob)za pomocą [Azure Portal](https://portal.azure.com) lub [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
@@ -145,7 +147,7 @@ Można odwołać się do pliku struktury Swagger, który nie jest hostowany lub 
 
 Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacza lub akcji protokołu HTTP + Swagger. Wywołanie HTTP + Swagger zwraca te informacje:
 
-| Nazwa właściwości | Type | Opis |
+| Nazwa właściwości | Typ | Opis |
 |---------------|------|-------------|
 | nagłówka | object | Nagłówki żądania |
 | body | object | Obiekt JSON | Obiekt z zawartością treści z żądania |
@@ -166,4 +168,3 @@ Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacz
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
-

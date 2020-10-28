@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973312"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790614"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -114,7 +114,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do udziałów plików i
 
 Zobacz [Tworzenie certyfikatu](/sql/t-sql/statements/create-certificate-transact-sql) i tworzenie [kopii zapasowej certyfikatu](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Obejście**: zamiast tworzenia kopii zapasowej certyfikatu i przywracania kopii zapasowej [Pobierz zawartość binarną certyfikatu i klucz prywatny, Zapisz go jako plik. SQL i Utwórz na podstawie danych binarnych](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
+**Obejście** : zamiast tworzenia kopii zapasowej certyfikatu i przywracania kopii zapasowej [Pobierz zawartość binarną certyfikatu i klucz prywatny, Zapisz go jako plik. SQL i Utwórz na podstawie danych binarnych](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -153,7 +153,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
 - Ustawienie identyfikatora logowania usługi Azure AD zamapowanego na grupę usługi Azure AD jako właściciel bazy danych nie jest obsługiwane.
 - Personifikacja podmiotów zabezpieczeń na poziomie serwera usługi Azure AD przy użyciu innych podmiotów zabezpieczeń usługi Azure AD jest obsługiwana, takich jak klauzula [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) . Ograniczenia wykonywania jako są następujące:
 
-  - Wartość Uruchom jako użytkownik nie jest obsługiwana dla użytkowników usługi Azure AD, gdy nazwa jest inna niż nazwa logowania. Przykładem jest to, że użytkownik jest tworzony przy użyciu składni CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ], a Personifikacja jest podejmowana przy użyciu polecenia exec as User = _myAadUser_. Podczas tworzenia **użytkownika** z poziomu podmiotu zabezpieczeń serwera usługi Azure AD (login) Określ user_name jako ten sam Login_name z **nazwy logowania**.
+  - Wartość Uruchom jako użytkownik nie jest obsługiwana dla użytkowników usługi Azure AD, gdy nazwa jest inna niż nazwa logowania. Przykładem jest to, że użytkownik jest tworzony przy użyciu składni CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ], a Personifikacja jest podejmowana przy użyciu polecenia exec as User = _myAadUser_ . Podczas tworzenia **użytkownika** z poziomu podmiotu zabezpieczeń serwera usługi Azure AD (login) Określ user_name jako ten sam Login_name z **nazwy logowania** .
   - Tylko podmioty zabezpieczeń na poziomie SQL Server (logowania) będące częścią `sysadmin` roli mogą wykonywać następujące operacje, które są przeznaczone dla podmiotów zabezpieczeń usługi Azure AD:
 
     - EXECUTE AS USER
@@ -220,7 +220,7 @@ Aby uzyskać więcej informacji, zobacz [ALTER DATABASE partner i Set monitor](/
 
 - Wiele plików dziennika nie jest obsługiwanych.
 - Obiekty w pamięci nie są obsługiwane w warstwie usług Ogólnego przeznaczenia. 
-- Istnieje limit 280 plików na wystąpienie Ogólnego przeznaczenia, co oznacza maksymalnie 280 plików na bazę danych. Oba pliki danych i dziennika w warstwie Ogólnego przeznaczenia są wliczane do tego limitu. [Warstwa krytyczne dla działania firmy obsługuje 32 767 plików na bazę danych](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Istnieje limit 280 plików na wystąpienie Ogólnego przeznaczenia, co oznacza maksymalnie 280 plików na bazę danych. Oba pliki danych i dziennika w warstwie Ogólnego przeznaczenia są wliczane do tego limitu. [Warstwa krytyczne dla działania firmy obsługuje 32 767 plików na bazę danych](./resource-limits.md#service-tier-characteristics).
 - Baza danych nie może zawierać grup plików zawierających dane FILESTREAM. Przywracanie kończy się niepowodzeniem, jeśli. bak zawiera `FILESTREAM` dane. 
 - Każdy plik jest umieszczany w usłudze Azure Blob Storage. We/wy i przepływność na plik zależą od rozmiaru poszczególnych plików.
 
@@ -354,17 +354,17 @@ Nieudokumentowane instrukcje DBCC, które są włączone w SQL Server nie są ob
 ### <a name="distributed-transactions"></a>Transakcje rozproszone
 
 Częściowa pomoc techniczna dla [transakcji rozproszonych](../database/elastic-transactions-overview.md) jest obecnie w publicznej wersji zapoznawczej. Obsługiwane scenariusze:
-* Transakcje, w których uczestnicy są tylko wystąpieniami zarządzanymi usługi Azure SQL, które są częścią [grupy zaufania serwera](https://aka.ms/mitrusted-groups).
+* Transakcje, w których uczestnicy są tylko wystąpieniami zarządzanymi usługi Azure SQL, które są częścią [grupy zaufania serwera](./server-trust-group-overview.md).
 * Transakcje zainicjowane z platformy .NET (Klasa TransactionScope) i Transact-SQL.
 
 Wystąpienie zarządzane Azure SQL obecnie nie obsługuje innych scenariuszy, które są regularnie obsługiwane przez usługę MSDTC lokalnie lub w usłudze Azure Virtual Machines.
 
 ### <a name="extended-events"></a>Zdarzenia rozszerzone
 
-Niektóre elementy docelowe specyficzne dla systemu Windows dla zdarzeń rozszerzonych (XEvents) nie są obsługiwane:
+Niektóre elementy docelowe właściwe dla systemu Windows dotyczące zdarzeń rozszerzonych (XEvents) nie są obsługiwane:
 
-- `etw_classic_sync`Element docelowy nie jest obsługiwany. Przechowywanie `.xel` plików w usłudze Azure Blob Storage. Zobacz [etw_classic_sync cel](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
-- `event_file`Element docelowy nie jest obsługiwany. Przechowywanie `.xel` plików w usłudze Azure Blob Storage. Zobacz [event_file cel](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
+- `etw_classic_sync`Element docelowy nie jest obsługiwany. Przechowywanie `.xel` plików w usłudze Azure Blob Storage. Zobacz [element docelowy etw_classic_sync](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
+- `event_file`Element docelowy nie jest obsługiwany. Przechowywanie `.xel` plików w usłudze Azure Blob Storage. Zobacz [element docelowy event_file](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Biblioteki zewnętrzne
 
@@ -482,7 +482,7 @@ Broker usług dla wielu wystąpień nie jest obsługiwany:
   - `remote proc trans`
 - `sp_execute_external_scripts` nie jest obsługiwana. Zobacz [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` nie jest obsługiwana. Zobacz [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures`nie są obsługiwane, w tym `sp_addextendedproc`   i `sp_dropextendedproc` . Zobacz [rozszerzone procedury składowane](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` nie są obsługiwane, w tym `sp_addextendedproc` i `sp_dropextendedproc` . Zobacz [rozszerzone procedury składowane](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` i `sp_detach_db` nie są obsługiwane. Zobacz [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)i [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>Funkcje systemowe i zmienne
@@ -527,13 +527,13 @@ Następujące schematy MSDB w wystąpieniu zarządzanym SQL muszą należeć do 
 
 - Role ogólne
   - TargetServersRole
-- [Stałe role bazy danych](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Stałe role bazy danych](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Role DatabaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Role DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
   - DatabaseMailUserRole
-- [Role usług Integration Services](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Role usług Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator
@@ -543,7 +543,7 @@ Następujące schematy MSDB w wystąpieniu zarządzanym SQL muszą należeć do 
 
 ### <a name="error-logs"></a>Dzienniki błędów
 
-Wystąpienie zarządzane SQL umieszcza pełne informacje w dziennikach błędów. Istnieje wiele wewnętrznych zdarzeń systemowych, które są rejestrowane w dzienniku błędów. Użyj niestandardowej procedury, aby odczytać dzienniki błędów, które filtrują pewne nieistotne wpisy. Aby uzyskać więcej informacji, zobacz [wystąpienie zarządzane SQL — sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) lub [rozszerzenie wystąpienia zarządzanego SQL (wersja zapoznawcza)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) dla Azure Data Studio.
+Wystąpienie zarządzane SQL umieszcza pełne informacje w dziennikach błędów. Istnieje wiele wewnętrznych zdarzeń systemowych, które są rejestrowane w dzienniku błędów. Użyj niestandardowej procedury, aby odczytać dzienniki błędów, które filtrują pewne nieistotne wpisy. Aby uzyskać więcej informacji, zobacz [wystąpienie zarządzane SQL — sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) lub [rozszerzenie wystąpienia zarządzanego SQL (wersja zapoznawcza)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) dla Azure Data Studio.
 
 ## <a name="next-steps"></a>Następne kroki
 

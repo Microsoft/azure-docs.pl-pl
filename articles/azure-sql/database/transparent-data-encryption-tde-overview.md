@@ -12,19 +12,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 10/12/2020
-ms.openlocfilehash: 878fa9f576e50fb53e648d3bf39f98558d6e880a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8fbbd7a2aabc9de417f1eefd2513edba3119bfc0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441100"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791396"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Przezroczyste szyfrowanie danych dla SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) pomaga chronić Azure SQL Database, wystąpienie zarządzane usługi Azure SQL i usługę Azure Synapse Analytics przed zagrożeniem złośliwego działania w trybie offline przez szyfrowanie danych przechowywanych w spoczynku. Ta technologia w czasie rzeczywistym szyfruje i odszyfrowuje magazynowaną bazę danych, skojarzone kopie zapasowe i pliki dzienników transakcji bez konieczności dokonywania jakichkolwiek zmian w aplikacji. Domyślnie program TDE jest włączony dla wszystkich nowo wdrożonych baz danych SQL i musi być ręcznie włączony dla starszych baz danych Azure SQL Database, wystąpienia zarządzanego Azure SQL. TDE dla usługi Azure Synapse Analytics musi być włączona ręcznie.
 
-TDE wykonuje szyfrowanie we/wy czasu rzeczywistego i odszyfrowywanie danych na poziomie strony. Każda strona jest odszyfrowywana podczas wczytywania do pamięci, a następnie szyfrowana przed zapisaniem na dysku. TDE szyfruje magazyn całej bazy danych przy użyciu klucza symetrycznego zwanego kluczem szyfrowania bazy danych (. W przypadku uruchamiania bazy danych zaszyfrowane szyfrowanie szyfrowania plików jest odszyfrowywane, a następnie używane do odszyfrowywania i ponownego szyfrowania pliki bazy danych w procesie aparatu bazy danych SQL Server. Program szyfrowania danych jest chroniony przez funkcję ochrony TDE. TDE funkcja ochrony jest certyfikatem zarządzanym przez usługę (niejawnym szyfrowaniem danych zarządzanym przez usługę) lub kluczem asymetrycznym przechowywanym w [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (nieprzezroczyste szyfrowanie danych zarządzane przez klienta).
+TDE wykonuje szyfrowanie we/wy czasu rzeczywistego i odszyfrowywanie danych na poziomie strony. Każda strona jest odszyfrowywana podczas wczytywania do pamięci, a następnie szyfrowana przed zapisaniem na dysku. TDE szyfruje magazyn całej bazy danych przy użyciu klucza symetrycznego zwanego kluczem szyfrowania bazy danych (. W przypadku uruchamiania bazy danych zaszyfrowane szyfrowanie szyfrowania plików jest odszyfrowywane, a następnie używane do odszyfrowywania i ponownego szyfrowania pliki bazy danych w procesie aparatu bazy danych SQL Server. Program szyfrowania danych jest chroniony przez funkcję ochrony TDE. TDE funkcja ochrony jest certyfikatem zarządzanym przez usługę (niejawnym szyfrowaniem danych zarządzanym przez usługę) lub kluczem asymetrycznym przechowywanym w [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md) (nieprzezroczyste szyfrowanie danych zarządzane przez klienta).
 
 W przypadku Azure SQL Database i usługi Azure Synapse funkcja ochrony TDE jest ustawiana na poziomie [serwera](logical-servers.md) i jest dziedziczona przez wszystkie bazy danych skojarzone z tym serwerem. W przypadku wystąpienia zarządzanego Azure SQL funkcja ochrony TDE jest ustawiana na poziomie wystąpienia i jest dziedziczona przez wszystkie zaszyfrowane bazy danych w tym wystąpieniu. Termin " *serwer* " dotyczy zarówno serwera, jak i wystąpienia w tym dokumencie, chyba że określono inaczej.
 
@@ -32,7 +32,7 @@ W przypadku Azure SQL Database i usługi Azure Synapse funkcja ochrony TDE jest 
 > Wszystkie nowo utworzone bazy danych w SQL Database są domyślnie szyfrowane przy użyciu funkcji przezroczystego szyfrowania danych zarządzanego przez usługę. Istniejące bazy danych SQL utworzone przed 2017mi i bazami danych SQL utworzonych przy użyciu funkcji przywracania, replikacji geograficznej i kopii bazy danych nie są szyfrowane domyślnie. Istniejące bazy danych wystąpienia zarządzanego SQL utworzone przed 2019 lutego nie są szyfrowane domyślnie. Bazy danych wystąpienia zarządzanego SQL utworzone za pośrednictwem przywracania dziedziczą stan szyfrowania ze źródła.
 
 > [!NOTE]
-> TDE nie można używać do szyfrowania systemowych baz danych, takich jak baza danych **Master** , w Azure SQL Database i wystąpienia zarządzanego Azure SQL. Baza danych **Master** zawiera obiekty, które są konieczne do wykonywania operacji TDE w bazach danych użytkowników.
+> TDE nie można używać do szyfrowania systemowych baz danych, takich jak baza danych **Master** , w Azure SQL Database i wystąpienia zarządzanego Azure SQL. Baza danych **Master** zawiera obiekty, które są konieczne do wykonywania operacji TDE w bazach danych użytkowników. Zaleca się, aby nie przechowywać poufnych danych w systemowych bazach danych. Obecnie trwa wdrażanie [infrastruktury](transparent-data-encryption-byok-overview.md#doubleencryption) , która szyfruje systemową bazę danych, łącznie z serwerem głównym. 
 
 ## <a name="service-managed-transparent-data-encryption"></a>Zarządzane szyfrowanie danych przez usługę
 
@@ -42,7 +42,7 @@ Firma Microsoft bezproblemowo przenosi klucze i zarządza nimi w zależności od
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Szyfrowanie danych przezroczystych zarządzanych przez klienta — Bring Your Own Key
 
-TDE zarządzane przez klienta jest również określane jako obsługa Bring Your Own Key (BYOK) dla TDE. W tym scenariuszu funkcja ochrony TDE, która szyfruje plik szyfrowania danych, jest kluczem asymetrycznym zarządzanym przez klienta, który jest przechowywany w Azure Key Vault należącym do klienta i zarządzanym (zewnętrznym systemie zarządzania kluczami opartymi na chmurze platformy Azure) i nigdy nie opuszcza magazynu kluczy. Funkcja ochrony TDE może być [generowana przez Magazyn kluczy lub transferowana do magazynu kluczy](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) z urządzenia lokalnego modułu zabezpieczeń sprzętu (HSM). SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse muszą mieć przyznane uprawnienia do magazynu kluczy należącego do klienta w celu odszyfrowania i zaszyfrowania klucza szyfrowania danych. Jeśli uprawnienia serwera do magazynu kluczy zostaną odwołane, baza danych będzie niedostępna, a wszystkie dane są szyfrowane
+TDE zarządzane przez klienta jest również określane jako obsługa Bring Your Own Key (BYOK) dla TDE. W tym scenariuszu funkcja ochrony TDE, która szyfruje plik szyfrowania danych, jest kluczem asymetrycznym zarządzanym przez klienta, który jest przechowywany w Azure Key Vault należącym do klienta i zarządzanym (zewnętrznym systemie zarządzania kluczami opartymi na chmurze platformy Azure) i nigdy nie opuszcza magazynu kluczy. Funkcja ochrony TDE może być [generowana przez Magazyn kluczy lub transferowana do magazynu kluczy](../../key-vault/keys/hsm-protected-keys.md) z urządzenia lokalnego modułu zabezpieczeń sprzętu (HSM). SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse muszą mieć przyznane uprawnienia do magazynu kluczy należącego do klienta w celu odszyfrowania i zaszyfrowania klucza szyfrowania danych. Jeśli uprawnienia serwera do magazynu kluczy zostaną odwołane, baza danych będzie niedostępna, a wszystkie dane są szyfrowane
 
 Dzięki funkcji TDE z integracją Azure Key Vault użytkownicy mogą kontrolować zadania zarządzania kluczami, w tym kluczowe rotacje, uprawnienia do magazynu kluczy, kopie zapasowe kluczy, a także włączać inspekcje/raportowanie we wszystkich funkcjach Azure Key Vault ochrony TDE. Key Vault udostępnia centralne zarządzanie kluczami, wykorzystuje ściśle monitorowane sprzętowych modułów zabezpieczeń i umożliwia rozdzielenie obowiązków między zarządzaniem kluczami i danymi, aby zapewnić zgodność z zasadami zabezpieczeń.
 Aby dowiedzieć się więcej na temat BYOK for Azure SQL Database i Azure Synapse, zobacz [przezroczyste szyfrowanie danych z integracją Azure Key Vault](transparent-data-encryption-byok-overview.md).
@@ -85,13 +85,13 @@ Należy ustawić klucz główny TDE, znany jako funkcja ochrony TDE na poziomie 
 
 ![Niewidoczne szyfrowanie danych z obsługą Bring Your Own Key](./media/transparent-data-encryption-tde-overview/tde-byok-support.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Zarządzanie TDE przy użyciu programu PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
 Aby skonfigurować TDE za pomocą programu PowerShell, musisz mieć połączenie jako właściciel, współautor lub program SQL Security Manager platformy Azure.
 
@@ -101,14 +101,14 @@ Użyj następujących poleceń cmdlet dla Azure SQL Database i usługi Azure Syn
 
 | Polecenie cmdlet | Opis |
 | --- | --- |
-| [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Włącza lub wyłącza przezroczyste szyfrowanie danych dla bazy danych.|
-| [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Pobiera stan przezroczystego szyfrowania danych dla bazy danych. |
-| [Get-AzSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) |Sprawdza postęp szyfrowania bazy danych. |
-| [Add-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/add-azsqlserverkeyvaultkey) |Dodaje klucz Key Vault do serwera. |
-| [Get-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverkeyvaultkey) |Pobiera klucze Key Vault dla serwera  |
-| [Set-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Ustawia funkcję ochrony przezroczystego szyfrowania danych dla serwera. |
-| [Get-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |Pobiera funkcję ochrony przezroczystego szyfrowania danych |
-| [Remove-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |Usuwa klucz Key Vault z serwera. |
+| [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Włącza lub wyłącza przezroczyste szyfrowanie danych dla bazy danych.|
+| [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Pobiera stan przezroczystego szyfrowania danych dla bazy danych. |
+| [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) |Sprawdza postęp szyfrowania bazy danych. |
+| [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) |Dodaje klucz Key Vault do serwera. |
+| [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) |Pobiera klucze Key Vault dla serwera  |
+| [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Ustawia funkcję ochrony przezroczystego szyfrowania danych dla serwera. |
+| [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |Pobiera funkcję ochrony przezroczystego szyfrowania danych |
+| [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |Usuwa klucz Key Vault z serwera. |
 |  | |
 
 > [!IMPORTANT]
@@ -138,17 +138,17 @@ Użyj następującego zestawu poleceń dla Azure SQL Database i usługi Azure Sy
 
 | Polecenie | Opis |
 | --- | --- |
-|[Utwórz lub zaktualizuj serwer](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Dodaje Azure Active Directory tożsamość do serwera. (używane do udzielania dostępu do Key Vault)|
-|[Utwórz lub zaktualizuj klucz serwera](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Dodaje klucz Key Vault do serwera.|
-|[Usuń klucz serwera](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Usuwa klucz Key Vault z serwera. |
-|[Pobierz klucze serwera](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Pobiera określony klucz Key Vault z serwera.|
-|[Wyświetl listę kluczy serwera według serwera](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|Pobiera klucze Key Vault dla serwera. |
-|[Utwórz lub zaktualizuj ochronę szyfrowania](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Ustawia funkcję ochrony TDE dla serwera.|
-|[Pobierz ochronę szyfrowania](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Pobiera funkcję ochrony TDE dla serwera.|
-|[Wyświetlanie listy funkcji ochrony przed szyfrowaniem według serwera](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Pobiera funkcje ochrony TDE dla serwera. |
-|[Utwórz lub zaktualizuj konfigurację Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Włącza lub wyłącza TDE dla bazy danych.|
-|[Pobierz konfigurację Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Pobiera konfigurację TDE dla bazy danych.|
-|[Lista wyników konfiguracji Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Pobiera wynik szyfrowania dla bazy danych.|
+|[Utwórz lub zaktualizuj serwer](/rest/api/sql/servers/createorupdate)|Dodaje Azure Active Directory tożsamość do serwera. (używane do udzielania dostępu do Key Vault)|
+|[Utwórz lub zaktualizuj klucz serwera](/rest/api/sql/serverkeys/createorupdate)|Dodaje klucz Key Vault do serwera.|
+|[Usuń klucz serwera](/rest/api/sql/serverkeys/delete)|Usuwa klucz Key Vault z serwera. |
+|[Pobierz klucze serwera](/rest/api/sql/serverkeys/get)|Pobiera określony klucz Key Vault z serwera.|
+|[Wyświetl listę kluczy serwera według serwera](/rest/api/sql/serverkeys/listbyserver)|Pobiera klucze Key Vault dla serwera. |
+|[Utwórz lub zaktualizuj ochronę szyfrowania](/rest/api/sql/encryptionprotectors/createorupdate)|Ustawia funkcję ochrony TDE dla serwera.|
+|[Pobierz ochronę szyfrowania](/rest/api/sql/encryptionprotectors/get)|Pobiera funkcję ochrony TDE dla serwera.|
+|[Wyświetlanie listy funkcji ochrony przed szyfrowaniem według serwera](/rest/api/sql/encryptionprotectors/listbyserver)|Pobiera funkcje ochrony TDE dla serwera. |
+|[Utwórz lub zaktualizuj konfigurację Transparent Data Encryption](/rest/api/sql/transparentdataencryptions/createorupdate)|Włącza lub wyłącza TDE dla bazy danych.|
+|[Pobierz konfigurację Transparent Data Encryption](/rest/api/sql/transparentdataencryptions/get)|Pobiera konfigurację TDE dla bazy danych.|
+|[Lista wyników konfiguracji Transparent Data Encryption](/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Pobiera wynik szyfrowania dla bazy danych.|
 
 ## <a name="see-also"></a>Zobacz też
 
@@ -156,4 +156,4 @@ Użyj następującego zestawu poleceń dla Azure SQL Database i usługi Azure Sy
 - Aby uzyskać ogólny opis TDE, zobacz [przezroczyste szyfrowanie danych](/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Aby dowiedzieć się więcej na temat TDE z obsługą BYOK dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse, zobacz [przezroczyste szyfrowanie danych z obsługą Bring Your Own Key](transparent-data-encryption-byok-overview.md).
 - Aby rozpocząć korzystanie z usługi TDE z obsługą Bring Your Own Key, zobacz Przewodnik po tym, jak [włączyć funkcję przezroczystego szyfrowania danych przy użyciu własnego klucza z Key Vault](transparent-data-encryption-byok-configure.md).
-- Aby uzyskać więcej informacji na temat Key Vault, zobacz [bezpieczny dostęp do magazynu kluczy](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+- Aby uzyskać więcej informacji na temat Key Vault, zobacz [bezpieczny dostęp do magazynu kluczy](../../key-vault/general/secure-your-key-vault.md).

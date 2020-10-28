@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 05/28/2020
-ms.openlocfilehash: b8c7671e655594456621e4489cb06191d820b134
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa236ecaaa9c38c68e66d1813280cd98b85b9463
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333158"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790393"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrowanie Azure SQL Database z modelu opartego na jednostkach DTU do modelu opartego na rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -94,9 +94,9 @@ FROM dtu_vcore_map;
 Oprócz liczby rdzeni wirtualnych (logiczne procesory CPU) i generowania sprzętu niektóre inne czynniki mogą mieć wpływ na wybór celu usługi rdzeń wirtualny:
 
 - Mapowanie zapytania T-SQL dopasowuje cele usługi DTU i rdzeń wirtualny w zakresie wydajności procesora CPU, dlatego wyniki będą bardziej dokładne dla obciążeń związanych z PROCESORem.
-- W przypadku tej samej generacji sprzętowej i limitów zasobów rdzeni wirtualnych, liczby operacji we/wy oraz przepływności dziennika transakcji dla baz danych rdzeń wirtualny są często większe niż w przypadku baz danych DTU. W przypadku obciążeń związanych we/wy można obniżyć liczbę rdzeni wirtualnych w modelu rdzeń wirtualny, aby osiągnąć ten sam poziom wydajności. Limity zasobów dla baz danych DTU i rdzeń wirtualny w wartościach bezwzględnych są ujawniane w widoku [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . Porównanie tych wartości między bazą danych jednostek DTU do migracji a bazą danych rdzeń wirtualny przy użyciu przybliżonego celu usługi pomoże Ci dokładniej wybrać cel usługi rdzeń wirtualny.
+- W przypadku tej samej generacji sprzętowej i limitów zasobów rdzeni wirtualnych, liczby operacji we/wy oraz przepływności dziennika transakcji dla baz danych rdzeń wirtualny są często większe niż w przypadku baz danych DTU. W przypadku obciążeń związanych we/wy można obniżyć liczbę rdzeni wirtualnych w modelu rdzeń wirtualny, aby osiągnąć ten sam poziom wydajności. Limity zasobów dla baz danych DTU i rdzeń wirtualny w wartościach bezwzględnych są ujawniane w widoku [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . Porównanie tych wartości między bazą danych jednostek DTU do migracji a bazą danych rdzeń wirtualny przy użyciu przybliżonego celu usługi pomoże Ci dokładniej wybrać cel usługi rdzeń wirtualny.
 - Zapytanie mapowania zwraca również ilość pamięci na rdzeń dla bazy danych DTU lub elastycznej puli do migracji oraz dla każdej generacji sprzętu w modelu rdzeń wirtualny. Zapewnienie podobnej lub wyższej całkowitej ilości pamięci po migracji do rdzeń wirtualny jest istotne dla obciążeń wymagających dużej ilości pamięci podręcznej danych w celu osiągnięcia wystarczającej wydajności lub obciążeń, które wymagają dużych przydziałów pamięci do przetwarzania zapytań. W przypadku takich obciążeń, w zależności od rzeczywistej wydajności, może być konieczne zwiększenie liczby rdzeni wirtualnych, aby uzyskać wystarczającą ilość pamięci.
-- W przypadku wybrania celu usługi rdzeń wirtualny należy wziąć pod uwagę [historyczne wykorzystanie zasobów](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) bazy danych DTU. Bazy danych DTU ze spójnie używanymi zasobami procesora CPU mogą wymagać mniejszej liczby rdzeni wirtualnych niż zwracana przez zapytanie mapowania. W przypadku baz danych DTU, w których spójne użycie procesora CPU powoduje, że niewystarczająca wydajność obciążeń może wymagać więcej rdzeni wirtualnych niż zwracanych przez zapytanie.
+- W przypadku wybrania celu usługi rdzeń wirtualny należy wziąć pod uwagę [historyczne wykorzystanie zasobów](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) bazy danych DTU. Bazy danych DTU ze spójnie używanymi zasobami procesora CPU mogą wymagać mniejszej liczby rdzeni wirtualnych niż zwracana przez zapytanie mapowania. W przypadku baz danych DTU, w których spójne użycie procesora CPU powoduje, że niewystarczająca wydajność obciążeń może wymagać więcej rdzeni wirtualnych niż zwracanych przez zapytanie.
 - W przypadku migrowania baz danych z użyciem sporadycznych lub nieprzewidywalnych wzorców użycia należy rozważyć użycie warstwy obliczeń [Bezserwerowych](serverless-tier-overview.md) .  Należy zauważyć, że maksymalna liczba współbieżnych procesów roboczych (żądań) w bezserwerowym wyniesieniu do 75% limitu zainicjowanego obliczeń dla tej samej liczby skonfigurowanych maksymalnych rdzeni wirtualnych.  Ponadto Maksymalna ilość pamięci dostępnej w ramach serwera to 3 GB, a maksymalna liczba skonfigurowanych rdzeni wirtualnych; na przykład Maksymalna pamięć to 120 GB, gdy konfigurowane są maksymalnie 40 rdzeni wirtualnych.   
 - W modelu rdzeń wirtualny obsługiwany maksymalny rozmiar bazy danych może się różnić w zależności od generacji sprzętu. W przypadku dużych baz danych sprawdź obsługiwane maksymalne rozmiary w modelu rdzeń wirtualny dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).
 - W przypadku pul elastycznych modele [jednostek DTU](resource-limits-dtu-elastic-pools.md) i [rdzeń wirtualny](resource-limits-vcore-elastic-pools.md) mają różnice w maksymalnej obsługiwanej liczbie baz danych na pulę. Należy wziąć pod uwagę podczas migrowania pul elastycznych z wieloma bazami danych.
@@ -105,7 +105,7 @@ Oprócz liczby rdzeni wirtualnych (logiczne procesory CPU) i generowania sprzęt
 > [!IMPORTANT]
 > Przedstawione powyżej wskazówki dotyczące ustalania wielkości jednostek DTU są udostępniane, aby pomóc w początkowym szacowaniu docelowego celu usługi bazy danych.
 >
-> Optymalna konfiguracja docelowej bazy danych jest zależna od obciążenia. W związku z tym osiągnięcie optymalnego współczynnika cen/wydajności po migracji może wymagać wykorzystania elastyczności modelu rdzeń wirtualny w celu dostosowania liczby rdzeni wirtualnych, [generacji sprzętu](service-tiers-vcore.md#hardware-generations), [usług](service-tiers-vcore.md#service-tiers) i warstw [obliczeniowych](service-tiers-vcore.md#compute-tiers) , a także dostrajania innych parametrów konfiguracji bazy danych, takich jak [Maksymalny stopień równoległości](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+> Optymalna konfiguracja docelowej bazy danych jest zależna od obciążenia. W związku z tym osiągnięcie optymalnego współczynnika cen/wydajności po migracji może wymagać wykorzystania elastyczności modelu rdzeń wirtualny w celu dostosowania liczby rdzeni wirtualnych, [generacji sprzętu](service-tiers-vcore.md#hardware-generations), [usług](service-tiers-vcore.md#service-tiers) i warstw [obliczeniowych](service-tiers-vcore.md#compute-tiers) , a także dostrajania innych parametrów konfiguracji bazy danych, takich jak [Maksymalny stopień równoległości](/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 > 
 
 ### <a name="dtu-to-vcore-migration-examples"></a>Przykłady migracji jednostek DTU do rdzeń wirtualny
@@ -132,7 +132,7 @@ Zapytanie mapowania zwraca następujący wynik (niektóre kolumny nie są wyświ
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
 |0,25|Obliczenia|0,42|0,250|7|0,425|5,05|
 
-Widzimy, że baza danych DTU ma odpowiednik 0,25 logicznych procesorów CPU (rdzeni wirtualnych) z 0,42 GB pamięci na rdzeń wirtualny i używa sprzętu obliczenia. Najmniejsze cele usługi rdzeń wirtualny w generacjach sprzętowych obliczenia i 5 rdzeń, **GP_Gen4_1** i **GP_Gen5_2**zapewniają więcej zasobów obliczeniowych niż standardowa baza danych S0, dlatego nie jest możliwe bezpośrednie dopasowanie. Ponieważ sprzęt obliczenia jest [likwidowany](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/), preferowana jest opcja **GP_Gen5_2** . Ponadto, jeśli obciążenie jest odpowiednie dla warstwy obliczeń [Bezserwerowych](serverless-tier-overview.md) , **GP_S_Gen5_1** byłyby bliżej siebie.
+Widzimy, że baza danych DTU ma odpowiednik 0,25 logicznych procesorów CPU (rdzeni wirtualnych) z 0,42 GB pamięci na rdzeń wirtualny i używa sprzętu obliczenia. Najmniejsze cele usługi rdzeń wirtualny w generacjach sprzętowych obliczenia i 5 rdzeń, **GP_Gen4_1** i **GP_Gen5_2** zapewniają więcej zasobów obliczeniowych niż standardowa baza danych S0, dlatego nie jest możliwe bezpośrednie dopasowanie. Ponieważ sprzęt obliczenia jest [likwidowany](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/), preferowana jest opcja **GP_Gen5_2** . Ponadto, jeśli obciążenie jest odpowiednie dla warstwy obliczeń [Bezserwerowych](serverless-tier-overview.md) , **GP_S_Gen5_1** byłyby bliżej siebie.
 
 **Migrowanie bazy danych P15 w warstwie Premium**
 
@@ -152,7 +152,7 @@ Zapytanie mapowania zwraca następujący wynik (niektóre kolumny nie są wyświ
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
 |4,00|5 rdzeń|5,40|2,800|7|4,000|5,05|
 
-Widzimy, że Pula elastyczna DTU ma 4 procesory logiczne (rdzeni wirtualnych) z 5,4 GB pamięci na rdzeń wirtualny i używa sprzętu 5 rdzeń. Bezpośrednie dopasowanie w modelu rdzeń wirtualny **GP_Gen5_4** jest elastyczną pulą. Jednak ten cel usługi obsługuje maksymalnie 200 baz danych na pulę, podczas 200 gdy elastyczna Pula jednostek eDTU o wartości 1 USD obsługuje do 500 baz danych. Jeśli pula elastyczna, która ma zostać zmigrowana, ma więcej niż 200 baz danych, należy **GP_Gen5_6**pasujący cel usługi rdzeń wirtualny, który obsługuje do 500 baz danych.
+Widzimy, że Pula elastyczna DTU ma 4 procesory logiczne (rdzeni wirtualnych) z 5,4 GB pamięci na rdzeń wirtualny i używa sprzętu 5 rdzeń. Bezpośrednie dopasowanie w modelu rdzeń wirtualny **GP_Gen5_4** jest elastyczną pulą. Jednak ten cel usługi obsługuje maksymalnie 200 baz danych na pulę, podczas 200 gdy elastyczna Pula jednostek eDTU o wartości 1 USD obsługuje do 500 baz danych. Jeśli pula elastyczna, która ma zostać zmigrowana, ma więcej niż 200 baz danych, należy **GP_Gen5_6** pasujący cel usługi rdzeń wirtualny, który obsługuje do 500 baz danych.
 
 ## <a name="migrate-geo-replicated-databases"></a>Migrowanie baz danych replikowanych geograficznie
 
@@ -169,12 +169,12 @@ W poniższej tabeli przedstawiono wskazówki dotyczące określonych scenariuszy
 |---|---|---|---|
 |Standardowa|Zastosowania ogólne|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
 |Premium|Krytyczne dla działania firmy|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
-|Standardowa|Krytyczne dla działania firmy|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
+|Standardowa|Krytyczne dla działania firmy|Upgrade|Najpierw należy przeprowadzić migrację pomocniczą|
 |Krytyczne dla działania firmy|Standardowa|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
 |Premium|Zastosowania ogólne|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
-|Zastosowania ogólne|Premium|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
+|Zastosowania ogólne|Premium|Upgrade|Najpierw należy przeprowadzić migrację pomocniczą|
 |Krytyczne dla działania firmy|Zastosowania ogólne|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
-|Zastosowania ogólne|Krytyczne dla działania firmy|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
+|Zastosowania ogólne|Krytyczne dla działania firmy|Upgrade|Najpierw należy przeprowadzić migrację pomocniczą|
 ||||
 
 ## <a name="migrate-failover-groups"></a>Migrowanie grup trybu failover

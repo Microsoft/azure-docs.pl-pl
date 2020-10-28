@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f312b690ac7743b1574dbbec9d408b3fafbb0194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6d5a9da238c520e2e0ec70ac312dd112aad2fe8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263185"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789985"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>SQL Server Skonfiguruj zawsze dostępną grupę dostępności w różnych regionach platformy Azure
 
@@ -69,7 +69,7 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
    >[!NOTE]
    >W niektórych przypadkach może być konieczne użycie programu PowerShell do utworzenia połączenia między sieciami wirtualnymi. Jeśli na przykład używasz różnych kont platformy Azure, nie możesz skonfigurować połączenia w portalu. W takim przypadku zobacz [Konfigurowanie połączenia między sieciami wirtualnymi przy użyciu Azure Portal](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-1. [Utwórz kontroler domeny w nowym regionie](../../../active-directory/active-directory-new-forest-virtual-machine.md).
+1. [Utwórz kontroler domeny w nowym regionie](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100).
 
    Ten kontroler domeny zapewnia uwierzytelnianie, Jeśli kontroler domeny w lokacji głównej jest niedostępny.
 
@@ -84,7 +84,7 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
    - Uwzględnij pulę zaplecza składającą się tylko z maszyn wirtualnych znajdujących się w tym samym regionie co moduł równoważenia obciążenia.
    - Użyj sondy portu TCP określonego dla adresu IP.
    - Mieć regułę równoważenia obciążenia specyficzną dla SQL Server w tym samym regionie.  
-   - Usługa Load Balancer w warstwie Standardowa, jeśli maszyny wirtualne w puli zaplecza nie są częścią pojedynczego zestawu dostępności lub zestawu skalowania maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz [standardowe omówienie Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+   - Usługa Load Balancer w warstwie Standardowa, jeśli maszyny wirtualne w puli zaplecza nie są częścią pojedynczego zestawu dostępności lub zestawu skalowania maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz [standardowe omówienie Azure Load Balancer](../../../load-balancer/load-balancer-overview.md).
 
 1. [Dodaj funkcję Klaster trybu failover do nowej SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
@@ -96,11 +96,11 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
 
 1. Dodawanie zasobu adresu IP do klastra.
 
-   Zasób adresu IP można utworzyć w Menedżer klastra trybu failover. Wybierz nazwę klastra, a następnie kliknij prawym przyciskiem myszy nazwę klastra w obszarze **zasoby podstawowe klastra** i wybierz polecenie **Właściwości**: 
+   Zasób adresu IP można utworzyć w Menedżer klastra trybu failover. Wybierz nazwę klastra, a następnie kliknij prawym przyciskiem myszy nazwę klastra w obszarze **zasoby podstawowe klastra** i wybierz polecenie **Właściwości** : 
 
    ![Właściwości klastra](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
-   W oknie dialogowym **Właściwości** wybierz pozycję **Dodaj** w obszarze **adres IP**, a następnie Dodaj adres IP nazwy klastra z regionu sieci zdalnej. W oknie dialogowym **adres IP** wybierz **OK** , a następnie ponownie wybierz przycisk **OK** w oknie dialogowym **właściwości klastra** , aby zapisać nowy adres IP. 
+   W oknie dialogowym **Właściwości** wybierz pozycję **Dodaj** w obszarze **adres IP** , a następnie Dodaj adres IP nazwy klastra z regionu sieci zdalnej. W oknie dialogowym **adres IP** wybierz **OK** , a następnie ponownie wybierz przycisk **OK** w oknie dialogowym **właściwości klastra** , aby zapisać nowy adres IP. 
 
    ![Dodaj adres IP klastra](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
 
@@ -113,7 +113,7 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
 
 1. Dodaj zasób adresu IP do roli grupy dostępności w klastrze. 
 
-   Kliknij prawym przyciskiem myszy rolę grupy dostępności w Menedżer klastra trybu failover, wybierz pozycję **Dodaj zasób**, **więcej zasobów**i wybierz pozycję **adres IP**.
+   Kliknij prawym przyciskiem myszy rolę grupy dostępności w Menedżer klastra trybu failover, wybierz pozycję **Dodaj zasób** , **więcej zasobów** i wybierz pozycję **adres IP** .
 
    ![Utwórz adres IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -161,7 +161,7 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
 
 Replika w zdalnym centrum danych jest częścią grupy dostępności, ale znajduje się w innej podsieci. Jeśli replika zostanie repliką podstawową, mogą wystąpić limity czasu połączenia aplikacji. Takie zachowanie jest takie samo jak lokalna Grupa dostępności w ramach wdrożenia z obsługą kilku podsieci. Aby zezwolić na połączenia z aplikacji klienckich, zaktualizuj połączenie klienta lub skonfiguruj buforowanie rozpoznawania nazw dla zasobu Nazwa sieciowa klastra.
 
-Najlepiej zaktualizować parametry połączenia klienta, aby ustawić `MultiSubnetFailover=Yes` . Zobacz [nawiązywanie połączenia z usługą MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
+Najlepiej zaktualizować parametry połączenia klienta, aby ustawić `MultiSubnetFailover=Yes` . Zobacz [nawiązywanie połączenia z usługą MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
 
 Jeśli nie można zmodyfikować parametrów połączenia, można skonfigurować buforowanie rozpoznawania nazw. Zobacz [błąd limitu czasu i nie można nawiązać połączenia z odbiornikiem grupy dostępności funkcji AlwaysOn SQL Server 2012 w środowisku z obsługą kilku podsieci](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
@@ -169,17 +169,17 @@ Jeśli nie można zmodyfikować parametrów połączenia, można skonfigurować 
 
 Aby przetestować łączność odbiornika z regionem zdalnym, można przełączyć replikę w tryb failover do regionu zdalnego. Gdy replika jest asynchroniczna, tryb failover jest narażony na potencjalną utratę danych. Aby przełączyć się do trybu failover bez utraty danych, Zmień tryb dostępności na synchroniczny i ustaw tryb pracy awaryjnej na automatyczny. Wykonaj następujące kroki:
 
-1. W **Eksplorator obiektów**Połącz się z wystąpieniem SQL Server, które obsługuje replikę podstawową.
-1. W obszarze **zawsze włączone grupy dostępności**, **grupy dostępności**, kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **Właściwości**.
-1. Na stronie **Ogólne** w obszarze **repliki dostępności**Ustaw replikę pomocniczą w lokacji odzyskiwania w taki sposób, aby korzystała z **synchronicznego trybu dostępności zatwierdzania** i trybu **automatycznego** trybu failover.
-1. Jeśli istnieje replika pomocnicza w tej samej lokacji co replika podstawowa w celu zapewnienia wysokiej dostępności, ustaw tę replikę na **asynchroniczne zatwierdzenie** i **ręcznie**.
+1. W **Eksplorator obiektów** Połącz się z wystąpieniem SQL Server, które obsługuje replikę podstawową.
+1. W obszarze **zawsze włączone grupy dostępności** , **grupy dostępności** , kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **Właściwości** .
+1. Na stronie **Ogólne** w obszarze **repliki dostępności** Ustaw replikę pomocniczą w lokacji odzyskiwania w taki sposób, aby korzystała z **synchronicznego trybu dostępności zatwierdzania** i trybu **automatycznego** trybu failover.
+1. Jeśli istnieje replika pomocnicza w tej samej lokacji co replika podstawowa w celu zapewnienia wysokiej dostępności, ustaw tę replikę na **asynchroniczne zatwierdzenie** i **ręcznie** .
 1. Wybierz przycisk OK.
-1. W **Eksplorator obiektów**kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **Pokaż pulpit nawigacyjny**.
+1. W **Eksplorator obiektów** kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **Pokaż pulpit nawigacyjny** .
 1. Na pulpicie nawigacyjnym Sprawdź, czy replika w witrynie DR jest synchronizowana.
-1. W **Eksplorator obiektów**kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **tryb failover...**. SQL Server Management Studios otwiera kreatora w celu przełączenia w tryb failover SQL Server.  
-1. Wybierz pozycję **dalej**, a następnie wybierz wystąpienie SQL Server w witrynie Dr. Ponownie wybierz pozycję **dalej** .
-1. Połącz się z wystąpieniem SQL Server w witrynie DR i wybierz pozycję **dalej**.
-1. Na stronie **Podsumowanie** Sprawdź ustawienia i wybierz pozycję **Zakończ**.
+1. W **Eksplorator obiektów** kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **tryb failover...** . SQL Server Management Studios otwiera kreatora w celu przełączenia w tryb failover SQL Server.  
+1. Wybierz pozycję **dalej** , a następnie wybierz wystąpienie SQL Server w witrynie Dr. Ponownie wybierz pozycję **dalej** .
+1. Połącz się z wystąpieniem SQL Server w witrynie DR i wybierz pozycję **dalej** .
+1. Na stronie **Podsumowanie** Sprawdź ustawienia i wybierz pozycję **Zakończ** .
 
 Po przetestowaniu łączności należy przenieść replikę podstawową z powrotem do głównego centrum danych i ustawić tryb dostępności z powrotem na normalne ustawienia operacyjne. W poniższej tabeli przedstawiono normalne ustawienia operacyjne dla architektury opisanej w tym dokumencie:
 
@@ -194,12 +194,12 @@ Po przetestowaniu łączności należy przenieść replikę podstawową z powrot
 
 Aby uzyskać więcej informacji, zobacz następujące tematy:
 
-- [Wykonaj zaplanowaną ręczną pracę awaryjną grupy dostępności (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
-- [Wykonaj wymuszoną ręczną pracę awaryjną grupy dostępności (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
+- [Wykonaj zaplanowaną ręczną pracę awaryjną grupy dostępności (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server)
+- [Wykonaj wymuszoną ręczną pracę awaryjną grupy dostępności (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zawsze włączone grupy dostępności](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Zawsze włączone grupy dostępności](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Azure Virtual Machines](../../../virtual-machines/windows/index.yml)
 * [Moduły równoważenia obciążenia platformy Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Zestawy dostępności platformy Azure](../../../virtual-machines/linux/manage-availability.md)
+* [Zestawy dostępności platformy Azure](../../../virtual-machines/manage-availability.md)

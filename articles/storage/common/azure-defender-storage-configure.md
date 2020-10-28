@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474856"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789016"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Konfigurowanie usługi Azure Defender dla magazynu
 
@@ -37,7 +37,7 @@ Poniższa lista zawiera podsumowanie dostępności usługi Azure Defender dla ma
 
 - Stan wydania:
   - [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/) (ogólna dostępność)
-  - [Azure Files](/azure/storage/files/storage-files-introduction) (ogólna dostępność)
+  - [Azure Files](../files/storage-files-introduction.md) (ogólna dostępność)
   - Azure Data Lake Storage Gen2 (ogólna dostępność)
 - Połączeń<br>
     ✔ Chmury komercyjne<br>
@@ -53,10 +53,10 @@ Usługę Azure Defender Storage można skonfigurować na kilka sposobów, co opi
 Gdy subskrybujesz warstwę Standardowa w Azure Security Center, usługa Azure Defender zostanie automatycznie skonfigurowana na wszystkich kontach magazynu. Usługę Azure Defender można włączyć lub wyłączyć dla kont magazynu w ramach określonej subskrypcji w następujący sposób:
 
 1. Uruchom **Azure Security Center** w [Azure Portal](https://portal.azure.com).
-1. Z menu głównego w obszarze **Zarządzanie**wybierz pozycję **Cennik ustawienia &**.
+1. Z menu głównego w obszarze **Zarządzanie** wybierz pozycję **Cennik ustawienia &** .
 1. Wybierz subskrypcję, dla której chcesz włączyć lub wyłączyć usługę Azure Defender.
 1. Wybierz pozycję **Azure Defender on** , aby włączyć usługę Azure Defender dla subskrypcji.
-1. W obszarze **Wybieranie planu usługi Azure Defender według typu zasobu**Znajdź wiersz **magazynu** i wybierz pozycję **włączone** w kolumnie **Plan** .
+1. W obszarze **Wybieranie planu usługi Azure Defender według typu zasobu** Znajdź wiersz **magazynu** i wybierz pozycję **włączone** w kolumnie **Plan** .
 1. Zapisz zmiany.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usługi Azure Defender dla magazynu w Security Center":::
@@ -66,8 +66,8 @@ Usługa Azure Defender jest teraz włączona dla wszystkich kont magazynu w tej 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Uruchom [Azure Portal](https://portal.azure.com/).
-1. Przejdź do konta magazynu. W obszarze **Ustawienia**wybierz pozycję **Zabezpieczenia zaawansowane**.
-1. Wybierz pozycję **Włącz usługę Azure Defender dla magazynu**.
+1. Przejdź do konta magazynu. W obszarze **Ustawienia** wybierz pozycję **Zabezpieczenia zaawansowane** .
+1. Wybierz pozycję **Włącz usługę Azure Defender dla magazynu** .
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usługi Azure Defender dla magazynu w Security Center":::
 
@@ -101,7 +101,7 @@ Użyj poleceń interfejsu API REST, aby utworzyć, zaktualizować lub pobrać us
 - [Zaawansowana ochrona przed zagrożeniami — tworzenie](/rest/api/securitycenter/advancedthreatprotection/create)
 - [Zaawansowana ochrona przed zagrożeniami — Pobierz](/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Użyj następujących poleceń cmdlet programu PowerShell:
 
@@ -138,4 +138,4 @@ Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby dostępu d
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [dziennikach na kontach usługi Azure Storage](/rest/api/storageservices/About-Storage-Analytics-Logging)
-- Dowiedz się więcej o [Azure Security Center](../../security-center/security-center-intro.md)
+- Dowiedz się więcej o [Azure Security Center](../../security-center/security-center-introduction.md)

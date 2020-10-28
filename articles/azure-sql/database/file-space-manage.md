@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 2e751a77d40403c7bdd4644e8e6fb03ff89063e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a46e47d6e12d52113bf63342c84a58ca98743d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335074"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789611"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Zarządzanie miejscem plików dla baz danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,13 +40,13 @@ Monitorowanie użycia miejsca na pliki i zmniejszania plików danych może być 
 
 Większość metryk miejsca do magazynowania wyświetlana w Azure Portal i następujące interfejsy API mierzą tylko rozmiar użytych stron danych:
 
-- Interfejsy API metryk opartych na Azure Resource Managerach, w tym PowerShell [Get-Metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
-- T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- Interfejsy API metryk opartych na Azure Resource Managerach, w tym PowerShell [Get-Metrics](/powershell/module/az.monitor/get-azmetric)
+- T-SQL: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Jednak poniższe interfejsy API mierzą również rozmiar miejsca przydzieloną dla baz danych i pul elastycznych:
 
-- T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
-- T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
+- T-SQL:  [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL: [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Zmniejszanie plików danych
 
@@ -148,7 +148,7 @@ Wyniki zapytania dotyczące określania miejsca przydzieloną dla każdej bazy d
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Moduł AzureRM będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020. Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji o zgodności, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).
 
-Skrypt programu PowerShell wymaga modułu SQL Server PowerShell — zobacz [Pobieranie modułu PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) do instalacji.
+Skrypt programu PowerShell wymaga modułu SQL Server PowerShell — zobacz [Pobieranie modułu PowerShell](/sql/powershell/download-sql-server-ps-module) do instalacji.
 
 ```powershell
 $resourceGroupName = "<resourceGroupName>"
@@ -214,7 +214,7 @@ DBCC SHRINKDATABASE (N'db1')
 
 To polecenie może mieć wpływ na wydajność bazy danych, gdy jest uruchomiona, a jeśli to możliwe, powinno być uruchamiane w okresach o niskim poziomie użycia.  
 
-Aby uzyskać więcej informacji na temat tego polecenia, zobacz [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Aby uzyskać więcej informacji na temat tego polecenia, zobacz [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### <a name="auto-shrink"></a>Autozmniejszanie
 
@@ -226,11 +226,11 @@ Aby włączyć funkcję autozmniejszania, zmodyfikuj nazwę bazy danych w poniż
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Aby uzyskać więcej informacji na temat tego polecenia, zobacz Opcje [zestawu baz danych](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
+Aby uzyskać więcej informacji na temat tego polecenia, zobacz Opcje [zestawu baz danych](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
 
 ### <a name="rebuild-indexes"></a>Ponowne kompilowanie indeksów
 
-Po usunięciu plików danych bazy danych indeksy mogą stać się pofragmentowane i utracić skuteczność optymalizacji wydajności. Jeśli wystąpi spadek wydajności, rozważ odbudowanie indeksów bazy danych. Aby uzyskać więcej informacji na temat fragmentacji i odbudowywania indeksów, zobacz [Reorganizowanie i](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)ponowne kompilowanie indeksów.
+Po usunięciu plików danych bazy danych indeksy mogą stać się pofragmentowane i utracić skuteczność optymalizacji wydajności. Jeśli wystąpi spadek wydajności, rozważ odbudowanie indeksów bazy danych. Aby uzyskać więcej informacji na temat fragmentacji i odbudowywania indeksów, zobacz [Reorganizowanie i](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)ponowne kompilowanie indeksów.
 
 ## <a name="next-steps"></a>Następne kroki
 

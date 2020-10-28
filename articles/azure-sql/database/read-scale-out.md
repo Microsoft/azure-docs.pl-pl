@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: fbde77de0ad8698ff82b80b440ae1d4bdcae1f36
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426983"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790274"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Korzystanie z replik tylko do odczytu w celu odciążenia obciążeń zapytań tylko do odczytu
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Funkcja *Odczyt skalowalny* w poziomie jest domyślnie włączona w nowych bazac
 > [!NOTE]
 > Skalowanie w poziomie do odczytu jest zawsze włączone w warstwie usług Krytyczne dla działania firmy wystąpienia zarządzanego.
 
-Jeśli parametry połączenia SQL są skonfigurowane z programem `ApplicationIntent=ReadOnly` , aplikacja zostanie przekierowana do repliki tylko do odczytu tej bazy danych lub wystąpienia zarządzanego. Aby uzyskać informacje na temat sposobu użycia `ApplicationIntent` właściwości, zobacz [Określanie zamiaru aplikacji](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Jeśli parametry połączenia SQL są skonfigurowane z programem `ApplicationIntent=ReadOnly` , aplikacja zostanie przekierowana do repliki tylko do odczytu tej bazy danych lub wystąpienia zarządzanego. Aby uzyskać informacje na temat sposobu użycia `ApplicationIntent` właściwości, zobacz [Określanie zamiaru aplikacji](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Jeśli chcesz upewnić się, że aplikacja nawiązuje połączenie z repliką podstawową, niezależnie od `ApplicationIntent` Ustawienia w parametrach połączenia SQL, należy jawnie wyłączyć skalowanie w poziomie podczas tworzenia bazy danych lub zmiany konfiguracji. Jeśli na przykład baza danych jest uaktualniana z warstwy Standardowa lub Ogólnego przeznaczenia do warstwy Premium, Krytyczne dla działania firmy lub do skalowania i chcesz upewnić się, że wszystkie połączenia nadal przechodzą do repliki podstawowej, wyłącz opcję Odczytaj w poziomie. Aby uzyskać szczegółowe informacje na temat sposobu jego wyłączania, zobacz [Włączanie i wyłączanie skalowania](#enable-and-disable-read-scale-out)w poziomie.
 
@@ -87,16 +87,16 @@ Najczęściej używane widoki to:
 
 | Nazwa | Przeznaczenie |
 |:---|:---|
-|[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Zawiera metryki wykorzystania zasobów w ciągu ostatniej godziny, w tym użycie procesora CPU, danych we/wy i zapisu w dzienniku względem ograniczeń celu usługi.|
-|[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Zawiera zagregowane statystyki oczekiwania dla wystąpienia aparatu bazy danych. |
-|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Zawiera informacje o stanie kondycji repliki i statystyce synchronizacji. Rozmiar kolejki ponownego wykonywania i częstotliwość ponownego wykonywania służą jako wskaźniki opóźnienia danych w replice tylko do odczytu. |
-|[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Zapewnia liczniki wydajności aparatu bazy danych.|
-|[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Zapewnia dane statystyczne wykonywania poszczególnych zapytań, takie jak Liczba wykonań, użyty czas procesora CPU itd.|
-|[sys.dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Udostępnia buforowane plany zapytań. |
-|[sys.dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Zawiera tekst zapytania dla buforowanego planu zapytania.|
-|[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Zapewnia postęp zapytania w czasie rzeczywistym w czasie wykonywania zapytań.|
-|[sys.dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Zawiera informacje o ostatnim znanym rzeczywistym planie wykonywania, w tym statystyki środowiska uruchomieniowego dla zapytania.|
-|[sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Zapewnia liczbę operacji we/wy na sekundę, przepływność i statystykę opóźnienia dla wszystkich plików bazy danych. |
+|[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Zawiera metryki wykorzystania zasobów w ciągu ostatniej godziny, w tym użycie procesora CPU, danych we/wy i zapisu w dzienniku względem ograniczeń celu usługi.|
+|[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Zawiera zagregowane statystyki oczekiwania dla wystąpienia aparatu bazy danych. |
+|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Zawiera informacje o stanie kondycji repliki i statystyce synchronizacji. Rozmiar kolejki ponownego wykonywania i częstotliwość ponownego wykonywania służą jako wskaźniki opóźnienia danych w replice tylko do odczytu. |
+|[sys.dm_os_performance_counters](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Zapewnia liczniki wydajności aparatu bazy danych.|
+|[sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Zapewnia dane statystyczne wykonywania poszczególnych zapytań, takie jak Liczba wykonań, użyty czas procesora CPU itd.|
+|[sys.dm_exec_query_plan ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Udostępnia buforowane plany zapytań. |
+|[sys.dm_exec_sql_text ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Zawiera tekst zapytania dla buforowanego planu zapytania.|
+|[sys.dm_exec_query_profiles](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Zapewnia postęp zapytania w czasie rzeczywistym w czasie wykonywania zapytań.|
+|[sys.dm_exec_query_plan_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Zawiera informacje o ostatnim znanym rzeczywistym planie wykonywania, w tym statystyki środowiska uruchomieniowego dla zapytania.|
+|[sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Zapewnia liczbę operacji we/wy na sekundę, przepływność i statystykę opóźnienia dla wszystkich plików bazy danych. |
 
 > [!NOTE]
 > `sys.resource_stats`I `sys.elastic_pool_resource_stats` widoków DMV w logicznej głównej bazie danych programu zwracają dane użycia zasobów repliki podstawowej.
@@ -109,13 +109,13 @@ Rozszerzona sesja zdarzeń w replice tylko do odczytu, która jest oparta na def
 
 ### <a name="transaction-isolation-level-on-read-only-replicas"></a>Poziom izolacji transakcji w replikach tylko do odczytu
 
-Zapytania uruchamiane w replikach tylko do odczytu są zawsze mapowane na poziom izolacji transakcji [migawek](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) . Izolacja migawek używa wersji wierszy, aby uniknąć blokowania scenariuszy, w których czytelnicy blokują autorzy.
+Zapytania uruchamiane w replikach tylko do odczytu są zawsze mapowane na poziom izolacji transakcji [migawek](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) . Izolacja migawek używa wersji wierszy, aby uniknąć blokowania scenariuszy, w których czytelnicy blokują autorzy.
 
-W rzadkich przypadkach, jeśli transakcja izolacji migawek uzyskuje dostęp do metadanych obiektów, które zostały zmodyfikowane w innej współbieżnej transakcji, może wystąpić błąd [3961](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error), "transakcja izolacji migawki nie powiodła się w bazie danych"%. * ls ", ponieważ obiekt, do którego uzyskuje dostęp instrukcja, został zmodyfikowany przez instrukcję języka DDL w innej współbieżnej transakcji od momentu rozpoczęcia tej transakcji. Jest to niedozwolone, ponieważ metadane nie są poddane kontroli wersji. Współbieżna aktualizacja metadanych może prowadzić do niespójności, jeśli jest mieszana z izolacją migawki ".
+W rzadkich przypadkach, jeśli transakcja izolacji migawek uzyskuje dostęp do metadanych obiektów, które zostały zmodyfikowane w innej współbieżnej transakcji, może wystąpić błąd [3961](/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error), "transakcja izolacji migawki nie powiodła się w bazie danych"%. * ls ", ponieważ obiekt, do którego uzyskuje dostęp instrukcja, został zmodyfikowany przez instrukcję języka DDL w innej współbieżnej transakcji od momentu rozpoczęcia tej transakcji. Jest to niedozwolone, ponieważ metadane nie są poddane kontroli wersji. Współbieżna aktualizacja metadanych może prowadzić do niespójności, jeśli jest mieszana z izolacją migawki ".
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Długotrwałe zapytania dotyczące replik tylko do odczytu
 
-Zapytania działające w replikach tylko do odczytu muszą uzyskiwać dostęp do metadanych dla obiektów, do których odwołuje się zapytanie (tabele, indeksy, statystyki itp.). W rzadkich przypadkach, jeśli obiekt metadanych jest modyfikowany w replice podstawowej, podczas gdy zapytanie przechowuje blokadę tego samego obiektu w replice tylko do odczytu, zapytanie może [blokować](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) proces, który stosuje zmiany z repliki podstawowej do repliki tylko do odczytu. Jeśli takie zapytanie było uruchamiane przez dłuższy czas, spowodowałoby to, że replika tylko do odczytu będzie znacząco synchronizowana z repliką podstawową. 
+Zapytania działające w replikach tylko do odczytu muszą uzyskiwać dostęp do metadanych dla obiektów, do których odwołuje się zapytanie (tabele, indeksy, statystyki itp.). W rzadkich przypadkach, jeśli obiekt metadanych jest modyfikowany w replice podstawowej, podczas gdy zapytanie przechowuje blokadę tego samego obiektu w replice tylko do odczytu, zapytanie może [blokować](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) proces, który stosuje zmiany z repliki podstawowej do repliki tylko do odczytu. Jeśli takie zapytanie było uruchamiane przez dłuższy czas, spowodowałoby to, że replika tylko do odczytu będzie znacząco synchronizowana z repliką podstawową. 
 
 Jeśli długotrwałe zapytanie w replice tylko do odczytu powoduje, że ten rodzaj blokowania zostanie automatycznie zakończony, a sesja otrzyma błąd 1219, "sesja została rozłączona z powodu operacji DDL o wysokim priorytecie".
 
@@ -123,7 +123,7 @@ Jeśli długotrwałe zapytanie w replice tylko do odczytu powoduje, że ten rodz
 > Jeśli wystąpi błąd 3961 lub Błąd 1219 podczas uruchamiania zapytań w odniesieniu do repliki tylko do odczytu, ponów próbę wykonania zapytania.
 
 > [!TIP]
-> W warstwach usług premium i Krytyczne dla działania firmy w przypadku połączenia z repliką tylko do odczytu `redo_queue_size` kolumny i `redo_rate` w [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV mogą służyć do monitorowania procesu synchronizacji danych, służącego jako wskaźniki opóźnienia danych w replice tylko do odczytu.
+> W warstwach usług premium i Krytyczne dla działania firmy w przypadku połączenia z repliką tylko do odczytu `redo_queue_size` kolumny i `redo_rate` w [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV mogą służyć do monitorowania procesu synchronizacji danych, służącego jako wskaźniki opóźnienia danych w replice tylko do odczytu.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Włączanie i wyłączanie skalowania w poziomie odczytu
@@ -135,16 +135,16 @@ Można wyłączyć i ponownie włączyć skalowanie w poziomie dla pojedynczych 
 > [!NOTE]
 > W przypadku pojedynczych baz danych i baz danych puli elastycznej można wyłączyć funkcję odczytywania skalowalnego w poziomie w celu zapewnienia zgodności z poprzednimi wersjami. Nie można wyłączyć funkcji odczytu skalowalnego w poziomie dla Krytyczne dla działania firmy wystąpieniami zarządzanymi.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Ustawienie skalowanie odczyt w poziomie można zarządzać w bloku **Konfiguruj** bazę danych.
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Moduł Azure Resource Manager będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020.  Argumenty poleceń polecenia AZ module i w modułach Azure Resource Manager są zasadniczo identyczne. Aby uzyskać więcej informacji o zgodności, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).
 
-Zarządzanie skalowaniem do odczytu w Azure PowerShell wymaga wydania z grudnia 2016 Azure PowerShell lub nowszego. Aby uzyskać najnowszą wersję programu PowerShell, zobacz [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Zarządzanie skalowaniem do odczytu w Azure PowerShell wymaga wydania z grudnia 2016 Azure PowerShell lub nowszego. Aby uzyskać najnowszą wersję programu PowerShell, zobacz [Azure PowerShell](/powershell/azure/install-az-ps).
 
 Można wyłączyć lub ponownie włączyć funkcję odczytywania skalowania w Azure PowerShell przez wywołanie polecenia cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) i przekazanie w odpowiedniej wartości ( `Enabled` lub `Disabled` ) `-ReadScale` parametru.
 
@@ -180,7 +180,7 @@ Body: {
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [bazy danych — Tworzenie lub aktualizowanie](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Aby uzyskać więcej informacji, zobacz [bazy danych — Tworzenie lub aktualizowanie](/rest/api/sql/databases/createorupdate).
 
 ## <a name="using-the-tempdb-database-on-a-read-only-replica"></a>Korzystanie z `tempdb` bazy danych w replice tylko do odczytu
 

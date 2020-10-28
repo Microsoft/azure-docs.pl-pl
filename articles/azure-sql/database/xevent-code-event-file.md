@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 06/06/2020
-ms.openlocfilehash: e9f3f1ca6005ff8c61211263944513d859d6d23e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9674b7188251312056812ac8e1dcae5885579e2a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620192"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791311"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Kod docelowy pliku zdarzeń dla zdarzeń rozszerzonych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91620192"
 
 Chcesz uzyskać pełny przykład kodu, aby uzyskać niezawodny sposób przechwytywania i zgłaszania informacji dla zdarzenia rozszerzonego.
 
-W Microsoft SQL Server [obiekt docelowy pliku zdarzenia](https://msdn.microsoft.com/library/ff878115.aspx) służy do przechowywania danych wyjściowych zdarzenia w pliku lokalnego dysku twardego. Ale takie pliki nie są dostępne do Azure SQL Database. Zamiast tego użyjemy usługi Azure Storage do obsługi celu pliku zdarzeń.
+W Microsoft SQL Server [obiekt docelowy pliku zdarzenia](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) służy do przechowywania danych wyjściowych zdarzenia w pliku lokalnego dysku twardego. Ale takie pliki nie są dostępne do Azure SQL Database. Zamiast tego użyjemy usługi Azure Storage do obsługi celu pliku zdarzeń.
 
 Ten temat przedstawia dwufazowy przykład kodu:
 
@@ -39,22 +39,22 @@ Ten temat przedstawia dwufazowy przykład kodu:
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
 - Konto i subskrypcja platformy Azure. Po zarejestrowaniu się możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 - Dowolna baza danych, w której można utworzyć tabelę.
   
-  - Opcjonalnie możesz [utworzyć demonstracyjną bazę danych **AdventureWorksLT** ](single-database-create-quickstart.md) w ciągu kilku minut.
+  - Opcjonalnie możesz [utworzyć demonstracyjną bazę danych **AdventureWorksLT**](single-database-create-quickstart.md) w ciągu kilku minut.
 
 - SQL Server Management Studio (ssms.exe), najlepiej jej Najnowsza wersja aktualizacji miesięcznych.
   Najnowszą ssms.exe można pobrać z:
   
-  - Temat [SQL Server Management Studio pobierania](https://msdn.microsoft.com/library/mt238290.aspx).
+  - Temat [SQL Server Management Studio pobierania](/sql/ssms/download-sql-server-management-studio-ssms).
   - [Bezpośredni link do pobierania.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 - Musisz mieć zainstalowane [moduły Azure PowerShell](https://go.microsoft.com/?linkid=9811175) .
 
-  - Moduły udostępniają polecenia, takie jak- **New-AzStorageAccount**.
+  - Moduły udostępniają polecenia, takie jak- **New-AzStorageAccount** .
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Faza 1: kod programu PowerShell dla kontenera usługi Azure Storage
 
@@ -62,7 +62,7 @@ Ten program PowerShell to faza 1 przykładu kodu dwuetapowego.
 
 Skrypt rozpoczyna się od poleceń, które mają zostać oczyszczone po możliwym wcześniejszym uruchomieniu i jest rerunnable.
 
-1. Wklej skrypt programu PowerShell do prostego edytora tekstu, takiego jak Notepad.exe, i Zapisz skrypt jako plik z rozszerzeniem **. ps1**.
+1. Wklej skrypt programu PowerShell do prostego edytora tekstu, takiego jak Notepad.exe, i Zapisz skrypt jako plik z rozszerzeniem **. ps1** .
 2. Uruchom program PowerShell ISE jako administrator.
 3. W wierszu polecenia wpisz<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>a następnie naciśnij klawisz ENTER.
 4. W programie PowerShell ISE Otwórz plik **. ps1** . Uruchom skrypt.
@@ -258,7 +258,7 @@ Skrypt programu PowerShell drukuje kilka nazwanych wartości po zakończeniu. Ab
 6. Zapisz, a następnie uruchom skrypt.
 
 > [!WARNING]
-> Wartość klucza sygnatury dostępu współdzielonego wygenerowanego przez poprzedni skrypt programu PowerShell może rozpoczynać się od znaku "?" (znak zapytania). Jeśli używasz klucza sygnatury dostępu współdzielonego w następującym skrypcie T-SQL, musisz *usunąć wiodący znak "?"*. W przeciwnym razie działania mogą być blokowane przez zabezpieczenia.
+> Wartość klucza sygnatury dostępu współdzielonego wygenerowanego przez poprzedni skrypt programu PowerShell może rozpoczynać się od znaku "?" (znak zapytania). Jeśli używasz klucza sygnatury dostępu współdzielonego w następującym skrypcie T-SQL, musisz *usunąć wiodący znak "?"* . W przeciwnym razie działania mogą być blokowane przez zabezpieczenia.
 
 ### <a name="transact-sql-code"></a>Kod języka Transact-SQL
 
@@ -496,19 +496,19 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 Poprzedni skrypt Transact-SQL użył następującej funkcji systemowej, aby odczytać event_file:
 
-- [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+- [sys.fn_xe_file_target_read_file (Transact-SQL)](/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql)
 
 Objaśnienie zaawansowanych opcji wyświetlania danych z zdarzeń rozszerzonych jest dostępne pod adresem:
 
-- [Zaawansowane wyświetlanie danych docelowych ze zdarzeń rozszerzonych](https://msdn.microsoft.com/library/mt752502.aspx)
+- [Zaawansowane wyświetlanie danych docelowych ze zdarzeń rozszerzonych](/sql/relational-databases/extended-events/advanced-viewing-of-target-data-from-extended-events-in-sql-server)
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Konwertowanie przykładu kodu do uruchomienia na SQL Server
 
 Załóżmy, że chcemy uruchomić poprzedni przykład Transact-SQL w Microsoft SQL Server.
 
-- Dla uproszczenia warto całkowicie zastąpić korzystanie z kontenera usługi Azure Storage za pomocą prostego pliku, takiego jak *C:\myeventdata.XEL*. Plik zostanie zapisany na lokalnym dysku twardym komputera, który jest hostem SQL Server.
-- Nie trzeba potrzebować żadnego rodzaju instrukcji języka Transact-SQL do **tworzenia klucza głównego** i **tworzenia poświadczeń**.
-- W instrukcji **Create Event Session** w jej klauzuli **Add Target** należy zastąpić wartość http przypisanej do **filename =** ciągiem pełnej ścieżki, na przykład *C:\myfile.XEL*.
+- Dla uproszczenia warto całkowicie zastąpić korzystanie z kontenera usługi Azure Storage za pomocą prostego pliku, takiego jak *C:\myeventdata.XEL* . Plik zostanie zapisany na lokalnym dysku twardym komputera, który jest hostem SQL Server.
+- Nie trzeba potrzebować żadnego rodzaju instrukcji języka Transact-SQL do **tworzenia klucza głównego** i **tworzenia poświadczeń** .
+- W instrukcji **Create Event Session** w jej klauzuli **Add Target** należy zastąpić wartość http przypisanej do **filename =** ciągiem pełnej ścieżki, na przykład *C:\myfile.XEL* .
   
   - Nie trzeba brać udziału w koncie usługi Azure Storage.
 
@@ -517,8 +517,8 @@ Załóżmy, że chcemy uruchomić poprzedni przykład Transact-SQL w Microsoft S
 Aby uzyskać więcej informacji na temat kont i kontenerów w usłudze Azure Storage, zobacz:
 
 - [Jak używać usługi BLOB Storage z platformy .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Nazewnictwo kontenerów, obiektów blob i metadanych oraz odwoływanie się do nich](https://msdn.microsoft.com/library/azure/dd135715.aspx)
-- [Praca z kontenerem głównym](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [Lekcja 1. Tworzenie zasad dostępu przechowywanego i sygnatury dostępu współdzielonego w kontenerze platformy Azure](https://msdn.microsoft.com/library/dn466430.aspx)
-  - [Lekcja 2. Tworzenie poświadczeń SQL Server przy użyciu sygnatury dostępu współdzielonego](https://msdn.microsoft.com/library/dn466435.aspx)
-- [Zdarzenia rozszerzone dla Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
+- [Nazewnictwo kontenerów, obiektów blob i metadanych oraz odwoływanie się do nich](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)
+- [Praca z kontenerem głównym](/rest/api/storageservices/Working-with-the-Root-Container)
+- [Lekcja 1. Tworzenie zasad dostępu przechowywanego i sygnatury dostępu współdzielonego w kontenerze platformy Azure](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage)
+  - [Lekcja 2. Tworzenie poświadczeń SQL Server przy użyciu sygnatury dostępu współdzielonego](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#2---create-a-sql-server-credential-using-a-shared-access-signature)
+- [Zdarzenia rozszerzone dla Microsoft SQL Server](/sql/relational-databases/extended-events/extended-events)

@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 9e7a9beec101354672bffd558bdb0714eaf97ece
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3a8086c75a7125b744730de83c760db44ce222e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746757"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790104"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Użyj Azure Portal, aby skonfigurować grupę dostępności (wersja zapoznawcza) dla SQL Server na maszynie wirtualnej platformy Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Aby skonfigurować grupę dostępności zawsze włączona przy użyciu Azure Por
 
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/).
 - Grupa zasobów z kontrolerem domeny. 
-- Co najmniej jedna maszyna wirtualna przyłączona [do domeny na platformie Azure z systemem SQL Server 2016 (lub nowszym) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) w *tym samym* zestawie dostępności lub w *różnych* strefach dostępności zarejestrowanych w ramach [dostawcy zasobów maszyny wirtualnej SQL w trybie pełnego zarządzania](sql-vm-resource-provider-register.md) i korzystająca z tego samego konta domeny dla usługi SQL Server na każdej maszynie wirtualnej.
+- Co najmniej jedna maszyna wirtualna przyłączona [do domeny na platformie Azure z systemem SQL Server 2016 (lub nowszym) Enterprise Edition](./create-sql-vm-portal.md) w *tym samym* zestawie dostępności lub w *różnych* strefach dostępności zarejestrowanych w ramach [dostawcy zasobów maszyny wirtualnej SQL w trybie pełnego zarządzania](sql-vm-resource-provider-register.md) i korzystająca z tego samego konta domeny dla usługi SQL Server na każdej maszynie wirtualnej.
 - Dostępne są dwa adresy IP (nieużywane przez żadne jednostki). Jeden z nich dotyczy wewnętrznego modułu równoważenia obciążenia. Druga dotyczy odbiornika grupy dostępności w tej samej podsieci, w której znajduje się grupa dostępności. Jeśli używasz istniejącego modułu równoważenia obciążenia, potrzebny jest tylko jeden dostępny adres IP dla odbiornika grupy dostępności. 
 
 ## <a name="permissions"></a>Uprawnienia
@@ -70,7 +70,7 @@ Jeśli nie masz jeszcze istniejącego klastra, utwórz go przy użyciu Azure Por
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
-1. Rozwiń pozycję **poświadczenia klastra trybu failover systemu Windows Server** , aby podać [poświadczenia](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) dla konta usługi SQL Server, a także operator klastra i konta Bootstrap, jeśli są inne niż konto używane dla usługi SQL Server. 
+1. Rozwiń pozycję **poświadczenia klastra trybu failover systemu Windows Server** , aby podać [poświadczenia](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) dla konta usługi SQL Server, a także operator klastra i konta Bootstrap, jeśli są inne niż konto używane dla usługi SQL Server. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu"
     ```

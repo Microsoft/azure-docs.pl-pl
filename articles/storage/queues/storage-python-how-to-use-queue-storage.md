@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 79334db46b6f035aabffcca133ed4f5cb8df3637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4592b846477fe16e5ebcff7c9adfb45f7fe559
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855559"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790512"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Jak korzystać z usługi Azure queue storage z poziomu języka Python
 
@@ -299,7 +299,7 @@ Teraz, gdy znasz już podstawy magazynu kolejek, Skorzystaj z poniższych linkó
 
 * [Dokumentacja interfejsu API języka Python usługi Azure Queues](/python/api/azure-storage-queue)
 * [Centrum deweloperów języka Python](https://azure.microsoft.com/develop/python/)
-* [Interfejs API REST usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179355)
+* [Interfejs API REST usług Azure Storage](/rest/api/storageservices/)
 
 [Biblioteka klienta usługi Azure queue storage dla języka Python]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
 [Zestaw Azure SDK dla środowiska Python]: https://github.com/azure/azure-sdk-for-python

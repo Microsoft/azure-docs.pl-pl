@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: fb64348e53dc92ef8f5830f2649afdf9eca3a9ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9997ea737b96185b31a7f51996a396fb5fc46c4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616486"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790189"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatyzowanie replikacji zmian schematu w usłudze Azure SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-Wyzwalacz wstawia rekord w tabeli śledzenia zmian schematu dla każdego polecenia ALTER TABLE. Ten przykład dodaje filtr, aby uniknąć replikowania zmian schematu w ramach schematu **synchronizacji**danych, ponieważ najprawdopodobniej jest to spowodowane tym, że ta usługa jest najbardziej prawdopodobną przyczyną. Dodaj więcej filtrów, jeśli chcesz tylko replikować pewne typy zmian schematu.
+Wyzwalacz wstawia rekord w tabeli śledzenia zmian schematu dla każdego polecenia ALTER TABLE. Ten przykład dodaje filtr, aby uniknąć replikowania zmian schematu w ramach schematu **synchronizacji** danych, ponieważ najprawdopodobniej jest to spowodowane tym, że ta usługa jest najbardziej prawdopodobną przyczyną. Dodaj więcej filtrów, jeśli chcesz tylko replikować pewne typy zmian schematu.
 
 Możesz również dodać więcej wyzwalaczy, aby replikować inne typy zmian schematu. Na przykład utwórz wyzwalacze CREATE_PROCEDURE, ALTER_PROCEDURE i DROP_PROCEDURE, aby replikować zmiany w procedurach składowanych.
 
@@ -231,7 +231,7 @@ Aby uzyskać więcej informacji na temat usługi SQL Data Sync, zobacz:
         -  [Używanie programu PowerShell do synchronizowania bazy danych w Azure SQL Database i bazy danych w wystąpieniu SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Agent synchronizacji danych — [Data Sync Agent for Azure SQL Data Sync](sql-data-sync-agent-overview.md) (Agent synchronizacji danych dla usługi Azure SQL Data Sync)
 -   Najlepsze rozwiązania — [Best practices for Azure SQL Data Sync](sql-data-sync-best-practices.md) (Najlepsze rozwiązania dotyczące korzystania z usługi Azure SQL Data Sync)
--   Monitor- [monitor SQL Data Sync z dziennikami Azure monitor](sql-data-sync-monitor-sync.md)
+-   Monitor- [monitor SQL Data Sync z dziennikami Azure monitor](./monitor-tune-overview.md)
 -   Rozwiązywanie problemów — [Troubleshoot issues with Azure SQL Data Sync]() (Rozwiązywanie problemów z usługą Azure SQL Data Sync)
 -   Aktualizowanie schematu synchronizacji
     -   Używanie programu PowerShell — [Używanie programu PowerShell do zaktualizowania schematu synchronizacji w istniejącej grupie synchronizacji](scripts/update-sync-schema-in-sync-group.md)

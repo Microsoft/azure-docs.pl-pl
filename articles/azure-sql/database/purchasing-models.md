@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: a5760d3daaa13a5ed16230e1ffb7fe3691455e09
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427043"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788829"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Wybór między modelami zakupów rdzeń wirtualny i DTU — Azure SQL Database i wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -127,7 +127,7 @@ Można dodać dodatkowe jednostek eDTU do istniejącej puli bez przestoju bazy d
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Określanie liczby DTU wymaganych przez obciążenie
 
-Jeśli chcesz przeprowadzić migrację istniejącego lokalnego lub SQL Server obciążenia maszyny wirtualnej do SQL Database, użyj [kalkulatora jednostek DTU](https://dtucalculator.azurewebsites.net/) , aby przybliżyć wymaganą liczbę DTU. W przypadku istniejącego obciążenia SQL Database należy użyć [szczegółowych informacji o wydajności zapytań](query-performance-insight-use.md) , aby zrozumieć użycie zasobów bazy danych (DTU) i uzyskać dokładniejszy wgląd w optymalizację obciążeń. [Sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamicznym widoku zarządzania (DMV) umożliwia wyświetlenie zużycia zasobów w ciągu ostatniej godziny. Widok wykazu [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) przedstawia użycie zasobów w ciągu ostatnich 14 dni, ale przy niższej wierności średniej z pięciu minut.
+Jeśli chcesz przeprowadzić migrację istniejącego lokalnego lub SQL Server obciążenia maszyny wirtualnej do SQL Database, użyj [kalkulatora jednostek DTU](https://dtucalculator.azurewebsites.net/) , aby przybliżyć wymaganą liczbę DTU. W przypadku istniejącego obciążenia SQL Database należy użyć [szczegółowych informacji o wydajności zapytań](query-performance-insight-use.md) , aby zrozumieć użycie zasobów bazy danych (DTU) i uzyskać dokładniejszy wgląd w optymalizację obciążeń. [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamicznym widoku zarządzania (DMV) umożliwia wyświetlenie zużycia zasobów w ciągu ostatniej godziny. Widok wykazu [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) przedstawia użycie zasobów w ciągu ostatnich 14 dni, ale przy niższej wierności średniej z pięciu minut.
 
 ### <a name="determine-dtu-utilization"></a>Określanie użycia jednostek DTU
 
@@ -135,7 +135,7 @@ Aby określić średnią wartość procentową wykorzystania jednostek DTU/eDTU 
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-Wartości wejściowe dla tej formuły można uzyskać z [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)i [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) widoków DMV. Innymi słowy, aby określić procent użycia jednostek DTU/eDTU w kierunku liczby jednostek DTU/eDTU dla bazy danych lub puli elastycznej, należy wybrać największą wartość procentową z następujących elementów: `avg_cpu_percent` , `avg_data_io_percent` i `avg_log_write_percent` w danym momencie.
+Wartości wejściowe dla tej formuły można uzyskać z [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)i [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) widoków DMV. Innymi słowy, aby określić procent użycia jednostek DTU/eDTU w kierunku liczby jednostek DTU/eDTU dla bazy danych lub puli elastycznej, należy wybrać największą wartość procentową z następujących elementów: `avg_cpu_percent` , `avg_data_io_percent` i `avg_log_write_percent` w danym momencie.
 
 > [!NOTE]
 > Limit liczby jednostek DTU bazy danych jest określany przez procesor, odczyty, zapisy i pamięć dla bazy danych. Jednak ponieważ aparat SQL Database zwykle używa całej dostępnej pamięci dla pamięci podręcznej danych w celu zwiększenia wydajności, `avg_memory_usage_percent` wartość zwykle będzie bliska 100%, niezależnie od bieżącego obciążenia bazy danych. W związku z tym nawet jeśli pamięć ma pośredni wpływ na limit jednostek DTU, nie jest używana w formule użycia jednostek DTU.
@@ -150,13 +150,13 @@ W modelu zakupu opartego na jednostkach DTU klienci nie mogą wybrać generowani
 
 Na przykład baza danych może zostać przeniesiona na inną generację sprzętu w przypadku skalowania w górę lub w dół do innego celu usługi, lub jeśli Bieżąca infrastruktura w centrum danych zbliża się do limitów pojemności lub jeśli aktualnie używany sprzęt zostanie zlikwidowany z powodu jego końca życia.
 
-Jeśli baza danych jest przenoszona na inny sprzęt, wydajność obciążeń może ulec zmianie. Model DTU gwarantuje, że przepływność i czas odpowiedzi dla obciążenia [porównawczego jednostki DTU](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) pozostaną zasadniczo identyczne, ponieważ baza danych przejdzie do innej generacji sprzętu, o ile jej cel usługi (liczba DTU) pozostaje taki sam.
+Jeśli baza danych jest przenoszona na inny sprzęt, wydajność obciążeń może ulec zmianie. Model DTU gwarantuje, że przepływność i czas odpowiedzi dla obciążenia [porównawczego jednostki DTU](./service-tiers-dtu.md#dtu-benchmark) pozostaną zasadniczo identyczne, ponieważ baza danych przejdzie do innej generacji sprzętu, o ile jej cel usługi (liczba DTU) pozostaje taki sam.
 
 Jednak w szerokim spektrum obciążeń klientów działających w Azure SQL Database, wpływ używania innego sprzętu dla tego samego celu usługi może być bardziej widoczny. Różne obciążenia będą korzystać z różnych konfiguracji sprzętowych i funkcji. W związku z tym, w przypadku obciążeń innych niż wzorzec DTU, można zobaczyć różnice wydajności, jeśli baza danych przejdzie z jednej generacji sprzętowej na inną.
 
 Na przykład aplikacja, która jest wrażliwa na opóźnienie sieci, może mieć lepszą wydajność na 5 rdzeń sprzęcie a obliczenia z powodu użycia przyspieszonej sieci w 5 rdzeń, ale Aplikacja korzystająca z intensywnie odczytywania we/wy może zobaczyć lepszą wydajność na obliczenia sprzętu i 5 rdzeń ze względu na większy stosunek ilości pamięci na obliczenia.
 
-Klienci z obciążeniami, które są zależne od zmian sprzętu lub klientów, którzy chcą kontrolować wybór generacji sprzętu dla swojej bazy danych, mogą używać modelu [rdzeń wirtualny](service-tiers-vcore.md) do wybierania preferowanych generacji sprzętu podczas tworzenia i skalowania bazy danych. W modelu rdzeń wirtualny, limity zasobów każdego celu usługi na każdym generowaniu sprzętu są udokumentowane w przypadku [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md). Aby uzyskać więcej informacji o generacjach sprzętowych w modelu rdzeń wirtualny, zobacz [generacja sprzętu](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
+Klienci z obciążeniami, które są zależne od zmian sprzętu lub klientów, którzy chcą kontrolować wybór generacji sprzętu dla swojej bazy danych, mogą używać modelu [rdzeń wirtualny](service-tiers-vcore.md) do wybierania preferowanych generacji sprzętu podczas tworzenia i skalowania bazy danych. W modelu rdzeń wirtualny, limity zasobów każdego celu usługi na każdym generowaniu sprzętu są udokumentowane w przypadku [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md). Aby uzyskać więcej informacji o generacjach sprzętowych w modelu rdzeń wirtualny, zobacz [generacja sprzętu](./service-tiers-vcore.md#hardware-generations).
 
 ## <a name="frequently-asked-questions-faqs"></a>Często zadawane pytania
 

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441134"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790886"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ W przypadku Azure SQL Database i usługi Azure Synapse Analytics funkcja ochrony
 > W przypadku korzystania z usługi TDE zarządzanej przez usługę, która chce zacząć korzystać z TDE zarządzanych przez klienta, dane pozostają zaszyfrowane podczas procesu przełączania i nie ma żadnych przestojów ani ponownego szyfrowania plików bazy danych. Przełączenie z klucza zarządzanego przez usługę do klucza zarządzanego przez klienta wymaga ponownego włączenia szyfrowania danych, które jest szybką i online operacją.
 
 > [!NOTE]
-> Aby zapewnić klientom SQL platformy Azure dwie warstwy szyfrowania danych w stanie spoczynku, szyfrowanie infrastruktury (przy użyciu algorytmu szyfrowania AES-256) z kluczami zarządzanymi platformy jest wdrażana. Zapewnia to dodatkową warstwę szyfrowania w stanie spoczynku wraz z TDE z kluczami zarządzanymi przez klienta, które są już dostępne. W przypadku Azure SQL Database i wystąpienia zarządzanego wszystkie bazy danych, w tym baza danych Master i inne systemowe bazy danych, zostaną zaszyfrowane po włączeniu szyfrowania infrastruktury. W tej chwili klienci muszą zażądać dostępu do tej funkcji. Jeśli interesuje Cię tę możliwość, skontaktuj się z firmą AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> <a id="doubleencryption"></a> Aby zapewnić klientom SQL platformy Azure dwie warstwy szyfrowania danych w stanie spoczynku, szyfrowanie infrastruktury (przy użyciu algorytmu szyfrowania AES-256) z kluczami zarządzanymi platformy jest wdrażana. Zapewnia to dodatkową warstwę szyfrowania w stanie spoczynku wraz z TDE z kluczami zarządzanymi przez klienta, które są już dostępne. W przypadku Azure SQL Database i wystąpienia zarządzanego wszystkie bazy danych, w tym baza danych Master i inne systemowe bazy danych, zostaną zaszyfrowane po włączeniu szyfrowania infrastruktury. W tej chwili klienci muszą zażądać dostępu do tej funkcji. Jeśli interesuje Cię tę możliwość, skontaktuj się z firmą AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Zalety TDE zarządzanych przez klienta
 
@@ -82,7 +82,7 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 - Przyznaj serwerowi lub wystąpieniu zarządzanemu dostęp do magazynu kluczy (Get, wrapKey, unwrapKey) przy użyciu jego tożsamości Azure Active Directory. W przypadku korzystania z Azure Portal tożsamość usługi Azure AD zostanie utworzona automatycznie. W przypadku korzystania z programu PowerShell lub interfejsu wiersza polecenia tożsamość usługi Azure AD musi być jawnie utworzona, a ukończenie powinna zostać zweryfikowana. Szczegółowe instrukcje krok po kroku znajdują się w temacie [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) i [Configure TDE with BYOK for SQL Managed instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) .
 
-- W przypadku korzystania z zapory z AKV należy włączyć opcję *Zezwalaj zaufanym usługom firmy Microsoft na pominięcie zapory*.
+- W przypadku korzystania z zapory z AKV należy włączyć opcję *Zezwalaj zaufanym usługom firmy Microsoft na pominięcie zapory* .
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Wymagania dotyczące konfigurowania funkcji ochrony TDE
 
@@ -95,7 +95,7 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 - W przypadku importowania istniejącego klucza do magazynu kluczy upewnij się, że jest on udostępniany w obsługiwanych formatach plików (PFX,. BYOK lub. Backup).
 
 > [!NOTE]
-> Usługa Azure SQL obsługuje teraz użycie klucza RSA przechowywanego w zarządzanym module HSM jako funkcji ochrony TDE. Ta funkcja jest dostępna w **publicznej wersji zapoznawczej**. Azure Key Vault zarządzanym modułem HSM jest w pełni zarządzana usługa w chmurze o wysokiej dostępności, która jest zgodna ze standardami, która pozwala chronić klucze kryptograficzne dla aplikacji w chmurze przy użyciu zweryfikowanych sprzętowych modułów zabezpieczeń poziomu 3 w trybie FIPS 140-2. Dowiedz się więcej o [zarządzanym sprzętowych modułów zabezpieczeń](https://aka.ms/mhsm).
+> Usługa Azure SQL obsługuje teraz użycie klucza RSA przechowywanego w zarządzanym module HSM jako funkcji ochrony TDE. Ta funkcja jest dostępna w **publicznej wersji zapoznawczej** . Azure Key Vault zarządzanym modułem HSM jest w pełni zarządzana usługa w chmurze o wysokiej dostępności, która jest zgodna ze standardami, która pozwala chronić klucze kryptograficzne dla aplikacji w chmurze przy użyciu zweryfikowanych sprzętowych modułów zabezpieczeń poziomu 3 w trybie FIPS 140-2. Dowiedz się więcej o [zarządzanym sprzętowych modułów zabezpieczeń](../../key-vault/managed-hsm/index.yml).
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Zalecenia dotyczące konfigurowania TDE zarządzanych przez klienta
@@ -106,7 +106,7 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 - Ustaw blokadę zasobów w magazynie kluczy, aby kontrolować, kto może usunąć ten zasób krytyczny i zapobiegać przypadkowemu lub nieautoryzowanemu usunięciu. Dowiedz się więcej o [blokadach zasobów](../../azure-resource-manager/management/lock-resources.md).
 
-- Włącz inspekcję i raportowanie dla wszystkich kluczy szyfrowania: Magazyn kluczy udostępnia dzienniki, które można łatwo wstrzyknąć do innych informacji o zabezpieczeniach i narzędzi do zarządzania zdarzeniami. Pakiet Operations Management Suite [log Analytics](../../azure-monitor/insights/azure-key-vault.md) to jeden przykład usługi, która jest już zintegrowana.
+- Włącz inspekcję i raportowanie dla wszystkich kluczy szyfrowania: Magazyn kluczy udostępnia dzienniki, które można łatwo wstrzyknąć do innych informacji o zabezpieczeniach i narzędzi do zarządzania zdarzeniami. Pakiet Operations Management Suite [log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) to jeden przykład usługi, która jest już zintegrowana.
 
 - Połącz każdy serwer z dwoma magazynami kluczy, które znajdują się w różnych regionach i przechowują ten sam klucz materiału, aby zapewnić wysoką dostępność zaszyfrowanych baz danych. Oznacz tylko klucz z magazynu kluczy w tym samym regionie, w którym znajduje się funkcja ochrony TDE. System automatycznie przejdzie do magazynu kluczy w regionie zdalnym, jeśli wystąpi awaria wpływająca na magazyn kluczy w tym samym regionie.
 
@@ -126,7 +126,7 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 ## <a name="inaccessible-tde-protector"></a>Niedostępna funkcja ochrony TDE
 
-W przypadku skonfigurowania funkcji transparent Data Encryption do korzystania z klucza zarządzanego przez klienta, aby baza danych mogła pozostać w trybie online, wymagana jest ciągły dostęp do usługi TDE. Jeśli serwer utraci dostęp do funkcji ochrony TDE zarządzanej przez klienta w AKV, w ciągu maksymalnie 10 minut, baza danych zacznie odrzucać wszystkie połączenia z odpowiednim komunikatem o błędzie i zmienić jej stan na *niedostępny*. Jedyną akcją, którą można wykonać w bazie danych w stanie niedostępnym, jest usunięcie jej.
+W przypadku skonfigurowania funkcji transparent Data Encryption do korzystania z klucza zarządzanego przez klienta, aby baza danych mogła pozostać w trybie online, wymagana jest ciągły dostęp do usługi TDE. Jeśli serwer utraci dostęp do funkcji ochrony TDE zarządzanej przez klienta w AKV, w ciągu maksymalnie 10 minut, baza danych zacznie odrzucać wszystkie połączenia z odpowiednim komunikatem o błędzie i zmienić jej stan na *niedostępny* . Jedyną akcją, którą można wykonać w bazie danych w stanie niedostępnym, jest usunięcie jej.
 
 > [!NOTE]
 > Jeśli baza danych jest niedostępna z powodu sporadycznej awarii sieci, nie jest wymagana żadna akcja, a bazy danych zostaną automatycznie przywrócone do trybu online.
@@ -135,7 +135,7 @@ Po przywróceniu dostępu do klucza przełączenie bazy danych w tryb online wym
 
 - Jeśli dostęp do klucza zostanie przywrócony w ciągu 8 godzin, baza danych zostanie przewarta w ciągu następnej godziny.
 
-- Jeśli dostęp do klucza zostanie przywrócony po upływie ponad 8 godzin, automatyczne naprawienie jest niemożliwe, a przywrócenie bazy danych wymaga dodatkowych czynności w portalu i może zająć znaczną ilość czasu, zależnie od rozmiaru bazy danych. Gdy baza danych zostanie przywrócona w trybie online, wcześniej skonfigurowane ustawienia na poziomie serwera, takie jak konfiguracja [grupy trybu failover](auto-failover-group-overview.md) , historia przywracania do punktu w czasie i Tagi **zostaną utracone**. W związku z tym zaleca się zaimplementowanie systemu powiadomień, który pozwala identyfikować i rozwiązywać podstawowe problemy z dostępem do klucza w ciągu 8 godzin.
+- Jeśli dostęp do klucza zostanie przywrócony po upływie ponad 8 godzin, automatyczne naprawienie jest niemożliwe, a przywrócenie bazy danych wymaga dodatkowych czynności w portalu i może zająć znaczną ilość czasu, zależnie od rozmiaru bazy danych. Gdy baza danych zostanie przywrócona w trybie online, wcześniej skonfigurowane ustawienia na poziomie serwera, takie jak konfiguracja [grupy trybu failover](auto-failover-group-overview.md) , historia przywracania do punktu w czasie i Tagi **zostaną utracone** . W związku z tym zaleca się zaimplementowanie systemu powiadomień, który pozwala identyfikować i rozwiązywać podstawowe problemy z dostępem do klucza w ciągu 8 godzin.
 
 Poniżej znajduje się widok dodatkowych kroków wymaganych w portalu w celu przywrócenia niedostępnej bazy danych do trybu online.
 
@@ -146,7 +146,7 @@ Poniżej znajduje się widok dodatkowych kroków wymaganych w portalu w celu prz
 
 Może się zdarzyć, że ktoś mający wystarczające prawa dostępu do magazynu kluczy przypadkowo wyłącza dostęp serwera do klucza przez:
 
-- Odwoływanie uprawnień *Get*, *wrapKey*i *unwrapKey* magazynu kluczy z serwera
+- Odwoływanie uprawnień *Get* , *wrapKey* i *unwrapKey* magazynu kluczy z serwera
 
 - Usuwanie klucza
 
@@ -163,7 +163,7 @@ Dowiedz się więcej o [typowych przyczynach niedostępności bazy danych](/sql/
 Aby monitorować stan bazy danych i włączyć alert o utracie dostępu do funkcji ochrony TDE, skonfiguruj następujące funkcje platformy Azure:
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). Niedostępna baza danych, która utraciła dostęp do funkcji ochrony TDE, będzie wyświetlana jako "niedostępna" po odmowie pierwszego połączenia z bazą danych.
-- [Dziennik aktywności](../../service-health/alerts-activity-log-service-notifications.md) , gdy dostęp do funkcji ochrony TDE w magazynie kluczy zarządzanych przez klienta nie powiedzie się, wpisy są dodawane do dziennika aktywności.  Utworzenie alertów dla tych zdarzeń umożliwi przywrócenie dostępu tak szybko, jak to możliwe.
+- [Dziennik aktywności](../../service-health/alerts-activity-log-service-notifications-portal.md) , gdy dostęp do funkcji ochrony TDE w magazynie kluczy zarządzanych przez klienta nie powiedzie się, wpisy są dodawane do dziennika aktywności.  Utworzenie alertów dla tych zdarzeń umożliwi przywrócenie dostępu tak szybko, jak to możliwe.
 - [Grupy akcji](../../azure-monitor/platform/action-groups.md) można definiować w celu wysyłania powiadomień i alertów na podstawie preferencji, np. wiadomości E-mail/SMS/wypychania/głosu, aplikacji logiki, elementu webhook, narzędzia ITSM lub elementu Runbook usługi Automation.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Tworzenie kopii zapasowej i przywracanie bazy danych za pomocą TDE zarządzanych przez klienta

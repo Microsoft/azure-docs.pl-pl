@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7026757651d1b0510293101203f41a651c7b851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ac4f41a36a2a18a65816be5ea74e88d0b364294
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850969"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789067"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Wprowadzenie do usługi Azure Defender dla App Service
 
@@ -50,7 +50,7 @@ Aby chronić plan Azure App Service za pomocą usługi Azure Defender dla App Se
 Security Center jest natywnie zintegrowana z App Service, eliminując konieczność wdrażania i dołączania — integracja jest niewidoczna.
 
 >[!NOTE]
-> Na stronie Cennik i ustawienia znajduje się lista wystąpień **zasobów**. Przedstawia ona łączną liczbę wystąpień obliczeniowych w ramach wszystkich App Service planów w ramach tej subskrypcji, uruchomionych w momencie otwarcia strony warstwy cenowej.
+> Na stronie Cennik i ustawienia znajduje się lista wystąpień **zasobów** . Przedstawia ona łączną liczbę wystąpień obliczeniowych w ramach wszystkich App Service planów w ramach tej subskrypcji, uruchomionych w momencie otwarcia strony warstwy cenowej.
 >
 > Azure App Service oferuje różne plany. Plan App Service definiuje zestaw zasobów obliczeniowych dla aplikacji sieci Web do uruchomienia. Są one równoważne farmom serwerów w konwencjonalnym hostingu w sieci Web. Co najmniej jedna aplikacja może być skonfigurowana do uruchamiania w tych samych zasobach obliczeniowych (lub w tym samym planie App Service).
 >
@@ -64,7 +64,7 @@ W tym artykule przedstawiono informacje o usłudze Azure Defender dla App Servic
 
 W przypadku pokrewnego materiału zapoznaj się z następującymi artykułami: 
 
-- Czy alert jest generowany przez Security Center, czy odbierany przez Security Center z innego produktu zabezpieczeń, można go wyeksportować. Aby wyeksportować alerty do usługi Azure wskaźnikowej, wszelkich SIEM innych firm lub dowolnego innego narzędzia zewnętrznego, postępuj zgodnie z instrukcjami w temacie [Eksportowanie alertów do Siem](continuous-export.md).
+- Czy alert jest generowany przez Security Center, czy odbierany przez Security Center z innego produktu zabezpieczeń, można go wyeksportować. Aby wyeksportować alerty do platformy Azure, wszelkich SIEM innych firm lub innych zewnętrznych narzędzi, postępuj zgodnie z instrukcjami zawartymi w [alertach przesyłania strumieniowego do Siem, o lub rozwiązania do zarządzania usługami IT](export-to-siem.md).
 - Listę alertów Azure App Service można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-azureappserv).
 - Aby uzyskać więcej informacji na temat planów App Service, zobacz [plany App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 - > [!div class="nextstepaction"]

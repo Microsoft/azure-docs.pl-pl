@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 1e8810e8b0c02aec33f55fb8f0689eec3c5bad8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616707"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791328"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Korzystanie z punktów końcowych usługi sieci wirtualnej i reguł dla serwerów w Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -89,7 +89,7 @@ W przypadku Azure SQL Database funkcja reguł sieci wirtualnej ma następujące 
 
 Korzystając z punktów końcowych usługi dla Azure SQL Database, zapoznaj się z następującymi kwestiami:
 
-- **Wychodzące do Azure SQL Database publicznych adresów IP jest wymagane**: aby umożliwić łączność, należy otworzyć sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) w celu Azure SQL Database adresów IP. Można to zrobić za pomocą [tagów usługi](../../virtual-network/security-overview.md#service-tags) sieciowej grupy zabezpieczeń dla Azure SQL Database.
+- **Wychodzące do Azure SQL Database publicznych adresów IP jest wymagane** : aby umożliwić łączność, należy otworzyć sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) w celu Azure SQL Database adresów IP. Można to zrobić za pomocą [tagów usługi](../../virtual-network/network-security-groups-overview.md#service-tags) sieciowej grupy zabezpieczeń dla Azure SQL Database.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -112,9 +112,9 @@ Baza i instrukcja COPY są często używane do ładowania danych do usługi Azur
 
 #### <a name="prerequisites"></a>Wymagania wstępne
 
-- Zainstaluj program Azure PowerShell, korzystając z tego [przewodnika](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Jeśli masz konto ogólnego przeznaczenia w wersji 1 lub konto magazynu blob, najpierw musisz przeprowadzić uaktualnienie do konta ogólnego przeznaczenia w wersji 2, korzystając z tego [przewodnika](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- Musisz **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** , włączone w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** . Włączenie tej konfiguracji umożliwi użycie instrukcji Base i COPY w celu nawiązania połączenia z kontem magazynu przy użyciu silnego uwierzytelniania w przypadku, gdy ruch sieciowy pozostaje w sieci szkieletowej platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z tym [przewodnikiem](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+- Zainstaluj program Azure PowerShell, korzystając z tego [przewodnika](/powershell/azure/install-az-ps).
+- Jeśli masz konto ogólnego przeznaczenia w wersji 1 lub konto magazynu blob, najpierw musisz przeprowadzić uaktualnienie do konta ogólnego przeznaczenia w wersji 2, korzystając z tego [przewodnika](../../storage/common/storage-account-upgrade.md).
+- Musisz **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** , włączone w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** . Włączenie tej konfiguracji umożliwi użycie instrukcji Base i COPY w celu nawiązania połączenia z kontem magazynu przy użyciu silnego uwierzytelniania w przypadku, gdy ruch sieciowy pozostaje w sieci szkieletowej platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z tym [przewodnikiem](../../storage/common/storage-network-security.md#exceptions).
 
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Moduł AzureRM będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020.  Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji o zgodności, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).
@@ -129,27 +129,27 @@ Baza i instrukcja COPY są często używane do ładowania danych do usługi Azur
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. Utwórz **konto magazynu ogólnego przeznaczenia w wersji 2** za pomocą tego [przewodnika](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+1. Utwórz **konto magazynu ogólnego przeznaczenia w wersji 2** za pomocą tego [przewodnika](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
    >
-   > - Jeśli masz konto usługi Magazyn ogólnego przeznaczenia w wersji 1 lub BLOB, musisz **najpierw przeprowadzić uaktualnienie do wersji 2** przy użyciu tego [przewodnika](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-   > - Aby uzyskać znane problemy z Azure Data Lake Storage Gen2, zapoznaj się z tym [przewodnikiem](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > - Jeśli masz konto usługi Magazyn ogólnego przeznaczenia w wersji 1 lub BLOB, musisz **najpierw przeprowadzić uaktualnienie do wersji 2** przy użyciu tego [przewodnika](../../storage/common/storage-account-upgrade.md).
+   > - Aby uzyskać znane problemy z Azure Data Lake Storage Gen2, zapoznaj się z tym [przewodnikiem](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)**, a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisywanie **danych obiektu blob magazynu współautor** roli platformy Azure na serwerze hostującym usługę Azure Synapse Analytics, która została zarejestrowana w Azure Active Directory (AAD), jak w kroku #1.
+1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)** , a następnie wybierz pozycję **Dodaj przypisanie roli** . Przypisywanie **danych obiektu blob magazynu współautor** roli platformy Azure na serwerze hostującym usługę Azure Synapse Analytics, która została zarejestrowana w Azure Active Directory (AAD), jak w kroku #1.
 
    > [!NOTE]
-   > Tylko członkowie z uprawnieniami właściciela na koncie magazynu mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z tym [przewodnikiem](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Tylko członkowie z uprawnieniami właściciela na koncie magazynu mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z tym [przewodnikiem](../../role-based-access-control/built-in-roles.md).
   
 1. **Połączenie z kontem usługi Azure Storage:**
 
-   1. Utwórz **[klucz główny](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** bazy danych, jeśli nie został utworzony wcześniej:
+   1. Utwórz **[klucz główny](/sql/t-sql/statements/create-master-key-transact-sql)** bazy danych, jeśli nie został utworzony wcześniej:
 
        ```sql
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Utwórz poświadczenie o zakresie bazy danych o **tożsamości = "tożsamość usługi zarządzanej"**:
+   1. Utwórz poświadczenie o zakresie bazy danych o **tożsamości = "tożsamość usługi zarządzanej"** :
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -157,7 +157,7 @@ Baza i instrukcja COPY są często używane do ładowania danych do usługi Azur
 
        > [!NOTE]
        >
-       > - Nie ma potrzeby określania wpisu TAJNego za pomocą klucza dostępu do usługi Azure Storage, ponieważ ten mechanizm używa [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) w ramach okładek.
+       > - Nie ma potrzeby określania wpisu TAJNego za pomocą klucza dostępu do usługi Azure Storage, ponieważ ten mechanizm używa [tożsamości zarządzanej](../../active-directory/managed-identities-azure-resources/overview.md) w ramach okładek.
        > - Nazwa tożsamości powinna mieć nazwę **"tożsamość usługi zarządzanej"** , aby nawiązać połączenie z kontem usługi Azure Storage zabezpieczone do sieci wirtualnej.
 
    1. Utwórz zewnętrzne źródło danych ze `abfss://` schematem do łączenia się z kontem magazynu ogólnego przeznaczenia w wersji 2 za pomocą bazy danych:
@@ -168,11 +168,11 @@ Baza i instrukcja COPY są często używane do ładowania danych do usługi Azur
 
        > [!NOTE]
        >
-       > - Jeśli masz już tabele zewnętrzne skojarzone z kontem ogólnego przeznaczenia w wersji 1 lub BLOB, należy najpierw porzucić te tabele zewnętrzne, a następnie porzucić odpowiednie zewnętrzne źródło danych. Następnie utwórz zewnętrzne źródło danych ze `abfss://` schematem łączącym się z kontem magazynu ogólnego przeznaczenia w wersji 2 jak powyżej i ponownie Utwórz wszystkie tabele zewnętrzne przy użyciu tego nowego zewnętrznego źródła danych. [Kreatora generowania i publikowania skryptów](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) można użyć do łatwego generowania skryptów Create-scripts dla wszystkich tabel zewnętrznych.
-       > - Aby uzyskać więcej informacji na temat `abfss://` schematu, zapoznaj się z tym [przewodnikiem](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-       > - Aby uzyskać więcej informacji na temat tworzenia zewnętrznego źródła danych, zapoznaj się z tym [przewodnikiem](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       > - Jeśli masz już tabele zewnętrzne skojarzone z kontem ogólnego przeznaczenia w wersji 1 lub BLOB, należy najpierw porzucić te tabele zewnętrzne, a następnie porzucić odpowiednie zewnętrzne źródło danych. Następnie utwórz zewnętrzne źródło danych ze `abfss://` schematem łączącym się z kontem magazynu ogólnego przeznaczenia w wersji 2 jak powyżej i ponownie Utwórz wszystkie tabele zewnętrzne przy użyciu tego nowego zewnętrznego źródła danych. [Kreatora generowania i publikowania skryptów](/sql/ssms/scripting/generate-and-publish-scripts-wizard) można użyć do łatwego generowania skryptów Create-scripts dla wszystkich tabel zewnętrznych.
+       > - Aby uzyskać więcej informacji na temat `abfss://` schematu, zapoznaj się z tym [przewodnikiem](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+       > - Aby uzyskać więcej informacji na temat tworzenia zewnętrznego źródła danych, zapoznaj się z tym [przewodnikiem](/sql/t-sql/statements/create-external-data-source-transact-sql).
 
-   1. Zapytanie jako normalne przy użyciu [tabel zewnętrznych](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Zapytanie jako normalne przy użyciu [tabel zewnętrznych](/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Inspekcja Azure SQL Database obiektów BLOB
 
@@ -188,11 +188,11 @@ Flagę **IgnoreMissingVNetServiceEndpoint** można ustawić przy użyciu program
 
 ## <a name="errors-40914-and-40615"></a>Błędy 40914 i 40615
 
-Błąd połączenia 40914 odnosi się do *reguł sieci wirtualnej*określonych w okienku zapora w Azure Portal. Błąd 40615 jest podobny, z tą różnicą, że odnosi się do *reguł adresów IP* w zaporze.
+Błąd połączenia 40914 odnosi się do *reguł sieci wirtualnej* określonych w okienku zapora w Azure Portal. Błąd 40615 jest podobny, z tą różnicą, że odnosi się do *reguł adresów IP* w zaporze.
 
 ### <a name="error-40914"></a>Błąd 40914
 
-*Tekst komunikatu:* Nie można otworzyć serwera "*[nazwa serwera]*" żądanego podczas logowania. Klient nie może uzyskać dostępu do serwera.
+*Tekst komunikatu:* Nie można otworzyć serwera " *[nazwa serwera]* " żądanego podczas logowania. Klient nie może uzyskać dostępu do serwera.
 
 *Opis błędu:* Klient należy do podsieci, która ma punkty końcowe serwera sieci wirtualnej. Ale serwer nie ma reguły sieci wirtualnej, która przyznaje podsieci prawo do komunikacji z bazą danych.
 
@@ -210,7 +210,7 @@ Błąd połączenia 40914 odnosi się do *reguł sieci wirtualnej*określonych w
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portal może utworzyć regułę sieci wirtualnej
 
-W tej sekcji pokazano, jak można użyć [Azure Portal][http-azure-portal-link-ref-477t] do utworzenia *reguły sieci wirtualnej* w bazie danych programu Azure SQL Database. Reguła nakazuje bazie danych akceptowanie komunikacji z określonej podsieci, która została oznaczona jako *punkt końcowy usługi Virtual Network*.
+W tej sekcji pokazano, jak można użyć [Azure Portal][http-azure-portal-link-ref-477t] do utworzenia *reguły sieci wirtualnej* w bazie danych programu Azure SQL Database. Reguła nakazuje bazie danych akceptowanie komunikacji z określonej podsieci, która została oznaczona jako *punkt końcowy usługi Virtual Network* .
 
 > [!NOTE]
 > Jeśli zamierzasz dodać punkt końcowy usługi do reguł zapory sieci wirtualnej serwera, najpierw upewnij się, że punkty końcowe usługi są włączone dla tej podsieci.
@@ -231,16 +231,16 @@ Wewnętrznie polecenia cmdlet programu PowerShell dla akcji sieci wirtualnej SQL
 
 Musisz mieć już podsieć, która jest otagowana przy użyciu konkretnej *nazwy typu* punktu końcowego usługi Virtual Network odpowiedniej dla Azure SQL Database.
 
-- Odpowiednia nazwa typu punktu końcowego to **Microsoft. SQL**.
+- Odpowiednia nazwa typu punktu końcowego to **Microsoft. SQL** .
 - Jeśli podsieć może nie być otagowana przy użyciu nazwy typu, zobacz [Sprawdź, czy podsieć jest punktem końcowym][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
 
 ## <a name="azure-portal-steps"></a>Azure Portal kroki
 
-1. Zaloguj się w witrynie [Azure Portal][http-azure-portal-link-ref-477t].
+1. Zaloguj się do [Azure portal][http-azure-portal-link-ref-477t].
 
-2. Wyszukaj i wybierz pozycję **serwery SQL**, a następnie wybierz serwer. W obszarze **zabezpieczenia**wybierz pozycję **zapory i sieci wirtualne**.
+2. Wyszukaj i wybierz pozycję **serwery SQL** , a następnie wybierz serwer. W obszarze **zabezpieczenia** wybierz pozycję **zapory i sieci wirtualne** .
 
 3. Ustaw ustawienie **Zezwalaj na dostęp do usług platformy Azure** .
 
@@ -255,7 +255,7 @@ Musisz mieć już podsieć, która jest otagowana przy użyciu konkretnej *nazwy
 
     > [!TIP]
     > Należy podać prawidłowy **prefiks adresu** dla podsieci. Wartość można znaleźć w portalu.
-    > Przejdź do **wszystkich zasobów** &gt; **wszystkie typy** &gt; **sieci wirtualne**. Filtr Wyświetla sieci wirtualne. Kliknij sieć wirtualną, a następnie kliknij pozycję **podsieci**. Kolumna **zakres adresów** ma prefiks adresu, którego potrzebujesz.
+    > Przejdź do **wszystkich zasobów** &gt; **wszystkie typy** &gt; **sieci wirtualne** . Filtr Wyświetla sieci wirtualne. Kliknij sieć wirtualną, a następnie kliknij pozycję **podsieci** . Kolumna **zakres adresów** ma prefiks adresu, którego potrzebujesz.
 
     ![Wypełnij pola dla nowej reguły.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -298,12 +298,12 @@ Musisz mieć już podsieć, która jest otagowana przy użyciu konkretnej *nazwy
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]:scripts/vnet-service-endpoint-rule-powershell-create.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]:scripts/vnet-service-endpoint-rule-powershell-create.md#a-verify-subnet-is-endpoint-ps-100
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[vm-virtual-network-service-endpoints-overview-649d]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [vpn-gateway-indexmd-608y]: ../../vpn-gateway/index.yml
 
 <!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
-[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
+[rest-api-virtual-network-rules-operations-862r]: /rest/api/sql/virtualnetworkrules
 
 <!-- ??2
 #### Syntax related articles

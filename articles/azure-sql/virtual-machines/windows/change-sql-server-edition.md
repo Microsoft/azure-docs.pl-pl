@@ -13,14 +13,14 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 06587d80851839188f8d8dcfa870d331e8fa96d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 997e867798922975757a588ef50248f0d09a96e0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293360"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789849"
 ---
-# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Zmiana w miejscu SQL Server edycji na maszynie wirtualnej platformy Azure
+# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Zmiana w miejscu dotycząca wydania programu SQL Server na maszynie wirtualnej platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym artykule opisano sposób zmiany wersji SQL Server na maszynie wirtualnej z systemem Windows na platformie Azure. 
@@ -34,7 +34,7 @@ Gdy wersja SQL Server została zmieniona wewnętrznie na maszynę wirtualną SQL
 Aby przeprowadzić zmianę w miejscu wersji SQL Server, potrzebne są następujące elementy: 
 
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/).
-- [SQL Server maszynę wirtualną w systemie Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) zarejestrowana przy użyciu [dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).
+- [SQL Server maszynę wirtualną w systemie Windows](./create-sql-vm-portal.md) zarejestrowana przy użyciu [dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).
 - Skonfiguruj nośnik z **odpowiednią wersją** SQL Server. Klienci, którzy biorą udział w programie [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default), mogą uzyskać nośnik instalacyjny z [Centrum licencjonowania zbiorowego](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Klienci, którzy nie mają programu Software Assurance, mogą korzystać z nośnika instalacyjnego z witryny Azure Marketplace SQL Server obrazu maszyny wirtualnej, który ma odpowiednie wydanie (zazwyczaj znajduje się w temacie `C:\SQLServerFull` ). 
 
 
@@ -50,7 +50,7 @@ Aby uaktualnić wersję SQL Server, uzyskaj SQL Server instalacyjny nośnik dla 
 
    ![Wybór na potrzeby uaktualnienia wersji SQL Server](./media/change-sql-server-edition/edition-upgrade.png)
 
-1. Wybierz pozycję **dalej** do momentu uzyskania dostępu **do strony gotowy do uaktualnienia wersji** , a następnie wybierz pozycję **Uaktualnij**. Okno instalatora może przestać odpowiadać przez kilka minut, gdy zmiana zacznie obowiązywać. **Pełna** Strona potwierdzi, że uaktualnienie wersji zostało zakończone. 
+1. Wybierz pozycję **dalej** do momentu uzyskania dostępu **do strony gotowy do uaktualnienia wersji** , a następnie wybierz pozycję **Uaktualnij** . Okno instalatora może przestać odpowiadać przez kilka minut, gdy zmiana zacznie obowiązywać. **Pełna** Strona potwierdzi, że uaktualnienie wersji zostało zakończone. 
 
 Po uaktualnieniu wersji SQL Server należy zmodyfikować właściwość wersja SQL Server maszyny wirtualnej w Azure Portal. Spowoduje to zaktualizowanie metadanych i rozliczeń skojarzonych z tą maszyną wirtualną.
 
@@ -75,11 +75,11 @@ Po obniżeniu wersji SQL Server należy zmodyfikować właściwość wersja SQL 
 
 ## <a name="change-edition-in-portal"></a>Zmień wersję w portalu 
 
-Po zmianie wersji SQL Server przy użyciu nośnika instalacyjnego i zarejestrowaniu maszyny wirtualnej SQL Server z [dostawcą zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md)można użyć Azure Portal do zmodyfikowania właściwości wersji maszyny wirtualnej SQL Server na potrzeby rozliczania. Aby to zrobić, wykonaj następujące kroki: 
+Po zmianie wersji SQL Server przy użyciu nośnika instalacyjnego i zarejestrowaniu maszyny wirtualnej SQL Server z [dostawcą zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md)można użyć Azure Portal do zmodyfikowania właściwości wersji maszyny wirtualnej SQL Server na potrzeby rozliczania. W tym celu wykonaj następujące czynności: 
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
+1. Zaloguj się do [Azure portal](https://portal.azure.com). 
 1. Przejdź do zasobu maszyny wirtualnej SQL Server. 
-1. W obszarze **Ustawienia**wybierz pozycję **Konfiguruj**. Następnie wybierz żądaną wersję SQL Server z listy rozwijanej w obszarze **Edycja**. 
+1. W obszarze **Ustawienia** wybierz pozycję **Konfiguruj** . Następnie wybierz żądaną wersję SQL Server z listy rozwijanej w obszarze **Edycja** . 
 
    ![Metadane zmiany wersji](./media/change-sql-server-edition/edition-change-in-portal.png)
 
@@ -102,5 +102,3 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 * [Często zadawane pytania dotyczące SQL Server na maszynie wirtualnej z systemem Windows](frequently-asked-questions-faq.md)
 * [Wskazówki dotyczące cen dla SQL Server na maszynie wirtualnej z systemem Windows](pricing-guidance.md)
 * [Informacje o wersji SQL Server na maszynie wirtualnej z systemem Windows](doc-changes-updates-release-notes.md)
-
-

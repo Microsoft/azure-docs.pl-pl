@@ -18,6 +18,7 @@
         - name: Tworzenie strefy publicznej — interfejs wiersza polecenia
           href: dns-getstarted-cli.md
         - name: Tworzenie strefy publicznej — szablon usługi ARM
+          displayName: Resource Manager
           href: dns-get-started-template.md
     - name: Prywatna strefa DNS
       items:

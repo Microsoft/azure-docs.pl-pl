@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f7b1255553334bfaa75c5c0c96ecd36afa2c27f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be063105db2384f566e7c94d9f2e7a2bd808b15f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293768"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790138"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Omówienie programu SQL Server na maszynach wirtualnych platformy Azure (system Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "91293768"
 
 SQL Server na platformie Azure Virtual Machines umożliwia korzystanie z pełnych wersji SQL Server w chmurze bez konieczności zarządzania sprzętem lokalnym. Maszyny wirtualne z programem SQL Server upraszczają również określanie kosztów licencjonowania w przypadku płatności zgodnie z rzeczywistym użyciem.
 
-Maszyny wirtualne platformy Azure działają w wielu różnych [regionach geograficznych](https://azure.microsoft.com/regions/) na świecie. Oferują one także szereg różnych [rozmiarów maszyn](../../../virtual-machines/windows/sizes.md). Galeria obrazów maszyn wirtualnych umożliwia utworzenie maszyny wirtualnej z programem SQL Server we właściwej wersji i edycji oraz z odpowiednim systemem operacyjnym. Dzięki temu maszyny wirtualne to dobry wybór w przypadku wielu różnych obciążeń programu SQL Server. 
+Maszyny wirtualne platformy Azure działają w wielu różnych [regionach geograficznych](https://azure.microsoft.com/regions/) na świecie. Oferują one także szereg różnych [rozmiarów maszyn](../../../virtual-machines/sizes.md). Galeria obrazów maszyn wirtualnych umożliwia utworzenie maszyny wirtualnej z programem SQL Server we właściwej wersji i edycji oraz z odpowiednim systemem operacyjnym. Dzięki temu maszyny wirtualne to dobry wybór w przypadku wielu różnych obciążeń programu SQL Server. 
 
 Jeśli dopiero zaczynasz skorzystać z usługi Azure SQL, zapoznaj SQL Server się z *tematem wideo na temat usługi Azure VM Overview* z naszej szczegółowej [serii wideo usługi Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
@@ -55,7 +55,7 @@ Aby rozpocząć, wybierz obraz maszyny wirtualnej z programem SQL Server w wymag
 
 Podczas konfigurowania SQL Server on Linux należy zainstalować pakiet aparat bazy danych, a następnie kilka opcjonalnych pakietów w zależności od wymagań. Obrazy maszyn wirtualnych z systemem Linux dla programu SQL Server automatycznie zainstalują większość pakietów. W poniższej tabeli przedstawiono pakiety instalowane dla poszczególnych dystrybucji.
 
-| Dystrybucja | [Aparat bazy danych](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Narzędzia](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [Agent SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Wyszukiwanie pełnotekstowe](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Dodatek wysokiej dostępności](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
+| Dystrybucja | [Aparat bazy danych](/sql/linux/sql-server-linux-setup) | [Narzędzia](/sql/linux/sql-server-linux-setup-tools) | [Agent SQL Server](/sql/linux/sql-server-linux-setup-sql-agent) | [Wyszukiwanie pełnotekstowe](/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](/sql/linux/sql-server-linux-setup-ssis) | [Dodatek wysokiej dostępności](/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
 | RHEL | ![RHEL i aparat bazy danych](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL i narzędzia](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL i Agent SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL i wyszukiwanie pełnotekstowe](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL i SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Dodatek RHEL i HA](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 | SLES | ![SLES i aparat bazy danych](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES i narzędzia](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES i Agent SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES i wyszukiwanie pełnotekstowe](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES i SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![Dodatek SLES i HA](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
@@ -79,7 +79,7 @@ Podczas konfigurowania SQL Server on Linux należy zainstalować pakiet aparat b
 
 ### <a name="sql"></a>SQL
 
-* [Dokumentacja SQL Server on Linux](https://docs.microsoft.com/sql/linux)
+* [Dokumentacja SQL Server on Linux](/sql/linux)
 * [Porównanie usługi Azure SQL Database](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki

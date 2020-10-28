@@ -11,27 +11,27 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619835"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791294"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Kod docelowy buforu pierścieniowego dla zdarzeń rozszerzonych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Chcesz uzyskać pełny przykładowy kod dla najłatwiejszego szybkiego sposobu przechwytywania i raportowania informacji dla zdarzenia rozszerzonego podczas testu. Najłatwiejszym celem dla rozszerzonych danych zdarzeń jest [obiekt docelowy bufora pierścieniowego](https://msdn.microsoft.com/library/ff878182.aspx).
+Chcesz uzyskać pełny przykładowy kod dla najłatwiejszego szybkiego sposobu przechwytywania i raportowania informacji dla zdarzenia rozszerzonego podczas testu. Najłatwiejszym celem dla rozszerzonych danych zdarzeń jest [obiekt docelowy bufora pierścieniowego](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)).
 
 W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:
 
 1. Tworzy tabelę zawierającą dane, które mają być prezentowane za pomocą.
-2. Tworzy sesję dla istniejącego zdarzenia rozszerzonego, czyli **SqlServer.sql_statement_starting**.
+2. Tworzy sesję dla istniejącego zdarzenia rozszerzonego, czyli **SqlServer.sql_statement_starting** .
 
-   * Zdarzenie jest ograniczone do instrukcji SQL zawierających określony ciąg aktualizacji: instrukcja, taka **jak "% Update tabEmployee%"**.
-   * Wybiera do wysłania danych wyjściowych zdarzenia do obiektu docelowego bufora pierścieniowego, mianowicie  **package0.ring_buffer**.
+   * Zdarzenie jest ograniczone do instrukcji SQL zawierających określony ciąg aktualizacji: instrukcja, taka **jak "% Update tabEmployee%"** .
+   * Wybiera do wysłania danych wyjściowych zdarzenia do obiektu docelowego bufora pierścieniowego, mianowicie  **package0.ring_buffer** .
 3. Uruchamia sesję zdarzeń.
 4. Wystawia kilka prostych instrukcji dotyczących aktualizacji SQL.
 5. Emituje instrukcję SELECT języka SQL w celu pobrania danych wyjściowych zdarzenia z bufora pierścieni.
@@ -46,11 +46,11 @@ W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:
 * Konto i subskrypcja platformy Azure. Po zarejestrowaniu się możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 * Dowolna baza danych, w której można utworzyć tabelę.
   
-  * Opcjonalnie możesz [utworzyć demonstracyjną bazę danych **AdventureWorksLT** ](single-database-create-quickstart.md) w ciągu kilku minut.
+  * Opcjonalnie możesz [utworzyć demonstracyjną bazę danych **AdventureWorksLT**](single-database-create-quickstart.md) w ciągu kilku minut.
 * SQL Server Management Studio (ssms.exe), najlepiej jej Najnowsza wersja aktualizacji miesięcznych.
   Najnowszą ssms.exe można pobrać z:
   
-  * Temat [SQL Server Management Studio pobierania](https://msdn.microsoft.com/library/mt238290.aspx).
+  * Temat [SQL Server Management Studio pobierania](/sql/ssms/download-sql-server-management-studio-ssms).
   * [Bezpośredni link do pobierania.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Przykład kodu
@@ -218,9 +218,9 @@ GO
 
 Użyto `ssms.exe` do uruchomienia przykładu kodu.
 
-Aby wyświetlić wyniki, należy kliknąć komórkę poniżej nagłówka kolumny **target_data_XML**.
+Aby wyświetlić wyniki, należy kliknąć komórkę poniżej nagłówka kolumny **target_data_XML** .
 
-Następnie w okienku wyników kliknięto komórkę pod nagłówkiem kolumny **target_data_XML**. W tym celu kliknij pozycję utworzono inną kartę pliku w ssms.exe, w której zawartość komórki wynikowej była wyświetlana jako XML.
+Następnie w okienku wyników kliknięto komórkę pod nagłówkiem kolumny **target_data_XML** . W tym celu kliknij pozycję utworzono inną kartę pliku w ssms.exe, w której zawartość komórki wynikowej była wyświetlana jako XML.
 
 Dane wyjściowe są wyświetlane w następującym bloku. Wygląda na to, że jest on długi, ale jest tylko dwa **\<event>** elementy.
 
@@ -349,6 +349,6 @@ Inne tematy przykładowe kodu dla zdarzeń rozszerzonych są dostępne na nastę
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

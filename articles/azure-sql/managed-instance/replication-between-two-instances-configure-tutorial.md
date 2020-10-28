@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 5948f7adedfa430d7d0dac570910f662846464c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058220"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790869"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Samouczek: Konfigurowanie replikacji między dwoma wystąpieniami zarządzanymi
 
@@ -27,7 +27,7 @@ Replikacja transakcyjna umożliwia replikowanie danych z jednej bazy danych do i
 
 Replikacja transakcyjna jest obecnie dostępna w publicznej wersji zapoznawczej dla wystąpienia zarządzanego SQL. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -68,7 +68,7 @@ Należy również [skonfigurować maszynę wirtualną platformy Azure w celu naw
 
 ## <a name="3---create-an-azure-storage-account"></a>3 — Tworzenie konta usługi Azure Storage
 
-[Utwórz konto usługi Azure Storage](/azure/storage/common/storage-create-storage-account#create-a-storage-account) dla katalogu roboczego, a następnie Utwórz [udział plików](../../storage/files/storage-how-to-create-file-share.md) na koncie magazynu. 
+[Utwórz konto usługi Azure Storage](../../storage/common/storage-account-create.md#create-a-storage-account) dla katalogu roboczego, a następnie Utwórz [udział plików](../../storage/files/storage-how-to-create-file-share.md) na koncie magazynu. 
 
 Skopiuj ścieżkę udziału plików w formacie: `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -326,4 +326,4 @@ Możesz wyczyścić zasoby platformy Azure, [usuwając zasoby wystąpienia zarz�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz również uzyskać więcej informacji na temat [replikacji transakcyjnej przy użyciu wystąpienia zarządzanego Azure SQL](replication-transactional-overview.md) lub dowiedzieć się, jak skonfigurować replikację między [wydawcą/dystrybutorem wystąpienia zarządzanego SQL a serwerem SQL na subskrybencie maszyny wirtualnej platformy Azure](replication-two-instances-and-sql-server-configure-tutorial.md). 
+Możesz również uzyskać więcej informacji na temat [replikacji transakcyjnej przy użyciu wystąpienia zarządzanego Azure SQL](replication-transactional-overview.md) lub dowiedzieć się, jak skonfigurować replikację między [wydawcą/dystrybutorem wystąpienia zarządzanego SQL a serwerem SQL na subskrybencie maszyny wirtualnej platformy Azure](replication-two-instances-and-sql-server-configure-tutorial.md).

@@ -10,16 +10,16 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed44431af6d99daa5549d019f42efda4bbf9912b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 336f58635465f77c60d04c53bb1893cb60f5f35f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91540357"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791226"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Java przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
-> * [JavaScript](search-get-started-nodejs.md)
+> * [JavaScript](search-get-started-javascript.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
@@ -49,11 +49,11 @@ Wywołania usługi wymagają punktu końcowego adresu URL i klucza dostępu dla 
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-2. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+2. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
    Utwórz również klucz zapytania. Najlepszym rozwiązaniem jest wydawanie żądań zapytań z dostępem tylko do odczytu.
 
-:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
+:::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 Każde żądanie wysyłane do usługi wymaga klucza interfejsu API. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
@@ -63,19 +63,19 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 ### <a name="create-the-project"></a>Tworzenie projektu
 
-1. Otwórz pomysł IntelliJ i wybierz pozycję **Utwórz nowy projekt**.
-1. Wybierz pozycję **Maven**.
+1. Otwórz pomysł IntelliJ i wybierz pozycję **Utwórz nowy projekt** .
+1. Wybierz pozycję **Maven** .
 1. Na liście **zestaw SDK projektu** wybierz zestaw SDK języka Java 11.
 
     :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
-1. Dla **identyfikatora GroupID** i **ArtifactId**wprowadź `AzureSearchQuickstart` .
+1. Dla **identyfikatora GroupID** i **ArtifactId** wprowadź `AzureSearchQuickstart` .
 1. Zaakceptuj pozostałe wartości domyślne, aby otworzyć projekt.
 
 ### <a name="specify-maven-dependencies"></a>Określ zależności Maven
 
-1. Wybierz **File**pozycję  >  **Ustawienia**pliku.
-1. W oknie **Ustawienia** wybierz pozycję **kompilacja, wykonanie,**  >  **narzędzia kompilacji**wdrożenia  >  **Maven**  >  **Importowanie**.
+1. Wybierz **File** pozycję  >  **Ustawienia** pliku.
+1. W oknie **Ustawienia** wybierz pozycję **kompilacja, wykonanie,**  >  **narzędzia kompilacji** wdrożenia  >  **Maven**  >  **Importowanie** .
 1. Zaznacz pole wyboru  **Importuj projekty Maven automatycznie** , a następnie kliknij przycisk **OK** , aby zamknąć okno. Wtyczki Maven i inne zależności będą teraz automatycznie synchronizowane podczas aktualizacji pliku pom.xml w następnym kroku.
 
     :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
@@ -133,8 +133,8 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 ### <a name="set-up-the-project-structure"></a>Skonfiguruj strukturę projektu
 
-1. Wybierz **File**pozycję  >  **Struktura projektu**pliku.
-1. Wybierz pozycję **moduły**i rozwiń drzewo źródłowe, aby uzyskać dostęp do zawartości `src`  >   `main` folderu.
+1. Wybierz **File** pozycję  >  **Struktura projektu** pliku.
+1. Wybierz pozycję **moduły** i rozwiń drzewo źródłowe, aby uzyskać dostęp do zawartości `src`  >   `main` folderu.
 1. W `src`  >   `main`  >  `java` folderze Dodaj `app` `service` foldery i. Aby to zrobić, wybierz `java` folder, naciśnij klawisze ALT + INSERT, a następnie wprowadź nazwę folderu.
 1. W `src`  >   `main`  > `resources` folderze Dodaj `app` `service` foldery i.
 
@@ -142,11 +142,11 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
     :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
-1. Kliknij przycisk **OK**, aby zamknąć okno.
+1. Kliknij przycisk **OK** , aby zamknąć okno.
 
 ### <a name="add-azure-cognitive-search-service-information"></a>Dodawanie informacji o usłudze Wyszukiwanie poznawcze platformy Azure
 
-1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `app` folderu, a następnie Dodaj `config.properties` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik**, a następnie wprowadź nazwę pliku.
+1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `app` folderu, a następnie Dodaj `config.properties` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik** , a następnie wprowadź nazwę pliku.
 
 1. Skopiuj następujące ustawienia do nowego pliku i zastąp je `<YOUR-SEARCH-SERVICE-NAME>` `<YOUR-ADMIN-KEY>` `<YOUR-QUERY-KEY>` nazwą i kluczami usługi. Jeśli punkt końcowy usługi ma wartość `https://mydemo.search.windows.net` , nazwą usługi będzie `"mydemo"` .
 
@@ -160,7 +160,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 ### <a name="add-the-main-method"></a>Dodaj metodę Main
 
-1. W `src`  >   `main`  >  `java`  >  `app` folderze Dodaj `App` klasę. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz opcję **Klasa Java**, a następnie wprowadź nazwę klasy.
+1. W `src`  >   `main`  >  `java`  >  `app` folderze Dodaj `App` klasę. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz opcję **Klasa Java** , a następnie wprowadź nazwę klasy.
 1. Otwórz `App` klasę i Zastąp zawartość następującym kodem. Ten kod zawiera `main` metodę. 
 
     Kod niekomentowany odczytuje parametry usługi wyszukiwania i używa ich do utworzenia wystąpienia klienta usługi wyszukiwania. Kod klienta usługi Search zostanie dodany w następnej sekcji.
@@ -259,7 +259,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 ### <a name="add-the-http-operations"></a>Dodawanie operacji HTTP
 
-1. W `src`  >   `main`  >  `java`  >  `service` folderze Dodaj `SearchServiceClient` klasę. Aby to zrobić, wybierz `service` folder, naciśnij klawisze ALT + INSERT, wybierz opcję **Klasa Java**, a następnie wprowadź nazwę klasy.
+1. W `src`  >   `main`  >  `java`  >  `service` folderze Dodaj `SearchServiceClient` klasę. Aby to zrobić, wybierz `service` folder, naciśnij klawisze ALT + INSERT, wybierz opcję **Klasa Java** , a następnie wprowadź nazwę klasy.
 1. Otwórz `SearchServiceClient` klasę i Zastąp zawartość następującym kodem. Ten kod zawiera operacje HTTP wymagane do korzystania z interfejsu API REST usługi Azure Wyszukiwanie poznawcze. Dodatkowe metody tworzenia indeksu, przekazywania dokumentów i wysyłania zapytań do indeksu zostaną dodane w dalszej części.
 
     ```java
@@ -384,7 +384,7 @@ Po zakończeniu przetwarzania Wyszukaj komunikat o POWODZENIU kompilacji, po kt�
 
 Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładami prostego pola są "Hotelname" lub "Description". Pole "Address" jest polem złożonym, ponieważ ma podpola, takie jak "ulica" i "miasto". W tym przewodniku szybki start Definicja indeksu jest określana za pomocą formatu JSON.
 
-1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `service` folderu, a następnie Dodaj `index.json` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik**, a następnie wprowadź nazwę pliku.
+1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `service` folderu, a następnie Dodaj `index.json` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik** , a następnie wprowadź nazwę pliku.
 
 1. Otwórz `index.json` plik i Wstaw następującą definicję indeksu.
 
@@ -571,7 +571,7 @@ Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładam
     
 ## <a name="2---load-documents"></a>2 — ładowanie dokumentów
 
-1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `service` folderu, a następnie Dodaj `hotels.json` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję  **plik**, a następnie wprowadź nazwę pliku.
+1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `service` folderu, a następnie Dodaj `hotels.json` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję  **plik** , a następnie wprowadź nazwę pliku.
 1. Wstaw następujące dokumenty hotelu do pliku.
 
     ```json
@@ -820,7 +820,7 @@ Teraz, gdy załadowałeś dokumenty hoteli, możesz utworzyć zapytania wyszukiw
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

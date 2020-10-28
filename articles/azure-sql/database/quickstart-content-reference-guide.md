@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: cd1880f58d4ef457cdc411e065588204a5ad6672
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 727792b110c3bc486d31214096be1934539f6d11
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448760"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790308"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Wprowadzenie do pojedynczych baz danych w usłudze Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,15 +41,15 @@ Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Az
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migrowanie do pojedynczej bazy danych z minimalnym przestojem
 
-Informacje w tych przewodnikach Szybki start umożliwiają szybkie utworzenie lub zaimportowanie bazy danych na platformę Azure za pomocą pliku `.bacpac`. `.bacpac` `.dacpac` Pliki i są jednak przeznaczone do szybkiego przenoszenia baz danych między różnymi wersjami SQL Server i w ramach usługi Azure SQL albo do wdrożenia ciągłej integracji w potoku DevOps. Jednak ta metoda nie jest przeznaczona do migracji produkcyjnych baz danych z minimalnym przestojem, ponieważ należy zaprzestać dodawać nowe dane, poczekać na wyeksportowanie źródłowej bazy danych do pliku `.bacpac`, a następnie poczekać na zakończenie importu do bazy danych Azure SQL Database. Wszystkie te czynniki powodują przestój aplikacji, szczególnie w przypadku dużych baz danych. Aby przenieść produkcyjną bazę danych, potrzebujesz lepszego sposobu migracji, który gwarantuje minimalny przestój. W tym celu należy przeprowadzić migrację bazy danych przy użyciu [usługi Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql?toc=/azure/sql-database/toc.json) przy minimalnym przestoju. Usługa DMS realizuje to przez przyrostowe wypychanie zmian wprowadzanych w źródłowej bazie danych do przywracanej pojedynczej baza danych. Dzięki niej można szybko przełączyć aplikację ze źródłowej do docelowej bazy danych z możliwie najkrótszym przestojem.
+Informacje w tych przewodnikach Szybki start umożliwiają szybkie utworzenie lub zaimportowanie bazy danych na platformę Azure za pomocą pliku `.bacpac`. `.bacpac` `.dacpac` Pliki i są jednak przeznaczone do szybkiego przenoszenia baz danych między różnymi wersjami SQL Server i w ramach usługi Azure SQL albo do wdrożenia ciągłej integracji w potoku DevOps. Jednak ta metoda nie jest przeznaczona do migracji produkcyjnych baz danych z minimalnym przestojem, ponieważ należy zaprzestać dodawać nowe dane, poczekać na wyeksportowanie źródłowej bazy danych do pliku `.bacpac`, a następnie poczekać na zakończenie importu do bazy danych Azure SQL Database. Wszystkie te czynniki powodują przestój aplikacji, szczególnie w przypadku dużych baz danych. Aby przenieść produkcyjną bazę danych, potrzebujesz lepszego sposobu migracji, który gwarantuje minimalny przestój. W tym celu należy przeprowadzić migrację bazy danych przy użyciu [usługi Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-azure-sql.md?toc=%252fazure%252fsql-database%252ftoc.json) przy minimalnym przestoju. Usługa DMS realizuje to przez przyrostowe wypychanie zmian wprowadzanych w źródłowej bazie danych do przywracanej pojedynczej baza danych. Dzięki niej można szybko przełączyć aplikację ze źródłowej do docelowej bazy danych z możliwie najkrótszym przestojem.
 
 ## <a name="hands-on-learning-modules"></a>Moduły uczenia się
 
 Poniższe moduły Microsoft Learn mogą pomóc Ci bezpłatnie poznać Azure SQL Database.
 
-- [Inicjowanie obsługi administracyjnej bazy danych w SQL Database do przechowywania danych aplikacji](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
-- [Opracowywanie i Konfigurowanie aplikacji ASP.NET, która wysyła zapytanie do bazy danych w Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
-- [Zabezpiecz swoją bazę danych w Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
+- [Inicjowanie obsługi administracyjnej bazy danych w SQL Database do przechowywania danych aplikacji](/learn/modules/provision-azure-sql-db/)
+- [Opracowywanie i Konfigurowanie aplikacji ASP.NET, która wysyła zapytanie do bazy danych w Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/)
+- [Zabezpiecz swoją bazę danych w Azure SQL Database](/learn/modules/secure-your-azure-sql-database/)
 
 ## <a name="next-steps"></a>Następne kroki
 

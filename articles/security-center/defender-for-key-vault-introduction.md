@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 6649a8d470a75922aac423bf0b411163bdd79f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91a0ea19f53d1da7631154cb71f96e495cc93857
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449095"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788999"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Wprowadzenie do usługi Azure Defender dla Key Vault
 
@@ -55,5 +55,5 @@ W tym artykule przedstawiono informacje o usłudze Azure Defender dla Key Vault.
 W przypadku pokrewnego materiału zapoznaj się z następującymi artykułami: 
 
 - [Key Vault alerty zabezpieczeń](alerts-reference.md#alerts-azurekv)— sekcja Key Vault w tabeli referencyjnej dla wszystkich Azure Security Centerych alertów
-- [Eksportowanie alertów do SIEM](continuous-export.md)
+- [Ciągłe eksportowanie danych Security Center](continuous-export.md)
 - [Pomijanie alertów z usługi Azure Defender](alerts-suppression-rules.md)

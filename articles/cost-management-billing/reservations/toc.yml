@@ -123,9 +123,11 @@
         - name: Brak kwalifikujących się subskrypcji
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Rozwiązywanie problemów z wykorzystaniem rezerwacji
-          href: troubleshoot-reservation-utilization.md??toc=/azure/cost-management-billing/reservations/toc.json
+          href: troubleshoot-reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Rozwiązywanie problemów z zaleceniami dotyczącymi rezerwacji
-          href: troubleshoot-reservation-recommendation.md??toc=/azure/cost-management-billing/reservations/toc.json
+          href: troubleshoot-reservation-recommendation.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Rozwiązywanie problemów z brakiem dostępności rezerwacji
+          href: troubleshoot-product-not-available.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Dokumentacja
   items:
     - name: Interfejs API REST usługi Reservations

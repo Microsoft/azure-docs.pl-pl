@@ -13,20 +13,20 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bb80abc35aedcdf0b46cefa279e477739cf1df6b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677667"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789798"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Uruchamianie SQL Server VM na dedykowanym hoście platformy Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W tym artykule szczegółowo opisano, jak używać maszyny wirtualnej SQL Server z [dedykowanym hostem platformy Azure](/azure/virtual-machines/windows/dedicated-hosts). Dodatkowe informacje na temat dedykowanego hosta platformy Azure można znaleźć w wpisie w blogu [wprowadzającym dedykowany Host platformy Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
+W tym artykule szczegółowo opisano, jak używać maszyny wirtualnej SQL Server z [dedykowanym hostem platformy Azure](../../../virtual-machines/dedicated-hosts.md). Dodatkowe informacje na temat dedykowanego hosta platformy Azure można znaleźć w wpisie w blogu [wprowadzającym dedykowany Host platformy Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
 ## <a name="overview"></a>Omówienie
-[Dedykowany Host platformy Azure](/azure/virtual-machines/windows/dedicated-hosts) to usługa, która zapewnia serwerom fizycznym możliwość hostowania co najmniej jednej maszyny wirtualnej — dedykowanej dla jednej subskrypcji platformy Azure. Dedykowane hosty to te same serwery fizyczne, które są używane w centrach danych firmy Microsoft, dostępne jako zasoby. Można udostępnić dedykowane hosty w obrębie regionu, strefy dostępności i domeny błędów. Następnie można umieścić maszyny wirtualne bezpośrednio na hostach, w których konfiguracja najlepiej odpowiada Twoim potrzebom.
+[Dedykowany Host platformy Azure](../../../virtual-machines/dedicated-hosts.md) to usługa, która zapewnia serwerom fizycznym możliwość hostowania co najmniej jednej maszyny wirtualnej — dedykowanej dla jednej subskrypcji platformy Azure. Dedykowane hosty to te same serwery fizyczne, które są używane w centrach danych firmy Microsoft, dostępne jako zasoby. Można udostępnić dedykowane hosty w obrębie regionu, strefy dostępności i domeny błędów. Następnie można umieścić maszyny wirtualne bezpośrednio na hostach, w których konfiguracja najlepiej odpowiada Twoim potrzebom.
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -54,7 +54,7 @@ Opcje na poziomie hosta dotyczące korzystania z istniejących licencji SQL Serv
 
 
 ## <a name="provisioning"></a>Inicjowanie obsługi  
-Inicjowanie obsługi maszyny wirtualnej SQL Server na dedykowanym hoście nie różni się od żadnej innej maszyny wirtualnej platformy Azure. Można to zrobić za pomocą [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), [Azure Portal](../../../virtual-machines/windows/dedicated-hosts-portal.md)i [interfejsu wiersza polecenia platformy Azure](../../../virtual-machines/linux/dedicated-hosts-cli.md).
+Inicjowanie obsługi maszyny wirtualnej SQL Server na dedykowanym hoście nie różni się od żadnej innej maszyny wirtualnej platformy Azure. Można to zrobić za pomocą [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), [Azure Portal](../../../virtual-machines/dedicated-hosts-portal.md)i [interfejsu wiersza polecenia platformy Azure](../../../virtual-machines/linux/dedicated-hosts-cli.md).
 
 Proces dodawania istniejącej maszyny wirtualnej SQL Server do dedykowanego hosta wymaga przestoju, ale nie wpłynie na dane i nie będzie miał utraty danych. Niemniej jednak przed przeniesieniem należy utworzyć kopię zapasową wszystkich baz danych, w tym systemowych baz danych.
 
@@ -78,5 +78,3 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 * [Często zadawane pytania dotyczące SQL Server na maszynie wirtualnej z systemem Windows](frequently-asked-questions-faq.md)
 * [Wskazówki dotyczące cen dla SQL Server na maszynie wirtualnej z systemem Windows](pricing-guidance.md)
 * [Informacje o wersji SQL Server na maszynie wirtualnej z systemem Windows](doc-changes-updates-release-notes.md)
-
-

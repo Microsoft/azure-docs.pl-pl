@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b51746326c2df81e2dd2bdc72bf2a9ab72b649b5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588198"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790563"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Korzystanie z emulatora usługi Azure Storage na potrzeby tworzenia i testowania
 
@@ -95,7 +95,7 @@ Po zainstalowaniu i uruchomieniu emulatora magazynu można przetestować swój k
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Konfigurowanie parametrów połączenia usługi Azure Storage](../storage-configure-connection-string.md).
+Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Konfigurowanie parametrów połączenia usługi Azure Storage](./storage-configure-connection-string.md).
 
 ### <a name="authorize-with-a-shared-access-signature"></a>Autoryzuj przy użyciu sygnatury dostępu współdzielonego
 
@@ -161,7 +161,7 @@ Począwszy od wersji 3,1 emulator magazynu obsługuje replikację Geograficznie 
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> Aby uzyskać programistyczny dostęp do pomocniczego elementu z emulatorem magazynu, użyj biblioteki klienta usługi Storage dla programu .NET w wersji 3,2 lub nowszej. Aby uzyskać szczegółowe informacje, zobacz [Biblioteka klienta Microsoft Azure Storage dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) .
+> Aby uzyskać programistyczny dostęp do pomocniczego elementu z emulatorem magazynu, użyj biblioteki klienta usługi Storage dla programu .NET w wersji 3,2 lub nowszej. Aby uzyskać szczegółowe informacje, zobacz [Biblioteka klienta Microsoft Azure Storage dla platformy .NET](/previous-versions/azure/dn261237(v=azure.100)) .
 >
 >
 
@@ -184,11 +184,11 @@ Aby wyświetlić listę opcji, wpisz ciąg `/help` w wierszu polecenia.
 
 | Opcja | Opis | Polecenie | Argumenty |
 | --- | --- | --- | --- |
-| **Początek** |Uruchamia emulator magazynu. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*: uruchamia emulator w bieżącym procesie zamiast tworzenia nowego procesu. |
+| **Początek** |Uruchamia emulator magazynu. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess* : uruchamia emulator w bieżącym procesie zamiast tworzenia nowego procesu. |
 | **Zatrzymaj** |Powoduje zatrzymanie emulatora magazynu. |`AzureStorageEmulator.exe stop` | |
 | **Stan** |Drukuje stan emulatora magazynu. |`AzureStorageEmulator.exe status` | |
-| **Czyste** |Czyści dane we wszystkich usługach określonych w wierszu polecenia. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*BLOB*: czyści dane obiektów BLOB. <br/>*Queue*: czyści dane kolejki. <br/>*tabela*: czyści dane tabeli. <br/>*wszystkie*: czyści wszystkie dane we wszystkich usługach. |
-| **Init** |Wykonuje jednorazowe inicjowanie w celu skonfigurowania emulatora. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-Server serverName\instanceName*: Określa serwer hostujący wystąpienie programu SQL Server. <br/>*-SQLInstance InstanceName*: Określa nazwę wystąpienia SQL, które ma być używane w domyślnym wystąpieniu serwera. <br/>*-forceCreate*: wymusza tworzenie bazy danych SQL, nawet jeśli już istnieje. <br/>*-skipcreate*: pomija Tworzenie bazy danych SQL. Ma to pierwszeństwo przed forceCreate.<br/>*-reserveports*: próbuje zarezerwować porty http skojarzone z usługami.<br/>*-unreserveports*: próbuje usunąć rezerwacje dla portów http skojarzonych z usługami. Ma to pierwszeństwo przed reserveports.<br/>*-unprocess*: wykonuje inicjalizację w bieżącym procesie zamiast duplikowania nowego procesu. W przypadku zmiany rezerwacji portów bieżący proces musi zostać uruchomiony z podwyższonym poziomem uprawnień. |
+| **Czyste** |Czyści dane we wszystkich usługach określonych w wierszu polecenia. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*BLOB* : czyści dane obiektów BLOB. <br/>*Queue* : czyści dane kolejki. <br/>*tabela* : czyści dane tabeli. <br/>*wszystkie* : czyści wszystkie dane we wszystkich usługach. |
+| **Init** |Wykonuje jednorazowe inicjowanie w celu skonfigurowania emulatora. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-Server serverName\instanceName* : Określa serwer hostujący wystąpienie programu SQL Server. <br/>*-SQLInstance InstanceName* : Określa nazwę wystąpienia SQL, które ma być używane w domyślnym wystąpieniu serwera. <br/>*-forceCreate* : wymusza tworzenie bazy danych SQL, nawet jeśli już istnieje. <br/>*-skipcreate* : pomija Tworzenie bazy danych SQL. Ma to pierwszeństwo przed forceCreate.<br/>*-reserveports* : próbuje zarezerwować porty http skojarzone z usługami.<br/>*-unreserveports* : próbuje usunąć rezerwacje dla portów http skojarzonych z usługami. Ma to pierwszeństwo przed reserveports.<br/>*-unprocess* : wykonuje inicjalizację w bieżącym procesie zamiast duplikowania nowego procesu. W przypadku zmiany rezerwacji portów bieżący proces musi zostać uruchomiony z podwyższonym poziomem uprawnień. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Różnice między emulatorem magazynu a usługą Azure Storage
 
@@ -310,7 +310,7 @@ W emulatorze nie ma żadnych różnic związanych z magazynem kolejek.
 
 ### <a name="version-40"></a>Wersja 4,0
 
-* Nazwa pliku wykonywalnego emulatora magazynu została zmieniona na *AzureStorageEmulator.exe*.
+* Nazwa pliku wykonywalnego emulatora magazynu została zmieniona na *AzureStorageEmulator.exe* .
 
 ### <a name="version-32"></a>Wersja 3,2
 
@@ -329,7 +329,7 @@ W emulatorze nie ma żadnych różnic związanych z magazynem kolejek.
 ## <a name="next-steps"></a>Następne kroki
 
 * Oceń międzyplatformową, obsługiwaną przez społeczność [azurite](https://github.com/azure/azurite)emulator magazynu Open Source. 
-* [Przykłady usługi Azure Storage korzystające z platformy .NET](../storage-samples-dotnet.md) zawierają linki do kilku przykładów kodu, których można użyć podczas tworzenia aplikacji.
+* [Przykłady usługi Azure Storage korzystające z platformy .NET](./storage-samples-dotnet.md) zawierają linki do kilku przykładów kodu, których można użyć podczas tworzenia aplikacji.
 * [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com) można użyć do pracy z zasobami na koncie magazynu w chmurze i w emulatorze magazynu.
 
 ## <a name="see-also"></a>Zobacz też

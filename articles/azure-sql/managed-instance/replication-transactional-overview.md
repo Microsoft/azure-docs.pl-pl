@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283228"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790818"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replikacja transakcyjna z wystąpieniem zarządzanym usługi Azure SQL (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,11 +35,11 @@ Za pomocą replikacji transakcyjnej można wypchnąć zmiany wprowadzone w wyst�
 - Baza danych wystąpienia w wystąpieniu zarządzanym Azure SQL
 
   > [!NOTE]
-  > Aby korzystać ze wszystkich funkcji wystąpienia zarządzanego Azure SQL, należy użyć najnowszych wersji programu [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) i [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
+  > Aby korzystać ze wszystkich funkcji wystąpienia zarządzanego Azure SQL, należy użyć najnowszych wersji programu [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) i [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt).
 
 ### <a name="components"></a>Składniki
 
-Kluczowymi składnikami replikacji transakcyjnej są **Wydawca**, **dystrybutor**i **subskrybent**, jak pokazano na poniższej ilustracji:  
+Kluczowymi składnikami replikacji transakcyjnej są **Wydawca** , **dystrybutor** i **subskrybent** , jak pokazano na poniższej ilustracji:  
 
 ![replikacja przy użyciu SQL Database](./media/replication-transactional-overview/replication-to-sql-database.png)
 
@@ -65,21 +65,21 @@ Wystąpienie zarządzane Azure SQL może obsługiwać subskrybenta z następują
 
    > [!NOTE]
    >
-   > - W przypadku innych wersji SQL Server, które nie obsługują publikowania w obiektach na platformie Azure, można użyć metody [ponownego publikowania danych](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) w celu przeniesienia danych do nowszych wersji SQL Server.
+   > - W przypadku innych wersji SQL Server, które nie obsługują publikowania w obiektach na platformie Azure, można użyć metody [ponownego publikowania danych](/sql/relational-databases/replication/republish-data) w celu przeniesienia danych do nowszych wersji SQL Server.
    > - Próba skonfigurowania replikacji przy użyciu starszej wersji może spowodować wystąpienie błędu MSSQL_REPL20084 (proces nie mógł nawiązać połączenia z subskrybentem) i MSSQ_REPL40532 (nie można otworzyć serwera \<name> żądanego przez nazwę logowania. Logowanie nie powiodło się.
 
 ### <a name="types-of-replication"></a>Typy replikacji
 
-Istnieją różne [typy replikacji](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
+Istnieją różne [typy replikacji](/sql/relational-databases/replication/types-of-replication):
 
 | Replikacja | Azure SQL Database | Wystąpienie zarządzane Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Tak |
-| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Tak|
-| [**Replikacja scalająca**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nie | Nie|
-| [**Równorzędny**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nie | Nie|
-| [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Tak|
-| [**Aktualizowalne subskrypcje**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nie | Nie|
+| [**Standardowa transakcyjna**](/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Tak |
+| [**Snapshot**](/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Tak|
+| [**Replikacja scalająca**](/sql/relational-databases/replication/merge/merge-replication) | Nie | Nie|
+| [**Równorzędny**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nie | Nie|
+| [**Kierunk**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Tak|
+| [**Aktualizowalne subskrypcje**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nie | Nie|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Macierz obsługi
@@ -148,7 +148,7 @@ W tej konfiguracji baza danych w Azure SQL Database lub wystąpienie zarządzane
 - Skonfiguruj komunikację równorzędną sieci VPN między sieciami wirtualnymi uczestników replikacji, jeśli sieci wirtualne są różne.
 
 > [!NOTE]
-> W przypadku nawiązywania połączenia z plikiem usługi Azure Storage może wystąpić błąd 53, jeśli port wychodzącej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) 445 jest blokowany, gdy dystrybutor jest bazą danych wystąpienia zarządzanego Azure SQL i jest on lokalny. Aby rozwiązać ten problem [, zaktualizuj sieciowej grupy zabezpieczeń sieci wirtualnej](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) .
+> W przypadku nawiązywania połączenia z plikiem usługi Azure Storage może wystąpić błąd 53, jeśli port wychodzącej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) 445 jest blokowany, gdy dystrybutor jest bazą danych wystąpienia zarządzanego Azure SQL i jest on lokalny. Aby rozwiązać ten problem [, zaktualizuj sieciowej grupy zabezpieczeń sieci wirtualnej](../../storage/files/storage-troubleshoot-windows-file-connection-problems.md) .
 
 ## <a name="with-failover-groups"></a>Z grupami trybu failover
 
@@ -196,16 +196,16 @@ Aby uzyskać więcej informacji na temat konfigurowania replikacji transakcyjnej
 
 - [Konfigurowanie replikacji między wydawcą i subskrybentem wystąpienia zarządzanego SQL](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Skonfiguruj replikację między Wydawca wystąpienia zarządzanego SQL, dystrybutorem wystąpienia zarządzanego SQL i subskrybentem SQL Server](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
-- [Utwórz publikację](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-- [Utwórz subskrypcję wypychaną](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) , używając nazwy serwera jako subskrybenta (na przykład `N'azuresqldbdns.database.windows.net` bazy danych w Azure SQL Database nazwie jako docelowej bazy danych (na przykład **AdventureWorks**. )
+- [Utwórz publikację](/sql/relational-databases/replication/publish/create-a-publication).
+- [Utwórz subskrypcję wypychaną](/sql/relational-databases/replication/create-a-push-subscription) , używając nazwy serwera jako subskrybenta (na przykład `N'azuresqldbdns.database.windows.net` bazy danych w Azure SQL Database nazwie jako docelowej bazy danych (na przykład **AdventureWorks** . )
 
-## <a name="see-also"></a>Zobacz też  
+## <a name="see-also"></a>Zobacz także  
 
 - [Replikacja z wystąpieniem zarządzanym SQL i grupą trybu failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replikacja do bazy danych SQL](../database/replication-to-sql-database.md)
 - [Replikacja do wystąpienia zarządzanego](../managed-instance/replication-between-two-instances-configure-tutorial.md)
-- [Tworzenie publikacji](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Tworzenie subskrypcji wypychanej](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Types of Replication (Typy replikacji)](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitorowanie (replikacja)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inicjowanie subskrypcji](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Tworzenie publikacji](/sql/relational-databases/replication/publish/create-a-publication)
+- [Tworzenie subskrypcji wypychanej](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Types of Replication (Typy replikacji)](/sql/relational-databases/replication/types-of-replication)
+- [Monitorowanie (replikacja)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inicjowanie subskrypcji](/sql/relational-databases/replication/initialize-a-subscription)

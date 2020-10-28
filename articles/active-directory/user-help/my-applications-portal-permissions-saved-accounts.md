@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb162231c8cf2bf733c992de0c4aa56bf1fd1be2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031096"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791090"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Edytowanie lub Odwoływanie uprawnień aplikacji w portalu Moje aplikacje
 
@@ -30,13 +30,13 @@ W przypadku korzystania z aplikacji w organizacji w portalu **Moje aplikacje** c
 
 ## <a name="manage-app-accounts"></a>Zarządzanie kontami aplikacji
 
-Aby wyświetlić aplikacje, które zostały przez Ciebie przesłane przez Ciebie lub administratora, wybierz pozycję **...** po umieszczeniu wskaźnika myszy na aplikacji w portalu **Moje aplikacje** , a następnie wybierz pozycję **Zarządzaj swoją aplikacją**:
+Aby wyświetlić aplikacje, które zostały przez Ciebie przesłane przez Ciebie lub administratora, wybierz pozycję **...** po umieszczeniu wskaźnika myszy na aplikacji w portalu **Moje aplikacje** , a następnie wybierz pozycję **Zarządzaj swoją aplikacją** :
 
-![Zarządzanie aplikacją w portalu My Apps](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
+![Zarządzanie aplikacją w portalu My Apps](media/my-applications-portal-permissions-saved-accounts/my-apps-home-woodgrove.png)
 
 W górnej części okna uprawnień są wyświetlane dane, na które użytkownik jest w trakcie. Przykładem uprawnień aplikacji jest możliwość uzyskiwania dostępu do kalendarza, kontaktów i aparatu.
 
-Możesz odwołać wszelkie uprawnienia, które wyraziły zgodę, wybierając pozycję **Odwołaj uprawnienia**, jednak usunięcie uprawnienia może spowodować przerwanie niektórych funkcji aplikacji. Jeśli masz problemy po usunięciu uprawnień lub kont, skontaktuj się z pomocą techniczną w organizacji w celu uzyskania dodatkowej pomocy.
+Możesz odwołać wszelkie uprawnienia, które wyraziły zgodę, wybierając pozycję **Odwołaj uprawnienia** , jednak usunięcie uprawnienia może spowodować przerwanie niektórych funkcji aplikacji. Jeśli masz problemy po usunięciu uprawnień lub kont, skontaktuj się z pomocą techniczną w organizacji w celu uzyskania dodatkowej pomocy.
 
 ![Odwoływanie uprawnień aplikacji w portalu Moje aplikacje](media/my-applications-portal-permissions-saved-accounts/revoke-permissions.png)
 

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 6758aed67949032bb93086527623b60af33e716e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c364fe7fa0ac4dd70a01a75478289ea861dee7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079561"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790835"
 ---
 # <a name="use-powershell-with-an-azure-resource-manager-template-to-create-a-managed-instance"></a>Tworzenie wystąpienia zarządzanego przy użyciu programu PowerShell z szablonem Azure Resource Manager
 
@@ -46,7 +46,7 @@ Nie można później zmienić nazwy wystąpienia, nazwy użytkownika administrat
 W tym przykładzie przyjęto założenie, że [utworzono prawidłowe środowisko sieciowe](../virtual-network-subnet-create-arm-template.md) lub [zmodyfikowano istniejącą sieć wirtualną](../vnet-existing-add-subnet.md) dla wystąpienia zarządzanego. W razie potrzeby można przygotować środowisko sieciowe przy użyciu oddzielnego [szablonu Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment). 
 
 
-W przykładzie używane są polecenia cmdlet [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) i [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork), dlatego należy upewnić się, że zainstalowano następujące moduły programu PowerShell:
+W przykładzie używane są polecenia cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), dlatego należy upewnić się, że zainstalowano następujące moduły programu PowerShell:
 
 ```powershell
 Install-Module Az.Network

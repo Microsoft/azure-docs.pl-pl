@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358937"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790240"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -242,7 +242,7 @@ Po zakończeniu wykonywania polecenia należy uzyskać następujące wyniki:
     done
     ```
 
-Powyższe polecenie tworzy maszyny wirtualne i tworzy domyślną sieć wirtualną dla tych maszyn wirtualnych. Aby uzyskać więcej informacji o różnych konfiguracjach, zobacz [AZ VM Create](https://docs.microsoft.com/cli/azure/vm) article.
+Powyższe polecenie tworzy maszyny wirtualne i tworzy domyślną sieć wirtualną dla tych maszyn wirtualnych. Aby uzyskać więcej informacji o różnych konfiguracjach, zobacz [AZ VM Create](/cli/azure/vm) article.
 
 Po zakończeniu wykonywania polecenia dla każdej maszyny wirtualnej powinny zostać wyświetlone wyniki podobne do następujących:
 
@@ -304,7 +304,7 @@ Połącz się z każdym węzłem maszyny wirtualnej i postępuj zgodnie z poniż
 1. Zaktualizuj i zainstaluj pakiety Pacemaker na wszystkich węzłach przy użyciu następujących poleceń:
 
     > [!NOTE]
-    > **Nmap** jest instalowany w ramach tego bloku poleceń jako narzędzie do znajdowania dostępnych adresów IP w sieci. Nie musisz instalować **Nmap**, ale będzie to przydatne w dalszej części tego samouczka.
+    > **Nmap** jest instalowany w ramach tego bloku poleceń jako narzędzie do znajdowania dostępnych adresów IP w sieci. Nie musisz instalować **Nmap** , ale będzie to przydatne w dalszej części tego samouczka.
 
     ```bash
     sudo yum update -y
@@ -489,11 +489,11 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Kliknij [ **rejestracje aplikacji**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Kliknij pozycję **Nowa rejestracja**
  5. Wprowadź **nazwę** , na przykład `<resourceGroupName>-app` , wybierz **konta tylko w tym katalogu organizacji**
- 6. Wybierz pozycję typ aplikacji **Sieć Web**, wprowadź adres URL logowania (na przykład http://localhost) , a następnie kliknij przycisk Dodaj. Adres URL logowania nie jest używany i może być dowolnym prawidłowym adresem URL. Po zakończeniu kliknij pozycję **zarejestruj** .
+ 6. Wybierz pozycję typ aplikacji **Sieć Web** , wprowadź adres URL logowania (na przykład http://localhost) , a następnie kliknij przycisk Dodaj. Adres URL logowania nie jest używany i może być dowolnym prawidłowym adresem URL. Po zakończeniu kliknij pozycję **zarejestruj** .
  7. Wybierz pozycję **Certyfikaty i wpisy tajne** dla nowej rejestracji aplikacji, a następnie kliknij pozycję **nowy klucz tajny klienta** .
  8. Wprowadź opis nowego klucza (klucz tajny klienta), wybierz pozycję **nigdy nie wygasa** , a następnie kliknij przycisk **Dodaj** .
  9. Zapisz wartość klucza tajnego. Służy jako hasło dla nazwy głównej usługi
-10. Wybierz pozycję **Omówienie**. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (identyfikator logowania w poniższych krokach) nazwy głównej usługi
+10. Wybierz pozycję **Omówienie** . Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (identyfikator logowania w poniższych krokach) nazwy głównej usługi
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Utwórz rolę niestandardową dla agenta ogranicznika
 

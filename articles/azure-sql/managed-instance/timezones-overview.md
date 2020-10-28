@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978377"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790631"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Strefy czasowe w wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ Po wprowadzeniu parametrów dla nowego wystąpienia wybierz strefę czasową z l
 
 ### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 
-Określ właściwość timezoneId w [szablonie Menedżer zasobów](https://aka.ms/sql-mi-create-arm-posh) , aby ustawić strefę czasową podczas tworzenia wystąpienia.
+Określ właściwość timezoneId w [szablonie Menedżer zasobów](./scripts/create-powershell-azure-resource-manager-template.md) , aby ustawić strefę czasową podczas tworzenia wystąpienia.
 
 ```json
 "properties": {
@@ -95,7 +95,7 @@ Korzystanie z tej samej strefy czasowej w wystąpieniu podstawowym i pomocniczym
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Nie można zmienić strefy czasowej istniejącego wystąpienia zarządzanego. Aby obejść ten krok, Utwórz nowe wystąpienie zarządzane ze stosowną strefą czasową, a następnie ręcznie wykonaj kopię zapasową i Przywróć lub to, co jest zalecane, wykonaj [przywracanie do punktu w czasie dla wielu wystąpień](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
+- Nie można zmienić strefy czasowej istniejącego wystąpienia zarządzanego. Aby obejść ten krok, Utwórz nowe wystąpienie zarządzane ze stosowną strefą czasową, a następnie ręcznie wykonaj kopię zapasową i Przywróć lub to, co jest zalecane, wykonaj [przywracanie do punktu w czasie dla wielu wystąpień](./point-in-time-restore.md?tabs=azure-portal#restore-an-existing-database).
 - Procesy zewnętrzne uruchomione z zadań agenta SQL Server nie obserwują strefy czasowej wystąpienia.
 
 ## <a name="list-of-supported-time-zones"></a>Lista obsługiwanych stref czasowych
@@ -241,9 +241,9 @@ Korzystanie z tej samej strefy czasowej w wystąpieniu podstawowym i pomocniczym
 | Samoa (czas standardowy) | (UTC + 13:00) Zachodniego |
 | Wyspy liniowe (czas standardowy) | (UTC + 14:00) Wyspa Kiritimati |
 
-## <a name="see-also"></a>Zobacz też 
+## <a name="see-also"></a>Zobacz także 
 
-- [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
-- [W strefie CZASowej (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
+- [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)
+- [W strefie CZASowej (Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

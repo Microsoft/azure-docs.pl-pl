@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628370"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791260"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Istnieją dwie opcje łączenia sieci wirtualnych:
 Komunikacja równorzędna jest preferowana, ponieważ używa sieci szkieletowej firmy Microsoft, dlatego z punktu widzenia łączności nie ma zauważalnej różnicy opóźnienia między maszynami wirtualnymi w wirtualnej sieci równorzędnej i w tej samej sieci wirtualnej. Komunikacja równorzędna sieci wirtualnych jest obsługiwana między sieciami w tym samym regionie. Globalne wirtualne sieci równorzędne są również obsługiwane z ograniczeniami opisanymi w poniższej uwadze.  
 
 > [!IMPORTANT]
-> [W dniu 9/22/2020 ogłoszono globalne wirtualne sieci równorzędne dla nowo utworzonych klastrów wirtualnych](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Oznacza to, że globalne wirtualne sieci równorzędne są obsługiwane dla wystąpień zarządzanych SQL utworzonych w pustych podsieciach, a także dla wszystkich kolejnych wystąpień zarządzanych utworzonych w tych podsieciach. W przypadku wszystkich innych obsługi komunikacji równorzędnej usługi SQL Managed Instances jest ograniczone do sieci w tym samym regionie ze względu na [ograniczenia globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+> [W dniu 9/22/2020 ogłoszono globalne wirtualne sieci równorzędne dla nowo utworzonych klastrów wirtualnych](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Oznacza to, że globalne wirtualne sieci równorzędne są obsługiwane dla wystąpień zarządzanych SQL utworzonych w pustych podsieciach, a także dla wszystkich kolejnych wystąpień zarządzanych utworzonych w tych podsieciach. W przypadku wszystkich innych obsługi komunikacji równorzędnej usługi SQL Managed Instances jest ograniczone do sieci w tym samym regionie ze względu na [ograniczenia globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
 ## <a name="connect-from-on-premises"></a>Nawiązywanie połączenia z lokalnego 
 
@@ -71,10 +71,10 @@ Innym scenariuszem wdrożonym przez klientów jest to, że Brama sieci VPN jest 
 
 ![Komunikacja równorzędna sieci wirtualnych](./media/connect-application-instance/vnet-peering.png)
 
-Po skonfigurowaniu podstawowej infrastruktury należy zmodyfikować niektóre ustawienia, aby Brama sieci VPN widziała adresy IP w sieci wirtualnej, która hostuje wystąpienie zarządzane SQL. W tym celu wprowadź następujące bardzo szczegółowe zmiany w obszarze **ustawienia komunikacji równorzędnej**.
+Po skonfigurowaniu podstawowej infrastruktury należy zmodyfikować niektóre ustawienia, aby Brama sieci VPN widziała adresy IP w sieci wirtualnej, która hostuje wystąpienie zarządzane SQL. W tym celu wprowadź następujące bardzo szczegółowe zmiany w obszarze **ustawienia komunikacji równorzędnej** .
 
-1. W sieci wirtualnej, która hostuje bramę sieci VPN, przejdź do obszaru **komunikacji równorzędnej**, przejdź do połączenia wirtualnej sieci równorzędnej dla wystąpienia zarządzanego SQL, a następnie kliknij przycisk **Zezwalaj na tranzyt bramy**.
-2. W sieci wirtualnej, która hostuje wystąpienie zarządzane SQL, przejdź do obszaru **komunikacji równorzędnej**, przejdź do połączenia sieci wirtualnej komunikacji równorzędnej dla bramy sieci VPN, a następnie kliknij opcję **Użyj bram zdalnych**.
+1. W sieci wirtualnej, która hostuje bramę sieci VPN, przejdź do obszaru **komunikacji równorzędnej** , przejdź do połączenia wirtualnej sieci równorzędnej dla wystąpienia zarządzanego SQL, a następnie kliknij przycisk **Zezwalaj na tranzyt bramy** .
+2. W sieci wirtualnej, która hostuje wystąpienie zarządzane SQL, przejdź do obszaru **komunikacji równorzędnej** , przejdź do połączenia sieci wirtualnej komunikacji równorzędnej dla bramy sieci VPN, a następnie kliknij opcję **Użyj bram zdalnych** .
 
 ## <a name="connect-azure-app-service"></a>Połącz Azure App Service 
 
@@ -151,8 +151,8 @@ Jeśli chcesz połączyć się z wystąpieniem zarządzanym SQL, zaleca się zas
 |Sterownik JDBC| 6.4.0 |
 |Sterownik Node.js| 2.1.1 |
 |Sterownik OLEDB| 18.0.2.0 |
-|SSMS| 18,0 lub [więcej](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) lub więcej |
+|SSMS| 18,0 lub [więcej](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) lub więcej |
 
 ## <a name="next-steps"></a>Następne kroki
 

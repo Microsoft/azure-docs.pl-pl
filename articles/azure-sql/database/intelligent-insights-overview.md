@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 4f6bbbdbbee6cf83a6bea463cf200be0cf671897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6133d838fa31919a37ddd633193e5559c50de9b6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317059"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790444"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights przy użyciu AI do monitorowania i rozwiązywania problemów z wydajnością bazy danych (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -85,7 +85,7 @@ Dostępne opcje Intelligent Insights są następujące:
 
 Dane wyjściowe Intelligent Insights mogą być przesyłane strumieniowo do jednego z kilku miejsc docelowych na potrzeby analizy:
 
-- Dane wyjściowe przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być używane z [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) do wyświetlania szczegółowych informacji za pomocą interfejsu użytkownika Azure Portal. Jest to zintegrowane rozwiązanie platformy Azure i najbardziej typowy sposób wyświetlania szczegółowych informacji.
+- Dane wyjściowe przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być używane z [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) do wyświetlania szczegółowych informacji za pomocą interfejsu użytkownika Azure Portal. Jest to zintegrowane rozwiązanie platformy Azure i najbardziej typowy sposób wyświetlania szczegółowych informacji.
 - Dane wyjściowe przesyłane strumieniowo do usługi Azure Event Hubs mogą służyć do tworzenia niestandardowych scenariuszy monitorowania i zgłaszania alertów
 - Dane wyjściowe przesyłane strumieniowo do usługi Azure Storage mogą służyć do tworzenia niestandardowych aplikacji, takich jak raportowanie niestandardowe, długoterminowe archiwizowanie danych i tak dalej.
 
@@ -107,7 +107,7 @@ Poniższy przykład pokazuje Intelligent Insights oglądany przez Azure SQL Anal
 
 ### <a name="set-up-with-event-hubs"></a>Konfiguracja przy użyciu Event Hubs
 
-Aby użyć Intelligent Insights z Event Hubs, skonfiguruj dane dziennika Intelligent Insights do przesyłania strumieniowego do Event Hubs, zobacz [metryki i rejestrowanie diagnostyki](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) oraz [przesyłanie strumieniowe dzienników diagnostyki platformy Azure do Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+Aby użyć Intelligent Insights z Event Hubs, skonfiguruj dane dziennika Intelligent Insights do przesyłania strumieniowego do Event Hubs, zobacz [metryki i rejestrowanie diagnostyki](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) oraz [przesyłanie strumieniowe dzienników diagnostyki platformy Azure do Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 Aby użyć Event Hubs do konfigurowania niestandardowego monitorowania i generowania alertów, zobacz [co zrobić z metrykami i dziennikami diagnostycznymi w Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
