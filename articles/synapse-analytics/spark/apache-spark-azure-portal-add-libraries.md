@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 02f627c9f606ced7e1b0d991e5053dab17050292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826728"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737990"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics
 
@@ -58,7 +58,7 @@ Aby zainstalować biblioteki w puli platformy Spark (wersja zapoznawcza) podczas
    
 3. Przekaż plik konfiguracyjny środowiska przy użyciu selektora plików w sekcji **pakiety** na stronie. 
    
-![Dodawanie bibliotek języka Python podczas tworzenia puli](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Dodaj biblioteki języka Python")
+    ![Dodawanie bibliotek języka Python podczas tworzenia puli](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Dodaj biblioteki języka Python")
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Instalowanie pakietów z obszaru roboczego Synapse
@@ -68,11 +68,11 @@ Aby zaktualizować lub dodać dodatkowe biblioteki do puli platformy Spark (wers
    
 2.  Uruchom obszar roboczy usługi Azure Synapse Analytics z poziomu Azure Portal.
 
-3.  Wybierz pozycję **Zarządzaj** w głównym panelu nawigacyjnym, a następnie wybierz pozycję **Pule Apache Spark**.
+3.  Wybierz pozycję **Zarządzaj** w głównym panelu nawigacyjnym, a następnie wybierz pozycję **Pule Apache Spark** .
    
 4. Wybierz jedną pulę platformy Spark i Przekaż plik konfiguracyjny środowiska przy użyciu selektora plików w sekcji  **pakiety** na stronie.
 
-![Dodawanie bibliotek języka Python w programie Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png "Dodaj biblioteki języka Python")
+    ![Dodawanie bibliotek języka Python w programie Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Zainstaluj pakiety z Azure Portal
 Aby zainstalować bibliotekę w puli platformy Spark (wersja zapoznawcza) bezpośrednio z Azure Portal:
@@ -85,7 +85,7 @@ Aby zainstalować bibliotekę w puli platformy Spark (wersja zapoznawcza) bezpo�
 
  4. Przekaż plik konfiguracyjny środowiska przy użyciu selektora plików.
 
-![Zrzut ekranu, który podświetla przycisk pliku konfiguracji środowiska przekazywania.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Dodaj biblioteki języka Python")
+    ![Zrzut ekranu, który podświetla przycisk pliku konfiguracji środowiska przekazywania.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Dodaj biblioteki języka Python")
 
 ### <a name="verify-installed-libraries"></a>Weryfikowanie zainstalowanych bibliotek
 
@@ -106,13 +106,13 @@ Aby zaktualizować lub odinstalować bibliotekę:
 
 3. Przejdź do sekcji **Packages** i przekaż nowy plik konfiguracyjny środowiska
    
-4. Po zapisaniu zmian konieczne będzie zakończenie aktywnych sesji i ponowne uruchomienie puli. Opcjonalnie można wymusić zakończenie aktywnych sesji, zaznaczając pole wyboru, aby **wymusić nowe ustawienia**.
+4. Po zapisaniu zmian konieczne będzie zakończenie aktywnych sesji i ponowne uruchomienie puli. Opcjonalnie można wymusić zakończenie aktywnych sesji, zaznaczając pole wyboru, aby **wymusić nowe ustawienia** .
 
-![Dodaj biblioteki języka Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Dodaj biblioteki języka Python")
+    ![Dodaj biblioteki języka Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Dodaj biblioteki języka Python")
    
 
 > [!IMPORTANT]
-> Wybierając opcję **Wymuś nowe ustawienia**, zostaną zakończone wszystkie bieżące sesje dla wybranej puli platformy Spark. Po zakończeniu sesji należy poczekać na ponowne uruchomienie puli. 
+> Wybierając opcję **Wymuś nowe ustawienia** , zostaną zakończone wszystkie bieżące sesje dla wybranej puli platformy Spark. Po zakończeniu sesji należy poczekać na ponowne uruchomienie puli. 
 >
 > Jeśli to ustawienie nie jest zaznaczone, trzeba będzie poczekać na zakończenie bieżącej sesji platformy Spark lub zatrzymać ją ręcznie. Po zakończeniu sesji należy pozwolić na ponowne uruchomienie puli. 
 

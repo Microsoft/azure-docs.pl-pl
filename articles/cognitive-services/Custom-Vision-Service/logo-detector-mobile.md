@@ -10,13 +10,13 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b56824e386709bd330339f1f6acfd2812e040de
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150926"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737555"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Samouczek: Rozpoznawanie logo usługi platformy Azure w obrazach aparatu fotograficznego
 
@@ -56,7 +56,7 @@ Po przekazaniu obrazów treningowych wybierz pierwszy z nich na ekranie. Zostani
 
 ![Tagowanie logo w witrynie internetowej usługi Custom Vision](media/azure-logo-tutorial/tag-logos.png)
 
-Aplikacja jest skonfigurowana do pracy z określonymi ciągami tagów. Definicje znajdziesz w pliku *Source\VisualProvision\Services\Recognition\RecognitionService.cs*:
+Aplikacja jest skonfigurowana do pracy z określonymi ciągami tagów. Definicje znajdziesz w pliku *Source\VisualProvision\Services\Recognition\RecognitionService.cs* :
 
 [!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
@@ -64,7 +64,7 @@ Po otagowaniu obrazu przejdź w prawo, aby otagować następny. Po zakończeniu 
 
 ## <a name="train-the-object-detector"></a>Szkolenie detektora obiektów
 
-W okienku po lewej stronie ustaw przełącznik **Tags (Tagi)** w pozycji **Tagged (Otagowane)**, aby wyświetlić swoje obrazy. Następnie kliknij zielony przycisk w górnej części strony, aby wytrenować model. Algorytm będzie szkolić, aby rozpoznać te same Tagi w nowych obrazach. Przetestuje to również model na niektórych Twoich istniejących obrazach w celu wygenerowania ocen dokładności.
+W okienku po lewej stronie ustaw przełącznik **Tags (Tagi)** w pozycji **Tagged (Otagowane)** , aby wyświetlić swoje obrazy. Następnie kliknij zielony przycisk w górnej części strony, aby wytrenować model. Algorytm będzie szkolić, aby rozpoznać te same Tagi w nowych obrazach. Przetestuje to również model na niektórych Twoich istniejących obrazach w celu wygenerowania ocen dokładności.
 
 ![Custom Vision witrynie sieci Web na karcie obrazy szkoleniowe. Na tym zrzucie ekranu przycisk uczenia jest wyróżniony](media/azure-logo-tutorial/train-model.png)
 
@@ -80,15 +80,15 @@ Skopiuj adres URL punktu końcowego i wartość **przewidywania klucza** do odpo
 
 ## <a name="examine-custom-vision-usage"></a>Sprawdzenie użycia usługi Custom Vision
 
-Otwórz plik *Source/VisualProvision/Services/Recognition/CustomVisionService.cs*, aby zobaczyć, jak aplikacja używa Twojego klucza usługi Custom Vision i adresu URL punktu końcowego. Metoda **PredictImageContentsAsync** przyjmuje strumień bajtów pliku obrazu wraz z tokenem anulowania (do asynchronicznego zarządzania zadaniami), wywołuje interfejs API prognozowania usługi Custom Vision i zwraca wynik prognozowania. 
+Otwórz plik *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* , aby zobaczyć, jak aplikacja używa Twojego klucza usługi Custom Vision i adresu URL punktu końcowego. Metoda **PredictImageContentsAsync** przyjmuje strumień bajtów pliku obrazu wraz z tokenem anulowania (do asynchronicznego zarządzania zadaniami), wywołuje interfejs API prognozowania usługi Custom Vision i zwraca wynik prognozowania. 
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-Ten wynik przybiera postać wystąpienia **PredictionResult**, które samo zawiera listę wystąpień **prognozy**. **Prognoza** zawiera wykryty tag i lokalizację otaczającego go pola na obrazie.
+Ten wynik przybiera postać wystąpienia **PredictionResult** , które samo zawiera listę wystąpień **prognozy** . **Prognoza** zawiera wykryty tag i lokalizację otaczającego go pola na obrazie.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
-Aby dowiedzieć się więcej na temat sposobu obsługi tych danych w aplikacji, zacznij od metody **GetResourcesAsync**. Ta metoda jest zdefiniowana w pliku *Source/VisualProvision/Services/Recognition/RecognitionService.cs*.  
+Aby dowiedzieć się więcej na temat sposobu obsługi tych danych w aplikacji, zacznij od metody **GetResourcesAsync** . Ta metoda jest zdefiniowana w pliku *Source/VisualProvision/Services/Recognition/RecognitionService.cs* .  
 
 ## <a name="add-computer-vision"></a>Dodawanie usługi Computer Vision
 
@@ -132,7 +132,7 @@ Po pomyślnym zakończeniu powinny pojawić się następujące dane wyjściowe J
 }
 ```
 
-Zanotuj wartości `clientId` i `tenantId`. Dodaj je do odpowiednich pól w pliku *Source\VisualProvision\AppSettings.cs*.
+Zanotuj wartości `clientId` i `tenantId`. Dodaj je do odpowiednich pól w pliku *Source\VisualProvision\AppSettings.cs* .
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -146,15 +146,15 @@ W tym momencie został przez Ciebie udzielony aplikacji dostęp do:
 
 Wykonaj następujące kroki, aby uruchomić aplikację:
 
-1. W Eksploratorze rozwiązań programu Visual Studio wybierz projekt **VisualProvision.Android** lub projekt **VisualProvision.iOS**. Z menu rozwijanego na głównym pasku narzędzi wybierz odpowiedni emulator lub podłączone urządzenie przenośne. Następnie uruchom aplikację.
+1. W Eksploratorze rozwiązań programu Visual Studio wybierz projekt **VisualProvision.Android** lub projekt **VisualProvision.iOS** . Z menu rozwijanego na głównym pasku narzędzi wybierz odpowiedni emulator lub podłączone urządzenie przenośne. Następnie uruchom aplikację.
 
     > [!NOTE]
     > Aby uruchomić emulator systemu iOS, musisz mieć urządzenie z systemem MacOS.
 
-1. Na pierwszym ekranie wprowadź identyfikator klienta jednostki usługi, identyfikator dzierżawy i hasło. Naciśnij przycisk **Login (Zaloguj się)**.
+1. Na pierwszym ekranie wprowadź identyfikator klienta jednostki usługi, identyfikator dzierżawy i hasło. Naciśnij przycisk **Login (Zaloguj się)** .
 
     > [!NOTE]
-    > W niektórych emulatorach przycisk **Login (Zaloguj się)** może nie być uaktywniony na tym etapie. W takim przypadku zatrzymaj aplikację, otwórz plik *Source/VisualProvision/Pages/LoginPage.xaml*, znajdź element `Button` oznaczony jako **LOGIN BUTTON (PRZYCISK LOGOWANIA)**, usuń następujący wiersz, po czym ponownie uruchom aplikację.
+    > W niektórych emulatorach przycisk **Login (Zaloguj się)** może nie być uaktywniony na tym etapie. W takim przypadku zatrzymaj aplikację, otwórz plik *Source/VisualProvision/Pages/LoginPage.xaml* , znajdź element `Button` oznaczony jako **LOGIN BUTTON (PRZYCISK LOGOWANIA)** , usuń następujący wiersz, po czym ponownie uruchom aplikację.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
@@ -176,7 +176,7 @@ Wykonaj następujące kroki, aby uruchomić aplikację:
 
 Jeśli wykonasz już wszystkie kroki w tym scenariuszu i użyjesz aplikacji do wdrażania usług platformy Azure na swoim koncie, przejdź do witryny [Azure Portal](https://ms.portal.azure.com/). Anuluj tam usługi, których nie chcesz używać.
 
-Jeśli planujesz utworzenie własnego projektu wykrywania obiektu za pomocą usługi Custom Vision, możesz chcieć usunąć projekt wykrywania logo utworzony w ramach tego samouczka. Bezpłatna subskrypcja dla Custom Vision umożliwia tylko dwa projekty. Aby usunąć projekt wykrywania logo w [witrynie internetowej usługi Custom Vision](https://customvision.ai), otwórz pozycję **Projects (Projekty)**, a następnie wybierz ikonę kosza na śmieci w obszarze **My New Project (Mój nowy projekt)**.
+Jeśli planujesz utworzenie własnego projektu wykrywania obiektu za pomocą usługi Custom Vision, możesz chcieć usunąć projekt wykrywania logo utworzony w ramach tego samouczka. Bezpłatna subskrypcja dla Custom Vision umożliwia tylko dwa projekty. Aby usunąć projekt wykrywania logo w [witrynie internetowej usługi Custom Vision](https://customvision.ai), otwórz pozycję **Projects (Projekty)** , a następnie wybierz ikonę kosza na śmieci w obszarze **My New Project (Mój nowy projekt)** .
 
 ## <a name="next-steps"></a>Następne kroki
 

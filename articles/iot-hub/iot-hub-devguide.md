@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 4e380fdcd72ab21f00272536b9f08145dcb09bc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81728813"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735935"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Przewodnik dla deweloperów IoT Hub platformy Azure
 
@@ -52,7 +52,7 @@ Ten przewodnik dla deweloperów IoT Hub obejmuje następujące artykuły:
 
 * [Przekazywanie plików z urządzenia](iot-hub-devguide-file-upload.md) zawiera opis sposobu przekazywania plików z urządzenia. Artykuł zawiera również informacje dotyczące tematów, takich jak powiadomienia, które mogą być wysyłane przez proces przekazywania.
 
-* [Zarządzanie tożsamościami urządzeń w IoT Hub](iot-hub-devguide-identity-registry.md)opisuje, jakie informacje są przechowywane w rejestrze tożsamości Centrum IoT Hub. W tym artykule opisano również, jak można uzyskać dostęp i zmodyfikować go.
+* [Zarządzanie tożsamościami urządzeń w IoT Hub](iot-hub-devguide-identity-registry.md) opisuje, jakie informacje są przechowywane w rejestrze tożsamości Centrum IoT Hub. W tym artykule opisano również, jak można uzyskać dostęp i zmodyfikować go.
 
 * [Kontrola dostępu do IoT Hub](iot-hub-devguide-security.md) opisuje model zabezpieczeń używany do udzielania dostępu do IoT Hub funkcji dla urządzeń i składników w chmurze. Artykuł zawiera informacje na temat używania tokenów i certyfikatów X. 509 oraz szczegóły uprawnień, które można udzielić.
 

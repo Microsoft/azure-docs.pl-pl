@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 author: palma21
-ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6907ac659b94494472a327ff0b47e630ed89a0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570368"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735568"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -29,17 +29,17 @@ Zależności wychodzące AKS są niemal całkowicie zdefiniowane przy użyciu na
 Domyślnie klastry AKS mają nieograniczony dostęp do Internetu (ruch wychodzący). Ten poziom dostępu do sieci umożliwia uruchamianie węzłów i usług w celu uzyskania dostępu do zasobów zewnętrznych w razie potrzeby. Aby ograniczyć ruch wychodzący, należy uzyskać dostęp do nieograniczonej liczby portów i adresów, aby zachować prawidłowe zadania konserwacji klastra. Najprostszym rozwiązaniem do zabezpieczania adresów wychodzących jest użycie urządzenia zapory, które może kontrolować ruch wychodzący na podstawie nazw domen. Zapora platformy Azure może na przykład ograniczyć wychodzący ruch HTTP i HTTPS na podstawie nazwy FQDN lokalizacji docelowej. Możesz również skonfigurować preferowane reguły zapory i zabezpieczeń, aby umożliwić korzystanie z wymaganych portów i adresów.
 
 > [!IMPORTANT]
-> W tym dokumencie opisano tylko sposób blokowania ruchu wychodzącego z podsieci AKS. AKS domyślnie nie ma wymagań związanych z transferem danych przychodzących.  Blokowanie **ruchu podsieci wewnętrznej** przy użyciu sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) i zapór nie jest obsługiwane. Aby kontrolować i blokować ruch w klastrze, użyj [***zasad sieciowych***][network-policy].
+> W tym dokumencie opisano tylko sposób blokowania ruchu wychodzącego z podsieci AKS. AKS domyślnie nie ma wymagań związanych z transferem danych przychodzących.  Blokowanie **ruchu podsieci wewnętrznej** przy użyciu sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) i zapór nie jest obsługiwane. Aby kontrolować i blokować ruch w klastrze, użyj [ * *_zasad sieciowych_* _][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Wymagane reguły sieci wychodzącej i nazwy FQDN dla klastrów AKS
 
 Następujące reguły dotyczące sieci i nazwy FQDN/aplikacji są wymagane dla klastra AKS, można ich użyć, jeśli chcesz skonfigurować rozwiązanie inne niż Zapora platformy Azure.
 
-* Zależności adresów IP są związane z ruchem innym niż HTTP/S (ruch TCP i UDP)
+Wartości graniczne adresów IP dotyczą ruchu innego niż HTTP/S (ruch TCP i UDP)
 * Punkty końcowe HTTP/HTTPS w nazwie FQDN można umieścić na urządzeniu zapory.
 * Symbole wieloznaczne protokołu HTTP/HTTPS są zależnościami, które mogą się różnić w stosunku do klastra AKS w oparciu o wiele kwalifikatorów.
 * AKS korzysta z kontrolera przyjmowania, aby wstrzyknąć nazwę FQDN jako zmienną środowiskową do wszystkich wdrożeń w obszarze polecenia-system i strażnik-system, który zapewnia, że cała komunikacja systemu między węzłami i serwerem interfejsu API używa nazwy FQDN serwera interfejsu API, a nie adresu IP serwera interfejsu API. 
-* Jeśli masz aplikację lub rozwiązanie, które musi komunikować się z serwerem interfejsu API, musisz dodać **dodatkową** regułę sieci, aby umożliwić *komunikację TCP z portem 443 serwera interfejsu API*.
+* Jeśli masz aplikację lub rozwiązanie, które musi komunikować się z serwerem interfejsu API, musisz dodać **dodatkową** regułę sieci, aby umożliwić *komunikację TCP z portem 443 serwera interfejsu API* .
 * W rzadkich przypadkach, jeśli istnieje operacja konserwacji, adres IP serwera interfejsu API może ulec zmianie. Planowane operacje konserwacji, które mogą zmienić adres IP serwera interfejsu API, są zawsze przekazywane z wyprzedzeniem.
 
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: cli,portal
-ms.openlocfilehash: 8924b77cddc9efc4d2b1b8451df38de77b37c09c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cli,portal, devx-track-azurecli
+ms.openlocfilehash: 07088ebfa5fde4c3c790bd554c1eba8d6844b7d1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267364"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736068"
 ---
 # <a name="find-your-azure-subscription"></a>Znajdowanie subskrypcji platformy Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "89267364"
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
 1. W obszarze nagłówek usług platformy Azure wybierz pozycję subskrypcje. (Jeśli na liście nie ma żadnych subskrypcji, może być konieczne przełączenie dzierżawców usługi Azure AD). Identyfikatory subskrypcji są wymienione w drugiej kolumnie.
 1. Skopiuj identyfikator subskrypcji i wklej go do wybranego dokumentu tekstowego do użycia później.
 
@@ -45,7 +45,7 @@ ms.locfileid: "89267364"
 
 [!INCLUDE [List your Azure subscriptions with CLI](./includes/task-list-set-subscription-cli.md)]
 
-### <a name="see-also"></a>Zobacz też
+### <a name="see-also"></a>Zobacz także
 
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/ams?view=azure-cli-latest)
 

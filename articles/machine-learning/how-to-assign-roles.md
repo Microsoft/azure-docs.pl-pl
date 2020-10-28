@@ -10,13 +10,13 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
-ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, seodec18, devx-track-azurecli
+ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425648"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736610"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
 
@@ -45,7 +45,7 @@ Jeśli jesteś właścicielem obszaru roboczego, możesz dodawać i usuwać role
 - [Program PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Interfejs wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
 - [Interfejs API REST](/azure/role-based-access-control/role-assignments-rest)
-- [Szablony usługi Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
+- [Szablony Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
 
 Jeśli zainstalowano [interfejs wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md), do przypisywania ról użytkownikom można używać poleceń CLI:
 
@@ -173,7 +173,7 @@ Obecnie nie publikujemy [wbudowanych ról platformy Azure](/azure/role-based-acc
 
 Tak tutaj są niektóre typowe scenariusze z niestandardowymi, proponowanymi definicjami ról, których można użyć jako podstawy do definiowania własnych ról niestandardowych:
 
-* __Niestandardowa analityk danych__: umożliwia analitykowi danych wykonywanie wszystkich operacji w obszarze roboczym **z wyjątkiem**:
+* __Niestandardowa analityk danych__ : umożliwia analitykowi danych wykonywanie wszystkich operacji w obszarze roboczym **z wyjątkiem** :
 
     * Tworzenie obliczeń
     * Wdrażanie modeli w środowisku produkcyjnym AKS
@@ -209,7 +209,7 @@ Tak tutaj są niektóre typowe scenariusze z niestandardowymi, proponowanymi def
     }
     ```
 
-* __Niestandardowa analityk danych z ograniczeniami__: bardziej ograniczoną definicją roli bez symboli wieloznacznych w dozwolonych akcjach. Może wykonywać wszystkie operacje w obszarze roboczym, **z wyjątkiem**:
+* __Niestandardowa analityk danych z ograniczeniami__ : bardziej ograniczoną definicją roli bez symboli wieloznacznych w dozwolonych akcjach. Może wykonywać wszystkie operacje w obszarze roboczym, **z wyjątkiem** :
 
     * Tworzenie obliczeń
     * Wdrażanie modeli w środowisku produkcyjnym AKS
@@ -270,7 +270,7 @@ Tak tutaj są niektóre typowe scenariusze z niestandardowymi, proponowanymi def
     }
     ```
      
-* __Niestandardowa Analityka danych MLflow__: umożliwia analitykowi danych wykonywanie wszystkich operacji obsługiwanych przez analityka MLflow, **z wyjątkiem**:
+* __Niestandardowa Analityka danych MLflow__ : umożliwia analitykowi danych wykonywanie wszystkich operacji obsługiwanych przez analityka MLflow, **z wyjątkiem** :
 
    * Tworzenie obliczeń
    * Wdrażanie modeli w środowisku produkcyjnym AKS
@@ -310,7 +310,7 @@ Tak tutaj są niektóre typowe scenariusze z niestandardowymi, proponowanymi def
     }
     ```   
 
-* __MLOps niestandardowy__: umożliwia przypisanie roli do jednostki usługi i używanie jej do automatyzowania potoków MLOps. Na przykład, aby przesłać przebiegi z już opublikowanym potokiem:
+* __MLOps niestandardowy__ : umożliwia przypisanie roli do jednostki usługi i używanie jej do automatyzowania potoków MLOps. Na przykład, aby przesłać przebiegi z już opublikowanym potokiem:
 
     `mlops_custom_role.json` :
     ```json
@@ -351,7 +351,7 @@ Tak tutaj są niektóre typowe scenariusze z niestandardowymi, proponowanymi def
     }
     ```
 
-* __Administrator obszaru roboczego__: umożliwia wykonywanie wszystkich operacji w zakresie obszaru roboczego, **z wyjątkiem**:
+* __Administrator obszaru roboczego__ : umożliwia wykonywanie wszystkich operacji w zakresie obszaru roboczego, **z wyjątkiem** :
 
     * Tworzenie nowego obszaru roboczego
     * Przypisywanie przydziałów poziomu subskrypcji lub obszaru roboczego
@@ -381,7 +381,7 @@ Tak tutaj są niektóre typowe scenariusze z niestandardowymi, proponowanymi def
     ```
 
 <a name="labeler"></a>
-* __Labeler niestandardowy__: umożliwia zdefiniowanie roli w zakresie tylko do etykietowania danych:
+* __Labeler niestandardowy__ : umożliwia zdefiniowanie roli w zakresie tylko do etykietowania danych:
 
     `labeler_custom_role.json` :
     ```json

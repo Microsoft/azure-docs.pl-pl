@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: b144d49daf9ab89a4553b93e3b36c9c2c8bef9ca
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 9a71a45f69f7a2bd2fbc198292526a6928e421a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521328"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735992"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play, które jest połączone z rozwiązaniem (Node.js)
 
@@ -69,8 +69,8 @@ W tym przewodniku szybki start użyto przykładowego urządzenia z termostatem, 
 
 W obszarze [Konfigurowanie środowiska dla usługi IoT Plug and Play Przewodniki Szybki Start i samouczki](set-up-environment.md) zostały utworzone dwie zmienne środowiskowe w celu skonfigurowania przykładu w celu połączenia z Centrum IoT i urządzeniem:
 
-* **IOTHUB_CONNECTION_STRING**: parametry połączenia usługi IoT Hub, dla których wykonano wcześniej adnotację.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"` .
+* **IOTHUB_CONNECTION_STRING** : parametry połączenia usługi IoT Hub, dla których wykonano wcześniej adnotację.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"` .
 
 W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w Node.js, aby móc korzystać z przykładowego urządzenia.
 
@@ -164,7 +164,7 @@ W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w Node.j
 W tym scenariuszu dane wyjściowe `Model Id: dtmi:com:example:Thermostat;1` .
 
 > [!NOTE]
-> Te przykłady usługi używają klasy **Registry** z **klienta usługi IoT Hub**. Aby dowiedzieć się więcej na temat interfejsów API, w tym Digital bliźniaczych reprezentacji API, zobacz [Przewodnik dla deweloperów usług](concepts-developer-guide-service.md).
+> Te przykłady usługi używają klasy **Registry** z **klienta usługi IoT Hub** . Aby dowiedzieć się więcej na temat interfejsów API, w tym Digital bliźniaczych reprezentacji API, zobacz [Przewodnik dla deweloperów usług](concepts-developer-guide-service.md).
 
 ### <a name="update-a-writable-property"></a>Aktualizowanie właściwości z możliwością zapisu
 

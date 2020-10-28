@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287940"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735615"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager dysk testowy
 
@@ -35,6 +35,9 @@ Szablon wdrożenia zawiera wszystkie zasoby platformy Azure, które składają s
   - **Zimne** — ten typ wystąpienia reprezentuje łączną liczbę wystąpień, które mogą być wdrożone w poszczególnych regionach. Zimne wystąpienia wymagają, aby cały dysk testowy Menedżer zasobów szablon do wdrożenia, gdy klient zażąda dysku testowego, więc *zimne* wystąpienia są znacznie wolniejsze, aby można było ładować je od *aktywnych* wystąpień. Wadą jest to, że musisz tylko uregulować czas trwania testu, ale *nie* zawsze działa w ramach subskrypcji platformy Azure, tak jak w przypadku wystąpienia *aktywnego* .
 
 - **Test Azure Resource Manager szablonu** — Przekaż plik zip zawierający szablon Azure Resource Manager. Dowiedz się więcej o tworzeniu szablonu Azure Resource Manager w artykule Szybki Start [Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+
+    > [!note]
+    > Aby opublikować pomyślnie, należy sprawdzić poprawność formatowania szablonu ARM. Dwa sposoby to zrobić (1) za pomocą [Narzędzia API online](https://docs.microsoft.com/rest/api/resources/deployments/validate) lub (2) z [wdrożeniem testowym](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
 
 - **Czas trwania dysku testowego** (wymagane) — wprowadź liczbę godzin aktywności dysku testowego. Po upływie tego czasu test kończy się automatycznie. Używaj tylko liczb całkowitych (na przykład godziny "2" są prawidłowe, "1,5" nie jest).
 
@@ -72,10 +75,10 @@ Możesz użyć dowolnej prawidłowej nazwy dla parametrów; Test Drive rozpoznaj
 
 | Typ metadanych   | Typ parametru  | Opis     | Przykładowa wartość    |
 |---|---|---|---|
-| **baseUri**     | ciąg          | Podstawowy identyfikator URI pakietu wdrożeniowego| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **uż**    | ciąg          | Nowa losowa nazwa użytkownika.| admin68876      |
+| **baseUri**     | string          | Podstawowy identyfikator URI pakietu wdrożeniowego| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **uż**    | string          | Nowa losowa nazwa użytkownika.| admin68876      |
 | **hasło**    | ciąg zabezpieczony    | Nowe hasło losowe | LP! \^ 2KH ACS     |
-| **Identyfikator sesji**   | ciąg          | Identyfikator sesji unikatowego dysku testowego (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **Identyfikator sesji**   | string          | Identyfikator sesji unikatowego dysku testowego (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseUri
 
@@ -293,11 +296,11 @@ Ostatnia sekcja do ukończenia polega na automatycznym wdrożeniu dysków testow
 
 ![Szczegóły subskrypcji wdrożenia dysku testowego](media/test-drive/deployment-subscription-details.png)
 
-1. Uzyskaj **Identyfikator subskrypcji platformy Azure**. Pozwala to na dostęp do usług platformy Azure i Azure Portal. Subskrypcja polega na tym, że raportowane jest użycie zasobów, a usługi są rozliczane. Jeśli nie masz jeszcze oddzielnej subskrypcji platformy Azure dla dysków testowych, utwórz ją. Identyfikatory subskrypcji platformy Azure (np `1a83645ac-1234-5ab6-6789-1h234g764ghty1` .) można znaleźć, logując się do Azure Portal i wybierając **subskrypcje** z menu po lewej stronie.
+1. Uzyskaj **Identyfikator subskrypcji platformy Azure** . Pozwala to na dostęp do usług platformy Azure i Azure Portal. Subskrypcja polega na tym, że raportowane jest użycie zasobów, a usługi są rozliczane. Jeśli nie masz jeszcze oddzielnej subskrypcji platformy Azure dla dysków testowych, utwórz ją. Identyfikatory subskrypcji platformy Azure (np `1a83645ac-1234-5ab6-6789-1h234g764ghty1` .) można znaleźć, logując się do Azure Portal i wybierając **subskrypcje** z menu po lewej stronie.
 
    ![Subskrypcje platformy Azure](media/test-drive/azure-subscriptions.png)
 
-2. Uzyskaj **Identyfikator dzierżawy usługi Azure AD**. Jeśli masz już dostępny identyfikator dzierżawy, możesz go znaleźć w **Azure Active Directory**  >  **Właściwości**  >  **katalogu**:
+2. Uzyskaj **Identyfikator dzierżawy usługi Azure AD** . Jeśli masz już dostępny identyfikator dzierżawy, możesz go znaleźć w **Azure Active Directory**  >  **Właściwości**  >  **katalogu** :
 
    ![Właściwości Azure Active Directory](media/test-drive/azure-active-directory-properties.png)
 
@@ -306,14 +309,14 @@ Ostatnia sekcja do ukończenia polega na automatycznym wdrożeniu dysków testow
 3. **Identyfikator aplikacja usługi Azure AD** — Utwórz i zarejestruj nową aplikację. Ta aplikacja zostanie użyta do wykonania operacji w wystąpieniu dysku testowego.
 
    1. Przejdź do nowo utworzonego katalogu lub już istniejącego katalogu i wybierz Azure Active Directory w okienku filtru.
-   2. Wyszukaj **rejestracje aplikacji** i wybierz pozycję **Dodaj**.
+   2. Wyszukaj **rejestracje aplikacji** i wybierz pozycję **Dodaj** .
    3. Podaj nazwę aplikacji.
-   4. Wybierz **Typ** **aplikacji sieci Web/interfejsu API**.
+   4. Wybierz **Typ** **aplikacji sieci Web/interfejsu API** .
    5. Podaj dowolną wartość w adresie URL logowania, to pole nie jest używane.
-   6. Wybierz przycisk **Utwórz**.
-   7. Po utworzeniu aplikacji wybierz pozycję **Właściwości**  >  **Ustaw aplikację jako wiele dzierżawców** , a następnie **Zapisz**.
+   6. Wybierz pozycję **Utwórz** .
+   7. Po utworzeniu aplikacji wybierz pozycję **Właściwości**  >  **Ustaw aplikację jako wiele dzierżawców** , a następnie **Zapisz** .
 
-4. Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **Zapisz** .
 
 5. Skopiuj identyfikator aplikacji dla tej zarejestrowanej aplikacji i wklej go w polu Testuj dysk.
 
@@ -323,7 +326,7 @@ Ostatnia sekcja do ukończenia polega na automatycznym wdrożeniu dysków testow
 
    1. Wybierz typ **subskrypcji** , która jest używana dla dysku testowego.
    1. Wybierz pozycję **Kontrola dostępu (IAM)** .
-   1. Wybierz kartę **przypisania ról** , a następnie pozycję **Dodaj przypisanie roli**.
+   1. Wybierz kartę **przypisania ról** , a następnie pozycję **Dodaj przypisanie roli** .
 
       ![Dodawanie nowego podmiotu Access Control](media/test-drive/access-control-principal.jpg)
 
@@ -331,9 +334,9 @@ Ostatnia sekcja do ukończenia polega na automatycznym wdrożeniu dysków testow
 
       ![Dodaj uprawnienia](media/test-drive/access-control-permissions.jpg)
 
-   1. Wybierz pozycję **Zapisz**.
+   1. Wybierz pozycję **Zapisz** .
 
-7. Wygeneruj klucz uwierzytelniania **aplikacja usługi Azure AD** . W obszarze **klucze**Dodaj **Opis klucza**, ustaw czas trwania **nigdy nie wygasa** (klucz, który wygasł, spowoduje przerwanie pracy w środowisku produkcyjnym), a następnie wybierz pozycję **Zapisz**. Skopiuj tę wartość i wklej ją do wymaganego pola Test Drive.
+7. Wygeneruj klucz uwierzytelniania **aplikacja usługi Azure AD** . W obszarze **klucze** Dodaj **Opis klucza** , ustaw czas trwania **nigdy nie wygasa** (klucz, który wygasł, spowoduje przerwanie pracy w środowisku produkcyjnym), a następnie wybierz pozycję **Zapisz** . Skopiuj tę wartość i wklej ją do wymaganego pola Test Drive.
 
 ![Pokazuje klucze aplikacji usługi Azure AD](media/test-drive/azure-ad-app-keys.png)
 
@@ -345,11 +348,11 @@ Teraz, po zakończeniu wszystkich pól testowych, należy **ponownie opublikowa�
 1. Otwórz subskrypcję platformy Azure w ramach Azure Portal.
 1. Sprawdź, czy twój dysk testowy jest poprawnie wdrażany.
 
-   ![Azure Portal](media/test-drive/azure-portal.png)
+   ![Witryna Azure Portal](media/test-drive/azure-portal.png)
 
 Nie usuwaj żadnych wystąpień testowych, dla których Zainicjowano obsługę klientów; Usługa dysku testowego automatycznie czyści te grupy zasobów po zakończeniu działania klienta.
 
-Gdy będziesz mieć doświadczenie z ofertą wersji zapoznawczej, **przejdziesz na żywo**. Istnieje ostateczny proces przeglądu, który umożliwia podwójne sprawdzenie całego środowiska kompleksowego. Jeśli odrzucimy ofertę, wyślemy wiadomość e-mail z zespołem inżynieryjnym dotyczącym oferty wyjaśniającej, co należy naprawić.
+Gdy będziesz mieć doświadczenie z ofertą wersji zapoznawczej, **przejdziesz na żywo** . Istnieje ostateczny proces przeglądu, który umożliwia podwójne sprawdzenie całego środowiska kompleksowego. Jeśli odrzucimy ofertę, wyślemy wiadomość e-mail z zespołem inżynieryjnym dotyczącym oferty wyjaśniającej, co należy naprawić.
 
 ## <a name="next-steps"></a>Następne kroki
 

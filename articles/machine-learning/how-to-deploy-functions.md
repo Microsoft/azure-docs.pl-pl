@@ -10,13 +10,13 @@ author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
-ms.custom: how-to, racking-python
-ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, racking-python, devx-track-azurecli
+ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567455"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736561"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Wdróż model uczenia maszynowego w Azure Functions (wersja zapoznawcza)
 
@@ -47,7 +47,7 @@ Za pomocą Azure Machine Learning można tworzyć obrazy platformy Docker z prze
 
 Przed wdrożeniem należy zdefiniować, co jest potrzebne do uruchomienia modelu jako usługi sieci Web. Na poniższej liście opisano podstawowe elementy, które są związane z wdrożeniem:
 
-* __Skrypt wejściowy__. Ten skrypt akceptuje żądania, ocenia żądanie przy użyciu modelu i zwraca wyniki.
+* __Skrypt wejściowy__ . Ten skrypt akceptuje żądania, ocenia żądanie przy użyciu modelu i zwraca wyniki.
 
     > [!IMPORTANT]
     > Skrypt wejścia jest specyficzny dla modelu; musi on zrozumieć format danych żądania przychodzącego, format danych oczekiwanych przez model i format danych zwracanych do klientów.
@@ -58,9 +58,9 @@ Przed wdrożeniem należy zdefiniować, co jest potrzebne do uruchomienia modelu
 
 Aby uzyskać więcej informacji na temat skryptu wprowadzania, zobacz [Definiowanie oceniania kodu](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
 
-* **Zależności**, takie jak skrypty pomocnika lub pakiety Python/Conda wymagane do uruchomienia skryptu lub modelu wprowadzania
+* **Zależności** , takie jak skrypty pomocnika lub pakiety Python/Conda wymagane do uruchomienia skryptu lub modelu wprowadzania
 
-Te jednostki są hermetyzowane w __konfiguracji wnioskowania__. Konfiguracja wnioskowania przywołuje skrypt wejściowy i inne zależności.
+Te jednostki są hermetyzowane w __konfiguracji wnioskowania__ . Konfiguracja wnioskowania przywołuje skrypt wejściowy i inne zależności.
 
 > [!IMPORTANT]
 > Podczas tworzenia konfiguracji wnioskowania do użytku z Azure Functions należy użyć obiektu [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) . Należy pamiętać, że w przypadku definiowania środowiska niestandardowego należy dodać polecenie "Azure-default" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Poniższy przykład ilustruje tworzenie obiektu środowiska i używanie go z konfiguracją wnioskowania:
@@ -84,7 +84,7 @@ Aby uzyskać więcej informacji o środowiskach, zobacz [Tworzenie środowisk i 
 Aby uzyskać więcej informacji na temat konfiguracji wnioskowania, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Podczas wdrażania w usłudze Functions nie trzeba tworzyć __konfiguracji wdrożenia__.
+> Podczas wdrażania w usłudze Functions nie trzeba tworzyć __konfiguracji wdrożenia__ .
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Zainstaluj pakiet SDK wersji zapoznawczej dla obsługi funkcji
 
@@ -144,7 +144,7 @@ Gdy `show_output=True` są wyświetlane dane wyjściowe procesu kompilacji platf
     }
     ```
 
-    Zapisz wartość dla __nazwy użytkownika__ i jednego z __haseł__.
+    Zapisz wartość dla __nazwy użytkownika__ i jednego z __haseł__ .
 
 1. Jeśli nie masz jeszcze grupy zasobów lub planu usługi App Service do wdrożenia usługi, następujące polecenia pokazują, jak utworzyć obie:
 

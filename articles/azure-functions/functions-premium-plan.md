@@ -8,12 +8,13 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+- devx-track-azurecli
+ms.openlocfilehash: 7efcff5709995898a6ec950dfea6450f7e0dd48d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490751"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736810"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Azure Functions Premium
 
@@ -47,14 +48,14 @@ W planie Premium aplikacja zawsze będzie gotowa na określoną liczbę wystąpi
 > [!NOTE]
 > Każdy plan Premium będzie miał co najmniej jedno aktywne (rozliczane) wystąpienie przez cały czas.
 
-Liczbę zawsze przygotowanych wystąpień można skonfigurować w Azure Portal przez wybranie **aplikacja funkcji**, przejście na kartę **funkcje platformy** i wybranie opcji **skalowania w poziomie** . W oknie Edycja aplikacji funkcji zawsze gotowe wystąpienia są specyficzne dla tej aplikacji.
+Liczbę zawsze przygotowanych wystąpień można skonfigurować w Azure Portal przez wybranie **aplikacja funkcji** , przejście na kartę **funkcje platformy** i wybranie opcji **skalowania w poziomie** . W oknie Edycja aplikacji funkcji zawsze gotowe wystąpienia są specyficzne dla tej aplikacji.
 
 ![Ustawienia skalowania elastycznego](./media/functions-premium-plan/scale-out.png)
 
 Możesz również skonfigurować zawsze gotowe wystąpienia dla aplikacji za pomocą interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="pre-warmed-instances"></a>Wystąpienia przed wystąpieniem
@@ -68,7 +69,7 @@ Po powrocie pierwszego wyzwalacza, pięć zawsze gotowych wystąpień staje się
 Liczbę wstępnie rozgrzanych wystąpień aplikacji można zmodyfikować przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="maximum-instances-for-an-app"></a>Maksymalna liczba wystąpień aplikacji
@@ -99,7 +100,7 @@ Podczas tworzenia planu dostępne są dwa ustawienia rozmiaru planu: minimalna l
 
 Jeśli aplikacja wymaga wystąpień poza zawsze gotowymi wystąpieniami, można nadal skalować w poziomie, dopóki liczba wystąpień osiągnie maksymalny limit.  Opłaty są naliczane za wystąpienia poza rozmiarem planu, tylko wtedy, gdy są uruchomione i przyliczane do Ciebie, co sekundę.  W celu skalowania aplikacji do zdefiniowanego maksymalnego limitu zostanie osiągnięty najlepszy nakład pracy.
 
-Rozmiar planu i maksymalne wartości można skonfigurować w Azure Portal, wybierając opcje **skalowania w poziomie** w ramach planu lub aplikacji funkcji wdrożonej w ramach tego planu (w obszarze **funkcje platformy**).
+Rozmiar planu i maksymalne wartości można skonfigurować w Azure Portal, wybierając opcje **skalowania w poziomie** w ramach planu lub aplikacji funkcji wdrożonej w ramach tego planu (w obszarze **funkcje platformy** ).
 
 Możesz również zwiększyć maksymalny limit obciążeń z poziomu interfejsu wiersza polecenia platformy Azure:
 
@@ -122,7 +123,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 ### <a name="available-instance-skus"></a>Dostępne jednostki SKU wystąpienia
 
-Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień.  Opłaty są naliczane za łączną liczbę rdzeni i pamięci, która została przypisana do każdego wystąpienia.  Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.  
+Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień.  Opłaty są naliczane za łączną liczbę rdzeni i pamięci, która została przypisana do każdego wystąpienia.  Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.
 
 |Jednostka SKU|Rdzenie|Pamięć|Magazyn|
 |--|--|--|--|
@@ -149,7 +150,7 @@ Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](h
 |Australia Południowo-Wschodnia | 100 | 20 |
 |Brazil South| 100 | 20 |
 |Kanada Środkowa| 100 | 20 |
-|Central US| 100 | 20 |
+|Środkowe stany USA| 100 | 20 |
 |Chiny Wschodnie 2| 100 | 20 |
 |Chiny Północne 2| 100 | 20 |
 |Azja Wschodnia| 100 | 20 |
@@ -157,7 +158,7 @@ Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](h
 |Wschodnie stany USA 2| 100 | 20 |
 |Francja Środkowa| 100 | 20 |
 |Niemcy Środkowo-Zachodnie| 100 | Niedostępny |
-|Japonia Wschodnia| 100 | 20 |
+|Japan East| 100 | 20 |
 |Japonia Zachodnia| 100 | 20 |
 |Korea Środkowa| 100 | 20 |
 |Korea Południowa| Niedostępny | 20 |

@@ -7,14 +7,14 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: fdfa8c767757aa17983a28d0d586698551326fe4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545331"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735970"
 ---
-# <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>Tworzenie pamięci podręcznej platformy Azure dla usługi Redis przy użyciu szablonu ARM
+# <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Szybki Start: tworzenie pamięci podręcznej platformy Azure dla usługi Redis przy użyciu szablonu ARM
 
 Dowiedz się, jak utworzyć szablon Azure Resource Manager (szablon ARM), który wdraża pamięć podręczną platformy Azure dla Redis. Pamięć podręczna może być używana z istniejącym kontem magazynu w celu przechowywania danych diagnostycznych. Dowiesz się również, jak definiować wdrożone zasoby i jak definiować parametry, które są określone podczas wdrażania. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb. Obecnie ustawienia diagnostyczne są udostępniane dla wszystkich pamięci podręcznych w tym samym regionie dla subskrypcji. Aktualizacja jednej pamięci podręcznej w regionie ma wpływ na wszystkie inne pamięci podręczne w regionie.
 
@@ -66,7 +66,7 @@ Aby sprawdzić dostępność najnowszych szablonów, zobacz [Szablony szybkiego 
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
 1. Otwórz utworzoną pamięć podręczną Redis.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

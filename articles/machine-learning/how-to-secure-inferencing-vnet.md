@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
+ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496019"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735473"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska Azure Machine Learning inferencing z sieciami wirtualnymi
 
@@ -68,7 +68,7 @@ Aby dodać AKS w sieci wirtualnej do obszaru roboczego, wykonaj następujące cz
 
 1. Wybierz z centrum pozycję __klastry wnioskowania__ , a następnie wybierz pozycję __+__ .
 
-1. W oknie dialogowym __nowy klaster wnioskowania__ wybierz pozycję __Zaawansowane__ w obszarze __Konfiguracja sieci__.
+1. W oknie dialogowym __nowy klaster wnioskowania__ wybierz pozycję __Zaawansowane__ w obszarze __Konfiguracja sieci__ .
 
 1. Aby skonfigurować ten zasób obliczeniowy do korzystania z sieci wirtualnej, wykonaj następujące czynności:
 
@@ -119,8 +119,8 @@ Po zakończeniu procesu tworzenia można uruchomić wnioskowanie lub ocenianie m
 
 Istnieją dwa podejścia do izolowania ruchu do i z klastra AKS do sieci wirtualnej:
 
-* __Prywatny klaster AKS__: to podejście używa prywatnego linku platformy Azure do zabezpieczania komunikacji z klastrem na potrzeby operacji wdrażania i zarządzania.
-* __Wewnętrzny moduł równoważenia obciążenia AKS__: to podejście służy do konfigurowania punktu końcowego dla wdrożeń do AKS w celu korzystania z prywatnego adresu IP w ramach sieci wirtualnej.
+* __Prywatny klaster AKS__ : to podejście używa prywatnego linku platformy Azure do zabezpieczania komunikacji z klastrem na potrzeby operacji wdrażania i zarządzania.
+* __Wewnętrzny moduł równoważenia obciążenia AKS__ : to podejście służy do konfigurowania punktu końcowego dla wdrożeń do AKS w celu korzystania z prywatnego adresu IP w ramach sieci wirtualnej.
 
 > [!WARNING]
 > Wewnętrzny moduł równoważenia obciążenia nie działa z klastrem AKS, który korzysta z korzystającą wtyczki kubenet. Jeśli chcesz użyć wewnętrznego modułu równoważenia obciążenia i prywatnego klastra AKS w tym samym czasie, skonfiguruj prywatny klaster AKS za pomocą interfejsu Azure Container Network Interface (CNI). Aby uzyskać więcej informacji, zobacz [Konfigurowanie sieci Azure CNI w usłudze Azure Kubernetes Service](../aks/configure-azure-cni.md).
@@ -138,7 +138,7 @@ Po utworzeniu prywatnego klastra AKS [Dołącz klaster do sieci wirtualnej](how-
 
 Domyślnie wdrożenia AKS używają [publicznego modułu równoważenia obciążenia](../aks/load-balancer-standard.md). W tej sekcji dowiesz się, jak skonfigurować AKS do korzystania z wewnętrznego modułu równoważenia obciążenia. Używany jest wewnętrzny (lub prywatny) moduł równoważenia obciążenia, w przypadku którego jako frontonu można używać tylko prywatnych adresów IP. Wewnętrzne moduły równoważenia obciążenia są używane do równoważenia obciążenia ruchu w sieci wirtualnej
 
-Prywatny moduł równoważenia obciążenia jest włączony przez skonfigurowanie AKS do korzystania z _wewnętrznego modułu równoważenia obciążenia_. 
+Prywatny moduł równoważenia obciążenia jest włączony przez skonfigurowanie AKS do korzystania z _wewnętrznego modułu równoważenia obciążenia_ . 
 
 #### <a name="network-contributor-role"></a>Rola współautor sieci
 
@@ -147,7 +147,7 @@ Prywatny moduł równoważenia obciążenia jest włączony przez skonfigurowani
 >
 > Aby dodać tożsamość jako współautor sieci, wykonaj następujące czynności:
 
-1. Aby znaleźć nazwę główną usługi lub identyfikator tożsamości zarządzanej dla AKS, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure. Zamień `<aks-cluster-name>` na nazwę klastra. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _klaster AKS_:
+1. Aby znaleźć nazwę główną usługi lub identyfikator tożsamości zarządzanej dla AKS, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure. Zamień `<aks-cluster-name>` na nazwę klastra. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _klaster AKS_ :
 
     ```azurecli-interactive
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
@@ -159,7 +159,7 @@ Prywatny moduł równoważenia obciążenia jest włączony przez skonfigurowani
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
     ```
 
-1. Aby znaleźć identyfikator grupy zasobów zawierającej daną sieć wirtualną, użyj następującego polecenia. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _sieć wirtualną_:
+1. Aby znaleźć identyfikator grupy zasobów zawierającej daną sieć wirtualną, użyj następującego polecenia. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _sieć wirtualną_ :
 
     ```azurecli-interactive
     az group show -n <resource-group-name> --query id

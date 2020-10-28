@@ -4,19 +4,19 @@ description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure s�
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: security
+ms.custom: security, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 6791691be976e541c6400e89dde8f892fe50c6dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3df43af03fd536dfe50733bb6e10ff43d9f54834
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336177"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737102"
 ---
 # <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Użyj interfejsu wiersza polecenia, aby skonfigurować inspekcję SQL Database i zaawansowaną ochronę przed zagrożeniami
 
@@ -26,7 +26,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

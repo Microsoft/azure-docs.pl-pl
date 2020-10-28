@@ -9,23 +9,23 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c5fa326fa05a34ae5b51054b867a766489b85c16
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670707"
+ms.locfileid: "92737838"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB za pomocą puli SQL bezserwerowej w usłudze Azure Synapse link (wersja zapoznawcza)
 
-Synapse bezserwerowa Pula SQL (wcześniej SQL na żądanie) umożliwia analizowanie danych w kontenerach Azure Cosmos DB, które są włączone za pomocą [usługi Azure Synapse link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) niemal w czasie rzeczywistym bez wpływu na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z [magazynu analitycznego](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL.
+Synapse bezserwerowa Pula SQL umożliwia analizowanie danych w kontenerach Azure Cosmos DB, które są włączone za pomocą [usługi Azure Synapse link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) niemal w czasie rzeczywistym bez wpływu na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z [magazynu analitycznego](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL.
 
 Do wykonywania zapytań w Azure Cosmos DB [, pełny obszar](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) powierzchni jest obsługiwany przez funkcję [OPENROWSET](develop-openrowset.md) , łącznie z większością [funkcji i operatorów SQL](overview-features.md). Możesz również przechowywać wyniki zapytania, które odczytuje dane z Azure Cosmos DB wraz z danymi na platformie Azure Blob Storage lub Azure Data Lake Storage za pomocą polecenia [Utwórz tabelę zewnętrzną jako wybraną](develop-tables-cetas.md#cetas-in-sql-on-demand). Obecnie nie można przechowywać wyników zapytania puli SQL bezserwerowej w celu Azure Cosmos DB przy użyciu [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 W tym artykule dowiesz się, jak napisać zapytanie z pulą SQL bezserwerową, która będzie wysyłać zapytania do danych z Azure Cosmos DB kontenerów z włączonym łączem Synapse. Następnie można dowiedzieć się więcej o tworzeniu widoków puli SQL bezserwerowych za pośrednictwem kontenerów Azure Cosmos DB i łączeniu ich z modelami Power BI w [tym](./tutorial-data-analyst.md) samouczku. 
 
 > [!IMPORTANT]
-> W tym samouczku jest używane kontener [Azure Cosmos DB z dobrze zdefiniowanym schematem](../../cosmos-db/analytical-store-introduction.md#schema-representation) , który zapewnia obsługę zapytań, które będą obsługiwane w przyszłości. W zapytaniu niezależnym od serwera Pula SQL zapewnia [Azure Cosmos DB schemat pełnej wierności](#full-fidelity-schema) , który zostanie zmieniony na podstawie opinii o wersji zapoznawczej. Nie należy polegać na schemacie `OPENROWSET` zapewnianym przez funkcję w przypadku kontenerów z pełną dokładnością w publicznej wersji zapoznawczej, ponieważ zapytanie experinece może zostać zmienione i wyrównane z dobrze zdefiniowanym schematem. Skontaktuj się z [zespołem produktu Synapse link](mailto:cosmosdbsynapselink@microsoft.com) , aby przekazać opinię.
+> W tym samouczku jest stosowany kontener ze [zdefiniowanym schematem Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). W zapytaniu niezależnym od serwera Pula SQL zapewnia [Azure Cosmos DB schemat pełnej wierności](#full-fidelity-schema) , który zostanie zmieniony na podstawie opinii o wersji zapoznawczej. Nie należy polegać na schemacie zestawu wyników `OPENROWSET` funkcji bez `WITH` klauzuli, która odczytuje dane z kontenera z pełnym schematem wierności, ponieważ środowisko zapytania może zostać zmienione i wyrównane z dobrze zdefiniowanym schematem. Opublikuj swoją opinię na [forum opinii usługi Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics) lub skontaktuj się z [zespołem produktu](mailto:cosmosdbsynapselink@microsoft.com) , aby uzyskać opinię.
 
 ## <a name="overview"></a>Omówienie
 
@@ -76,7 +76,15 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-W powyższym przykładzie poinstruujemy bezserwerową pulę SQL, aby połączyć się z `covid` bazą danych w ramach konta usługi Azure Cosmos DB `MyCosmosDbAccount` uwierzytelnionego przy użyciu klucza Azure Cosmos dB (fikcyjny w powyższym przykładzie). Następnie uzyskujemy dostęp do `EcdcCases` magazynu analitycznego kontenera w `West US 2` regionie. Ponieważ nie ma projekcji określonych właściwości, `OPENROWSET` funkcja zwróci wszystkie właściwości z Azure Cosmos DB elementów.
+W powyższym przykładzie poinstruujemy bezserwerową pulę SQL, aby połączyć się z `covid` bazą danych w ramach konta usługi Azure Cosmos DB `MyCosmosDbAccount` uwierzytelnionego przy użyciu klucza Azure Cosmos dB (fikcyjny w powyższym przykładzie). Następnie uzyskujemy dostęp do `EcdcCases` magazynu analitycznego kontenera w `West US 2` regionie. Ponieważ nie ma projekcji określonych właściwości, `OPENROWSET` funkcja zwróci wszystkie właściwości z Azure Cosmos DB elementów. 
+
+W założeniu, że elementy w kontenerze Cosmos DB mają `date_rep` `cases` właściwości,, i `geo_id` , wyniki tego zapytania są pokazane w poniższej tabeli:
+
+| date_rep | padkach | geo_id |
+| --- | --- | --- |
+| 2020-08-13 | 254 | RS |
+| 2020-08-12 | 235 | RS |
+| 2020-08-11 | 163 | RS |
 
 Jeśli zachodzi potrzeba eksplorowania danych z innego kontenera w tej samej bazie danych Azure Cosmos DB, można użyć tych samych parametrów połączenia i odwołania do kontenera jako trzeci parametr:
 
@@ -180,7 +188,6 @@ Dowiedz się więcej o analizowaniu [złożonych typów danych w linków Synapse
 > [!IMPORTANT]
 > Jeśli zobaczysz nieoczekiwane znaki w tekście `MÃƒÂ©lade` , na przykład zamiast `Mélade` sortowania bazy danych nie jest ustawiony na sortowanie [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) . 
 > [Zmień sortowanie bazy danych](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) na kilka sortowania UTF8 przy użyciu jakiejś instrukcji języka SQL `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
-
 
 ## <a name="flattening-nested-arrays"></a>Spłaszczanie tablic zagnieżdżonych
 
@@ -286,12 +293,16 @@ Dla każdej wartości można zobaczyć typ identyfikowany w Cosmos DB elemencie 
 Liczba przypadków to informacje przechowywane jako `int32` wartość, ale istnieje jedna wartość wprowadzona jako liczba dziesiętna. Ta wartość ma `float64` Typ. Jeśli istnieją wartości przekraczające największą `int32` liczbę, zostaną one zapisane jako `int64` Typ. Wszystkie `geo_id` wartości w tym przykładzie są przechowywane jako `string` typy.
 
 > [!IMPORTANT]
-> Schemat pełnej wierności uwidacznia obie wartości z oczekiwanymi typami i wartościami z nieprawidłowo wprowadzonymi typami.
+> `OPENROWSET` Funkcja bez `WITH` klauzuli ujawnia obie wartości z oczekiwanymi typami i wartościami z nieprawidłowo wprowadzonymi typami. Ta funkcja Func została zaprojektowana na potrzeby eksploracji danych, a nie do raportowania. Nie Analizuj wartości JSON zwracanych z tej funkcji, aby tworzyć raporty i używać jawnej [klauzuli with](#querying-items-with-full-fidelity-schema) w celu tworzenia raportów.
 > Należy wyczyścić wartości, które mają niepoprawne typy w kontenerze Azure Cosmos DB, aby zastosować współrzędną w magazynie analitycznym z pełną dokładnością. 
 
 Aby uzyskać informacje na temat wykonywania zapytań dotyczących kont Azure Cosmos DB w interfejsie API usługi Mongo DB, możesz dowiedzieć się więcej o pełnej reprezentacji schematu w magazynie analitycznym i nazwach właściwości rozszerzonych, które mają być używane w [tym miejscu](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
 
-Podczas wykonywania zapytania o cały schemat wierności należy jawnie określić typ SQL i oczekiwany Cosmos DB typu właściwości w `WITH` klauzuli. W poniższym przykładzie przyjęto założenie, że `string` jest to poprawny typ dla `geo_id` właściwości i `int32` poprawnego typu dla `cases` Właściwości:
+### <a name="querying-items-with-full-fidelity-schema"></a>Wykonywanie zapytania o elementy z schematem pełnej wierności
+
+Podczas wykonywania zapytania o cały schemat wierności należy jawnie określić typ SQL i oczekiwany Cosmos DB typu właściwości w `WITH` klauzuli. Nie używaj `OPENROWSET` klauzuli bez `WITH` w raportach, ponieważ format zestawu wyników może zostać zmieniony w wersji zapoznawczej na podstawie opinii.
+
+W poniższym przykładzie przyjęto założenie, że `string` jest to poprawny typ dla `geo_id` właściwości i `int32` poprawnego typu dla `cases` Właściwości:
 
 ```sql
 SELECT geo_id, cases = SUM(cases)
@@ -305,7 +316,9 @@ FROM OPENROWSET(
 GROUP BY geo_id
 ```
 
-Wartości z innymi typami nie będą zwracane w `geo_id` i `cases` kolumny, a zapytanie zwróci `NULL` wartość w tych komórkach. To zapytanie będzie odwoływać się tylko do `cases` określonego typu w wyrażeniu ( `cases.int32` ). Jeśli masz wartości z innymi typami ( `cases.int64` , `cases.float64` ), które reprezentują nie można czyścić w kontenerze Cosmos DB, musisz jawnie odwoływać się do nich w `WITH` klauzuli i połączyć wyniki. Następujące zapytanie agreguje zarówno `int32` , `int64` ,, i `float64` przechowywane w `cases` kolumnie:
+Wartości dla `geo_id` i `cases` , które mają inne typy, zostaną zwrócone jako `NULL` wartości. To zapytanie będzie odwoływać się tylko do `cases` określonego typu w wyrażeniu ( `cases.int32` ).
+
+Jeśli masz wartości z innymi typami ( `cases.int64` , `cases.float64` ), które nie mogą być czyszczone w kontenerze Cosmos DB, musisz jawnie odwoływać się do nich w `WITH` klauzuli i połączyć wyniki. Następujące zapytanie agreguje zarówno `int32` , `int64` ,, i `float64` przechowywane w `cases` kolumnie:
 
 ```sql
 SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
@@ -326,7 +339,7 @@ W tym przykładzie liczba przypadków jest przechowywana `int32` `int64` w posta
 ## <a name="known-issues"></a>Znane problemy
 
 - Alias **należy** określić po `OPENROWSET` funkcji (na przykład `OPENROWSET (...) AS function_alias` ). Pominięcie aliasu może spowodować problem z połączeniem i Synapse punkt końcowy SQL bez serwera może być tymczasowo niedostępny. Ten problem zostanie rozwiązany w lis 2020.
-- Funkcja zapytania, która zapewnia bezserwerową pulę SQL, dla [Azure Cosmos DB schemat pełnej wierności](#full-fidelity-schema) jest tymczasowym zachowaniem, które zostanie zmienione na podstawie opinii o wersji zapoznawczej. Nie należy polegać na schemacie `OPENROWSET` udostępnianym przez funkcję w publicznej wersji zapoznawczej, ponieważ środowisko zapytania może być wyrównane z dobrze zdefiniowanym schematem. Skontaktuj się z [zespołem produktu Synapse link](mailto:cosmosdbsynapselink@microsoft.com) , aby przekazać opinię.
+- Funkcja zapytania, która zapewnia bezserwerową pulę SQL, dla [Azure Cosmos DB schemat pełnej wierności](#full-fidelity-schema) jest tymczasowym zachowaniem, które zostanie zmienione na podstawie opinii o wersji zapoznawczej. Nie należy polegać na schemacie, który `OPENROWSET` Funkcja bez `WITH` klauzuli zapewnia w publicznej wersji zapoznawczej, ponieważ środowisko zapytania może być wyrównane z dobrze zdefiniowanym schematem na podstawie opinii klientów. Skontaktuj się z [zespołem produktu Synapse link](mailto:cosmosdbsynapselink@microsoft.com) , aby przekazać opinię.
 
 Możliwe błędy i akcje rozwiązywania problemów są wymienione w poniższej tabeli:
 

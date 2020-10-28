@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3c2b2ce5bd9af60d6d1fd4ac066681ee8473521
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249454"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738237"
 ---
 # <a name="azure-synapse-workspace-managed-identity-preview"></a>Tożsamość zarządzana obszaru roboczego usługi Azure Synapse (wersja zapoznawcza)
 
@@ -32,7 +32,7 @@ Podczas tworzenia obszaru roboczego tworzona jest tożsamość zarządzana przyp
 >[!NOTE]
 >Ta tożsamość zarządzana w obszarze roboczym będzie określana jako tożsamość zarządzana w pozostałej części tego dokumentu.
 
-Usługa Azure Synapse używa zarządzanej tożsamości do organizowania potoków. Cykl życia zarządzanej tożsamości jest bezpośrednio powiązany z obszarem roboczym usługi Azure Synapse. Po usunięciu obszaru roboczego Azure Synapse, tożsamość zarządzana jest również czyszczona.
+Usługa Azure Synapse używa zarządzanej tożsamości do integrowania potoków. Cykl życia zarządzanej tożsamości jest bezpośrednio powiązany z obszarem roboczym usługi Azure Synapse. Po usunięciu obszaru roboczego Azure Synapse, tożsamość zarządzana jest również czyszczona.
 
 Tożsamość zarządzana w obszarze roboczym musi mieć uprawnienia do wykonywania operacji w potokach. Możesz użyć identyfikatora obiektu lub nazwy obszaru roboczego usługi Azure Synapse, aby znaleźć tożsamość zarządzaną podczas udzielania uprawnień.
 
@@ -48,11 +48,11 @@ Uruchom **usługę Azure Synapse Studio** i wybierz kartę **Zarządzanie** na p
 
 ![Tworzenie połączonej usługi 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
 
-W oknie **Nowa połączona usługa** wpisz *Azure Data Lake Storage Gen2*. Wybierz z poniższej listy Typ zasobu **Azure Data Lake Storage Gen2** i wybierz pozycję **Kontynuuj**.
+W oknie **Nowa połączona usługa** wpisz *Azure Data Lake Storage Gen2* . Wybierz z poniższej listy Typ zasobu **Azure Data Lake Storage Gen2** i wybierz pozycję **Kontynuuj** .
 
 ![Tworzenie połączonej usługi 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 
-W następnym oknie wybierz pozycję **zarządzana tożsamość** dla **metody uwierzytelniania**. Zobaczysz **nazwę** i **Identyfikator obiektu**tożsamości zarządzanej.
+W następnym oknie wybierz pozycję **zarządzana tożsamość** dla **metody uwierzytelniania** . Zobaczysz **nazwę** i **Identyfikator obiektu** tożsamości zarządzanej.
 
 ![Tworzenie połączonej usługi 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
 

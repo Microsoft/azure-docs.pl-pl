@@ -3,13 +3,13 @@ title: Dokumentacja dla deweloperów Java dla Azure Functions
 description: Dowiedz się, jak opracowywać funkcje przy użyciu języka Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.custom: devx-track-java
-ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: fcacfd96ece68424c876b0349ceb49d3eaabb598
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519626"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736699"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera Azure Functions Java
 
@@ -45,7 +45,7 @@ Powyższe linki artykułu pokazują, jak utworzyć swoje pierwsze funkcje przy u
 
 ### <a name="project-scaffolding"></a>Tworzenie szkieletu projektu
 
-Jeśli wolisz opracowywanie wiersza polecenia z terminalu, najprostszym sposobem tworzenia szkieletów projektów funkcji opartych na języku Java jest użycie `Apache Maven` Archetypes. Środowisko Java Maven Archetype for Azure Functions jest publikowane w następującej grupie _GroupID_:_artifactId_: [com. Microsoft. Azure: Azure-Functions-Archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+Jeśli wolisz opracowywanie wiersza polecenia z terminalu, najprostszym sposobem tworzenia szkieletów projektów funkcji opartych na języku Java jest użycie `Apache Maven` Archetypes. Środowisko Java Maven Archetype for Azure Functions jest publikowane w następującej grupie _GroupID_ : _artifactId_ : [com. Microsoft. Azure: Azure-Functions-Archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 Następujące polecenie generuje nowy projekt funkcji Java przy użyciu tego Archetype:
 
@@ -202,7 +202,7 @@ W ustawieniu aplikacji o nazwie można podać dodatkowe argumenty `JAVA_OPTS` . 
 > [!IMPORTANT]  
 > W planie zużycia należy również dodać ustawienie WEBSITE_USE_PLACEHOLDER z wartością 0, aby dostosowanie działało. To ustawienie powoduje zwiększenie czasu zimnego uruchamiania funkcji języka Java.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 W [Azure Portal](https://portal.azure.com)Użyj [karty Ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) , aby dodać `JAVA_OPTS` ustawienie.
 

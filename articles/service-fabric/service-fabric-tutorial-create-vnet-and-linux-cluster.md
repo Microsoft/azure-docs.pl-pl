@@ -3,13 +3,13 @@ title: Tworzenie klastra Service Fabric systemu Linux na platformie Azure
 description: Dowiedz się, jak wdrożyć klaster usługi Service Fabric systemu Linux w istniejącej sieci wirtualnej platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.custom: mvc
-ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 52eba2e5780b1a66f3884a764631908335372273
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586924"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738962"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>wdrażanie klastra usługi Service Fabric systemu Linux w sieci wirtualnej platformy Azure
 
@@ -75,7 +75,7 @@ W zasobie **Microsoft.Network/loadBalancers** skonfigurowano moduł równoważen
 
 ### <a name="virtual-network-and-subnet"></a>Sieć wirtualna i podsieć
 
-Nazwy sieci wirtualnej i podsieci są deklarowane w parametrach szablonu.  Przestrzenie adresowe sieci wirtualnej i podsieci również są deklarowane w parametrach szablonu i skonfigurowane w zasobie **Microsoft.Network/virtualNetworks**:
+Nazwy sieci wirtualnej i podsieci są deklarowane w parametrach szablonu.  Przestrzenie adresowe sieci wirtualnej i podsieci również są deklarowane w parametrach szablonu i skonfigurowane w zasobie **Microsoft.Network/virtualNetworks** :
 
 * przestrzeń adresowa sieci wirtualnej: 10.0.0.0/16
 * przestrzeń adresowa podsieci usługi Service Fabric: 10.0.2.0/24

@@ -6,16 +6,16 @@ author: avanigupta
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074859"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737089"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Automatyczne tworzenie kopii zapasowych magazynów konfiguracji aplikacji
 
@@ -62,7 +62,7 @@ az group create --name $resourceGroupName --location westus
 ## <a name="create-app-configuration-stores"></a>Tworzenie magazynów konfiguracji aplikacji
 
 Utwórz podstawowe i pomocnicze magazyny konfiguracji aplikacji w różnych regionach.
-Zamień  `<primary_appconfig_name>` i `<secondary_appconfig_name>` z unikatowymi nazwami dla magazynów konfiguracji. Nazwa każdego magazynu musi być unikatowa, ponieważ jest używana jako nazwa DNS.
+Zamień `<primary_appconfig_name>` i `<secondary_appconfig_name>` z unikatowymi nazwami dla magazynów konfiguracji. Nazwa każdego magazynu musi być unikatowa, ponieważ jest używana jako nazwa DNS.
 
 ```azurecli-interactive
 primaryAppConfigName="<primary_appconfig_name>"
@@ -213,7 +213,7 @@ Aby sprawdzić, czy wszystko działa, możesz utworzyć, zaktualizować lub usun
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-Zdarzenie zostało wyzwolone. W ciągu kilku chwil Event Grid wyśle powiadomienie o zdarzeniu do kolejki. *Po następnym zaplanowanym uruchomieniu funkcji*Wyświetl ustawienia konfiguracji w magazynie pomocniczym, aby sprawdzić, czy zawiera ona zaktualizowaną wartość klucza z magazynu podstawowego.
+Zdarzenie zostało wyzwolone. W ciągu kilku chwil Event Grid wyśle powiadomienie o zdarzeniu do kolejki. *Po następnym zaplanowanym uruchomieniu funkcji* Wyświetl ustawienia konfiguracji w magazynie pomocniczym, aby sprawdzić, czy zawiera ona zaktualizowaną wartość klucza z magazynu podstawowego.
 
 > [!NOTE]
 > Funkcję można [wyzwolić ręcznie](../azure-functions/functions-manually-run-non-http.md) podczas testowania i rozwiązywania problemów bez oczekiwania na zaplanowaną czasomierz-wyzwalacz.

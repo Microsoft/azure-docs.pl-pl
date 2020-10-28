@@ -7,13 +7,13 @@ ms.date: 7/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: 187a0598dfc26394d1fd48e67d83ef7e98ef6226
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 065e65c0c8ccf61dd67da19fd5a94d4506db73ff
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91574035"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737312"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-python"></a>Szybki Start: łączenie przykładowej aplikacji urządzenia IoT Plug and Play do IoT Hub (Python)
 
@@ -37,7 +37,7 @@ W lokalnym środowisku języka Python Zainstaluj pakiet w następujący sposób:
 pip install azure-iot-device
 ```
 
-Sklonuj repozytorium IoT zestawu SDK języka Python i Wyewidencjonuj **serwer główny**:
+Sklonuj repozytorium IoT zestawu SDK języka Python i Wyewidencjonuj **serwer główny** :
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-python
@@ -61,7 +61,7 @@ Otwórz plik **simple_thermostat. PR** w edytorze tekstów. Zwróć uwagę, jak 
 
     1. Program używa zestawu SDK urządzenia do utworzenia klienta urządzenia i nawiązania połączenia z Centrum IoT Hub.
 
-    1. Aktualizuje właściwości. Model używany, **termostat**, definiuje `targetTemperature` i `maxTempSinceLastReboot` jako dwie właściwości dla naszego termostatu, tak, że będzie używany. Właściwości są aktualizowane przy użyciu `patch_twin_reported_properties` metody zdefiniowanej w `device_client` .
+    1. Aktualizuje właściwości. Model używany, **termostat** , definiuje `targetTemperature` i `maxTempSinceLastReboot` jako dwie właściwości dla naszego termostatu, tak, że będzie używany. Właściwości są aktualizowane przy użyciu `patch_twin_reported_properties` metody zdefiniowanej w `device_client` .
 
     1. Zaczyna nasłuchiwanie żądań poleceń przy użyciu funkcji **execute_command_listener** . Funkcja konfiguruje "odbiornik", aby nasłuchiwać poleceń przychodzących z usługi. Po skonfigurowaniu odbiornika `method_name` , `user_command_handler` i `create_user_response_handler` .
         - `user_command_handler`Funkcja definiuje, jakie urządzenie ma wykonać po odebraniu polecenia. Na przykład jeśli alarm zostanie wyłączony, efekt odebrania tego polecenia zostanie wznowiony. Należy to traktować jako "efekt" wywoływanego polecenia.
@@ -69,7 +69,7 @@ Otwórz plik **simple_thermostat. PR** w edytorze tekstów. Zwróć uwagę, jak 
 
     1. Uruchamia wysyłanie danych telemetrycznych. **Pnp_send_telemetry** jest zdefiniowany w pliku pnp_methods. pr. Przykładowy kod używa pętli do wywołania tej funkcji co osiem sekund.
 
-    1. Wyłącza wszystkie detektory i zadania i istnieje pętla po naciśnięciu przycisku **q** lub **q**.
+    1. Wyłącza wszystkie detektory i zadania i istnieje pętla po naciśnięciu przycisku **q** lub **q** .
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

@@ -9,17 +9,17 @@ keywords: IPv6, moduł równoważenia obciążenia platformy Azure, podwójny st
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87001577"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735918"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Tworzenie publicznego modułu równoważenia obciążenia przy użyciu protokołu IPv6 za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -48,11 +48,11 @@ Poniższe kroki pokazują, jak utworzyć publiczny moduł równoważenia obcią�
 
 Aby wdrożyć moduł równoważenia obciążenia, należy utworzyć i skonfigurować następujące obiekty:
 
-* **Konfiguracja adresu IP frontonu**: zawiera publiczne adresy IP dla przychodzącego ruchu sieciowego.
-* **Pula adresów zaplecza**: zawiera interfejsy sieciowe (nic), dla których maszyny wirtualne mają odbierać ruch sieciowy z modułu równoważenia obciążenia.
-* **Reguły równoważenia obciążenia**: zawiera reguły, które mapują port publiczny modułu równoważenia obciążenia na port w puli adresów zaplecza.
-* **Reguły NAT dla ruchu przychodzącego**: zawierają reguły translacji adresów sieciowych (NAT), które mapują port publiczny modułu równoważenia obciążenia na port określonej maszyny wirtualnej w puli adresów zaplecza.
-* **Sondy**: zawiera sondy kondycji, które są używane do sprawdzania dostępności wystąpień maszyn wirtualnych w puli adresów zaplecza.
+* **Konfiguracja adresu IP frontonu** : zawiera publiczne adresy IP dla przychodzącego ruchu sieciowego.
+* **Pula adresów zaplecza** : zawiera interfejsy sieciowe (nic), dla których maszyny wirtualne mają odbierać ruch sieciowy z modułu równoważenia obciążenia.
+* **Reguły równoważenia obciążenia** : zawiera reguły, które mapują port publiczny modułu równoważenia obciążenia na port w puli adresów zaplecza.
+* **Reguły NAT dla ruchu przychodzącego** : zawierają reguły translacji adresów sieciowych (NAT), które mapują port publiczny modułu równoważenia obciążenia na port określonej maszyny wirtualnej w puli adresów zaplecza.
+* **Sondy** : zawiera sondy kondycji, które są używane do sprawdzania dostępności wystąpień maszyn wirtualnych w puli adresów zaplecza.
 
 ## <a name="set-up-azure-cli"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure
 
@@ -122,7 +122,7 @@ W tym przykładzie uruchomiono narzędzia interfejsu wiersza polecenia platformy
     > [!IMPORTANT]
     > Moduł równoważenia obciążenia używa etykiety domeny publicznego adresu IP jako jego w pełni kwalifikowanej nazwy domeny (FQDN). Ta zmiana z wdrożenia klasycznego, która używa nazwy usługi w chmurze jako nazwy FQDN modułu równoważenia obciążenia.
     >
-    > W tym przykładzie nazwa FQDN to *contoso09152016.southcentralus.cloudapp.Azure.com*.
+    > W tym przykładzie nazwa FQDN to *contoso09152016.southcentralus.cloudapp.Azure.com* .
 
 ## <a name="create-front-end-and-back-end-pools"></a>Tworzenie pul frontonu i zaplecza
 

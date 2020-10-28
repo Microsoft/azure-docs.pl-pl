@@ -3,13 +3,13 @@ title: Szybki Start — wysyłanie zdarzeń do Event Grid
 description: W tym przewodniku szybki start włączasz zdarzenia Event Grid dla rejestru kontenerów, a następnie wysyłamy zdarzenia wypychania i usuwania obrazu kontenera do aplikacji przykładowej.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
-ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78403241"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736856"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Szybki Start: wysyłanie zdarzeń z rejestru kontenerów prywatnych do Event Grid
 
@@ -206,7 +206,7 @@ Gratulacje! Jeśli widzisz `ImagePushed` zdarzenia i `ImageDeleted` , rejestr wy
 
 Po wykonaniu zasobów utworzonych w ramach tego przewodnika Szybki Start można je usunąć za pomocą poniższego polecenia platformy Azure. Po usunięciu grupy zasobów wszystkie zawarte w niej zasoby są trwale usuwane.
 
-**Ostrzeżenie**: Ta operacja jest nieodwracalna. Przed uruchomieniem polecenia upewnij się, że żaden z zasobów w grupie nie jest już potrzebny.
+**Ostrzeżenie** : Ta operacja jest nieodwracalna. Przed uruchomieniem polecenia upewnij się, że żaden z zasobów w grupie nie jest już potrzebny.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

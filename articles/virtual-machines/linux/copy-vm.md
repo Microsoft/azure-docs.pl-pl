@@ -6,13 +6,13 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.custom: legacy
-ms.openlocfilehash: c7d93ee928653cc1656e3e9a7cdb0d2fd6d7094b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: legacy, devx-track-azurecli
+ms.openlocfilehash: f92f286fc9d9438331617cb567272a331834af42
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654416"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735388"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Tworzenie kopii maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure i Managed Disks
 
@@ -45,7 +45,7 @@ Aby skopiować maszynę wirtualną, należy utworzyć kopię bazowego wirtualneg
 
 Aby uzyskać więcej informacji o dyskach funkcji Dyski zarządzane platformy Azure, zobacz [Omówienie funkcji Dyski zarządzane platformy Azure](../managed-disks-overview.md). 
 
-1.  Wyświetl listę każdej maszyny wirtualnej i nazwę jej dysku systemu operacyjnego za pomocą [AZ VM list](/cli/azure/vm#az-vm-list). Poniższy przykład wyświetla listę wszystkich maszyn wirtualnych w grupie zasobów o nazwie Moja *zasobów*:
+1.  Wyświetl listę każdej maszyny wirtualnej i nazwę jej dysku systemu operacyjnego za pomocą [AZ VM list](/cli/azure/vm#az-vm-list). Poniższy przykład wyświetla listę wszystkich maszyn wirtualnych w grupie zasobów o nazwie Moja *zasobów* :
     
     ```azurecli
     az vm list -g myResourceGroup \
@@ -61,14 +61,14 @@ Aby uzyskać więcej informacji o dyskach funkcji Dyski zarządzane platformy Az
     myVM    myDisk
     ```
 
-1.  Skopiuj dysk, tworząc nowy dysk zarządzany i używając polecenia [AZ Disk Create](/cli/azure/disk#az-disk-create). Poniższy przykład tworzy dysk o nazwie *myCopiedDisk* z dysku zarządzanego o nazwie Moja *dysk*:
+1.  Skopiuj dysk, tworząc nowy dysk zarządzany i używając polecenia [AZ Disk Create](/cli/azure/disk#az-disk-create). Poniższy przykład tworzy dysk o nazwie *myCopiedDisk* z dysku zarządzanego o nazwie Moja *dysk* :
 
     ```azurecli
     az disk create --resource-group myResourceGroup \
          --name myCopiedDisk --source myDisk
     ``` 
 
-1.  Sprawdź teraz dyski zarządzane w grupie zasobów za pomocą polecenia [AZ Disk list](/cli/azure/disk#az-disk-list). Poniższy przykład zawiera listę dysków zarządzanych w grupie zasobów o nazwie Moja *zasobów*:
+1.  Sprawdź teraz dyski zarządzane w grupie zasobów za pomocą polecenia [AZ Disk list](/cli/azure/disk#az-disk-list). Poniższy przykład zawiera listę dysków zarządzanych w grupie zasobów o nazwie Moja *zasobów* :
 
     ```azurecli
     az disk list --resource-group myResourceGroup --output table
@@ -83,7 +83,7 @@ Jeśli kopiujesz maszynę wirtualną na potrzeby rozwiązywania problemów lub d
 
 Jeśli chcesz utworzyć infrastrukturę sieci wirtualnej dla skopiowanych maszyn wirtualnych, wykonaj kilka następnych kroków. Jeśli nie chcesz tworzyć sieci wirtualnej, Pomiń, aby [utworzyć maszynę](#create-a-vm)wirtualną.
 
-1.  Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create](/cli/azure/network/vnet#az-network-vnet-create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet* oraz podsieć o nazwie Moja *podsieć*:
+1.  Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create](/cli/azure/network/vnet#az-network-vnet-create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet* oraz podsieć o nazwie Moja *podsieć* :
 
     ```azurecli
     az network vnet create --resource-group myResourceGroup \
@@ -93,7 +93,7 @@ Jeśli chcesz utworzyć infrastrukturę sieci wirtualnej dla skopiowanych maszyn
         --subnet-prefix 192.168.1.0/24
     ```
 
-1.  Utwórz publiczny adres IP za pomocą polecenia [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create). Poniższy przykład tworzy publiczny adres IP o nazwie *myPublicIP* z nazwą DNS *mypublicdns*. (Ponieważ nazwa DNS musi być unikatowa, podaj unikatową nazwę).
+1.  Utwórz publiczny adres IP za pomocą polecenia [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create). Poniższy przykład tworzy publiczny adres IP o nazwie *myPublicIP* z nazwą DNS *mypublicdns* . (Ponieważ nazwa DNS musi być unikatowa, podaj unikatową nazwę).
 
     ```azurecli
     az network public-ip create --resource-group myResourceGroup \

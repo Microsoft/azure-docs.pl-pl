@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 04/15/2020
-ms.openlocfilehash: 143713649afd7f9e42f517713b6b2365ee1605a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260278"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738188"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Samouczek: Tworzenie definicji zadania Apache Spark w programie Synapse Studio
 
@@ -43,11 +43,11 @@ W tej sekcji utworzysz definicję zadania Apache Spark dla PySpark (Python).
 
 1. Otwórz [usługę Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. Możesz przejść do [plików przykładowych, aby utworzyć Apache Spark definicje zadań](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) , aby pobrać **przykładowe pliki dla python.zip**, rozpakować skompresowany pakiet i wyodrębnić pliki **WORDCOUNT.py** i **shakespeare.txt** . 
+2. Możesz przejść do [plików przykładowych, aby utworzyć Apache Spark definicje zadań](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) , aby pobrać **przykładowe pliki dla python.zip** , rozpakować skompresowany pakiet i wyodrębnić pliki **WORDCOUNT.py** i **shakespeare.txt** . 
 
      ![pliki przykładowe](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Wybierz pozycję **dane**   ->  **połączone**   ->  **Azure Data Lake Storage Gen2**i przekaż **WORDCOUNT.py**   i **shakespeare.txt** do systemu plików ADLS Gen2. 
+3. Wybierz pozycję **dane**  ->  **połączone**  ->  **Azure Data Lake Storage Gen2** i przekaż **WORDCOUNT.py** i **shakespeare.txt** do systemu plików ADLS Gen2. 
 
      ![Przekaż plik Python](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -85,15 +85,15 @@ W tej sekcji utworzysz definicję zadania Apache Spark dla Apache Spark (Scala).
 
  1. Otwórz [usługę Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Możesz przejść do [plików przykładowych, aby utworzyć Apache Spark definicje zadań](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) , aby pobrać **przykładowe pliki dla scala.zip**, rozpakować skompresowany pakiet i wyodrębnić pliki **WORDCOUNT. jar** i **shakespeare.txt** . 
+ 2. Możesz przejść do [plików przykładowych, aby utworzyć Apache Spark definicje zadań](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) , aby pobrać **przykładowe pliki dla scala.zip** , rozpakować skompresowany pakiet i wyodrębnić pliki **WORDCOUNT. jar** i **shakespeare.txt** . 
  
      ![pliki przykładowe Scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Wybierz pozycję **dane**   ->  **połączone**   ->  **Azure Data Lake Storage Gen2**i przekaż **WORDCOUNT. jar**   i **shakespeare.txt** do systemu plików ADLS Gen2.
+ 3. Wybierz pozycję **dane**  ->  **połączone**  ->  **Azure Data Lake Storage Gen2** i przekaż **WORDCOUNT. jar** i **shakespeare.txt** do systemu plików ADLS Gen2.
  
      ![Przygotuj strukturę Scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Wybierz pozycję **opracowywanie** centrum, wybierz ikonę "+", a następnie wybierz pozycję **Definicja zadania platformy Spark** , aby utworzyć nową definicję zadania platformy Spark. (Przykładowy obraz jest taki sam jak krok 4 **tworzenia definicji zadania Apache Spark (Python) dla PySpark**).
+ 4. Wybierz pozycję **opracowywanie** centrum, wybierz ikonę "+", a następnie wybierz pozycję **Definicja zadania platformy Spark** , aby utworzyć nową definicję zadania platformy Spark. (Przykładowy obraz jest taki sam jak krok 4 **tworzenia definicji zadania Apache Spark (Python) dla PySpark** ).
 
  5. Z listy rozwijanej Język wybierz pozycję **Spark (Scala)** , a następnie w oknie głównym definicji zadania Apache Spark.
 
@@ -125,15 +125,15 @@ W tej sekcji utworzysz definicję zadania Apache Spark dla Apache Spark (Scala).
 W tej sekcji utworzysz definicję zadania Apache Spark dla platformy .NET Spark (C#/F #).
  1. Otwórz [usługę Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Możesz przejść do [plików przykładowych, aby utworzyć Apache Spark definicje zadań](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) , aby pobrać **przykładowe pliki dla dotnet.zip**, rozpakować skompresowany pakiet i wyodrębnić pliki **wordcount.zip** i **shakespeare.txt** . 
+ 2. Możesz przejść do [plików przykładowych, aby utworzyć Apache Spark definicje zadań](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) , aby pobrać **przykładowe pliki dla dotnet.zip** , rozpakować skompresowany pakiet i wyodrębnić pliki **wordcount.zip** i **shakespeare.txt** . 
 
      ![Przykładowy dotnet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Wybierz pozycję **dane**   ->  **połączone**   ->  **Azure Data Lake Storage Gen2**i przekaż **wordcount.zip**   i **shakespeare.txt** do systemu plików ADLS Gen2.
+ 3. Wybierz pozycję **dane**  ->  **połączone**  ->  **Azure Data Lake Storage Gen2** i przekaż **wordcount.zip** i **shakespeare.txt** do systemu plików ADLS Gen2.
  
      ![Przygotuj strukturę dotnet](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Wybierz pozycję **opracowywanie** centrum, wybierz ikonę "+", a następnie wybierz pozycję **Definicja zadania platformy Spark** , aby utworzyć nową definicję zadania platformy Spark. (Przykładowy obraz jest taki sam jak krok 4 **tworzenia definicji zadania Apache Spark (Python) dla PySpark**).
+ 4. Wybierz pozycję **opracowywanie** centrum, wybierz ikonę "+", a następnie wybierz pozycję **Definicja zadania platformy Spark** , aby utworzyć nową definicję zadania platformy Spark. (Przykładowy obraz jest taki sam jak krok 4 **tworzenia definicji zadania Apache Spark (Python) dla PySpark** ).
 
  5. Wybierz pozycję **.NET Spark (C#/f #)** z listy rozwijanej Język w oknie głównym definicji zadania Apache Spark.
 
@@ -177,7 +177,7 @@ Po utworzeniu definicji zadania Apache Spark można przesłać ją do puli Apach
 
 ### <a name="scenario-2-view-apache-spark-job-running-progress"></a>Scenariusz 2. Wyświetlanie Apache Spark zadania w toku
 
- 1. Wybierz pozycję **monitor**, a następnie wybierz opcję **Apache Spark aplikacje** . Możesz znaleźć przesłaną aplikację Apache Spark.
+ 1. Wybierz pozycję **monitor** , a następnie wybierz opcję **Apache Spark aplikacje** . Możesz znaleźć przesłaną aplikację Apache Spark.
 
      ![Wyświetl aplikację platformy Spark](./media/apache-spark-job-definitions/view-spark-application.png)
 
@@ -197,7 +197,7 @@ W tej sekcji dodasz definicję zadania Apache Spark do potoku.
 
  1. Otwórz istniejącą definicję zadania Apache Spark.
 
- 2. Wybierz ikonę w prawym górnym rogu Apache Spark definicji zadania, wybierz pozycję **istniejący potok**lub **Nowy potok**. Więcej informacji można znaleźć na stronie potoku.
+ 2. Wybierz ikonę w prawym górnym rogu Apache Spark definicji zadania, wybierz pozycję **istniejący potok** lub **Nowy potok** . Więcej informacji można znaleźć na stronie potoku.
 
      ![Dodaj do pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 

@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: georgewallace
 ms.author: gwallace
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
-ms.custom: mvc
-ms.openlocfilehash: eedd796e3223c6cbcd0844cc4e814a35172d6c7e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3082f30f46a1e450a9ac42958163894c014de66d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078531"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737210"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Tworzenie klastra prywatnego usługi Azure Red Hat OpenShift 4
 
@@ -192,7 +192,7 @@ az aro create \
 Po wykonaniu `az aro create` polecenia zwykle trwa około 35 minut na utworzenie klastra.
 
 >[!IMPORTANT]
-> Jeśli zdecydujesz się określić domenę niestandardową, na przykład **foo.example.com**, konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
+> Jeśli zdecydujesz się określić domenę niestandardową, na przykład **foo.example.com** , konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
 >
 > Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras utworzonych w usłudze `*.apps.<random>.<location>.aroapp.io` .  W przypadku wybrania opcji niestandardowy serwer DNS po nawiązaniu połączenia z klastrem należy skorzystać z dokumentacji OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 
@@ -233,7 +233,7 @@ Uruchom w przeglądarce adres URL konsoli i zaloguj się przy użyciu `kubeadmin
 
 ## <a name="install-the-openshift-cli"></a>Instalowanie interfejsu wiersza polecenia OpenShift
 
-Po zalogowaniu się do konsoli sieci Web OpenShift kliknij pozycję **?** w prawym górnym rogu, a następnie w **narzędziach wiersza polecenia**. Pobierz wydanie odpowiednie dla Twojej maszyny.
+Po zalogowaniu się do konsoli sieci Web OpenShift kliknij pozycję **?** w prawym górnym rogu, a następnie w **narzędziach wiersza polecenia** . Pobierz wydanie odpowiednie dla Twojej maszyny.
 
 ![Ekran logowania OpenShift na platformie Azure Red Hat](media/aro4-download-cli.png)
 

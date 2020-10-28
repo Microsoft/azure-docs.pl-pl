@@ -3,13 +3,13 @@ title: Wdrażanie aplikacji Java w klastrze Service Fabric na platformie Azure
 description: W tym samouczku przedstawiono sposób wdrażania aplikacji Java usługi Service Fabric w klastrze usługi Azure Service Fabric.
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 3e00e478e20fbd0bc4ff6ed17b330f0d16488be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 89c49ae530b7a4716bc6e8bf0ea6ccb011847eb8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532062"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738899"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Samouczek: wdrażanie aplikacji Java w klastrze usługi Service Fabric na platformie Azure
 
@@ -154,7 +154,7 @@ Poniższe kroki powodują utworzenie niezbędnych zasobów wymaganych do wdroże
     python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'
     ```
 
-    Skopiuj wartość pola **sr** pole do zwróconego kodu JSON. Wartość pola **sr** tokenu sygnatury dostępu współdzielonego dla usługi EventHubs. Następujący adres URL jest przykładem pola **sr**:
+    Skopiuj wartość pola **sr** pole do zwróconego kodu JSON. Wartość pola **sr** tokenu sygnatury dostępu współdzielonego dla usługi EventHubs. Następujący adres URL jest przykładem pola **sr** :
 
     ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
@@ -176,8 +176,8 @@ Poniższe kroki powodują utworzenie niezbędnych zasobów wymaganych do wdroże
     }
     ```
 
-13. Zostanie otwarty plik **sfdeploy.parameters.json**. Zmień następujące parametry, a następnie zapisz plik.
-    - **clusterName**. Należy używać tylko małych liter i cyfr.
+13. Zostanie otwarty plik **sfdeploy.parameters.json** . Zmień następujące parametry, a następnie zapisz plik.
+    - **clusterName** . Należy używać tylko małych liter i cyfr.
     - **adminUserName** (wartość parametru nie może być pusta)
     - **adminPassword** (wartość parametru nie może być pusta)
 
@@ -189,7 +189,7 @@ Poniższe kroki powodują utworzenie niezbędnych zasobów wymaganych do wdroże
 
 ## <a name="deploy-your-application-to-the-cluster"></a>Wdrażanie aplikacji w klastrze
 
-1. Przed wdrożeniem aplikacji dodaj następujący fragment kodu do pliku *Voting/VotingApplication/ApplicationManifest.xml*. Pole **X509FindValue** to odcisk palca zwrócony z kroku 4 sekcji **Tworzenie klastra usługi Service Fabric na platformie Azure**. Ten fragment kodu jest zagnieżdżony w polu **ApplicationManifest** (pole główne).
+1. Przed wdrożeniem aplikacji dodaj następujący fragment kodu do pliku *Voting/VotingApplication/ApplicationManifest.xml* . Pole **X509FindValue** to odcisk palca zwrócony z kroku 4 sekcji **Tworzenie klastra usługi Service Fabric na platformie Azure** . Ten fragment kodu jest zagnieżdżony w polu **ApplicationManifest** (pole główne).
 
     ```xml
     <Certificates>
@@ -209,7 +209,7 @@ Poniższe kroki powodują utworzenie niezbędnych zasobów wymaganych do wdroże
     sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. Aby wdrożyć aplikację, przejdź do folderu *Voting/Scripts* i uruchom skrypt **install.sh**.
+4. Aby wdrożyć aplikację, przejdź do folderu *Voting/Scripts* i uruchom skrypt **install.sh** .
 
     ```bash
     ./install.sh
