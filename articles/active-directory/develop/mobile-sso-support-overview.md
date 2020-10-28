@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 27a58fc66de31fef272ab2f2c2bfaa9896a07d4b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210158"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740150"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Obsługa logowania jednokrotnego i zasad ochrony aplikacji w aplikacjach mobilnych, które tworzysz
 
@@ -47,7 +47,7 @@ Jeśli obecnie korzystasz z [biblioteki ADAL](../azuread-dev/active-directory-au
 
 W przypadku aplikacji dla systemu iOS mamy [Przewodnik Szybki Start](quickstart-v2-ios.md) pokazujący, jak skonfigurować logowania za pomocą usługi MSAL, a także [wskazówki dotyczące konfigurowania MSAL dla różnych scenariuszy logowania jednokrotnego](single-sign-on-macos-ios.md).
 
-W przypadku aplikacji dla systemu Android mamy [Przewodnik Szybki Start](quickstart-v2-android.md) przedstawiający sposób konfigurowania logowania za pomocą usługi MSAL oraz wskazówki dotyczące używania uwierzytelniania obsługiwanego przez [brokera](brokered-auth.md) i [agentów autoryzacji](authorization-agents.md).
+W przypadku aplikacji dla systemu Android mamy [Przewodnik Szybki Start](quickstart-v2-android.md) przedstawiający sposób konfigurowania logowania za pomocą MSAL oraz wskazówki dotyczące [sposobu włączania logowania jednokrotnego dla aplikacji w systemie Android przy użyciu MSAL](msal-android-single-sign-on.md).
 
 ### <a name="use-the-system-web-browser"></a>Korzystanie z systemowej przeglądarki sieci Web
 

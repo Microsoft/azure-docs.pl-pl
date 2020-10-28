@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: dc8aa50c5c4ecb5e4b56a7e49453c266dad28818
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 4b0e54c434f68a8a26f49b6ba0c1010e93d36ad6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678104"
+ms.locfileid: "92739886"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Wdrażanie Azure Monitor dla rozwiązań SAP z Azure Portal
 
@@ -54,7 +54,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com
 
 4. Wprowadź nazwę dzierżawy bazy danych, której chcesz użyć. Można jednak wybrać dowolną dzierżawę, zalecamy użycie **SYSTEMDB** , ponieważ umożliwia ona szersze wykorzystanie obszarów monitorowania. 
 
-5. Wprowadź numer portu SQL skojarzony z bazą danych platformy HANA. Numer portu musi mieć format **[3]**  +  **[wystąpienie #]**  +  **[13]** lub **[3]**  +  **[wystąpienie #]**  +  **[15]** . Na przykład 30013 lub 30015. 
+5. Wprowadź numer portu SQL skojarzony z bazą danych platformy HANA. Numer portu musi mieć format **[3]**  +  **[wystąpienie #]**  +  **[13]** . Na przykład 30013. 
 
 6. Wprowadź nazwę użytkownika bazy danych, której chcesz użyć. Upewnij się, że użytkownik bazy danych ma przypisane role **monitorowania** i **odczytu katalogu** . 
 

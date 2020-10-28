@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/05/2020
-ms.openlocfilehash: 7573abbbee479bfb0d1710beba3b95d084a5e657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: a5db3935ae445ee7dcf8129eb1d4c75fcb64302f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898872"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739236"
 ---
 # <a name="apply-transformation-module"></a>Zastosuj moduł transformacji
 
 W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
-Ten moduł służy do modyfikowania wejściowego zestawu danych na podstawie wcześniej obliczonego przekształcenia.
+Ten moduł służy do modyfikowania wejściowego zestawu danych na podstawie wcześniej obliczonego przekształcenia. Ten moduł jest niezbędny w przypadku konieczności aktualizacji transformacji w potokach wnioskowania.
 
 Na przykład jeśli zostały użyte wyniki z przeznaczeniem do normalizacji danych szkoleniowych przy użyciu modułu **normalizowanie danych** , warto użyć wartości z-Score, która została obliczona dla szkolenia w fazie oceniania. W Azure Machine Learning można zapisać metodę normalizacji jako transformację, a następnie za pomocą **zastosowania przekształcenia zastosować** wynikowe dane wejściowe przed oceną.
 
@@ -46,7 +46,14 @@ Projektant umożliwia zapisywanie przekształceń danych jako **zestawów DataSe
   
 1. Połącz dane wyjściowe zestawu danych z odpowiedniego modułu z właściwym portem wejściowym modułu **Zastosuj transformację** .
   
-1. Aby zastosować transformację do nowego zestawu danych, uruchom potok.  
+1. Aby zastosować transformację do nowego zestawu danych, Prześlij potok.  
+
+> [!IMPORTANT]
+> Aby upewnić się, że uaktualniona transformacja potoków szkoleniowych jest również wykonalna w potokach wnioskowania, należy wykonać poniższe kroki za każdym razem, gdy w potoku szkoleniowym jest aktualizowana transformacja:
+> 1. W potoku szkoleniowym zarejestruj dane wyjściowe [przekształcenia wybierz kolumny](select-columns-transform.md) jako zestaw danych.
+> ![Zarejestruj zestaw danych wyjściowych modułu](media/module/select-columns-transform-register-dataset.png)
+> 1. W potoku wnioskowania Usuń element **TD-** module i zastąp go zarejestrowanym zestawem danych w poprzednim kroku.
+> ![Zastąp moduł TD](media/module/replace-tranformation-directory.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

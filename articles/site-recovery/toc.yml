@@ -48,22 +48,6 @@
           href: tutorial-dr-drill-azure.md
         - name: Przełączenie do trybu failover na platformie Azure
           href: vmware-azure-tutorial-failover-failback.md
-    - name: Odzyskiwanie po awarii usługi Azure VMware Solution na platformę Azure
-      items:
-        - name: Przygotowywanie platformy Azure
-          href: avs-tutorial-prepare-azure.md
-        - name: Przygotowywanie usługi Azure VMware Solution
-          href: avs-tutorial-prepare-avs.md
-        - name: Konfigurowanie replikacji
-          href: avs-tutorial-replication.md
-        - name: Uruchamianie próbnego odzyskiwania
-          href: avs-tutorial-dr-drill-azure.md
-        - name: Przełączenie do trybu failover na platformie Azure
-          href: avs-tutorial-failover.md
-        - name: Ponowne włączanie ochrony maszyn wirtualnych
-          href: avs-tutorial-reprotect.md
-        - name: Powrót po awarii z platformy Azure
-          href: avs-tutorial-failback.md
     - name: Odzyskiwanie po awarii maszyn wirtualnych funkcji Hyper-V na platformę Azure
       items:
         - name: Przygotowywanie platformy Azure
@@ -164,7 +148,7 @@
       href: recovery-plan-overview.md
     - name: Informacje o migracji do platformy Azure
       href: migrate-overview.md
-    - name: Informacje o kontroli dostępu na podstawie ról przy użyciu usługi Site Recovery
+    - name: Informacje o kontroli dostępu opartej na rolach przy użyciu usługi Site Recovery
       href: site-recovery-role-based-linked-access-control.md
     - name: Informacje o odzyskiwaniu po awarii do dodatkowej lokacji lokalnej
       items:
@@ -176,6 +160,10 @@
           href: hyper-v-vmm-secondary-support-matrix.md
         - name: Architektura maszyna wirtualna funkcji Hyper-V–dodatkowa lokacja
           href: hyper-v-vmm-architecture.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Odzyskiwanie po awarii Azure–Azure
@@ -276,7 +264,7 @@
               href: vmware-azure-enable-replication.md
             - name: Wykluczanie dysków z replikacji
               href: vmware-azure-exclude-disk.md
-            - name: 'Przewodnik: konfigurowanie replikacji z wielodostępem i dostawcą rozwiązań w chmurze dla maszyn wirtualnych programu VMware'
+            - name: 'Przewodnik: konfigurowanie replikacji z wielodostępem i dostawcą usług kryptograficznych dla maszyn wirtualnych programu VMWare'
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Uruchamianie trybu failover i powrotu po awarii
           items:

@@ -3,13 +3,13 @@ title: Samouczek — zadanie wieloetapowej ACR
 description: W tym samouczku dowiesz się, jak skonfigurować zadanie Azure Container Registry, aby automatycznie wyzwalać wieloetapowy przepływ pracy do kompilowania, uruchamiania i wypychania obrazów kontenera w chmurze podczas zatwierdzania kodu źródłowego w repozytorium git.
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 6ba3b276c68885a0811ee445d965c486f158d193
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402304"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739600"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Samouczek: uruchamianie wieloetapowego przepływu pracy kontenera w chmurze podczas zatwierdzania kodu źródłowego
 
@@ -316,7 +316,7 @@ To zadanie wieloetapowe wykonuje następujące czynności:
 
 ### <a name="task-command"></a>Zadanie — polecenie
 
-Używając wcześniej zdefiniowanych zmiennych środowiskowych powłoki, Utwórz zadanie, wykonując następujące polecenie [AZ ACR Task Create][az-acr-task-create] . Zastąp nazwę rejestru *mycontainerregistrydate*.
+Używając wcześniej zdefiniowanych zmiennych środowiskowych powłoki, Utwórz zadanie, wykonując następujące polecenie [AZ ACR Task Create][az-acr-task-create] . Zastąp nazwę rejestru *mycontainerregistrydate* .
 
 ```azurecli-interactive
 az acr task create \

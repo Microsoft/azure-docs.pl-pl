@@ -3,13 +3,13 @@ title: Samouczek — szybka kompilacja obrazu kontenera
 description: Z tego samouczka dowiesz się, jak utworzyć obraz kontenera platformy Docker na platformie Azure przy użyciu usługi Azure Container Registry Tasks (ACR Tasks), a następnie wdrożyć go w usłudze Azure Container Instances.
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 43d2c277fe3297c7e5ee55046118add352853640
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259491"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739542"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Samouczek: Kompilowanie obrazów kontenera w chmurze przy użyciu zadań usługi Azure Container Registry
 
@@ -87,7 +87,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Teraz, gdy masz rejestr, użyj usługi ACR Tasks do skompilowania obrazu kontenera na podstawie kodu przykładowego. Wykonaj polecenie [az acr build][az-acr-build] w celu przeprowadzenia *szybkiego zadania*:
+Teraz, gdy masz rejestr, użyj usługi ACR Tasks do skompilowania obrazu kontenera na podstawie kodu przykładowego. Wykonaj polecenie [az acr build][az-acr-build] w celu przeprowadzenia *szybkiego zadania* :
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -203,7 +203,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-Argument `--role` w poprzednim poleceniu konfiguruje jednostkę usługi z rolą *acrpull*, co spowoduje przyznanie dostępu tylko do ściągania do rejestru. Aby przyznać prawa dostępu do wypychania i ściągania, należy zmienić argument `--role` na wartość *acrpush*.
+Argument `--role` w poprzednim poleceniu konfiguruje jednostkę usługi z rolą *acrpull* , co spowoduje przyznanie dostępu tylko do ściągania do rejestru. Aby przyznać prawa dostępu do wypychania i ściągania, należy zmienić argument `--role` na wartość *acrpush* .
 
 Następnie przechowuj jednostkę usługi *appId* w magazynie. Jest to **nazwa użytkownika** przekazywana do usługi Azure Container Registry na potrzeby uwierzytelniania:
 

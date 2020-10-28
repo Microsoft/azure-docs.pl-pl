@@ -3,13 +3,13 @@ title: Samouczek — Aktualizacja obrazu wyzwalacza według prywatnego obrazu po
 description: W tym samouczku skonfigurujesz zadanie Azure Container Registry, aby automatycznie wyzwalać kompilacje obrazu kontenera w chmurze, gdy zostanie zaktualizowany podstawowy obraz w innym prywatnym rejestrze kontenera platformy Azure.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 09b795981c1afe497e6adbb14f4f62d45293f0e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 7dda7c54c51c31e750083f302ca558ff7ef548ee
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270971"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739553"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Samouczek: Automatyzowanie kompilowania obrazu kontenera podczas aktualizowania obrazu podstawowego w innym prywatnym rejestrze kontenera 
 
@@ -78,7 +78,7 @@ W tym samouczku zadanie ACR kompiluje i wypycha obraz kontenera aplikacji okreś
 
 ## <a name="build-the-base-image"></a>Tworzenie obrazu podstawowego
 
-Zacznij od utworzenia obrazu podstawowego z *ACR zadaniami, używając*polecenia [AZ ACR Build][az-acr-build]. Zgodnie z opisem w [pierwszym samouczku](container-registry-tutorial-quick-task.md) z serii, w tym procesie następuje nie tylko kompilacja obrazu, ale także wypchnięcie go do rejestru kontenerów, jeśli kompilacja zakończy się pomyślnie. W tym przykładzie obraz jest wypychany do rejestru podstawowego obrazu.
+Zacznij od utworzenia obrazu podstawowego z *ACR zadaniami, używając* polecenia [AZ ACR Build][az-acr-build]. Zgodnie z opisem w [pierwszym samouczku](container-registry-tutorial-quick-task.md) z serii, w tym procesie następuje nie tylko kompilacja obrazu, ale także wypchnięcie go do rejestru kontenerów, jeśli kompilacja zakończy się pomyślnie. W tym przykładzie obraz jest wypychany do rejestru podstawowego obrazu.
 
 ```azurecli-interactive
 az acr build --registry $BASE_ACR --image baseimages/node:9-alpine --file Dockerfile-base .

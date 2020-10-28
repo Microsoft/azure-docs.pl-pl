@@ -359,9 +359,9 @@
     - name: Zestawy SDK usługi Azure IoT
       items:
         - name: Zestawy SDK usługi IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks
         - name: Zestawy SDK urządzeń IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks
     - name: Warunki użytkowania usługi Azure Maps
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Ceny usługi Azure Maps

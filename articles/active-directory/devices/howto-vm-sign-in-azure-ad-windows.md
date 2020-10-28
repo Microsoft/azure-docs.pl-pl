@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27ffc176fc890d90e4201069ec1728eed69d4011
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85bbdff2f7e67434a3e21aaf51af96c1e851eb0d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826661"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740176"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -81,12 +81,12 @@ Możesz włączyć logowanie za pomocą usługi Azure AD dla systemu Windows Ser
 
 Aby utworzyć maszynę wirtualną z systemem Windows Server 2019 Datacenter na platformie Azure przy użyciu usługi Azure AD Logon: 
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)przy użyciu konta, które ma dostęp do tworzenia maszyn wirtualnych, a następnie wybierz pozycję **+ Utwórz zasób**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com)przy użyciu konta, które ma dostęp do tworzenia maszyn wirtualnych, a następnie wybierz pozycję **+ Utwórz zasób** .
 1. Wpisz **Windows Server** na pasku wyszukiwania portalu Marketplace.
    1. Kliknij pozycję **Windows Server** i wybierz opcję **Windows Server 2019 Datacenter** z listy rozwijanej wybierz plan oprogramowania.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij pozycję **Utwórz** .
 1. Na karcie Zarządzanie, Włącz opcję **Zaloguj się przy użyciu poświadczeń usługi AAD (wersja zapoznawcza)** w sekcji Azure Active Directory od pozycji wyłączone do **usługi.**
-1. Upewnij **się, że w sekcji**tożsamość jest ustawiona **tożsamość zarządzana przypisana przez system** . Ta akcja powinna nastąpić automatycznie po włączeniu logowania przy użyciu poświadczeń usługi Azure AD.
+1. Upewnij **się, że w sekcji** tożsamość jest ustawiona **tożsamość zarządzana przypisana przez system** . Ta akcja powinna nastąpić automatycznie po włączeniu logowania przy użyciu poświadczeń usługi Azure AD.
 1. Przejdź do reszty środowiska tworzenia maszyny wirtualnej. W tej wersji zapoznawczej konieczne będzie utworzenie nazwy użytkownika i hasła administratora dla maszyny wirtualnej.
 
 ![Logowanie przy użyciu poświadczeń usługi Azure AD Tworzenie maszyny wirtualnej](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
@@ -146,8 +146,8 @@ az vm extension set \
 
 Po utworzeniu maszyny wirtualnej należy skonfigurować zasady RBAC platformy Azure, aby określić, kto może logować się do maszyny wirtualnej. Dwie role platformy Azure są używane do autoryzacji logowania do maszyny wirtualnej:
 
-- **Logowanie administratora maszyny wirtualnej**: Użytkownicy z przypisaną rolą mogą logować się do maszyny wirtualnej platformy Azure z uprawnieniami administratora.
-- **Logowanie użytkownika maszyny wirtualnej**: Użytkownicy z przypisaną rolą mogą logować się do maszyny wirtualnej platformy Azure przy użyciu zwykłych uprawnień użytkownika.
+- **Logowanie administratora maszyny wirtualnej** : Użytkownicy z przypisaną rolą mogą logować się do maszyny wirtualnej platformy Azure z uprawnieniami administratora.
+- **Logowanie użytkownika maszyny wirtualnej** : Użytkownicy z przypisaną rolą mogą logować się do maszyny wirtualnej platformy Azure przy użyciu zwykłych uprawnień użytkownika.
 
 > [!NOTE]
 > Aby zezwolić użytkownikowi na logowanie do maszyny wirtualnej za pośrednictwem protokołu RDP, należy przypisać rolę logowania administratora maszyny wirtualnej lub użytkownika maszyny wirtualnej. Użytkownik platformy Azure z rolami właściciela lub współautora przypisany do maszyny wirtualnej nie ma automatycznie uprawnień do logowania się do maszyny wirtualnej za pośrednictwem protokołu RDP. Ma to na celu zapewnienie przeprowadzenia inspekcji między zbiorem osób kontrolujących maszyny wirtualne a zestawem osób, które mogą uzyskiwać dostęp do maszyn wirtualnych.
@@ -163,10 +163,10 @@ Aby skonfigurować przypisania ról dla maszyn wirtualnych z systemem Windows Se
 
 1. Przejdź do strony przeglądu określonej maszyny wirtualnej
 1. Wybierz pozycję **Kontrola dostępu (IAM)** z opcji menu
-1. Wybierz pozycję **Dodaj**, a następnie **Dodaj przypisanie roli** , aby otworzyć okienko Dodawanie przypisania roli.
-1. Z listy rozwijanej **rola** wybierz rolę, taką jak **Identyfikator logowania administratora maszyny wirtualnej** lub **Logowanie użytkownika maszyny wirtualnej**.
-1. W polu **Wybierz** wybierz użytkownika, grupę, nazwę główną usługi lub tożsamość zarządzaną. Jeśli nie widzisz podmiotu zabezpieczeń na liście, możesz wpisać tekst w polu **Wybierz**, aby wyszukać w katalogu nazwy wyświetlane, adresy e-mail i identyfikatory obiektów.
-1. Wybierz pozycję **Zapisz**, aby przypisać rolę.
+1. Wybierz pozycję **Dodaj** , a następnie **Dodaj przypisanie roli** , aby otworzyć okienko Dodawanie przypisania roli.
+1. Z listy rozwijanej **rola** wybierz rolę, taką jak **Identyfikator logowania administratora maszyny wirtualnej** lub **Logowanie użytkownika maszyny wirtualnej** .
+1. W polu **Wybierz** wybierz użytkownika, grupę, nazwę główną usługi lub tożsamość zarządzaną. Jeśli nie widzisz podmiotu zabezpieczeń na liście, możesz wpisać tekst w polu **Wybierz** , aby wyszukać w katalogu nazwy wyświetlane, adresy e-mail i identyfikatory obiektów.
+1. Wybierz pozycję **Zapisz** , aby przypisać rolę.
 
 Po kilku chwilach podmiot zabezpieczeń ma przypisaną rolę w wybranym zakresie.
 
@@ -214,7 +214,7 @@ Aby zalogować się do maszyny wirtualnej z systemem Windows Server 2019 przy u�
 
 1. Przejdź do strony Przegląd maszyny wirtualnej, która została włączona z logowaniem do usługi Azure AD.
 1. Wybierz pozycję **Połącz** , aby otworzyć blok Połącz z maszyną wirtualną.
-1. Wybierz pozycję **Pobierz plik RDP**.
+1. Wybierz pozycję **Pobierz plik RDP** .
 1. Wybierz pozycję **Otwórz** , aby uruchomić klienta Podłączanie pulpitu zdalnego.
 1. Wybierz pozycję **Połącz** , aby uruchomić okno dialogowe logowania systemu Windows.
 1. Zaloguj się przy użyciu poświadczeń usługi Azure AD.

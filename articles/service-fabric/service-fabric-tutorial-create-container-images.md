@@ -3,13 +3,13 @@ title: Tworzenie obrazów kontenerów na Service Fabric na platformie Azure
 description: Z tego samouczka dowiesz się, jak utworzyć obrazy kontenerów dla aplikacji obsługującej wiele kontenerów usługi Service Fabric.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 73d202b3b812b59ed8dadd4a6508dfe2873ecd6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 31b5f870465bc1dff9d6ff7827a4efed084bcf62
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532214"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739054"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Samouczek: tworzenie obrazów kontenerów w klastrze usługi Service Fabric systemu Linux
 
@@ -82,7 +82,7 @@ Najpierw uruchom polecenie **AZ login** , aby zalogować się do konta platformy
 az login
 ```
 
-Następnie użyj polecenia **az account**, aby wybrać subskrypcję używaną do utworzenia rejestru usługi Azure Container. Zamiast ciągu <subscription_id> wprowadź identyfikator swojej subskrypcji platformy Azure.
+Następnie użyj polecenia **az account** , aby wybrać subskrypcję używaną do utworzenia rejestru usługi Azure Container. Zamiast ciągu <subscription_id> wprowadź identyfikator swojej subskrypcji platformy Azure.
 
 ```azurecli
 az account set --subscription <subscription_id>
@@ -90,7 +90,7 @@ az account set --subscription <subscription_id>
 
 W przypadku wdrażania usługi Azure Container Registry należy najpierw posiadać grupę zasobów. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia **az group create**. W tym przykładzie grupa zasobów o nazwie *myResourceGroup* jest tworzona w regionie *westus*.
+Utwórz grupę zasobów za pomocą polecenia **az group create** . W tym przykładzie grupa zasobów o nazwie *myResourceGroup* jest tworzona w regionie *westus* .
 
 ```azurecli
 az group create --name <myResourceGroup> --location westus
@@ -106,7 +106,7 @@ W dalszej części tego samouczka wartość „acrName” jest używana jako sym
 
 ## <a name="sign-in-to-your-container-registry"></a>Logowanie do rejestru kontenerów
 
-Zaloguj się do swojego wystąpienia ACR przed wypchnięciem do niego obrazów. Aby wykonać tę operację, użyj polecenia **az acr login**. Podaj unikatową nazwę nadaną rejestrowi kontenerów podczas jego tworzenia.
+Zaloguj się do swojego wystąpienia ACR przed wypchnięciem do niego obrazów. Aby wykonać tę operację, użyj polecenia **az acr login** . Podaj unikatową nazwę nadaną rejestrowi kontenerów podczas jego tworzenia.
 
 ```azurecli
 az acr login --name <acrName>

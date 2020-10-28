@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
-ms.openlocfilehash: 10cc89d1a0cc975df4384e551dddde32be0a4a72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 689582d73e29cb60cc2ee5294b568b5db2f73244
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87078130"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739341"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Szybki Start: Tworzenie i wdrażanie przepływu pracy aplikacji logiki przy użyciu szablonu ARM
 
@@ -20,7 +20,7 @@ ms.locfileid: "87078130"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 W tym przewodniku Szybki Start jest używany szablon [**Tworzenie aplikacji logiki**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) , który można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates) , ale jest on zbyt długi, aby go wyświetlić. Zamiast tego można zapoznać się z szablonem szybkiego startu ["azuredeploy.jsw pliku"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) w galerii szablonów.
 
-Szablon szybkiego startu tworzy przepływ pracy aplikacji logiki, który używa wyzwalacza cyklu, który jest ustawiany do uruchamiania co godzinę, oraz [akcji *wbudowanej* ](../connectors/apis-list.md#connector-types)protokołu HTTP, która wywołuje adres URL, który zwraca stan platformy Azure. Wbudowana akcja jest natywna dla platformy Azure Logic Apps.
+Szablon szybkiego startu tworzy przepływ pracy aplikacji logiki, który używa wyzwalacza cyklu, który jest ustawiany do uruchamiania co godzinę, oraz [akcji *wbudowanej*](../connectors/apis-list.md#connector-types)protokołu HTTP, która wywołuje adres URL, który zwraca stan platformy Azure. Wbudowana akcja jest natywna dla platformy Azure Logic Apps.
 
 Ten szablon tworzy następujący zasób platformy Azure:
 
@@ -42,7 +42,7 @@ Aby znaleźć więcej szablonów szybkiego startu dla Azure Logic Apps, zapoznaj
 
 <a name="deploy-template"></a>
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Postępuj zgodnie z opcją, która ma zostać użyta do wdrożenia szablonu szybkiego startu:
 
@@ -78,7 +78,7 @@ Postępuj zgodnie z opcją, która ma zostać użyta do wdrożenia szablonu szyb
 
    ![Podaj informacje o szablonie szybkiego startu](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
 
-1. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz**.
+1. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz** .
 
 1. Wykonaj kroki opisane w sekcji [Przegląd wdrożonych zasobów](#review-deployed-resources).
 
@@ -100,7 +100,7 @@ Więcej informacji można znaleźć w następujących tematach:
 * [Interfejs wiersza polecenia platformy Azure: AZ Deployment Group](/cli/azure/deployment/group)
 * [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md)
 
-#### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name to use for generating resource names"
@@ -234,7 +234,7 @@ Aby wyświetlić aplikację logiki, można użyć Azure Portal, uruchomić skryp
 
 1. Gdy zostanie otwarty projektant aplikacji logiki, przejrzyj aplikację logiki utworzoną przez szablon szybkiego startu.
 
-1. Aby przetestować aplikację logiki, na pasku narzędzi projektanta wybierz pozycję **Uruchom**.
+1. Aby przetestować aplikację logiki, na pasku narzędzi projektanta wybierz pozycję **Uruchom** .
 
 ### <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
 
@@ -247,7 +247,7 @@ echo "Press [ENTER] to continue ..."
 
 Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure: AZ Logic Workflow show](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show).
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $logicAppName = Read-Host -Prompt "Enter your logic app name"
@@ -288,7 +288,7 @@ Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i sa
 
 1. W Azure Portal Znajdź i wybierz grupę zasobów, którą chcesz usunąć, która jest `Check-Azure-Status-RG` w tym przykładzie.
 
-1. W menu Grupa zasobów wybierz pozycję **Przegląd** , jeśli nie została jeszcze wybrana. Na stronie Przegląd wybierz pozycję **Usuń grupę zasobów**.
+1. W menu Grupa zasobów wybierz pozycję **Przegląd** , jeśli nie została jeszcze wybrana. Na stronie Przegląd wybierz pozycję **Usuń grupę zasobów** .
 
 1. Aby potwierdzić, wprowadź nazwę grupy zasobów.
 
@@ -305,7 +305,7 @@ echo "Press [ENTER] to continue ..."
 
 Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure: AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"

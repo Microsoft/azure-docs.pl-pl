@@ -200,7 +200,7 @@
     - name: Analizy przypadków
       href: data-factory-customer-case-studies.md
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
+      href: /answers/topics/azure-data-factory.html
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Kalkulator cen

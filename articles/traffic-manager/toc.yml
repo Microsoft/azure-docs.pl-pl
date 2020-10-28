@@ -13,6 +13,7 @@
     - name: Tworzenie profilu usługi Traffic Manager — interfejs wiersza polecenia platformy Azure
       href: quickstart-create-traffic-manager-profile-cli.md
     - name: Tworzenie profilu usługi Traffic Manager — szablon usługi ARM
+      displayName: Resource Manager
       href: quickstart-create-traffic-manager-profile-template.md
   expanded: true
 - name: Samouczki

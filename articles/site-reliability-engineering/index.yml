@@ -11,12 +11,12 @@ metadata:
   author: dnblankedelman
   ms.author: dnb
   ms.date: 02/18/2020
-  ms.openlocfilehash: e5c1ef5e84f0170927d7fcac65b594d44ed33b93
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 1a7fff4aa1978afb1487717e63e21b0b750dc5cc
+  ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "85833438"
+  ms.lasthandoff: 10/27/2020
+  ms.locfileid: "92676546"
 highlightedContent:
   items:
   - title: 'Wprowadzenie do inżynierii niezawodności lokacji:  Co to jest inżynieria niezawodności lokacji? (1/3)'
@@ -46,9 +46,9 @@ productDirectory:
   - title: Kursy online z zakresu inżynierii niezawodności lokacji
     imageSrc: ./media/index/learn.svg
     links:
-    - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
+    - url: /learn/modules/intro-to-site-reliability-engineering/
       text: Wprowadzenie do inżynierii niezawodności lokacji
-    - url: https://docs.microsoft.com/learn/paths/improve-reliability-modern-operations/
+    - url: /learn/paths/improve-reliability-modern-operations/
       text: Zwiększanie niezawodności dzięki nowoczesnym rozwiązaniom dotyczącym operacji
   - title: Zasoby dotyczące inżynierii niezawodności lokacji
     imageSrc: ./media/index/reference.svg
@@ -69,97 +69,97 @@ conceptualContent:
   items:
   - title: Architektura
     links:
-    - url: https://docs.microsoft.com/azure/architecture/framework/
+    - url: /azure/architecture/framework/
       itemType: reference
       text: Azure Architecture Framework
-    - url: https://docs.microsoft.com/azure/architecture/guide
+    - url: /azure/architecture/guide
       itemType: reference
       text: Przewodnik dotyczący architektury aplikacji na platformie Azure
-    - url: https://docs.microsoft.com/azure/architecture/architectures/?filter=reference-architecture
+    - url: /azure/architecture/architectures/?filter=reference-architecture
       itemType: reference
       text: Architektury referencyjne
-    - url: https://docs.microsoft.com/azure/architecture/cloud-adoption/
+    - url: /azure/architecture/cloud-adoption/
       itemType: reference
       text: Struktura wdrażania chmury firmy Microsoft dla platformy Azure
-    - url: https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload
+    - url: /azure/architecture/architectures/?filter=example-workload
       itemType: reference
       text: Przykładowe obciążenia
-    - url: https://docs.microsoft.com/azure/architecture/microservices
+    - url: /azure/architecture/microservices
       itemType: reference
       text: Tworzenie mikrousług na platformie Azure
-    - url: https://docs.microsoft.com/azure/architecture/data-guide/
+    - url: /azure/architecture/data-guide/
       itemType: reference
       text: Przewodnik po architekturze danych platformy Azure
-    - url: https://docs.microsoft.com/azure/architecture/best-practices/
+    - url: /azure/architecture/best-practices/
       itemType: reference
       text: Najlepsze rozwiązania w chmurze
-    - url: https://docs.microsoft.com/azure/architecture/framework/resiliency/overview
+    - url: /azure/architecture/framework/resiliency/overview
       itemType: reference
       text: Projektowanie niezawodnych aplikacji platformy Azure
-    - url: https://docs.microsoft.com/azure/architecture/patterns
+    - url: /azure/architecture/patterns
       itemType: reference
       text: Wzorce projektowe oparte na chmurze
-    - url: https://docs.microsoft.com/azure/architecture/aws-professional
+    - url: /azure/architecture/aws-professional
       itemType: reference
       text: Platforma Azure dla ekspertów w zakresie usług AWS
-    - url: https://docs.microsoft.com/azure/architecture/performance
+    - url: /azure/architecture/performance
       itemType: reference
       text: Dostosowywanie wydajności
     footerLink:
-      url: https://docs.microsoft.com/azure/architecture/
+      url: /azure/architecture/
       text: Więcej informacji znajduje się w Centrum architektury platformy Azure
   - title: Monitorowanie
     links:
-    - url: https://docs.microsoft.com/azure/azure-monitor/overview
+    - url: ../azure-monitor/overview.md
       itemType: get-started
       text: Omówienie usługi Azure Monitor
-    - url: https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics
+    - url: ../azure-monitor/platform/data-platform-metrics.md
       itemType: get-started
       text: Metryki przy użyciu usługi Azure Monitor
-    - url: https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs
+    - url: ../azure-monitor/platform/data-platform-logs.md
       itemType: get-started
       text: Dzienniki przy użyciu usługi Azure Monitor
-    - url: https://docs.microsoft.com/azure/azure-monitor/azure-monitor-app-hub
+    - url: ../azure-monitor/azure-monitor-app-hub.yml
       itemType: get-started
       text: Zarządzanie wydajnością aplikacji za pomocą usługi Application Insights
-    - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
+    - url: ../azure-monitor/app/distributed-tracing.md
       itemType: get-started
       text: Śledzenie rozproszone z użyciem usługi Azure Monitor
     footerLink:
-      url: https://docs.microsoft.com/en-us/azure/azure-monitor/
+      url: ../azure-monitor/index.yml
       text: Więcej informacji o usłudze Azure Monitor
   - title: Aprowizowanie i dostarczanie
     links:
-    - url: https://docs.microsoft.com/azure/azure-resource-manager/
+    - url: ../azure-resource-manager/index.yml
       itemType: get-started
       text: Azure Resource Manager
-    - url: https://docs.microsoft.com/azure/terraform/
+    - url: /azure/terraform/
       itemType: get-started
       text: Program Terraform na platformie Azure
     - url: https://help.github.com/actions
       itemType: get-started
       text: GitHub Actions
-    - url: https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops
+    - url: /azure/devops/pipelines/index?view=azure-devops
       itemType: get-started
       text: Azure Pipelines
   - title: Skalowanie
     links:
-    - url: https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview
+    - url: ../azure-monitor/platform/autoscale-overview.md
       itemType: get-started
       text: Omówienie skalowania automatycznego
-    - url: https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling
+    - url: /azure/architecture/best-practices/auto-scaling
       itemType: get-started
       text: Wskazówki dotyczące skalowania automatycznego
     - url: https://www.pluralsight.com/courses/microsoft-azure-autoscaling-developing
       itemType: get-started
       text: Opracowywanie pod kątem skalowania automatycznego
-    - url: https://docs.microsoft.com/azure/architecture/framework/scalability/overview
+    - url: /azure/architecture/framework/scalability/overview
       itemType: get-started
       text: Filar skalowalności architektury platformy Azure
-    - url: https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out
+    - url: /azure/architecture/guide/design-principles/scale-out
       itemType: get-started
       text: Projektuj pod kątem skalowania w poziomie
-    - url: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/performance-scalability
+    - url: /azure/architecture/patterns/category/performance-scalability
       itemType: get-started
       text: Wzorce wydajności i skalowalności
 additionalContent:

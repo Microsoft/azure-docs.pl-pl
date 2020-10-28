@@ -5,13 +5,13 @@ keywords: app service, azure app service, scale, scalable, app service plan, app
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
-ms.custom: seodec18
-ms.openlocfilehash: 0030a9340d874d94b9876e23f372e97655c145da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e6b8c7d54cf24d810a1f32082d816c908966f63c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742706"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739694"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Konfigurowanie warstwy PremiumV3 dla Azure App Service
 
@@ -19,7 +19,7 @@ Nowa warstwa cenowa **PremiumV3** zapewnia szybszy procesor, magazyn SSD i czter
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skalować aplikację w górę do **PremiumV3**, musisz mieć aplikację Azure App Service działającą w warstwie cenowej niższą niż **PremiumV3**, a aplikacja musi działać w ramach wdrożenia App Service, które obsługuje PremiumV3.
+Aby skalować aplikację w górę do **PremiumV3** , musisz mieć aplikację Azure App Service działającą w warstwie cenowej niższą niż **PremiumV3** , a aplikacja musi działać w ramach wdrożenia App Service, które obsługuje PremiumV3.
 
 <a name="availability"></a>
 
@@ -42,14 +42,14 @@ az appservice list-locations --sku P1V3
 
 Warstwa cenowa aplikacji App Service jest definiowana w [planie App Service](overview-hosting-plans.md) , w którym jest uruchomiona. W ramach tworzenia aplikacji można utworzyć App Service plan samodzielny.
 
-Podczas konfigurowania planu App Service w <a href="https://portal.azure.com" target="_blank">Azure Portal</a>wybierz pozycję **warstwa cenowa**. 
+Podczas konfigurowania planu App Service w <a href="https://portal.azure.com" target="_blank">Azure Portal</a>wybierz pozycję **warstwa cenowa** . 
 
-Wybierz pozycję **produkcja**, a następnie wybierz pozycję **P1V3**, **P2V3**lub **P3V3**, a następnie kliknij pozycję **Zastosuj**.
+Wybierz pozycję **produkcja** , a następnie wybierz pozycję **P1V3** , **P2V3** lub **P3V3** , a następnie kliknij pozycję **Zastosuj** .
 
 ![Zrzut ekranu przedstawiający zalecane warstwy cenowe dla aplikacji.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Jeśli nie widzisz opcji **P1V3**, **P2V3**i **P3V3** jako opcje lub jeśli opcje są wyszarzone, to **PremiumV3** prawdopodobnie nie jest dostępna w podstawowym wdrożeniu App Service, które zawiera plan App Service. Aby uzyskać więcej informacji [, zobacz Skalowanie w górę z nieobsługiwanej kombinacji grupy zasobów i regionu](#unsupported) .
+> Jeśli nie widzisz opcji **P1V3** , **P2V3** i **P3V3** jako opcje lub jeśli opcje są wyszarzone, to **PremiumV3** prawdopodobnie nie jest dostępna w podstawowym wdrożeniu App Service, które zawiera plan App Service. Aby uzyskać więcej informacji [, zobacz Skalowanie w górę z nieobsługiwanej kombinacji grupy zasobów i regionu](#unsupported) .
 
 ## <a name="scale-up-an-existing-app-to-premiumv3-tier"></a>Skalowanie istniejącej aplikacji do warstwy PremiumV3
 
@@ -59,11 +59,11 @@ Skalowanie w górę może wymagać wykonania dodatkowych czynności w zależnoś
 
 W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>Otwórz stronę aplikacji App Service.
 
-W lewym panelu nawigacyjnym strony aplikacji App Service wybierz pozycję **Skaluj w górę (plan App Service)**.
+W lewym panelu nawigacyjnym strony aplikacji App Service wybierz pozycję **Skaluj w górę (plan App Service)** .
 
 ![Zrzut ekranu przedstawiający sposób skalowania planu usługi App Service.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Wybierz pozycję **produkcja**, a następnie wybierz pozycję **P1V3**, **P2V3**lub **P3V3**, a następnie kliknij pozycję **Zastosuj**.
+Wybierz pozycję **produkcja** , a następnie wybierz pozycję **P1V3** , **P2V3** lub **P3V3** , a następnie kliknij pozycję **Zastosuj** .
 
 ![Zrzut ekranu przedstawiający zalecane warstwy cenowe dla aplikacji.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
@@ -79,10 +79,10 @@ Niektóre plany App Service nie mogą skalować w górę do warstwy PremiumV3, j
 
 ## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Skalowanie w górę z nieobsługiwanej kombinacji grupy zasobów i regionu
 
-Jeśli aplikacja działa w ramach wdrożenia App Service, w którym **PremiumV3** jest niedostępna, lub jeśli aplikacja działa w regionie, który obecnie nie obsługuje **PremiumV3**, należy ponownie wdrożyć aplikację, aby skorzystać z funkcji **PremiumV3**.  Dostępne są dwie opcje:
+Jeśli aplikacja działa w ramach wdrożenia App Service, w którym **PremiumV3** jest niedostępna, lub jeśli aplikacja działa w regionie, który obecnie nie obsługuje **PremiumV3** , należy ponownie wdrożyć aplikację, aby skorzystać z funkcji **PremiumV3** .  Dostępne są dwie opcje:
 
-- Utwórz aplikację w nowej grupie zasobów i z nowym planem App Service. Podczas tworzenia planu App Service wybierz warstwę **PremiumV3** . Ten krok zapewnia, że plan App Service jest wdrażany w jednostce wdrożenia, która obsługuje **PremiumV3**. Następnie ponownie Wdróż kod aplikacji w nowo utworzonej aplikacji. Nawet w przypadku skalowania App Service planu w dół do niższej warstwy w celu oszczędności kosztów można zawsze skalować kopię zapasową do **PremiumV3** , ponieważ jest ona obsługiwana przez jednostkę wdrażania.
-- Jeśli aplikacja jest już uruchomiona w istniejącej warstwie **Premium** , można sklonować aplikację ze wszystkimi ustawieniami aplikacji, parametrami połączeń i konfiguracją wdrożenia do nowego planu usługi App Service korzystającego z **PremiumV3**.
+- Utwórz aplikację w nowej grupie zasobów i z nowym planem App Service. Podczas tworzenia planu App Service wybierz warstwę **PremiumV3** . Ten krok zapewnia, że plan App Service jest wdrażany w jednostce wdrożenia, która obsługuje **PremiumV3** . Następnie ponownie Wdróż kod aplikacji w nowo utworzonej aplikacji. Nawet w przypadku skalowania App Service planu w dół do niższej warstwy w celu oszczędności kosztów można zawsze skalować kopię zapasową do **PremiumV3** , ponieważ jest ona obsługiwana przez jednostkę wdrażania.
+- Jeśli aplikacja jest już uruchomiona w istniejącej warstwie **Premium** , można sklonować aplikację ze wszystkimi ustawieniami aplikacji, parametrami połączeń i konfiguracją wdrożenia do nowego planu usługi App Service korzystającego z **PremiumV3** .
 
     ![Zrzut ekranu przedstawiający sposób klonowania aplikacji.](media/app-service-configure-premium-tier/clone-app.png)
 
@@ -90,7 +90,7 @@ Jeśli aplikacja działa w ramach wdrożenia App Service, w którym **PremiumV3*
 
 ## <a name="moving-from-premium-container-to-premium-v3-sku"></a>Przechodzenie z kontenera Premium do jednostki SKU w warstwie Premium v3
 
-Jeśli masz aplikację, która korzysta z jednostki SKU kontenera wersji zapoznawczej Premium, a chcesz przenieść ją do nowej jednostki SKU w wersji 3 Premium, musisz ponownie wdrożyć aplikację, aby skorzystać z **PremiumV3**. Aby to zrobić, zobacz pierwszą opcję w obszarze [skalowanie w górę od nieobsługiwanej grupy zasobów i regionu](#scale-up-from-an-unsupported-resource-group-and-region-combination) .
+Jeśli masz aplikację, która korzysta z jednostki SKU kontenera wersji zapoznawczej Premium, a chcesz przenieść ją do nowej jednostki SKU w wersji 3 Premium, musisz ponownie wdrożyć aplikację, aby skorzystać z **PremiumV3** . Aby to zrobić, zobacz pierwszą opcję w obszarze [skalowanie w górę od nieobsługiwanej grupy zasobów i regionu](#scale-up-from-an-unsupported-resource-group-and-region-combination) .
 
 ## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
 
@@ -98,7 +98,7 @@ Tworzenie aplikacji można zautomatyzować w warstwie **PremiumV3** za pomocą s
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Następujące polecenie tworzy App Service plan w _P1V2_. Można uruchomić ją w Cloud Shell. Dostępne opcje `--sku` to P1V3, _P2V3_i _P3V3_.
+Następujące polecenie tworzy App Service plan w _P1V2_ . Można uruchomić ją w Cloud Shell. Dostępne opcje `--sku` to P1V3, _P2V3_ i _P3V3_ .
 
 ```azurecli-interactive
 az appservice plan create \
@@ -111,7 +111,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Następujące polecenie tworzy App Service plan w _P1V3_. Opcje dla `-WorkerSize` są _małe_, _średnie_i _duże_.
+Następujące polecenie tworzy App Service plan w _P1V3_ . Opcje dla `-WorkerSize` są _małe_ , _średnie_ i _duże_ .
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `

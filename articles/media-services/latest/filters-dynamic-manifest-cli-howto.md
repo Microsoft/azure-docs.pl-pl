@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: 5ceff9eba0363ea2784c48e026807c53447f1e32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: f86b3fbebfaa2eb6fc35d5373eab2bb296ff5043
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296906"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740609"
 ---
 # <a name="creating-filters-with-cli"></a>Tworzenie filtrów za pomocą interfejsu wiersza polecenia
 
@@ -132,6 +132,6 @@ W poniższej tabeli przedstawiono kilka przykładów adresów URL z filtrami:
 
 [Strumieniowe przesyłanie wideo](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Interfejs wiersza polecenia platformy Azure](/cli/azure/ams?view=azure-cli-latest)

@@ -1,7 +1,6 @@
 ---
-title: Informacje o monitorowaniu danych | Microsoft Docs
-titleSuffix: Azure Machine Learning
-description: Dowiedz się więcej na temat danych i zasobów zebranych dla Azure Machine Learning i dostępnych w Azure Monitor. Azure Monitor zbiera i przedstawia dane dotyczące obszaru roboczego Azure Machine Learning, a następnie pozwala wyświetlać metryki, ustawiać alerty i analizować zarejestrowane dane.
+title: Informacje o monitorowaniu Azure Machine Learning danych | Microsoft Docs
+description: Ważne materiały referencyjne potrzebne podczas monitorowania Azure Machine Learning. Dowiedz się więcej na temat danych i zasobów zebranych dla Azure Machine Learning i dostępnych w Azure Monitor. Azure Monitor zbiera i przedstawia dane dotyczące obszaru roboczego Azure Machine Learning, a następnie pozwala wyświetlać metryki, ustawiać alerty i analizować zarejestrowane dane.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +8,127 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 04/27/2020
-ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/02/2020
+ms.openlocfilehash: edd2b3e02c1a768b1f18a62faaf9b59539b92774
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650596"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739140"
 ---
-# <a name="azure-machine-learning-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure Machine Learning
+# <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorowanie odwołań do danych usługi Azure Machine Learning
 
 Dowiedz się więcej o danych i zasobach zbieranych przez Azure Monitor z obszaru roboczego Azure Machine Learning. Aby uzyskać szczegółowe informacje na temat zbierania i analizowania danych monitorowania, zobacz [Azure Machine Learning monitorowania](monitor-azure-machine-learning.md) .
 
+## <a name="metrics"></a>Metryki
+
+W tej sekcji wymieniono wszystkie automatycznie zbierane metryki platformy zebrane dla Azure Machine Learning. Dostawca zasobów dla tych metryk to [Microsoft. MachineLearningServices/Workspaces](/azure/azure-monitor/platform/metrics-supported#microsoftmachinelearningservicesworkspaces).
+
+**Model**
+
+| Metryka | Jednostka | Opis |
+| ----- | ----- | ----- |
+| Nie można wdrożyć modelu | Liczba | Liczba wdrożeń modelu zakończonych niepowodzeniem. |
+| Rozpoczęto Wdrażanie modelu | Liczba | Liczba uruchomionych wdrożeń modelu. |
+| Wdrażanie modelu powiodło się | Liczba | Liczba wdrożeń modelu, które zakończyły się powodzeniem. |
+| Nie można zarejestrować modelu | Liczba | Liczba rejestracji modelu zakończonych niepowodzeniem. |
+| Rejestrowanie modelu powiodło się | Liczba | Liczba rejestracji modelu zakończonych powodzeniem. |
+
+**limit przydziału**
+
+Informacje o limicie przydziału są przeznaczone tylko dla Azure Machine Learning obliczeń.
+
+| Metryka | Jednostka | Opis |
+| ----- | ----- | ----- |
+| Aktywne rdzenie | Liczba | Liczba aktywnych rdzeni obliczeniowych. |
+| Aktywne węzły | Liczba | Liczba aktywnych węzłów. |
+| Rdzenie bezczynne | Liczba | Liczba rdzeni obliczeniowych w bezczynnym stanie. |
+| Węzły bezczynne | Liczba | Liczba bezczynnych węzłów obliczeniowych. |
+| Opuszczanie rdzeni | Liczba | Liczba rdzeni opuszczających. |
+| Opuszczanie węzłów | Liczba | Liczba pozostałych węzłów. |
+| Występujące rdzenie | Liczba | Liczba przeniesiona rdzeni. |
+| Zastępujące węzły | Liczba | Liczba przeniesiona węzłów. |
+| Procent wykorzystania przydziałów | Procent | Procent użytego przydziału. |
+| Całkowita liczba rdzeni | Liczba | Łączna liczba rdzeni. |
+| Łączna liczba węzłów | Liczba | Łączna liczba węzłów. |
+| Rdzenie, których nie można używać | Liczba | Liczba rdzeni, których nie można używać. |
+| Węzły niezdatne do użytku | Liczba | Liczba węzłów, które nie są używane. |
+
+**Zasób**
+
+| Metryka | Jednostka | Opis |
+| ----- | ----- | ----- |
+| CpuUtilization | Procent | Procent użycia procesora CPU dla danego węzła podczas uruchamiania/zadania. Ta Metryka jest publikowana tylko wtedy, gdy zadanie jest uruchomione w węźle. Jedno zadanie może korzystać z co najmniej jednego węzła. Ta Metryka jest publikowana na węzeł. |
+| GpuUtilization | Procent | Stopień użycia procesora GPU dla danego węzła podczas uruchamiania/zadania. Jeden węzeł może mieć jeden lub więcej procesorów GPU. Ta Metryka jest publikowana na procesor GPU na węzeł. |
+
+**Uruchom**
+
+Informacje o przebiegach szkoleniowych.
+
+| Metryka | Jednostka | Opis |
+| ----- | ----- | ----- |
+| Ukończone uruchomienia | Liczba | Liczba ukończonych uruchomień. |
+| Nieudane uruchomienia | Liczba | Liczba nieudanych uruchomień. |
+| Uruchomione uruchomienia | Liczba | Liczba rozpoczętych uruchomień. |
+
+## <a name="metric-dimensions"></a>Wymiary metryk
+
+Aby uzyskać więcej informacji na temat wymiarów metryk, zobacz [wielowymiarowe metryki](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+
+Azure Machine Learning ma powiązane z nimi wymiary.
+
+| Wymiar | Opis |
+| ---- | ---- |
+| Nazwa klastra | Nazwa wystąpienia obliczeniowego. Dostępne dla wszystkich metryk przydziału. |
+| Nazwa rodziny maszyn wirtualnych | Nazwa rodziny maszyn wirtualnych używanej przez klaster. Dostępne dla procentu wykorzystania przydziałów. |
+| Priorytet maszyny wirtualnej | Priorytet maszyny wirtualnej. Dostępne dla procentu wykorzystania przydziałów.
+| CreatedTime | Dostępne tylko dla CpuUtilization i GpuUtilization. |
+| DeviceId | Identyfikator urządzenia (GPU). Dostępne tylko dla GpuUtilization. |
+| NodeId | IDENTYFIKATOR węzła utworzonego w przypadku, gdy zadanie jest uruchomione. Dostępne tylko dla CpuUtilization i GpuUtilization. |
+| RunId | Identyfikator uruchomienia/zadania. Dostępne tylko dla CpuUtilization i GpuUtilization. |
+| Computetype | Typ obliczeń używany do uruchomienia. Dostępne tylko dla ukończonych uruchomień, nieudanych uruchomień i rozpoczętych uruchomień. |
+| PipelineStepType | Typ [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) używany w przebiegu. Dostępne tylko dla ukończonych uruchomień, nieudanych uruchomień i rozpoczętych uruchomień. |
+| PublishedPipelineId | Identyfikator opublikowanego potoku używanego w przebiegu. Dostępne tylko dla ukończonych uruchomień, nieudanych uruchomień i rozpoczętych uruchomień. |
+| RunType | Typ uruchomienia. Dostępne tylko dla ukończonych uruchomień, nieudanych uruchomień i rozpoczętych uruchomień. |
+
+Prawidłowe wartości dla wymiaru RunType są następujące:
+
+| Wartość | Opis |
+| ----- | ----- |
+| Experiment | Uruchomienia bez potoku. |
+| PipelineRun | Uruchomienie potoku, które jest elementem nadrzędnym elementu StepRun. |
+| StepRun | Przebieg kroku potoku. |
+| ReusedStepRun | Przebieg kroku potoku, który ponownie używa poprzedniego przebiegu. |
+
+## <a name="activity-log"></a>Dziennik aktywności
+
+Poniższa tabela zawiera listę operacji związanych z Azure Machine Learning, które mogą zostać utworzone w dzienniku aktywności.
+
+| Operacja | Opis |
+|:---|:---|
+| Tworzy lub aktualizuje obszar roboczy Machine Learning | Utworzono lub Zaktualizowano obszar roboczy |
+| CheckComputeNameAvailability | Sprawdź, czy nazwa obliczeniowa jest już używana |
+| Tworzy lub aktualizuje zasoby obliczeniowe | Zasób obliczeniowy został utworzony lub zaktualizowany |
+| Usuwa zasoby obliczeniowe | Zasób obliczeniowy został usunięty |
+| Wyświetlanie listy wpisów tajnych | Na liście tajnych operacji dla Machine Learning obszaru roboczego |
+
 ## <a name="resource-logs"></a>Dzienniki zasobów
 
-W poniższej tabeli wymieniono właściwości dzienników zasobów Azure Machine Learning, które są zbierane w Azure Monitor dziennikach lub usłudze Azure Storage.
+Ta sekcja zawiera listę typów dzienników zasobów, które można zbierać dla Azure Machine Learning obszaru roboczego.
+
+Dostawca zasobów i typ: [Microsoft. MachineLearningServices/Workspace](/azure/azure-monitor/platform/resource-logs-categories#microsoftmachinelearningservicesworkspaces).
+
+| Kategoria | Nazwa wyświetlana |
+| ----- | ----- |
+| AmlComputeClusterEvent | AmlComputeClusterEvent |
+| AmlComputeClusterNodeEvent | AmlComputeClusterNodeEvent |
+| AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
+| AmlComputeJobEvent | AmlComputeJobEvent |
+| AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
+
+## <a name="schemas"></a>Schematy
+
+Następujące schematy są używane przez Azure Machine Learning
 
 ### <a name="amlcomputejobevents-table"></a>Tabela AmlComputeJobEvents
 
@@ -42,8 +147,8 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów Azure Machine
 | ResourceGroupName | Nazwa grupy zasobów |
 | JobName | Nazwa zadania |
 | ClusterId | Identyfikator klastra |
-| Typ zdarzenia | Typ zdarzenia zadania, np., JobSubmitted, JobRunning, JobFailed, JobSucceeded itd. |
-| ExecutionState | Stan zadania (przebieg), np., w kolejce, uruchomione, zakończone powodzeniem, zakończone niepowodzeniem |
+| Typ zdarzenia | Typ zdarzenia zadania. Na przykład JobSubmitted, JobRunning, JobFailed, JobSucceeded. |
+| ExecutionState | Stan zadania (przebieg). Na przykład w kolejce, uruchomione, zakończone powodzeniem, zakończone niepowodzeniem |
 | ErrorDetails | Szczegóły błędu zadania |
 | CreationApiVersion | Wersja interfejsu API użyta do utworzenia zadania |
 | ClusterResourceGroupName | Nazwa grupy zasobów klastra |
@@ -109,7 +214,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów Azure Machine
 | VmSize | Rozmiar maszyny wirtualnej węzła |
 | VmFamilyName | Rodzina maszyn wirtualnych, do której należy węzeł |
 | VmPriority | Priorytet utworzonego węzła/LowPriority |
-| Publisher | Wydawca obrazu maszyny wirtualnej, np. Microsoft-dsvm |
+| Publisher | Wydawca obrazu maszyny wirtualnej. Na przykład Microsoft-dsvm |
 | Oferta | Oferta skojarzona z tworzeniem maszyny wirtualnej |
 | SKU | Utworzono jednostkę SKU węzła/maszyny wirtualnej |
 | Wersja | Wersja obrazu używana podczas tworzenia węzła/maszyny wirtualnej |
@@ -122,93 +227,8 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów Azure Machine
 | StartTaskEndTime | Czas zakończenia zadania przypisanego do węzła |
 | TotalE2ETimeInSeconds | Łączny węzeł czasu był aktywny |
 
-### <a name="metrics"></a>Metryki
 
-W poniższych tabelach przedstawiono metryki platformy zebrane dla Azure Machine Learning wszystkie metryki są przechowywane w **obszar roboczy usługi Azure Machine Learning**przestrzeni nazw.
-
-**Model**
-
-| Metryka | Jednostka | Opis |
-| ----- | ----- | ----- |
-| Nie można wdrożyć modelu | Liczba | Liczba wdrożeń modelu zakończonych niepowodzeniem. |
-| Rozpoczęto Wdrażanie modelu | Liczba | Liczba uruchomionych wdrożeń modelu. |
-| Wdrażanie modelu powiodło się | Liczba | Liczba wdrożeń modelu, które zakończyły się powodzeniem. |
-| Nie można zarejestrować modelu | Liczba | Liczba rejestracji modelu zakończonych niepowodzeniem. |
-| Rejestrowanie modelu powiodło się | Liczba | Liczba rejestracji modelu zakończonych powodzeniem. |
-
-**limit przydziału**
-
-Informacje o limicie przydziału są przeznaczone tylko dla Azure Machine Learning obliczeń.
-
-| Metryka | Jednostka | Opis |
-| ----- | ----- | ----- |
-| Aktywne rdzenie | Liczba | Liczba aktywnych rdzeni obliczeniowych. |
-| Aktywne węzły | Liczba | Liczba aktywnych węzłów. |
-| Rdzenie bezczynne | Liczba | Liczba rdzeni obliczeniowych w bezczynnym stanie. |
-| Węzły bezczynne | Liczba | Liczba bezczynnych węzłów obliczeniowych. |
-| Opuszczanie rdzeni | Liczba | Liczba rdzeni opuszczających. |
-| Opuszczanie węzłów | Liczba | Liczba pozostałych węzłów. |
-| Występujące rdzenie | Liczba | Liczba przeniesiona rdzeni. |
-| Zastępujące węzły | Liczba | Liczba przeniesiona węzłów. |
-| Procent wykorzystania przydziałów | Procent | Procent użytego przydziału. |
-| Całkowita liczba rdzeni | Liczba | Łączna liczba rdzeni. |
-| Łączna liczba węzłów | Liczba | Łączna liczba węzłów. |
-| Rdzenie, których nie można używać | Liczba | Liczba rdzeni, których nie można używać. |
-| Węzły niezdatne do użytku | Liczba | Liczba węzłów, które nie są używane. |
-
-Poniżej znajdują się wymiary, których można użyć do filtrowania metryk przydziału:
-
-| Wymiar | Metryki dostępne z | Opis |
-| ---- | ---- | ---- |
-| Nazwa klastra | Wszystkie metryki przydziału | Nazwa wystąpienia obliczeniowego. |
-| Nazwa rodziny maszyn wirtualnych | Procent wykorzystania przydziałów | Nazwa rodziny maszyn wirtualnych używanej przez klaster. |
-| Priorytet maszyny wirtualnej | Procent wykorzystania przydziałów | Priorytet maszyny wirtualnej.
-
-**Zasób**
-
-| Metryka | Jednostka | Opis |
-| ----- | ----- | ----- |
-| CpuUtilization | Procent | Procent użycia procesora CPU dla danego węzła podczas uruchamiania/zadania. Ta Metryka jest publikowana tylko wtedy, gdy zadanie jest uruchomione w węźle. Jedno zadanie może korzystać z co najmniej jednego węzła. Ta Metryka jest publikowana na węzeł. |
-| GpuUtilization | Procent | Stopień użycia procesora GPU dla danego węzła podczas uruchamiania/zadania. Jeden węzeł może mieć jeden lub więcej procesorów GPU. Ta Metryka jest publikowana na procesor GPU na węzeł. |
-
-Poniżej znajdują się wymiary, których można użyć do filtrowania metryk zasobów:
-
-| Wymiar | Opis |
-| ----- | ----- |
-| CreatedTime | |
-| DeviceId | Identyfikator urządzenia (GPU). Dostępne tylko dla GpuUtilization. |
-| NodeId | IDENTYFIKATOR węzła utworzonego w przypadku, gdy zadanie jest uruchomione. |
-| RunId | Identyfikator uruchomienia/zadania. |
-
-**Uruchom**
-
-Informacje o przebiegach szkoleniowych.
-
-| Metryka | Jednostka | Opis |
-| ----- | ----- | ----- |
-| Ukończone uruchomienia | Liczba | Liczba ukończonych uruchomień. |
-| Nieudane uruchomienia | Liczba | Liczba nieudanych uruchomień. |
-| Uruchomione uruchomienia | Liczba | Liczba rozpoczętych uruchomień. |
-
-Poniżej znajdują się wymiary, których można użyć do filtrowania metryk przebiegu:
-
-| Wymiar | Opis |
-| ---- | ---- |
-| Computetype | Typ obliczeń używany do uruchomienia. |
-| PipelineStepType | Typ [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) używany w przebiegu. |
-| PublishedPipelineId | Identyfikator opublikowanego potoku używanego w przebiegu. |
-| RunType | Typ uruchomienia. |
-
-Prawidłowe wartości dla wymiaru RunType są następujące:
-
-| Wartość | Opis |
-| ----- | ----- |
-| Experiment | Uruchomienia bez potoku. |
-| PipelineRun | Uruchomienie potoku, które jest elementem nadrzędnym elementu StepRun. |
-| StepRun | Przebieg kroku potoku. |
-| ReusedStepRun | Przebieg kroku potoku, który ponownie używa poprzedniego przebiegu. |
-
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Aby uzyskać opis Azure Machine Learning monitorowania, zobacz [Azure Machine Learning monitorowania](monitor-azure-machine-learning.md) .
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](/azure/azure-monitor/insights/monitor-azure-resource) .
