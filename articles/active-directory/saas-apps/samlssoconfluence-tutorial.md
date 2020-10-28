@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 7c36dd87ac305db62d2d80b74de09f4389722da9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c8f85c6dd42f1f4505474e03e378c0fe48d70005
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675507"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym SAML dla Confluence przez rozwiązanie GmbH
 
@@ -99,7 +99,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją SAML SSO 
 
 4. Aby skonfigurować aplikację w trybie inicjowania **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL aplikacji SAML SSO for Confluence by resolution GmbH na potrzeby logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący konfigurację "podstawowa S A M L" z wyróżnionymi polami tekstowymi "identifier" i "reply U R L" oraz wybraną akcją "Save" (Zapisz).](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -124,45 +124,45 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją SAML SSO 
 
 2. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **Dodatki** .
     
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon1.png)
+    ![Zrzut ekranu pokazujący wybraną ikonę "koło zębate" oraz "Dodatki" wybrane z listy rozwijanej.](./media/samlssoconfluence-tutorial/addon1.png)
 
 3. Nastąpi przekierowanie na stronę dostępu administratora. Wprowadź hasło, a następnie kliknij przycisk **Confirm** (Potwierdź).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon2.png)
+    ![Zrzut ekranu przedstawiający stronę "dostęp administratora" z wybranym przyciskiem "Potwierdź".](./media/samlssoconfluence-tutorial/addon2.png)
 
 4. Na karcie **ATLASSIAN MARKETPLACE** (Platforma handlowa Atlassian) kliknij pozycję **Find new add-ons** (Znajdź nowe dodatki). 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon.png)
+    ![Zrzut ekranu pokazujący kartę "Attlassian Marketplace" z wybraną pozycją "Znajdź nowe dodatki".](./media/samlssoconfluence-tutorial/addon.png)
 
 5. Wyszukaj pozycję **SAML Single Sign On (SSO) for Confluence** , a następnie kliknij przycisk **Install** (Zainstaluj), aby zainstalować nową wtyczkę protokołu SAML.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon7.png)
+    ![Zrzut ekranu przedstawiający stronę "Znajdź nowe dodatki" z opcją "S A M L Logowanie jednokrotne (S S O) dla Confluence" w polu wyszukiwania i wybranym przyciskiem "Zainstaluj".](./media/samlssoconfluence-tutorial/addon7.png)
 
 6. Rozpocznie się instalacja wtyczki. Kliknij przycisk **Zamknij** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon8.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "Instalowanie".](./media/samlssoconfluence-tutorial/addon8.png)
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon9.png)
+    ![Zrzut ekranu pokazujący "zainstalowane i gotowe do użycia!" okno dialogowe z wybraną akcją "Zamknij".](./media/samlssoconfluence-tutorial/addon9.png)
 
 7.  Kliknij pozycję **Zarządzaj** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon10.png)
+    ![Zrzut ekranu, na którym jest zaznaczona przycisk "S" Logowanie jednokrotne (y S O) dla Confluence "na stronie aplikacji.](./media/samlssoconfluence-tutorial/addon10.png)
     
 8. Kliknij pozycję **Configure** (Konfiguruj), aby skonfigurować nową wtyczkę.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon11.png)
+    ![Zrzut ekranu pokazujący stronę "Zarządzaj" z wybranym przyciskiem "Konfiguruj".](./media/samlssoconfluence-tutorial/addon11.png)
 
 9. Ten nowy dodatek plug-in można także znaleźć na karcie **USERS & SECURITY** (Użytkownicy i zabezpieczenia).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon3.png)
+    ![Zrzut ekranu pokazujący kartę "Użytkownicy & zabezpieczenia" z wybraną pozycją "S A M L SingleSignOn".](./media/samlssoconfluence-tutorial/addon3.png)
     
 10. Na stronie **SAML SingleSignOn Plugin Configuration** (Konfiguracja wtyczki logowania jednokrotnego protokołu SAML) kliknij przycisk **Add new IdP** (Dodaj nowego dostawcę tożsamości), aby skonfigurować ustawienia dostawcy tożsamości.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon4.png)
+    ![Zrzut ekranu przedstawiający stronę "S A M L SingleSignOn (Konfiguracja wtyczki") z wybranym przyciskiem "Dodaj nowe I d P".](./media/samlssoconfluence-tutorial/addon4.png)
 
 11. Na stronie **Choose your SAML Identity Provider** (Wybieranie dostawcy tożsamości protokołu SAML) wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon5a.png)
+    ![Zrzut ekranu przedstawiający stronę "wybieranie dostawcy tożsamości A M L" z wyróżnionymi polami tekstowymi "I d", "nazwa" i "opis".](./media/samlssoconfluence-tutorial/addon5a.png)
  
     a. W polu IdP type (Typ dostawcy tożsamości) wybierz pozycję **Azure AD** .
     
@@ -174,11 +174,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją SAML SSO 
     
 12. Na stronie **Identity provider configuration** (Konfiguracja dostawcy tożsamości) kliknij przycisk **Next** (Dalej).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon5b.png)
+    ![Zrzut ekranu przedstawiający stronę "Konfiguracja dostawcy tożsamości" z wybranym przyciskiem "dalej".](./media/samlssoconfluence-tutorial/addon5b.png)
 
 13. Na stronie **Import SAML IdP Metadata** (Importuj metadane dostawcy tożsamości protokołu SAML) wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon5c.png)
+    ![Zrzut ekranu przedstawiający stronę "Importuj S A M g I d P" z wybranymi przyciskami "Importuj", "Załaduj plik" i "dalej".](./media/samlssoconfluence-tutorial/addon5c.png)
 
     a. Kliknij przycisk **Load File** (Załaduj plik), a następnie wybierz plik XML metadanych pobrany w kroku 5.
 
@@ -190,15 +190,15 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją SAML SSO 
     
 14. Na stronie **User ID attribute and transformation** (Atrybut identyfikatora użytkownika i transformacja) kliknij przycisk **Next** (Dalej).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon5d.png)
+    ![Zrzut ekranu przedstawiający stronę "atrybut identyfikatora użytkownika i transformacja" z wybranym przyciskiem "dalej".](./media/samlssoconfluence-tutorial/addon5d.png)
     
 15. Na stronie **User creation and update** (Tworzenie i aktualizowanie użytkownika) kliknij pozycję **Save & Next** (Zapisz i przejdź dalej), aby zapisać ustawienia.   
     
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon6a.png)
+    ![Zrzut ekranu przedstawiający stronę "Tworzenie i aktualizowanie użytkownika" z wybranym przyciskiem Zapisz & dalej.](./media/samlssoconfluence-tutorial/addon6a.png)
     
 16. Na stronie **Test your settings** (Przetestuj ustawienia) kliknij pozycję **Skip test & configure manually** (Pomiń test i skonfiguruj ręcznie), aby pominąć na razie test użytkownika. Zostanie on wykonany w następnej sekcji i będzie wymagał wprowadzenia pewnych ustawień w witrynie Azure Portal. 
     
-    ![Konfigurowanie logowania jednokrotnego](./media/samlssoconfluence-tutorial/addon6b.png)
+    ![Zrzut ekranu przedstawiający stronę "Testowanie ustawień" z wybranym przyciskiem "Pomiń test & Skonfiguruj ręcznie".](./media/samlssoconfluence-tutorial/addon6b.png)
     
 17. W wyświetlonym oknie dialogowym odczytywanie **pominięcia testu...** , kliknij przycisk **OK** .
     
@@ -266,7 +266,7 @@ W przypadku aplikacji SAML SSO for Confluence by resolution GmbH aprowizację wy
 
 2. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **User management** (Zarządzanie użytkownikami).
 
-    ![Dodawanie pracownika](./media/samlssoconfluence-tutorial/user1.png) 
+    ![Zrzut ekranu pokazujący wybraną ikonę "koło zębate" i opcję "Zarządzanie użytkownikami" wybraną z menu.](./media/samlssoconfluence-tutorial/user1.png) 
 
 3. W obszarze Użytkownicy kliknij przycisk **Dodaj użytkowników** kartę. Na stronie **"Dodawanie użytkownika"** wykonaj następujące czynności:
 

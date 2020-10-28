@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 5008e3b11a7e00e8f831333551c892113f03dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51df9683152d97b899150e240dee98896f8c40ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310632"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896382"
 ---
 # <a name="add-a-heat-map-layer"></a>Dodawanie warstwy mapy cieplnej
 
@@ -24,9 +24,9 @@ Renderowanie dziesiątek tysięcy punktów, ponieważ symbole mogą obejmować w
 
 W wielu różnych scenariuszach można używać map cieplnych, takich jak:
 
-- **Dane temperatury**: zawiera przybliżenia między dwoma punktami danych.
-- **Dane dla czujników szumu**: pokazuje nie tylko intensywność hałasu, gdzie czujnik jest, ale może także zapewnić wgląd w rozproszenie na odległość. Poziom szumu w jednej lokacji może być niewysoki. Jeśli obszar pokrycia szumów z wielu czujników nakłada się na siebie, istnieje możliwość, że ten obszar nakładający się może mieć wyższy poziom szumu. W związku z tym, nakładający się obszar będzie widoczny na mapie cieplnej.
-- **Śledzenie GPS**: zawiera szybkość jako mapę ważonej wysokości, w której intensywność każdego punktu danych jest oparta na szybkości. Na przykład ta funkcja zapewnia sposób, aby zobaczyć, gdzie nastąpiło przyspieszenie pojazdu.
+- **Dane temperatury** : zawiera przybliżenia między dwoma punktami danych.
+- **Dane dla czujników szumu** : pokazuje nie tylko intensywność hałasu, gdzie czujnik jest, ale może także zapewnić wgląd w rozproszenie na odległość. Poziom szumu w jednej lokacji może być niewysoki. Jeśli obszar pokrycia szumów z wielu czujników nakłada się na siebie, istnieje możliwość, że ten obszar nakładający się może mieć wyższy poziom szumu. W związku z tym, nakładający się obszar będzie widoczny na mapie cieplnej.
+- **Śledzenie GPS** : zawiera szybkość jako mapę ważonej wysokości, w której intensywność każdego punktu danych jest oparta na szybkości. Na przykład ta funkcja zapewnia sposób, aby zobaczyć, gdzie nastąpiło przyspieszenie pojazdu.
 
 > [!TIP]
 > Warstwy mapy cieplnej domyślnie renderują współrzędne wszystkich geometrie w źródle danych. Aby ograniczyć warstwę tak, aby była renderowana tylko funkcja geometrii punktu, należy ustawić `filter` Właściwość warstwy na `['==', ['geometry-type'], 'Point']` . Jeśli chcesz również uwzględnić funkcje systemu MultiPoint, ustaw `filter` Właściwość warstwy na `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` .
@@ -120,10 +120,10 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>spójną mapę termicz
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 Aby uzyskać więcej przykładów kodu do dodania do usługi Maps, zobacz następujące artykuły:
 

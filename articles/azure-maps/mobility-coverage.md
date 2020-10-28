@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d61cc94ee1b3c5d23135c033b1068aa7411761d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12548b04e5fb967572e17f1be88369b9950661c3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033261"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896297"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps zasięg mobilności
 
-[Usługa mobilności](https://aka.ms/AzureMapsMobilityService) Azure Maps usprawnia czas projektowania aplikacji z funkcjami tranzytu publicznego, takimi jak routing tranzytowy i wyszukiwanie w pobliżu tranzytu publicznego. Użytkownicy mogą pobierać szczegółowe informacje o zatrzymaniu, wierszach i harmonogramach tranzytu. Usługa mobilności umożliwia również użytkownikom pobieranie zatrzymań i geometrie wierszy, alertów dotyczących punktów przerwania, wierszy i usług oraz przychodzących tranzytów publicznych i alertów usług w czasie rzeczywistym. Ponadto usługa mobilności udostępnia funkcje routingu z opcjami planowania podróży Multimodal. Multimodale w trakcie podróży, w jednej podróży, umożliwia planowanie przechodzenia między firmami i opcjami tranzytu publicznego. Użytkownicy mogą również uzyskać dostęp do szczegółowych multimodalów krok po kroku. 
+[Usługa mobilności](/rest/api/maps/mobility) Azure Maps usprawnia czas projektowania aplikacji z funkcjami tranzytu publicznego, takimi jak routing tranzytowy i wyszukiwanie w pobliżu tranzytu publicznego. Użytkownicy mogą pobierać szczegółowe informacje o zatrzymaniu, wierszach i harmonogramach tranzytu. Usługa mobilności umożliwia również użytkownikom pobieranie zatrzymań i geometrie wierszy, alertów dotyczących punktów przerwania, wierszy i usług oraz przychodzących tranzytów publicznych i alertów usług w czasie rzeczywistym. Ponadto usługa mobilności udostępnia funkcje routingu z opcjami planowania podróży Multimodal. Multimodale w trakcie podróży, w jednej podróży, umożliwia planowanie przechodzenia między firmami i opcjami tranzytu publicznego. Użytkownicy mogą również uzyskać dostęp do szczegółowych multimodalów krok po kroku. 
 
 Azure Maps nie zapewnia tego samego poziomu informacji i dokładności dla wszystkich miast i krajów/regionów. Możliwość wywoływania danych tranzytu publicznego zależy od obszaru Metro. Ponadto dane mapy mogą nie zawierać wszystkich opcji tranzytu publicznego i agencji, które obsługują obszar Metro.
 
@@ -159,4 +159,4 @@ Informacje na temat żądania danych w czasie rzeczywistym przy użyciu usługi 
 Poznaj dokumentację interfejsu API usługi mobilności Azure Maps
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API usługi mobilności](https://aka.ms/AzureMapsMobilityService)
+> [Dokumentacja interfejsu API usługi mobilności](/rest/api/maps/mobility)

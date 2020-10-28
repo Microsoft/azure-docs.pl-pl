@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e880710b93a6764df50780e685c89b5f569b4ec0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037409"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897198"
 ---
 # <a name="geofencing-geojson-data"></a>Geogeofencingu dane GEOJSON
 
@@ -40,7 +40,7 @@ Dane dla geofencingu lub zestawu geoogrodzenia są reprezentowane przez `Feature
 
 * Wszystkie wartości współrzędnych są reprezentowane jako [Długość geograficzna, Szerokość geograficzna] zdefiniowana w `WGS84` .
 * Dla każdej funkcji, która zawiera `MultiPoint` , `MultiLineString` , `MultiPolygon` lub `GeometryCollection` , właściwości są stosowane do wszystkich elementów. na przykład: wszystkie punkty w programie `MultiPoint` będą używały tego samego promienia do utworzenia wieloogrodzenia okręgu.
-* W scenariuszu w kółku punktowym geometria okręgu może być reprezentowana przy użyciu `Point` obiektu geometrii z właściwościami opracowanymi w ramach [rozszerzania GEOJSON geometrie](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
+* W scenariuszu w kółku punktowym geometria okręgu może być reprezentowana przy użyciu `Point` obiektu geometrii z właściwościami opracowanymi w ramach [rozszerzania GEOJSON geometrie](./extend-geojson.md).      
 
 Poniżej znajduje się Przykładowa treść żądania dla geoogrodzenia reprezentowana jako geometryczna geometria okręgu `GeoJSON` przy użyciu punktu centralnego i promienia. Prawidłowy okres danych geoogrodzenia zaczyna się od 2018-10-22, 9:00 do 17:00, powtarzany każdego dnia z wyjątkiem weekendu. `expiredTime` wskazuje, że te dane geoogrodzenia będą uznawane za wygasłe, jeśli `userTime` żądanie jest późniejsze niż `2019-01-01` .  
 

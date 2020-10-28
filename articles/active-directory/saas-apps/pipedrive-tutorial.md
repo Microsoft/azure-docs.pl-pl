@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 00dbde0b207fc6d8406a4844d82581b00ef2255a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f85cb97406e8b6cbb4811268696fc36f47ec3adb
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92506414"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896552"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pipedrive"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi Pipedrive
 
@@ -144,15 +144,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **profil użytkownika** , a następnie wybierz pozycję **Ustawienia** .
 
-    ![Konfiguracja usługi Pipedrive](./media/pipedrive-tutorial/configure1.png)
+    ![Zrzut ekranu pokazujący "Ustawienia" wybrane z menu "profil użytkownika".](./media/pipedrive-tutorial/configure1.png)
 
 1. Przewiń w dół do centrum zabezpieczeń i wybierz pozycję **Logowanie jednokrotne** .
 
-    ![Konfiguracja usługi Pipedrive](./media/pipedrive-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawiający "Logowanie jednokrotne" wybrane w "Security Center".](./media/pipedrive-tutorial/configure2.png)
 
 1. W sekcji **Konfiguracja SAML dla usługi Pipedrive** wykonaj następujące czynności:
 
-    ![Konfiguracja usługi Pipedrive](./media/pipedrive-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawiający sekcję "S A M L dla usługi Pipedrive" z wyróżnionymi wszystkimi polami tekstowymi.](./media/pipedrive-tutorial/configure3.png)
 
     a. W polu tekstowym **wystawca** wklej wartość **adresu URL metadanych federacji aplikacji** , która została skopiowana z Azure Portal.
 
@@ -168,11 +168,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przewiń w dół do firmy i wybierz pozycję **Zarządzaj użytkownikami** .
 
-    ![Konfiguracja usługi Pipedrive](./media/pipedrive-tutorial/user1.png)
+    ![Zrzut ekranu pokazujący "Zarządzanie użytkownikami" wybrany w menu "Firma".](./media/pipedrive-tutorial/user1.png)
 
 1. Kliknij pozycję **Dodaj użytkowników** .
     
-    ![Konfiguracja usługi Pipedrive](./media/pipedrive-tutorial/user2.png)
+    ![Zrzut ekranu pokazujący stronę "Zarządzanie użytkownikami" z przyciskiem "Dodaj użytkowników" wybranym po prawej stronie.](./media/pipedrive-tutorial/user2.png)
 
 1. W sekcji **Zarządzanie użytkownikami** wykonaj następujące czynności:
 
@@ -192,7 +192,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka usługi Pipedrive w panelu dostępu należy automatycznie zalogować się do usługi Pipedrive, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

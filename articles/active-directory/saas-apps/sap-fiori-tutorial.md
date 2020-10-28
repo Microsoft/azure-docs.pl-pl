@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b1776518816a9b01ce803edfb39e147136dba08d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 35bb05eb019a1284a8a418df0197960130e8d013
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675465"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897300"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu oprogramowania SAP Fiori
 
@@ -272,11 +272,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     1. W oprogramowaniu SAP w obszarze **Szczegóły formatu NameID "unnieokreślone"** Zwróć uwagę na szczegóły:
 
-        ![Szczegóły formatu NameID w oknie dialogowym "nieokreślone" w oprogramowaniu SAP](./media/sapfiori-tutorial/nameiddetails.png)
+        ![Zrzut ekranu przedstawiający okno dialogowe "Szczegóły NameID formatowania" nieokreślony "" w S A P.](./media/sapfiori-tutorial/nameiddetails.png)
 
     1. W Azure Portal w obszarze **atrybuty użytkownika & oświadczenia** Zanotuj wymagane oświadczenia z usługi Azure AD.
 
-        ![Okno dialogowe atrybuty użytkownika & oświadczenia w Azure Portal](./media/sapfiori-tutorial/claimsaad1.png)
+        ![Zrzut ekranu przedstawiający okno dialogowe "atrybuty użytkownika & oświadczenia".](./media/sapfiori-tutorial/claimsaad1.png)
 
     **Scenariusz 2** : Wybierz identyfikator użytkownika SAP na podstawie skonfigurowanego adresu E-mail w SU01. W takim przypadku Identyfikator poczty e-mail powinien być skonfigurowany w SU01 dla każdego użytkownika, który wymaga logowania jednokrotnego.
 

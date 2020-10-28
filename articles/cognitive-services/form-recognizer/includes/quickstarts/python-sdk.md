@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: a9aa51e46595c7c65b1f83776eb72caca13e0180
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5ff9c95e51f63de77ca20dee965718687daae5f4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92756032"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897784"
 ---
 > [!IMPORTANT]
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. Zapoznaj się z dokumentacją referencyjną poniżej. 
@@ -109,10 +109,12 @@ Musisz dodać odwołania do adresów URL dla danych szkoleniowych i testowych.
 
 Aparat rozpoznawania formularzy służy do rozpoznawania tabel, wierszy i słów w dokumentach, bez konieczności uczenia modelu.
 
-Aby rozpoznać zawartość pliku pod podanym adresem URL, użyj `begin_recognize_content` metody. Zwracana wartość jest kolekcją `FormPage` obiektów: jeden dla każdej strony w przesłanym dokumencie. Poniższy kod wykonuje iterację tych obiektów i drukuje wyodrębnione pary klucz/wartość i dane tabeli.
+Aby rozpoznać zawartość pliku pod podanym adresem URL, użyj `begin_recognize_content_from_url` metody. Zwracana wartość jest kolekcją `FormPage` obiektów: jeden dla każdej strony w przesłanym dokumencie. Poniższy kod wykonuje iterację tych obiektów i drukuje wyodrębnione pary klucz/wartość i dane tabeli.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_getcontent)]
 
+> [!TIP]
+> Możesz również pobrać zawartość z obrazów lokalnych. Zobacz metody [FormRecognizerClient](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) , takie jak `begin_recognize_content` . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
 
 ### <a name="output"></a>Dane wyjściowe
 
@@ -144,6 +146,8 @@ W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
+> [!TIP]
+> Możesz również rozpoznać lokalne obrazy paragonów. Zobacz metody [FormRecognizerClient](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) , takie jak `begin_recognize_receipts` . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
 
 ### <a name="output"></a>Dane wyjściowe
 
@@ -271,6 +275,9 @@ W tej sekcji pokazano, jak wyodrębnić informacje o kluczu/wartości i innej za
 Ta metoda zostanie użyta `begin_recognize_custom_forms_from_url` . Zwracana wartość jest kolekcją `RecognizedForm` obiektów: jeden dla każdej strony w przesłanym dokumencie. Poniższy kod drukuje wyniki analizy w konsoli programu. Wypisuje wszystkie rozpoznane pola i odpowiadające im wartości, a także ocenę ufności.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_analyze)]
+
+> [!TIP]
+> Możesz również analizować obrazy lokalne. Zobacz metody [FormRecognizerClient](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) , takie jak `begin_recognize_custom_forms` . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
 
 
 ### <a name="output"></a>Dane wyjściowe

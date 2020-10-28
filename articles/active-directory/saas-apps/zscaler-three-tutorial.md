@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 934c19d9bd09b9c9d8d13f20c1b1271336739ec3
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 12bc1de62217a598a478d8d7e4d71a4b60e000b9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514558"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896637"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z rozwiązania Zscaler trzy
 
@@ -52,14 +52,14 @@ Aby skonfigurować integrację programu rozwiązania Zscaler w usłudze Azure AD
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** .
 1. W sekcji **Dodaj z galerii** wpisz **rozwiązania Zscaler trzy** w polu wyszukiwania.
 1. Wybierz pozycję **rozwiązania Zscaler trzy** z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler-three"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla rozwiązania Zscaler trzech
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą rozwiązania Zscaler trzy przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w rozwiązania Zscaler trzy.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą rozwiązania Zscaler trzy przy użyciu użytkownika testowego o nazwie **B. Simon** . Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w rozwiązania Zscaler trzy.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązania Zscaler trzech, wykonaj następujące bloki konstrukcyjne:
 
@@ -74,8 +74,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie **rozwiązania zscalere** integrację aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie **rozwiązania zscalere** integrację aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne** .
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML** .
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
@@ -86,7 +86,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Rozwiązania Zscaler trzy aplikacje oczekuje potwierdzenia SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika z wybraną ikoną Edytuj.](common/edit-attribute.png)
 
 6. Oprócz powyższych, rozwiązania Zscaler trzy aplikacje oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
     
@@ -109,35 +109,35 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło** .
+   1. Kliknij pozycję **Utwórz** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do rozwiązania Zscaler trzech.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **rozwiązania Zscaler trzy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Na liście Aplikacje wybierz pozycję **rozwiązania Zscaler trzy** .
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-    ![image (obraz)](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Użytkownicy i grupy, w którym można wybrać użytkownika.](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
 
 1. W oknie dialogowym **Wybieranie roli** wybierz odpowiednią rolę użytkownika na liście, a następnie kliknij przycisk **Wybierz** znajdujący się u dołu ekranu.
 
-    ![image (obraz)](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Wybieranie roli, w którym można wybrać rolę użytkownika.](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
 
-1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-    ![image (obraz)](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Dodawanie przypisania, w którym można wybrać pozycję Przypisz.](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
 
 ## <a name="configure-zscaler-three-sso"></a>Skonfiguruj rozwiązania Zscaler trzy Logowanie jednokrotne
 
-1. Aby zautomatyzować konfigurację w ramach rozwiązania Zscaler trzech, musisz zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+1. Aby zautomatyzować konfigurację w ramach rozwiązania Zscaler trzech, musisz zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie** .
 
     ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
@@ -149,11 +149,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Przejdź do obszaru **Administracja > Uwierzytelnianie > Ustawienia uwierzytelniania** i wykonaj następujące kroki:
    
-    ![Administracja](./media/zscaler-three-tutorial/ic800206.png "Administracja")
+    ![Zrzut ekranu przedstawia rozwiązania Zscaler jedną lokację z opisanymi krokami.](./media/zscaler-three-tutorial/ic800206.png "Administracja")
 
-    a. W obszarze Typ uwierzytelniania wybierz pozycję **SAML**.
+    a. W obszarze Typ uwierzytelniania wybierz pozycję **SAML** .
 
-    b. Kliknij pozycję **Skonfiguruj język SAML**.
+    b. Kliknij pozycję **Skonfiguruj język SAML** .
 
 5. W oknie **Edytowanie języka SAML** wykonaj następujące kroki i kliknij pozycję Zapisz.  
             
@@ -161,58 +161,58 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     
     a. W polu tekstowym **Adres URL portalu języka SAML** wklej **adres URL logowania** skopiowany z witryny Azure Portal.
 
-    b. W polu tekstowym **Atrybut nazwy logowania** wprowadź identyfikator **NameID**.
+    b. W polu tekstowym **Atrybut nazwy logowania** wprowadź identyfikator **NameID** .
 
-    c. Kliknij pozycję **Przekaż**, aby przekazać certyfikat podpisywania języka SAML na platformie Azure, który został pobrany z witryny Azure Portal w obrębie **publicznego certyfikatu SSL**.
+    c. Kliknij pozycję **Przekaż** , aby przekazać certyfikat podpisywania języka SAML na platformie Azure, który został pobrany z witryny Azure Portal w obrębie **publicznego certyfikatu SSL** .
 
-    d. Przełącz element **Włącz automatyczne aprowizowanie języka SAML**.
+    d. Przełącz element **Włącz automatyczne aprowizowanie języka SAML** .
 
-    e. W polu tekstowym **Atrybut nazwy wyświetlanej użytkownika** wprowadź ciąg **displayName**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu displayName.
+    e. W polu tekstowym **Atrybut nazwy wyświetlanej użytkownika** wprowadź ciąg **displayName** , jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu displayName.
 
-    f. W polu tekstowym **Atrybut nazwy grupy** wprowadź ciąg **memberOf**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu memberOf.
+    f. W polu tekstowym **Atrybut nazwy grupy** wprowadź ciąg **memberOf** , jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu memberOf.
 
-    przykład W polu **Atrybut nazwy działu** wprowadź ciąg **department**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu department.
+    przykład W polu **Atrybut nazwy działu** wprowadź ciąg **department** , jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu department.
 
-    h. Kliknij pozycję **Zapisz**.
+    h. Kliknij pozycję **Zapisz** .
 
 6. Na stronie okna dialogowanie **Konfigurowanie uwierzytelniania użytkownika** wykonaj następujące kroki:
 
-    ![Administracja](./media/zscaler-three-tutorial/ic800207.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Konfigurowanie uwierzytelniania użytkownika z wybraną opcją Aktywuj.](./media/zscaler-three-tutorial/ic800207.png)
 
     a. Umieść kursor nad menu **Aktywacja** w lewym dolnym rogu.
 
-    b. Kliknij pozycję **Aktywuj**.
+    b. Kliknij pozycję **Aktywuj** .
 
 ## <a name="configuring-proxy-settings"></a>Konfigurowanie ustawień serwera proxy
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Konfigurowanie ustawień serwera proxy w programie Internet Explorer
 
-1. Uruchom program **Internet Explorer**.
+1. Uruchom program **Internet Explorer** .
 
-2. Wybierz pozycję **Opcje internetowe** z menu **Narzędzia**, aby otworzyć okno dialogowe **Opcje internetowe**.   
+2. Wybierz pozycję **Opcje internetowe** z menu **Narzędzia** , aby otworzyć okno dialogowe **Opcje internetowe** .   
     
      ![Opcje internetowe](./media/zscaler-three-tutorial/ic769492.png "Opcje internetowe")
 
-3. Kliknij kartę **Połączenia**.   
+3. Kliknij kartę **Połączenia** .   
   
      ![Połączenia](./media/zscaler-three-tutorial/ic769493.png "Połączenia")
 
-4. Kliknij przycisk **Ustawienia sieci LAN**, aby otworzyć okno dialogowe **Ustawienia sieci lokalnej (LAN)**.
+4. Kliknij przycisk **Ustawienia sieci LAN** , aby otworzyć okno dialogowe **Ustawienia sieci lokalnej (LAN)** .
 
 5. W sekcji Serwer proxy wykonaj następujące kroki:   
    
     ![Serwer proxy](./media/zscaler-three-tutorial/ic769494.png "Serwer proxy")
 
-    a. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN**.
+    a. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN** .
 
-    b. W polu tekstowym Adres wpisz **Gateway. Rozwiązania Zscaler Three.net**.
+    b. W polu tekstowym Adres wpisz **Gateway. Rozwiązania Zscaler Three.net** .
 
-    c. W polu tekstowym Port wpisz **80**.
+    c. W polu tekstowym Port wpisz **80** .
 
-    d. Zaznacz pole wyboru **Nie używaj serwera proxy dla adresów lokalnych**.
+    d. Zaznacz pole wyboru **Nie używaj serwera proxy dla adresów lokalnych** .
 
-    e. Kliknij przycisk **OK**, aby zamknąć okno dialogowe **Ustawienia sieci lokalnej (LAN)**.
+    e. Kliknij przycisk **OK** , aby zamknąć okno dialogowe **Ustawienia sieci lokalnej (LAN)** .
 
-6. Kliknij przycisk **OK**, aby zamknąć okno dialogowe **Opcje internetowe**.
+6. Kliknij przycisk **OK** , aby zamknąć okno dialogowe **Opcje internetowe** .
 
 ### <a name="create-zscaler-three-test-user"></a>Utwórz rozwiązania Zscaler trzech użytkowników testowych
 
@@ -227,7 +227,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu rozwiązania Zscaler trzech kafelków w panelu dostępu należy automatycznie zalogować się do rozwiązania Zscaler trzy, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

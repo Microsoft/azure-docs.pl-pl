@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321700"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896664"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Samouczek: Wyszukiwanie punktów orientacyjnych w pobliżu za pomocą Azure Maps
 
@@ -41,7 +41,7 @@ W tym samouczku przedstawiono konfigurowanie konta przy użyciu usługi Azure Ma
 
 Interfejs API kontrolka mapy jest wygodną biblioteką klienta. Ten interfejs API pozwala łatwo zintegrować mapy z aplikacją sieci Web. Powoduje to ukrycie złożoności wywołań usługi REST i zwiększa produktywność dzięki dostosowywanym składnikom. Poniższe kroki pokazują, jak utworzyć statyczną stronę HTML osadzoną przy użyciu interfejsu API kontrolki mapy.
 
-1. Na maszynie lokalnej utwórz nowy plik i nadaj mu nazwę **MapSearch.html**.
+1. Na maszynie lokalnej utwórz nowy plik i nadaj mu nazwę **MapSearch.html** .
 2. Dodaj następujące składniki HTML do pliku:
 
    ```HTML
@@ -139,7 +139,7 @@ Interfejs API kontrolka mapy jest wygodną biblioteką klienta. Ten interfejs AP
 
 ## <a name="add-search-capabilities"></a>Dodawanie funkcji wyszukiwania
 
-W tej sekcji pokazano, jak używać [interfejsu API wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) Maps w celu znalezienia punktu orientacyjnego na mapie. Jest to interfejs API RESTful umożliwiający deweloperom wyszukiwanie adresów, punktów orientacyjnych i innych informacji geograficznych. Usługa Search Service przypisuje informacje o długości i szerokości geograficznej do określonego adresu. Opisany poniżej **moduł usługi** może być używany do wyszukiwania lokalizacji za pomocą interfejsu API usługi Search w usłudze Maps.
+W tej sekcji pokazano, jak używać [interfejsu API wyszukiwania](/rest/api/maps/search) Maps w celu znalezienia punktu orientacyjnego na mapie. Jest to interfejs API RESTful umożliwiający deweloperom wyszukiwanie adresów, punktów orientacyjnych i innych informacji geograficznych. Usługa Search Service przypisuje informacje o długości i szerokości geograficznej do określonego adresu. Opisany poniżej **moduł usługi** może być używany do wyszukiwania lokalizacji za pomocą interfejsu API usługi Search w usłudze Maps.
 
 ### <a name="service-module"></a>Moduł usługi
 
@@ -156,7 +156,7 @@ W tej sekcji pokazano, jak używać [interfejsu API wyszukiwania](https://docs.m
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   `SubscriptionKeyCredential`Tworzy `SubscriptionKeyCredentialPolicy` do uwierzytelniania żądania HTTP do Azure Maps przy użyciu klucza subskrypcji. `atlas.service.MapsURL.newPipeline()`Przyjmuje `SubscriptionKeyCredential` zasady i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) . `searchURL`Reprezentuje adres URL służący do Azure Maps operacji [wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) .
+   `SubscriptionKeyCredential`Tworzy `SubscriptionKeyCredentialPolicy` do uwierzytelniania żądania HTTP do Azure Maps przy użyciu klucza subskrypcji. `atlas.service.MapsURL.newPipeline()`Przyjmuje `SubscriptionKeyCredential` zasady i tworzy wystąpienie [potoku](/javascript/api/azure-maps-rest/atlas.service.pipeline) . `searchURL`Reprezentuje adres URL służący do Azure Maps operacji [wyszukiwania](/rest/api/maps/search) .
 
 2. Następnie dodaj poniższy blok skryptu w celu utworzenia zapytania wyszukiwania. Ten fragment kodu używa usługi Fuzzy Search Service — podstawowego interfejsu API wyszukiwania usługi Search Service. Usługa Fuzzy Search Service obsługuje większość rozmytych danych wejściowych, takich jak adresy, miejsca i punkty orientacyjne (POI). Ten kod szuka w pobliżu stacji benzyny w określonym promieniu o podanej wartości szerokości i długości geograficznej. Kolekcje funkcji GEOJSON z odpowiedzi są następnie wyodrębniane przy użyciu `geojson.getFeatures()` metody i dodawane do źródła danych, co powoduje automatyczne wyniki renderowania danych na mapie za pośrednictwem warstwy symboli. Ostatnia część skrypt ustawia widok kamery mapy za pomocą pola ograniczenia wyników z wykorzystaniem właściwości mapy [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-).
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311093"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897096"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Dodawanie warstwy kafelków do mapy przy użyciu Azure Maps Android SDK
 
@@ -39,7 +39,7 @@ Adres URL kafelka przesłany do warstwy kafelków musi być adresem URL protoko�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć proces w tym artykule, należy zainstalować [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) w celu załadowania mapy.
+Aby ukończyć proces w tym artykule, należy zainstalować [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) w celu załadowania mapy.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Dodawanie warstwy kafelków do mapy
@@ -179,4 +179,4 @@ Jeśli aplikacja zostanie uruchomiona teraz, na mapie powinna zostać wyświetlo
 Zapoznaj się z poniższym artykułem, aby dowiedzieć się więcej o sposobach ustawiania stylów mapy
 
 > [!div class="nextstepaction"]
-> [Zmień style mapy w usłudze mapy systemu Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Zmień style mapy w usłudze mapy systemu Android](./set-android-map-styles.md)

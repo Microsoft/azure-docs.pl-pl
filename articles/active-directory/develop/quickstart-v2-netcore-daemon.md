@@ -11,13 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
+ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: e1df230a49ca5483d0ab091da11530786c829ca8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b6b02348f9d77348976f6b814c982c5250dab7aa
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042647"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896518"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API przy użyciu tożsamości aplikacji konsoli
 
@@ -37,7 +38,7 @@ Ten przewodnik Szybki Start wymaga [programu .NET Core 3,1](https://www.microsof
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opcja 1. Zarejestrowanie i automatyczne skonfigurowanie aplikacji, a następnie pobranie przykładowego kodu
 >
 > 1. Przejdź do nowego okienka [Azure Portal-rejestracje aplikacji](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) .
-> 1. Wprowadź nazwę aplikacji i wybierz pozycję **Zarejestruj**.
+> 1. Wprowadź nazwę aplikacji i wybierz pozycję **Zarejestruj** .
 > 1. Postępuj zgodnie z instrukcjami, aby pobrać i automatycznie skonfigurować nową aplikację za pomocą tylko jednego kliknięcia.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opcja 2. Zarejestrowanie i ręczne skonfigurowanie aplikacji oraz przykładowego kodu
@@ -49,14 +50,14 @@ Ten przewodnik Szybki Start wymaga [programu .NET Core 3,1](https://www.microsof
 > 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 > 1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
 > 1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) , wyszukując **rejestracje aplikacji** na pasku wyszukiwania w witrynie Azure Portal.
-> 1. Wybierz pozycję **Nowa rejestracja**.
+> 1. Wybierz pozycję **Nowa rejestracja** .
 > 1. Gdy zostanie wyświetlona strona **zarejestruj aplikację** , wprowadź informacje rejestracyjne swojej aplikacji.
-> 1. W sekcji **Nazwa** podaj zrozumiałą nazwę aplikacji, która będzie widoczna dla użytkowników, na przykład `Daemon-console`, a następnie wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
-> 1. Po jej zarejestrowaniu wybierz menu **Certyfikaty i klucze tajne**.
-> 1. W obszarze **Klucze tajne klienta** wybierz pozycję **+ Nowy klucz tajny klienta**. Nadaj kluczowi nazwę i wybierz pozycję **Dodaj**. Skopiuj klucz tajny do bezpiecznej lokalizacji. Będzie ona potrzebna do użycia w kodzie i nie będzie ponownie wyświetlana w portalu.
-> 1. Wybierz menu **Uprawnienia interfejsu API**, wybierz przycisk **+ Dodaj uprawnienie**, a następnie wybierz pozycję **Microsoft Graph**.
-> 1. Wybierz pozycję **Uprawnienia aplikacji**.
-> 1. W węźle **Użytkownik** wybierz pozycję **User.Read.All**, a następnie wybierz pozycję **Dodaj uprawnienia**.
+> 1. W sekcji **Nazwa** podaj zrozumiałą nazwę aplikacji, która będzie widoczna dla użytkowników, na przykład `Daemon-console`, a następnie wybierz pozycję **Zarejestruj** , aby utworzyć aplikację.
+> 1. Po jej zarejestrowaniu wybierz menu **Certyfikaty i klucze tajne** .
+> 1. W obszarze **Klucze tajne klienta** wybierz pozycję **+ Nowy klucz tajny klienta** . Nadaj kluczowi nazwę i wybierz pozycję **Dodaj** . Skopiuj klucz tajny do bezpiecznej lokalizacji. Będzie ona potrzebna do użycia w kodzie i nie będzie ponownie wyświetlana w portalu.
+> 1. Wybierz menu **Uprawnienia interfejsu API** , wybierz przycisk **+ Dodaj uprawnienie** , a następnie wybierz pozycję **Microsoft Graph** .
+> 1. Wybierz pozycję **Uprawnienia aplikacji** .
+> 1. W węźle **Użytkownik** wybierz pozycję **User.Read.All** , a następnie wybierz pozycję **Dodaj uprawnienia** .
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Pobieranie i konfigurowanie aplikacji Szybki Start
@@ -89,7 +90,7 @@ Ten przewodnik Szybki Start wymaga [programu .NET Core 3,1](https://www.microsof
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Krok 3. Konfigurowanie projektu programu Visual Studio
 >
-> 1. Wyodrębnij plik zip do folderu lokalnego blisko folderu głównego dysku, na przykład **C:\Azure-Samples**.
+> 1. Wyodrębnij plik zip do folderu lokalnego blisko folderu głównego dysku, na przykład **C:\Azure-Samples** .
 > 1. Otwórz rozwiązanie w programie Visual Studio — **1 — Call-MSGraph\daemon-Console.sln** (opcjonalnie).
 > 1. Edytuj **appsettings.jsna** i Zastąp wartości pól `ClientId` `Tenant` oraz `ClientSecret` :
 >
@@ -105,7 +106,7 @@ Ten przewodnik Szybki Start wymaga [programu .NET Core 3,1](https://www.microsof
 
 > [!div renderon="docs"]
 > > [!TIP]
-> > Aby znaleźć wartości **Identyfikator aplikacji (klienta)**, **Identyfikator katalogu (dzierżawy)**, przejdź do strony **Przegląd** aplikacji w witrynie Azure Portal. Aby wygenerować nowy klucz, przejdź do strony **Certyfikaty i klucze tajne**.
+> > Aby znaleźć wartości **Identyfikator aplikacji (klienta)** , **Identyfikator katalogu (dzierżawy)** , przejdź do strony **Przegląd** aplikacji w witrynie Azure Portal. Aby wygenerować nowy klucz, przejdź do strony **Certyfikaty i klucze tajne** .
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Krok 3. zgoda administratora
@@ -139,7 +140,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 >> * `Enter_the_Application_Id_Here` jest **identyfikatorem aplikacji (klienta)** dla zarejestrowanej aplikacji.
 
 > [!NOTE]
-> Po udzieleniu zgody dla aplikacji za pomocą powyższego adresu URL może zostać wyświetlony komunikat o błędzie *„AADSTS50011: brak adresów odpowiedzi zarejestrowanych dla aplikacji”*. Należy go zignorować — dzieje się tak, ponieważ aplikacja i adres URL nie mają identyfikatora URI przekierowania.
+> Po udzieleniu zgody dla aplikacji za pomocą powyższego adresu URL może zostać wyświetlony komunikat o błędzie *„AADSTS50011: brak adresów odpowiedzi zarejestrowanych dla aplikacji”* . Należy go zignorować — dzieje się tak, ponieważ aplikacja i adres URL nie mają identyfikatora URI przekierowania.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-4-run-the-application"></a>Krok 4. Uruchamianie aplikacji
@@ -149,13 +150,13 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 Jeśli używasz programu Visual Studio lub Visual Studio dla komputerów Mac, naciśnij klawisz **F5** , aby uruchomić aplikację, w przeciwnym razie uruchom aplikację za pomocą wiersza polecenia, konsoli lub terminalu:
 
-```console
+```dotnetcli
 cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
 
 > Gdzie:
-> * *{ProjectFolder} * — folder, w którym wyodrębniono plik zip, na przykład **C:\Azure-Samples\active-directory-dotnetcore-daemon-v2**
+> * *{ProjectFolder}* — folder, w którym wyodrębniono plik zip, na przykład **C:\Azure-Samples\active-directory-dotnetcore-daemon-v2**
 
 Powinna pojawić się lista użytkowników w katalogu usługi Azure AD.
 
@@ -169,12 +170,11 @@ Powinna pojawić się lista użytkowników w katalogu usługi Azure AD.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) to biblioteka służąca do logowania użytkowników i żądania tokenów używanych w celu uzyskania dostępu do interfejsu API chronionego przez platformę tożsamości firmy Microsoft. Zgodnie z opisem, ten przewodnik Szybki Start żąda tokenów przy użyciu tożsamości własnej aplikacji zamiast uprawnień delegowanych. W tym przypadku przepływ uwierzytelniania jest określany jako *[przepływ OAuth poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md)*. Aby uzyskać więcej informacji na temat używania MSAL.NET z przepływem poświadczeń klienta, zobacz [ten artykuł](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) to biblioteka służąca do logowania użytkowników i żądania tokenów używanych w celu uzyskania dostępu do interfejsu API chronionego przez platformę tożsamości firmy Microsoft. Zgodnie z opisem, ten przewodnik Szybki Start żąda tokenów przy użyciu tożsamości własnej aplikacji zamiast uprawnień delegowanych. W tym przypadku przepływ uwierzytelniania jest określany jako *[przepływ OAuth poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md)* . Aby uzyskać więcej informacji na temat używania MSAL.NET z przepływem poświadczeń klienta, zobacz [ten artykuł](https://aka.ms/msal-net-client-credentials).
 
  Platformę MSAL.NET można zainstalować, uruchamiając następujące polecenie w **konsoli menedżera pakietów** programu Visual Studio:
 
-```powershell twhitney
-```console
+```dotnetcli
 dotnet add package Microsoft.Identity.Client
 ```
 

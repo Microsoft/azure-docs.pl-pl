@@ -1,15 +1,16 @@
 ---
 title: Opcje sieciowe usługi Azure Functions
 description: Przegląd wszystkich opcji sieciowych dostępnych w Azure Functions.
+author: jeffhollan
 ms.topic: conceptual
-ms.date: 4/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.author: jehollan
+ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530096"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897079"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -66,11 +67,30 @@ Aby zapewnić wyższy poziom zabezpieczeń, można ograniczyć liczbę usług pl
 
 Aby dowiedzieć się więcej, zobacz [punkty końcowe usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Ograniczanie konta magazynu do sieci wirtualnej
+## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Ogranicz konto magazynu do sieci wirtualnej (wersja zapoznawcza)
 
-Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Na tym koncie nie można obecnie używać żadnych ograniczeń sieci wirtualnej. W przypadku skonfigurowania punktu końcowego usługi sieci wirtualnej na koncie magazynu używanym przez aplikację funkcji, ta konfiguracja spowoduje przerwanie działania aplikacji.
+Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel.  Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego.  Ta funkcja w wersji zapoznawczej obecnie działa tylko z planami systemu Windows Premium w regionie Europa Zachodnia.  Aby skonfigurować funkcję z kontem magazynu ograniczonym do sieci prywatnej:
 
-Aby dowiedzieć się więcej, zobacz [wymagania dotyczące konta magazynu](./functions-create-function-app-portal.md#storage-account-requirements).
+> [!NOTE]
+> Ograniczanie konta magazynu aktualnie działa tylko w przypadku funkcji premium przy użyciu systemu Windows w Europie zachodniej
+
+1. Utwórz funkcję z kontem magazynu, które nie ma włączonych punktów końcowych usługi.
+1. Skonfiguruj funkcję do łączenia się z siecią wirtualną.
+1. Utwórz lub skonfiguruj inne konto magazynu.  To konto magazynu jest zabezpieczane za pomocą punktów końcowych usługi i łącz naszą funkcję.
+1. [Utwórz udział plików](../storage/files/storage-how-to-create-file-share.md#create-file-share) na koncie bezpiecznego magazynu.
+1. Włącz punkty końcowe usługi lub prywatny punkt końcowy dla konta magazynu.  
+    * Należy pamiętać, aby włączyć podsieć dedykowaną aplikacjom funkcji, jeśli jest używany punkt końcowy usługi.
+    * Pamiętaj, aby utworzyć rekord DNS i skonfigurować aplikację do [pracy z prywatnymi](#azure-dns-private-zones) punktami końcowymi punktów końcowych, jeśli używany jest prywatny punkt końcowy.  Konto magazynu będzie wymagało prywatnego punktu końcowego dla `file` `blob` zasobów podrzędnych i.  W przypadku korzystania z pewnych funkcji, takich jak Durable Functions, będzie również potrzebne `queue` i `table` dostępne za pośrednictwem połączenia prywatnego punktu końcowego.
+1. Obowiązkowe Skopiuj zawartość pliku i obiektu BLOB z konta magazynu aplikacji funkcji na zabezpieczone konto magazynu i udział plików.
+1. Skopiuj parametry połączenia dla tego konta magazynu.
+1. Zaktualizuj **Ustawienia aplikacji** w obszarze **Konfiguracja** dla aplikacji funkcji w następujący sposób:
+    - `AzureWebJobsStorage` do parametrów połączenia dla zabezpieczonego konta magazynu.
+    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` do parametrów połączenia dla zabezpieczonego konta magazynu.
+    - `WEBSITE_CONTENTSHARE` Nazwa udziału plików utworzonego na koncie bezpiecznego magazynu.
+    - Utwórz nowe ustawienie o nazwie `WEBSITE_CONTENTOVERVNET` i wartości `1` .
+1. Zapisz ustawienia aplikacji.  
+
+Aplikacja funkcji zostanie uruchomiona ponownie i zostanie teraz połączona z bezpiecznym kontem magazynu.
 
 ## <a name="use-key-vault-references"></a>Używanie odwołań do usługi Key Vault
 
@@ -87,7 +107,7 @@ Obecnie można używać funkcji wyzwalacza innego niż HTTP z poziomu sieci wirt
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium z wyzwalaczami sieci wirtualnej
 
-Po uruchomieniu planu Premium można połączyć funkcje wyzwalacza inne niż HTTP z usługami, które działają w sieci wirtualnej. W tym celu należy włączyć obsługę wyzwalacza sieci wirtualnej dla aplikacji funkcji. Ustawienie **monitorowania skali środowiska uruchomieniowego** znajduje się w [Azure Portal](https://portal.azure.com) w **Configuration**obszarze  >  **Ustawienia środowiska uruchomieniowego funkcji**konfiguracji.
+Po uruchomieniu planu Premium można połączyć funkcje wyzwalacza inne niż HTTP z usługami, które działają w sieci wirtualnej. W tym celu należy włączyć obsługę wyzwalacza sieci wirtualnej dla aplikacji funkcji. Ustawienie **monitorowania skali środowiska uruchomieniowego** znajduje się w [Azure Portal](https://portal.azure.com) w **Configuration** obszarze  >  **Ustawienia środowiska uruchomieniowego funkcji** konfiguracji.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -99,7 +119,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Wyzwalacze sieci wirtualnej są obsługiwane w wersji 2. x i powyżej środowiska uruchomieniowego funkcji. Obsługiwane są następujące typy wyzwalaczy inne niż HTTP.
 
-| Wewnętrzny | Minimalna wersja |
+| Rozszerzenie | Minimalna wersja |
 |-----------|---------| 
 |[Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 lub nowszy |
 |[Microsoft. Azure. WebJobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 lub nowszy|
@@ -133,11 +153,11 @@ Ograniczenia wychodzącego adresu IP są dostępne w planie Premium, planie App 
 
 W przypadku integrowania aplikacji funkcji w planie Premium lub planu App Service z siecią wirtualną aplikacja nadal może domyślnie nawiązywać połączenia wychodzące do Internetu. Po dodaniu ustawienia aplikacji `WEBSITE_VNET_ROUTE_ALL=1` wymusisz, aby cały ruch wychodzący był wysyłany do sieci wirtualnej, w którym można używać zasad grupy zabezpieczeń sieci do ograniczania ruchu.
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 Poniższe interfejsy API umożliwiają programowe zarządzanie integracją regionalnej sieci wirtualnej:
 
-+ **Interfejs wiersza polecenia platformy Azure**: Użyj [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) poleceń do dodawania, wyświetlania lub usuwania integracji regionalnej sieci wirtualnej.  
-+ **Szablony usługi ARM**: integracja regionalnej sieci wirtualnej można włączyć przy użyciu szablonu Azure Resource Manager. Aby zapoznać się z pełnymi przykładami, zobacz [ten szablon funkcji szybkiego startu](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **Interfejs wiersza polecenia platformy Azure** : Użyj [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) poleceń do dodawania, wyświetlania lub usuwania integracji regionalnej sieci wirtualnej.  
++ **Szablony usługi ARM** : integracja regionalnej sieci wirtualnej można włączyć przy użyciu szablonu Azure Resource Manager. Aby zapoznać się z pełnymi przykładami, zobacz [ten szablon funkcji szybkiego startu](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

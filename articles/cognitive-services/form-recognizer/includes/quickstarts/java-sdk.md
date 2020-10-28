@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: b692475949645693267ffec69361d9fdc4c328e8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0dc4528147a144ed9887ae1becfbbe2aa4b9fcf3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548095"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897764"
 ---
 > [!IMPORTANT]
 > Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia.
@@ -106,10 +106,6 @@ W metodzie **głównej** aplikacji Dodaj wywołania metod używanych w tym przew
 * Aby uzyskać adres URL formularza do przetestowania, możesz wykonać powyższe kroki, aby uzyskać adres URL sygnatury dostępu współdzielonego pojedynczego dokumentu w usłudze BLOB Storage. Lub podejmij adres URL dokumentu znajdującego się w innym miejscu.
 * Użyj powyższej metody, aby uzyskać również adres URL obrazu paragonu.
 
-> [!NOTE]
-> Fragmenty kodu w tym przewodniku korzystają z formularzy zdalnych, do których uzyskuje dostęp za pomocą adresów URL. Jeśli zamiast tego chcesz przetworzyć lokalne dokumenty formularzy, zapoznaj się z odpowiednimi metodami w [dokumentacji referencyjnej](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview).
-
-
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
@@ -161,10 +157,12 @@ W górnej części metody **Main** Dodaj następujący kod. W tym miejscu będzi
 
 Aparat rozpoznawania formularzy służy do rozpoznawania tabel, wierszy i słów w dokumentach, bez konieczności uczenia modelu.
 
-Aby rozpoznać zawartość pliku w danym identyfikatorze URI, użyj metody **beginRecognizeContentFromUrl** .
+Aby rozpoznać zawartość pliku pod podanym adresem URL, należy użyć metody **beginRecognizeContentFromUrl** .
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_call)]
 
+> [!TIP]
+> Możesz również pobrać zawartość z pliku lokalnego. Zobacz metody [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) , takie jak **beginRecognizeContent** . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
 
 Zwracana wartość jest kolekcją obiektów **FormPage** : jeden dla każdej strony w przesłanym dokumencie. Poniższy kod wykonuje iterację tych obiektów i drukuje wyodrębnione pary klucz/wartość i dane tabeli.
 
@@ -192,12 +190,14 @@ Cell has text ET.
 
 W tej sekcji przedstawiono sposób rozpoznawania i wyodrębniania typowych pól z paragonów w Stanach Zjednoczonych przy użyciu wstępnie przeszkolonego modelu paragonów.
 
-Aby rozpoznawać potwierdzenia z identyfikatora URI, należy użyć metody **beginRecognizeReceiptsFromUrl** . Zwracana wartość jest kolekcją obiektów **RecognizedReceipt** : jeden dla każdej strony w przesłanym dokumencie.
+Aby rozpoznawać potwierdzenia z identyfikatora URI, należy użyć metody **beginRecognizeReceiptsFromUrl** . 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
+> [!TIP]
+> Możesz również uzyskać dostęp do rozpoznajenia lokalnych obrazów paragonów. Zobacz metody [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) , takie jak **beginRecognizeReceipts** . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
 
-Następny blok kodu iteruje przez potwierdzenia i drukuje szczegółowe informacje w konsoli programu.
+Zwracana wartość jest kolekcją obiektów **RecognizedReceipt** : jeden dla każdej strony w przesłanym dokumencie. Następny blok kodu iteruje przez potwierdzenia i drukuje szczegółowe informacje w konsoli programu.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print)]
 
@@ -305,12 +305,14 @@ W tej sekcji pokazano, jak wyodrębnić informacje o kluczu/wartości i innej za
 > [!IMPORTANT]
 > Aby zaimplementować ten scenariusz, należy wcześniej przeszkolić model, aby można było przekazać jego identyfikator do metody poniżej. Zobacz sekcję [uczenie modelu](#train-a-model-without-labels) .
 
-Będziesz używać metody **beginRecognizeCustomFormsFromUrl** . Zwracana wartość jest kolekcją obiektów **RecognizedForm** : jeden dla każdej strony w przesłanym dokumencie.
+Będziesz używać metody **beginRecognizeCustomFormsFromUrl** . 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
+> [!TIP]
+> Możesz również analizować plik lokalny. Zobacz metody [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) , takie jak **beginRecognizeCustomForms** . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
 
-Poniższy kod drukuje wyniki analizy w konsoli programu. Wypisuje wszystkie rozpoznane pola i odpowiadające im wartości, a także ocenę ufności.
+Zwracana wartość jest kolekcją obiektów **RecognizedForm** : jeden dla każdej strony w przesłanym dokumencie. Poniższy kod drukuje wyniki analizy w konsoli programu. Wypisuje wszystkie rozpoznane pola i odpowiadające im wartości, a także ocenę ufności.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
 

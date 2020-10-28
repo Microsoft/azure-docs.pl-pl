@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: d66c19ce3a9786a5ca0f1390acb398c2a9cf502f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 69f43b626bb50171ceaca1b7a8761bec040d1dd6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91445787"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897232"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Szybki Start: Włączanie usługi Azure automanage dla maszyn wirtualnych w Azure Portal
 
@@ -28,7 +28,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 > Konta bezpłatnych wersji próbnych nie mają dostępu do maszyn wirtualnych używanych w tym samouczku. Przeprowadź uaktualnienie do subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem.
 
 > [!IMPORTANT]
-> Musisz mieć rolę **współautor** , aby włączyć Autozarządzanie przy użyciu istniejącego konta autozarządzania. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
+> Aby włączyć Autozarządzanie przy użyciu istniejącego konta Autozarządzanie, musisz mieć rolę **współautor** w grupie zasobów zawierającej swoje maszyny wirtualne. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** w Twojej subskrypcji.
 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -38,20 +38,20 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Włączanie autozarządzania dla maszyn wirtualnych na istniejącej maszynie wirtualnej
 
-1. Na pasku wyszukiwania Wyszukaj i wybierz pozycję **Autozarządzanie — najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure**.
+1. Na pasku wyszukiwania Wyszukaj i wybierz pozycję **Autozarządzanie — najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure** .
 
-2. Wybierz pozycję **Włącz na istniejącej maszynie wirtualnej**.
+2. Wybierz pozycję **Włącz na istniejącej maszynie wirtualnej** .
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
 3. W bloku **Wybieranie maszyn** :
-    1. Filtrowanie listy maszyn wirtualnych według **subskrypcji** i **grupy zasobów**.
+    1. Filtrowanie listy maszyn wirtualnych według **subskrypcji** i **grupy zasobów** .
     1. Zaznacz pole wyboru każdej maszyny wirtualnej, którą chcesz dołączyć.
     1. Kliknij przycisk **Wybierz** .
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
-4. W obszarze **profil konfiguracji**kliknij przycisk **Przeglądaj i Zmień profile i preferencje**.
+4. W obszarze **profil konfiguracji** kliknij przycisk **Przeglądaj i Zmień profile i preferencje** .
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
@@ -61,7 +61,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
-6. Kliknij przycisk **Włącz**.
+6. Kliknij przycisk **Włącz** .
 
 
 ## <a name="enable-automanage-for-vms-on-a-new-vm"></a>Włączanie autozarządzania dla maszyn wirtualnych na nowej maszynie wirtualnej
@@ -74,13 +74,13 @@ Zaloguj się do Azure Portal [tutaj](https://aka.ms/automanageportalnextstep) , 
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
-3. W obszarze **następne kroki**wybierz pozycję **Włącz Autozarządzanie najlepsze rozwiązania dotyczące maszyn wirtualnych**.
+3. W obszarze **następne kroki** wybierz pozycję **Włącz Autozarządzanie najlepsze rozwiązania dotyczące maszyn wirtualnych** .
 
 4. Na stronie Automatyczne **Zarządzanie — najlepsze rozwiązania dla maszyn wirtualnych platformy Azure** **maszyny** będą automatycznie wypełniane przez nowo utworzoną maszynę wirtualną.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
-5. W obszarze **profil konfiguracji**kliknij przycisk **Przeglądaj i Zmień profile i preferencje**.
+5. W obszarze **profil konfiguracji** kliknij przycisk **Przeglądaj i Zmień profile i preferencje** .
 
 6. W bloku **Wybierz profil konfiguracji + preferencje** :
     1. Wybierz profil po lewej stronie: Tworzenie */testowanie* na potrzeby testowania, *prod* dla produkcji.
@@ -88,7 +88,7 @@ Zaloguj się do Azure Portal [tutaj](https://aka.ms/automanageportalnextstep) , 
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
-7. Kliknij przycisk **Włącz**.
+7. Kliknij przycisk **Włącz** .
 
 ## <a name="disable-automanage-for-vms"></a>Wyłącz Autozarządzanie dla maszyn wirtualnych
 
@@ -99,7 +99,7 @@ Szybko Zatrzymaj zarządzanie maszynami wirtualnymi przy użyciu usługi Azure a
 1. Przejdź do strony **Autozarządzanie — najlepsze rozwiązania dotyczącej maszyn wirtualnych platformy Azure** , która zawiera listę wszystkich maszyn wirtualnych, które są zarządzane przez nią.
 1. Zaznacz pole wyboru obok maszyny wirtualnej, którą chcesz wyłączyć.
 1. Kliknij przycisk **Wyłącz automanagent** .
-1. Uważnie przeczytaj wiadomości w wyskakującym okienku, aby wyrazić zgodę na **wyłączenie**.
+1. Uważnie przeczytaj wiadomości w wyskakującym okienku, aby wyrazić zgodę na **wyłączenie** .
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
@@ -108,9 +108,9 @@ Jeśli została utworzona nowa grupa zasobów w celu wypróbowania usługi Azure
 
 Usługa Azure automanage tworzy domyślne grupy zasobów do przechowywania zasobów w programie. Sprawdź grupy zasobów, które mają konwencję nazewnictwa "DefaultResourceGroupRegionName" i "AzureBackupRGRegionName", aby oczyścić wszystkie zasoby.
 
-1. Wybierz **grupę zasobów**.
-1. Na stronie grupy zasobów wybierz pozycję **Usuń**.
-1. Po wyświetleniu monitu potwierdź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
+1. Wybierz **grupę zasobów** .
+1. Na stronie grupy zasobów wybierz pozycję **Usuń** .
+1. Po wyświetleniu monitu potwierdź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń** .
 
 
 ## <a name="next-steps"></a>Następne kroki

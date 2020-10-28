@@ -1,18 +1,17 @@
 ---
 title: Plik dyrektywy include
-description: Plik dyrektywy include
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116812"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897833"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 
@@ -46,7 +45,7 @@ Funkcja galerii obrazów udostępnionych ma wiele typów zasobów:
 
 Definicje obrazów są logiczną grupą dla wersji obrazu. Definicja obrazu zawiera informacje na temat przyczyny utworzenia obrazu, jego systemu operacyjnego i innych informacji na temat korzystania z obrazu. Definicja obrazu jest taka sama jak w przypadku planu dla wszystkich szczegółów dotyczących tworzenia określonego obrazu. Nie można wdrożyć maszyny wirtualnej na podstawie definicji obrazu, ale z wersji obrazu utworzonych na podstawie definicji.
 
-Istnieją trzy parametry dla każdej definicji obrazu, które są używane w połączeniu **wydawcy**, **oferty** i **jednostki SKU**. Są one używane do znajdowania konkretnej definicji obrazu. Możesz mieć wersje obrazów, które współdzielą jeden lub dwa, ale nie wszystkie trzy wartości.  Na przykład poniżej przedstawiono trzy definicje obrazów i ich wartości:
+Istnieją trzy parametry dla każdej definicji obrazu, które są używane w połączeniu **wydawcy** , **oferty** i **jednostki SKU** . Są one używane do znajdowania konkretnej definicji obrazu. Możesz mieć wersje obrazów, które współdzielą jeden lub dwa, ale nie wszystkie trzy wartości.  Na przykład poniżej przedstawiono trzy definicje obrazów i ich wartości:
 
 |Definicja obrazu|Publisher|Oferta|SKU|
 |---|---|---|---|
@@ -116,7 +115,7 @@ Aby uzyskać więcej informacji, zobacz [Sprawdzanie użycia zasobów względem 
 ## <a name="scaling"></a>Skalowanie
 Udostępniona Galeria obrazów pozwala określić liczbę replik, które mają być przechowywane na platformie Azure. Pomaga to w scenariuszach wdrażania wielu maszyn wirtualnych, ponieważ wdrożenia maszyn wirtualnych można rozmieścić w różnych replikach, co zmniejsza prawdopodobieństwo ograniczenia przetwarzania wystąpienia z powodu przeciążenia pojedynczej repliki.
 
-Korzystając z galerii obrazów udostępnionych, można teraz wdrożyć do 1 000 wystąpień maszyn wirtualnych w zestawie skalowania maszyn wirtualnych (do maksymalnie 600 z obrazami zarządzanymi). Repliki obrazów zapewniają lepszą wydajność, niezawodność i spójność wdrożenia. Można ustawić inną liczbę replik w każdym regionie docelowym na podstawie potrzeb skali dla regionu. Ponieważ każda replika to głęboka kopia obrazu, to ułatwia skalowanie wdrożeń liniowo z każdą dodatkową repliką. Wiemy, że nie ma żadnych dwóch obrazów ani regionów, poniżej przedstawiono ogólne wytyczne dotyczące korzystania z replik w regionie:
+Korzystając z galerii obrazów udostępnionych, można teraz wdrożyć do 1 000 wystąpień maszyn wirtualnych w zestawie skalowania maszyn wirtualnych (do maksymalnie 600 z obrazami zarządzanymi). Repliki obrazów zapewniają lepszą wydajność, niezawodność i spójność wdrożenia.  Można ustawić inną liczbę replik w każdym regionie docelowym na podstawie potrzeb skali dla regionu. Ponieważ każda replika to głęboka kopia obrazu, to ułatwia skalowanie wdrożeń liniowo z każdą dodatkową repliką. Wiemy, że nie ma żadnych dwóch obrazów ani regionów, poniżej przedstawiono ogólne wytyczne dotyczące korzystania z replik w regionie:
 
 - W przypadku wdrożeń z zestawu skalowania maszyn wirtualnych (VMSS) — dla każdej 20 maszyn wirtualnych, które tworzysz współbieżnie, zalecamy zachowanie jednej repliki. Na przykład jeśli tworzysz maszyny wirtualne 120 na bieżąco przy użyciu tego samego obrazu w regionie, sugerujemy zachowywanie co najmniej 6 replik obrazu. 
 - W przypadku wdrożeń zestawu skalowania maszyn wirtualnych (VMSS) — dla każdego wdrożenia zestawu skalowania z maksymalnie 600 wystąpieniami zalecamy zachowanie co najmniej jednej repliki. Na przykład, jeśli tworzysz 5 zestawów skalowania współbieżnie, z których każda korzysta z 600 wystąpień maszyn wirtualnych przy użyciu tego samego obrazu w jednym regionie, sugerujemy zachowanie co najmniej 5 replik obrazu. 
@@ -155,8 +154,11 @@ Obrazy mogą być również udostępniane na dużą skalę, nawet między dzier�
 
 ## <a name="billing"></a>Rozliczenia
 Za korzystanie z usługi udostępnionej galerii obrazów nie są naliczane żadne dodatkowe opłaty. Zostanie naliczona opłata za następujące zasoby:
-- Koszty magazynowania przechowywania wersji obrazu udostępnionego. Koszt zależy od liczby replik wersji obrazu oraz liczby regionów, do których jest replikowana wersja. Na przykład jeśli masz 2 obrazy i obie są replikowane do 3 regionów, zostanie naliczona opłata za 6 dysków zarządzanych na podstawie ich rozmiaru. Aby uzyskać więcej informacji, zobacz [Cennik usługi Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
-- Opłaty za ruch wychodzący z sieci są naliczane za replikację pierwszej wersji obrazu z regionu źródłowego do replikowanych regionów. Kolejne repliki są obsługiwane w regionie, więc nie są naliczane żadne dodatkowe opłaty. 
+-   Koszty magazynowania przechowywania poszczególnych replik. Koszt magazynu jest naliczany jako migawka i zależy od zajętego rozmiaru wersji obrazu, liczby replik wersji obrazu oraz liczby regionów, do których jest replikowana wersja. 
+-   Opłaty za ruch wychodzący z sieci są naliczane za replikację pierwszej wersji obrazu z regionu źródłowego do replikowanych regionów. Kolejne repliki są obsługiwane w regionie, więc nie są naliczane żadne dodatkowe opłaty. 
+
+Załóżmy na przykład, że masz obraz dysku systemu operacyjnego 127 GB, który zajmuje tylko 10 GB magazynu, i jeden pusty dysk danych o pojemności 32 GB. Rozmiar zajętego każdego obrazu wynosi tylko 10 GB. Obraz jest replikowany do 3 regionów, a każdy region ma dwie repliki. Będzie dostępnych sześć łącznych migawek, z których każda korzysta z 10 GB. Zostanie naliczona opłata za magazyn dla każdej migawki na podstawie rozmiaru zajętego 10 GB. Opłaty za ruch wychodzący z sieci będą naliczane za pierwszą replikę, która ma zostać skopiowana do dodatkowych dwóch regionów. Aby uzyskać więcej informacji na temat cen migawek w poszczególnych regionach, zobacz [Cennik usługi Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Aby uzyskać więcej informacji o ruchu wychodzącym w sieci, zobacz [Cennik przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 ## <a name="updating-resources"></a>Aktualizowanie zasobów
 
@@ -220,9 +222,9 @@ Możesz utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów
 Aby wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów między subskrypcjami, do których masz dostęp na Azure Portal, wykonaj następujące czynności:
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
-1. Przewiń w dół stronę i wybierz pozycję **wszystkie zasoby**.
+1. Przewiń w dół stronę i wybierz pozycję **wszystkie zasoby** .
 1. Wybierz wszystkie subskrypcje, w ramach których chcesz wyświetlić listę wszystkich zasobów.
-1. Wyszukaj zasoby typu **Shared Image Gallery**.
+1. Wyszukaj zasoby typu **Shared Image Gallery** .
   
 Aby wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów między subskrypcjami, do których masz uprawnienia, użyj następującego polecenia w interfejsie wiersza polecenia platformy Azure:
 

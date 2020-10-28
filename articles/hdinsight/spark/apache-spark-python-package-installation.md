@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: dc1da641ba628cef92250549c1c6b6482cf18b51
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5a0f9f9f972ec42987d6152c16e4377e399cdba5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547337"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896416"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Bezpieczne zarządzanie środowiskiem Python w usłudze Azure HDInsight za pomocą akcji skryptu
 
@@ -129,6 +129,24 @@ Klaster usługi HDInsight zależy od wbudowanego środowiska języka Python, zar
     4. Zapisz zmiany i ponownie uruchom usługi, których to dotyczy. Te zmiany wymagają ponownego uruchomienia usługi Spark2. Interfejs użytkownika Ambari wyświetli monit o wymagane przypomnienie ponownego uruchomienia, kliknij przycisk Uruchom ponownie, aby ponownie uruchomić wszystkie usługi, których to dotyczy.
 
         ![Ponowne uruchamianie usług](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+
+    5. Ustaw dwie właściwości w sesji platformy Spark, aby upewnić się, że zadanie wskazuje zaktualizowaną konfigurację platformy Spark: `spark.yarn.appMasterEnv.PYSPARK_PYTHON` i `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` . 
+
+        Korzystając z terminalu lub notesu, użyj `spark.conf.set` funkcji.
+
+        ```spark
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        ```
+
+        Jeśli używasz usługi Livy, Dodaj następujące właściwości do treści żądania:
+
+        ```
+        “conf” : {
+        “spark.yarn.appMasterEnv.PYSPARK_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”,
+        “spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”
+        }
+        ```
 
 4. Jeśli chcesz użyć nowego utworzonego środowiska wirtualnego w Jupyter. Zmień konfiguracje Jupyter i uruchom ponownie Jupyter. Uruchom akcje skryptu na wszystkich węzłach nagłówka z instrukcją poniżej, aby wskazać Jupyter nowe środowisko wirtualne. Należy zmienić ścieżkę na prefiks określony dla środowiska wirtualnego. Po uruchomieniu tej akcji skryptu należy ponownie uruchomić usługę Jupyter za pomocą interfejsu użytkownika Ambari w celu udostępnienia tej zmiany.
 

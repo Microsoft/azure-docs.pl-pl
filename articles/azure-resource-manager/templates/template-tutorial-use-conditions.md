@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119314"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896994"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Samouczek: użycie warunku w szablonach ARM
 
@@ -54,14 +54,14 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym samouczku nazywa się [Wdrożenie prostej maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
+1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik** .
 1. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-1. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
+1. Wybierz pozycję **Open (Otwórz)** , aby otworzyć plik.
 1. Istnieje sześć zasobów zdefiniowanych przez szablon:
 
    * [**Microsoft. Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
@@ -73,14 +73,14 @@ Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM
 
     Warto zapoznać się z dokumentacją szablonu przed przystąpieniem do dostosowywania szablonu.
 
-1. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym o nazwie **azuredeploy.jsna**.
+1. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym o nazwie **azuredeploy.jsna** .
 
 ## <a name="modify-the-template"></a>Modyfikowanie szablonu
 
 Wprowadź dwie zmiany do istniejącego szablonu:
 
 * Dodaj parametr nazwy konta magazynu. Użytkownicy mogą określić nazwę nowego lub istniejącego konta magazynu.
-* Dodaj nowy parametr o nazwie **newOrExisting**. Wdrożenie używa tego parametru, aby określić, czy należy utworzyć nowe konto magazynu, czy użyć istniejącego konta magazynu.
+* Dodaj nowy parametr o nazwie **newOrExisting** . Wdrożenie używa tego parametru, aby określić, czy należy utworzyć nowe konto magazynu, czy użyć istniejącego konta magazynu.
 
 Poniżej przedstawiono procedurę wprowadzania zmian:
 
@@ -88,7 +88,7 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
 1. Zastąp trzy **zmienne ("storageAccountName")** **parametrami ("storageAccountName")** w całym szablonie.
 1. Usuń następującą definicję zmiennej:
 
-    ![Diagram warunków używania szablonu Menedżer zasobów](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Zrzut ekranu, który wyróżnia definicje zmiennych, które należy usunąć.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. Dodaj następujące dwa parametry na początku sekcji Parameters:
 
@@ -117,11 +117,11 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    Warunek sprawdza wartość parametru o nazwie **newOrExisting**. Jeśli wartość parametru to **new**, przy wdrażaniu tworzone jest konto magazynu.
+    Warunek sprawdza wartość parametru o nazwie **newOrExisting** . Jeśli wartość parametru to **new** , przy wdrażaniu tworzone jest konto magazynu.
 
     Zaktualizowana definicja konta magazynu wygląda następująco:
 
-    ![Warunek użycia w usłudze Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Zrzut ekranu przedstawiający zaktualizowaną definicję konta magazynu.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. Zaktualizuj Właściwość **storageUri** definicji zasobu maszyny wirtualnej, korzystając z następującej wartości:
 
     ```json
@@ -140,7 +140,7 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
 
     ![Azure Portal Cloud Shell przekazywania pliku](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**. Zobacz poprzedni zrzut ekranu. Wybierz plik, który został zapisany w poprzedniej sekcji. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
+1. Wybierz pozycję **Przekaż/pobierz pliki** , a następnie wybierz pozycję **Przekaż** . Zobacz poprzedni zrzut ekranu. Wybierz plik, który został zapisany w poprzedniej sekcji. Po przekazaniu pliku można użyć polecenia **ls** i **Cat** polecenia, aby sprawdzić, czy plik został pomyślnie przekazany.
 
 1. Uruchom następujący skrypt programu PowerShell, aby wdrożyć szablon.
 
@@ -172,13 +172,13 @@ Poniżej przedstawiono procedurę wprowadzania zmian:
     ```
 
     > [!NOTE]
-    > Wdrożenie zakończy się niepowodzeniem, jeśli parametr **newOrExisting** będzie mieć wartość **new**, ale konto magazynu o podanej nazwie będzie już istnieć.
+    > Wdrożenie zakończy się niepowodzeniem, jeśli parametr **newOrExisting** będzie mieć wartość **new** , ale konto magazynu o podanej nazwie będzie już istnieć.
 
 Spróbuj wprowadzić inne wdrożenie z **newOrExistingem** ustawionym na wartość "istniejący" i określ istniejące konto magazynu. Aby wcześniej utworzyć konto magazynu, zobacz [Tworzenie konta magazynu](../../storage/common/storage-account-create.md).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Aby usunąć grupę zasobów, wybierz pozycję **Wypróbuj** , aby otworzyć Cloud Shell. Aby wkleić skrypt programu PowerShell, kliknij prawym przyciskiem myszy okienko powłoki, a następnie wybierz polecenie **Wklej**.
+Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Aby usunąć grupę zasobów, wybierz pozycję **Wypróbuj** , aby otworzyć Cloud Shell. Aby wkleić skrypt programu PowerShell, kliknij prawym przyciskiem myszy okienko powłoki, a następnie wybierz polecenie **Wklej** .
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name you used in the last procedure"

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 5383309143302e0f3fb2052b47e4c497d9a21bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976889"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896620"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps pokrycie pogodowe
 
-Ten artykuł zawiera informacje o pokryciu dotyczące Azure Maps [usług pogodowych](https://aka.ms/AzureMapsWeatherService). Azure Maps usługi danych pogody zwracają szczegóły, takie jak kafelki radarowe, bieżące warunki pogodowe, prognozy pogodowe i Pogoda wzdłuż trasy.
+Ten artykuł zawiera informacje o pokryciu dotyczące Azure Maps [usług pogodowych](/rest/api/maps/weather). Azure Maps usługi danych pogody zwracają szczegóły, takie jak kafelki radarowe, bieżące warunki pogodowe, prognozy pogodowe i Pogoda wzdłuż trasy.
 
 Azure Maps nie ma tego samego poziomu informacji i dokładności dla wszystkich krajów i regionów.
 
@@ -299,4 +299,4 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 | Turcja                 | ✓ |   | | ✓| 
 | Ukraina                | ✓ |   | | ✓| 
 | Zjednoczone Królestwo         | ✓ | ✓ | ✓| ✓| 
-| Watykan           | ✓ |   |✓ | ✓| 
+| Watykan           | ✓ |   |✓ | ✓|

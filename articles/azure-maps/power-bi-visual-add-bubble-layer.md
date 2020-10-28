@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261937"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896229"
 ---
 # <a name="add-a-bubble-layer"></a>Dodawanie warstwy bąbelkowej
 
@@ -51,13 +51,13 @@ Jeśli pole zostanie przesłane do zasobnika **rozmiar** okienka **pola** , bąb
 | Maksymalny rozmiar            | Maksymalny rozmiar bąbelka podczas skalowania danych.|
 | Metoda skalowania rozmiaru | Algorytm skalowania używany do określania względnego rozmiaru bąbelka.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Liniowy zakres danych wejściowych jest liniowo mapowany na minimalny i maksymalny rozmiar. (wartość domyślna)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Zakres rejestrowania danych wejściowych logarithmically mapowany na minimalny i maksymalny rozmiar.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier-Określ wartości x1, Y1, X2, Y2 dla krzywej Cubic-Bezier, aby utworzyć niestandardową metodę skalowania. |
 
-Gdy ustawiona jest **Metoda skalowania rozmiaru** do **dziennika**, dostępne są następujące opcje.
+Gdy ustawiona jest **Metoda skalowania rozmiaru** do **dziennika** , dostępne są następujące opcje.
 
 | Ustawienie   | Opis      |
 |-----------|------------------|
 | Skalowanie dziennika | Skala logarytmiczna, która ma zostać zastosowana podczas obliczania rozmiaru bąbelków. |
 
-Gdy **Metoda skalowania rozmiaru** jest ustawiona na wartość **Beziera**, w celu dostosowania krzywej skalowania zostaną udostępnione następujące opcje.
+Gdy **Metoda skalowania rozmiaru** jest ustawiona na wartość **Beziera** , w celu dostosowania krzywej skalowania zostaną udostępnione następujące opcje.
 
 | Ustawienie | Opis                           |
 |---------|---------------------------------------|
@@ -90,7 +90,7 @@ Dodaj więcej kontekstu do mapy:
 Dostosuj wizualizację:
 
 > [!div class="nextstepaction"]
-> [Porady i wskazówki dotyczące formatowania kolorów w usłudze Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Porady i wskazówki dotyczące formatowania kolorów w usłudze Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Dostosowywanie tytułów, legend i tła wizualizacji](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Dostosowywanie tytułów, legend i tła wizualizacji](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

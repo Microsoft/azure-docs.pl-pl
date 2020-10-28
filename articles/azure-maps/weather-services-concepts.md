@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972048"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896731"
 ---
 # <a name="weather-services-in-azure-maps"></a>Usługi pogodowe w Azure Maps
 
-W tym artykule przedstawiono pojęcia dotyczące [Azure Maps usług pogodowych](https://aka.ms/AzureMapsWeatherService). Zalecamy przechodzenie przez ten artykuł przed rozpoczęciem korzystania z interfejsów API pogody.
+W tym artykule przedstawiono pojęcia dotyczące [Azure Maps usług pogodowych](/rest/api/maps/weather). Zalecamy przechodzenie przez ten artykuł przed rozpoczęciem korzystania z interfejsów API pogody.
 
 ## <a name="unit-types"></a>Typy jednostek
 
@@ -84,7 +84,7 @@ Niektóre interfejsy API usługi Pogoda zwracają `iconCode` w odpowiedzi. `icon
 | 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Tak |  Tak   | Gorąca|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Tak |  Tak   | Chłodne|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Tak |  Tak   | Wiatr|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nie  |  Tak   | Czyste|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nie  |  Tak   | Clear|
 | 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Nie  |  Tak   | Przede wszystkim|
 | 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Nie  |  Tak   | Częściowo chmura|
 | 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Nie  |  Tak   | Przerwy w chmurze|
@@ -100,7 +100,7 @@ Niektóre interfejsy API usługi Pogoda zwracają `iconCode` w odpowiedzi. `icon
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Skala kolorów obrazów radarowych i satelitarnych
 
-Za pomocą [funkcji Pobierz mapę kafelka w wersji 2 interfejsu API](https://aka.ms/AzureMapsWeatherTiles) użytkownicy mogą żądać najnowszych obrazów satelitarnych i w podczerwieni. Zobacz Poniższy przewodnik, aby pomóc w interpretacji kolorów używanych na potrzeby kafelków radarowych i satelitarnych.
+Za pomocą [funkcji Pobierz mapę kafelka w wersji 2 interfejsu API](/rest/api/maps/renderv2/getmaptilepreview) użytkownicy mogą żądać najnowszych obrazów satelitarnych i w podczerwieni. Zobacz Poniższy przewodnik, aby pomóc w interpretacji kolorów używanych na potrzeby kafelków radarowych i satelitarnych.
 
 ### <a name="radar-images"></a>Obrazy radarowe
 
@@ -475,7 +475,7 @@ Poniżej przedstawiono szczegółową paletę kolorów dla kafelków satelitarny
 
 ## <a name="index-ids-and-index-groups-ids"></a>Identyfikatory indeksu i identyfikatory grup indeksów
 
-[Pobieranie indeksów dziennych — interfejs API](https://aka.ms/AzureMapsWeatherDailyIndices) umożliwia użytkownikom ograniczenie zwracanych wyników do określonych typów indeksów lub grup indeksów.
+[Pobieranie indeksów dziennych — interfejs API](/rest/api/maps/weather) umożliwia użytkownikom ograniczenie zwracanych wyników do określonych typów indeksów lub grup indeksów.
 
 Poniżej znajduje się tabela z dostępnymi identyfikatorami indeksu, ich nazwami i linkiem do ich zestawów zakresów. Poniżej przedstawiono tabelę zawierającą listę różnych grup indeksów.
 
@@ -531,7 +531,7 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
 
   ID (Identyfikator)   | Nazwa grupy | Indeksy w tej grupie |
   -------- | ------------------|------
-  1       |Wszystkie | Wszystkie
+  1       |Wszystko | Wszystko
   2       |Aches i bólu | Arthritis bólu (21) </br> Migraine kłopotliwej (27) </br> Sinus kłopotliwej (30)
   3       |Układ oddechowy | Asthma (23) </br> Typowy zimny (25) </br> Prognoza Flu (26)
   4       |Ogrodniczy | Gotowość pola (32) </br> Mowing trawnika (28) </br> Wilgotność gleby (34)</br>
@@ -543,11 +543,11 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
   10      |Służba zdrowia | Arthritis bólu (21) </br> Asthma (23) </br> Typowy zimny (25) </br> Pył & Dander (18) </br> Flu (26) </br> Dobra serce (16) </br> Migraine kłopotliwej (27)
   11      |Zewnętrzne | Barbecue z zewnątrz (24) </br> Sekwencje & puli (10) </br> Dwucykliczny (4) </br> Uzgadnianie z zewnątrz (8) </br>  Gotowość pola (32) </br> Rybołówstwo (13) </br> Pogoda (5) </br> Górach (3) </br> Łowiectwo (20) </br> Jogging (2) </br> Kite pływający (9) </br> Działanie Mosquito (17)</br> Mowing trawnika (28) </br> Aktywność na zewnątrz (29) </br> Uruchomione (1) </br> Żegluga (11) </br> Skateboarding (7) </br> Pogoda (15) </br>  Wilgotność gleby (34)</br> Stargazing (12) </br> Tenis (6)
   12      |Związana | Dwucykliczny (4) </br> Pogoda (5) </br> Górach (3) </br>  Jogging (2) </br> Uruchomione (1) </br> Skateboarding (7) </br> Pogoda (15) </br>Tenis (6)
-  13      |Domowy | Efektywność energii na stronie głównej (36) </br> Gospodarka paliwem (37) </br> Działanie wewnętrzne (-2)
+  13      |Strona główna | Efektywność energii na stronie głównej (36) </br> Gospodarka paliwem (37) </br> Działanie wewnętrzne (-2)
 
 ## <a name="daily-index-range-sets"></a>Dzienne zestawy zakresów indeksów
 
-[Interfejs API uzyskiwania dziennych indeksów](https://aka.ms/AzureMapsWeatherDailyIndices) zwraca wartość przedziału i skojarzoną z nią nazwę kategorii dla każdego identyfikatora indeksu. Zestawy zakresów nie są takie same dla wszystkich indeksów. W poniższych tabelach przedstawiono różne zestawy zakresów używane przez obsługiwane indeksy wymienione w identyfikatorach [indeksu i identyfikatorach grup indeksów](#index-ids-and-index-groups-ids). Aby dowiedzieć się, które indeksy używają zestawów zakresu, przejdź do sekcji [identyfikatory indeksów i identyfikatory grup indeksów](#index-ids-and-index-groups-ids) tego dokumentu.
+[Interfejs API uzyskiwania dziennych indeksów](/rest/api/maps/weather) zwraca wartość przedziału i skojarzoną z nią nazwę kategorii dla każdego identyfikatora indeksu. Zestawy zakresów nie są takie same dla wszystkich indeksów. W poniższych tabelach przedstawiono różne zestawy zakresów używane przez obsługiwane indeksy wymienione w identyfikatorach [indeksu i identyfikatorach grup indeksów](#index-ids-and-index-groups-ids). Aby dowiedzieć się, które indeksy używają zestawów zakresu, przejdź do sekcji [identyfikatory indeksów i identyfikatory grup indeksów](#index-ids-and-index-groups-ids) tego dokumentu.
 
 ### <a name="poor-excellent-1"></a>Poor-Excellent 1
 
@@ -624,7 +624,7 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
 | Nazwa kategorii | Początek zakresu | Zakres końcowy |
   ----------------|--------------|------------
   Prawdopodobne         |  0     |          2,99
-  Obejrzyj            |  3     |          4,99
+  Zegarek            |  3     |          4,99
   Porada         |  5     |          6,99
   Ostrzeżenie          |  7     |          8,99
   Kontakt        |  9     |          10

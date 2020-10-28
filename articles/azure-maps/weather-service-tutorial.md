@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 5499402e94cad8673da597afd68571b77047192a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f020f3d9e23b9f834fd203f6d030656581fb4416
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677688"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896603"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Samouczek: Dołączanie danych z czujników z danymi prognoz pogody przy użyciu Azure Notebooks (Python)
 
@@ -23,11 +23,11 @@ Energia wiatru jest jednym Alternatywnym źródłem energii dla paliw kopalnych,
 Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
-> * Pracuj z plikami danych w [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) w chmurze.
+> * Pracuj z plikami danych w [Azure Notebooks](../notebooks/index.yml) w chmurze.
 > * Załaduj dane demonstracyjne z pliku.
 > * Wywołaj interfejsy API REST Azure Maps w języku Python.
 > * Renderuj dane lokalizacji na mapie.
-> * Wzbogacaj dane demonstracyjne za pomocą Azure Maps [codziennych](https://aka.ms/AzureMapsWeatherDailyForecast) danych o pogodzie.
+> * Wzbogacaj dane demonstracyjne za pomocą Azure Maps [codziennych](/rest/api/maps/weather/getdailyforecastpreview) danych o pogodzie.
 > * Kreśl dane prognozy na wykresach.
 
 
@@ -41,7 +41,7 @@ Aby ukończyć ten samouczek, należy najpierw wykonać następujące czynności
 
 Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md).
 
-Aby zapoznać się z notesami platformy Azure i wiedzieć, jak rozpocząć pracę, postępuj zgodnie z instrukcjami dotyczącymi [tworzenia notesu platformy Azure](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebooks-project).
+Aby zapoznać się z notesami platformy Azure i wiedzieć, jak rozpocząć pracę, postępuj zgodnie z instrukcjami dotyczącymi [tworzenia notesu platformy Azure](./tutorial-ev-routing.md#create-an-azure-notebooks-project).
 
 > [!Note]
 > Plik notesu Jupyter dla tego projektu można pobrać z [repozytorium Pogoda Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data).
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Żądaj codziennych danych prognoz
 
-W naszym scenariuszu chcemy zażądać codziennej prognozy dla każdej lokalizacji czujnika. Poniższy skrypt wywołuje [dzienny interfejs API prognozowania](https://aka.ms/AzureMapsWeatherDailyForecast) Azure Maps usługi Pogoda. Ten interfejs API zwraca prognozę pogody dla każdego turbiny wiatru w ciągu następnych 15 dni od bieżącej daty.
+W naszym scenariuszu chcemy zażądać codziennej prognozy dla każdej lokalizacji czujnika. Poniższy skrypt wywołuje [dzienny interfejs API prognozowania](/rest/api/maps/weather/getdailyforecastpreview) Azure Maps usługi Pogoda. Ten interfejs API zwraca prognozę pogody dla każdego turbiny wiatru w ciągu następnych 15 dni od bieżącej daty.
 
 
 ```python
@@ -107,7 +107,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-Poniższy skrypt renderuje lokalizacje turbin na mapie, wywołując Azure Maps [Get Image Service](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
+Poniższy skrypt renderuje lokalizacje turbin na mapie, wywołując Azure Maps [Get Image Service](/rest/api/maps/render/getmapimage).
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service
@@ -184,18 +184,18 @@ Poniższe wykresy przedstawiają wizualizację danych prognoz. Aby zmienić szyb
 
 W tym samouczku przedstawiono sposób wywoływania Azure Maps interfejsów API REST w celu uzyskania danych prognozy pogody. Wiesz również, jak wizualizować dane na wykresach.
 
-Aby dowiedzieć się więcej o sposobie wywoływania Azure Maps interfejsów API REST w programie Azure Notebooks, zobacz [Routing EV przy użyciu Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
+Aby dowiedzieć się więcej o sposobie wywoływania Azure Maps interfejsów API REST w programie Azure Notebooks, zobacz [Routing EV przy użyciu Azure Notebooks](./tutorial-ev-routing.md).
 
 Aby poznać Azure Maps interfejsów API, które są używane w tym samouczku, zobacz:
 
-* [Prognoza dzienna](https://aka.ms/AzureMapsWeatherDailyForecast)
-* [Renderowanie — Pobieranie obrazu mapy](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Prognoza dzienna](/rest/api/maps/weather/getdailyforecastpreview)
+* [Renderowanie — Pobieranie obrazu mapy](/rest/api/maps/render/getmapimage)
 
-Aby uzyskać pełną listę Azure Maps interfejsów API REST, zobacz [Azure Maps interfejsów API REST](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+Aby uzyskać pełną listę Azure Maps interfejsów API REST, zobacz [Azure Maps interfejsów API REST](./consumption-model.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat Azure Notebooks, zobacz
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)
+> [Azure Notebooks](../notebooks/index.yml)

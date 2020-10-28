@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888101"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896144"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Tworzenie zadania przesyłania strumieniowego danych w usłudze Azure SQL Edge 
 
@@ -38,9 +38,9 @@ Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych j
 
 | Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge Hub | T | T | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
-| Baza danych SQL | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
-| Kafka | T | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Ten adapter jest obecnie dostępny tylko dla wersji Intel lub AMD usługi Azure SQL Edge. Nie jest ona dostępna dla ARM64 wersji usługi Azure SQL Edge.|
+| Azure IoT Edge Hub | Y | Y | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Baza danych SQL | N | Y | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
+| Kafka | Y | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Ten adapter jest obecnie dostępny tylko dla wersji Intel lub AMD usługi Azure SQL Edge. Nie jest ona dostępna dla ARM64 wersji usługi Azure SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Przykład: Tworzenie zewnętrznego obiektu strumienia danych wejściowych/wyjściowych dla centrum Azure IoT Edge
 
@@ -103,7 +103,7 @@ Poniższy przykład tworzy obiekt strumienia zewnętrznego w lokalnej bazie dany
 
 3. Utwórz zewnętrzne źródło danych z opcją Utwórz zewnętrzne źródło danych. Poniższy przykład:
 
-    * Tworzy zewnętrzne źródło danych o nazwie *LocalSQLOutput*.
+    * Tworzy zewnętrzne źródło danych o nazwie *LocalSQLOutput* .
     * Identyfikuje zewnętrzne źródło danych (LOCATION = " <vendor> :// <server> [: <port> ]"). W tym przykładzie wskazuje lokalne wystąpienie usługi Azure SQL Edge.
     * Używa wcześniej utworzonego poświadczenia.
 
@@ -117,7 +117,7 @@ Poniższy przykład tworzy obiekt strumienia zewnętrznego w lokalnej bazie dany
     go
     ```
 
-4. Utwórz obiekt strumienia zewnętrznego. Poniższy przykład tworzy obiekt strumienia zewnętrznego wskazujący na tabelę *dbo. TemperatureMeasurements*, w bazie danych *MySQLDatabase*.
+4. Utwórz obiekt strumienia zewnętrznego. Poniższy przykład tworzy obiekt strumienia zewnętrznego wskazujący na tabelę *dbo. TemperatureMeasurements* , w bazie danych *MySQLDatabase* .
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -233,7 +233,8 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```

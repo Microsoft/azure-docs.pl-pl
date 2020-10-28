@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 136676b46df6e32f98dca99fccba19d4aa369dbe
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288161"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896280"
 ---
 # <a name="add-a-bar-chart-layer"></a>Dodawanie warstwy wykresu słupkowego
 
@@ -71,7 +71,7 @@ Dodaj więcej kontekstu do mapy:
 Dostosuj wizualizację:
 
 > [!div class="nextstepaction"]
-> [Porady i wskazówki dotyczące formatowania kolorów w usłudze Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Porady i wskazówki dotyczące formatowania kolorów w usłudze Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Dostosowywanie tytułów, legend i tła wizualizacji](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Dostosowywanie tytułów, legend i tła wizualizacji](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

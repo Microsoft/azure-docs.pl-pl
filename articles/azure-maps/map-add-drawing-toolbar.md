@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 05a409faedb2093637b3d93045b35eb4e4929626
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00628ec5a9f41b027bf90b93421f3aa1404e97a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310751"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896399"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Dodawanie paska narzędzi narzędzi do rysowania do mapy
 
-W tym artykule pokazano, jak używać modułu narzędzi do rysowania i wyświetlać pasek narzędzi rysowania na mapie. Kontrolka [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) dodaje pasek narzędzi Rysowanie na mapie. Dowiesz się, jak tworzyć mapy za pomocą tylko jednego i wszystkich narzędzi do rysowania oraz jak dostosować renderowanie kształtów rysowania w Menedżerze rysowania.
+W tym artykule pokazano, jak używać modułu narzędzi do rysowania i wyświetlać pasek narzędzi rysowania na mapie. Kontrolka [DrawingToolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) dodaje pasek narzędzi Rysowanie na mapie. Dowiesz się, jak tworzyć mapy za pomocą tylko jednego i wszystkich narzędzi do rysowania oraz jak dostosować renderowanie kształtów rysowania w Menedżerze rysowania.
 
 ## <a name="add-drawing-toolbar"></a>Dodawanie paska narzędzi rysowania
 
@@ -143,10 +143,10 @@ Dowiedz się, jak używać dodatkowych funkcji modułu narzędzi do rysowania:
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mapa](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Rysowanie paska narzędzi](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Rysowanie paska narzędzi](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
 > [!div class="nextstepaction"]
-> [Menedżer rysowania](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Menedżer rysowania](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)

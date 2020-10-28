@@ -12,19 +12,19 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7104040e73679b6563b02aba47698b8eac2b7a56
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d10eb3334154f4915aa0bddd488ddc78bde06805
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441389"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897266"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Co to jest dostęp użytkowników-gości w usłudze Azure Active Directory B2B?
 
 Azure Active Directory (Azure AD) współpraca między firmami (B2B, Business-to-Business) to funkcja w ramach tożsamości zewnętrznych, która umożliwia Zapraszanie użytkowników-Gości do współpracy z organizacją. Dzięki współpracy B2B możesz bezpiecznie udostępniać aplikacje i usługi firmy użytkownikom-Gościom z innych organizacji, zachowując kontrolę nad danymi firmowymi. Pracuj bezpiecznie z partnerami zewnętrznymi, dużymi lub małymi, nawet jeśli nie korzystają oni z usługi Azure AD lub nie mają działu IT. Prosty proces zapraszania i realizacji umożliwia partnerom uzyskiwanie dostępu do zasobów firmy przy użyciu własnych poświadczeń. Deweloperzy mogą używać międzyfirmowych interfejsów API usługi Azure AD do dostosowywania procesu zapraszania lub pisania aplikacji, takich jak samoobsługowe portale tworzenia kont. Informacje o licencjonowaniu i cenach związane z użytkownikami gościa znajdują się w [cenniku Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).  
 
    > [!IMPORTANT]
-   > **Od 31 marca 2021**firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
+   > **Od 31 marca 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Współpraca z dowolnym partnerem z użyciem jego tożsamości
 
@@ -95,6 +95,6 @@ Korzystając z samoobsługowego przepływu użytkowników, możesz utworzyć kon
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Licensing guidance for Azure AD B2B collaboration (Wskazówki dotyczące licencjonowania w ramach współpracy B2B w usłudze Azure AD)](licensing-guidance.md)
+- [Cennik tożsamości zewnętrznych](external-identities-pricing.md)
 - [Add B2B collaboration guest users in the portal (Dodawanie użytkowników-gości współpracy B2B w portalu)](add-users-administrator.md)
 - [Understand the invitation redemption process (Opis procesu realizacji zaproszenia)](redemption-experience.md)

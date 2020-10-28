@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319071"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896569"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Rozwiązywanie problemów z używaniem bramy zarządzania danymi
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z usługą Zarządzanie danymi Gateway.
@@ -86,7 +86,7 @@ Podczas rejestrowania bramy może zostać wyświetlony następujący komunikat o
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![Klucz bramy jest nieprawidłowy lub pusty](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+![Zrzut ekranu, który wyróżnia komunikat o błędzie wskazujący, że klucz bramy jest nieprawidłowy lub pusty.](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Przyczyna
 Klucz bramy został wygenerowany ponownie lub Brama została usunięta z Azure Portal. Może się również zdarzyć, że konfiguracja bramy Zarządzanie danymi nie jest najnowsza.
@@ -107,14 +107,14 @@ Podczas rejestrowania bramy może zostać wyświetlony następujący komunikat o
 Ten błąd może wystąpić, ponieważ Brama została usunięta lub ponownie wygenerowano skojarzony klucz bramy.
 
 #### <a name="resolution"></a>Rozwiązanie
-Jeśli Brama została usunięta, ponownie utwórz bramę z portalu, kliknij pozycję **zarejestruj**, skopiuj klucz z portalu, wklej go i spróbuj zarejestrować bramę.
+Jeśli Brama została usunięta, ponownie utwórz bramę z portalu, kliknij pozycję **zarejestruj** , skopiuj klucz z portalu, wklej go i spróbuj zarejestrować bramę.
 
 Jeśli Brama nadal istnieje, ale jej klucz został wygenerowany ponownie, Użyj nowego klucza do zarejestrowania bramy. Jeśli nie masz klucza, ponownie Wygeneruj klucz w portalu.
 
 ### <a name="7-problem"></a>7. problem
 Gdy rejestrujesz bramę, może być konieczne podanie ścieżki i hasła do certyfikatu.
 
-![Określ certyfikat](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
+![Zrzut ekranu pokazujący, w jaki sposób wprowadzić ścieżkę i hasło do certyfikatu.](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
 #### <a name="cause"></a>Przyczyna
 Brama została zarejestrowana na innych maszynach. Podczas początkowej rejestracji bramy certyfikat szyfrowania został skojarzony z bramą. Certyfikat może zostać wygenerowany samodzielnie przez bramę lub dostarczony przez użytkownika.  Ten certyfikat jest używany do szyfrowania poświadczeń magazynu danych (połączonej usługi).  
@@ -233,7 +233,7 @@ Jeśli widzisz błędy dotyczące połączenia z magazynem danych lub sterownika
 
 1. Uruchom Configuration Manager bramy Zarządzanie danymi na maszynie bramy.
 2. Przejdź na kartę **Diagnostyka** .
-3. W obszarze **połączenie testowe**Dodaj wartości grupy bramy.
+3. W obszarze **połączenie testowe** Dodaj wartości grupy bramy.
 4. Kliknij przycisk **Testuj** , aby sprawdzić, czy możesz nawiązać połączenie z lokalnym źródłem danych z maszyny bramy przy użyciu informacji o połączeniu i poświadczeń. Jeśli połączenie testowe nadal zakończy się niepowodzeniem po zainstalowaniu sterownika, uruchom bramę ponownie, aby wczytać najnowsze zmiany.
 
 ![Testuj połączenie na karcie Diagnostyka](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
@@ -252,7 +252,7 @@ Podczas kontaktowania się z pomoc techniczna firmy Microsoft, aby uzyskać pomo
 4. Obowiązkowe Kliknij pozycję **prywatność** , aby przejrzeć zasady zachowania poufności informacji w usługach sieci Web firmy Microsoft.
 5. Gdy jesteś zadowolony z tego, co zamierzasz przekazać, kliknij pozycję **Wyślij dzienniki** , aby faktycznie wysłać dzienniki z ostatnich siedmiu dni do firmy Microsoft w celu rozwiązywania problemów. Powinien zostać wyświetlony stan operacji wysyłania dzienników, jak pokazano na poniższym zrzucie ekranu.
 
-    ![Stan dzienników wysyłania Zarządzanie danymi bramy](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    ![Zrzut ekranu pokazujący lokalizację, w której ma zostać wyświetlony stan operacji wysyłania dzienników.](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. Po zakończeniu operacji zobaczysz okno dialogowe, jak pokazano na poniższym zrzucie ekranu.
 
     ![Stan dzienników wysyłania Zarządzanie danymi bramy](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
@@ -278,7 +278,7 @@ Kliknij link **archiwizuj dzienniki bramy** , aby zarchiwizować i zapisać dzie
 ### <a name="locate-gateway-logs"></a>Lokalizowanie dzienników bramy
 Szczegółowe informacje dziennika bramy można znaleźć w dziennikach zdarzeń systemu Windows.
 
-1. Uruchom **Podgląd zdarzeń**systemu Windows.
+1. Uruchom **Podgląd zdarzeń** systemu Windows.
 2. Zlokalizuj dzienniki w folderze **aplikacje i usługi Dzienniki**  >  **Zarządzanie danymi bramy** .
 
    W przypadku rozwiązywania problemów związanych z bramą Znajdź zdarzenia poziomu błędu w Podglądzie zdarzeń.

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: cff67e99d40b092341e89c96a9f1e037d8572248
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 68c10ba5581ffe404e8e3c1ac8ce92832cfcd6c4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690633"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896433"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Szybki Start: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu szablonu ARM
 
@@ -24,7 +24,7 @@ ms.locfileid: "88690633"
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
 
@@ -36,7 +36,7 @@ Aby ukończyć ten artykuł:
 
 * Szablon wymaga Twojego identyfikatora obiektu użytkownika z usługi Azure Active Directory w celu skonfigurowania uprawnień. Poniższa procedura pozwala pobrać identyfikator obiektu (GUID).
 
-    1. Uruchom następujące Azure PowerShell lub polecenie interfejsu wiersza polecenia platformy Azure, wybierając pozycję **Wypróbuj**, a następnie wklej skrypt do okienka powłoki. Aby wkleić skrypt, kliknij prawym przyciskiem myszy powłokę, a następnie wybierz polecenie **Wklej**.
+    1. Uruchom następujące Azure PowerShell lub polecenie interfejsu wiersza polecenia platformy Azure, wybierając pozycję **Wypróbuj** , a następnie wklej skrypt do okienka powłoki. Aby wkleić skrypt, kliknij prawym przyciskiem myszy powłokę, a następnie wybierz polecenie **Wklej** .
 
         # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
         ```azurecli-interactive
@@ -82,16 +82,16 @@ Więcej przykładów szablonów Azure Key Vault można znaleźć w [szablonach s
 
     O ile nie zostanie on określony, użyj wartości domyślnej, aby utworzyć magazyn kluczy i wpis tajny.
 
-    * **Subskrypcja**: wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów**: wybierz pozycję **Utwórz nową**, wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**.
-    * **Lokalizacja**: wybierz lokalizację. Na przykład **Środkowe stany USA**.
-    * **Nazwa Key Vault**: Wprowadź nazwę magazynu kluczy, która musi być globalnie unikatowa w przestrzeni nazw. Vault.Azure.NET. Podczas sprawdzania poprawności wdrożenia potrzebna jest nazwa w następnej sekcji.
-    * **Identyfikator dzierżawy**: Funkcja szablonu automatycznie pobiera swój identyfikator dzierżawy. Nie zmieniaj wartości domyślnej.
-    * **Identyfikator użytkownika usługi AD**: Wprowadź identyfikator obiektu użytkownika usługi Azure AD, który został pobrany z [wymagań wstępnych](#prerequisites).
-    * **Nazwa wpisu tajnego**: Wprowadź nazwę wpisu tajnego, który jest przechowywany w magazynie kluczy. Na przykład klucz **AdminPassword**.
-    * **Wartość wpisu tajnego**: wprowadź wartość klucza tajnego. Jeśli przechowujesz hasło, zalecamy użycie wygenerowanego hasła utworzonego w sekcji wymagania wstępne.
-    * **Wyrażam zgodę na powyższe warunki i postanowienia**: Zaznacz.
-3. Wybierz pozycję **Kup**. Po pomyślnym wdrożeniu magazynu kluczy otrzymujesz powiadomienie:
+    * **Subskrypcja** : wybierz subskrypcję platformy Azure.
+    * **Grupa zasobów** : wybierz pozycję **Utwórz nową** , wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK** .
+    * **Lokalizacja** : wybierz lokalizację. Na przykład **Środkowe stany USA** .
+    * **Nazwa Key Vault** : Wprowadź nazwę magazynu kluczy, która musi być globalnie unikatowa w przestrzeni nazw. Vault.Azure.NET. Podczas sprawdzania poprawności wdrożenia potrzebna jest nazwa w następnej sekcji.
+    * **Identyfikator dzierżawy** : Funkcja szablonu automatycznie pobiera swój identyfikator dzierżawy. Nie zmieniaj wartości domyślnej.
+    * **Identyfikator użytkownika usługi AD** : Wprowadź identyfikator obiektu użytkownika usługi Azure AD, który został pobrany z [wymagań wstępnych](#prerequisites).
+    * **Nazwa wpisu tajnego** : Wprowadź nazwę wpisu tajnego, który jest przechowywany w magazynie kluczy. Na przykład klucz **AdminPassword** .
+    * **Wartość wpisu tajnego** : wprowadź wartość klucza tajnego. Jeśli przechowujesz hasło, zalecamy użycie wygenerowanego hasła utworzonego w sekcji wymagania wstępne.
+    * **Wyrażam zgodę na powyższe warunki i postanowienia** : Zaznacz.
+3. Wybierz pozycję **Kup** . Po pomyślnym wdrożeniu magazynu kluczy otrzymujesz powiadomienie:
 
     ![Szablon ARM, integracja Key Vault, wdrażanie powiadomienia portalu](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -124,9 +124,9 @@ Dane wyjściowe wyglądają podobnie do:
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
-![Szablon ARM, integracja Key Vault, wdrażanie danych wyjściowych weryfikacji portalu](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Zrzut ekranu pokazujący dane wyjściowe weryfikacji portalu wdrażania w interfejsie wiersza polecenia.](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ![Szablon ARM, integracja Key Vault, wdrażanie danych wyjściowych weryfikacji portalu](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 

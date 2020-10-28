@@ -10,15 +10,14 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 733a5c899e72809d979dfeeb60e4157c0d587bcf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9abfbe03a4192411a3790bb6d6e488d674c13109
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633709"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897164"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi 
-
 
 W tym artykule opisano tworzenie, wyświetlanie i usuwanie [**Azure Machine Learning obszarów roboczych**](concept-workspace.md) dla [Azure Machine Learning](overview-what-is-azure-ml.md)przy użyciu Azure Portal lub [zestawu SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
@@ -33,48 +32,82 @@ Wraz ze zmianami lub wymaganiami dotyczącymi usługi Automation można także t
 
 # <a name="python"></a>[Python](#tab/python)
 
-W pierwszym przykładzie jest wymagana tylko minimalna Specyfikacja i wszystkie zasoby zależne oraz Grupa zasobów zostanie utworzona automatycznie.
+* **Specyfikacja domyślna.** Domyślnie zasoby zależne oraz Grupa zasobów zostaną utworzone automatycznie. Ten kod tworzy obszar roboczy o nazwie `myworkspace` i grupę zasobów o nazwie `myresourcegroup` w `eastus2` .
+    
+    ```python
+    from azureml.core import Workspace
+    
+    ws = Workspace.create(name='myworkspace',
+                   subscription_id='<azure-subscription-id>',
+                   resource_group='myresourcegroup',
+                   create_resource_group=True,
+                   location='eastus2'
+                   )
+    ```
+    Ustaw `create_resource_group` wartość false, jeśli masz istniejącą grupę zasobów platformy Azure, której chcesz użyć dla obszaru roboczego.
 
-```python
-from azureml.core import Workspace
-   ws = Workspace.create(name='myworkspace',
-               subscription_id='<azure-subscription-id>',
-               resource_group='myresourcegroup',
-               create_resource_group=True,
-               location='eastus2'
-               )
-```
-Ustaw `create_resource_group` wartość false, jeśli masz istniejącą grupę zasobów platformy Azure, której chcesz użyć dla obszaru roboczego.
+* <a name="create-multi-tenant"></a>**Wielu dzierżawców.**  Jeśli masz wiele kont, Dodaj identyfikator dzierżawy Azure Active Directory, którego chcesz użyć.  Znajdź swój identyfikator dzierżawy z [Azure Portal](https://portal.azure.com) w obszarze **Azure Active Directory, tożsamości zewnętrzne** .
 
-Możesz również utworzyć obszar roboczy, który używa istniejących zasobów platformy Azure w formacie identyfikatora zasobu platformy Azure. Znajdź określone identyfikatory zasobów platformy Azure w Azure Portal lub z zestawem SDK. W tym przykładzie przyjęto założenie, że grupa zasobów, konto magazynu, Magazyn kluczy, usługi App Insights i rejestr kontenerów już istnieje.
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.create(name='myworkspace',
+                subscription_id='<azure-subscription-id>',
+                resource_group='myresourcegroup',
+                create_resource_group=True,
+                location='eastus2',
+                auth=interactive_auth
+                )
+    ```
 
-```python
-import os
+* Niezależna **[chmura](reference-machine-learning-cloud-parity.md)** . Jeśli pracujesz w chmurze suwerennej, będziesz potrzebować dodatkowego kodu do uwierzytelnienia na platformie Azure.
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.create(name='myworkspace',
+                subscription_id='<azure-subscription-id>',
+                resource_group='myresourcegroup',
+                create_resource_group=True,
+                location='eastus2',
+                auth=interactive_auth
+                )
+    ```
+
+* **Użyj istniejących zasobów platformy Azure** .  Możesz również utworzyć obszar roboczy, który używa istniejących zasobów platformy Azure w formacie identyfikatora zasobu platformy Azure. Znajdź określone identyfikatory zasobów platformy Azure w Azure Portal lub z zestawem SDK. W tym przykładzie przyjęto założenie, że grupa zasobów, konto magazynu, Magazyn kluczy, usługi App Insights i rejestr kontenerów już istnieje.
+
+   ```python
+   import os
    from azureml.core import Workspace
    from azureml.core.authentication import ServicePrincipalAuthentication
 
    service_principal_password = os.environ.get("AZUREML_PASSWORD")
 
    service_principal_auth = ServicePrincipalAuthentication(
-       tenant_id="<tenant-id>",
-       username="<application-id>",
-       password=service_principal_password)
+      tenant_id="<tenant-id>",
+      username="<application-id>",
+      password=service_principal_password)
 
-   ws = Workspace.create(name='myworkspace',
-                         auth=service_principal_auth,
-                         subscription_id='<azure-subscription-id>',
-                         resource_group='myresourcegroup',
-                         create_resource_group=False,
-                         location='eastus2',
-                         friendly_name='My workspace',
-                         storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
-                         key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
-                         app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
-                         container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
-                         exist_ok=False)
-```
+                        auth=service_principal_auth,
+                             subscription_id='<azure-subscription-id>',
+                             resource_group='myresourcegroup',
+                             create_resource_group=False,
+                             location='eastus2',
+                             friendly_name='My workspace',
+                             storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
+                             key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
+                             app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
+                             container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
+                             exist_ok=False)
+   ```
 
-Aby uzyskać więcej informacji, zobacz [Dokumentacja zestawu SDK obszaru roboczego](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)
+Aby uzyskać więcej informacji, zobacz [Dokumentacja zestawu SDK obszaru roboczego](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true).
+
+Jeśli masz problemy z uzyskaniem dostępu do subskrypcji, zobacz [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](how-to-setup-authentication.md), a także [uwierzytelnianie w Azure Machine Learning](https://aka.ms/aml-notebook-auth) notesie.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -237,6 +270,37 @@ Jeśli planujesz używać kodu w środowisku lokalnym, który odwołuje się do 
 
 Umieść plik w strukturze katalogów za pomocą skryptów języka Python lub notesów Jupyter. Może znajdować się w tym samym katalogu, podkatalogu o nazwie *. Azure* lub w katalogu nadrzędnym. Podczas tworzenia wystąpienia obliczeniowego ten plik jest dodawany do poprawnego katalogu na maszynie wirtualnej.
 
+## <a name="connect-to-a-workspace"></a>Łączenie z obszarem roboczym
+
+W kodzie w języku Python utworzysz obiekt obszaru roboczego, aby połączyć się z obszarem roboczym.  Ten kod odczyta zawartość pliku konfiguracji w celu znalezienia obszaru roboczego.  Zostanie wyświetlony monit o zalogowanie się, jeśli nie masz jeszcze uwierzytelnienia.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+* <a name="connect-multi-tenant"></a>**Wielu dzierżawców.**  Jeśli masz wiele kont, Dodaj identyfikator dzierżawy Azure Active Directory, którego chcesz użyć.  Znajdź swój identyfikator dzierżawy z [Azure Portal](https://portal.azure.com) w obszarze **Azure Active Directory, tożsamości zewnętrzne** .
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+
+* Niezależna **[chmura](reference-machine-learning-cloud-parity.md)** . Jeśli pracujesz w chmurze suwerennej, będziesz potrzebować dodatkowego kodu do uwierzytelnienia na platformie Azure.
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+    
+Jeśli masz problemy z uzyskaniem dostępu do subskrypcji, zobacz [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](how-to-setup-authentication.md), a także [uwierzytelnianie w Azure Machine Learning](https://aka.ms/aml-notebook-auth) notesie.
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Znajdowanie obszaru roboczego
 
@@ -254,7 +318,7 @@ Workspace.list('<subscription-id>')
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. W górnym polu wyszukiwania wpisz **Machine Learning** .  
 

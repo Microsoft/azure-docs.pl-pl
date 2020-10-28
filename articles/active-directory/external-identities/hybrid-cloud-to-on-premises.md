@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84169daa28fc394254ddce211a96d4a462f78cbd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441865"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896470"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
 
@@ -39,8 +39,8 @@ Należy wykonać obie następujące czynności:
 
 Aby zapewnić użytkownikom B2B dostęp do aplikacji lokalnych zabezpieczonych przy użyciu zintegrowanego uwierzytelniania systemu Windows i ograniczonego delegowania protokołu Kerberos, potrzebne są następujące składniki:
 
-- **Uwierzytelnianie za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD**. Użytkownicy B2B muszą mieć możliwość uwierzytelnienia w aplikacji lokalnej. W tym celu należy opublikować aplikację lokalną za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z serwerem proxy aplikacji i Instalowanie łącznika](../manage-apps/application-proxy-add-on-premises-application.md) oraz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-add-on-premises-application.md).
-- **Autoryzacja za pośrednictwem obiektu użytkownika B2B w katalogu lokalnym**. Aplikacja musi być w stanie wykonywać sprawdzenia dostępu użytkowników i udzielić dostępu do odpowiednich zasobów. IWA i KCD wymagają obiektu użytkownika w lokalnym systemie Windows Server Active Directory, aby ukończyć tę autoryzację. Zgodnie z opisem w temacie [jak działa Logowanie jednokrotne za pomocą KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), serwer proxy aplikacji potrzebuje tego obiektu użytkownika, aby personifikować użytkownika i uzyskać token Kerberos do aplikacji. 
+- **Uwierzytelnianie za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD** . Użytkownicy B2B muszą mieć możliwość uwierzytelnienia w aplikacji lokalnej. W tym celu należy opublikować aplikację lokalną za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Autoryzacja za pośrednictwem obiektu użytkownika B2B w katalogu lokalnym** . Aplikacja musi być w stanie wykonywać sprawdzenia dostępu użytkowników i udzielić dostępu do odpowiednich zasobów. IWA i KCD wymagają obiektu użytkownika w lokalnym systemie Windows Server Active Directory, aby ukończyć tę autoryzację. Zgodnie z opisem w temacie [jak działa Logowanie jednokrotne za pomocą KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), serwer proxy aplikacji potrzebuje tego obiektu użytkownika, aby personifikować użytkownika i uzyskać token Kerberos do aplikacji. 
 
    > [!NOTE]
    > Podczas konfigurowania usługi Azure serwer proxy aplikacji usługi Azure AD upewnij się, że w konfiguracji **logowania** jednokrotnego dla zintegrowanego uwierzytelniania systemu Windows jest ustawiona wartość **Nazwa główna użytkownika** (domyślnie).

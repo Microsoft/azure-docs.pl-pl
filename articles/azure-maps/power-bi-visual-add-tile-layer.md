@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261940"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896212"
 ---
 # <a name="add-a-tile-layer"></a>Dodawanie warstwy kafelków
 
@@ -57,11 +57,11 @@ ADRES URL kafelka adres URL protokołu HTTPS do szablonu adresu URL kafelka, kt�
 -   `{quadkey}` -Identyfikator kafelka `quadkey` na podstawie konwencji nazewnictwa systemu kafelków mapy Bing.
 -   `{bbox-epsg-3857}` -Ciąg pola granicznego z formatem `{west},{south},{east},{north}` w systemie referencyjnym przestrzennym EPSG 3857.
 
-Poniżej znajduje się przykład sformatowanego adresu URL kafelka dla [usługi kafelków Pogoda](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) w Azure Maps. Zwróć uwagę, że `[subscription-key]` jest to symbol zastępczy klucza subskrypcji Azure Maps.
+Poniżej znajduje się przykład sformatowanego adresu URL kafelka dla [usługi kafelków Pogoda](/rest/api/maps/renderv2/getmaptilepreview) w Azure Maps. Zwróć uwagę, że `[subscription-key]` jest to symbol zastępczy klucza subskrypcji Azure Maps.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 
-Aby uzyskać więcej informacji na Azure Maps rozdzielenie systemu, zobacz [poziomy powiększenia i siatka kafelków](zoom-levels-and-tile-grid.md).
+Aby uzyskać więcej informacji na Azure Maps rozdzielenie systemu, zobacz [poziomy powiększenia i siatka kafelków](zoom-levels-and-tile-grid.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

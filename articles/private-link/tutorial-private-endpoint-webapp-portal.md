@@ -7,18 +7,18 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 6d4d9fd901337b9c05c7d7d7f271974273e9fe37
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170070"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896977"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Samouczek: łączenie się z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
 
 Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Dzięki temu zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się z prywatnymi prywatnymi zasobami.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz sieć wirtualną i hosta bastionu.
@@ -48,16 +48,16 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
 
 1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > Sieć > Sieć wirtualna** lub wyszukaj frazę **Sieć wirtualna** w polu wyszukiwania.
 
-2. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
+2. W obszarze **Utwórz sieć wirtualną** wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
     | **Ustawienie**          | **Wartość**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Szczegóły projektu**  |                                                                 |
     | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
-    | Resource Group   | Wybierz pozycję Moja **resourceName** |
+    | Grupa zasobów   | Wybierz pozycję Moja **resourceName** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
-    | Region           | Wybierz **Wschodnie stany USA** |
+    | Region           | Wybierz **Europa Zachodnia** |
 
 3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
 
@@ -67,31 +67,31 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Przestrzeń adresowa IPv4 | Wprowadź **10.1.0.0/16** |
 
-5. W obszarze **Nazwa podsieci**wybierz pozycję **domyślny**wyraz.
+5. W obszarze **Nazwa podsieci** wybierz pozycję **domyślny** wyraz.
 
-6. W obszarze **Edytuj podsieć**wprowadź następujące informacje:
+6. W obszarze **Edytuj podsieć** wprowadź następujące informacje:
 
     | Ustawienie            | Wartość                      |
     |--------------------|----------------------------|
     | Nazwa podsieci | Wprowadź **maskę** |
     | Zakres adresów podsieci | Wprowadź **10.1.0.0/24** |
 
-7. Wybierz pozycję **Zapisz**.
+7. Wybierz pozycję **Zapisz** .
 
 8. Wybierz kartę **zabezpieczenia** .
 
-9. W obszarze **BastionHost**wybierz pozycję **enable (Włącz**). Wprowadź następujące informacje:
+9. W obszarze **BastionHost** wybierz pozycję **enable (Włącz** ). Wprowadź następujące informacje:
 
     | Ustawienie            | Wartość                      |
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy** . </br> W obszarze **Nazwa** wprowadź **myBastionIP** . </br> Wybierz przycisk **OK** . |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz pozycję **Utwórz** .
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -100,18 +100,18 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
 
 1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **maszyny wirtualnej** lub Wyszukaj **maszynę wirtualną** w polu wyszukiwania.
    
-2. W obszarze **Utwórz maszynę wirtualną**wpisz lub wybierz wartości z karty **podstawowe** :
+2. W obszarze **Utwórz maszynę wirtualną** wpisz lub wybierz wartości z karty **podstawowe** :
 
     | Ustawienie | Wartość                                          |
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Resource Group | Wybierz pozycję Moja **resourceName** |
+    | Grupa zasobów | Wybierz pozycję Moja **resourceName** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
-    | Region | Wybierz **Wschodnie stany USA** |
+    | Region | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -119,7 +119,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Hasło | Wprowadź hasło |
     | Potwierdź hasło | Ponownie wprowadź hasło |
 
-3. Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski**, a następnie pozycję **Dalej: Sieć**.
+3. Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski** , a następnie pozycję **Dalej: Sieć** .
   
 4. Na karcie Sieć wybierz lub wprowadź:
 
@@ -128,19 +128,19 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | **Interfejs sieciowy** |  |
     | Sieć wirtualna | **myVNet** |
     | Podsieć | **mySubnet** |
-    | Publiczny adres IP | Wybierz pozycję **Brak**. |
+    | Publiczny adres IP | Wybierz pozycję **Brak** . |
     | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
-    | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
+    | Publiczne porty wejściowe | Wybierz pozycję **Brak** . |
    
-5. Wybierz pozycję **Przejrzyj i utwórz**. 
+5. Wybierz pozycję **Przeglądanie + tworzenie** . 
   
-6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
+6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz** .
 
 ## <a name="create-web-app"></a>Tworzenie aplikacji internetowej
 
 W tej sekcji utworzysz aplikację sieci Web.
 
-1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **Storage**  >  **Web App**Storage lub Wyszukaj **aplikację sieci Web** w polu wyszukiwania.
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **Storage**  >  **Web App** Storage lub Wyszukaj **aplikację sieci Web** w polu wyszukiwania.
 
 2. Na karcie **podstawowe** w temacie **Tworzenie aplikacji sieci Web** wprowadź lub wybierz następujące informacje:
 
@@ -148,20 +148,20 @@ W tej sekcji utworzysz aplikację sieci Web.
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Resource Group | Wybierz pozycję Moja **resourceName** |
+    | Grupa zasobów | Wybierz pozycję Moja **resourceName** |
     | **Szczegóły wystąpienia** |  |
-    | Nazwa | Wprowadź **mywebapp**. Jeśli nazwa jest niedostępna, wprowadź unikatową nazwę. |
-    | Opublikuj | Wybierz pozycję **Kod**. |
-    | Stos środowiska uruchomieniowego | Wybierz pozycję **.NET Core 3,1 (LTS)**. |
-    | System operacyjny | Wybierz pozycję **Windows**. |
-    | Region | Wybierz **Wschodnie stany USA** |
+    | Nazwa | Wprowadź **mywebapp** . Jeśli nazwa jest niedostępna, wprowadź unikatową nazwę. |
+    | Publikowanie | Wybierz pozycję **Kod** . |
+    | Stos środowiska uruchomieniowego | Wybierz pozycję **.NET Core 3,1 (LTS)** . |
+    | System operacyjny | Wybierz pozycję **Windows** . |
+    | Region | Wybierz **Europa Zachodnia** |
     | **Plan usługi App Service** |  |
-    | Plan Windows (Wschodnie stany USA) | Wybierz pozycję**Utwórz nowy**. </br> Wprowadź **myServicePlan** w polu **Nazwa**. |
-    | Jednostka SKU i rozmiar | Wybierz pozycję **Zmień rozmiar**. </br> Wybierz pozycję **P2V2** na ekranie **selektora specyfikacji** . </br> Wybierz przycisk **Zastosuj**. |
+    | Plan Windows (Europa Zachodnia) | Wybierz pozycję **Utwórz nowy** . </br> Wprowadź **myServicePlan** w polu **Nazwa** . |
+    | Jednostka SKU i rozmiar | Wybierz pozycję **Zmień rozmiar** . </br> Wybierz pozycję **P2V2** na ekranie **selektora specyfikacji** . </br> Wybierz przycisk **Zastosuj** . |
    
-3. Wybierz pozycję **Przejrzyj i utwórz**.
+3. Wybierz pozycję **Przeglądanie + tworzenie** .
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz pozycję **Utwórz** .
 
     :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/create-web-app.png" alt-text="Karta podstawy tworzenia aplikacji sieci Web w Azure Portal." border="true":::
 
@@ -169,9 +169,9 @@ W tej sekcji utworzysz aplikację sieci Web.
 
 1. W menu po lewej stronie wybierz pozycję **wszystkie zasoby**  >  **mywebapp** lub nazwę wybraną podczas tworzenia.
 
-2. W przeglądzie aplikacji sieci Web wybierz pozycję **Ustawienia**  >  **Sieć**.
+2. W przeglądzie aplikacji sieci Web wybierz pozycję **Ustawienia**  >  **Sieć** .
 
-3. W obszarze **Sieć**wybierz pozycję **Konfiguruj połączenia prywatnego punktu końcowego**.
+3. W obszarze **Sieć** wybierz pozycję **Konfiguruj połączenia prywatnego punktu końcowego** .
 
 4. Wybierz pozycję **+ Dodaj** na ekranie **połączenia prywatnego punktu końcowego** .
 
@@ -179,13 +179,13 @@ W tej sekcji utworzysz aplikację sieci Web.
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | Nazwa | Wprowadź **mywebappendpoint**. |
+    | Nazwa | Wprowadź **mywebappendpoint** . |
     | Subskrypcja | Wybierz subskrypcję. |
-    | Sieć wirtualna | Wybierz pozycję **myVNet**. |
-    | Podsieć | Wybierz pozycję Moja **podsieć**. |
-    | Integruj z prywatną strefą DNS | Wybierz pozycję **Tak**. |
+    | Sieć wirtualna | Wybierz pozycję **myVNet** . |
+    | Podsieć | Wybierz pozycję Moja **podsieć** . |
+    | Integruj z prywatną strefą DNS | Wybierz pozycję **Tak** . |
 
-6. Wybierz przycisk **OK**.
+6. Wybierz przycisk **OK** .
     
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testowanie łączności z prywatnym punktem końcowym
@@ -194,11 +194,11 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 1. W okienku nawigacji po lewej stronie wybierz pozycję **grupy zasobów** .
 
-2. Wybierz pozycję **myResourceGroup**.
+2. Wybierz pozycję **myResourceGroup** .
 
-3. Wybierz pozycję **myVM**.
+3. Wybierz pozycję **myVM** .
 
-4. Na stronie Przegląd dla **myVM**wybierz pozycję **Połącz** , a następnie **bastionu**.
+4. Na stronie Przegląd dla **myVM** wybierz pozycję **Połącz** , a następnie **bastionu** .
 
 5. Wybierz przycisk **bastionu Użyj** niebieska.
 
@@ -220,35 +220,35 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
     Prywatny adres IP **10.1.0.5** jest zwracany dla nazwy aplikacji sieci Web.  Ten adres znajduje się w podsieci sieci wirtualnej, która została wcześniej utworzona.
 
-9. Otwórz przeglądarkę sieci Web na komputerze lokalnym, a następnie wprowadź zewnętrzny adres URL aplikacji sieci Web, **https:// \<webapp-name> . azurewebsites.NET**.
+9. Otwórz przeglądarkę sieci Web na komputerze lokalnym, a następnie wprowadź zewnętrzny adres URL aplikacji sieci Web, **https:// \<webapp-name> . azurewebsites.NET** .
 
 10. Sprawdź, czy otrzymujesz stronę **403** . Ta strona wskazuje, że aplikacja sieci Web nie jest dostępna zewnętrznie.
 
     :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Karta podstawy tworzenia aplikacji sieci Web w Azure Portal." border="true":::
 
-11. W bastionu połączenie z **myVM**Otwórz program Internet Explorer.
+11. W bastionu połączenie z **myVM** Otwórz program Internet Explorer.
 
-12. Wprowadź adres URL aplikacji sieci Web, **https:// \<webapp-name> . azurewebsites.NET**.
+12. Wprowadź adres URL aplikacji sieci Web, **https:// \<webapp-name> . azurewebsites.NET** .
 
 13. Sprawdź, czy zostanie wyświetlona strona domyślna aplikacja sieci Web.
 
     :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="Karta podstawy tworzenia aplikacji sieci Web w Azure Portal." border="true":::
 
-18. Zamknij połączenie z usługą **myVM**.
+18. Zamknij połączenie z usługą **myVM** .
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń sieć wirtualną, maszynę wirtualną i aplikację sieci Web, wykonując następujące czynności:
 
-1. Z menu po lewej stronie wybierz pozycję **grupy zasobów**.
+1. Z menu po lewej stronie wybierz pozycję **grupy zasobów** .
 
-2. Wybierz pozycję **myResourceGroup**.
+2. Wybierz pozycję **myResourceGroup** .
 
-3. Wybierz pozycję **Usuń grupę zasobów**.
+3. Wybierz pozycję **Usuń grupę zasobów** .
 
-4. W polu **wpisz nazwę grupy zasobów**wprowadź **adres** .
+4. W polu **wpisz nazwę grupy zasobów** wprowadź **adres** .
 
-5. Wybierz pozycję **Usuń**.
+5. Wybierz pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

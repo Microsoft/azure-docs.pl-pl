@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d15f78c19b5f142f8879d54a1ae32e229ce7f50
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825304"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896586"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Poziomy powiększenia i siatka kafelków
 
@@ -74,7 +74,7 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Ponieważ szerokość i wysokość mapy jest różna na każdym poziomie powiększenia, więc współrzędne pikseli. Piksel w lewym górnym rogu mapy zawsze ma współrzędne pikseli (0, 0). Piksel w prawym dolnym rogu mapy ma współrzędne pikseli *(szerokość-1, Wysokość-1)* lub odwołujące się do równań w poprzedniej sekcji *(tileSize \* 2<sup>zoom</sup>-1, tileSize \* 2<sup>zoom</sup>-1)*. Na przykład w przypadku używania kafelków z 512 kwadratowych na poziomie 2, współrzędne pikseli zakresu od (0, 0) do (2047, 2047), takie jak:
+Ponieważ szerokość i wysokość mapy jest różna na każdym poziomie powiększenia, więc współrzędne pikseli. Piksel w lewym górnym rogu mapy zawsze ma współrzędne pikseli (0, 0). Piksel w prawym dolnym rogu mapy ma współrzędne pikseli *(szerokość-1, Wysokość-1)* lub odwołujące się do równań w poprzedniej sekcji *(tileSize \* 2 <sup>zoom</sup>-1, tileSize \* 2 <sup>zoom</sup>-1)* . Na przykład w przypadku używania kafelków z 512 kwadratowych na poziomie 2, współrzędne pikseli zakresu od (0, 0) do (2047, 2047), takie jak:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Kafelek mapy światowej":::
 
@@ -100,7 +100,7 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Każdy kafelek otrzymuje współrzędne XY względem zakresu od (0, 0) w lewym górnym rogu do *(2<sup>powiększenia</sup>— 1, 2<sup>powiększenie</sup>— 1)* w prawym dolnym rogu. Na przykład, na poziomie powiększenia 3, kafelek koordynuje zakres od (0, 0) do (7, 7) w następujący sposób:
+Każdy kafelek otrzymuje współrzędne XY względem zakresu od (0, 0) w lewym górnym rogu do *(2 <sup>powiększenia</sup>— 1, 2 <sup>powiększenie</sup>— 1)* w prawym dolnym rogu. Na przykład, na poziomie powiększenia 3, kafelek koordynuje zakres od (0, 0) do (7, 7) w następujący sposób:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Kafelek mapy światowej":::
 
@@ -933,20 +933,20 @@ module AzureMaps {
 
 > [!NOTE]
 > Interaktywne kontrolki mapy w zestawie Azure Maps SDK zawierają funkcje pomocnika do konwertowania między położeniami geograficznymi a pikselami ekranu. 
-> - [Zestaw SDK sieci Web: zamapuj obliczenia pikseli i pozycji](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [Zestaw SDK sieci Web: zamapuj obliczenia pikseli i pozycji](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>Następne kroki
 
 Bezpośredni dostęp do kafelków mapy z usług Azure Maps REST:
 
 > [!div class="nextstepaction"]
-> [Pobieranie kafelków mapy](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Pobieranie kafelków mapy](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Pobieranie kafelków przepływu ruchu](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Pobieranie kafelków przepływu ruchu](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Pobieranie kafelków zdarzeń ruchu](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Pobieranie kafelków zdarzeń ruchu](/rest/api/maps/traffic/gettrafficincidenttile)
 
 Dowiedz się więcej o pojęciach geograficznych:
 

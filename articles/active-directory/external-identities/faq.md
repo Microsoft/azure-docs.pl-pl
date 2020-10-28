@@ -12,25 +12,25 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441848"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896093"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory często zadawane pytania dotyczące współpracy B2B
 
 Te często zadawane pytania dotyczące współpracy między firmami (AD-i Business-to-biznesowe) w ramach programu Azure Active Directory (Azure Active Directory) są okresowo aktualizowane w celu uwzględnienia nowych tematów.
 
    > [!IMPORTANT]
-   > **Od 31 marca 2021**firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
+   > **Od 31 marca 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Czy mogę dostosować naszą stronę logowania, aby była bardziej intuicyjna dla naszych użytkowników-Gości współpracy B2B?
 Jak najbardziej! Zapoznaj się z naszym [wpisem w blogu dotyczącym tej funkcji](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Aby uzyskać więcej informacji na temat sposobu dostosowywania strony logowania w organizacji, zobacz [Dodawanie znakowania firmowego do stron logowania i panelu dostępu](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Czy użytkownicy współpracy B2B mogą uzyskiwać dostęp do usług SharePoint Online i OneDrive?
-Tak. Jednak możliwość wyszukiwania istniejących użytkowników-Gości w usłudze SharePoint Online przy użyciu selektora osób jest domyślnie **wyłączona** . Aby włączyć opcję wyszukiwania istniejących użytkowników-Gości, ustaw wartość **ShowPeoplePickerSuggestionsForGuestUsers** na **włączone**. To ustawienie można włączyć na poziomie dzierżawy lub na poziomie zbioru witryn. To ustawienie można zmienić za pomocą poleceń cmdlet Set-SPOTenant i Set-SPOSite. Za pomocą tych poleceń cmdlet członkowie mogą przeszukiwać wszystkich istniejących użytkowników-Gości w katalogu. Zmiany w zakresie dzierżawy nie wpływają na witryny usługi SharePoint Online, które zostały już zainicjowane.
+Tak. Jednak możliwość wyszukiwania istniejących użytkowników-Gości w usłudze SharePoint Online przy użyciu selektora osób jest domyślnie **wyłączona** . Aby włączyć opcję wyszukiwania istniejących użytkowników-Gości, ustaw wartość **ShowPeoplePickerSuggestionsForGuestUsers** na **włączone** . To ustawienie można włączyć na poziomie dzierżawy lub na poziomie zbioru witryn. To ustawienie można zmienić za pomocą poleceń cmdlet Set-SPOTenant i Set-SPOSite. Za pomocą tych poleceń cmdlet członkowie mogą przeszukiwać wszystkich istniejących użytkowników-Gości w katalogu. Zmiany w zakresie dzierżawy nie wpływają na witryny usługi SharePoint Online, które zostały już zainicjowane.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>Czy funkcja przekazywania woluminów CSV jest nadal obsługiwana?
 Tak. Aby uzyskać więcej informacji na temat korzystania z funkcji przekazywania plików CSV, zobacz [ten przykład programu PowerShell](code-samples.md).
@@ -64,17 +64,17 @@ Jeśli użytkownik nie ma przypisanej roli administratora z ograniczonym dostęp
 Tak! Można utworzyć zasady dostępu warunkowego, które blokują dostęp do Azure Portal wszystkim Gościom i użytkownikom zewnętrznym. Podczas konfigurowania tych zasad należy zachować ostrożność, aby zapobiec przypadkowemu zablokowaniu dostępu do członków i administratorów.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator zabezpieczeń lub administrator dostępu warunkowego.
-2. W Azure Portal wybierz pozycję **Azure Active Directory**. 
-3. W obszarze **Zarządzaj**wybierz pozycję **zabezpieczenia**.
-4. W obszarze **Ochrona**wybierz pozycję **dostęp warunkowy**. Wybierz pozycję **nowe zasady**.
+2. W Azure Portal wybierz pozycję **Azure Active Directory** . 
+3. W obszarze **Zarządzaj** wybierz pozycję **zabezpieczenia** .
+4. W obszarze **Ochrona** wybierz pozycję **dostęp warunkowy** . Wybierz pozycję **nowe zasady** .
 5. Na **nowej** stronie, w polu tekstowym **Nazwa** wprowadź nazwę zasad (na przykład "Blokuj Gościom dostęp do portalu").
-6. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
-7. Na karcie **Dołącz** wybierz **pozycję Użytkownicy i grupy**, a następnie wybierz pozycję **Wszyscy użytkownicy i Goście (wersja zapoznawcza)**.
-9. Wybierz pozycję **Gotowe**.
-10. Na stronie **Nowy** w sekcji **przypisania** wybierz pozycję **aplikacje w chmurze lub akcje**.
-11. Na stronie **aplikacje lub akcje w chmurze** wybierz **pozycję Wybierz aplikacje**, a następnie wybierz **pozycję Wybierz**.
-12. Na stronie **Wybieranie** wybierz pozycję **Microsoft Azure Management**, a następnie wybierz pozycję **Wybierz**.
-13. Na stronie **aplikacje lub akcje w chmurze** wybierz pozycję **gotowe**.
+6. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy** .
+7. Na karcie **Dołącz** wybierz **pozycję Użytkownicy i grupy** , a następnie wybierz pozycję **Wszyscy użytkownicy i Goście (wersja zapoznawcza)** .
+9. Wybierz pozycję **Gotowe** .
+10. Na stronie **Nowy** w sekcji **przypisania** wybierz pozycję **aplikacje w chmurze lub akcje** .
+11. Na stronie **aplikacje lub akcje w chmurze** wybierz **pozycję Wybierz aplikacje** , a następnie wybierz **pozycję Wybierz** .
+12. Na stronie **Wybieranie** wybierz pozycję **Microsoft Azure Management** , a następnie wybierz pozycję **Wybierz** .
+13. Na stronie **aplikacje lub akcje w chmurze** wybierz pozycję **gotowe** .
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Czy współpraca B2B w usłudze Azure AD obsługuje uwierzytelnianie wieloskładnikowe i konta konsumentów poczty e-mail?
 Tak. Usługa Azure AD B2B obsługuje funkcje uwierzytelniania wieloskładnikowego i konsumenckiej poczty e-mail.
@@ -130,7 +130,7 @@ Tak. Aby uzyskać więcej informacji, zobacz [dostęp warunkowy dla użytkownik�
 Tak. Współpraca B2B w usłudze Azure AD obsługuje listy dozwolonych list i Odmów. 
 
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Jakich licencji potrzebujemy do korzystania z usługi Azure AD B2B?
-Aby uzyskać informacje o licencjach wymaganych przez organizację do korzystania z usługi Azure AD B2B, zobacz [Azure Active Directory wskazówki dotyczące licencjonowania współpracy B2B](licensing-guidance.md).
+Aby uzyskać informacje o licencjach wymaganych przez organizację do korzystania z usługi Azure AD B2B, zobacz [Cennik zewnętrznych tożsamości](external-identities-pricing.md).
 
 ### <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f72c255ddac1889131234fefd7d6b014b453d417
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4f9cd421224ad134b4df853b06b3bc34333a0613
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441729"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896110"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Samoobsługowe rejestrowanie w ramach współpracy B2B w usłudze Azure AD
 
@@ -33,5 +33,5 @@ Organizacje mogą używać [interfejsu API programu Microsoft Graph Manager](/gr
 ## <a name="next-steps"></a>Następne kroki
 
 * [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
-* [Licencjonowanie funkcji współpracy B2B w usłudze Azure AD](licensing-guidance.md)
+* [Cennik tożsamości zewnętrznych](external-identities-pricing.md)
 * [Współpraca B2B w usłudze Active Directory Azure — często zadawane pytania](faq.md)

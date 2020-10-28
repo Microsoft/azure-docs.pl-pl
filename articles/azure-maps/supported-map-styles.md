@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4a50a9d6d4a485f7d8e63adb9ae5032f49edc261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3404c02dc159309ed1e9fcd6f9f6bb593fc7552
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310360"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896943"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>Azure Maps obsługiwane style wbudowanej mapy
 
@@ -27,8 +27,8 @@ Mapa **drogowa** to standardowa mapa, która wyświetla drogi. Wyświetla równi
 
 **Odpowiednie interfejsy API:**
 
-* [Obraz mapy](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Kafelek mapy](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Obraz mapy](/rest/api/maps/render/getmapimage)
+* [Kafelek mapy](/rest/api/maps/render/getmaptile)
 * Kontrolka mapy zestawu SDK sieci Web
 * Kontrolka mapy systemu Android
 * Wizualizacja usługi Power BI
@@ -52,7 +52,7 @@ Styl **satelity** to kombinacja zdjęć satelitarnych i antenowych.
 
 **Odpowiednie interfejsy API:**
 
-* [Kafelek satelitarny](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* [Kafelek satelitarny](/rest/api/maps/render/getmapimagerytilepreview)
 * Kontrolka mapy zestawu SDK sieci Web
 * Kontrolka mapy systemu Android
 * Wizualizacja usługi Power BI
@@ -77,8 +77,8 @@ Ten styl mapy jest hybrydą dróg i etykiet, które są nakładane na Zdjęcia s
 
 **Odpowiednie interfejsy API:**
 
-* [Obraz mapy](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Kafelek mapy](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Obraz mapy](/rest/api/maps/render/getmapimage)
+* [Kafelek mapy](/rest/api/maps/render/getmaptile)
 * Kontrolka mapy zestawu SDK sieci Web
 * Kontrolka mapy systemu Android
 * Wizualizacja usługi Power BI
@@ -114,7 +114,7 @@ nastąpi **odcień drogi** jest Azure Maps głównym stylem, który został uko�
 
 **Odpowiednie interfejsy API:**
 
-* [Kafelek mapy](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Kafelek mapy](/rest/api/maps/render/getmaptile)
 * Kontrolka mapy zestawu SDK sieci Web
 * Kontrolka mapy systemu Android
 * Wizualizacja usługi Power BI
@@ -134,4 +134,4 @@ nastąpi **odcień drogi** jest Azure Maps głównym stylem, który został uko�
 
 Dowiedz się więcej na temat sposobu ustawiania stylu mapy w Azure Maps:
 
-[Wybieranie stylu mapy](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[Wybieranie stylu mapy](./choose-map-style.md)

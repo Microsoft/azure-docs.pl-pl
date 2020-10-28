@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335266"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896853"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Samouczek: Tworzenie lokalizatora sklepu za pomocą Azure Maps
 
@@ -87,7 +87,7 @@ Istnieje wiele sposobów uwidocznienia zestawu danych dla aplikacji. Jednym z me
 
 Innym rozwiązaniem jest przekonwertowanie tego zestawu danych na prosty plik tekstowy, który przeglądarka może łatwo analizować. Plik może być hostowany razem z aplikacją. Ta opcja jest uproszczona, ale sprawdza się tylko w przypadku mniejszych zestawów danych, ponieważ użytkownik pobiera wszystkie dane. Dla tego zestawu danych używamy prostego pliku tekstowego, ponieważ rozmiar pliku jest mniejszy niż 1 MB.  
 
-Aby przekonwertować skoroszyt na prosty plik tekstowy, zapisz skoroszyt jako plik rozdzielany tabulatorami. Każda kolumna jest oddzielona znakiem tabulacji, co sprawia, że kolumny są łatwe do analizowania w naszym kodzie. Można by było użyć formatu wartości rozdzielanych przecinkami (CSV), ale ta opcja wymaga więcej logiki analizowania. Każde pole, które miałoby wokół siebie przecinek, zostałoby ujęte w cudzysłów. Aby w programie Excel wyeksportować te dane w postaci pliku rozdzielanego tabulatorami, wybierz pozycję **Zapisz jako**. Na liście rozwijanej **Zapisz jako typ** wybierz pozycję **Tekst (rozdzielany znakami tabulacji)(*.txt)**. Nadaj plikowi nazwę *ContosoCoffee.txt*.
+Aby przekonwertować skoroszyt na prosty plik tekstowy, zapisz skoroszyt jako plik rozdzielany tabulatorami. Każda kolumna jest oddzielona znakiem tabulacji, co sprawia, że kolumny są łatwe do analizowania w naszym kodzie. Można by było użyć formatu wartości rozdzielanych przecinkami (CSV), ale ta opcja wymaga więcej logiki analizowania. Każde pole, które miałoby wokół siebie przecinek, zostałoby ujęte w cudzysłów. Aby w programie Excel wyeksportować te dane w postaci pliku rozdzielanego tabulatorami, wybierz pozycję **Zapisz jako** . Na liście rozwijanej **Zapisz jako typ** wybierz pozycję **Tekst (rozdzielany znakami tabulacji)(*.txt)** . Nadaj plikowi nazwę *ContosoCoffee.txt* .
 
 ![Zrzut ekranu przedstawiający okno dialogowe Zapisz jako typ](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,15 +97,15 @@ Jeśli otworzysz plik tekstowy w Notatniku, będzie on wyglądał podobnie, jak 
 
 ## <a name="set-up-the-project"></a>Konfigurowanie projektu
 
-Aby utworzyć projekt, można użyć programu [Visual Studio](https://visualstudio.microsoft.com) lub innego wybranego edytora kodu. W folderze projektu utwórz trzy pliki: *index.html*, *index.css* i *index.js*. Te pliki definiują układ, styl i logikę aplikacji. Utwórz folder o nazwie *data* (dane) i dodaj do niego plik *ContosoCoffee.txt*. Utwórz inny folder o nazwie *images* (obrazy). W tej aplikacji używamy 10 obrazów dla ikon, przycisków i znaczników na mapie. Możesz [pobrać te obrazy](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Folder projektu powinien teraz wyglądać podobnie jak na poniższej ilustracji:
+Aby utworzyć projekt, można użyć programu [Visual Studio](https://visualstudio.microsoft.com) lub innego wybranego edytora kodu. W folderze projektu utwórz trzy pliki: *index.html* , *index.css* i *index.js* . Te pliki definiują układ, styl i logikę aplikacji. Utwórz folder o nazwie *data* (dane) i dodaj do niego plik *ContosoCoffee.txt* . Utwórz inny folder o nazwie *images* (obrazy). W tej aplikacji używamy 10 obrazów dla ikon, przycisków i znaczników na mapie. Możesz [pobrać te obrazy](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Folder projektu powinien teraz wyglądać podobnie jak na poniższej ilustracji:
 
 ![Zrzut ekranu przedstawiający folder projektu prostego lokalizatora sklepów](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>Tworzenie interfejsu użytkownika
 
-Aby utworzyć interfejs użytkownika, dodaj kod do pliku *index.html*:
+Aby utworzyć interfejs użytkownika, dodaj kod do pliku *index.html* :
 
-1. Dodaj następujące tagi `meta` do elementu `head` pliku *index.html*. `charset`Tag definiuje zestaw znaków (UTF-8). Wartość `http-equiv` instruuje przeglądarkę Internet Explorer i Microsoft Edge, aby używać najnowszych wersji przeglądarki. I ostatni `meta` tag określa okienko ekranu, które dobrze sprawdza się w przypadku odpowiadających układów.
+1. Dodaj następujące tagi `meta` do elementu `head` pliku *index.html* . `charset`Tag definiuje zestaw znaków (UTF-8). Wartość `http-equiv` instruuje przeglądarkę Internet Explorer i Microsoft Edge, aby używać najnowszych wersji przeglądarki. I ostatni `meta` tag określa okienko ekranu, które dobrze sprawdza się w przypadku odpowiadających układów.
 
     ```HTML
     <meta charset="utf-8">
@@ -126,7 +126,7 @@ Aby utworzyć interfejs użytkownika, dodaj kod do pliku *index.html*:
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Dodaj odwołania do plików *index.js* i *index.css*:
+1. Dodaj odwołania do plików *index.js* i *index.css* :
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -385,7 +385,7 @@ Wszystko jest teraz skonfigurowane w interfejsie użytkownika. Nadal musimy doda
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Dodaj kod do pliku *index.js*. Poniższy kod inicjuje mapę. Dodaliśmy [odbiornik zdarzeń](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) czekający na zakończenie ładowania strony. Następnie tworzymy zdarzenia w celu monitorowania ładowania mapy, a następnie przydzielenia funkcji dla przycisku wyszukiwania i przycisku Moje lokalizacje.
+1. Dodaj kod do pliku *index.js* . Poniższy kod inicjuje mapę. Dodaliśmy [odbiornik zdarzeń](/javascript/api/azure-maps-control/atlas.map#events) czekający na zakończenie ładowania strony. Następnie tworzymy zdarzenia w celu monitorowania ładowania mapy, a następnie przydzielenia funkcji dla przycisku wyszukiwania i przycisku Moje lokalizacje.
 
    Gdy użytkownik wybierze przycisk Wyszukaj lub wpisze lokalizację w polu wyszukiwania, a następnie naciśnie klawisz ENTER, inicjowane jest Wyszukiwanie rozmyte względem zapytania użytkownika. Przekaż tablicę wartości ISO 2 kraju/regionu do `countrySet` opcji, aby ograniczyć wyniki wyszukiwania do tych krajów/regionów. Ograniczenie krajów/regionów do wyszukiwania pomaga zwiększyć dokładność zwracanych wyników. 
   
@@ -931,8 +931,8 @@ W tym samouczku pokazano, jak utworzyć podstawowy lokalizator magazynu za pomoc
  * Umożliw użytkownikom [filtrowanie lokalizacji wzdłuż trasy](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
  * Dodaj możliwość [ustawienia filtrów](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
  * Dodaj obsługę określania początkowej wartości wyszukiwania przy użyciu ciągu zapytania. Jeśli włączysz tę opcję w lokalizatorze sklepów, użytkownicy będą mogli dodawać zakładki i udostępniać wyszukiwania. Zapewnia ona także prostą metodę przekazywania wyszukiwań do tej strony z innej strony.  
- * Wdróż swój lokalizator sklepów jako [aplikację internetową usługi Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html). 
- * Przechowuj dane w bazie danych i wyszukuj pobliskie lokalizacje. Aby dowiedzieć się więcej, zobacz [omówienie typów danych przestrzennych programu SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) i artykuł na temat [wysyłania zapytań względem danych przestrzennych dla najbliższego otoczenia](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true).
+ * Wdróż swój lokalizator sklepów jako [aplikację internetową usługi Azure App Service](../app-service/quickstart-html.md). 
+ * Przechowuj dane w bazie danych i wyszukuj pobliskie lokalizacje. Aby dowiedzieć się więcej, zobacz [omówienie typów danych przestrzennych programu SQL Server](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) i artykuł na temat [wysyłania zapytań względem danych przestrzennych dla najbliższego otoczenia](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017).
 
 Możesz [wyświetlić pełny kod źródłowy](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [wyświetlić próbkę na żywo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) i dowiedzieć się więcej na temat pokrycia i możliwości Azure Maps przy użyciu [poziomów powiększenia i siatki kafelków](zoom-levels-and-tile-grid.md). Można również [użyć wyrażeń stylów opartych na danych](data-driven-style-expressions-web-sdk.md) do zastosowania do logiki biznesowej.
 

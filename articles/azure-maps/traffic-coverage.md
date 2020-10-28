@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3b1b86e47164ce4c1a13a3dfe037c0ecc659fbee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11aa0eb07ed9cb3a1a785b3155b832f8b447708f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310037"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896875"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps pokrycie ruchu
 
-Azure Maps zapewnia rozbudowane informacje o ruchu w postaci **przepływu** ruchu i **zdarzeń**. Te dane można wizualizować w usłudze Maps lub wykorzystać do generowania inteligentniejszych tras, które są czynnikiem rzeczywistym w rzeczywistych warunkach.
+Azure Maps zapewnia rozbudowane informacje o ruchu w postaci **przepływu** ruchu i **zdarzeń** . Te dane można wizualizować w usłudze Maps lub wykorzystać do generowania inteligentniejszych tras, które są czynnikiem rzeczywistym w rzeczywistych warunkach.
 
 Mapy nie mają jednak tego samego poziomu informacji i dokładności dla wszystkich krajów lub regionów. Poniższa tabela zawiera informacje o rodzaju informacji o ruchu, które można zażądać z każdego kraju lub regionu: 
 
@@ -135,4 +135,4 @@ Mapy nie mają jednak tego samego poziomu informacji i dokładności dla wszystk
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat Azure Maps danych o ruchu, zobacz strony referencyjne [ruchu](https://docs.microsoft.com/rest/api/maps/traffic) .
+Aby uzyskać więcej informacji na temat Azure Maps danych o ruchu, zobacz strony referencyjne [ruchu](/rest/api/maps/traffic) .

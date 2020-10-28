@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: jeedes
-ms.openlocfilehash: feb65d11c525b396e272c8a43ad9619d10a010d8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9b244d5e6aa9dd732aa670fd645b6bbc266c9535
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671194"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897283"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z chmurą SAP dla klienta
 
@@ -86,13 +86,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Usługa SAP Cloud for Customer oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe Atrybuty użytkownika.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący okno dialogowe "atrybuty użytkownika" z wybraną ikoną "Edytuj".](common/edit-attribute.png)
 
 1. W sekcji **Atrybuty użytkownika** okna dialogowego **Atrybuty i oświadczenia użytkownika** wykonaj następujące kroki:
 
     a. Kliknij **ikonę Edytuj** , aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika** .
 
-    ![image (obraz)](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+    ![Zrzut ekranu pokazujący "atrybuty użytkownika & oświadczenia" z wybraną ikoną "Edytuj".](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
     ![image (obraz)](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
@@ -149,11 +149,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Z lewej strony menu kliknij pozycję **dostawcy tożsamości**  >  **firmy dostawcy tożsamości**  >  **Dodaj** i w podręcznym Dodaj nazwę dostawcy tożsamości, taką jak **Azure AD** , kliknij przycisk **Zapisz** , a następnie kliknij pozycję **Konfiguracja SAML 2,0** .
 
-    ![Konfiguracja SAP](./media/sap-customer-cloud-tutorial/configure01.png)
+    ![Zrzut ekranu przedstawiający stronę "dostawcy tożsamości" z wyróżnionym polem tekstowym okna dialogowego "Dodawanie dostawcy tożsamości" i wybranym przyciskiem "Zapisz".](./media/sap-customer-cloud-tutorial/configure01.png)
 
 3. W sekcji **Konfiguracja SAML 2,0** wykonaj następujące czynności:
 
-    ![Konfiguracja SAP](./media/sap-customer-cloud-tutorial/configure02.png)
+    ![Zrzut ekranu pokazujący konfigurację "S A M L 2,0" z wybranym przyciskiem "Przeglądaj".](./media/sap-customer-cloud-tutorial/configure02.png)
 
     a. Kliknij przycisk **Przeglądaj** , aby przesłać plik XML metadanych Federacji pobrany z Azure Portal.
 
@@ -169,7 +169,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do chmury SAP dla 
 
 2. Z lewej strony menu kliknij pozycję **Użytkownicy & autoryzacje**  >  **zarządzania użytkownikami**  >  **Dodaj użytkownika** .
 
-    ![Konfiguracja SAP](./media/sap-customer-cloud-tutorial/configure03.png)
+    ![Zrzut ekranu przedstawiający stronę "Zarządzanie użytkownikami" z wybranym przyciskiem "Dodaj użytkownika".](./media/sap-customer-cloud-tutorial/configure03.png)
 
 3. W sekcji **Dodaj nowego użytkownika** wykonaj następujące czynności:
 

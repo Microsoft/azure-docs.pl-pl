@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037443"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897215"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Pokrycie geokodowania Azure Maps
 
-[Usługa wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) Azure Maps obsługuje geokodowanie, co oznacza, że żądanie interfejsu API może zawierać terminy wyszukiwania, takie jak adres lub nazwa miejsca, a także zwraca wynik jako współrzędne geograficzne i Długość geograficzna. Na przykład [interfejs API uzyskiwania adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) Azure Maps odbiera zapytania, które zawierają informacje o lokalizacji, i zwraca wyniki jako współrzędne szerokości geograficznej i długości geograficznej.
+[Usługa wyszukiwania](/rest/api/maps/search) Azure Maps obsługuje geokodowanie, co oznacza, że żądanie interfejsu API może zawierać terminy wyszukiwania, takie jak adres lub nazwa miejsca, a także zwraca wynik jako współrzędne geograficzne i Długość geograficzna. Na przykład [interfejs API uzyskiwania adresu wyszukiwania](/rest/api/maps/search/getsearchaddress) Azure Maps odbiera zapytania, które zawierają informacje o lokalizacji, i zwraca wyniki jako współrzędne szerokości geograficznej i długości geograficznej.
 
-[Usługa wyszukiwania](https://docs.microsoft.com/rest/api/maps/search) Azure Maps nie ma jednak tego samego poziomu informacji i dokładności dla wszystkich regionów i krajów. Skorzystaj z tego artykułu, aby określić, jakiego rodzaju lokalizacje można niezawodnie wyszukiwać w poszczególnych regionach.
+[Usługa wyszukiwania](/rest/api/maps/search) Azure Maps nie ma jednak tego samego poziomu informacji i dokładności dla wszystkich regionów i krajów. Skorzystaj z tego artykułu, aby określić, jakiego rodzaju lokalizacje można niezawodnie wyszukiwać w poszczególnych regionach.
 
 Możliwość geokodowania w kraju/regionie zależy od pokrycia danych dróg i dokładności geokodowanej usługi geokodowania. Poniższe kategoryzacje służą do określania poziomu obsługi geokodowania w poszczególnych krajach/regionach.
 
@@ -301,4 +301,4 @@ Możliwość geokodowania w kraju/regionie zależy od pokrycia danych dróg i do
 
 Dowiedz się więcej o Azure Maps geokodowania:
 > [!div class="nextstepaction"]
-> [Usługa wyszukiwania usługi Azure Maps](https://docs.microsoft.com/rest/api/maps/search)
+> [Usługa wyszukiwania usługi Azure Maps](/rest/api/maps/search)

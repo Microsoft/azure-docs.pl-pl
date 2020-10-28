@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e27d2950041c4b0b2c928eb3d85a3d041866508
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 156a2f41ec18ef5ce6689118c517ed182fe0bcc6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517484"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Samouczek: integracja Azure Active Directory z usługą rozwiązania Zscaler ZSCloud
 
@@ -51,11 +51,11 @@ Aby skonfigurować integrację usługi rozwiązania Zscaler ZSCloud w usłudze A
 
 **Aby dodać rozwiązania Zscaler ZSCloud z galerii, wykonaj następujące czynności:**
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
+1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory** .
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje** .
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -63,13 +63,13 @@ Aby skonfigurować integrację usługi rozwiązania Zscaler ZSCloud w usłudze A
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **rozwiązania Zscaler ZSCloud**, wybierz pozycję **rozwiązania Zscaler ZSCloud** from a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wpisz **rozwiązania Zscaler ZSCloud** , wybierz pozycję **rozwiązania Zscaler ZSCloud** from a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
      ![Rozwiązania Zscaler ZSCloud na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą rozwiązania Zscaler ZSCloud na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą rozwiązania Zscaler ZSCloud na podstawie użytkownika testowego o nazwie **Britta Simon** .
 Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie rozwiązania Zscaler ZSCloud.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi rozwiązania Zscaler ZSCloud, należy wykonać następujące bloki konstrukcyjne:
@@ -87,15 +87,15 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązania Zscaler ZSCloud, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **rozwiązania Zscaler ZSCloud** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **rozwiązania Zscaler ZSCloud** wybierz pozycję **Logowanie jednokrotne** .
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
+2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed** , aby włączyć logowanie jednokrotne.
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
+3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML** .
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -110,7 +110,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązani
 
 5. Aplikacja rozwiązania Zscaler ZSCloud oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij przycisk **Edytuj** ikonę, aby otworzyć okno dialogowe **atrybuty użytkownika** .
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika z wybraną ikoną Edytuj.](common/edit-attribute.png)
 
 6. Oprócz powyższych, aplikacja rozwiązania Zscaler ZSCloud oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
     
@@ -118,26 +118,26 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązani
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
-    a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
+    a. Kliknij przycisk **Dodaj nowe oświadczenie** , aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika** .
 
-    ![image (obraz)](common/new-save-attribute.png)
+    ![Zrzut ekranu przedstawia oświadczenia użytkownika z opcją dodania nowego oświadczenia.](common/new-save-attribute.png)
 
-    ![image (obraz)](common/new-attribute-details.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Zarządzanie oświadczeniami użytkowników, w którym można wprowadzić podane wartości.](common/new-attribute-details.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
     c. Pozostaw pole **Przestrzeń nazw** puste.
 
-    d. Dla opcji Źródło wybierz wartość **Atrybut**.
+    d. Dla opcji Źródło wybierz wartość **Atrybut** .
 
     e. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
     
-    f. Kliknij pozycję **Zapisz**.
+    f. Kliknij pozycję **Zapisz** .
 
     > [!NOTE]
     > Kliknij [tutaj](../develop/active-directory-enterprise-app-role-management.md), aby dowiedzieć się, jak skonfigurować rolę w usłudze Azure AD
 
-7. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+7. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz** , aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -153,7 +153,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązani
 
 ### <a name="configure-zscaler-zscloud-single-sign-on"></a>Konfigurowanie rozwiązania Zscaler ZSCloud pojedynczego Sign-On
 
-1. Aby zautomatyzować konfigurację w programie rozwiązania Zscaler ZSCloud, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+1. Aby zautomatyzować konfigurację w programie rozwiązania Zscaler ZSCloud, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie** .
 
     ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
@@ -165,11 +165,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązani
 
 4. Przejdź do obszaru **Administracja > Uwierzytelnianie > Ustawienia uwierzytelniania** i wykonaj następujące kroki:
    
-    ![Administracja](./media/zscaler-zscloud-tutorial/ic800206.png "Administracja")
+    ![Zrzut ekranu przedstawia witrynę rozwiązania Zscaler z opisanymi krokami.](./media/zscaler-zscloud-tutorial/ic800206.png "Administracja")
 
-    a. W obszarze Typ uwierzytelniania wybierz pozycję **SAML**.
+    a. W obszarze Typ uwierzytelniania wybierz pozycję **SAML** .
 
-    b. Kliknij pozycję **Skonfiguruj język SAML**.
+    b. Kliknij pozycję **Skonfiguruj język SAML** .
 
 5. W oknie **Edytowanie języka SAML** wykonaj następujące kroki i kliknij pozycję Zapisz.  
             
@@ -177,64 +177,64 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązani
     
     a. W polu tekstowym **Adres URL portalu języka SAML** wklej **adres URL logowania** skopiowany z witryny Azure Portal.
 
-    b. W polu tekstowym **Atrybut nazwy logowania** wprowadź identyfikator **NameID**.
+    b. W polu tekstowym **Atrybut nazwy logowania** wprowadź identyfikator **NameID** .
 
-    c. Kliknij pozycję **Przekaż**, aby przekazać certyfikat podpisywania języka SAML na platformie Azure, który został pobrany z witryny Azure Portal w obrębie **publicznego certyfikatu SSL**.
+    c. Kliknij pozycję **Przekaż** , aby przekazać certyfikat podpisywania języka SAML na platformie Azure, który został pobrany z witryny Azure Portal w obrębie **publicznego certyfikatu SSL** .
 
-    d. Przełącz element **Włącz automatyczne aprowizowanie języka SAML**.
+    d. Przełącz element **Włącz automatyczne aprowizowanie języka SAML** .
 
-    e. W polu tekstowym **Atrybut nazwy wyświetlanej użytkownika** wprowadź ciąg **displayName**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu displayName.
+    e. W polu tekstowym **Atrybut nazwy wyświetlanej użytkownika** wprowadź ciąg **displayName** , jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu displayName.
 
-    f. W polu tekstowym **Atrybut nazwy grupy** wprowadź ciąg **memberOf**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu memberOf.
+    f. W polu tekstowym **Atrybut nazwy grupy** wprowadź ciąg **memberOf** , jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu memberOf.
 
-    przykład W polu **Atrybut nazwy działu** wprowadź ciąg **department**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu department.
+    przykład W polu **Atrybut nazwy działu** wprowadź ciąg **department** , jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu department.
 
-    h. Kliknij pozycję **Zapisz**.
+    h. Kliknij pozycję **Zapisz** .
 
 6. Na stronie okna dialogowanie **Konfigurowanie uwierzytelniania użytkownika** wykonaj następujące kroki:
 
-    ![Administracja](./media/zscaler-zscloud-tutorial/ic800207.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Konfigurowanie uwierzytelniania użytkownika z wybraną opcją Aktywuj.](./media/zscaler-zscloud-tutorial/ic800207.png)
 
     a. Umieść kursor nad menu **Aktywacja** w lewym dolnym rogu.
 
-    b. Kliknij pozycję **Aktywuj**.
+    b. Kliknij pozycję **Aktywuj** .
 
 ## <a name="configuring-proxy-settings"></a>Konfigurowanie ustawień serwera proxy
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Konfigurowanie ustawień serwera proxy w programie Internet Explorer
 
-1. Uruchom program **Internet Explorer**.
+1. Uruchom program **Internet Explorer** .
 
-2. Wybierz pozycję **Opcje internetowe** z menu **Narzędzia**, aby otworzyć okno dialogowe **Opcje internetowe**.   
+2. Wybierz pozycję **Opcje internetowe** z menu **Narzędzia** , aby otworzyć okno dialogowe **Opcje internetowe** .   
     
      ![Opcje internetowe](./media/zscaler-zscloud-tutorial/ic769492.png "Opcje internetowe")
 
-3. Kliknij kartę **Połączenia**.   
+3. Kliknij kartę **Połączenia** .   
   
      ![Połączenia](./media/zscaler-zscloud-tutorial/ic769493.png "Połączenia")
 
-4. Kliknij przycisk **Ustawienia sieci LAN**, aby otworzyć okno dialogowe **Ustawienia sieci lokalnej (LAN)**.
+4. Kliknij przycisk **Ustawienia sieci LAN** , aby otworzyć okno dialogowe **Ustawienia sieci lokalnej (LAN)** .
 
 5. W sekcji Serwer proxy wykonaj następujące kroki:   
    
     ![Serwer proxy](./media/zscaler-zscloud-tutorial/ic769494.png "Serwer proxy")
 
-    a. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN**.
+    a. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN** .
 
-    b. W polu tekstowym Adres wpisz **Gateway. Rozwiązania Zscaler ZSCloud.net**.
+    b. W polu tekstowym Adres wpisz **Gateway. Rozwiązania Zscaler ZSCloud.net** .
 
-    c. W polu tekstowym Port wpisz **80**.
+    c. W polu tekstowym Port wpisz **80** .
 
-    d. Zaznacz pole wyboru **Nie używaj serwera proxy dla adresów lokalnych**.
+    d. Zaznacz pole wyboru **Nie używaj serwera proxy dla adresów lokalnych** .
 
-    e. Kliknij przycisk **OK**, aby zamknąć okno dialogowe **Ustawienia sieci lokalnej (LAN)**.
+    e. Kliknij przycisk **OK** , aby zamknąć okno dialogowe **Ustawienia sieci lokalnej (LAN)** .
 
-6. Kliknij przycisk **OK**, aby zamknąć okno dialogowe **Opcje internetowe**.
+6. Kliknij przycisk **OK** , aby zamknąć okno dialogowe **Opcje internetowe** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
 W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory** , wybierz opcję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
@@ -246,45 +246,45 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
+    a. W polu **Nazwa** wprowadź **BrittaSimon** .
   
     b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do rozwiązania Zscaler ZSCloud.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **rozwiązania Zscaler ZSCloud**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **rozwiązania Zscaler ZSCloud** .
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **rozwiązania Zscaler ZSCloud**.
+2. Na liście Aplikacje wybierz pozycję **rozwiązania Zscaler ZSCloud** .
 
     ![Link rozwiązania Zscaler ZSCloud na liście aplikacji](common/all-applications.png)
 
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
+3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy** .
 
     ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
+4. Kliknij przycisk **Dodaj użytkownika** , a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania** .
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-    ![image (obraz)](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_users.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Użytkownicy i grupy, w którym można wybrać użytkownika.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_users.png)
 
 6. W oknie dialogowym **Wybieranie roli** wybierz odpowiednią rolę użytkownika na liście, a następnie kliknij przycisk **Wybierz** znajdujący się u dołu ekranu.
 
-    ![image (obraz)](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_roles.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Wybieranie roli, w którym można wybrać rolę użytkownika.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_roles.png)
 
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
+7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-    ![image (obraz)](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Dodawanie przypisania, w którym można wybrać pozycję Przypisz.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
 
     >[!NOTE]
     >Domyślna rola dostępu nie jest obsługiwana, ponieważ spowoduje to przerwanie aprowizacji, więc nie można wybrać roli domyślnej podczas przypisywania użytkownika.

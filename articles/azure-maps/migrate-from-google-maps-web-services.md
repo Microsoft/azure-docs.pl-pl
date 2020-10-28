@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 3e80ff90e47f45655761abd4c7e8fa9ed04b61ef
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f97d04ca40e69ba2516744adfc9f1f455cba97c0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518895"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896348"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Samouczek — Migrowanie usługi sieci Web ze sklepu Google Maps
 
@@ -40,15 +40,15 @@ W tabeli przedstawiono interfejsy API usługi Azure Maps, które mają podobną 
 
 | Interfejs API usługi Mapy Google | Interfejs API usługi Azure Maps                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Wskazówki              | [Szlak](https://docs.microsoft.com/rest/api/maps/route)                                     |
-| Macierz odległości         | [Macierz trasy](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)       |
-| Geokodowanie               | [Wyszukiwanie](https://docs.microsoft.com/rest/api/maps/search)                                   |
-| Wyszukiwanie miejsc           | [Wyszukiwanie](https://docs.microsoft.com/rest/api/maps/search)                                   |
-| Umieść Autouzupełnianie      | [Wyszukiwanie](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Wskazówki              | [Trasa](/rest/api/maps/route)                                     |
+| Macierz odległości         | [Macierz trasy](/rest/api/maps/route/postroutematrixpreview)       |
+| Geokodowanie               | [Wyszukiwanie](/rest/api/maps/search)                                   |
+| Wyszukiwanie miejsc           | [Wyszukiwanie](/rest/api/maps/search)                                   |
+| Umieść Autouzupełnianie      | [Wyszukiwanie](/rest/api/maps/search)                                   |
 | Przyciągaj do drogi            | Zobacz sekcję [obliczanie tras i wskazówek](#calculate-routes-and-directions) .            |
 | Limity szybkości            | Zobacz sekcję [Odwróć do kodu współrzędnej](#reverse-geocode-a-coordinate) .                  |
-| Mapa statyczna              | [Renderowanie](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                       |
-| Strefa czasowa               | [Strefa czasowa](https://docs.microsoft.com/rest/api/maps/timezone)                              |
+| Mapa statyczna              | [Renderowanie](/rest/api/maps/render/getmapimage)                       |
+| Strefa czasowa               | [Strefa czasowa](/rest/api/maps/timezone)                              |
 
 Następujące interfejsy API usługi nie są obecnie dostępne w Azure Maps:
 
@@ -62,12 +62,12 @@ Następujące interfejsy API usługi nie są obecnie dostępne w Azure Maps:
 
 Azure Maps ma kilka dodatkowych usług sieci Web REST, które mogą być interesujące:
 
-- [Operacje przestrzenne](https://docs.microsoft.com/rest/api/maps/spatial): odciążać złożone obliczenia przestrzenne i operacje, takie jak geoogrodzenia, do usługi.
-- [Ruch](https://docs.microsoft.com/rest/api/maps/traffic): dostęp do przepływu ruchu i danych zdarzeń w czasie rzeczywistym.
+- [Operacje przestrzenne](/rest/api/maps/spatial): odciążać złożone obliczenia przestrzenne i operacje, takie jak geoogrodzenia, do usługi.
+- [Ruch](/rest/api/maps/traffic): dostęp do przepływu ruchu i danych zdarzeń w czasie rzeczywistym.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 2. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 3. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
 
@@ -77,11 +77,11 @@ Geokodowanie jest procesem konwertowania adresu na współrzędną. Na przykład
 
 Azure Maps udostępnia kilka metod adresów geokodowania:
 
-- [**Geokodowanie adresów w formie Geokodowanej**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Określ pojedynczy ciąg adresu i natychmiast przetwórz żądanie. "1 Microsoft Way, Redmond, WA" to przykład pojedynczego ciągu adresu. Ten interfejs API jest zalecany, jeśli trzeba szybko odkodować poszczególne adresy.
-- [**Geokodowanie adresów strukturalnych**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Określ części pojedynczego adresu, takie jak nazwa ulicy, miasto, kraj/region i kod pocztowy, i natychmiast przetwórz żądanie. Ten interfejs API jest zalecany, jeśli trzeba szybko odkodować poszczególne adresy, a dane są już analizowane w poszczególnych częściach adresu.
-- [**Geokodowanie adresów partii**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): Utwórz żądanie zawierające maksymalnie 10 000 adresów i przetworzy je w danym okresie czasu. Wszystkie adresy będą kodowane geokodowowo na serwerze i po ukończeniu można pobrać pełny zestaw wyników. Jest to zalecane w przypadku dużych zestawów danych geokodowania.
-- [**Wyszukiwanie rozmyte**](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): ten interfejs API łączy geokodowanie adresów z punktem wyszukiwania zainteresowania. Ten interfejs API zajmuje ciąg o dowolnej postaci. Ten ciąg może być adresem, miejscem, punktem orientacyjnym lub kategorią punktu zainteresowania. Ten interfejs API przetwarza żądanie niemal w czasie rzeczywistym. Ten interfejs API jest zalecany w przypadku aplikacji, w których użytkownicy szukają adresów lub punktów orientacyjnych w tym samym polu tekstowym.
-- [**Wyszukiwanie rozmytej partii**](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): Utwórz żądanie zawierające maksymalnie 10 000 adresów, miejsc, punktów orientacyjnych lub punktu zainteresowania i przetworzyć je w określonym czasie. Wszystkie dane zostaną przetworzone równolegle na serwerze i po ukończeniu można pobrać pełny zestaw wyników.
+- [**Geokodowanie adresów w formie Geokodowanej**](/rest/api/maps/search/getsearchaddress): Określ pojedynczy ciąg adresu i natychmiast przetwórz żądanie. "1 Microsoft Way, Redmond, WA" to przykład pojedynczego ciągu adresu. Ten interfejs API jest zalecany, jeśli trzeba szybko odkodować poszczególne adresy.
+- [**Geokodowanie adresów strukturalnych**](/rest/api/maps/search/getsearchaddressstructured): Określ części pojedynczego adresu, takie jak nazwa ulicy, miasto, kraj/region i kod pocztowy, i natychmiast przetwórz żądanie. Ten interfejs API jest zalecany, jeśli trzeba szybko odkodować poszczególne adresy, a dane są już analizowane w poszczególnych częściach adresu.
+- [**Geokodowanie adresów partii**](/rest/api/maps/search/postsearchaddressbatchpreview): Utwórz żądanie zawierające maksymalnie 10 000 adresów i przetworzy je w danym okresie czasu. Wszystkie adresy będą kodowane geokodowowo na serwerze i po ukończeniu można pobrać pełny zestaw wyników. Jest to zalecane w przypadku dużych zestawów danych geokodowania.
+- [**Wyszukiwanie rozmyte**](/rest/api/maps/search/getsearchfuzzy): ten interfejs API łączy geokodowanie adresów z punktem wyszukiwania zainteresowania. Ten interfejs API zajmuje ciąg o dowolnej postaci. Ten ciąg może być adresem, miejscem, punktem orientacyjnym lub kategorią punktu zainteresowania. Ten interfejs API przetwarza żądanie niemal w czasie rzeczywistym. Ten interfejs API jest zalecany w przypadku aplikacji, w których użytkownicy szukają adresów lub punktów orientacyjnych w tym samym polu tekstowym.
+- [**Wyszukiwanie rozmytej partii**](/rest/api/maps/search/postsearchfuzzybatchpreview): Utwórz żądanie zawierające maksymalnie 10 000 adresów, miejsc, punktów orientacyjnych lub punktu zainteresowania i przetworzyć je w określonym czasie. Wszystkie dane zostaną przetworzone równolegle na serwerze i po ukończeniu można pobrać pełny zestaw wyników.
 
 W poniższej tabeli odwołuje się do parametrów interfejsu API usługi Google Maps przy użyciu porównywalnych parametrów interfejsu API w Azure Maps.
 
@@ -105,9 +105,9 @@ Odwrócenie geokodowania to proces konwersji współrzędnych geograficznych na 
 
 Azure Maps oferuje kilka metod odwrotnego kodu geokodowania:
 
-- [**Odwróć kod**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)geograficzny: Określ jedną współrzędną geograficzną, aby uzyskać przybliżony adres odpowiadający tej koordynacji. Przetwarza żądanie niemal w czasie rzeczywistym.
-- [**Odwrotny kod**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)geograficzny Cross-Street: Określ jedną współrzędną geograficzną, aby uzyskać informacje o skrzyżowaniu i natychmiast przetworzyć żądanie. Na przykład możesz otrzymać następujące zbiory dla wielu ulic 1 i główne St.
-- [**Odwrotny geokod dotyczący adresu partii**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatchpreview): Utwórz żądanie zawierające maksymalnie 10 000 współrzędnych i przetworzy je w określonym czasie. Wszystkie dane będą przetwarzane równolegle na serwerze. Po zakończeniu żądania można pobrać pełny zestaw wyników.
+- [**Odwróć kod**](/rest/api/maps/search/getsearchaddressreverse)geograficzny: Określ jedną współrzędną geograficzną, aby uzyskać przybliżony adres odpowiadający tej koordynacji. Przetwarza żądanie niemal w czasie rzeczywistym.
+- [**Odwrotny kod**](/rest/api/maps/search/getsearchaddressreversecrossstreet)geograficzny Cross-Street: Określ jedną współrzędną geograficzną, aby uzyskać informacje o skrzyżowaniu i natychmiast przetworzyć żądanie. Na przykład możesz otrzymać następujące zbiory dla wielu ulic 1 i główne St.
+- [**Odwrotny geokod dotyczący adresu partii**](/rest/api/maps/search/postsearchaddressreversebatchpreview): Utwórz żądanie zawierające maksymalnie 10 000 współrzędnych i przetworzy je w określonym czasie. Wszystkie dane będą przetwarzane równolegle na serwerze. Po zakończeniu żądania można pobrać pełny zestaw wyników.
 
 Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Maps przy użyciu porównywalnych parametrów interfejsu API w Azure Maps.
 
@@ -116,7 +116,7 @@ Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google 
 | `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `latlng`                    | `query`  |
-| `location_type`             | *Nie dotyczy*     |
+| `location_type`             | *NIE DOTYCZY*     |
 | `result_type`               | `entityType`    |
 
 Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wyszukiwania](how-to-use-best-practices-for-search.md).
@@ -132,18 +132,18 @@ Interfejs API odtwarzania geokodowanej Azure Maps ma kilka dodatkowych funkcji, 
 Punkt danych zainteresowania można wyszukiwać w usłudze Google Maps przy użyciu interfejsu API wyszukiwania miejsc. Ten interfejs API udostępnia trzy różne sposoby wyszukiwania interesujących punktów:
 
 - **Znajdź miejsce z tekstu:** Wyszukuje punkt orientacyjny na podstawie jego nazwy, adresu lub numeru telefonu.
-- **Wyszukiwanie w pobliżu**: wyszukuje punkty zainteresowań, które znajdują się w określonej odległości od lokalizacji.
+- **Wyszukiwanie w pobliżu** : wyszukuje punkty zainteresowań, które znajdują się w określonej odległości od lokalizacji.
 - **Wyszukiwanie tekstu:** Wyszukuje miejsca przy użyciu swobodnego tekstu, który obejmuje punkt orientacyjny i informacje o lokalizacji. Na przykład "Pizza w Nowym Jorku" lub "Restauracje blisko głównego St".
 
 Azure Maps udostępnia kilka interfejsów API wyszukiwania dla interesujących punktów:
 
-- [**Wyszukiwanie punkt POI**](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi): Wyszukiwanie punktów zainteresowania według nazwy. Na przykład "Starbucks".
-- [**Wyszukiwanie kategorii punkt POI**](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory): Wyszukiwanie punktów zainteresowania według kategorii. Na przykład "restauracji".
-- [**Wyszukiwanie w pobliżu**](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby): wyszukuje punkty zainteresowań, które znajdują się w określonej odległości od lokalizacji.
-- [**Wyszukiwanie rozmyte**](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): ten interfejs API łączy geokodowanie adresów z punktem wyszukiwania zainteresowania. Ten interfejs API przyjmuje ciąg o dowolnej postaci, który może być adresem, miejscem, punktem orientacyjnym lub kategorią punktu zainteresowania. Przetwarza żądanie niemal w czasie rzeczywistym. Ten interfejs API jest zalecany w przypadku aplikacji, w których użytkownicy szukają adresów lub punktów orientacyjnych w tym samym polu tekstowym.
-- [**Wyszukaj w obrębie geometrii**](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry): Wyszukaj punkty zainteresowań, które znajdują się w określonej geometrii. Na przykład Przeszukaj punkt zainteresowania w obrębie wielokąta.
-- [**Wyszukiwanie wzdłuż trasy**](https://docs.microsoft.com/rest/api/maps/search/postsearchalongroute): Wyszukiwanie punktów zainteresowań, które znajdują się w określonej ścieżce trasy.
-- [**Wyszukiwanie rozmytej partii**](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): Utwórz żądanie zawierające maksymalnie 10 000 adresów, miejsc, punktów orientacyjnych lub punktu zainteresowania. Przetwarzanie żądania w danym okresie czasu. Wszystkie dane będą przetwarzane równolegle na serwerze. Po zakończeniu przetwarzania żądania można pobrać pełny zestaw wyników.
+- [**Wyszukiwanie punkt POI**](/rest/api/maps/search/getsearchpoi): Wyszukiwanie punktów zainteresowania według nazwy. Na przykład "Starbucks".
+- [**Wyszukiwanie kategorii punkt POI**](/rest/api/maps/search/getsearchpoicategory): Wyszukiwanie punktów zainteresowania według kategorii. Na przykład "restauracji".
+- [**Wyszukiwanie w pobliżu**](/rest/api/maps/search/getsearchnearby): wyszukuje punkty zainteresowań, które znajdują się w określonej odległości od lokalizacji.
+- [**Wyszukiwanie rozmyte**](/rest/api/maps/search/getsearchfuzzy): ten interfejs API łączy geokodowanie adresów z punktem wyszukiwania zainteresowania. Ten interfejs API przyjmuje ciąg o dowolnej postaci, który może być adresem, miejscem, punktem orientacyjnym lub kategorią punktu zainteresowania. Przetwarza żądanie niemal w czasie rzeczywistym. Ten interfejs API jest zalecany w przypadku aplikacji, w których użytkownicy szukają adresów lub punktów orientacyjnych w tym samym polu tekstowym.
+- [**Wyszukaj w obrębie geometrii**](/rest/api/maps/search/postsearchinsidegeometry): Wyszukaj punkty zainteresowań, które znajdują się w określonej geometrii. Na przykład Przeszukaj punkt zainteresowania w obrębie wielokąta.
+- [**Wyszukiwanie wzdłuż trasy**](/rest/api/maps/search/postsearchalongroute): Wyszukiwanie punktów zainteresowań, które znajdują się w określonej ścieżce trasy.
+- [**Wyszukiwanie rozmytej partii**](/rest/api/maps/search/postsearchfuzzybatchpreview): Utwórz żądanie zawierające maksymalnie 10 000 adresów, miejsc, punktów orientacyjnych lub punktu zainteresowania. Przetwarzanie żądania w danym okresie czasu. Wszystkie dane będą przetwarzane równolegle na serwerze. Po zakończeniu przetwarzania żądania można pobrać pełny zestaw wyników.
 
 Obecnie Azure Maps nie ma porównywalnego interfejsu API do interfejsu API wyszukiwania tekstu w usłudze Google Maps.
 
@@ -154,22 +154,22 @@ Zapoznaj się z [najlepszymi rozwiązaniami](how-to-use-best-practices-for-searc
 
 ### <a name="find-place-from-text"></a>Znajdź miejsce z tekstu
 
-Użyj Azure Maps [Wyszukiwanie punkt POI](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) i [Wyszukiwanie rozmyte](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) , aby wyszukać punkty zainteresowań według nazwy lub adresu.
+Użyj Azure Maps [Wyszukiwanie punkt POI](/rest/api/maps/search/getsearchpoi) i [Wyszukiwanie rozmyte](/rest/api/maps/search/getsearchfuzzy) , aby wyszukać punkty zainteresowań według nazwy lub adresu.
 
 Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Maps przy użyciu porównywalnych parametrów Azure Maps interfejsu API.
 
 | Parametr interfejsu API usługi Google Maps | Porównywalny parametr interfejsu API Azure Maps |
 |---------------------------|-------------------------------------|
-| `fields`                  | *Nie dotyczy*                               |
+| `fields`                  | *NIE DOTYCZY*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *Nie dotyczy*                               |
+| `inputtype`               | *NIE DOTYCZY*                               |
 | `key`                     | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `locationbias`            | `lat``lon`i`radius`<br/>`topLeft` i `btmRight`<br/>`countrySet`  |
 
 ### <a name="nearby-search"></a>Wyszukiwanie w pobliżu
 
-Użyj interfejsu API [wyszukiwania w pobliżu](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby) , aby pobrać bliskie punkty zainteresowania w Azure Maps.
+Użyj interfejsu API [wyszukiwania w pobliżu](/rest/api/maps/search/getsearchnearby) , aby pobrać bliskie punkty zainteresowania w Azure Maps.
 
 W tabeli przedstawiono parametry interfejsu API usługi Google Maps z porównywalnymi parametrami interfejsu API Azure Maps.
 
@@ -179,13 +179,13 @@ W tabeli przedstawiono parametry interfejsu API usługi Google Maps z porównywa
 | `keyword`                   | `categorySet` i `brandSet`        |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `location`                  | `lat` i `lon`                     |
-| `maxprice`                  | *Nie dotyczy*                               |
-| `minprice`                  | *Nie dotyczy*                               |
+| `maxprice`                  | *NIE DOTYCZY*                               |
+| `minprice`                  | *NIE DOTYCZY*                               |
 | `name`                      | `categorySet` i `brandSet`        |
-| `opennow`                   | *Nie dotyczy*                               |
+| `opennow`                   | *NIE DOTYCZY*                               |
 | `pagetoken`                 | `ofs` i `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *Nie dotyczy*                               |
+| `rankby`                    | *NIE DOTYCZY*                               |
 | `type`                      | `categorySet –` Zapoznaj się z dokumentacją dotyczącą [obsługiwanych kategorii wyszukiwania](supported-search-categories.md) .   |
 
 ## <a name="calculate-routes-and-directions"></a>Obliczanie tras i wskazówek
@@ -201,9 +201,9 @@ Obliczaj trasy i wskazówki przy użyciu Azure Maps. Azure Maps ma wiele z tych 
 
 Usługa routingu Azure Maps udostępnia następujące interfejsy API do obliczania tras:
 
-- [**Obliczanie trasy**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): Obliczanie trasy i natychmiastowe przetworzenie żądania. Ten interfejs API obsługuje zarówno żądania GET, jak i POST. Żądania POST są zalecane w przypadku określenia dużej liczby waypoints lub użycia wielu opcji trasy, aby zapewnić, że żądanie adresu URL nie stanie się zbyt długie i powoduje problemy. Kierunek po trasie w Azure Maps może przyjmować tysiące [punktów pomocniczych](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) i użyć ich do ponownego utworzenia ścieżki trasy logicznej między nimi (przyciąganie do drogi). 
-- [**Trasa wsadowa**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): Utwórz żądanie zawierające maksymalnie 1 000 żądanie trasy i przetworzy je w danym okresie czasu. Wszystkie dane zostaną przetworzone równolegle na serwerze i po ukończeniu można pobrać pełny zestaw wyników.
-- [**Usługi mobilności**](https://docs.microsoft.com/rest/api/maps/mobility): obliczanie tras i wskazówek przy użyciu tranzytu publicznego.
+- [**Obliczanie trasy**](/rest/api/maps/route/getroutedirections): Obliczanie trasy i natychmiastowe przetworzenie żądania. Ten interfejs API obsługuje zarówno żądania GET, jak i POST. Żądania POST są zalecane w przypadku określenia dużej liczby waypoints lub użycia wielu opcji trasy, aby zapewnić, że żądanie adresu URL nie stanie się zbyt długie i powoduje problemy. Kierunek po trasie w Azure Maps może przyjmować tysiące [punktów pomocniczych](/rest/api/maps/route/postroutedirections#supportingpoints) i użyć ich do ponownego utworzenia ścieżki trasy logicznej między nimi (przyciąganie do drogi). 
+- [**Trasa wsadowa**](/rest/api/maps/route/postroutedirectionsbatchpreview): Utwórz żądanie zawierające maksymalnie 1 000 żądanie trasy i przetworzy je w danym okresie czasu. Wszystkie dane zostaną przetworzone równolegle na serwerze i po ukończeniu można pobrać pełny zestaw wyników.
+- [**Usługi mobilności**](/rest/api/maps/mobility): obliczanie tras i wskazówek przy użyciu tranzytu publicznego.
 
 Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Maps przy użyciu porównywalnych parametrów interfejsu API w Azure Maps.
 
@@ -221,8 +221,8 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | `origin`                       | `query`                            |
 | `region`                       | Nie *dotyczy — ta* funkcja jest związana z geokodowaniem. Użyj parametru *countrySet* w przypadku korzystania z interfejsu API geokodowania Azure Maps.  |
 | `traffic_model`               | Nie *dotyczy — można* określić tylko wtedy, gdy dane o ruchu mają być używane z parametrem *ruchu* . |
-| `transit_mode`                | Zobacz [dokumentację usług mobilności](https://docs.microsoft.com/rest/api/maps/mobility) |
-| `transit_routing_preference` | Zobacz [dokumentację usług mobilności](https://docs.microsoft.com/rest/api/maps/mobility) |
+| `transit_mode`                | Zobacz [dokumentację usług mobilności](/rest/api/maps/mobility) |
+| `transit_routing_preference` | Zobacz [dokumentację usług mobilności](/rest/api/maps/mobility) |
 | `units`                        | Nie *dotyczy — Azure Maps* używa tylko systemu metryk.  |
 | `waypoints`                    | `query`                            |
 
@@ -242,13 +242,13 @@ Interfejs API routingu Azure Maps ma dodatkowe funkcje, które nie są dostępne
 - Obsługa komercyjnych parametrów trasy pojazdu. Takie jak wymiary pojazdu, waga, liczba axels i typ ładunku.
 - Określ maksymalną prędkość pojazdu.
 
-Oprócz tego usługa Route w Azure Maps obsługuje [Obliczanie zakresów routingu](https://docs.microsoft.com/rest/api/maps/route/getrouterange). Obliczanie zakresów routingu jest również znane jako izochron. Pociąga za sobą generowanie wielokąta obejmującego obszar, do którego można podróżować w dowolnym kierunku od punktu początkowego. Wszystkie w określonym czasie lub w ilości paliwa lub opłaty.
+Oprócz tego usługa Route w Azure Maps obsługuje [Obliczanie zakresów routingu](/rest/api/maps/route/getrouterange). Obliczanie zakresów routingu jest również znane jako izochron. Pociąga za sobą generowanie wielokąta obejmującego obszar, do którego można podróżować w dowolnym kierunku od punktu początkowego. Wszystkie w określonym czasie lub w ilości paliwa lub opłaty.
 
 Zapoznaj się z [najlepszymi rozwiązaniami](how-to-use-best-practices-for-routing.md) dotyczącymi routingu.
 
 ## <a name="retrieve-a-map-image"></a>Pobieranie obrazu mapy
 
-Azure Maps udostępnia interfejs API do renderowania obrazów mapy statycznej z przełożonymi danymi. Interfejs API [renderowania obrazu mapy](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile) w Azure Maps jest porównywalny z interfejsem API mapy statycznej w usłudze mapy Google.
+Azure Maps udostępnia interfejs API do renderowania obrazów mapy statycznej z przełożonymi danymi. Interfejs API [renderowania obrazu mapy](/rest/api/maps/render/getmapimagerytile) w Azure Maps jest porównywalny z interfejsem API mapy statycznej w usłudze mapy Google.
 
 > [!NOTE]
 > Azure Maps wymaga centrum, wszystkich znaczników i lokalizacji ścieżki do współrzędnych w formacie "Długość geograficzna". W tym przypadku usługi Google Maps używają formatu "szerokości geograficznej". Adresy muszą mieć najpierw kod geokodowania.
@@ -265,10 +265,10 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | Nie *dotyczy — jest* to funkcja powiązana z geokodowaniem. Użyj `countrySet` parametru podczas korzystania z interfejsu API Azure Maps geokodowania.  |
-| `scale`                     | *Nie dotyczy*                              |
+| `scale`                     | *NIE DOTYCZY*                              |
 | `size`                      | `width` i `height` — może mieć rozmiar maksymalnie 8192x8192. |
-| `style`                     | *Nie dotyczy*                              |
-| `visible`                   | *Nie dotyczy*                              |
+| `style`                     | *NIE DOTYCZY*                              |
+| `visible`                   | *NIE DOTYCZY*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]
@@ -278,8 +278,8 @@ Aby uzyskać więcej informacji, zobacz [Przewodnik dotyczący korzystania z int
 
 Oprócz możliwości generowania obrazu mapy statycznej, usługa renderowania Azure Maps zapewnia możliwość bezpośredniego dostępu do kafelków mapy w formacie rastrowym (PNG) i wektorowym:
 
-- [**Kafelek mapy**](https://docs.microsoft.com/rest/api/maps/render/getmaptile): pobieranie kafelków rastrowych (PNG) i wektorów dla map bazowych (dróg, granic, tła).
-- [**Kafelek mapy zdjęć**](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile): pobieranie obrazów anten i satelity.
+- [**Kafelek mapy**](/rest/api/maps/render/getmaptile): pobieranie kafelków rastrowych (PNG) i wektorów dla map bazowych (dróg, granic, tła).
+- [**Kafelek mapy zdjęć**](/rest/api/maps/render/getmapimagerytile): pobieranie obrazów anten i satelity.
 
 > [!TIP]
 > Wiele aplikacji usługi Google Maps, które przełączają się z interaktywnego środowiska mapy do obrazów mapy statycznej kilka lat temu. Zostało to wykonane jako metoda oszczędności kosztów. W Azure Maps jest zazwyczaj bardziej opłacalne używanie interaktywnej kontrolki mapy w zestawie SDK sieci Web. Na podstawie liczby obciążeń kafelków jest naliczana opłata za kontrolka mapy interaktywnej. Kafelki mapy w Azure Maps są duże. Często tylko kilka kafelków umożliwia odtworzenie tego samego widoku mapy jako mapy statycznej. Kafelki mapy są buforowane automatycznie przez przeglądarkę. W związku z tym interaktywna kontrolka mapy często generuje ułamek transakcji podczas odtwarzania widoku mapy statycznej. Kadrowanie i powiększanie spowoduje załadowanie większej liczby kafelków; Istnieją jednak opcje w kontrolce mapy, aby wyłączyć to zachowanie. Interaktywna kontrolka mapy udostępnia również wiele opcji wizualizacji niż usługi map statycznych.
@@ -426,7 +426,7 @@ Dodaj nieprzezroczystość czerwoną linii i grubość pikseli między współrz
 
 Azure Maps udostępnia interfejs API macierzy odległości. Ten interfejs API umożliwia obliczanie czasów podróży i odległości między zestawem lokalizacji przy użyciu macierzy odległości. Jest on porównywalny z interfejsem API macierzy odległości w usłudze mapy Google.
 
-- [**Macierz trasy**](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview): asynchronicznie oblicza czasy podróży i odległości dla zestawu źródeł i miejsc docelowych. Obsługuje do 700 komórek na żądanie. Jest to liczba źródeł pomnożona przez liczbę miejsc docelowych. Mając to na uwadze, przykłady możliwych wymiarów macierzy to: 700x1, 50x10, 10x10, 28x25, 10x70.
+- [**Macierz trasy**](/rest/api/maps/route/postroutematrixpreview): asynchronicznie oblicza czasy podróży i odległości dla zestawu źródeł i miejsc docelowych. Obsługuje do 700 komórek na żądanie. Jest to liczba źródeł pomnożona przez liczbę miejsc docelowych. Mając to na uwadze, przykłady możliwych wymiarów macierzy to: 700x1, 50x10, 10x10, 28x25, 10x70.
 
 > [!NOTE]
 > Żądanie interfejsu API macierzy odległości można wykonać tylko przy użyciu żądania POST z informacjami o lokalizacji źródłowej i docelowej w treści żądania. Ponadto Azure Maps wymaga współrzędnych wszystkich źródeł i miejsc docelowych. Adresy muszą mieć najpierw kod geokodowania.
@@ -458,7 +458,7 @@ Zapoznaj się z [najlepszymi rozwiązaniami](how-to-use-best-practices-for-routi
 
 Azure Maps udostępnia interfejs API do pobierania strefy czasowej współrzędnych. Interfejs API strefy czasowej Azure Maps jest porównywalny z interfejsem API strefy czasowej w usłudze Google Maps:
 
-- [**Strefa czasowa według współrzędnych**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebycoordinates): Określ współrzędną i Odbierz szczegóły strefy czasowej współrzędnych.
+- [**Strefa czasowa według współrzędnych**](/rest/api/maps/timezone/gettimezonebycoordinates): Określ współrzędną i Odbierz szczegóły strefy czasowej współrzędnych.
 
 Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Maps przy użyciu porównywalnych parametrów interfejsu API w Azure Maps.
 
@@ -471,11 +471,11 @@ Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google 
 
 Oprócz tego interfejsu API Azure Maps udostępnia wiele interfejsów API strefy czasowej. Te interfejsy API konwertują czas na podstawie nazw lub identyfikatorów strefy czasowej:
 
-- [**Strefa czasowa według identyfikatora**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebyid): zwraca bieżące, historyczne i przyszłe informacje o strefie czasowej dla określonego identyfikatora strefy czasowej organizacji IANA.
-- [**Wyliczenie strefy czasowej Iana**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumiana): zwraca pełną listę identyfikatorów stref czasowych organizacji IANA. Aktualizacje usługi IANA są uwzględniane w systemie w ciągu jednego dnia.
-- [**Okna wyliczania strefy czasowej**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows): zwraca pełną listę identyfikatorów strefy czasowej systemu Windows.
-- [**Wersja programu Iana strefy czasowej**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneianaversion): zwraca bieżący numer wersji programu Iana używany przez Azure Maps.
-- [**System Windows strefy czasowej dla organizacji Iana**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonewindowstoiana): zwraca odpowiedni identyfikator Iana, uwzględniając prawidłowy identyfikator strefy czasowej systemu Windows. Dla pojedynczego identyfikatora systemu Windows można zwrócić wiele identyfikatorów IANA.
+- [**Strefa czasowa według identyfikatora**](/rest/api/maps/timezone/gettimezonebyid): zwraca bieżące, historyczne i przyszłe informacje o strefie czasowej dla określonego identyfikatora strefy czasowej organizacji IANA.
+- [**Wyliczenie strefy czasowej Iana**](/rest/api/maps/timezone/gettimezoneenumiana): zwraca pełną listę identyfikatorów stref czasowych organizacji IANA. Aktualizacje usługi IANA są uwzględniane w systemie w ciągu jednego dnia.
+- [**Okna wyliczania strefy czasowej**](/rest/api/maps/timezone/gettimezoneenumwindows): zwraca pełną listę identyfikatorów strefy czasowej systemu Windows.
+- [**Wersja programu Iana strefy czasowej**](/rest/api/maps/timezone/gettimezoneianaversion): zwraca bieżący numer wersji programu Iana używany przez Azure Maps.
+- [**System Windows strefy czasowej dla organizacji Iana**](/rest/api/maps/timezone/gettimezonewindowstoiana): zwraca odpowiedni identyfikator Iana, uwzględniając prawidłowy identyfikator strefy czasowej systemu Windows. Dla pojedynczego identyfikatora systemu Windows można zwrócić wiele identyfikatorów IANA.
 
 ## <a name="client-libraries"></a>Biblioteki klienta
 
