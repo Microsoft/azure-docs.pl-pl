@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: 3c65ed7e5fa6bb1652791eee75d4caa4c9c5f1ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f890e4c47a427b6ca8c07463d6795f0813ef5bbd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83873635"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638197"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiowanie danych z programu DB2 przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -49,7 +49,7 @@ W przypadku tego łącznika bazy danych DB2 obsługiwane są następujące platf
 * IBM DB2 dla LUW 10,1
 
 >[!TIP]
->Łącznik DB2 jest zbudowany na podstawie Microsoft OLE DB Provider dla bazy danych DB2. Aby rozwiązać problemy z błędami łącznika DB2, zapoznaj się z [dostawca danych kodami błędów](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+>Łącznik DB2 jest zbudowany na podstawie Microsoft OLE DB Provider dla bazy danych DB2. Aby rozwiązać problemy z błędami łącznika DB2, zapoznaj się z [dostawca danych kodami błędów](/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -79,7 +79,7 @@ Typowe właściwości wewnątrz parametrów połączenia:
 |:--- |:--- |:--- |
 | serwer |Nazwa serwera bazy danych DB2. Możesz określić numer portu następujący po nazwie serwera rozdzielany średnikiem, np. `server:port` .<br>Łącznik DB2 korzysta z protokołu DDM/DRDA i domyślnie używa portu 50000, jeśli nie zostanie określony. Port używany przez określoną bazę danych programu DB2 może różnić się w zależności od wersji i ustawień, np. w przypadku programu DB2 LUW domyślnym portem jest 50000, dla systemu AS400 domyślny port to 446 lub 448 po włączeniu protokołu TLS. Zapoznaj się z następującymi dokumentami programu DB2, na których jest konfigurowany port zazwyczaj: [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 ISERIES](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm)i [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Tak |
 | database |Nazwa bazy danych DB2. |Tak |
-| authenticationType |Typ uwierzytelniania używany do łączenia się z bazą danych programu DB2.<br/>Dozwolona wartość to: **podstawowa**. |Tak |
+| authenticationType |Typ uwierzytelniania używany do łączenia się z bazą danych programu DB2.<br/>Dozwolona wartość to: **podstawowa** . |Tak |
 | nazwa użytkownika |Określ nazwę użytkownika w celu nawiązania połączenia z bazą danych programu DB2. |Tak |
 | hasło |Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
 | pakietcollection | Określ w obszarze, w którym mają być tworzone pakiety do automatycznego tworzenia przez ADF podczas wykonywania zapytania dotyczącego bazy danych. Jeśli ta wartość nie jest ustawiona, Data Factory używa {username} jako wartości domyślnej. | Nie |
@@ -114,13 +114,13 @@ Typowe właściwości wewnątrz parametrów połączenia:
         "type": "Db2",
         "typeProperties": {
             "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;packageCollection=<packagecollection>;certificateCommonName=<certname>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -168,7 +168,7 @@ Aby skopiować dane z bazy danych DB2, obsługiwane są następujące właściwo
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **Db2Table** | Tak |
 | schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| table (stolik) | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**
@@ -202,7 +202,7 @@ Aby skopiować dane z bazy danych DB2, w sekcji **Źródło** działania kopiowa
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **Db2Source** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 
@@ -247,28 +247,28 @@ Podczas kopiowania danych z programu DB2 następujące mapowania są używane z 
 | BigInt |Int64 |
 | Binarne |Byte [] |
 | Obiekt blob |Byte [] |
-| Char |Ciąg |
-| Obiektów CLOB |Ciąg |
+| Char |String |
+| Obiektów CLOB |String |
 | Date |Datetime (data/godzina) |
-| DB2DynArray |Ciąg |
-| DbClob |Ciąg |
+| DB2DynArray |String |
+| DbClob |String |
 | Liczba dziesiętna |Liczba dziesiętna |
 | DecimalFloat |Liczba dziesiętna |
 | Double |Double |
-| Liczba zmiennoprzecinkowa |Double |
-| Zdjęć |Ciąg |
+| Float |Double |
+| Zdjęć |String |
 | Liczba całkowita |Int32 |
 | LongVarBinary |Byte [] |
-| LongVarChar |Ciąg |
-| LongVarGraphic |Ciąg |
+| LongVarChar |String |
+| LongVarGraphic |String |
 | Numeryczne |Liczba dziesiętna |
 | Rzeczywiste |Pojedynczy |
 | SmallInt |Int16 |
 | Godzina |przedział_czasu |
 | Timestamp |DateTime |
 | Liczby |Byte [] |
-| VarChar |Ciąg |
-| VarGraphic |Ciąg |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte [] |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup

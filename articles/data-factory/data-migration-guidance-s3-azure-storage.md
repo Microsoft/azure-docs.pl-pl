@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be1cb7abbc243e3f79e183223fbbb32380f5d02d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616928"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638044"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Używanie Azure Data Factory do migrowania danych z usługi Amazon S3 do magazynu Azure 
 
@@ -41,9 +41,9 @@ Klienci zostali pomyślnie zmigrowani petabajtów danych składających się z s
 
 Na powyższym obrazie przedstawiono sposób osiągnięcia doskonałej szybkości przenoszenia danych przy użyciu różnych poziomów równoległości:
  
-- Pojedyncze działanie kopiowania może korzystać z skalowalnych zasobów obliczeniowych: w przypadku korzystania z Azure Integration Runtime można określić [maksymalnie 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) dla każdego działania kopiowania w sposób bezserwerowy. w przypadku korzystania z Integration Runtime samoobsługowego można ręcznie skalować maszynę w górę lub w poziomie na wielu maszynach ([maksymalnie 4 węzły](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), a działanie pojedynczej kopii spowoduje partycjonowanie zestawu plików we wszystkich węzłach. 
+- Pojedyncze działanie kopiowania może korzystać z skalowalnych zasobów obliczeniowych: w przypadku korzystania z Azure Integration Runtime można określić [maksymalnie 256 DIUs](./copy-activity-performance.md#data-integration-units) dla każdego działania kopiowania w sposób bezserwerowy. w przypadku korzystania z Integration Runtime samoobsługowego można ręcznie skalować maszynę w górę lub w poziomie na wielu maszynach ([maksymalnie 4 węzły](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)), a działanie pojedynczej kopii spowoduje partycjonowanie zestawu plików we wszystkich węzłach. 
 - Pojedyncze działanie kopiowania odczytuje i zapisuje dane w magazynie danych przy użyciu wielu wątków. 
-- Przepływ sterowania ADF można uruchomić równolegle wiele działań kopiowania, na przykład przy użyciu [dla każdej pętli](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- Przepływ sterowania ADF można uruchomić równolegle wiele działań kopiowania, na przykład przy użyciu [dla każdej pętli](./control-flow-for-each-activity.md). 
 
 ## <a name="resilience"></a>Odporności
 
@@ -81,10 +81,10 @@ Migruj dane za pośrednictwem prywatnego linku:
 
 ### <a name="authentication-and-credential-management"></a>Zarządzanie uwierzytelnianiem i poświadczeniami 
 
-- Aby uwierzytelnić konto usługi Amazon S3, należy użyć [klucza dostępu dla konta usługi IAM](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service#linked-service-properties). 
-- Aby nawiązać połączenie z usługą Azure Blob Storage, obsługiwane są wiele typów uwierzytelniania.  Korzystanie z [tożsamości zarządzanych dla zasobów platformy Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) jest zdecydowanie zalecane: Wbudowana na podstawie automatycznie zarządzanego podajnika APD w usłudze Azure AD umożliwia konfigurowanie potoków bez podawania poświadczeń w definicji połączonej usługi.  Alternatywnie można uwierzytelnić się w usłudze Azure Blob Storage przy użyciu [nazwy głównej usługi](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), [sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)lub [klucza konta magazynu](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
-- Do łączenia się z Azure Data Lake Storage Gen2 są również obsługiwane wiele typów uwierzytelniania.  Korzystanie z [tożsamości zarządzanych dla zasobów platformy Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity) jest zdecydowanie zalecane, ale można również użyć [nazwy głównej usługi](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) lub [klucza konta magazynu](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) . 
-- Jeśli nie używasz tożsamości zarządzanych dla zasobów platformy Azure, [przechowywanie poświadczeń w Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) jest zdecydowanie zalecane, aby ułatwić centralne zarządzanie kluczami i ich obracanie bez konieczności modyfikowania połączonych usług ADF.  Jest to również jedno z [najlepszych rozwiązań dotyczących](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)ciągłej integracji/ciągłego wdrażania. 
+- Aby uwierzytelnić konto usługi Amazon S3, należy użyć [klucza dostępu dla konta usługi IAM](./connector-amazon-simple-storage-service.md#linked-service-properties). 
+- Aby nawiązać połączenie z usługą Azure Blob Storage, obsługiwane są wiele typów uwierzytelniania.  Korzystanie z [tożsamości zarządzanych dla zasobów platformy Azure](./connector-azure-blob-storage.md#managed-identity) jest zdecydowanie zalecane: Wbudowana na podstawie automatycznie zarządzanego podajnika APD w usłudze Azure AD umożliwia konfigurowanie potoków bez podawania poświadczeń w definicji połączonej usługi.  Alternatywnie można uwierzytelnić się w usłudze Azure Blob Storage przy użyciu [nazwy głównej usługi](./connector-azure-blob-storage.md#service-principal-authentication), [sygnatury dostępu współdzielonego](./connector-azure-blob-storage.md#shared-access-signature-authentication)lub [klucza konta magazynu](./connector-azure-blob-storage.md#account-key-authentication). 
+- Do łączenia się z Azure Data Lake Storage Gen2 są również obsługiwane wiele typów uwierzytelniania.  Korzystanie z [tożsamości zarządzanych dla zasobów platformy Azure](./connector-azure-data-lake-storage.md#managed-identity) jest zdecydowanie zalecane, ale można również użyć [nazwy głównej usługi](./connector-azure-data-lake-storage.md#service-principal-authentication) lub [klucza konta magazynu](./connector-azure-data-lake-storage.md#account-key-authentication) . 
+- Jeśli nie używasz tożsamości zarządzanych dla zasobów platformy Azure, [przechowywanie poświadczeń w Azure Key Vault](./store-credentials-in-key-vault.md) jest zdecydowanie zalecane, aby ułatwić centralne zarządzanie kluczami i ich obracanie bez konieczności modyfikowania połączonych usług ADF.  Jest to również jedno z [najlepszych rozwiązań dotyczących](./continuous-integration-deployment.md#best-practices-for-cicd)ciągłej integracji/ciągłego wdrażania. 
 
 ### <a name="initial-snapshot-data-migration"></a>Migracja początkowej danych migawek 
 
@@ -138,16 +138,16 @@ Oto Szacowana cena oparta na powyższych założeniach:
 ![Zrzut ekranu tabeli pokazuje szacowaną cenę.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>Dodatkowa dokumentacja 
-- [Łącznik prostego usługi magazynu Amazon](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Łącznik usługi Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Łącznik usługi Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Przewodnik dostrajania wydajności działania kopiowania](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Tworzenie i Konfigurowanie samoobsługowego Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Własne środowisko Integration Runtime HA i skalowalność](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Zagadnienia związane z zabezpieczeniami podczas przenoszenia danych](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Przechowywanie poświadczeń w usłudze Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Przyrostowo Kopiuj plik na podstawie nazwy pliku podzielonego na partycje](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Kopiuj nowe i zmienione pliki w oparciu o LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [Łącznik prostego usługi magazynu Amazon](./connector-amazon-simple-storage-service.md)
+- [Łącznik usługi Azure Blob Storage](./connector-azure-blob-storage.md)
+- [Łącznik usługi Azure Data Lake Storage Gen2](./connector-azure-data-lake-storage.md)
+- [Przewodnik dostrajania wydajności działania kopiowania](./copy-activity-performance.md)
+- [Tworzenie i Konfigurowanie samoobsługowego Integration Runtime](./create-self-hosted-integration-runtime.md)
+- [Własne środowisko Integration Runtime HA i skalowalność](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [Zagadnienia związane z zabezpieczeniami podczas przenoszenia danych](./data-movement-security-considerations.md)
+- [Przechowywanie poświadczeń w usłudze Azure Key Vault](./store-credentials-in-key-vault.md)
+- [Przyrostowo Kopiuj plik na podstawie nazwy pliku podzielonego na partycje](./tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [Kopiuj nowe i zmienione pliki w oparciu o LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [Strona cennika ADF](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="template"></a>Szablon

@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d77b4b5824c4426f106d10ca246c5b0d5e76327a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372263"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638333"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitoruj kondycję obszaru roboczego Log Analytics w Azure Monitor
-Aby zachować wydajność i dostępność obszaru roboczego Log Analytics w Azure Monitor, musisz mieć możliwość aktywnego wykrywania wszelkich powstających problemów. W tym artykule opisano sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli [operacje](/azure-monitor/reference/tables/operation) . Ta tabela jest uwzględniona w każdym obszarze roboczym Log Analytics i zawiera błędy i ostrzeżenia, które występują w obszarze roboczym. Należy regularnie przeglądać te dane i tworzyć alerty w celu ich aktywnego powiadamiania o wszelkich ważnych zdarzeniach w obszarze roboczym.
+Aby zachować wydajność i dostępność obszaru roboczego Log Analytics w Azure Monitor, musisz mieć możliwość aktywnego wykrywania wszelkich powstających problemów. W tym artykule opisano sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli [operacje](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) . Ta tabela jest uwzględniona w każdym obszarze roboczym Log Analytics i zawiera błędy i ostrzeżenia, które występują w obszarze roboczym. Należy regularnie przeglądać te dane i tworzyć alerty w celu ich aktywnego powiadamiania o wszelkich ważnych zdarzeniach w obszarze roboczym.
 
-## <a name="_logsoperation-function"></a>Funkcja _LogsOperation
-Dzienniki Azure Monitor wysyłają szczegóły wszelkich problemów do tabeli [operacji](/azure-monitor/reference/tables/operation) w obszarze roboczym, w którym wystąpił problem. Funkcja system **_LogsOperation** jest oparta na tabeli **operacji** i zawiera uproszczony zestaw informacji na potrzeby analizy i generowania alertów.
+## <a name="_logoperation-function"></a>Funkcja _LogOperation
+Dzienniki Azure Monitor wysyłają szczegóły wszelkich problemów do tabeli [operacji](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) w obszarze roboczym, w którym wystąpił problem. Funkcja system **_LogOperation** jest oparta na tabeli **operacji** i zawiera uproszczony zestaw informacji na potrzeby analizy i generowania alertów.
 
 ## <a name="columns"></a>Kolumny
 
-Funkcja **_LogsOperation** zwraca kolumny w poniższej tabeli.
+Funkcja **_LogOperation** zwraca kolumny w poniższej tabeli.
 
 | Kolumna | Opis |
 |:---|:---|
@@ -36,7 +36,7 @@ Funkcja **_LogsOperation** zwraca kolumny w poniższej tabeli.
 
 
 ## <a name="categories"></a>Kategorie
-W poniższej tabeli opisano kategorie z funkcji _LogsOperations. 
+W poniższej tabeli opisano kategorie z funkcji _LogOperation. 
 
 | Kategoria | Opis |
 |:---|:---|
@@ -82,8 +82,8 @@ Użyj procesu w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienn
 
 | Zapytanie | Wartość progu | Okres | Częstotliwość |
 |:---|:---|:---|:---|
-| `_LogsOperation | where Level == "Error"`   | 0 | 5 | 5 |
-| `_LogsOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
+| `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
+| `_LogOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
 
 Te reguły alertów będą odpowiadać na wszystkie operacje z błędem lub ostrzeżeniem. W miarę jak lepiej poznać operacje generujące alerty, możesz chcieć inaczej reagować na konkretne operacje. Na przykład możesz chcieć wysyłać powiadomienia do różnych osób w celu wykonywania określonych operacji. 
 

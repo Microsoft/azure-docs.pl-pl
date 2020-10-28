@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: ca76563475dfbf8d35595c1de3cdee37f80e3ce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83691264"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638010"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Planowanie i zarządzanie kosztami Azure Data Factory
 
@@ -56,15 +56,15 @@ Teraz możesz podłączyć 30 uruchomień działań i 380 DIU godzin do kalkulat
 
 ## <a name="use-budgets-and-cost-alerts"></a>Używanie alertów dotyczących budżetu i kosztów
 
-W celu zarządzania kosztami można utworzyć [budżety](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets) oraz alerty, które automatycznie powiadamiają uczestników o anomaliach w wydatkach i o ryzyku nadmiernych wydatków.  Alerty są oparte na wydatkach w porównaniu z budżetem i progami kosztów.  Podczas tworzenia budżetu można wykonać tę czynność na poziomie subskrypcji lub niższej szczegółowości przez dodanie dodatkowych filtrów, takich jak identyfikator zasobu i nazwa miernika.  Nie można jednak tworzyć budżetów dla poszczególnych potoków w ramach fabryki.
+W celu zarządzania kosztami można utworzyć [budżety](../cost-management-billing/costs/tutorial-acm-create-budgets.md) oraz alerty, które automatycznie powiadamiają uczestników o anomaliach w wydatkach i o ryzyku nadmiernych wydatków.  Alerty są oparte na wydatkach w porównaniu z budżetem i progami kosztów.  Podczas tworzenia budżetu można wykonać tę czynność na poziomie subskrypcji lub niższej szczegółowości przez dodanie dodatkowych filtrów, takich jak identyfikator zasobu i nazwa miernika.  Nie można jednak tworzyć budżetów dla poszczególnych potoków w ramach fabryki.
 
 ## <a name="monitor-costs-at-factory-level"></a>Monitoruj koszty na poziomie fabryki
 
-Po rozpoczęciu korzystania z Azure Data Factory można zobaczyć koszty poniesione w okienku [Analiza kosztów](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) w Azure Portal.
+Po rozpoczęciu korzystania z Azure Data Factory można zobaczyć koszty poniesione w okienku [Analiza kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md) w Azure Portal.
 
-1. Aby wyświetlić [analizę kosztów](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis), otwórz okno **Cost Management + rozliczanie** , wybierz pozycję **Zarządzanie kosztami** z menu, a następnie wybierz pozycję **Otwórz analizę kosztów**.
+1. Aby wyświetlić [analizę kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md), otwórz okno **Cost Management + rozliczanie** , wybierz pozycję **Zarządzanie kosztami** z menu, a następnie wybierz pozycję **Otwórz analizę kosztów** .
 2. Widok domyślny pokazuje skumulowane koszty bieżącego miesiąca.  Można zmienić zakres czasu i różne stopnia szczegółowości, na przykład codziennie lub co miesiąc.
-3. Aby zawęzić koszty pojedynczej usługi, takiej jak Azure Data Factory, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi**.  Następnie wybierz z listy pozycję **Azure Data Factory v2** .
+3. Aby zawęzić koszty pojedynczej usługi, takiej jak Azure Data Factory, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi** .  Następnie wybierz z listy pozycję **Azure Data Factory v2** .
 4. Można dodać dodatkowe filtry w celu przeanalizowania kosztu określonego wystąpienia fabryki i konkretnego stopnia szczegółowości licznika ADF.
 
    ![Analiza kosztów](media/plan-manage-costs/cost-analysis.png)
@@ -81,7 +81,7 @@ Kliknięcie przycisku **zużycia** obok nazwy potoku spowoduje wyświetlenie okn
 
 ![Szczegóły zużycia potoku](media/plan-manage-costs/pipeline-consumption-details.png)
 
-Widok zużycie przebiegu potoku przedstawia ilość zużytą dla każdego miernika ADF dla określonego uruchomienia potoku, ale nie pokazuje rzeczywistej opłaty, ponieważ kwota rozliczana jest zależna od typu konta platformy Azure i typu używanej waluty.  Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data).
+Widok zużycie przebiegu potoku przedstawia ilość zużytą dla każdego miernika ADF dla określonego uruchomienia potoku, ale nie pokazuje rzeczywistej opłaty, ponieważ kwota rozliczana jest zależna od typu konta platformy Azure i typu używanej waluty.  Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md).
 
 ## <a name="monitor-consumption-at-activity-run-level"></a>Monitoruj użycie na poziomie uruchomienia działania
 Po zrozumieniu zagregowanego zużycia na poziomie uruchomienia potoku istnieją scenariusze, w których należy dalej przechodzenie do szczegółów i zidentyfikować, która jest najbardziej kosztowną aktywnością w ramach potoku.
@@ -101,5 +101,5 @@ A Oto przykład z przebiegu działania przepływu danych mapowania:
 Zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej na temat sposobu działania cen w Azure Data Factory:
 
 - [Strona cennika Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
-- [Informacje na temat Azure Data Factory za poorednictwem przykładów](https://docs.microsoft.com/azure/data-factory/pricing-concepts)
+- [Informacje na temat Azure Data Factory za poorednictwem przykładów](./pricing-concepts.md)
 - [Azure Data Factory Kalkulator cen](https://azure.microsoft.com/pricing/calculator/?service=data-factory)

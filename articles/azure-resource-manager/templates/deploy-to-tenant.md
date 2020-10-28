@@ -2,15 +2,15 @@
 title: Wdrażanie zasobów w dzierżawie
 description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372395"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668703"
 ---
-# <a name="create-resources-at-the-tenant-level"></a>Tworzenie zasobów na poziomie dzierżawy
+# <a name="tenant-deployments-with-arm-templates"></a>Wdrożenia dzierżawców przy użyciu szablonów ARM
 
 W miarę dojrzewania organizacji może być konieczne zdefiniowanie i przypisanie [zasad](../../governance/policy/overview.md) lub [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md) w ramach dzierżawy usługi Azure AD. Szablony poziomu dzierżawców umożliwiają deklaratywne stosowanie zasad i przypisywanie ról na poziomie globalnym.
 
@@ -49,13 +49,19 @@ Schemat używany do wdrożeń dzierżawców różni się od schematu dla wdroże
 W przypadku szablonów Użyj:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 Schemat pliku parametrów jest taki sam dla wszystkich zakresów wdrożenia. W przypadku plików parametrów należy użyć:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## <a name="required-access"></a>Wymagany dostęp
@@ -78,21 +84,11 @@ Administrator globalny Azure Active Directory nie ma automatycznie uprawnienia d
 
 Podmiot zabezpieczeń ma teraz wymagane uprawnienia do wdrożenia szablonu.
 
-## <a name="deployment-scopes"></a>Zakresy wdrożenia
-
-Podczas wdrażania w dzierżawie można kierować do dzierżawców lub grup zarządzania, subskrypcji i grup zasobów w dzierżawie. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
-
-Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do dzierżawcy.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
-
-Aby wskazać grupę zarządzania w ramach dzierżawy, Dodaj wdrożenie zagnieżdżone i określ `scope` Właściwość.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
-
 ## <a name="deployment-commands"></a>Polecenia wdrażania
 
 Polecenia dla wdrożeń dzierżawców są inne niż polecenia dla wdrożeń grup zasobów.
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 W przypadku interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
@@ -103,6 +99,8 @@ az deployment tenant create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Aby uzyskać Azure PowerShell, użyj polecenie [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
@@ -112,38 +110,58 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-W przypadku interfejsu API REST Użyj [wdrożeń — Utwórz lub zaktualizuj w zakresie dzierżawy](/rest/api/resources/deployments/createorupdateattenantscope).
+---
+
+Aby uzyskać bardziej szczegółowe informacje na temat poleceń wdrażania i opcji wdrażania szablonów ARM, zobacz:
+
+* [Wdrażanie zasobów za pomocą szablonów ARM i Azure Portal](deploy-portal.md)
+* [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](deploy-cli.md)
+* [Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell](deploy-powershell.md)
+* [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu API REST Azure Resource Manager](deploy-rest.md)
+* [Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub](deploy-to-azure-button.md)
+* [Wdrażanie szablonów usługi ARM na podstawie Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Zakresy wdrożenia
+
+Podczas wdrażania w grupie zarządzania można wdrożyć zasoby w programie:
+
+* Dzierżawca
+* grupy zarządzania w ramach dzierżawy
+* opłaty
+* grupy zasobów (do dwóch wdrożeń zagnieżdżonych)
+* [zasoby rozszerzeń](scope-extension-resources.md) można stosować do zasobów
+
+Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+
+W tej sekcji pokazano, jak określić różne zakresy. Można połączyć te różne zakresy w jednym szablonie.
+
+### <a name="scope-to-tenant"></a>Zakres do dzierżawy
+
+Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do dzierżawcy.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### <a name="scope-to-management-group"></a>Zakres w grupie zarządzania
+
+Aby wskazać grupę zarządzania w ramach dzierżawy, Dodaj wdrożenie zagnieżdżone i określ `scope` Właściwość.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
+### <a name="scope-to-subscription"></a>Zakres subskrypcji
+
+Możesz również kierować subskrypcje do subskrypcji w ramach dzierżawy. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+
+Aby docelowa była subskrypcja w ramach dzierżawy, należy użyć wdrożenia zagnieżdżonego i `subscriptionId` właściwości.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
 ## <a name="deployment-location-and-name"></a>Lokalizacja i nazwa wdrożenia
 
 W przypadku wdrożeń na poziomie dzierżawy należy podać lokalizację wdrożenia. Lokalizacja wdrożenia jest oddzielona od lokalizacji wdrażanych zasobów. Lokalizacja wdrożenia określa miejsce przechowywania danych wdrożenia.
 
-Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
+Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy** .
 
 Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
-
-## <a name="use-template-functions"></a>Korzystanie z funkcji szablonu
-
-W przypadku wdrożeń dzierżawców istnieją pewne ważne zagadnienia dotyczące korzystania z funkcji szablonu:
-
-* Funkcja [przesourceing ()](template-functions-resource.md#resourcegroup) **nie** jest obsługiwana.
-* Funkcja [Subscription ()](template-functions-resource.md#subscription) **nie** jest obsługiwana.
-* Obsługiwane są funkcje [Reference ()](template-functions-resource.md#reference) i [list ()](template-functions-resource.md#list) .
-* Nie należy używać [ResourceID ()](template-functions-resource.md#resourceid) w celu uzyskania identyfikatora zasobu dla zasobów wdrożonych na poziomie dzierżawy.
-
-  Zamiast tego należy użyć funkcji [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
-
-  Na przykład aby uzyskać identyfikator zasobu dla wbudowanej definicji zasad, użyj:
-
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
-
-  Identyfikator zwróconego zasobu ma następujący format:
-
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="create-management-group"></a>Tworzenie grupy zarządzania
 

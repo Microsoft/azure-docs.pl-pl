@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874836"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637874"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -155,7 +155,7 @@ Azure SQL Database ma unikatową opcję partycjonowania o nazwie partycjonowanie
 
 #### <a name="isolation-level"></a>Poziom izolacji
 
-Poziom izolacji odczytu w systemie źródłowym Azure SQL ma wpływ na wydajność. Wybranie opcji "Odczytaj niezatwierdzone" zapewni najszybszą wydajność i uniemożliwi wszystkie blokady bazy danych. Aby dowiedzieć się więcej na temat poziomów izolacji SQL, zobacz [Opis poziomów izolacji](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
+Poziom izolacji odczytu w systemie źródłowym Azure SQL ma wpływ na wydajność. Wybranie opcji "Odczytaj niezatwierdzone" zapewni najszybszą wydajność i uniemożliwi wszystkie blokady bazy danych. Aby dowiedzieć się więcej na temat poziomów izolacji SQL, zobacz [Opis poziomów izolacji](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
 
 #### <a name="read-using-query"></a>Przeczytaj przy użyciu zapytania
 
@@ -163,7 +163,7 @@ Możesz czytać z Azure SQL Database przy użyciu tabeli lub zapytania SQL. Jeś
 
 ### <a name="azure-synapse-analytics-sources"></a>Źródła analiz usługi Azure Synapse
 
-W przypadku korzystania z usługi Azure Synapse Analytics w opcjach źródła istnieje ustawienie o nazwie **Włącz przemieszczanie** . Pozwala to na odczytywanie ADF z Synapse przy użyciu [bazy](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), która znacznie zwiększa wydajność odczytu. Włączenie układu wielobase wymaga określenia Blob Storage platformy Azure Azure Data Lake Storage lub lokalizacji tymczasowej Gen2 w ustawieniach działania przepływu danych.
+W przypadku korzystania z usługi Azure Synapse Analytics w opcjach źródła istnieje ustawienie o nazwie **Włącz przemieszczanie** . Pozwala to na odczytywanie ADF z Synapse przy użyciu [bazy](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), która znacznie zwiększa wydajność odczytu. Włączenie układu wielobase wymaga określenia Blob Storage platformy Azure Azure Data Lake Storage lub lokalizacji tymczasowej Gen2 w ustawieniach działania przepływu danych.
 
 ![Włączanie trybu przejściowego](media/data-flow/enable-staging.png "Włączanie trybu przejściowego")
 
@@ -198,7 +198,7 @@ Mogą one być wykonywane w sposób natywny za pomocą skryptów poprzedzającyc
 ![Wyłącz indeksy](media/data-flow/disable-indexes-sql.png "Wyłącz indeksy")
 
 > [!WARNING]
-> Podczas wyłączania indeksów przepływ danych efektywnie pobiera kontrolę nad bazą danych, a w tej chwili nie można pomyślnie wykonać zapytań. W związku z tym wiele zadań ETL jest wyzwalanych w połowie nocy, aby uniknąć tego konfliktu. Aby uzyskać więcej informacji, zapoznaj się z [ograniczeniami wyłączania indeksów](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15) .
+> Podczas wyłączania indeksów przepływ danych efektywnie pobiera kontrolę nad bazą danych, a w tej chwili nie można pomyślnie wykonać zapytań. W związku z tym wiele zadań ETL jest wyzwalanych w połowie nocy, aby uniknąć tego konfliktu. Aby uzyskać więcej informacji, zapoznaj się z [ograniczeniami wyłączania indeksów](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15) .
 
 #### <a name="scaling-up-your-database"></a>Skalowanie bazy danych w górę
 
@@ -206,7 +206,7 @@ Zaplanuj zmianę rozmiarów źródła i ujścia usługi Azure SQL DB oraz DW prz
 
 ### <a name="azure-synapse-analytics-sinks"></a>Ujścia usługi Azure Synapse Analytics
 
-Podczas zapisywania do usługi Azure Synapse Analytics upewnij się, że właściwość **enable Staging** ma wartość true. Dzięki temu ADF można napisać przy użyciu [bazy](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) danych, która efektywnie ładuje dane zbiorczo. W przypadku korzystania z bazy danych należy odwoływać się do Azure Data Lake Storage Gen2 lub konta Blob Storage platformy Azure.
+Podczas zapisywania do usługi Azure Synapse Analytics upewnij się, że właściwość **enable Staging** ma wartość true. Dzięki temu ADF można napisać przy użyciu [bazy](/sql/relational-databases/polybase/polybase-guide) danych, która efektywnie ładuje dane zbiorczo. W przypadku korzystania z bazy danych należy odwoływać się do Azure Data Lake Storage Gen2 lub konta Blob Storage platformy Azure.
 
 Podobnie jak w przypadku bazy wiedzy, te same najlepsze rozwiązania dotyczą usługi Azure Synapse Analytics jako Azure SQL Database.
 
@@ -226,7 +226,7 @@ Wybranie opcji **domyślnej** spowoduje zapisanie najszybciej. Każda partycja b
 
 Ustawienie **wzorca** nazewnictwa zmieni nazwę każdego pliku partycji na bardziej przyjazną nazwę użytkownika. Ta operacja jest wykonywana po zapisie i jest nieco wolniejsza niż wybór domyślny. Na partycję można ręcznie nazwać poszczególne partycje.
 
-Jeśli kolumna odnosi się do sposobu wyprowadzania danych, można wybrać **jako dane w kolumnie**. Spowoduje to ponowne rozłożenie danych i może mieć wpływ na wydajność, jeśli kolumny nie są równomiernie dystrybuowane.
+Jeśli kolumna odnosi się do sposobu wyprowadzania danych, można wybrać **jako dane w kolumnie** . Spowoduje to ponowne rozłożenie danych i może mieć wpływ na wydajność, jeśli kolumny nie są równomiernie dystrybuowane.
 
 Dane **wyjściowe do pojedynczego pliku** łączą wszystkie dane w jedną partycję. Prowadzi to do długotrwałych czasów zapisu, szczególnie w przypadku dużych zestawów danych. Zespół Azure Data Factory zdecydowanie zaleca **rezygnację** z tej opcji, chyba że istnieje wyraźny powód firmy.
 
@@ -247,7 +247,7 @@ Podczas zapisywania w CosmosDB, zmiana przepływności i rozmiaru partii podczas
 
 #### <a name="broadcasting"></a>Emisji
 
-W sprzężeniach, wyszukiwaniu i istniejących przekształceniach, jeśli jeden lub oba strumienie danych są wystarczająco małe, aby mieściły się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję**. Emisja jest wysyłana w przypadku wysyłania małych ramek danych do wszystkich węzłów w klastrze. Umożliwia to przełączenie aparatu Spark bez reshuffling danych w dużym strumieniu. Domyślnie aparat Spark automatycznie zdecyduje, czy rozgłaszać po jednej stronie sprzężenia. Jeśli znasz dane przychodzące i wiesz, że jeden strumień będzie znacznie mniejszy niż drugi, możesz wybrać opcję **stała** emisja. Naprawiono wymuszanie rozgłaszania wybranego strumienia przez platformę Spark. 
+W sprzężeniach, wyszukiwaniu i istniejących przekształceniach, jeśli jeden lub oba strumienie danych są wystarczająco małe, aby mieściły się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję** . Emisja jest wysyłana w przypadku wysyłania małych ramek danych do wszystkich węzłów w klastrze. Umożliwia to przełączenie aparatu Spark bez reshuffling danych w dużym strumieniu. Domyślnie aparat Spark automatycznie zdecyduje, czy rozgłaszać po jednej stronie sprzężenia. Jeśli znasz dane przychodzące i wiesz, że jeden strumień będzie znacznie mniejszy niż drugi, możesz wybrać opcję **stała** emisja. Naprawiono wymuszanie rozgłaszania wybranego strumienia przez platformę Spark. 
 
 Jeśli rozmiar emitowanych danych jest zbyt duży dla węzła Spark, może wystąpić błąd braku pamięci. Aby uniknąć błędów w pamięci, użyj klastrów **zoptymalizowanych pod kątem pamięci** . Jeśli podczas wykonywania przepływu danych wystąpią limity czasu emisji, można wyłączyć optymalizację emisji. Spowoduje to jednak wolniejsze wykonywanie przepływów danych.
 

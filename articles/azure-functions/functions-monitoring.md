@@ -4,13 +4,13 @@ description: Dowiedz się, jak używać usługi Azure Application Insights z us�
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.custom: devx-track-csharp, fasttrack-edit, contperfq2
-ms.openlocfilehash: 85851c896d32d2e15efa0a39260af4331f99f862
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: devx-track-csharp, fasttrack-edit, contperfq2, devx-track-js
+ms.openlocfilehash: 87c31df6ecb92acd5bedaee274f9886383e5c617
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217154"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668733"
 ---
 # <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
@@ -33,7 +33,7 @@ Pełna lista funkcji Application Insights dostępnych dla aplikacji funkcji zost
 
 ## <a name="application-insights-integration"></a>Integracja Application Insights
 
-Zazwyczaj tworzysz wystąpienie Application Insights podczas tworzenia aplikacji funkcji. W takim przypadku klucz Instrumentacji wymagany do integracji jest już ustawiony jako ustawienie aplikacji o nazwie *APPINSIGHTS_INSTRUMENTATIONKEY*. Jeśli z jakiegoś powodu aplikacja funkcji nie ma zestawu kluczy instrumentacji, należy [włączyć integrację Application Insights](configure-monitoring.md#enable-application-insights-integration).  
+Zazwyczaj tworzysz wystąpienie Application Insights podczas tworzenia aplikacji funkcji. W takim przypadku klucz Instrumentacji wymagany do integracji jest już ustawiony jako ustawienie aplikacji o nazwie *APPINSIGHTS_INSTRUMENTATIONKEY* . Jeśli z jakiegoś powodu aplikacja funkcji nie ma zestawu kluczy instrumentacji, należy [włączyć integrację Application Insights](configure-monitoring.md#enable-application-insights-integration).  
 
 ## <a name="collecting-telemetry-data"></a>Zbieranie danych telemetrycznych
 
@@ -86,7 +86,7 @@ Zapoznaj się z przewodnikiem dewelopera dotyczącym Twojego języka, aby dowied
 + [C# (Biblioteka klas .NET)](functions-dotnet-class-library.md#logging)
 + [Java](functions-reference-java.md#logger)
 + [JavaScript](functions-reference-node.md#write-trace-output-to-logs) 
-+ [Program PowerShell](functions-reference-powershell.md#logging)
++ [PowerShell](functions-reference-powershell.md#logging)
 + [Python](functions-reference-python.md#logging)
 
 ## <a name="streaming-logs"></a>Dzienniki przesyłania strumieniowego
@@ -95,9 +95,9 @@ Podczas tworzenia aplikacji często warto zobaczyć, co jest zapisywane w dzienn
 
 Istnieją dwa sposoby wyświetlania strumienia danych dziennika generowanych przez wykonania funkcji.
 
-* **Wbudowane przesyłanie strumieniowe dzienników**: platforma App Service umożliwia wyświetlenie strumienia plików dziennika aplikacji. Ten strumień jest równoważny z danymi wyjściowymi wyświetlanymi podczas debugowania funkcji podczas [lokalnego tworzenia](functions-develop-local.md) i korzystania z karty **test** w portalu. Wyświetlane są wszystkie informacje oparte na dzienniku. Aby uzyskać więcej informacji, zobacz [dzienniki przesyłania strumieniowego](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Ta metoda przesyłania strumieniowego obsługuje tylko jedno wystąpienie i nie może być używana z aplikacją działającą w systemie Linux w planie zużycia.
+* **Wbudowane przesyłanie strumieniowe dzienników** : platforma App Service umożliwia wyświetlenie strumienia plików dziennika aplikacji. Ten strumień jest równoważny z danymi wyjściowymi wyświetlanymi podczas debugowania funkcji podczas [lokalnego tworzenia](functions-develop-local.md) i korzystania z karty **test** w portalu. Wyświetlane są wszystkie informacje oparte na dzienniku. Aby uzyskać więcej informacji, zobacz [dzienniki przesyłania strumieniowego](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Ta metoda przesyłania strumieniowego obsługuje tylko jedno wystąpienie i nie może być używana z aplikacją działającą w systemie Linux w planie zużycia.
 
-* **Live Metrics Stream**: gdy aplikacja funkcji jest [połączona z Application Insights](configure-monitoring.md#enable-application-insights-integration), można wyświetlać dane dziennika i inne metryki niemal w czasie rzeczywistym w Azure Portal przy użyciu [Live Metrics Stream](../azure-monitor/app/live-stream.md). Użyj tej metody, gdy funkcje monitorowania działają w wielu wystąpieniach lub w systemie Linux w planie zużycia. Ta metoda używa [danych próbkowanych](configure-monitoring.md#configure-sampling).
+* **Live Metrics Stream** : gdy aplikacja funkcji jest [połączona z Application Insights](configure-monitoring.md#enable-application-insights-integration), można wyświetlać dane dziennika i inne metryki niemal w czasie rzeczywistym w Azure Portal przy użyciu [Live Metrics Stream](../azure-monitor/app/live-stream.md). Użyj tej metody, gdy funkcje monitorowania działają w wielu wystąpieniach lub w systemie Linux w planie zużycia. Ta metoda używa [danych próbkowanych](configure-monitoring.md#configure-sampling).
 
 Strumienie dzienników można wyświetlać zarówno w portalu, jak i w większości lokalnych środowisk programistycznych. Aby dowiedzieć się, jak włączyć strumienie dzienników, zobacz [Włączanie dzienników wykonywania przesyłania strumieniowego w Azure Functions](streaming-logs.md).
 
